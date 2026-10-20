@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -550,41 +551,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DISMANTLE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 42,
+       "note": "following puts the mixed-up letters after the date's abbreviation"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "date",
+       "at": 52,
+       "gives": "D"
+      },
+      {
+       "words": "I",
+       "at": 21
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "messed around with",
-         "note": "letters messed around with have been pushed out of their places, so they come back in some other order"
-        },
-        {
-         "text": "following",
-         "note": "what follows a thing comes along after it, so in a down entry these letters are written underneath the one already down"
+         "at": 23,
+         "note": "messed around with means jumbled up, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "date",
-         "gives": "D",
-         "note": "D is the standard short form of date"
+         "words": "18",
+         "at": 14,
+         "gives": "SALT",
+         "note": "the answer to 18, which is SALT"
         },
         {
-         "words": "18 men I",
-         "gives": "ISMANTLE",
-         "note": "the answer at 18 is SALT, and those four letters with men and I make the eight that are re-set"
+         "words": "men",
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ending things with a whole crowd of men after a single date.",
-     "walkthrough": "A bare number in an Independent clue sends you to another entry, and 18's answer joins the fodder without ever being spelt. Old salt for a sailor is what lets the men of the surface read straight.",
-     "definitionFit": "To dismantle a thing is to take it apart piece by piece, which is what breaking something up amounts to."
+     "surface": "Someone splits up after dating eighteen men and fooling around.",
+     "walkthrough": "Cross-references are common in Bluebird puzzles: '18' stands for that clue's answer, here a word for seasoning.",
+     "definitionFit": "To dismantle something is to take it apart, piece by piece, so it means to break it up."
     },
     "features": {
      "answerInScene": false,
@@ -733,68 +745,77 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENSIGNS",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ENSIGNS",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 5,
+         "note": "without means the letter for mike is taken away from the word for guys"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "without",
-           "note": "a word without something goes on lacking it, so the letter named next is struck out of it"
-          },
-          {
-           "text": "start to",
-           "note": "the start of a word is the letter it begins on, and only that one is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Guys without mike",
-           "gives": "EN",
-           "note": "guys are men, and mike is M in the radio alphabet, so the M goes"
-          },
-          {
-           "words": "sing moving number",
-           "gives": "SIGN",
-           "note": "the number is N, and it shifts along sing to the far end"
-          },
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "S",
-           "indicators": [
-            {
-             "text": "moving",
-             "note": "a letter told to move leaves the place it was standing in and settles somewhere else in the word"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "start to shake",
-             "gives": "S",
-             "select": "first",
-             "note": "the opening letter of shake, and the only one wanted"
-            }
-           ]
-          }
-         ]
+         "words": "Guys",
+         "at": 0,
+         "gives": "MEN",
+         "note": "guys are men"
+        },
+        {
+         "words": "mike",
+         "at": 13,
+         "gives": "M",
+         "note": "Mike is M in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "moving",
+         "at": 23,
+         "note": "moving means the letter for number shifts to another place within sing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sing",
+         "at": 18,
+         "gives": "SING"
+        },
+        {
+         "words": "number",
+         "at": 30,
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 41,
+         "note": "start to means only the first letter of shake"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shake",
+         "at": 50,
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Men with no microphone singing a stirring number as the flags start to wave.",
-     "walkthrough": "Mike is M in the NATO alphabet, the list that also gives Charlie and Echo, and it is the only bit of jargon here. An ensign is the flag a ship flies at her stern, and once the junior officer who carried it.",
-     "definitionFit": "An ensign is the flag flown to show a ship's nationality, so ensigns are banners in the most literal sense."
+     "surface": "Men holding flags sing and shake as a number goes on.",
+     "walkthrough": "MEN loses M to leave EN; in SING the N moves to the end to give SIGN; the S from shake finishes it.",
+     "definitionFit": "Ensigns are flags, especially those flown on ships to show nationality, so they are banners."
     },
     "features": {
      "answerInScene": true,
@@ -824,46 +845,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SETTLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "damaged",
-       "note": "letters that have been damaged have lost their shape, so they will not come back in the order they were given"
+       "text": "casing",
+       "at": 29,
+       "note": "casing means the scrambled steel wraps around the letter for tesla"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "casing",
-         "note": "a casing is what is built round a thing to hold it, so the letters just re-set close over the one named before them"
+         "text": "damaged",
+         "at": 15,
+         "note": "damaged means broken up, so the letters of steel are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "damaged steel",
-         "gives": "SETLE",
-         "note": "the five letters of steel re-set, and they part after the third"
-        },
-        {
-         "words": "Tesla",
-         "gives": "T",
-         "note": "T is the symbol for the tesla, the unit of magnetic flux density named after the engineer"
+         "words": "steel",
+         "at": 23
         }
        ]
+      },
+      {
+       "words": "Tesla",
+       "at": 4,
+       "gives": "T",
+       "note": "T is the SI symbol for the tesla, the unit of magnetic flux density"
       }
      ]
     },
     "explanation": {
-     "surface": "Repairing a Tesla whose steel casing has been dented.",
-     "walkthrough": "Tesla reads as the car and is wanted as the unit named after the same engineer, which is the whole of the misdirection. To settle a bill or a dispute is to fix it and put it beyond further argument.",
-     "definitionFit": "To settle a quarrel or an account is to fix it, leaving the matter decided and not to be reopened."
+     "surface": "Repairing a Tesla car whose steel bodywork has been damaged.",
+     "walkthrough": "Tesla wants to be the car; here it is the unit, whose symbol is T. 'damaged' turns STEEL into SETLE, and T goes inside it after SET.",
+     "definitionFit": "To settle a matter is to resolve it, to fix it firmly or decide it, as in fixing a date."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Tesla"
     }
@@ -896,47 +917,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GREENTEA",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "GREENTEA",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 20,
+         "note": "endless means the last letter of the word for voracity is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "rum",
-           "note": "rum in British usage means odd or queer, and letters in a queer state are not standing in their right order"
-          },
-          {
-           "text": "endless",
-           "note": "a word made endless loses the letter it finishes on"
-          }
-         ],
-         "parts": [
-          {
-           "words": "voracity",
-           "gives": "GREE",
-           "note": "voracity is greed, and the last letter is taken off it"
-          },
-          {
-           "words": "neat",
-           "note": "the four letters of neat re-set"
-          }
-         ]
+         "words": "voracity",
+         "at": 28,
+         "gives": "GREED",
+         "note": "greed is voracity, a huge appetite"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rum",
+         "at": 11,
+         "note": "rum means odd or strange, so the letters of neat are put in a strange order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neat",
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone drinking rum neat with an appetite that never stops.",
-     "walkthrough": "Neat rum is a drink in its own right, which is why nothing in the middle of the clue looks like raw material. Rum is also the setter's word for odd, as in a rum do, and that is the job it is doing.",
-     "definitionFit": "Green tea is the unfermented leaf drunk across east Asia and sold in every supermarket here, a drink in the plainest sense."
+     "surface": "Gulping neat rum with a greedy, unending thirst.",
+     "walkthrough": "'rum' looks like the drink being gulped, but it means strange and signals a rearrangement.",
+     "definitionFit": "Green tea is a beverage made from unfermented tea leaves, so it is a drink."
     },
     "features": {
      "answerInScene": false,
@@ -1040,57 +1065,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SMARTWATCH",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to the bottom of",
+       "at": 36,
+       "note": "in a down clue, attaching to the bottom of puts these letters after the S and M"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "S&M",
+       "at": 53,
+       "gives": "SM",
+       "note": "S&M gives the two letters S and M"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Misguidedly",
-         "note": "what is done misguidedly is done wrong, and letters put down wrongly are not in their proper order"
+         "at": 0,
+         "note": "misguidedly means wrongly arranged, so these letters are reordered"
         }
        ],
        "parts": [
+        {
+         "words": "attach",
+         "at": 12
+        },
         {
          "op": "outer",
          "indicators": [
           {
            "text": "empty",
-           "note": "an empty thing has had its insides taken out, leaving only what stands at either end"
-          },
-          {
-           "text": "to the bottom of",
-           "note": "what is fixed to the bottom of a thing hangs below it, so in a down entry the letters named next are written above"
+           "at": 19,
+           "note": "empty means the inside of wheelchair is removed, leaving only its outer letters"
           }
          ],
          "parts": [
           {
-           "words": "S&M",
-           "note": "the ampersand falls away and the two letters stay as they are"
+           "words": "wheelchair",
+           "at": 25,
+           "gives": "WR"
           }
          ]
-        },
-        {
-         "words": "attach empty wheelchair",
-         "gives": "ARTWATCH",
-         "note": "the six letters of attach with the W and R from the ends of wheelchair, all eight re-set"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Clumsily fastening a stripped-out wheelchair beneath a piece of bondage kit.",
-     "walkthrough": "S&M hands its own letters over, which is rare: most clues make you translate first. A smartwatch is the little computer worn on the wrist that counts steps and takes calls.",
-     "definitionFit": "A smartwatch is the wrist-worn computer that tells the time between notifications, a gadget in the everyday sense of a clever gizmo."
+     "surface": "Someone clumsily fixes a wheelchair to some kinky bondage equipment.",
+     "walkthrough": "The empty wheelchair is WR; rearranging ATTACH with WR gives ARTWATCH, which goes below SM.",
+     "definitionFit": "A smartwatch is a wrist-worn digital device with phone-like functions, a modern gadget."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "empty"
+     "misdirectedWord": "S&M"
     }
    }
   },
@@ -1227,56 +1261,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MONK",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 30,
+       "note": "following puts the middle letters after the reversed mantra"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "focus of",
-         "note": "the focus of a thing is its very centre, so only the letters at the middle of the word are taken"
-        },
-        {
          "text": "from the East",
-         "note": "an across answer is written west to east, so letters arriving from the east arrive back to front"
+         "at": 47,
+         "note": "from the East means read right to left, west being on the left, so the word for mantra is reversed"
         }
        ],
        "parts": [
         {
          "words": "mantra",
-         "gives": "MO",
-         "note": "om is the syllable chanted as a mantra, and it is set down the other way round"
-        },
+         "at": 40,
+         "gives": "OM",
+         "note": "om is the sacred syllable chanted as a mantra"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "NK",
-         "indicators": [
-          {
-           "text": "following",
-           "note": "what follows a thing comes after it, so these letters are written behind the ones named next"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "thinking",
-           "gives": "NK",
-           "select": "middle",
-           "note": "the two letters at the dead centre of thinking"
-          }
-         ]
+         "text": "focus of",
+         "at": 12,
+         "note": "focus of means the middle letters of thinking"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thinking",
+         "at": 21,
+         "gives": "NK"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lama whose thoughts settle on a mantra brought over from the East.",
-     "walkthrough": "Lama and llama differ by one letter, and only the single L is the holy man. Om is the syllable a Hindu or Buddhist chant opens on, and the East of the surface is doing the turning rather than the travelling.",
-     "definitionFit": "A lama is a Tibetan Buddhist monk, one kind among many, which is what the opening Say owns up to."
+     "surface": "A lama concentrating on a chant that came from Asia.",
+     "walkthrough": "'Say' marks the lama as one example of the answer; 'from the East' means read right to left.",
+     "definitionFit": "A lama is a Tibetan Buddhist monk, so a lama is an example of the answer, as 'Say' signals."
     },
     "features": {
      "answerInScene": true,
@@ -1847,40 +1881,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALIMENT",
-     "indicators": [
-      {
-       "text": "to lose core",
-       "note": "the core of a word is the letter at its very centre, and losing it takes that one out of the middle"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Great boxer",
+       "at": 0,
+       "gives": "ALI",
+       "note": "Muhammad Ali, the great boxer"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to lose core",
+         "at": 21,
+         "note": "to lose core means the central letter of the word for destined is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Great boxer",
-         "gives": "ALI",
-         "note": "Muhammad Ali, who called himself the greatest, three letters every setter keeps handy"
+         "words": "destined",
+         "at": 12,
+         "gives": "MEANT",
+         "note": "meant, as in meant to be, means destined"
         },
         {
-         "words": "destined",
-         "gives": "MENT",
-         "note": "destined is meant, and the letter in the middle is lost"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A great fighter fated to lose the heart of his backing.",
-     "walkthrough": "Great and boxer together can only be one man, and the clue trades on how fast that comes. Aliment is food thought of as what keeps a body going, the word behind alimentary and alimony.",
-     "definitionFit": "Aliment is nourishment, what feeds and sustains a body, so it is support in the sense of what keeps something alive."
+     "surface": "A great boxer fated to lose his central support.",
+     "walkthrough": "Muhammad Ali is the boxer crosswords usually mean by 'great boxer'; 'core' is the single central letter of a five-letter word.",
+     "definitionFit": "Aliment is food or nourishment, and by extension anything that sustains, so it means support."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "core"
     }

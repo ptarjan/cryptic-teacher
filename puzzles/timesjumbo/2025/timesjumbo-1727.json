@@ -318,8 +318,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "rising",
-       "note": "in a down clue, a word that rises is read from the bottom upwards"
+       "text": "over",
+       "at": 13,
+       "note": "over places the reversed word above the next piece in this down entry"
       }
      ],
      "parts": [
@@ -327,32 +328,35 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down clue, the first part sits over, above, the second"
+         "text": "rising",
+         "at": 6,
+         "note": "in a down clue rising means the word is read from bottom to top, so backwards"
         }
        ],
        "parts": [
         {
          "words": "Smoke",
+         "at": 0,
          "gives": "FAG",
-         "note": "fag is British slang for a cigarette"
+         "note": "fag is British slang for a cigarette, a smoke"
         }
        ]
       },
       {
        "words": "fine",
+       "at": 18,
        "gives": "F",
-       "note": "F = fine, as on pencil leads"
+       "note": "F is the abbreviation for fine, as on pencil grades"
       }
      ]
     },
     "explanation": {
-     "surface": "Smoke drifts up over a fine house.",
-     "walkthrough": "Fine looks like praise for the dwelling; it is only the letter F.",
-     "definitionFit": "A regional use: gaff is informal British slang for the place where someone lives."
+     "surface": "Cigarette smoke drifting up above a nice home.",
+     "walkthrough": "A fag is British slang for a cigarette.",
+     "definitionFit": "Gaff is British slang for a person's home, the place they live."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "fine"
     }
@@ -445,52 +449,64 @@
      "indicators": [
       {
        "text": "Amid",
-       "note": "amid means in the middle of, so the small group goes inside the long word"
-      },
-      {
-       "text": "leader of",
-       "note": "the leader of a word is the letter at its head"
+       "at": 0,
+       "note": "amid means the following pieces go in the middle of the word for revival"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "revival",
+       "at": 5,
+       "gives": "RENAISSANCE",
+       "note": "a renaissance is a revival"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
          "text": "to support",
-         "note": "in a down clue the supporting word sits underneath, holding the other up"
+         "at": 22,
+         "note": "in a down clue the supporting piece sits below, so the word for working comes after the letter"
         }
        ],
        "parts": [
         {
-         "words": "revival",
-         "gives": "RENAISSANCE",
-         "note": "renaissance = revival"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader of",
+           "at": 33,
+           "note": "leader of means the first letter of cub"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Cub",
+           "at": 43,
+           "gives": "C",
+           "note": "first letter of Cub"
+          }
+         ]
         },
         {
-         "words": "Cub",
-         "gives": "C",
-         "note": "first letter of CUB"
+         "words": "working",
+         "at": 14,
+         "gives": "ON",
+         "note": "on means working, as a machine is on"
         }
        ]
-      },
-      {
-       "words": "working",
-       "gives": "ON",
-       "note": "on = working, switched on"
       }
      ]
     },
     "explanation": {
-     "surface": "A Scout troop comes back to life with the cub leader's help.",
-     "walkthrough": "Cub Scouts looks like one phrase, but Cub gives only its C, and scouts here are soldiers sent ahead to look.",
-     "definitionFit": "Military scouts are sent ahead to survey enemy ground, and that surveying is their defining activity."
+     "surface": "A Cub Scout leader backing a revival in scouting activities.",
+     "walkthrough": "'Scouts' means people who scout ahead, not the youth organisation; 'to support' in a down entry puts one piece beneath another.",
+     "definitionFit": "Reconnaissance is the exploring done by military scouts to gather information about an area or enemy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Cub"
+     "misdirectedWord": "Scouts'"
     }
    }
   },
@@ -2185,47 +2201,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INPERSON",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "leaving",
+       "at": 30,
+       "note": "leaving means the letter for east is taken away from the pensioner's letters"
+      },
+      {
+       "text": "out",
+       "at": 48,
+       "note": "out means the remaining letters are put out of their order"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "INPERSON",
-       "indicators": [
-        {
-         "text": "leaving",
-         "note": "a letter leaving a word departs from it"
-        },
-        {
-         "text": "out",
-         "note": "out means wrong, so the remaining letters are rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "east",
-         "gives": "E",
-         "note": "E = east, removed"
-        },
-        {
-         "words": "pensioner",
-         "note": "loses one E, leaving PNSIONER to shuffle"
-        }
-       ]
+       "words": "pensioner",
+       "at": 38
+      },
+      {
+       "words": "east",
+       "at": 24,
+       "gives": "E",
+       "note": "E is the compass abbreviation for east"
       }
      ]
     },
     "explanation": {
-     "surface": "A retiree who refuses to hand anything to delegates from the east.",
-     "walkthrough": "From east looks like a direction for the delegation; from is only a link.",
-     "definitionFit": "Doing something in person means doing it yourself, not delegating it."
+     "surface": "An older person drops out, refusing to hand anything to others.",
+     "walkthrough": "Take one E out of PENSIONER, leaving PNSIONER, and rearrange those eight letters.",
+     "definitionFit": "Doing something yourself rather than sending a representative means doing it personally, with no deputy."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "east"
+     "misdirectedWord": "pensioner"
     }
    }
   },
@@ -2253,8 +2263,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "upset",
-       "note": "in a down clue, upset turns the word upside down"
+       "text": "over",
+       "at": 50,
+       "note": "over places those letters above the next piece in this down entry"
       }
      ],
      "parts": [
@@ -2262,34 +2273,37 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down clue, the first parts sit over, above, the last"
+         "text": "upset",
+         "at": 29,
+         "note": "in a down clue upset means turned upside down, so the abbreviation is read backwards"
         }
        ],
        "parts": [
         {
          "words": "say",
+         "at": 24,
          "gives": "EG",
-         "note": "e.g. = say, for example"
+         "note": "eg, for example, means say"
         }
        ]
       },
       {
        "words": "to some extent",
+       "at": 35,
        "gives": "ISH",
-       "note": "-ish, somewhat, to some extent"
+       "note": "the suffix -ish means to some extent, as in 'tallish'"
       },
       {
        "words": "answer",
-       "gives": "A",
-       "note": "A = answer"
+       "at": 55,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A fun companion who got somewhat upset over an answer.",
-     "walkthrough": "Upset looks like an emotion; it is the turning-over instruction.",
-     "definitionFit": "A geisha is a Japanese woman trained to entertain guests as a companion."
+     "surface": "An upset companion, to some degree, gives an answer.",
+     "walkthrough": "The suffix -ish means to some extent, as in 'tallish'; 'upset' in a down entry turns a word upside down.",
+     "definitionFit": "A geisha is a Japanese woman trained to entertain guests with conversation, music and dance."
     },
     "features": {
      "answerInScene": true,
@@ -2830,26 +2844,45 @@
      "op": "charade",
      "parts": [
       {
-       "words": "One's abandoning this",
-       "gives": "TH",
-       "note": "THIS minus IS (one is = I'S)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoning",
+         "at": 6,
+         "note": "abandoning means the letters for one's are taken out of this"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this",
+         "at": 17,
+         "gives": "THIS"
+        },
+        {
+         "words": "One's",
+         "at": 0,
+         "gives": "IS",
+         "note": "one's is one is: I for one, plus IS"
+        }
+       ]
       },
       {
        "words": "curious",
+       "at": 22,
        "gives": "RUM",
-       "note": "rum = curious, odd, in British slang"
+       "note": "rum is British slang for odd or curious"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone gives up on a puzzling, droning sound.",
-     "walkthrough": "One’s is read as I plus the 's, I'S, the letters that leave THIS.",
-     "definitionFit": "A thrum is a steady humming or strumming sound, repeated over and over."
+     "surface": "Someone gives up on a strange, monotonous sound.",
+     "walkthrough": "One's is read as I'S, and taking those two letters out of THIS leaves TH. Rum is old British slang for strange.",
+     "definitionFit": "A thrum is a continuous low humming or strumming sound, the kind that goes on monotonously."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "curious"
+     "misdirectedWord": "One's"
     }
    }
   },
@@ -3409,46 +3442,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Flipping",
-       "note": "flipping a word turns it over, end to end"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "losing head",
-         "note": "losing its head, the word drops its first letter"
+         "text": "Flipping",
+         "at": 0,
+         "note": "flipping means turning over, so the word for stupid is read backwards"
         }
        ],
        "parts": [
         {
          "words": "stupid",
+         "at": 9,
          "gives": "DIM",
-         "note": "dim = stupid"
+         "note": "dim means stupid"
         }
        ]
       },
       {
-       "words": "boy losing head",
-       "gives": "ON",
-       "note": "SON minus its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing head",
+         "at": 20,
+         "note": "losing head means the first letter of the word for boy goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boy",
+         "at": 16,
+         "gives": "SON",
+         "note": "a son is a boy"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An exasperated parent complains about a silly son.",
-     "walkthrough": "Mid-on is a cricket fielding position; silly mid-on is the version placed dangerously close to the batsman.",
-     "definitionFit": "In cricket, mid-on becomes silly mid-on when the fielder stands close in, so it is sometimes silly."
+     "surface": "An exasperated remark about a foolish lad who has lost his temper.",
+     "walkthrough": "'Flipping' looks like a mild British oath but reverses DIM. Mid-on is a cricket fielding position; a fielder standing very close in is at 'silly mid-on'.",
+     "definitionFit": "In cricket, mid-on is a fielding place, and its close-in variant is called silly mid-on."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "silly"
+     "misdirectedWord": "Flipping"
     }
    }
   },

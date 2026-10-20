@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -137,37 +138,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EASTERN",
-     "indicators": [
-      {
-       "text": "sick",
-       "note": "Something sick is out of sorts and not itself, so the three letters beside it will not stand in the order they were given."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sick",
+         "at": 4,
+         "note": "sick here means queasy and churned up, so the letters of sea are churned into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Sea-sick",
-         "gives": "EAS",
-         "note": "the three letters of SEA, no longer in that order"
-        },
-        {
-         "words": "seabird",
-         "gives": "TERN",
-         "note": "a tern is the slender gull-like seabird, and one of the crossword's regulars"
+         "words": "Sea",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "seabird",
+       "at": 9,
+       "gives": "TERN",
+       "note": "the tern is a slender seabird"
       }
      ]
     },
     "explanation": {
-     "surface": "A queasy seabird that has flown in from China.",
-     "walkthrough": "'Sea-sick' looks like one word describing the bird, and the hyphen is where the fodder ends and its instruction begins. The question mark earns its place: China is one eastern country among many.",
-     "definitionFit": "China lies in the East, so 'from China?' defines by example — one eastern country asked to stand in for the adjective itself."
+     "surface": "Someone asks whether a queasy seagoing bird has flown in from China.",
+     "walkthrough": "The hyphen hides a split: 'Sea' is the material and 'sick' the instruction, so no queasy bird is involved.",
+     "definitionFit": "China lies in the East, so anything from there can be called Eastern; the question mark flags this as one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sick"
     }
    }
   },
@@ -344,41 +349,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "wild",
-       "note": "Something gone wild is beyond all control, and letters in that state keep none of the order they arrived in."
+       "text": "splitting",
+       "at": 20,
+       "note": "splitting means the axes cut the shuffled letters apart, sitting inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "splitting",
-         "note": "To split a thing is to open a gap in the middle of it, and that gap is where the next piece goes."
+         "text": "wild",
+         "at": 5,
+         "note": "wild means out of control, so the letters of gone run loose into a new order"
         }
        ],
        "parts": [
         {
-         "words": "axes",
-         "gives": "XY",
-         "note": "the x and y axes of a graph"
-        },
-        {
-         "words": "Gone wild",
-         "gives": "OGEN",
-         "note": "the four letters of GONE in a new order, then prised apart after the first"
+         "words": "Gone",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "axes",
+       "at": 15,
+       "gives": "XY",
+       "note": "the x and y axes of a graph give X and Y"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone rampaging with axes through the wood for the fire.",
-     "walkthrough": "'Axes' is the plural of axis, not of axe, and that single swap is what keeps the woodpile in front of you when the wordplay is really drawing a graph.",
-     "definitionFit": "Fire cannot burn without oxygen, so the definition names it by the job it does in combustion rather than by any synonym."
+     "surface": "Someone has gone berserk with axes, chopping logs for a fire.",
+     "walkthrough": "The axes are the x and y axes of a graph, not tools for chopping firewood.",
+     "definitionFit": "Combustion requires this gas: no fire can burn without the oxygen in air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "axes"
     }
    }
   },
@@ -692,41 +705,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SEVENSEAS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounded by",
+       "at": 27,
+       "note": "surrounded by means the word for still sits inside the scrambled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "dumb",
-         "note": "Dumb here is the American sense, stupid rather than silent, and a word made stupid loses whatever sense its order gave it."
-        },
-        {
-         "text": "surrounded by",
-         "note": "What surrounds a thing closes round it on both sides, so this piece ends up inside the letters named after it."
+         "at": 41,
+         "note": "dumb here means stupid or senseless, so the letters of asses are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "dumb-asses",
-         "gives": "SSEAS",
-         "note": "the five letters of ASSES re-sorted, then opened up after the first to take something in"
-        },
-        {
-         "words": "still",
-         "gives": "EVEN",
-         "note": "still in the sense of 'still better' — swap in 'even better' and the phrase is unchanged"
+         "words": "asses",
+         "at": 46
         }
        ]
+      },
+      {
+       "words": "still",
+       "at": 21,
+       "gives": "EVEN",
+       "note": "still in the sense of even, as in 'even (still) better'"
       }
      ]
     },
     "explanation": {
-     "surface": "A stretch of calm water with fools standing all round it.",
-     "walkthrough": "'Still' looks like a description of the water and means even. The seven seas is the old sailors' phrase for all the oceans there are, which is why one country cannot own them.",
-     "definitionFit": "The seven seas are the world's oceans taken together, the waters no nation owns, so the definition names them by their legal standing."
+     "surface": "Insulting fools who are found even out on the open ocean.",
+     "walkthrough": "'dumb-asses' looks like one insult, but 'dumb' is the instruction and 'asses' its material.",
+     "definitionFit": "The phrase 'the seven seas' names all the world's oceans, the open waters beyond any one country's control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
     }
    }
   },
@@ -856,54 +876,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEWCOMER",
-     "indicators": [
-      {
-       "text": "sullied",
-       "note": "Something sullied has been messed about with, and letters messed about with do not keep the order they came in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "NE",
+       "indicators": [
+        {
+         "text": "report of",
+         "at": 8,
+         "note": "report of means the word is spoken aloud and its sound is what counts"
+        }
+       ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "NE",
-         "indicators": [
-          {
-           "text": "report of",
-           "note": "A report of something is that thing as it was heard, so what follows is judged by ear and written down however the sound allows."
-          }
-         ],
-         "parts": [
-          {
-           "words": "any",
-           "gives": "ANY",
-           "note": "say the letters N and E one after the other and you have said the word aloud"
-          }
-         ]
-        },
+         "words": "any",
+         "at": 18,
+         "gives": "ANY",
+         "note": "said aloud, any sounds like the two letters N E"
+        }
+       ]
+      },
+      {
+       "words": "toilet",
+       "at": 22,
+       "gives": "WC",
+       "note": "WC, water closet, is a toilet"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "toilet",
-         "gives": "WC",
-         "note": "WC = water closet, the label on a lavatory door"
-        },
+         "text": "sullied",
+         "at": 34,
+         "note": "sullied means dirtied and messed up, so the letters of more are rearranged"
+        }
+       ],
+       "parts": [
         {
-         "words": "more sullied",
-         "gives": "OMER",
-         "note": "the four letters of MORE, put back in a different order"
+         "words": "more",
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student's account of a lavatory that has got dirtier.",
-     "walkthrough": "Spelling a word out of letter names — enn, ee — is the step to spot, and it hides because 'report of any' reads as ordinary reporting. In Britain a fresher is a first-year university student.",
-     "definitionFit": "A fresher has just arrived and knows nobody, so the definition works by example: one particular kind of newcomer standing for all of them."
+     "surface": "A complaint that some toilet is even dirtier than the others.",
+     "walkthrough": "'report of' turns 'any' into its sound, the letter names N and E. Then comes WC, and 'sullied' rearranges MORE into OMER.",
+     "definitionFit": "A fresher is a first-year university student, a newcomer to campus; British usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fresher"
     }
    }
   },
@@ -1389,43 +1415,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SEETHE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "backwash of",
-       "note": "Backwash is water running back the way it came, so the name beside it is written out from its end."
+       "text": "follows",
+       "at": 9,
+       "note": "follows places the word for that man after the reversed river"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "follows",
-         "note": "What follows something comes after it, so this piece is written second."
+         "text": "backwash of",
+         "at": 17,
+         "note": "backwash suggests water flowing back, so the river's name is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "backwash of river",
-         "gives": "SEET",
-         "note": "the Tees is a river in north-east England, running out past Middlesbrough, and here it runs the other way"
-        },
-        {
-         "words": "That man",
-         "gives": "HE",
-         "note": "that man is he"
+         "words": "river",
+         "at": 29,
+         "gives": "TEES",
+         "note": "the Tees is a river in north-east England"
         }
        ]
+      },
+      {
+       "words": "That man",
+       "at": 0,
+       "gives": "HE",
+       "note": "that man is he"
       }
      ]
     },
     "explanation": {
-     "surface": "A man standing where the river's backwash throws up froth.",
-     "walkthrough": "The answer is split across two entries, so the enumeration in the clue counts six letters that the grid gives three at a time. To seethe is to boil and to be furious in the same breath.",
-     "definitionFit": "Water that seethes boils and bubbles at the surface, which is what froth does — verb for verb, with the answer's angrier sense held back."
+     "surface": "A man trails behind the frothing wash of a river.",
+     "walkthrough": "The Tees is a river in north-east England; the answer runs across two lights in the grid.",
+     "definitionFit": "To seethe is to foam or bubble like boiling water, the same as frothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backwash"
     }
    }
   },
