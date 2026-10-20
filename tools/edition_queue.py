@@ -649,6 +649,7 @@ def _asked():
 def evidence_reason(reason):
     return (reason in ("never read", "never scanned", "never read (Gale fetch)", "just laid out", "annotation asked")
             or (reason.startswith("refused ") and reason.endswith(" before its fix"))
+            or reason == "unfiled before its fix"  # a puzzle written with blank clues, a column-layout fix since
             or reason.endswith(" cured since"))  # trove: the fix for the cause a read was refused for landed
 
 
@@ -1005,7 +1006,7 @@ def by_urgency(units):
 #: they are the rereads that can file. Other rank 2 reasons ("inputs changed",
 #: "titles changed", ...) are held behind them unless likely_gain > 0.
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
-              "read without the VLM")
+              "read without the VLM", "unfiled before its fix")
 
 
 def files_likely_tier(rank, unit):

@@ -179,8 +179,22 @@ _, ask = eq.only_evidence("times", [], [{"rel": "X/1", "reason": "annotation ask
                                          {"rel": "X/2", "reason": "inputs changed", "needs": []}])
 check("annotation asked carries its puzzle and checks; inputs changed is dropped",
       [("X/1", "annotation asked", "puzzle times-1: printedClue")], [(u["rel"], u["reason"], u["detail"]) for u in ask])
+# ---- a read that wrote an incomplete puzzle before the cause time is due once ("unfiled before its fix")
+_un = {"id": "times-1", "number": 1, "complete": False, "wrote": True, "unfiled": 3, "clues": 27, "lights": 30}
+_unrow = {"verdicts": [_un], "scan": {"item": "GaleTimes1947UKEnglish", "date": "1947-04-19"}}
+_before, _after = "2026-10-19T23:11:28+00:00", "2026-10-20T01:00:00+00:00"
+check("an incomplete write read before the cause time is due, with its puzzle and blank count", True,
+      f.fix_reason({**_unrow, "readAt": _before}) == "unfiled before its fix"
+      and f.unfiled_blank(_unrow) == [("times-1", 3)])
+check("one read after it (incomplete again) is not due again; nor a complete or a refused one", [None] * 3,
+      [f.fix_reason({**_unrow, "readAt": _after}),
+       f.fix_reason({**_unrow, "readAt": _before, "verdicts": [{**_un, "complete": True}]}),
+       f.fix_reason({**_unrow, "readAt": _before, "verdicts": [{**_un, "refused": "x"}]})])
+check("the reason is evidence, ranked with the fix-landed rereads and held behind never-read pages", (True, 2, True, True),
+      (eq.evidence_reason("unfiled before its fix"), f.rank_of_reason("unfiled before its fix"),
+       "unfiled before its fix" in eq.FIX_LANDED, eq.refusal_reread("unfiled before its fix")))
 os.environ["CT_BLANKET_REREADS"] = "1"
-_, rd_old = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
+_, rd_old =eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
 check("CT_BLANKET_REREADS=1 restores every reread", True, len(rd_old) == 7)
 # ---- refusal rereads wait while never-read or never-scanned units remain
 del os.environ["CT_REFUSAL_REREADS"]
