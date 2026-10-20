@@ -681,36 +681,54 @@
      "indicators": [
       {
        "text": "getting behind",
-       "note": "to get behind is to come after, so the chance and about pieces follow iron"
+       "at": 22,
+       "note": "the luck and about pieces come after the iron"
       }
      ],
      "parts": [
       {
        "words": "iron",
+       "at": 37,
        "gives": "FE",
-       "note": "Fe, the chemical symbol for iron"
+       "note": "Fe is the chemical symbol for iron"
       },
       {
-       "words": "A lot of chance",
-       "gives": "LUC",
-       "note": "LUCK (chance) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "most of the word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chance",
+         "at": 9,
+         "gives": "LUCK",
+         "note": "luck is chance"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       },
       {
        "words": "about",
+       "at": 16,
        "gives": "CA",
-       "note": "ca = circa, about"
+       "note": "CA, short for circa, means about"
       }
      ]
     },
     "explanation": {
-     "surface": "Taking a big gamble on getting past an ironclad sailing ship.",
-     "walkthrough": "'About' is not an indicator here but a piece: CA, short for circa.",
-     "definitionFit": "A felucca is a small lateen-rigged sailing boat of the Nile and Mediterranean."
+     "surface": "A gambler loses a lot to chance after falling behind with an iron sailing boat.",
+     "definitionFit": "A felucca is a small Mediterranean or Nile vessel with lateen sails."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "iron"
     }
    }
   },
@@ -1115,24 +1133,44 @@
      "op": "charade",
      "parts": [
       {
-       "words": "departs, excluded from data store",
-       "gives": "CROM",
-       "note": "CD-ROM (a data store) without D, departs as on a timetable"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "excluded from",
+         "at": 19,
+         "note": "means that letter is taken out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "data store",
+         "at": 33,
+         "gives": "CDROM",
+         "note": "a CD-ROM is a disc storing data"
+        },
+        {
+         "words": "departs",
+         "at": 10,
+         "gives": "D",
+         "note": "D is the timetable abbreviation for departs"
+        }
+       ]
       },
       {
        "words": "successfully",
+       "at": 44,
        "gives": "WELL",
-       "note": "well = successfully"
+       "note": "doing something well is doing it successfully"
       }
      ]
     },
     "explanation": {
-     "surface": "A former boss leaves, locked out of the company's data systems.",
-     "walkthrough": "Oliver Cromwell led England as Lord Protector in the 1650s. D for departs is the timetable abbreviation.",
-     "definitionFit": "Oliver Cromwell was a former leader of the nation, Lord Protector after the Civil War."
+     "surface": "A former leader leaves, successfully locked out of a database.",
+     "walkthrough": "Removing D from CDROM leaves CROM. Oliver Cromwell was Lord Protector of England in the 1650s.",
+     "definitionFit": "Oliver Cromwell ruled England as Lord Protector, a former head of state."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "departs"
     }

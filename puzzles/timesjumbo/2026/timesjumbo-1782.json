@@ -382,12 +382,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "INTERMISSION",
      "indicators": [
       {
        "text": "when heads are lacking",
-       "note": "both words lose their heads, that is their first letters"
+       "at": 19,
+       "note": "both words lose their first letters, their heads"
       }
      ],
      "parts": [
@@ -396,27 +395,31 @@
        "parts": [
         {
          "words": "beer",
-         "gives": "INT",
-         "note": "PINT (a beer) without its first letter"
+         "at": 6,
+         "gives": "PINT",
+         "note": "a pint is a measure of beer"
         },
         {
          "words": "licence",
-         "gives": "ERMISSION",
-         "note": "PERMISSION (licence) without its first letter"
+         "at": 11,
+         "gives": "PERMISSION",
+         "note": "licence means permission"
         }
        ]
+      },
+      {
+       "gives": "PP"
       }
      ]
     },
     "explanation": {
-     "surface": "A pub drinker asking to stop the beer when the landlord's licence lapses.",
-     "walkthrough": "'Heads' sounds like the froth on a beer, but it means the first letters of both words; a pint is the usual British measure of beer.",
-     "definitionFit": "An intermission is a pause between parts of a play or film."
+     "surface": "A pub pauses its beer licence while the bosses are absent.",
+     "walkthrough": "PINT and PERMISSION each lose their first letter, giving INT and ERMISSION.",
+     "definitionFit": "An intermission is an interval or break in a performance, a pause in proceedings."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "heads"
     }
    }
@@ -497,31 +500,41 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without its end, so RUSSOPHOBE loses its final E"
-      },
-      {
        "text": "disrupted",
-       "note": "the remaining letters are thrown out of order"
+       "at": 40,
+       "note": "the remaining letters are broken up and rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Russophobe",
-       "gives": "RUSSOPHOB",
-       "note": "RUSSOPHOBE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 30,
+         "note": "the last letter of Russophobe is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Russophobe",
+         "at": 19
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Russia-hater blocking access to the Black Sea.",
-     "walkthrough": "The surface is geopolitics, so the Russophobe seems to be doing the disrupting; really his own letters are what gets disrupted.",
-     "definitionFit": "The Bosphorus is the strait at Istanbul through which ships enter the Black Sea."
+     "surface": "Someone fearful of Russia causes chaos at the gateway to the Black Sea.",
+     "walkthrough": "RUSSOPHOB, from Russophobe without its end, is rearranged.",
+     "definitionFit": "The Bosphorus is the strait at Istanbul linking the Sea of Marmara to the Black Sea, its entrance."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "disrupted"
+     "aptDefinition": true
     }
    }
   },
@@ -753,45 +766,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "coming up",
-       "note": "in a down clue, coming up means reading from bottom to top, so LAD reverses"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Closely examine",
+       "at": 0,
+       "gives": "SCAN",
+       "note": "to scan is to examine closely"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming up",
+         "at": 22,
+         "note": "in a down clue, coming up means the word reads upwards"
+        }
+       ],
        "parts": [
         {
-         "words": "German",
-         "gives": "REG",
-         "note": "GER = German"
-        },
-        {
-         "words": "my French",
-         "gives": "NOM",
-         "note": "French for my"
-        },
-        {
          "words": "youth",
+         "at": 16,
          "gives": "LAD",
-         "note": "LAD (youth) reversed"
-        },
-        {
-         "words": "Closely examine",
-         "gives": "NACS",
-         "note": "to scan is to examine closely"
+         "note": "a lad is a youth"
         }
        ]
+      },
+      {
+       "words": "my French",
+       "at": 37,
+       "gives": "MON",
+       "note": "mon is French for my"
+      },
+      {
+       "words": "German",
+       "at": 51,
+       "gives": "GER"
       }
      ]
     },
     "explanation": {
-     "surface": "Scrutinising a young man who shows up with a Frenchman and a German, as a tabloid might.",
-     "walkthrough": "'My French' is a cue to translate: the French for 'my' is MON.",
-     "definitionFit": "A scandalmonger is a gossip who spreads scandal."
+     "surface": "Someone scrutinises a teenager who arrives with French and German chatter.",
+     "walkthrough": "LAD read upwards gives DAL.",
+     "definitionFit": "A scandalmonger is a person who spreads scandal, a gossip."
     },
     "features": {
      "answerInScene": true,
@@ -951,44 +968,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "returned",
-       "note": "something returned comes back the other way"
-      },
-      {
        "text": "before",
-       "note": "'before' is positional: what precedes it in the clue is placed ahead of the A"
+       "at": 38,
+       "note": "the manager letters come before the answer letter in the entry"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 10,
+         "note": "returned means the word is reads backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "answer",
-         "gives": "A",
-         "note": "A = answer"
-        },
-        {
-         "words": "general manager",
-         "gives": "MG",
-         "note": "GM = general manager"
-        },
-        {
          "words": "is",
-         "gives": "IS",
-         "note": "IS reversed"
+         "at": 7
         }
        ]
+      },
+      {
+       "words": "general manager",
+       "at": 22,
+       "gives": "GM"
+      },
+      {
+       "words": "answer",
+       "at": 45,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A letter being sent back by the general manager before he replies.",
-     "walkthrough": "The office surface makes 'letter' correspondence; it is a letter of the Greek alphabet.",
-     "definitionFit": "A definition by class: the eighteenth character of the Greek alphabet, the equivalent of S, is one letter among many."
+     "surface": "A letter is sent back by a general manager before he replies.",
+     "walkthrough": "'Letter' looks like correspondence, but it is a letter of the Greek alphabet.",
+     "definitionFit": "Sigma is the eighteenth character of the Greek alphabet."
     },
     "features": {
      "answerInScene": false,
@@ -1071,30 +1091,35 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
+     "op": "move",
      "indicators": [
       {
        "text": "relocating first",
-       "note": "the first letter is moved, here to the end"
+       "at": 8,
+       "note": "the opening letter is shifted elsewhere in the word, here to the end"
       }
      ],
      "parts": [
       {
        "words": "Country",
+       "at": 0,
        "gives": "IRAN",
-       "note": "Iran, with its first letter I moved to the back"
+       "note": "Iran is a country"
+      },
+      {
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "A country moving its first queen elsewhere.",
-     "walkthrough": "'First queen' looks like a single phrase; 'first' belongs with 'relocating', and 'queen' stands alone as the definition.",
-     "definitionFit": "A rani is an Indian queen or a raja's wife."
+     "surface": "A queen is the first to move to a new country.",
+     "walkthrough": "The I at the front of IRAN moves to the end.",
+     "definitionFit": "A rani is a Hindu queen or a rajah's wife."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "first"
+     "misdirectedWord": "Country"
     }
    }
   },
@@ -1716,43 +1741,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "ascendant",
-       "note": "rising, which in a down clue means reading upward, so EMO turns round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Number",
+       "at": 0,
+       "gives": "NO"
+      },
+      {
+       "words": "one's",
+       "at": 7,
+       "gives": "IS",
+       "note": "one is I, and the 's adds S"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "ascendant",
+         "at": 13,
+         "note": "rising, so in a down clue the word reads upwards"
+        }
+       ],
        "parts": [
         {
          "words": "variety of pop",
+         "at": 23,
          "gives": "EMO",
-         "note": "EMO (a style of pop-punk) reversed"
-        },
-        {
-         "words": "one's",
-         "gives": "SI",
-         "note": "one = I, ’s = is, leaving the S"
-        },
-        {
-         "words": "Number",
-         "gives": "ON",
-         "note": "NO = number"
+         "note": "emo is a style of pop and rock music"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chart-topping pop style that people find repugnant.",
-     "walkthrough": "'Number one' is set up as a chart hit; it splits into NO and the I of 'one’s'.",
-     "definitionFit": "Noisome means offensive, especially of a smell."
+     "surface": "A number one hit's rising pop style is found to be offensive.",
+     "walkthrough": "EMO read upwards gives OME.",
+     "definitionFit": "Noisome means foul-smelling or disgusting, hence objectionable."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Number"
     }
@@ -2697,47 +2725,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "backing"
-      },
-      {
-       "text": "after"
+       "text": "after",
+       "at": 15,
+       "note": "split and position come after the reversed piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 25,
+         "note": "going backwards, so the letters run in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "position",
-         "gives": "GNIDNATS",
-         "note": "standing = position, status"
-        },
-        {
-         "words": "Split",
-         "gives": "REDNUS",
-         "note": "to sunder is to split"
-        },
-        {
          "words": "I'm",
+         "at": 21,
          "gives": "IM",
-         "note": "I'M reversed"
+         "note": "taken as written, I and M"
         }
        ]
+      },
+      {
+       "words": "Split",
+       "at": 0,
+       "gives": "SUNDER",
+       "note": "to sunder is to split apart"
+      },
+      {
+       "words": "position",
+       "at": 6,
+       "gives": "STANDING",
+       "note": "standing is status or position"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone backing one side of a split and so starting a row.",
-     "walkthrough": "'Split' and 'backing' read as taking sides in a quarrel; both are wordplay.",
-     "definitionFit": "A misunderstanding is a mild word for a disagreement or argument."
+     "surface": "A split in position arises after someone backs down in an argument.",
+     "walkthrough": "I'M backwards gives MI, which is followed by SUNDER and STANDING.",
+     "definitionFit": "A misunderstanding is a mild disagreement or quarrel."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "backing"
+     "misdirectedWord": "Split"
     }
    }
   },

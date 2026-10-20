@@ -438,31 +438,28 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "here 'in' only marks the room as the result, the pieces simply follow one another"
-      }
-     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "leaving",
-         "note": "when something is leaving it goes away, so a letter departs from the word"
+         "at": 10,
+         "note": "means that letter departs from the word"
         }
        ],
        "parts": [
         {
          "words": "Dangerous",
+         "at": 0,
          "gives": "PARLOUS",
-         "note": "parlous means precarious or perilous"
+         "note": "parlous means dangerous"
         },
         {
          "words": "son",
+         "at": 18,
          "gives": "S",
-         "note": "S is the abbreviation for son"
+         "note": "S is the genealogical abbreviation for son"
         }
        ]
       },
@@ -471,27 +468,27 @@
        "indicators": [
         {
          "text": "close to",
-         "note": "the close of a word is its end, so only its final letter is used"
+         "at": 22,
+         "note": "the close of the word heater, its last letter"
         }
        ],
        "parts": [
         {
          "words": "heater",
-         "note": "the final letter of the word"
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Warning that it is risky for a boy to stand near the fire in the sitting room.",
-     "walkthrough": "Parlous is an old variant of perilous; drop its S and add the R that ends the heater.",
-     "definitionFit": "A parlour is an old-fashioned sitting room in a house, kept for receiving guests."
+     "surface": "A son has left a dangerous spot near the heater in the room.",
+     "walkthrough": "PARLOUS loses S to give PARLOU.",
+     "definitionFit": "A parlour is a sitting room in a house, especially an old-fashioned one."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "heater"
+     "aptDefinition": false
     }
    }
   },
@@ -1433,61 +1430,45 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "at": 11,
+       "note": "each of the three words loses its final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "endless",
-         "note": "without an end, so each word loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "It",
-         "note": "taken as written"
+         "at": 0
         },
-        {
-         "gives": "T"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
         {
          "words": "may",
-         "note": "taken as written"
+         "at": 3
         },
         {
-         "gives": "Y"
+         "words": "get",
+         "at": 7
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "get",
-         "note": "taken as written"
-        },
-        {
-         "gives": "T"
-        }
-       ]
+       "gives": "TYT"
       }
      ]
     },
     "explanation": {
-     "surface": "Something may receive an unending depiction.",
-     "walkthrough": "'endless' applies to all three preceding words, not just one, so each is clipped by a letter.",
-     "definitionFit": "An image is a picture or likeness, a visual depiction of someone or something."
+     "surface": "It may receive a never-ending portrayal.",
+     "walkthrough": "I, MA and GE are what is left of It, may and get without their ends.",
+     "definitionFit": "An image is a likeness or depiction of someone or something."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "endless"
+     "aptDefinition": false
     }
    }
   },

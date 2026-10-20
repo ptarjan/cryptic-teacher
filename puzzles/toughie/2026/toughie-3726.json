@@ -1342,36 +1342,27 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "at",
-       "at": 40,
-       "note": "at, meaning right up against, places the butcher's letter next to the shortened steak"
-      }
-     ],
      "parts": [
       {
        "words": "chuck",
        "at": 12,
        "gives": "LOB",
-       "note": "to chuck is to lob, throw"
+       "note": "to lob is to chuck or throw"
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "40 per cent off",
          "at": 24,
-         "note": "forty per cent of a five-letter word is two letters, so two come off the end"
+         "note": "two of the five letters of steak are dropped, keeping the first three"
         }
        ],
        "parts": [
         {
          "words": "steak",
-         "at": 18
-        },
-        {
-         "gives": "AK"
+         "at": 18,
+         "gives": "STEAK"
         }
        ]
       },
@@ -1381,7 +1372,7 @@
         {
          "text": "finally",
          "at": 51,
-         "note": "finally means the last letter of butcher"
+         "note": "takes the end letter of the word butcher"
         }
        ],
        "parts": [
@@ -1394,9 +1385,9 @@
      ]
     },
     "explanation": {
-     "surface": "A shopping list: seafood, plus chuck steak discounted by the butcher.",
-     "walkthrough": "'chuck steak' reads as a cut of beef, but chuck is a verb, LOB. STEAK loses its last two letters.",
-     "definitionFit": "Lobster is a large marine crustacean prized as seafood."
+     "surface": "A butcher finally sells seafood and chuck steak at a 40 per cent discount.",
+     "walkthrough": "'chuck steak' looks like a cut of beef; chuck is the verb lob, and STE is steak with 40 per cent off.",
+     "definitionFit": "Lobster is a shellfish eaten as a luxury food from the sea."
     },
     "features": {
      "answerInScene": true,
@@ -1687,29 +1678,47 @@
      "indicators": [
       {
        "text": "up ahead",
-       "note": "in a down clue, up is ahead"
+       "at": 32,
+       "note": "in a down clue, up is higher, so the snake piece goes before"
       }
      ],
      "parts": [
       {
-       "words": "tailless snake",
-       "gives": "MAMB",
-       "note": "the mamba is an African snake, less its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailless",
+         "at": 17,
+         "note": "the final letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "snake",
+         "at": 26,
+         "gives": "MAMBA",
+         "note": "the mamba is an African snake"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "over",
+       "at": 12,
        "gives": "O",
-       "note": "O = over, as in cricket scoring"
+       "note": "O is the cricket scorecard abbreviation for over"
       }
      ]
     },
     "explanation": {
-     "surface": "Cuban dancing steps over a snake with its tail missing.",
-     "walkthrough": "Over is not a position word here but the cricket abbreviation O.",
-     "definitionFit": "Definition by description: this Latin dance originated in Cuba."
+     "surface": "Dancers step over a snake missing its tail that lies ahead.",
+     "walkthrough": "MAMB (mamba without its last letter) comes up ahead of O.",
+     "definitionFit": "The mambo is a ballroom dance that originated in Cuba."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "over"
     }
@@ -1918,26 +1927,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "jamming"
+       "text": "jamming",
+       "at": 14,
+       "note": "the shortened fellow is jammed inside"
       }
      ],
      "parts": [
       {
        "words": "vehicle's",
+       "at": 22,
        "gives": "CART",
        "note": "a cart is a vehicle"
       },
       {
-       "words": "Fellow nearly",
-       "gives": "MEMBE",
-       "note": "a fellow of a society is a member, less its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 7,
+         "note": "all but the last letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fellow",
+         "at": 0,
+         "gives": "MEMBER",
+         "note": "a fellow of a society is a member"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone nearly jams a car's wheel.",
-     "walkthrough": "The question mark flags a definition by example: this cheese comes as a round wheel.",
-     "definitionFit": "Definition by example: the Normandy soft cheese is sold as a small round wheel."
+     "surface": "A man nearly gets stuck in a vehicle's wheel.",
+     "walkthrough": "The definition is by example, hence the question mark: camembert is sold as a round, a wheel of cheese.",
+     "definitionFit": "Camembert is a soft French cheese made in flat round discs, which cheesemakers call wheels."
     },
     "features": {
      "answerInScene": false,

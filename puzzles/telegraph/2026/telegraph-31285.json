@@ -1314,31 +1314,43 @@
      "indicators": [
       {
        "text": "ignoring",
-       "note": "to ignore a letter is to leave it out, here the one that ends the tennis player's name"
+       "at": 6,
+       "note": "ignoring means the named letter is left out"
       }
      ],
      "parts": [
       {
        "words": "Began",
+       "at": 0,
        "gives": "STARTED",
-       "note": "began = started"
+       "note": "began means started"
       },
       {
-       "words": "Federer's last",
-       "gives": "R",
-       "note": "the final letter of Federer, to be removed"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 25,
+         "note": "takes the final letter of the tennis player's name Federer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Federer",
+         "at": 15
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Roger Federer starting play without his final set in tennis.",
-     "walkthrough": "'Set' seems to belong to Federer's tennis, but it is the definition, as in a set or fixed time.",
-     "definitionFit": "A stated time or price has been fixed or specified in advance, the adjective sense of this word."
+     "surface": "A tennis player begins a set, overlooking Federer's final one.",
+     "walkthrough": "'set' looks like tennis, but it is the definition, in the sense of laid down or declared.",
+     "definitionFit": "Stated and set can both mean fixed or specified, as in a set time or a stated time."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "set"
     }
    }

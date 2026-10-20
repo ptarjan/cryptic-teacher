@@ -771,49 +771,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "not the first to regret",
-       "note": "the first letter of regret is R, and the ruler goes without it"
-      },
-      {
        "text": "taking",
-       "note": "the rearranged letters take in one more piece"
+       "at": 52,
+       "note": "the rearranged letters take in the money letter, holding it inside"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "misguidely",
-         "note": "misguided letters go astray and end up in a new order"
+         "text": "to regret misguidely",
+         "at": 31,
+         "note": "coming to regret something done misguidedly, the letters go astray and are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "ruler",
-         "gives": "ULER",
-         "note": "RULER without an R, the first letter of regret"
-        },
-        {
-         "words": "money",
-         "gives": "M",
-         "note": "m = money, as in £5m"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not the first",
+           "at": 17,
+           "note": "says the opening letter of the word ruler is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ruler",
+           "at": 11,
+           "gives": "RULER",
+           "note": "a ruler here is the measuring stick, taken as the word itself"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "money",
+       "at": 59,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A ruler of Madagascar who, unlike others, regrets foolishly taking bribes.",
-     "walkthrough": "'Madagascan ruler' reads as one phrase, but the definition is just 'Madagascan' used as a noun; the blog notes RULER has two Rs and only one goes.",
-     "definitionFit": "Definition by origin: these primates live wild only on the island of Madagascar, so one is a Madagascan native."
+     "surface": "A Madagascan king, misguided, comes to regret grabbing money.",
+     "walkthrough": "'Madagascan ruler' looks like one phrase for a king, but 'ruler' belongs to the wordplay: ULER (ruler without its first letter) is rearranged as LEUR, which takes in M.",
+     "definitionFit": "The lemur is the animal famously native to Madagascar, so a Madagascan creature is a fair description."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "ruler"
     }
    }
@@ -1483,35 +1497,51 @@
      "op": "charade",
      "parts": [
       {
-       "words": "One who hunted duck",
-       "gives": "ORINO",
-       "note": "ORION, the hunter of Greek myth, with its second O (a duck is a zero score) moved to the end"
+       "op": "move",
+       "indicators": [
+        {
+         "text": "moving east",
+         "at": 20,
+         "note": "in an across clue east is rightwards, so that letter shifts later in the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "One who hunted",
+         "at": 0,
+         "gives": "ORION",
+         "note": "Orion was the great hunter of Greek myth"
+        },
+        {
+         "words": "duck",
+         "at": 15,
+         "gives": "O",
+         "note": "a duck in cricket is a score of nought, the letter O"
+        }
+       ]
       },
       {
        "op": "outer",
        "indicators": [
         {
-         "text": "moving east",
-         "note": "in an across entry east is the right-hand end, so the O shifts there"
-        },
-        {
-         "text": "edges of",
-         "note": "the edges of a word are its outer letters"
+         "text": "the edges of",
+         "at": 35,
+         "note": "the outer letters of the word Colorado, its first and last"
         }
        ],
        "parts": [
         {
          "words": "Colorado",
-         "note": "outer letters of Colorado"
+         "at": 48
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A duck hunter heading east along the Colorado river.",
-     "walkthrough": "'Colorado river' is a real river, which hides that only 'river' is the definition; a duck in cricket is a score of zero.",
-     "definitionFit": "Definition by example: one of South America's great waterways, flowing through Venezuela to the Atlantic."
+     "surface": "A hunter's duck flies east beside a Colorado river.",
+     "walkthrough": "In ORION, the last O moves to the right to give ORINO; the edges of Colorado then add CO.",
+     "definitionFit": "The Orinoco is a major South American river flowing through Venezuela."
     },
     "features": {
      "answerInScene": true,
