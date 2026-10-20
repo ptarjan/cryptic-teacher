@@ -298,39 +298,39 @@
        "indicators": [
         {
          "text": "not having",
-         "note": "the word goes without the letter"
+         "at": 15,
+         "note": "not having means one of the letters for left is taken out"
         }
        ],
        "parts": [
         {
          "words": "I'm surprised",
-         "gives": "WEL",
-         "note": "WELL, an exclamation of surprise, minus one L"
+         "at": 0,
+         "gives": "WELL",
+         "note": "well! is an exclamation of surprise"
         },
         {
+         "words": "left",
+         "at": 26,
          "gives": "L"
         }
        ]
       },
       {
-       "words": "left",
-       "gives": "L",
-       "note": "standard abbreviation for left; it is removed"
-      },
-      {
        "words": "that woman had",
+       "at": 32,
        "gives": "SHED",
-       "note": "she had = she'd"
+       "note": "she'd is the contraction of she had"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is astonished to learn a woman who stayed had been unfaithful.",
-     "walkthrough": "To welsh is to fail to pay a debt, especially a bet.",
-     "definitionFit": "To welsh on a bet is to cheat by not paying up."
+     "surface": "A shocked speaker learns that a woman had swindled someone.",
+     "walkthrough": "WELL loses one L to give WEL, then SHE'D.",
+     "definitionFit": "To welsh on a deal is to break a promise to pay, a form of cheating."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "left"
     }
@@ -1262,31 +1262,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "boring",
-       "note": "the letters bore into the other word, going inside it"
+       "text": "is boring",
+       "at": 32,
+       "note": "boring means drilling into, so the half-word goes inside the word for poetry"
       }
      ],
      "parts": [
       {
        "words": "poetry",
+       "at": 42,
        "gives": "VERSE",
        "note": "verse is poetry"
       },
       {
-       "words": "book, half of which",
-       "gives": "BO",
-       "note": "the first half of book"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of which",
+         "at": 18,
+         "note": "half of which keeps only the first two of the four letters of book"
+        }
+       ],
+       "parts": [
+        {
+         "words": "book",
+         "at": 12
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wordy book, half of which is dull poetry.",
-     "walkthrough": "\"Boring\" reads as dull; it means drilling into.",
-     "definitionFit": "Verbose means using more words than needed, long-winded."
+     "surface": "A long book, half of it tedious verse.",
+     "walkthrough": "'boring' looks like the book's quality but means drilling into; 'which' points back to book.",
+     "definitionFit": "Verbose writing uses more words than needed, the same as wordy or prolix."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "boring"
     }
    }

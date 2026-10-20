@@ -735,34 +735,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "out",
-       "note": "something out of place is disordered, so these letters are rearranged"
+       "text": "twice",
+       "at": 8,
+       "note": "twice says the rearranged set appears two times"
       }
      ],
      "parts": [
       {
-       "words": "Set",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 4,
+         "note": "out means the letters of set are thrown out of their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Set",
+         "at": 0
+        }
+       ]
       },
       {
-       "words": "twice",
-       "gives": "SET",
-       "note": "the same three-letter word written a second time"
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "Set",
+         "at": 0
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone heads off on a journey two times and then takes a flight.",
-     "walkthrough": "'Fly' looks like a verb about travelling, but it is the insect; the three-letter word rearranged, written twice, gives TSETSE.",
-     "definitionFit": "The tsetse is an African biting insect that spreads sleeping sickness, so it is a particular kind of fly."
+     "surface": "Someone sets out twice and then takes flight.",
+     "walkthrough": "'out' rearranges SET into TSE, and 'twice' asks for that result two times. 'fly' is the insect, not the verb.",
+     "definitionFit": "The tsetse is an African biting insect that spreads sleeping sickness."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "fly"
     }
    }

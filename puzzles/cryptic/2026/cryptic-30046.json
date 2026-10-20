@@ -758,20 +758,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Academy halved",
-       "gives": "SCH",
-       "note": "SCHOOL cut to its first half"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "halved",
+         "at": 8,
+         "note": "halved means only the first half of the six-letter word for academy is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Academy",
+         "at": 0,
+         "gives": "SCHOOL",
+         "note": "an academy is a school"
+        },
+        {
+         "gives": "OOL"
+        }
+       ]
       },
       {
        "words": "deficit",
+       "at": 15,
        "gives": "LOSS",
-       "note": "a loss = a deficit"
+       "note": "a deficit is a loss"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Schloss is the German for a castle or stately home — the grand house. An English academy, halved, opens a German answer.",
-     "definitionFit": "Borrowed from German, the word names a castle or palatial country residence, a stately home in plain terms."
+     "surface": "A school's budget shortfall is half covered by a mansion.",
+     "walkthrough": "'grand house' points to a German word: a schloss is a castle or manor in German-speaking lands.",
+     "definitionFit": "Schloss is the German word for a castle or palace, a stately residence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "halved"
     }
    }
   },
