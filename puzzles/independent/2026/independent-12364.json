@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -46,42 +47,56 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "header",
-       "note": "A header is the line printed at the top of a page, so what is wanted is the letter at the top of the name beside it."
-      },
-      {
        "text": "follows",
-       "note": "What follows comes along afterwards, so this letter is written at the end rather than the front."
+       "at": 18,
+       "note": "follows means the Irish surname's piece is placed after the shortened corner"
       }
      ],
      "parts": [
       {
-       "words": "corner",
-       "gives": "ANGL",
-       "note": "a corner is an angle, docked of its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 26,
+         "note": "short means cut off the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "corner",
+         "at": 32,
+         "gives": "ANGLE",
+         "note": "an angle is a corner"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "short",
-         "note": "Something cut short stops before its proper end, so the word loses its final letter."
+         "text": "header",
+         "at": 11,
+         "note": "a header is the top or leading part, so the first letter of the Irish surname"
         }
        ],
        "parts": [
         {
          "words": "O'Reilly's",
-         "gives": "OREILLYHEADER",
-         "note": "the letter O'Reilly starts with"
+         "at": 0,
+         "note": "the first letter of the surname"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A player called O'Reilly heading in a corner that was taken short.",
-     "walkthrough": "The football is the whole disguise: 'corner' is the geometry word rather than the set piece, and 'header' asks for a top letter rather than a goal.",
-     "definitionFit": "Anglo is the adjective English speakers use for anything English in origin - Anglo-Irish, an Anglo abroad - so it stands for 'from England'."
+     "surface": "An Irish footballer heads in after a short corner against England.",
+     "walkthrough": "The football picture of a header and a short corner hides the parts: a corner is an angle, and the header is the first letter of the surname.",
+     "definitionFit": "Anglo is a prefix or adjective for English things, as in Anglo-Saxon or Anglo-Irish."
     },
     "features": {
      "answerInScene": false,
@@ -232,54 +247,53 @@
      "indicators": [
       {
        "text": "cakes",
-       "note": "Mud cakes a boot by covering it all over, so the word before this closes round what comes next."
+       "at": 9,
+       "note": "cakes is a verb here, to coat or encase, so the word for superior wraps around the letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "start to",
-         "note": "The start of a word is the letter it opens with, and that is all this takes from the word after it."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Superior",
-         "gives": "OVER",
-         "note": "a superior officer is the one over you"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "L",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "leave",
-           "gives": "L",
-           "select": "first",
-           "note": "the opening letter of leave"
-          }
-         ]
-        }
-       ]
+       "words": "Superior",
+       "at": 0,
+       "gives": "OVER",
+       "note": "over can mean superior or above"
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "one written as the Roman numeral I"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start to",
+           "at": 15,
+           "note": "start to means the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "leave",
+           "at": 24
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "at": 30,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Expensive cakes being cleared away just as a hungry boy hoped for seconds.",
-     "walkthrough": "'Cakes' looks like the pastries on the plate and is a verb: to cake is to coat all over. The boy is Dickens's, holding out his bowl in the workhouse.",
-     "definitionFit": "Oliver Twist is the workhouse boy who asks for more, the best-known hungry child in English fiction."
+     "surface": "Fancy cakes make one boy beg for seconds.",
+     "walkthrough": "'cakes' looks like a noun but is a verb. OVER wraps around L and I. Oliver Twist is the orphan in Dickens who famously asks for more gruel.",
+     "definitionFit": "Oliver Twist is the workhouse boy in Dickens who asks for more food, so he is the hungry boy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "cakes"
     }
@@ -753,53 +767,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GLADIATOR",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "surprisingly",
+       "at": 14,
+       "note": "surprisingly means the letters come out in an unexpected new order"
+      },
+      {
+       "text": "drops",
+       "at": 27,
+       "note": "drops means the named letters are taken away from the pool before rearranging"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "surprisingly",
-         "note": "A surprising outcome is not the one you expected, so the letters do not stay in the order they were given."
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "GLADIATOR",
-         "indicators": [
-          {
-           "text": "drops all but one",
-           "note": "Where the same letter turns up more than once, dropping all but one leaves a single copy standing."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Giro d'Italia",
-           "note": "the letters of the Italian race, eleven of them"
-          }
-         ]
-        },
-        {
-         "words": "international",
-         "note": "international is I, and the three I's in the fodder come down to one"
-        }
-       ]
+       "words": "Giro d'Italia",
+       "at": 0
+      },
+      {
+       "words": "all but one international",
+       "at": 33,
+       "gives": "II",
+       "note": "I stands for international; the fodder has three of them, and all but one means two are lost"
       }
      ]
     },
     "explanation": {
-     "surface": "The Giro d'Italia unexpectedly losing nearly all of its foreign riders.",
-     "walkthrough": "The Giro d'Italia is Italy's three-week stage race, so the surface reads as a sports headline about riders pulling out. Nothing in it points anywhere near an arena.",
-     "definitionFit": "A gladiator was the man sent into the Roman arena to fight, which is combatant in its oldest and most literal sense."
+     "surface": "A cycling race shocks by losing all its foreign riders bar one.",
+     "walkthrough": "The Giro d'Italia is Italy's great cycle race. Its letters minus two Is are rearranged.",
+     "definitionFit": "A gladiator was a fighter in the Roman arena, so a combatant."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "international"
+     "misdirectedWord": "Giro"
     }
    }
   },
@@ -1358,56 +1360,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANTWERP",
+     "indicators": [
+      {
+       "text": "claiming",
+       "at": 17,
+       "note": "claiming means taking the letter into the other pieces"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "buffoon",
+         "at": 9,
+         "gives": "TWERP",
+         "note": "a twerp is a silly person"
+        }
+       ]
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "claiming",
-         "note": "A country claiming a territory takes it inside its own borders, so the letter named next goes within."
+         "text": "core",
+         "at": 38,
+         "note": "core means the central letter of Greenland"
         }
        ],
        "parts": [
         {
-         "words": "American",
-         "gives": "A",
-         "note": "A is the dictionary label for American"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "N",
-         "indicators": [
-          {
-           "text": "core",
-           "note": "The core of a thing is its very middle, so this takes the single letter at the centre."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Greenland's core",
-           "gives": "N",
-           "select": "middle",
-           "note": "the letter at the dead centre of GREENLAND"
-          }
-         ]
-        },
-        {
-         "words": "buffoon",
-         "gives": "TWERP",
-         "note": "a twerp is a fool, British playground slang"
+         "words": "Greenland's",
+         "at": 26,
+         "gives": "GREENLAND"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clownish American laying claim to the middle of Greenland.",
-     "walkthrough": "The American buffoon is the one who keeps announcing he wants Greenland, and the trailing dots carry him straight into the next clue.",
-     "definitionFit": "Antwerp is the Belgian seaport on the Scheldt, one of the busiest container ports in Europe."
+     "surface": "An American fool laying claim to the heart of Greenland.",
+     "walkthrough": "The middle letter of the nine-letter Greenland is N, which goes after the A.",
+     "definitionFit": "Antwerp in Belgium is one of Europe's largest seaports."
     },
     "features": {
      "answerInScene": false,

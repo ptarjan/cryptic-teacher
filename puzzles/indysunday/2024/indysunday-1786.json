@@ -460,53 +460,57 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "carrying",
        "at": 16,
-       "note": "carrying here means the word for on goes ahead, bearing the rest after it"
+       "note": "carrying means holding something within, so the pieces for on and the heart of row hold the word at between them"
       }
      ],
      "parts": [
       {
-       "words": "on",
-       "at": 25,
-       "gives": "LEG",
-       "note": "the on side, or leg side, is half of a cricket field"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on",
+         "at": 25,
+         "gives": "LEG",
+         "note": "in cricket the on side is also called the leg side, so on can mean leg"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "heart of",
+           "at": 3,
+           "note": "heart of means the central letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "row",
+           "at": 12
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "At",
        "at": 0
-      },
-      {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "heart of",
-         "at": 3,
-         "note": "heart of picks out the central letter of the following word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "row",
-         "at": 12,
-         "note": "the middle letter of row"
-        }
-       ]
       }
      ]
     },
     "explanation": {
-     "surface": "At the heart of a quarrel, someone keeps going on and on without pause.",
-     "walkthrough": "In cricket the on side is also called the leg side, so 'on' gives LEG. 'Without a break' is a musical direction: legato playing joins the notes smoothly.",
-     "definitionFit": "Legato is the musical term for notes played smoothly and connected, with no gap between them."
+     "surface": "A rower in mid-boat keeps pulling without pausing.",
+     "walkthrough": "In cricket the on side is also called the leg side, the half of the field behind the batter's legs.",
+     "definitionFit": "Legato is the musical term for notes played smoothly and connected, with no gaps."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "row"
+     "aptDefinition": false,
+     "misdirectedWord": "on"
     }
    }
   },

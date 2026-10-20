@@ -2070,37 +2070,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "standing outside"
-      }
-     ],
      "parts": [
       {
        "words": "singer",
+       "at": 20,
        "gives": "ALTO",
-       "note": "an alto singer"
+       "note": "an alto is a singer with a low female or high male voice"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "back of",
-         "note": "take the last letter of 'manor'"
+         "text": "outside",
+         "at": 36,
+         "note": "outside means the word for standing goes around the letter"
         }
        ],
        "parts": [
         {
          "words": "standing",
+         "at": 27,
          "gives": "STATUS",
-         "note": "standing = status, rank"
+         "note": "standing in society is status"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "back of",
+           "at": 44,
+           "note": "back of means the last letter of the next word"
+          }
+         ],
          "parts": [
           {
-           "words": "back of manor",
-           "note": "the last letter of manoR, inside ST|ATUS"
+           "words": "manor",
+           "at": 52
           }
          ]
         }
@@ -2109,12 +2114,11 @@
      ]
     },
     "explanation": {
-     "surface": "A singer spots a cloud from outside the rear of a country house.",
-     "walkthrough": "'Standing outside' reads as one instruction; 'standing' is STATUS and 'outside' tells it to wrap round.",
-     "definitionFit": "Altostratus is a grey sheet of mid-level cloud."
+     "surface": "A choir singer spotted waiting at the rear of a country house.",
+     "definitionFit": "Altostratus is a grey sheet of mid-level cloud, one of the named cloud types."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "standing"
     }
@@ -2254,50 +2258,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "left half of",
-       "note": "keep the left half of FRANCE"
+       "text": "under the protection of",
+       "at": 33,
+       "note": "under the protection of means held safely inside the other letters"
       }
      ],
      "parts": [
       {
-       "words": "crack troops",
-       "gives": "SAS",
-       "note": "the SAS, the British special forces"
+       "words": "two lots of crack troops",
+       "at": 57,
+       "gives": "SASSAS",
+       "note": "the SAS is the Special Air Service, Britain's crack special forces; two lots gives it twice"
       },
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
-         "text": "under the protection of"
+         "text": "left half of",
+         "at": 13,
+         "note": "left half of means keep only the first half of the word, the half on the left"
         }
        ],
        "parts": [
         {
-         "words": "two lots of",
-         "gives": "SAS",
-         "note": "a second SAS, split SA|S round FRA"
-        },
-        {
-         "words": "left half of France",
-         "gives": "FRA",
-         "note": "the first three of the six letters of FRANCE"
+         "words": "France",
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An oil company flees half of France guarded by two units of elite soldiers.",
-     "walkthrough": "The SAS (Special Air Service) is the British army's special forces regiment. 'Left' reads as 'departed'; it picks out the left-hand half of the word.",
-     "definitionFit": "The sassafras tree yields an aromatic oil from its root bark."
+     "surface": "A French oil producer, half gone, is guarded by elite soldiers.",
+     "walkthrough": "The SAS is the Special Air Service, the British Army's special forces regiment. 'Oil producer' suggests a company or a country, but it is a tree.",
+     "definitionFit": "The sassafras tree yields an aromatic oil from its root bark, once used in flavourings."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "left"
+     "aptDefinition": false,
+     "misdirectedWord": "Oil"
     }
    }
   },
@@ -2368,7 +2370,8 @@
      "indicators": [
       {
        "text": "reflecting",
-       "note": "the letters are mirrored, read backwards"
+       "at": 16,
+       "note": "reflecting means mirrored, so the letters are read backwards"
       }
      ],
      "parts": [
@@ -2376,41 +2379,29 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "a lot of"
+         "text": "a lot of",
+         "at": 27,
+         "note": "a lot of means most of the word, dropping its final letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "rubbish",
-           "gives": "BILGE",
-           "note": "bilge = nonsense"
-          },
-          {
-           "words": "a lot of",
-           "gives": "BILG",
-           "note": "BILGE without its last letter"
-          },
-          {
-           "words": "reflecting",
-           "gives": "GLIB",
-           "note": "BILG turned back to front"
-          }
-         ]
+         "words": "rubbish",
+         "at": 36,
+         "gives": "BILGE",
+         "note": "bilge is nonsense or rubbish"
         },
         {
-         "gives": "EBILGGLIB"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slick talker is showing a lot of nonsense.",
-     "walkthrough": "The surface is apt: glib talk is often a lot of rubbish.",
-     "definitionFit": "Glib means smooth-talking, fluent but insincere."
+     "surface": "A slick talker mirroring plenty of nonsense back at you.",
+     "walkthrough": "BILGE without its last letter is BILG, which read backwards gives the answer.",
+     "definitionFit": "Glib describes speech that is fluent and easy but insincere or shallow."
     },
     "features": {
      "answerInScene": true,
