@@ -116,50 +116,53 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the car word follows the party word in the answer"
+       "at": 15,
+       "note": "says the car comes after the party in the answer"
       }
      ],
      "parts": [
       {
        "words": "party",
+       "at": 21,
        "gives": "DO",
-       "note": "a do is an informal party"
+       "note": "a do is a party"
       },
       {
        "words": "car",
+       "at": 11,
        "gives": "MINI",
-       "note": "the Mini is a classic small British car"
+       "note": "the Mini is a small British car"
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "half",
-         "note": "only half of the word for drunk is kept, the back three letters dropped"
+         "at": 27,
+         "note": "asks for the first three letters of the six-letter slang word for drunk"
         }
        ],
        "parts": [
         {
          "words": "drunk",
+         "at": 32,
          "gives": "CANNED",
-         "note": "canned is slang for intoxicated"
-        },
-        {
-         "gives": "NED"
+         "note": "canned is slang for drunk"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A monk rides in a car after a party, somewhat tipsy.",
-     "walkthrough": "DO + MINI + CAN, the first half of CANNED.",
-     "definitionFit": "A Dominican is a friar of the order founded by Saint Dominic, addressed as Brother."
+     "surface": "A monk rides home in a car after a party, a little tipsy.",
+     "walkthrough": "DO, then MINI, then CAN, the first half of CANNED.",
+     "definitionFit": "A Dominican is a friar of the Order of Preachers, called Brother within the order."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "party"
+     "joke": "absurd",
+     "misdirectedWord": "Brother"
     }
    }
   },

@@ -281,29 +281,40 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "not starting",
-       "note": "the first letter is dropped"
-      },
-      {
        "text": "shifts",
-       "note": "the remaining letters move around"
+       "at": 26,
+       "note": "the remaining letters shift about into a new order"
       }
      ],
      "parts": [
       {
-       "words": "canteen",
-       "gives": "ANTEEN",
-       "note": "canteen without its C"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not starting",
+         "at": 13,
+         "note": "the word canteen loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "canteen",
+         "at": 5
+        },
+        {
+         "gives": "C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cleaning up a canteen that isn't open yet, with shifts on the rota.",
-     "walkthrough": "'Shifts' looks like work shifts in the canteen; it is a verb telling the letters to move.",
-     "definitionFit": "A plain synonym: both verbs mean putting things in order, as in neatening a room or tidying a desk."
+     "surface": "A canteen worker tidies up before the shifts begin.",
+     "walkthrough": "CANTEEN without its C is ANTEEN, which is rearranged.",
+     "definitionFit": "To neaten something is to make it tidy and orderly, so both verbs match."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "shifts"
     }
@@ -1483,50 +1494,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "withered",
-       "at": 18,
-       "note": "withered means shrivelled and twisted out of shape, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Has",
-       "at": 0,
-       "note": "the letters of has, part of the pool to be rearranged"
-      },
-      {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "briefly",
-         "at": 10,
-         "note": "briefly means cut short, so the last letter of pyxie is dropped"
+         "text": "withered",
+         "at": 18,
+         "note": "withered means shrivelled and twisted out of shape, so the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "pyxie",
-         "at": 4,
-         "note": "pyxie is a small creeping evergreen shrub, here shortened by its last letter"
+         "words": "Has",
+         "at": 0
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 10,
+           "note": "the word pyxie is cut short, losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pyxie",
+           "at": 4
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       },
       {
        "words": "a",
-       "at": 32
+       "at": 32,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A little shrub has shrivelled because it was starved of air.",
-     "walkthrough": "Pyxie is a North American evergreen plant, so 'withered' suits it. 'briefly' cuts it to PYXI, which with HAS and A is rearranged.",
-     "definitionFit": "Asphyxia is suffocation, the condition caused by the body being deprived of oxygen."
+     "surface": "A pyxie plant shrivels from being starved of air.",
+     "walkthrough": "HAS and PYXI (pyxie cut short) are jumbled to ASPHYXI; A ends it. Pyxie is a small North American evergreen shrub.",
+     "definitionFit": "Asphyxia is suffocation, the condition of the body being deprived of oxygen."
     },
     "features": {
      "answerInScene": true,

@@ -1273,51 +1273,52 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "never seeing last pair",
+       "at": 63,
+       "note": "each of the three words loses its final two letters"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "never seeing last pair",
-         "at": 63,
-         "note": "never seeing last pair means the final two letters are dropped, and it applies to each of the three words in turn"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "taking long walks",
          "at": 15,
          "gives": "HIKING",
-         "note": "hiking is taking long walks in the country"
+         "note": "hiking means taking long walks"
         },
         {
-         "gives": "NG"
+         "words": "island of dragons",
+         "at": 36,
+         "gives": "KOMODO",
+         "note": "Komodo, in Indonesia, is home to the Komodo dragon"
+        },
+        {
+         "words": "risk",
+         "at": 57,
+         "gives": "RISK",
+         "note": "taken as written"
         }
        ]
       },
       {
-       "words": "island of dragons",
-       "at": 36,
-       "gives": "KOMO",
-       "note": "Komodo is the Indonesian island home of the Komodo dragon; without its last pair it gives these four letters"
-      },
-      {
-       "words": "risk",
-       "at": 57,
-       "gives": "RI",
-       "note": "risk without its last pair, the S and K"
+       "gives": "NGDOSK"
       }
      ]
     },
     "explanation": {
-     "surface": "A loner going on long hikes on a dragon-infested island, always at risk.",
-     "walkthrough": "'never seeing last pair' trims all three words: HIKING, KOMODO and RISK become HIKI, KOMO and RI. The answer is a Japanese word.",
-     "definitionFit": "Hikikomori is the Japanese term for people who withdraw from society and stay shut in their homes, social recluses."
+     "surface": "A hermit prefers long hikes on a dragon island, dodging risky company.",
+     "walkthrough": "HIKING, KOMODO and RISK each lose their last two letters: HIKI, KOMO, RI.",
+     "definitionFit": "Hikikomori is a Japanese term for a person who withdraws completely from society."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dragons"
     }
    }
   },

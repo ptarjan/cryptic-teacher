@@ -537,7 +537,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "teacher",
+      "text": "teacher?",
       "at": 55
      }
     ],
@@ -545,38 +545,52 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "but not right",
-       "note": "'but' means except, so the word is taken without its R, the abbreviation for right"
+       "text": "written up",
+       "at": 40,
+       "note": "in a down clue the letters are written upwards, so read in reverse"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "written up",
-         "note": "in a down clue, written from the bottom up, so backwards"
-        }
-       ],
        "parts": [
         {
          "words": "Register of names",
+         "at": 0,
          "gives": "ROTA",
-         "note": "a rota is a list of names taking turns"
+         "note": "a rota is a list of names showing who is on duty when"
         },
         {
-         "words": "rough",
-         "gives": "CUDE",
-         "note": "CRUDE (rough) without its R"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "but not",
+           "at": 25,
+           "note": "says the letter for right is dropped from the word for rough"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rough",
+           "at": 19,
+           "gives": "CRUDE",
+           "note": "rough means crude"
+          },
+          {
+           "words": "right",
+           "at": 33,
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher writes up a messy register of names.",
-     "walkthrough": "ROTA plus CUDE, reversed, gives the answer; the register-and-teacher picture makes 'written up' look like note-taking.",
-     "definitionFit": "A plain synonym, slightly formal: an educator is someone whose job is teaching."
+     "surface": "A school register is dismissed as rough, but a teacher writes it up.",
+     "walkthrough": "CRUDE without R is CUDE; ROTA then CUDE, written upwards, gives the answer.",
+     "definitionFit": "An educator is one who teaches; the question mark admits the definition is a little loose."
     },
     "features": {
      "answerInScene": true,
@@ -1613,30 +1627,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "eating"
-      },
-      {
-       "text": "half of",
-       "note": "half the letters of the word"
+       "text": "eating",
+       "at": 4,
+       "note": "the ram's word takes the chosen letters inside it"
       }
      ],
      "parts": [
       {
        "words": "Ram",
+       "at": 0,
        "gives": "TUP",
-       "note": "a tup is a ram"
+       "note": "a tup is a ram, a male sheep"
       },
       {
-       "words": "half of lily",
-       "gives": "LI",
-       "note": "the first half of LILY; it goes inside TUP"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 11,
+         "note": "asks for the first two of the four letters of lily"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lily",
+         "at": 19
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ram munching part of a lily flower.",
-     "walkthrough": "TUP is a dialect word for a ram, common in crosswords.",
-     "definitionFit": "A definition by example: the tulip is one kind of flower."
+     "surface": "A ram munches part of a lily in the garden.",
+     "walkthrough": "Tup is a dialect word for a ram, common in crosswords.",
+     "definitionFit": "A tulip is a spring-flowering bulb plant with cup-shaped blooms."
     },
     "features": {
      "answerInScene": true,
@@ -2024,49 +2048,42 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "giving up external positions",
+       "at": 31,
+       "note": "each of the four words loses its first and last letters, keeping only the inner ones"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "giving up external positions",
-         "note": "each word loses its outside letters, leaving the middle"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Dave",
-         "note": "dAVe without its outside letters"
-        }
-       ]
+       "words": "Dave",
+       "at": 10
       },
       {
        "words": "Fogg",
-       "gives": "OG",
-       "note": "fOGg without its outside letters"
+       "at": 15
       },
       {
        "words": "made",
-       "gives": "AD",
-       "note": "mADe without its outside letters"
+       "at": 20
       },
       {
        "words": "prof",
-       "gives": "RO",
-       "note": "pROf without its outside letters"
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "A physicist named Dave Fogg is promoted to professor, giving up outside posts?",
-     "walkthrough": "Dave Fogg is invented; the name exists only to supply letters.",
-     "definitionFit": "Amedeo Avogadro was the Italian physicist behind Avogadro's number."
+     "surface": "A man called Dave Fogg is promoted to professor, perhaps losing outside posts.",
+     "walkthrough": "Inner letters: AV from Dave, OG from Fogg, AD from made, RO from prof.",
+     "definitionFit": "Amedeo Avogadro was the Italian scientist behind Avogadro's law and the constant named after him."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "positions"
     }
    }

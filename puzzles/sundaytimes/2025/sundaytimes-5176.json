@@ -453,20 +453,37 @@
      "parts": [
       {
        "words": "chosen",
+       "at": 14,
        "gives": "ELECT",
-       "note": "elect = chosen, as in president-elect"
+       "note": "someone chosen by a vote is elect"
       },
       {
-       "words": "to cut down cereal",
-       "gives": "RIC",
-       "note": "RICE loses its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut down",
+         "at": 24,
+         "note": "says the word for the cereal is shortened, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cereal",
+         "at": 33,
+         "gives": "RICE",
+         "note": "rice is a cereal grain"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer choosing which field to clear of its cereal crop.",
-     "walkthrough": "The farm field is really the physics one, an electric field.",
-     "definitionFit": "A definition by example: physics has electric, magnetic and gravitational fields, and the clue asks for one sort."
+     "surface": "A farmer picks a field to harvest a cereal crop.",
+     "walkthrough": "ELECT comes first, then RIC, which is RICE with its tail cut off.",
+     "definitionFit": "An electric field is the region of force around a charged body, one particular kind of field in physics."
     },
     "features": {
      "answerInScene": false,

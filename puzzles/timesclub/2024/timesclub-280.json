@@ -347,7 +347,7 @@
       {
        "text": "loaded",
        "at": 45,
-       "note": "the jumbled letters are loaded into the weapon, placed inside it"
+       "note": "the weapon is loaded with the jumbled letters, which go inside it"
       }
      ],
      "parts": [
@@ -363,29 +363,44 @@
         {
          "text": "shot",
          "at": 40,
-         "note": "shot means worn out or broken, so the letters are disordered"
+         "note": "shot means ruined or wrecked, so the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "minus smaller",
-         "at": 26,
-         "gives": "MINU",
-         "note": "the word minus made smaller by losing S, the clothing-size abbreviation for small"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "smaller",
+           "at": 32,
+           "note": "says the word minus is made shorter by losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "minus",
+           "at": 26,
+           "gives": "MINUS",
+           "note": "taken as written, before being cut"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gun's power is measured with a smaller charge loaded into it.",
-     "walkthrough": "'Minus' does double duty in the surface as subtraction, but it is the word itself that loses S (smaller) before 'shot' rearranges what is left.",
-     "definitionFit": "Luminance is the measured brightness of light from a surface, so it is the strength of light."
+     "surface": "A light weapon has lost a smaller round from its load.",
+     "walkthrough": "'light weapon' tempts as a pistol, but 'Strength of light' is the definition and the weapon is a lance.",
+     "definitionFit": "Luminance is the measured brightness or intensity of light given off by a surface."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "minus"
+     "misdirectedWord": "light"
     }
    }
   },
@@ -1918,33 +1933,45 @@
        "indicators": [
         {
          "text": "making a return",
-         "note": "to return is to go back the way one came, so the letters run backwards"
+         "at": 15,
+         "note": "the chosen letters are turned round and read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Half of Kazaks",
-         "gives": "KAZ",
-         "note": "the first three of its six letters"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Half of",
+           "at": 0,
+           "note": "asks for the first three of the six letters of the word Kazaks"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Kazaks",
+           "at": 8
+          }
+         ]
         }
        ]
       },
       {
-       "words": "in",
+       "words": "in exchange for",
+       "at": 31,
        "gives": "AT",
-       "note": "at means in, as in 'at home'"
+       "note": "at, as in sold at a price, means in exchange for that sum"
       }
      ]
     },
     "explanation": {
-     "surface": "Some Kazakhs come back to pay a religious levy in exchange for goods.",
-     "walkthrough": "'Making a return' suggests filing a tax return, a good fit for the surface, but it means turning letters back.",
-     "definitionFit": "Zakat is the obligatory annual almsgiving in Islam, a fixed share of wealth given to the poor."
+     "surface": "Kazakh traders pay a religious levy as they come home.",
+     "walkthrough": "'in exchange for' is wordplay, not part of the definition: at a price means in exchange for it.",
+     "definitionFit": "Zakat is the obligatory alms-giving in Islam, one of its five pillars, levied on wealth."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "return"
     }
    }
