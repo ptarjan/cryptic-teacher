@@ -1305,54 +1305,56 @@
      "indicators": [
       {
        "text": "following",
-       "note": "'following' means coming after"
-      },
-      {
-       "text": "first couple of",
-       "note": "a couple is two, so the first two letters are taken"
+       "at": 21,
+       "note": "the doubled word comes after the opening letters"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "CR",
        "indicators": [
         {
-         "text": "repeated",
-         "note": "'repeated' means said again, so the word 'is' is used twice"
+         "text": "first couple of",
+         "at": 31,
+         "note": "the opening pair of letters of the next word are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "crashes",
-         "gives": "CR",
-         "select": "first",
-         "note": "the first two letters of crashes"
+         "at": 47
         }
        ]
       },
       {
-       "words": "is",
-       "note": "IS stays IS"
-      },
-      {
-       "words": "repeated",
-       "gives": "IS",
-       "note": "IS again"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "repeated",
+         "at": 12,
+         "note": "the little word is said a second time, so it appears twice in a row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 9
+        },
+        {
+         "gives": "IS"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Disaster strikes again after a pair of crashes.",
-     "walkthrough": "'Is repeated' reads as part of the story, but it simply means write IS twice.",
-     "definitionFit": "A plain synonym: a crisis is a time of severe difficulty, close to disaster."
+     "surface": "A report of one calamity after another as the first crashes pile up.",
+     "definitionFit": "A crisis is a time of acute danger or calamity, a near synonym of a disaster."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "repeated"
+     "misdirectedWord": "crashes"
     }
    }
   },

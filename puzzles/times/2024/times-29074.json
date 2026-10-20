@@ -49,24 +49,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Without afterthought, cops",
-       "gives": "CO",
-       "note": "COPS with PS (postscript) removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Without",
+         "at": 0,
+         "note": "the letters are taken out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cops",
+         "at": 22,
+         "gives": "COPS",
+         "note": "taken as written"
+        },
+        {
+         "words": "afterthought",
+         "at": 8,
+         "gives": "PS",
+         "note": "PS, a postscript, is an afterthought added to a letter"
+        }
+       ]
       },
       {
        "words": "now",
+       "at": 27,
        "gives": "HERE",
-       "note": "here = now, as in 'here and now'"
+       "note": "here means now, at this point, as in here and now"
       }
      ]
     },
     "explanation": {
-     "surface": "A police squad, resolving not to second-guess, closes ranks.",
-     "walkthrough": "An afterthought is a PS, the postscript tacked onto a letter; take it off COPS and only CO remains.",
-     "definitionFit": "A plain synonym: things that cohere hold together, literally like particles or figuratively like an argument."
+     "surface": "Police officers deciding, without second thoughts, to stay together.",
+     "definitionFit": "To cohere is to stick together or form a unified whole."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "afterthought"
     }

@@ -192,61 +192,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACCIDENTAL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 29,
+       "note": "the shortened word is placed after that letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "missing out on",
-         "note": "to miss out on something is to go without it, so OCCIDENTAL goes without its O"
-        },
-        {
-         "text": "after",
-         "note": "'after' puts the western part later in the answer than the A"
+         "text": "head of",
+         "at": 35,
+         "note": "only the first letter of the next word"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "A",
-         "indicators": [
-          {
-           "text": "head of",
-           "note": "the head of anything is its top, so the head of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "head of Academy",
-           "gives": "A",
-           "select": "first",
-           "note": "first letter of Academy"
-          }
-         ]
+         "words": "Academy",
+         "at": 43
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing out on",
+         "at": 8,
+         "note": "a letter is left out, as if the word missed it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Western",
+         "at": 0,
+         "gives": "OCCIDENTAL",
+         "note": "occidental means western"
         },
         {
-         "words": "Western missing out on Oscar",
-         "gives": "CCIDENTAL",
-         "note": "OCCIDENTAL (western) without O, Oscar in the radio alphabet"
+         "words": "Oscar",
+         "at": 23,
+         "gives": "O",
+         "note": "O is Oscar in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A western film loses out at the Oscars to an exceptional film noted by the Academy's head.",
-     "walkthrough": "The Academy and the Oscar make this look like film awards; 'noted' points instead to music notation.",
-     "definitionFit": "A musical term: a sharp, flat or natural sign marking a note outside the key signature, an exception written in notes."
+     "surface": "A Western film fails to win an Oscar, which the Academy head calls an exception.",
+     "walkthrough": "The Academy and Oscar suggest the film awards, but they just supply letters. 'Noted' makes the definition musical.",
+     "definitionFit": "In music an accidental is a sharp, flat or natural sign outside the key signature, an exception on the stave."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Oscar"
     }
    }
@@ -276,41 +280,40 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "whatever eats something takes it inside"
+       "at": 25,
+       "note": "the outer letters take in, as if eating, the trimmed word"
       }
      ],
      "parts": [
       {
        "words": "New York",
-       "gives": "NY",
-       "note": "the standard abbreviation"
+       "at": 16,
+       "gives": "NY"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "UTT",
+       "op": "middle",
        "indicators": [
         {
          "text": "with no crust",
-         "note": "the crust of a sandwich is its outside edge, so the first and last letters go"
+         "at": 41,
+         "note": "the outside letters are cut away, like crusts off bread"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "sandwich with no crust",
-         "gives": "UTT",
-         "select": "outer",
-         "note": "BUTTY, a British word for a sandwich, loses its first and last letters"
+         "words": "sandwich",
+         "at": 32,
+         "gives": "BUTTY",
+         "note": "a butty is British slang for a sandwich"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone out on a lunch break in New York, eating a crustless sandwich.",
-     "walkthrough": "'Out to lunch' looks like literal lunch, backed up by the sandwich; it is the slang definition for crazy. A butty is a sandwich in northern English.",
-     "definitionFit": "An idiom: someone out to lunch is not all there, and so is crazy."
+     "surface": "Someone out at lunch in New York, eating a crustless sandwich.",
+     "walkthrough": "'Out to lunch' looks like literal lunchtime, but it is the idiom for being crazy.",
+     "definitionFit": "Out to lunch is an informal idiom for crazy or eccentric, just as nutty is."
     },
     "features": {
      "answerInScene": false,
@@ -535,78 +538,64 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
-       "text": "finish",
-       "note": "the finish of anything is its end, so a word's finish is its final letter"
+       "text": "getting damaged",
+       "at": 23,
+       "note": "getting damaged letters are knocked about, so they are rearranged"
+      },
+      {
+       "text": "shifting",
+       "at": 42,
+       "note": "the piano is shifted out, removed from the pool of letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "getting damaged",
-         "note": "something damaged is knocked out of shape, so the letters lose their order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "deletion",
+         "words": "Parquet",
+         "at": 0
+        },
+        {
+         "op": "last",
          "indicators": [
           {
-           "text": "on shifting",
-           "note": "to shift a piano is to move it out of the room, so P is taken away"
+           "text": "finish",
+           "at": 16,
+           "note": "the final letter of the word before"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Parquet",
-             "note": "taken as it stands"
-            },
-            {
-             "op": "last",
-             "unchecked": true,
-             "gives": "R",
-             "parts": [
-              {
-               "unchecked": true,
-               "words": "floor's",
-               "gives": "R",
-               "select": "last",
-               "note": "last letter of flooR"
-              }
-             ]
-            }
-           ]
-          },
-          {
-           "gives": "P"
+           "words": "floor's",
+           "at": 8,
+           "gives": "FLOOR",
+           "note": "the word floor, in its possessive form"
           }
          ]
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "shifting piano",
-       "note": "remove P, piano in music"
+       "words": "piano",
+       "at": 51,
+       "gives": "P",
+       "note": "P is the musical abbreviation for piano, softly"
       }
      ]
     },
     "explanation": {
-     "surface": "A parquet floor whose finish is scratched while a piano is moved across it.",
-     "walkthrough": "The removal man's nightmare is all wordplay: P goes from PARQUET, R joins, and the rest is rearranged.",
-     "definitionFit": "Definition by example: one fourth is one fraction among many."
+     "surface": "A parquet floor gets scratched when the piano is moved across it.",
+     "walkthrough": "PARQUET plus R, the end of 'floor', rearranged ('damaged') with P taken out ('shifting piano').",
+     "definitionFit": "A quarter is one of four equal parts, a common fraction."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "shifting"
+     "misdirectedWord": "piano"
     }
    }
   },
@@ -764,51 +753,46 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "COLLARD",
      "indicators": [
       {
        "text": "without",
-       "note": "'without' in its sense of lacking"
+       "at": 16,
+       "note": "the letter is taken out of the longer word"
       }
      ],
      "parts": [
       {
        "words": "arrested",
+       "at": 7,
        "gives": "COLLARED",
        "note": "to be collared is to be arrested"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
          "text": "a shred of",
-         "note": "a shred is the smallest scrap of something, here a single letter, the first"
+         "at": 24,
+         "note": "just one tiny bit, the opening letter, of the next word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "without a shred of evidence",
-         "gives": "A",
-         "select": "first",
-         "note": "remove E, the first letter of evidence"
+         "words": "evidence",
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Green Party activists arrested with no evidence against them.",
-     "walkthrough": "'Greens' looks like environmentalists; it is the vegetable. Collard greens are a leafy cabbage popular in the US South.",
-     "definitionFit": "Definition by example: this loose-leaved cabbage is cooked and eaten as greens."
+     "surface": "Environmental protesters taken into custody with no evidence against them.",
+     "walkthrough": "'Greens' suggests eco-campaigners, but here it means leafy vegetables.",
+     "definitionFit": "Collard is a cabbage-family plant whose leaves are eaten as greens, especially in the American South."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Greens"
     }
    }
@@ -841,84 +825,78 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "held",
-       "note": "something held is gripped inside another's hands, so the army sits inside the copper"
-      }
-     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Tartan",
+       "at": 0,
+       "gives": "PLAID",
+       "note": "a plaid is a tartan cloth"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "back",
-         "note": "held back means pushed backwards, so the army's letters run in reverse"
+         "text": "held",
+         "at": 12,
+         "note": "the reversed letters are held inside the metal's symbol"
+        },
+        {
+         "text": "by",
+         "at": 22,
+         "note": "the holding is done by the copper symbol"
         }
        ],
        "parts": [
         {
-         "words": "Tartan",
-         "gives": "PLAID",
-         "note": "plaid is tartan cloth"
+         "words": "copper",
+         "at": 25,
+         "gives": "CU",
+         "note": "CU is the chemical symbol for copper"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "by",
-           "note": "'held by copper' names the copper as the one doing the holding"
+           "text": "back",
+           "at": 17,
+           "note": "the letters are read backwards"
           }
          ],
          "parts": [
           {
-           "words": "copper",
-           "gives": "CU",
-           "note": "Cu, the chemical symbol for copper"
-          },
-          {
-           "op": "reversal",
+           "op": "deletion",
            "indicators": [
             {
              "text": "dispersing",
-             "note": "to disperse something is to scatter it away, so the A of the army leaves"
+             "at": 32,
+             "note": "the letter is dispersed, sent away from the word"
             }
            ],
            "parts": [
             {
-             "op": "deletion",
-             "parts": [
-              {
-               "words": "Army",
-               "note": "taken as it stands"
-              },
-              {
-               "gives": "A"
-              }
-             ]
+             "words": "Army",
+             "at": 7
+            },
+            {
+             "words": "a",
+             "at": 43
             }
            ]
           }
          ]
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "a",
-       "note": "the A of YMRA is dispersed"
       }
      ]
     },
     "explanation": {
-     "surface": "Scottish football fans, the Tartan Army, being held back by a police officer who breaks up their party in Cardiff.",
-     "walkthrough": "The Tartan Army is the name for Scotland's travelling football supporters, and a copper is a policeman. Plaid Cymru is the Welsh nationalist party; Cardiff is the Welsh capital.",
-     "definitionFit": "Definition by example: the Welsh nationalist party sits in the Senedd, the Welsh parliament in Cardiff."
+     "surface": "Scotland football fans, the Tartan Army, held up by a policeman while a party goes on in Cardiff.",
+     "walkthrough": "The Tartan Army is the nickname of Scotland's football supporters, and a copper is a policeman; both are misdirection. 'Held back by' splits: 'back' reverses, 'held by' contains.",
+     "definitionFit": "Plaid Cymru is the Welsh nationalist political party, and Cardiff is the capital of Wales."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "Army"
     }
    }
@@ -1187,64 +1165,63 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "penned by",
-       "note": "an animal penned by a fence is shut inside it"
+       "at": 18,
+       "note": "the letter is enclosed, as in a pen, by the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "with only one",
-         "note": "gag has two Gs, and keeping only one means dropping the other"
+         "text": "set",
+         "at": 58,
+         "note": "set in the sense of arranged, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "set",
-           "note": "to set type is to arrange it, so the letters are put in a new order"
+           "text": "with only one",
+           "at": 39,
+           "note": "one of the two matching letters is dropped"
           }
          ],
          "parts": [
           {
-           "op": "deletion",
-           "parts": [
-            {
-             "words": "gag writer",
-             "note": "taken as it stands"
-            },
-            {
-             "gives": "G"
-            }
-           ]
+           "words": "gag",
+           "at": 28
+          },
+          {
+           "words": "good",
+           "at": 53,
+           "gives": "G"
           }
          ]
         },
         {
-         "words": "line",
-         "gives": "L",
-         "note": "L = line"
+         "words": "writer",
+         "at": 32
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "only one good",
-       "note": "remove one G, good"
+       "words": "line",
+       "at": 13,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A comedy writer crafts one decent line in a whole set.",
-     "walkthrough": "The surface is a stand-up routine with one good joke in the set; 'set' is the anagram instruction.",
-     "definitionFit": "An idiom: something written in big letters is plain for all to see."
+     "surface": "A comedy writer with a single good joke routine slips in a line.",
+     "walkthrough": "'Set' looks like a comedy set, but it is the anagram signal, as in set out in order.",
+     "definitionFit": "Writ large is an idiom meaning shown clearly or on a grand scale, so plain to see."
     },
     "features": {
      "answerInScene": false,
@@ -1840,41 +1817,54 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short is missing its end, so OUR loses its last letter"
-      },
-      {
-       "text": "following"
+       "text": "following",
+       "at": 26,
+       "note": "the tipped piece comes after the shortened one"
       }
      ],
      "parts": [
       {
-       "words": "our",
-       "gives": "OU",
-       "note": "OUR without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 40,
+         "note": "the word is cut short, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "our",
+         "at": 36
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "Tip",
-         "note": "to tip a thing is to tilt it over"
+         "at": 0,
+         "note": "to tip something is to turn it over, so the letters are reversed"
         }
        ],
        "parts": [
         {
          "words": "a fraction of a pound",
+         "at": 4,
          "gives": "OZ",
-         "note": "an ounce, one sixteenth of a pound"
+         "note": "an ounce, OZ, is one sixteenth of a pound"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Leaving a few pence as a tip after our quick drink.",
-     "walkthrough": "'Tip' reads as a gratuity; it is the instruction to tip OZ over.",
-     "definitionFit": "Definition by example: the aniseed-flavoured Greek spirit is one drink among many."
+     "surface": "Instructions for a barman: tip in a small measure after our quick drink.",
+     "definitionFit": "Ouzo is an anise-flavoured Greek spirit, a strong alcoholic drink."
     },
     "features": {
      "answerInScene": true,
@@ -2105,47 +2095,49 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ENTRECHAT",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to the west of",
+       "at": 42,
+       "note": "in an across answer west is left, so this piece comes first"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
        "indicators": [
         {
          "text": "cycling",
-         "note": "to cycle is to go round, so the first letter travels round to the back"
-        },
-        {
-         "text": "to the west of",
-         "note": "on a map west is left, so in an across answer this piece comes first"
+         "at": 27,
+         "note": "the first letter of the word cycles round to the end"
         }
        ],
        "parts": [
         {
          "words": "centre",
-         "gives": "ENTREC",
-         "note": "CENTRE with C cycled to the end"
-        },
-        {
-         "words": "Derby",
-         "gives": "HAT",
-         "note": "a derby is a bowler hat"
+         "at": 35
         }
        ]
+      },
+      {
+       "words": "Derby",
+       "at": 57,
+       "gives": "HAT",
+       "note": "a derby is a bowler hat"
       }
      ]
     },
     "explanation": {
-     "surface": "A bike's pedal spring needs replacing after cycling through Derby's centre.",
-     "walkthrough": "The bicycle picture (pedal, cycling, Derby the English city) all misleads: 'pedal' means with the feet. It is a ballet leap.",
-     "definitionFit": "A ballet term: a jump in which the dancer's feet beat together in the air, a spring made by the feet."
+     "surface": "Pedalling on a bike from the town centre westward toward Derby.",
+     "walkthrough": "'Cycling' and 'Pedal' suggest bikes and 'Derby' an English city, but Derby is the American name for a bowler hat.",
+     "definitionFit": "An entrechat is a ballet leap where the dancer crosses the feet in the air, a spring done with the feet."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Pedal"
+     "misdirectedWord": "cycling"
     }
    }
   }
