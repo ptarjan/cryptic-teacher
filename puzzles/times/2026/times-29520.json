@@ -1467,50 +1467,46 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "uncovered",
+       "at": 20,
+       "note": "uncovered strips the covering letters, so the two outer ends of the joined words are removed"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "uncovered",
-         "note": "strip off the outer letters of the whole phrase"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Very small",
+         "at": 0,
          "gives": "MINUTE",
-         "note": "minute = tiny; its M is lost"
+         "note": "very small means minute"
         },
         {
-         "gives": "M"
+         "words": "kangaroo",
+         "at": 11,
+         "gives": "ROO",
+         "note": "roo is the short form of kangaroo"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "kangaroo",
-         "gives": "ROO",
-         "note": "roo is short for kangaroo; its last O is lost"
-        },
-        {
-         "gives": "O"
-        }
-       ]
+       "gives": "MO"
       }
      ]
     },
     "explanation": {
-     "surface": "A tiny joey still in its mother's pouch.",
-     "walkthrough": "'Uncovered' works on MINUTE ROO as a single string, removing only its first and last letters.",
-     "definitionFit": "A Latin phrase kept in English, used by doctors for anything happening before birth."
+     "surface": "A tiny joey, still hairless, sits deep inside its mother before birth.",
+     "walkthrough": "'uncovered' acts on MINUTE and ROO joined together, so only the M at the front and the final O go.",
+     "definitionFit": "The Latin phrase is used in English for a baby still developing before birth, within its mother."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
     }
    }
   },

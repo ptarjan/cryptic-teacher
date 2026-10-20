@@ -1378,46 +1378,62 @@
      "indicators": [
       {
        "text": "during",
-       "note": "happening during something means within its span, so pieces go inside"
+       "at": 24,
+       "note": "during puts the husband letter within the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "odd",
-         "note": "odd means strange and irregular, so the letters are put in an irregular order"
+         "text": "twice",
+         "at": 18,
+         "note": "twice says the husband letter appears a second time, going in at another spot"
         }
        ],
        "parts": [
         {
-         "words": "twice",
-         "gives": "H",
-         "note": "the same letter used a second time"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "odd",
+           "at": 39,
+           "note": "odd signals that the letters are rearranged into a strange order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "saga",
+           "at": 31
+          },
+          {
+           "words": "in",
+           "at": 36
+          }
+         ]
         },
         {
-         "words": "saga in",
-         "note": "six letters to rearrange"
+         "words": "Husband",
+         "at": 0,
+         "gives": "H"
         }
        ]
       },
       {
-       "words": "Husband",
-       "gives": "H",
-       "note": "H is the abbreviation for husband"
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "A husband appears twice in a long story set in a strange city in Asia.",
-     "walkthrough": "'Odd' looks like it describes the city, but it rearranges the two words before it; 'in' is part of those letters, not a link. The two husband letters then slot into the result at separate points.",
-     "definitionFit": "Shanghai is China's largest city and a major port, so it is a city in Asia."
+     "surface": "A husband turns up twice in a peculiar family story set in Asia.",
+     "walkthrough": "'odd' rearranges SAGA and IN to SANGAI, and the husband's H goes into it twice, at two separate places.",
+     "definitionFit": "The Chinese port on the Yangtze delta is one of Asia's largest cities."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "in"
+     "misdirectedWord": "odd"
     }
    }
   },

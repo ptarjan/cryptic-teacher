@@ -106,17 +106,31 @@
      }
     ],
     "wordplay": {
-     "words": "Repeated tea",
-     "gives": "CHACHA",
-     "note": "cha is an informal British word for tea, and repeated means it is written twice"
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Repeated",
+       "at": 0,
+       "note": "repeated means the word for tea appears again"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tea",
+       "at": 9,
+       "gives": "CHA",
+       "note": "cha is slang for tea, from the Chinese"
+      },
+      {
+       "gives": "CHA"
+      }
+     ]
     },
     "explanation": {
-     "surface": "A tea dance held over and over again.",
-     "walkthrough": "Cha (from Chinese) is old British slang for tea, as in 'a cup of cha'.",
-     "definitionFit": "The cha-cha is a lively Latin American ballroom step of Cuban origin."
+     "definitionFit": "The cha-cha is a Latin ballroom dance from Cuba."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "tea"
     }
@@ -264,41 +278,43 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the first items inside the outer word"
+       "at": 16,
+       "note": "in places the two letters inside the word for costumes"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "perhaps costumes",
-         "gives": "SUITS",
-         "note": "costumes are an example of suits of clothes, hence perhaps"
-        },
-        {
-         "words": "Maiden",
-         "gives": "M",
-         "note": "M is the cricket abbreviation for a maiden over"
-        }
-       ]
+       "words": "perhaps costumes",
+       "at": 19,
+       "gives": "SUITS",
+       "note": "suits are outfits, and costumes are an example of them"
       },
       {
-       "words": "male",
-       "gives": "M",
-       "note": "M is the standard abbreviation for male"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Maiden",
+         "at": 0,
+         "gives": "M",
+         "note": "M is the cricket abbreviation for a maiden over"
+        },
+        {
+         "words": "male",
+         "at": 11,
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A girl and a man dressed in costumes and wearing crowns, as at a pageant.",
-     "walkthrough": "A maiden is an over in cricket with no runs scored; 'perhaps' marks costumes as one example of the outer word.",
-     "definitionFit": "Summits are the highest points of hills, just as crowns are the tops of heads or hills."
+     "surface": "A girl and a man dressed in fancy outfits.",
+     "definitionFit": "Summits are the tops or peaks of mountains, their crowns."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "crowns"
+     "misdirectedWord": "costumes"
     }
    }
   },

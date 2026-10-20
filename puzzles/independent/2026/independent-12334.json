@@ -471,38 +471,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "kinky",
-       "note": "twisted out of shape, so the letters are rearranged"
-      },
-      {
-       "text": "smeared",
-       "note": "spread about, so the letters are mixed up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Strap-on",
-       "note": "anagram fodder, 7 letters"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "kinky",
+         "at": 9,
+         "note": "kinky means twisted, so the letters are bent into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Strap-on",
+         "at": 0
+        }
+       ]
       },
       {
-       "words": "Tina",
-       "note": "anagram fodder, 4 letters"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "smeared",
+         "at": 20,
+         "note": "smeared means messed about, so these letters are jumbled too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tina",
+         "at": 15
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A racy scene involving someone called Tina, oddly ending up with talk of a protective agent.",
-     "walkthrough": "The saucy surface is a distraction: both 'kinky' and 'smeared' just stir the letters. 'Supposed' hedges because a patron saint's protection is a matter of faith.",
-     "definitionFit": "A patron saint is believed to protect a place, trade or person."
+     "surface": "A racy scene involving a woman called Tina and some smeared make-up.",
+     "walkthrough": "The two words are scrambled separately: the first gives six letters plus S, the second four.",
+     "definitionFit": "Each such saint is believed to guard a place, trade or person, the supposed protector."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "absurd",
-     "misdirectedWord": "agent"
+     "misdirectedWord": "kinky"
     }
    }
   },
@@ -749,31 +763,51 @@
      "indicators": [
       {
        "text": "during",
-       "note": "the piece sits inside the other"
+       "at": 46,
+       "note": "during puts the cut brothers inside the get-together"
       }
      ],
      "parts": [
       {
        "words": "get-together",
+       "at": 53,
        "gives": "BEE",
-       "note": "a bee is a gathering, as in a spelling bee; it wraps the rest"
+       "note": "a bee is a social gathering for work, as in a sewing bee"
       },
       {
-       "words": "story-writing brothers to erase writing",
-       "gives": "GRIM",
-       "note": "the GRIMMS minus MS, a manuscript, i.e. writing"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to erase",
+         "at": 29,
+         "note": "to erase means the writing letters are rubbed out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story-writing brothers",
+         "at": 6,
+         "gives": "GRIMMS",
+         "note": "the Grimms were the German brothers who collected fairy tales"
+        },
+        {
+         "words": "writing",
+         "at": 38,
+         "gives": "MS",
+         "note": "MS is the abbreviation for manuscript, a piece of writing"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Brothers who write stories are told to delete their filthy tale at a meeting.",
-     "walkthrough": "The Brothers Grimm collected fairy tales; MS is the usual abbreviation for manuscript. 'Dirty' is a verb here, to make dirty.",
-     "definitionFit": "The verb is grime with the BE- prefix meaning 'cover with', so it means to dirty thoroughly."
+     "surface": "The fairy-tale brothers wipe out their work at a gathering.",
+     "definitionFit": "To begrime is to make soiled with grime, so to dirty."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Dirty"
+     "misdirectedWord": "writing"
     }
    }
   },
@@ -1338,35 +1372,50 @@
      "indicators": [
       {
        "text": "above",
-       "note": "in a down clue, this piece sits on top"
+       "at": 24,
+       "note": "in a down light, the a and power letters sit above the rest"
       }
      ],
      "parts": [
       {
        "words": "a",
-       "note": "as written"
+       "at": 16,
+       "gives": "A"
       },
       {
        "words": "power",
+       "at": 18,
        "gives": "P",
-       "note": "P = power, as in physics"
+       "note": "P is the physics symbol for power"
       },
       {
-       "words": "Unendingly obey",
-       "gives": "OLLO",
-       "note": "FOLLOW (obey) without its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Unendingly",
+         "at": 0,
+         "note": "unendingly removes both end letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "obey",
+         "at": 11,
+         "gives": "FOLLOW",
+         "note": "to follow is to obey, as in follow orders"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A believer resolves to obey forever a higher power, a god.",
-     "walkthrough": "'Unendingly' reads as 'forever' but strips both ends from FOLLOW, not just the last.",
-     "definitionFit": "Apollo is the Greek and Roman god of the sun, music and prophecy."
+     "surface": "Always do what a higher authority commands, it being divine.",
+     "definitionFit": "Apollo is the Greek and Roman god of music, poetry and the sun."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Unendingly"
+     "misdirectedWord": "power"
     }
    }
   },
