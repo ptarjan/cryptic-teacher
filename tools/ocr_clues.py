@@ -4135,6 +4135,61 @@ def settled_by_vlm(texts, lid, parse, cands):
     return None
 
 
+#: The fewest words a clue has to be told from the page's text by its words.
+INSIDE_WORDS = 4
+
+
+def clean_inside(cands, enum):
+    """The one reading in `cands` (each reading's text for a light, with its
+    count) whose words, in order, stand inside two other readings that each
+    have words between them no clue has, or None. A clue column beside a
+    page of tables (the FT's unit-trust prices) gets the table's figures and
+    scraps read into the clue ("Hanker after an unknown Ipcome Growtb make
+    (5)"); each reading has its own scraps, so no two read alike, but the
+    clean reading is inside all of them. Guarded: the reading's count is the
+    light's `enum`; what stands between its words in the others is unknown
+    to the lexicon (a word lost from the clue is a known word, which two
+    readings would print alike) and is not the same scrap in both; and the
+    readings do not otherwise differ in a word."""
+    want = clue_text.count_total(enum) if enum else None
+    if not want:
+        return None
+    for mine in sorted(cands, key=len):
+        m = re.search(r"\(([^()]*)\)\s*$", mine)
+        if not m or clue_text.count_total(m.group(1)) != want:
+            continue
+        words = [w.lower() for w in tokens(strip_count(mine))]
+        if len(words) < INSIDE_WORDS:
+            continue
+        gaps_seen, support = [], 0
+        for other in cands:
+            if other is mine:
+                continue
+            theirs = [w.lower() for w in tokens(strip_count(other))]
+            at, gaps, last = 0, [], 0
+            for w in words:
+                try:
+                    at = theirs.index(w, at)
+                except ValueError:
+                    gaps = None
+                    break
+                gaps.append(tuple(theirs[last:at]) if last else ())
+                at += 1
+                last = at
+            if gaps is None or all(not g for g in gaps[1:]) and len(theirs) == len(words):
+                continue
+            inserted = [w for g in gaps[1:] for w in g]
+            if not inserted or any(known(w) for w in inserted):
+                return None
+            gaps_seen.append([g for g in gaps[1:]])
+            support += 1
+        if support >= 2 and not any(
+                a == b and any(a) for i, x in enumerate(gaps_seen) for y in gaps_seen[i + 1:]
+                for a, b in zip(x, y)):
+            return strip_count(mine).strip() + " (" + m.group(1) + ")"
+    return None
+
+
 def vlm_pick(texts, laid, blank, parse, pick):
     """(laid, blank) with each clue reconcile() filed blank read by the VLM
     (tools/vlm_reader.py): `pick(light, candidates)` is its text for the
@@ -4149,7 +4204,7 @@ def vlm_pick(texts, laid, blank, parse, pick):
         cands = candidates(texts, lid, parse)
         if not cands:
             continue
-        own = settled_by_vlm(texts, lid, parse, cands)
+        own = settled_by_vlm(texts, lid, parse, cands) or clean_inside(cands, laid[lid][1])
         if own is not None:
             got = trimmed(held(clean(strip_count(own)), cands), lid)
             if tokens(got) and not merged(got):
