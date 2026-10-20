@@ -5337,7 +5337,9 @@ def short_three_columns(row):
 #: 24d 25d asked and left blank on 1945-47 pages): an edition whose read wrote a puzzle to the
 #: unfiled dir (a clue blank, destination()) before it is read again once, as "unfiled before its
 #: fix". A read after it that is incomplete again is not due until a newer time is set here.
-REREAD_UNFILED = "2026-10-20T13:25:00+00:00"
+#: 10-20 18:45: ocr_clues.footer_cut also cuts a footer number torn at the crop edge ("(7) WORD 23,0"),
+#: which left the last across clue of 5 of 19 Gale 2005 pages blank.
+REREAD_UNFILED = "2026-10-20T18:45:00+00:00"
 
 
 def unfiled_blank(row):

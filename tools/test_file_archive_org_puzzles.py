@@ -2693,6 +2693,8 @@ check("a torn 'Solution to' and a torn 'so' after the number are footer too (23,
       ["Don't be seen to collect feathers? (4,4)", "Cruel fellow has fixed trap for woman with brown hair (8)"],
       [ocr_clues.footer_cut("Don't be seen to collect feathers? (4,4) 23,109 Solution to"),
        ocr_clues.footer_cut("Cruel fellow has fixed trap for woman with brown hair (8) 23,105 so")])
+check("a number torn at the crop edge ('WORD 23,0') is footer too (2005 pages)",
+      "Division (8)", ocr_clues.footer_cut("Division (8) WORD 23,0"))
 check("words after a count with no footer mark are a clue's, not cut", "Pun (4) so to",
       ocr_clues.footer_cut("Pun (4) so to"))
 check("a second clue after a mid-text count is not a footer: nothing is cut",
