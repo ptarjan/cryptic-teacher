@@ -575,22 +575,29 @@
        "indicators": [
         {
          "text": "Every other character in",
-         "note": "every other character means taking alternate letters, starting with the first"
+         "at": 0,
+         "note": "alternate letters of the next word are taken, starting with the first"
         }
        ],
        "parts": [
         {
          "words": "Brechtian",
-         "note": "the first, third, fifth, seventh and ninth letters"
+         "at": 25
         }
        ]
+      },
+      {
+       "words": "director",
+       "at": 51,
+       "gives": "D"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "work",
-         "note": "to work material is to knead and reshape it, so these letters are rearranged"
+         "at": 35,
+         "note": "set to work, the letters are reshaped into a new order"
         }
        ],
        "parts": [
@@ -599,23 +606,16 @@
          "indicators": [
           {
            "text": "cut",
-           "note": "cut means the end is chopped off the word"
+           "at": 47,
+           "note": "cut short, so its last letter is removed"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "hadn't",
-             "note": "taken as written, apostrophe ignored"
-            },
-            {
-             "words": "director",
-             "gives": "D",
-             "note": "D is the abbreviation for director"
-            }
-           ]
+           "words": "hadn't",
+           "at": 40,
+           "gives": "HADNT",
+           "note": "taken as written, without the apostrophe"
           },
           {
            "gives": "T"
@@ -627,14 +627,14 @@
      ]
     },
     "explanation": {
-     "surface": "A Brecht play is cut, so its director is downcast.",
-     "walkthrough": "'down' looks like part of the surface's mood but is the definition, as in trailing behind in a game.",
-     "definitionFit": "Behindhand means in arrears or lagging, just as being down means trailing or owing in a contest or account."
+     "surface": "A Brechtian play missing a director whose work was not cut.",
+     "walkthrough": "'down' looks like the direction a director's star falls, but it is the definition, in its sense of trailing; 'cut' trims the apostrophe word before 'work' reshuffles it.",
+     "definitionFit": "Behindhand means late or in arrears, and down can mean behind, as a team trailing by points is down."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "work"
+     "aptDefinition": true,
+     "misdirectedWord": "down"
     }
    }
   },
@@ -1050,8 +1050,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "setter of this puzzle",
-      "at": 34
+      "text": "Tim heading off, he's top cryptic setter of this puzzle!",
+      "at": 0
      }
     ],
     "wordplay": {
@@ -1059,7 +1059,8 @@
      "indicators": [
       {
        "text": "cryptic",
-       "note": "cryptic means puzzling or obscure, so the letters are scrambled"
+       "at": 26,
+       "note": "cryptic means obscure, so the letters are scrambled"
       }
      ],
      "parts": [
@@ -1068,39 +1069,42 @@
        "indicators": [
         {
          "text": "heading off",
-         "note": "heading off means the first letter is removed"
+         "at": 4,
+         "note": "the heading, or first letter, is taken off"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Tim",
-           "note": "taken as written"
-          },
-          {
-           "words": "he's top",
-           "note": "the letters, apostrophe ignored"
-          }
-         ]
+         "words": "Tim",
+         "at": 0
         },
         {
          "gives": "T"
         }
        ]
+      },
+      {
+       "words": "he's",
+       "at": 17,
+       "gives": "HES",
+       "note": "taken as written, without the apostrophe"
+      },
+      {
+       "words": "top",
+       "at": 22
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Tim departs, the best compiler of this very crossword.",
-     "walkthrough": "TIM loses its T, and IM plus HESTOP is rearranged.",
-     "definitionFit": "The Sunday Times series is published under the pseudonym Mephisto, the name shared by its rotating compilers."
+     "surface": "A boast that Tim, now departing, is the leading setter of this very crossword.",
+     "walkthrough": "IM, HES and TOP rearranged give the pseudonym of the setters of this Sunday Times puzzle.",
+     "definitionFit": "Mephisto is the pen name used by the setters of the Sunday Times barred-grid crossword series."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "cryptic"
+     "misdirectedWord": "Tim"
     }
    }
   },

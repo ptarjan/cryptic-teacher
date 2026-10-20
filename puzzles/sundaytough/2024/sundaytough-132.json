@@ -642,41 +642,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "Spinning",
-       "note": "spinning turns something round, so the letters run the other way"
+       "text": "hosting",
+       "at": 20,
+       "note": "a host takes in a guest, so the reversed pair holds the next piece inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "hosting",
-         "note": "a host has a guest inside, so one piece holds another"
+         "text": "Spinning",
+         "at": 0,
+         "note": "something spinning turns round, so the doubled word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "twice when",
-         "gives": "ASAS",
-         "note": "'when' is AS, and 'twice' doubles it"
-        },
-        {
-         "words": "line",
-         "gives": "L",
-         "note": "L is the abbreviation for line"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "twice",
+           "at": 9,
+           "note": "says the same short word is used two times over, one copy after the other"
+          }
+         ],
+         "parts": [
+          {
+           "words": "when",
+           "at": 15,
+           "gives": "AS",
+           "note": "'as' can mean 'when' (as I left = when I left)"
+          },
+          {
+           "gives": "AS"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "line",
+       "at": 28,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Twirling round two times while leading a line dance.",
-     "walkthrough": "'Line dance' looks like one phrase; 'line' belongs to the wordplay and 'dance' alone is the definition.",
-     "definitionFit": "Salsa is a lively Latin American partner dance, with roots in Cuban music."
+     "surface": "A dancer twirling round and round while taking a line dance class.",
+     "walkthrough": "'twice' doubles AS to ASAS, 'Spinning' turns that round to SASA, and 'hosting' puts L for line in the middle.",
+     "definitionFit": "Salsa is a lively Latin American partner dance, so it is a type of dance."
     },
     "features": {
      "answerInScene": true,

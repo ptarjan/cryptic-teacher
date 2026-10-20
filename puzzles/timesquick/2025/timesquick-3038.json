@@ -656,35 +656,48 @@
      "indicators": [
       {
        "text": "In",
-       "note": "one piece goes inside the other"
-      },
-      {
-       "text": "briefly",
-       "note": "cut short, so the last letter goes"
+       "at": 0,
+       "note": "the illuminated word goes inside the shortened agency name"
       }
      ],
      "parts": [
       {
-       "words": "GCHQ",
-       "gives": "GCH",
-       "note": "GCHQ losing its last letter Q"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 9,
+         "note": "cut short, so its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "GCHQ",
+         "at": 3,
+         "note": "the British government's intelligence and code-breaking centre"
+        },
+        {
+         "gives": "Q"
+        }
+       ]
       },
       {
        "words": "shed light on",
+       "at": 17,
        "gives": "LIT",
-       "note": "lit = shed light on, illuminated"
+       "note": "lit means illuminated, light having been shed on it"
       }
      ]
     },
     "explanation": {
-     "surface": "Inside Britain's spy agency, someone briefly explains a bug in the system.",
-     "walkthrough": "LIT goes inside G_CH. GCHQ is Britain's government communications and signals intelligence agency.",
-     "definitionFit": "A glitch is a sudden malfunction, especially in a computer."
+     "surface": "Spies at British intelligence explain a fault with the computers.",
+     "walkthrough": "GCHQ is Britain's signals intelligence and code-breaking agency, so the surface feels like spy news.",
+     "definitionFit": "A glitch is a sudden minor fault or malfunction, typically in electronic or computer systems."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "briefly"
+     "misdirectedWord": "GCHQ"
     }
    }
   },
