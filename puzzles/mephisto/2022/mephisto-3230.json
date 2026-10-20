@@ -698,11 +698,12 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "going back means those letters are read in the opposite direction"
+       "text": "in",
+       "at": 33,
+       "note": "in places the rearranged word inside the rest of the build"
       }
      ],
      "parts": [
@@ -711,14 +712,16 @@
        "parts": [
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 36,
+         "gives": "A"
         },
         {
-         "op": "anagram",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "to be marshalled",
-           "note": "troops marshalled are put into a new order, so these letters are rearranged"
+           "text": "back",
+           "at": 52,
+           "note": "back means turned backwards, so the two letters just taken are read in reverse"
           }
          ],
          "parts": [
@@ -727,35 +730,50 @@
            "indicators": [
             {
              "text": "case of",
-             "note": "the case of something is its outside, so only the outer letters of the word are taken"
+             "at": 38,
+             "note": "the case of a word is its outside, so only its first and last letters are kept"
             }
            ],
            "parts": [
             {
              "words": "major",
-             "note": "the outer letters of major"
+             "at": 46,
+             "note": "outer letters of major"
             }
            ]
-          },
-          {
-           "words": "meant",
-           "note": "taken as written"
-          },
-          {
-           "words": "strain",
-           "gives": "ARIA",
-           "note": "a strain is a melody, and an aria is a solo song"
           }
          ]
+        },
+        {
+         "words": "strain",
+         "at": 57,
+         "gives": "ARIA",
+         "note": "a strain is a tune, here an aria"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to be marshalled",
+         "at": 16,
+         "note": "to be marshalled is to be put in order, so the letters of meant are arranged afresh"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meant",
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Military resources are mustered for a major who has hurt his back.",
-     "walkthrough": "Marshalled and major suggest the army, but the major only supplies its two outside letters, read backwards. The anagram goes in after them, before the song.",
-     "definitionFit": "Armamentaria is the plural of armamentarium, the full stock of equipment and resources available for a task."
+     "surface": "Someone suggests gathering supplies for a serious back injury.",
+     "walkthrough": "'Major back strain' suggests an injury, but 'back' only turns round the two outer letters of 'major', and 'strain' is a musical one.",
+     "definitionFit": "Armamentaria are the stock of equipment, methods and medicines available to a practitioner, so a body of resources."
     },
     "features": {
      "answerInScene": true,

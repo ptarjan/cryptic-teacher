@@ -133,41 +133,49 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "JOKER",
      "indicators": [
       {
        "text": "for",
-       "note": "'X for Y' means X stands in place of Y, so the jack replaces the opener"
+       "at": 24,
+       "note": "for means in place of, so one letter swaps in for another"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "card game",
+       "at": 8,
+       "gives": "POKER",
+       "note": "poker is a card game"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opener in",
+         "at": 28,
+         "note": "the opener is the first letter of pontoon"
+        }
+       ],
        "parts": [
         {
-         "words": "jack",
-         "gives": "J",
-         "note": "J = jack on playing cards"
-        },
-        {
-         "words": "card game",
-         "gives": "OKER",
-         "note": "POKER with its opening P swapped out"
-        },
-        {
-         "unchecked": true,
-         "words": "opener in pontoon",
-         "note": "the P that goes, the first letter of pontoon"
+         "words": "pontoon",
+         "at": 38,
+         "note": "first letter of pontoon"
         }
        ]
+      },
+      {
+       "words": "jack",
+       "at": 19,
+       "gives": "J",
+       "note": "J is the abbreviation for jack in cards"
       }
      ]
     },
     "explanation": {
-     "surface": "A card-table rule: in pontoon, a jack can stand in for the opening card.",
-     "walkthrough": "'Opener in pontoon' names the letter P to be replaced, not a card; pontoon is the British name for the game blackjack.",
-     "definitionFit": "Definition by class: the wild extra in a pack, usually printed with a jester, is one of the cards."
+     "surface": "A player swaps a jack for the opening card in a game of pontoon.",
+     "walkthrough": "Pontoon is the British name for blackjack; here it only supplies its P, which J replaces in POKER.",
+     "definitionFit": "The joker is an extra playing card in the deck, often wild."
     },
     "features": {
      "answerInScene": true,
@@ -1705,46 +1713,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "that's drained",
-       "note": "a drained gallon has its contents poured out, leaving only its outer letters G and N"
+       "text": "into",
+       "at": 38,
+       "note": "into puts the build inside the word for land"
       }
      ],
      "parts": [
       {
        "words": "land",
+       "at": 43,
        "gives": "SETTLE",
-       "note": "a bird lands or settles"
+       "note": "to land is to settle, as a bird does"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "into",
-         "note": "the can, drink and gallon go into the land word, sitting inside S…ETTLE"
-        }
-       ],
        "parts": [
         {
          "words": "can",
+         "at": 6,
          "gives": "TIN",
-         "note": "a tin can"
+         "note": "a can is a tin"
         },
         {
          "words": "drink",
+         "at": 10,
          "gives": "GIN",
-         "note": "the spirit"
+         "note": "gin is a drink"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "GN",
+         "indicators": [
+          {
+           "text": "drained",
+           "at": 30,
+           "note": "drained means emptied, so gallon keeps only its outside letters"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
            "words": "gallon",
-           "gives": "GN",
-           "select": "outer",
-           "note": "GALLON emptied to G…N; TIN+GIN+GN goes into S…ETTLE"
+           "at": 16,
+           "note": "outer letters of gallon"
           }
          ]
         }
@@ -1753,14 +1762,14 @@
      ]
     },
     "explanation": {
-     "surface": "A gardener tipping a canful of water onto soil for a plant.",
-     "walkthrough": "The watering picture makes 'drink' and 'drained' look like one idea; 'drained' only empties the gallon.",
-     "definitionFit": "Definition by class: a common weed whose leaves carry tiny hairs that sting."
+     "surface": "Someone sets about a garden pest with a can of drink.",
+     "walkthrough": "'Land' is a verb here, to come down and settle, not a stretch of ground; 'drained' empties the gallon of its middle.",
+     "definitionFit": "The stinging nettle is a common weed whose hairs cause a painful rash."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "drained"
+     "misdirectedWord": "can"
     }
    }
   },
@@ -2628,46 +2637,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WHATOFIT",
+     "op": "container",
      "indicators": [
       {
-       "text": "cut",
-       "note": "a word that is cut loses its tail, so TOFF drops its last F"
-      },
-      {
        "text": "into",
-       "note": "takes the cut letters out of the word"
+       "at": 31,
+       "note": "into puts the build inside the word for scrap"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in"
-        }
-       ],
+       "words": "scrap",
+       "at": 12,
+       "gives": "WHIT",
+       "note": "a whit is a scrap or tiny bit"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "scrap",
-         "gives": "WHIT",
-         "note": "a whit is a tiny bit"
+         "words": "a",
+         "at": 19,
+         "gives": "A"
         },
         {
-         "words": "a dandy",
-         "gives": "ATOF",
-         "note": "A + TOFF (a dandy) cut short, placed into WH…IT"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "cut",
+           "at": 27,
+           "note": "cut means trimmed, so the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dandy",
+           "at": 21,
+           "gives": "TOFF",
+           "note": "a toff is a dandy, a smartly dressed man"
+          },
+          {
+           "gives": "F"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A swell getting into a scrap and making a big deal of it.",
-     "walkthrough": "'Scrap' suggests a fight but means a small piece; a toff is a British upper-class dandy.",
-     "definitionFit": "Both are sarcastic shrugs dismissing something as unimportant, said to shut down a complaint."
+     "surface": "A fight in which a well-dressed man is wounded.",
+     "walkthrough": "'Scrap' suggests a fight, but it means a tiny amount; a toff is British slang for a posh, well-dressed man.",
+     "definitionFit": "'What of it?' and 'Big deal!' are both dismissive retorts meaning 'so what?'."
     },
     "features": {
      "answerInScene": false,
@@ -3164,57 +3185,61 @@
      "indicators": [
       {
        "text": "about",
-       "note": "in the sense 'around': the jumbled letters go round the rest"
+       "at": 25,
+       "note": "about means around, so the rearranged letters surround the next piece"
       }
      ],
      "parts": [
-      {
-       "words": "Croatia upset",
-       "gives": "AICATOR",
-       "note": "CROATIA rearranged, split A…ICATOR"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "upset",
-         "note": "an upset country is tipped over, so its letters are jumbled"
+         "at": 19,
+         "note": "upset means knocked over, so the letters of Croatia are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "residing in",
-           "note": "someone residing in a town lives inside it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Dudley",
-           "gives": "DUD",
-           "note": "Dud, short for Dudley (as in Dudley Moore of Pete and Dud)"
-          },
-          {
-           "words": "Jack",
-           "gives": "J",
-           "note": "J = jack, inside D…UD"
-          }
-         ]
+         "words": "Croatia",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "residing in",
+         "at": 36,
+         "note": "residing in means living inside, so J sits within the short name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dudley",
+         "at": 48,
+         "gives": "DUD",
+         "note": "Dud is the short form of Dudley, as in the comedians Pete and Dud"
+        },
+        {
+         "words": "Jack",
+         "at": 31,
+         "gives": "J"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Croatian settler irritated over someone called Jack who lives in Dudley.",
-     "walkthrough": "'Settler' suggests a colonist, but it means someone who settles disputes. Dudley is also an English town, a false lead.",
-     "definitionFit": "Someone who settles an argument or contest: a judge, referee or arbiter."
+     "surface": "A settler in Croatia is upset about a man called Jack living in Dudley, an English Midlands town.",
+     "walkthrough": "'Settler' suggests a colonist, but it means one who settles disputes. Dudley Moore played Dud in the comedy double act Pete and Dud.",
+     "definitionFit": "An adjudicator is a judge who settles disputes, so one who settles."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Settler"
     }
    }
