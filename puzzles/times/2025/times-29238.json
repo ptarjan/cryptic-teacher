@@ -1450,45 +1450,44 @@
      "parts": [
       {
        "words": "Old",
-       "gives": "O",
-       "note": "O = old"
+       "at": 0,
+       "gives": "O"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "end",
-         "note": "take the last letter of Cordelier"
-        },
-        {
-         "text": "perhaps",
-         "note": "'say' is how you mark an example"
+         "at": 16,
+         "note": "the end of a word is its last letter"
         }
        ],
        "parts": [
         {
          "words": "Cordelier's",
+         "at": 4,
          "gives": "CORDELIER",
-         "note": "last letter of Cordelier"
+         "note": "last letter of Cordelier, the 's tying it to end"
         }
        ]
       },
       {
        "words": "perhaps",
+       "at": 20,
        "gives": "SAY",
-       "note": "say = for example, perhaps"
+       "note": "say means for example, perhaps"
       }
      ]
     },
     "explanation": {
-     "surface": "An old Franciscan friar meets his end in a French town.",
-     "walkthrough": "Cordeliers were French Franciscan friars, and the name of a revolutionary club, which fits the French scene. Orsay is a town southwest of Paris.",
-     "definitionFit": "Orsay is a commune in the Essonne department near Paris."
+     "surface": "An old Franciscan friar, a Cordelier, perhaps meeting his end in a French village.",
+     "walkthrough": "A Cordelier was a Franciscan friar, or a member of a French revolutionary club; only its last letter, R, is used.",
+     "definitionFit": "Orsay is a commune in the Paris region, a French local authority area."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Cordelier"
+     "misdirectedWord": "perhaps"
     }
    }
   },
@@ -1812,50 +1811,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EBULLIENT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 11,
+       "note": "keeping means holding the next part inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "at sea",
-         "note": "someone all at sea is confused and lost, so the letters of 'net' are jumbled"
-        },
-        {
-         "text": "keeping",
-         "note": "to keep something is to hold it"
-        },
-        {
-         "text": "mostly",
-         "note": "most but not all of the word, so BULLIES loses its last letter"
+         "at": 4,
+         "note": "at sea means confused, so the letters are jumbled"
         }
        ],
        "parts": [
         {
          "words": "Net",
-         "gives": "ENT",
-         "note": "NET rearranged"
-        },
+         "at": 0,
+         "note": "the fodder"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 24,
+         "note": "mostly means the word loses its last letter"
+        }
+       ],
+       "parts": [
         {
          "words": "cows",
-         "gives": "BULLIE",
-         "note": "BULLIES (cows, intimidates) minus its last letter"
+         "at": 19,
+         "gives": "BULLIES",
+         "note": "to cow someone is to bully them, so cows means bullies"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fishing net out at sea holds up some cattle.",
-     "walkthrough": "'Cows' is the verb, to intimidate or bully, not the farm animals.",
-     "definitionFit": "Ebullient means cheerful and full of energy, buoyant."
+     "surface": "A net out at sea holding cattle that somehow stay afloat.",
+     "walkthrough": "'cows' looks like cattle in the net, but it is a verb: to cow someone is to intimidate them.",
+     "definitionFit": "Ebullient means cheerful and full of energy, which is a figurative sense of buoyant."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "cows"
     }
    }

@@ -203,35 +203,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Short",
-       "note": "cuts TRATTORIA down to its short form"
-      },
-      {
-       "text": "cracks"
+       "text": "cracks",
+       "at": 14,
+       "note": "something that cracks a word breaks into it and sits inside"
       }
      ],
      "parts": [
       {
        "words": "mathematical problem",
+       "at": 21,
        "gives": "SUM",
-       "note": "a sum = an arithmetic problem"
+       "note": "a sum is an arithmetic problem"
       },
       {
-       "words": "Italian",
-       "gives": "TRAT",
-       "note": "trat is short for trattoria, an Italian restaurant"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means the word is cut down to its first few letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian",
+         "at": 6,
+         "gives": "TRATTORIA",
+         "note": "an Italian, informally, is an Italian restaurant, a trattoria"
+        },
+        {
+         "gives": "TORIA"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Italian solves a maths problem while lying in bed.",
-     "walkthrough": "'Italian' here is a restaurant, not a person; TRAT is the informal short form of trattoria. 'Bed' is the geological sense.",
-     "definitionFit": "A stratum is a layer of rock, which geologists also call a bed."
+     "surface": "An Italian solving a maths problem while lying in bed.",
+     "walkthrough": "'Italian' is the restaurant, a trattoria, shortened to TRAT, which breaks into SUM.",
+     "definitionFit": "A stratum is a layer of rock, and a bed is the geologist's word for such a layer."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "bed"
+     "misdirectedWord": "Italian"
     }
    }
   },
