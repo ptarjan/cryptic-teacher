@@ -115,8 +115,8 @@ assert(/case\s+"\$t"\s+in\s+\*\.sh\)\s*run=bash/.test(body) && /\*\.py\)\s*run=p
 // calling it.
 assert(/node\s+tools\/ci_shards\.js/.test(body),
   "tests.yml still pipes its glob list through tools/ci_shards.js to pick a shard");
-const shardList = body.match(/^\s*shard:\s*\[([^\]]*)\]/m);
-assert(shardList, "tests.yml still declares its shards as `shard: [...]`");
+const shardList = body.match(/^\s*SHARD_IDS:\s*"\[([^\]]*)\]"/m);
+assert(shardList, "tests.yml still declares its shards as `SHARD_IDS: \"[...]\"` in the scope job");
 const shardIds = shardList ? shardList[1].split(",").map((s) => s.trim()).filter(Boolean) : [];
 assert(shardIds.length >= 2,
   "and there is more than one of them, or the fan-out is a single job again: " +
