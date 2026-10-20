@@ -855,25 +855,40 @@
      "parts": [
       {
        "words": "Company",
-       "gives": "CO",
-       "note": "CO is the abbreviation for company"
+       "at": 0,
+       "gives": "CO"
       },
       {
-       "words": "briefly employing",
-       "gives": "USIN",
-       "note": "USING (employing) minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 8,
+         "note": "briefly means the word is cut short by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "employing",
+         "at": 16,
+         "gives": "USING",
+         "note": "using means employing"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A firm taking on a relative for a short spell.",
-     "walkthrough": "The surface is nepotism; 'briefly' seems to limit the job but cuts USING.",
-     "definitionFit": "Definition by category: the child of an aunt or uncle is one of your relations."
+     "surface": "A firm is taking on a relative for a short time.",
+     "definitionFit": "A cousin is a relative, the child of one's aunt or uncle."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "briefly"
+     "misdirectedWord": "employing"
     }
    }
   },

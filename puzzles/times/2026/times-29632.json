@@ -357,42 +357,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "U-turn of",
-       "note": "a U-turn sends the word for papers back the other way"
-      },
-      {
        "text": "following",
-       "note": "the word for broadcast comes after"
+       "at": 32,
+       "note": "the broadcast piece comes after the reversed papers"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "U-turn of",
+         "at": 42,
+         "note": "a U-turn sends the papers back the other way, so they are read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "broadcast",
-         "gives": "NWOS",
-         "note": "seed broadcast is scattered, or sown"
-        },
-        {
          "words": "papers",
+         "at": 52,
          "gives": "ID",
-         "note": "ID (identity papers) turned round"
+         "note": "ID, identity documents, are papers"
         }
        ]
+      },
+      {
+       "words": "broadcast",
+       "at": 22,
+       "gives": "SOWN",
+       "note": "seed broadcast is sown, scattered widely"
       }
      ]
     },
     "explanation": {
-     "surface": "A government refusing to admit to a news broadcast after its newspapers backtracked.",
-     "walkthrough": "'Broadcast' looks like radio or television; it is the old farming sense of scattering seed by hand.",
-     "definitionFit": "A plain synonym: to disown a child or a remark is to deny any connection with it."
+     "surface": "Someone denies a broadcast that came after a newspaper's change of policy.",
+     "walkthrough": "'Broadcast' looks like an anagram signal, but it is the past participle meaning scattered, as seed is sown.",
+     "definitionFit": "To disown is to deny any connection with, or responsibility for, someone or something."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "broadcast"
     }
@@ -479,49 +485,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "periodically",
-       "note": "take every other letter of saying"
-      }
-     ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "SYN",
        "indicators": [
         {
-         "text": "heartless",
-         "note": "the middle letter of the word for command is removed"
+         "text": "periodically",
+         "at": 6,
+         "note": "periodically means taking letters at regular intervals, the first, third and fifth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "saying",
-         "gives": "SYN",
-         "select": "alternate",
-         "note": "S, Y and N, the first, third and fifth letters of saying"
+         "at": 19,
+         "note": "the word whose alternate letters are taken"
         }
        ]
       },
       {
-       "words": "command",
-       "gives": "DICATE",
-       "note": "DICTATE without its central T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 26,
+         "note": "heartless means the middle letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "command",
+         "at": 36,
+         "gives": "DICTATE",
+         "note": "to dictate is to command"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A group periodically issues a harsh order.",
-     "walkthrough": "Only the first three odd letters of 'saying' are needed; the rest of the word is dropped.",
-     "definitionFit": "A syndicate is a group of people or firms combined for a shared purpose."
+     "surface": "A group intermittently issues an order lacking any spirit.",
+     "walkthrough": "Alternate letters of 'saying' give SYN; DICTATE loses its central T to give DICATE.",
+     "definitionFit": "A syndicate is an association of people or firms combined for a shared business purpose."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "periodically"
+     "misdirectedWord": "heartless"
     }
    }
   },

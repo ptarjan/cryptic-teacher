@@ -1141,23 +1141,39 @@
      "parts": [
       {
        "words": "Firm",
+       "at": 0,
        "gives": "CO",
-       "note": "Co = company, a firm"
+       "note": "CO is the abbreviation for company, a firm"
       },
       {
-       "words": "outer covering yielding last",
-       "gives": "COA",
-       "note": "COAT without its last letter T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "yielding last",
+         "at": 20,
+         "note": "yielding the last means giving up its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "outer covering",
+         "at": 5,
+         "gives": "COAT",
+         "note": "a coat is an outer covering"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hard shell giving up the last of some powder.",
-     "walkthrough": "'Firm' looks like an adjective describing the covering; it is the noun, a company.",
-     "definitionFit": "Definition by function: the seeds of the cacao tree are roasted and ground into the brown powder used for drinks and baking."
+     "surface": "A solid husk gives up the last bit of powder inside it.",
+     "definitionFit": "Cocoa beans are ground to make the chocolate powder used in drinks and baking."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Firm"
     }

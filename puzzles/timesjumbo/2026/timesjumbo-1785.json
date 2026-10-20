@@ -2054,30 +2054,44 @@
      "indicators": [
       {
        "text": "concealing",
-       "note": "the word for also hides the lot inside it"
-      },
-      {
-       "text": "but not all",
-       "note": "the word for a lot loses its last letter"
+       "at": 22,
+       "note": "concealing means the other piece is hidden inside"
       }
      ],
      "parts": [
       {
        "words": "also",
+       "at": 17,
        "gives": "TOO",
-       "note": "too = also; split T…OO"
+       "note": "too means also"
       },
       {
-       "words": "a lot",
-       "gives": "OODLE",
-       "note": "OODLES = a lot, missing its final S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not all",
+         "at": 40,
+         "note": "not all of the word means its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a lot",
+         "at": 33,
+         "gives": "OODLES",
+         "note": "oodles means a lot"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A long goodbye that hides a great deal but not everything.",
-     "walkthrough": "Toodle-oo is jaunty old British slang for goodbye.",
-     "definitionFit": "Toodle-oo is a light-hearted way of saying goodbye."
+     "surface": "A goodbye that also hides plenty, though not everything.",
+     "walkthrough": "OODLES cut short is OODLE, placed inside TOO after the T. Toodle-oo is a jaunty old British goodbye.",
+     "definitionFit": "Toodle-oo is a dated, cheerful British expression for goodbye."
     },
     "features": {
      "answerInScene": true,
@@ -3293,49 +3307,76 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "not initiated",
-       "note": "LINE loses its first letter"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "around"
+         "text": "around",
+         "at": 24,
+         "note": "around means the clipped line goes round the letter for very"
         }
        ],
        "parts": [
         {
-         "words": "line",
-         "gives": "INE",
-         "note": "LINE minus L; split IN…E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not initiated",
+           "at": 10,
+           "note": "not initiated means without the first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "line",
+           "at": 5,
+           "gives": "LINE",
+           "note": "taken as written"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         },
         {
          "words": "very",
-         "gives": "V",
-         "note": "V = very"
+         "at": 31,
+         "gives": "V"
         }
        ]
       },
       {
-       "words": "elevated region, not at first",
-       "gives": "IGH",
-       "note": "HIGH, an area of high pressure, minus H"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not at first",
+         "at": 53,
+         "note": "not at first means the opening letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elevated region",
+         "at": 36,
+         "gives": "HIGH",
+         "note": "a high is a region of elevated atmospheric pressure"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A railway line is built round a mountainous region, without a start.",
-     "walkthrough": "'Rail' looks like a railway noun, but it is the verb: to rail against. A high is a weather region of high pressure.",
-     "definitionFit": "A plain synonym for the verb: both mean to complain loudly and bitterly against something."
+     "surface": "A railway line runs around a very high region.",
+     "walkthrough": "INE goes round V for INVE, then HIGH loses its first letter. 'Rail' looks like a railway noun, but it is the verb for protesting angrily.",
+     "definitionFit": "To inveigh is to speak or write angrily against something, to protest bitterly."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Rail"
     }
    }
@@ -3416,26 +3457,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "adopted by"
+       "text": "adopted by",
+       "at": 20,
+       "note": "being adopted by is being taken in, so the line goes inside"
       }
      ],
      "parts": [
       {
-       "words": "half of Scottish city",
-       "gives": "ABER",
-       "note": "first half of ABERDEEN; split AB…ER"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 31,
+         "note": "half of means only the first four of its eight letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scottish city",
+         "at": 39,
+         "gives": "ABERDEEN",
+         "note": "Aberdeen is a city in north-east Scotland"
+        }
+       ]
       },
       {
        "words": "line",
-       "gives": "L",
-       "note": "L = line"
+       "at": 15,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A better policy is adopted by half of a Scottish city.",
-     "walkthrough": "Aberdeen has eight letters, so half of it is ABER.",
-     "definitionFit": "The comparative of able, and able is a plain synonym for competent."
+     "surface": "A more capable railway line has been taken over by part of a Scottish city.",
+     "definitionFit": "Abler is the comparative of able, meaning having greater skill or capability."
     },
     "features": {
      "answerInScene": false,
@@ -3516,41 +3571,61 @@
      "parts": [
       {
        "words": "article",
+       "at": 12,
        "gives": "THE",
-       "note": "the definite article"
+       "note": "the is the definite article"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "what is left goes round the river letter"
+         "at": 44,
+         "note": "about means the clipped verse word goes round the river"
         }
        ],
        "parts": [
         {
-         "words": "in verse without power",
-         "gives": "OETICAL",
-         "note": "POETICAL = in verse, minus P = power; split O…ETICAL"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without",
+           "at": 29,
+           "note": "without means the letter for power is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "in verse",
+           "at": 20,
+           "gives": "POETICAL",
+           "note": "poetical means in verse form"
+          },
+          {
+           "words": "power",
+           "at": 37,
+           "gives": "P"
+          }
+         ]
         },
         {
          "words": "river",
-         "gives": "R",
-         "note": "R = river"
+         "at": 50,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A speculative article written in verse without force about a river.",
-     "walkthrough": "Poetical means written in verse, so dropping P leaves OETICAL.",
-     "definitionFit": "Theoretical means based on speculation rather than practice."
+     "surface": "A tentative piece of writing in verse, powerless, describes a river.",
+     "walkthrough": "POETICAL loses P to give OETICAL, which goes round R after the O.",
+     "definitionFit": "Theoretical means based on theory or supposition rather than practice, hence conjectural."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "power"
+     "misdirectedWord": "article"
     }
    }
   },

@@ -166,25 +166,59 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Pair of timid",
-       "gives": "TI",
-       "note": "first two letters of timid"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Pair of",
+         "at": 0,
+         "note": "a pair of the word means only its first two letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "timid",
+         "at": 8,
+         "gives": "TIMID",
+         "note": "the word whose opening pair is kept"
+        },
+        {
+         "gives": "MID"
+        }
+       ]
       },
       {
-       "words": "aquatic birds with no name",
-       "gives": "SWAS",
-       "note": "SWANS without N (name)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no",
+         "at": 28,
+         "note": "with no means the birds lose a letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aquatic birds",
+         "at": 14,
+         "gives": "SWANS",
+         "note": "swans are aquatic birds"
+        },
+        {
+         "words": "name",
+         "at": 36,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two nervous water birds flap about.",
-     "walkthrough": "'Flap' looks like something wings do; here it is a noun, a state of panic. Tiswas is British slang for a state of confusion or agitation.",
-     "definitionFit": "A plain synonym in British slang: 'all of a tiswas' and 'in a flap' both describe a state of flustered panic."
+     "surface": "A couple of shy water birds, unnamed, are in a flutter.",
+     "walkthrough": "TI from 'timid' and SWANS without N give SWAS. A tizwas is British slang for a state of agitation.",
+     "definitionFit": "Tiswas (also tizwas) is slang for a state of confused excitement, a tizzy or panic."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "flap"
     }
    }
@@ -715,26 +749,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "dons"
+       "text": "dons",
+       "at": 11,
+       "note": "the university dons the other word: puts it on, so it wraps around the U"
       }
      ],
      "parts": [
       {
-       "words": "exploring common",
-       "gives": "SEARCHIN",
-       "note": "searching, with the G dropped as in common speech"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "common",
+         "at": 26,
+         "note": "common speech drops the final g, as in huntin' and shootin'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exploring",
+         "at": 16,
+         "gives": "SEARCHING",
+         "note": "searching means exploring"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       },
       {
        "words": "University",
-       "gives": "U",
-       "note": "U = university"
+       "at": 0,
+       "gives": "U"
       }
      ]
     },
     "explanation": {
-     "surface": "University dons explore the life of a common sea creature.",
-     "walkthrough": "'Dons' looks like university teachers; it is the verb 'puts on'. 'Common' marks the dropped G of searchin'.",
-     "definitionFit": "A definition by example: echinoderms are the spiny-skinned sea animals, starfish and urchins among them."
+     "surface": "Academics are investigating an ordinary spiny sea creature.",
+     "walkthrough": "'Dons' looks like university lecturers, but it means puts on. 'Common' also seems to describe the echinoderm, but it is the signal for the dropped G of SEARCHIN'.",
+     "definitionFit": "A sea urchin is a spiny marine animal belonging to the phylum that includes starfish."
     },
     "features": {
      "answerInScene": true,

@@ -514,35 +514,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfortunately",
-       "note": "When something turns out unfortunately it has not come out the way it was arranged, and neither have these letters."
-      },
-      {
-       "text": "bad",
-       "note": "An idea that has gone bad no longer holds together in the shape it was handed over in."
-      },
-      {
        "text": "all round",
-       "note": "It says the disorder reaches the whole assembly, so the two words are stirred together rather than shuffled one at a time."
+       "at": 45,
+       "note": "all round means the second jumble is wrapped around the first"
       }
      ],
      "parts": [
       {
-       "words": "sung",
-       "note": "four letters offered up for rearrangement, not a description of the prayer"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "at": 36,
+         "note": "something bad is in poor shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "idea",
+         "at": 40,
+         "note": "taken as written"
+        }
+       ]
       },
       {
-       "words": "idea",
-       "note": "the other four letters, to be mixed in with the first lot"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unfortunately",
+         "at": 20,
+         "note": "unfortunately means things went wrong, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sung",
+         "at": 14,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Sung' wants to belong to the definition — a prayer that is sung — and belongs to the fodder instead, which is why the letters come up short if you leave it there.",
-     "definitionFit": "Prayer → AGNUS DEI: the Latin 'Lamb of God', the set petition sung near the end of Mass, so it is one named prayer."
+     "surface": "A sung prayer turned out badly, a poor idea from start to finish.",
+     "walkthrough": "IDEA rearranged by 'bad' gives A...DEI, which goes round GNUS, the rearrangement of SUNG.",
+     "definitionFit": "Agnus Dei, 'Lamb of God', is a Latin invocation in the Mass, often set to music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sung"
     }
    }
   },
