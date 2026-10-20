@@ -1491,25 +1491,43 @@
      "parts": [
       {
        "words": "man",
+       "at": 8,
        "gives": "MALE",
-       "note": "a male is a man"
+       "note": "a man is a male"
       },
       {
-       "words": "aggressive, dropping one",
-       "gives": "VOLENT",
-       "note": "VIOLENT without I (one)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 25,
+         "note": "dropping means letting go of, so a letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aggressive",
+         "at": 13,
+         "gives": "VIOLENT",
+         "note": "violent means aggressive"
+        },
+        {
+         "words": "one",
+         "at": 34,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An aggressive man who drops someone in a fight.",
-     "walkthrough": "'One' is the Roman numeral I, removed from the middle of the word.",
-     "definitionFit": "A near synonym: a malevolent look is hostile, carrying ill will."
+     "surface": "A hostile, aggressive man letting go of somebody.",
+     "definitionFit": "Malevolent means wishing harm to others, a stronger word for hostile."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "one"
+     "aptDefinition": false
     }
    }
   },
