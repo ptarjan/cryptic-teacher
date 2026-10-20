@@ -456,7 +456,14 @@ def vlm_waiting_cap():
 
 #: Spooled asks (vlm_reader.spooled) at which no read starts (env CT_VLM_SPOOL_MAX): at ~6.7 asks
 #: a minute 200 are half an hour of the VLM's work, and each read begun past that only waits.
+#: A number in ~/.cache/corpus_queue/vlm_spool_max (env CT_VLM_SPOOL_MAX_FILE) beats the env, so
+#: the depth is tunable live: a deep spool adds no throughput, it only delays new code's asks.
 def vlm_spool_max():
+    try:
+        with open(os.path.expanduser(os.environ.get("CT_VLM_SPOOL_MAX_FILE") or "~/.cache/corpus_queue/vlm_spool_max")) as f:
+            return max(1, int(f.read().strip()))
+    except (OSError, ValueError):
+        pass
     try:
         return max(1, int(os.environ.get("CT_VLM_SPOOL_MAX", "200")))
     except ValueError:
