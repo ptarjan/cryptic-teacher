@@ -170,7 +170,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "hot dip?",
+      "text": "hot dip",
       "at": 32
      }
     ],
@@ -179,25 +179,42 @@
      "indicators": [
       {
        "text": "mixed",
-       "note": "mixed letters are jumbled"
+       "at": 18,
+       "note": "mixed means these letters are stirred into a new order"
       }
      ],
      "parts": [
       {
-       "words": "Bulk of cream",
-       "gives": "CREA",
-       "note": "CREAM without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Bulk of",
+         "at": 0,
+         "note": "the bulk of a word is most of it, here all but its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cream",
+         "at": 8,
+         "note": "taken as written"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       },
       {
        "words": "lad",
-       "note": "used as it stands"
+       "at": 14,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen instruction: blend most of the cream with a boy to produce a warm sauce for dipping.",
-     "walkthrough": "The surface wants a food dip; the question mark warns that the 'dip' is a hollow in the ground, and a hot one because volcanoes make it.",
-     "definitionFit": "A caldera is the large basin left when a volcano collapses: a dip in the land that is, or was, hot."
+     "surface": "Someone mixes up most of the cream with a boy's help to make a warm dip for a party.",
+     "walkthrough": "CREAM loses M to give CREA, which is mixed with LAD.",
+     "definitionFit": "A caldera is a large volcanic crater, so a hollow among hot rocks; the question mark flags the playful description."
     },
     "features": {
      "answerInScene": false,
@@ -527,26 +544,45 @@
      "op": "charade",
      "parts": [
       {
-       "words": "to wash, disregarding cold",
-       "gives": "LEAN",
-       "note": "CLEAN without C (cold)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disregarding",
+         "at": 18,
+         "note": "disregarding means the letter for cold is ignored and dropped from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to wash",
+         "at": 9,
+         "gives": "CLEAN",
+         "note": "to wash something is to clean it"
+        },
+        {
+         "words": "cold",
+         "at": 31,
+         "gives": "C",
+         "note": "C is the standard abbreviation for cold, as on taps"
+        }
+       ]
       },
       {
        "words": "temperature",
-       "gives": "T",
-       "note": "T = temperature"
+       "at": 36,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is inclined to wash, but not in cold water.",
-     "walkthrough": "'Inclined to' reads as 'keen to', but 'Inclined' alone is the definition, the past tense of lean. C for cold is the tap marking.",
-     "definitionFit": "Leant is the past tense of lean, so it means 'inclined' as in tilted."
+     "surface": "Someone leans over a basin to wash, ignoring that the water is cold.",
+     "walkthrough": "CLEAN without C is LEAN, then T.",
+     "definitionFit": "Leant is a past tense of lean, meaning tilted or sloped, as inclined does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Inclined"
+     "misdirectedWord": "wash"
     }
    }
   },
@@ -2097,25 +2133,44 @@
      "parts": [
       {
        "words": "letter",
+       "at": 11,
        "gives": "TEE",
-       "note": "tee = the letter T spelt out"
+       "note": "tee is the spelt-out name of the letter T"
       },
       {
-       "words": "flower personal assistant dismissed",
-       "gives": "NSY",
-       "note": "PANSY without PA (personal assistant)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dismissed",
+         "at": 48,
+         "note": "dismissed means the assistant's abbreviation is sent away from the word for flower"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flower",
+         "at": 22,
+         "gives": "PANSY",
+         "note": "the pansy is a garden flower"
+        },
+        {
+         "words": "personal assistant",
+         "at": 29,
+         "gives": "PA"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tiny note and a bunch of flowers for a PA who has been sacked.",
-     "walkthrough": "'Flower' here really is a flower, the pansy; the trick is that the PA comes out of it.",
-     "definitionFit": "A plain synonym, informal and childlike, as in 'a teensy bit'."
+     "surface": "A personal assistant is fired after a tiny mix-up over letters and flowers.",
+     "walkthrough": "PANSY loses PA to give NSY.",
+     "definitionFit": "Teensy is an informal word for tiny, extremely little."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "letter"
+     "misdirectedWord": "flower"
     }
    }
   }

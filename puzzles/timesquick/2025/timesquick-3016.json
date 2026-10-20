@@ -415,38 +415,56 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "at back",
-       "note": "AT goes at the back of the boy."
-      },
-      {
        "text": "tackling",
-       "note": "Tackling means taking on, so A is added next."
+       "at": 12,
+       "note": "tackling means taking on, so the boy-plus-reversed-word string holds the letter for advanced inside it"
       }
      ],
      "parts": [
       {
-       "words": "Boy",
-       "gives": "SON",
-       "note": "A boy is a son."
-      },
-      {
-       "words": "at",
-       "note": "Used as written."
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Boy",
+         "at": 0,
+         "gives": "SON",
+         "note": "a son is a boy"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 7,
+           "note": "back means the word at is read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "at",
+           "at": 4,
+           "gives": "AT",
+           "note": "taken as written before it is turned round"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "advanced",
+       "at": 21,
        "gives": "A",
-       "note": "A is the standard abbreviation for advanced."
+       "note": "A is the abbreviation for advanced, as in A level"
       }
      ]
     },
     "explanation": {
-     "surface": "A young footballer at the back makes a tackle and pushes forward.",
-     "walkthrough": "The football picture hides simple assembly: SON with AT behind it, then A.",
-     "definitionFit": "A sonata is a composition for one or two instruments."
+     "surface": "A boy playing at the back makes a tackle as the opposition advances.",
+     "walkthrough": "'At back' looks like a football position, but 'back' turns the word at round, and the advanced abbreviation goes inside the whole string.",
+     "definitionFit": "A sonata is a musical composition for one or two instruments, usually in several movements."
     },
     "features": {
      "answerInScene": false,

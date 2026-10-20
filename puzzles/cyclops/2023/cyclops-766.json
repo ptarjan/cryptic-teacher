@@ -1317,26 +1317,46 @@
      "parts": [
       {
        "words": "Trial",
+       "at": 0,
        "gives": "TEST",
        "note": "a trial is a test"
       },
       {
-       "words": "dubious? F-off",
-       "gives": "IFY",
-       "note": "IFFY (dubious) with one F removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 17,
+         "note": "off signals that the F named before it is taken away from the word for dubious"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dubious",
+         "at": 6,
+         "gives": "IFFY",
+         "note": "iffy is informal for dubious"
+        },
+        {
+         "words": "F",
+         "at": 15,
+         "gives": "F",
+         "note": "the letter F itself, named in the clue"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A defendant scorns a dodgy trial and tells the court to prove it.",
-     "walkthrough": "'F-off' reads as the swear word; it is an instruction to drop an F.",
-     "definitionFit": "A plain synonym from the courtroom: a witness who takes the stand does exactly this."
+     "surface": "A sweary witness, scornful of a dodgy trial, is still told to give evidence.",
+     "walkthrough": "'F-off' reads as an expletive, but it tells you to remove one F from IFFY, leaving IFY.",
+     "definitionFit": "To testify is to give evidence as a witness, especially under oath in court."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "F-off"
+     "misdirectedWord": "F"
     }
    }
   },

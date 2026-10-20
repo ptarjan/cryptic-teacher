@@ -233,53 +233,65 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 38,
+       "note": "in a down clue, up means the word for party is read from bottom to top, backwards"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
+       "op": "charade",
        "indicators": [
         {
-         "text": "leader of",
-         "note": "the leader is the one at the front, so take the first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "course",
-         "note": "first letter of course"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "up",
-         "note": "in a down entry, up means the word reads from bottom to top"
+         "text": "doubled",
+         "at": 30,
+         "note": "doubled means the whole word built so far is written out twice"
         }
        ],
        "parts": [
         {
          "words": "party",
+         "at": 7,
          "gives": "REVEL",
          "note": "a revel is a lively party"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader of",
+           "at": 13,
+           "note": "the leader of a word is its first letter, here the start of course"
+          }
+         ],
+         "parts": [
+          {
+           "words": "course",
+           "at": 23,
+           "note": "first letter of course"
+          }
+         ]
+        },
+        {
+         "gives": "REVEL"
+        },
+        {
+         "gives": "C"
         }
        ]
-      },
-      {
-       "words": "doubled",
-       "gives": "CLEVER",
-       "note": "doubled means the six-letter word just built is written a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "A cunning political leader who naturally does an about-turn.",
-     "walkthrough": "C plus REVEL reversed gives CLEVER, and the whole is written twice.",
-     "definitionFit": "Clever-clever describes someone too pleased with their own cunning, showily artful."
+     "surface": "A cunning party leader, of course, ends up doubled over.",
+     "walkthrough": "C (leader of course) plus REVEL read upwards (LEVER) gives CLEVER, and 'doubled' writes it twice.",
+     "definitionFit": "Clever-clever means showily or excessively ingenious, trying too hard to be smart, close to artful."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "party"
     }

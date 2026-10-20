@@ -666,34 +666,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
-       "text": "Not good",
-       "note": "without G, the abbreviation for good"
+       "text": "Not",
+       "at": 0,
+       "note": "not means the letter for good is left out of the pool of letters"
       },
       {
        "text": "working",
-       "note": "the letters are put to work in a new order"
+       "at": 10,
+       "note": "working means the remaining letters are put into a new arrangement"
       }
      ],
      "parts": [
       {
        "words": "ingenious",
-       "gives": "INENIOUS",
-       "note": "INGENIOUS minus G (good)"
+       "at": 20,
+       "note": "taken as written"
+      },
+      {
+       "words": "good",
+       "at": 4,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A bad idea, but at work it is brilliant for staff to stand together.",
-     "walkthrough": "'Not good' is an instruction on 'ingenious', not a comment: drop its G, then rearrange.",
-     "definitionFit": "To unionise is to form a trade union so workers can press their rights together."
+     "surface": "A worker praises a scheme as ingenious, although it isn't really good.",
+     "walkthrough": "Take the letters of INGENIOUS, remove G, and rearrange the remaining eight.",
+     "definitionFit": "To unionise is to organise workers into a trade union so they bargain together."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "good"
+     "misdirectedWord": "ingenious"
     }
    }
   },
@@ -913,31 +920,49 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "supported by"
+       "text": "supported by",
+       "at": 15,
+       "note": "in a down clue, NT supported by I means I is placed next to NT in the column"
       }
      ],
      "parts": [
       {
        "words": "Everyman",
+       "at": 28,
        "gives": "I",
-       "note": "the setter, Everyman, refers to himself as I"
+       "note": "the setter Everyman refers to himself, so I"
       },
       {
        "words": "National Trust",
+       "at": 0,
        "gives": "NT",
-       "note": "standard abbreviation"
+       "note": "NT is the abbreviation for the National Trust, the British heritage charity"
       },
       {
-       "words": "donated, tipped",
-       "gives": "ONATED",
-       "note": "DONATED without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tipped",
+         "at": 47,
+         "note": "tipped means the word donated has its tip, the first letter, cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "donated",
+         "at": 38
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heritage charity backed by the setter's donations, and someone drones about it.",
-     "walkthrough": "The National Trust is a British charity that looks after historic houses. Everyman is the setter, so he is I.",
-     "definitionFit": "To intonate is to recite in a sing-song or monotone, much like droning on."
+     "surface": "A setter gives money to a heritage charity and boasts about it at length.",
+     "walkthrough": "Everyman is the setter, who stands for I. The National Trust is the British charity that looks after historic houses and land.",
+     "definitionFit": "Intonated means spoke in a sing-song or chanting tone, much like droning on."
     },
     "features": {
      "answerInScene": false,

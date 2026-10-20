@@ -415,65 +415,59 @@
      "indicators": [
       {
        "text": "Turning up",
-       "note": "turning up in a down clue means reading upwards, so the string runs backwards"
+       "at": 0,
+       "note": "in a down clue, turning up means the letters are read from bottom to top"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "never-endingly",
+         "at": 11,
+         "note": "never-endingly means each of the three words loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "never-endingly",
-           "note": "never-endingly means each word is denied its final letter"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "in",
-           "note": "taken as written, to lose its last letter"
+           "at": 26
           },
-          {
-           "gives": "N"
-          }
-         ]
-        },
-        {
-         "op": "deletion",
-         "parts": [
           {
            "words": "attic",
+           "at": 29,
            "gives": "LOFT",
-           "note": "a loft is an attic, to lose its last letter"
+           "note": "a loft is an attic"
           },
           {
-           "gives": "T"
+           "words": "coppers",
+           "at": 36,
+           "gives": "FUZZ",
+           "note": "the fuzz is slang for the police, coppers"
           }
          ]
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "coppers",
-           "gives": "FUZZ",
-           "note": "the fuzz is slang for the police, to lose its last letter"
-          },
-          {
-           "gives": "Z"
-          }
-         ]
+         "gives": "N"
+        },
+        {
+         "gives": "T"
+        },
+        {
+         "gives": "Z"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Police and some musical instruments turn up in a loft.",
-     "walkthrough": "Shorn of last letters, IN, LOFT and FUZZ become I LOF FUZ, which reads upwards as ZUFFOLI.",
-     "definitionFit": "Zuffoli are small Italian flageolets or whistle pipes, the plural of zufolo, so they are a kind of flute."
+     "surface": "Old flutes turn up in an attic alongside some copper coins.",
+     "walkthrough": "IN, LOFT and FUZZ each lose their end to give I, LOF and FUZ; reading ILOFFUZ upwards gives the answer.",
+     "definitionFit": "Zuffoli are small Italian flageolets or whistles, a kind of flute; the word is the plural."
     },
     "features": {
      "answerInScene": true,
