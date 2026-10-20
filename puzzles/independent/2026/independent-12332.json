@@ -43,48 +43,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
      "indicators": [
+      {
+       "text": "putting",
+       "at": 22,
+       "note": "with first, says the love letter is moved to the front"
+      },
       {
        "text": "first",
        "at": 35,
-       "note": "first says where it goes: to the front, ahead of the remaining letters of the opening"
+       "note": "with putting, the love letter goes to the head of the word"
       }
      ],
      "parts": [
       {
+       "words": "opening",
+       "at": 13,
+       "gives": "VOID",
+       "note": "a void is a gap or opening"
+      },
+      {
        "words": "love",
        "at": 30,
        "gives": "O",
-       "note": "love is zero in tennis scoring, which looks like the letter O"
-      },
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "putting",
-         "at": 22,
-         "note": "putting love somewhere means moving that letter out of the word for opening to a new place"
-        }
-       ],
-       "parts": [
-        {
-         "words": "opening",
-         "at": 13,
-         "gives": "VOID",
-         "note": "a void is a gap or opening"
-        },
-        {
-         "gives": "O"
-        }
-       ]
+       "note": "love is zero in tennis, which looks like O"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction for starting a poem: open with love.",
-     "walkthrough": "'opening' looks like the start of a poem, but it is a gap. 'putting love first' moves the love letter from inside that word to its front.",
-     "definitionFit": "Ovid was a Roman poet of the classical age, author of the Metamorphoses."
+     "surface": "An old poet's debut work puts love before everything.",
+     "walkthrough": "'putting love first' moves O from the middle of VOID to its front.",
+     "definitionFit": "Ovid was a Roman poet of the Augustan age, author of the Metamorphoses."
     },
     "features": {
      "answerInScene": true,
@@ -710,31 +700,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "bringing in"
+       "text": "bringing in",
+       "at": 8,
+       "note": "the money word takes the other piece inside it"
       }
      ],
      "parts": [
       {
        "words": "Money's",
+       "at": 0,
        "gives": "TINS",
-       "note": "tin is slang for money; plus the S"
+       "note": "tin is slang for money; with the 's it gives tins"
       },
       {
-       "words": "a lot of Shakespeare",
-       "gives": "THEBAR",
-       "note": "Shakespeare is the Bard; THE BARD minus its D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 20,
+         "note": "most but not all, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Shakespeare",
+         "at": 29,
+         "gives": "THEBARD",
+         "note": "Shakespeare is known as the Bard"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cash flowing in from a Shakespeare staging put on in church halls.",
-     "walkthrough": "'Tin' is old British slang for money. A tithe barn stored the tenth of produce owed to the church.",
-     "definitionFit": "Tithe barns were barns built to hold a parish's tithes."
+     "surface": "Cash is raised by staging much of Shakespeare in church halls.",
+     "walkthrough": "'Money's' gives a plural, not a possessive: tins of money. The Bard needs its last letter cut before it goes inside.",
+     "definitionFit": "Tithe barns stored the tenth of produce paid to the parish church."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Shakespeare"
+     "misdirectedWord": "Money's"
     }
    }
   },

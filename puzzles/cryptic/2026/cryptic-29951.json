@@ -392,24 +392,44 @@
      "parts": [
       {
        "words": "Greek character",
+       "at": 0,
        "gives": "MU",
-       "note": "mu is the twelfth letter of the Greek alphabet"
+       "note": "mu is a letter of the Greek alphabet"
       },
       {
-       "words": "blemish, not one",
-       "gives": "TANT",
-       "note": "a TAINT is a blemish, and it loses the I that stands for one"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 30,
+         "note": "says the letter for one is left out of the blemish word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "blemish",
+         "at": 21,
+         "gives": "TAINT",
+         "note": "a taint is a stain or blemish"
+        },
+        {
+         "words": "one",
+         "at": 34,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek character carrying a blemish, painted as something monstrous.",
-     "walkthrough": "Greek letters are a setter's staple — mu, pi, eta, chi — and 'character' is the word that usually announces one. The question mark admits that a mutant is monstrous only in the films.",
-     "definitionFit": "A mutant is a creature thrown up by a change in its genes, which is what makes it the monstrous type of science fiction."
+     "surface": "A Greek with a flaw turns out to be some sort of monster.",
+     "walkthrough": "'monstrous type' is the definition; 'not one' tells you to drop the Roman numeral from the blemish word.",
+     "definitionFit": "A mutant is a creature changed by genetic mutation, the stock figure of monster films."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "character"
     }
    }

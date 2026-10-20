@@ -1101,7 +1101,7 @@
         {
          "text": "even",
          "at": 31,
-         "note": "even means the even-numbered letters of yummy"
+         "note": "the even-numbered letters of yummy are taken"
         }
        ],
        "parts": [
@@ -1116,17 +1116,28 @@
        "at": 41
       },
       {
-       "words": "half of mild",
-       "at": 43,
-       "gives": "MI",
-       "note": "the first half of mild"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 43,
+         "note": "the first two of its four letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mild",
+         "at": 51,
+         "gives": "MILD"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A food writer praises a mild dish as distinctively yummy.",
-     "walkthrough": "Yummy's 2nd and 4th letters give UM.",
-     "definitionFit": "Umami is the savoury fifth basic taste, so a thing that tastes in a distinctive way."
+     "surface": "A food critic praises a yummy dish, even half a mild one.",
+     "walkthrough": "'even' gives UM from YUMMY; A as written; MI is 'half of mild'.",
+     "definitionFit": "Umami is the savoury fifth basic taste, alongside sweet, sour, salt and bitter."
     },
     "features": {
      "answerInScene": true,
@@ -1345,65 +1356,30 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Primarily",
+       "at": 0,
+       "note": "first and foremost, so the initial letter of each word"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "Primarily",
-         "note": "What comes primarily comes first, so every word in the list that follows gives up its opening letter."
-        }
-       ],
-       "parts": [
-        {
-         "words": "anyone",
-         "note": "the first letter of the list's first word"
-        }
-       ]
-      },
-      {
-       "words": "trying",
-       "gives": "T",
-       "note": "the next word's opening letter"
-      },
-      {
-       "words": "hurdles",
-       "gives": "H",
-       "note": "the letter the first of the events named begins with"
-      },
-      {
-       "words": "lifting",
-       "gives": "L",
-       "note": "the opening letter of the weightlifter's word"
-      },
-      {
-       "words": "endurance",
-       "gives": "E",
-       "note": "the letter this one starts with"
-      },
-      {
-       "words": "training",
-       "gives": "T",
-       "note": "the first letter of the word for the work behind them all"
-      },
-      {
-       "words": "etc",
-       "gives": "E",
-       "note": "even the abbreviation at the end has a first letter, and it is wanted"
+       "words": "anyone trying hurdles, lifting, endurance training etc",
+       "at": 11
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A list of the events and sessions somebody has taken on.",
-     "walkthrough": "Every word does two jobs at once: it describes what the answer does and hands over its opening letter, so no word is left to act as a separate definition. 'Etc' is fodder too, which is where the trick hides.",
-     "definitionFit": "Read straight, the clue describes someone who trains and competes at running, jumping and lifting — the whole sentence is the definition."
+     "surface": "A description of a sportsperson trying out hurdles, weights and stamina work.",
+     "walkthrough": "The opening letters of the seven words after 'Primarily' spell the answer, and the whole clue describes one.",
+     "definitionFit": "An athlete is someone who competes in sports such as hurdling or weightlifting."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "etc"
+     "aptDefinition": true
     }
    }
   },

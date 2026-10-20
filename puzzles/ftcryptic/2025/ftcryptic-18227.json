@@ -1442,46 +1442,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "desperately",
-       "note": "acting desperately is acting wildly, so the letters are thrown into disorder"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "One",
-       "note": "taken as written"
-      },
-      {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "almost",
-         "note": "almost means not quite all, so the final letter is cut"
+         "text": "desperately",
+         "at": 22,
+         "note": "frantic, so the letters are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "passed",
-         "note": "taken as written"
+         "words": "One",
+         "at": 0
         },
         {
-         "gives": "D"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 4,
+           "note": "the last letter of passed is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "passed",
+           "at": 11,
+           "gives": "PASSED"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
       },
       {
        "words": "on",
-       "note": "taken as written"
+       "at": 18
       }
      ]
     },
     "explanation": {
-     "surface": "Someone nearly dead is frantically passing the hours.",
-     "walkthrough": "'Killing time' sounds like idling, but it means a period when hunting is allowed.",
-     "definitionFit": "The open season is the part of the year when game may legally be hunted and shot."
+     "surface": "Someone nearly dead, frantically trying to pass the time.",
+     "walkthrough": "'on' looks part of 'passed on' (died) but stays unscrambled at the end; 'desperately' works only on the words before it.",
+     "definitionFit": "Open season is the period when hunting a given animal is legal."
     },
     "features": {
      "answerInScene": false,
@@ -1588,39 +1596,34 @@
      "indicators": [
       {
        "text": "to vanquish",
-       "note": "to vanquish is to defeat and remove, so these letters are knocked out"
+       "at": 14,
+       "note": "the resistance letter is beaten off and removed"
+      },
+      {
+       "text": "on all sides",
+       "at": 37,
+       "note": "the letter goes from both the front and the back"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "on all sides",
-         "note": "on all sides means at both ends of the word, so the letter goes from each end"
-        }
-       ],
-       "parts": [
-        {
-         "words": "attacker",
-         "gives": "RAIDER",
-         "note": "a raider is someone who attacks"
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "words": "attacker",
+       "at": 5,
+       "gives": "RAIDER",
+       "note": "a raider attacks"
       },
       {
        "words": "resistance",
-       "gives": "R",
-       "note": "R is the symbol for electrical resistance"
+       "at": 26,
+       "gives": "RR",
+       "note": "R is the symbol for electrical resistance, taken here at each end"
       }
      ]
     },
     "explanation": {
-     "surface": "An assailant is helped to crush the opposition surrounding them.",
-     "definitionFit": "An aide is an assistant, a person who gives support, so a help in the noun sense."
+     "surface": "Help an assailant overcome opposition everywhere.",
+     "walkthrough": "RAIDER loses the R at each end ('on all sides'), leaving the answer.",
+     "definitionFit": "An aide is an assistant, someone who helps."
     },
     "features": {
      "answerInScene": false,
