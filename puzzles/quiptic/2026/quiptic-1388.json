@@ -47,23 +47,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "missing opening"
-      },
-      {
-       "text": "when playing"
+       "text": "when playing",
+       "at": 41,
+       "note": "when playing a piece is performed in a new arrangement, so the remaining letters are shuffled"
       }
      ],
      "parts": [
       {
-       "words": "Schubert, missing opening",
-       "gives": "CHUBERT",
-       "note": "SCHUBERT drops its opening S, leaving seven letters to shuffle"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing opening",
+         "at": 25,
+         "note": "missing opening removes the first letter of Schubert"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Schubert",
+         "at": 15
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The composer loses his first letter and the rest is rearranged — 'playing' is the anagram signal hiding inside the musical surface.",
-     "definitionFit": "To butcher a performance is to mangle it — the butcher's rough chopping applied figuratively to any bungled job."
+     "surface": "A pianist ruining Schubert by fluffing the first bars of a performance.",
+     "walkthrough": "'missing opening' drops the S of SCHUBERT, and 'when playing' rearranges CHUBERT.",
+     "definitionFit": "To butcher a piece of work is to botch or ruin it badly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
     }
    }
   },

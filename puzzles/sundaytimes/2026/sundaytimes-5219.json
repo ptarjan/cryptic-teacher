@@ -1735,26 +1735,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "mostly County",
-       "gives": "DEVO",
-       "note": "DEVON, a county in south-west England, without its N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 6,
+         "note": "mostly keeps all but the final letter of the county"
+        }
+       ],
+       "parts": [
+        {
+         "words": "County",
+         "at": 13,
+         "gives": "DEVON",
+         "note": "Devon is an English county"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "supporters",
+       "at": 20,
        "gives": "TEES",
-       "note": "golf tees support the ball"
+       "note": "tees support golf balls"
       }
      ]
     },
     "explanation": {
-     "surface": "Most of the fans are county-cricket supporters.",
-     "walkthrough": "\"Supporters\" sits beside \"Fans\" as a synonym; it is the golf tees that hold the ball up.",
-     "definitionFit": "A plain synonym: people devoted to a team, star or hobby are its fans."
+     "surface": "Fans, for the most part, are supporters of a county side.",
+     "walkthrough": "Devon is a county in south-west England; 'mostly' drops its N. TEES are the pegs supporting a golf ball.",
+     "definitionFit": "Devotees are ardent followers or enthusiasts of something."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "supporters"
     }
    }

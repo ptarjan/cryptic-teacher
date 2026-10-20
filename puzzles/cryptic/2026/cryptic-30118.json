@@ -851,41 +851,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "off",
-       "note": "base knocked off, out of its order"
-      },
-      {
        "text": "in",
-       "note": "the first letters are placed within the next word"
-      },
-      {
-       "text": "dancing",
-       "note": "dancers never stay in one place, so the letters step into a new order"
+       "at": 27,
+       "note": "in places the jumbled base inside the jumbled square"
       }
      ],
      "parts": [
       {
-       "words": "base",
-       "note": "part of the fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dancing",
+         "at": 37,
+         "note": "dancing has the letters of square moving about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "square",
+         "at": 30
+        }
+       ]
       },
       {
-       "words": "square",
-       "note": "the rest of the fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 18,
+         "note": "off, as in gone off or wrong, means the letters of base are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "base",
+         "at": 22
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A square dancer balancing on one leg and slipping out of position.",
-     "walkthrough": "'Square-dancing' looks like one hyphenated word, but it splits into fodder SQUARE and indicator 'dancing'.",
-     "definitionFit": "An arabesque is a ballet position on one leg, the other stretched out behind."
+     "surface": "Square dancers striking balletic poses while off their base position.",
+     "walkthrough": "'square-dancing' reads as one folk dance, but the hyphen hides two jobs: square is fodder, dancing its signal.",
+     "definitionFit": "An arabesque is a ballet position balanced on one leg with the other extended behind."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "square-dancing"
+     "misdirectedWord": "base"
     }
    }
   },
@@ -1812,39 +1829,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "Discovery",
+       "at": 47,
+       "note": "read as dis-covery, taking the covers off, so each place name loses its outer letters"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "Discovery",
-         "note": "read as dis-cover-y: take off the covers, the outer letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Gaul",
-         "note": "gAUl"
-        }
-       ]
+       "words": "Gaul",
+       "at": 20
       },
       {
        "words": "Athens",
-       "gives": "THEN",
-       "note": "aTHENs"
+       "at": 26
       },
       {
        "words": "Utica",
-       "gives": "TIC",
-       "note": "uTICa"
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "surface": "A faithful portrayal of three ancient places in a history documentary.",
-     "walkthrough": "Discovery pretends to be a TV channel, but read it as dis-covering: each place name loses its outer letters.",
-     "definitionFit": "Something authentic is true to life, accurately depicted."
+     "surface": "An exploration of three ancient places, Gaul, Athens and Utica, for a documentary channel.",
+     "walkthrough": "Uncovering GAUL, ATHENS and UTICA leaves AU, THEN and TIC. 'Discovery' looks like the channel or a voyage, but it is the stripping signal.",
+     "definitionFit": "Something authentic is genuine and true to life, faithfully represented."
     },
     "features": {
      "answerInScene": false,
