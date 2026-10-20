@@ -1455,38 +1455,70 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mouldy",
+       "at": 63,
+       "note": "mouldy means gone bad, so the collected letters are rotted into a new order"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "On inspection by",
-       "note": "surface padding"
-      },
-      {
-       "op": "anagram",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "On inspection by",
+         "at": 0,
+         "note": "on inspection, only the tail of Michelin is seen, its opening letters stripped off"
+        }
+       ],
        "parts": [
         {
-         "words": "Michelin, onion tart's stale",
-         "gives": "LINONIONTARTSSTAL",
-         "note": "a consecutive run of letters: the end of Michelin, onion, tart's, and the start of stale"
+         "words": "Michelin",
+         "at": 17,
+         "note": "the word Michelin taken as written"
+        },
+        {
+         "gives": "MICHE"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "covered in a mouldy",
-       "note": "surface padding"
+       "words": "onion tart's",
+       "at": 27,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "covered in",
+         "at": 50,
+         "note": "covered in means the letters needed are enclosed, so the outer letter at the far end goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stale",
+         "at": 40,
+         "note": "the word stale taken as written"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A restaurant inspector from the Michelin guide finds an old onion tart with mould growing on it.",
-     "walkthrough": "'Film' looks like the mould's skin but is the definition. It also explains the starred answers: each is the word lost in another language.",
-     "definitionFit": "Lost in Translation is Sofia Coppola's 2003 movie starring Bill Murray and Scarlett Johansson."
+     "surface": "A Michelin inspector finds a stale onion tart with a mouldy film on it.",
+     "walkthrough": "Drop MICHE from the front and the final E, and rearrange LINONIONTARTSSTAL. In the puzzle the starred answers are translations of 'lost'.",
+     "definitionFit": "Lost in Translation is the 2003 Sofia Coppola film starring Bill Murray and Scarlett Johansson."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "film"
     }

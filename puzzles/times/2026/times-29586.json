@@ -805,12 +805,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "reverse of",
-       "note": "the reverse of a word is that word written backwards"
-      },
-      {
        "text": "after",
-       "note": "'after' places the well chunk later in the answer than the healthy chunk"
+       "at": 18,
+       "note": "after places the shortened word for well behind the first piece"
       }
      ],
      "parts": [
@@ -818,34 +815,51 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "Not entirely",
-         "note": "a word given not entirely is cut short, losing its final letter"
+         "text": "reverse of",
+         "at": 24,
+         "note": "reverse of means the word for healthy is read backwards"
         }
        ],
        "parts": [
         {
          "words": "healthy",
+         "at": 35,
          "gives": "FIT",
-         "note": "fit = healthy; turned round to TIF"
+         "note": "fit means healthy"
         }
        ]
       },
       {
-       "words": "well",
-       "gives": "FIN",
-       "note": "fine = well, without its last E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 0,
+         "note": "not entirely means the word is not complete, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "well",
+         "at": 13,
+         "gives": "FINE",
+         "note": "fine means well, as in 'I'm fine'"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone feels off-colour after eating a supposedly healthy snack backwards.",
-     "walkthrough": "Tiffin is an Anglo-Indian word for a light meal, especially lunch.",
-     "definitionFit": "A regional use: in India and among Britons who served there, the word means a light midday meal or snack."
+     "surface": "Someone not quite well turns away from health food towards a snack.",
+     "definitionFit": "Tiffin is a light midday meal, a term from British India still used in Britain."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "well"
+     "misdirectedWord": "reverse"
     }
    }
   },

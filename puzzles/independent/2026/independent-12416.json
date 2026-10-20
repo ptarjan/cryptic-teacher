@@ -944,33 +944,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "brought about",
-       "note": "To bring a thing about is to bring it round, so the king's letters finish up on either side of what they collect."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "end of",
-         "note": "The end of a word is its last letter, so one letter of the battle is taken and the rest left."
+         "text": "brought about",
+         "at": 17,
+         "note": "brought about means the king's letters are brought around the final letter of battle"
         }
        ],
        "parts": [
         {
          "words": "King",
+         "at": 0,
          "gives": "REX",
-         "note": "REX is Latin for king, the word printed on British coins"
+         "note": "Rex is Latin for king, abbreviated R in royal titles"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 31,
+           "note": "the end of a word is its last letter, here of battle"
+          }
+         ],
          "parts": [
           {
-           "words": "end of battle",
-           "note": "the final letter of the word battle"
+           "words": "battle",
+           "at": 38
           }
          ]
         }
@@ -978,18 +981,24 @@
       },
       {
        "words": "a",
-       "note": "the article joins on as itself"
+       "at": 10
       },
       {
        "words": "bomb",
+       "at": 12,
        "gives": "MINE",
-       "note": "a mine is a bomb laid in the ground or at sea"
+       "note": "a mine is an explosive device, a bomb"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Brought about' looks like an instruction to turn something round; here it means only 'placed around', and that difference is the whole clue.",
-     "definitionFit": "The answer is what you do when you look at evidence a second time, so 'again' is carrying the RE- in front of the verb."
+     "surface": "A monarch with a bomb sets off the end of the fighting.",
+     "definitionFit": "The answer means to inspect or study something a second time, so it matches observe again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "King"
     }
    }
   },
@@ -1189,45 +1198,52 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "gutted",
-       "note": "Gutting takes out the innards, and the innards of a five-letter word are the single letter at its centre."
+       "text": "after reflection",
+       "at": 32,
+       "note": "after reflection means the whole is mirrored, read from right to left"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "after reflection",
-         "note": "A reflection is a mirror image, so the letters come out reading the opposite way round."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "new design",
-           "gives": "REFIT",
-           "note": "a refit is a new design for something that already exists — a ship, a shop"
-          },
-          {
-           "words": "gutted",
-           "gives": "REIT",
-           "note": "the middle letter F is taken out of the five above"
-          }
-         ]
+         "words": "new",
+         "at": 14,
+         "gives": "RE",
+         "note": "re- is the prefix meaning new or anew, as in renew"
         },
         {
-         "gives": "REFIT"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "gutted",
+           "at": 25,
+           "note": "gutted means the insides are removed, leaving only the outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "design",
+           "at": 18,
+           "gives": "INTENT",
+           "note": "intent is a design or purpose"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The colon hides the join: everything before it is the definition and everything after it is instruction.",
-     "definitionFit": "A tier is one of the rising levels in a theatre or a stadium, and each of those levels is a row of seats."
+     "surface": "A stadium row of seats is redesigned and its interior stripped out.",
+     "walkthrough": "RE plus IT (INTENT with its middle gone) gives REIT, which mirrored reads the answer.",
+     "definitionFit": "A tier is one of a series of rows rising one behind another, as of seats in a theatre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
     }
    }
   },
