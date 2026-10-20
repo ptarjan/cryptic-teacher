@@ -689,6 +689,28 @@ def full_mark(pid):
     return spool_dir() / f"full.{pid}"
 
 
+def _unit_label():
+    """The queue unit ("paper/rel") whose read is asking, from CT_EDITION_UNIT; "" outside one."""
+    try:
+        u = json.loads(os.environ.get("CT_EDITION_UNIT") or "{}").get("unit") or {}
+        return f"{u['paper']}/{u['rel']}" if u.get("rel") else ""
+    except (ValueError, AttributeError, KeyError):
+        return ""
+
+
+def _log_ask(key, entry):
+    """One line in vlm_asks.log per real server call the drainer made: when, key, kind, the unit
+    that spooled it (so a page's real asks can be tallied against its final outcome)."""
+    try:
+        p = Path(os.path.expanduser(os.environ.get("CT_VLM_ASK_LOG") or "~/.cache/corpus_queue/vlm_asks.log"))
+        p.parent.mkdir(parents=True, exist_ok=True)
+        with open(p, "a") as f:
+            f.write(f"{time.strftime('%H:%M:%S', time.gmtime())} vlm ask {entry.get('unit') or '?'} "
+                    f"{_kind(entry.get('prompt', ''))} {key[:12]}\n")
+    except OSError:
+        pass
+
+
 def put_spool(key, data, prompt, max_tokens):
     """Queue the ask `key` for the drainer (png first, the json that marks it last)."""
     d = spool_dir()
@@ -702,7 +724,8 @@ def put_spool(key, data, prompt, max_tokens):
         return
     (d / f"{key}.png").write_bytes(data)
     tmp = d / f"{key}.tmp"
-    tmp.write_text(json.dumps({"prompt": prompt, "max_tokens": max_tokens, "pid": os.getpid(), "at": time.time()}))
+    tmp.write_text(json.dumps({"prompt": prompt, "max_tokens": max_tokens, "pid": os.getpid(), "at": time.time(),
+                               "unit": _unit_label()}))
     tmp.replace(d / f"{key}.json")
 
 
@@ -800,6 +823,7 @@ def drain_one():
             try:
                 got = json.loads(claim.read_text())
                 ask_png(png.read_bytes(), got["prompt"], got["max_tokens"], spool=False, held=True)
+                _log_ask(key, got)
             except (RuntimeError, OSError, ValueError, KeyError):
                 try:
                     claim.rename(f)
