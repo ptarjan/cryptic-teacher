@@ -1109,29 +1109,41 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "NEST",
      "indicators": [
       {
-       "text": "cycling around",
-       "note": "going round a cycle means the letters sit in a ring and are read off from a new starting point"
+       "text": "cycling",
+       "at": 14,
+       "note": "cycling moves a letter from one end of the word to the other"
       }
      ],
      "parts": [
       {
-       "words": "Ordered to go",
-       "gives": "SENT",
-       "note": "someone ordered to go has been sent away"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 22,
+         "note": "around turns the word back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ordered to go",
+         "at": 0,
+         "gives": "SENT",
+         "note": "someone sent away has been ordered to go"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone told to go off cycling heads around a quiet retreat.",
-     "walkthrough": "Write SENT round a circle and read it the other way starting from N.",
-     "definitionFit": "A nest is a snug hideaway or retreat, so it works as a cosy secluded spot."
+     "surface": "Someone is told to go riding a bicycle around a quiet spot.",
+     "walkthrough": "'Around' turns SENT into TNES, and 'cycling' moves its T from the front to the back.",
+     "definitionFit": "A nest is a snug retreat or hideaway, as in a love nest."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cycling"
     }

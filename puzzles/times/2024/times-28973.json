@@ -821,59 +821,68 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "aboard",
+       "at": 32,
+       "note": "aboard means on board, placed within the train"
+      }
+     ],
      "parts": [
       {
-       "words": "cargo",
-       "gives": "GOODS",
-       "note": "goods are freight or cargo"
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "aboard",
-         "note": "a passenger who is aboard is inside the vehicle, so one piece goes within another"
-        }
-       ],
+       "op": "charade",
        "parts": [
+        {
+         "words": "cargo",
+         "at": 39,
+         "gives": "GOODS",
+         "note": "goods are cargo, and a goods train carries freight"
+        },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "in motion",
-           "note": "something in motion is moving around, so the letters are shifted about"
+           "at": 51,
+           "note": "in motion means moving, so these letters are shifted around"
           }
          ],
          "parts": [
           {
-           "words": "parent",
-           "gives": "MA",
-           "note": "ma is mother"
-          },
-          {
            "words": "train",
-           "note": "anagram fodder"
+           "at": 45
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "a",
-         "note": "taken as it stands"
+         "at": 23
+        },
+        {
+         "words": "parent",
+         "at": 25,
+         "gives": "MA",
+         "note": "Ma is a mother"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man surprisingly lent a hand to a mother climbing onto a moving freight train.",
-     "walkthrough": "'Cargo train' suggests a British goods train; GOODS plus the scrambled TRAIN form the carriage that A MA boards.",
-     "definitionFit": "In the parable in Luke, the Samaritan unexpectedly aided a beaten traveller whom others ignored."
+     "surface": "A passenger with a mother on a moving freight train got help from an unexpected stranger.",
+     "walkthrough": "'Cargo train' reads as one phrase, a goods train, but it splits: cargo is one piece and the train itself is the moving one, with the passenger aboard between them.",
+     "definitionFit": "The Good Samaritan of the parable stopped to help a beaten traveller when others passed by."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "train"
+     "misdirectedWord": "parent"
     }
    }
   },
