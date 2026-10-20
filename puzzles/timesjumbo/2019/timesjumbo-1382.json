@@ -2186,57 +2186,69 @@
        "indicators": [
         {
          "text": "in",
-         "note": "in means inside, so the artist sits within the county"
-        },
-        {
-         "text": "outside",
-         "note": "outside means on the exterior, so the shuffled tunes wrap around the compass letter"
+         "at": 7,
+         "note": "the artist sits inside the county's name"
         }
        ],
        "parts": [
         {
          "words": "Irish county",
+         "at": 10,
          "gives": "CAVAN",
-         "note": "Cavan is a county in Ireland"
+         "note": "Cavan is a county in the Republic of Ireland"
         },
         {
          "words": "Artist",
+         "at": 0,
          "gives": "RA",
-         "note": "RA is a Royal Academician"
+         "note": "RA, Royal Academician"
         }
        ]
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "composed",
-         "note": "composed means put together, so the letters are arranged afresh"
+         "text": "outside",
+         "at": 37,
+         "note": "the rearranged airs go round the letter for eastern"
         }
        ],
        "parts": [
         {
-         "words": "airs",
-         "note": "the fodder, taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "composed",
+           "at": 23,
+           "note": "composed means put together, so the letters of airs are arranged anew"
+          }
+         ],
+         "parts": [
+          {
+           "words": "airs",
+           "at": 32
+          }
+         ]
         },
         {
          "words": "eastern",
-         "gives": "E",
-         "note": "E abbreviates eastern"
+         "at": 45,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A painter in Ireland composes tunes about the East.",
-     "walkthrough": "'Outside' places the shuffled airs around the E, though that only fixes letters already in the anagram.",
-     "definitionFit": "A caravanserai is a roadside inn with a courtyard where caravans rested in the Middle East and Asia."
+     "surface": "A painter in an Irish county writes tunes around an oriental hostelry.",
+     "walkthrough": "RA goes into CAVAN for CARAVAN; 'composed' turns AIRS into SRAI, which goes 'outside' E for SERAI.",
+     "definitionFit": "A caravanserai is a roadside lodging in the East where travelling caravans rest overnight."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Artist"
+     "misdirectedWord": "composed"
     }
    }
   },

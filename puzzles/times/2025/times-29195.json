@@ -788,41 +788,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "takes the first letter of regulator"
-      },
-      {
-       "text": "blocks"
-      },
-      {
-       "text": "supply",
-       "note": "supply as an adverb, supplely: bent into a new shape"
+       "text": "blocks",
+       "at": 20,
+       "note": "the letter blocks the rest by sitting in the middle of it"
       }
      ],
      "parts": [
       {
-       "words": "Regulator initially",
-       "gives": "R",
-       "note": "first letter of regulator"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "supply",
+         "at": 38,
+         "note": "supply read as the adverb of supple, so the letters bend into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "licence to",
+         "at": 27
+        }
+       ]
       },
       {
-       "words": "licence to",
-       "note": "anagram fodder"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 10,
+         "note": "initially means at the start, so just the first letter of Regulator"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Regulator",
+         "at": 0,
+         "note": "the word whose first letter is taken"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A regulator at first withholds a licence to supply ecstasy.",
-     "walkthrough": "'Supply' is the adverb from supple, flexibly, and 'E' is the prefix in e-mail and e-commerce, not the drug the surface suggests.",
-     "definitionFit": "The E in e-commerce or e-book stands for electronic."
+     "surface": "A regulator first obstructs a licence to provide E, perhaps a drug.",
+     "walkthrough": "'supply' is a verb in the surface but the adverb 'supplely' in the wordplay; LICENCE TO jumbled is ELECTONIC, with R blocking it.",
+     "definitionFit": "E is a prefix standing for electronic, as in e-mail and e-commerce."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "supply"
     }
    }
@@ -1237,55 +1254,54 @@
      "indicators": [
       {
        "text": "supporting",
-       "note": "in a down entry, the legislation sits below and holds up the case"
-      },
-      {
-       "text": "case for",
-       "note": "the case of a word is its outside letters"
+       "at": 28,
+       "note": "in a down answer these pieces lie beneath and hold up the outer letters of intervention"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "IN",
        "indicators": [
         {
-         "text": "no longer",
-         "note": "ex means former, so a law no longer in force is an ex-act"
+         "text": "case for",
+         "at": 39,
+         "note": "the case of a word is its outside, so just the outer letters of intervention"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "intervention",
-         "gives": "IN",
-         "select": "outer",
-         "note": "outer letters of InterventioN"
+         "at": 48
         }
        ]
       },
       {
-       "words": "no longer",
-       "gives": "EX",
-       "note": "ex = former"
-      },
-      {
-       "words": "legislation",
-       "gives": "ACT",
-       "note": "an act of Parliament"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "no longer",
+         "at": 18,
+         "gives": "EX",
+         "note": "ex means former, no longer"
+        },
+        {
+         "words": "legislation",
+         "at": 6,
+         "gives": "ACT",
+         "note": "an act is a piece of legislation"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Woolly law, now defunct, used to justify intervening.",
-     "walkthrough": "The case for intervention reads as an argument; here it is the word's outer shell, IN.",
-     "definitionFit": "A plain synonym: something not exact is imprecise, hence vague."
+     "surface": "Vague law that no longer backs a case for stepping in.",
+     "walkthrough": "'case for intervention' sounds like an argument for stepping in, but it means the word's outer casing, its first and last letters.",
+     "definitionFit": "Inexact means imprecise or not accurate, lacking sharpness of detail."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "case"
     }
    }

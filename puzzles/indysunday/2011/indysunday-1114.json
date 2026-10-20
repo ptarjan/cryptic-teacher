@@ -482,47 +482,51 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "GREETINGS",
+     "op": "anagram",
      "indicators": [
       {
        "text": "sprinkled into",
-       "note": "sprinkled into says the letters are scattered at points inside the vegetable word"
+       "at": 34,
+       "note": "sprinkled means scattered, so the hints are mixed in among the vegetable's letters"
       }
      ],
      "parts": [
       {
-       "words": "cabbage",
-       "gives": "GREENS",
-       "note": "greens are leafy vegetables such as cabbage"
-      },
-      {
        "op": "first",
-       "unchecked": true,
-       "gives": "TIG",
        "indicators": [
         {
          "text": "hints of",
-         "note": "hints are just traces, so only the first letter of each word is kept"
+         "at": 8,
+         "note": "a hint of each word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "tomato in garlic",
-         "gives": "TIG",
-         "select": "first",
-         "note": "the first letters of tomato, in and garlic"
+         "words": "tomato",
+         "at": 17
+        },
+        {
+         "words": "in",
+         "at": 24
+        },
+        {
+         "words": "garlic",
+         "at": 27
         }
        ]
+      },
+      {
+       "words": "cabbage",
+       "at": 49,
+       "gives": "GREENS",
+       "note": "greens are cabbage and other leafy vegetables"
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe: welcome a little tomato in garlic sprinkled over cabbage.",
-     "walkthrough": "Sprinkled means the three initials are not inserted as one group: two go together and the third goes in separately, nearer the end.",
-     "definitionFit": "Greetings, as an exclamation, is a word of welcome said on meeting someone."
+     "surface": "A recipe: a little tomato in garlic scattered over cabbage.",
+     "walkthrough": "'sprinkled' means the three hints do not go in as one block: two land before the vegetable's N and the third after it.",
+     "definitionFit": "Greetings are words of welcome said on meeting someone."
     },
     "features": {
      "answerInScene": false,

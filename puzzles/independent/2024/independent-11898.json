@@ -1264,34 +1264,50 @@
      "parts": [
       {
        "words": "No",
-       "note": "taken as written"
+       "at": 0,
+       "gives": "NO"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "except",
-         "note": "except means leaving something out, so that letter is removed"
+         "at": 20,
+         "note": "the drink is taken minus the piece that follows"
         }
        ],
        "parts": [
         {
          "words": "alcoholic drink",
+         "at": 3,
          "gives": "SHERRY",
          "note": "sherry is a fortified wine"
         },
         {
-         "words": "drop of rum",
-         "gives": "R",
-         "note": "the first letter, a small drop, of rum"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "drop of",
+           "at": 27,
+           "note": "just a drop of the word, its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rum",
+           "at": 35,
+           "note": "the word whose initial is dropped from the drink"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A restaurant serves no alcohol apart from a splash of rum.",
-     "definitionFit": "A noshery is a slang word for an eatery, nosh being food."
+     "surface": "A teetotal eatery that serves no booze, save a little rum.",
+     "walkthrough": "The bracket looks like a teetotal exception, but it removes a letter from the drink. A noshery is informal British slang, from nosh (food).",
+     "definitionFit": "A noshery is slang for a café or restaurant, a place serving nosh, which is food."
     },
     "features": {
      "answerInScene": true,
