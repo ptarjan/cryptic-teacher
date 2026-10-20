@@ -404,36 +404,62 @@
      }
     ],
     "wordplay": {
-     "op": "composite",
+     "op": "anagram",
      "indicators": [
       {
        "text": "crazy",
        "at": 35,
-       "note": "crazy suggests something deranged, so the letters of outsmarting are thrown into a new order"
+       "note": "crazy suggests the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "words": "outsmarting",
-       "at": 23
-      },
-      {
-       "words": "Repeatedly taking time",
-       "at": 0,
-       "gives": "TT",
-       "note": "T is the abbreviation for time; taking it repeatedly removes two Ts from the fodder"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 11,
+         "note": "taking means removing, so those letters are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "outsmarting",
+         "at": 23
+        },
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "Repeatedly",
+           "at": 0,
+           "note": "Repeatedly means the time abbreviation is removed more than once, here twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "time",
+           "at": 18,
+           "gives": "T"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dunce who keeps wasting time is somehow outwitting everyone, which is madness.",
-     "walkthrough": "Take two Ts (time, repeatedly) out of OUTSMARTING to leave OUSMARING, and 'crazy' rearranges those letters into the answer.",
-     "definitionFit": "An ignoramus is an ignorant, uneducated person, a near synonym of a dunce or dullard."
+     "surface": "A fool is outwitted again and again by someone acting madly.",
+     "walkthrough": "OUTSMARTING without its two Ts is OUSMARING, rearranged.",
+     "definitionFit": "An ignoramus is an ignorant person, a fool lacking knowledge."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "outsmarting"
+     "misdirectedWord": "taking"
     }
    }
   },
@@ -557,7 +583,8 @@
      "indicators": [
       {
        "text": "unusual",
-       "note": "unusual means out of the normal order, so the letters are rearranged"
+       "at": 34,
+       "note": "unusual signals that the remaining letters are rearranged"
       }
      ],
      "parts": [
@@ -566,35 +593,29 @@
        "indicators": [
         {
          "text": "leaving",
-         "note": "whoever is leaving goes away, so those letters drop out"
+         "at": 15,
+         "note": "leaving means the ex departs from the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Former partner",
-           "gives": "EX",
-           "note": "an ex is a former spouse or partner"
-          },
-          {
-           "words": "exotically",
-           "note": "taken as written"
-          }
-         ]
+         "words": "exotically",
+         "at": 23
         },
         {
-         "gives": "EXEX"
+         "words": "Former partner",
+         "at": 0,
+         "gives": "EX",
+         "note": "an ex is a former partner"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ex-partner departs for somewhere exotic and strange.",
-     "walkthrough": "Remove the EX at the front of EXOTICALLY and scramble what is left.",
-     "definitionFit": "A locality is a particular area or neighbourhood, so it is a plain synonym for a location."
+     "surface": "An ex departs for some strange and exotic spot.",
+     "walkthrough": "EXOTICALLY without EX leaves OTICALLY, rearranged.",
+     "definitionFit": "A locality is an area or neighbourhood, a particular spot."
     },
     "features": {
      "answerInScene": true,

@@ -290,12 +290,12 @@
       {
        "text": "adopts",
        "at": 15,
-       "note": "the airline takes the scrambled letters into itself, as a family takes in a child"
+       "note": "adopts means the airline takes in the following letters"
       },
       {
        "text": "admission",
        "at": 52,
-       "note": "the scrambled letters are admitted into the middle of the airline's name"
+       "note": "admission, letting something in, confirms the airline is holding the other letters"
       }
      ],
      "parts": [
@@ -303,39 +303,46 @@
        "words": "Israeli flyers",
        "at": 22,
        "gives": "ELAL",
-       "note": "El Al is the Israeli national airline"
+       "note": "El Al is Israel's national airline"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "other",
-         "at": 46,
-         "note": "other means different, so the letters of etc and or are made into a different order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "etc.",
-         "at": 37
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "other",
+           "at": 46,
+           "note": "other means the letters are taken in another order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "etc.",
+           "at": 37,
+           "note": "the letters of etc., to be rearranged"
+          }
+         ]
         },
         {
          "words": "or",
-         "at": 43
+         "at": 43,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A university college takes in Israeli pilots and suchlike, or makes other admissions.",
-     "walkthrough": "'other' rearranges ETC and OR into ECTOR, which ELAL 'adopts'. The US president is chosen by the Electoral College.",
-     "definitionFit": "The Electoral College is the body of electors that formally chooses the US president, so the adjective fits the word college."
+     "surface": "A college takes in Israeli airmen among other admissions.",
+     "walkthrough": "'Israeli flyers' is the airline, not pilots; 'etc.' is fodder, not a list ending.",
+     "definitionFit": "The electoral college is the body that formally elects the US president."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "college"
+     "aptDefinition": false,
+     "misdirectedWord": "flyers"
     }
    }
   },
@@ -558,46 +565,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "SYNOD",
+     "indicators": [
+      {
+       "text": "to the ears",
+       "at": 22,
+       "note": "to the ears means what is heard rather than written"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "SYN",
-       "indicators": [
-        {
-         "text": "to the ears",
-         "note": "What reaches the ears is heard rather than read, so the two words in front are wanted for the noise they make and not for their spelling."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Transgression",
-         "gives": "SIN",
-         "note": "a transgression is a sin, and said aloud that vowel can be written the other way"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "OD",
-       "parts": [
-        {
-         "words": "strange",
-         "gives": "ODD",
-         "note": "strange is odd, and a doubled D is heard as a single one"
-        }
-       ]
+       "words": "Transgression strange",
+       "at": 0,
+       "gives": "SINODD",
+       "note": "a sin is a transgression and odd means strange; said together they run into one word"
       }
      ]
     },
     "explanation": {
-     "surface": "A sin that strikes the church council as peculiar.",
-     "walkthrough": "One sound instruction governing two separate words is the unusual part: each is respelt by ear before the two are joined. The Church of England's General Synod has met twice a year since 1970.",
-     "definitionFit": "A synod is the assembly of bishops and clergy that sits to settle a church's affairs, which is exactly what a church council does."
+     "surface": "A church council hears of an odd misdeed.",
+     "definitionFit": "A synod is an assembly of clergy and church officials."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "ears"
     }
    }

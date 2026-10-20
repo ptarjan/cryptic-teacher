@@ -973,36 +973,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "off initially",
-       "note": "the time letter comes off at the start"
-      },
-      {
        "text": "between",
-       "note": "the result sits between the two degrees"
+       "at": 38,
+       "note": "between places the shortened word inside the pair of degrees"
       }
      ],
      "parts": [
       {
        "words": "degrees",
+       "at": 46,
        "gives": "MAMA",
-       "note": "two MAs, Masters of Arts, split MA...MA around the insert"
+       "note": "two MAs, Master of Arts degrees"
       },
       {
-       "words": "that has time",
-       "gives": "HAT",
-       "note": "THAT with its first letter, T for time, removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off initially",
+         "at": 23,
+         "note": "off initially means the time letter goes from the start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that",
+         "at": 9,
+         "gives": "THAT",
+         "note": "the word that"
+        },
+        {
+         "words": "time",
+         "at": 18,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sage who takes early leave, sitting between two university courses.",
-     "walkthrough": "'Time off' looks like a holiday; T for time is what comes off.",
-     "definitionFit": "A mahatma is a revered sage, the title given to Gandhi."
+     "surface": "A sage takes some time off between his studies.",
+     "walkthrough": "'has' is only a link here; 'degrees' supplies two Master of Arts abbreviations, one on each side.",
+     "definitionFit": "Mahatma is an Indian honorific for a great-souled sage, as with Gandhi."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "off"
+     "misdirectedWord": "degrees"
     }
    }
   },
@@ -1153,8 +1169,7 @@
     "definitions": [
      {
       "text": "like thighs",
-      "at": 25,
-      "note": "'like thighs' stands for 'of thighs', an adjective"
+      "at": 25
      }
     ],
     "wordplay": {
@@ -1162,35 +1177,48 @@
      "indicators": [
       {
        "text": "parts",
-       "note": "gold parts the other word, pushing into it"
-      },
-      {
-       "text": "most",
-       "note": "most of the word, dropping its last letter"
+       "at": 5,
+       "note": "parts means the shortened word splits around the gold"
       }
      ],
      "parts": [
       {
-       "words": "womanly",
-       "gives": "FEMAL",
-       "note": "FEMALE without its last letter, split FEM...AL around the insert"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most",
+         "at": 11,
+         "note": "most means all but the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "womanly",
+         "at": 16,
+         "gives": "FEMALE",
+         "note": "female means womanly"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "Gold",
+       "at": 0,
        "gives": "OR",
-       "note": "or = gold in heraldry"
+       "note": "or is the heraldic word for gold"
       }
      ]
     },
     "explanation": {
-     "surface": "Gilded body parts, with the most feminine thighs.",
-     "walkthrough": "'Most womanly' looks like a superlative; 'most' means most of the letters.",
-     "definitionFit": "Femoral means relating to the thigh or thighbone."
+     "surface": "A golden figure divides a very feminine figure at the thighs.",
+     "definitionFit": "Femoral describes things relating to the femur or thigh."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "most"
+     "misdirectedWord": "parts"
     }
    }
   },
