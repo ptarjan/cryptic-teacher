@@ -665,39 +665,23 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "coming up",
-       "note": "in a down entry, coming up means the letters are read from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so the reversed string goes round the hotel letter"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "latest",
-           "note": "the latest part of a word is its end, so only its final letter is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tourist's",
-           "gives": "TOURIST",
-           "note": "the last letter of tourist"
-          }
-         ]
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about means around, so the reversed string goes round the hotel letter"
+           "text": "coming up",
+           "note": "in a down entry, coming up means the letters are read from bottom to top"
           }
          ],
          "parts": [
@@ -705,13 +689,29 @@
            "words": "story",
            "gives": "SAGA",
            "note": "a saga is a long story"
-          },
-          {
-           "words": "hotel",
-           "gives": "H",
-           "note": "Hotel is H in the NATO phonetic alphabet"
           }
          ]
+        },
+        {
+         "words": "hotel",
+         "gives": "H",
+         "note": "Hotel is H in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "latest",
+         "note": "the latest part of a word is its end, so only its final letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tourist's",
+         "gives": "TOURIST",
+         "note": "the last letter of tourist"
         }
        ]
       }
