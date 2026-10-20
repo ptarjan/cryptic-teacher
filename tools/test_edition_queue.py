@@ -229,6 +229,12 @@ _, rd_p = eq.hold_refusal_rereads([], [tup(unit_n), gk("g61", "1961-05-01"), gk(
 check("canary: only gale no-reading-parses of 1960-66 and 2005-06 survive the hold", ["X/n", "g61", "g05"],
       [t[3]["rel"] for t in rd_p])
 check("canary: one note counts the kept", 1, sum("canary-proven rereads: kept 2 (" in n for n in notes_p))
+uf = "unfiled before its fix"
+_, rd_u = eq.hold_refusal_rereads([], [tup(unit_n), gk("g05", "2005-03-02", uf), gk("g70", "1970-05-01", uf),
+                                       gk("f86", "1986-03-02", uf, paper="ft"), gk("f87", "1987-03-02", uf, paper="ft"),
+                                       gk("t05", "2005-03-02", uf, paper="times")], notes_u := [])
+check("canary: unfiled before its fix survives for gale 2005-06 and ft 1986 only", ["X/n", "g05", "f86"],
+      [t[3]["rel"] for t in rd_u])
 os.environ["CT_NEWEST_FIRST"] = "gale"
 gu = lambda *a, **k: gk(*a, **k)[3]
 ordered = eq.by_urgency([(2, 0, 0, gu("g61", "1961-05-01")), (2, 0, 1, gu("g70", "1970-05-01")),
