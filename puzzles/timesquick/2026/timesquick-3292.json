@@ -164,9 +164,23 @@
      ],
      "parts": [
       {
-       "words": "geek almost",
-       "gives": "NER",
-       "note": "NERD, a geek, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "note": "'almost' cuts a letter off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "geek",
+         "gives": "NERD",
+         "note": "NERD is what 'geek' stands for"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
        "words": "wine",

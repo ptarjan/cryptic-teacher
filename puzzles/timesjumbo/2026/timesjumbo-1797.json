@@ -229,9 +229,23 @@
          "note": "invoiced = billed, split to hold the wine"
         },
         {
-         "words": "wine mostly",
-         "gives": "AST",
-         "note": "ASTI, the Italian sparkling wine, without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "note": "'mostly' cuts a letter off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wine",
+           "gives": "ASTI",
+           "note": "ASTI is what 'wine' stands for"
+          },
+          {
+           "gives": "I"
+          }
+         ]
         }
        ]
       },

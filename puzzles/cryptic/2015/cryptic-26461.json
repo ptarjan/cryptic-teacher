@@ -1086,9 +1086,23 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Not quite loyal",
-       "gives": "TRU",
-       "note": "TRUE with its last letter dropped"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "note": "'Not quite' cuts a letter off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "loyal",
+         "gives": "TRUE",
+         "note": "TRUE is what 'loyal' stands for"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "worker",
