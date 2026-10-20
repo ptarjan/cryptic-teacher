@@ -448,7 +448,8 @@
      "indicators": [
       {
        "text": "Bring up",
-       "note": "in a down entry, bringing letters up means they read from bottom to top"
+       "at": 0,
+       "note": "in a down clue, bringing something up reads the letters from the bottom upwards"
       }
      ],
      "parts": [
@@ -456,26 +457,26 @@
        "op": "charade",
        "parts": [
         {
-         "op": "deletion",
+         "op": "first",
          "indicators": [
           {
            "text": "half-forgotten",
-           "note": "forgetting half of a word drops one half and keeps the other"
+           "at": 9,
+           "note": "half of the dress is forgotten, so only its first half is kept"
           }
          ],
          "parts": [
           {
            "words": "Hawaiian dress",
+           "at": 24,
            "gives": "MUUMUU",
            "note": "a muumuu is a loose Hawaiian dress"
-          },
-          {
-           "gives": "MUU"
           }
          ]
         },
         {
          "words": "scandal",
+         "at": 39,
          "gives": "DIRT",
          "note": "dirt is scandalous gossip"
         }
@@ -484,9 +485,9 @@
      ]
     },
     "explanation": {
-     "surface": "Someone raises an old scandal about a Hawaiian dress in the days before a big celebration.",
-     "walkthrough": "The dress's name is a doubled syllable, so half of it is simply one repeat.",
-     "definitionFit": "A triduum is a three-day period of prayer, often observed in preparation for a church festival."
+     "surface": "Someone raises an old scandal about a Hawaiian dress just before a festive celebration.",
+     "walkthrough": "Half of MUUMUU is MUU; add DIRT to get MUUDIRT, then read it upwards.",
+     "definitionFit": "A triduum is a three-day period of prayer in the Church calendar, often preceding a major festival."
     },
     "features": {
      "answerInScene": false,
@@ -795,69 +796,66 @@
        "indicators": [
         {
          "text": "both reduced",
-         "note": "both of the first two words lose something, each being cut short by a letter"
+         "at": 21,
+         "note": "both words lose their final letter, so each is cut short"
         }
        ],
        "parts": [
         {
-         "words": "Intensity",
-         "gives": "HEAT",
-         "note": "heat is intensity, as in the heat of battle"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Intensity",
+           "at": 0,
+           "gives": "HEAT",
+           "note": "heat is intensity, as in the heat of the moment"
+          },
+          {
+           "words": "of warmth",
+           "at": 10,
+           "gives": "THERMIC",
+           "note": "thermic means relating to heat or warmth"
+          }
+         ]
         },
         {
-         "gives": "T"
+         "gives": "TC"
         }
        ]
+      },
+      {
+       "words": "by",
+       "at": 34,
+       "gives": "X",
+       "note": "X means by, as in a measurement such as 3 x 4"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "flapping",
-         "note": "something flapping is thrown about, so its letters are tossed into a new order"
+         "at": 37,
+         "note": "something flapping is in disordered motion, so the letters of true are shuffled"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "of warmth",
-             "gives": "THERMIC",
-             "note": "thermic means relating to heat"
-            },
-            {
-             "words": "by",
-             "gives": "X",
-             "note": "x is the multiplication sign, read as 'by' in dimensions like 3 x 4"
-            },
-            {
-             "words": "true",
-             "note": "taken as written"
-            }
-           ]
-          },
-          {
-           "gives": "C"
-          }
-         ]
+         "words": "true",
+         "at": 46
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fabric description: some flapping speckled cloth loses its warmth.",
-     "walkthrough": "'Intensity of warmth' reads as one phrase but splits in two, intensity and of warmth, and both words lose their last letter.",
-     "definitionFit": "Heather mixture is a woollen cloth woven with flecks of several colours, resembling heather, so speckled fabric."
+     "surface": "Heat and warmth both drop as true fabric flaps about in a breeze.",
+     "walkthrough": "'both reduced' shortens the two words before it by one letter each; 'by' is the multiplication sign.",
+     "definitionFit": "Heather mixture is a woollen fabric flecked with several colours, like the speckled look of heather on a moor."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Intensity"
+     "misdirectedWord": "flapping"
     }
    }
   },

@@ -805,25 +805,42 @@
      "parts": [
       {
        "words": "Office worker",
+       "at": 0,
        "gives": "TEMP",
        "note": "a temp is a temporary office worker"
       },
       {
-       "words": "terminus perhaps lacking initial",
-       "gives": "TATION",
-       "note": "a terminus is a kind of station; drop the S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking initial",
+         "at": 34,
+         "note": "lacking its initial means the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "terminus perhaps",
+         "at": 17,
+         "gives": "STATION",
+         "note": "a terminus is an example of a station, hence perhaps"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A temp commuting to the end of the line without much charm.",
-     "walkthrough": "'Perhaps' marks terminus as one example of a station.",
-     "definitionFit": "A plain synonym: the pull or allure something exerts on you, as in the appeal of a cream cake."
+     "surface": "A temp worker at a railway terminus lacks the charm that first attracted them.",
+     "walkthrough": "'terminus perhaps' is a definition by example: a terminus is one kind of the word needed.",
+     "definitionFit": "Temptation is the allure or attraction of something, the same sense as the noun appeal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "appeal"
+     "misdirectedWord": "terminus"
     }
    }
   },
@@ -1016,43 +1033,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "flowing",
-       "note": "the letters of 'oil pool' run into a new order"
-      },
-      {
-       "text": "by",
-       "note": "'by' means next to, so the island letter is simply placed beside the rest"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Hot",
+       "at": 0,
        "gives": "H",
-       "note": "h = hot, as on taps"
+       "note": "H is the abbreviation for hot on taps"
       },
       {
-       "words": "oil pool",
-       "note": "anagram fodder, 7 letters"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flowing",
+         "at": 13,
+         "note": "flowing suggests the liquid letters of oil pool run into a new shape"
+        }
+       ],
+       "parts": [
+        {
+         "words": "oil pool",
+         "at": 4
+        }
+       ]
       },
       {
        "words": "island",
-       "gives": "I",
-       "note": "i = island"
+       "at": 24,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "Hot oil spilling from a pool beside an island.",
-     "walkthrough": "The H stays at the front and the I at the end; only OILPOOL moves.",
-     "definitionFit": "Hoi polloi, Greek for 'the many', means the common people, the riff-raff."
+     "surface": "A spill of hot oil forms a pool on an island inhabited by ruffians.",
+     "walkthrough": "The phrase is Greek for 'the many', borrowed into English as a sneer.",
+     "definitionFit": "Hoi polloi is a disparaging term for the common people, the masses or rabble."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Hot"
+     "misdirectedWord": "flowing"
     }
    }
   },

@@ -124,26 +124,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Most of rear end",
-       "gives": "BUT",
-       "note": "BUTT, a rear end, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of a word means all but its last letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rear end",
+         "at": 8,
+         "gives": "BUTT",
+         "note": "a butt is the buttocks, one's rear end"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "pecs area",
+       "at": 21,
        "gives": "CHEST",
-       "note": "the pecs are the chest muscles"
+       "note": "the pectoral muscles sit on the chest"
       }
      ]
     },
     "explanation": {
-     "surface": "A gym-goer's backside and chest are as manly as they come.",
-     "walkthrough": "The surface is body-building, so 'maximally macho' reads as praise for the physique rather than a superlative adjective waiting to be built.",
-     "definitionFit": "Butchest is the superlative of butch, so it means most macho."
+     "surface": "A gym-goer boasts that a bulky backside and chest make them the most manly.",
+     "walkthrough": "'rear end' sounds anatomical in the surface and it is, but as a slangy American word for the backside.",
+     "definitionFit": "Butchest is the superlative of butch, meaning the most aggressively masculine."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "area"
+     "aptDefinition": false
     }
    }
   },
@@ -753,19 +769,26 @@
       {
        "text": "playing",
        "at": 5,
-       "note": "playing suggests a ball being kicked about, so these letters are rearranged"
+       "note": "playing signals that the letters are being played about with and rearranged"
       }
      ],
      "parts": [
       {
-       "words": "United, twice",
+       "words": "United",
        "at": 13,
-       "gives": "UU",
-       "note": "U is an abbreviation for United, taken twice"
+       "gives": "U",
+       "note": "U is the usual abbreviation for United in team names"
+      },
+      {
+       "words": "twice",
+       "at": 21,
+       "gives": "U",
+       "note": "twice says the U for United is used two times"
       },
       {
        "words": "plural",
-       "at": 29
+       "at": 29,
+       "note": "taken as written"
       },
       {
        "words": "a",
@@ -777,27 +800,33 @@
         {
          "text": "at first",
          "at": 58,
-         "note": "at first points to the opening letters of the words"
+         "note": "at first takes the opening letter of each of the two words before it"
         }
        ],
        "parts": [
         {
-         "words": "matey kickaround",
-         "at": 40
+         "words": "matey",
+         "at": 40,
+         "note": "first letter of matey"
+        },
+        {
+         "words": "kickaround",
+         "at": 46,
+         "note": "first letter of kickaround"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sports report on a friendly kickabout against United in an Asian city.",
-     "walkthrough": "UU, PLURAL, A, M and K are rearranged together.",
-     "definitionFit": "Kuala Lumpur is the capital of Malaysia."
+     "surface": "A sports report: a city side plays United twice, with plural friendly matches played among mates.",
+     "walkthrough": "The pool is U, U, PLURAL, A, M and K, which rearranges into the eleven letters.",
+     "definitionFit": "Kuala Lumpur is the capital city of Malaysia."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "plural"
+     "misdirectedWord": "playing"
     }
    }
   },

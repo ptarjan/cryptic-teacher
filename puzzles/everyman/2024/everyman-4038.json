@@ -807,26 +807,37 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "lacking at first",
-       "note": "the word loses its first letter"
-      },
-      {
        "text": "after training",
-       "note": "training reshapes, so the letters are rearranged"
+       "at": 29,
+       "note": "after training, things are reshaped into a new form, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Overhits, lacking at first",
-       "gives": "VERHITS",
-       "note": "OVERHITS without its O"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking at first",
+         "at": 10,
+         "note": "lacking at first means the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Overhits",
+         "at": 0
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tennis player who overhits early on but, after practice, plays well.",
-     "walkthrough": "The dash splits the surface in two sporting moments; in the wordplay, 'after training' is the instruction to rearrange what is left of OVERHITS.",
-     "definitionFit": "Thriving is flourishing, and a plant, business or child that flourishes is doing well: a plain synonym."
+     "surface": "A tennis player who overhits learns to play well after practice.",
+     "walkthrough": "OVERHITS without its first letter is VERHITS, which rearranges into the answer.",
+     "definitionFit": "To thrive is to flourish or prosper."
     },
     "features": {
      "answerInScene": false,

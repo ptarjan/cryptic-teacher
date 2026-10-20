@@ -106,49 +106,57 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "internally",
-       "note": "something placed internally goes inside another group of letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "mobile",
-         "note": "something mobile moves about, so these letters are free to be moved into a new order"
+         "text": "internally",
+         "at": 58,
+         "note": "internally means placed within, so the letter goes inside"
         }
        ],
        "parts": [
         {
-         "words": "phone",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "mobile",
+           "at": 14,
+           "note": "mobile means movable, so the letters of phone move about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "phone",
+           "at": 21
+          }
+         ]
         },
         {
-         "words": "use",
-         "note": "taken as written"
+         "words": "temperature reduced",
+         "at": 38,
+         "gives": "T",
+         "note": "temperature reduced to its abbreviation, T"
         }
        ]
       },
       {
-       "words": "temperature reduced",
-       "gives": "T",
-       "note": "temperature cut down to its abbreviation"
+       "words": "use",
+       "at": 29,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice on using a mobile phone at a lowered temperature in a posh flat.",
-     "walkthrough": "'Mobile phone' looks like one fixed phrase, but 'mobile' is the anagram signal, and it works on the words after the dash too.",
-     "definitionFit": "A penthouse is the luxurious top-floor apartment of a building, above and grander than the rest."
+     "surface": "A luxury apartment: use your mobile phone with the heating turned down.",
+     "walkthrough": "'mobile' reads as part of 'mobile phone' but works as the rearrangement signal; 'use' is kept as it is.",
+     "definitionFit": "A penthouse is a luxurious top-floor apartment, the most expensive in the building."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "mobile"
     }
    }
@@ -1230,7 +1238,8 @@
     "definitions": [
      {
       "text": "Cyclops'",
-      "at": 0
+      "at": 0,
+      "note": "the noun here stands for the person who is Cyclops, the compiler"
      }
     ],
     "wordplay": {
@@ -1238,31 +1247,49 @@
      "indicators": [
       {
        "text": "held by",
-       "note": "something held by another is gripped inside it"
+       "at": 34,
+       "note": "held by means the doubled letters go inside the other word"
       }
      ],
      "parts": [
       {
        "words": "Sibyl",
+       "at": 42,
        "gives": "SEER",
-       "note": "a sibyl is a prophetess, a seer"
+       "note": "a sibyl was a prophetess, a seer"
       },
       {
-       "words": "temperature doubled",
-       "gives": "TT",
-       "note": "T for temperature, twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "doubled",
+         "at": 21,
+         "note": "doubled says the T is used twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "temperature",
+         "at": 9,
+         "gives": "T"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The setter's fever spikes while an oracle takes his temperature.",
-     "walkthrough": "Cyclops is the pseudonym of this puzzle's compiler, so the definition is his job title; the apostrophe links it to the wordplay.",
-     "definitionFit": "Cyclops is the pen name of the person who composes and compiles this crossword puzzle."
+     "surface": "The one-eyed giant's fever doubles when a prophetess grips him.",
+     "walkthrough": "'Cyclops' is the pseudonym of this crossword's compiler, so the clue describes its own author.",
+     "definitionFit": "A setter is the compiler of a crossword, which is what Cyclops is for Private Eye."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Sibyl"
+     "joke": "pun",
+     "misdirectedWord": "Cyclops'"
     }
    }
   },

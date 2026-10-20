@@ -51,24 +51,43 @@
      "parts": [
       {
        "words": "workers",
+       "at": 8,
        "gives": "HANDS",
-       "note": "hands = workers, as in farm hands"
+       "note": "hands are manual workers"
       },
       {
-       "words": "sign without giving name",
-       "gives": "OME",
-       "note": "OMEN (a sign) minus N (name)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without giving",
+         "at": 21,
+         "note": "without giving means the word gives up that letter, so it is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sign",
+         "at": 16,
+         "gives": "OMEN",
+         "note": "an omen is a sign of the future"
+        },
+        {
+         "words": "name",
+         "at": 36,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Liberal Party's employees signing something anonymously.",
-     "walkthrough": "'Liberal' looks like the political party; here it is the adjective meaning generous.",
-     "definitionFit": "A plain sense: liberal and handsome both describe a generous amount, as in a handsome or liberal reward."
+     "surface": "A Liberal politician's staff sign something anonymously.",
+     "walkthrough": "'Liberal' looks political; it means generous here. OMEN loses N to give OME.",
+     "definitionFit": "A handsome gift is a generous one, so the word can mean liberal in giving."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Liberal"
     }
    }
@@ -955,7 +974,8 @@
      "indicators": [
       {
        "text": "incorporating",
-       "note": "'incorporating' means taking into its body"
+       "at": 34,
+       "note": "incorporating means taking in, so the letter goes inside"
       }
      ],
      "parts": [
@@ -964,32 +984,47 @@
        "indicators": [
         {
          "text": "rebuilt",
-         "note": "'rebuilt' means put together again differently, so these letters are rearranged"
+         "at": 25,
+         "note": "rebuilt means put together again differently, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Back half of cemetery",
-         "gives": "TERY",
-         "note": "the last four of CEMETERY's eight letters"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "Back half of",
+           "at": 0,
+           "note": "the back half of the word keeps only its last four letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cemetery",
+           "at": 13,
+           "gives": "CEMETERY",
+           "note": "the word cemetery"
+          }
+         ]
         },
         {
          "words": "we",
+         "at": 22,
          "note": "taken as written"
         }
        ]
       },
       {
        "words": "English",
-       "gives": "E",
-       "note": "E = English"
+       "at": 48,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "The rear of a graveyard being rebuilt around an English tree.",
-     "walkthrough": "The setter uses 'cemetery' twice on purpose: once as letters, once in the definition.",
-     "definitionFit": "Definition by example: yews are the trees traditionally grown in English churchyards, hence the question mark."
+     "surface": "Half a graveyard has been rebuilt, now incorporating English features.",
+     "walkthrough": "The question mark marks the definition as an example: yews are the classic churchyard tree.",
+     "definitionFit": "Yews are trees traditionally planted in churchyards, so this one is a typical graveyard tree."
     },
     "features": {
      "answerInScene": true,

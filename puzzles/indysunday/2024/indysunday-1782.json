@@ -1171,31 +1171,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "eaten by"
+       "text": "eaten by",
+       "at": 19,
+       "note": "eaten by means swallowed inside the other word"
       }
      ],
      "parts": [
       {
        "words": "rats",
+       "at": 28,
        "gives": "VERMIN",
-       "note": "rats are vermin; the word holds the next block, VERMI…N"
+       "note": "rats are vermin"
       },
       {
-       "words": "Manx cat",
-       "gives": "LIO",
-       "note": "LION, a big cat, without its tail"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Manx",
+         "at": 10,
+         "note": "a Manx cat has no tail, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cat",
+         "at": 15,
+         "gives": "LION",
+         "note": "a lion is a big cat"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Manx cat devoured by rats, and the colour it left behind.",
-     "walkthrough": "The Manx is a tailless breed from the Isle of Man, so 'Manx' tells you to dock the last letter; the cat is a lion, not a tabby.",
-     "definitionFit": "A definition by example: one colour, the bright red of the pigment made from cinnabar."
+     "surface": "A question about the colour of a Manx cat being devoured by rats.",
+     "walkthrough": "The Manx cat, a breed from the Isle of Man, has no tail, so 'Manx' docks the end of the big cat.",
+     "definitionFit": "Vermilion is a brilliant scarlet red pigment."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "Manx"
     }
    }

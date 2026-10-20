@@ -329,51 +329,46 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "unfinished",
+       "at": 10,
+       "note": "unfinished means each word is left without its final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "unfinished",
-         "note": "something unfinished lacks its end, so each word loses its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Best",
+         "at": 0,
          "gives": "PICK",
-         "note": "the pick of the bunch is the best"
+         "note": "the pick is the best of a group"
         },
         {
-         "gives": "K"
+         "words": "take",
+         "at": 5,
+         "gives": "NICK",
+         "note": "to nick is to take or steal"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "take",
-         "gives": "NICK",
-         "note": "to nick is to steal or take"
-        },
-        {
-         "gives": "K"
-        }
-       ]
+       "gives": "KK"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to grab half-made food and carry it out of the house.",
-     "walkthrough": "Both words are cut short: PICK and NICK each lose their final K.",
-     "definitionFit": "A meal eaten out of doors, typically on a blanket in a park or field, is a description of this outing."
+     "surface": "Advice to grab the best of the leftover food from outside.",
+     "walkthrough": "PICK and NICK both lose their final K.",
+     "definitionFit": "A picnic is a meal eaten outdoors."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "take"
+     "misdirectedWord": "Best"
     }
    }
   },
