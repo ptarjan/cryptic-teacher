@@ -31,6 +31,7 @@ import tempfile
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+import clue_text
 import ocr_clues
 
 #: (name, Tesseract model, psm for a one-line crop, scale, binarisation). A crop
@@ -71,7 +72,7 @@ def words_of(text):
 
 def head_off(text):
     """A line's text without the clue number its first line opens on."""
-    return re.sub(r"^[\dIlJ!|oO]{1,3}[.,:]?\s+", "", (text or "").strip())
+    return clue_text.head_off(text)
 
 
 def norm(text):
