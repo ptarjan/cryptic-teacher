@@ -339,32 +339,48 @@
      "indicators": [
       {
        "text": "drinks",
-       "note": "takes the next piece inside, as a drinker takes in a drink"
+       "at": 13,
+       "note": "the cut word drinks, taking the letter inside it"
       }
      ],
      "parts": [
       {
-       "words": "Jesus mostly",
-       "gives": "MESSIA",
-       "note": "MESSIAH without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 6,
+         "note": "most of the word, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jesus",
+         "at": 0,
+         "gives": "MESSIAH",
+         "note": "Jesus is called the Messiah"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
        "words": "no",
-       "gives": "N",
-       "note": "N = no, as in Y/N"
+       "at": 20,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark about Jesus declining a glass of port, and drinking only a little.",
-     "walkthrough": "The surface makes port a drink; here it is a harbour town, Messina in Sicily.",
-     "definitionFit": "Messina is a port city in Sicily on the strait of the same name."
+     "surface": "A wry remark that Jesus, who turned water into wine, mostly abstains.",
+     "walkthrough": "MESSIAH loses H to give MESSIA, which takes in N.",
+     "definitionFit": "Messina is a port city in Sicily on the strait separating it from mainland Italy."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "port"
+     "misdirectedWord": "drinks"
     }
    }
   },

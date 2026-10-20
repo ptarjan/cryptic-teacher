@@ -1056,23 +1056,58 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 20,
+       "note": "the first piece comes before the second in the answer"
+      }
+     ],
      "parts": [
       {
-       "words": "Bonking not started",
-       "gives": "EX",
-       "note": "bonking is British slang for sex; SEX without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not started",
+         "at": 8,
+         "note": "the word loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bonking",
+         "at": 0,
+         "gives": "SEX",
+         "note": "bonking is British slang for having sex"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
-       "words": "half of pelvis",
-       "gives": "PEL",
-       "note": "the first three of PELVIS's six letters"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 27,
+         "note": "only the first half of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pelvis",
+         "at": 35,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Having sex is interrupted by a hip injury.",
-     "walkthrough": "'Bonking' is British slang for having sex, so it stands for SEX before the first letter goes.",
-     "definitionFit": "A plain synonym: from Latin for driving out, used of pupils ejected from school or air forced from the lungs."
+     "surface": "A saucy Private Eye picture of a hip-thrusting encounter.",
+     "walkthrough": "SEX without its first letter gives EX; the first half of PELVIS is PEL.",
+     "definitionFit": "To expel is to put out or eject, as a pupil from school."
     },
     "features": {
      "answerInScene": false,

@@ -999,42 +999,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the phrase loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Excavate",
-         "gives": "DIG",
-         "note": "to dig is to excavate"
-        },
-        {
-         "words": "everything",
-         "gives": "ITALL",
-         "note": "'it all' means everything"
-        }
-       ]
+       "words": "Excavate",
+       "at": 0,
+       "gives": "DIG",
+       "note": "to excavate is to dig"
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 9,
+         "note": "almost means not quite all, so the final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everything",
+         "at": 16,
+         "gives": "ITALL",
+         "note": "everything is 'it all', as in 'seen it all'"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Digging out the whole lot by hand, without a spade.",
-     "definitionFit": "Digital originally means relating to the fingers, from Latin digitus, a finger."
+     "surface": "Digging out nearly everything using only one's fingers.",
+     "walkthrough": "'everything' is the phrase 'it all', as in 'having it all'; 'almost' trims its final letter.",
+     "definitionFit": "Digital originally means relating to the digits, the fingers, so done with the fingers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "everything"
+     "misdirectedWord": "Excavate"
     }
    }
   },

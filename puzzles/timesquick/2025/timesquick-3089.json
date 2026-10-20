@@ -851,25 +851,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "For the most part, put up with",
-       "gives": "BOR",
-       "note": "BORE, put up with, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "For the most part",
+         "at": 0,
+         "note": "most of the word but not all of it, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "put up with",
+         "at": 19,
+         "gives": "BORE",
+         "note": "to bore someone is to make them put up with tedium; here bore means endure"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "school",
-       "gives": "SCH",
-       "note": "SCH, abbreviation for school"
+       "at": 31,
+       "gives": "SCH"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone mostly tolerating the soup served at school dinners.",
-     "walkthrough": "\"Put up with\" is BORE, as in bore the pain; losing its last letter leaves BOR.",
-     "definitionFit": "Borsch is an Eastern European beetroot soup."
+     "surface": "Someone mostly tolerating a school dinner of soup.",
+     "walkthrough": "'put up with' reads as tolerate, and bore is used in its sense of endure, as in 'bore the pain'.",
+     "definitionFit": "Borsch is a beetroot soup from Eastern Europe, also spelt borscht."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "put"
     }
    }
   },

@@ -349,15 +349,30 @@
         {
          "text": "upset",
          "at": 16,
-         "note": "upset in a down clue means the letters are turned upside down, read upwards"
+         "note": "upset in a down answer turns the letters upside down"
         }
        ],
        "parts": [
         {
-         "words": "I am repeatedly",
-         "at": 0,
-         "gives": "IMIM",
-         "note": "I am is shortened to I'm, and repeatedly gives it twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 5,
+           "note": "repeatedly means the contraction appears again"
+          }
+         ],
+         "parts": [
+          {
+           "words": "I am",
+           "at": 0,
+           "gives": "IM",
+           "note": "I am contracts to I'm"
+          },
+          {
+           "gives": "IM"
+          }
+         ]
         }
        ]
       },
@@ -365,19 +380,18 @@
        "words": "about",
        "at": 22,
        "gives": "C",
-       "note": "C is short for circa, about"
+       "note": "C, short for circa, means about"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone repeatedly upset about a painter such as Monet.",
-     "walkthrough": "'impressionist' suggests the art movement; here it is a mimic of voices.",
-     "definitionFit": "An impressionist imitates the voices and mannerisms of famous people, which is what a mimic does."
+     "surface": "Someone repeatedly upset about a mimic.",
+     "walkthrough": "IMIM turned up gives MIMI, then C.",
+     "definitionFit": "A mimic imitates others' voices and manners, like a stage impressionist."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "impressionist"
     }
    }
