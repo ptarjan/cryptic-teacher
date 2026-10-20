@@ -772,72 +772,71 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PLAGUE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beside",
+       "at": 30,
+       "note": "the last piece sits next to the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "turned",
-         "note": "turned over, so the letters run backwards"
-        },
-        {
-         "text": "rear of",
-         "note": "the rear of a word is its final letter"
+         "text": "around",
+         "at": 17,
+         "note": "the reversed word goes round the next one"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "around",
-           "note": "going round, so the reversed word wraps around the next piece"
+           "text": "turned",
+           "at": 7,
+           "note": "turned means flipped round, so the little word is read backwards"
           }
          ],
          "parts": [
           {
            "words": "up",
-           "gives": "PU",
-           "note": "UP turned round"
-          },
-          {
-           "words": "trail",
-           "gives": "LAG",
-           "note": "to lag = to trail behind"
+           "at": 14
           }
          ]
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "beside",
-           "note": "the next piece is placed alongside, straight after"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "pasture",
-           "gives": "E",
-           "select": "last",
-           "note": "the last letter of pasture"
-          }
-         ]
+         "words": "trail",
+         "at": 24,
+         "gives": "LAG",
+         "note": "to lag is to trail behind"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "rear of",
+         "at": 37,
+         "note": "the rear is the back end, so the last letter of the field word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pasture",
+         "at": 45
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A badger surfacing on a path by the back of a field.",
-     "walkthrough": "The animal is really a verb: to badger is to pester.",
-     "definitionFit": "A plain synonym as verbs: to plague someone with questions is to badger them."
+     "surface": "A badger surfaces near a track at the back of a field.",
+     "walkthrough": "'Badger' looks like the animal in a country scene, but it is the verb meaning pester.",
+     "definitionFit": "To badger someone is to pester them persistently, which is the verb sense of plague."
     },
     "features": {
      "answerInScene": false,
@@ -1124,53 +1123,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "banning",
-       "note": "banning someone keeps them out, so that letter is removed"
+       "text": "in",
+       "at": 31,
+       "note": "the pieces go inside the town's name"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "these letters are put in the next word, inside it"
-        }
-       ],
+       "words": "Scottish town",
+       "at": 34,
+       "gives": "OBAN",
+       "note": "Oban is a port town on the west coast of Scotland"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Scottish town",
-         "gives": "OBAN",
-         "note": "Oban, a port on Scotland's west coast"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "banning",
+           "at": 10,
+           "note": "banning means excluding, so a letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "face",
+           "at": 5,
+           "gives": "SIDE",
+           "note": "a side is a face, as of a cube"
+          },
+          {
+           "words": "English",
+           "at": 18,
+           "gives": "E"
+          }
+         ]
         },
         {
          "words": "one",
+         "at": 27,
          "gives": "I",
-         "note": "I = one, the Roman numeral"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "face",
-         "gives": "SIDE",
-         "note": "a side is a face, as of a cube"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E = English, removed"
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cliff face in a Scottish town where the English are barred.",
-     "walkthrough": "'Rock face' reads as a cliff; the definition is only 'Rock', and 'face' starts the wordplay.",
-     "definitionFit": "A definition by example: obsidian, a black volcanic glass, is one kind of rock."
+     "surface": "A rock face where the English are banned, and someone in a Scottish town.",
+     "definitionFit": "Obsidian is a dark volcanic glass formed when lava cools fast, a type of igneous stone."
     },
     "features": {
      "answerInScene": true,
@@ -1238,37 +1241,27 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "has more than half twisted",
+       "at": 11,
+       "note": "four of the seven letters at the front of the word are turned back to front"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "SERPENT",
-       "indicators": [
-        {
-         "text": "twisted",
-         "note": "twisted round to face the other way, so those letters run backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "here",
-         "gives": "PRESENT",
-         "note": "present = here"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "has more than half",
-       "note": "only the first four of the seven letters, PRES, are turned"
+       "words": "here",
+       "at": 6,
+       "gives": "PRESENT",
+       "note": "to be present is to be here"
       }
      ]
     },
     "explanation": {
-     "surface": "A snake here, more than half coiled up.",
-     "walkthrough": "Only PRES, just over half of the word, is turned; the rest stays put.",
-     "definitionFit": "A plain synonym: serpent is the older, literary word for a snake."
+     "surface": "A snake is here, with most of its body coiled up.",
+     "walkthrough": "Reverse the first four letters of PRESENT, PRES, to give SERP, and keep ENT.",
+     "definitionFit": "A serpent is a literary word for a snake, especially a large one."
     },
     "features": {
      "answerInScene": true,
@@ -1299,66 +1292,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "place nearby?",
+      "text": "place nearby",
       "at": 47
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EBBWVALE",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 17,
+       "note": "the two words take in a letter between them"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "Decline",
+         "at": 0,
+         "gives": "EBB",
+         "note": "to ebb is to decline or recede"
+        },
+        {
+         "words": "farewell",
+         "at": 8,
+         "gives": "VALE",
+         "note": "vale is Latin for farewell"
+        }
+       ]
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "involving",
-         "note": "to involve is to take in, so the two words take the letter in between them"
+         "text": "capital of",
+         "at": 27,
+         "note": "the capital is the first letter"
         }
        ],
        "parts": [
         {
-         "words": "Decline",
-         "gives": "EBB",
-         "note": "to ebb = to decline"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "W",
-         "indicators": [
-          {
-           "text": "capital of",
-           "note": "the capital, the capital letter, is the first letter of the word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "capital of Wales",
-           "gives": "W",
-           "select": "first",
-           "note": "the first letter of Wales"
-          }
-         ]
-        },
-        {
-         "words": "farewell",
-         "gives": "VALE",
-         "note": "vale = farewell, in Latin"
+         "words": "Wales",
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A goodbye to Cardiff, or to a town close to it.",
-     "walkthrough": "'Capital of Wales' pulls toward Cardiff, and the definition plays on that: the answer is a South Wales valley town not far from the capital.",
-     "definitionFit": "A cryptic pointer: this South Wales town lies near Cardiff, the capital the clue has just raised."
+     "surface": "A departing farewell that wraps in the Welsh capital or somewhere close.",
+     "walkthrough": "'capital of Wales' looks like Cardiff, but it is just W. Ebbw Vale is a town in South Wales, not far from Cardiff.",
+     "definitionFit": "Ebbw Vale is a Welsh town near Cardiff, so a locality in the vicinity of the capital."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "capital"
     }
    }
