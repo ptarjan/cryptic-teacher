@@ -1057,41 +1057,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "from Paris",
-       "note": "a word from Paris is a French word"
+       "text": "after",
+       "at": 43,
+       "note": "after puts the married letter at the end of the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "after revolution",
-         "note": "turned round, so the letters run backwards"
+         "text": "revolution",
+         "at": 49,
+         "note": "a revolution is a turning round, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "married",
-         "gives": "M",
-         "note": "m = married"
-        },
-        {
-         "words": "friend",
+         "words": "friend from Paris",
+         "at": 25,
          "gives": "AMI",
-         "note": "ami = friend in French"
+         "note": "ami is French for friend"
         }
        ]
+      },
+      {
+       "words": "married",
+       "at": 17,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A cleric weds a French friend after an uprising.",
-     "walkthrough": "M + AMI gives MAMI, which runs backwards to IMAM; 'revolution' reads as politics but means turning round.",
-     "definitionFit": "An imam leads prayers in a mosque."
+     "surface": "A cleric weds a French friend once a revolution is over.",
+     "walkthrough": "The married letter is read last although the clue gives it first: 'after' sends it to the end.",
+     "definitionFit": "An imam leads prayers in a mosque, a Muslim religious leader."
     },
     "features": {
      "answerInScene": true,
@@ -1245,50 +1248,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "reversing",
-       "note": "the letters run backwards"
+       "text": "probes",
+       "at": 61,
+       "note": "probes means pushes into, so one piece goes inside the other"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversing",
+         "at": 40,
+         "note": "reversing turns the preceding words backwards as one string"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "probes"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "key",
+           "at": 30,
            "gives": "DEL",
-           "note": "Del, the delete key"
+           "note": "DEL is the delete key on a computer keyboard"
           },
           {
-           "words": "university",
-           "gives": "U",
-           "note": "U = university, inside DEL AVER after DE"
+           "words": "state",
+           "at": 34,
+           "gives": "AVER",
+           "note": "to aver is to state"
           }
          ]
-        },
-        {
-         "words": "state",
-         "gives": "AVER",
-         "note": "to aver = to state"
         }
        ]
+      },
+      {
+       "words": "university",
+       "at": 50,
+       "gives": "U"
       }
      ]
     },
     "explanation": {
-     "surface": "An important country has its worth reassessed as a university investigates.",
-     "walkthrough": "'Key state' reads as an important nation, but key is the Del key on a keyboard; DE(U)LAVER reverses to REVALUED.",
-     "definitionFit": "To revalue is to assess the worth of something again."
+     "surface": "A key political state is reversing course while a university investigates.",
+     "walkthrough": "'key' is a computer keyboard key here, and 'reversing' turns both preceding pieces round as one string.",
+     "definitionFit": "To revalue is to assess the worth of something afresh, a second appraisal."
     },
     "features": {
      "answerInScene": false,

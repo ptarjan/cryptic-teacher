@@ -1580,37 +1580,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "played",
-       "note": "performed freely, so HARP's letters are rearranged"
-      },
-      {
-       "text": "dancing",
-       "note": "moving about, so DISCO's letters are rearranged"
+       "text": "before",
+       "at": 21,
+       "note": "before puts the first piece ahead of the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "played",
+         "at": 9,
+         "note": "played suggests handling, so the instrument's letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "harp",
-         "note": "rearranged"
-        },
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dancing",
+         "at": 34,
+         "note": "dancing means moving about, so these letters are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "disco",
-         "note": "rearranged"
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A romantic plays the harp before heading out to dance at a disco.",
-     "walkthrough": "Each word is rearranged in place, so the two halves stay in order.",
-     "definitionFit": "Rhapsodic means full of intense, romantic feeling."
+     "surface": "Someone played the harp before going out disco dancing.",
+     "walkthrough": "HARP becomes RHAP and DISCO becomes SODIC.",
+     "definitionFit": "Rhapsodic means effusive and emotional, as in a sentimental, ecstatic style."
     },
     "features": {
      "answerInScene": false,
@@ -2525,8 +2541,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "for A Farewell to Arms",
-      "at": 40
+      "text": "A Farewell to Arms",
+      "at": 44
      }
     ],
     "wordplay": {
@@ -2534,25 +2550,36 @@
      "indicators": [
       {
        "text": "novel",
-       "note": "new, so the letters are rearranged"
-      },
-      {
-       "text": "apart from introduction",
-       "note": "without its first letter, so DAUNTING loses D"
+       "at": 9,
+       "note": "novel means new, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Daunting",
-       "gives": "AUNTING",
-       "note": "D removed, the rest rearranged"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "apart from introduction",
+         "at": 16,
+         "note": "apart from introduction means without the opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Daunting",
+         "at": 0
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hemingway's A Farewell to Arms is a daunting novel, if you skip the introduction.",
-     "walkthrough": "'Novel' fits the Hemingway picture but signals a rearrangement; 'for' means in favour of, and a farewell to arms is giving up weapons.",
-     "definitionFit": "Being for a farewell to arms means being against guns: antigun."
+     "surface": "Hemingway's novel is called daunting, all but its opening.",
+     "walkthrough": "'novel' looks to refer to Hemingway's book but signals the shuffle of AUNTING. The title is the definition, read literally.",
+     "definitionFit": "Saying farewell to arms means giving up weapons, which is an anti-weapons stance."
     },
     "features": {
      "answerInScene": false,

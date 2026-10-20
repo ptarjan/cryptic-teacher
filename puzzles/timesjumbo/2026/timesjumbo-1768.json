@@ -509,31 +509,49 @@
      "indicators": [
       {
        "text": "before",
-       "note": "the first piece comes before the second"
+       "at": 29,
+       "note": "before places the first piece ahead of the second in the answer"
       }
      ],
      "parts": [
       {
-       "words": "to get out shortly",
-       "gives": "EXTRAC",
-       "note": "EXTRACT (to get out) without its final T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 21,
+         "note": "shortly here means cut short, so the last letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get out",
+         "at": 13,
+         "gives": "EXTRACT",
+         "note": "to extract is to get something out"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "six deliveries",
+       "at": 36,
        "gives": "OVER",
-       "note": "in cricket an over is six balls bowled"
+       "note": "in cricket an over is a set of six balls bowled"
       }
      ]
     },
     "explanation": {
-     "surface": "A batsman is dismissed just before the end of an over.",
-     "walkthrough": "The surface is all cricket, and 'get out' reads as a dismissal; here it means to extract. Extra cover is a fielding position, named here by the player standing there.",
-     "definitionFit": "Extra cover is a fielding position on the off side, so the fielder there is a cricketer."
+     "surface": "Someone is telling a cricketer to leave just before the bowler sends down an over.",
+     "walkthrough": "EXTRACT loses its last letter to give EXTRAC. Extra cover is a fielding position in cricket on the off side.",
+     "definitionFit": "The fielder standing at extra cover can be called by the position's name, as a player is called the wicketkeeper."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "out"
+     "aptDefinition": false,
+     "misdirectedWord": "deliveries"
     }
    }
   },
@@ -797,46 +815,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "SURPRISE",
+     "indicators": [
+      {
+       "text": "Picked up",
+       "at": 0,
+       "note": "picked up means heard, so the words are judged by how they are pronounced"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "SUR",
-       "indicators": [
-        {
-         "text": "Picked up",
-         "note": "to pick up a sound is to hear it, so the words are wanted by sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "knightly title",
-         "gives": "SIR",
-         "note": "Sir is a knight's title"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "PRISE",
-       "parts": [
-        {
-         "words": "award",
-         "gives": "PRIZE",
-         "note": "a prize is an award"
-        }
-       ]
+       "words": "knightly title, award",
+       "at": 10,
+       "gives": "SIRPRIZE",
+       "note": "Sir is the title of a knight and a prize is an award, giving SIR PRIZE"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone collects a knighthood and a prize and finds it all a shock.",
-     "walkthrough": "'Picked up' looks like collecting the knighthood; it tells you to hear the words instead.",
-     "definitionFit": "A plain synonym: a birthday party sprung on you, or news out of the blue, is a surprise."
+     "surface": "Someone collects a knighthood and an award, and calls it unexpected.",
+     "walkthrough": "In a non-rhotic British accent the first syllable of the answer is said just like the knight's title.",
+     "definitionFit": "A surprise is an event nobody saw coming, which is exactly an unforeseen thing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Picked"
     }
    }
@@ -1389,31 +1394,44 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "pruned",
-       "note": "trimmed, so the word loses its last letter"
-      },
-      {
        "text": "climbing",
-       "note": "going up; in a down clue the letters read from bottom to top"
+       "at": 16,
+       "note": "in a down answer climbing means read upwards, so the letters run backwards"
       }
      ],
      "parts": [
       {
-       "words": "Claiming",
-       "gives": "ALLEGIN",
-       "note": "ALLEGING (claiming) without its final G"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "pruned",
+         "at": 9,
+         "note": "pruned means cut back, so the final letter is lopped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Claiming",
+         "at": 0,
+         "gives": "ALLEGING",
+         "note": "alleging means claiming"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone insists a trimmed plant is a climber.",
-     "walkthrough": "'Climbing plant' looks like the definition, a creeper; 'climbing' belongs to the wordplay and the plant is just 'plant'.",
-     "definitionFit": "Nigella, or love-in-a-mist, is a garden flower."
+     "surface": "A gardener is claiming credit for cutting back a climbing plant.",
+     "walkthrough": "ALLEGING loses its tail (pruned) to give ALLEGIN, and 'climbing' turns that upwards to give the answer.",
+     "definitionFit": "Nigella, or love-in-a-mist, is a flowering garden annual grown for its blue blooms and seed heads."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "climbing"
+     "misdirectedWord": "Claiming"
     }
    }
   },

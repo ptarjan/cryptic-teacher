@@ -1468,29 +1468,50 @@
      "indicators": [
       {
        "text": "Botched",
-       "note": "A botched job has come out wrong, and letters that come out wrong are letters standing in the wrong order."
+       "at": 0,
+       "note": "botched means badly done, so these letters are rearranged"
       }
      ],
      "parts": [
       {
        "words": "tattoo",
-       "note": "anagram fodder, six letters taken as they stand"
+       "at": 8
       },
       {
-       "words": "line, briefly",
-       "gives": "LIN",
-       "note": "the word line cut short, its final letter dropped before the shuffle"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 21,
+         "note": "briefly means cut short, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "line",
+         "at": 15
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "nearly",
-       "note": "anagram fodder, six more letters straight off the page"
+       "at": 31
       }
      ]
     },
     "explanation": {
-     "surface": "A badly done tattoo of a line, and balls that almost go wrong in a picture.",
-     "walkthrough": "'Balls up' reads as a phrase for a mess and belongs to the definition, where the balls are the numbered ones that come up when the draw is made.",
-     "definitionFit": "The NATIONAL LOTTERY is Britain's state-licensed prize draw, and its numbered balls genuinely do come up in the drawing."
+     "surface": "A bungled tattoo leaves a short line and almost wrecks the drawing.",
+     "walkthrough": "'nearly' looks like a signal to cut a word short, but it joins the jumble whole; only 'briefly' trims anything.",
+     "definitionFit": "In the UK lottery draw, numbered balls come up from a machine to pick winners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drawing"
     }
    }
   },

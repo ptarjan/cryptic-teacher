@@ -741,41 +741,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "mixed up",
-       "note": "things mixed up are left in no particular order, which is what happens to these letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "Last of",
-         "note": "points at the final letter of the word that follows and takes no more of it"
+         "at": 0,
+         "note": "last of picks out the final letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "words": "Last of ham",
-         "gives": "HAM",
-         "note": "the final letter of ham"
+         "words": "ham",
+         "at": 8
         }
        ]
       },
       {
-       "words": "we taste",
-       "note": "seven letters of fodder, taken as they stand"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixed up",
+         "at": 21,
+         "note": "mixed up means jumbled, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "we taste",
+         "at": 12
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "The end of the ham and everything else worth eating, all stirred together in one pot.",
-     "walkthrough": "The sentence is the definition and the wordplay at once: read it one way and it shuffles letters, read it again and it describes what goes in the pot.",
-     "definitionFit": "Read straight, the clue describes the dish: the last of the ham and whatever else we taste, mixed up together in one pot."
+     "surface": "Someone wonders whether the leftover ham they are tasting went into a dish of mixed ingredients.",
+     "walkthrough": "M, the end of ham, then WE TASTE rearranged to EATSTEW. The whole clue also hints at the dish itself.",
+     "definitionFit": "A meat stew is a slow-cooked dish of mixed ingredients, the place where leftover ham might end up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Last"
     }
    }
   },
@@ -1569,26 +1580,32 @@
      "indicators": [
       {
        "text": "in East London",
-       "note": "a Cockney accent drops the aitch at the front of a word, so that letter goes unsounded and unwritten"
+       "at": 22,
+       "note": "Cockney speech of East London drops the H at the start of words"
       }
      ],
      "parts": [
       {
        "words": "Mexican dog",
+       "at": 10,
        "gives": "HAIRLESS",
-       "note": "the Mexican Hairless, or Xoloitzcuintli, is a breed bred without a coat"
+       "note": "the Mexican hairless is a breed of dog, the xoloitzcuintli"
       },
       {
-       "words": "in East London",
-       "gives": "H",
-       "note": "the aitch a Cockney speaker drops from the front of the word"
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "A hairless Mexican dog somewhere in the East End.",
-     "walkthrough": "'Close' is the weather sense — stuffy, no air moving — rather than the opposite of far. The Mexican Hairless is a real breed, and East London is where its aitch goes missing.",
-     "definitionFit": "Close describes a room or a day with no air moving in it, the muggy sense used of August weather and of stuffy rooms."
+     "surface": "A question asks whether a Mexican dog brought to East London finds the weather close.",
+     "walkthrough": "'Close' is the adjective meaning stuffy, not the verb. A Cockney says the dog's name without its H.",
+     "definitionFit": "Close weather is muggy and stuffy, with no breeze or fresh air moving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Close"
     }
    }
   }

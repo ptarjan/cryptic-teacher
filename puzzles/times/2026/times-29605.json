@@ -732,7 +732,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "just as far",
+      "text": "just as far?",
       "at": 53
      }
     ],
@@ -741,20 +741,40 @@
      "parts": [
       {
        "words": "Horse perhaps",
+       "at": 0,
        "gives": "EQUID",
-       "note": "an equid is any member of the horse family"
+       "note": "a horse is one example of an equid, the horse family"
       },
       {
-       "words": "quickly prepared to throw first knight",
-       "gives": "ISTANT",
-       "note": "INSTANT (quickly prepared, as instant coffee) minus its first N, knight in chess notation"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to throw first",
+         "at": 31,
+         "note": "to throw means to cast off, and first says it is the earlier of the two matching letters that goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "quickly prepared",
+         "at": 14,
+         "gives": "INSTANT",
+         "note": "instant food, like instant coffee, is quickly prepared"
+        },
+        {
+         "words": "knight",
+         "at": 46,
+         "gives": "N",
+         "note": "N is the chess notation for a knight"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A horse ready to unseat its rider so as to cover the same distance.",
-     "walkthrough": "The horse throwing a knight is a riding picture; the knight is N from chess notation, and only the first of INSTANT's two Ns goes.",
-     "definitionFit": "Equidistant means at equal distance, just as far."
+     "surface": "A horse, perhaps one quickly prepared, throws its knightly rider off in a race?",
+     "walkthrough": "INSTANT has two Ns; throwing the first gives ISTANT.",
+     "definitionFit": "Equidistant means at an equal distance, so two points are equally far away."
     },
     "features": {
      "answerInScene": false,

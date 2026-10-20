@@ -952,34 +952,53 @@
      "op": "charade",
      "parts": [
       {
-       "words": "I clipped",
-       "gives": "INDI",
-       "note": "I is India in the NATO phonetic alphabet; clip off the A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "clipped",
+         "at": 2,
+         "note": "clipped means cut short, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "at": 0,
+         "gives": "INDIA",
+         "note": "India is I in the NATO phonetic alphabet"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "information",
+       "at": 10,
        "gives": "GEN",
        "note": "gen is British slang for information"
       },
       {
        "words": "about",
+       "at": 22,
        "gives": "C",
-       "note": "c = circa, about"
+       "note": "C is short for circa, about"
       },
       {
        "words": "energy",
+       "at": 28,
        "gives": "E",
-       "note": "E = energy, as in physics"
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone cut short a report on fuel poverty.",
-     "walkthrough": "The key is that 'I' stands for INDIA in the phonetic alphabet, so clipping it gives INDI. Gen is British slang for information.",
-     "definitionFit": "A plain synonym from Latin indigere, to be in need: the formal word for lacking the necessities of life."
+     "surface": "Someone with shortened information about energy finds themselves poor.",
+     "walkthrough": "The 'I' is India, which clipped gives INDI.",
+     "definitionFit": "Indigence is extreme need or lack of means, a state of being poor."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "I"
     }
