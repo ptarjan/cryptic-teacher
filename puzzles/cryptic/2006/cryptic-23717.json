@@ -784,38 +784,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ILIAD",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "some",
-       "note": "only some of the word is wanted, so part of it is dropped"
+       "text": "Return of",
+       "at": 0,
+       "note": "a return goes back the way it came, so the letters are read from the end to the start"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Return",
-         "note": "to return is to go back, so the letters run backwards"
+         "text": "some",
+         "at": 10,
+         "note": "only some of the word is used, so its last two letters are dropped"
         }
        ],
        "parts": [
         {
          "words": "news-papers",
-         "gives": "DAILI",
-         "note": "dailies are newspapers; the last two letters of that word go"
+         "at": 15,
+         "gives": "DAILIES",
+         "note": "dailies are newspapers published every day"
+        },
+        {
+         "gives": "ES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bringing back a few newspapers yields a heroic tale.",
-     "walkthrough": "The hyphen in 'news-papers' is a red herring; the word wanted is dailies, trimmed.",
-     "definitionFit": "The Iliad is Homer's epic poem about the Trojan War, the classic example of the genre."
+     "surface": "A reader turning back to the newspapers finds an epic story in them.",
+     "walkthrough": "'some' trims DAILIES to DAILI, and 'Return of' reads DAILI backwards.",
+     "definitionFit": "Homer's poem about the siege of Troy is the classic example of an epic."
     },
     "features": {
      "answerInScene": false,
@@ -1058,42 +1062,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GREENTREE",
      "indicators": [
       {
        "text": "provides",
-       "note": "providing one thing for another means swapping it in as a replacement"
+       "at": 13,
+       "note": "the clue provides the room's place to someone else, setting up the swap of one word for another"
+      },
+      {
+       "text": "for",
+       "at": 38,
+       "note": "one thing stands in for another, so the actor takes the place of the room in the phrase"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "room in theatre",
-         "gives": "GREEN",
-         "note": "the green room is where performers wait offstage; its 'room' is the part replaced"
-        },
-        {
-         "words": "actor",
-         "gives": "TREE",
-         "note": "Herbert Beerbohm Tree was a celebrated Victorian actor-manager"
-        }
-       ]
+       "words": "room in theatre",
+       "at": 22,
+       "gives": "GREENROOM",
+       "note": "the green room is where performers wait offstage in a theatre"
+      },
+      {
+       "gives": "ROOM"
+      },
+      {
+       "words": "actor",
+       "at": 42,
+       "gives": "TREE",
+       "note": "Sir Herbert Beerbohm Tree was a celebrated English actor-manager"
       }
      ]
     },
     "spelling": "GREEN TREE",
     "explanation": {
-     "surface": "Plant life gives an actor space in a playhouse.",
-     "walkthrough": "Swap 'room' in green room for the actor Tree. Beerbohm Tree founded RADA and built Her Majesty's Theatre in London.",
-     "definitionFit": "A tree in leaf is green, so a green tree is literally a growth covered in leaves."
+     "surface": "A theatre sets aside a room for one of its actors.",
+     "walkthrough": "The theatre's GREEN ROOM loses ROOM, and TREE, the actor Herbert Beerbohm Tree, goes in its place ('for').",
+     "definitionFit": "A green tree is one in leaf, a living plant thick with foliage."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "provides"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "room"
     }
    }
   },
