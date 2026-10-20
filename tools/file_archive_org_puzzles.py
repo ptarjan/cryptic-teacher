@@ -4090,13 +4090,20 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
     could have been shown at once (5 more), and the alternatives tried in
     that order still stand if `first` is poor too."""
     alts = []
+    # A window that left an ask for the VLM's drainer (vlm_reader.unanswered) is judged by
+    # blanks that are only unanswered: another window is not read (each costs a full page of
+    # asks, spooled in this same pass), and the read, deferred, runs again once the drainer has
+    # answered, to judge this window by its answers and try the next only if it is poor.
+    waiting = vlm.unanswered()
     if first is not None:
         v, p = _read_page(d, found, hit, solutions, vlm_for, first, None)
+        if vlm.unanswered() != waiting:
+            return v, p
         if not crop_window.poor(v):
             v["cropFrom"] = "gutter"
             return v, p
     verdict, puzzle = _read_page(d, found, hit, solutions, vlm_for, None, alts)
-    if not alts or not crop_window.poor(verdict):
+    if not alts or not crop_window.poor(verdict) or vlm.unanswered() != waiting:
         return verdict, puzzle
     best = (crop_window.score(verdict, puzzle), verdict, puzzle)
     settled = None
@@ -4108,6 +4115,8 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
         if vlm_for is not False and best[2] is not None and best[0] == (1, best[1].get("lights") or -1):
             break
         v, p = _read_page(d, found, hit, solutions, vlm_for, alt, None)
+        if vlm.unanswered() != waiting:
+            break  # this window's asks are spooled: the read defers; the windows after it wait
         if crop_window.score(v, p) > best[0]:
             best = (crop_window.score(v, p), v, p)
         if not crop_window.poor(v):
