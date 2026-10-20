@@ -581,8 +581,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "in",
-       "note": "the placing sense again: one word sits within another rather than joining it end to end"
+       "text": "picked up",
+       "at": 22,
+       "note": "in a down clue, picking up lifts the letters so they read from the bottom"
       }
      ],
      "parts": [
@@ -590,28 +591,37 @@
        "op": "container",
        "indicators": [
         {
-         "text": "picked up",
-         "note": "a down answer is written downwards, so a piece picked up is read the other way, from below"
+         "text": "in",
+         "at": 9,
+         "note": "everyone goes inside the staff"
         }
        ],
        "parts": [
         {
-         "words": "staff",
+         "words": "the staff",
+         "at": 12,
          "gives": "ROD",
-         "note": "a rod is a staff you can lean on"
+         "note": "a rod is a staff"
         },
         {
          "words": "Everyone",
+         "at": 0,
          "gives": "ALL",
-         "note": "everyone is all of them"
+         "note": "all means everyone"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Picked up' is the right instruction for a down clue and 'back' would not be: there is no backwards on a vertical axis, only up.",
-     "definitionFit": "A dollar is a unit of currency, so 'money' defines it by the wider class and leaves whose dollar it is entirely open."
+     "surface": "Everyone on the payroll collected their cash.",
+     "walkthrough": "In a down clue 'picked up' lifts the whole assembly so it reads upwards; 'staff' is a stick, not employees.",
+     "definitionFit": "The dollar is the currency unit of the United States and other countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
     }
    }
   },
@@ -1120,7 +1130,8 @@
      "indicators": [
       {
        "text": "caging",
-       "note": "a cage holds its occupant on every side, so the animal named next is shut in between them"
+       "at": 31,
+       "note": "caging means enclosing, so the antelope goes inside"
       }
      ],
      "parts": [
@@ -1128,27 +1139,51 @@
        "op": "charade",
        "parts": [
         {
-         "words": "Reserve, after cut",
-         "gives": "IC",
-         "note": "reserve is ice, the coolness of manner, cut short"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "after cut",
+           "at": 9,
+           "note": "the word is cut short, losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Reserve",
+           "at": 0,
+           "gives": "ICE",
+           "note": "ice means reserve, coolness of manner"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
          "words": "repeatedly",
+         "at": 20,
          "gives": "IC",
-         "note": "the same two letters a second time, closing the cage"
+         "note": "repeatedly says the shortened reserve word occurs again, so its letters are given a second time"
         }
        ]
       },
       {
        "words": "antelope",
+       "at": 38,
        "gives": "ELAND",
-       "note": "the eland is the big African antelope crosswords keep coming back to"
+       "note": "an eland is a large African antelope"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Being asked for one short piece twice over is rare enough that the word ordering it reads as filler, and 'reserve' is icy manner rather than a booking.",
-     "definitionFit": "Icelandic means belonging to Iceland, which sits far enough north for the definition to describe the place instead of naming it."
+     "surface": "Wardens at a reserve keep cutting fences to cage an antelope.",
+     "walkthrough": "The grammar has no repeat step, so 'repeatedly' is shown as a piece giving the shortened reserve word a second time. 'Reserve' means coolness of manner, not a wildlife park.",
+     "definitionFit": "Icelandic describes things belonging to Iceland, the Nordic island nation in the North Atlantic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reserve"
     }
    }
   },
@@ -1913,35 +1948,60 @@
      "parts": [
       {
        "words": "gracious",
+       "at": 10,
        "gives": "MY",
-       "note": "'my!' and 'goodness gracious!' are the same exclamation"
+       "note": "my! is an exclamation like goodness gracious"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "one piece is written about another when it wraps all the way round it"
+         "at": 33,
+         "note": "about means around, so the shortened story goes around the comment"
         }
        ],
        "parts": [
         {
-         "words": "story largely",
-         "gives": "TAL",
-         "note": "a story is a tale, most of it being TAL"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "largely",
+           "at": 25,
+           "note": "largely means mostly, so the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "story",
+           "at": 19,
+           "gives": "TALE",
+           "note": "a tale is a story"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
          "words": "drunken comment",
+         "at": 39,
          "gives": "HIC",
-         "note": "hic is the hiccup a drunk is always drawn saying"
+         "note": "hic is the sound of a drunken hiccup"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two comic-strip noises do the heavy lifting here, 'my!' for gracious and 'hic' for the drunk, and both are standard material once you have met them.",
-     "definitionFit": "A mythical creature never existed outside the stories told about it, so 'imaginary' is the everyday word for what myth does to a thing."
+     "surface": "A drunk's tale, told graciously, sounds made up.",
+     "walkthrough": "'Gracious' is the exclamation, as in 'my goodness!', not a description of the story; a drunk's comment is a hiccup.",
+     "definitionFit": "Mythical things exist only in legend, not in reality, so they are invented."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gracious"
     }
    }
   }

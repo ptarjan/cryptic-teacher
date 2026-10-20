@@ -93,42 +93,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "ARCTIC",
+     "indicators": [
+      {
+       "text": "it's said",
+       "at": 22,
+       "note": "the clue asks us to hear the words spoken, so a soundalike is entered"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "ARC",
-       "indicators": [
-        {
-         "text": "it's said",
-         "note": "what is said is heard rather than read, so the pieces are sounds, not spellings"
-        }
-       ],
-       "parts": [
-        {
-         "words": "boat",
-         "gives": "ARK",
-         "note": "Noah's boat was the ark"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "TIC",
-       "parts": [
-        {
-         "words": "twinkling",
-         "gives": "TICK",
-         "note": "in a twinkling = in a tick, a moment"
-        }
-       ]
+       "words": "boat twinkling",
+       "at": 6,
+       "gives": "ARKTICK",
+       "note": "an ark is a boat, as Noah's; a tick, like a twinkling, is a very brief moment"
       }
      ]
     },
     "explanation": {
-     "surface": "A little boat glinting on a polar sea.",
-     "walkthrough": "'twinkling' reads as sparkle, but it is the noun for an instant, as in 'the twinkling of an eye'; a tick is British for a moment.",
-     "definitionFit": "Arctic means belonging to the North Polar region."
+     "surface": "A boat glittering in polar waters.",
+     "walkthrough": "'Twinkling' suggests stars, but it means a moment, as in 'in a tick'.",
+     "definitionFit": "The Arctic is the region around the North Pole, so the word describes things there."
     },
     "features": {
      "answerInScene": true,
@@ -342,46 +328,58 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "for the most part",
-       "note": "most of a word is all but its last letter"
+       "text": "overturn",
+       "at": 36,
+       "note": "to overturn is to turn upside down, so everything before is read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "to overturn",
-         "note": "overturning turns the string over, so it reads right to left"
-        }
-       ],
        "parts": [
         {
          "words": "AI",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "not",
+         "at": 3,
          "note": "taken as written"
         },
         {
-         "words": "ready",
-         "gives": "SE",
-         "note": "ready = set, losing its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "for the most part",
+           "at": 14,
+           "note": "most of the word is used, losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ready",
+           "at": 7,
+           "gives": "SET",
+           "note": "set means ready, as in ready, steady, go"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worry that artificial intelligence, still half-built, could bring down a government.",
-     "walkthrough": "The surface reads as a headline about artificial intelligence toppling a government, but AI is just two letters, and 'overturn' means reading the whole string backwards.",
-     "definitionFit": "Estonia is a Baltic nation, independent since 1991."
+     "surface": "An artificial intelligence system, not quite ready, threatens to overthrow a nation.",
+     "walkthrough": "AI, NOT and SE (most of SET) make AINOTSE, which 'overturn' reverses.",
+     "definitionFit": "Estonia is a Baltic country, a state on the eastern shore of the Baltic Sea."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "overturn"
+     "misdirectedWord": "AI"
     }
    }
   },
@@ -612,12 +610,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ANATHEMATISING",
      "indicators": [
       {
        "text": "each lacking a conclusion",
-       "note": "every piece loses its last letter"
+       "at": 38,
+       "note": "each of the three words lacks its conclusion, its final letter"
       }
      ],
      "parts": [
@@ -626,27 +623,33 @@
        "parts": [
         {
          "words": "obsessive",
-         "gives": "ANA",
-         "note": "anal, as in anal-retentive, minus L"
+         "at": 8,
+         "gives": "ANAL",
+         "note": "anal is informal for obsessively fussy"
         },
         {
          "words": "conceptual",
-         "gives": "THEMATI",
-         "note": "thematic, minus C"
+         "at": 19,
+         "gives": "THEMATIC",
+         "note": "thematic means relating to a theme or concept"
         },
         {
          "words": "carols",
-         "gives": "SING",
-         "note": "sings, minus S"
+         "at": 30,
+         "gives": "SINGS",
+         "note": "sings is a verb meaning carols"
         }
        ]
+      },
+      {
+       "gives": "LCS"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone muttering oaths at a fussy, over-intellectual set of Christmas carols.",
-     "walkthrough": "The three words look like a critic's list of adjectives, but each must be turned into a synonym and then clipped before joining.",
-     "definitionFit": "To anathematise is to curse or formally denounce."
+     "surface": "Someone swears at fussy, high-concept carol singers.",
+     "walkthrough": "ANAL, THEMATIC and SINGS each drop their last letter, giving ANA, THEMATI and SING.",
+     "definitionFit": "Anathematising means pronouncing a formal ecclesiastical curse on someone, damning them."
     },
     "features": {
      "answerInScene": false,
@@ -3754,12 +3757,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "THEBEAR",
      "indicators": [
       {
        "text": "both short",
-       "note": "both words are cut short by one letter"
+       "at": 37,
+       "note": "both of the words are cut short, each losing its last letter"
       }
      ],
      "parts": [
@@ -3768,27 +3770,30 @@
        "parts": [
         {
          "words": "ancient Egyptian city",
-         "gives": "THEBE",
-         "note": "Thebes, minus S"
+         "at": 11,
+         "gives": "THEBES",
+         "note": "Thebes was the ancient Egyptian city on the Nile"
         },
         {
          "words": "are",
-         "gives": "AR",
-         "note": "are, minus E"
+         "at": 33
         }
        ]
+      },
+      {
+       "gives": "SE"
       }
      ]
     },
     "explanation": {
-     "surface": "Film stars flown in from ancient Thebes, both of them small.",
-     "walkthrough": "'Stars' suggests celebrities; it means a constellation, the Great Bear.",
-     "definitionFit": "The Bear is the constellation Ursa Major, a group of stars."
+     "surface": "An astronomer notes that some stars are visible from an ancient city.",
+     "walkthrough": "THEBES and ARE each lose their last letter.",
+     "definitionFit": "The Bear is a name for the constellation Ursa Major, a group of stars in the northern sky."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Stars"
+     "misdirectedWord": "short"
     }
    }
   }

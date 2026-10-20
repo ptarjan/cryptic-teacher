@@ -1755,40 +1755,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "covering head",
-       "note": "the store's head is covered up and hidden, so its first letter drops out"
-      }
-     ],
      "parts": [
       {
-       "words": "discount store",
-       "gives": "IDL",
-       "note": "LIDL, the budget supermarket chain, minus its head L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "covering head",
+         "at": 27,
+         "note": "the store loses the letter covering its head, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "discount store",
+         "at": 12,
+         "gives": "LIDL",
+         "note": "Lidl is a European discount supermarket chain"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "being knocked back",
-         "note": "knocked backwards, so the word is turned round"
+         "at": 44,
+         "note": "being knocked back means pushed backwards, so the letters are read in reverse"
         }
        ],
        "parts": [
         {
          "words": "on",
+         "at": 41,
          "gives": "RE",
-         "note": "RE = on (concerning), as in memo headings"
+         "note": "re means on, concerning"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A loafer in a cheap supermarket covers his head after being knocked over.",
-     "walkthrough": "Lidl is a German discount supermarket found across Britain.",
-     "definitionFit": "A plain synonym: an idler is someone who lazes about doing nothing."
+     "surface": "A lazy shopper loafs in a cut-price supermarket, knocking back drinks.",
+     "walkthrough": "LIDL, a German discount supermarket chain common in Britain, loses its first letter to give IDL; RE (on, as in 'regarding') is reversed to ER.",
+     "definitionFit": "An idler is someone who avoids work, a lazy person."
     },
     "features": {
      "answerInScene": true,

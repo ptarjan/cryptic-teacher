@@ -1382,30 +1382,52 @@
      "indicators": [
       {
        "text": "in",
-       "note": "a kilo in the search means those letters sit inside it"
-      },
-      {
-       "text": "brief",
-       "note": "a brief thing is cut short, so the last letter goes"
+       "at": 16,
+       "note": "the letters a and kilo go in the shortened search word"
       }
      ],
      "parts": [
       {
-       "words": "search",
-       "gives": "QUES",
-       "note": "QUEST minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 19,
+         "note": "brief means cut short, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "search",
+         "at": 25,
+         "gives": "QUEST",
+         "note": "a quest is a search"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
-       "words": "a kilo",
-       "gives": "AK",
-       "note": "A plus K for kilo"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 8
+        },
+        {
+         "words": "kilo",
+         "at": 10,
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quick hunt turns up a quivering kilo of something.",
-     "walkthrough": "The quotation marks just bundle a kilo as one piece; K is the kilo abbreviation.",
-     "definitionFit": "Plain synonym: something that quakes shakes or trembles."
+     "surface": "A short search for a kilo of something causes trembling.",
+     "walkthrough": "QUEST cut short by 'brief' is QUES, with A and K placed inside.",
+     "definitionFit": "Quakes are tremors, the shuddering movements of the ground or a body."
     },
     "features": {
      "answerInScene": false,

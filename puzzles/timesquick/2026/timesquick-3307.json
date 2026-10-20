@@ -430,31 +430,48 @@
      "indicators": [
       {
        "text": "aboard",
-       "note": "on board a ship means inside it"
+       "at": 9,
+       "note": "being aboard means inside the vessel, so these letters go within"
       }
      ],
      "parts": [
       {
-       "words": "vessel cut down",
-       "gives": "SHI",
-       "note": "SHIP without its final P; S…HI goes around the rest"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut down",
+         "at": 23,
+         "note": "cut down means shortened, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vessel",
+         "at": 16,
+         "gives": "SHIP",
+         "note": "a ship is a vessel"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       },
       {
        "words": "American",
-       "gives": "US",
-       "note": "US = American"
+       "at": 0,
+       "gives": "US"
       }
      ]
     },
     "explanation": {
-     "surface": "A US passenger on a small boat eating an Asian dish.",
-     "walkthrough": "'Cut down' suggests a smaller vessel; it only trims the last letter.",
-     "definitionFit": "Japanese dish of vinegared rice with raw fish, so an example of East Asian cuisine."
+     "surface": "An American on a ship that has been scuttled, eating Asian food.",
+     "walkthrough": "'Cut down' looks like felling, but it only trims the vessel's last letter; the American then goes aboard.",
+     "definitionFit": "Sushi is a Japanese dish of vinegared rice with raw fish, from East Asia."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "aboard"
+     "misdirectedWord": "vessel"
     }
    }
   },
@@ -776,32 +793,48 @@
      "indicators": [
       {
        "text": "welcomes",
-       "note": "a host welcomes guests in, so the outer word takes the other inside"
+       "at": 14,
+       "note": "a host welcomes guests in, so one piece goes inside the other"
       }
      ],
      "parts": [
       {
        "words": "saint",
-       "gives": "ST",
-       "note": "St = saint; S…T goes around"
+       "at": 8,
+       "gives": "ST"
       },
       {
-       "words": "joke for the most part",
-       "gives": "TRIC",
-       "note": "TRICK without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "for the most part",
+         "at": 28,
+         "note": "most of the word is used, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "joke",
+         "at": 23,
+         "gives": "TRICK",
+         "note": "a trick is a joke, a prank"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A severe holy figure who nonetheless enjoys a good joke.",
-     "walkthrough": "The surface contrast, a stern saint who likes a laugh, hides that 'welcomes' is only a container signal.",
-     "definitionFit": "Both describe severe, unindulgent discipline; a stern regime or rules without leniency."
+     "surface": "A stern saint who nonetheless puts up with most pranks.",
+     "walkthrough": "'For the most part' trims the joke by its final letter before the saint welcomes it in.",
+     "definitionFit": "Strict means severe and allowing no indulgence, close in sense to austere."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "welcomes"
+     "misdirectedWord": "joke"
     }
    }
   },
