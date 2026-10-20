@@ -1385,45 +1385,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANOMALOUS",
+     "op": "charade",
      "parts": [
+      {
+       "words": "a",
+       "at": 24,
+       "gives": "A"
+      },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "Around"
-        },
-        {
-         "text": "fresh",
-         "note": "a fresh version is newly made, so A SALMON is made over into a new order"
+         "text": "Around",
+         "at": 0,
+         "note": "around says the reshuffled letters enclose the university abbreviation"
         }
        ],
        "parts": [
         {
-         "words": "a fresh salmon",
-         "gives": "ANOMALS",
-         "note": "A SALMON rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "fresh",
+           "at": 26,
+           "note": "fresh says the letters are made anew, rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "salmon",
+           "at": 32
+          }
+         ]
         },
         {
          "words": "Open University",
-         "gives": "OU",
-         "note": "OU = Open University, the UK distance-learning university"
+         "at": 7,
+         "gives": "OU"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fresh salmon at the Open University is a curious sight.",
-     "walkthrough": "The anagram is built first, then split to take OU inside.",
-     "definitionFit": "A plain synonym: anomalous means departing from what is normal or expected, hence odd."
+     "surface": "Near the Open University campus, a newly caught salmon is something strange.",
+     "walkthrough": "'Fresh' reads as describing the fish but is the signal to rearrange its letters; 'Around' at the front governs the university abbreviation that ends up inside.",
+     "definitionFit": "Anomalous means departing from the norm, which is what odd means here."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "fresh"
     }
    }

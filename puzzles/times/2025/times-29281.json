@@ -360,48 +360,33 @@
      }
     ],
     "wordplay": {
-     "op": "cryptic",
-     "unchecked": true,
-     "gives": "WHIRLINGDERVISH",
+     "op": "reverse",
+     "reading": "WHIRLING DERVISH",
+     "indicators": [
+      {
+       "text": "like this",
+       "at": 9,
+       "note": "like this points from the clue word to the answer, saying the answer describes how that word was produced"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "WHIRLINGDERVISH",
-       "indicators": [
-        {
-         "text": "like this",
-         "note": "points back to the answer"
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "like this",
-           "gives": "WHIRLING",
-           "note": "whirling does the job of an anagram indicator, spinning the letters"
-          },
-          {
-           "words": "Shiver'd",
-           "note": "SHIVERD rearranged"
-          }
-         ]
-        }
-       ]
+       "words": "Shiver'd",
+       "at": 0,
+       "note": "read the answer as wordplay: 'whirling' is an anagram signal working on the letters of dervish, which rearranged spell shiver'd"
       }
      ]
     },
     "explanation": {
-     "surface": "A frantic dancer spins so wildly that even the word 'shivered' gets scrambled.",
-     "walkthrough": "The clue works backwards: read the answer as an instruction, DERVISH whirling, and it produces SHIVER'D. The odd apostrophe is there to drop the E.",
-     "definitionFit": "Whirling dervishes are Sufi dancers who spin for long periods in religious ecstasy."
+     "surface": "A wild dancer asks whether he made someone tremble.",
+     "walkthrough": "A reverse clue: whirling the letters of DERVISH gives SHIVER'D, so the answer describes how the clue word was made; 'like this' signals that.",
+     "definitionFit": "Whirling dervishes are Sufi ascetics who spin in an ecstatic religious dance, so the answer is a frenzied dancer."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Shiver"
+     "joke": "pun",
+     "misdirectedWord": "Shiver'd"
     }
    }
   },
@@ -750,60 +735,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "covering"
+       "text": "covering",
+       "at": 22,
+       "note": "covering says the cloth word wraps round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "walls of",
-         "note": "a room's walls are its outside, so the outer letters of apartment"
-        }
-       ],
+       "words": "rich cloth",
+       "at": 11,
+       "gives": "PALL",
+       "note": "a pall is a rich cloth, often draped over a coffin"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "walls of",
+           "at": 31,
+           "note": "walls of picks the outside letters of apartment"
+          }
+         ],
          "parts": [
           {
-           "words": "rich cloth",
-           "gives": "PALL",
-           "note": "a pall is a heavy cloth, as over a coffin; it goes round the rest"
-          },
-          {
-           "op": "outer",
-           "unchecked": true,
-           "gives": "AT",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "apartment",
-             "gives": "AT",
-             "select": "outer",
-             "note": "outer letters of ApartmenT"
-            }
-           ]
+           "words": "apartment",
+           "at": 40
           }
          ]
         },
         {
-         "words": "1",
-         "gives": "I",
-         "note": "I is one in Roman numerals"
+         "words": "1A",
+         "at": 50,
+         "gives": "IA",
+         "note": "1 is I as a Roman numeral, followed by A"
         }
        ]
-      },
-      {
-       "words": "A",
-       "note": "A as printed"
       }
      ]
     },
     "explanation": {
-     "surface": "An estate agent's blurb for flat 1A, lavish with rich drapes on the walls.",
-     "walkthrough": "'1A' looks like a flat number or a pointer to 1 across; it is simply I and A.",
-     "definitionFit": "Palatial means like a palace: sumptuous, splendid."
+     "surface": "Luxurious, expensive fabric hangs on the walls of flat 1A.",
+     "walkthrough": "'1A' looks like a flat number, or a cross-reference to another clue, but is read as the Roman numeral I followed by A; a pall is the heavy cloth draped over a coffin.",
+     "definitionFit": "Palatial means like a palace, splendid and luxurious, which is what sumptuous means."
     },
     "features": {
      "answerInScene": true,
@@ -1127,42 +1103,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "WELLBRED",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "swap the opening sounds of the two words"
+       "at": 36,
+       "note": "Spooner swapped the opening sounds of words, so the starts of the two pieces change places"
       }
      ],
      "parts": [
       {
-       "words": "Belgian crooner",
-       "gives": "BREL",
-       "note": "Jacques Brel, the Belgian singer-songwriter"
+       "op": "homophone",
+       "spelt": "BRELL",
+       "parts": [
+        {
+         "words": "Belgian crooner",
+         "at": 7,
+         "gives": "BREL",
+         "note": "Jacques Brel was a Belgian singer-songwriter, said aloud as brell"
+        }
+       ]
       },
       {
        "words": "got married",
+       "at": 23,
        "gives": "WED",
        "note": "to wed is to get married"
-      },
-      {
-       "unchecked": true,
-       "words": "Belgian crooner got married",
-       "gives": "WELLBRED",
-       "soundsLike": "BREL WED",
-       "note": "swap the BR and W sounds"
       }
      ]
     },
     "explanation": {
-     "surface": "News that a courteous Belgian singer has tied the knot.",
-     "walkthrough": "Jacques Brel was a famous Belgian singer-songwriter; 'Polite' at the front is the definition, the rest is the Spoonerism.",
-     "definitionFit": "Well-bred means having good manners, polite."
+     "surface": "A singer from Belgium has tied the knot, reports a muddled clergyman.",
+     "walkthrough": "Swap the opening sounds of BREL and WED: W plus the ELL sound, then BR plus ED, which is written WELL BRED.",
+     "definitionFit": "Someone well-bred has good manners from a proper upbringing, so is polite."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crooner"
     }
    }
   },

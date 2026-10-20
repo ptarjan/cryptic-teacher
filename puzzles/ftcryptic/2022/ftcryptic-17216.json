@@ -129,43 +129,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOGICAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "just half",
-       "note": "only half the word survives, the rest is cut"
+       "text": "drinks",
+       "at": 13,
+       "note": "drinks says the pub word swallows, that is takes inside, the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "pub",
+       "at": 9,
+       "gives": "LOCAL",
+       "note": "a local is a person's regular pub"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "drinks",
-         "note": "the pub drinks in the measure, taking it inside"
+         "text": "just half",
+         "at": 22,
+         "note": "just half says only the first two of the four letters of the measure are kept"
         }
        ],
        "parts": [
         {
-         "words": "pub",
-         "gives": "LOCAL",
-         "note": "your local is your neighbourhood pub"
-        },
-        {
          "words": "a small measure",
-         "gives": "GI",
-         "note": "a gill is a small liquid measure, halved"
+         "at": 32,
+         "gives": "GILL",
+         "note": "a gill is a small measure of liquid, a quarter of a pint"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prudent drinker at the pub sticking to a tiny measure.",
-     "walkthrough": "A gill is an old British measure of a quarter pint; half its letters are GI.",
-     "definitionFit": "Something logical follows reason and good sense, so a sensible course of action is a logical one."
+     "surface": "A pub-goer wonders whether a half measure of drink would be the wise choice.",
+     "walkthrough": "A local is British slang for the pub nearest home; the question mark flags that a measure is cut in half rather than drunk.",
+     "definitionFit": "Logical means reasoned and rational, which is the sense of sensible here."
     },
     "features": {
      "answerInScene": false,
@@ -241,37 +243,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHEEK",
-     "indicators": [
-      {
-       "text": "losing power",
-       "note": "the letter used for power in physics is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "taps",
+       "at": 6,
+       "gives": "CH",
+       "note": "C and H mark the cold and hot taps"
+      },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "when turned",
-         "note": "turned round, each of the two pieces runs the other way"
+         "at": 29,
+         "note": "turned says the shortened keep word is read the other way round"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "losing",
+           "at": 16,
+           "note": "losing says the power letter is taken away from keep"
+          }
+         ],
          "parts": [
           {
            "words": "keep",
-           "gives": "KEE",
-           "note": "the word without P for power"
+           "at": 11,
+           "gives": "KEEP",
+           "note": "the word itself"
           },
           {
-           "words": "taps",
-           "gives": "HC",
-           "note": "hot and cold, the labels on taps"
+           "words": "power",
+           "at": 23,
+           "gives": "P",
+           "note": "P is the physics abbreviation for power"
           }
          ]
         }
@@ -280,12 +290,13 @@
      ]
     },
     "explanation": {
-     "surface": "Brass taps kept stiff and weak after being turned, as in a plumbing complaint.",
-     "definitionFit": "Brass is slang for nerve or impudence, the same as cheek or effrontery."
+     "surface": "Brass taps go on gradually weakening whenever they are turned.",
+     "walkthrough": "'Brass' looks like the metal of the taps but is the definition, and the taps themselves are the hot and cold letters found on them.",
+     "definitionFit": "Brass is informal for nerve or impudence, the same as cheek."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Brass"
     }
    }
@@ -312,44 +323,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "BROKERAGE",
      "indicators": [
       {
        "text": "to undermine",
-       "note": "in a down clue, undermining means going underneath, so it comes after"
+       "at": 17,
+       "note": "in a down clue, a piece that undermines another sits below it"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "BROKERAGE",
        "indicators": [
         {
          "text": "after change of hands",
-         "note": "left hand is swapped for right hand, so one letter changes to the other"
+         "at": 34,
+         "note": "a change of hands swaps left for right, so the L in the man word becomes R"
         }
        ],
        "parts": [
         {
          "words": "Man",
+         "at": 30,
          "gives": "BLOKE",
-         "note": "a bloke is a man; L becomes R"
+         "note": "bloke is informal British for a man"
         },
         {
-         "words": "Vogue",
-         "gives": "RAGE",
-         "note": "the rage is the current fashion"
+         "gives": "L"
+        },
+        {
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "Vogue",
+       "at": 11,
+       "gives": "RAGE",
+       "note": "a rage is a vogue or craze"
       }
      ]
     },
     "explanation": {
-     "surface": "A fashion magazine commissioned to bring down a powerful man after ownership changes.",
-     "walkthrough": "Change of hands swaps L (left) for R (right) in BLOKE.",
-     "definitionFit": "Brokerage is the fee charged by a broker for arranging a deal, a type of commission."
+     "surface": "A fashion magazine is asked to sabotage a man once control has passed to others.",
+     "walkthrough": "Hands here are left and right, so a change of hands swaps one for the other; Vogue is not the magazine but a craze.",
+     "definitionFit": "Brokerage is the fee a broker charges for arranging a deal, a type of commission."
     },
     "features": {
      "answerInScene": false,
@@ -726,71 +743,66 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "in",
-       "note": "the result sits between the two words meaning circles"
+       "at": 32,
+       "note": "in says the built piece goes inside the two circle words"
       }
      ],
      "parts": [
+      {
+       "words": "circles",
+       "at": 35,
+       "gives": "ORING",
+       "note": "O and RING are two shapes of circle"
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "around",
-         "note": "the mixed letters go round the speed symbol"
+         "at": 15,
+         "note": "around says the reshuffled bus letters go round the speed letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "travelling",
+           "at": 4,
+           "note": "travelling says the letters of bus move about into a new order"
+          }
+         ],
          "parts": [
           {
-           "words": "circles",
-           "gives": "O",
-           "note": "a circle is the shape of the letter O"
-          },
-          {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "travelling",
-             "note": "a vehicle on the move gets jumbled up, so its letters are mixed"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Bus",
-             "note": "fodder for the mix"
-            }
-           ]
+           "words": "Bus",
+           "at": 0
           }
          ]
         },
         {
          "words": "top speed",
+         "at": 22,
          "gives": "C",
-         "note": "c is the speed of light, the fastest possible"
+         "note": "c is the physics symbol for the speed of light, the top speed possible"
         }
        ]
-      },
-      {
-       "words": "circles",
-       "gives": "RING",
-       "note": "a ring is a circle"
       }
      ]
     },
     "explanation": {
-     "surface": "A bus speeding round and round in circles, bewildering everyone on board.",
-     "walkthrough": "'Circles' supplies both O and RING, one each side. The speed of light, c, is the ultimate top speed in physics.",
-     "definitionFit": "Obscuring something makes it unclear or hidden, which confuses those trying to see it."
+     "surface": "A bus drives round and round at full speed, and the result is muddle.",
+     "walkthrough": "'In circles' reads as how the bus moves, but it places the built piece inside two circles; c, the speed of light, is the top speed in physics.",
+     "definitionFit": "Obscuring means making something unclear, so it causes confusion about it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "speed"
+     "misdirectedWord": "circles"
     }
    }
   },

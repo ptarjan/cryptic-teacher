@@ -1520,69 +1520,72 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MALEVOLENT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "keeping",
-         "note": "the first word holds the next piece inside it"
+         "at": 4,
+         "note": "the word for man keeps, that is holds inside it, the reversed word for affection"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "Man",
+         "at": 0,
+         "gives": "MALE",
+         "note": "a man is a male"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "back",
-           "note": "the word is written backwards"
+           "at": 27,
+           "note": "back says the affection word is to be read in the reverse direction"
           }
          ],
          "parts": [
-          {
-           "words": "Man",
-           "gives": "MALE",
-           "note": "a male is a man"
-          },
           {
            "words": "deep affection",
-           "gives": "EVOL",
-           "note": "LOVE reversed"
+           "at": 12,
+           "gives": "LOVE",
+           "note": "deep affection is love"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "heartless",
-           "note": "remove the middle, leaving the outside letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "not",
-           "gives": "NOT",
-           "note": "NoT without its middle letter"
-          }
-         ]
+         "text": "heartless",
+         "at": 33,
+         "note": "heartless says the middle of the word not is removed, leaving its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not",
+         "at": 43,
+         "note": "the word itself, to be emptied"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man hides his deep love, and his coldness is not meant unkindly.",
-     "walkthrough": "The surface ends on 'not spiteful', but 'not' is wordplay and 'spiteful' alone is the definition.",
-     "definitionFit": "Malevolent means wishing harm on others, spiteful."
+     "surface": "A man who keeps his feelings hidden is described as cold rather than nasty.",
+     "walkthrough": "The comma tempts you to read 'heartless' as describing the man; it works on the word 'not', and only 'spiteful' is the definition.",
+     "definitionFit": "Malevolent describes someone wishing harm on others, close in sense to spiteful."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "not"
+     "misdirectedWord": "heartless"
     }
    }
   },

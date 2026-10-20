@@ -1612,26 +1612,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "cut",
-       "note": "F, following, is cut from the word"
-      },
-      {
        "text": "slips",
-       "note": "a slip is a mistake, so the letters are rearranged"
+       "at": 24,
+       "note": "slips says the remaining letters slide out of order into a new arrangement"
       }
      ],
      "parts": [
       {
-       "words": "Following cut, Freudian",
-       "gives": "REUDIAN",
-       "note": "FREUDIAN with F (following) cut"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 10,
+         "note": "cut says the letter for following is removed from Freudian"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Freudian",
+         "at": 15,
+         "gives": "FREUDIAN",
+         "note": "the word itself"
+        },
+        {
+         "words": "Following",
+         "at": 0,
+         "gives": "F",
+         "note": "f is the abbreviation for following, as in page references"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "After a scandal, a presenter's Freudian slips never make it on air.",
-     "walkthrough": "'Freudian slips' is one phrase in the surface; here 'slips' is the anagram signal. F for following is a standard abbreviation, as in 'p. 3 f.'.",
-     "definitionFit": "Plain synonym: a programme never put on air has not been broadcast."
+     "surface": "After a deletion, the psychoanalyst's verbal errors never reach the airwaves.",
+     "walkthrough": "'Freudian slips' reads as one phrase but splits: 'cut' removes F to leave REUDIAN, and 'slips' rearranges it.",
+     "definitionFit": "A programme that is unaired has never been transmitted, so it is not broadcast."
     },
     "features": {
      "answerInScene": true,

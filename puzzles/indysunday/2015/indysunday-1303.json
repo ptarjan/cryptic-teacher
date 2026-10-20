@@ -659,12 +659,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to catch",
-       "note": "catching something means holding it, so the force takes in the rogues first"
-      },
-      {
        "text": "in",
-       "note": "the whole mix goes inside the town's central letters"
+       "at": 44,
+       "note": "in says the built word goes inside the central letters of Hounslow"
       }
      ],
      "parts": [
@@ -672,42 +669,62 @@
        "op": "middle",
        "indicators": [
         {
-         "text": "a couple of",
-         "note": "a couple is two, so just the opening pair of letters from the word"
+         "text": "the middle of",
+         "at": 47,
+         "note": "the middle of Hounslow is its two central letters"
         }
        ],
        "parts": [
         {
          "words": "Hounslow",
-         "note": "the central two of eight letters"
+         "at": 61,
+         "note": "Hounslow is a district of west London"
         }
        ]
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "deployed",
-         "note": "troops deployed are spread out and rearranged, so the letters are rearranged"
+         "text": "to catch",
+         "at": 16,
+         "note": "to catch says the rearranged police letters take the rogue letters inside them"
         }
        ],
        "parts": [
         {
-         "words": "Police",
-         "note": "taken as written"
-        },
-        {
-         "op": "first",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "the middle of",
-           "note": "the middle of a word is its central letters, here the pair at its heart"
+           "text": "deployed",
+           "at": 7,
+           "note": "deployed says the police letters are spread out into a new arrangement"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Police",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "a couple of",
+           "at": 25,
+           "note": "a couple of says only the first two letters of rogues are taken"
           }
          ],
          "parts": [
           {
            "words": "rogues",
-           "note": "the first two letters"
+           "at": 37,
+           "gives": "ROGUES"
+          },
+          {
+           "gives": "GUES"
           }
          ]
         }
@@ -716,12 +733,12 @@
      ]
     },
     "explanation": {
-     "surface": "Officers sent to arrest two crooks in central Hounslow, a district of west London, at the cemetery.",
-     "walkthrough": "The rogue pair joins the force before the mix, and only then does the jumble go inside the town's centre.",
-     "definitionFit": "A necropolis, Greek for city of the dead, is a large ancient burial ground."
+     "surface": "Police are sent to arrest a pair of crooks in central Hounslow, near a graveyard.",
+     "walkthrough": "'Police deployed' looks like officers sent out, but 'deployed' rearranges the word police; Hounslow, a London district, gives only its two central letters as the outer shell.",
+     "definitionFit": "A necropolis is a large ancient burial ground, literally a city of the dead."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "deployed"
     }

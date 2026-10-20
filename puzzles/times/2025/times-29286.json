@@ -1538,49 +1538,64 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "front of",
-       "note": "first letter of sketchbook"
-      },
-      {
-       "text": "facing left",
-       "note": "in an across clue, pointing leftwards means read backwards"
+       "text": "on",
+       "at": 39,
+       "note": "on in an across clue means placed after, so the word is follows the sketchbook letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "facing left",
+         "at": 24,
+         "note": "in an across clue facing left means reading leftwards, so the letters run backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "is",
-         "gives": "SI",
-         "note": "as it stands, placed on (after) the S"
-        },
-        {
-         "words": "front of sketchbook",
-         "gives": "S",
-         "note": "first letter of sketchbook"
-        },
-        {
          "words": "of little horse",
+         "at": 8,
          "gives": "PONYS",
-         "note": "PONY'S, belonging to the little horse, turned round"
+         "note": "of little horse is the possessive form, pony's"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "front of",
+         "at": 42,
+         "note": "front of picks the first letter of sketchbook"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sketchbook",
+         "at": 51
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 36,
+       "gives": "IS"
       }
      ]
     },
     "explanation": {
-     "surface": "An artist's sketchbook opens with the outline of a pony facing left.",
-     "walkthrough": "'Outline' fits the sketch so well that it hides as the definition, a summary.",
-     "definitionFit": "A plain synonym: the brief summary of a plot or argument is its outline."
+     "surface": "An outline drawing of a small horse, facing left, appears on the front of a sketchbook.",
+     "walkthrough": "'Facing left' reads the possessive pony's backwards; 'front of' takes the first letter of sketchbook, and 'is on' puts is after it, as across clues build left to right.",
+     "definitionFit": "A synopsis is a brief summary of a story or argument, an outline of it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Outline"
     }
    }
