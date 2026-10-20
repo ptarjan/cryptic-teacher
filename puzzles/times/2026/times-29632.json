@@ -766,60 +766,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "excited",
-       "note": "the letters are stirred up into a new order"
+       "text": "about",
+       "at": 41,
+       "note": "the rearranged letters go about, that is around, the single letter that follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "the rearranged letters come around the extra A"
+         "text": "excited",
+         "at": 33,
+         "note": "excited letters are stirred up, so the letters of choir not calm are rearranged"
         }
        ],
        "parts": [
         {
          "words": "choir not calm",
-         "note": "anagram fodder, 12 letters"
-        },
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "A",
-         "indicators": [
-          {
-           "text": "start of",
-           "note": "take only the first letter of Alleluia"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "start of Alleluia",
-           "gives": "A",
-           "select": "first",
-           "note": "first letter, joining the fodder"
-          }
-         ]
+         "text": "start of",
+         "at": 47,
+         "note": "start of means take only the opening letter of Alleluia"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Alleluia",
+         "at": 56,
+         "note": "its first letter is A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A church chorister gets worked up at the first Alleluia.",
-     "walkthrough": "'Member of church choir' reads as one phrase; the definition stops at 'church', and 'choir' starts the fodder.",
-     "definitionFit": "A definition by membership: the church meant is the one headed by the Pope, and its followers take its name."
+     "surface": "A church choir is anything but calm, getting worked up as they launch into an Alleluia.",
+     "walkthrough": "'excited' shuffles CHOIR NOT CALM; 'about' wraps that around A, the 'start of Alleluia'.",
+     "definitionFit": "A Roman Catholic is a member of the Catholic Church headed by the Pope."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "choir"
+     "misdirectedWord": "excited"
     }
    }
   },
@@ -903,71 +902,89 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "in",
-       "note": "those letters go inside the rest"
+       "at": 26,
+       "note": "the middle of clue sits in the run made by a and the expanded note"
       }
      ],
      "parts": [
       {
-       "words": "a",
-       "note": "as written"
-      },
-      {
-       "words": "clue uncovered",
-       "gives": "LU",
-       "note": "CLUE without its first and last letters"
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "the note wraps round the letter from Duck"
-        },
-        {
-         "text": "second",
-         "note": "take the second letter of Duck"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "note",
-         "gives": "MINIM",
-         "note": "a minim is a half note in music"
+         "words": "a",
+         "at": 29,
+         "gives": "A"
         },
         {
-         "op": "nth",
-         "n": 2,
+         "op": "container",
          "indicators": [
           {
-           "text": "uncovered",
-           "note": "clue loses its outer letters"
+           "text": "about",
+           "at": 36,
+           "note": "the note goes about, around, the letter from Duck's"
           }
          ],
          "parts": [
           {
-           "words": "Duck's second offering",
-           "gives": "DUCKSECONDOFFERING",
-           "note": "second letter of Duck, placed inside MINIM"
+           "words": "note",
+           "at": 31,
+           "gives": "MINIM",
+           "note": "a minim is a musical note, a half note"
+          },
+          {
+           "op": "nth",
+           "n": 2,
+           "indicators": [
+            {
+             "text": "second",
+             "at": 49,
+             "note": "second picks the second letter of the word Duck's"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Duck's",
+             "at": 42,
+             "note": "its second letter is U"
+            }
+           ]
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 16,
+         "note": "uncovered strips the outer letters off clue, leaving its middle pair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clue",
+         "at": 11,
+         "note": "with its outer letters gone it gives LU"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about a scrap of a clue and what a cricketer out for a duck might offer next.",
-     "walkthrough": "The British spelling is needed: ALUMINIUM, with the extra I, is what the letters give.",
-     "definitionFit": "Aluminium is a chemical element, the light silvery metal."
+     "surface": "A cryptic remark about what a duck might offer, as if a puzzle setter were musing on a clue.",
+     "walkthrough": "A minim is a half note in music. Duck's second is simply its letter U, not a cricket score of nothing.",
+     "definitionFit": "Aluminium is a chemical element, the light silvery metal, symbol Al; British spelling with -ium."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Duck"
+     "misdirectedWord": "Duck's"
     }
    }
   },
@@ -992,40 +1009,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INTRANET",
-     "indicators": [
-      {
-       "text": "moving east",
-       "note": "on a map east is to the right, so the E shifts rightwards in the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "moving",
+         "at": 15,
+         "note": "moving says one letter of the competitor word is shifted to another place in it"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "I = one, the Roman numeral"
+         "words": "competitor",
+         "at": 4,
+         "gives": "ENTRANT",
+         "note": "an entrant is a competitor in a contest"
         },
         {
-         "words": "competitor",
-         "gives": "NTRANET",
-         "note": "ENTRANT with its leading E moved two places to the right"
+         "words": "east",
+         "at": 22,
+         "gives": "E",
+         "note": "E is the compass abbreviation for east"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rival relocating eastwards within a company's structure.",
-     "walkthrough": "'Moving east' reads as a transfer to another office; in an across answer it pushes the letter E towards the right.",
-     "definitionFit": "An intranet is a private computer network within a company."
+     "surface": "A single rival heads east, apparently a story about business competition.",
+     "walkthrough": "'moving east' reads like travel, but east is the letter E, which shifts from the front of the competitor word towards its end.",
+     "definitionFit": "An intranet is a private computer network used inside an organisation by its staff."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "east"
     }
@@ -1442,54 +1466,69 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TURFOUT",
      "indicators": [
       {
        "text": "bores",
-       "note": "the rearranged letters drill into the gap between the two times"
+       "at": 30,
+       "note": "the shuffled four plus university bores into, goes inside, the pair of time letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "TURFOUT",
+       "op": "charade",
        "indicators": [
         {
-         "text": "drunken",
-         "note": "the letters stagger into a new order"
+         "text": "after",
+         "at": 41,
+         "note": "after places one time letter following the other, giving two in a row"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "time",
+         "at": 36,
+         "gives": "T"
+        },
+        {
+         "words": "time",
+         "at": 47,
+         "gives": "T",
+         "note": "T again, the abbreviation for time"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "drunken",
+           "at": 11,
+           "note": "drunken letters stagger about, so four is rearranged"
+          }
+         ],
          "parts": [
           {
-           "words": "time",
-           "gives": "T",
-           "note": "T = time, the first of two"
-          },
-          {
-           "words": "four drunken university",
-           "gives": "URFOU",
-           "note": "FOUR plus U (university), rearranged"
-          },
-          {
-           "words": "after time",
-           "gives": "T",
-           "note": "the second T"
+           "words": "four",
+           "at": 6
           }
          ]
+        },
+        {
+         "words": "university",
+         "at": 19,
+         "gives": "U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Four drunk students bore people over and over until they are thrown out.",
-     "walkthrough": "'Bores' reads as being tedious, which suits drunk students; it means drills into, so the anagram goes between the two Ts.",
-     "definitionFit": "To turf out is British informal for to eject someone."
+     "surface": "Throw out four drunk students who keep boring everyone, time after time.",
+     "walkthrough": "'drunken' turns FOUR into URFO; add U, and that 'bores' into T and T.",
+     "definitionFit": "To turf out is an informal phrasal verb meaning to throw someone out or expel them."
     },
     "features": {
      "answerInScene": true,
@@ -1588,56 +1627,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "not fair",
+      "text": "not fair?",
       "at": 38
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "protecting",
-       "note": "the word for bond shelters the letter inside it"
-      }
-     ],
      "parts": [
       {
        "words": "In",
-       "note": "as written"
+       "at": 0,
+       "gives": "IN",
+       "note": "taken as written"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "predecessor",
-         "note": "the letter that comes just before M in the alphabet"
+         "text": "protecting",
+         "at": 3,
+         "note": "the bond word surrounds, as if protecting, the letter before M"
         }
        ],
        "parts": [
         {
-         "words": "Bond",
+         "words": "Bond's",
+         "at": 31,
          "gives": "CEMENT",
-         "note": "cement bonds things together"
+         "note": "cement is a bond, something that binds things together"
         },
         {
-         "words": "M's",
+         "words": "M's predecessor",
+         "at": 14,
          "gives": "L",
-         "note": "L precedes M in the alphabet; placed inside CEMENT after the C"
+         "note": "L comes just before M in the alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Bond film complaint: shielding M's predecessor isn't fair on him.",
-     "walkthrough": "M, Bond and predecessor all point to the spy films; M is just the letter, and 'Bond' is glue.",
-     "definitionFit": "Inclement weather is not fair: stormy or harsh."
+     "surface": "A James Bond scene: the spy, guarding the previous M, is accused of not playing fair.",
+     "walkthrough": "M and Bond look like the 007 films, but M's predecessor is just the letter L and Bond is cement.",
+     "definitionFit": "Inclement describes weather that is stormy or harsh, the opposite of fair weather."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Bond"
+     "misdirectedWord": "Bond's"
     }
    }
   },
@@ -1771,47 +1809,54 @@
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "overcoming",
+         "at": 14,
+         "note": "the spirit word goes over and around the resistance letter"
+        }
+       ],
        "parts": [
         {
          "words": "spirit",
+         "at": 6,
          "gives": "GIN",
-         "note": "the spirit drink"
+         "note": "gin is a spirit, the drink"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "overcoming",
-           "note": "the spirit sits over, and so around, the resistance"
-          },
-          {
-           "text": "at the front",
-           "note": "take the first letter of decisiveness"
-          }
-         ],
-         "parts": [
-          {
-           "words": "resistance",
-           "note": "R is the symbol for electrical resistance, placed inside GIN"
-          }
-         ]
+         "words": "resistance",
+         "at": 25,
+         "gives": "R",
+         "note": "R is the physics symbol for electrical resistance"
         }
        ]
       },
       {
-       "words": "decisiveness at the front",
-       "gives": "D",
-       "note": "first letter of decisiveness"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at the front",
+         "at": 54,
+         "note": "at the front picks the first letter of decisiveness"
+        }
+       ],
+       "parts": [
+        {
+         "words": "decisiveness",
+         "at": 41,
+         "note": "its first letter is D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rallying call to crush the enemy's morale by overcoming their resistance with decisive leadership.",
-     "walkthrough": "'Crush spirit' reads as breaking morale; the spirit is GIN, and 'Crush' alone is the definition.",
-     "definitionFit": "To grind something is to crush it into small pieces."
+     "surface": "Breaking someone's spirit by beating their resistance through decisive action.",
+     "walkthrough": "'spirit' looks abstract but is the drink GIN, which holds R; D from 'decisiveness at the front' ends it.",
+     "definitionFit": "To grind is to crush something into small particles or powder, as in a mill."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "spirit"
     }
@@ -1833,46 +1878,57 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Piece of furniture",
-      "at": 0
+      "text": "Piece of furniture's",
+      "at": 0,
+      "note": "the 's is short for is, linking the definition to the wordplay"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FOOTSTOOL",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "rickety",
-         "note": "the letters wobble into a new order"
-        },
-        {
-         "text": "almost",
-         "note": "drop the last letter of the word for antique"
+         "at": 31,
+         "note": "rickety means shaky and falling apart, so the letters of too soft are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "too soft, rickety",
-         "gives": "FOOTSTO",
-         "note": "TOO SOFT rearranged"
+         "words": "too soft",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 43,
+         "note": "almost drops the last letter of the old word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "antique",
+         "at": 50,
+         "gives": "OLD",
+         "note": "antique means old"
         },
         {
-         "words": "almost antique",
-         "gives": "OL",
-         "note": "OLD without its last letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dealer's verdict on a chair: too soft, wobbly and nearly an antique.",
-     "walkthrough": "'Rickety' reads as a description of the furniture, which is exactly what it would be in the surface; here it stirs the letters.",
-     "definitionFit": "A footstool is a low stool for resting the feet, a piece of furniture."
+     "surface": "An antique piece of furniture is too soft and wobbly to be much use.",
+     "walkthrough": "'rickety' rearranges TOO SOFT into FOOTSTO; 'almost' cuts OLD (antique) to OL.",
+     "definitionFit": "A footstool is a low stool on which a seated person rests their feet."
     },
     "features": {
      "answerInScene": true,
@@ -1903,66 +1959,68 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SEEMLY",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "the space and left letters go in between the emptied salvage and the yard letter"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "the space and left go inside the other pieces"
-        }
-       ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "SE",
          "indicators": [
           {
            "text": "empty",
-           "note": "salvage is emptied, keeping only its outer letters"
+           "at": 23,
+           "note": "empty removes the inside of salvage, keeping only its outer letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "empty salvage",
-           "gives": "SE",
-           "select": "outer",
-           "note": "salvage with its middle removed"
+           "words": "salvage",
+           "at": 29,
+           "note": "emptied it gives SE"
           }
          ]
         },
         {
+         "words": "yard",
+         "at": 37,
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "space",
+         "at": 9,
          "gives": "EM",
-         "note": "an em is a printer's space"
+         "note": "an em is a printer's space, the width of the letter M"
         },
         {
          "words": "left",
-         "gives": "L",
-         "note": "standard abbreviation"
-        },
-        {
-         "words": "yard",
-         "gives": "Y",
-         "note": "Y = yard, the unit of length"
+         "at": 15,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A decent patch of ground left free in an otherwise bare scrapyard.",
-     "walkthrough": "'Salvage yard' reads as one place; the setter splits it, so only 'salvage' is emptied and 'yard' stands alone.",
-     "definitionFit": "A plain synonym, slightly formal: conduct that is fitting for the occasion."
+     "surface": "A spot of room has been left in a scrapyard that has been cleared out.",
+     "walkthrough": "An em is a typesetting space as wide as the letter M; 'space' is not about room in the yard.",
+     "definitionFit": "Seemly means proper or fitting by the standards of good conduct or taste."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "yard"
+     "misdirectedWord": "space"
     }
    }
   },
