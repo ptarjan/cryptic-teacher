@@ -917,49 +917,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TURGID",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, with the last letter removed"
+       "text": "infiltrating",
+       "note": "infiltrating means getting inside something"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "TID",
        "indicators": [
         {
-         "text": "infiltrating",
-         "note": "infiltrating means getting inside something"
+         "text": "regulars in",
+         "note": "regular letters are taken at even intervals, every other one"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
          "unchecked": true,
+         "words": "Triads",
          "gives": "TID",
-         "indicators": [
-          {
-           "text": "regulars in",
-           "note": "regular letters are taken at even intervals, every other one"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Triads",
-           "gives": "TID",
-           "select": "alternate",
-           "note": "first, third and fifth letters of Triads"
-          }
-         ]
-        },
+         "select": "alternate",
+         "note": "first, third and fifth letters of Triads"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "note": "briefly means cut short, with the last letter removed"
+        }
+       ],
+       "parts": [
         {
          "words": "press",
-         "gives": "URG",
+         "gives": "URGE",
          "note": "to press is to urge, cut short"
+        },
+        {
+         "gives": "E"
         }
        ]
       }

@@ -928,30 +928,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTEND",
-     "indicators": [
-      {
-       "text": "missing start",
-       "note": "missing its start means lacking the opening letter, which is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing start",
+         "note": "missing its start means lacking the opening letter, which is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "clue",
-         "gives": "INT",
+         "gives": "HINT",
          "note": "a clue is a hint, minus its H"
         },
         {
-         "words": "finish",
-         "gives": "END",
-         "note": "the finish is the end"
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "finish",
+       "gives": "END",
+       "note": "the finish is the end"
       }
      ]
     },
