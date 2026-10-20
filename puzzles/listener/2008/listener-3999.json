@@ -59,38 +59,43 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "Twice",
+       "at": 0,
+       "note": "Twice tells us to write the word for hinder two times over, one copy after the other"
+      }
+     ],
      "parts": [
       {
-       "words": "Twice hinder",
-       "at": 0,
-       "gives": "BARBAR",
-       "note": "to hinder is to bar, and twice gives bar bar"
+       "words": "hinder",
+       "at": 6,
+       "gives": "BAR",
+       "note": "to bar is to hinder or obstruct"
       },
       {
-       "op": "container",
+       "gives": "BAR"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "round",
-         "at": 28,
-         "note": "round says the jumbled letters of Scotty go around the word a"
+         "text": "running round",
+         "at": 20,
+         "note": "running round suggests the letters of Scotty and a careering about into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "running",
-           "at": 20,
-           "note": "running suggests the letters of Scotty are on the move and come out in a new order"
-          }
-         ],
+         "op": "deletion",
          "parts": [
           {
            "words": "Scotty",
            "at": 13,
-           "gives": "SCOTY",
-           "note": "the name taken as written, less one of its two Ts: that T is the spare letter the preamble sets aside for the message"
+           "note": "taken as written, as anagram fodder"
+          },
+          {
+           "gives": "T"
           }
          ]
         },
@@ -103,14 +108,18 @@
      ]
     },
     "explanation": {
-     "surface": "Someone tries twice to stop Scotty as he runs around a stretch of infamous coastline.",
-     "walkthrough": "SCOTTY has one T more than the light needs, and that spare T is this clue's letter for the hidden message; 'running' jumbles the rest, SCOTY, into YCOST, and 'round' wraps it about A to make YCOAST.",
-     "definitionFit": "The Barbary Coast of North Africa was infamous for centuries as a base of corsairs and slave raiders."
+     "surface": "A Scotsman twice obstructed while jogging around a coast with a bad reputation.",
+     "walkthrough": "'Twice' doubles the word for hinder. One T of Scotty is this clue's extra letter, which the preamble says is not entered; the rest, with A, is mixed up by 'running round'.",
+     "definitionFit": "The Barbary Coast of North Africa was infamous for its pirates and slave trade, so it was a notorious stretch of shore."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Scotty"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "T"
     }
    }
   },
@@ -188,51 +197,46 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "at": 15,
+       "note": "endless says the word for close is cut short, its final letter lopped off"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "endless",
-         "note": "with no end, a word loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Horse",
+         "at": 0,
          "gives": "ARAB",
          "note": "an Arab is a breed of horse"
         },
         {
-         "gives": "B"
+         "words": "close",
+         "at": 6,
+         "gives": "NEAR",
+         "note": "close in the sense of near at hand"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "close to",
-         "gives": "NEAR",
-         "note": "close to means near"
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "gives": "BR"
       }
      ]
     },
     "explanation": {
-     "surface": "A horse grazes in a corner that is crawling with spiders.",
-     "walkthrough": "'Endless' acts only on the word for close. The horse's B is the extra letter the grid does not take.",
-     "definitionFit": "Aranea is the Latin name for the spider genus, used in Chambers as a collective name for spiders."
+     "surface": "A horse gets close to some spiders that seem to go on forever.",
+     "walkthrough": "'endless' takes the R off NEAR, giving ARABNEA; the B of ARAB is this clue's extra letter, which the preamble says is not entered, and it spells part of the hidden message.",
+     "definitionFit": "Aranea is the Latin genus name for a group of orb-weaving spiders, used in Chambers for the creatures themselves."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Horse"
+     "misdirectedWord": "close"
     }
    }
   },
