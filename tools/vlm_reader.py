@@ -520,6 +520,8 @@ def _waiting_dir():
 #: then, so the read takes the path that asks. Nothing is written, no key changes.
 DRYRUN_ENV = "CT_VLM_DRYRUN"
 DRYRUN_ASKS = []
+#: Cached answers a dry run replayed, by kind ("read"/"pick"/"other").
+CACHED_KINDS = {}
 
 
 def dryrun():
@@ -540,6 +542,7 @@ def dryrun_tally():
     got = {"dryrun": True, "cached": _SPENT["cached"]}
     for k in ("read", "pick", "other"):
         got[k] = sum(a["kind"] == k for a in DRYRUN_ASKS)
+    got["cached_kinds"] = dict(CACHED_KINDS)
     got["asks"] = list(DRYRUN_ASKS)
     return got
 
@@ -819,6 +822,8 @@ def ask_png(data, prompt, max_tokens=1500, spool=None, held=False):
     path = CACHE / f"{key}.txt"
     if path.exists():
         _SPENT["cached"] += 1
+        if dryrun():
+            CACHED_KINDS[_kind(prompt)] = CACHED_KINDS.get(_kind(prompt), 0) + 1
         return path.read_text()
     if dryrun():
         if not any(a["key"] == key[:12] for a in DRYRUN_ASKS):
