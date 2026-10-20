@@ -280,20 +280,39 @@
      "parts": [
       {
        "words": "Lawn game",
+       "at": 0,
        "gives": "CROQUET",
-       "note": "croquet is played with mallets and hoops on a lawn"
+       "note": "croquet is played on a lawn with mallets and balls"
       },
       {
-       "words": "put away without a",
-       "gives": "TE",
-       "note": "to put away food is to eat it: ATE, minus A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 19,
+         "note": "without means the word for put away loses the letter a"
+        }
+       ],
+       "parts": [
+        {
+         "words": "put away",
+         "at": 10,
+         "gives": "ATE",
+         "note": "to put away food is to eat it, so ate"
+        },
+        {
+         "words": "a",
+         "at": 27,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A garden game is packed up because no ball has been served.",
-     "walkthrough": "'Served' makes the ball sound like one in tennis, but it is a ball of food brought to the table.",
-     "definitionFit": "A croquette is a small crumbed ball or roll of mashed food, fried and served."
+     "surface": "A croquet player putting the mallet away after hitting a ball.",
+     "walkthrough": "'Lawn game' and 'ball' suggest croquet balls, but the ball that is served is food.",
+     "definitionFit": "A croquette is a small fried roll or ball of minced food, served as a dish."
     },
     "features": {
      "answerInScene": false,
@@ -786,40 +805,59 @@
      "parts": [
       {
        "words": "Company",
-       "gives": "CO",
-       "note": "Co = company"
+       "at": 0,
+       "gives": "CO"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "grabs"
+         "text": "grabs",
+         "at": 13,
+         "note": "grabs means the word for land takes hold of other letters inside it"
         }
        ],
        "parts": [
         {
          "words": "land",
+         "at": 8,
          "gives": "NATION",
-         "note": "a land is a nation"
+         "note": "a nation is a land or country"
         },
         {
-         "words": "cultivating endless",
-         "gives": "TAMIN",
-         "note": "TAMING (cultivating, as land is tamed) without G"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 31,
+           "note": "endless means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cultivating",
+           "at": 19,
+           "gives": "TAMING",
+           "note": "taming, like cultivating, brings wild things under control"
+          },
+          {
+           "gives": "G"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A corporate land grab dressed up as farming, riddled with graft.",
-     "walkthrough": "'Corruption' reads as bribery in the surface; the answer takes its other sense, spoiling or pollution.",
-     "definitionFit": "Contamination is the corrupting of something pure by impurities."
+     "surface": "A firm grabs land for farming, a corrupt scheme with no end.",
+     "walkthrough": "'Cultivating' reads as farming the land, but it stands for bringing something wild under control.",
+     "definitionFit": "Contamination is pollution or tainting, and corruption can mean the same impurity."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "corruption"
+     "misdirectedWord": "cultivating"
     }
    }
   },
@@ -1717,39 +1755,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "turned over"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned over",
+         "at": 35,
+         "note": "turned over means the word for scores is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "papers",
-         "gives": "DI",
-         "note": "ID = identity papers"
-        },
-        {
-         "words": "answer",
-         "gives": "A",
-         "note": "A = answer"
-        },
-        {
          "words": "scores",
+         "at": 27,
          "gives": "MYRIAD",
-         "note": "MYRIAD (scores, a great many) turned over"
+         "note": "scores means a great many, a myriad"
         }
        ]
+      },
+      {
+       "words": "answer",
+       "at": 47,
+       "gives": "A"
+      },
+      {
+       "words": "papers",
+       "at": 54,
+       "gives": "ID",
+       "note": "ID, identity papers"
       }
      ]
     },
     "explanation": {
-     "surface": "A pupil used to poor marks flips her exam over and hands in her answer papers.",
-     "walkthrough": "'Lower scores' reads as worse marks, but a lower is a cow (it lows), and the girl knows cows well.",
-     "definitionFit": "A dairymaid works with milking cows, so no stranger to lowers."
+     "surface": "A schoolgirl used to low marks turns her exam answer paper over.",
+     "walkthrough": "To low is to moo, so a 'lower' is a cow: the girl knows cows well. 'Lower scores' looks like poor marks.",
+     "definitionFit": "A dairymaid is a girl who milks the cows, so the cattle that low are familiar to her."
     },
     "features": {
      "answerInScene": false,

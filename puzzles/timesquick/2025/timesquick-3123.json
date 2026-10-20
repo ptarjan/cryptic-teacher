@@ -615,7 +615,8 @@
      "indicators": [
       {
        "text": "recalled",
-       "note": "recalled means called back, so the combined letters are taken back the other way"
+       "at": 26,
+       "note": "recalled, called back, means the letters are read backwards"
       }
      ],
      "parts": [
@@ -624,26 +625,44 @@
        "parts": [
         {
          "words": "Celebrity",
+         "at": 0,
          "gives": "NAME",
          "note": "a big name is a celebrity"
         },
         {
-         "words": "cleaner briefly",
-         "gives": "VAC",
-         "note": "a vacuum cleaner, shortened to the familiar abbreviation"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 18,
+           "note": "briefly means the word is shortened to its familiar clipped form"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cleaner",
+           "at": 10,
+           "gives": "VACUUM",
+           "note": "a vacuum cleaner, here just the vacuum"
+          },
+          {
+           "gives": "UUM"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A famous cleaning personality is summoned back, though the clue then pretends to talk about family.",
-     "definitionFit": "Prehistoric humans are ancestors from long ago, hence a remote relation of modern people."
+     "surface": "A famous cleaner's memories of an ancestor.",
+     "walkthrough": "'Briefly' clips the cleaner to its everyday short form, and 'recalled' reads the whole string backwards.",
+     "definitionFit": "A caveman is a prehistoric human, an early ancestor of modern people."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "recalled"
+     "misdirectedWord": "Celebrity"
     }
    }
   },

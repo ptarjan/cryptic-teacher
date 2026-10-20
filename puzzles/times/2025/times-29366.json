@@ -1042,53 +1042,71 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "centrally",
-       "note": "take the central letters of HIND"
-      },
-      {
-       "text": "mostly to the left",
-       "note": "keep most of LION, the part to the left, losing the last letter"
-      }
-     ],
      "parts": [
       {
        "op": "middle",
        "indicators": [
         {
-         "text": "mostly to the right",
-         "note": "keep most of STAG, the part to the right, losing the first letter"
+         "text": "centrally",
+         "at": 24,
+         "note": "centrally means take the middle letters of the word"
         }
        ],
        "parts": [
         {
          "words": "hind",
-         "note": "middle two letters of HIND"
+         "at": 18
         }
        ]
       },
       {
-       "words": "stag",
-       "gives": "TAG",
-       "note": "STAG minus its leftmost S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly to the right",
+         "at": 42,
+         "note": "mostly to the right means keep most of the word, its right-hand part, dropping the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stag",
+         "at": 36
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
-       "words": "lion",
-       "gives": "LIO",
-       "note": "LION minus its rightmost N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly to the left",
+         "at": 73,
+         "note": "mostly to the left means keep most of the word, its left-hand part, dropping the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lion",
+         "at": 67
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A description of a relief showing a deer, a stag and a lion arranged across it.",
-     "walkthrough": "The bracketed instructions read like a description of where the animals sit in the carving, but each tells you which letters to keep.",
-     "definitionFit": "An intaglio is a design cut into a surface, the opposite of a relief."
+     "surface": "An engraved scene showing a deer and a lion arranged around a frame.",
+     "walkthrough": "IN from the middle of hind, TAG from stag minus its first letter, and LIO from lion minus its last.",
+     "definitionFit": "An intaglio is a design incised or engraved into a surface, below its level."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "right"
+     "aptDefinition": false
     }
    }
   },

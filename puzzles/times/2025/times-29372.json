@@ -661,25 +661,42 @@
      "parts": [
       {
        "words": "Medical procedure",
+       "at": 0,
        "gives": "OP",
-       "note": "an op is a surgical operation"
+       "note": "OP is short for operation, a medical procedure"
       },
       {
-       "words": "in addition cut",
-       "gives": "ALS",
-       "note": "ALSO without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 30,
+         "note": "cut means the word for in addition loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in addition",
+         "at": 18,
+         "gives": "ALSO",
+         "note": "also means in addition"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A surgeon also removes kidney stones.",
-     "walkthrough": "'Cut stones' sounds like gems or gallstones being cut; 'cut' works on ALSO.",
-     "definitionFit": "A definition by class: the opal is one kind of gemstone, prized for its shifting colours."
+     "surface": "A surgical operation that also removes stones, such as kidney stones.",
+     "walkthrough": "'Medical procedure' and 'stones' suggest kidney stones; the stones here are gems.",
+     "definitionFit": "Opals are iridescent gemstones, and gemstones are often called stones."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "stones"
     }
    }
   },
@@ -941,25 +958,43 @@
      "parts": [
       {
        "words": "on",
+       "at": 24,
        "gives": "RE",
-       "note": "re means on, concerning"
+       "note": "re means on or concerning"
       },
       {
        "words": "stage",
+       "at": 27,
        "gives": "LEG",
-       "note": "a leg is a stage of a journey"
+       "note": "a leg is a stage of a journey or race"
       },
       {
-       "words": "very much resented losing top place",
-       "gives": "ATED",
-       "note": "HATED without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing top place",
+         "at": 53,
+         "note": "losing its top place means a down answer's word drops its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "very much resented",
+         "at": 34,
+         "gives": "HATED",
+         "note": "to hate is to resent very much"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An actor pushed to the back of the stage bitterly resented being demoted from the lead.",
-     "walkthrough": "'On stage' looks like theatre, but the two words are separate pieces, and a stage here is part of a journey. Relegation is what happens to a British football team that drops a division.",
-     "definitionFit": "A plain synonym, used of teams demoted to a lower league and of people pushed to lesser jobs."
+     "surface": "An actor pushed to a lesser role on stage, bitterly resenting losing top billing.",
+     "walkthrough": "'On stage' reads as theatre, but 'on' and 'stage' are two separate pieces; in a down answer the top place is the first letter.",
+     "definitionFit": "A relegated team or person has been moved down to a lower rank or division."
     },
     "features": {
      "answerInScene": true,

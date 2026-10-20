@@ -719,29 +719,41 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "nameless",
-       "note": "without N, the abbreviation for name"
-      },
-      {
        "text": "ruin of",
-       "note": "ruined letters are knocked into a new shape"
+       "at": 17,
+       "note": "the ruin of a word wrecks its letters, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Donegal",
-       "gives": "DOEGAL",
-       "note": "Donegal without N (name)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nameless",
+         "at": 8,
+         "note": "nameless means without N, the abbreviation for name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Donegal",
+         "at": 25,
+         "note": "taken as written, an Irish county"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old, forgotten ruin in County Donegal, in Ireland.",
-     "walkthrough": "'Ruin' looks like a noun for the old building in the scene; it is the instruction to wreck the letters.",
-     "definitionFit": "Something age-old is ancient, having existed for ages."
+     "surface": "An old ruined building in County Donegal, its name lost.",
+     "walkthrough": "DONEGAL without N leaves DOEGAL, which 'ruin of' rearranges.",
+     "definitionFit": "Something age-old has existed for a very long time, the same as ancient."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "ruin"
     }
