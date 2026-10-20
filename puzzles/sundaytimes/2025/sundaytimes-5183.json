@@ -176,17 +176,27 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "finishing short",
-       "note": "A word that finishes short stops before its end, so its last letter is lost."
-      }
-     ],
      "parts": [
       {
-       "words": "insensitive",
-       "gives": "NUM",
-       "note": "NUMB = insensitive, losing its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finishing short",
+         "at": 22,
+         "note": "finishing short means the word is cut before its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insensitive",
+         "at": 10,
+         "gives": "NUMB",
+         "note": "numb means insensitive"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       },
       {
        "op": "homophone",
@@ -194,12 +204,14 @@
        "indicators": [
         {
          "text": "on the phone",
-         "note": "Over the phone you only hear a word, so what counts is its sound, not its spelling."
+         "at": 42,
+         "note": "on the phone means the word is heard, not seen, so it is spelt as it sounds"
         }
        ],
        "parts": [
         {
          "words": "row",
+         "at": 38,
          "gives": "SCULL",
          "note": "to scull is to row"
         }
@@ -208,13 +220,13 @@
      ]
     },
     "explanation": {
-     "surface": "Charlie is being unfeeling, cutting short a phone argument.",
-     "walkthrough": "A charlie is British slang for a fool. 'Row' looks like a quarrel, which suits the phone, but it is rowing a boat.",
-     "definitionFit": "A British slang synonym: a charlie is a silly, foolish person, as is a thickhead."
+     "surface": "A man called Charlie is unfeeling during a telephone quarrel.",
+     "walkthrough": "In Britain a charlie is a fool. NUM, then SKULL, which sounds like scull.",
+     "definitionFit": "A numbskull is a stupid person, and charlie is British slang for a fool."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "row"
     }
    }
@@ -479,26 +491,37 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "not keeping the first",
-       "note": "The word does not keep its first letter, so that letter is dropped."
-      },
-      {
        "text": "cryptic",
-       "note": "Cryptic means hidden or obscured, so the letters are disguised by jumbling."
+       "at": 30,
+       "note": "cryptic means hidden or obscure, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Imagine",
-       "gives": "MAGINE",
-       "note": "IMAGINE without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not keeping the first",
+         "at": 8,
+         "note": "not keeping the first means the opening letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Imagine",
+         "at": 0
+        },
+        {
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Try to picture a crossword without its opening clue.",
-     "walkthrough": "'Cryptic puzzle' looks like one phrase, the definition; 'cryptic' is the anagram indicator.",
-     "definitionFit": "A plain synonym: something baffling or mysterious that needs working out."
+     "surface": "Imagine a puzzle that is cryptic but without the usual opening.",
+     "walkthrough": "IMAGINE without its first I leaves MAGINE, which is rearranged.",
+     "definitionFit": "An enigma is a mystery or riddle, something baffling to work out."
     },
     "features": {
      "answerInScene": true,

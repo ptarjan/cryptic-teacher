@@ -1435,26 +1435,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Yarn cut",
-       "gives": "THREA",
-       "note": "THREAD without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 5,
+         "note": "cut means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yarn",
+         "at": 0,
+         "gives": "THREAD",
+         "note": "a yarn is a thread"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
        "words": "late morning",
+       "at": 12,
        "gives": "TEN",
-       "note": "ten o'clock"
+       "note": "ten o'clock is late in the morning"
       }
      ]
     },
     "explanation": {
-     "surface": "Thread snipped by a weaver late in the morning, for the loom.",
-     "walkthrough": "'Loom' looks like the weaving frame, fitting the yarn; it is the verb, to hang over menacingly.",
-     "definitionFit": "A plain synonym: storm clouds that loom hang over ominously, as danger does."
+     "surface": "A weaver's thread is snipped late in the morning for the loom.",
+     "walkthrough": "'loom' is a weaving machine in the surface, but here it is the verb, as storm clouds loom.",
+     "definitionFit": "Something that looms appears in a menacing way, which is what it means to threaten."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "loom"
     }
    }
