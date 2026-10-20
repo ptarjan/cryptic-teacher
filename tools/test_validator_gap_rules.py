@@ -142,6 +142,20 @@ once_leaf = {"definitions": [{"text": "Moral tale", "at": 0}],
 once_gone = {"definitions": [{"text": "Moral tale", "at": 0}],
              "wordplay": {"op": "charade", "parts": [{"words": "displayed", "at": 16, "gives": "PART"}]}}
 check("a link-vocabulary word only an old leaf held is forgiven", [], redo(once_gone, old=once_leaf, clue=CLUE4))
+# Audit 10-20: a charade's glue word ("then") or a word the new definition narrowed away
+# ("being") is a link word now; a container indicator ("holding") stays refused.
+CLUE6 = "Being moral tale then part (4)"
+glue_old = {"definitions": [{"text": "Being moral tale", "at": 0}],
+            "wordplay": {"op": "charade", "indicators": [{"text": "then", "at": 17}],
+                         "parts": [{"words": "part", "at": 22, "gives": "PART"}]}}
+glue_new = {"definitions": [{"text": "moral tale", "at": 6}],
+            "wordplay": {"op": "charade", "parts": [{"words": "part", "at": 22, "gives": "PART"}]}}
+check("a dropped charade glue word and a narrowed definition word are forgiven", ["being", "then"],
+      sorted(v.forgiven_dropped_words(glue_old, glue_new, CLUE6)))
+hold_old = {**glue_old, "wordplay": {"op": "insertion", "indicators": [{"text": "then", "at": 17}],
+                                     "parts": glue_old["wordplay"]["parts"]}}
+check("the same word as a container indicator stays refused", ["being"],
+      sorted(v.forgiven_dropped_words(hold_old, glue_new, CLUE6)))
 shown = [r for r in v.redo_regressions(
     {"definitions": [{"text": "Moral tale", "at": 0}], "wordplay": {"op": "charade", "indicators": [
         {"text": "displayed", "at": 16}], "parts": [{"words": "once", "at": 11, "gives": "PART"}]}},

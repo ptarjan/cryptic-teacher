@@ -7170,6 +7170,10 @@ CONNECTIVE_WORDS = frozenset(
     "a an and as at be but by for from has having in is it of on or s that the this to when with".split())
 
 
+# Words that join the pieces of a charade and do nothing else.
+CHARADE_GLUE = frozenset("then after next before following plus beside alongside by over on".split())
+
+
 def _accounted_words(ann, leaves=True):
     """The clue words an annotation accounts for: wordplay leaves (when `leaves`;
     "real" skips junk leaves, unchecked with no `gives`), indicators on any op or definition, definitions, and declared link words."""
@@ -7218,8 +7222,20 @@ def forgiven_dropped_words(old, new, clue):
     adding the word to the new `linkWords`, was itself refused by the schema (284
     sessions; the model's own `linkWords` is stripped as derived)."""
     lost = (_accounted_words(old) - _accounted_words(new)) & _clue_words(clue)
-    leaf_only = _accounted_words(old) - _accounted_words(old, leaves=False)
-    return lost & (CONNECTIVE_WORDS | leaf_only) & link_vocabulary()
+    # Words the old tree made an op work with (any indicator but a charade's, which is glue:
+    # "then", "after", "carrying"; or a definition's indicator) stay refused. A leaf word,
+    # a charade's glue word or a word of the old definition that the new tree narrowed away
+    # is a link word now, when it can stand for an equals sign (audit 10-20: 31 of 171
+    # dropped words after the earlier fix were charade glue or a narrowed definition).
+    hard = set()
+    for n in _walk(old.get("wordplay")):
+        for i in n.get("indicators") or []:
+            words = _clue_words(i.get("text") if isinstance(i, dict) else i)
+            hard |= words - CHARADE_GLUE if n.get("op") == "charade" else words
+    for d in old.get("definitions") or []:
+        for i in d.get("indicators") or []:
+            hard |= _clue_words(i.get("text") if isinstance(i, dict) else i)
+    return lost & (CONNECTIVE_WORDS | (_accounted_words(old) - hard)) & link_vocabulary()
 
 
 def redo_regressions(old, new, clue):
