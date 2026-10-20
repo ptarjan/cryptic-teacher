@@ -1149,46 +1149,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shuns leaders",
+       "at": 18,
+       "note": "each word avoids its leader, so the opening letters of said and he both go"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "shuns leaders",
-         "note": "shunning the leaders means each word drops its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "said",
-         "note": "taken as written"
+         "at": 10
         },
         {
-         "gives": "S"
+         "words": "he",
+         "at": 15
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "he",
-         "note": "taken as written"
-        },
-        {
-         "gives": "H"
-        }
-       ]
+       "gives": "SH"
       }
      ]
     },
     "explanation": {
-     "surface": "A helper reports that a man is avoiding his bosses.",
-     "definitionFit": "An aide is a helper or right-hand person to someone senior, exactly an assistant."
+     "surface": "A helper reports that some man avoids those in charge.",
+     "walkthrough": "'shuns leaders' removes the first letter of each word: S from SAID and H from HE, leaving AID and E.",
+     "definitionFit": "An aide is a helper or assistant, especially to someone senior such as a politician."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "leaders"
     }

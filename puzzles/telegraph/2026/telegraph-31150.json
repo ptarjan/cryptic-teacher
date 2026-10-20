@@ -640,31 +640,48 @@
      "indicators": [
       {
        "text": "included in",
-       "note": "included in means placed inside the word for outfits"
+       "at": 21,
+       "note": "included in means put inside the word for outfits"
       }
      ],
      "parts": [
       {
        "words": "outfits",
+       "at": 33,
        "gives": "SUITS",
-       "note": "suits are matching sets of clothes"
+       "note": "suits are outfits of matching clothes"
       },
       {
-       "words": "Mike repeatedly",
-       "gives": "MM",
-       "note": "Mike is M in the NATO phonetic alphabet, here twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 10,
+         "note": "repeatedly means the letter for Mike appears more than once, here twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mike",
+         "at": 5,
+         "gives": "M",
+         "note": "Mike is M in the NATO phonetic alphabet"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tops that Mike keeps putting into his outfits, a fashion note.",
-     "walkthrough": "'Tops' looks like clothing beside outfits, but it means peaks.",
-     "definitionFit": "Summits are the highest points of mountains, so they are the tops of peaks."
+     "surface": "Mike keeps showing up in the best outfits.",
+     "walkthrough": "'repeatedly' gives MM, which goes inside SUITS.",
+     "definitionFit": "Summits are the highest points, peaks of mountains, so they are tops."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Tops"
     }
    }
@@ -862,42 +879,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "out of",
-       "note": "out of means the letter for Belgium is removed from the drink word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 10,
+         "note": "out of means the Belgian letter is out of the beer, removed from it"
+        }
+       ],
        "parts": [
         {
-         "words": "Belgium's",
-         "gives": "B",
-         "note": "B is the international car code for Belgium"
-        },
-        {
          "words": "ale",
+         "at": 17,
          "gives": "BEER",
-         "note": "ale is a kind of beer"
+         "note": "ale is a type of beer"
         },
         {
-         "words": "that",
-         "gives": "IE",
-         "note": "i.e., id est, means 'that is'; the clue's 'is' doubles as link"
+         "words": "Belgium's",
+         "at": 0,
+         "gives": "B",
+         "note": "B is the international vehicle code for Belgium, the 's standing for is"
         }
        ]
       },
       {
-       "gives": "BB"
+       "words": "that is",
+       "at": 22,
+       "gives": "IE",
+       "note": "i.e. is the abbreviation for id est, that is"
       }
      ]
     },
     "explanation": {
-     "surface": "Belgium has run dry of beer, which is a scary prospect.",
-     "definitionFit": "Something eerie is strange and unsettling enough to cause fear, a close synonym."
+     "surface": "A Belgian bar has run dry, which is a scary thought.",
+     "walkthrough": "'Belgium's out of' reads as 'B is out of', so B leaves BEER to give EER.",
+     "definitionFit": "Eerie means strange and unsettling, causing fear or unease."
     },
     "features": {
      "answerInScene": false,

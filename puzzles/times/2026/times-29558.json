@@ -674,21 +674,51 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Leader not in mood",
-       "gives": "EMPER",
-       "note": "TEMPER (mood) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Leader not in",
+         "at": 0,
+         "note": "the leader, or first letter, of the word for mood is not included"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mood",
+         "at": 14,
+         "gives": "TEMPER",
+         "note": "temper is mood, as in a good or bad temper"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
-       "words": "for beheaded",
-       "gives": "OR",
-       "note": "FOR without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beheaded",
+         "at": 23,
+         "note": "beheaded means the word for loses its head, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for",
+         "at": 19
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A leader who is not in the mood for a king who has lost his head.",
-     "walkthrough": "'Leader' looks like the definition and 'not in mood for' like a phrase; in fact 'Leader not in' strips TEMPER and the definition is 'king' at the end.",
-     "definitionFit": "An emperor is a supreme monarch, a king of kings."
+     "surface": "A ruler in a bad temper calls for a king's beheading.",
+     "walkthrough": "'Leader' looks like the definition, but it is part of the instruction to drop T from TEMPER; the definition is 'king' at the end.",
+     "definitionFit": "An emperor is a sovereign ruler, in rank much like a king."
     },
     "features": {
      "answerInScene": true,
