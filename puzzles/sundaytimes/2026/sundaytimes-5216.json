@@ -114,8 +114,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "comfort food",
-      "at": 34
+      "text": "food",
+      "at": 42
      }
     ],
     "wordplay": {
@@ -123,7 +123,8 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "the outer letters take the comfort inside"
+       "at": 20,
+       "note": "the outer letters swallow the middle piece"
       }
      ],
      "parts": [
@@ -132,32 +133,59 @@
        "parts": [
         {
          "words": "Sad",
+         "at": 0,
          "gives": "BLUE",
-         "note": "blue = sad"
+         "note": "feeling blue is feeling sad"
         },
         {
-         "words": "case, half-cut",
-         "gives": "SE",
-         "note": "the second half of CASE"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "half-cut",
+           "at": 10,
+           "note": "only the back half of the word case survives the cut"
+          }
+         ],
+         "parts": [
+          {
+           "words": "case",
+           "at": 4
+          }
+         ]
         }
        ]
       },
       {
-       "words": "mostly",
-       "gives": "CHEE",
-       "note": "CHEER (comfort) mostly = CHEE, eaten between BLUE and SE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 27,
+         "note": "mostly means all but the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "comfort",
+         "at": 34,
+         "gives": "CHEER",
+         "note": "to cheer someone is to comfort them"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy, gloomy person consoles themself with snacks.",
-     "walkthrough": "'Half-cut' is British slang for drunk, which suits the sad case, but here it cuts CASE in half. 'Comfort' is CHEER, not EASE.",
-     "definitionFit": "A strong blue cheese is the kind of rich food people reach for to feel better."
+     "surface": "A sorry, tipsy figure tucks into comfort food.",
+     "walkthrough": "'Half-cut' reads as drunk, but it halves case to SE; BLUE plus SE then holds CHEE, which is CHEER cut short by 'mostly'.",
+     "definitionFit": "Blue cheese, such as Stilton or Roquefort, is a type of food veined with mould."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "half-cut"
     }
    }

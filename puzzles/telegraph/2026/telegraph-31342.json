@@ -1009,18 +1009,22 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "twice",
+       "at": 34,
+       "note": "twice means the department's letters appear two times"
+      }
+     ],
      "parts": [
       {
        "words": "hospital department",
        "at": 14,
        "gives": "ENT",
-       "note": "ENT is the ear, nose and throat department of a hospital"
+       "note": "ENT is the ear, nose and throat department"
       },
       {
-       "words": "twice",
-       "at": 34,
-       "gives": "ENT",
-       "note": "twice means the hospital department appears a second time"
+       "gives": "ENT"
       },
       {
        "op": "last",
@@ -1028,7 +1032,7 @@
         {
          "text": "close to",
          "at": 40,
-         "note": "the close of the word collapse is its final letter"
+         "note": "the close of a word is its final letter"
         }
        ],
        "parts": [
@@ -1041,13 +1045,13 @@
      ]
     },
     "explanation": {
-     "surface": "A hospital ward is twice on the verge of collapse.",
-     "definitionFit": "An entente is a friendly agreement between nations, as in the Entente Cordiale, a formal understanding."
+     "surface": "A hospital department twice comes close to collapse.",
+     "definitionFit": "An entente is a friendly agreement or understanding between nations."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "collapse"
+     "misdirectedWord": "Understanding"
     }
    }
   },
@@ -1159,23 +1163,42 @@
      "parts": [
       {
        "words": "Mine",
+       "at": 26,
        "gives": "PIT",
        "note": "a pit is a coal mine"
       },
       {
-       "words": "excluded, not right",
-       "gives": "APAT",
-       "note": "APART = excluded, set aside; without R it is APAT"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 41,
+         "note": "not means without, so the letter for right is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "excluded",
+         "at": 31,
+         "gives": "APART",
+         "note": "set apart means excluded"
+        },
+        {
+         "words": "right",
+         "at": 45,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An exclamation about a noise when the rain begins, followed by an indignant protest at being left out.",
-     "walkthrough": "'Shower' suggests a bathroom, but it is a rain shower: the first drops go pitter-patter. The '?' marks the definition as a playful description.",
-     "definitionFit": "Pit-a-pat is the light tapping sound of the first raindrops."
+     "surface": "The first drops of rain sound, as a mine is closed off.",
+     "walkthrough": "'Shower' suggests a bathroom, but it is rain starting to fall.",
+     "definitionFit": "Pitter-patter is the light tapping sound of raindrops beginning to fall."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "shower"
     }

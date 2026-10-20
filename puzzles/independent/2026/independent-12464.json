@@ -220,7 +220,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Chance to play",
+      "text": "Chance to play?",
       "at": 0
      }
     ],
@@ -228,32 +228,32 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "withheld",
-       "note": "Something withheld is kept back and never handed over, so the letter named is missing from the word it belongs to."
+       "text": "initially withheld",
+       "at": 22,
+       "note": "the first letter of the word is held back"
       }
      ],
      "parts": [
       {
        "words": "Prize",
+       "at": 16,
        "gives": "WINNINGS",
-       "note": "winnings are the prize money a gambler or a contestant carries off"
+       "note": "winnings are the prize money won"
       },
       {
-       "words": "initially",
-       "gives": "W",
-       "note": "the first letter of that longer word is the one kept back"
+       "gives": "W"
       }
      ]
     },
     "explanation": {
-     "surface": "A competition where the prize is held back before anybody gets a turn.",
-     "walkthrough": "'Initially' arrives before the word it acts on, so the instruction lands on something the solver has not read yet. An innings is a batter's turn at the crease in cricket, which is where the phrase 'had a good innings' comes from.",
-     "definitionFit": "An innings is the spell in which a batter or a side gets to bat, so it is literally their chance to play."
+     "surface": "A competitor wonders about a chance to compete, since the prize has been held back.",
+     "walkthrough": "An innings is a cricket term: a team's or batter's turn to bat.",
+     "definitionFit": "In cricket an innings is one's turn at batting, hence an opportunity to play."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Prize"
+     "misdirectedWord": "play"
     }
    }
   },
@@ -683,19 +683,25 @@
       {
        "text": "after",
        "at": 46,
-       "note": "after puts the church section behind A and C in the answer"
+       "note": "after says the church section follows the opening pieces for a and cold"
       }
      ],
      "parts": [
       {
-       "words": "a",
-       "at": 52,
-       "gives": "A"
-      },
-      {
-       "words": "cold",
-       "at": 54,
-       "gives": "C"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 52,
+         "gives": "A"
+        },
+        {
+         "words": "cold",
+         "at": 54,
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on taps"
+        }
+       ]
       },
       {
        "op": "container",
@@ -703,12 +709,19 @@
         {
          "text": "hosting",
          "at": 18,
-         "note": "hosting means holding guests inside, so the doubled church letters surround the next pieces"
+         "note": "the doubled church letters host the next pieces between them"
         }
        ],
        "parts": [
         {
          "op": "charade",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 7,
+           "note": "repeatedly means the church's letters appear twice"
+          }
+         ],
          "parts": [
           {
            "words": "Church",
@@ -717,10 +730,7 @@
            "note": "CE is the Church of England"
           },
           {
-           "words": "repeatedly",
-           "at": 7,
-           "gives": "CE",
-           "note": "repeatedly means the church letters are given a second time"
+           "gives": "CE"
           }
          ]
         },
@@ -731,7 +741,7 @@
            "words": "school group",
            "at": 26,
            "gives": "PTA",
-           "note": "PTA is a parent-teacher association"
+           "note": "a PTA is a parent-teacher association at a school"
           },
           {
            "words": "note",
@@ -745,14 +755,14 @@
      ]
     },
     "explanation": {
-     "surface": "A church event hosting the school parents' association is given a frosty welcome.",
-     "walkthrough": "'repeatedly' gives CE twice, 'hosting' puts PTA and N between the two, and 'after' places that behind A and C.",
-     "definitionFit": "Acceptance means the act of welcoming or receiving something, such as an invitation or idea."
+     "surface": "A church keeps hosting a school group, and a note follows a frosty welcome.",
+     "walkthrough": "'A cold reception' reads as a frosty welcome, but 'reception' alone is the definition; the church is the Church of England.",
+     "definitionFit": "Acceptance is the way something is received, its reception or approval."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "reception"
+     "misdirectedWord": "cold"
     }
    }
   },
