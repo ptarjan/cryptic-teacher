@@ -302,47 +302,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "refused",
-       "note": "something refused is turned away, so that part is dropped from the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "refused",
+         "at": 5,
+         "note": "the Tory is turned away from the word, so those letters are removed"
+        }
+       ],
        "parts": [
         {
-         "words": "Tory",
-         "gives": "CON",
-         "note": "Con is short for Conservative, the Tory party"
-        },
-        {
          "words": "to look up",
+         "at": 13,
          "gives": "CONSULT",
-         "note": "to consult a reference book is to look something up"
+         "note": "to consult a reference book is to look something up in it"
         },
         {
-         "words": "an",
-         "note": "taken as written"
+         "words": "Tory",
+         "at": 0,
+         "gives": "CON",
+         "note": "a Tory is a Conservative, abbreviated Con"
         }
        ]
       },
       {
-       "gives": "CONCON"
+       "words": "an",
+       "at": 24
       }
      ]
     },
     "explanation": {
-     "surface": "A Conservative politician would not raise his eyes to greet a Muslim ruler.",
-     "walkthrough": "'Look up' tempts a reversal, but it is the definition of CONSULT, from which the Tory CON is removed.",
-     "definitionFit": "A sultan is the sovereign ruler of a Muslim state, such as Brunei or historically the Ottoman Empire."
+     "surface": "A Conservative politician declines to look up to a Muslim leader.",
+     "walkthrough": "'look up' suggests admiration but means CONSULT, which loses CON.",
+     "definitionFit": "A sultan is the sovereign ruler of a Muslim state, such as Brunei or Oman."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "look"
+     "misdirectedWord": "refused"
     }
    }
   },
@@ -1293,7 +1293,8 @@
      "indicators": [
       {
        "text": "bypasses",
-       "note": "a bypass goes round a town, so this word wraps round other letters"
+       "at": 31,
+       "note": "a bypass goes around a town, so the reversed road wraps around the middle letters"
       }
      ],
      "parts": [
@@ -1302,55 +1303,48 @@
        "indicators": [
         {
          "text": "to the North",
-         "note": "in a down clue going north means reading upwards, so the word runs backwards"
+         "at": 18,
+         "note": "in a down clue, going north means the word for road is read upwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "road",
-           "gives": "LANE",
-           "note": "a lane is a narrow road"
-          },
-          {
-           "op": "middle",
-           "indicators": [
-            {
-             "text": "centres of",
-             "note": "centres are the middles, so only the middle letters of each word are taken"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Stratford",
-             "note": "middle letter of Stratford"
-            }
-           ]
-          }
-         ]
+         "words": "road",
+         "at": 13,
+         "gives": "LANE",
+         "note": "a lane is a narrow road"
         }
        ]
       },
       {
        "op": "middle",
+       "indicators": [
+        {
+         "text": "centres of",
+         "at": 40,
+         "note": "the centre of each town's name is its middle letter or pair"
+        }
+       ],
        "parts": [
         {
+         "words": "Stratford",
+         "at": 51
+        },
+        {
          "words": "Chesterfield",
-         "note": "middle two letters of Chesterfield"
+         "at": 65
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An endless northbound road that skirts the middle of two English towns.",
-     "walkthrough": "Stratford and Chesterfield are English towns, the latter on the way north; the road's real job is to go round letters from their middles.",
-     "definitionFit": "Eternal means lasting forever without end, which is what interminable describes."
+     "surface": "A northbound road that skirts Stratford and Chesterfield seems to go on for ever.",
+     "walkthrough": "Stratford has nine letters, so one centre letter; Chesterfield has twelve, so its centre is a pair. Stratford and Chesterfield are English towns.",
+     "definitionFit": "Something eternal lasts for ever, so it never ends and is interminable."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "bypasses"
     }

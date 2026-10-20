@@ -1297,24 +1297,49 @@
      "parts": [
       {
        "words": "a",
-       "note": "A as printed"
+       "at": 5
       },
       {
        "words": "model of car",
+       "at": 7,
        "gives": "T",
-       "note": "the Ford Model T"
+       "note": "the Model T was Henry Ford's famous car"
       },
       {
-       "words": "vehicle with no men in it",
-       "gives": "TRACT",
-       "note": "TRACTOR without OR (other ranks, the men)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no",
+         "at": 32,
+         "note": "the vehicle is taken without its men, so those letters are removed"
+        },
+        {
+         "text": "in it",
+         "at": 44,
+         "note": "the men to be removed are inside the vehicle's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vehicle",
+         "at": 24,
+         "gives": "TRACTOR",
+         "note": "a tractor is a farm vehicle"
+        },
+        {
+         "words": "men",
+         "at": 40,
+         "gives": "OR",
+         "note": "OR, other ranks, is the military abbreviation for enlisted men"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An artist is asked to draw a model car and an empty vehicle.",
-     "walkthrough": "OR stands for 'other ranks', soldiers who are not officers, which is why 'men' gives OR.",
-     "definitionFit": "To attract is to draw in, as a magnet draws iron."
+     "surface": "Instructions to sketch a car beside a driverless vehicle.",
+     "walkthrough": "'Draw' looks like an instruction to sketch, but it means pull in. Ford's Model T gives T.",
+     "definitionFit": "To attract is to pull something towards you, one sense of draw, as in drawing a crowd."
     },
     "features": {
      "answerInScene": false,
@@ -1580,32 +1605,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "on"
-      }
-     ],
      "parts": [
       {
-       "words": "Abrupt chap",
-       "gives": "MA",
-       "note": "MAN cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Abrupt",
+         "at": 0,
+         "note": "abrupt here means cut short, so the last letter of the word for chap is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chap",
+         "at": 7,
+         "gives": "MAN",
+         "note": "a chap is a man"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "Yes",
+       "at": 15,
        "gives": "Y",
-       "note": "the first letter of Yes"
+       "note": "Y is a common short form of yes, as in texting"
       }
      ]
     },
     "explanation": {
-     "surface": "A curt man appearing on the TV sitcom Yes, Prime Minister.",
-     "walkthrough": "The sitcom title is split: 'Yes' is wordplay and 'Prime Minister' the definition. Theresa May was UK Prime Minister from 2016 to 2019.",
-     "definitionFit": "Definition by example: Theresa May led the UK government from 2016 to 2019."
+     "surface": "A curt man appears on the TV sitcom Yes, Prime Minister.",
+     "walkthrough": "Yes, Prime Minister was a BBC sitcom about British government; here the title is split, and the definition is Theresa May, UK Prime Minister 2016-19.",
+     "definitionFit": "Theresa May led the UK government as its Conservative leader, an example of a holder of that office."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Yes"
     }
    }

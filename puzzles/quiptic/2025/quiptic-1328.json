@@ -759,45 +759,27 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Heads of",
+       "at": 0,
+       "note": "the head of each word is its first letter, taken from all six words in turn"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "Heads of",
-         "at": 0,
-         "note": "heads of means the first letter, the head, of each of the following words is taken"
-        }
-       ],
-       "parts": [
-        {
-         "words": "financial institute enjoy stimulating",
-         "at": 9,
-         "note": "the first four words whose heads are read in order"
-        }
-       ]
-      },
-      {
-       "words": "team-building",
-       "at": 47,
-       "gives": "T",
-       "note": "one hyphenated word, so its head is just its opening letter, T"
-      },
-      {
-       "words": "adventure",
-       "at": 61,
-       "gives": "A",
-       "note": "the head of adventure, its first letter A, completes the run"
+       "words": "financial institute enjoy stimulating team-building adventure",
+       "at": 9
       }
      ]
     },
     "explanation": {
-     "surface": "Bank bosses enjoy a corporate outdoor away-day on their break.",
-     "definitionFit": "A fiesta is a festival or public holiday, especially in Spain or Latin America."
+     "surface": "Bank bosses go on a lively corporate away-day adventure break.",
+     "definitionFit": "A fiesta is a festive celebration, often a religious feast day, so a holiday in the old sense."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Heads"
     }
@@ -1542,51 +1524,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "failing",
-       "note": "something failing is breaking down, so the letters break up"
+       "text": "welcoming",
+       "at": 31,
+       "note": "the rearranged mines take the reversed leader in"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "welcoming",
-         "note": "to welcome someone is to take them in"
+         "text": "failing",
+         "at": 11,
+         "note": "failing means breaking down, so the letters of strip-mines are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "revolutionary",
-           "note": "a revolution turns things round, so the word is reversed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "strip-mines",
-           "note": "anagram fodder, rearranged to P…MINISTERS"
-          }
-         ]
-        },
+         "words": "strip-mines",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 41,
+         "note": "revolutionary means turned round, so the leader's title is read backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "Islamic leader",
+         "at": 55,
          "gives": "EMIR",
-         "note": "an emir is a Muslim ruler; reversed it gives RIME, taken in after the P"
+         "note": "an emir is a Muslim ruler or commander"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bosses of collapsing open-cast mines take in a radical Muslim cleric.",
-     "walkthrough": "'Leaders of failing strip-mines' tempts you to take first letters, but 'Leaders' alone is the definition; the rearranged STRIPMINES goes round RIME.",
-     "definitionFit": "A plain synonym: heads of government are national leaders."
+     "surface": "Heads of collapsing open-cast mines accept a radical Muslim chief.",
+     "walkthrough": "'Leaders' looks like part of a first-letters instruction, 'Leaders of failing...', but it is the definition.",
+     "definitionFit": "Prime ministers head governments, so they are national leaders."
     },
     "features": {
      "answerInScene": false,
