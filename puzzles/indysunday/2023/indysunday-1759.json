@@ -1321,42 +1321,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AUSTERE",
      "indicators": [
       {
        "text": "drinking",
-       "note": "whatever drinks takes something inside itself"
+       "at": 26,
+       "note": "drinking means the soldiers' phrase takes the next piece inside it"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Australian",
+         "at": 6,
+         "gives": "AUS",
+         "note": "AUS is the standard abbreviation for Australian"
+        },
+        {
+         "words": "soldiers",
+         "at": 17,
+         "gives": "RE",
+         "note": "RE is the Royal Engineers, a British army corps"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "mostly",
-         "note": "mostly means not quite all, so the final letter is dropped"
+         "at": 39,
+         "note": "mostly means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Australian",
-           "gives": "AUS",
-           "note": "AUS is the standard short form of Australia, as on country codes"
-          },
-          {
-           "words": "tea",
-           "note": "taken as written"
-          },
-          {
-           "words": "soldiers",
-           "gives": "RE",
-           "note": "the Royal Engineers, abbreviated RE, are soldiers"
-          }
-         ]
+         "words": "tea",
+         "at": 35,
+         "gives": "TEA",
+         "note": "tea without its final letter"
         },
         {
          "gives": "A"
@@ -1366,14 +1370,13 @@
      ]
     },
     "explanation": {
-     "surface": "Teetotal Aussie troops mostly drink tea.",
-     "walkthrough": "The drink goes between the two halves of the Australian soldiers: it sits after the abbreviation and before RE, the Royal Engineers.",
-     "definitionFit": "Sober in the sense of plain, severe and unadorned is exactly what austere means."
+     "surface": "Teetotal Australian troops stick to cups of tea rather than beer.",
+     "definitionFit": "Austere describes a plain, severe, self-denying manner, close to the serious, restrained sense of sober."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Sober"
+     "misdirectedWord": "drinking"
     }
    }
   },

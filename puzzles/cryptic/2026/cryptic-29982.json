@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -557,44 +558,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Mostly means nearly all of it, so the creature's name turns up with its final letter missing."
-      }
-     ],
      "parts": [
       {
        "words": "fresh from the sea",
+       "at": 11,
        "gives": "DAMP",
-       "note": "anything just out of the water is still wet"
+       "note": "something just out of the sea is wet or damp"
       },
       {
-       "words": "Cephalopod",
-       "gives": "SQUI",
-       "note": "a squid is the ten-armed cephalopod, here losing its tail letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 30,
+         "note": "mostly means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cephalopod",
+         "at": 0,
+         "gives": "SQUID",
+         "note": "the squid is a cephalopod, a class of molluscs with tentacles"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "at first",
-         "note": "A word taken at first surrenders only the letter it starts with."
+         "at": 45,
+         "note": "at first means the opening letter of branded"
         }
        ],
        "parts": [
         {
          "words": "branded",
-         "note": "the opening letter of branded"
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A squid landed straight off the boat and written off by the buyers as a letdown.",
-     "walkthrough": "The clue runs as one sentence about seafood, so 'fresh from the sea' hides in plain sight as more description of the catch when it is clueing a word of its own.",
-     "definitionFit": "A damp squib is a firework too wet to fire, and the phrase now stands for anything that fizzles instead of delivering."
+     "surface": "A fishmonger sells a squid just out of the sea, stamped with a brand, that turns out a let-down.",
+     "walkthrough": "'mostly' cuts SQUID to SQUI, and 'at first' gives the B of branded.",
+     "definitionFit": "A damp squib is a firework that fails to go off, so idiomatically an anticlimax or let-down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cephalopod"
     }
    }
   },

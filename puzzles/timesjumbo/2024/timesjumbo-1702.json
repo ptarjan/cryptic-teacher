@@ -672,57 +672,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRESCRIBE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leading to",
+       "at": 24,
+       "note": "leading to means the earlier pieces go in front of the editor's letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "A lot of",
-         "note": "a lot of something is much but not all of it, so the last letter goes"
-        },
-        {
-         "text": "first",
-         "note": "the editor's first is the first letter of the word editor"
+         "at": 0,
+         "note": "a lot of but not all means the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "newspaper",
-         "gives": "PRES",
-         "note": "PRESS, the newspapers, without its last letter"
+         "at": 9,
+         "gives": "PRESS",
+         "note": "the press is the newspapers collectively"
         },
         {
-         "words": "copy",
-         "gives": "CRIB",
-         "note": "to crib is to copy"
-        },
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "copy",
+       "at": 19,
+       "gives": "CRIB",
+       "note": "to crib is to copy"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leading to",
-           "note": "what leads to something comes before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "editor's",
-           "gives": "EDITORFIRST",
-           "note": "first letter of Editor"
-          }
-         ]
+         "text": "first",
+         "at": 44,
+         "note": "first means the opening letter of the word editor's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "editor's",
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Lots of copied newspaper text leads to the editor's first ruling.",
-     "walkthrough": "'Copy' is a verb, CRIB, not the newspaper noun it seems to be beside 'newspaper'.",
-     "definitionFit": "Both verbs mean to lay down with authority what must be done."
+     "surface": "Most newspapers copy what the editor dictates.",
+     "definitionFit": "To prescribe is to lay down as a rule with authority, which is to ordain or decree."
     },
     "features": {
      "answerInScene": false,
@@ -3204,47 +3210,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "netting"
+       "text": "netting",
+       "at": 14,
+       "note": "netting means catching the following pieces inside the charge"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "charge",
+       "at": 7,
+       "gives": "FEE",
+       "note": "a fee is a charge"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
          "text": "to cover",
-         "note": "to cover something is to hold it in, so the pounds hold a blood relative"
+         "at": 29,
+         "note": "to cover places the pounds against the relative, closing it off"
         }
        ],
        "parts": [
         {
-         "words": "charge",
-         "gives": "FEE",
-         "note": "a fee is a charge"
+         "words": "a",
+         "at": 38
         },
         {
-         "words": "a blood relative",
-         "gives": "ASIB",
-         "note": "A + SIB, a sibling"
+         "words": "blood relative",
+         "at": 40,
+         "gives": "SIB",
+         "note": "a sib is a sibling, a blood relative"
+        },
+        {
+         "words": "pounds",
+         "at": 22,
+         "gives": "L",
+         "note": "L is the abbreviation for pounds sterling, from libra"
         }
        ]
-      },
-      {
-       "words": "pounds",
-       "gives": "L",
-       "note": "L = pounds, from libra"
       }
      ]
     },
     "explanation": {
-     "surface": "A plausible bill includes money to pay for a relative.",
-     "walkthrough": "A double inclusion: A SIB sits inside L, and that sits inside FEE; the L lands after the SIB.",
-     "definitionFit": "In a looser sense the word means plausible, as in a feasible explanation, which is a likely one."
+     "surface": "A charge probably includes the money to cover a sibling's costs.",
+     "definitionFit": "Feasible means practicable or possible, and in looser use plausible or likely."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cover"
+     "misdirectedWord": "charge"
     }
    }
   },

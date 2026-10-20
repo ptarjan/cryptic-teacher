@@ -409,44 +409,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "terribly",
-       "note": "terribly suggests something badly done, so the letters are thrown into a different order"
+       "text": "taking",
+       "at": 42,
+       "note": "taking means the fever phrase holds the next piece inside it"
       }
      ],
      "parts": [
       {
-       "words": "vile",
-       "note": "taken as written"
-      },
-      {
-       "words": "fever",
-       "gives": "AGUE",
-       "note": "an ague is a malarial fever with shivering"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "terribly",
+           "at": 22,
+           "note": "terribly suggests the word vile is badly mangled, so its letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vile",
+           "at": 31
+          }
+         ]
+        },
+        {
+         "words": "fever",
+         "at": 36,
+         "gives": "AGUE",
+         "note": "an ague is a malarial fever with shivering fits"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately means at the end, so only the last letter of that word is used"
+         "at": 55,
+         "note": "ultimately points to the final letter of the word many"
         }
        ],
        "parts": [
         {
          "words": "many",
-         "note": "its final letter"
+         "at": 49,
+         "note": "its last letter is Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man named Brown and companions catch a dreadful fever that kills many people.",
-     "walkthrough": "Brown looks like a person's surname; it is Brown University in Rhode Island, one of the eight elite northeastern US colleges in this group.",
-     "definitionFit": "Brown is one of the eight Ivy League universities, with Harvard, Yale and others, so the group is Brown and its peers."
+     "surface": "A grim news item: a vile fever has struck a university town and claimed many victims.",
+     "walkthrough": "Brown is not a colour but the university in Providence, Rhode Island; the fever is the old word for malaria's shivering bouts.",
+     "definitionFit": "Brown University is one of the eight elite northeastern American colleges making up the athletic conference, so Brown and its peers form that group."
     },
     "features": {
      "answerInScene": false,

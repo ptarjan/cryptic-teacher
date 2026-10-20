@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -439,48 +440,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "composite",
+     "indicators": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "somehow",
-         "note": "'Somehow' means by an unspecified route, so the letters beside it arrive in an order nobody promised."
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "dropping",
-           "note": "What is dropped falls out and never arrives, so the letter named here leaves the material before it is rearranged."
-          }
-         ],
-         "parts": [
-          {
-           "words": "a second",
-           "note": "seven letters of raw material, the article and the unit of time together"
-          },
-          {
-           "gives": "O"
-          }
-         ]
-        }
-       ]
+       "text": "somehow",
+       "at": 19,
+       "note": "somehow says the letters end up arranged in some other way"
       },
       {
-       "unchecked": true,
+       "text": "dropping",
+       "at": 27,
+       "note": "dropping means a letter is shed from the letters of the fodder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a second",
+       "at": 9
+      },
+      {
        "words": "nothing",
-       "note": "'nothing' is the letter O, which comes out of that material first"
+       "at": 36,
+       "gives": "O",
+       "note": "nothing is zero, the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone about to start climbing in a second, and not dropping a thing on the way.",
-     "walkthrough": "'Nothing' as the letter O is the crossword's most-used piece of shorthand — zero drawn as a ring — and here it goes before any shuffling happens.",
-     "definitionFit": "To ascend is to move upward under your own effort, so 'climb' is a verb-for-verb synonym in its ordinary intransitive sense."
+     "surface": "A climber manages to scale something in a second, without any hitch.",
+     "walkthrough": "Take the letters of A SECOND, drop the O ('nothing'), and rearrange what remains.",
+     "definitionFit": "To ascend is to go up or mount, a straightforward synonym for climbing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
     }
    }
   },
