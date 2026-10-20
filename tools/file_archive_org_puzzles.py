@@ -3873,9 +3873,33 @@ def weak_lights(read, laid, blank, lengths, confirmed=()):
                            if words_of(clue_repair.mend_text(clue_repair.leaked_number(t, lid), enum)) == mine)
         if agreeing < OCR_CONFIRM:
             agreeing = sum(1 for t in read.values() if prints_clue(t, mine))
+        if agreeing < OCR_CONFIRM and words_confirmed(text, enum, ocr_clues.readings_for(read, lid, parse)):
+            continue
         if agreeing < OCR_CONFIRM:
             weak.add(lid)
     return weak
+
+
+#: The fewest words a clue has for words_confirmed: a shorter one is one slip from another word.
+CONFIRM_WORDS = 4
+
+
+def words_confirmed(text, enum, readings):
+    """Whether every word of the filed clue `text` is printed by OCR_CONFIRM of the `readings`
+    ((text, ...) per reader, each mended first): the vote's own rule, word by word, for a clue
+    no two readers print whole because each has a slip of its own in another word (FT 1985:
+    "Lily's head replaced by song in jaunty manner" read three ways, each missing a different
+    letter). Not a clue with a figure or a short one."""
+    if re.search(r"\d", text):
+        return False
+    laid = re.findall(r"[a-z']+", text.lower().replace("’", "'"))
+    if len(laid) < CONFIRM_WORDS:
+        return False
+    sets = [set(re.findall(r"[a-z']+", clue_repair.mend_text(t, enum).lower().replace("’", "'")))
+            for t, _ in readings]
+    if len(sets) < OCR_CONFIRM:
+        return False
+    return all(sum(w in s for s in sets) >= OCR_CONFIRM for w in laid)
 
 
 def retry_weak(img, key, cols, read, laid, blank, lengths, tail):

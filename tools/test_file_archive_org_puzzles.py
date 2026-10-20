@@ -2786,6 +2786,17 @@ check("a clue the readers agree on that ends in a word a reference follows is we
 check("a clue that ends in such a word with a mark after it is not", set(),
       f.weak_lights({k: t.replace("sea like", "sea, like?") for k, t in open_rd.items()},
                     {**filed_laid, "6-across": ("Fish in the sea, like?", "5", None)}, {}, lens))
+# FT 1985: three readers, each with a slip in another word, no two alike on the whole line.
+_lily = ["Lilyas head replaced by song in Jaunty manner", "Lily's head replaced by song in Jauuty manner",
+         "Lily's head replaced by song in jaunty manner"]
+check("a clue whose every word two readers print is confirmed though no two print it whole", True,
+      f.words_confirmed("Lily's head replaced by song in jaunty manner", None, [(t, 0) for t in _lily]))
+check("a clue with a word only one reader prints is not", False,
+      f.words_confirmed("Benefit from a drink today", None,
+                        [(t, 0) for t in ["Benefit from a drink today", "Beneft from a drink today", "Benefi from a drink today"]]))
+check("a clue with a figure is not", False,
+      f.words_confirmed("Bathsheba swallowed 8 doctor repellent", None,
+                        [(t, 0) for t in ["Bathsheba swallowed 8 doctor repellent"] * 3]))
 check("a footer cut to a count that is not the light's is not taken", None,
       ocr_clues.agreed_past_footer(["Study applied to uninteresting poet (6) 23,099 Solutic",
                                     "Study applied to uninteresting poet (6) 23,099 Soluti"], "7"))
