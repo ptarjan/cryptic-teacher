@@ -349,6 +349,19 @@ new, used = F.repair_tree(dw, "Throwing couple of rights, initially fear", "FIST
 check("a cut that is a whole added piece is left for the model", used == [])
 
 # delOnePiece: del(charade(MELODY, RAM), Y) cuts the one piece holding the letters
+NSO = {"nestedSameOp": F.r_nested_same_op}
+nso = {"op": "deletion", "indicators": [{"text": "left by"}], "parts": [
+    {"op": "deletion", "parts": [{"words": "loo", "gives": "LATRINE"}, {"words": "King", "gives": "R"}]},
+    {"words": "Earl", "gives": "E"}]}
+new, used = F.repair_tree(nso, "Language seen in loo left by King and Earl", "LATIN", NSO)
+check("del(del(X, a), b) with one indicator becomes del<ind>(X, a, b)",
+      used == ["nestedSameOp"] and new["op"] == "deletion" and len(new["parts"]) == 3
+      and new["indicators"][0]["text"] == "left by" and "op" not in new["parts"][0])
+nso2 = {"op": "container", "indicators": [{"text": "in"}], "parts": [
+    {"op": "container", "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]},
+    {"words": "c", "gives": "C"}]}
+check("a nested container has no unique flat form", F.repair_tree(nso2, "a b in c", "ABCA", NSO)[1] == [])
+
 DOP = {"delOnePiece": F.r_del_one_piece}
 dop = {"op": "deletion", "indicators": [{"text": "no end of"}], "parts": [
     {"op": "charade", "parts": [{"words": "tune", "gives": "MELODY"}, {"words": "ram", "gives": "RAM"}]},
