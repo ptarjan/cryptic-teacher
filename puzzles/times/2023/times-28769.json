@@ -1364,7 +1364,7 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "move",
      "indicators": [
       {
        "text": "raising"
@@ -1372,22 +1372,24 @@
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "perspective",
-         "gives": "ANGLE",
-         "note": "an angle is a point of view"
-        },
-        {
-         "gives": "E"
-        }
-       ]
+       "words": "perspective",
+       "gives": "ANGLE",
+       "note": "an angle is a point of view"
       },
       {
-       "words": "euro initially",
-       "gives": "E",
-       "note": "the first letter of euro, also the euro's symbol; it moves up one place"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "the first letter of the word it picks from"
+        }
+       ],
+       "parts": [
+        {
+         "words": "euro",
+         "note": "the first letter of euro, also the euro's symbol; it moves up one place"
+        }
+       ]
       }
      ]
     },
