@@ -220,63 +220,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "METHODS",
-     "indicators": [
-      {
-       "text": "to pieces",
-       "note": "something shot to pieces is broken up, so its letters are scattered and rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 17,
+         "note": "initially tells us to take only the opening letter of the word might"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so only the first letter is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "might",
-           "note": "the opening letter"
-          }
-         ]
-        },
+         "words": "might",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "gives": "E",
+       "note": "one of the two letters in this entry that the wordplay does not supply, as the preamble warns"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "gives": "E",
-         "note": "one of the sixteen extra letters the preamble says the wordplay ignores"
-        },
+         "text": "to pieces",
+         "at": 36,
+         "note": "something shot to pieces is broken up, so the letters of shot are scattered and rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "shot",
-         "gives": "THO",
-         "note": "the first three letters of the rearranged word"
+         "at": 31
         },
         {
          "gives": "D",
-         "note": "one of the sixteen extra letters the preamble says the wordplay ignores"
-        },
-        {
-         "words": "shot",
-         "gives": "S",
-         "note": "the last letter of the rearranged word"
+         "note": "the second letter the wordplay leaves unaccounted for, under the preamble's rule"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Plans that might go wrong at the first hurdle end up in tatters.",
-     "walkthrough": "The wordplay gives M plus a jumble of SHOT; the E and D are unclued extras from the preamble.",
-     "definitionFit": "Methods are systematic ways of doing things, the same as procedures or techniques."
+     "surface": "A warning that carefully laid plans could be wrecked.",
+     "walkthrough": "Under the preamble, E and D are unclued squares here (part of the run A to P hidden in the down entries). 'initially' gives M from 'might'; 'to pieces' rearranges SHOT, and 'get' is a link word.",
+     "definitionFit": "Methods are systematic ways of doing things, a close synonym for procedures."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "shot"
     }
@@ -1683,76 +1677,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GOODBYE",
      "indicators": [
       {
        "text": "eaten by",
-       "note": "what is eaten by something ends up inside it"
+       "at": 13,
+       "note": "something eaten by another ends up inside it, so the scrambled body goes within the letters from goose"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "GOODBYE",
+       "op": "alternate",
        "indicators": [
         {
-         "text": "Foreign",
-         "note": "something foreign is strange and unfamiliar, so the next word comes out jumbled"
+         "text": "Oddly",
+         "at": 29,
+         "note": "oddly asks for the odd-numbered letters of goose: first, third and fifth"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "op": "alternate",
-           "unchecked": true,
-           "gives": "GO",
-           "indicators": [
-            {
-             "text": "Oddly",
-             "note": "oddly means taking the odd-numbered letters only, first, third and fifth"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "goose",
-             "gives": "GO",
-             "select": "alternate",
-             "note": "first and third letters of the bird"
-            }
-           ]
-          },
-          {
-           "words": "body",
-           "note": "the four letters rearranged"
-          },
-          {
-           "op": "nth",
-           "n": 5,
-           "parts": [
-            {
-             "words": "goose",
-             "note": "the fifth letter, completing the odd run"
-            }
-           ]
-          }
-         ]
+         "words": "goose",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Foreign",
+         "at": 0,
+         "note": "a foreign body here is one made strange, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "body",
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A goose swallows something odd, and that is the end of it.",
-     "definitionFit": "Saying goodbye is the parting word that marks the end of a meeting or conversation."
+     "surface": "A goose swallowing a foreign object, hinting at the bird's demise.",
+     "walkthrough": "'Foreign body' looks like one phrase, but 'Foreign' is the anagram signal for BODY, giving ODBY, which is 'eaten by' GOE, the odd letters of goose.",
+     "definitionFit": "A farewell is spoken when parting, so the word marks the finish of a meeting or conversation."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Foreign"
     }
    }
