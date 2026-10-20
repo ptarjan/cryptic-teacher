@@ -80,7 +80,18 @@ def psi_max():
     return float(os.environ.get("CT_PSI_MAX") or PSI_MAX)
 
 
+#: A file holding one number overrides CT_UNIT_CEILING while the queue runs, so
+#: a watcher can move the ceiling (say, by the Windows host's free RAM on the
+#: desktop) without a restart; absent or unreadable, the env/default applies.
+CEILING_FILE = "~/.cache/corpus_queue/unit_ceiling"
+
+
 def unit_ceiling():
+    try:
+        with open(os.path.expanduser(os.environ.get("CT_UNIT_CEILING_FILE") or CEILING_FILE)) as f:
+            return max(1, int(f.read().strip()))
+    except (OSError, ValueError):
+        pass
     return int(os.environ.get("CT_UNIT_CEILING") or UNIT_CEILING)
 
 

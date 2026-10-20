@@ -1672,6 +1672,7 @@ check("calm but under 3 GB available: no room", False, mg.room())
 # the unit-children ceiling: 5 queued reads, ceiling 2, never more than 2 at once
 _mi.write_text(f"MemAvailable: {16 * G >> 10} kB\n")
 os.environ["CT_UNIT_CEILING"] = "2"
+os.environ["CT_UNIT_CEILING_FILE"] = "/nonexistent/unit_ceiling"  # a live override file must not leak in
 eq.plan = units([], [(f"c{k}", []) for k in range(5)])
 # Units outlast the dispatcher's 1 s pass nap (the pass after a start): the ceiling line
 # is logged by a pass that finds the ceiling met with units still running, so units that
