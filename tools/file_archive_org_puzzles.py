@@ -4318,37 +4318,66 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
     # it whole (the reprint's among them) and put to the rest.
     read = {k: t for k, t in texts.items() if t.strip()}
     laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths)
-    if blank and "vlm" in texts and vlm_on and vlm.wanted():
+    def tail(laid, blank):
+        """(laid, blank, alike) after the steps that follow the VLM's pick."""
+        # A light no reading laid and the VLM's pick left blank, laid from the
+        # readers that agree on its clue.
+        laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths, bare=bare)
+        laid, blank = leaked_laid(read, laid, blank, parse)
+        # Each filed clue as the readings print it: its count's shape, each word's
+        # capital, hyphen and spelling.
+        laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)
+        laid, blank = one_light_each(laid, blank, fits)
+        # A clue read in ahead of another's, its count and all, is cut off it;
+        # one no laid clue prints is left for bled() to refuse.
+        laid = ocr_clues.runs_in_cut(laid)
+        # The slips one clue's own text shows (its count left after its words,
+        # a drop capital, a word broken by a space): tools/clue_repair.mend_text.
+        laid = {lid: (clue_repair.mend_text(t, e) if t else t, e, g) for lid, (t, e, g) in laid.items()}
+        laid = book_marked(laid, book_clues(reprints))
+        # A word no lexicon knows, or a bracket never shut, that the readings
+        # print alike is the print's own ("ignis"): filed as its asPrinted.
+        alike = {lid: got for lid, (t, _, _) in laid.items() if t and lid not in blank and (
+            got := ocr_clues.printed_alike(t, [r for r, _ in ocr_clues.readings_for(read, lid, parse)]))}
+        laid, blank = unfit_blanked(laid, blank, lengths, alike)
+        alike = {lid: got for lid, got in alike.items() if lid not in blank}
+        if paper.four:
+            # The counts were the grid's, not the paper's: filed without.
+            laid = {lid: (t, None, None) for lid, (t, _, _) in laid.items()}
+        return laid, blank, alike
+
+    def doomed():
+        """True when the page would be refused whatever the VLM picks for its blank
+        clues: a clue already laid (not blank) breaks a write rule of
+        puzzle_integrity.refuse_bad_write. A pick only fills a blank clue, so the
+        asks for the blank ones would be spent on a page that is not written."""
+        import puzzle_integrity
         try:
-            laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
-        except RuntimeError:
+            t_laid, t_blank, t_alike = tail(laid, blank)
+            trial = build(n, day, grid, how, t_laid, edition_of(d, found), leaf, series=paper.series,
+                          name=paper.name.format(n), url=page_url(d, found, leaf), printed=t_alike)
+            puzzle_integrity.refuse_bad_write(trial)
+        except puzzle_integrity.RefusedWrite as e:
+            open_lights = set(blank) | set(t_blank)
+            for kind, _, what in e.flags:
+                m = re.match(r"(\d+-(?:across|down)): ", what)
+                if kind in ("SHAPE", "LENGTH") and m and m.group(1) not in open_lights and "blank" not in what:
+                    return True
+        except Exception:  # a trial that cannot be judged spends no ask less
             pass
-    # A light no reading laid and the VLM's pick left blank, laid from the
-    # readers that agree on its clue.
-    laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths, bare=bare)
-    laid, blank = leaked_laid(read, laid, blank, parse)
-    # Each filed clue as the readings print it: its count's shape, each word's
-    # capital, hyphen and spelling.
-    laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)
-    laid, blank = one_light_each(laid, blank, fits)
-    # A clue read in ahead of another's, its count and all, is cut off it;
-    # one no laid clue prints is left for bled() to refuse.
-    laid = ocr_clues.runs_in_cut(laid)
-    # The slips one clue's own text shows (its count left after its words,
-    # a drop capital, a word broken by a space): tools/clue_repair.mend_text.
-    laid = {lid: (clue_repair.mend_text(t, e) if t else t, e, g) for lid, (t, e, g) in laid.items()}
-    laid = book_marked(laid, book_clues(reprints))
-    # A word no lexicon knows, or a bracket never shut, that the readings
-    # print alike is the print's own ("ignis"): filed as its asPrinted.
-    alike = {lid: got for lid, (t, _, _) in laid.items() if t and lid not in blank and (
-        got := ocr_clues.printed_alike(t, [r for r, _ in ocr_clues.readings_for(read, lid, parse)]))}
-    laid, blank = unfit_blanked(laid, blank, lengths, alike)
-    alike = {lid: got for lid, got in alike.items() if lid not in blank}
+        return False
+
+    if blank and "vlm" in texts and vlm_on and vlm.wanted():
+        if doomed():
+            verdict["vlmSkipped"] = "a laid clue is refused whatever the VLM picks"
+        else:
+            try:
+                laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
+            except RuntimeError:
+                pass
+    laid, blank, alike = tail(laid, blank)
     if alike:
         verdict["asPrinted"] = alike
-    if paper.four:
-        # The counts were the grid's, not the paper's: filed without.
-        laid = {lid: (t, None, None) for lid, (t, _, _) in laid.items()}
     if not vlm_on:
         verdict["_weak"] = weak_lights(read, laid, blank, lengths)
     verdict["lights"] = len(rg.light_cells(grid))
