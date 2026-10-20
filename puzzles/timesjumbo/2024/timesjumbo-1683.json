@@ -327,48 +327,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CRACKER",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bad",
+       "at": 26,
+       "note": "bad signals the letters are put into a wrong, jumbled order"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "car",
+       "at": 30
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "out of",
-         "note": "W, the wife, is taken out of the fodder before it is jumbled"
+         "at": 19,
+         "note": "out of means the named letter is removed from the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "wife out of",
-         "note": "W = wife, removed from CARWRECK"
+         "words": "wreck",
+         "at": 34
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "bad",
-           "note": "letters in a bad way are in poor order, so rearrange them"
-          }
-         ],
-         "parts": [
-          {
-           "words": "car wreck",
-           "gives": "CARRECK",
-           "note": "CAR WRECK less W; anagram fodder, 7 letters"
-          }
-         ]
+         "words": "wife",
+         "at": 14,
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about who got a wife out of a car crash, and what pulled her clear.",
-     "walkthrough": "A Christmas cracker is a paper tube pulled apart by two people so it bangs, a British festive tradition. 'Pulled' looks like a rescue from the wreck.",
-     "definitionFit": "Definition by custom: at British Christmas dinners two people tug the ends of this paper tube until it snaps with a bang."
+     "surface": "A question about what is hauled from a car smash once the wife is rescued.",
+     "walkthrough": "'out of' takes W from WRECK, leaving RECK; 'bad' then rearranges CAR plus RECK.",
+     "definitionFit": "A Christmas cracker is pulled by two people until it snaps, so it is something pulled."
     },
     "features": {
      "answerInScene": false,
@@ -1314,68 +1312,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "removing",
-       "note": "removing takes something away"
-      }
-     ],
      "parts": [
       {
        "words": "hospital",
+       "at": 10,
        "gives": "H",
-       "note": "H = hospital, as on road signs"
+       "note": "H is the map abbreviation for hospital"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "third of",
-         "note": "the third of a word is its third letter, the N of fiNgers"
+         "text": "removing",
+         "at": 28,
+         "note": "removing means a letter is taken away from the word for required"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "required",
-           "gives": "NEEDFUL",
-           "note": "needful = required"
-          },
-          {
-           "op": "nth",
-           "unchecked": true,
-           "gives": "EEDFUL",
-           "n": 3,
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "fingers",
-             "gives": "EEDFUL",
-             "select": 3,
-             "note": "the third letter of fiNgers is N; remove it from NEEDFUL"
-            }
-           ]
-          }
-         ]
+         "words": "required",
+         "at": 19,
+         "gives": "NEEDFUL",
+         "note": "needful means required or necessary"
         },
         {
-         "gives": "NEEDFUL"
+         "op": "nth",
+         "n": 3,
+         "indicators": [
+          {
+           "text": "third of",
+           "at": 37,
+           "note": "third of picks the third letter of fingers"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fingers",
+           "at": 46
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hospital needs an attentive surgeon to remove part of a finger.",
-     "walkthrough": "'Removing third of fingers' sounds like amputation; it asks you to drop the N, the third letter of 'fingers'.",
-     "definitionFit": "Synonym: taking heed means paying close notice, being mindful and careful."
+     "surface": "A careful patient in hospital needs part of a finger amputated.",
+     "definitionFit": "Heedful means paying careful heed, so watchful and attentive."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "fingers"
+     "misdirectedWord": "removing"
     }
    }
   },
@@ -2422,26 +2410,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RUM",
      "indicators": [
       {
        "text": "banned from",
-       "note": "someone banned from a place is shut out, so B leaves BRUM"
+       "at": 11,
+       "note": "banned from means the named letter is thrown out of the word"
       }
      ],
      "parts": [
       {
-       "words": "bishop banned from Birmingham",
-       "gives": "RUM",
-       "note": "BRUM, a nickname for Birmingham, without B (bishop)"
+       "words": "Birmingham",
+       "at": 23,
+       "gives": "BRUM",
+       "note": "Brum is the familiar nickname for the English city of Birmingham"
+      },
+      {
+       "words": "bishop",
+       "at": 4,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
       }
      ]
     },
     "explanation": {
-     "surface": "A strange bishop is barred from Birmingham.",
-     "walkthrough": "Brum is the everyday nickname for Birmingham, England's second city. 'Rum' is old British slang for odd.",
-     "definitionFit": "Old-fashioned British slang for strange or peculiar, as in 'a rum business'."
+     "surface": "A strange tale of a clergyman barred from England's second city.",
+     "walkthrough": "Brum is the everyday nickname for Birmingham, a large city in the English Midlands.",
+     "definitionFit": "Rum is British informal for strange or peculiar, as in 'a rum business'."
     },
     "features": {
      "answerInScene": false,
@@ -3019,37 +3013,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CONTRETEMPS",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "'for' means in place of, so T stands in for C"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Actual",
-       "gives": "CONCRETE",
-       "note": "concrete = actual, real"
-      },
-      {
-       "words": "time for constant",
-       "gives": "CONTRETE",
-       "note": "T (time) replaces C (a constant, as in the speed of light) in CONCRETE"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 29,
+         "note": "time for constant means one letter stands in place of the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Actual",
+         "at": 0,
+         "gives": "CONCRETE",
+         "note": "concrete means real or actual"
+        },
+        {
+         "words": "constant",
+         "at": 33,
+         "gives": "C",
+         "note": "C is the symbol for a constant, such as the speed of light"
+        },
+        {
+         "words": "time",
+         "at": 24,
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "politicians",
+       "at": 7,
        "gives": "MPS",
-       "note": "MPs = Members of Parliament"
+       "note": "MPs are Members of Parliament"
       }
      ]
     },
     "explanation": {
-     "surface": "Real politicians who have time for constant bickering.",
-     "walkthrough": "'Time for constant' reads as politicians always finding time to argue; it tells you to swap T in for C.",
-     "definitionFit": "French borrowing for a minor dispute or an awkward, unlucky clash."
+     "surface": "Real politicians are forever arguing.",
+     "walkthrough": "CONCRETE has two Cs; it is the second that becomes T, giving CONTRETE.",
+     "definitionFit": "A contretemps is a minor dispute or awkward clash, a disagreement."
     },
     "features": {
      "answerInScene": true,

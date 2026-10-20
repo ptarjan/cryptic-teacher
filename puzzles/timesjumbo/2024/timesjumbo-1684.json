@@ -3139,44 +3139,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "'not much' means without much's letter, so it is removed"
-      }
-     ],
      "parts": [
       {
        "words": "Record",
+       "at": 0,
        "gives": "DISC",
-       "note": "a disc is a record"
+       "note": "a disc is a gramophone record"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "at first"
+         "text": "not",
+         "at": 18,
+         "note": "not means the next letter is left off the word before it"
         }
        ],
        "parts": [
         {
          "words": "increases",
+         "at": 7,
          "gives": "MOUNTS",
-         "note": "mounts = increases"
+         "note": "mounts means increases, as costs mount"
         },
         {
-         "words": "much",
-         "gives": "M",
-         "note": "its first letter, removed from MOUNTS"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 27,
+           "note": "at first takes the opening letter of much"
+          }
+         ],
+         "parts": [
+          {
+           "words": "much",
+           "at": 22
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Record sales rising slowly at first, leading to money-off offers.",
-     "walkthrough": "'Not much at first' reads as 'slowly to begin with'; it tells you to lose M, the first letter of much, from MOUNTS.",
-     "definitionFit": "Discounts are reductions in price, offering savings."
+     "surface": "Rising record sales, modest to begin with, prompt the shop to cut its prices.",
+     "definitionFit": "Discounts are price reductions, offers that let a buyer save money."
     },
     "features": {
      "answerInScene": true,
