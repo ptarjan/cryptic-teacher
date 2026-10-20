@@ -169,23 +169,40 @@
      "parts": [
       {
        "words": "Unknown",
+       "at": 0,
        "gives": "Y",
-       "note": "algebra's unknowns are x, y and z"
+       "note": "Y is an algebraic unknown, like x and z"
       },
       {
-       "words": "head-shaven hip-hop artist",
-       "gives": "APPER",
-       "note": "RAPPER without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "head-shaven",
+         "at": 9,
+         "note": "head-shaven says the word loses its first letter, as a shaved head loses its hair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hip-hop artist",
+         "at": 21,
+         "gives": "RAPPER",
+         "note": "a rapper is a hip-hop performer"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A little-known rapper with a shaved head and a stage name in the style of Lil Wayne.",
-     "walkthrough": "The rap-name styling of \"Lil’ Dog\" hides a plain small dog; the question mark flags that a yapper is just one sort.",
-     "definitionFit": "A definition by example: little dogs are notorious for shrill barking, or yapping, so a small dog is a typical yapper."
+     "surface": "An obscure, shaven-headed rapper goes by the stage name Lil' Dog.",
+     "walkthrough": "The rapper-name surface hides a small barking dog; 'head-shaven' turns RAPPER into APPER.",
+     "definitionFit": "A yapper is a little dog that barks shrilly, which the question mark flags as a playful hint."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Dog"
