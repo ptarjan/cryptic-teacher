@@ -276,10 +276,21 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Half of tree",
-       "at": 0,
-       "gives": "TR",
-       "note": "the first two of the four letters of tree"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "half of the word is used, its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tree",
+         "at": 8,
+         "note": "its first half is used"
+        }
+       ]
       },
       {
        "words": "flower",
@@ -296,13 +307,13 @@
      ]
     },
     "explanation": {
-     "surface": "Half a tree, a flower and some cherries have gone missing.",
-     "walkthrough": "'Flower' wants to be a bloom; it is a river, the Ouse, which flows through York and elsewhere in England.",
-     "definitionFit": "To trouser money is British slang for pocketing it, often dishonestly, so trousered means taken or pinched."
+     "surface": "A garden picture: part of a tree, a bloom, and a cherry that someone has taken.",
+     "walkthrough": "'flower' is a river, something that flows: the Ouse.",
+     "definitionFit": "To trouser money is British slang for pocketing it, often dishonestly, so trousered means stolen."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "flower"
     }

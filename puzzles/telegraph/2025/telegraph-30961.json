@@ -1674,50 +1674,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "ordered",
-       "at": 22,
-       "note": "letters that are ordered are put into a new arrangement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "a bra we",
-       "at": 13
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ordered",
+         "at": 22,
+         "note": "ordered here means put into a new arrangement, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "at": 13
+        },
+        {
+         "words": "bra",
+         "at": 15,
+         "note": "taken as written"
+        },
+        {
+         "words": "we",
+         "at": 19,
+         "note": "taken as written"
+        }
+       ]
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "without bottom half",
          "at": 36,
-         "note": "in an across clue the bottom half of a word is its second half, which is removed"
+         "note": "the lower half of the word is dropped, so only its top half, the first two letters, stays"
         }
        ],
        "parts": [
         {
          "words": "Lewd",
-         "at": 31
-        },
-        {
-         "gives": "WD"
+         "at": 31,
+         "note": "the top half of this word is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether a newly ordered bra is fit to wear, the lewd lower half being left off.",
-     "walkthrough": "'Without bottom half' reduces Lewd to LE, which joins A BRA WE before 'ordered' rearranges all eight letters.",
-     "definitionFit": "Clothing that is wearable is suitable or fit to be put on and worn."
+     "surface": "Someone asks whether a mail-order bra is decent to wear, or whether it is too racy.",
+     "walkthrough": "A, BRA and WE are rearranged to WEARAB; LE, the top half of 'Lewd', completes it.",
+     "definitionFit": "Something wearable is suitable or acceptable to be worn as clothing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "bottom"
+     "misdirectedWord": "ordered"
     }
    }
   },

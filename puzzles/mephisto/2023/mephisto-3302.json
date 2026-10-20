@@ -190,50 +190,54 @@
      "indicators": [
       {
        "text": "accepted",
-       "note": "what is accepted is taken in, so the shortened relative holds the next letters"
+       "at": 23,
+       "note": "accepted means taken in, so letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "practically",
+         "at": 11,
+         "note": "practically means almost, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "practically",
-           "note": "practically means almost, so the word stops one letter short"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Pawnbroker",
-           "gives": "UNCLE",
-           "note": "'uncle' is old slang for a pawnbroker"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "Pawnbroker",
+         "at": 0,
+         "gives": "UNCLE",
+         "note": "uncle is old slang for a pawnbroker"
         },
         {
-         "words": "on",
-         "gives": "O",
-         "note": "o' is a dialect contraction of on, as in o' nights"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "old",
-       "gives": "O",
-       "note": "O is the standard abbreviation for old"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on",
+         "at": 32,
+         "gives": "O",
+         "note": "O is an abbreviation for on, as on an on/off switch"
+        },
+        {
+         "words": "old",
+         "at": 35,
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pawnbroker nearly took in an antique square of cloth or metal.",
-     "walkthrough": "UNCLE loses its last letter and UNCL wraps around O and O, giving UNCOOL.",
-     "definitionFit": "Square in the slang sense means old-fashioned and conventional, the opposite of cool."
+     "surface": "A pawnbroker nearly agreed to take a dated old piece in pledge.",
+     "walkthrough": "UNCLE loses its final E to give UNCL, which takes in two O's.",
+     "definitionFit": "Uncool means unfashionable, and square is slang for a conventional, unfashionable person or thing."
     },
     "features": {
      "answerInScene": false,
@@ -753,45 +757,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "moving along river",
-       "note": "something carried along on a river is shifting about, so the letters are swept into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "last",
-         "note": "last asks for only the final letter of the word that follows"
+         "at": 12,
+         "note": "the final letter of the next word is used"
         }
        ],
        "parts": [
         {
          "words": "escape",
-         "note": "the final letter of escape"
+         "at": 20,
+         "note": "its last letter is used"
         }
        ]
       },
       {
-       "words": "falcon",
-       "gives": "MERLIN",
-       "note": "the merlin is a small falcon"
+       "op": "move",
+       "indicators": [
+        {
+         "text": "moving along",
+         "at": 34,
+         "note": "a letter is moved along to a new position within the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "falcon",
+         "at": 27,
+         "gives": "MERLIN",
+         "note": "the merlin is a small falcon"
+        },
+        {
+         "words": "river",
+         "at": 47,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stoat makes a last-ditch escape from a hunting falcon flying along a river.",
-     "walkthrough": "The falcon is the merlin, a crossword favourite; the stoat and falcon belong together as predator and prey, which hides the mechanics.",
-     "definitionFit": "Ermelin is an archaic form of ermine, the stoat in its white winter coat."
+     "surface": "An old stoat makes off from a hunting falcon that drifts along a river.",
+     "walkthrough": "'last to escape' means the final letter of 'escape', not something running away.",
+     "definitionFit": "Ermelin is an archaic word for the ermine, the stoat in its white winter coat."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "escape"
+     "misdirectedWord": "falcon"
     }
    }
   },

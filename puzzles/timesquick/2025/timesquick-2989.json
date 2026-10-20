@@ -372,36 +372,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "after",
-       "note": "the eating word comes after the queen, so it goes second"
-      },
-      {
-       "text": "ignoring starter",
-       "note": "a starter is the first course, here the first letter, and it is left untouched"
-      }
-     ],
      "parts": [
       {
        "words": "Queen",
-       "gives": "QU",
-       "note": "QU is a dictionary abbreviation for queen"
+       "at": 0,
+       "gives": "QU"
       },
       {
-       "words": "ate sparingly",
-       "gives": "IBBLED",
-       "note": "NIBBLED without its N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring starter",
+         "at": 26,
+         "note": "the starter, the first letter, is ignored and left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ate sparingly",
+         "at": 6,
+         "gives": "NIBBLED",
+         "note": "to nibble is to eat in small bites"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Queen picks at her food, skipping the first course.",
-     "walkthrough": "'Starter' fits the dinner picture as a first course, but it means a first letter.",
-     "definitionFit": "Plain synonym: to quibble is to object over trifles."
+     "surface": "A queen eats very little after skipping the first course and grumbles about trifles.",
+     "walkthrough": "'starter' suggests the first course of a meal; it is the first letter of NIBBLED.",
+     "definitionFit": "To quibble is to raise trivial objections, so quibbled means made petty complaints."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "starter"
     }

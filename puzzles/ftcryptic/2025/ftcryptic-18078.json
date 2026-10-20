@@ -1041,76 +1041,83 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "back tells us to read the pronoun from end to start"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "wearing",
-         "note": "something worn is surrounded by the garment, so one piece goes inside another"
+         "at": 16,
+         "note": "wearing means being inside clothes, so this sits inside the other letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "strange",
+           "at": 26,
+           "note": "strange means odd or abnormal, so the letters are rearranged"
+          }
+         ],
          "parts": [
           {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "end",
-             "note": "the end of a word is its final letter, the only one kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "double",
-             "note": "the final letter"
-            }
-           ]
-          },
-          {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "strange",
-             "note": "strange means odd or out of order, so the letters are rearranged"
-            }
-           ],
-           "parts": [
-            {
-             "words": "cloak",
-             "note": "taken as written"
-            }
-           ]
+           "words": "cloak",
+           "at": 34,
+           "note": "taken as written"
           }
          ]
         },
         {
-         "words": "The man's",
-         "gives": "HE",
-         "note": "the man is he"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 10,
+           "note": "back means going backwards, so the letters are reversed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "The man's",
+           "at": 0,
+           "gives": "HE",
+           "note": "the man is he; the 's is a link meaning is"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end",
+         "at": 52,
+         "note": "the end of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "double",
+         "at": 45,
+         "note": "its last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man in an odd double-ended cloak, glimpsed from behind.",
-     "walkthrough": "'Double end' looks like a feature of the cloak but means the final letter of 'double'. Cakehole is British slang for the mouth.",
-     "definitionFit": "A cakehole is a slang word for the mouth, the opening in the face."
+     "surface": "A man turns away, wrapped in an odd cloak with a forked hem.",
+     "walkthrough": "'opening' sits at the end of the clue as if it were wordplay, but it is the definition: a slang word for the mouth.",
+     "definitionFit": "Cakehole is British slang for the mouth, the opening through which one eats."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "double"
+     "misdirectedWord": "opening"
     }
    }
   },
