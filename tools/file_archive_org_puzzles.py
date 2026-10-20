@@ -5063,6 +5063,30 @@ def short_three_columns(row):
         for v in row.get("verdicts", ()))
 
 
+#: ISO time of the last fix to how a Gale page's clue columns are laid out (7a0796c690, the
+#: 1945-47 two-column pages): an edition whose read wrote a puzzle to the unfiled dir (a clue
+#: blank, destination()) before it is read again once, as "unfiled before its fix". A read
+#: after it that is incomplete again is not due until a newer time is set here.
+REREAD_UNFILED = "2026-10-19T23:53:40+00:00"
+
+
+def unfiled_blank(row):
+    """[(puzzle id, blank clues)] of the puzzles of ledger `row` its read wrote
+    unfiled (not complete, written, its file in CROPS/unfiled), else []. The count is
+    the verdict's "unfiled", else its named blanks, else lights short of clues."""
+    out = []
+    for v in row.get("verdicts", ()):
+        if v.get("complete") or v.get("refused") or not v.get("wrote") or v.get("skip") or v.get("mended") or not v.get("id"):
+            continue
+        if v.get("unfiled") is None and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        k = v.get("unfiled")
+        if k is None:
+            k = len(v["blank"]) if isinstance(v.get("blank"), dict) and v["blank"] else max(v.get("lights", 0) - v.get("clues", 0), 0)
+        out.append((v["id"], k))
+    return out
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -5080,6 +5104,8 @@ def fix_reason(row):
         return "refused unparsed before its fix"
     if short_three_columns(row) and scan_queue.read_before(row, scan_queue.when(REREAD_THREE_COLUMNS[2])):
         return "short Times page, its third clue column read since"
+    if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
+        return "unfiled before its fix"
     if row.get("solutionKey") != solution_key():
         for v in row.get("verdicts", ()):
             s = v.get("solution")
@@ -5489,7 +5515,7 @@ FRESH = 3600
 RANKS = {"just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "scan stale": 3, "--reread": 3,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, "scan stale": 3, "--reread": 3,
          "read by another VLM": 3}
 #: The reasons of a read whose scan is by older scan code: "answers missing"
 #: when a stored title is a puzzle read without answers that no page links a
@@ -5784,6 +5810,8 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
     read_units = [{"kind": "read", "paper": paper.key, "rel": rels[d], "reason": reads[d], "rank": rank_of_reason(reads[d]),
                    "date": day_of(d), "needs": needs(d), "force": reads[d] == "annotation asked",
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
+                   **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
+                      if reads[d] == "unfiled before its fix" else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
     rank_of, gain_of = {}, {}
     for u in read_units:
@@ -5814,7 +5842,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
 
 
 #: Reasons an edition is read for a bug: never skipped (a reread is wanted).
-BUG_READS = ("refused ", "short Times page", "solution short", "annotation asked", "--reread")
+BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short", "annotation asked", "--reread")
 #: Reasons that are the VLM's alone (not new files, solutions or titles).
 VLM_READS = ("read without the VLM", "read by another VLM", STALE_SCAN[1])
 
