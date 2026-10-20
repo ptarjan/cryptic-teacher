@@ -73,6 +73,12 @@ try:
     check("a list that is a held book's: a copy", "book-1", f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues)}))
     check("one that is not: asked", None, f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues[:3] + [f"Other {i} clue (4)" for i in range(7)])}))
     check("a blank-heavy list: asked", None, f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues[:7] + [""] * 23)}))
+    _ten = _clues + [f"Clue number {i} for the held book puzzle (5)" for i in range(10, 20)]
+    _idx.add("book-2", {"entries": _ent(_ten)})
+    check("a few blank, the printed clues are a held book's: a copy",
+          "book-2", f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_ten[:17] + [""] * 3)}))
+    check("a few blank, the printed clues half another puzzle's: asked", None,
+          f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_ten[:10] + [f"Other {i} clue (4)" for i in range(7)] + [""] * 3)}))
     f.held_dates = lambda series: {25640}
     check("a number already held: asked as before", None, f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues)}))
 finally:

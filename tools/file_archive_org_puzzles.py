@@ -4039,8 +4039,16 @@ def held_copy(d, verdict, puzzle):
         if verdict["number"] in held_dates(paper_of(d).series):
             return None
         entries = len(puzzle.get("entries") or ())
-        for other, shared, _, _ in clue_index().matches(puzzle["id"], clue_keys(puzzle)):
+        keys = clue_keys(puzzle)
+        for other, shared, _, _ in clue_index().matches(puzzle["id"], keys):
             if entries and shared >= ci.THRESHOLD * entries:
+                return other
+            # A few blank lights (the VLM's to fill): the clues the readers did print are the
+            # held puzzle's (THRESHOLD of them), they are two thirds of the page's lights, and the
+            # blanks alone would carry the share over THRESHOLD of every light. (The 10-20 log:
+            # 2005-04-11, 30 lights, 3 blank, 23 of 27 printed clues book-11003's: 6 asks, then refused.)
+            if (entries and shared >= ci.THRESHOLD * len(keys) and shared >= 2 * entries / 3
+                    and shared + (entries - len(keys)) >= ci.THRESHOLD * entries):
                 return other
     except Exception:  # no index here: the VLM is asked as before
         return None
