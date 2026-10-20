@@ -4487,6 +4487,8 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None):
     if blank and "vlm" in texts and vlm_on and vlm.wanted():
         if doomed():
             verdict["vlmSkipped"] = "a laid clue is refused whatever the VLM picks"
+        elif unpickable(texts, blank, len(rg.light_cells(grid))):
+            verdict["vlmSkipped"] = "a blank clue no reading has: no pick can make the page whole"
         else:
             try:
                 laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
@@ -4579,6 +4581,21 @@ def screened(texts, grid):
             continue
         keep[k] = t
     return keep, dropped
+
+
+def unpickable(texts, blank, lights):
+    """True when asking the VLM to pick the `blank` clues of a page of `lights` cannot make
+    it whole and the window stays: a blank light no reading has any text for is never asked
+    (ocr_clues.vlm_pick has no candidates for it), so the page is unfiled however the other
+    blanks go, and the picks for those are asks spent on it (the 10-20 log: 90 reads ended
+    "incomplete ... unfiled", 495 asks, 78% of their blanks "no reading laid a clue on it").
+    Not when the window is poor already (crop_window.poor(): FILLED/BLANK), as another window
+    is read for it and the picks decide which scores best."""
+    if not lights or len(blank) <= 1:
+        return False  # one blank, unfillable: no pick is asked anyway
+    if lights - len(blank) < crop_window.FILLED * lights or len(blank) > crop_window.BLANK * lights:
+        return False
+    return any(not ocr_clues.candidates(texts, lid, parse) for lid in blank)
 
 
 def vlm_pick(img, wins, readings, texts, laid, blank):

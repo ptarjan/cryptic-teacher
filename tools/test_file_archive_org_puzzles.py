@@ -47,6 +47,15 @@ def line(text, x=100, y=100):
         x += 10 * len(w) + 8
     return out
 
+# A blank light no reading has any text for is never asked, so the picks for the page's other
+# blanks cannot make it whole: skipped, unless the window is poor (another is read) or only
+# one clue is blank.
+_t = {"vlm": "ACROSS\n1 Old fashioned dance (5)\n3 Wet weather in town (4)\nDOWN\n4 Quiet place to rest (6)\n"}
+check("two blanks, one no reading has: no pick asked", True, f.unpickable(_t, {"2-down": "x", "1-across": "y"}, 30))
+check("both blanks have readings: picked", False, f.unpickable(_t, {"4-down": "x", "1-across": "y"}, 30))
+check("one blank no reading has: nothing was asked anyway", False, f.unpickable(_t, {"2-down": "x"}, 30))
+check("a poor window is read again, picks and all", False, f.unpickable(_t, {"2-down": "x", "5-down": "y", "6-down": "z", "7-down": "w", "8-down": "v"}, 30))
+
 # A grid whose grey blocks are stippled thresholds to specks: grids_on still
 # finds it, so ocr_titles reads its title (1980-04-16, No 15,200: 13% ink).
 from PIL import Image, ImageDraw
