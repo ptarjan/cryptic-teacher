@@ -910,47 +910,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IRONWOOD",
      "indicators": [
       {
        "text": "in",
-       "note": "one thing in another is placed inside it"
+       "at": 25,
+       "note": "the courting word is placed in the trimmed region name, sitting inside it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "IRONWOOD",
+       "op": "middle",
        "indicators": [
         {
          "text": "no extremes",
-         "note": "without its extremes a word loses its two ends"
+         "at": 45,
+         "note": "the bracketed instruction strips the first and last letters off the region's name"
         }
        ],
        "parts": [
         {
          "words": "Bordeaux region",
+         "at": 28,
          "gives": "GIRONDE",
-         "note": "the Gironde is the French department round Bordeaux"
-        },
-        {
-         "words": "court",
-         "gives": "WOO",
-         "note": "to court someone is to woo them"
+         "note": "the Gironde is the French département around Bordeaux"
         }
        ]
+      },
+      {
+       "words": "court",
+       "at": 19,
+       "gives": "WOO",
+       "note": "to court someone is to woo them"
       }
      ]
     },
     "explanation": {
-     "surface": "Hornbeam wood chosen to build a courtroom somewhere in the Bordeaux wine region.",
-     "walkthrough": "'Court' looks like a law court; here it is the verb to woo, put inside IROND.",
-     "definitionFit": "Ironwood is a name for various very hard timbers, and the hornbeam is one tree called that."
+     "surface": "A wine-country note about a tree species being used to make a ruling, or a tennis court built in Bordeaux.",
+     "walkthrough": "'Hornbeam, say' signals an example rather than a synonym: hornbeam is just one of several hard-timbered trees given this name.",
+     "definitionFit": "Ironwood is a name given to several very hard timber trees, hornbeam among them, so hornbeam is an example."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "court"
     }
@@ -1974,56 +1974,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "*4 17's father",
-      "at": 0
+      "text": "4 17's father",
+      "at": 1
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SIRWILLIAM",
      "indicators": [
       {
        "text": "in",
-       "note": "something in another is put inside it"
+       "at": 51,
+       "note": "the altered river's name is set within the old name of Thailand"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Thailand",
+       "at": 54,
+       "gives": "SIAM",
+       "note": "Siam is the old name of Thailand"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to replace",
+         "at": 24,
+         "note": "the numeral is swapped in where the energy symbol stood in the river's name"
+        }
+       ],
        "parts": [
         {
-         "op": "substitution",
-         "unchecked": true,
-         "gives": "SIRWILLIAM",
-         "indicators": [
-          {
-           "text": "to replace",
-           "note": "replacing means one letter takes the place of another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "river",
-           "gives": "IRWELL",
-           "note": "the Irwell is the river flowing through Manchester"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I is the Roman numeral one"
-          },
-          {
-           "words": "Thailand",
-           "gives": "SIAM",
-           "note": "Siam is the former name of Thailand"
-          }
-         ]
+         "words": "river",
+         "at": 45,
+         "gives": "IRWELL",
+         "note": "the Irwell is a river running through Manchester"
         },
         {
-         "unchecked": true,
          "words": "energy",
-         "note": "E, the physics symbol for energy, is the letter swapped out"
+         "at": 35,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        },
+        {
+         "words": "one",
+         "at": 20,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         }
        ]
       }
@@ -2031,14 +2028,14 @@
     },
     "spelling": "SIR WILLIAM",
     "explanation": {
-     "surface": "A father takes someone along to stand in for the power on a Thai river.",
-     "walkthrough": "4 17 is Charlotte Lucas in the setter's numbering. Swap the E of the Manchester river for I and put the result inside Thailand's old name after its S.",
-     "definitionFit": "Sir William Lucas, a knighted former tradesman, is Charlotte's father and the Bennets' neighbour in the novel."
+     "surface": "A family-tree note in which a father exchanges energy for something in a Thai river.",
+     "walkthrough": "The cross-reference 4 17 points to Charlotte Lucas, the novel being Pride and Prejudice; her father is the knighted Sir William Lucas.",
+     "definitionFit": "In Austen's Pride and Prejudice, the knighted Sir William Lucas is Charlotte Lucas's father."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "energy"
+     "misdirectedWord": "river"
     }
    }
   },
