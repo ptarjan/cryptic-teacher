@@ -1497,51 +1497,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NYLON",
-     "indicators": [
-      {
-       "text": "from the end",
-       "note": "starting from the end means reading from the last letter back to the first"
-      }
-     ],
+     "op": "container",
      "parts": [
       {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "NOLN",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "evenly",
-         "note": "evenly picks the even-numbered positions, the second, fourth and so on"
+         "text": "from the end",
+         "at": 24,
+         "note": "reading from the end means the picked letters are taken backwards, last to first"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "uncoiling",
-         "gives": "NOLN",
-         "select": "alternate",
-         "note": "the second, fourth, sixth and eighth letters"
+         "op": "regular",
+         "indicators": [
+          {
+           "text": "evenly",
+           "at": 7,
+           "note": "evenly asks for the even-numbered letters of the next word, the second, fourth, sixth and eighth"
+          }
+         ],
+         "parts": [
+          {
+           "words": "uncoiling",
+           "at": 14,
+           "note": "its even letters are taken: the second, fourth, sixth and eighth"
+          }
+         ]
         }
        ]
       },
       {
        "gives": "Y",
-       "note": "the letter the wordplay leaves out in this Dial 3 clue, last of that dial's run"
+       "note": "the letter the wordplay leaves out, supplied as this clue's contribution to the preamble's hidden property (Dial 3)"
       }
      ]
     },
     "explanation": {
-     "surface": "A length of yarn unwinds steadily from its end.",
-     "walkthrough": "The even letters read backwards give NLON; the Y it lacks is the Dial 3 letter.",
-     "definitionFit": "Nylon is a synthetic polymer spun into strong fibres, sold as fishing line and sewing yarn."
+     "surface": "A tangled strand is being unwound, starting from its loose end.",
+     "walkthrough": "'Evenly' picks N, O, L, N from 'uncoiling'; 'from the end' reads them backwards as NLON. This is a Dial 3 clue, so the wordplay omits a letter: Y must be added after the first N, and Y joins the preamble's message.",
+     "definitionFit": "Nylon is a synthetic fibre spun into yarn, so a strand of it is a kind of thread used in sewing and fishing line."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "uncoiling"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "Y"
     }
    }
   },
