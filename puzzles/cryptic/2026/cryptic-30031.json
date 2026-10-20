@@ -327,29 +327,47 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "for the most part",
-       "note": "Most of the word and not all of it — the same trimming again, this time on the noun in quotes."
+       "text": "blurry",
+       "at": 42,
+       "note": "blurry letters are out of focus and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "blurry?",
-         "note": "Something blurry has no clear edges, so its letters cannot be trusted to stay in the order printed."
+         "text": "Chiefly",
+         "at": 0,
+         "note": "chiefly means mostly, so most of the word is kept and its last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "Chiefly moot",
-         "gives": "MOO",
-         "note": "MOOT keeps its chief part and loses the T"
+         "words": "moot",
+         "at": 8
         },
         {
-         "words": "'science'",
-         "gives": "SCIENC",
-         "note": "SCIENCE with its final letter left off"
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "for the most part",
+         "at": 24,
+         "note": "for the most part means mostly, so this word too loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "science",
+         "at": 14
+        },
+        {
+         "gives": "E"
         }
        ]
       }
@@ -357,9 +375,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Somebody is dismissing a subject as a largely pointless 'science' that nobody can see clearly anyway.",
-     "walkthrough": "Every word does double duty here: the sentence you take the letters from is the same sentence that defines, which is why nothing is left over to point at as a definition.",
-     "definitionFit": "the whole clue → ECONOMICS: read straight it is the standing jibe at the subject, much of it disputed and its forecasts famously unclear."
+     "surface": "A jibe that economics is a debatable, fuzzy so-called science.",
+     "walkthrough": "MOO (most of moot) and SCIENC (most of science) are scrambled. The whole clue doubles as a sceptic's description of the discipline.",
+     "definitionFit": "Economics, the 'dismal science', is often mocked as an arguable, imprecise field of study."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Chiefly"
     }
    }
   },
@@ -666,27 +689,32 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "scratch head",
-       "note": "To scratch something is to strike it out, and the head of a word is its front letter."
+       "text": "to scratch head",
+       "at": 10,
+       "note": "to scratch a word's head is to strike out its first letter"
       }
      ],
      "parts": [
       {
        "words": "bound",
+       "at": 4,
        "gives": "BOUNCE",
-       "note": "to bound is to bounce, the same leap"
+       "note": "to bound is to bounce or leap"
       },
       {
-       "words": "scratch head",
-       "gives": "B",
-       "note": "the head of BOUNCE is its B, and that is the letter struck out"
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "A cat gathers itself to leap and takes a swipe at somebody's head.",
-     "walkthrough": "Losing a first letter is the whole mechanism, and 'scratch' performs it while looking like something a cat would do. The ounce is the snow leopard, a name that survives mostly in crosswords.",
-     "definitionFit": "Cat → OUNCE: the ounce is the snow leopard of central Asia, so the plain word 'cat' defines it as one particular member of the family."
+     "surface": "A cat leaps and scratches its head.",
+     "walkthrough": "BOUNCE loses its head, B.",
+     "definitionFit": "The ounce is the snow leopard, a big cat of Central Asia's mountains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scratch"
     }
    }
   },
@@ -1511,42 +1539,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "SCIFI",
+     "indicators": [
+      {
+       "text": "podcaster's",
+       "at": 26,
+       "note": "a podcaster's words are heard, not read, so the letters are as spoken"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "SCI",
-       "indicators": [
-        {
-         "text": "podcaster's",
-         "note": "A podcaster is heard rather than read, so the letters are wanted for the noise they make, not their spelling."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Athenian letters",
-         "gives": "PSI",
-         "note": "psi is a Greek letter, and said aloud it is 'sigh'"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "FI",
-       "parts": [
-        {
-         "words": "Athenian letters",
-         "gives": "PHI",
-         "note": "phi is the next Greek letter along, said 'figh'"
-        }
-       ]
+       "words": "Athenian letters",
+       "at": 38,
+       "gives": "PSIPHI",
+       "note": "psi and phi are letters of the Greek alphabet, used in Athens"
       }
      ]
     },
     "explanation": {
-     "surface": "A podcaster is reading Greek letters out and a genre can be heard in them.",
-     "walkthrough": "Athenian letters are Greek ones, and the two named are the ones whose spoken names run together into the clipped form of the genre — which is why the clue needs somebody speaking.",
-     "definitionFit": "Literary genre → SCI-FI: science fiction is a literary genre, and the clipped form is what readers and bookshop shelves actually call it."
+     "surface": "A podcaster's Greek-flavoured talk turns out to be about a book genre.",
+     "walkthrough": "Psi and phi said aloud sound like 'sigh fie', the genre's name.",
+     "definitionFit": "Sci-fi, science fiction, is a genre of imaginative literature about future science and technology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "podcaster's"
     }
    }
   },

@@ -870,44 +870,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "changed",
-       "note": "letters that are changed are rearranged into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "Finally",
-         "note": "what comes finally is the end, so only the last letter of the fruit is used"
+         "at": 0,
+         "note": "finally points to the last letter of the fruit word"
         }
        ],
        "parts": [
         {
          "words": "mango",
-         "note": "its final letter"
+         "at": 9
         }
        ]
       },
       {
-       "words": "orange",
-       "note": "used as itself, fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changed",
+         "at": 26,
+         "note": "letters changed are rearranged into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "orange",
+         "at": 19
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fruit salad recipe swaps its last ingredients for something herbal.",
-     "walkthrough": "The fruit surface makes you look for a fruit; the answer is a herb.",
-     "definitionFit": "Oregano is an aromatic herb of the mint family, grown for its leaves used in cooking."
+     "surface": "In the end, a mango and an orange are swapped for a plant.",
+     "walkthrough": "The O from the end of mango comes first, then ORANGE rearranged as REGANO.",
+     "definitionFit": "Oregano is an aromatic herb, wild marjoram, grown for culinary use."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "orange"
+     "misdirectedWord": "changed"
     }
    }
   },

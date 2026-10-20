@@ -1380,13 +1380,14 @@
        "indicators": [
         {
          "text": "Back in",
-         "note": "the back of a word is its end, so only the last letter of Irkutsk"
+         "at": 0,
+         "note": "the back of a word is its last letter"
         }
        ],
        "parts": [
         {
          "words": "Irkutsk",
-         "note": "its last letter"
+         "at": 8
         }
        ]
       },
@@ -1395,26 +1396,27 @@
        "indicators": [
         {
          "text": "cooked",
-         "note": "cooking changes raw ingredients, so HAS is rearranged"
+         "at": 21,
+         "note": "cooked letters are reworked into a new order"
         }
        ],
        "parts": [
         {
          "words": "has",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "a",
-         "note": "used as written"
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 28
       }
      ]
     },
     "explanation": {
-     "surface": "Back home in a Siberian city, someone has cooked a buckwheat dish.",
-     "walkthrough": "'Back in Irkutsk' looks like a reversed hidden word; it gives only the final letter.",
-     "definitionFit": "A definition by description: a Russian porridge of buckwheat groats."
+     "surface": "In a Siberian city, someone prepared a buckwheat meal.",
+     "walkthrough": "'Back in' points to the end of the Russian city's name, not a return journey; 'cooked' fits the food picture but is the anagram signal.",
+     "definitionFit": "Kasha is a porridge of cooked buckwheat groats, eaten in Russia and eastern Europe."
     },
     "features": {
      "answerInScene": true,
@@ -3683,46 +3685,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "NOSEPIECE",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "at": 0,
+       "note": "reportedly means as said by others, so the answer is how these words sound spoken"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "NOSE",
-       "indicators": [
-        {
-         "text": "Reportedly",
-         "note": "'Reportedly' means as people say, so the words are taken by their sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "is aware of",
-         "gives": "KNOWS",
-         "note": "knows = is aware of"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "PIECE",
-       "parts": [
-        {
-         "words": "quiet",
-         "gives": "PEACE",
-         "note": "peace = quiet"
-        }
-       ]
+       "words": "is aware of quiet",
+       "at": 11,
+       "gives": "KNOWSPEACE",
+       "note": "someone who is aware of a thing knows it; peace is quiet, calm"
       }
      ]
     },
     "explanation": {
-     "surface": "Word has it that someone knows of a peaceful bridge.",
-     "walkthrough": "'Bridge' reads as a river crossing; it is the part of a pair of glasses that sits on the nose.",
-     "definitionFit": "A definition by part: the bit of spectacles resting across the top of the nose."
+     "surface": "Someone has heard that a bridge is a calm place.",
+     "walkthrough": "KNOWS PEACE spoken aloud sounds like the answer.",
+     "definitionFit": "A nosepiece is the bridge of a pair of spectacles, the part resting on the nose."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "bridge"
     }
    }
