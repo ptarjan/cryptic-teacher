@@ -56,6 +56,28 @@ check("both blanks have readings: picked", False, f.unpickable(_t, {"4-down": "x
 check("one blank no reading has: nothing was asked anyway", False, f.unpickable(_t, {"2-down": "x"}, 30))
 check("a poor window is read again, picks and all", False, f.unpickable(_t, {"2-down": "x", "5-down": "y", "6-down": "z", "7-down": "w", "8-down": "v"}, 30))
 
+# The readers' own list for a new puzzle that repeats a held puzzle's clues is refused as a copy
+# at the write, so the VLM is not asked about it (held_copy).
+import fetch_puzzle as _fp
+from clue_index import ClueIndex as _CI
+from pathlib import Path as _P
+_idx = _CI()
+_clues = [f"Clue number {i} for the held book puzzle (5)" for i in range(10)]
+_ent = lambda cs: [{"clue": {"text": c}} for c in cs]
+_idx.add("book-1", {"entries": _ent(_clues)})
+_old = (_fp.clue_index, f.held_dates)
+_fp.clue_index = lambda: _idx
+f.held_dates = lambda series: set()
+try:
+    _d = _P("GaleTimes2013UKEnglish/2013-11-23")
+    check("a list that is a held book's: a copy", "book-1", f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues)}))
+    check("one that is not: asked", None, f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues[:3] + [f"Other {i} clue (4)" for i in range(7)])}))
+    check("a blank-heavy list: asked", None, f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues[:7] + [""] * 23)}))
+    f.held_dates = lambda series: {25640}
+    check("a number already held: asked as before", None, f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues)}))
+finally:
+    _fp.clue_index, f.held_dates = _old
+
 # A grid whose grey blocks are stippled thresholds to specks: grids_on still
 # finds it, so ocr_titles reads its title (1980-04-16, No 15,200: 13% ink).
 from PIL import Image, ImageDraw
