@@ -889,69 +889,53 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "always lacking in",
+       "at": 24,
+       "note": "always lacking means every one of the named letter is taken out"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "always lacking",
-         "note": "lacking something every time means each occurrence is removed wherever it appears"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Eggs",
-             "gives": "ROE",
-             "note": "roe is fish eggs"
-            },
-            {
-             "words": "prepared",
-             "gives": "SET",
-             "note": "a table prepared for dinner is set"
-            }
-           ]
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "Eggs",
+         "at": 0,
+         "gives": "ROE",
+         "note": "fish eggs are roe"
         },
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E for English, the letter struck out of every piece"
+         "words": "prepared",
+         "at": 5,
+         "gives": "SET",
+         "note": "set means prepared, ready"
+        },
+        {
+         "words": "that is",
+         "at": 16,
+         "gives": "IE",
+         "note": "i.e. is short for id est, that is"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "that is",
-         "gives": "IE",
-         "note": "i.e., id est, Latin for that is"
-        },
-        {
-         "gives": "E"
-        }
-       ]
+       "words": "English",
+       "at": 42,
+       "gives": "EEE",
+       "note": "E is the abbreviation for English, here removed wherever it appears"
       }
      ]
     },
     "explanation": {
-     "surface": "Eggs are prepared, but this dish never appears on an English menu.",
-     "walkthrough": "Each of the three pieces loses its E: roe, set and i.e. become RO, ST and I.",
-     "definitionFit": "Rosti is a Swiss fried cake of grated potato, served as a meal or side."
+     "surface": "Eggs prepared, but that dish is always missing in English cooking.",
+     "walkthrough": "ROE + SET + IE spell ROESETIE; 'always lacking in English' removes every E, leaving ROSTI.",
+     "definitionFit": "Rosti is a Swiss dish of grated potato fried into a flat cake."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "English"
     }

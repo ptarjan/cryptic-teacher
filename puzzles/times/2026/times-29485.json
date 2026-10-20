@@ -938,7 +938,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "accountant",
+      "text": "accountant?",
       "at": 30
      }
     ],
@@ -946,21 +946,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Deal mostly",
-       "gives": "TREA",
-       "note": "to treat = to deal (with), minus its last T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 5,
+         "note": "mostly means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Deal",
+         "at": 0,
+         "gives": "TREAT",
+         "note": "to deal with is to treat"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "less dubious",
+       "at": 17,
        "gives": "SURER",
-       "note": "surer = more certain, less dubious"
+       "note": "less dubious means surer"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone would rather deal with an accountant who is less shady.",
-     "walkthrough": "The question mark marks accountant as a slightly loose definition: a treasurer keeps an organisation's accounts.",
-     "definitionFit": "A treasurer manages and accounts for an organisation's funds."
+     "surface": "A deal, mostly with a less dubious accountant.",
+     "walkthrough": "The question mark flags that a treasurer is only loosely an accountant.",
+     "definitionFit": "A treasurer keeps an organisation's finances, much as an accountant would."
     },
     "features": {
      "answerInScene": true,

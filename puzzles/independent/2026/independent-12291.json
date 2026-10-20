@@ -1575,64 +1575,61 @@
    "annotation": {
     "definitions": [
      {
-      "text": "State",
-      "at": 0
+      "text": "state",
+      "at": 44
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "drinking",
-       "note": "a drinker takes something into itself, so a piece goes inside"
+       "text": "must ignore",
+       "at": 21,
+       "note": "must ignore means those letters are dropped from the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
-         "text": "must ignore",
-         "note": "whatever is ignored is left out"
+         "text": "drinking",
+         "at": 6,
+         "note": "drinking means the state takes in the other piece"
         }
        ],
        "parts": [
         {
-         "words": "state",
+         "words": "State",
+         "at": 0,
          "gives": "DELAWARE",
          "note": "Delaware is a US state"
         },
         {
-         "words": "Washington",
-         "gives": "WA",
-         "note": "WA is the postal code for Washington state"
+         "words": "clubs",
+         "at": 15,
+         "gives": "C",
+         "note": "C is the abbreviation for clubs in card games"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "clubs",
-         "gives": "CL",
-         "note": "CL is a card-playing abbreviation for clubs"
-        },
-        {
-         "gives": "L"
-        }
-       ]
+       "words": "Washington",
+       "at": 33,
+       "gives": "WA",
+       "note": "WA is the postal abbreviation for Washington state"
       }
      ]
     },
     "explanation": {
-     "surface": "A state's drinking clubs are told to take no notice of the State of Washington.",
-     "walkthrough": "DELAWARE minus WA leaves DELARE, which drinks CL. The first 'State' is the verb; the last is the US state, and Washington is only its abbreviation.",
-     "definitionFit": "To state something is to declare it, both meaning to announce formally or say clearly."
+     "surface": "A state's drinking clubs must ignore Washington's state laws.",
+     "walkthrough": "DELAWARE drinks C to give DECLAWARE, then loses WA to leave the answer. The definition is the final 'state', a verb.",
+     "definitionFit": "To declare something is to announce or state it formally."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "State"
+     "misdirectedWord": "state"
     }
    }
   },

@@ -495,7 +495,8 @@
      "indicators": [
       {
        "text": "bottles",
-       "note": "the outer word holds the others inside it, as a bottle holds liquid"
+       "at": 38,
+       "note": "bottles means the reversed word holds the other pieces inside it"
       }
      ],
      "parts": [
@@ -503,38 +504,43 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "brought over"
+         "text": "brought over",
+         "at": 25,
+         "note": "brought over means the word is turned back to front"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "still",
-           "gives": "YET",
-           "note": "yet = still; turned round to TEY"
-          },
-          {
-           "words": "for each",
-           "gives": "A",
-           "note": "a = for each, as in £5 a head"
-          }
-         ]
+         "words": "still",
+         "at": 19,
+         "gives": "YET",
+         "note": "still means yet, as in yet to come"
         }
        ]
       },
       {
-       "words": "boy",
-       "gives": "LAD",
-       "note": "lad = boy"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "for each",
+         "at": 46,
+         "gives": "A",
+         "note": "a, as in ten pounds a head, means for each"
+        },
+        {
+         "words": "boy",
+         "at": 55,
+         "gives": "LAD",
+         "note": "a boy is a lad"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brewery's old-fashioned still being shipped over, bottling beer for each boy.",
-     "walkthrough": "Brewer and still point to beer and distilling; the brewing is of tea. A tea lady brought tea round the office, a fixture of British workplaces.",
-     "definitionFit": "A tea lady was the woman who made and served tea in offices and factories."
+     "surface": "A traditional brewer, still at work, brings over bottles for each boy.",
+     "walkthrough": "YET turned over gives TEY, which holds A and LAD: T-EALAD-Y. A tea lady brewed tea for office workers.",
+     "definitionFit": "A tea lady was an office worker who made and served tea, so she brewed it in the old way."
     },
     "features": {
      "answerInScene": false,
@@ -565,39 +571,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "contents of",
+       "at": 5,
+       "note": "contents of means only the inside letters of each word are taken, losing the outer ones"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "contents of",
-         "note": "take what is inside each word, dropping its outer letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "shed",
-         "note": "the inside of sHEd"
-        }
-       ]
+       "words": "shed",
+       "at": 17,
+       "note": "middle letters of shed"
       },
       {
        "words": "sell",
-       "gives": "EL",
-       "note": "the inside of sELl"
+       "at": 27,
+       "note": "middle letters of sell"
       }
      ]
     },
     "explanation": {
-     "surface": "An inventory of what is in the shed, before selling it all off.",
-     "walkthrough": "'List' looks like an inventory; it is the verb for a ship leaning over.",
-     "definitionFit": "A ship that heels lists, leaning to one side."
+     "surface": "An instruction to list what's in the shed and then sell it.",
+     "walkthrough": "'List' is not a catalogue: a ship lists when it leans, and heel means the same.",
+     "definitionFit": "A ship that heels leans to one side, which is exactly what listing means at sea."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "List"
     }
    }

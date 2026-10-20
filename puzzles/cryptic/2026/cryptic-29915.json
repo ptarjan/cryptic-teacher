@@ -393,34 +393,29 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "Discovering",
+       "at": 0,
+       "note": "dis-covering means removing the covers, the outer letters of each word"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "Discovering",
-         "note": "read as dis-covering: take the covers, the outer letters, off each word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "they",
-         "note": "tHEy"
-        }
-       ]
+       "words": "they",
+       "at": 12
       },
       {
        "words": "made",
-       "gives": "AD",
-       "note": "mADe"
+       "at": 17
       }
      ]
     },
     "explanation": {
-     "surface": "Finding out that they have been promoted to boss.",
-     "walkthrough": "'Discovering' looks like finding out; split it as dis-covering and it strips each word of its ends.",
-     "definitionFit": "The person at the top of a school, company or family is its chief, so the word stands for anyone in charge."
+     "surface": "Finding out that they made someone the leader.",
+     "walkthrough": "'Discovering' is read as dis-covering: strip the ends from THEY and MADE to leave HE and AD.",
+     "definitionFit": "A head is the person in charge of something, such as a head teacher."
     },
     "features": {
      "answerInScene": true,
@@ -1795,32 +1790,60 @@
     "definitions": [
      {
       "text": "soap?",
-      "at": 42,
-      "note": "soap is one example; the answer is the plural class it belongs to"
+      "at": 42
      }
     ],
     "wordplay": {
      "op": "charade",
      "parts": [
       {
-       "words": "Not half clever",
-       "gives": "CLE",
-       "note": "CLEVER with VER gone"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Not half",
+         "at": 0,
+         "note": "not half keeps only half the word, its first three letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clever",
+         "at": 9,
+         "gives": "CLEVER",
+         "note": "the word clever itself"
+        }
+       ]
       },
       {
-       "words": "solutions without",
-       "gives": "ANSERS",
-       "note": "ANSWERS with the W for with removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 34,
+         "note": "without is read as W-out: W, short for with, is taken out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "solutions",
+         "at": 24,
+         "gives": "ANSWERS",
+         "note": "solutions are answers"
+        },
+        {
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone half-smart is left with answers but no soap.",
-     "walkthrough": "'Without soap' looks like one phrase; split it, since 'without' does the deleting and 'soap?' is the definition by example.",
-     "definitionFit": "A definition by example, flagged by the question mark: soap belongs to the group of products used for washing."
+     "surface": "Clever people getting answers without any soap, a half-hearted effort.",
+     "walkthrough": "'without' is split as W out: W (the abbreviation for with) leaves ANSWERS to give ANSERS.",
+     "definitionFit": "Cleansers are products for cleaning skin or surfaces, a class to which soap belongs."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "without"

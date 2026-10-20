@@ -366,31 +366,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "taking lid off",
-       "note": "a lid is the top, so remove the first letter"
-      },
-      {
        "text": "for repair",
-       "note": "something sent for repair gets taken apart and rebuilt"
+       "at": 33,
+       "note": "something sent for repair is reworked, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "article",
-       "gives": "RTICLE",
-       "note": "ARTICLE without its first letter A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taking lid off",
+         "at": 10,
+         "note": "taking the lid off means the word's first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "article",
+         "at": 25
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly widow opens up some object to have it mended.",
-     "walkthrough": "'Article' looks like it wants A, AN or THE, but here it is the whole word, beheaded and then rearranged.",
-     "definitionFit": "Relict is an old word for a widow, the one left behind."
+     "surface": "An elderly widow takes the lid off something and sends it for repair.",
+     "walkthrough": "ARTICLE without its lid (A) leaves RTICLE, which rearranges to the answer.",
+     "definitionFit": "Relict is an archaic word for a widow, the one left behind after a spouse dies."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "article"
+     "misdirectedWord": "lid"
     }
    }
   },

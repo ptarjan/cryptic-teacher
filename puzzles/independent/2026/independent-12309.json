@@ -49,43 +49,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "uprising",
-       "note": "in a down entry, rising means reading bottom to top"
-      },
-      {
-       "text": "after",
-       "note": "the shot is placed after the turned-round allies"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after uprising",
+         "at": 8,
+         "note": "in a down clue an uprising word is read from bottom to top, so pals is written backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "shot",
-         "gives": "GNAB",
-         "note": "a bang is the sound of a shot"
-        },
-        {
          "words": "Allies",
+         "at": 0,
          "gives": "PALS",
-         "note": "pals = allies, turned upward"
+         "note": "allies are pals"
         }
        ]
+      },
+      {
+       "words": "shot",
+       "at": 24,
+       "gives": "BANG",
+       "note": "a shot is a bang"
       }
      ]
     },
     "explanation": {
-     "surface": "A grim war report: after a rising, one's allies were shot dead.",
-     "walkthrough": "'Dead' is not a corpse here but the adverb in 'dead centre', meaning exactly; 'shot' looks like the definition but is the bang.",
-     "definitionFit": "A plain synonym in the adverb sense: 'dead in the middle' and 'slap-bang in the middle' both mean exactly there."
+     "surface": "After a revolt, the allied fighters are shot dead.",
+     "walkthrough": "'dead' here is the adverb of 'dead centre', meaning exactly.",
+     "definitionFit": "Slap-bang and dead both mean exactly or precisely, as in slap-bang in the middle."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "dead"
     }
    }
@@ -434,39 +433,59 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "the article sits between the two items"
-      },
-      {
-       "text": "both cut",
-       "note": "each of the two items loses its last letter"
+       "at": 14,
+       "note": "between means the article sits in the middle of the two shortened words"
       }
      ],
      "parts": [
       {
-       "words": "baked item",
-       "gives": "BRIC",
-       "note": "a brick is baked clay; cut, it loses its K"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "both cut",
+         "at": 43,
+         "note": "both cut means each of the two words loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "baked item",
+           "at": 22,
+           "gives": "BRICK",
+           "note": "a brick is baked clay"
+          },
+          {
+           "words": "loaf",
+           "at": 37,
+           "gives": "BRACK",
+           "note": "a brack (barmbrack) is an Irish fruit loaf"
+          }
+         ]
+        },
+        {
+         "gives": "KK"
+        }
+       ]
       },
       {
        "words": "article",
+       "at": 6,
        "gives": "A",
-       "note": "the indefinite article"
-      },
-      {
-       "words": "loaf",
-       "gives": "BRAC",
-       "note": "brack is an Irish fruit loaf (barmbrack); cut, it loses its K"
+       "note": "a is the indefinite article"
       }
      ]
     },
     "explanation": {
-     "surface": "A baking instruction: put something between a pastry and a loaf, trimming both.",
-     "walkthrough": "The surface puts you in a bakery, but the 'baked item' is a brick, fired in a kiln. Brack is a speckled Irish fruit loaf.",
-     "definitionFit": "A plain synonym: odds and ends of ornamental clutter are both stuff and bric-a-brac."
+     "surface": "A baking instruction: put something between a baked item and a loaf, trimming both.",
+     "walkthrough": "'both cut' trims the last letter from each of the two outer words. A brack (barmbrack) is an Irish fruit loaf, and the baked item is a brick of fired clay.",
+     "definitionFit": "Bric-a-brac is miscellaneous ornaments and odds and ends, which is loosely stuff."
     },
     "features": {
      "answerInScene": false,
@@ -500,31 +519,64 @@
      "indicators": [
       {
        "text": "filled with",
-       "note": "the shelf holds the fish inside it"
+       "at": 19,
+       "note": "filled with means the shortened shelf word is wrapped round the other piece"
       }
      ],
      "parts": [
       {
-       "words": "short shelf",
-       "gives": "SIL",
-       "note": "a sill is a shelf, as under a window, less one L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 7,
+         "note": "short means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shelf",
+         "at": 13,
+         "gives": "SILL",
+         "note": "a sill is a shelf under a window"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
-       "words": "endless fish",
-       "gives": "TENC",
-       "note": "tench, a freshwater fish, less its H; it goes inside the shelf"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 31,
+         "note": "endless means the fish's name loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 39,
+         "gives": "TENCH",
+         "note": "the tench is a freshwater fish"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plan for a small shelf stacked with fish.",
-     "walkthrough": "Two words are clipped here, not one: 'short' and 'endless' each take a letter off, and it is easy to trim only the fish.",
-     "definitionFit": "A plain synonym: a pattern cut into card to be painted through is a design, and the cut sheet gives its name to it."
+     "surface": "A designer plans a small shelf to display fish.",
+     "walkthrough": "SILL shortened is SIL; TENCH without its end is TENC, which fills SIL as S-TENC-IL.",
+     "definitionFit": "A stencil is a cut-out pattern for painting a design, and the design produced is also called a stencil."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd"
+     "misdirectedWord": "shelf"
     }
    }
   },
@@ -1060,47 +1112,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "MATADOR",
+     "indicators": [
+      {
+       "text": "for the auditor",
+       "at": 45,
+       "note": "for the auditor means the words are taken as heard rather than as spelt"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "MATA",
-       "indicators": [
-        {
-         "text": "for the auditor",
-         "note": "an auditor is a listener, so the words are taken as heard"
-        }
-       ],
-       "parts": [
-        {
-         "words": "business",
-         "gives": "MATTER",
-         "note": "a matter is a piece of business"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "DOR",
-       "parts": [
-        {
-         "words": "portal",
-         "gives": "DOOR",
-         "note": "a door is a portal"
-        }
-       ]
+       "words": "business portal",
+       "at": 29,
+       "gives": "MATTERDOOR",
+       "note": "business is matter (what's the matter) and a portal is a door; said together they make matter-door"
       }
      ]
     },
     "explanation": {
-     "surface": "A businesslike web portal, checked by the auditor, that delivers the final push.",
-     "walkthrough": "'Auditor' pulls toward accountants and 'business portal' toward websites; the auditor is simply a listener.",
-     "definitionFit": "A definition by description: in the bullring, the man with the sword delivers the killing thrust at the end."
+     "surface": "A web portal for business is checked by an auditor.",
+     "walkthrough": "Business is MATTER and portal is DOOR; spoken, 'matter-door' sounds like the bullfighter.",
+     "definitionFit": "The matador is the bullfighter who kills the bull with the final sword thrust."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "auditor"
+     "joke": "pun",
+     "misdirectedWord": "portal"
     }
    }
   },

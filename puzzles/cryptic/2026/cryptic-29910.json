@@ -44,38 +44,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "top hidden",
-       "note": "the top letter of the mound is hidden away, so it drops off"
-      }
-     ],
      "parts": [
       {
-       "op": "first",
-       "parts": [
-        {
-         "words": "Cloudy",
-         "note": "the opening letter of Cloudy"
-        }
-       ]
+       "words": "Cloudy",
+       "at": 0,
+       "gives": "C",
+       "note": "c is the Beaufort weather notation letter for cloudy"
       },
       {
-       "words": "burial mound with",
-       "gives": "UMULUS",
-       "note": "TUMULUS, a burial mound, minus its first letter T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "top hidden",
+         "at": 25,
+         "note": "in a down clue the top is the first letter, so hiding it removes it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "burial mound",
+         "at": 7,
+         "gives": "TUMULUS",
+         "note": "a tumulus is an ancient burial mound"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A misty barrow on a hillside, its summit lost in low cloud.",
-     "walkthrough": "The answer is itself a cloud named after a heap, so the surface nearly tells you: swap the T of TUMULUS for the C of Cloudy.",
-     "definitionFit": "Cumulus is the puffy, heaped type of cloud."
+     "surface": "A burial mound under cloudy skies, its top hidden in cloud.",
+     "walkthrough": "In the Beaufort weather notation used on charts, c stands for cloudy. TUMULUS minus its top T leaves UMULUS.",
+     "definitionFit": "Cumulus is a type of heaped, fluffy white cloud."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Cloudy"
+     "misdirectedWord": "hidden"
     }
    }
   },
@@ -389,31 +396,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "guzzling"
+       "text": "guzzling",
+       "at": 18,
+       "note": "guzzling means the leader's name takes the other piece inside"
       }
      ],
      "parts": [
       {
        "words": "Communist leader",
+       "at": 0,
        "gives": "MAO",
-       "note": "Mao Zedong; he opens around the rest"
+       "note": "Mao Zedong led Communist China"
       },
       {
-       "words": "sherries, disposing of Nationalist",
-       "gives": "FIOS",
-       "note": "FINOS, dry sherries, minus N for Nationalist"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disposing of",
+         "at": 37,
+         "note": "disposing of means the letter is thrown out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sherries",
+         "at": 27,
+         "gives": "FINOS",
+         "note": "finos are pale dry sherries"
+        },
+        {
+         "words": "Nationalist",
+         "at": 50,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A party boss drinking sherry while having a nationalist rival rubbed out.",
-     "walkthrough": "Fino is a pale dry sherry. The definition is the last word, which the surface makes the victim rather than the answer.",
+     "surface": "A Communist leader guzzles sherry and gets rid of a Nationalist criminal.",
+     "walkthrough": "FINOS without N is FIOS, which MAO takes in: MA-FIOS-O.",
      "definitionFit": "A mafioso is a member of the Mafia, a criminal organisation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "disposing"
+     "misdirectedWord": "Nationalist"
     }
    }
   },
@@ -748,35 +776,38 @@
      "parts": [
       {
        "words": "Comedian's",
+       "at": 0,
        "gives": "WAG",
-       "note": "a wag is a joker; the 's is 'has'"
+       "note": "a wag is a joker, a comedian"
       },
       {
        "words": "good",
-       "gives": "G",
-       "note": "standard abbreviation"
+       "at": 11,
+       "gives": "G"
       },
       {
        "words": "one",
+       "at": 16,
        "gives": "A",
-       "note": "a = one"
+       "note": "a means one"
       },
       {
        "words": "repeated",
+       "at": 20,
        "gives": "WAGGA",
-       "note": "the whole WAGGA again"
+       "note": "repeated means the whole string just built is written out a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "A comic's best gag gets told again and again at a gig in Australia.",
-     "walkthrough": "Wagga Wagga is a city in New South Wales whose name doubles itself, which the clue builds literally.",
-     "definitionFit": "Wagga Wagga is a regional city in New South Wales, Australia."
+     "surface": "A comedian's good line, repeated in an Australian city.",
+     "walkthrough": "The 's of 'Comedian's' just joins the comedian to his line. The whole string is then doubled.",
+     "definitionFit": "Wagga Wagga is a large inland city in New South Wales, Australia."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "good"
+     "misdirectedWord": "Comedian's"
     }
    }
   },

@@ -572,28 +572,45 @@
      "indicators": [
       {
        "text": "after mishap",
-       "note": "after a mishap the letters are in a mess"
+       "at": 29,
+       "note": "after a mishap things are jumbled, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "a lot of cheese",
-       "gives": "CHEES",
-       "note": "CHEESE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 8,
+         "note": "a lot of means most but not all of the word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheese",
+         "at": 17,
+         "gives": "CHEESE",
+         "note": "the word cheese is taken almost whole"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "cry",
-       "note": "anagram fodder"
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "Someone grates too much cheese and yells after an accident with the grater.",
-     "walkthrough": "'Grating' looks like the kitchen action on the cheese, but it is the definition, meaning harsh on the ear.",
-     "definitionFit": "A plain synonym: a grating voice is harsh and shrill, the quality of a screech."
+     "surface": "Grating cheese, someone lets out a cry after a kitchen mishap.",
+     "walkthrough": "'Grating' looks like a kitchen action but it is the definition. CHEES plus CRY rearranged gives the answer.",
+     "definitionFit": "Screechy describes a harsh, shrill sound, which is what a grating noise is."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Grating"
