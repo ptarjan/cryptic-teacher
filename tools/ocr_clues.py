@@ -4137,7 +4137,9 @@ def settled_by_vlm(texts, lid, parse, cands):
 
 #: What a Gale page prints under its last across clue: the puzzle's number and the
 #: heading of the solution box ("23,099 Solution", "SWORD 23,095"), however torn.
-_FOOTER_TAIL = re.compile(r"\W*(?:(?:S?WORD|Solu\w*|\d{1,2}[,.]?\d{3})\W*)+")
+_FOOTER_TAIL = re.compile(r"\W*(?:(?:S?WORD|Solu\w*|\d{1,2}[,.]?\d{3}|to|ou|so)\W*)+")
+#: Of a footer, the part no clue ends in: the puzzle's number or the box's heading.
+_FOOTER_MARK = re.compile(r"\d{2}[,.]?\d{3}|Solu|WORD")
 _COUNT_AT = re.compile(r"\(\s*[\dSIl,.\- ]{1,9}\)")
 
 
@@ -4145,7 +4147,7 @@ def footer_cut(text):
     """`text` ended at its count when all that follows the count is the page's
     solution-box footer; else `text` as it was."""
     for m in reversed(list(_COUNT_AT.finditer(text))):
-        if _FOOTER_TAIL.fullmatch(text[m.end():]):
+        if _FOOTER_TAIL.fullmatch(text[m.end():]) and _FOOTER_MARK.search(text[m.end():]):
             return text[:m.end()].strip()
         break
     return text
@@ -4254,7 +4256,9 @@ def vlm_pick(texts, laid, blank, parse, pick):
         except Spooled as e:
             spooled = spooled or e
             continue
-        got = trimmed(held(clean(strip_count(asked or "")), cands), lid)
+        # The model copies the solution-box footer under the last across clue along with it
+        # ("... hair (8) WORD 23,105"); a clue ends at its count.
+        got = trimmed(held(clean(strip_count(footer_cut(asked or ""))), cands), lid)
         if not tokens(got) or merged(got):
             continue
         laid[lid] = (got, laid[lid][1], laid[lid][2])
