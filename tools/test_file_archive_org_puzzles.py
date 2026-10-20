@@ -2554,6 +2554,21 @@ check("clues read alike by two readers are settled, a blank one is weak", {"7-ac
 rd3 = {"djvu": good, "ch": good.replace("Fish in the sea", "Fisk in the sea")}
 check("a clue only one of two readings prints as filed is weak", {"6-across"},
       f.weak_lights(rd3, filed_laid, {}, lens))
+# A "See N" tail is a clue of only a cross-reference: two readings printing it settle it, laid
+# as "See 1" as filed puzzles have it, so the VLM is not asked for it.
+seen = good.replace("7 Dog on a lead (5)", "7 See 1 across")
+seen_rd = {"djvu": seen, "ch": seen.replace("See 1 across", "See 1")}
+seen_lens = {**lens, "7-across": [1] * 5}
+laid_see, blank_see = f.see_laid(seen_rd, filed_laid, {"7-across": "x"}, seen_lens, f.parse)
+check("two readings of a bare See N clue lay it as See N", ("See 1", {}),
+      (laid_see["7-across"][0], blank_see))
+check("one reading of a See N clue does not settle it", {"7-across": "x"},
+      f.see_laid({"djvu": seen, "ch": good}, filed_laid, {"7-across": "x"}, seen_lens, f.parse)[1])
+check("a laid See N clue two readings print is not weak", set(),
+      f.weak_lights(seen_rd, laid_see, {}, seen_lens))
+check("a See N naming no numbered light is not laid", {"7-across": "x"},
+      f.see_laid({k: t.replace("See 1", "See 9") for k, t in seen_rd.items()}, filed_laid,
+                 {"7-across": "x"}, seen_lens, f.parse)[1])
 # A reader that lost a clue's number, or ran its count into the next column's
 # text, still printed the clue: two such readings settle it (1948 Gale pages:
 # "These go before us", "Underground watchword (6) nem EDGES PuattsuiN").

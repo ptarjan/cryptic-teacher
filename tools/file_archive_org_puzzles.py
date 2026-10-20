@@ -150,6 +150,7 @@ throughout) holds them off: a unit then ends "held", left for the next plan.
 import argparse
 import ast
 import bisect
+import collections
 import contextlib
 import datetime
 import functools
@@ -3861,6 +3862,8 @@ def weak_lights(read, laid, blank, lengths, confirmed=()):
             continue
         if lid in confirmed:
             continue
+        if re.fullmatch(r"See \d+", text.strip()) and see_settled(read, lid, parse, lengths) == text.strip():
+            continue
         mine = words_of(text)
         # Each reading as filed clues are: its own slips mended first, so
         # a count or a drop capital left in one reading is no disagreement.
@@ -3976,6 +3979,44 @@ def leaked_laid(read, laid, blank, parse):
         best = max(seen.items(), key=lambda kv: len(kv[1]), default=None)
         if best and len(best[0]) >= RUN_LETTERS and len(best[1]) >= OCR_CONFIRM:
             laid[lid] = (best[1][0], laid[lid][1] if lid in laid else None, laid[lid][2] if lid in laid else None)
+            del blank[lid]
+    return laid, blank
+
+
+def see_readings(read, lid, parse, lengths):
+    """The "See N" texts ("See 5") the readings print for the light `lid`: each reading whose
+    clue for it is only a cross-reference to another numbered light of the grid."""
+    n, direction = lid.split("-")
+    out = []
+    for t in read.values():
+        parsed, _ = parse(t) if t.strip() else (None, None)
+        for c in (parsed or {}).get(direction, []):
+            if c["tokens"] and int(n) in c["tokens"][0]:
+                if (c["see"] is not None and len(c["tokens"]) == 1 and c["see"] != int(n)
+                        and any(f"{c['see']}-{d}" in lengths for d in ("across", "down"))):
+                    out.append(f"See {c['see']}")
+                break
+    return out
+
+
+def see_settled(read, lid, parse, lengths):
+    """The "See N" clue OCR_CONFIRM readings print alike for `lid`, else None."""
+    seen = collections.Counter(see_readings(read, lid, parse, lengths))
+    best = seen.most_common(1)
+    return best[0][0] if best and best[0][1] >= OCR_CONFIRM else None
+
+
+def see_laid(read, laid, blank, lengths, parse):
+    """(laid, blank) with each blank light laid as "See N", the filed form of a linked clue's
+    tail, when OCR_CONFIRM readings print it as only a cross-reference ("12 See 5 across"):
+    it carries no clue words or count for the vote to settle, so it was left to the VLM."""
+    laid, blank = dict(laid), dict(blank)
+    for lid in list(blank):
+        if (laid.get(lid) or ("",))[0].strip() or lid not in lengths:
+            continue
+        text = see_settled(read, lid, parse, lengths)
+        if text:
+            laid[lid] = (text, None, None)
             del blank[lid]
     return laid, blank
 
@@ -4553,6 +4594,8 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None):
     # it whole (the reprint's among them) and put to the rest.
     read = {k: t for k, t in texts.items() if t.strip()}
     laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths)
+    # A light the readings print as only "See N" is that clue, not a blank to ask the VLM for.
+    laid, blank = see_laid(read, laid, blank, lengths, parse)
     def tail(laid, blank):
         """(laid, blank, alike) after the steps that follow the VLM's pick."""
         # A light no reading laid and the VLM's pick left blank, laid from the
