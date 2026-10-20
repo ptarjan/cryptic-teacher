@@ -191,8 +191,10 @@ worker_settle() { echo "settle $1" >>"$ALERTS.settle"; }
 WORKER_BATCH_IDS=("$A" "$B")
 declare -A WORKER_BATCH_POST=([$A]="||" [$B]="||")
 worker_commit_batch Annotate >/dev/null
-check "a batch is one commit, named for all its puzzles" "Annotate 2 puzzles: $A $B" \
+check "a batch is one commit with a short subject" "Annotate 2 puzzles" \
   "$(git log -1 --format=%s)"
+check "and the ids of all its puzzles in the body" "$A $B" \
+  "$(git log -1 --format=%b | head -1)"
 check "holding both puzzle files" "2" "$(git show --name-only --format= HEAD -- puzzles | wc -l | tr -d ' ')"
 check "and both rows" "2" "$(git show -U0 HEAD -- $D | grep -c "^+.*\"\($A\|$B\)/98-across")"
 check "each puzzle is settled once" "2" "$(wc -l <"$ALERTS.settle" | tr -d ' ')"

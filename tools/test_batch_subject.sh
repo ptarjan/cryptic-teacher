@@ -37,7 +37,7 @@ index_unlock() { :; }
 alert() { echo "ALERT $*"; }
 worker_settle() { :; }
 stage_puzzles() { git add -A; }
-worker_commit() { SUBJECT="$1"; }
+worker_commit() { SUBJECT="$1"; BODY="${WORKER_COMMIT_BODY:-}"; WORKER_COMMIT_BODY=; }
 declare -gA WORKER_BATCH_POST=([a]="||" [b]="||")
 WORKER_JOB=t
 
@@ -50,7 +50,8 @@ check "only the changed puzzle is named" "Annotate a" "$SUBJECT"
 echo new >p/b.json
 WORKER_BATCH_IDS=(a b)
 worker_commit_batch Annotate >/dev/null
-check "both changed" "Annotate 2 puzzles: a b" "$SUBJECT"
+check "both changed: short subject" "Annotate 2 puzzles" "$SUBJECT"
+check "both changed: ids in the body" "a b" "$BODY"
 
 git add -A
 git commit -qm two
