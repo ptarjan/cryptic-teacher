@@ -722,12 +722,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "losing head",
-       "note": "a word that loses its head loses the letter standing at the very front of it"
-      },
-      {
        "text": "covering",
-       "note": "a cover goes over the top of what it hides, so this piece wraps round the letters named next"
+       "at": 49,
+       "note": "the jumbled letters wrap round the metal, covering it on both sides"
       }
      ],
      "parts": [
@@ -736,27 +733,49 @@
        "indicators": [
         {
          "text": "badly",
-         "note": "anything done badly comes out wrong, and letters that come out wrong come out in the wrong order"
+         "at": 38,
+         "note": "letters done badly are jumbled into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Madonna",
-         "gives": "ADONNA",
-         "note": "take the M off the front and ADONNA is the letter stock to shuffle"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "losing head",
+           "at": 26,
+           "note": "the name Madonna loses its first letter, its head"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Madonna",
+           "at": 17
+          },
+          {
+           "gives": "M"
+          }
+         ]
         }
        ]
       },
       {
        "words": "metal",
+       "at": 58,
        "gives": "TIN",
-       "note": "tin is the crossword's handiest metal, and it is wrapped up inside"
+       "note": "tin is a metal"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark apologises for 'metal': tin is a metal by example, not a definition of one. Andantino is a shade quicker than andante.",
-     "definitionFit": "Instruction -> ANDANTINO: the tempo words in a score are instructions to the player, and this one asks for a gently walking pace."
+     "surface": "A singer's stage direction gone wrong, with some metallic costume hiding her.",
+     "walkthrough": "'Instruction' means a tempo marking on a score, which fits the singer of the surface; the question mark flags that sense.",
+     "definitionFit": "Andantino is a tempo marking printed on a score, telling the player how fast to go."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Madonna"
     }
    }
   },

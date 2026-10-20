@@ -232,41 +232,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "salvaged from"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "salvaged from",
+         "at": 5,
+         "note": "the book is rescued, taken out, of the rubbish"
+        }
+       ],
        "parts": [
         {
-         "words": "Book",
-         "gives": "B",
-         "note": "B = book — this is what gets salvaged (taken out)"
-        },
-        {
          "words": "rubbish",
-         "gives": "GARAGE",
-         "note": "GARBAGE (rubbish) minus that B"
+         "at": 19,
+         "gives": "GARBAGE",
+         "note": "garbage is rubbish"
         },
         {
-         "words": "daughter",
-         "gives": "D",
-         "note": "d = daughter"
+         "words": "Book",
+         "at": 0,
+         "gives": "B"
         }
        ]
       },
       {
-       "gives": "B"
+       "words": "daughter",
+       "at": 27,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Salvaged from' means the B is lifted out of the rubbish, not added to it. The definition is the innocuous last word: a garaged car is a stored one.",
-     "definitionFit": "To keep a vehicle in its shelter is to garage it, so the past participle works as a synonym for put away."
+     "surface": "A book rescued from the bin that a girl had squirrelled away.",
+     "walkthrough": "GARBAGE without B is GARAGE; add D.",
+     "definitionFit": "A car that is garaged has been put away in a garage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "salvaged"
     }
    }
   },
@@ -1019,46 +1025,71 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "almost entirely"
-      }
-     ],
      "parts": [
       {
-       "op": "first",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "securing"
+         "text": "securing",
+         "at": 23,
+         "note": "the shortened word holds, secures, the letter inside"
         }
        ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as itself"
-        }
-       ]
-      },
-      {
-       "op": "container",
-       "parts": [
-        {
-         "words": "goal",
-         "gives": "TARGE",
-         "note": "TARGET (goal) 'almost entirely' — last letter off"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost entirely",
+           "at": 7,
+           "note": "all but the last letter of the word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "goal",
+           "at": 2,
+           "gives": "TARGET",
+           "note": "a target is a goal"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         },
         {
-         "words": "first place in league",
-         "gives": "L",
-         "note": "the first letter of 'league'"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first place in",
+           "at": 32,
+           "note": "the first letter of the word league"
+          }
+         ],
+         "parts": [
+          {
+           "words": "league",
+           "at": 47
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "TARGE(t) secures L and follows A. The sense needed is 'the public at large' — in general — not the fugitive meaning the surface hints at.",
-     "definitionFit": "An idiom: the public at large means the public as a whole, so the phrase stands for generally."
+     "surface": "A goal that nearly clinches top spot in the league table.",
+     "walkthrough": "TARGET without its last letter is TARGE, which holds L after its T.",
+     "definitionFit": "At large means taken as a whole, the public at large, as in general."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "goal"
     }
    }
   },
