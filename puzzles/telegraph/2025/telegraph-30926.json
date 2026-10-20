@@ -546,46 +546,42 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "both pruned",
+       "at": 15,
+       "note": "pruning trims the tops off, and both words lose their first letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "both pruned",
-         "note": "pruning trims the tops off, so each word loses its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Border",
+         "at": 0,
          "note": "taken as written"
         },
         {
-         "gives": "B"
+         "words": "bed",
+         "at": 11,
+         "note": "taken as written"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "bed",
-         "note": "taken as written"
-        },
-        {
-         "gives": "B"
-        }
-       ]
+       "gives": "BB"
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener has pruned the border and flower bed, leaving them neat.",
-     "definitionFit": "Ordered means arranged neatly, put in order, which is what tidied up describes."
+     "surface": "A gardener trims the edging and the flowerbed, leaving everything neat.",
+     "walkthrough": "'Border' and 'bed' look like gardening; each simply drops its B.",
+     "definitionFit": "Ordered means arranged neatly, put in order, so tidied up."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "pruned"
     }
@@ -1250,42 +1246,47 @@
      "parts": [
       {
        "words": "Quiet",
+       "at": 0,
        "gives": "SH",
-       "note": "SH is a call for quiet"
+       "note": "sh is the call for quiet"
+      },
+      {
+       "words": "upper-class",
+       "at": 7,
+       "gives": "U",
+       "note": "U denotes upper-class usage, as in U and non-U"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "quaintly",
-         "note": "quaintly suggests an odd, unusual arrangement of the letters"
+         "at": 24,
+         "note": "quaintly means in an odd way, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "upper-class",
-         "gives": "U",
-         "note": "U means upper-class in British usage"
-        },
-        {
          "words": "yet",
-         "note": "taken as written, before rearranging"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "at": 20,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 33,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A quiet, posh, yet old-fashioned English word for a nap.",
-     "definitionFit": "Shut-eye is an informal word for sleep, as in getting some shut-eye."
+     "surface": "Remarking that a quiet, posh old English word for sleep sounds charmingly dated.",
+     "walkthrough": "YET rearranged gives TEY. 'U' as upper-class comes from the U and non-U debate about posh British usage.",
+     "definitionFit": "Shut-eye is an informal word for sleep, the eyes being shut."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "quaintly"
     }

@@ -124,26 +124,44 @@
      "parts": [
       {
        "words": "duke",
-       "gives": "D",
-       "note": "D is the standard abbreviation for duke"
+       "at": 7,
+       "gives": "D"
       },
       {
-       "words": "forced to give up whiskey",
-       "gives": "RENCHED",
-       "note": "WRENCHED (forced) losing W, which is whiskey in the NATO alphabet"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to give up",
+         "at": 19,
+         "note": "giving up the letter means it is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "forced",
+         "at": 12,
+         "gives": "WRENCHED",
+         "note": "wrenched means forced, pulled violently"
+        },
+        {
+         "words": "whiskey",
+         "at": 30,
+         "gives": "W",
+         "note": "W is Whiskey in the NATO phonetic alphabet"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunken duke is made to go without his whisky.",
-     "walkthrough": "'Soused' suggests the drunk duke of the surface, but here it means soaked through. Whiskey is W in the phonetic alphabet (Alpha, Bravo… Whiskey).",
-     "definitionFit": "Soused can mean soaked in liquid, just as drenched does."
+     "surface": "A drunken nobleman made to quit the hard stuff.",
+     "walkthrough": "'whiskey' looks like the drink but is W from the NATO alphabet.",
+     "definitionFit": "Soused can mean soaked through as well as drunk; drenched means thoroughly wet."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Soused"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
     }
    }
   },
@@ -391,29 +409,49 @@
      "parts": [
       {
        "words": "A",
-       "note": "taken as it stands"
+       "at": 0
       },
       {
        "words": "Catholic",
+       "at": 2,
        "gives": "RC",
-       "note": "RC = Roman Catholic"
+       "note": "RC stands for Roman Catholic"
       },
       {
-       "words": "afterlife without hot",
-       "gives": "ADES",
-       "note": "HADES, the underworld, without H for hot"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 21,
+         "note": "without means lacking, so the letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "afterlife",
+         "at": 11,
+         "gives": "HADES",
+         "note": "Hades is the Greek underworld of the dead"
+        },
+        {
+         "words": "hot",
+         "at": 29,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on taps"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Catholic imagines a hereafter free of heat, or of any fun.",
-     "walkthrough": "'Or' misleads: it reads as a choice between hot and fun, but it ends the wordplay and joins it to the definition.",
-     "definitionFit": "A definition by example: amusement arcades, full of slot machines and games, are one kind of place people go for fun."
+     "surface": "A Catholic version of the afterlife missing both hellfire and enjoyment.",
+     "walkthrough": "HADES loses its H to leave ADES.",
+     "definitionFit": "Amusement arcades are places full of games and machines for entertainment."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hot"
+     "misdirectedWord": "fun"
     }
    }
   },
@@ -669,25 +707,38 @@
      "parts": [
       {
        "words": "one",
+       "at": 32,
        "gives": "A",
-       "note": "a = one, as in 'a dog'"
+       "note": "A means one, as in a single thing"
       },
       {
-       "words": "half of train",
-       "gives": "CHOO",
-       "note": "a child's word for a train is CHOO-CHOO; half of it is CHOO"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 36,
+         "note": "half of the word, so the first four of its eight letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "train",
+         "at": 44,
+         "gives": "CHOOCHOO",
+         "note": "choo-choo is a child's word for a train"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone with hay fever sneezes in one of a train's carriages.",
-     "walkthrough": "'Train' is the nursery choo-choo, not the railway carriage the surface implies.",
-     "definitionFit": "Hay fever and other allergies set off sneezing, and this is how a sneeze is spelt in print."
+     "surface": "Hay fever triggered by a single carriage of a train.",
+     "walkthrough": "Choo-choo is nursery talk for a train; half of it is CHOO.",
+     "definitionFit": "Achoo imitates the sound of a sneeze, a common reaction to an allergen."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "train"
     }
    }

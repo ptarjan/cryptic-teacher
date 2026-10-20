@@ -607,36 +607,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "corrupt",
-       "note": "corrupting something spoils its proper form, so the letters are scrambled"
-      },
-      {
-       "text": "corruption",
-       "note": "a corruption is a distortion, so these letters too are jumbled"
+       "text": "covering up",
+       "at": 29,
+       "note": "covering up means wrapping around, so one group of letters goes inside the other"
       }
      ],
      "parts": [
       {
-       "words": "party",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "corrupt",
+         "at": 15,
+         "note": "corrupt here means spoilt or garbled, so the word's letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 23,
+         "note": "taken as written"
+        }
+       ]
       },
       {
-       "words": "real main",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "corruption",
+         "at": 51,
+         "note": "corruption means garbling, so these letters are rearranged too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "real main",
+         "at": 41,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dodgy political party hushes up a major scandal involving Members of Parliament.",
-     "walkthrough": "Both sets of letters are mixed together; 'covering up' suggests one wraps the other, but the result interleaves them.",
-     "definitionFit": "Parliamentary describes anything belonging to Parliament, whose elected members are MPs."
+     "surface": "Private Eye's familiar charge: a crooked party hushing up a major scandal.",
+     "walkthrough": "'corrupt' and 'corruption' each scramble their own word; the first scramble splits after its opening letter to wrap the second.",
+     "definitionFit": "Parliamentary means relating to Parliament, the body whose elected members are MPs."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "main"
     }
    }
   },
@@ -1627,61 +1651,72 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "backing",
-       "note": "backing means moving backwards, so the letters run the other way"
+       "text": "internal",
+       "at": 34,
+       "note": "internal means placed inside, so one piece goes within the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "internal",
-         "note": "internal means on the inside, so this piece goes within the other"
+         "text": "produced",
+         "at": 20,
+         "note": "produced in the sense of made up or worked, so the letters are reworked into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "produced",
-           "note": "producing something from raw material reshapes it, so the letters are remade"
-          }
-         ],
+         "words": "replica",
+         "at": 12,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 43,
+         "note": "backing means going in reverse, so the pieces are read from the end"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "words": "replica",
-           "note": "the letters rearranged"
+           "words": "one",
+           "at": 54,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
           },
           {
-           "words": "one",
-           "gives": "I",
-           "note": "the Roman numeral for one"
+           "words": "party",
+           "at": 58,
+           "gives": "DO",
+           "note": "a do is a party"
           }
          ]
-        },
-        {
-         "words": "party",
-         "gives": "DO",
-         "note": "a do is a party"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A copy of the magazine Private Eye backed internally by a single political party.",
-     "walkthrough": "The setter's own magazine is the definition; DO is a common word for a party.",
-     "definitionFit": "Private Eye is a fortnightly British satirical magazine, and a magazine published at regular intervals is a periodical."
+     "surface": "Private Eye mocked as a copy, made with a party's support from inside.",
+     "walkthrough": "'Private Eye' sounds like a detective, but it is the satirical magazine, the definition; the turned-round letters sit after the fourth letter of the scramble.",
+     "definitionFit": "Private Eye is a satirical British magazine published fortnightly, an example of a periodical."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "party"
+     "aptDefinition": false,
+     "misdirectedWord": "replica"
     }
    }
   },

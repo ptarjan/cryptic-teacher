@@ -831,30 +831,48 @@
      "parts": [
       {
        "words": "Popular",
+       "at": 0,
        "gives": "IN",
-       "note": "in = popular, fashionable"
+       "note": "in means fashionable, popular"
       },
       {
        "words": "enthusiast",
+       "at": 8,
        "gives": "FAN",
        "note": "a fan is an enthusiast"
       },
       {
-       "words": "he leaves electronic band",
-       "gives": "TPRODIGY",
-       "note": "The Prodigy, a British electronic dance band, without HE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "he leaves",
+         "at": 20,
+         "note": "the letters of he leave, taken out of the band's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "electronic band",
+         "at": 30,
+         "gives": "THEPRODIGY",
+         "note": "The Prodigy is a British electronic dance band"
+        },
+        {
+         "gives": "HE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A popular fan quits an electronic music group led by a boy genius.",
-     "walkthrough": "The Prodigy were a 1990s British electronic dance act; taking HE out of THE PRODIGY leaves the T that joins FAN to PRODIGY.",
-     "definitionFit": "Wunderkind is German for wonder child, a child prodigy."
+     "surface": "A popular fan, who quits an electronic group, turns out to be a whizz-kid.",
+     "walkthrough": "The Prodigy was a 1990s British electronic band; take HE out of THE PRODIGY.",
+     "definitionFit": "Wunderkind is German for wonder child, someone remarkably gifted at a young age."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leaves"
+     "misdirectedWord": "band"
     }
    }
   },
