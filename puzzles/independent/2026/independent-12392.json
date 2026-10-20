@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -544,53 +545,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "Only the letters the words begin with are wanted, and nothing that follows them."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "Not quite",
-         "note": "Something not quite complete stops just short, so the final letter never arrives."
+         "text": "initially",
+         "at": 12,
+         "note": "initially means take the opening letter of each of the two words"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "SP",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Small place",
-           "gives": "SP",
-           "select": "first",
-           "note": "The opening letters of the first two words."
-          }
-         ]
+         "words": "Small",
+         "at": 0
         },
         {
-         "words": "without facilities for skating",
-         "gives": "RINKLESS",
-         "note": "A place with no rinks is rinkless, a rink being the sheet of ice skaters use."
+         "words": "place",
+         "at": 6
         }
        ]
       },
       {
-       "gives": "S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "at": 54,
+         "note": "not quite means the word stops one letter short of its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "without facilities for skating",
+         "at": 22,
+         "gives": "RINKLESS",
+         "note": "having no rinks, the places where people skate, is rinkless"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A little town that looks at first to have nowhere at all to skate.",
-     "walkthrough": "'Without' is not the container instruction it looks like but the ordinary sense of lacking, and the coined word it produces is most of the answer.",
-     "definitionFit": "Sprinkles are light scattered touches — of rain, of sugar — landing here and there instead of covering evenly."
+     "surface": "A small town lacking an ice rink, almost but not entirely.",
+     "walkthrough": "S and P open 'Small place'; a place with no rinks would be RINKLESS, cut short to RINKLES.",
+     "definitionFit": "Sprinkles are small scattered amounts, light touches dotted about here and there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "skating"
     }
    }
   },
@@ -952,53 +960,76 @@
      "op": "container",
      "indicators": [
       {
-       "text": "not entirely",
-       "note": "Taken not entirely, the phrase comes up short and its last letter is left behind."
-      },
-      {
-       "text": "backing",
-       "note": "Backing means moving backwards, so the French word is written the other way round."
+       "text": "receiving",
+       "at": 41,
+       "note": "receiving means the rearranged letters take in the turned piece"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "anagram",
        "indicators": [
         {
          "text": "scrapped",
-         "note": "Scrapped machinery is broken up for parts, and letters scrapped are broken out of their order."
+         "at": 31,
+         "note": "scrapped suggests things broken up and reassembled differently"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "TV",
+         "at": 8
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "receiving",
-           "note": "Whatever receives something takes it in, so the short piece lands inside the long one."
+           "text": "not entirely",
+           "at": 18,
+           "note": "not entirely means the last letter of the word is cut off"
           }
          ],
          "parts": [
           {
-           "words": "TV series",
-           "gives": "TVSERIE",
-           "note": "TV series offers eight letters and the last of them is dropped, leaving seven to be shuffled."
+           "words": "series",
+           "at": 11
+          },
+          {
+           "gives": "S"
           }
          ]
         }
        ]
       },
       {
-       "words": "of the French",
-       "gives": "UD",
-       "note": "The French for 'of the' is du, here written backwards."
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 51,
+         "note": "backing means the French words are turned round to read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of the French",
+         "at": 59,
+         "gives": "DU",
+         "note": "du is French for 'of the'"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A television series about bondage is partly scrapped, with French money coming in behind it.",
-     "walkthrough": "'Bondage' opens the clue as though it were the subject of the programme, which is exactly what a definition standing first can get away with.",
-     "definitionFit": "Servitude is the condition of being bound to serve another — slavery, forced labour — which is what bondage means at its plainest."
+     "surface": "A bondage-themed television show gets partly axed.",
+     "walkthrough": "'not entirely' trims only the word series, before the rearranging; 'the French' is the French for 'of the', not a reference to France.",
+     "definitionFit": "Servitude is the state of being a slave or under another's control, which is what bondage means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scrapped"
     }
    }
   },
@@ -1098,24 +1129,24 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "Chat that runs on endlessly never gets to its end, so the closing letter is missing."
-      }
-     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "OC",
+       "indicators": [
+        {
+         "text": "Sources in",
+         "at": 0,
+         "note": "sources means the starting letters of each of the two university names"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Oxford and Cambridge",
-         "gives": "OC",
-         "select": "first",
-         "note": "The opening letters of the two university cities."
+         "words": "Oxford",
+         "at": 11
+        },
+        {
+         "words": "Cambridge",
+         "at": 22
         }
        ]
       },
@@ -1123,15 +1154,17 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "Sources in",
-         "note": "A source is where a thing starts, so only the letters the words start with are taken."
+         "text": "endlessly",
+         "at": 37,
+         "note": "endlessly means the word loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "chat",
+         "at": 32,
          "gives": "TALK",
-         "note": "To chat is to talk."
+         "note": "chat means talk"
         },
         {
          "gives": "K"
@@ -1141,9 +1174,15 @@
      ]
     },
     "explanation": {
-     "surface": "Insiders at the two old universities chat on and on about the Eights, the college rowing races.",
-     "walkthrough": "The Eights of the surface are the bumping races Oxford and Cambridge crews row each summer; the eights of the definition are a counting base.",
-     "definitionFit": "Octal is the base-eight number system, so anything octal is by definition a matter of eights."
+     "surface": "Students from the two old universities gossip without end about rowing eights.",
+     "walkthrough": "'eights' suggests the Oxford and Cambridge rowing crews, but the definition means the number eight.",
+     "definitionFit": "Octal describes a number system in base 8, so it relates to eights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eights"
     }
    }
   },

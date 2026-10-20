@@ -350,7 +350,7 @@
        ],
        "parts": [
         {
-         "words": "Domicile",
+         "words": "Domicile lacking contents",
          "gives": "DOMICILE",
          "note": "DomicilE emptied"
         }
@@ -1166,7 +1166,7 @@
         {
          "words": "many",
          "gives": "MANY",
-         "note": "last letter of manY"
+         "note": "the word many, taken as written, supplying its final letter"
         }
        ]
       }
@@ -1465,7 +1465,7 @@
         {
          "words": "having",
          "gives": "HAVING",
-         "note": "last letter of havinG"
+         "note": "the word having, taken as written, supplying its final letter"
         }
        ]
       }
@@ -1605,40 +1605,29 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "first",
      "indicators": [
       {
        "text": "both half-cut",
        "at": 21,
-       "note": "both of the two words are cut in half, keeping only the front half of each"
+       "note": "both half-cut means each of the two words keeps only its front half, the back half being cut away"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "wife",
-         "at": 11,
-         "note": "the word as written; its first half is WI"
-        },
-        {
-         "words": "Nora",
-         "at": 16,
-         "note": "the name as written; its first half is NO"
-        }
-       ]
+       "words": "wife",
+       "at": 11
       },
       {
-       "gives": "FERA",
-       "note": "the back halves of the two words, FE from wife and RA from Nora"
+       "words": "Nora",
+       "at": 16
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker and his wife Nora, both tipsy.",
-     "walkthrough": "'both half-cut' is British slang for drunk, but here it cuts each word in half: WI from wife, NO from Nora.",
-     "definitionFit": "A wino is a habitual drinker of cheap wine, an alcoholic down on their luck; a boozer can be such a person."
+     "surface": "A drinking husband and his wife Nora are both tipsy.",
+     "walkthrough": "'half-cut' is British slang for drunk, but here it halves WIFE to WI and NORA to NO.",
+     "definitionFit": "A wino is a habitual drinker, typically of cheap wine."
     },
     "features": {
      "answerInScene": true,
@@ -1665,7 +1654,8 @@
     "definitions": [
      {
       "text": "nostril?",
-      "at": 49
+      "at": 49,
+      "note": "a nostril is one example of an orifice, as the question mark signals"
      }
     ],
     "wordplay": {
@@ -1676,41 +1666,40 @@
        "indicators": [
         {
          "text": "intermittently absent",
-         "note": "every other letter is missing"
-        },
-        {
-         "text": "following"
+         "at": 8,
+         "note": "intermittently absent means every other letter goes missing, keeping the rest"
         }
        ],
        "parts": [
         {
          "words": "Our kid",
-         "gives": "OURKID",
-         "note": "OuR kId, letters 1, 3 and 5"
+         "at": 0
         }
        ]
       },
       {
        "words": "following",
+       "at": 30,
        "gives": "F",
-       "note": "f. = following, as in page references"
+       "note": "F is the abbreviation for following, as in page references"
       },
       {
        "words": "chill",
+       "at": 40,
        "gives": "ICE",
-       "note": "ice = chill"
+       "note": "chill means ice"
       }
      ]
     },
     "explanation": {
-     "surface": "A child keeps missing school because of a cold in the nose.",
-     "walkthrough": "'Our kid' is northern English for one's younger brother, and reads as a child. 'Following' looks like 'after' but supplies its own F. The question mark marks a nostril as one example of an orifice.",
-     "definitionFit": "Definition by example, flagged by the question mark: a nostril is one of the body's openings, and orifice is the formal word for any such opening."
+     "surface": "A child with a cold has a blocked nose.",
+     "walkthrough": "'Our kid' is northern English for a younger sibling; every other letter gives ORI.",
+     "definitionFit": "An orifice is any opening in the body, of which the nostril is one example."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "following"
+     "aptDefinition": true,
+     "misdirectedWord": "chill"
     }
    }
   },
