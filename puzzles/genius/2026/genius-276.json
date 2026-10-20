@@ -897,55 +897,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 20,
+       "note": "found in says the answer sits inside the run of clue words that follows, so everything around it is stripped away, as is the redundant word"
+      }
+     ],
      "parts": [
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "found in",
-         "note": "found in says the instrument lies concealed among the letters of the words that follow, with the extra word skipped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "pioneering",
-         "note": "the closing letter of pioneering"
-        }
-       ]
+       "words": "pioneering US motor library",
+       "at": 29,
+       "note": "the words holding the hidden run, read with the redundant word taken out"
       },
       {
-       "words": "US",
-       "note": "taken as written"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LI",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "library",
-         "gives": "LI",
-         "select": "first",
-         "note": "the opening two letters of library"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "motor",
-       "note": "the redundant word; the run of letters skips it; it defines CAR, a word in one of the cube's faces"
+       "gives": "PIONEERINMOTORBRARY",
+       "note": "everything but the run pioneerinG US LIbrary is removed, including the redundant word motor, the puzzle's redundant word for this clue, struck out because it defines one of the cube entries rather than playing a part here"
       }
      ]
     },
     "explanation": {
-     "surface": "A rare instrument turns up in an innovative American automobile library.",
-     "walkthrough": "This is a hidden word with the extra word 'motor' sitting inside the run; strike it out and the instrument runs across the remaining words. The gusli is a Russian zither-like folk instrument.",
-     "definitionFit": "The gusli is an old Russian plucked instrument, a kind of psaltery with strings across a wooden box."
+     "surface": "A musical instrument turns up in the collection of an American automotive library devoted to pioneers.",
+     "walkthrough": "'motor' is this clue's redundant word, per the preamble: it defines CAR in one of the cubes. Strike it and the letters run pioneerinG US LIbrary.",
+     "definitionFit": "The gusli is a Russian folk zither, a plucked string instrument of the psaltery family."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "motor"
     }
