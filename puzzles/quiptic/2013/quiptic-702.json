@@ -1103,53 +1103,64 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "between places this piece in the middle of the two others"
+       "at": 25,
+       "note": "between puts the short affair inside, with France on one side and Sweden on the other"
       }
      ],
      "parts": [
       {
-       "words": "France",
-       "gives": "F",
-       "note": "F is the international vehicle code for France"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "France",
+         "at": 33,
+         "gives": "F",
+         "note": "F is the international vehicle code for France"
+        },
+        {
+         "words": "Sweden",
+         "at": 44,
+         "gives": "S",
+         "note": "S is the international vehicle code for Sweden"
+        }
+       ]
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "brief",
-         "note": "something brief is cut short, so its final letter goes"
+         "at": 11,
+         "note": "brief means cut short, so the word loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "liaison",
+         "at": 17,
          "gives": "AMOUR",
-         "note": "an amour is a love affair"
+         "note": "an amour is a love affair or liaison"
         },
         {
          "gives": "R"
         }
        ]
-      },
-      {
-       "words": "Sweden",
-       "gives": "S",
-       "note": "S is the international vehicle code for Sweden"
       }
      ]
     },
     "explanation": {
-     "surface": "A short-lived romance between a French and a Swedish celebrity makes the news.",
-     "definitionFit": "Celebrated and famous are synonyms for widely known and acclaimed."
+     "surface": "A famous short romance between a French and a Swedish lover.",
+     "walkthrough": "F and S are the international vehicle codes for the two countries; 'brief' is the usual signal to drop a word's last letter.",
+     "definitionFit": "Someone celebrated is widely known and admired, so famous is a direct synonym."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Celebrated"
+     "misdirectedWord": "brief"
     }
    }
   },
