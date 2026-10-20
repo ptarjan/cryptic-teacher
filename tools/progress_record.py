@@ -170,17 +170,24 @@ def record(today=None):
 
 def annotate_dates():
     """{id: the day of its first "Annotate <id>" commit}."""
-    out = subprocess.run(["git", "log", "--reverse", "--date=short", "--format=%ad\t%s"],
+    out = subprocess.run(["git", "log", "--reverse", "--date=short",
+                          "--format=\x01%ad\t%s%n%b"],
                          cwd=progress.ROOT, capture_output=True, text=True, check=True).stdout
     first = {}
-    for line in out.splitlines():
-        day, _, subject = line.partition("\t")
+    for entry in out.split("\x01")[1:]:
+        head, _, body = entry.partition("\n")
+        day, _, subject = head.partition("\t")
         words = subject.split()
-        # "Annotate <id>", or a batch's "Annotate N puzzles: <id> <id> ..."
+        # "Annotate <id>"; a batch's old "Annotate N puzzles: <id> <id> ...";
+        # or its new "Annotate N puzzles" with the ids in the body's first
+        # paragraph (the trailer paragraphs after it are not ids).
         if len(words) == 2 and words[0] == "Annotate":
             first.setdefault(words[1], day)
         elif len(words) > 3 and words[0] == "Annotate" and words[2] == "puzzles:":
             for pid in words[3:]:
+                first.setdefault(pid, day)
+        elif len(words) == 3 and words[0] == "Annotate" and words[2] == "puzzles":
+            for pid in body.strip().split("\n\n")[0].split():
                 first.setdefault(pid, day)
     return first
 

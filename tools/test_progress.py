@@ -409,3 +409,21 @@ if got != "['1975-03-04', '1975-03-05'] [2, 1, 0, 1]":
     print(f"FAIL edition_backlog off the manifests: {got}")
     sys.exit(1)
 print("edition_backlog off the manifests: ok")
+
+# annotate_dates reads a batch's ids from the old subject and the new body.
+import progress, progress_record
+_repo = tempfile.mkdtemp(dir=TMPDIR)
+_g = lambda *a: subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t", *a], cwd=_repo, check=True, capture_output=True)
+_g("init", "-q")
+for _m in ("Annotate solo-1", "Annotate 2 puzzles: old-1 old-2",
+           "Annotate 3 puzzles\n\nnew-1 new-2\nnew-3\n\nProvenance: x y z"):
+    _g("commit", "-q", "--allow-empty", "-m", _m)
+_saved, progress.ROOT = progress.ROOT, _repo
+try:
+    _first = progress_record.annotate_dates()
+finally:
+    progress.ROOT = _saved
+if sorted(_first) != ["new-1", "new-2", "new-3", "old-1", "old-2", "solo-1"]:
+    print(f"FAIL annotate_dates: {sorted(_first)}")
+    sys.exit(1)
+print("annotate_dates, old and new batch forms: ok")

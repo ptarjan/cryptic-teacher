@@ -564,6 +564,8 @@ stage_puzzles() {   # id...
 # pathspecs to unstage if the commit is refused. 0 when committed.
 worker_commit() {   # subject paths...
   local subject="$1" out sha try ok=0 rc=0 sigs=0
+  local body="${WORKER_COMMIT_BODY:-}"   # set by worker_commit_batch: the ids
+  WORKER_COMMIT_BODY=
   shift
   # A status or sync elsewhere in this tree holds index.lock for a moment, as
   # stage_puzzle's add knows; refused once, the staged puzzle used to ride in
@@ -580,7 +582,7 @@ worker_commit() {   # subject paths...
   # update-index, never git add of the whole table). Callers hold ct-index.lock,
   # which is what keeps a sibling's staging out of this index meanwhile.
   for try in 1 2 3 4 5; do
-    out=$(git commit -q -m "$(printf '%s\n\n%s' "$subject" "$(python3 tools/provenance.py trailer)")" 2>&1) && { ok=1; break; }
+    out=$(git commit -q -m "$(printf '%s\n\n%s%s' "$subject" "${body:+$body$'\n\n'}" "$(python3 tools/provenance.py trailer)")" 2>&1) && { ok=1; break; }
     rc=$?
     # A git killed by a signal (10-17: exit 135, SIGBUS, three finished puzzles
     # left staged, said nothing) most likely had a pack or the index replaced
@@ -1099,7 +1101,7 @@ worker_settle() {   # id partial verdict pending
 }
 
 # One commit for every puzzle a bag finished and queued in WORKER_BATCH_IDS:
-# "Annotate 9 puzzles: id1 id2 ...", or the plain "Annotate id" for one. Their
+# "Annotate 9 puzzles" with the ids in the body, or the plain "Annotate id" for one. Their
 # files and their rows of the shared tables are staged together, under the
 # index lock, so the commit is the whole batch or nothing; push_puzzle_commit.sh
 # then publishes it as one (its conflict handling is per puzzle file). On a
@@ -1131,7 +1133,11 @@ worker_commit_batch() {   # what
   done
   if [ "${#named[@]}" -eq 1 ]; then subject="$what ${named[0]}"
   elif [ "${#named[@]}" -eq 0 ]; then subject="$what: queue rows of ${#ids[@]} puzzles, no puzzle file changed"
-  else subject="$what ${#named[@]} puzzles: ${named[*]}"; fi
+  else
+    # Git convention (Paul 10-20): a short subject, the ids in the body.
+    subject="$what ${#named[@]} puzzles"
+    WORKER_COMMIT_BODY="$(printf '%s' "${named[*]}" | fold -s -w 72)"
+  fi
   # shellcheck disable=SC2046  # one path per line, none with a space
   worker_commit "$subject" "${specs[@]}" $(python3 tools/own_rows.py paths) || return 1
   for id in "${ids[@]}"; do
