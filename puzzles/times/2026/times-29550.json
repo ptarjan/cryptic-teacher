@@ -1196,71 +1196,75 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAMOYED",
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
          "text": "first",
-         "note": "take the first letter of Sounds"
+         "at": 18,
+         "note": "first takes the opening letter of the word before it"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "includes"
-          }
-         ],
-         "parts": [
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "S",
-           "indicators": [
-            {
-             "text": "predominantly",
-             "note": "most of YES, without its last letter"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "Sounds'",
-             "gives": "S",
-             "select": "first",
-             "note": "the first letter of Sounds"
-            }
-           ]
-          },
-          {
-           "words": "poster",
-           "gives": "AD",
-           "note": "an advert"
-          }
-         ]
+         "words": "Sounds'",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "includes",
+         "at": 31,
+         "note": "the poster holds the other pieces inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poster",
+         "at": 24,
+         "gives": "AD",
+         "note": "an ad is an advertisement, a poster"
         },
         {
          "op": "charade",
          "parts": [
           {
            "words": "Mike",
+           "at": 40,
            "gives": "M",
-           "note": "Mike is M in the NATO alphabet"
+           "note": "M is Mike in the NATO phonetic alphabet"
           },
           {
            "words": "Love",
+           "at": 45,
            "gives": "O",
-           "note": "love = nil = O, from tennis"
+           "note": "love is zero in tennis scores, the letter O"
           },
           {
-           "words": "yes",
-           "gives": "YE",
-           "note": "YES without its last letter"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "predominantly",
+             "at": 50,
+             "note": "predominantly keeps most of the word, losing its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "yes",
+             "at": 65,
+             "gives": "YES",
+             "note": "the word yes"
+            },
+            {
+             "gives": "S"
+            }
+           ]
           }
          ]
         }
@@ -1269,13 +1273,14 @@
      ]
     },
     "explanation": {
-     "surface": "A Beach Boys fan asks whether the first Pet Sounds poster features Mike Love most prominently.",
-     "walkthrough": "Pet Sounds is the Beach Boys album and Mike Love their singer, so 'Pet' looks locked into the title. It is the definition: a Samoyed is one kind of pet.",
-     "definitionFit": "A Samoyed is a fluffy white Siberian dog breed, so maybe a pet."
+     "surface": "Pet Sounds is the Beach Boys album and Mike Love one of the band, so it reads as a question about the album's poster.",
+     "walkthrough": "'predominantly' cuts YES to YE; M, O and YE go inside AD after S. 'Pet' looks like part of the album title but is the definition, with 'Maybe' marking an example.",
+     "definitionFit": "A Samoyed is a fluffy white Siberian dog breed, the kind of animal that might be kept as a pet."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Pet"
     }
    }
@@ -1451,40 +1456,33 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "avoiding leader"
+       "text": "avoiding leader",
+       "at": 30,
+       "note": "avoiding leader means the word loses its first letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Oliver perhaps",
-         "gives": "JAMIE",
-         "note": "Jamie Oliver, the British TV chef"
-        },
-        {
-         "words": "avoiding leader",
-         "gives": "AMIE",
-         "note": "J dropped from the front"
-        }
-       ]
+       "words": "Oliver perhaps",
+       "at": 15,
+       "gives": "JAMIE",
+       "note": "Jamie Oliver is a celebrity chef, so Jamie is an Oliver"
       },
       {
-       "gives": "JAMIE"
+       "gives": "J"
       }
      ]
     },
     "explanation": {
-     "surface": "Nancy's friend Oliver is keeping out of the boss's way.",
-     "walkthrough": "Nancy looks like a person, but it is the French city, so her friend is French: amie. Oliver is Jamie Oliver, the British celebrity chef.",
-     "definitionFit": "Amie is French for a female friend, as said in Nancy."
+     "surface": "A girl called Nancy has a friend, Oliver, who keeps clear of the boss.",
+     "walkthrough": "Nancy is a French city, so 'Nancy's friend' wants French. 'Oliver' suggests Oliver Twist's Nancy, but it is the chef's surname.",
+     "definitionFit": "Amie is the French word for a female friend, as someone in Nancy, France would say it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Nancy"
+     "misdirectedWord": "Nancy's"
     }
    }
   },

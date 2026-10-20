@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -501,38 +502,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "A word given short is cut off before it ends, giving up its final letter."
-      },
-      {
-       "text": "failing to finish",
-       "note": "A runner failing to finish never reaches the end, and neither does the word — its last letter is left off."
-      }
-     ],
      "parts": [
       {
-       "words": "guy",
-       "gives": "RI",
-       "note": "to guy somebody is to rib them, and that three-letter verb is docked"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 18,
+         "note": "short means cut off at the end, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guy",
+         "at": 24,
+         "gives": "RIB",
+         "note": "to guy someone is to mock them, and so is to rib them"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       },
       {
-       "words": "small horse",
-       "gives": "PON",
-       "note": "a small horse is a pony, one letter short of home"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "failing to finish",
+         "at": 44,
+         "note": "the word stops before its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "small horse",
+         "at": 32,
+         "gives": "PONY",
+         "note": "a pony is a small horse"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short man and a small horse that pulled up before the line.",
-     "walkthrough": "Ripon is a North Yorkshire racecourse given over to flat racing, and 'here' is the setter pointing at a place rather than naming it. 'Guy' looks like a bloke and is the verb meaning to tease.",
-     "definitionFit": "Ripon's course runs flat racing and nothing else, so 'here' defines the town by what happens at it."
+     "surface": "A racing tip about a short jockey and a small horse that doesn't complete the course.",
+     "walkthrough": "Ripon is a racecourse in North Yorkshire that holds flat races. 'short' cuts RIB to RI; 'failing to finish' cuts PONY to PON.",
+     "definitionFit": "Ripon is a cathedral city in England whose racecourse stages flat racing, races with no jumps."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "guy"
+     "misdirectedWord": "Flat"
     }
    }
   },
@@ -607,37 +630,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FUDGE",
-     "indicators": [
-      {
-       "text": "unwrapped",
-       "note": "Unwrapping takes off whatever is round the outside, so the word loses the letter at each end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Loudly",
+       "at": 0,
+       "gives": "F",
+       "note": "F is forte, the musical direction for loud"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unwrapped",
+         "at": 7,
+         "note": "the outer letters are stripped like a wrapper, leaving the inside"
+        }
+       ],
        "parts": [
         {
-         "words": "Loudly",
-         "gives": "F",
-         "note": "f = forte, a score's direction to play loud"
+         "words": "cheap",
+         "at": 17,
+         "gives": "BUDGET",
+         "note": "budget means cheap, as in a budget airline"
         },
         {
-         "words": "cheap",
-         "gives": "UDGE",
-         "note": "cheap is budget, stripped of the letter at each end"
+         "gives": "BT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheap sweet being noisily unwrapped.",
-     "walkthrough": "'Loudly' is the musician's f, not a signal that something is to be heard — the pull towards a sound clue is the whole trap. Cheap has to become budget before anything can come off it.",
-     "definitionFit": "Fudge is the soft sweet boiled from sugar, butter and milk, so 'sweet' names the kind of thing it is."
+     "surface": "Someone noisily unwraps a cheap sweet.",
+     "walkthrough": "'unwrapped' strips B and T from BUDGET to leave UDGE.",
+     "definitionFit": "Fudge is a soft confection of sugar, butter and milk, a kind of sweet or candy."
     },
     "features": {
      "answerInScene": true,
@@ -1128,46 +1155,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATTEMPT",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Mostly is not wholly, so the word hands over all of itself but the last letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "at",
+       "at": 10,
+       "gives": "AT"
+      },
+      {
+       "words": "tango",
+       "at": 13,
+       "gives": "T",
+       "note": "T is tango in the NATO phonetic alphabet"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 20,
+         "note": "most of the word is kept, its last letter dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "at",
-         "note": "the word stands as its own two letters"
-        },
-        {
-         "words": "tango",
-         "gives": "T",
-         "note": "t = tango in the radio alphabet"
-        },
-        {
          "words": "unoccupied",
-         "gives": "EMPT",
-         "note": "unoccupied is empty, cut short"
+         "at": 27,
+         "gives": "EMPTY",
+         "note": "empty means unoccupied"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Trying out the tango in a room with hardly anybody in it.",
-     "walkthrough": "'At' looks as though it belongs to the definition — have a go at something — and supplies the first two letters instead. A dance named in a clue is nearly always the radio alphabet's T.",
-     "definitionFit": "To have a go is to attempt something; the two verb phrases swap straight over in casual English."
+     "surface": "An invitation to try the tango in an empty space.",
+     "walkthrough": "'mostly' drops the Y of EMPTY.",
+     "definitionFit": "To attempt something is to try it, to have a go."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "at"
+     "misdirectedWord": "tango"
     }
    }
   },
@@ -1196,51 +1228,54 @@
      "indicators": [
       {
        "text": "wearing",
-       "note": "You wear a garment by being inside it, so the man goes within the other letters rather than beside them."
+       "at": 35,
+       "note": "a person wearing a suit is inside it, so the man's letters go inside"
       }
      ],
      "parts": [
       {
-       "words": "suit",
-       "gives": "TSUI",
-       "note": "the four letters of the garment, ruined into a new order and left open in the middle"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ruined",
+         "at": 11,
+         "note": "a ruined suit is spoiled, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suit",
+         "at": 18
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "upset",
-         "note": "In a down entry upset means tipped over, so those letters are read from the bottom up."
+         "at": 23,
+         "note": "in a down clue upset turns the word upside down, reading it backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "ruined",
-           "note": "Something ruined has lost its shape, so its letters will not stay in the order they were handed over in."
-          }
-         ],
-         "parts": [
-          {
-           "words": "man",
-           "gives": "NAM",
-           "note": "the wearer, tipped upside down"
-          }
-         ]
+         "words": "man's",
+         "at": 29,
+         "gives": "MAN",
+         "note": "man, with 's as 'is'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A big wave has wrecked the suit an unhappy man had on.",
-     "walkthrough": "The surface makes the wave the vandal and the answer is the wave, so the definition is standing inside its own story. 'Upset' means overturned here, not annoyed.",
-     "definitionFit": "A tsunami is the huge sea wave thrown up by an earthquake or a landslip, so 'large wave' names it by size."
+     "surface": "A man is upset because the suit he's wearing has been ruined.",
+     "walkthrough": "'ruined' turns SUIT into TSUI; 'upset' turns MAN into NAM, which 'wearing' puts inside.",
+     "definitionFit": "A tsunami is a huge sea wave caused by an earthquake or other upheaval."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "upset"
     }
@@ -1388,41 +1423,39 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "IRIS",
      "indicators": [
       {
        "text": "ignoring",
-       "note": "To ignore something is to leave it out, so the letters named after it never get written down."
+       "at": 12,
+       "note": "ignoring means leaving these letters out of the word"
       }
      ],
      "parts": [
       {
+       "words": "Iraqis",
+       "at": 5
+      },
+      {
        "op": "charade",
        "parts": [
         {
-         "words": "Iraqis",
-         "gives": "IRIS",
-         "note": "the nationals, with two of their six letters struck out"
-        },
-        {
-         "unchecked": true,
          "words": "a",
-         "note": "the letter A itself, and it goes"
+         "at": 21,
+         "gives": "A"
         },
         {
-         "unchecked": true,
          "words": "question",
-         "note": "q = question, as in Q and A, and that goes too"
+         "at": 23,
+         "gives": "Q"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Singling out the Iraqis who are refusing to answer.",
-     "walkthrough": "'Flag' is the plant and not the banner: the wild yellow iris that grows in wet ground has been called a flag for centuries. Q for question comes from Q and A.",
-     "definitionFit": "The waterside iris is commonly called a flag, a name much older than the crossword and still used by gardeners."
+     "surface": "Iraqi people pay no attention to a question about their flag.",
+     "walkthrough": "'Flag' suggests a national banner, but here it is the plant.",
+     "definitionFit": "A flag is another name for an iris, the plant with sword-shaped leaves, especially the yellow water iris."
     },
     "features": {
      "answerInScene": false,
@@ -1748,40 +1781,43 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Lead in",
-       "note": "The lead is whatever comes first, so only the letter the name opens with is taken."
+       "text": "backing",
+       "at": 14,
+       "note": "the letter backs the stagehand, standing behind it"
       }
      ],
      "parts": [
       {
-       "words": "stagehand",
+       "words": "stagehand's",
+       "at": 22,
        "gives": "GRIP",
-       "note": "a grip is the stagehand who shifts scenery and rigs the camera"
+       "note": "a grip is a stagehand who moves scenery, with 's as a link"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "backing",
-         "note": "To back something is to stand behind it, so that letter is written after the word it is supporting."
+         "text": "Lead in",
+         "at": 0,
+         "note": "the lead in a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "Evita",
-         "note": "the first letter of the title, which is all the clue asks for"
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The star of Evita standing behind a grumbling stagehand.",
-     "walkthrough": "The italics mark Evita as the musical, whose title is wanted for one letter only. 'Lead' reads as the leading role and means the leading letter.",
-     "definitionFit": "A gripe is a grumble or grievance, the noun you get from griping about something."
+     "surface": "A stagehand on the musical Evita has a grievance.",
+     "walkthrough": "A grip is a theatre or film crew member who handles scenery and equipment.",
+     "definitionFit": "A gripe is an informal word for a grumble or complaint."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Lead"
     }
@@ -1870,8 +1906,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "heard",
-       "note": "A word heard rather than read gives up only its sound, which may well be written another way entirely."
+       "text": "when introducing",
+       "at": 40,
+       "note": "the first piece introduces the second by coming before it"
       }
      ],
      "parts": [
@@ -1880,34 +1917,36 @@
        "spelt": "BY",
        "indicators": [
         {
-         "text": "introducing",
-         "note": "To introduce somebody is to bring them on first, so the piece named goes in front of the other."
+         "text": "heard",
+         "at": 34,
+         "note": "heard means we want a word that sounds like this one"
         }
        ],
        "parts": [
         {
          "words": "cheers",
+         "at": 27,
          "gives": "BYE",
-         "note": "in Britain cheers does duty as a casual goodbye, and that farewell said aloud can be written two letters shorter"
+         "note": "cheers is an informal goodbye, and so is bye"
         }
        ]
       },
       {
        "words": "Seal",
+       "at": 57,
        "gives": "GUM",
-       "note": "to gum an envelope down is to seal it"
+       "note": "to gum something is to stick it shut, to seal it"
       }
      ]
     },
     "explanation": {
-     "surface": "A gasp and a round of cheering as the singer Seal is brought on.",
-     "walkthrough": "The answer is a northern English exclamation, a minced oath politely standing in for something stronger. The capital on Seal is the singer, and the verb underneath is what you do to an envelope.",
-     "definitionFit": "By gum! is what a Yorkshireman says on being astonished, a softened substitute for swearing by God."
+     "surface": "A cheery greeting at the arrival of a seal.",
+     "walkthrough": "BY GUM is a Northern English exclamation of surprise.",
+     "definitionFit": "By gum is a mild, old-fashioned oath from the north of England, voicing astonishment."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Seal"
     }
    }

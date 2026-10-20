@@ -1339,23 +1339,53 @@
      }
     ],
     "wordplay": {
-     "op": "reverse",
-     "reading": "ASTRA + L",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leading",
+       "at": 20,
+       "note": "the first piece leads, coming before the line"
+      }
+     ],
      "parts": [
       {
-       "words": "Sinatra cryptically leading line",
-       "at": 0,
-       "note": "read cryptically, Sinatra splits as S IN ATRA, an instruction to put S inside ATRA; that result leads, coming before L for line"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cryptically",
+         "at": 8,
+         "note": "read cryptically, the name Sinatra splits into separate words, S IN ATRA, whose middle word is an instruction rather than letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "Sinatra",
+           "at": 0
+          },
+          {
+           "gives": "IN"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "line",
+       "at": 28,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Frank Sinatra, as a star, heads a line of celebrities.",
-     "walkthrough": "'cryptically' asks you to read the singer's name as a set of instructions: S in ATRA gives ASTRA, then L, the usual abbreviation for line, follows.",
-     "definitionFit": "Astral is the adjective of the stars, from the Latin astrum, as in astral bodies."
+     "surface": "Frank Sinatra, star of song and screen, leads a line of stars.",
+     "walkthrough": "Read 'Sinatra' as S IN ATRA: its IN is an instruction, not letters, so S goes inside ATRA to give ASTRA, which comes before L.",
+     "definitionFit": "Astral is the adjective meaning relating to the stars, from Latin astrum."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Sinatra"
