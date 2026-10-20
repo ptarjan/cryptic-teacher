@@ -1692,6 +1692,7 @@ os.environ.pop("CT_UNIT_CEILING")
 
 # VLM-waiting cap: while CT_VLM_WAITING reads have an ask under way no read starts, and it says so once.
 os.environ["CT_VLM_WAITING"] = "2"
+os.environ["CT_VLM_SPOOL"] = "0"  # the spool-off cap (spool on: the cases below)
 _w = vlm_reader.waiting_now
 vlm_reader.waiting_now = lambda: 2
 eq.plan = units([], [(f"v{k}", []) for k in range(3)])
@@ -1708,6 +1709,32 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
 check("below the cap every read starts", (3, 0),
       (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("vlm-bound")))
 vlm_reader.waiting_now = _w
+os.environ.pop("CT_VLM_SPOOL")
+# Spool on: the queue's own drainer mark and a part-filled spool never hold read starts; a full spool does.
+_sp = vlm_reader.spooled
+os.environ["CT_VLM_WAITING"] = "2"
+os.environ["CT_VLM_SPOOL_MAX"] = "10"
+vlm_reader.waiting_now = lambda: 1  # the queue's own mark, which the gate subtracts
+vlm_reader.spooled = lambda: [f"k{i}" for i in range(9)]
+_own = vlm_reader._waiting_dir() / str(os.getpid())
+_own.parent.mkdir(parents=True, exist_ok=True)
+_own.touch()
+eq.plan = units([], [(f"v{k}", []) for k in range(3)])
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+check("spool on, spool below max: reads start despite the drainer's mark", (3, 0),
+      (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("vlm-bound")))
+vlm_reader.spooled = lambda: [f"k{i}" for i in range(10)]
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("spool on, spool full: no read starts", (False, 1), (log.exists(), err.getvalue().count("vlm-bound")))
+_own.unlink(missing_ok=True)
+vlm_reader.spooled = _sp
+os.environ.pop("CT_VLM_SPOOL_MAX")
 os.environ.pop("CT_VLM_WAITING")
 
 # The VLM stage: vlm_drainer answers spooled asks (the server stubbed) into the cache while no read blocks,
