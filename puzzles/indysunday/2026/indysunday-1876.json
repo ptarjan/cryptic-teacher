@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -240,55 +241,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ENDEMIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coming in",
+       "at": 31,
+       "note": "the reversed sea comes into the stripped city name"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
          "text": "exposed",
-         "note": "Exposing a thing strips off what covers it, and what covers a word is its first and last letters, leaving the middle bare."
-        },
-        {
-         "text": "coming in",
-         "note": "Whatever comes in ends up on the inside, so these letters are set within the other piece rather than beside it."
+         "at": 7,
+         "note": "Venice is stripped of its outer letters"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "ENIC",
-         "indicators": [
-          {
-           "text": "rising",
-           "note": "In a down entry the letters run downwards, so anything rising is written from the bottom up and reads the other way."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Venice",
-           "gives": "ENIC",
-           "select": "middle",
-           "note": "the city loses the letter at each end, leaving the four in the middle"
-          }
-         ]
-        },
+         "words": "Venice",
+         "at": 0,
+         "note": "its middle letters"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 20,
+         "note": "in a down clue the sea word is read upwards"
+        }
+       ],
+       "parts": [
         {
          "words": "sea",
-         "gives": "DEM",
-         "note": "MED is the Mediterranean, the sea a crossword usually means, and it is set down the other way up"
+         "at": 27,
+         "gives": "MED",
+         "note": "Med is short for the Mediterranean Sea"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is the four words at the very end, which read as more of the flooding picture. Nothing in the clue signals where the wordplay stops.",
-     "definitionFit": "across the region -> ENDEMIC: a disease or trait called endemic is constantly present throughout one particular region and scarce anywhere else."
+     "surface": "Venice left exposed as the sea rises and floods in across the region.",
+     "walkthrough": "'exposed' means stripped bare, so Venice loses its outside letters; the Med is the usual crossword sea.",
+     "definitionFit": "Something endemic is native to or prevalent throughout a particular area, found across that district."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exposed"
     }
    }
   },
@@ -680,36 +687,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CLANGOROUS",
-     "indicators": [
-      {
-       "text": "for a change",
-       "note": "Doing a thing for a change means doing it differently from usual, so these letters are set down in a different order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "family",
+       "at": 6,
+       "gives": "CLAN",
+       "note": "a clan is an extended family"
+      },
+      {
+       "words": "Try",
+       "at": 14,
+       "gives": "GO",
+       "note": "to have a go is to try"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "for a change",
+         "at": 23,
+         "note": "the letters of ours change places"
+        }
+       ],
        "parts": [
         {
-         "words": "family",
-         "gives": "CLAN",
-         "note": "a clan is a family group, the Scottish sense of the word"
-        },
-        {
-         "words": "Try ours",
-         "gives": "GOROUS",
-         "note": "a try is a GO, and those two letters plus the four of OURS are the ones being reordered"
+         "words": "ours",
+         "at": 18,
+         "note": "anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Try meaning a go is worth banking, because setters lean on it constantly. Here it quietly supplies two of the ten letters while looking like plain conversation.",
-     "definitionFit": "Noisy -> CLANGOROUS: clangorous means full of clanging, the harsh metallic racket of bells or machinery, so it is noisy in one particular key."
+     "surface": "A rowdy family is urged to try a change of scene.",
+     "walkthrough": "'Try ours' looks like the anagram fodder, but Try is GO and only OURS is rearranged.",
+     "definitionFit": "Clangorous describes a loud ringing clamour, so it is a strong word for loud."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
     }
    }
   },
@@ -737,36 +756,48 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "largely",
-       "note": "Largely a thing is most of it and not quite all, so the final letter drops off before anything else is done."
+       "text": "represented",
+       "at": 19,
+       "note": "presented afresh, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Peril",
+       "at": 0,
+       "note": "anagram fodder"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "represented",
-         "note": "To re-present is to present again in another form, so the letters come back rearranged rather than as printed."
+         "text": "largely",
+         "at": 11,
+         "note": "most of the word, with its last letter dropped"
         }
        ],
        "parts": [
         {
-         "words": "Peril",
-         "note": "five letters going into the mix exactly as written"
+         "words": "Cuba",
+         "at": 6,
+         "note": "shortened to its first three letters"
         },
         {
-         "words": "Cuba",
-         "gives": "CUB",
-         "note": "the island's name shorn of its last letter, leaving three"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Cuba was a Soviet ally but never a Soviet member, which is the joke. The clue points you at Havana while the definition is really about Ukraine and Georgia.",
-     "definitionFit": "one of USSR's vassals -> REPUBLIC: the Soviet Union was formally a union of fifteen republics, each nominally sovereign and in practice run from Moscow."
+     "surface": "The Cuban missile crisis: danger as Cuba is cast as a Soviet satellite.",
+     "walkthrough": "'Cuba largely' is CUB; with PERIL it rearranges into the answer.",
+     "definitionFit": "The Soviet Union was made up of fifteen constituent republics, each a subordinate state of the union."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Peril"
     }
    }
   },
@@ -1448,42 +1479,53 @@
      "op": "container",
      "indicators": [
       {
-       "text": "behind",
-       "note": "What stands behind something comes after it, so the saint's two letters follow the tree's three rather than leading them."
+       "text": "trousers",
+       "at": 28,
+       "note": "used as a verb, to trouser is to pocket, so the word takes the pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "shat",
+       "at": 23,
+       "gives": "CRAPPED",
+       "note": "crapped is a vulgar synonym"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "trousers",
-         "note": "To trouser a thing is to pocket it, tucking it out of sight inside, so those letters go into the middle of the word beside them."
+         "text": "behind",
+         "at": 11,
+         "note": "the saint comes after the tree"
         }
        ],
        "parts": [
         {
-         "words": "shat",
-         "gives": "CRAPPED",
-         "note": "to shit is to crap, so shat and crapped are two past tenses of the same act"
+         "words": "tree",
+         "at": 18,
+         "gives": "ASH",
+         "note": "the ash is a tree"
         },
         {
-         "words": "tree",
-         "gives": "ASH",
-         "note": "the ash is a common British hardwood"
+         "words": "saint",
+         "at": 5,
+         "gives": "ST"
         }
        ]
-      },
-      {
-       "words": "saint",
-       "gives": "ST",
-       "note": "St is the standard abbreviation for saint, as in St Paul's"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Trousers is a verb here, not a garment: to trouser money is to pocket it. The whole crude surface exists to keep you reading it as clothing.",
-     "definitionFit": "Poor -> CASH-STRAPPED: short of money, the literal sense of poor rather than poor meaning shoddy, feeble or unlucky."
+     "surface": "A crude picture of a holy man soiling his trousers behind a tree.",
+     "walkthrough": "'trousers' looks like a noun but is the verb: ASHST goes into CRAPPED after its C.",
+     "definitionFit": "Cash-strapped means short of money, a common informal way of saying impoverished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "trousers"
     }
    }
   }

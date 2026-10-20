@@ -1070,38 +1070,66 @@
    "annotation": {
     "definitions": [
      {
-      "text": "sweet!",
+      "text": "sweet",
       "at": 39
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "Cut short, a word turns up without the letter it ought to end on."
-      },
-      {
-       "text": "casing",
-       "note": "A casing is what goes round the outside of a thing, so these letters close about the piece named next to them."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "a nice",
-       "gives": "ANIC",
-       "note": "two words run together and docked of the final E"
+       "words": "a",
+       "at": 18
       },
       {
-       "words": "Hair product",
-       "gives": "GEL",
-       "note": "gel is what you comb through hair to hold it in place"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "casing",
+         "at": 31,
+         "note": "the shortened phrase forms a case around the hair product"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 25,
+           "note": "nice is cut short, losing its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nice",
+           "at": 20,
+           "note": "shortened by its last letter"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        },
+        {
+         "words": "Hair product",
+         "at": 0,
+         "gives": "GEL",
+         "note": "gel is a styling product for hair"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Hair product' looks like the definition of the whole answer and is only three letters of it. The real definition is the exclamation at the end, describing a person rather than a taste.",
-     "definitionFit": "sweet! -> ANGELIC: said of someone whose behaviour is faultless and kind, the way a child who has been good all day gets described."
+     "surface": "An advert for a hair gel in nice packaging, with an exclamation of delight.",
+     "walkthrough": "'short' trims nice to NIC, so A NIC wraps around GEL.",
+     "definitionFit": "Someone angelic is sweet-natured and innocent, like an angel, so the adjective matches 'sweet' describing a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweet"
     }
    }
   },

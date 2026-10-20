@@ -1768,49 +1768,52 @@
      "indicators": [
       {
        "text": "on the counter",
-       "note": "counter to the reading direction, so the pieces run backwards"
+       "at": 30,
+       "note": "counter as in running counter, so the pieces are read backwards"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "leaving"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "bread",
+         "at": 16,
+         "gives": "ROTI",
+         "note": "roti is an Indian flatbread"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "leaving",
+           "at": 8,
+           "note": "the musical letter for quietly leaves the word"
+          }
+         ],
          "parts": [
           {
-           "words": "bread",
-           "gives": "ROTI",
-           "note": "roti is an Indian flatbread"
+           "words": "portion",
+           "at": 22,
+           "gives": "PART",
+           "note": "a part is a portion"
           },
           {
            "words": "Quietly",
+           "at": 0,
            "gives": "P",
-           "note": "p = piano, quietly in music"
-          },
-          {
-           "words": "portion",
-           "gives": "ART",
-           "note": "PART without P"
+           "note": "P, piano, is the musical direction for quietly"
           }
          ]
-        },
-        {
-         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bakery scene: a slice of bread quietly slipped onto the counter to feed a rat.",
-     "walkthrough": "'On the counter' reads as a kitchen counter; it means going against the usual direction, and it turns the bread and the portion round together.",
-     "definitionFit": "Plain slang synonym: someone who rats on their friends is a betrayer."
+     "surface": "A slice of bread left out on the kitchen counter for a rat to find.",
+     "walkthrough": "'on the counter' sounds like a kitchen worktop but means read backwards: ROTI plus ART (PART without P) reversed.",
+     "definitionFit": "To call someone a rat is to call them a betrayer, a turncoat who deserts their side."
     },
     "features": {
      "answerInScene": false,
@@ -1954,52 +1957,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "nasty",
-       "note": "a nasty mess, so the letters are scrambled"
-      }
-     ],
      "parts": [
       {
        "words": "extremely",
+       "at": 5,
        "gives": "JOLLY",
-       "note": "jolly = very, in British informal speech, as in jolly good"
+       "note": "jolly is British informal for very, as in jolly good"
       },
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nasty",
+         "at": 15,
+         "note": "the letters of gore are rearranged as if mangled"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "beginning to",
-           "note": "takes the first letter of the next word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "gore",
-           "note": "anagram fodder"
-          }
-         ]
-        },
+         "words": "gore",
+         "at": 21,
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 27,
+         "note": "the opening letter of retch"
+        }
+       ],
+       "parts": [
         {
          "words": "retch",
-         "gives": "R",
-         "note": "the first letter of retch"
+         "at": 40,
+         "note": "its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A flag of warning at a scene of gore so nasty it makes you start to retch.",
-     "walkthrough": "In British speech 'jolly' is an informal intensifier, as in jolly good. The pirates' flag, skull and crossbones, fits the gory picture.",
-     "definitionFit": "The Jolly Roger is the pirates' skull-and-crossbones flag."
+     "surface": "Someone flagging, sickened by gruesome gore and starting to gag.",
+     "walkthrough": "'Flag' seems to mean weaken, but it is the noun: the pirate flag.",
+     "definitionFit": "The Jolly Roger is the skull-and-crossbones banner flown by pirate ships."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Flag"
     }

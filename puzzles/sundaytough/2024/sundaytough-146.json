@@ -169,6 +169,7 @@
      "parts": [
       {
        "words": "north",
+       "at": 5,
        "gives": "N",
        "note": "N is the compass abbreviation for north"
       },
@@ -177,36 +178,28 @@
        "indicators": [
         {
          "text": "unopened",
-         "note": "something not opened has lost its opening, so the first letter is gone"
+         "at": 16,
+         "note": "the word loses its opening letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "piece of cake",
-           "gives": "DODDLE",
-           "note": "a doddle is British slang for an easy task"
-          },
-          {
-           "words": "piece of cake",
-           "gives": "ODDLE",
-           "note": "without its first letter"
-          }
-         ]
+         "words": "piece of cake",
+         "at": 25,
+         "gives": "DODDLE",
+         "note": "a doddle is British slang for an easy task, a piece of cake"
         },
         {
-         "gives": "DODDLE"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sets off northwards carrying a slice of cake that has not been cut into.",
-     "walkthrough": "'Head north' reads as an instruction to travel, but Head is the definition. A doddle is British slang for something very easy, as is 'a piece of cake'.",
-     "definitionFit": "Noddle is an old informal British word for the head, often used of someone's brain or wits."
+     "surface": "Someone sets off north carrying an uncut slice of cake.",
+     "walkthrough": "A doddle is British slang for something easy; without its first letter it gives ODDLE.",
+     "definitionFit": "Noddle is an informal, old-fashioned word for the head or the brain."
     },
     "features": {
      "answerInScene": false,
@@ -309,57 +302,41 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "move",
      "indicators": [
       {
        "text": "in which",
-       "note": "the letter that left the front is placed in the remaining letters, lower down this down entry"
+       "at": 9,
+       "note": "points back to the club word as the place where the demotion happens"
+      },
+      {
+       "text": "demoted",
+       "at": 27,
+       "note": "the first letter is moved further down the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "leader's demoted",
-         "note": "a leader demoted loses the top position, so the opening letter comes off the front"
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "club",
-           "gives": "MACE",
-           "note": "a mace is a heavy spiked club"
-          },
-          {
-           "words": "club",
-           "gives": "ACE",
-           "note": "without its first letter"
-          }
-         ]
-        },
-        {
-         "gives": "MACE"
-        }
-       ]
+       "words": "club",
+       "at": 4,
+       "gives": "MACE",
+       "note": "a mace is a heavy club"
       },
       {
-       "words": "leader",
+       "words": "leader's",
+       "at": 18,
        "gives": "M",
-       "note": "the first letter of the club word, now set further down"
+       "note": "the leading letter of the club word"
       }
      ]
     },
     "explanation": {
-     "surface": "At the best club in town, the boss has been knocked down a peg.",
-     "walkthrough": "In a down entry, demoting a letter moves it lower: the M of MACE drops two places to give ACME.",
-     "definitionFit": "The acme is the highest point or peak of achievement, so it is a noun synonym for the top."
+     "surface": "A top golf or sports club where the chairman has been demoted.",
+     "walkthrough": "MACE's leader M is pushed two places down, giving ACME.",
+     "definitionFit": "The acme is the highest point or peak of something, so it is the top."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "club"
     }
@@ -967,48 +944,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "snubbed",
-       "note": "a snub nose is short and turned up, so to snub here is to cut off the end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "snubbed",
+         "at": 6,
+         "note": "snub-nosed, so the word is cut short at its end"
+        }
+       ],
        "parts": [
         {
          "words": "Siren",
+         "at": 0,
          "gives": "HOOTER",
          "note": "a hooter is a siren or horn"
         },
         {
-         "words": "Siren",
-         "gives": "HOOTE",
-         "note": "without its last letter"
-        },
-        {
-         "words": "pamper",
-         "gives": "NANNY",
-         "note": "to nanny is to fuss over and pamper"
+         "gives": "R"
         }
        ]
       },
       {
-       "gives": "HOOTER"
+       "words": "pamper",
+       "at": 14,
+       "gives": "NANNY",
+       "note": "to nanny is to pamper or mollycoddle"
       }
      ]
     },
     "explanation": {
-     "surface": "A seductive woman, cold-shouldered, throws a pampering party in Los Angeles.",
-     "walkthrough": "'Snubbed' looks like rejected socially; here it means docked at the end, as in a snub nose. LA stands for the American setting, since the word is chiefly American.",
-     "definitionFit": "A hootenanny is an informal American gathering with folk music and dancing, a kind of party."
+     "surface": "A singer ignored at a Los Angeles party where everyone is spoilt.",
+     "walkthrough": "'Siren' looks like a seductive singer but is a hooter, which 'snubbed' trims to HOOTE.",
+     "definitionFit": "Hootenanny is American English for a lively social gathering with folk music, so a party in the USA."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "snubbed"
+     "aptDefinition": true,
+     "misdirectedWord": "Siren"
     }
    }
   },
@@ -1449,7 +1424,8 @@
      "indicators": [
       {
        "text": "crossing",
-       "note": "to cross something is to span it, so one piece straddles the other"
+       "at": 26,
+       "note": "the shortened word straddles the line letter, which sits inside it"
       }
      ],
      "parts": [
@@ -1458,46 +1434,38 @@
        "indicators": [
         {
          "text": "to lose lead",
-         "note": "losing the lead means losing the front position, so the first letter goes"
+         "at": 6,
+         "note": "the word drops its leading letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Sorry",
-           "gives": "PATHETIC",
-           "note": "a sorry sight is a pathetic one"
-          },
-          {
-           "words": "Sorry",
-           "gives": "ATHETIC",
-           "note": "without its first letter"
-          }
-         ]
+         "words": "Sorry",
+         "at": 0,
+         "gives": "PATHETIC",
+         "note": "sorry in the sense of pitiful, pathetic"
         },
         {
-         "gives": "PATHETIC"
+         "gives": "P"
         }
        ]
       },
       {
        "words": "line",
-       "gives": "L",
-       "note": "L is the abbreviation for line"
+       "at": 35,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A runner, sadly overtaken just before the finishing line, is sorry to lose the lead.",
-     "walkthrough": "The racing surface makes 'line' the finishing line and 'lead' first place; both are wordplay, not part of the race.",
-     "definitionFit": "A runner is typically fit, strong and sporty, which is what athletic describes; the phrase works as an adjective."
+     "surface": "A sorry athlete fading at the end and dropping the lead before the finish line.",
+     "walkthrough": "'Sorry' means pathetic here, as in a sorry state; losing its lead gives ATHETIC, which goes round L.",
+     "definitionFit": "A runner is typically athletic: fit, strong and built for sport."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "lead"
+     "misdirectedWord": "Sorry"
     }
    }
   },
