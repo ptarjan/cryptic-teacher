@@ -301,25 +301,49 @@
      "parts": [
       {
        "words": "Liberal",
-       "gives": "L",
-       "note": "L = Liberal"
+       "at": 11,
+       "gives": "L"
       },
       {
-       "words": "ate food without first husband",
-       "gives": "ADDISH",
-       "note": "ate food = HAD DISH; drop the first H (husband)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without first",
+         "at": 28,
+         "note": "without first means the opening letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ate",
+         "at": 19,
+         "gives": "HAD",
+         "note": "had means ate, as in had lunch"
+        },
+        {
+         "words": "husband",
+         "at": 42,
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "food",
+       "at": 23,
+       "gives": "DISH",
+       "note": "a dish is an item of food"
       }
      ]
     },
     "explanation": {
-     "surface": "A rowdy Liberal politician eats without their spouse.",
-     "walkthrough": "Ate food expands to HAD DISH, and H for husband is a standard abbreviation.",
-     "definitionFit": "Laddish behaviour is loud and rowdy, like a group of young men out drinking."
+     "surface": "A rowdy Liberal politician dining without her husband.",
+     "walkthrough": "'Without first husband' tells us the letter dropped from the word for ate is both its first letter and the husband abbreviation.",
+     "definitionFit": "Laddish describes rowdy, macho behaviour typical of young men, which is boisterous."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "husband"
+     "misdirectedWord": "ate"
     }
    }
   },
@@ -1128,33 +1152,56 @@
      {
       "text": "I'm dizzy",
       "at": 0,
-      "note": "the answer speaks: 'I'm dizzy' stands for a dizzy person, a noun"
+      "note": "the answer speaks of itself: a scatterbrained person might say this, being an empty-headed noun"
      }
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 31,
+       "note": "in a down clue a piece on another sits above it"
+      }
+     ],
      "parts": [
       {
-       "words": "blonde, removing top",
-       "gives": "AIR",
-       "note": "FAIR (blonde) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removing top",
+         "at": 18,
+         "note": "in a down clue the top of a word is its first letter, which is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "blonde",
+         "at": 10,
+         "gives": "FAIR",
+         "note": "fair means blonde, of hair"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       },
       {
        "words": "summit",
+       "at": 34,
        "gives": "HEAD",
-       "note": "the head of a valley or pass is its summit"
+       "note": "the head of something is its top, its summit"
       }
      ]
     },
     "explanation": {
-     "surface": "A self-deprecating blonde admits to being scatterbrained.",
-     "walkthrough": "'Dizzy blonde' looks like one unit, but 'blonde' is FAIR in the wordplay. In a down clue, A on B puts A above B.",
-     "definitionFit": "An airhead is a silly, empty-headed person, so a dizzy one."
+     "surface": "A scatterbrained blonde removing her hat on a mountain top.",
+     "walkthrough": "'Dizzy blonde' looks like one phrase, but 'blonde' belongs to the wordplay; the answer itself speaks the definition.",
+     "definitionFit": "An airhead is a silly, scatterbrained person, the kind called dizzy in informal speech."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "blonde"
     }
    }

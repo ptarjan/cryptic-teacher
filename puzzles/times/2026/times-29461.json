@@ -958,31 +958,48 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in an across clue, one thing on another sits after it"
+       "at": 38,
+       "note": "in an across clue, one piece on another follows it"
       }
      ],
      "parts": [
       {
        "words": "time",
-       "gives": "T",
-       "note": "T = time"
+       "at": 41,
+       "gives": "T"
       },
       {
-       "words": "violinist failing to start",
-       "gives": "IDDLER",
-       "note": "fIDDLER without its F"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "failing to start",
+         "at": 21,
+         "note": "failing to start means losing the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "violinist",
+         "at": 11,
+         "gives": "FIDDLER",
+         "note": "a fiddler is a violin player"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A young violinist who cannot get going on cue.",
-     "walkthrough": "A tiddler is British slang for a small child or a very small fish.",
-     "definitionFit": "Tiddler is an informal British word for a small child."
+     "surface": "A violinist who fails to begin on time with a small child.",
+     "walkthrough": "'Tiny child' is the definition at the front; the violinist is the informal word for one, losing its first letter.",
+     "definitionFit": "Tiddler is British informal for a small child, or a very small fish."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "failing"
+     "misdirectedWord": "start"
     }
    }
   },

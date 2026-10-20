@@ -721,24 +721,59 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Almost entirely",
-       "gives": "AL",
-       "note": "entirely = ALL, cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means not quite all of it, so the last letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entirely",
+         "at": 7,
+         "gives": "ALL",
+         "note": "all means entirely, as in all wrong"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
-       "words": "crazy, disregarding current",
-       "gives": "MANAC",
-       "note": "MANIAC without I, the symbol for electric current"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disregarding",
+         "at": 23,
+         "note": "disregarding means leaving out, so the current symbol is removed from the word for crazy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crazy",
+         "at": 16,
+         "gives": "MANIAC",
+         "note": "a maniac is someone crazy"
+        },
+        {
+         "words": "current",
+         "at": 36,
+         "gives": "I",
+         "note": "I is the physics symbol for electric current"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone nearly out of their mind ignores the current calendar.",
-     "walkthrough": "'Almost entirely' reads as one phrase meaning nearly; 'Almost' is the cut and 'entirely' is ALL. 'Current' is not recent but I, the physics symbol.",
-     "definitionFit": "An almanac is a yearly calendar with dates, tides and other data."
+     "surface": "Someone almost completely mad who ignores the date on the calendar.",
+     "walkthrough": "'Almost' trims ALL to AL; 'disregarding' takes I (current) out of MANIAC to leave MANAC. 'Crazy' reads as an adjective, but it stands for the noun MANIAC.",
+     "definitionFit": "An almanac is an annual publication arranged by the days of the year, a kind of calendar with extra information."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "current"
     }
@@ -1722,29 +1757,48 @@
      "op": "container",
      "indicators": [
       {
-       "text": "consumed by"
+       "text": "consumed by",
+       "at": 6,
+       "note": "being consumed by something means being swallowed inside it, so the tenor letter goes within"
       }
      ],
      "parts": [
       {
-       "words": "endless fondness",
-       "gives": "TENDRESS",
-       "note": "tendresse = fondness (from French), losing its final E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 18,
+         "note": "endless means without its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fondness",
+         "at": 26,
+         "gives": "TENDRESSE",
+         "note": "tendresse is a literary word for fondness or tender feeling"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "Tenor",
+       "at": 0,
        "gives": "T",
-       "note": "t = tenor, in music"
+       "note": "T is a standard abbreviation for tenor in music"
       }
      ]
     },
     "explanation": {
-     "surface": "A tenor is eaten up by an endless love of women's clothing.",
-     "walkthrough": "Tendresse is a borrowed word for tender feeling; minus its final E it takes in T to become TENT DRESS.",
-     "definitionFit": "A tent dress is a loose, wide dress that flares from the shoulders."
+     "surface": "A tenor so overcome with affection that it eats him up, a little romance.",
+     "walkthrough": "Tendresse is a literary borrowing from French; 'endless' takes its final E, and the tenor letter is swallowed in its middle.",
+     "definitionFit": "A tent dress is a loose, wide garment for women that hangs from the shoulders like a tent."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "consumed"
     }
