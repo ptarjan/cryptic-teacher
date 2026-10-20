@@ -262,6 +262,8 @@ def reachable():
     """Whether the server answers and lists MODEL, asked once a process, and
     the desktop it is on is not busy."""
     _UNREACHED[0] = False
+    if dryrun():
+        return True
     if not URL:
         return False
     resolve()
@@ -497,6 +499,47 @@ _ASKING = [0]
 
 def _waiting_dir():
     return Path(tempfile.gettempdir()) / "vlm_reader.waiting"
+
+
+#: Env CT_VLM_DRYRUN=1 (never set by the queue): a hand-run read counts its asks
+#: instead of making them. A cached ask answers from the cache; one that is not is
+#: neither sent nor spooled: it is noted in DRYRUN_ASKS and answered "" (unreadable),
+#: so the read finishes in OCR time. At exit the tally is one JSON line on stderr
+#: (dryrun_tally): the asks per page. reachable()/wanted() say True
+#: then, so the read takes the path that asks. Nothing is written, no key changes.
+DRYRUN_ENV = "CT_VLM_DRYRUN"
+DRYRUN_ASKS = []
+
+
+def dryrun():
+    return os.environ.get(DRYRUN_ENV, "0") not in ("", "0")
+
+
+def dryrun_size(data):
+    """(width, height) from a PNG's header."""
+    import struct
+    try:
+        return struct.unpack(">II", data[16:24])
+    except struct.error:
+        return (0, 0)
+
+
+def dryrun_tally():
+    """The asks a dry run noted: {"dryrun": true, "read": n, "pick": n, "other": n, "cached": n, "asks": [...]}."""
+    got = {"dryrun": True, "cached": _SPENT["cached"]}
+    for k in ("read", "pick", "other"):
+        got[k] = sum(a["kind"] == k for a in DRYRUN_ASKS)
+    got["asks"] = list(DRYRUN_ASKS)
+    return got
+
+
+def _print_tally():
+    sys.stderr.write(json.dumps(dryrun_tally(), default=str) + "\n")
+
+
+if dryrun():
+    import atexit
+    atexit.register(_print_tally)
 
 
 def _alive(pid):
@@ -745,6 +788,10 @@ def ask_png(data, prompt, max_tokens=1500, spool=None, held=False):
     if path.exists():
         _SPENT["cached"] += 1
         return path.read_text()
+    if dryrun():
+        if not any(a["key"] == key[:12] for a in DRYRUN_ASKS):
+            DRYRUN_ASKS.append({"kind": _kind(prompt), "size": list(dryrun_size(data)), "key": key[:12]})
+        return ""
     why = busy()
     if why:
         _YIELDED[0] = time.monotonic()
