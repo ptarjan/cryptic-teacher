@@ -158,6 +158,10 @@ DETECTOR_VERSION = 6
 #: How many of the leaves its item's other editions print their crossword on
 #: an edition with no crossword title in its text also fetches (prior_leaves).
 PRIOR_LEAVES = 2
+#: Items whose editions also fetch the leaves FT_UNIT_TRUST_BACKS counts from
+#: the back (leaf = leaves - 1 - back): the 1987 FT's weekday crossword page.
+FT_UNIT_TRUST_BACKS_ITEMS = ("FinancialTimes1987UKEnglish",)
+FT_UNIT_TRUST_BACKS = (10, 11)
 #: An item holding one edition alone (the 1930 Times: an item an issue) has no
 #: other editions to count: prior_leaves counts the editions of this many
 #: items nearest it by date whose names match its own up to the date.
@@ -879,7 +883,11 @@ def load_done_manifest(out):
 
     def siblings(item, rel):
         if len(items[item]) > 1:
-            return tuple(t - o for t, o in zip(total(item), counts_of([rel])))
+            made = tuple(t - o for t, o in zip(total(item), counts_of([rel])))
+            if item in FT_UNIT_TRUST_BACKS_ITEMS:
+                for back in FT_UNIT_TRUST_BACKS:
+                    made[1][back] += 10 ** 6
+            return made
         m = ITEM_DATED.fullmatch(item)
         day = m and iso_day(m[2])
         counts = collections.Counter(), collections.Counter(), collections.Counter()
@@ -1085,6 +1093,13 @@ def _crossword_leaves(edition_dir):
         except (OSError, ValueError):
             continue
         count_titled(pages, counts)
+    if os.path.basename(os.path.dirname(os.fspath(edition_dir))) in FT_UNIT_TRUST_BACKS_ITEMS:
+        # Hand-set: the 1987 FT's weekday crossword is on the unit trust page
+        # 11 or 12 leaves from the end (1987-01-06: leaf 22 of 34), whose OCR
+        # is table noise, so no sibling counts it as titled and the commonest
+        # leaves from the back were the Saturday back pages.
+        for back in FT_UNIT_TRUST_BACKS:
+            counts[1][back] += 10 ** 6
     return counts
 
 
