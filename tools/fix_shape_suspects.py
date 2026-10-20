@@ -2796,7 +2796,74 @@ def r_arity_other(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
-RULE_REPAIRS = {"scrambledLeaf": r_scrambled_swap, "anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
+def r_ana_lone_edge(node, parent, ctx):
+    """anaLoneEdge (Paul 10-19: a lone letter that can sit outside the anagram must): an anagram with
+    a one-letter fodder part (abbreviation, first/last pick, a lone word) anywhere in its fodder. The
+    letter(s) come out and sit in a charade before or after the anagram, in whichever place the whole
+    tree still gives the answer. The fewest letters pulled wins; kept only when exactly one tree does."""
+    if node.get("op") != "anagram" or node.get("unchecked") or not ctx.get("answer"):
+        return None
+    parts = node.get("parts") or []
+    if len(parts) < 2 or any(not isinstance(p, dict) or p.get("unchecked") for p in parts):
+        return None
+    lone = [i for i in range(len(parts)) if V._one_letter_part(parts, i)]
+    if not lone or len(lone) >= len(parts):
+        return None
+    good = {}
+    for size in (1, 2):
+        for pick in itertools.combinations(lone, size):
+            rest = [p for i, p in enumerate(parts) if i not in pick]
+            ana = {key: v for key, v in node.items() if key not in ("parts", "unchecked", "gives")}
+            ana["parts"] = copy.deepcopy(rest)
+            out = [copy.deepcopy(parts[i]) for i in pick]
+            for k in range(size + 1):       # k pieces in front, the rest behind
+                for order in set(itertools.permutations(range(size))):
+                    pieces = [out[i] for i in order]
+                    cand = {"op": "charade", "parts": pieces[:k] + [ana] + pieces[k:]}
+                    if _eval_swapped(node, parent, cand, ctx):
+                        good[json.dumps(cand, sort_keys=True)] = cand
+        if good:
+            break
+    return next(iter(good.values())) if len(good) == 1 else None
+
+
+def r_split_shared_indicator(node, parent, ctx):
+    """splitSharedIndicator: two (or more) neighbouring same-kind ops (selection, homophone, deletion)
+    under one parent, only one carrying the indicator: one multi-part op with that indicator over all
+    their parts, set where the first stood. Kept only when the whole tree still gives the answer."""
+    kids = [q for q in node.get("parts") or [] if isinstance(q, dict)]
+    out = None
+    for op in V._SHARED_OK:
+        ns = [q for q in kids if q.get("op") == op and not q.get("unchecked")]
+        if len(ns) < 2 or sum(bool(x.get("indicators")) for x in ns) != 1:
+            continue
+        if len(ns) == 2 and not V._pair_adjacent(ns):
+            continue
+        if out is not None:
+            return None
+        carrier = next(x for x in ns if x.get("indicators"))
+        notes = list(dict.fromkeys(x["note"] for x in ns if x.get("note")))
+        merged = {k: v for k, v in carrier.items() if k not in ("parts", "gives", "note")}
+        merged["parts"] = [copy.deepcopy(p) for x in ns for p in x["parts"]]
+        if op in ("homophone", "deletion"):
+            # the validator takes neither a multi-part homophone, a joined-spelling leaf nor a multi-cut
+            # deletion (wrong number of parts / leaf that is no word): left for the model
+            return None
+        if notes:
+            merged["note"] = " ".join(notes)
+        out = (ns, merged)
+    if out is None:
+        return None
+    ns, merged = out
+    new = copy.deepcopy(node)
+    at = [id(q) for q in node["parts"]].index(id(ns[0]))
+    new["parts"] = [copy.deepcopy(q) for q in node["parts"] if not any(q is x for x in ns)]
+    new["parts"].insert(at, merged)
+    return new if _eval_swapped(node, parent, new, ctx) else None
+
+
+RULE_REPAIRS = {"anaLoneEdge": r_ana_lone_edge, "splitSharedIndicator": r_split_shared_indicator,
+                "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
