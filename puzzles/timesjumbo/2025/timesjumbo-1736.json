@@ -1239,29 +1239,44 @@
      "indicators": [
       {
        "text": "on top of",
-       "note": "in a down clue, the first piece sits above the second"
+       "at": 30,
+       "note": "in a down clue, one piece on top of another comes first"
       }
      ],
      "parts": [
       {
-       "words": "Italian guy barely",
-       "gives": "IGNO",
-       "note": "SIGNOR, an Italian gentleman, without its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "barely",
+         "at": 23,
+         "note": "barely suggests stripping bare, so the outer letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian guy",
+         "at": 11,
+         "gives": "SIGNOR",
+         "note": "signor is Italian for a man, a gentleman"
+        }
+       ]
       },
       {
        "words": "tirade",
+       "at": 40,
        "gives": "RANT",
        "note": "a rant is a tirade"
       }
      ]
     },
     "explanation": {
-     "surface": "An ill-educated Italian who barely gets a word in over someone else's rant.",
-     "walkthrough": "'Barely' looks like 'hardly'; it means bare the word, taking off its outside.",
-     "definitionFit": "Ignorant means lacking knowledge or education."
+     "surface": "An Italian man who barely tops a rant is uneducated.",
+     "walkthrough": "SIGNOR stripped of its outside letters is IGNO, placed above RANT.",
+     "definitionFit": "Ignorant means lacking knowledge or schooling."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "barely"
     }
@@ -2145,32 +2160,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Topped",
-       "note": "with its top, the first letter, cut off"
-      },
-      {
        "text": "rubbish",
-       "note": "the letters are made a mess of"
+       "at": 17,
+       "note": "rubbish suggests the letters are junk to be sorted again"
       }
      ],
      "parts": [
       {
-       "words": "Daliesque",
-       "gives": "ALIESQUE",
-       "note": "DALIESQUE without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Topped",
+         "at": 0,
+         "note": "topped means the top letter is cut off, in a down clue the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Daliesque",
+         "at": 7
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Surreal junk art, beheaded to get even with someone.",
-     "walkthrough": "'Settle score' sounds like revenge; in football, to equalise is to level the score.",
-     "definitionFit": "To equalise is to score the goal that makes the scores level."
+     "surface": "Something rubbishing a surreal, Dalí-like painting settles a score.",
+     "walkthrough": "DALIESQUE without its D leaves ALIESQUE, and 'rubbish' rearranges it.",
+     "definitionFit": "To equalise in a match is to level the score, bringing it to a tie."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "score"
+     "aptDefinition": false,
+     "misdirectedWord": "rubbish"
     }
    }
   },
@@ -2262,36 +2287,41 @@
      "indicators": [
       {
        "text": "checks",
-       "note": "to check something is to hold it back, so the official holds the letters inside"
+       "at": 20,
+       "note": "checks means holds back or contains, so the official holds the other piece"
       }
      ],
      "parts": [
       {
        "words": "University official",
+       "at": 0,
        "gives": "PROCTOR",
-       "note": "a proctor keeps discipline at a university"
+       "note": "a proctor is a university officer responsible for discipline"
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "case",
-         "note": "the case of a word is its outside, first and last letters"
+         "at": 35,
+         "note": "a case is the outside, so take the outer letters"
         }
        ],
        "parts": [
         {
-         "words": "judge's case",
-         "note": "outer letters of judge"
+         "words": "judge's",
+         "at": 27,
+         "gives": "JUDGE",
+         "note": "the judge"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A university disciplinary officer examining a legal case.",
-     "walkthrough": "'Case' and 'checks' make a courtroom or an investigation; they are containers here.",
-     "definitionFit": "A projector throws slides onto a screen, an aid to presentations."
+     "surface": "A university disciplinary officer inspects a judge's legal case.",
+     "walkthrough": "'case' looks like a lawsuit, but it means the outside of JUDGE: JE, which goes into PROCTOR.",
+     "definitionFit": "A projector is a device that shows slides or film onto a screen during a talk."
     },
     "features": {
      "answerInScene": false,
@@ -2420,59 +2450,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
        "text": "secured by",
-       "note": "held in place by what surrounds it"
+       "at": 22,
+       "note": "the space is held next to and after the first letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "primarily",
-         "note": "primarily means in the first place, so only the first letter is used"
+         "at": 34,
+         "note": "primarily picks the first letter of bargaining"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "B",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "bargaining",
-           "gives": "B",
-           "select": "first",
-           "note": "first letter of bargaining"
-          }
-         ]
-        },
-        {
-         "words": "power",
-         "gives": "STICK",
-         "note": "the stick is force, as in carrot and stick"
+         "words": "bargaining",
+         "at": 45
         }
        ]
       },
       {
        "words": "space",
+       "at": 16,
        "gives": "ROOM",
-       "note": "room = space"
+       "note": "room means space"
+      },
+      {
+       "words": "power",
+       "at": 56,
+       "gives": "STICK",
+       "note": "stick is a means of force, as in carrot and stick"
       }
      ]
     },
     "explanation": {
-     "surface": "A cleaning company whose office was won through tough negotiation.",
-     "walkthrough": "'Bargaining power' reads as one phrase, but the commas cut 'primarily, bargaining' off as a single initial, and 'power' stands alone as the threat of force.",
-     "definitionFit": "The broomstick is the handle, part of a broom, a cleaning tool."
+     "surface": "A negotiator secures office space using bargaining power.",
+     "walkthrough": "B, then ROOM, then STICK.",
+     "definitionFit": "A broomstick is the long handle of a broom, the sweeping implement."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "cleaner"
     }
    }

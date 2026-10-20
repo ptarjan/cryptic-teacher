@@ -113,40 +113,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "lifted",
-       "note": "in a down clue, lifting the letters reads them bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "America",
+       "at": 17,
+       "gives": "A"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "lifted",
+         "at": 25,
+         "note": "in a down clue, lifted means read upwards"
+        }
+       ],
        "parts": [
         {
-         "words": "controversial technology",
-         "gives": "AI",
-         "note": "AI = artificial intelligence"
-        },
-        {
-         "words": "ban",
-         "gives": "BAR",
-         "note": "to bar = to ban"
-        },
-        {
-         "words": "America",
-         "gives": "A",
-         "note": "A = America"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "controversial technology",
+           "at": 32,
+           "gives": "AI",
+           "note": "AI, artificial intelligence, is a much-debated technology"
+          },
+          {
+           "words": "ban",
+           "at": 57,
+           "gives": "BAR",
+           "note": "to bar is to ban"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "America scraps its ban on a controversial technology, a lift that reaches as far as a whole sub-continent.",
-     "walkthrough": "The pieces are gathered in the order A, BAR, AI as the clue gives them, then the whole string is read upwards.",
-     "definitionFit": "The Arabian peninsula is large enough to be called a sub-continent."
+     "surface": "A Private Eye jibe: America has lifted a ban on a controversial technology.",
+     "walkthrough": "Arabia is called a sub-continent here because the peninsula is so large; 'lifted' works only because this is a down clue.",
+     "definitionFit": "Arabia is the vast peninsula of south-west Asia, often called a subcontinent because of its size."
     },
     "features": {
      "answerInScene": false,
@@ -389,25 +397,39 @@
      "indicators": [
       {
        "text": "savagely",
-       "note": "the letters are savaged into a new order"
-      },
-      {
-       "text": "with loss of ego",
-       "note": "ego = I, and one I is lost"
+       "at": 28,
+       "note": "savagely suggests the letters are violently shaken up"
       }
      ],
      "parts": [
       {
-       "words": "satirised, with loss of ego",
-       "gives": "SATRISED",
-       "note": "SATIRISED minus one I"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with loss of",
+         "at": 48,
+         "note": "loss of means the named letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "satirised",
+         "at": 37
+        },
+        {
+         "words": "ego",
+         "at": 61,
+         "gives": "I",
+         "note": "the ego is the self, I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A satirist's boast that most government policies get savagely mocked in the magazine.",
-     "walkthrough": "'Is' looks like part of the fodder but is only the link; SATIRISED has two Is and loses one.",
-     "definitionFit": "The joke is that many government policies turn out to be disasters."
+     "surface": "A Private Eye boast: government policies are mercilessly satirised, deflating their authors' egos.",
+     "walkthrough": "SATIRISED without an I leaves SATRISED, and 'savagely' rearranges those letters.",
+     "definitionFit": "A satirical magazine's view: many official policies turn out to be catastrophes or fiascos."
     },
     "features": {
      "answerInScene": true,
@@ -1092,31 +1114,49 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the result goes inside the van"
+       "at": 51,
+       "note": "in places the shortened word inside the vehicle"
       }
      ],
      "parts": [
       {
        "words": "transit",
+       "at": 54,
        "gives": "VAN",
-       "note": "a Transit is a Ford van, common in Britain"
+       "note": "the Ford Transit is a well-known van"
       },
       {
-       "words": "put off having to go topless",
-       "gives": "ETER",
-       "note": "DETER = put off, minus D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having to go topless",
+         "at": 30,
+         "note": "going topless means losing the top, the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "put off",
+         "at": 22,
+         "gives": "DETER",
+         "note": "to deter is to put off"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seasoned traveller put off by having to strip to the waist in transit.",
-     "walkthrough": "'Transit' reads as travelling, but the Ford Transit is a van, and the capital is disguised.",
-     "definitionFit": "Veteran works as an adjective too, as in a veteran campaigner, meaning long-practised."
+     "surface": "Someone seasoned but reluctant to go bare-chested while travelling.",
+     "walkthrough": "The Ford Transit is the commonest British van, so 'in transit' means inside a van rather than on the move.",
+     "definitionFit": "A veteran is a person with long experience in a field, an old hand."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "transit"
     }
    }

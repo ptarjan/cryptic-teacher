@@ -743,31 +743,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Losing three at outset",
-       "note": "the first three letters are dropped"
-      },
-      {
        "text": "rambling",
-       "note": "wandering about, so the letters move"
+       "at": 36,
+       "note": "rambling suggests wandering about, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "longwinded",
-       "gives": "GWINDED",
-       "note": "LONGWINDED minus its first three letters, LON"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Losing three at outset",
+         "at": 0,
+         "note": "three letters are lost from the start of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "longwinded",
+         "at": 24
+        },
+        {
+         "gives": "LON"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble about long, rambling speeches at a function, running on into the next clue.",
-     "walkthrough": "The surface complains about speeches, and a wedding is exactly where the long-winded ones happen. The dots carry the sentence into 14 across.",
-     "definitionFit": "A wedding reception is the classic occasion for speeches."
+     "surface": "Someone grumbles about a long, rambling speech that loses its audience early on.",
+     "walkthrough": "Remove the first three letters of LONGWINDED to leave GWINDED, then 'rambling' rearranges those letters.",
+     "definitionFit": "A wedding reception is the classic occasion for speeches by the best man and the bride's father."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "longwinded"
+     "misdirectedWord": "three"
     }
    }
   },
@@ -1317,21 +1328,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Not initially tying up",
-       "gives": "NOTTING",
-       "note": "KNOTTING (tying up) without its first letter K"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not initially",
+         "at": 0,
+         "note": "not starting tells us the first letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tying up",
+         "at": 14,
+         "gives": "KNOTTING",
+         "note": "knotting is tying up with knots"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       },
       {
        "words": "driver Damon",
+       "at": 23,
        "gives": "HILL",
-       "note": "Damon Hill, Formula One world champion"
+       "note": "Damon Hill was a Formula One world champion driver"
       }
      ]
     },
     "explanation": {
-     "surface": "A racing driver being tied up, or not.",
-     "walkthrough": "'Not' wants to be a word in the answer, and NOT does appear, but only because KNOTTING loses its K. Notting Hill is a district of west London.",
-     "definitionFit": "Notting Hill is an area of west London, famous for its carnival."
+     "surface": "A racing tale about failing to keep Damon Hill tied down at first.",
+     "walkthrough": "'Not' looks like a word to keep, but 'Not initially' removes the K from KNOTTING to give NOTTING.",
+     "definitionFit": "Notting Hill is a district of west London, famous for its carnival and its market."
     },
     "features": {
      "answerInScene": false,

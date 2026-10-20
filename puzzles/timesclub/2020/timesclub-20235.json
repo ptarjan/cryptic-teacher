@@ -109,73 +109,50 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with secondary deductions",
+       "at": 19,
+       "note": "each of the four words has its second letter deducted, so secondary letters are taken away word by word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "with secondary deductions",
-         "note": "secondary deductions are subtractions of the second item, so each word loses its second letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Such",
-         "note": "taken as written"
+         "at": 0
         },
-        {
-         "gives": "U"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
         {
          "words": "is",
-         "note": "taken as written"
+         "at": 5
         },
-        {
-         "gives": "S"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
         {
          "words": "zloty",
-         "note": "taken as written"
+         "at": 8
         },
         {
-         "gives": "L"
+         "words": "pay",
+         "at": 15
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "pay",
-         "note": "taken as written"
-        },
-        {
-         "gives": "A"
-        }
-       ]
+       "gives": "USLA"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that being paid in Polish currency is enough to make anyone a little unhinged.",
-     "walkthrough": "Drop the second letter of each of the four words: S(U)CH, I(S), Z(L)OTY, P(A)Y, giving SCHIZOTYPY.",
-     "definitionFit": "Schizotypy is a personality trait describing milder, subclinical versions of the features seen in schizophrenia."
+     "surface": "A finance story: paying in Polish currency with deductions somehow leads to a mild mental condition.",
+     "walkthrough": "Take the second letter out of each word: Such loses U, is loses S, zloty loses L, pay loses A, leaving SCH, I, ZOTY and PY. The zloty is the Polish currency.",
+     "definitionFit": "Schizotypy is a psychological term for a mild, subclinical cluster of traits related to schizophrenia."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "deductions"
+     "misdirectedWord": "secondary"
     }
    }
   },
@@ -1375,41 +1352,50 @@
      "indicators": [
       {
        "text": "framing",
-       "note": "a frame surrounds a picture, so this word goes around the rest"
+       "at": 37,
+       "note": "the discordant word goes round the rest, like a frame round a picture"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "composed",
-         "note": "something composed is put together in a new arrangement, so these letters are rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Erika",
-         "note": "taken as written"
-        },
-        {
-         "words": "discordant",
-         "gives": "JANGLY",
-         "note": "a discordant sound is jangly"
-        }
-       ]
+       "words": "discordant",
+       "at": 26,
+       "gives": "JANGLY",
+       "note": "jangly describes a harsh, discordant sound"
       },
       {
-       "words": "Weber",
-       "gives": "WB",
-       "note": "Wb is the symbol for the weber, the unit of magnetic flux"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Weber",
+         "at": 0,
+         "gives": "WB",
+         "note": "Wb is the SI symbol for the weber, the unit of magnetic flux"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "composed",
+           "at": 6,
+           "note": "composed suggests the letters of Erika are put together anew"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Erika",
+           "at": 15
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The composer Weber wrote a harsh, jarring piece called Erika that is painful to listen to.",
-     "walkthrough": "Weber looks like the composer but is the unit, symbol Wb; WB plus ERIKA is rearranged and placed inside JANGLY.",
-     "definitionFit": "Jawbreakingly describes words so hard to say they might break your jaw, hence almost impossible to pronounce."
+     "surface": "The composer Weber writes a piece for Erika full of clashing chords.",
+     "walkthrough": "Weber looks like the composer, but here he is the SI unit of magnetic flux, whose symbol is used. 'framing' means the discordant word wraps round everything else.",
+     "definitionFit": "A jawbreaker is a word too hard to pronounce, so jawbreakingly means in a manner nearly impossible to say."
     },
     "features": {
      "answerInScene": false,
