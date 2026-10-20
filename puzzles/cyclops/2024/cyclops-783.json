@@ -116,29 +116,44 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "leader goes",
-       "note": "the first letter of 'any time' leaves"
-      },
-      {
        "text": "crazy",
-       "note": "the remaining letters are thrown into a crazy order"
+       "at": 33,
+       "note": "gone mad, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "words": "any time",
-       "gives": "NYTIME",
-       "note": "ANYTIME without its first letter A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leader goes",
+         "at": 21,
+         "note": "the first letter of the word any departs"
+        }
+       ],
+       "parts": [
+        {
+         "words": "any",
+         "at": 12
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 16
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble that people turn bitter whenever whoever is in charge loses the plot.",
-     "walkthrough": "Both the deletion and the scramble act on the same two words, in that order: drop the A, then rearrange.",
-     "definitionFit": "Enmity is hostility, a bitter ill will between people."
+     "surface": "A grumble that resentment can make whoever is in charge lose their mind at any moment.",
+     "walkthrough": "'leader goes' drops the A of ANY, and 'crazy' rearranges NY with TIME.",
+     "definitionFit": "Enmity is hostility or ill will, the bitterness between enemies."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "leader"
     }
@@ -1319,25 +1334,45 @@
      "parts": [
       {
        "words": "battle",
+       "at": 15,
        "gives": "WAR",
-       "note": "a battle is fighting, war"
+       "note": "war is battle on a large scale"
       },
       {
-       "words": "period not on",
-       "gives": "MTH",
-       "note": "MONTH without ON"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 29,
+         "note": "says the word on is to be left out of what precedes it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "period",
+         "at": 22,
+         "gives": "MONTH",
+         "note": "a month is a period of time"
+        },
+        {
+         "words": "on",
+         "at": 33,
+         "gives": "ON",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Friendliness breaks out, so a spell of fighting is called off.",
-     "walkthrough": "'Not on' sounds like a verdict that the battle is off; it tells you to remove ON from the period.",
-     "definitionFit": "A plain synonym: a warm manner is a friendly, cordial one."
+     "surface": "A wry comment that friendliness and warfare don't belong in the same season.",
+     "walkthrough": "'period' is a length of time here, not a full stop, and 'so' only links the definition to the wordplay.",
+     "definitionFit": "Warmth of manner is friendliness and affection, which is what cordiality describes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "on"
+     "misdirectedWord": "period"
     }
    }
   },

@@ -432,34 +432,43 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "naked",
-       "note": "a naked word is stripped of its covering, its outer letters"
-      },
-      {
-       "text": "after"
+       "text": "after",
+       "at": 5,
+       "note": "the left letter is placed after the stripped auntie"
       }
      ],
      "parts": [
       {
-       "words": "auntie",
-       "gives": "UNTI",
-       "note": "AUNTIE without its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "naked",
+         "at": 11,
+         "note": "stripped of its covering, so the word auntie loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "auntie",
+         "at": 17
+        }
+       ]
       },
       {
        "words": "Left",
-       "gives": "L",
-       "note": "L = left"
+       "at": 0,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A startled observer tries to work out whether they left after or before the naked aunt appeared.",
-     "walkthrough": "The question mark flags a loose definition: the word marks the point up to which something lasts, so it sits close to before.",
-     "definitionFit": "\"Don't eat till six\" and \"don't eat before six\" say the same, so the preposition and before overlap in sense."
+     "surface": "A puzzled question about whether someone left after or before their aunt was seen without clothes.",
+     "walkthrough": "'naked' strips the outside letters from AUNTIE, leaving UNTI; L follows it. The question mark flags that 'before' is only loosely the answer's sense.",
+     "definitionFit": "Until means up to the time of, so 'wait until noon' is close to waiting before noon comes."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "naked"
     }

@@ -552,31 +552,48 @@
      "indicators": [
       {
        "text": "added on",
-       "note": "the bishop is added on at the end"
+       "at": 22,
+       "note": "the bishop's letter is attached at the end"
       }
      ],
      "parts": [
       {
-       "words": "short notice",
-       "gives": "ADVER",
-       "note": "an advert is a notice; short, it loses its T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 31,
+         "note": "cut short, so the last letter of the word for notice is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "notice",
+         "at": 37,
+         "gives": "ADVERT",
+         "note": "an advert is a public notice"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "bishop",
+       "at": 15,
        "gives": "B",
-       "note": "B is bishop in chess notation"
+       "note": "B is the chess abbreviation for bishop"
       }
      ]
     },
     "explanation": {
-     "surface": "A bishop giving a talk at short notice.",
-     "walkthrough": "\"Part of speech\" sounds like an excerpt from the bishop's address; it is the grammar term. \"Short notice\" is a stock phrase split into a cut-down word.",
-     "definitionFit": "A plain grammar term: the traditional parts of speech include noun, verb and this word class that modifies verbs."
+     "surface": "A bishop's address tacked on at the last minute.",
+     "walkthrough": "'short' trims ADVERT to ADVER, and B is 'added on' at the end. 'Part of speech' is the grammar term, not a section of a sermon.",
+     "definitionFit": "An adverb is a grammatical word class, one of the parts of speech like noun and verb."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "speech"
     }
    }
@@ -605,30 +622,43 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Finishing early",
-       "note": "the word finishes one letter early, losing its last letter"
-      },
-      {
        "text": "to grab",
-       "note": "the cut word grabs the A, holding it inside"
+       "at": 26,
+       "note": "the shortened word grabs, or encloses, the a"
       }
      ],
      "parts": [
       {
-       "words": "Champion",
-       "gives": "ADVOCAT",
-       "note": "an advocate champions a cause; finishing early drops the final E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Finishing early",
+         "at": 10,
+         "note": "stopping before the end, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Champion",
+         "at": 0,
+         "gives": "ADVOCATE",
+         "note": "to champion a cause is to advocate it, and an advocate is its champion"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "used as written"
+       "at": 34
       }
      ]
     },
     "explanation": {
-     "surface": "A winner leaving the party early to go and grab a drink.",
-     "walkthrough": "The exclamation mark makes Champion a cheer; it is a verb-noun meaning supporter. Advocaat is a Dutch egg-and-brandy liqueur.",
-     "definitionFit": "A definition by category: this Dutch egg-yolk and brandy liqueur is one of many drinks."
+     "surface": "A cheer for a winner who leaves early to snatch a drink.",
+     "walkthrough": "'Finishing early' cuts ADVOCATE to ADVOCAT, and that grabs A before its last letter.",
+     "definitionFit": "Advocaat is a Dutch liqueur made with eggs, sugar and brandy, a sweet drink."
     },
     "features": {
      "answerInScene": true,
