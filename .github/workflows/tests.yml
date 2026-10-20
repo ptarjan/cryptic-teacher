@@ -1,9 +1,11 @@
 # Every test entry point in tools/ runs HERE.
 #
-# Only the puzzle fast path (about a minute) has a concurrency group: a newer
-# pending fast run replaces an older one, which is safe because it diffs back
-# to the last green run and so covers it. The full suite's jobs have NO group,
-# on purpose. GitHub cancels a PENDING job when a newer one joins its group,
+# No job has a concurrency group, on purpose. The puzzle fast path used to have
+# one, but GitHub cancels the PENDING older run and a cancelled run shows as a
+# red X. Now the scope job emits mode=skip for a fast or full run whose commit
+# is already behind master's tip: it concludes green, and the newer run covers
+# it (the fast path diffs back to the last green run that ran something, never
+# a skipped one). GitHub cancels a PENDING job when a newer one joins its group,
 # whatever cancel-in-progress says, and a full run's later jobs (shards 17-33
 # minutes in, the cache job) wait behind the previous run's: with a group, the
 # burn's puzzle pushes every few minutes cancelled every full run before it
@@ -117,8 +119,10 @@ jobs:
           # while its scope was still pending can go fast on code nobody ran;
           # the next full run on a later commit, or nightly-smoke.yml, covers it.
           # Any failure to look just runs the suite.
-          full() {
-            echo "full suite: $1"
+          # The same goes for a puzzle-only (fast) run: it used to wait in a
+          # concurrency group, and GitHub cancels the pending older one, which
+          # shows as a red X. Skipping concludes green instead.
+          superseded() {
             if [ "$EVENT" = push ] && [ "$REF" = refs/heads/master ]; then
               head=$(git ls-remote origin refs/heads/master 2>/dev/null | cut -f1)
               newer=$(gh api "repos/$REPO/actions/workflows/tests.yml/runs?branch=master&event=push&per_page=5" \
@@ -129,6 +133,10 @@ jobs:
                 exit 0
               fi
             fi
+          }
+          full() {
+            echo "full suite: $1"
+            superseded
             echo "mode=full" >> "$GITHUB_OUTPUT"
             exit 0
           }
@@ -137,7 +145,16 @@ jobs:
                      --jq '.workflow_runs[] | "\(.id) \(.head_sha)"'; }
           runs=$(list success 30) || full "could not list the green runs"
           [ -n "$runs" ] || full "no green run to diff against"
-          base_pass=$(head -n 1 <<<"$runs" | cut -d' ' -f2)
+          # The base is the newest green run that really tested something: a
+          # skipped (superseded) run is green too, but its commit's puzzles
+          # were never checked, so it must not stand in for them.
+          base_pass=
+          while read -r id sha; do
+            k=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
+                  --jq '[.jobs[] | select((.name | startswith("tests ") or . == "puzzle fast path") and .conclusion == "success")] | length') || full "could not read run $id"
+            if [ "$k" -gt 0 ]; then base_pass=$sha; break; fi
+          done <<<"$runs"
+          [ -n "$base_pass" ] || full "no green run that ran anything"
           # A full run still going counts as the base too, when its shards have
           # started and none has failed: the code it carries is being tested by
           # that run, so a puzzle push behind it need not repeat the suite (it
@@ -174,6 +191,7 @@ jobs:
           echo "since the last full pass ($base_full): $verdict"
           [ "$verdict" = fast ] || full "$verdict"
           python3 tools/ci_scope.py files "$base_pass" > /dev/null || full "too many puzzles since the last green run"
+          superseded
           echo "mode=fast" >> "$GITHUB_OUTPUT"
           echo "base_pass=$base_pass" >> "$GITHUB_OUTPUT"
 
@@ -188,9 +206,6 @@ jobs:
     name: puzzle fast path
     needs: scope
     if: needs.scope.outputs.mode == 'fast'
-    concurrency:
-      group: tests-fast-${{ github.ref }}
-      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
