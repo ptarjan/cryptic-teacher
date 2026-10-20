@@ -143,42 +143,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "losing heart",
-       "note": "DENY drops its middle letters, keeping only its ends"
-      }
-     ],
      "parts": [
       {
        "words": "turn",
+       "at": 6,
        "gives": "GO",
-       "note": "a turn = a go, as in 'whose go is it?'"
+       "note": "a go is a turn, as in a game"
       },
       {
        "words": "round",
+       "at": 11,
        "gives": "O",
        "note": "O is round in shape"
       },
       {
-       "words": "deny",
-       "gives": "DY",
-       "note": "DENY losing its heart (EN)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing heart",
+         "at": 22,
+         "note": "the word loses its two middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deny",
+         "at": 36,
+         "gives": "DENY",
+         "note": "taken as written before its centre is removed"
+        },
+        {
+         "gives": "EN"
+        }
+       ]
       },
       {
        "words": "Twice",
+       "at": 0,
        "gives": "GOODY",
-       "note": "the whole GOODY again"
+       "note": "the whole assembled word is given two times"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone turning round twice and rejecting any claim to religious devotion.",
-     "walkthrough": "'Turn round' looks like one instruction to reverse something, but it is two separate pieces, GO and O. 'Twice' tells you to repeat the result.",
-     "definitionFit": "Goody-goody describes someone smugly virtuous, pious in a showy way."
+     "surface": "Someone spinning round twice and then, lacking courage, denying they are religious.",
+     "walkthrough": "GO + O + DY (DENY without its heart EN) gives GOODY, and 'Twice' doubles it.",
+     "definitionFit": "A goody-goody is someone smugly virtuous, showing off their righteousness, so pious in a sanctimonious way."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "turn"
     }

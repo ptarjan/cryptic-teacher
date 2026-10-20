@@ -602,33 +602,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "on"
-      },
-      {
-       "text": "not at first",
-       "note": "TUMMY loses its first letter"
+       "text": "on",
+       "at": 17,
+       "note": "in a down clue, one piece set on another sits above it, so it comes first"
       }
      ],
      "parts": [
       {
        "words": "years",
-       "gives": "Y",
-       "note": "Y = years"
+       "at": 11,
+       "gives": "Y"
       },
       {
-       "words": "corporation",
-       "gives": "UMMY",
-       "note": "a corporation is a paunch, a TUMMY, minus the T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not at first",
+         "at": 40,
+         "note": "says the opening letter of the belly word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "corporation",
+         "at": 20,
+         "gives": "TUMMY",
+         "note": "corporation is an old jokey word for a large belly, a tummy"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A company that has aged deliciously well, if not from the start.",
-     "walkthrough": "'Corporation' is dated British slang for a pot belly, which is the key to reading it as TUMMY rather than a company.",
-     "definitionFit": "Yummy is the informal word for delicious, delectable."
+     "surface": "Something tasty that years of business have produced, though it didn't seem so initially.",
+     "walkthrough": "'Corporation' is not a company here but a humorous British word for a paunch.",
+     "definitionFit": "Yummy is an informal word for delicious, which is what delectable means."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "corporation"
@@ -1682,13 +1696,15 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to set about",
-       "note": "set about means placed around"
+       "text": "set about",
+       "at": 21,
+       "note": "the bait word is placed around the letter, setting itself about it"
       }
      ],
      "parts": [
       {
        "words": "enticement",
+       "at": 7,
        "gives": "LURE",
        "note": "a lure is an enticement"
       },
@@ -1697,26 +1713,29 @@
        "indicators": [
         {
          "text": "at the outset",
-         "note": "the outset of CROSSWORD is its first letter"
+         "at": 41,
+         "note": "only the opening letter of crossword is used"
         }
        ],
        "parts": [
         {
-         "words": "crossword at the outset",
-         "note": "first letter of CROSSWORD, set inside LURE"
+         "words": "crossword",
+         "at": 31,
+         "note": "gives its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cash prize dangled to get people started on a crossword.",
-     "walkthrough": "Lucre, as in 'filthy lucre', is an old word for money, usually disapproving.",
-     "definitionFit": "Lucre is money, especially when gained dishonourably."
+     "surface": "Cash offered as a lure to get someone started on a crossword.",
+     "walkthrough": "'At the outset' gives C, the first letter of crossword, and 'set about' puts LURE around it.",
+     "definitionFit": "Lucre is money, especially when seen as gained greedily, as in 'filthy lucre'."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "set"
     }
    }
   },

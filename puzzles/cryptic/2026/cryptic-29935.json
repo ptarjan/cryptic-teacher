@@ -50,32 +50,52 @@
        "indicators": [
         {
          "text": "Hearts",
-         "note": "the heart of a word is its central letters"
+         "at": 9,
+         "note": "the hearts of words are their central letters, so each word gives its centre"
         }
        ],
        "parts": [
         {
          "words": "unreal",
-         "note": "the central pair of UNREAL"
+         "at": 19,
+         "gives": "RE",
+         "note": "its central pair of letters"
+        },
+        {
+         "words": "PGA",
+         "at": 26,
+         "gives": "G",
+         "note": "its central letter"
         }
        ]
       },
       {
-       "words": "PGA",
-       "gives": "G",
-       "note": "the central letter of PGA"
-      },
-      {
-       "words": "final",
-       "gives": "INA",
-       "note": "the central three of FINAL"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 16,
+         "note": "the letters sitting in the next word, within its ends, are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "final",
+         "at": 30,
+         "gives": "FINAL",
+         "note": "its letters bar the first and last"
+        },
+        {
+         "gives": "FL"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A card-game queen turns up at an imaginary golf championship.",
-     "walkthrough": "'Queen of Hearts' reads as one card, but the clue splits after 'Queen': 'Hearts' tells you to take the middles of the next three words, and each gives a different number of letters.",
-     "definitionFit": "Regina is Latin for queen, seen in a monarch's signature as the R of ER."
+     "surface": "A card game image: the Queen of Hearts turning up in an imaginary golf tournament's final.",
+     "walkthrough": "'Queen of Hearts' looks like one phrase, but 'Queen' is the definition and 'Hearts in' takes the centres of the next three words.",
+     "definitionFit": "Regina is Latin for queen, used in the title of a reigning British queen."
     },
     "features": {
      "answerInScene": false,
@@ -811,20 +831,39 @@
      "parts": [
       {
        "words": "Old lady",
+       "at": 0,
        "gives": "GRAN",
-       "note": "gran = grandmother"
+       "note": "gran, a grandmother, is an old lady"
       },
       {
-       "words": "wasting money in Virgin",
-       "gives": "ARY",
-       "note": "MARY, the Virgin, without M for money"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wasting",
+         "at": 9,
+         "note": "the cash letter is thrown away from the name of the Virgin"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Virgin",
+         "at": 26,
+         "gives": "MARY",
+         "note": "the Virgin Mary"
+        },
+        {
+         "words": "money",
+         "at": 17,
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grandmother blows her savings in a Virgin Megastore.",
-     "walkthrough": "'Virgin store' reads as the Branson chain; 'store' is the definition. Granary is also a brand of malted bread, in the 8 across theme.",
-     "definitionFit": "A definition by category: a building for keeping threshed grain is one kind of store."
+     "surface": "An elderly woman squandering cash inside a Virgin shop.",
+     "walkthrough": "'Virgin store' suggests the Virgin Megastores chain, but Virgin is MARY, which loses M for money.",
+     "definitionFit": "A granary is a storehouse for grain, so it is a kind of store."
     },
     "features": {
      "answerInScene": false,

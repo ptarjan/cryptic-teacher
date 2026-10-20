@@ -1235,31 +1235,51 @@
      "parts": [
       {
        "words": "woo",
+       "at": 23,
        "gives": "COURT",
-       "note": "to court = to woo"
+       "note": "to court someone is to woo them"
       },
       {
        "words": "maiden",
+       "at": 27,
        "gives": "M",
-       "note": "M = maiden, a scoreless over in cricket"
+       "note": "M is the cricket scorecard abbreviation for a maiden over"
       },
       {
-       "words": "not complete? No pressure",
-       "gives": "ARTIAL",
-       "note": "PARTIAL = not complete, without P = pressure"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "No",
+         "at": 49,
+         "note": "'No' here tells us to leave the following item out of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not complete",
+         "at": 35,
+         "gives": "PARTIAL",
+         "note": "partial means not complete"
+        },
+        {
+         "words": "pressure",
+         "at": 52,
+         "gives": "P",
+         "note": "P is the physics symbol for pressure"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A suitor wooing a girl gently, with no pressure.",
-     "walkthrough": "'Field' is the battlefield: a court martial is a military trial, held in the field.",
-     "definitionFit": "A court martial is a legal proceeding held by the armed forces, including in the field."
+     "surface": "A suitor in a field trying to win a girl, but only halfway, without being pushy.",
+     "walkthrough": "'No pressure' removes P from PARTIAL, leaving ARTIAL. 'In field' points to the army in the field, not a meadow.",
+     "definitionFit": "A court martial is a military trial, a legal proceeding held by the armed forces, often in the field."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "maiden"
+     "misdirectedWord": "field"
     }
    }
   },

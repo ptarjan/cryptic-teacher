@@ -374,33 +374,42 @@
        "indicators": [
         {
          "text": "round",
-         "note": "to turn something round is to face it the other way, so LAP is read backwards"
+         "at": 12,
+         "note": "the first round tells us to turn the pair of pieces about"
         }
        ],
        "parts": [
         {
-         "words": "circuit",
-         "gives": "LAP",
-         "note": "LAP turned round"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "One",
+           "at": 0,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          },
+          {
+           "words": "circuit",
+           "at": 4,
+           "gives": "LAP",
+           "note": "a lap is one circuit of a track"
+          }
+         ]
         }
        ]
       },
       {
-       "words": "One",
-       "gives": "I",
-       "note": "I = one"
-      },
-      {
-       "words": "and round",
+       "words": "round",
+       "at": 22,
        "gives": "O",
        "note": "O is round in shape"
       }
      ]
     },
     "explanation": {
-     "surface": "A horse in a race goes round and round the circuit once.",
-     "walkthrough": "The Palio is the bareback horse race round the main square of Siena. 'Round' does two jobs: first reversing LAP, then as the letter O.",
-     "definitionFit": "A specific example: the bareback contest run twice each summer in Siena between the city's districts."
+     "surface": "A horse goes one lap after another in a race.",
+     "walkthrough": "The repeated 'round' has two jobs: the first reverses I LAP, the second is the letter O.",
+     "definitionFit": "The Palio is the famous bareback horse race around the main square of Siena in Italy."
     },
     "features": {
      "answerInScene": true,
@@ -523,35 +532,54 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "achieved in",
+       "at": 46,
+       "note": "the pieces are placed within the city's letters"
       }
      ],
      "parts": [
       {
        "words": "US city",
+       "at": 58,
        "gives": "LA",
-       "note": "Los Angeles"
+       "note": "LA is Los Angeles"
       },
       {
        "op": "charade",
        "parts": [
         {
          "words": "a",
-         "note": "as printed"
+         "at": 28
         },
         {
-         "words": "range not fully achieved",
-         "gives": "SCAL",
-         "note": "SCALE, a range of notes, without its E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not fully",
+           "at": 36,
+           "note": "the range word is not complete, its last letter dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "range",
+           "at": 30,
+           "gives": "SCALE",
+           "note": "a scale is a range, as of notes or values"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Milan opera house staging a show whose vocal range falls short in an American city.",
-     "walkthrough": "La Scala in Milan is the best-known Italian opera house.",
-     "definitionFit": "A specific example: Milan's Teatro alla Scala, opened in 1778, where Verdi and Puccini premiered works."
+     "surface": "An opera house falls short of achieving its full vocal range in an American city.",
+     "walkthrough": "The 'US city' is Los Angeles, known by its two initials, and it wraps the other pieces.",
+     "definitionFit": "La Scala is the celebrated opera theatre in Milan, the most famous in Italy."
     },
     "features": {
      "answerInScene": true,
@@ -799,23 +827,42 @@
      "parts": [
       {
        "words": "I",
-       "note": "as printed"
+       "at": 12
       },
       {
-       "words": "reckon, ignoring a lecturer",
-       "gives": "TALY",
-       "note": "TALLY, to reckon up, without an L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "at": 22,
+         "note": "the lecturer's letter is left out of the counting word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reckon",
+         "at": 14,
+         "gives": "TALLY",
+         "note": "to tally is to count up, reckon"
+        },
+        {
+         "words": "a lecturer",
+         "at": 31,
+         "gives": "L",
+         "note": "L is the abbreviation for lecturer"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone guesses where the artist at 10 across lived, but leaves out a lecturer's view.",
-     "walkthrough": "10 across is DONATELLO, the Florentine sculptor, so his home is Italy. L = lecturer is a standard abbreviation.",
-     "definitionFit": "Donatello, the answer to 10, was Italian."
+     "surface": "Someone says they think something is home to another entry, with a lecturer left out.",
+     "walkthrough": "The cross-reference points to another answer in the grid, which this country is home to.",
+     "definitionFit": "The cross-referenced answer is based in this European country, which is therefore its home nation."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "reckon"
     }
    }
@@ -1102,38 +1149,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "turned upside down, which in a down entry reverses it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 28,
+         "note": "in a down clue, upset turns the word upside down, so it reads backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "those in attendance",
-         "gives": "ESUOH",
-         "note": "the house: a theatre audience"
-        },
-        {
          "words": "look",
+         "at": 23,
          "gives": "PEEK",
-         "note": "PEEK turned up"
+         "note": "to peek is to take a look"
         }
        ]
+      },
+      {
+       "words": "those in attendance",
+       "at": 39,
+       "gives": "HOUSE",
+       "note": "the house is the audience in a theatre"
       }
      ]
     },
     "explanation": {
-     "surface": "A manager of an establishment looks put out by the people turning up.",
-     "walkthrough": "A theatre's 'house' is its audience, as in 'a full house'.",
-     "definitionFit": "An idiom: managing the domestic affairs of a home, its cooking, cleaning and budget."
+     "surface": "A theatre manager looks troubled about the audience.",
+     "walkthrough": "'Upset' reverses PEEK in this down clue; HOUSE is the theatre word for the audience.",
+     "definitionFit": "To keep house is to manage a household, running a domestic establishment."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "upset"
     }
@@ -1815,39 +1865,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 19,
+       "note": "the turned article goes inside the scrambled letters"
       }
      ],
      "parts": [
       {
-       "words": "hideout",
-       "gives": "HOTDIEU",
-       "note": "anagram of HIDEOUT"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusual",
+         "at": 22,
+         "note": "unusual signals the letters take a strange new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hideout",
+         "at": 30,
+         "note": "taken as written for rearranging"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "back",
-         "note": "going back means travelling in the opposite direction, so the French article is written right to left"
+         "at": 14,
+         "note": "the French article is turned round"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "unusual",
-           "note": "HIDEOUT's letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "The Parisian",
-           "gives": "EL",
-           "note": "LE, French for 'the', reversed"
-          }
-         ]
+         "words": "The Parisian",
+         "at": 0,
+         "gives": "LE",
+         "note": "le is French for the"
         }
        ]
       }
@@ -1855,14 +1910,14 @@
     },
     "spelling": "HÔTEL DIEU",
     "explanation": {
-     "surface": "A Frenchman's strange hideaway turns out to be a hospital on the Riviera.",
-     "walkthrough": "'Nice' is the French city, not the adjective. Hôtel-Dieu is the traditional name of a French town's main hospital.",
-     "definitionFit": "A hôtel-Dieu is a French city hospital, so Nice would have one."
+     "surface": "A Parisian returning to a strange hiding place, a hospital on the Riviera.",
+     "walkthrough": "'The Parisian' means the word for 'the' in French; Nice is the French city, not the adjective.",
+     "definitionFit": "Hotel-Dieu is the French name for a city's main hospital, found in many French towns."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Nice"
+     "aptDefinition": true,
+     "misdirectedWord": "Parisian"
     }
    }
   },

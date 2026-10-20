@@ -431,41 +431,56 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Half-worn flea",
-       "gives": "EA",
-       "note": "the second half of FLEA"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Half-worn",
+         "at": 0,
+         "note": "half of the word is worn away, leaving its latter half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flea",
+         "at": 10,
+         "note": "taken as written before half goes"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "retaining"
+         "text": "retaining",
+         "at": 22,
+         "note": "the collar holds the letter inside it"
         }
        ],
        "parts": [
         {
          "words": "collar",
+         "at": 15,
          "gives": "RUFF",
          "note": "a ruff is a frilled collar"
         },
         {
          "words": "medium",
-         "gives": "M",
-         "note": "m = medium, as on clothing labels"
+         "at": 32,
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pet's flea collar, half worn out, still has some protective medicine in it.",
-     "walkthrough": "The flea collar invites a pet scene; the definition is cryptic, since each earmuff guards one side of the head.",
-     "definitionFit": "An earmuff is a pad that protects one ear from cold, one side of the head."
+     "surface": "A worn-out flea collar keeping a dog's protection effective on one side only.",
+     "walkthrough": "A ruff is the frilled collar of Elizabethan portraits, not a pet's collar; the flea is just a word to be worn down.",
+     "definitionFit": "An earmuff covers one ear against cold, so a single one gives protection on one side of the head."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "collar"
+     "misdirectedWord": "flea"
     }
    }
   },
@@ -673,30 +688,48 @@
      "indicators": [
       {
        "text": "nuts",
-       "note": "nuts = crazy, so the letters are scrambled"
+       "at": 27,
+       "note": "nuts means crazy, so the combined letters are scrambled"
       }
      ],
      "parts": [
       {
-       "words": "Licensed bar limits",
-       "gives": "ICENSE",
-       "note": "LICENSED without its first and last letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bar limits",
+         "at": 9,
+         "note": "to bar the limits is to exclude the outermost letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Licensed",
+         "at": 0,
+         "gives": "LICENSED",
+         "note": "taken as written before its ends go"
+        },
+        {
+         "gives": "LD"
+        }
+       ]
       },
       {
        "words": "salted",
-       "note": "anagram fodder"
+       "at": 20,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A pub serving salted nuts and cold meats as bar snacks.",
-     "walkthrough": "Salted nuts look like a bar snack; nuts is the anagram signal and salted is fodder. Limits are the outer letters of the word before bar.",
-     "definitionFit": "Charcuterie is both cured meats and the shop that sells them, a delicatessen."
+     "surface": "A pub with a licence serving salted nuts and cold meats.",
+     "walkthrough": "'Bar limits' strips L and D from LICENSED, leaving ICENSE; 'nuts' mixes ICENSE with SALTED.",
+     "definitionFit": "A delicatessen sells cold cooked meats, so charcuterie stands for the shop or its fare."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "nuts"
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
     }
    }
   },
@@ -1005,12 +1038,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "most of",
-       "note": "SILT loses its last letter"
-      },
-      {
        "text": "back",
-       "note": "the whole assembly is read backwards"
+       "at": 55,
+       "note": "the whole assembly is then read in reverse"
       }
      ],
      "parts": [
@@ -1018,28 +1048,47 @@
        "op": "container",
        "indicators": [
         {
-         "text": "holding"
+         "text": "holding",
+         "at": 31,
+         "note": "the brother's name holds the shortened deposit inside"
         }
        ],
        "parts": [
         {
          "words": "Joseph's eldest brother",
+         "at": 7,
          "gives": "REUBEN",
-         "note": "in Genesis, Reuben is Jacob's firstborn, Joseph's eldest brother"
+         "note": "Reuben was the firstborn son of Jacob, eldest brother of Joseph in Genesis"
         },
         {
-         "words": "deposit",
-         "gives": "SIL",
-         "note": "SILT, a river deposit, without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 39,
+           "note": "the final letter is dropped, leaving most of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "deposit",
+           "at": 47,
+           "gives": "SILT",
+           "note": "silt is a deposit of sediment"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Mr Joseph whose eldest brother keeps back most of a deposit, like a family squabble over money.",
-     "walkthrough": "Mister looks like a form of address; it is one who mists, a device that turns liquid into a fine spray.",
-     "definitionFit": "A nebuliser turns liquid medicine into a mist to be breathed in, so it is literally a mister."
+     "surface": "A biblical brother keeping most of a deposit for himself.",
+     "walkthrough": "SIL goes inside REUBEN after RE to give RESILUBEN, and 'back' reverses all of it. 'Mister' is a thing that makes mist, not a title.",
+     "definitionFit": "A nebuliser turns liquid medicine into a fine spray, so it is a device that mists."
     },
     "features": {
      "answerInScene": false,

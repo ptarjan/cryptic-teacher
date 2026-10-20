@@ -1465,30 +1465,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
-      },
-      {
-       "text": "shortened",
-       "note": "TRAM loses its last letter"
+       "text": "about",
+       "at": 29,
+       "note": "the announcement goes about the shortened tram"
       }
      ],
      "parts": [
       {
        "words": "announcement",
+       "at": 16,
        "gives": "BULLETIN",
-       "note": "a bulletin is an official announcement"
+       "note": "a bulletin is an announcement"
       },
       {
-       "words": "tram",
-       "gives": "TRA",
-       "note": "TRAM without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 35,
+         "note": "the tram word is cut short, its last letter lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tram",
+         "at": 45,
+         "gives": "TRAM",
+         "note": "taken as written before it is cut"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A public transport notice about a tram service being cut back.",
-     "walkthrough": "The whole clue sounds like a travel update, and 'transport' and 'tram' both suggest the answer's field without giving it away.",
-     "definitionFit": "A bullet train is a high-speed train, such as Japan's Shinkansen."
+     "surface": "A news item about a tram service being cut back.",
+     "walkthrough": "The announcement word opens up after its sixth letter to take in the cut-down vehicle.",
+     "definitionFit": "A bullet train is a high-speed passenger train, like Japan's Shinkansen, so fast transport."
     },
     "features": {
      "answerInScene": true,

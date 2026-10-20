@@ -664,35 +664,53 @@
      "parts": [
       {
        "words": "fashionable",
+       "at": 8,
        "gives": "IN",
-       "note": "in = in fashion"
+       "note": "in means fashionable"
       },
       {
        "words": "society",
-       "gives": "S",
-       "note": "s = society"
+       "at": 20,
+       "gives": "S"
       },
       {
        "words": "magazine",
+       "at": 28,
        "gives": "HEAT",
        "note": "Heat is a British celebrity gossip magazine"
       },
       {
-       "words": "article missing introduction",
-       "gives": "HE",
-       "note": "THE without its T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing introduction",
+         "at": 45,
+         "note": "the article loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "article",
+         "at": 37,
+         "gives": "THE",
+         "note": "the is the definite article"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An editor slips a trendy society piece into a magazine without its opening paragraph.",
-     "walkthrough": "Heat is a British weekly celebrity magazine. 'Enclose' is the verb: to insheathe is to put into a sheath.",
-     "definitionFit": "A specific kind of enclosing: putting a sword or blade into its sheath."
+     "surface": "A trendy society magazine runs a piece that lacks an opening paragraph.",
+     "walkthrough": "Heat is a UK celebrity weekly. 'Missing introduction' drops T from THE, leaving HE.",
+     "definitionFit": "To insheathe is to put a blade into a sheath, which encloses it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "article"
+     "misdirectedWord": "introduction"
     }
    }
   },

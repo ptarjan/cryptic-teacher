@@ -593,20 +593,37 @@
       {
        "text": "first",
        "at": 33,
-       "note": "first puts the second and the half train ahead of left"
+       "note": "says the preceding pieces come ahead of the left letter"
       }
      ],
      "parts": [
       {
-       "words": "second",
-       "at": 12,
-       "gives": "S"
-      },
-      {
-       "words": "half of train",
-       "at": 19,
-       "gives": "CHOO",
-       "note": "choo-choo is a child's word for a train, and half of it is choo"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "second",
+         "at": 12,
+         "gives": "S"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "half of",
+           "at": 19,
+           "note": "only one of the two equal halves of the word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "train",
+           "at": 27,
+           "gives": "CHOOCHOO",
+           "note": "choo-choo is a child's word for a train"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "left",
@@ -616,15 +633,14 @@
      ]
     },
     "explanation": {
-     "surface": "A train has left, and the second half of it went first.",
-     "walkthrough": "'Train' at the start is a verb, the definition; the later 'train' is a choo-choo.",
-     "definitionFit": "To school someone is to train or educate them."
+     "surface": "A train departing, with its rear half going on ahead.",
+     "walkthrough": "Choo-choo is nursery talk for a train, and half of it is CHOO. 'First' puts S and CHOO in front of L.",
+     "definitionFit": "To school someone is to teach or drill them, which is what training means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "train"
+     "misdirectedWord": "Train"
     }
    }
   },
@@ -1545,6 +1561,7 @@
      "indicators": [
       {
        "text": "tight",
+       "at": 42,
        "note": "tight is slang for drunk, so the letters stagger into a new order"
       }
      ],
@@ -1553,40 +1570,35 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "released from"
+         "text": "released from",
+         "at": 11,
+         "note": "the page letter is let go from the grip word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "page",
-           "gives": "P",
-           "note": "p = page, the letter removed"
-          },
-          {
-           "words": "grip",
-           "gives": "GRI",
-           "note": "GRIP without its P"
-          },
-          {
-           "words": "one",
-           "note": "anagram fodder with GRI"
-          }
-         ]
+         "words": "grip",
+         "at": 25,
+         "note": "taken as written before losing a letter"
         },
         {
+         "words": "page",
+         "at": 6,
          "gives": "P"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 31,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A blank page slipping out of someone's tight grip.",
-     "walkthrough": "'Tight' reads as a firm grip; it is slang for drunk. 'Blank' is the verb, to cut someone dead.",
-     "definitionFit": "Informal verb sense: to blank someone is to snub them, pretending not to see them."
+     "surface": "An empty sheet slips out of someone's clutches, one who is clinging hard.",
+     "walkthrough": "'Tight' looks like a description of the grip, but it means drunk and mixes GRI (GRIP without P) with ONE.",
+     "definitionFit": "To blank someone is to snub them, deliberately take no notice, which is to ignore them."
     },
     "features": {
      "answerInScene": false,
