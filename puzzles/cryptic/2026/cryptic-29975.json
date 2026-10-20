@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -669,41 +670,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Minecraft",
-       "note": "One word doing both jobs: to craft a thing is to work it into a new shape, and what gets reshaped is the four letters in front of that instruction."
+       "text": "to be involved in",
+       "at": 12,
+       "note": "involved in means enclosed within, so the company sits inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "to be involved in",
-         "note": "Being involved in something means being mixed up inside it, so one piece ends up within the other."
-        }
-       ],
-       "parts": [
-        {
-         "words": "company",
-         "gives": "CO",
-         "note": "CO is the abbreviation on any firm's letterhead"
-        },
-        {
-         "words": "Minecraft",
-         "gives": "INME",
-         "note": "the game's name splits in two, and it is the four letters of its first half that come out reordered"
-        }
-       ]
+       "words": "Minecraft",
+       "at": 30,
+       "gives": "INME",
+       "note": "read as mine plus craft: craft means to fashion, so mine is reworked into a new order"
+      },
+      {
+       "words": "company",
+       "at": 4,
+       "gives": "CO"
       }
      ]
     },
     "explanation": {
-     "surface": "Paying a firm to get itself involved in the video game Minecraft.",
-     "walkthrough": "Minecraft is one word on the page and two instructions underneath it, the second half telling you what to do to the first.",
-     "definitionFit": "Income is the money that comes in over a year — wages, salary, rent — which is 'pay' as a noun rather than as a verb."
+     "surface": "A firm is paid to take part in the video game Minecraft.",
+     "walkthrough": "Minecraft is the block-building video game; split it as 'mine' plus 'craft', the second half telling you to refashion the first.",
+     "definitionFit": "Income is money received, such as wages, so it is a noun for pay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Minecraft"
     }
    }
   },
@@ -964,43 +962,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ESOTERIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 20,
+       "note": "over means covering, so the first anagram goes round the second"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Harry",
-         "note": "To harry is to harass and hound, and letters hounded like that do not stay in the order they came in."
-        },
-        {
-         "text": "over",
-         "note": "One thing over another lies across it, so the letters just shuffled are laid around the piece that follows."
-        },
-        {
-         "text": "broken",
-         "note": "Something broken has its parts loose, so these three letters are free to go back in another arrangement."
+         "at": 8,
+         "note": "to harry is to harass, which disturbs the letters"
         }
        ],
        "parts": [
         {
          "words": "cries",
-         "note": "the five letters reordered, then opened up to make room"
-        },
+         "at": 14,
+         "note": "taken as written, the first fodder"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 25,
+         "note": "broken means smashed, so the letters are reassembled"
+        }
+       ],
+       "parts": [
         {
          "words": "toe",
-         "note": "the three letters reordered"
+         "at": 32,
+         "note": "taken as written, the second fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Private Harry in tears after somebody trod on his broken toe.",
-     "walkthrough": "'Private Harry' reads as a soldier's rank and name, and the two words are on opposite sides of the clue: one is the definition, the other an instruction to shuffle.",
-     "definitionFit": "Esoteric knowledge is kept inside a small circle of initiates, which is 'private' in the sense of not shared with outsiders."
+     "surface": "A soldier called Harry cries over his broken toe.",
+     "walkthrough": "'Private Harry' reads as a soldier's name; 'Private' is the definition and 'Harry' the anagram signal.",
+     "definitionFit": "Esoteric means understood only by a small inner circle, so it is private, not public."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Harry"
     }
    }
   },
@@ -1374,42 +1389,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "reducing volume of capital",
+       "at": 9,
+       "note": "the capital, the first letter, changes from loud to soft in music notation"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "PENCE",
-       "indicators": [
-        {
-         "text": "reducing volume",
-         "note": "Turning the sound down is what exchanges the loud musical letter for the soft one, and that exchange happens inside the word."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Criminal",
-         "gives": "FENCE",
-         "note": "a fence is the criminal who buys and resells stolen goods"
-        },
-        {
-         "words": "reducing volume",
-         "gives": "P",
-         "note": "f is forte and p is piano on a score, so quietening the music turns one letter into the other"
-        }
-       ]
+       "words": "Criminal",
+       "at": 0,
+       "gives": "FENCE",
+       "note": "a fence is a criminal who handles stolen goods"
       },
       {
-       "unchecked": true,
-       "words": "capital",
-       "note": "no letters at all: it dresses the sentence as big-city crime and does no work in the wordplay"
+       "gives": "F",
+       "note": "f, forte, means loud in music"
+      },
+      {
+       "gives": "P",
+       "note": "p, piano, means soft in music"
       }
      ]
     },
     "explanation": {
-     "surface": "A crook working quietly to skim a little money in the capital.",
-     "walkthrough": "The letters f and p are the musical marks for loud and soft, so turning the volume down really does change one into the other. Solvers on the blogs could not place 'capital' either.",
-     "definitionFit": "Pence are the small coins of British currency, so 'money' defines them by example — one country's smallest units rather than money at large."
+     "surface": "A crook spends less of the money he's raised in the capital.",
+     "walkthrough": "In music F is forte (loud) and P is piano (soft), so 'reducing volume' swaps F for P at the start of FENCE.",
+     "definitionFit": "Pence are British coins, hundredths of a pound, so they are small amounts of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
     }
    }
   },
@@ -1559,31 +1572,49 @@
      "parts": [
       {
        "words": "network",
+       "at": 14,
        "gives": "LAN",
-       "note": "a LAN is a local area network, the sort an office runs on"
+       "note": "LAN is a local area network"
       },
       {
-       "op": "anagram",
+       "op": "substitution",
        "indicators": [
         {
          "text": "gets twisted",
-         "note": "Something twisted has been turned about on itself, so the two letters it points at trade places where they stand."
+         "at": 45,
+         "note": "twisted means turned round, so the metal's two letters swap order"
         }
        ],
        "parts": [
         {
-         "words": "to estimate",
+         "words": "estimate",
+         "at": 25,
          "gives": "GAUGE",
-         "note": "to gauge a thing is to estimate it"
+         "note": "to gauge is to estimate"
+        },
+        {
+         "words": "metal",
+         "at": 39,
+         "gives": "AU",
+         "note": "Au is the chemical symbol for gold, a metal"
+        },
+        {
+         "gives": "UA",
+         "note": "the gold symbol turned round"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A phone network trying to estimate what happens when metal is bent out of shape.",
-     "walkthrough": "The metal is gold, whose symbol AU sits inside the previous word, and swapping those two letters is the misspelling everyone makes anyway.",
-     "definitionFit": "A language is the system of words a group communicates in, so the answer is the vehicle that 'communication' travels in."
+     "surface": "A network is used to estimate when some metal is twisted out of shape.",
+     "walkthrough": "The gold symbol already sits inside the estimate word; twisting it in place is what turns a near-miss spelling into the right one.",
+     "definitionFit": "Language is a system of words used by people to communicate, so it is a means of communication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "network"
     }
    }
   },

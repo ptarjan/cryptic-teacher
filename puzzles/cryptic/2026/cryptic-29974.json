@@ -625,30 +625,50 @@
      "indicators": [
       {
        "text": "in",
-       "note": "Putting one thing in another leaves it surrounded, so the artist's letters sit inside the letters named after."
-      },
-      {
-       "text": "short",
-       "note": "Cutting a word short takes something off its end, so the trade event turns up one letter down."
+       "at": 29,
+       "note": "in places the artist inside the shortened event"
       }
      ],
      "parts": [
       {
-       "words": "trade event",
-       "gives": "SAL",
-       "note": "a sale is a trade event, and it arrives here one letter short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 32,
+         "note": "short means cut, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trade event",
+         "at": 38,
+         "gives": "SALE",
+         "note": "a sale is a trade event"
+        },
+        {
+         "gives": "E",
+         "note": "the last letter of the sale, dropped"
+        }
+       ]
       },
       {
        "words": "conceptual artist",
+       "at": 11,
        "gives": "EMIN",
-       "note": "Tracey Emin is the British conceptual artist of the unmade bed"
+       "note": "Tracey Emin is a British conceptual artist"
       }
      ]
     },
     "explanation": {
-     "surface": "A ground-breaking conceptual artist showing up at a brief trade fair.",
-     "walkthrough": "'Conceptual artist' reads as a description and is really a surname. Tracey Emin's unmade bed, My Bed, was shortlisted for the Turner Prize in 1999.",
-     "definitionFit": "A seminal work is one whose ideas seed everything that follows, which is what pioneering means of a piece of work."
+     "surface": "A pioneering conceptual artist shows up at a brief trade fair.",
+     "walkthrough": "Tracey Emin is a British artist known for her installation My Bed; crosswords use her often.",
+     "definitionFit": "Seminal work strongly influences later developments, so it is groundbreaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conceptual"
     }
    }
   },

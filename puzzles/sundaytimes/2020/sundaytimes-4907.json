@@ -1397,53 +1397,54 @@
      "indicators": [
       {
        "text": "crossing",
-       "note": "spies crossing something straddle it, so the first word goes around the others"
+       "at": 6,
+       "note": "the spies' letters lie across the rest, holding it in the middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Spies",
+       "at": 0,
+       "gives": "CIA",
+       "note": "the CIA is the US spy agency, so spies are the CIA"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 21,
+         "note": "not quite the whole of each word: road and the each lose their ends"
+        }
+       ],
        "parts": [
         {
-         "words": "Spies",
-         "gives": "CIA",
-         "note": "the CIA is the US intelligence agency"
-        },
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "not quite",
-           "note": "something not quite complete lacks its end, so the word before loses its final letter"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "road",
-           "note": "taken as written"
+           "at": 15,
+           "note": "taken as written before its last letter goes"
           },
           {
-           "gives": "D"
+           "words": "the",
+           "at": 31,
+           "note": "taken as written before its last two letters go"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
+        },
         {
-         "words": "the",
-         "note": "the opening letter of the"
+         "gives": "DHE",
+         "note": "the end of road and the end of the, dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Secret agents crossing a road near, but not quite in, some nation.",
-     "walkthrough": "The parse is loose: road cut short gives three letters, and the extra letter has to come from the; American spies wrap around both.",
-     "definitionFit": "Croatia is a nation on the Adriatic coast of south-east Europe, formerly part of Yugoslavia."
+     "surface": "Agents are seen crossing a road in some foreign land they never quite name.",
+     "walkthrough": "'not quite' reaches back over 'road' and 'the' together, so both are cut short before the spies go round them.",
+     "definitionFit": "Croatia is a nation on the Adriatic coast, so it fits 'country' directly."
     },
     "features": {
      "answerInScene": true,

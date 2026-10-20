@@ -1549,62 +1549,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INNOCENT",
+     "indicators": [
+      {
+       "text": "breaking into",
+       "at": 23,
+       "note": "breaking into means getting inside, so the letter goes between the other pieces"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "to begin with",
-         "note": "at the beginning, so take the first letter of 'offender'"
-        }
-       ],
        "parts": [
         {
          "words": "pub",
+         "at": 37,
          "gives": "INN",
          "note": "an inn is a pub"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "O",
-         "indicators": [
-          {
-           "text": "breaking into",
-           "note": "a burglar breaking into a place gets inside it, so the letter goes inside"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Offender",
-           "gives": "O",
-           "select": "first",
-           "note": "first letter"
-          }
-         ]
-        },
-        {
          "words": "cash",
+         "at": 41,
          "gives": "CENT",
-         "note": "a cent, a small sum of money"
+         "note": "a cent is a coin, a small piece of cash"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "at": 9,
+         "note": "to begin with means taking the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Offender",
+         "at": 0,
+         "note": "its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A burglar breaks into a pub's till, but claims innocence.",
-     "walkthrough": "The surface is a crime, and the answer is the plea.",
-     "definitionFit": "The verdict 'not guilty' declares the accused innocent in law."
+     "surface": "A burglar breaks into a pub to steal the takings but claims innocence.",
+     "definitionFit": "Innocent describes someone free of guilt for a crime, a verdict-style adjective."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "breaking"
+     "misdirectedWord": "Offender"
     }
    }
   },
@@ -2847,30 +2843,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STEROID",
      "indicators": [
       {
        "text": "not",
-       "note": "'not a' says the heavenly body is to be taken without its A"
+       "at": 15,
+       "note": "not means without, so the letter is removed"
       }
      ],
      "parts": [
       {
-       "words": "Heavenly body, not a",
-       "gives": "STEROID",
-       "note": "ASTEROID without its A"
+       "words": "Heavenly body",
+       "at": 0,
+       "gives": "ASTEROID",
+       "note": "an asteroid is a small rocky body in space"
+      },
+      {
+       "words": "a",
+       "at": 19,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "An astronomer insists something is not a star but a chemical.",
-     "walkthrough": "'Not a' reads as a denial; it is an instruction to drop the letter A.",
-     "definitionFit": "Steroids are fat-soluble organic compounds such as cholesterol and many hormones."
+     "surface": "A pseudo-scientific claim that a heavenly body is not a fatty chemical.",
+     "definitionFit": "Steroids are lipids, organic compounds that dissolve in fats rather than water."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "body"
     }
    }
   },
@@ -3260,46 +3261,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "new",
-       "note": "TERM made new, rearranged"
+       "text": "divided by",
+       "at": 3,
+       "note": "divided by means split apart by, so the other letters go in the middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Be",
+       "at": 0,
+       "gives": "EXIST",
+       "note": "to be is to exist"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "divided by",
-         "note": "a thing divided by another is split apart by it, so the second piece goes in the middle"
+         "text": "new",
+         "at": 14,
+         "note": "new means made afresh, so the letters are reordered"
         }
        ],
        "parts": [
         {
-         "words": "new term",
-         "gives": "TREM",
-         "note": "TERM rearranged"
-        },
-        {
-         "words": "Be",
-         "gives": "EXIST",
-         "note": "to be = to exist"
+         "words": "term",
+         "at": 18,
+         "note": "taken as written, the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fresh label is coined for someone uncompromising.",
-     "walkthrough": "'Divided by' sounds like arithmetic; here it means split open to take something in.",
-     "definitionFit": "An extremist holds extreme, uncompromising views, which is what a hardliner does."
+     "surface": "An instruction to be split by a new word for someone uncompromising.",
+     "walkthrough": "'Be' looks like a plain verb in an instruction, but it stands for its synonym, which is the word being split.",
+     "definitionFit": "An extremist holds radical views and will not compromise, as a hardliner does."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Be"
+     "misdirectedWord": "divided"
     }
    }
   },
