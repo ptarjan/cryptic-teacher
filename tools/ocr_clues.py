@@ -4153,6 +4153,26 @@ def footer_cut(text):
     return text
 
 
+_COUNT_END = re.compile(r"\(\s*(\d{1,2}(?:\s*[,.\-]\s*\d{1,2})*)\s*\)$")
+
+
+def footer_laid(text, cells):
+    """(clue text, count) of a laid `text` that runs on into the page's solution-box
+    footer ("us sort (6) WORD 22,9"), cut at its count, or None: the count must be
+    printed with plain digits and fill the light's `cells`. The vote laid the footer
+    with the clue, bled() refused it, and the clue stayed blank for a pick asked of
+    the VLM (the 10-20 log: 1 blank on 34 of 62 unfiled Gale 2005-06 pages, that
+    footer on 40 of 73 of their blanks)."""
+    cut = footer_cut(text or "")
+    if cut == text:
+        return None
+    m = _COUNT_END.search(cut)
+    if not m or not cells or clue_text.count_total(m.group(1)) != cells:
+        return None
+    body = cut[:m.start()].strip()
+    return (body, shape(m.group(1))) if body else None
+
+
 def agreed_past_footer(cands, enum):
     """The clue (ending at its count) that most of `cands` give once the footer
     under it is cut, or None: at least two readings, more than half of them,

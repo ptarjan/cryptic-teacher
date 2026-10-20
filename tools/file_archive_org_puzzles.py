@@ -5059,7 +5059,13 @@ def unfit_blanked(laid, blank, lengths, printed=None):
             laid[lid] = laid.get(lid) or ("", None, None)
             blank.setdefault(lid, "no reading laid a clue on it")
     for lid, (text, enum, group) in list(laid.items()):
-        why = ocr_clues.unfit(text, enum, sum(lengths.get(i, 0) for i in group or [lid]), printed.get(lid, ()))
+        cells = sum(lengths.get(i, 0) for i in group or [lid])
+        why = ocr_clues.unfit(text, enum, cells, printed.get(lid, ()))
+        if why and (cut := ocr_clues.footer_laid(text, cells)) and not ocr_clues.unfit(cut[0], cut[1], cells, printed.get(lid, ())):
+            # The solution-box footer the vote laid with the last clue, cut at its count: no
+            # blank, so no pick is asked of the VLM for it.
+            laid[lid] = (cut[0], cut[1], group)
+            continue
         if why:
             laid[lid] = ("", None if why.startswith("its count") else enum, group)
             blank[lid] = why
@@ -5394,7 +5400,9 @@ def short_three_columns(row):
 #: fix". A read after it that is incomplete again is not due until a newer time is set here.
 #: 10-20 18:45: ocr_clues.footer_cut also cuts a footer number torn at the crop edge ("(7) WORD 23,0"),
 #: which left the last across clue of 5 of 19 Gale 2005 pages blank.
-REREAD_UNFILED = "2026-10-20T18:45:00+00:00"
+#: 10-20 21:25: unfit_blanked cuts a footer the vote laid with the last across clue at its count
+#: (ocr_clues.footer_laid): 40 of 73 blanks of the unfiled Gale/FT pages read 19:05-21:05.
+REREAD_UNFILED = "2026-10-20T21:25:00+00:00"
 
 
 def unfiled_blank(row):

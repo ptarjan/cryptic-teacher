@@ -2737,6 +2737,14 @@ check("words after a count with no footer mark are a clue's, not cut", "Pun (4) 
 check("a second clue after a mid-text count is not a footer: nothing is cut",
       "Euclid's fifth proposition is game (9) perfect in conception (5)",
       ocr_clues.footer_cut("Euclid's fifth proposition is game (9) perfect in conception (5)"))
+check("a laid clue that ran into the footer is cut at its count, not blanked for a pick",
+      (("Which us sort", "6", None), {}),
+      (lambda r: (r[0]["29-across"], r[1]))(f.unfit_blanked(
+          {"29-across": ("Which us sort (6) WORD 22,9", None, None)}, {}, {"29-across": 6})))
+check("a footer on a count that is not the light's stays blank",
+      "29-across",
+      next(iter(f.unfit_blanked({"29-across": ("Which us sort (6) WORD 22,9", None, None)}, {}, {"29-across": 7})[1])))
+check("a footer_laid with no footer is None", None, ocr_clues.footer_laid("Which us sort (6)", 6))
 check("a footer cut to a count that is not the light's is not taken", None,
       ocr_clues.agreed_past_footer(["Study applied to uninteresting poet (6) 23,099 Solutic",
                                     "Study applied to uninteresting poet (6) 23,099 Soluti"], "7"))
