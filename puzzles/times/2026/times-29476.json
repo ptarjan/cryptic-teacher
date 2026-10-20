@@ -1318,30 +1318,47 @@
      "parts": [
       {
        "words": "small",
-       "gives": "S",
-       "note": "S = small"
+       "at": 4,
+       "gives": "S"
       },
       {
        "words": "hearts",
+       "at": 10,
        "gives": "H",
-       "note": "H = hearts, the card suit"
+       "note": "H is the card abbreviation for hearts"
       },
       {
-       "words": "nameless Xmas",
-       "gives": "OEL",
-       "note": "NOEL (Christmas) without N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nameless",
+         "at": 20,
+         "note": "nameless means without the letter for name, so N goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Xmas",
+         "at": 29,
+         "gives": "NOEL",
+         "note": "Noel is another word for Christmas"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "card",
+       "at": 34,
        "gives": "ACE",
        "note": "an ace is a playing card"
       }
      ]
     },
     "explanation": {
-     "surface": "Tying little hearts onto an unsigned Christmas card.",
-     "walkthrough": "\"Tie\" looks like a verb in the surface but is the noun: a thing that ties a shoe.",
-     "definitionFit": "A shoelace is a lace used to tie a shoe, so a tie."
+     "surface": "Fixing a little heart decoration to an anonymous Christmas card.",
+     "definitionFit": "A shoelace is the cord used to tie a shoe."
     },
     "features": {
      "answerInScene": false,
@@ -1756,34 +1773,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "anagram",
      "indicators": [
       {
        "text": "Twisted",
-       "note": "turned round so it reads backwards"
-      },
-      {
-       "text": "losing tail",
-       "note": "a word's tail is its end, so the reptile sheds its last letter as a lizard sheds its tail"
+       "at": 0,
+       "note": "twisted means bent out of shape, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "reptile",
-       "gives": "ADDE",
-       "note": "ADDER (a snake) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing tail",
+         "at": 16,
+         "note": "the tail of a word is its final letter, which is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reptile",
+         "at": 8,
+         "gives": "ADDER",
+         "note": "an adder is a venomous snake, a reptile"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A snake that has lost its tail, coiled up in a legend.",
-     "walkthrough": "\"Losing tail\" is apt for a reptile, since lizards shed theirs; here it just drops the R.",
-     "definitionFit": "The Edda is a collection of Old Norse mythological poems."
+     "surface": "A coiled snake, missing its tail, appearing in ancient myths.",
+     "walkthrough": "ADDER without its tail is ADDE, rearranged.",
+     "definitionFit": "The Edda is the body of Old Norse writings, the Poetic Edda being a collection of mythological and heroic poems."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Twisted"
+     "misdirectedWord": "reptile"
     }
    }
   },

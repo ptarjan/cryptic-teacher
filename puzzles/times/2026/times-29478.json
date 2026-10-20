@@ -716,24 +716,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "first",
+     "indicators": [
       {
-       "words": "50 per cent off rice",
-       "gives": "RI",
-       "note": "the first half of RICE"
+       "text": "50 per cent off",
+       "at": 0,
+       "note": "half the word is cut away, keeping only its first half"
       },
       {
-       "words": "about 30 per cent off cottage",
-       "gives": "COTTA",
-       "note": "COTTAGE without its last two letters"
+       "text": "about 30 per cent off",
+       "at": 25,
+       "note": "roughly three tenths of the word is cut away from its end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rice",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "words": "cottage",
+       "at": 47,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A shop has a sale: half price on rice and nearly a third off cottage cheese.",
-     "walkthrough": "'Cottage cheese' reads as one item, but the definition is only 'cheese', and cottage is the fodder.",
-     "definitionFit": "A definition by class: the answer is one particular soft Italian whey product within the wider category the clue names."
+     "surface": "A recipe-style instruction on trimming portions of rice and cottage cheese.",
+     "walkthrough": "Halve RICE to get RI; COTTAGE losing GE is two letters of seven, about 30 per cent, leaving COTTA.",
+     "definitionFit": "Ricotta is a soft, mild Italian whey cheese."
     },
     "features": {
      "answerInScene": true,
@@ -1615,25 +1627,41 @@
      "parts": [
       {
        "words": "slime",
+       "at": 21,
        "gives": "GOO",
-       "note": "goo is sticky slime"
+       "note": "goo is slimy, sticky stuff"
       },
       {
-       "words": "subtlety ultimately lacking",
-       "gives": "FINESS",
-       "note": "FINESSE, subtlety, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ultimately lacking",
+         "at": 38,
+         "note": "ultimately points at the final letter, and lacking says it is missing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "subtlety",
+         "at": 29,
+         "gives": "FINESSE",
+         "note": "finesse is subtlety and delicacy of touch"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's silly antics with slime lack any refinement.",
-     "walkthrough": "'Subtlety' is the noun FINESSE, and 'ultimately lacking' tells you to drop its final E, not to drop subtlety from the answer.",
-     "definitionFit": "A plain synonym: goofy is informal, originally American, for silly or wacky, and the -ness form names the behaviour."
+     "surface": "A description of clumsy, messy antics involving slime, without any finesse.",
+     "definitionFit": "Goofiness is silliness, the quality of acting in a goofy, daft way."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "lacking"
+     "misdirectedWord": "slime"
     }
    }
   },

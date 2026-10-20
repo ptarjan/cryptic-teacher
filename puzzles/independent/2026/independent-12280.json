@@ -1171,7 +1171,8 @@
      "indicators": [
       {
        "text": "stops",
-       "note": "a stopper plugs the middle of something, so 'pound' is placed inside the jumble"
+       "at": 37,
+       "note": "stops as in plugs, so the pound unit sits inside the rearranged letters"
       }
      ],
      "parts": [
@@ -1180,31 +1181,48 @@
        "indicators": [
         {
          "text": "Flustered",
-         "note": "someone flustered is thrown into confusion, so the shortened 'caterer' is jumbled"
+         "at": 0,
+         "note": "flustered means agitated, so the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "caterer missing last",
-         "gives": "CATERE",
-         "note": "caterer without its final letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing last",
+           "at": 18,
+           "note": "missing last means the final letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "caterer",
+           "at": 10,
+           "note": "taken as written"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
       },
       {
        "words": "pound",
+       "at": 31,
        "gives": "LIBRA",
-       "note": "libra is the Roman pound, source of the abbreviation lb"
+       "note": "libra is the Latin pound, source of the abbreviation lb"
       }
      ]
     },
     "explanation": {
-     "surface": "A flustered cook, a pound short, halts to recheck the kitchen weighing scales.",
-     "walkthrough": "The Roman libra gives the lb abbreviation and is also the zodiac sign of the scales, which ties it neatly to the definition.",
-     "definitionFit": "To reset a measuring instrument so its readings are accurate again is to check and adjust it once more."
+     "surface": "A harassed caterer, short of a pound, halts to recheck the kitchen weighing scales.",
+     "walkthrough": "The pound here is the Latin libra, which is also the zodiac sign of the scales, so the wordplay echoes the definition.",
+     "definitionFit": "To recalibrate scales is to check and readjust them against a standard, a double-check of their accuracy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "pound"
     }
