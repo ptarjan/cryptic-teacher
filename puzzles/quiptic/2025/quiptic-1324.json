@@ -783,7 +783,8 @@
      "indicators": [
       {
        "text": "rejected",
-       "note": "rejected things are turned back, so the letters run backwards"
+       "at": 11,
+       "note": "rejected means sent back, so the combined letters are read in reverse"
       }
      ],
      "parts": [
@@ -792,27 +793,44 @@
        "parts": [
         {
          "words": "lager",
+         "at": 20,
          "gives": "PILS",
-         "note": "Pils is a pale lager"
+         "note": "pils is a pilsner lager"
         },
         {
-         "words": "Stella with a third off",
-         "gives": "STEL",
-         "note": "STELLA minus LA"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "with a third off",
+           "at": 37,
+           "note": "a third of the six letters, the last two, is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Stella",
+           "at": 30,
+           "gives": "STELLA",
+           "note": "Stella Artois, the beer brand"
+          },
+          {
+           "gives": "LA"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker turns down lager and gives away most of their Stella Artois.",
-     "walkthrough": "Stella is Stella Artois, a lager sold widely in Britain; both brands are just letters here. Reverse PILSSTEL to get LETSSLIP.",
-     "definitionFit": "An idiom: revealing a secret by accident, which is giving it away."
+     "surface": "A drinker sending back a lager and a Stella, which arrived a third empty.",
+     "walkthrough": "'rejected' reverses PILS + STEL (Stella losing its final third, LA).",
+     "definitionFit": "To let slip a secret is to reveal it accidentally, i.e. to give it away."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Stella"
+     "misdirectedWord": "rejected"
     }
    }
   },
@@ -984,20 +1002,37 @@
      "parts": [
       {
        "words": "piano",
+       "at": 4,
        "gives": "P",
-       "note": "musical abbreviation for soft"
+       "note": "p is the musical notation for piano, softly"
       },
       {
-       "words": "tune dropping intro",
-       "gives": "ONG",
-       "note": "SONG without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping intro",
+         "at": 15,
+         "note": "the word loses its introduction, the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tune",
+         "at": 10,
+         "gives": "SONG",
+         "note": "a song is a tune"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Humming a piano melody but skipping its opening bars.",
-     "walkthrough": "'Hum' is not singing: it is British slang for a bad smell, as is pong.",
-     "definitionFit": "In British slang both a hum and a pong are an unpleasant smell."
+     "surface": "Someone humming a piano tune, missing the opening.",
+     "walkthrough": "'Hum' looks like humming a tune but is the British slang sense, a bad smell.",
+     "definitionFit": "Pong and hum are both British slang for an unpleasant smell."
     },
     "features": {
      "answerInScene": false,
@@ -1217,29 +1252,41 @@
      "parts": [
       {
        "words": "ripped",
+       "at": 10,
        "gives": "TORN",
-       "note": "torn apart"
+       "note": "torn means ripped"
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 17
       },
       {
-       "words": "door half off",
-       "gives": "DO",
-       "note": "first half of DOOR"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half off",
+         "at": 24,
+         "note": "half of the word is taken off, keeping only its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "door",
+         "at": 19,
+         "gives": "DOOR",
+         "note": "the door named in the clue"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gale tore a door half off its hinges.",
-     "walkthrough": "'Half off' reads as the door hanging loose; it removes half the word.",
-     "definitionFit": "Definition by description: a violently rotating column of air is an extreme example of a high wind."
+     "surface": "A gale tearing a door half off its hinges.",
+     "definitionFit": "A tornado is a violently rotating column of air, an extreme kind of windstorm."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "off"
+     "aptDefinition": false
     }
    }
   },

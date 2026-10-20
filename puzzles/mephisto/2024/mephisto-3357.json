@@ -862,50 +862,46 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Excepting both leads",
+       "at": 0,
+       "note": "both words lose their first letter, the leads being excepted"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Excepting both leads",
-         "note": "excepting both leads means each of the two words loses its opening letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "soundly",
+         "at": 21,
          "gives": "FAST",
-         "note": "to sleep soundly is to be fast asleep"
+         "note": "fast asleep means soundly asleep"
         },
         {
-         "gives": "F"
+         "words": "vocal",
+         "at": 29,
+         "gives": "ORAL",
+         "note": "oral means spoken, vocal"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "vocal",
-         "gives": "ORAL",
-         "note": "vocal and oral both mean spoken"
-        },
-        {
-         "gives": "O"
-        }
-       ]
+       "gives": "FO"
       }
      ]
     },
     "explanation": {
-     "surface": "A singer is told to drop both lead parts and still sound vocal.",
-     "definitionFit": "Astral is the adjective relating to stars, from the Latin astrum, as in astral bodies and astral projection."
+     "surface": "A singer's voice judged, the leading notes aside, as celestial.",
+     "walkthrough": "'Excepting both leads' takes F from FAST and O from ORAL.",
+     "definitionFit": "Astral means relating to or resembling the stars, a stellar adjective."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leads"
+     "misdirectedWord": "soundly"
     }
    }
   },
@@ -1885,7 +1881,8 @@
      "indicators": [
       {
        "text": "caught by",
-       "note": "caught by means held inside the turned word"
+       "at": 19,
+       "note": "caught by means held inside the following letters"
       }
      ],
      "parts": [
@@ -1894,41 +1891,45 @@
        "indicators": [
         {
          "text": "overturning",
-         "note": "overturning means turning the word for point back to front"
+         "at": 29,
+         "note": "overturning means turning the word over, so reading it backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "point",
-           "gives": "AIM",
-           "note": "to point at something is to aim at it"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I is the Roman numeral one"
-          }
-         ]
+         "words": "point",
+         "at": 41,
+         "gives": "AIM",
+         "note": "to point a weapon is to aim it"
         }
        ]
       },
       {
-       "words": "literally",
-       "gives": "LIT",
-       "note": "lit. is the abbreviation for literally"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 5,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "literally",
+         "at": 9,
+         "gives": "LIT"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "One person is literally caught in a point that gets overturned, like a tax levy reversed.",
-     "definitionFit": "A levy is a body of troops raised or conscripted, which is what a citizen militia is."
+     "surface": "A tax notice caught up by someone overturning a point, word for word.",
+     "walkthrough": "'overturning' makes AIM into MIA, and I + LIT is 'caught by' it.",
+     "definitionFit": "A levy is a body of troops raised for service, i.e. a militia."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Levy"
     }
    }

@@ -1904,35 +1904,55 @@
      "parts": [
       {
        "words": "Underworld",
+       "at": 0,
        "gives": "DIS",
-       "note": "Dis is the Roman god of the underworld, and his realm"
+       "note": "Dis is the Roman god of the underworld, and the underworld itself"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "entertaining",
-         "note": "a host entertaining guests has them inside, so the court holds the rest"
+         "at": 17,
+         "note": "entertaining means holding the following pieces inside"
         }
        ],
        "parts": [
         {
          "words": "court",
+         "at": 11,
          "gives": "QUAD",
-         "note": "a quad (quadrangle) is a courtyard; it is split around the next pieces"
+         "note": "a quad is a quadrangle, a courtyard"
         },
         {
          "op": "charade",
          "parts": [
           {
-           "words": "short sentence",
-           "gives": "LIF",
-           "note": "a life sentence, cut short of its last letter"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "short",
+             "at": 30,
+             "note": "short means the word loses its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "sentence",
+             "at": 36,
+             "gives": "LIFE",
+             "note": "a life sentence, so life"
+            },
+            {
+             "gives": "E"
+            }
+           ]
           },
           {
            "words": "that is",
+           "at": 45,
            "gives": "IE",
-           "note": "i.e. = that is"
+           "note": "i.e. abbreviates id est, that is"
           }
          ]
         }
@@ -1941,9 +1961,9 @@
      ]
     },
     "explanation": {
-     "surface": "A court in hell hears a short sentence being thrown out.",
-     "walkthrough": "The court and sentence set a legal scene; the court is a college quadrangle and the sentence is a life term.",
-     "definitionFit": "A plain synonym from sport: a player ruled ineligible is removed from the competition."
+     "surface": "A court sitting in hell hands down a brief sentence, and someone is ejected.",
+     "walkthrough": "'court' looks like a law court, but here it is a college courtyard; Dis is the classical underworld.",
+     "definitionFit": "Someone disqualified has been ruled out of a contest, i.e. ejected from it."
     },
     "features": {
      "answerInScene": true,
@@ -3484,29 +3504,48 @@
      "parts": [
       {
        "words": "Belgian town",
+       "at": 0,
        "gives": "SPA",
-       "note": "Spa in Belgium is the town that gave spas their name"
+       "note": "Spa is the Belgian town that gave its name to health resorts"
       },
       {
-       "words": "largely deprived area",
-       "gives": "GHETT",
-       "note": "a ghetto is a deprived area; most of it, without the O"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 14,
+         "note": "largely means most of the word, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deprived area",
+         "at": 22,
+         "gives": "GHETTO",
+         "note": "a ghetto is a poor, deprived part of a city"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       },
       {
        "words": "one",
+       "at": 42,
        "gives": "I",
-       "note": "I = one, the Roman numeral"
+       "note": "I is the Roman numeral one"
       }
      ]
     },
     "explanation": {
-     "surface": "A Belgian town, mostly poor, has one sort of pasta.",
-     "walkthrough": "The town really is called Spa; it gave its name to the health resorts.",
-     "definitionFit": "A definition by example: spaghetti is one of the best-known pasta shapes."
+     "surface": "A travel note: a Belgian town, a poor quarter, and one variety of pasta.",
+     "walkthrough": "'largely' trims GHETTO to GHETT.",
+     "definitionFit": "Spaghetti is long, thin, string-like pasta, one of its best-known varieties."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "town"
     }
    }
   },
