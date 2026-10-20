@@ -1293,8 +1293,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Vineyard owner",
-      "at": 0
+      "text": "Vineyard owner's",
+      "at": 0,
+      "note": "owner's reads as owner is, the 's being the verb"
      }
     ],
     "wordplay": {
@@ -1303,7 +1304,7 @@
       {
        "text": "about",
        "at": 44,
-       "note": "the negative comment goes around the half-bottle"
+       "note": "about means round, so one piece wraps the other"
       }
      ],
      "parts": [
@@ -1311,24 +1312,35 @@
        "words": "negative comment for some",
        "at": 17,
        "gives": "NAH",
-       "note": "nah is how some people say no"
+       "note": "nah is how some say no"
       },
       {
-       "words": "half-bottle",
-       "at": 50,
-       "gives": "BOT",
-       "note": "the first half of the word bottle"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 50,
+         "note": "half of a word keeps half its letters, here the first three"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bottle",
+         "at": 55
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone says no to a half-bottle of a vineyard's wine.",
-     "walkthrough": "NAH goes 'about' BOT. The 's in the clue is 'is', a link.",
-     "definitionFit": "Naboth is the biblical man whose vineyard King Ahab coveted in 1 Kings 21."
+     "surface": "A wine grower saying no to a half-bottle.",
+     "walkthrough": "Naboth owned the vineyard Ahab coveted in the Bible's First Book of Kings.",
+     "definitionFit": "In the Bible, Naboth was killed so King Ahab could seize his vineyard."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bottle"
     }
    }
   },

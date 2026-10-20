@@ -276,25 +276,41 @@
      "parts": [
       {
        "words": "Australia",
+       "at": 0,
        "gives": "OZ",
-       "note": "Oz is a nickname for Australia"
+       "note": "Oz is informal for Australia"
       },
       {
-       "words": "cut off",
-       "gives": "AWA",
-       "note": "off = AWAY, cut short by one letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 10,
+         "note": "cut means shortened, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "off",
+         "at": 14,
+         "gives": "AWAY",
+         "note": "away means off, as in gone off"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Australia has banned a visiting Japanese maestro.",
-     "walkthrough": "'Cut off' reads as one verb in the surface; it splits into 'cut' (trim) and 'off' (away). Seiji Ozawa led the Boston Symphony Orchestra for nearly thirty years.",
-     "definitionFit": "A definition by example: Seiji Ozawa was a celebrated Japanese orchestral conductor."
+     "surface": "A conductor from Japan cut off from Australia.",
+     "definitionFit": "Seiji Ozawa was a Japanese orchestral conductor who led the Boston Symphony."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "off"
     }
    }
   },
@@ -821,30 +837,38 @@
      "indicators": [
       {
        "text": "suppressing",
-       "note": "to suppress is to hold down inside, so the fuel keeps the anger within it"
-      },
-      {
-       "text": "naked",
-       "note": "a naked word is stripped of its outer letters"
+       "at": 18,
+       "note": "suppressing means holding down inside, so one piece goes within the other"
       }
      ],
      "parts": [
       {
        "words": "fuel to burn",
+       "at": 4,
        "gives": "COAL",
-       "note": "coal is fuel for burning"
+       "note": "coal is fuel burnt in fires"
       },
       {
-       "words": "anger",
-       "gives": "NGE",
-       "note": "ANGER without its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "naked",
+         "at": 30,
+         "note": "naked means stripped of its outer covering, so the word's first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "anger",
+         "at": 36
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lays a fire to work off their fury.",
-     "walkthrough": "'Set' at the start looks like a verb meaning arrange or lay; it means solidify.",
-     "definitionFit": "A plain synonym: a liquid that congeals thickens and sets."
+     "surface": "Someone lighting a fire while keeping a lid on their temper.",
+     "definitionFit": "To congeal is to thicken or solidify, as a liquid sets."
     },
     "features": {
      "answerInScene": false,

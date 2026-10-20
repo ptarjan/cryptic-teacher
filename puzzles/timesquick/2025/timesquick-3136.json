@@ -1003,30 +1003,47 @@
      "indicators": [
       {
        "text": "introduced to",
-       "note": "something introduced to a thing is put into it, so one piece goes inside"
+       "at": 23,
+       "note": "introduced to means put inside"
       }
      ],
      "parts": [
       {
        "words": "beer",
+       "at": 37,
        "gives": "ALE",
-       "note": "ale is a beer"
+       "note": "ale is a type of beer"
       },
       {
-       "words": "daughter twice",
-       "gives": "DD",
-       "note": "D for daughter, written twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 17,
+         "note": "twice asks for the daughter letter a second time"
+        }
+       ],
+       "parts": [
+        {
+         "words": "daughter",
+         "at": 8,
+         "gives": "D"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A father befuddles his daughter by giving her beer twice.",
-     "walkthrough": "D for daughter is a common abbreviation in family trees.",
-     "definitionFit": "To addle someone's brain is to muddle it, leaving them confused and unable to think clearly."
+     "surface": "A father confusing his daughter by giving her beer twice.",
+     "definitionFit": "To addle is to muddle or befuddle the mind."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "daughter"
     }
    }
   },

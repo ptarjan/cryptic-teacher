@@ -1900,8 +1900,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "being taken aback",
-       "note": "taken aback literally means taken backwards, so the letters reverse"
+       "text": "about",
+       "at": 37,
+       "note": "about means surrounding, so the reversed word goes round the rest"
       }
      ],
      "parts": [
@@ -1909,44 +1910,48 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so the reversed word goes around the others"
+         "text": "being taken aback",
+         "at": 19,
+         "note": "taken aback reads as turned backwards, so the word is reversed"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "regrets",
-           "gives": "RUES",
-           "note": "to rue is to regret"
-          },
-          {
-           "words": "unknown",
-           "gives": "Y",
-           "note": "Y, an unknown in algebra"
-          }
-         ]
+         "words": "regrets",
+         "at": 11,
+         "gives": "RUES",
+         "note": "rues means regrets"
         }
        ]
       },
       {
-       "words": "second",
-       "gives": "MO",
-       "note": "a mo is a moment, a second"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "unknown",
+         "at": 43,
+         "gives": "Y",
+         "note": "Y is an algebraic unknown"
+        },
+        {
+         "words": "second",
+         "at": 51,
+         "gives": "MO",
+         "note": "mo is a moment, a second"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A third wife full of regret, surprised by an unexpected moment.",
-     "walkthrough": "Henry VIII had six wives, so 'Third wife' points at one historical name; 'aback' asks for the regrets to be read backwards before they wrap the rest.",
-     "definitionFit": "Historical example: Jane Seymour was the third of Henry VIII's six wives."
+     "surface": "A third wife with regrets, startled by an unexpected rival.",
+     "walkthrough": "Jane Seymour was Henry VIII's third wife.",
+     "definitionFit": "Jane Seymour married Henry VIII after Anne Boleyn, making her the king's third queen."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "aback"
+     "aptDefinition": true,
+     "misdirectedWord": "unknown"
     }
    }
   },
@@ -1975,29 +1980,46 @@
      "indicators": [
       {
        "text": "to be found in",
-       "note": "something found in a place is inside it"
+       "at": 19,
+       "note": "to be found in means sitting inside the other piece"
       }
      ],
      "parts": [
       {
-       "words": "bargain event, reduced",
-       "gives": "SAL",
-       "note": "SALE, a bargain event, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 49,
+         "note": "reduced means cut short, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bargain event",
+         "at": 34,
+         "gives": "SALE",
+         "note": "a sale is an event offering bargains"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "always",
+       "at": 12,
        "gives": "EVER",
-       "note": "ever = always, as in 'for ever'"
+       "note": "ever means always"
       }
      ]
     },
     "explanation": {
-     "surface": "Plenty of shoppers always at the sales, with prices cut.",
-     "walkthrough": "'reduced' sounds like sale prices, but it trims a letter from SALE, and EVER goes inside: S-EVER-AL.",
-     "definitionFit": "Plain synonym: both mean more than two but not many."
+     "surface": "Plenty of goods are always on offer at a cut-price sale.",
+     "definitionFit": "Several means more than two but not many, a moderate number."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "reduced"
     }
@@ -2203,50 +2225,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "For some",
-       "note": "'for some' means as some people say it"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "including",
-         "note": "to include is to hold within"
+         "at": 13,
+         "note": "including means holding inside"
         }
        ],
        "parts": [
         {
-         "words": "no",
+         "words": "For some, no",
+         "at": 0,
          "gives": "NAH",
-         "note": "nah, a casual way of saying no"
+         "note": "nah is how some people say no"
         },
         {
          "words": "phosphorus",
+         "at": 23,
          "gives": "P",
-         "note": "P, the chemical symbol for phosphorus, between NA and H"
+         "note": "P is the chemical symbol for phosphorus"
         }
        ]
       },
       {
-       "words": "that reduced",
-       "gives": "THA",
-       "note": "THAT without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 44,
+         "note": "reduced means shortened, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that",
+         "at": 39
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chemist refusing to add phosphorus to a thinned-down still product.",
-     "walkthrough": "'For some, no' flags a colloquial form: NAH, not NO. NA-P-H then THA.",
-     "definitionFit": "Definition by description: a flammable oil distilled from petroleum or coal tar."
+     "surface": "A chemist refusing to add phosphorus to a distilled liquid.",
+     "definitionFit": "Naphtha is a flammable oil obtained by distilling petroleum or coal tar."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "no"
+     "misdirectedWord": "reduced"
     }
    }
   },
@@ -2448,20 +2480,37 @@
      "parts": [
       {
        "words": "Trouble",
+       "at": 0,
        "gives": "AIL",
-       "note": "to ail is to trouble, as in 'what ails you?'"
+       "note": "ail means trouble, as in what ails you"
       },
       {
-       "words": "for Brussels, spurning top",
-       "gives": "UROPHILE",
-       "note": "EUROPHILE (in favour of Brussels and the EU) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "spurning top",
+         "at": 22,
+         "note": "spurning the top means rejecting the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for Brussels",
+         "at": 8,
+         "gives": "EUROPHILE",
+         "note": "a Europhile is pro-EU, for Brussels, seat of the European Union"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political worry about a pro-EU fan of the band Queen.",
-     "walkthrough": "Queen looks like the band or the monarch, but a queen is also a female cat; Brussels stands for the EU.",
-     "definitionFit": "A pun: from Greek for 'cat lover', and a queen is a female cat."
+     "surface": "A Eurosceptic rejecting Brussels, and a fan of the rock band Queen.",
+     "walkthrough": "A queen is a female cat, so this fan loves cats, not the band.",
+     "definitionFit": "An ailurophile is a cat lover, and a queen is the term for a female cat."
     },
     "features": {
      "answerInScene": false,
@@ -3038,26 +3087,43 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the shortened word goes around the grant"
+       "at": 18,
+       "note": "about means going round, so one piece surrounds the other"
       }
      ],
      "parts": [
       {
-       "words": "No end of disgust",
-       "gives": "REPE",
-       "note": "REPEL (disgust) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "No end of",
+         "at": 0,
+         "note": "no end of means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disgust",
+         "at": 10,
+         "gives": "REPEL",
+         "note": "to repel is to disgust"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
        "words": "grant",
+       "at": 24,
        "gives": "LET",
-       "note": "to let is to grant or allow"
+       "note": "to let is to allow or grant"
       }
      ]
     },
     "explanation": {
-     "surface": "Sheer disgust over a funding award, and yet content?",
-     "walkthrough": "'No end of' usually means plenty, but here it chops the last letter off the word for disgust.",
-     "definitionFit": "Satisfied in the sense of well fed: the word describes someone full after a meal."
+     "surface": "Endless disgust over a funding grant, and the question of being satisfied.",
+     "definitionFit": "Replete means full, especially well fed after eating."
     },
     "features": {
      "answerInScene": false,

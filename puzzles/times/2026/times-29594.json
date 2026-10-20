@@ -907,41 +907,59 @@
      "indicators": [
       {
        "text": "penning",
-       "note": "the setter pens, or encloses, the rest"
+       "at": 7,
+       "note": "penning means enclosing, so one piece is written inside another"
       }
      ],
      "parts": [
       {
        "words": "Setter",
+       "at": 0,
        "gives": "GEL",
-       "note": "first letter of GEL, which sets hair"
+       "note": "gel is something that sets, as hair gel does"
       },
       {
        "op": "charade",
        "parts": [
         {
          "words": "Listener",
+         "at": 15,
          "gives": "EAR",
-         "note": "the ear is what listens"
+         "note": "an ear listens"
         },
         {
-         "words": "although missing last",
-         "gives": "WHE",
-         "note": "WHEN (as in 'why walk when you can drive?') without its N"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing last",
+           "at": 34,
+           "note": "missing its last letter, the word is cut short at the end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "although",
+           "at": 25,
+           "gives": "WHEN",
+           "note": "when can mean although: he walked when he could have driven"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crossword setter writing for the Listener puzzle but lacking the final piece.",
-     "walkthrough": "The Listener is a famous Times crossword, so 'Setter' seems to mean the compiler; here it is hair gel. WHEN can mean although, as in 'he stayed when he could have left'.",
-     "definitionFit": "A gearwheel is a toothed wheel in a machine."
+     "surface": "A crossword setter writing a Listener puzzle, the Times's hard weekly crossword, but leaving out the final piece.",
+     "walkthrough": "'Setter' and 'Listener' seem to be crossword people; they are GEL and EAR. 'missing last' cuts WHEN to WHE.",
+     "definitionFit": "A gearwheel is a toothed wheel, one component of a machine's workings."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Setter"
     }
    }

@@ -919,53 +919,48 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "move",
      "indicators": [
       {
        "text": "to go back",
-       "note": "going back means moving later in the word, so a letter is lifted out and slotted further along"
+       "at": 25,
+       "note": "going back means moving further along, so that letter shifts later in the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "Wanted",
-         "gives": "YEARNED",
-         "note": "to yearn is to long for"
-        },
-        {
-         "gives": "N"
-        }
-       ]
+       "words": "Wanted",
+       "at": 0,
+       "gives": "YEARNED",
+       "note": "yearned means longed for, wanted"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "start of",
-         "note": "the start of a word is its first letter alone"
+         "at": 7,
+         "note": "the start of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "November",
-         "note": "the opening letter of the month"
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tax deadline that someone wished could be pushed back from early November.",
-     "walkthrough": "Take the N out of YEARNED and put it back one place later, before the D, giving YEAREND.",
-     "definitionFit": "The close of an accounting year is when accounts must be finalised, a key deadline in finance."
+     "surface": "Someone wanting the start of November to retreat as a deadline looms.",
+     "walkthrough": "The N in YEARNED shifts back two places, giving YEAREND.",
+     "definitionFit": "Year-end is the close of a financial year, when accounts must be done."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "back"
+     "misdirectedWord": "Wanted"
     }
    }
   },
