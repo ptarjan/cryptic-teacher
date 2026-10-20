@@ -160,53 +160,56 @@
      "parts": [
       {
        "words": "special",
-       "gives": "SP",
-       "note": "SP is a short form of special"
+       "at": 8,
+       "gives": "SP"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "cryptic",
-         "note": "something cryptic is obscure and puzzling, so these letters come in a disguised order"
+         "at": 16,
+         "note": "cryptic means puzzling or disguised, so the word's letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "clue",
-         "note": "taken as written, to be rearranged"
-        },
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "near",
+       "at": 29,
+       "gives": "AT",
+       "note": "at can mean near, as in at hand"
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "near",
-         "gives": "AT",
-         "note": "to be at a place is to be near it"
-        },
+         "text": "end of",
+         "at": 34,
+         "note": "end of picks the final letter of puzzle"
+        }
+       ],
+       "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its final letter, so only that one is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "puzzle",
-           "note": "the final letter of the word"
-          }
-         ]
+         "words": "puzzle",
+         "at": 41
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A solver is told to look hard at a tricky clue near the end of the puzzle.",
-     "walkthrough": "The surface is about crosswords themselves, so 'cryptic clue' reads as a description, not an anagram instruction applied to CLUE.",
-     "definitionFit": "To speculate is to consider or ponder a matter, turning it over in the mind, a loose sense of looking into it."
+     "surface": "Instructions to scrutinise a particular cryptic clue near the end of the puzzle.",
+     "walkthrough": "'cryptic' reshuffles CLUE to ECUL.",
+     "definitionFit": "To speculate can mean to ponder or consider a subject, turning it over in the mind."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cryptic"
     }
