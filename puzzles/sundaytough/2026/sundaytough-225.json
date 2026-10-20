@@ -112,35 +112,20 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "move",
      "indicators": [
       {
-       "text": "in",
-       "at": 28,
-       "note": "in says that letter goes back inside the rest of the carriage word"
+       "text": "lowered",
+       "at": 20,
+       "note": "in a down clue, lowered means moved further down, so the letter shifts later in the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "lowered",
-         "at": 20,
-         "note": "lowered says the letter is taken from its place at the top of the carriage word to be set further down"
-        }
-       ],
-       "parts": [
-        {
-         "words": "carriage",
-         "at": 31,
-         "gives": "CHARIOT",
-         "note": "a chariot is a horse-drawn carriage"
-        },
-        {
-         "gives": "C"
-        }
-       ]
+       "words": "carriage",
+       "at": 31,
+       "gives": "CHARIOT",
+       "note": "a chariot is a horse-drawn carriage"
       },
       {
        "op": "first",
@@ -148,27 +133,27 @@
         {
          "text": "head",
          "at": 15,
-         "note": "head says only the first letter of counter is used"
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "counter's",
-         "at": 5,
-         "note": "the first letter of counter, picked out by head"
+         "at": 5
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An accountant's boss is demoted inside a coach.",
-     "walkthrough": "'Bean counter' reads as one phrase but splits: 'Bean' is the definition. 'lowered' moves the C of CHARIOT, the head of 'counter', down the word: 'in' puts it back after HARI.",
-     "definitionFit": "A haricot is a kind of bean, as in the haricot used for baked beans."
+     "surface": "A bean counter's boss is demoted while riding in a carriage.",
+     "walkthrough": "'Bean counter' looks like an accountant, but Bean is the definition; 'lowered' moves C from the top of CHARIOT down.",
+     "definitionFit": "The haricot is a kind of bean, the white type used for baked beans."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "counter's"
     }
    }
@@ -1560,20 +1545,37 @@
      "parts": [
       {
        "words": "Peach",
+       "at": 0,
        "gives": "SPLIT",
-       "note": "to peach and to split are both slang for informing on someone"
+       "note": "to peach is to inform on someone, and so is to split"
       },
       {
-       "words": "fruit cut",
-       "gives": "PEA",
-       "note": "PEAR without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 12,
+         "note": "cut means shortened, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 6,
+         "gives": "PEAR",
+         "note": "a pear is a fruit"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A peach sliced up to go in a stew.",
-     "walkthrough": "'Peach fruit' looks like one thing; 'Peach' is the old verb meaning to inform, as is split. The stew is the pea soup kind.",
-     "definitionFit": "Split peas are dried peas that go into soups and stews."
+     "surface": "Chopped peach and other fruit go into a dish.",
+     "walkthrough": "Peach looks like a fruit, but it is the old verb meaning to grass on someone, as is split.",
+     "definitionFit": "Split peas are dried peas often used in soups and stews, so one is an example of a stew ingredient."
     },
     "features": {
      "answerInScene": true,

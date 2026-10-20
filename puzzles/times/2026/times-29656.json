@@ -866,41 +866,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "rejected",
-       "note": "something rejected is sent back, so the word goes backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 7,
+         "note": "something rejected is sent back, so the word for batter is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Fat",
-         "gives": "DRAL",
-         "note": "lard is pig fat"
-        },
-        {
          "words": "Batter",
+         "at": 0,
          "gives": "LAM",
-         "note": "to lam is to batter, and LAM goes backwards"
+         "note": "to lam is to batter or thrash"
         }
        ]
+      },
+      {
+       "words": "Fat",
+       "at": 19,
+       "gives": "LARD",
+       "note": "lard is pig fat"
       }
      ]
     },
     "explanation": {
-     "surface": "A batter turned away by the Fat Duck, Heston Blumenthal's famous restaurant.",
-     "walkthrough": "'Batter' pulls towards cooking because the Fat Duck is a restaurant, but it is the verb: to lam someone is to thrash them. 'Fat Duck' splits into wordplay and definition.",
-     "definitionFit": "The mallard is the commonest wild duck, the green-headed ancestor of most farmyard breeds, so this is a definition by example."
+     "surface": "A batter spurned by the famous Fat Duck restaurant, as if the chef turned down a recipe.",
+     "walkthrough": "The Fat Duck is Heston Blumenthal's famous restaurant, which pulls the eye; split the name, and Duck alone is the definition while Fat feeds the wordplay.",
+     "definitionFit": "The mallard is the commonest wild duck, the green-headed bird of ponds and rivers."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Batter"
+     "misdirectedWord": "Fat"
     }
    }
   },
@@ -1049,36 +1051,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "powerless",
-       "note": "powerless means without power, and P is power, so P comes out"
-      },
-      {
        "text": "to suppress",
-       "note": "to suppress something is to hold it down within, so the next piece goes inside"
+       "at": 52,
+       "note": "to suppress something is to hold it down within, so one piece goes inside the other"
       }
      ],
      "parts": [
       {
-       "words": "easily influenced",
-       "gives": "LIANT",
-       "note": "easily influenced is pliant, and PLIANT loses P for power"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "powerless",
+         "at": 42,
+         "note": "without power: P, the physics symbol for power, is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "easily influenced",
+         "at": 23,
+         "gives": "PLIANT",
+         "note": "pliant means easily bent or persuaded"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       },
       {
-       "words": "alarm?",
+       "words": "alarm",
+       "at": 64,
        "gives": "BELL",
-       "note": "an alarm bell, so an alarm is perhaps a bell"
+       "note": "a bell is an alarm"
       }
      ]
     },
     "explanation": {
-     "surface": "A gullible fake-news outlet with no clout tries to keep a public alarm quiet.",
-     "walkthrough": "The surface pictures a propaganda outlet, but 'powerless' is an instruction: P is the abbreviation for power in physics.",
-     "definitionFit": "A libellant is one who publishes a libel, a damaging falsehood in print, so fake news fits."
+     "surface": "A spreader of fake news is pliable but weak, unable to quell a sense of panic.",
+     "walkthrough": "P is the physics symbol for power, which is why 'powerless' removes that letter; the question mark flags that a libellant is only loosely a fake-news publisher.",
+     "definitionFit": "A libellant is one who publishes a libel, a false and damaging written statement, which fake news can be."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "powerless"
+     "misdirectedWord": "alarm"
     }
    }
   },

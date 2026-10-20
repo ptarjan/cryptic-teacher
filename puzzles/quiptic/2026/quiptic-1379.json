@@ -48,26 +48,43 @@
      "indicators": [
       {
        "text": "departs",
-       "note": "Someone who departs walks out and is gone, so the letter named just before it goes missing from the word it was standing at the front of."
+       "at": 32,
+       "note": "departs means leaves, so that letter is taken away"
       }
      ],
      "parts": [
       {
        "words": "Complain",
+       "at": 0,
        "gives": "GRUMBLE",
-       "note": "to grumble is to complain, muttering on about it"
+       "note": "to grumble is to complain"
       },
       {
-       "words": "government's head",
-       "gives": "G",
-       "note": "the head of a word is its opening letter, so this is an operation the clue asks for rather than a shortening to look up"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "at": 27,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "government's",
+         "at": 14
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody gripes the moment the person in charge walks out, and it can only end badly.",
-     "walkthrough": "A rumble is a pitched gang fight, American street slang from the days of West Side Story, which is what lets a single noun stand for 'trouble'.",
-     "definitionFit": "trouble → RUMBLE: in American street slang a rumble is a gang fight, so the word names one particular brand of trouble."
+     "surface": "A grumble at a minister leaving, as a sign of political trouble.",
+     "definitionFit": "A rumble can be a street fight or brawl, a kind of trouble, as well as a low noise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "government's"
     }
    }
   },
@@ -661,26 +678,29 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "last",
+     "indicators": [
+      {
+       "text": "Half of",
+       "at": 0,
+       "note": "half of each word is taken, here the back half of both of them"
+      }
+     ],
      "parts": [
       {
-       "words": "Half of them",
-       "at": 0,
-       "gives": "EM",
-       "note": "the second half of the word them is its last two letters"
+       "words": "them",
+       "at": 8
       },
       {
        "words": "fail",
-       "at": 13,
-       "gives": "IL",
-       "note": "the 'Half' applies again: the second half of fail is its last two letters"
+       "at": 13
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled remark that half of a group cannot spot some man.",
-     "walkthrough": "'Half' governs both words: take the back half of 'them' and the back half of 'fail'.",
-     "definitionFit": "Emil is a man's given name, so a particular male person can be called this fellow."
+     "surface": "Half the group just cannot spot this man.",
+     "walkthrough": "'Half of' covers both words: the end halves of THEM and FAIL.",
+     "definitionFit": "Emil is a man's name, so this fellow is a named male person."
     },
     "features": {
      "answerInScene": false,
@@ -1135,39 +1155,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "the essence of",
+       "at": 8,
+       "note": "the essence is the heart, so the central two letters of each word are taken"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "the essence of",
-         "note": "The essence of a thing is what sits at its heart, so take the letters standing dead centre and let the outer ones fall away."
-        }
-       ],
-       "parts": [
-        {
-         "words": "fading",
-         "note": "the pair at the centre of this six-letter word, with two letters shed from each end"
-        }
-       ]
+       "words": "fading",
+       "at": 23
       },
       {
        "words": "legend",
-       "gives": "GE",
-       "note": "the middle pair again, taken the same way from the same length of word"
+       "at": 30
       },
       {
        "words": "Castro",
-       "gives": "ST",
-       "note": "the heart of the name, its two central letters"
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "surface": "Absorb what really mattered about the fading Cuban icon.",
-     "walkthrough": "Three six-letter words standing in a row is the signal: one instruction covers all three, and the repetition is what tells you so before you have found any letters.",
-     "definitionFit": "Take in → DIGEST: to digest a report is to take it in and absorb it, the figurative use of what the stomach does with a meal."
+     "surface": "Absorb the heart of the fading Cuban leader's legend.",
+     "walkthrough": "One indicator covers all three words: the middle pair from each, in order.",
+     "definitionFit": "To digest is to absorb and understand information, as well as food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Castro"
     }
    }
   },

@@ -166,19 +166,40 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Quiz mostly",
-       "gives": "PUM",
-       "note": "to pump somebody is to quiz them for information; three of its four letters are wanted"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 5,
+         "note": "mostly means most of the word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Quiz",
+         "at": 0,
+         "gives": "PUMP",
+         "note": "to pump someone is to quiz them for information"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "the clue's own word, used as the letter it is"
+       "at": 12
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Quiz' looks like the setter addressing you, and it is a synonym instead: pumping someone for facts is quizzing them.",
-     "definitionFit": "beast → PUMA: definition by class, the big cat of the Americas also known as the cougar or mountain lion, so one animal answers to the general word."
+     "surface": "A quiz that is largely about one animal.",
+     "definitionFit": "The puma is a big wild cat, also called the cougar or mountain lion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Quiz"
     }
    }
   },
@@ -1024,74 +1045,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
+     "indicators": [
+      {
+       "text": "scoots over",
+       "at": 40,
+       "note": "scoots over means moves along, so the letter shifts to a new place in the word"
+      }
+     ],
      "parts": [
       {
-       "words": "a",
+       "words": "a menace",
        "at": 10,
-       "gives": "A"
+       "gives": "ATHREAT",
+       "note": "a threat is a menace"
       },
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
-         "text": "over",
-         "at": 47,
-         "note": "it comes back in further over, after the next two letters"
+         "text": "little",
+         "at": 26,
+         "note": "little here means just a small part, the first letter"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "scoots",
-           "at": 40,
-           "note": "the rascal's letter scoots off from its place in the menace word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "menace",
-           "at": 12,
-           "gives": "THREAT",
-           "note": "a threat is a menace"
-          },
-          {
-           "gives": "R"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "little",
-           "at": 26,
-           "note": "a little of a word is just its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "rascal",
-           "at": 33,
-           "note": "its first letter is R"
-          }
-         ]
+         "words": "rascal",
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A little rascal scooting about is basically a menace.",
-     "walkthrough": "A THREAT is 'a menace'; its R, the 'little' rascal, 'scoots' out and goes back in 'over' EA, turning THREAT into THEART.",
-     "definitionFit": "At heart means fundamentally or in essence, which is what basically means."
+     "surface": "A little rascal darting about is basically a menace.",
+     "walkthrough": "'scoots over' moves R from after ATH to after EA.",
+     "definitionFit": "At heart is an idiom meaning fundamentally or in essence."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "scoots"
+     "misdirectedWord": "rascal"
     }
    }
   },

@@ -177,25 +177,42 @@
      "indicators": [
       {
        "text": "bedecked in",
-       "note": "someone bedecked in finery is wrapped in it, so IS is wrapped in the metal"
+       "at": 18,
+       "note": "something bedecked in finery is surrounded by it, so the short word sits inside"
       }
      ],
      "parts": [
       {
-       "words": "a lot of shiny metal",
-       "gives": "CHROM",
-       "note": "CHROME, the shiny plating metal, minus its final E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 30,
+         "note": "a lot of a word is most of it, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shiny metal",
+         "at": 39,
+         "gives": "CHROME",
+         "note": "chrome is the bright plating metal"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "is",
-       "note": "used as written"
+       "at": 15
       }
      ]
     },
     "explanation": {
-     "surface": "A christening gown so decorated it seems to be plated in chrome.",
-     "walkthrough": "The chrisom is a rare old word, so the wordplay does most of the work here.",
-     "definitionFit": "Plain synonym, if an old one: the chrisom was the white cloth put on a child at baptism."
+     "surface": "A christening gown is adorned with lots of gleaming metal trim.",
+     "walkthrough": "'a lot of' signals that not quite all of the metal's name is used; only its final letter is lost.",
+     "definitionFit": "A chrisom is the white cloth or garment put on a child at baptism, an old church term."
     },
     "features": {
      "answerInScene": true,
@@ -2686,33 +2703,54 @@
        "op": "container",
        "indicators": [
         {
-         "text": "about"
+         "text": "about",
+         "at": 23,
+         "note": "about means going around, so the first word encloses the next letter"
         }
        ],
        "parts": [
         {
          "words": "intense emotion",
+         "at": 7,
          "gives": "PANG",
-         "note": "a pang is a sharp feeling"
+         "note": "a pang is a sudden sharp feeling"
         },
         {
          "words": "European",
-         "gives": "E",
-         "note": "standard abbreviation"
+         "at": 29,
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "poem, overlooking opening line",
-       "gives": "YRIC",
-       "note": "LYRIC without its opening L, line"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "overlooking opening",
+         "at": 44,
+         "note": "to overlook the opening is to leave out what stands at the start of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poem",
+         "at": 38,
+         "gives": "LYRIC",
+         "note": "a lyric is a short poem"
+        },
+        {
+         "words": "line",
+         "at": 64,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Admiring a moving European poem while skipping its first line.",
-     "walkthrough": "The poem's 'opening line' is its first letter L, which also stands for line.",
-     "definitionFit": "Near synonym: a panegyric is a speech or poem of lavish praise."
+     "surface": "Praise stirs strong feeling over a European poem, though its first line is skipped.",
+     "walkthrough": "'opening line' reads as a poem's first verse, but it only means the single letter for line at the poem's start.",
+     "definitionFit": "A panegyric is a formal speech or poem of high praise, a eulogy."
     },
     "features": {
      "answerInScene": true,

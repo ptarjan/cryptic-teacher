@@ -1208,8 +1208,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "old city",
-      "at": 34
+      "text": "the old city",
+      "at": 30
      }
     ],
     "wordplay": {
@@ -1217,20 +1217,31 @@
      "parts": [
       {
        "words": "Little 'un",
+       "at": 0,
        "gives": "BABY",
-       "note": "a little one"
+       "note": "a little 'un is a baby"
       },
       {
-       "words": "alone, exposed",
-       "gives": "LON",
-       "note": "ALONE without its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "exposed",
+         "at": 19,
+         "note": "exposed means stripped of its outer layer, so the first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alone",
+         "at": 12
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small child is left alone and unprotected in an ancient city.",
-     "walkthrough": "The abandoned child is a picture only; exposing ALONE strips its outer letters.",
-     "definitionFit": "Definition by example: the Mesopotamian capital of Nebuchadnezzar is one of the most famous ancient cities."
+     "surface": "A small child, left alone and unprotected in an ancient city.",
+     "definitionFit": "Babylon was the great ancient city of Mesopotamia."
     },
     "features": {
      "answerInScene": true,
@@ -1264,25 +1275,43 @@
      "parts": [
       {
        "words": "Firm",
+       "at": 0,
        "gives": "CO",
-       "note": "Co., company"
+       "note": "CO is the abbreviation for company, a firm"
       },
       {
-       "words": "employing no good",
-       "gives": "USIN",
-       "note": "USING = employing, less G for good"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 15,
+         "note": "no here means without, so the letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "employing",
+         "at": 5,
+         "gives": "USING",
+         "note": "employing means using"
+        },
+        {
+         "words": "good",
+         "at": 18,
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A company that hires a useless relative.",
-     "walkthrough": "'No good' reads as useless; it asks for G to be removed.",
-     "definitionFit": "Definition by example: the child of an aunt or uncle is one kind of relative."
+     "surface": "A company hires a relative who is no good.",
+     "definitionFit": "A cousin is a relative, the child of an aunt or uncle."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "no"
+     "misdirectedWord": "employing"
     }
    }
   },
@@ -1735,35 +1764,53 @@
      "op": "charade",
      "parts": [
       {
-       "words": "mum ignored in Main",
-       "gives": "IN",
-       "note": "MAIN without MA, mum"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignored",
+         "at": 16,
+         "note": "ignored means left out, so those letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Main",
+         "at": 27
+        },
+        {
+         "words": "mum",
+         "at": 12,
+         "gives": "MA",
+         "note": "ma is mum, mother"
+        }
+       ]
       },
       {
        "words": "Street",
-       "gives": "ST",
-       "note": "St., street"
+       "at": 32,
+       "gives": "ST"
       },
       {
        "words": "in",
-       "note": "as printed"
+       "at": 39
       },
       {
        "words": "Connecticut",
+       "at": 42,
        "gives": "CT",
-       "note": "CT, the US state abbreviation"
+       "note": "CT is the postal abbreviation for Connecticut"
       }
      ]
     },
     "explanation": {
-     "surface": "A mother's hunch goes unheeded on Main Street in a Connecticut town.",
-     "walkthrough": "'Main Street' reads as one American place name; it splits, with mum removed from the first word.",
-     "definitionFit": "A plain synonym: knowing without reasoning, felt in the gut rather than worked out."
+     "surface": "A hunch about keeping quiet on Main Street in a Connecticut town.",
+     "walkthrough": "'mum' looks like silence but is MA, mother; 'ignored' drops it from MAIN to leave IN.",
+     "definitionFit": "An instinct is an innate gut feeling, a sense that acts without reasoning."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Main"
+     "misdirectedWord": "mum"
     }
    }
   }
