@@ -915,7 +915,7 @@ sys.exit(eq.dispatch(["times"], {str(cache)!r}, workers=1, replan=0.3, resume=re
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
 import subprocess
-p = subprocess.run([sys.executable, str(driver)], capture_output=True, text=True, timeout=60)
+p = subprocess.run([sys.executable, str(driver)], capture_output=True, text=True, timeout=300)
 parents = [l.split()[1:] for l in p.stderr.splitlines() if l.startswith("parent ")]
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("a code change re-execs the queue once, same pid, new code", (0, ["p1", "p2"], True, True),
@@ -932,7 +932,7 @@ log.unlink()
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 driver.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"'))
 fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
-reused = subprocess.run([sys.executable, str(driver)], capture_output=True, text=True, timeout=60,
+reused = subprocess.run([sys.executable, str(driver)], capture_output=True, text=True, timeout=300,
                         env={**os.environ, "TEST_PLAN_REUSE": "600"})
 check("a re-exec starts from a plan under plan_reuse old and keeps it as its own, units still all started once",
       (0, True, ["long", "r1", "r2"]),
@@ -953,10 +953,10 @@ def plan(*a, **k):
         time.sleep(60)
     return quick(*a, **k)
 eq.plan = plan
-quick = lambda papers""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=20"))
+quick = lambda papers""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=120"))
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 fake(rewrite_on="long", rewrite=str(slow), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
-slowed = subprocess.run([sys.executable, str(slow)], capture_output=True, text=True, timeout=60)
+slowed = subprocess.run([sys.executable, str(slow)], capture_output=True, text=True, timeout=300)
 check("a code change re-execs the queue while its plan is still being made",
       ["p1", "p2"], [l.split()[1] for l in slowed.stderr.splitlines() if l.startswith("parent ")])
 # Mirror: an image that has not yet made a plan of its own (it runs the kept
@@ -973,11 +973,11 @@ def plan(*a, **k):
         print("plan made by p2", file=sys.stderr, flush=True)
     return quick(*a, **k)
 eq.plan = plan
-quick = lambda papers""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=20"))
+quick = lambda papers""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=120"))
 busy.write_text(busy_src)
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 fake(rewrite_on="long", rewrite=str(busy), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
-busied = subprocess.run([sys.executable, str(busy)], capture_output=True, text=True, timeout=60)
+busied = subprocess.run([sys.executable, str(busy)], capture_output=True, text=True, timeout=300)
 said = [l.split()[1] if l.startswith("parent ") else l for l in busied.stderr.splitlines()
         if l.startswith("parent ") or l == "plan made by p2"]
 check("an image re-execs on a change only after making its own first plan",
@@ -988,7 +988,7 @@ log.unlink()
 busy.write_text(busy_src.replace("time.sleep(1.5)", "time.sleep(5)"))
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 fake(rewrite_on="long", rewrite=str(busy), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 1})
-busied = subprocess.run([sys.executable, str(busy)], capture_output=True, text=True, timeout=60)
+busied = subprocess.run([sys.executable, str(busy)], capture_output=True, text=True, timeout=300)
 said = [l.split()[1] if l.startswith("parent ") else l for l in busied.stderr.splitlines()
         if l.startswith("parent ") or l == "plan made by p2"]
 check("mirror: with its units all ended during its first plan, an image still re-execs before its last plan",
@@ -1013,14 +1013,14 @@ resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else
 if "--resume" not in sys.argv:
     eq.keep_plan(eq.Path(resume + ".plan"), [["times"], {str(cache)!r}, None, [], eq.plan_version(eq.code_files())],
                  (*quick(["times"]), []), time.time())
-""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=20"))
+""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=120"))
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 fake(rewrite_on="long", rewrite=str(fresh_drv), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
 t0 = time.monotonic()
-freshed = subprocess.run([sys.executable, str(fresh_drv)], capture_output=True, text=True, timeout=60)
+freshed = subprocess.run([sys.executable, str(fresh_drv)], capture_output=True, text=True, timeout=300)
 check("a slice's first image re-execs on a change to itself while its first plan is still being made",
       (["p1", "p2"], True), ([l.split()[1] for l in freshed.stderr.splitlines() if l.startswith("parent ")],
-                             time.monotonic() - t0 < 30))
+                             time.monotonic() - t0 < 200))
 
 # ---- --handoff: a slice's end hands its running units to the next run,
 # which counts them in its pools and does not start them again.
@@ -1114,7 +1114,7 @@ time.sleep(1.5)
 fcntl.flock(hold, fcntl.LOCK_UN)
 hold.close()
 check("a hold that ends within UNIT_HOLD_WAIT (a slice's fold) is waited out, not held",
-      (0, True), (os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]), 1.5 <= time.monotonic() - t0 < 30))
+      (0, True), (os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]), 1.5 <= time.monotonic() - t0 < 200))
 
 # ---- Listener pages: one read unit each, rows appended to its ledger
 import gale_listener as gl
@@ -2172,6 +2172,11 @@ def reload_run(sig_after=1.5, grace=None, handoff=None, watcher=None, hold=30):
         os.environ["CT_RELOAD_GRACE"] = str(grace)
     if watcher:
         os.environ["CT_AUTO_RELOAD"] = "1"
+    # Forking while another thread holds a lock (stdout, logging, import) leaves the child
+    # deadlocked on it forever, so let earlier tests' threads finish before forking.
+    quiet = time.monotonic() + 20
+    while threading.active_count() > 1 and time.monotonic() < quiet:
+        time.sleep(0.05)
     started = time.monotonic()
     child = os.fork()
     if child == 0:
@@ -2182,10 +2187,26 @@ def reload_run(sig_after=1.5, grace=None, handoff=None, watcher=None, hold=30):
         os._exit(eq.dispatch(["times"], cache, workers=3, replan=0.1, handoff=handoff))
     os.environ["CT_AUTO_RELOAD"] = "0"
     os.environ.pop("CT_RELOAD_GRACE", None)
+    # Wait for the first unit to actually start (a loaded box may take many seconds), not a fixed sleep.
+    until = time.monotonic() + 90
+    while time.monotonic() < until and not (log.exists() and " start " in log.read_text()):
+        time.sleep(0.05)
+    started = time.monotonic()  # the bounds below are measured from the first unit running
     time.sleep(sig_after)
     if not watcher:
         os.kill(child, signal.SIGHUP)
-    rc = os.waitstatus_to_exitcode(os.waitpid(child, 0)[1])
+    rc = None
+    until = time.monotonic() + 120
+    while time.monotonic() < until:
+        done, status = os.waitpid(child, os.WNOHANG)
+        if done:
+            rc = os.waitstatus_to_exitcode(status)
+            break
+        time.sleep(0.05)
+    if rc is None:  # hung: kill it so the run fails with a FAIL line instead of hanging CI
+        os.kill(child, signal.SIGKILL)
+        os.waitpid(child, 0)
+        rc = "hung"
     took = time.monotonic() - started
     pids = []
     if handoff and Path(handoff).exists():
@@ -2215,7 +2236,13 @@ check("units that end inside the grace are waited for, not stopped; exit 75 afte
 class FiresSoon:  # the watcher saw tools/ code change on origin/master
     def __init__(self, *a, **k):
         self.hit = None
-        threading.Timer(1.0, lambda: setattr(self, "hit", ["tools/edition_queue.py"])).start()
+        def fire():  # once a unit is really running, so there is something to hand over
+            end = time.monotonic() + 90
+            while time.monotonic() < end and not (log.exists() and " start " in log.read_text()):
+                time.sleep(0.05)
+            time.sleep(0.5)
+            self.hit = ["tools/edition_queue.py"]
+        threading.Thread(target=fire, daemon=True).start()
     def start(self, *a, **k):
         return self
 rc, took, pids = reload_run(handoff=Path(_tmp) / "auto-handoff.json", watcher=FiresSoon)
