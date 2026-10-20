@@ -3072,7 +3072,33 @@ def r_cut_note_leaf(node, parent, ctx):
     return next(iter(cands.values())) if len(cands) == 1 else None
 
 
-RULE_REPAIRS = {"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
+def r_del_one_piece(node, parent, ctx):
+    """delOnePiece: del(charade(a, b, ...), X) of plain leaves where X lies inside exactly one piece (MELODY + RAM
+    less Y): the deletion moves onto that piece, charade(del(MELODY, Y), RAM), indicators with it. Kept only
+    when the tree still gives the answer and the validator's rule no longer fires."""
+    parts = node.get("parts") or []
+    if V.del_one_piece(node) != 1 or not ctx.get("answer") or any(not isinstance(p, dict) for p in parts):
+        return None
+    comps = parts[0].get("parts") or []
+    cut = W.letters(parts[1]["gives"])
+    hold = [k for k, c in enumerate(comps) if cut in W.letters(c.get("gives") or c.get("words"))]
+    if len(hold) != 1:
+        return None
+    k = hold[0]
+    inner = {x: y for x, y in node.items() if x not in ("parts", "gives")}
+    inner["parts"] = [copy.deepcopy(comps[k]), copy.deepcopy(parts[1])]
+    pieces = copy.deepcopy(comps)
+    pieces[k] = inner
+    new = {x: y for x, y in parts[0].items() if x not in ("parts", "gives")}
+    new["op"], new["parts"] = "charade", pieces
+    if node.get("gives") is not None:
+        new["gives"] = node["gives"]
+    if not _eval_swapped(node, parent, new, ctx) or V.del_one_piece(new):
+        return None
+    return new
+
+
+RULE_REPAIRS = {"delOnePiece": r_del_one_piece, "cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
