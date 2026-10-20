@@ -269,54 +269,60 @@
      "op": "charade",
      "parts": [
       {
-       "words": "opera",
-       "gives": "OP",
-       "note": "OPERA minus the ERA sitting inside it"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "running out",
+         "at": 20,
+         "note": "running out means the period disappears from opera"
+        }
+       ],
+       "parts": [
+        {
+         "words": "opera",
+         "at": 6
+        },
+        {
+         "words": "Time's",
+         "at": 13,
+         "gives": "ERA",
+         "note": "an era is a period of time"
+        }
+       ]
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "running out",
-         "note": "What runs out of something has left it altogether, so those letters go and the rest closes up."
-        },
-        {
          "text": "running short",
-         "note": "A word run short stops before it should, so its final letter is never written."
+         "at": 40,
+         "note": "running short means the word is cut, losing its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Time's",
-           "gives": "ERA",
-           "note": "an era is a stretch of time, and that is the stretch leaving the word before it"
-          },
-          {
-           "words": "Time's",
-           "gives": "TIM",
-           "note": "TIME docked of its last letter"
-          },
-          {
-           "words": "I'm not sure",
-           "gives": "UM",
-           "note": "um is the noise of hesitation, printed as a word"
-          }
-         ]
+         "words": "Time's",
+         "at": 33,
+         "gives": "TIME",
+         "note": "taken as the word time"
         },
         {
-         "gives": "ERA"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "I'm not sure",
+       "at": 59,
+       "gives": "UM",
+       "note": "um is a hesitant noise made when unsure"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone pressed to name the finest opera before the clock beats them, and dithering.",
-     "walkthrough": "The two cries about time are different instructions — the first takes a word for time away, the second docks a letter — and reading them as one repeated joke is what stalls the clue. Setters treat noises like 'um' as spellable words.",
-     "definitionFit": "The optimum is the best available, the point at which nothing could be bettered, and 'best' is that same noun."
+     "surface": "An agitated critic seeks the best opera as time runs out, then hesitates.",
+     "walkthrough": "'Time's running out' removes ERA from OPERA, leaving OP; 'Time's running short' trims TIME to TIM; UM is the hesitation.",
+     "definitionFit": "Optimum means the most favourable or best possible, so it can stand for best."
     },
     "features": {
      "answerInScene": false,
@@ -919,47 +925,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "remixed",
-       "note": "A remix takes the same material and puts it together another way, which is what happens to these letters."
+       "at": 12,
+       "note": "a remix rearranges a recording, so the letters of warmonger are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Warmonger",
-           "gives": "WARMORE",
-           "note": "WARMONGER with the N and the G taken out, leaving seven letters to re-set"
-          },
-          {
-           "words": "No Good",
-           "gives": "NG",
-           "note": "ng is the marker's shorthand for no good, and letters that are no good are the ones thrown out"
-          }
-         ]
-        },
-        {
-         "gives": "NG"
-        }
-       ]
+       "words": "Warmonger",
+       "at": 21
+      },
+      {
+       "words": "No Good",
+       "at": 33,
+       "gives": "NG",
+       "note": "NG is the abbreviation for no good, and those two letters are taken away"
       }
      ]
     },
     "explanation": {
-     "surface": "A remixed track credited to a band called Warmonger and written off as no good.",
-     "walkthrough": "The italics are the setter printing a record sleeve — artist, then title — which is why the capitals mean nothing. Lose the two letters before shuffling anything, or you are rearranging nine to fit seven squares.",
-     "definitionFit": "An earworm is the tune that lodges in the head and plays itself over, which is what a song has to be catchy to do."
+     "surface": "A dance remix of a song called Warmonger is panned as no good.",
+     "walkthrough": "The letters of WARMONGER are the answer plus N and G; take out NG ('No Good') and 'remixed' rearranges the rest.",
+     "definitionFit": "An earworm is a tune that gets stuck in your head, a catchy song you cannot shake off."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Warmonger"
     }
    }

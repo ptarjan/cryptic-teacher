@@ -762,37 +762,55 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "shortened",
-       "note": "A shortened word is one letter down, so the final character of the word beside this comes off before anything else happens."
+       "text": "after reflection",
+       "at": 33,
+       "note": "a reflection is a mirror image, so the whole run of letters is read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "after reflection",
-         "note": "A reflection shows a thing the other way round, so the letters assembled here are read from the far end back."
-        }
-       ],
        "parts": [
         {
-         "words": "Christmas",
-         "gives": "NOE",
-         "note": "Christmas is NOEL, arriving here without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "shortened",
+           "at": 7,
+           "note": "shortened means the word for Christmas loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Christmas",
+           "at": 17,
+           "gives": "NOEL",
+           "note": "Noel is another word for Christmas"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         },
         {
          "words": "party",
+         "at": 27,
          "gives": "DO",
-         "note": "a do is a party or function in British usage"
+         "note": "a do is a party"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Odeon is the best-known cinema chain in Britain, and the word is also Greek for a small theatre — a name that is both a brand and a common noun.",
-     "definitionFit": "Cinema -> ODEON: definition by example wearing a synonym's clothes, since the chain's name is used for its buildings and an odeon is a theatre in its own right."
+     "surface": "A cut-down Christmas party is held and someone looks back on it afterwards.",
+     "walkthrough": "'after reflection' sounds like thinking things over, but it is a mirror image: the whole shortened Christmas plus party is read backwards.",
+     "definitionFit": "Odeon is the name of a well-known chain of cinemas, and also a generic word for a picture house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
     }
    }
   },
@@ -1071,40 +1089,34 @@
      "indicators": [
       {
        "text": "keeps",
-       "note": "To keep something is to hold on to it, so the word before this closes around the letters that come next."
+       "at": 8,
+       "note": "keeps means the word for nothing holds the remaining letters inside it"
       }
      ],
      "parts": [
       {
        "words": "Nothing",
+       "at": 0,
        "gives": "NIL",
-       "note": "nil is nothing in a scoreline, and it opens after its first two letters"
+       "note": "nil means nothing, as in a football score"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "away from",
-         "note": "These words name what is taken out, so the letter beside them leaves the word that follows."
+         "at": 23,
+         "note": "away from means the abbreviation is taken out of the word cake"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "American",
-           "gives": "A",
-           "note": "A is the standard abbreviation for American, and it is the letter taken out"
-          },
-          {
-           "words": "cake",
-           "gives": "CKE",
-           "note": "the word CAKE with the letter above removed from it"
-          }
-         ]
+         "words": "cake",
+         "at": 33
         },
         {
+         "words": "American",
+         "at": 14,
          "gives": "A"
         }
        ]
@@ -1112,8 +1124,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "The surface has someone guarding a cake. 'Piece' is the old word for a coin — a fifty-pence piece — and the coin here is the United States five-cent one.",
-     "definitionFit": "piece -> NICKEL: 'piece' is the standard word for a coin of a stated value, and this is what Americans call their five-cent one."
+     "surface": "Someone is denied any cake while an American is kept away from it.",
+     "walkthrough": "'piece' looks like a slice of the cake, but it is the definition: a coin.",
+     "definitionFit": "A nickel is a US coin worth five cents, so it is a piece in the sense of a coin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
     }
    }
   },
