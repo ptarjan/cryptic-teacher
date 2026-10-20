@@ -913,38 +913,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "last",
-       "note": "The last of a name is the letter it ends with, and nothing else of it is wanted."
-      },
-      {
-       "text": "after opener's dismissal",
-       "note": "The opener is the one who goes in first, and a dismissal sends them off, so the leading letter is taken away."
-      }
-     ],
      "parts": [
       {
-       "words": "Compton's",
-       "gives": "N",
-       "note": "the letter the name ends with; Denis Compton was England's great batsman of the 1940s and 50s"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 18,
+         "note": "last means only the final letter of the name is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Compton's",
+         "at": 8,
+         "gives": "COMPTON",
+         "note": "Denis Compton was a famous England cricketer"
+        }
+       ]
       },
       {
-       "words": "half-century",
-       "gives": "IFTY",
-       "note": "a half-century in cricket is fifty runs, and FIFTY here goes in without its F"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after opener's dismissal",
+         "at": 37,
+         "note": "the opener is the first letter, and dismissal removes it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "half-century",
+         "at": 23,
+         "gives": "FIFTY",
+         "note": "a half-century in cricket is a score of fifty"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Compton's final fifty, compiled after the opening batsman was out.",
-     "walkthrough": "Cricket runs through the whole surface: fifty runs make a half-century, and the opener is the batsman who goes in first — here the F at the front of the word.",
-     "definitionFit": "Nifty means neat and smart — a nifty bit of footwork, a nifty little car — which is the stylish sense applied to deeds and things."
+     "surface": "Cricketer Denis Compton's final innings of fifty, made after the opening batsman was out.",
+     "walkthrough": "The cricket surface hides plain letters: N from Compton and FIFTY losing its first letter.",
+     "definitionFit": "Nifty means smart and stylish, or neatly clever."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "opener"
+     "misdirectedWord": "opener's"
     }
    }
   },

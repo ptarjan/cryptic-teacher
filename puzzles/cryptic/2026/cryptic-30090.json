@@ -644,47 +644,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "EYEBALLING",
      "indicators": [
       {
-       "text": "subsequent",
-       "note": "'Subsequent' means coming afterwards, so this piece is added on the end rather than wrapped round anything."
+       "text": "heard",
+       "at": 57,
+       "note": "heard tells us the words are taken by their sound"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "EYE",
-       "indicators": [
-        {
-         "text": "heard",
-         "note": "'Heard' hands the clue to the ear: write down what the words sound like, not how a dictionary spells them."
-        }
-       ],
-       "parts": [
-        {
-         "words": "vote in favour",
-         "gives": "AYE",
-         "note": "a vote in favour is an aye, and an aye said out loud is the organ you see with"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "BALLING",
-       "parts": [
-        {
-         "words": "outcry",
-         "gives": "BAWLING",
-         "note": "an outcry is bawling, and bawling said out loud spells the rest"
-        }
-       ]
+       "words": "vote in favour, with subsequent outcry",
+       "at": 18,
+       "gives": "AYEBAWLING",
+       "note": "aye is the yes vote in Parliament, followed by bawling, loud crying or shouting"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "One 'heard' at the very end licenses both soundalikes at once, which is why nothing in the middle of the clue looks like an instruction.",
-     "definitionFit": "To eyeball something is to look it over hard and at close range, the informal verb for staring at a thing to size it up."
+     "surface": "A parliamentary yes vote followed by a noisy protest.",
+     "walkthrough": "AYE sounds like EYE and BAWLING like BALLING.",
+     "definitionFit": "To eyeball someone is to stare at them hard, so eyeballing is staring intently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "outcry"
     }
    }
   },
@@ -1165,34 +1152,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "Going back along a row means reading it right to left, so the piece in front of the word is written the other way."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 5,
+         "note": "back means the turn word runs the other way"
+        }
+       ],
        "parts": [
         {
-         "words": "on",
-         "gives": "ER",
-         "note": "RE means 'on the subject of', the 'on' at the head of a memo"
-        },
-        {
          "words": "Turn",
+         "at": 0,
          "gives": "GO",
-         "note": "a turn is a GO, as in whose turn is it, and this one is taken backwards"
+         "note": "a turn in a game is a go"
         }
        ]
+      },
+      {
+       "words": "on",
+       "at": 10,
+       "gives": "RE",
+       "note": "re means on or concerning, as in a letter heading"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Turn back on' reads as one idiom about rejection. The parse ignores the idiom completely and takes each of the three words on its own, which is the lesson worth keeping.",
-     "definitionFit": "The man-eating giant of fairy tale, and by extension anybody brutish enough to frighten children."
+     "surface": "An instruction to turn back when faced with a monster.",
+     "walkthrough": "GO turned 'back' gives OG, then RE for on.",
+     "definitionFit": "An ogre is a man-eating giant of folklore, the classic fairy-tale monster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
     }
    }
   },

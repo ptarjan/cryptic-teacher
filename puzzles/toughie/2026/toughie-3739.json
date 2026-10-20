@@ -1640,28 +1640,52 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 18,
+       "note": "by here means next to, setting the two pieces side by side"
+      }
+     ],
      "parts": [
       {
        "words": "caught",
+       "at": 11,
        "gives": "C",
-       "note": "C = caught, in cricket scoring"
+       "note": "C is the cricket scorecard abbreviation for caught"
       },
       {
-       "words": "fishing boat with no prow",
-       "gives": "RAWLER",
-       "note": "TRAWLER without its front letter T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no prow",
+         "at": 34,
+         "note": "the prow is the front of a boat, so the boat word loses its front letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fishing boat",
+         "at": 21,
+         "gives": "TRAWLER",
+         "note": "a trawler is a fishing boat that drags a net"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slow creature is hauled up by a trawler that has lost its bow.",
-     "walkthrough": "'Caught' looks like the verb of the fishing scene; it is the cricket scorecard abbreviation C.",
-     "definitionFit": "A crawler is something that moves slowly."
+     "surface": "A slow-moving creature gets snagged by a damaged fishing boat.",
+     "walkthrough": "'Slow mover' reads as a creature caught in a net, but the fishing boat only supplies letters once its front is gone.",
+     "definitionFit": "A crawler is anything that creeps along slowly, such as a caterpillar or a slow vehicle."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "prow"
+     "misdirectedWord": "caught"
     }
    }
   },

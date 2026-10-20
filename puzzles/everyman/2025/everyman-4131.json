@@ -608,24 +608,47 @@
      "indicators": [
       {
        "text": "having swallowed",
-       "note": "What swallows a thing takes it right inside, so the letter goes into the middle of the word rather than after it."
+       "at": 16,
+       "note": "swallowing takes something inside, so the next piece goes within"
       }
      ],
      "parts": [
       {
-       "words": "Champion mostly",
-       "gives": "ADVOCAT",
-       "note": "to champion a cause is to advocate it; docked of its last letter that leaves seven"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 9,
+         "note": "most of the word, so its final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Champion",
+         "at": 0,
+         "gives": "ADVOCATE",
+         "note": "to champion a cause is to be its advocate; an advocate is a champion"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "the article is swallowed whole, as the single letter it is written with"
+       "at": 33
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Wordplay and drink share a root: advocaat is Dutch for a lawyer, and the thick egg-and-brandy drink was reckoned good for a pleader's throat.",
-     "definitionFit": "liqueur: the thick, sweet Dutch egg-yolk-and-brandy drink is one of the sweetened spirits that word covers."
+     "surface": "A champion, nearly finished, has knocked back a liqueur.",
+     "walkthrough": "'mostly' cuts ADVOCATE to ADVOCAT, and 'having swallowed' puts A inside it.",
+     "definitionFit": "Advocaat is a Dutch egg-and-brandy liqueur, the base of the snowball cocktail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Champion"
     }
    }
   },
@@ -654,25 +677,49 @@
      "indicators": [
       {
        "text": "Before",
-       "note": "Putting one piece before another places it in front, so what the clue mentions second is written first."
+       "at": 0,
+       "note": "the spill word comes before the excuse word in the answer"
       }
      ],
      "parts": [
       {
        "words": "spill",
+       "at": 20,
        "gives": "TIP",
-       "note": "to tip a bucket over is to spill what is in it"
+       "note": "to tip something is to spill or pour it out"
       },
       {
-       "words": "curt excuse",
-       "gives": "PLE",
-       "note": "a plea is an excuse, shortened here by a letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curt",
+         "at": 7,
+         "note": "curt means cut short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "excuse",
+         "at": 12,
+         "gives": "PLEA",
+         "note": "a plea is an excuse offered in defence"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface has someone apologising and knocking a glass over. Read as instructions it is the excuse that gets cut short, not the glass.",
-     "definitionFit": "drink: your tipple is the drink you habitually take — 'what's your tipple?' — an everyday, slightly jocular noun."
+     "surface": "Someone spills their drink and offers a brief apology.",
+     "walkthrough": "'spill drink' looks like one phrase, but the spill word is wordplay and drink alone is the definition.",
+     "definitionFit": "A tipple is an alcoholic drink, and to tipple is to drink habitually."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "curt"
     }
    }
   },

@@ -240,26 +240,46 @@
      "op": "charade",
      "parts": [
       {
-       "words": "bit of punctuation — not a",
-       "gives": "COMM",
-       "note": "COMMA without its A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 36,
+         "note": "not means the next piece is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bit of punctuation",
+         "at": 15,
+         "gives": "COMMA",
+         "note": "a comma is a punctuation mark"
+        },
+        {
+         "words": "a",
+         "at": 40,
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "one-off",
+       "at": 42,
        "gives": "UNIQUE",
-       "note": "unique = one of a kind"
+       "note": "something unique is a one-off"
       }
      ]
     },
+    "spelling": "COMMUNIQUÉ",
     "explanation": {
-     "surface": "A news notice that wants a comma added, not as a one-time fix.",
-     "walkthrough": "The dash makes 'not a one-off' read as a phrase; split it so 'not a' works on COMMA and 'one-off' stands alone.",
-     "definitionFit": "An official statement issued to the press is a bulletin in the plain sense, and the word comes straight from French for 'communicated'."
+     "surface": "A news bulletin needs a punctuation mark, and it isn't one of a kind.",
+     "walkthrough": "COMMA without A is COMM, then UNIQUE.",
+     "definitionFit": "A communiqué is an official announcement or statement issued to the press."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "not"
+     "misdirectedWord": "one-off"
     }
    }
   },

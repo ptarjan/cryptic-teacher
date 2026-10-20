@@ -266,25 +266,45 @@
      "indicators": [
       {
        "text": "cooks",
-       "note": "cooking changes the ingredients, so the letters are mixed"
+       "at": 29,
+       "note": "cooks means the letters are worked over into a new arrangement"
       }
      ],
      "parts": [
       {
-       "words": "Taking lid off, burps",
-       "gives": "URPS",
-       "note": "BURPS without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Taking lid off",
+         "at": 0,
+         "note": "the lid is the top, so the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "burps",
+         "at": 16
+        },
+        {
+         "gives": "B"
+        }
+       ]
       },
       {
-       "words": "as Aga",
-       "note": "anagram fodder, taken as printed"
+       "words": "as",
+       "at": 22
+      },
+      {
+       "words": "Aga",
+       "at": 25,
+       "note": "taken as written; an Aga is a large British cast-iron range cooker"
       }
      ]
     },
     "explanation": {
-     "surface": "Lift the pan lid and the vegetables bubble noisily as the Aga cooks them.",
-     "walkthrough": "An Aga is a heavy British range cooker. 'Taking lid off' looks like kitchen action, but it beheads BURPS.",
-     "definitionFit": "A definition by example: the green spears are a vegetable."
+     "surface": "A kitchen scene: someone burps as the Aga cooks the vegetables.",
+     "walkthrough": "BURPS without its lid is URPS; 'cooks' rearranges URPS AS AGA.",
+     "definitionFit": "Asparagus is a green spear-shaped vegetable."
     },
     "features": {
      "answerInScene": true,

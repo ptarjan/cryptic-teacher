@@ -1213,31 +1213,52 @@
      "indicators": [
       {
        "text": "south of",
-       "note": "a down clue reads like a map with north at the top, so south of means placed underneath"
+       "at": 18,
+       "note": "in a down answer, south of means placed below"
       }
      ],
      "parts": [
       {
-       "words": "Caribbean capital, not north",
-       "gives": "ASSAU",
-       "note": "NASSAU, capital of the Bahamas, without N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 46,
+         "note": "not tells us to leave out the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Caribbean capital",
+         "at": 27,
+         "gives": "NASSAU",
+         "note": "Nassau is the capital of the Bahamas"
+        },
+        {
+         "words": "north",
+         "at": 50,
+         "gives": "N",
+         "note": "N is the compass abbreviation for north"
+        }
+       ]
       },
       {
        "words": "lieutenant",
+       "at": 7,
        "gives": "LT",
-       "note": "Lt, lieutenant"
+       "note": "Lt is the military abbreviation for lieutenant"
       }
      ]
     },
     "explanation": {
-     "surface": "A military order: attack the lieutenant south of a Caribbean capital.",
-     "walkthrough": "Nassau is the capital of the Bahamas; dropping its N (north) leaves ASSAU, with LT placed below.",
-     "definitionFit": "A plain synonym, noun or verb: a violent attack, or to attack someone."
+     "surface": "An officer is assaulted in the south of a Caribbean capital city.",
+     "walkthrough": "NASSAU without N gives ASSAU; LT goes beneath it in this down entry.",
+     "definitionFit": "An assault is a violent physical attack on someone."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "north"
+     "misdirectedWord": "south"
     }
    }
   },

@@ -1613,39 +1613,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "Ignoring outsiders",
+       "at": 0,
+       "note": "ignoring outsiders means leaving off the outer letters of each word"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "Ignoring outsiders",
-         "note": "each word loses its first and last letters and keeps its middle"
-        }
-       ],
-       "parts": [
-        {
-         "words": "pick",
-         "note": "the middle of pICk"
-        }
-       ]
+       "words": "pick",
+       "at": 20
       },
       {
        "words": "secret",
-       "gives": "ECRE",
-       "note": "the middle of sECREt"
+       "at": 25
       },
       {
        "words": "name",
-       "gives": "AM",
-       "note": "the middle of nAMe"
+       "at": 32
       }
      ]
     },
     "explanation": {
-     "surface": "A publisher keeps a summer blockbuster's author anonymous, ignoring outside opinion.",
-     "walkthrough": "'Bestseller' points to books, and 'secret name' to a pen name; the question mark admits it is a snack that sells best in summer.",
-     "definitionFit": "Ice cream sells fastest in hot weather, so it is a summer bestseller."
+     "surface": "Choose a pen name for a book that will top the summer charts.",
+     "walkthrough": "'bestseller' suggests a book, but it is a product sold well in hot weather. IC from pick, ECRE from secret, AM from name.",
+     "definitionFit": "Ice cream sells best in hot weather, so it is a seasonal top seller; the question mark flags this."
     },
     "features": {
      "answerInScene": false,
@@ -3545,31 +3539,45 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "next to"
+       "text": "next to",
+       "at": 11,
+       "note": "next to means the line letter sits directly beside the goal letters"
       }
      ],
      "parts": [
       {
        "words": "line",
-       "gives": "L",
-       "note": "l = line"
+       "at": 6,
+       "gives": "L"
       },
       {
-       "words": "goal reduced on both sides",
-       "gives": "ARGE",
-       "note": "TARGET (goal) without its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "reduced on both sides",
+         "at": 24,
+         "note": "cut at both ends, so the first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "goal",
+         "at": 19,
+         "gives": "TARGET",
+         "note": "a target is a goal to aim at"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wide line is drawn beside a narrowed football goal.",
-     "walkthrough": "'Goal' sounds like football; it is a target, an aim.",
-     "definitionFit": "Large and broad both mean big and wide."
+     "surface": "A wide line beside a goal that has been trimmed at each end.",
+     "walkthrough": "TARGET without its ends is ARGE, after L.",
+     "definitionFit": "Large means big or wide in extent, a synonym of broad."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "goal"
+     "aptDefinition": false
     }
    }
   },

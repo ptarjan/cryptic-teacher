@@ -43,42 +43,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "ACCENT",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "at": 15,
+       "note": "reportedly means as it is said, so the words count by sound"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "ACC",
-       "indicators": [
-        {
-         "text": "reportedly",
-         "note": "what is reported is heard, so the words are to be taken by their sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Chopper",
-         "gives": "AXE",
-         "note": "an axe is a chopper"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "ENT",
-       "parts": [
-        {
-         "words": "posted",
-         "gives": "SENT",
-         "note": "posted = sent"
-        }
-       ]
+       "words": "Chopper posted",
+       "at": 0,
+       "gives": "AXESENT",
+       "note": "an axe is a chopping tool; a letter posted has been sent"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone seeks a grave in France and is told an axe has been sent by post.",
-     "walkthrough": "Said together, 'axe-sent' is ACCENT. 'Grave' is not a burial place but the grave accent of French spelling, as in è; the question mark flags the example.",
-     "definitionFit": "The grave is one of the accents written over French letters."
+     "surface": "An axe sent through the post, apparently to locate a grave in France.",
+     "walkthrough": "'grave' looks like a burial place, but it is the grave accent in French spelling. AXE SENT said aloud gives the answer.",
+     "definitionFit": "The grave is one kind of accent mark over a letter, common in French; the question mark signals the example."
     },
     "features": {
      "answerInScene": false,
@@ -570,12 +556,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "to withdraw",
-       "note": "to withdraw is to pull out, as a player pulls out of a match, so right (R) pulls out of SINNER"
-      },
-      {
        "text": "for return",
-       "note": "the whole is then read backwards"
+       "at": 38,
+       "note": "return means the whole result is turned back to front"
       }
      ],
      "parts": [
@@ -583,33 +566,51 @@
        "op": "charade",
        "indicators": [
         {
-         "text": "taking"
+         "text": "taking",
+         "at": 26,
+         "note": "taking means the time piece is added on"
         }
        ],
        "parts": [
         {
-         "words": "Sinner right",
-         "gives": "SINNE",
-         "note": "SINNER without R (right)"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "to withdraw",
+           "at": 13,
+           "note": "withdraw means the right piece leaves the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Sinner",
+           "at": 0
+          },
+          {
+           "words": "right",
+           "at": 7,
+           "gives": "R"
+          }
+         ]
         },
         {
          "words": "time",
-         "gives": "T",
-         "note": "T = time"
+         "at": 33,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Jannik Sinner pulls out, buying time before a rematch.",
-     "walkthrough": "SINNE + T = SINNET, reversed. Jannik Sinner is a leading tennis player, so the answer is part of the scene.",
-     "definitionFit": "Definition by category: the racket sport scored in games, sets and matches, and the one Sinner plays."
+     "surface": "Tennis player Jannik Sinner pulls out of a match to take time off before coming back.",
+     "walkthrough": "SINNER without R is SINNE; adding T gives SINNET, which 'for return' reverses.",
+     "definitionFit": "Tennis is a racket game; Sinner is a top player of it, which puts it in the scene."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "return"
+     "misdirectedWord": "Sinner"
     }
    }
   },
