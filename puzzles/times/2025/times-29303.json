@@ -846,49 +846,84 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ZADOKTHEPRIEST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Feeding",
+       "at": 0,
+       "note": "feeding says the jumbled letters are put into the spirit word, as food into a mouth"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "spirit",
+       "at": 8,
+       "gives": "ZEST",
+       "note": "zest means spirit or energy"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Feeding"
-        },
-        {
          "text": "shattered",
-         "note": "something shattered is in pieces, so the letters are broken up and rearranged"
-        },
-        {
-         "text": "missing",
-         "note": "'missing' means lacking, so N is left out"
+         "at": 16,
+         "note": "shattered says the letters are broken and reassembled"
         }
        ],
        "parts": [
         {
-         "words": "spirit",
-         "gives": "ZEST",
-         "note": "zest = spirit, gusto"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing",
+           "at": 41,
+           "note": "missing says a letter is taken out of tenor"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tenor",
+           "at": 26
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "intro to",
+             "at": 49,
+             "note": "intro to picks the first letter of national"
+            }
+           ],
+           "parts": [
+            {
+             "words": "national",
+             "at": 58
+            }
+           ]
+          }
+         ]
         },
         {
-         "words": "tenor had kip, missing intro to national",
-         "gives": "ADOKTHEPRI",
-         "note": "TENOR HAD KIP without N (first letter of national), then jumbled"
+         "words": "had",
+         "at": 32
+        },
+        {
+         "words": "kip",
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An exhausted tenor snoozes and misses the start of the national anthem.",
-     "walkthrough": "The singer in the surface fits the answer: Handel's anthem has been sung at every British coronation since 1727.",
-     "definitionFit": "Definition by example: Handel's coronation anthem of 1727, named after the priest who anointed Solomon."
+     "surface": "An exhausted tenor napped, skipping the opening of the national anthem.",
+     "walkthrough": "TENOR without N, plus HAD and KIP, rearranges to ADOKTHEPRI, which goes into ZEST.",
+     "definitionFit": "Handel's coronation anthem is sung at every British coronation since 1727."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "spirit"
+     "misdirectedWord": "shattered"
     }
    }
   },

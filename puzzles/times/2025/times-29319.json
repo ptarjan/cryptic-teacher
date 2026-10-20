@@ -1106,50 +1106,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turned up",
-       "note": "something turned up is flipped upward"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "around",
-         "note": "to go around is to encircle"
+         "text": "turned up",
+         "at": 18,
+         "note": "in a down clue, turned up means the word is read from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "journalist",
+         "at": 7,
          "gives": "ED",
-         "note": "ed = editor"
+         "note": "ED, short for editor, is the crossword journalist"
         }
        ]
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 46,
+         "note": "around says the word for moving quietly goes round the island letter"
+        }
+       ],
        "parts": [
         {
          "words": "moved quietly",
+         "at": 32,
          "gives": "CREPT",
-         "note": "crept = moved stealthily"
+         "note": "crept means moved quietly"
         },
         {
          "words": "island",
-         "gives": "I",
-         "note": "I = island"
+         "at": 53,
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scruffy reporter arrives and tiptoes round an island.",
-     "walkthrough": "‘Turned up’ looks like ‘arrived’; in a down clue it flips the letters upward.",
-     "definitionFit": "A near synonym: worn out and run-down by age or neglect, as a shabby building is."
+     "surface": "A scruffy reporter showed up and tiptoed round an island.",
+     "definitionFit": "Decrepit describes something worn out and dilapidated through age, which is shabby."
     },
     "features": {
      "answerInScene": false,
@@ -1469,52 +1472,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DRYCLEANER",
+     "op": "container",
      "indicators": [
       {
-       "text": "front of",
-       "note": "the front of a word is its first letter"
-      },
-      {
-       "text": "ruined",
-       "note": "something ruined is wrecked, so RED and NEARLY are smashed into a new order"
+       "text": "covered in",
+       "at": 45,
+       "note": "covered in says the coat's first letter sits inside the jumbled letters around it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "covered in",
-         "note": "something covered in a layer sits inside it"
+         "text": "ruined",
+         "at": 71,
+         "note": "ruined says the letters of red and nearly are wrecked into a new order"
         }
        ],
        "parts": [
         {
-         "words": "red and nearly",
-         "gives": "DRYLEANER",
-         "note": "RED + NEARLY rearranged"
+         "words": "red",
+         "at": 56
         },
         {
+         "words": "nearly",
+         "at": 64
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "front of",
+         "at": 24,
+         "note": "front of picks the first letter of coat"
+        }
+       ],
+       "parts": [
+        {
          "words": "coat",
-         "gives": "C",
-         "note": "first letter of coat"
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A coat splashed with red is nearly ruined, so off it goes to be cleaned.",
-     "walkthrough": "‘Nearly’ looks like a signal to shorten a word; it is whole letters for rearranging.",
-     "definitionFit": "A descriptive definition: the business that cleans clothes with solvents is where stains are taken out."
+     "surface": "A cleaning tip: a coat smeared with red that is almost spoiled needs a professional.",
+     "walkthrough": "'Red' looks like the stain itself, but it is anagram fodder; 'and' joins it to the second word, both wrecked together.",
+     "definitionFit": "A dry cleaner's business is getting marks out of clothes using solvents instead of water."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "nearly"
+     "aptDefinition": false,
+     "misdirectedWord": "red"
     }
    }
   },
@@ -1599,60 +1612,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BASALT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "half-cut",
-         "note": "a word half cut has lost half its length"
+         "at": 11,
+         "note": "half-cut means only the first half of band is kept, the rest chopped away"
+        },
+        {
+         "text": "opening in",
+         "at": 21,
+         "note": "opening in picks the first letter of strange"
         }
        ],
        "parts": [
         {
-         "words": "band, half-cut",
-         "gives": "BA",
-         "note": "the first half of BAND"
+         "words": "band",
+         "at": 5
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "S",
-         "indicators": [
-          {
-           "text": "opening in",
-           "note": "the opening of a word is where it begins"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "opening in strange",
-           "gives": "S",
-           "select": "first",
-           "note": "first letter of strange"
-          }
-         ]
-        },
-        {
-         "words": "key",
-         "gives": "ALT",
-         "note": "the Alt key on a keyboard"
+         "words": "strange",
+         "at": 32
         }
        ]
+      },
+      {
+       "words": "key",
+       "at": 40,
+       "gives": "ALT",
+       "note": "Alt is a key on a computer keyboard"
       }
      ]
     },
     "explanation": {
-     "surface": "A drunken rock band opens its set in an odd key.",
-     "walkthrough": "‘Rock band’ and ‘half-cut’ (British for tipsy) paint a gig; ‘Rock’ is the definition and ‘key’ is on a keyboard, not a stave.",
-     "definitionFit": "Definition by category: this dark volcanic stone is one of the commonest rocks."
+     "surface": "A rock group, drunk, makes a start in an unfamiliar musical key.",
+     "walkthrough": "'Rock band' looks like music, but 'Rock' is the definition; 'half-cut' (drunk) is the cue to cut band in half.",
+     "definitionFit": "Basalt is a dark volcanic stone, the commonest kind of igneous rock."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "key"
