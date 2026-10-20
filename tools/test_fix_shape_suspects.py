@@ -658,5 +658,21 @@ hct2 = {**hct, "parts": [hct["parts"][0], {**hct["parts"][1], "parts": [{"words"
 new, used = F.repair_tree(hct2, hc, "SIRDARI", {"half_cut": F.r_half_cut})
 check("a cut that is not half is left alone", used == [])
 
+# moved_letter: the letter taken out and put back by a sibling is one move
+mlc = "Eastern sea creature shedding tail in spring"
+mlt = {"op": "charade", "parts": [{"words": "Eastern", "at": 0, "gives": "E"}, {"op": "deletion", "indicators": [{"text": "shedding tail", "at": 21}], "parts": [
+    {"words": "sea creature", "at": 8, "gives": "MANATEE"}, {"gives": "E"}]}]}
+new, used = F.repair_tree(mlt, mlc, "EMANATE", {"movedLetter": F.r_moved_letter})
+check("del(WORD, E) beside a leaf E becomes move(WORD, E)",
+      used == ["movedLetter"] and new["op"] == "move" and new["parts"][1].get("words") == "Eastern")
+new, used = F.repair_tree(mlt, mlc, "EMANATES", {"movedLetter": F.r_moved_letter})
+check("a move that does not give the answer is left alone", used == [])
+mlc2 = "Short month in which temperature rises a degree"
+mlt2 = {"op": "container", "indicators": [{"text": "rises", "at": 35}], "parts": [{"op": "deletion", "parts": [
+    {"words": "Short month", "at": 0, "gives": "SEPT"}, {"gives": "T"}]}, {"words": "temperature", "at": 23, "gives": "T"}]}
+new, used = F.repair_tree(mlt2, mlc2, "STEP", {"movedLetter": F.r_moved_letter})
+check("container indicator goes onto the move", used == ["movedLetter"] and new["op"] == "move"
+      and new["indicators"][0]["text"] == "rises")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

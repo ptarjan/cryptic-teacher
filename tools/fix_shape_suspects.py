@@ -2920,7 +2920,53 @@ def r_reversal_split(node, parent, ctx):
 
 
 
-RULE_REPAIRS = {"halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split, "anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
+def r_moved_letter(node, parent, ctx):
+    """movedLetter: a charade/container holds del(WORD, X) and a sibling leaf that gives X again: the
+    letter was taken out and put back, which is one move<ind>(WORD, X) (Paul: delete-then-re-add is a
+    move error). The deletion and the sibling leaf become one move; the indicators of the deletion and
+    of a container parent go on it. Kept only when the whole tree still gives the answer."""
+    if node.get("op") not in ("charade", "container") or node.get("unchecked") or not ctx.get("answer"):
+        return None
+    if node["op"] == "charade" and node.get("indicators"):
+        return None
+    kids = node.get("parts") or []
+    found = []
+    for d in kids:
+        ps = d.get("parts") or []
+        if d.get("op") != "deletion" or d.get("unchecked") or len(ps) != 2 or "op" in ps[1] or "op" in ps[0]:
+            continue
+        cut = W.letters(ps[1].get("gives"))
+        if not cut or len(d.get("indicators") or []) > 1:
+            continue
+        for k in kids:
+            if k is not d and "op" not in k and not k.get("unchecked") and W.letters(k.get("gives")) == cut:
+                found.append((d, k))
+    if len(found) != 1:
+        return None
+    d, k = found[0]
+    inds = copy.deepcopy((d.get("indicators") or []) + (node.get("indicators") or []))
+    if not inds:
+        return None
+    inds.sort(key=lambda i: i.get("at") if isinstance(i.get("at"), int) else 10 ** 6)
+    mv = {"op": "move", "indicators": inds, "parts": [copy.deepcopy(d["parts"][0]), copy.deepcopy(k)]}
+    rest = [mv if p is d else copy.deepcopy(p) for p in kids if p is not k]
+    if len(rest) == 1:
+        new = mv
+    else:
+        new = {key: copy.deepcopy(v) for key, v in node.items() if key not in ("parts", "gives")}
+        new["indicators"] = []
+        new["parts"] = rest
+        if node["op"] == "container":
+            new["indicators"] = copy.deepcopy(node.get("indicators") or [])
+            mv["indicators"] = copy.deepcopy(d.get("indicators") or [])
+            if not mv["indicators"]:
+                return None
+        else:
+            new.pop("indicators", None)
+    return new if _eval_swapped(node, parent, new, ctx) else None
+
+
+RULE_REPAIRS = {"movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion,"reversalSplit": r_reversal_split, "anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
