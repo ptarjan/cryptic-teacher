@@ -753,19 +753,37 @@
        "indicators": [
         {
          "text": "stored by",
-         "note": "the glue stores the shortened solution, holding it inside itself"
+         "at": 24,
+         "note": "the shortened solution is kept inside the word for glue"
         }
        ],
        "parts": [
         {
          "words": "glue",
+         "at": 34,
          "gives": "CEMENT",
-         "note": "cement is a strong glue"
+         "note": "cement is a glue"
         },
         {
-         "words": "solution mostly",
-         "gives": "REMED",
-         "note": "a remedy is a solution, minus its final letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 17,
+           "note": "most of the word, so its last letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "solution",
+           "at": 8,
+           "gives": "REMEDY",
+           "note": "a remedy is a solution to a problem"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         }
        ]
       },
@@ -774,13 +792,15 @@
        "indicators": [
         {
          "text": "inside of",
-         "note": "only the interior of the word is used, its outer letters dropped"
+         "at": 39,
+         "note": "the inside of the word shed is its middle two letters"
         }
        ],
        "parts": [
         {
          "words": "shed",
-         "note": "the two middle letters of the four"
+         "at": 49,
+         "gives": "HE"
         }
        ]
       }
@@ -788,12 +808,12 @@
     },
     "spelling": "CRÈME DE MENTHE",
     "explanation": {
-     "surface": "Someone keeping rubbing alcohol next to the glue inside their garden shed.",
-     "walkthrough": "'Solution' and 'Alcohol' conjure chemicals in a shed; the solution is a remedy.",
-     "definitionFit": "Crème de menthe is a sweet green mint-flavoured liqueur, an alcoholic drink often served after dinner."
+     "surface": "A spirit-based mixture, mostly kept beside glue inside a garden shed.",
+     "walkthrough": "'Solution' suggests a liquid to go with alcohol, but it is a cure for a problem; 'stored by' puts it within the glue.",
+     "definitionFit": "Crème de menthe is a sweet mint-flavoured liqueur."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "solution"
     }

@@ -769,23 +769,13 @@
         {
          "text": "about",
          "at": 10,
-         "note": "about here means around and all over the place, so these letters are jumbled"
+         "note": "about means around, so these letters are turned around into a new order"
         }
        ],
        "parts": [
         {
-         "words": "sex",
-         "at": 16,
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "at": 21
-        },
-        {
-         "words": "nap",
-         "at": 23,
-         "note": "taken as written"
+         "words": "sex, I nap",
+         "at": 16
         }
        ]
       },
@@ -802,12 +792,11 @@
      ]
     },
     "explanation": {
-     "surface": "Someone holding forth about sex and an afternoon nap, in a very English way.",
-     "walkthrough": "'about' looks like 'on the subject of', but it is the instruction to rearrange the words after it, giving EXPANSI before the two abbreviations follow.",
-     "definitionFit": "An expansive person is open and communicative, ready to chat at length."
+     "surface": "Someone chatty about sex claims to nap in a most English way.",
+     "definitionFit": "Expansive means open and forthcoming, inclined to talk freely."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "about"
@@ -1463,25 +1452,36 @@
      "indicators": [
       {
        "text": "dire",
-       "note": "something in a dire state is a mess, so the letters are jumbled"
-      },
-      {
-       "text": "finish off",
-       "note": "to finish off is to kill, so the column's finish, its last letter, goes"
+       "at": 9,
+       "note": "dire means dreadful, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "column",
-       "gives": "COLUM",
-       "note": "COLUMN without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finish off",
+         "at": 23,
+         "note": "the finish of column is taken off, its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "column",
+         "at": 14
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A deputy writer's dreadful newspaper piece being killed off.",
-     "walkthrough": "A locum is a stand-in doctor or cleric.",
-     "definitionFit": "A locum, short for locum tenens, stands in for an absent doctor or cleric, so deputy is a synonym."
+     "surface": "An awful column written by a stand-in, to be brought to an end.",
+     "walkthrough": "COLUMN loses its N, and COLUM is rearranged.",
+     "definitionFit": "A locum is a stand-in doctor or cleric covering for an absent colleague."
     },
     "features": {
      "answerInScene": true,

@@ -98,8 +98,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a problem",
-      "at": 42
+      "text": "problem",
+      "at": 44
      }
     ],
     "wordplay": {
@@ -108,22 +108,28 @@
       {
        "text": "claims",
        "at": 14,
-       "note": "the doubled pronoun claims, that is takes in, the two short abbreviations"
+       "note": "to claim is to take hold of, so the doubled word holds the other pieces"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 3,
+         "note": "the word He is used again, so it appears twice"
+        }
+       ],
        "parts": [
         {
          "words": "He",
-         "at": 0
+         "at": 0,
+         "gives": "HE",
+         "note": "taken as written"
         },
         {
-         "words": "repeatedly",
-         "at": 3,
-         "gives": "HE",
-         "note": "repeatedly asks for He a second time"
+         "gives": "HE"
         }
        ]
       },
@@ -134,7 +140,7 @@
          "words": "publicity",
          "at": 21,
          "gives": "AD",
-         "note": "an ad is an advertisement, a piece of publicity"
+         "note": "an ad is a piece of publicity"
         },
         {
          "words": "account",
@@ -146,8 +152,9 @@
      ]
     },
     "explanation": {
-     "surface": "A man keeps insisting that a publicity campaign's accounting is causing trouble.",
-     "definitionFit": "A headache is used figuratively for any worrying difficulty or nuisance, not only a pain in the head."
+     "surface": "A man keeps insisting that a publicity account is causing trouble.",
+     "walkthrough": "'Claims' reads as asserts, but here it means takes in: the doubled pronoun encloses the publicity and the account.",
+     "definitionFit": "A headache is a colloquial term for a nagging difficulty or worry."
     },
     "features": {
      "answerInScene": true,
@@ -990,30 +997,54 @@
      "indicators": [
       {
        "text": "awful",
-       "note": "an awful version is a mangled one"
-      },
-      {
-       "text": "with no hint of",
-       "note": "the first letter of musicality is removed"
+       "at": 5,
+       "note": "awful suggests something badly done, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "melody with no hint of musicality",
-       "gives": "ELODY",
-       "note": "MELODY without its M"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no",
+         "at": 18,
+         "note": "the letter named next is to be left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "melody",
+         "at": 11
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "hint of",
+           "at": 26,
+           "note": "a hint is a small trace, here the opening letter of musicality"
+          }
+         ],
+         "parts": [
+          {
+           "words": "musicality",
+           "at": 34
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sings a dreadful tune with no musical sense at all.",
-     "walkthrough": "The hint of musicality is its first letter, M, which comes out of MELODY before the rest is rearranged.",
-     "definitionFit": "To yodel is to sing, switching rapidly between chest voice and falsetto."
+     "surface": "Someone sings a terrible tune that shows no musical ability at all.",
+     "walkthrough": "Taking M from MELODY leaves ELODY, which rearranges to give the answer.",
+     "definitionFit": "To yodel is to sing with rapid switches between chest voice and falsetto, as in Alpine song."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hint"
+     "misdirectedWord": "awful"
     }
    }
   },

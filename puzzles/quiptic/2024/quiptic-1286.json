@@ -1479,35 +1479,48 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "after"
-      },
-      {
-       "text": "missing start",
-       "note": "the word loses its first letter"
+       "text": "after",
+       "at": 29,
+       "note": "the shortened assembly follows the Greek abbreviation"
       }
      ],
      "parts": [
       {
        "words": "Greek",
-       "gives": "GR",
-       "note": "GR is the abbreviation for Greek"
+       "at": 14,
+       "gives": "GR"
       },
       {
-       "words": "assembly",
-       "gives": "EETING",
-       "note": "MEETING without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing start",
+         "at": 35,
+         "note": "the opening letter is missing from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "assembly",
+         "at": 20,
+         "gives": "MEETING",
+         "note": "a meeting is an assembly"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A welcome speech at a Greek meeting that got off to a false start.",
-     "walkthrough": "'In' makes the salutation seem to happen in the assembly; it is only a link.",
-     "definitionFit": "A plain synonym: salutation is the formal word for saying hello or waving to someone."
+     "surface": "A greeting given at a Greek gathering after the start is missed.",
+     "definitionFit": "A greeting is a word or gesture of welcome."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "start"
+     "misdirectedWord": "assembly"
     }
    }
   },
