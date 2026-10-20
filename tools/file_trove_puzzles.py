@@ -455,6 +455,32 @@ def list_start(text, start):
     return "# " + text[m.end():] if m else text
 
 
+#: The most characters a clue's tail may run, number and opening lost, to be taken as that clue.
+LOST_OPENING = 60
+
+
+def lost_opening(text, pos, start):
+    """(clue, end) for the clue tail at `pos` (lower case words, then its count, then the
+    next clue's number or the list's end), or None: a clue whose number and first line the
+    OCR dropped ("way (3, 2)" for "1 Nominate a candidate, any way (3, 2)"). It takes the
+    place of its light with no number (the "#" of list_start) and the words it has, so the
+    other clues of the reading stand; its lower case opening has the vote call it
+    "starts mid-clue", never filed as it is."""
+    if not re.match(r"[a-z]", text[pos:pos + 1]):
+        return None
+    for e in BRACKET.finditer(text, pos, pos + LOST_OPENING + 14):
+        body = text[pos:e.start()].strip()
+        raw = next(g for g in e.groups() if g is not None)
+        if len(body) > LOST_OPENING or not enum_readings(raw):
+            continue
+        if re.search(r"\s\d{1,2}\s+[A-Z]", body):
+            return None
+        if text[e.end():].strip() and not start.match(text, e.end()):
+            return None
+        return {"tokens": [set()], "text": body, "enums": enum_readings(raw), "see": None}, e.end()
+    return None
+
+
 def clues(text):
     """The clues of one list in printed order: [{"tokens": [number readings
     of each light it names], "text", "enums": {readings}, "see": n}].
@@ -481,7 +507,12 @@ def clues(text):
     while pos < len(text):
         m = start.match(text, pos)
         if not m:
-            return None, f"cannot find a clue number at: {text[pos:pos + 40]!r}"
+            lost = lost_opening(text, pos, start)
+            if lost is None:
+                return None, f"cannot find a clue number at: {text[pos:pos + 40]!r}"
+            out.append(lost[0])
+            pos = lost[1]
+            continue
         body_from = m.end()
         # Only the lead number may be junk; the ones it links ("1,4",
         # "10,9dn") are numbers, and the commas and "dn" between are not.
@@ -517,7 +548,8 @@ def clues(text):
             # clue 15's start.
             lost = not enum_readings(next(g for g in e.groups() if g is not None))
             if not after.strip() or (start.match(rest, e.end())
-                                     and not (lost and not re.match(r"\s*\S?\d", after))):
+                                     and not (lost and not re.match(r"\s*\S?\d", after))) \
+                    or (not lost and lost_opening(rest, e.end() + len(after) - len(after.lstrip()), start)):
                 end = e
                 break
         if end is None:
