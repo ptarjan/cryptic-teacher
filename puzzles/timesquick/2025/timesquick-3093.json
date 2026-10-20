@@ -303,24 +303,39 @@
      "parts": [
       {
        "words": "quiet",
+       "at": 12,
        "gives": "SH",
-       "note": "sh! asks for quiet"
+       "note": "sh is the call for quiet"
       },
       {
-       "words": "area, the last to go",
-       "gives": "ARE",
-       "note": "AREA without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "the last to go",
+         "at": 24,
+         "note": "the last to go means the word area loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "area",
+         "at": 18
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A planner thinking of halving a quiet area and shedding its far end.",
-     "walkthrough": "\"Maybe\" makes the definition fair: halving is one way to share, not the only one.",
-     "definitionFit": "To halve something between two people is one way of sharing it."
+     "surface": "An instruction for cutting a quiet area in half, with its end removed.",
+     "walkthrough": "SH plus AREA without its final letter, ARE.",
+     "definitionFit": "To share is to divide between people, and halving is one way of dividing equally, hence 'maybe'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "halve"
     }
    }

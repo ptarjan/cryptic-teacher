@@ -1153,11 +1153,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Start off",
-       "note": "the start of the word is taken off"
-      },
-      {
-       "text": "encircling"
+       "text": "encircling",
+       "at": 24,
+       "note": "encircling means the rearranged letters go around the next piece"
       }
      ],
      "parts": [
@@ -1166,28 +1164,44 @@
        "indicators": [
         {
          "text": "design",
-         "note": "the letters are redesigned into a new shape"
+         "at": 17,
+         "note": "a design here is a fresh arrangement, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "spiral",
-         "gives": "PIRAL",
-         "note": "sPIRAL without its first letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Start off",
+           "at": 0,
+           "note": "start off means the word spiral loses its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "spiral",
+           "at": 10
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
       },
       {
        "words": "long",
+       "at": 35,
        "gives": "L",
-       "note": "L is the abbreviation for long"
+       "note": "L is the standard abbreviation for long, as in clothing sizes"
       }
      ]
     },
     "explanation": {
-     "surface": "A spiral pattern twists round a tall column, like a barber's pole.",
-     "walkthrough": "'Spiral design' looks like the definition for a twisted column, but it only supplies letters and the signal to rearrange them.",
-     "definitionFit": "A plain synonym from architecture: both name a tall upright support, and the surface's spiral design suits a twisted one."
+     "surface": "An architect begins carving a spiral pattern round a tall column.",
+     "walkthrough": "SPIRAL without its first letter is PIRAL; 'design' rearranges that to PILAR, which wraps round L for long.",
+     "definitionFit": "A pillar is an upright support, the same thing as a column in a building."
     },
     "features": {
      "answerInScene": true,

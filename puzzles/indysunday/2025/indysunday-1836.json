@@ -1419,44 +1419,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "cut short",
-       "note": "Cutting a word short lops off the letter it ends with."
-      },
-      {
-       "text": "going around",
-       "note": "Something going around has turned about face, so those letters are read the other way."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going around",
+         "at": 39,
+         "note": "going around means the shortened word is turned back to front"
+        }
+       ],
        "parts": [
         {
-         "words": "home",
-         "gives": "NI",
-         "note": "somebody at home is in"
-        },
-        {
-         "words": "tedium",
-         "gives": "BOR",
-         "note": "tedium is a BORE; cut short it is BOR, and turned about it is ROB"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "cut short",
+           "at": 22,
+           "note": "cut short means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tedium",
+           "at": 32,
+           "gives": "BORE",
+           "note": "a bore is a source of tedium"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "home",
+       "at": 52,
+       "gives": "IN",
+       "note": "in means at home"
       }
      ]
     },
     "explanation": {
-     "surface": "A caller in the garden cutting short the boredom of being stuck at home.",
-     "walkthrough": "'Going around home' reads as pottering about the house and is two instructions, one turning letters and one supplying IN. A robin will follow a British gardener down the row within arm's reach.",
-     "definitionFit": "The robin is the red-breasted bird that turns up wherever a garden is being dug, tame enough to count as a regular caller."
+     "surface": "A garden visitor's boredom is cut short by heading home.",
+     "walkthrough": "In Britain the robin is the classic garden bird, famous for following gardeners as they dig.",
+     "definitionFit": "The robin is a familiar garden bird in Britain, often seen visiting gardeners as they dig."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "home"
+     "misdirectedWord": "Visitor"
     }
    }
   },

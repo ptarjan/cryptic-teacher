@@ -1505,26 +1505,41 @@
      "parts": [
       {
        "words": "six",
+       "at": 5,
        "gives": "VI",
-       "note": "VI = six in Roman numerals"
+       "note": "VI is six in Roman numerals"
       },
       {
-       "words": "tailless deer",
-       "gives": "STA",
-       "note": "STAG with its last letter gone"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailless",
+         "at": 9,
+         "note": "tailless means the word for deer loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deer",
+         "at": 18,
+         "gives": "STAG",
+         "note": "a stag is a male deer"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scene of six deer that have lost their tails.",
-     "walkthrough": "'Tailless' reads as describing the animals; it trims the last letter of STAG.",
-     "definitionFit": "A plain synonym, from Italian for 'sight', usually a long, framed outlook."
+     "surface": "A view of six deer that have lost their tails.",
+     "walkthrough": "VI plus STAG with its end cut off, STA.",
+     "definitionFit": "A vista is a pleasing view, especially a long one seen through an opening."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "tailless"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
@@ -1659,31 +1674,42 @@
      "indicators": [
       {
        "text": "wild",
-       "note": "wild letters run in no fixed order"
-      },
-      {
-       "text": "losing head",
-       "note": "the first letter is dropped"
+       "at": 23,
+       "note": "wild suggests the remaining letters run riot into a new order"
       }
      ],
      "parts": [
       {
-       "words": "reindeer",
-       "gives": "EINDEER",
-       "note": "REINDEER without its R"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing head",
+         "at": 37,
+         "note": "losing its head means reindeer drops its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reindeer",
+         "at": 28
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wild reindeer craves more attention after losing its head.",
-     "walkthrough": "The R goes first, then the remaining seven letters are rearranged.",
-     "definitionFit": "Someone needier demands more attention and support."
+     "surface": "A frantic reindeer, having lost its head, is craving attention.",
+     "walkthrough": "REINDEER without its first letter is EINDEER, and 'wild' rearranges that.",
+     "definitionFit": "Needier describes someone wanting more emotional support, the comparative of needy, so more demanding of attention."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "wild"
+     "misdirectedWord": "head"
     }
    }
   },

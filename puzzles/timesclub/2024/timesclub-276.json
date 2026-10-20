@@ -1559,51 +1559,62 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "in this",
-       "note": "the answer is what remains once these extra letters, put in it, are taken back out"
+       "text": "in",
+       "at": 28,
+       "note": "in means the pieces named would be put in this answer to make the sausage, so the answer is the sausage without them"
+      },
+      {
+       "text": "would make",
+       "at": 52,
+       "note": "would make says adding the pieces creates the sausage, so taking them out leaves the answer"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "a spicy sausage",
-         "gives": "CHORIZO",
-         "note": "chorizo is a spicy Spanish pork sausage"
-        },
-        {
-         "words": "Chestnut",
-         "gives": "CH",
-         "note": "ch is the abbreviation for chestnut, the horse colour"
-        }
-       ]
+       "words": "spicy sausage",
+       "at": 65,
+       "gives": "CHORIZO",
+       "note": "chorizo is a spicy Spanish pork sausage"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "last of",
-         "note": "the last of something is its tail end, so only the closing letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "chilli",
-         "note": "final letter of chilli"
+         "words": "Chestnut",
+         "at": 0,
+         "gives": "CH",
+         "note": "CH is the standard abbreviation for chestnut as a horse's colour"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 13,
+           "note": "last of picks the final letter of chilli"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chilli",
+           "at": 21,
+           "note": "final letter of chilli"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe note: chestnut and chilli added to this rice alternative would give you chorizo.",
-     "walkthrough": "The clue runs backwards: add CH and I to the answer to get the sausage, so the answer is the sausage minus those letters.",
-     "definitionFit": "Orzo is a small rice-shaped Italian pasta often cooked in place of rice, so it serves as a stand-in for it."
+     "surface": "A recipe note: adding chestnut and chilli to a rice substitute makes spicy sausage.",
+     "walkthrough": "The clue works backwards: adding the named letters to the answer would make the sausage, so the sausage less those letters gives the answer.",
+     "definitionFit": "Orzo is a pasta shaped like grains of rice, often used where rice would be."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "Chestnut"
     }
    }

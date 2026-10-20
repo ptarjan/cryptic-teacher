@@ -1306,29 +1306,49 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 27,
+       "note": "before means this piece comes ahead of the next"
+      }
+     ],
      "parts": [
       {
-       "words": "half hour",
-       "gives": "HO",
-       "note": "the first half of the word"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 17,
+         "note": "half means only the first two of the four letters of hour are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hour",
+         "at": 22,
+         "gives": "HOUR",
+         "note": "the word hour, cut to its first half"
+        }
+       ]
       },
       {
        "words": "five to ten, say",
+       "at": 34,
        "gives": "RATIO",
-       "note": "five to ten, 5:10, is an example of a ratio"
+       "note": "five to ten is an example of a ratio, 5:10"
       }
      ]
     },
     "explanation": {
-     "surface": "A theatre fan plays at court in a half-hour slot just before ten to ten.",
-     "walkthrough": "'Five to ten' looks like a clock time but is a ratio; 'say' marks it as an example.",
-     "definitionFit": "Horatio is Hamlet's loyal friend, a courtier at Elsinore in Shakespeare's tragedy."
+     "surface": "An actor playing a courtier arrives half an hour early, at about five to ten.",
+     "walkthrough": "'five to ten' reads as a time but is a ratio, five to ten. HO is half of HOUR.",
+     "definitionFit": "Horatio is Hamlet's loyal friend, a courtier character in Shakespeare's play."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "five"
+     "misdirectedWord": "ten"
     }
    }
   },
