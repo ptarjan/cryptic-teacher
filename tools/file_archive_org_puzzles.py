@@ -4097,6 +4097,7 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
     waiting = vlm.unanswered()
     if first is not None:
         v, p = _read_page(d, found, hit, solutions, vlm_for, first, None)
+        v.pop("_laid", None)
         if vlm.unanswered() != waiting:
             return v, p
         if not crop_window.poor(v):
@@ -4104,6 +4105,7 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
             return v, p
     verdict, puzzle = _read_page(d, found, hit, solutions, vlm_for, None, alts)
     if not alts or not crop_window.poor(verdict) or vlm.unanswered() != waiting:
+        verdict.pop("_laid", None)
         return verdict, puzzle
     best = (crop_window.score(verdict, puzzle), verdict, puzzle)
     settled = None
@@ -4114,7 +4116,10 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
         # (a tie keeps the earlier), so the VLM is not shown more of them.
         if vlm_for is not False and best[2] is not None and best[0] == (1, best[1].get("lights") or -1):
             break
-        v, p = _read_page(d, found, hit, solutions, vlm_for, alt, None)
+        # The VLM is not asked again for a clue the best window so far already has
+        # (lend_laid): another window is read for the clues that one is still missing.
+        lent = best[1].get("_laid") if vlm_for is not False else None
+        v, p = _read_page(d, found, hit, solutions, vlm_for, alt, None, **({"lent": lent} if lent else {}))
         if vlm.unanswered() != waiting:
             break  # this window's asks are spooled: the read defers; the windows after it wait
         if crop_window.score(v, p) > best[0]:
@@ -4122,6 +4127,8 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
         if not crop_window.poor(v):
             settled = alt
             break
+    for v in (verdict, best[1]):
+        v.pop("_laid", None)
     if best[1] is not verdict:
         best[1]["cropFrom"] = "gutter"
     # The readers' own pass notes the window that held the columns (not
@@ -4132,7 +4139,21 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
     return best[1], best[2]
 
 
-def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
+def lend_laid(laid, blank, lent):
+    """(laid, blank, {lights}) with each blank light that `lent` (another window's laid
+    clues, light -> (text, count, group)) has a clue for, of the same count, laid with
+    that clue: the VLM is then asked only for what no window has read yet."""
+    laid, blank, got = dict(laid), dict(blank), set()
+    for lid in list(blank):
+        theirs, mine = lent.get(lid), laid.get(lid)
+        if theirs and (theirs[0] or "").strip() and mine is not None and theirs[1] == mine[1]:
+            laid[lid] = (theirs[0], mine[1], mine[2])
+            del blank[lid]
+            got.add(lid)
+    return laid, blank, got
+
+
+def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None):
     """read_page's one read from a window: `alt` is (kind, x) and moves the
     window edge of that kind ("lead": a lead column's left edge; "right": the
     right clue columns' far edge; "over": the third column's; "under": the
@@ -4459,6 +4480,10 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
         laid, blank, retried = retry_weak(img, key, cols, read, laid, blank, lengths, tail)
         if retried:
             verdict["retried"] = sorted(retried)
+    if lent and blank and "vlm" in texts and vlm_on and vlm.wanted():
+        laid, blank, lent_to = lend_laid(laid, blank, lent)
+        if lent_to:
+            verdict["lent"] = sorted(lent_to)
     if blank and "vlm" in texts and vlm_on and vlm.wanted():
         if doomed():
             verdict["vlmSkipped"] = "a laid clue is refused whatever the VLM picks"
@@ -4467,6 +4492,8 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
                 laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
             except RuntimeError:
                 pass
+    if vlm_on:
+        verdict["_laid"] = {lid: v for lid, v in laid.items() if (v[0] or "").strip() and lid not in blank}
     laid, blank, alike = tail(laid, blank)
     if alike:
         verdict["asPrinted"] = alike

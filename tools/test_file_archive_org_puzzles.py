@@ -2570,6 +2570,30 @@ check("a window with asks spooled is not followed by the other windows' asks", [
 tried.clear()
 f.read_page(None, None, None, None, ["6-across"], ("plain", None))
 check("nor is the first window the readers settled on", [("plain", None)], tried)
+lents = []
+def fake_lending(d, found, hit, sols, vlm_for, alt, alts, lent=None):
+    lents.append((alt, lent))
+    if alts is not None:
+        alts.extend([("lead", 1), ("plain", None)])
+    laid = {"1-across": ("One", "3", None), "2-down": ("Two", "4", None)} if alt is None else \
+        {"1-across": ("One", "3", None), "2-down": ("Two", "4", None), "3-down": ("Three", "5", None)}
+    return {"number": 1, "lights": 3, "agreed": len(laid), "blank": {"3-down": 1} if alt is None else {},
+            "imageDisagrees": "x", "_laid": laid}, {"id": "x"}
+f._read_page = fake_lending
+f.read_page(None, None, None, None, ["6-across"])
+check("a later window is lent the clues the best window so far has", [(None, None), (("lead", 1), {"1-across": ("One", "3", None), "2-down": ("Two", "4", None)})],
+      lents)
+v, p = f.read_page(None, None, None, None, ["6-across"])
+check("and the lent clues are not left in the verdict", False, "_laid" in v)
+lents.clear()
+f.read_page(None, None, None, None, False)
+check("the readers' own pass lends nothing", [(None, None), (("lead", 1), None), (("plain", None), None)], lents)
+laid, blank, got = f.lend_laid({"1-across": ("", "3", None), "2-down": ("", "4", None), "3-down": ("", "5", None)},
+                               {"1-across": 1, "2-down": 1, "3-down": 1},
+                               {"1-across": ("One", "3", None), "2-down": ("Two", "5", None), "3-down": ("", "5", None)})
+check("a blank light takes the clue lent for it when the count is the same, and not otherwise",
+      ({"1-across": "One", "2-down": "", "3-down": ""}, ["2-down", "3-down"], {"1-across"}),
+      ({k: v[0] for k, v in laid.items()}, sorted(blank), got))
 f._read_page = real_inner
 def fake_refused(d, found, hit, sols, vlm_for=False):
     asked.append(vlm_for)
