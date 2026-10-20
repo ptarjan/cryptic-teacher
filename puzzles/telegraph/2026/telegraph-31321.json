@@ -693,26 +693,38 @@
      "parts": [
       {
        "words": "drink",
+       "at": 15,
        "gives": "SUP",
        "note": "to sup is to drink"
       },
       {
-       "words": "remember? Not half",
-       "gives": "REME",
-       "note": "the first half of REMEMBER"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Not half",
+         "at": 33,
+         "note": "not half means only half the word survives, here its front half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "remember",
+         "at": 23
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boozy exchange: an excellent drink, remember it? Not half!",
-     "walkthrough": "'Not half!' is British slang for 'absolutely', which disguises the instruction to use only half a word.",
-     "definitionFit": "A plain synonym: highest in quality or rank, as in a supreme court or effort."
+     "surface": "Someone recalls a superb drink, and the reply is a hearty 'Not half!'",
+     "walkthrough": "'Not half!' is a British exclamation meaning 'very much so', but here it leaves the first four of remember's eight letters.",
+     "definitionFit": "Supreme means highest in quality or degree, the very best."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "half"
+     "misdirectedWord": "Not"
     }
    }
   },
@@ -1255,24 +1267,41 @@
      "parts": [
       {
        "words": "clothing",
+       "at": 8,
        "gives": "GARB",
        "note": "garb is clothing"
       },
       {
-       "words": "wise man first ignored",
-       "gives": "AGE",
-       "note": "SAGE minus its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first ignored",
+         "at": 26,
+         "note": "first ignored says the wise man's opening letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wise man",
+         "at": 17,
+         "gives": "SAGE",
+         "note": "a sage is a wise man"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scruffy wise man's clothes are dismissed as rubbish.",
-     "walkthrough": "'First ignored' reads as the sage being snubbed, but it drops the S at the front of SAGE.",
-     "definitionFit": "A plain synonym, the American word for household waste, and also used for nonsense."
+     "surface": "A wise man disregards fashion, calling clothing rubbish.",
+     "definitionFit": "Garbage is a synonym of rubbish, waste matter or nonsense."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
     }
    }
   },

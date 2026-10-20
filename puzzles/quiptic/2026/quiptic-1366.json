@@ -630,33 +630,57 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 42,
+       "note": "before means the preceding pieces come ahead of the next"
+      }
+     ],
      "parts": [
       {
        "words": "correct",
+       "at": 14,
        "gives": "RIGHT",
        "note": "right means correct"
       },
       {
-       "words": "to turn back almost",
-       "gives": "REVER",
-       "note": "to revert is to turn back, and stopping almost at the end of it loses the T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 35,
+         "note": "almost means the word stops one letter short"
+        }
+       ],
+       "parts": [
+        {
+         "words": "turn back",
+         "at": 25,
+         "gives": "REVERT",
+         "note": "to revert is to turn back to a former state"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
-       "words": "before conclusion",
+       "words": "conclusion",
+       "at": 49,
        "gives": "END",
-       "note": "a conclusion is an end, and the rest of the wordplay comes before it"
+       "note": "an end is a conclusion"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to change your mind just short of the finish.",
-     "walkthrough": "'Turn back' looks like a reversal instruction and is a straight synonym for a verb. The Right Reverend is how a bishop is styled in Britain, on envelopes and in orders of service.",
-     "definitionFit": "The Right Reverend is the formal style of a bishop, so the definition names the rank by the title that goes in front of it."
+     "surface": "A senior priest is right to backtrack just before the end.",
+     "walkthrough": "The Right Reverend is the formal title of an Anglican bishop.",
+     "definitionFit": "The Right Reverend is the honorific style of a bishop, a high-ranking churchman."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "back"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -981,25 +1005,39 @@
      "parts": [
       {
        "words": "area",
-       "gives": "A",
-       "note": "a = area, the standard abbreviation"
+       "at": 8,
+       "gives": "A"
       },
       {
-       "words": "heading off industrial waste",
-       "gives": "FFLUENT",
-       "note": "effluent is the liquid waste a factory pours out, and its opening E is removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 13,
+         "note": "heading off means the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "industrial waste",
+         "at": 25,
+         "gives": "EFFLUENT",
+         "note": "effluent is liquid waste discharged by factories"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rich district getting rid of the filth the factories have produced.",
-     "walkthrough": "'Heading off' reads as chasing something away, which is just what a wealthy district does with its waste, and the instruction is meant literally instead. Effluent and affluent differ by a letter and share the Latin fluere, to flow.",
-     "definitionFit": "Affluent means having money in abundance — the word an estate agent reaches for when 'rich' sounds too blunt."
+     "surface": "A rich district is getting rid of its factory pollution.",
+     "definitionFit": "Affluent is a synonym of wealthy, having plenty of money."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "heading"
+     "aptDefinition": false
     }
    }
   },
@@ -1237,25 +1275,40 @@
      "parts": [
       {
        "words": "Georgia",
+       "at": 7,
        "gives": "GA",
-       "note": "GA is the postal code for the American state of Georgia"
+       "note": "GA is the US postal abbreviation for Georgia"
       },
       {
-       "words": "not initially vast",
-       "gives": "UGE",
-       "note": "huge is vast, and without its initial H that is what is left"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not initially",
+         "at": 17,
+         "note": "not initially means the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vast",
+         "at": 31,
+         "gives": "HUGE",
+         "note": "huge means vast"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sizing up Georgia, a place not enormous to begin with.",
-     "walkthrough": "Georgia is both an American state and a country in the Caucasus, and only the state carries a two-letter code. The dash is the seam: everything after it is one word with its head cut off.",
-     "definitionFit": "To gauge something is to measure or estimate it — you gauge a mood, a distance or a crowd, which is assessing it."
+     "surface": "An evaluation finds the US state of Georgia is not that big to begin with.",
+     "definitionFit": "To gauge something is to measure or estimate it, which is to assess it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "initially"
+     "aptDefinition": false
     }
    }
   },

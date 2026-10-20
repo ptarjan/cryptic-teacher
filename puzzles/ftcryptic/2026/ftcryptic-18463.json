@@ -942,7 +942,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Profit",
+      "text": "Profit by",
       "at": 0
      }
     ],
@@ -950,31 +950,41 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "removing middle of",
-       "note": "the central letters are taken out"
-      },
-      {
        "text": "repackaging",
-       "note": "the remaining letters are packed in a new order"
+       "at": 42,
+       "note": "repackaging means the remaining letters are wrapped up in a new order"
       }
      ],
      "parts": [
       {
-       "words": "removing middle of sandwich",
-       "gives": "SANICH",
-       "note": "SANDWICH loses its middle DW"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removing middle of",
+         "at": 10,
+         "note": "removing middle of means the two central letters of the eight-letter word are taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sandwich",
+         "at": 29
+        },
+        {
+         "gives": "DW"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Making money by taking the filling out of sandwiches and selling them again.",
-     "walkthrough": "SANDWICH has eight letters, so its middle is the two letters DW.",
-     "definitionFit": "To cash in on something is to exploit it for gain or money."
+     "surface": "A caterer plans to profit by taking the filling out of a sandwich and wrapping it again.",
+     "walkthrough": "'It' refers to what is left of the sandwich.",
+     "definitionFit": "To cash in on something is to profit or take advantage of it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "middle"
     }
    }
@@ -1003,26 +1013,45 @@
      "op": "charade",
      "parts": [
       {
-       "words": "One put off by underwear",
-       "gives": "LINGERE",
-       "note": "LINGERIE without I, one"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "put off",
+         "at": 4,
+         "note": "put off means sent away, so the I is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "underwear",
+         "at": 15,
+         "gives": "LINGERIE",
+         "note": "lingerie is women's underwear"
+        },
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       },
       {
        "words": "daughter",
+       "at": 25,
        "gives": "D",
-       "note": "D = daughter"
+       "note": "D is the genealogical abbreviation for daughter"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone repelled by the underwear a daughter left lying about untidied.",
-     "walkthrough": "'Clear up' looks like tidying the underwear away; it means to disperse, as fog that lingered did not.",
-     "definitionFit": "Fog or a cold that lingered stayed on rather than dispersing or getting better."
+     "surface": "Someone was put off by underwear their daughter left lying about and never tidied away.",
+     "walkthrough": "'Didn't clear up' is said of mist or fog that stayed.",
+     "definitionFit": "Fog that lingered stayed around rather than dispersing, so lingered means persisted, failing to lift."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "clear"
     }
    }
