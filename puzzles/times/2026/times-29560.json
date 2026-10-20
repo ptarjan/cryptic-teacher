@@ -507,39 +507,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "peeled",
+       "at": 10,
+       "note": "peeled removes the outer skin, here the first and last letters of each word"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "peeled",
-         "note": "each word loses its outside letters, like skin from fruit"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Each",
-         "note": "EACH without its first and last letters"
-        }
-       ]
+       "words": "Each",
+       "at": 0
       },
       {
        "words": "maid",
-       "gives": "AI",
-       "note": "MAID without its first and last letters"
+       "at": 5
       }
      ]
     },
     "explanation": {
-     "surface": "Each maid peels fruit in the kitchen.",
-     "walkthrough": "'Peeled' sits naturally with fruit but works on both preceding words.",
-     "definitionFit": "Acai is the berry of a South American palm."
+     "surface": "Every housemaid peeled a piece of fruit.",
+     "definitionFit": "The acai is a small purple berry from a palm tree, sold as a health food."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "peeled"
+     "aptDefinition": false
     }
    }
   },
@@ -702,21 +695,37 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Listen briefly",
-       "gives": "HAR",
-       "note": "hark = listen, without its K"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 7,
+         "note": "briefly drops the last letter of the word for listen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Listen",
+         "at": 0,
+         "gives": "HARK",
+         "note": "hark is an old command meaning listen"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       },
       {
        "words": "political party",
+       "at": 16,
        "gives": "DUP",
-       "note": "the Democratic Unionist Party of Northern Ireland"
+       "note": "the DUP is the Democratic Unionist Party of Northern Ireland"
       }
      ]
     },
     "explanation": {
-     "surface": "A plea for attention: a political party has run out of money.",
-     "walkthrough": "The DUP is a Northern Irish party, a regular in crosswords.",
-     "definitionFit": "An informal British phrase for someone struggling for cash."
+     "surface": "A quick word: a political party is running out of money.",
+     "definitionFit": "Hard up is an idiom for lacking money, so short of funds."
     },
     "features": {
      "answerInScene": true,

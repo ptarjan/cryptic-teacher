@@ -1072,42 +1072,27 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "HIDEOUT",
+     "indicators": [
+      {
+       "text": "picked up",
+       "at": 18,
+       "note": "picked up means heard, so the words are taken by sound"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "HIDE",
-       "indicators": [
-        {
-         "text": "picked up",
-         "note": "picked up by the ear, as a radio picks up a signal"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Important",
-         "gives": "HIGH",
-         "note": "high = important"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "OUT",
-       "parts": [
-        {
-         "words": "suspect",
-         "gives": "DOUBT",
-         "note": "to suspect is to doubt"
-        }
-       ]
+       "words": "Important suspect",
+       "at": 0,
+       "gives": "HIGHDOUBT",
+       "note": "high, as in high-ranking, means important; to doubt is to suspect"
       }
      ]
     },
     "explanation": {
-     "surface": "A leading suspect is arrested at a secret location.",
-     "walkthrough": "'Suspect' and 'picked up' read as police work; suspect is a verb, and 'picked up' means heard.",
-     "definitionFit": "A plain synonym: a concealed place where fugitives lie low."
+     "surface": "A major suspect was arrested in a hidden place.",
+     "definitionFit": "A hideout is a concealed place where someone shelters, so a secret location."
     },
     "features": {
      "answerInScene": true,
@@ -1497,31 +1482,42 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the word stops one letter short"
-      },
-      {
        "text": "overturned",
-       "note": "in a down answer, turned upside down reads backwards"
+       "at": 30,
+       "note": "in a down clue, overturned turns the letters upside down, reading bottom to top"
       }
      ],
      "parts": [
       {
-       "words": "speed event",
-       "gives": "RAC",
-       "note": "a race, missing its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 23,
+         "note": "almost drops the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "speed event",
+         "at": 11,
+         "gives": "RACE",
+         "note": "a race is a contest of speed"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A car flipped over during a race.",
-     "walkthrough": "The surface pictures a crash; 'overturned' is really an instruction to flip the letters.",
-     "definitionFit": "A definition by example: the motor car is the everyday road vehicle."
+     "surface": "A vehicle in a racing event nearly flipped over.",
+     "definitionFit": "A car is a motor vehicle, the everyday example of one."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "overturned"
+     "aptDefinition": false
     }
    }
   },

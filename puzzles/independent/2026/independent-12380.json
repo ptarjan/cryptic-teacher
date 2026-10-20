@@ -1445,37 +1445,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "curtailed",
-       "note": "to curtail is to dock the tail, so the word gives up the letter it ends with"
-      },
-      {
-       "text": "trimmed",
-       "note": "a trimmed hedge has had its outermost growth cut away, and this word loses its last letter the same way"
-      }
-     ],
      "parts": [
       {
-       "words": "news story",
-       "gives": "SCOO",
-       "note": "a news story got in ahead of the rivals is a SCOOP, docked here of its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 31,
+         "note": "curtailed means having its tail cut, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "news story",
+         "at": 20,
+         "gives": "SCOOP",
+         "note": "a scoop is an exclusive news story"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       },
       {
        "words": "by",
-       "note": "the word is used for its own two letters"
+       "at": 41,
+       "gives": "BY"
       },
       {
-       "words": "opening",
-       "gives": "DOO",
-       "note": "an opening in a wall is a DOOR, with the end cut off"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimmed",
+         "at": 59,
+         "note": "trimmed cuts the final letter of the opening word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "opening",
+         "at": 51,
+         "gives": "DOOR",
+         "note": "a door is an opening"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news story cut short, with its opening paragraph trimmed away.",
-     "walkthrough": "'Opening' looks like the usual instruction to take a first letter, and here it is a doorway. Scooby-Doo is the cowardly Great Dane of the Hanna-Barbera cartoons.",
-     "definitionFit": "Cartoon character -> SCOOBY-DOO: the talking Great Dane who solves mysteries with a gang of teenagers in the cartoon series named after him."
+     "surface": "A news story is shortened because its opening has been cut.",
+     "walkthrough": "'Opening trimmed' reads like the first letter going, but opening is DOOR, cut at its end.",
+     "definitionFit": "Scooby-Doo is the cartoon Great Dane in the Hanna-Barbera series."
     },
     "features": {
      "answerInScene": false,

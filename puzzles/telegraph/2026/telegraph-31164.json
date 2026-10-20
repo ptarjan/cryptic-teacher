@@ -525,6 +525,7 @@
      "parts": [
       {
        "words": "delivery service",
+       "at": 12,
        "gives": "UPS",
        "note": "UPS is a parcel delivery company"
       },
@@ -533,13 +534,14 @@
        "indicators": [
         {
          "text": "originally",
-         "note": "originally points to the start, so only the opening letter is kept"
+         "at": 29,
+         "note": "originally takes the first letter of the next word"
         }
        ],
        "parts": [
         {
          "words": "intrigued",
-         "note": "first letter of intrigued"
+         "at": 40
         }
        ]
       },
@@ -548,14 +550,16 @@
        "indicators": [
         {
          "text": "half",
-         "note": "half means only part of the word survives, the rest being dropped"
+         "at": 50,
+         "note": "half means only the front portion of the city's name is kept, the rest dropped"
         }
        ],
        "parts": [
         {
          "words": "the capital",
+         "at": 55,
          "gives": "LONDON",
-         "note": "the capital of the UK"
+         "note": "London is the UK capital"
         },
         {
          "gives": "DON"
@@ -565,14 +569,12 @@
      ]
     },
     "explanation": {
-     "surface": "A letter delivered by courier has fascinated half the people of London.",
-     "walkthrough": "The first half of LONDON is kept.",
-     "definitionFit": "Upsilon is the twentieth character of the Greek alphabet, equivalent to u or y."
+     "surface": "A letter delivered by courier first fascinated half of London.",
+     "definitionFit": "Upsilon is the twentieth character of the Greek alphabet."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Letter"
     }
    }

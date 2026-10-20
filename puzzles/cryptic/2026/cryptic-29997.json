@@ -953,72 +953,74 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught",
+       "at": 14,
+       "note": "caught means held, so the letters for you take in the students"
+      },
+      {
+       "text": "drawn in by",
+       "at": 39,
+       "note": "drawn in by means the student group sits within the outer letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "indicators": [
         {
-         "text": "drawn in by",
-         "at": 39,
-         "note": "the students are drawn in by the letters around them"
+         "text": "twice",
+         "at": 8,
+         "note": "twice means the letter for you appears two times"
         }
        ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "UU",
+         "words": "you",
+         "at": 4,
+         "gives": "U",
+         "note": "U sounds like you, as in text-speak"
+        },
+        {
+         "gives": "U"
+        },
+        {
+         "op": "middle",
          "indicators": [
           {
-           "text": "caught",
-           "at": 14,
-           "note": "caught means heard, so the word is taken by its sound"
+           "text": "unframed",
+           "at": 51,
+           "note": "unframed strips the painter's name of its outer letters"
           }
          ],
          "parts": [
           {
-           "words": "you twice",
-           "at": 4,
-           "gives": "YOUYOU",
-           "note": "you heard twice is the letter U twice"
+           "words": "Dali",
+           "at": 60
           }
          ]
-        },
-        {
-         "words": "group of students",
-         "at": 21,
-         "gives": "NUS",
-         "note": "NUS is the National Union of Students, the UK student body"
         }
        ]
       },
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "unframed",
-         "at": 51,
-         "note": "Dali without its frame loses its outer letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Dali",
-         "at": 60
-        }
-       ]
+       "words": "group of students",
+       "at": 21,
+       "gives": "NUS",
+       "note": "NUS is the National Union of Students"
       }
      ]
     },
     "explanation": {
-     "surface": "A strange picture: students hauled into a Dali painting with no frame.",
-     "walkthrough": "'caught' looks like a container signal, but it means heard: two Us. NUS goes inside them.",
-     "definitionFit": "Odd and unusual both mean out of the ordinary, strange."
+     "surface": "Two people are caught with a student group drawn into a Dali painting without its frame.",
+     "walkthrough": "The UK's National Union of Students is known by its initials; 'caught' and 'drawn in by' both say it is held by the letters around it.",
+     "definitionFit": "Unusual means out of the ordinary, which is one sense of odd."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "caught"
+     "misdirectedWord": "Dali"
     }
    }
   },
@@ -1103,35 +1105,65 @@
      "op": "container",
      "indicators": [
       {
-       "text": "start off",
-       "note": "Starting a word off takes its start away — the opening letter is what goes."
-      },
-      {
-       "text": "endlessly",
-       "note": "Without an end, so the final letter comes off before the piece is used."
-      },
-      {
        "text": "inside",
-       "note": "The letters named just before this word go within the piece already built, not after it."
+       "at": 45,
+       "note": "inside puts the shortened swearing within the shortened anger"
       }
      ],
      "parts": [
       {
-       "words": "angry",
-       "gives": "EXED",
-       "note": "angry is VEXED, and starting it off loses the V"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "start off",
+         "at": 12,
+         "note": "start off removes the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "angry",
+         "at": 22,
+         "gives": "VEXED",
+         "note": "vexed means angry"
+        },
+        {
+         "gives": "V"
+        }
+       ]
       },
       {
-       "words": "swear",
-       "gives": "CUS",
-       "note": "to swear is to cuss, and the last letter is dropped"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 35,
+         "note": "endlessly drops the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "swear",
+         "at": 29,
+         "gives": "CUSS",
+         "note": "to cuss is to swear"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Being passed over, going red, and swearing endlessly under your breath.",
-     "walkthrough": "'Overlooked' has two senses and the clue wants the forgiving one — a fault overlooked is a fault let off. Both deletions hide inside the tantrum the surface describes.",
-     "definitionFit": "To excuse an offence is to overlook it, letting it pass without penalty, and the past participle matches the answer's -ed ending."
+     "surface": "Someone ignored at the outset gets cross and swears under their breath.",
+     "walkthrough": "'start off' and 'endlessly' trim opposite ends of their two words before one goes inside the other.",
+     "definitionFit": "To excuse a fault is to pardon it, so excused can mean overlooked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Overlooked"
     }
    }
   },

@@ -1185,12 +1185,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "about",
-       "note": "'About' wraps one piece round another, so the article opens up and takes the student inside."
-      },
-      {
        "text": "taken up",
-       "note": "In a down entry 'taken up' lifts the finished assembly so that it reads from the bottom of the grid towards the top."
+       "at": 50,
+       "note": "in a down clue, taken up means the letters are read from the bottom upwards"
       }
      ],
      "parts": [
@@ -1199,33 +1196,53 @@
        "indicators": [
         {
          "text": "in",
-         "note": "'In' drops everything assembled so far into the middle of the word that follows."
+         "at": 22,
+         "note": "in places the article-and-student piece inside the shortened course"
         }
        ],
        "parts": [
         {
-         "words": "University course",
-         "gives": "DEGRE",
-         "note": "a university course is a degree, and only most of that word survives"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 43,
+           "note": "mostly drops the last letter of the course"
+          }
+         ],
+         "parts": [
+          {
+           "words": "University course",
+           "at": 25,
+           "gives": "DEGREE",
+           "note": "a degree is a university course"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
          "op": "container",
          "indicators": [
           {
-           "text": "mostly",
-           "note": "'Mostly' keeps most of a word and not all of it, which in practice means dropping its final letter."
+           "text": "about",
+           "at": 8,
+           "note": "about has the article wrapped around the student"
           }
          ],
          "parts": [
           {
            "words": "Article",
+           "at": 0,
            "gives": "AN",
-           "note": "'an' is the indefinite article itself, not an abbreviation of one"
+           "note": "an is the indefinite article"
           },
           {
            "words": "student",
+           "at": 14,
            "gives": "L",
-           "note": "L is the learner plate on a British car, and the crossword's usual student"
+           "note": "L for learner, a student driver"
           }
          ]
         }
@@ -1234,9 +1251,14 @@
      ]
     },
     "explanation": {
-     "surface": "A journalist's piece about a university student is picked up and developed further.",
-     "walkthrough": "'Article' is the grammarian's kind, not the newspaper's, which is the trap the surface sets. Everything is built the right way up and only then turned over, so the piece assembled last ends up first.",
-     "definitionFit": "Something enlarged has been made bigger, and 'expanded' is the same past participle in a slightly more abstract register."
+     "surface": "A student's university course is lengthened, with an article written about it.",
+     "walkthrough": "'taken up' applies to everything built before it, so in this down light the finished string is read from the bottom upwards.",
+     "definitionFit": "To enlarge is to make bigger, so enlarged is a synonym for expanded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
     }
    }
   },
@@ -1454,45 +1476,30 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "deleted",
+       "text": "deleted during",
        "at": 16,
-       "note": "deleted means struck out, so both articles are removed from the day"
+       "note": "deleted during says these letters are struck out from within the day"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "during",
-         "at": 24,
-         "note": "during means within the span of, here saying the articles to be struck out lie inside the day"
-        }
-       ],
-       "parts": [
-        {
-         "words": "part of weekend",
-         "at": 31,
-         "gives": "SATURDAY",
-         "note": "Saturday is one of the two days of the weekend"
-        },
-        {
-         "words": "articles",
-         "at": 7,
-         "gives": "A",
-         "note": "a is the indefinite article, and articles plural gives two of them"
-        }
-       ]
+       "words": "part of weekend",
+       "at": 31,
+       "gives": "SATURDAY",
+       "note": "Saturday is one of the two days of the weekend"
       },
       {
-       "gives": "A"
+       "words": "articles",
+       "at": 7,
+       "gives": "AA",
+       "note": "a and a: two indefinite articles"
       }
      ]
     },
     "explanation": {
-     "surface": "Something robust has been edited out of a document during the weekend.",
-     "walkthrough": "'articles' stands for two A's here, and both are 'deleted' from SATURDAY.",
-     "definitionFit": "Sturdy means strongly built and solid, a close synonym of robust."
+     "surface": "Sturdy articles get removed at some point over the weekend.",
+     "walkthrough": "Taking both A's out of SATURDAY leaves the answer.",
+     "definitionFit": "Something sturdy is strongly built, which is what robust means."
     },
     "features": {
      "answerInScene": false,
@@ -1690,35 +1697,36 @@
      "indicators": [
       {
        "text": "missing",
-       "note": "'Missing' marks something absent, so the word it follows is taken out of what has been assembled."
+       "at": 38,
+       "note": "missing says the word for still is absent from the batting position"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "last in cricket team",
-         "gives": "NOELEVEN",
-         "note": "a cricket side bats in a fixed order and the last man in is number eleven, written No. 11"
-        },
-        {
-         "words": "still",
-         "gives": "EVEN",
-         "note": "still and even are interchangeable in 'still better' and 'even better'"
-        }
-       ]
+       "words": "last in cricket team",
+       "at": 11,
+       "gives": "NOELEVEN",
+       "note": "the last batter in a cricket team of eleven is number eleven, written NO ELEVEN"
       },
       {
-       "gives": "EVENEVEN"
+       "words": "still",
+       "at": 32,
+       "gives": "EVEN",
+       "note": "even, as in 'even now', means still"
       }
      ]
     },
     "spelling": "NOËL",
     "explanation": {
-     "surface": "A cricket side is a man short and the last batsman has not turned up.",
-     "walkthrough": "British solvers get 'number eleven' for free — it is what the last man in a cricket side is called. 'Still' is not an adverb of time here but the one meaning even.",
-     "definitionFit": "Noël is French for Christmas and rides into English on the carols — 'The First Noel' — so it names the feast itself."
+     "surface": "A wry question about whether a cricket side's final batter is still absent at Christmas.",
+     "walkthrough": "In cricket the eleventh batter goes in last, so 'last in cricket team' is No. 11; remove EVEN from NO ELEVEN.",
+     "definitionFit": "Noel is a traditional word for Christmas, heard in carols."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "still"
     }
    }
   },
