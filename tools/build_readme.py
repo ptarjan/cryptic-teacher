@@ -838,6 +838,8 @@ LAYOUT = [
     ("annotating", "tools/det_leaf_audit.py", "why does the corpus leaf table miss a held-out leaf?  python3 tools/det_leaf_audit.py [--show N]"),
     ("annotating", "tools/det_synonyms.py", "the synonym dictionary of tools/det_solve.py: clue phrase -> {letters it can give: score}, from many sources"),
     ("annotating", "tools/fetch_moby.py", "download the Moby Thesaurus II (public domain, Grady Ward) as data only: fetch_moby.py OUT_FILE [URL ...]"),
+    ("fetching", "tools/ocr_retry.py", "a clue the scan's readers leave blank or unsettled, read again line by line with Tesseract variants (scale, binarisation, model) on spare CPU before the VLM is asked about it: opt-in (CT_OCR_RETRY=1, it spared no ask in the A/B), it fills the clue only where two variants print every line alike and a scan reader prints the whole too; always appends each clue the VLM answered, beside the OCR's readings, to the VLM corpus (~/.cache/corpus_queue/vlm_corpus.jsonl)"),
+    ("fetching", "tools/test_ocr_retry.py", "does tools/ocr_retry.py settle a weak clue only from lines two variants print alike and only when a scan reader prints the whole too, find a clue's lines by number and direction, read each line once (cached per page), and append one corpus row a call?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

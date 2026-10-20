@@ -184,6 +184,7 @@ import scan_queue
 import series as series_meta
 import trove_grid
 import trove_solution_ocr
+import ocr_retry
 import vlm_reader as vlm
 from file_penguin_puzzle import separators
 from groups import entry_id
@@ -3842,11 +3843,14 @@ def words_of(text):
     return re.sub(r"[^a-z0-9]+", "", (text or "").lower())
 
 
-def weak_lights(read, laid, blank, lengths):
+def weak_lights(read, laid, blank, lengths, confirmed=()):
     """The lights whose clue the scan's own readers do not settle: blank, or
-    printed as filed by fewer than OCR_CONFIRM readings of `read`."""
+    printed as filed by fewer than OCR_CONFIRM readings of `read`. `confirmed`:
+    lights whose filed clue the variant readings (ocr_retry) printed too."""
     weak = set()
     for lid in lengths:
+        if lid in confirmed and (laid.get(lid) or ("",))[0].strip() and lid not in blank:
+            continue
         text = (laid.get(lid) or ("",))[0]
         if not text.strip() or lid in blank:
             weak.add(lid)
@@ -3866,6 +3870,64 @@ def weak_lights(read, laid, blank, lengths):
         if agreeing < OCR_CONFIRM:
             weak.add(lid)
     return weak
+
+
+def retry_weak(img, key, cols, read, laid, blank, lengths, tail):
+    """(laid, blank, {light: variant text}) with each weak light (weak_lights of what `tail`
+    makes of the readings so far) a blank clue the variant readings settle (ocr_retry, the
+    CPU's pass before the VLM is asked) filled by that text, held to the readings as the
+    VLM's pick is. A weak light that has a clue keeps it: the variants only confirm it
+    (the returned text is the one they printed)."""
+    if not ocr_retry.enabled():
+        return laid, blank, {}
+    t_laid, t_blank, _ = tail(laid, blank)
+    weak = {lid for lid in weak_lights(read, t_laid, t_blank, lengths) if lid in laid}
+    if not weak:
+        return laid, blank, {}
+    readings = {lid: [t for t, _ in ocr_clues.readings_for(read, lid, parse)] for lid in weak}
+    try:
+        got = ocr_retry.retry(img, key, cols, weak, readings,
+                              lambda t, lid: clue_repair.mend_text(t, laid[lid][1]))
+    except Exception as e:  # the retry only spares asks: a failure of its own leaves the page as read without it
+        print(f"ocr_retry: {key}: {type(e).__name__}: {e}", file=sys.stderr)
+        return laid, blank, {}
+    laid, blank, voted = dict(laid), dict(blank), {}
+    for lid, text in got.items():
+        mine = (laid[lid][0] or "").strip()
+        if mine and lid not in blank:
+            if words_of(clue_repair.mend_text(text, laid[lid][1])) == words_of(clue_repair.mend_text(mine, laid[lid][1])):
+                voted[lid] = text
+            continue
+        cands = ocr_clues.candidates(read, lid, parse)
+        filled = ocr_clues.trimmed(ocr_clues.held(ocr_clues.clean(ocr_clues.strip_count(text)), cands), lid)
+        if ocr_clues.tokens(filled) and not ocr_clues.merged(filled):
+            laid[lid] = (filled, laid[lid][1], laid[lid][2])
+            blank.pop(lid, None)
+            voted[lid] = text
+    return laid, blank, voted
+
+
+def log_vlm_corpus(key, cols, read, lengths, parse, laid):
+    """Append a corpus row (ocr_retry.record) for each light the VLM's column reading answered
+    that fewer than OCR_CONFIRM of the scan's own readers printed alike: the OCR's readings next to
+    the VLM's, which readers matched. Not in a dry run (it replays what is already cached)."""
+    if vlm.dryrun():
+        return
+    for lid in lengths:
+        theirs = ocr_clues.readings_for({"vlm": read["vlm"]}, lid, parse)
+        if not theirs:
+            continue
+        enum = (laid.get(lid) or (None, None))[1]
+        mine = words_of(clue_repair.mend_text(theirs[0][0], enum))
+        per = {k: got[0][0] for k, t in read.items() if k != "vlm"
+               if (got := ocr_clues.readings_for({k: t}, lid, parse))}
+        matched = [k for k, t in per.items() if words_of(clue_repair.mend_text(t, enum)) == mine]
+        if len(matched) >= OCR_CONFIRM:
+            continue
+        lines, _ = ocr_retry.clue_lines(cols, lid)
+        box = [min(l[2] for l in lines), min(l[0] for l in lines), max(l[3] for l in lines),
+               max(l[1] for l in lines)] if lines else None
+        ocr_retry.record(key, lid, box, per, theirs[0][0], matched)
 
 
 def leaked_laid(read, laid, blank, parse):
@@ -4382,6 +4444,12 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
             pass
         return False
 
+    # The CPU reads each weak clue's lines again before the VLM is asked about it.
+    retried = {}
+    if not paper.four:
+        laid, blank, retried = retry_weak(img, key, cols, read, laid, blank, lengths, tail)
+        if retried:
+            verdict["retried"] = sorted(retried)
     if blank and "vlm" in texts and vlm_on and vlm.wanted():
         if doomed():
             verdict["vlmSkipped"] = "a laid clue is refused whatever the VLM picks"
@@ -4394,7 +4462,9 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
     if alike:
         verdict["asPrinted"] = alike
     if not vlm_on:
-        verdict["_weak"] = weak_lights(read, laid, blank, lengths)
+        verdict["_weak"] = weak_lights(read, laid, blank, lengths, retried)
+    elif "vlm" in read and not paper.four:
+        log_vlm_corpus(key, cols, read, lengths, parse, laid)
     verdict["lights"] = len(rg.light_cells(grid))
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:
