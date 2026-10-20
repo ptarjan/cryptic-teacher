@@ -53,51 +53,31 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SILVERSCREEN",
+     "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "AG",
-       "indicators": [
-        {
-         "text": "foremost duo",
-         "note": "the foremost duo of a word are its opening pair of letters, so only those two are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Agency's",
-         "gives": "AG",
-         "select": "first",
-         "note": "the opening two letters of the word"
-        }
-       ]
-      },
-      {
-       "words": "Agency's",
+       "words": "Agency's foremost duo",
+       "at": 0,
        "gives": "SILVER",
-       "note": "AG is the chemical symbol for this metal, so the letters stand for its name"
+       "note": "the first two letters of agency are AG, the chemical symbol for silver"
       },
       {
        "words": "to guard",
+       "at": 22,
        "gives": "SCREEN",
-       "note": "to shield or guard it"
+       "note": "to screen is to shield or guard"
       }
      ]
     },
     "explanation": {
-     "surface": "A security agency's top two operatives are assigned to protect a movie theatre.",
-     "walkthrough": "The first two letters are not used as they stand: AG is the chemical symbol for silver, and the setter wants the metal's name, not its symbol.",
-     "definitionFit": "The phrase is an old idiom for the film industry and the cinema, from the reflective projection surfaces once used."
+     "surface": "A spy agency's two front men sent to keep watch over a picture house.",
+     "walkthrough": "The first two letters of Agency are AG, the chemical symbol for silver, so they stand for the word itself.",
+     "definitionFit": "The silver screen is an idiom for the film industry or cinema, named after early reflective projection screens."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Agency's"
+     "misdirectedWord": "duo"
     }
    }
   },
@@ -228,47 +208,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RHINESTONE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Short",
-       "note": "something short is missing its end, so the final letter is lopped off"
-      },
-      {
-       "text": "cut",
-       "note": "a word that has been cut has lost its tail, so the last letter goes"
+       "text": "assembled",
+       "at": 11,
+       "note": "assembled means the letters are put together in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "assembled",
-         "note": "to assemble is to put parts together into a new form, so the letters are rearranged"
+         "text": "Short",
+         "at": 0,
+         "note": "short means the show word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "show",
-         "gives": "SHO",
-         "note": "the word minus its last letter"
+         "at": 6,
+         "note": "taken as written"
         },
         {
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 35,
+         "note": "cut means the internet word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "internet",
-         "gives": "INTERNE",
-         "note": "the word minus its last letter"
+         "at": 26,
+         "note": "taken as written"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brief programme is cobbled together by copying and pasting from the web.",
-     "walkthrough": "'Cut and paste' looks like one computing phrase, but 'cut' belongs to the wordplay and 'paste' is the definition. Rhinestone is also a Sylvester Stallone film.",
-     "definitionFit": "Paste is a heavy glass used to imitate gemstones, and a rhinestone is exactly such an imitation diamond."
+     "surface": "Instructions for a brief online show made by cutting and pasting from the web.",
+     "walkthrough": "'paste' looks like the computer command beside 'cut', but it is the definition: fake jewellery. SHO and INTERNE are rearranged.",
+     "definitionFit": "Paste is a hard glassy material used to imitate gems, and a rhinestone is exactly such an imitation diamond."
     },
     "features": {
      "answerInScene": false,
@@ -1347,37 +1341,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PRAYER",
      "indicators": [
       {
        "text": "to change sides",
-       "note": "changing sides means switching from one side to the other, so one side's letter becomes the opposite side's"
+       "at": 13,
+       "note": "change sides means swapping left for right, R, in the word"
       }
      ],
      "parts": [
       {
        "words": "Gamer's",
+       "at": 0,
        "gives": "PLAYER",
-       "note": "a gamer is a player"
+       "note": "a gamer is a player; the 's reads as is"
       },
       {
        "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left, to be swapped for R, right"
+       "at": 8,
+       "gives": "L"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A footballer's left-footed winger must switch wings or appeal to the referee.",
-     "walkthrough": "The side left is L; changed to the other side it becomes R, right.",
-     "definitionFit": "A prayer is a request addressed to God, the highest authority there is; the phrase is a witty paraphrase."
+     "surface": "A gamer is left either to switch teams or appeal to the referee.",
+     "walkthrough": "In PLAYER, L (left) changes side to R (right).",
+     "definitionFit": "A prayer is a request addressed to God, the highest authority of all."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "left"
+     "misdirectedWord": "authority"
     }
    }
   },

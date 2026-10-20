@@ -309,46 +309,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTIMACY",
-     "indicators": [
-      {
-       "text": "Not quite",
-       "note": "not quite all of the store's name is used, so its final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "international",
+       "at": 33,
+       "gives": "INT"
+      },
+      {
+       "words": "I",
+       "at": 16
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "at": 65,
+         "note": "not quite means the last letter is left off"
+        }
+       ],
        "parts": [
         {
-         "words": "international",
-         "gives": "INT",
-         "note": "INT is the abbreviation for international"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
          "words": "store in America",
-         "gives": "MACY",
-         "note": "Macy's is a New York department store chain, missing its last letter"
+         "at": 47,
+         "gives": "MACYS",
+         "note": "Macy's is a big New York department store"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cosy moment I came across in a big American shop.",
-     "walkthrough": "The pieces are given out of answer order: I is placed after the international abbreviation. Macy's is a large US department store.",
-     "definitionFit": "Intimacy is the state of being close to someone, a situation of closeness."
+     "surface": "Someone meets up intimately inside an international department store in the States.",
+     "walkthrough": "Macy's is a famous New York department store; 'Not quite' at the very end trims only that store's name.",
+     "definitionFit": "Intimacy is a state of closeness between people, a close situation."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Close"
+     "misdirectedWord": "store"
     }
    }
   },
@@ -1285,47 +1288,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MALAMUTE",
+     "op": "container",
      "indicators": [
       {
-       "text": "without a tail",
-       "note": "a word without its tail loses its final letter"
+       "text": "restraining",
+       "at": 4,
+       "note": "restraining means the male word holds the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "restraining",
-         "note": "restraining means holding back, so the guy holds the rest within"
-        }
-       ],
+       "words": "Guy",
+       "at": 0,
+       "gives": "MALE",
+       "note": "a guy is a man, a male"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Guy",
-         "gives": "MALE",
-         "note": "a guy is a man, a male"
+         "words": "a",
+         "at": 16
         },
         {
-         "words": "a dog",
-         "gives": "AMUT",
-         "note": "a plus mutt, a mongrel, which then loses its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without a tail",
+           "at": 22,
+           "note": "without a tail means the dog word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dog",
+           "at": 18,
+           "gives": "MUTT",
+           "note": "a mutt is a mongrel dog"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man holding back a dog with no tail.",
-     "walkthrough": "The final 'this dog?' makes the whole clue point at the answer: a breed, built from a man holding a tailless dog.",
-     "definitionFit": "The Alaskan malamute is a large sled-dog breed, so it is a kind of dog."
+     "surface": "A man keeps a tailless dog on a lead, prompting a question about its breed.",
+     "walkthrough": "MUTT without its tail is MUT; MALE holds A + MUT.",
+     "definitionFit": "The Alaskan malamute is a large sled-dog breed, so the question mark asks if this is the breed."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Guy"
     }
    }
@@ -1810,44 +1827,49 @@
     "definitions": [
      {
       "text": "get completely smashed?",
-      "at": 22
+      "at": 22,
+      "note": "the def is the verb to total, to wreck something such as a car"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOTAL",
-     "indicators": [
-      {
-       "text": "a lot of",
-       "note": "a lot of means most but not all, so the beer loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Drink",
+       "at": 0,
+       "gives": "TOT",
+       "note": "a tot is a small measure of spirits, a drink"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 6,
+         "note": "a lot of means most of the beer word, its last letter missing"
+        }
+       ],
        "parts": [
         {
-         "words": "Drink",
-         "gives": "TOT",
-         "note": "a tot is a small measure of spirits"
+         "words": "beer",
+         "at": 15,
+         "gives": "ALE",
+         "note": "ale is beer"
         },
         {
-         "words": "beer",
-         "gives": "AL",
-         "note": "ale, with its last letter dropped"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinking binge ending in getting thoroughly drunk.",
-     "walkthrough": "'Smashed' suggests drunkenness, but the definition means wrecking a car: to total a vehicle is to write it off.",
-     "definitionFit": "In car slang, to total a vehicle is to damage it beyond repair, so it is wrecked utterly."
+     "surface": "A boozer's plan: lots of beer and getting thoroughly drunk.",
+     "walkthrough": "Smashed suggests drunk, but to total a car is to wreck it beyond repair.",
+     "definitionFit": "Total as a verb is informal for wrecking something, especially writing off a vehicle."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "smashed"

@@ -115,48 +115,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PITCHBLENDE",
+     "op": "container",
      "indicators": [
       {
-       "text": "falling short",
-       "note": "something falling short does not reach its end, so the last letter of the word is dropped"
+       "text": "in",
+       "at": 16,
+       "note": "in means the mixture goes inside the shortened jug"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "one word sits inside the other, held within its letters"
+         "text": "falling short",
+         "at": 24,
+         "note": "falling short means the word for ewer stops before its final letter"
         }
        ],
        "parts": [
         {
          "words": "ewer",
-         "gives": "PITCHE",
-         "note": "a ewer is a pitcher, cut short by its final letter"
+         "at": 19,
+         "gives": "PITCHER",
+         "note": "a ewer is a large jug, a pitcher"
         },
         {
-         "words": "mixture",
-         "gives": "BLEND",
-         "note": "a blend is a mixture"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "mixture",
+       "at": 8,
+       "gives": "BLEND",
+       "note": "a blend is a mixture"
       }
      ]
     },
     "explanation": {
-     "surface": "Some mixture poured into a jug doesn't quite fill it.",
-     "walkthrough": "'Mixture' looks like part of the definition beside 'Mineral', but it supplies the inserted piece; a ewer is a large jug.",
-     "definitionFit": "Pitchblende is the uranium ore, a dark mineral from which radium was first isolated."
+     "surface": "A recipe of sorts: some mineral blend poured into a jug that is slightly too small.",
+     "walkthrough": "'Mineral mixture' reads as one phrase, but the definition is just 'Mineral'; 'mixture' supplies the inserted piece.",
+     "definitionFit": "Pitchblende is a uranium-rich ore, a mineral source of radium and uranium."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "mixture"
+     "misdirectedWord": "ewer"
     }
    }
   },
@@ -249,63 +254,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORPHANAGE",
-     "indicators": [
-      {
-       "text": "leaderless",
-       "note": "without a leader means the opening letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "tipped",
+         "at": 17,
+         "note": "tipped means the hotel and specialist letters are tipped over, read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "tipped",
-           "note": "tipped over in a down clue means turned upside down, so the letters run the other way"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Hotel",
-             "gives": "H",
-             "note": "H is Hotel in the NATO phonetic alphabet"
-            },
-            {
-             "words": "specialist",
-             "gives": "PRO",
-             "note": "a pro is an expert or specialist"
-            }
-           ]
+           "words": "Hotel",
+           "at": 0,
+           "gives": "H",
+           "note": "H is Hotel in the NATO phonetic alphabet"
+          },
+          {
+           "words": "specialist",
+           "at": 6,
+           "gives": "PRO",
+           "note": "a pro is an expert or specialist"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaderless",
+         "at": 38,
+         "note": "leaderless means the word for administer loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "administer",
+         "at": 27,
+         "gives": "MANAGE",
+         "note": "to manage is to administer"
         },
         {
-         "words": "to administer",
-         "gives": "ANAGE",
-         "note": "to manage, losing its first letter"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hotel expert has been bribed to run an organisation that lacks a head.",
-     "walkthrough": "H plus PRO turned over gives ORPH; MANAGE without its M gives ANAGE. 'Tipped' looks like it means given a tip, as a bribe.",
+     "surface": "A hotel expert has been tipped off to run an institution that has lost its head.",
+     "walkthrough": "'tipped' acts on both hotel and specialist together, so the letter for Hotel ends up last of the four.",
      "definitionFit": "An orphanage is a residential institution caring for children without parents."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "tipped"
     }
    }
@@ -659,37 +669,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHORDATA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "something unfinished lacks its ending, so the final letter goes"
+       "text": "on",
+       "at": 24,
+       "note": "in an across clue, info on the work means the info comes after it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 27,
+         "note": "unfinished means the word for work loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "work",
-         "gives": "CHOR",
-         "note": "a chore is a piece of work, here without its last letter"
+         "at": 38,
+         "gives": "CHORE",
+         "note": "a chore is a piece of work, a task"
         },
         {
-         "words": "info",
-         "gives": "DATA",
-         "note": "data is information"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "info",
+       "at": 19,
+       "gives": "DATA",
+       "note": "data is information, info"
       }
      ]
     },
     "explanation": {
-     "surface": "A nasty bunch of people is handed information about a job left incomplete.",
-     "walkthrough": "In an across clue, 'on' means placed after. 'Beastly' looks like nasty but means relating to animals.",
-     "definitionFit": "Chordata is the phylum of animals with a notochord, including all vertebrates, so it is a group of beasts."
+     "surface": "A dreadful band hands over information about a job left half done.",
+     "walkthrough": "CHORE without its end gives CHOR, followed by DATA.",
+     "definitionFit": "Chordata is the zoological phylum of animals with a notochord, including all vertebrates: a group of beasts."
     },
     "features": {
      "answerInScene": false,
@@ -959,61 +980,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SANATORIA",
+     "op": "container",
      "indicators": [
       {
-       "text": "losing my",
-       "note": "losing means those two letters are taken out of the word"
+       "text": "about",
+       "at": 20,
+       "note": "about means the turned atmosphere letters go around the rest"
       }
      ],
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "SANATORIA",
        "indicators": [
         {
          "text": "raised",
-         "note": "raised in a down clue means lifted upward, so the letters read from the bottom"
+         "at": 13,
+         "note": "raised means the letters are turned upwards, read from bottom to top in this down clue"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "one piece goes around the other"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Atmosphere's",
-           "gives": "SRIA",
-           "note": "air's, read upwards"
-          },
-          {
-           "words": "bodily form",
-           "gives": "ANATO",
-           "note": "anatomy is bodily structure; minus the my"
-          }
-         ]
+         "words": "Atmosphere's",
+         "at": 0,
+         "gives": "AIRS",
+         "note": "air is atmosphere, and the 's adds an S: AIRS"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 39,
+         "note": "losing means the word my is taken out of the word for bodily form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bodily form",
+         "at": 26,
+         "gives": "ANATOMY",
+         "note": "anatomy is the structure of the body"
+        },
+        {
+         "words": "my",
+         "at": 46,
+         "gives": "MY",
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The mood lifts around someone's physique, though one wonders where the patients have gone.",
-     "walkthrough": "'my' looks like part of the surface but is the pair of letters removed from the bodily form; the question mark marks a definition by example.",
-     "definitionFit": "Sanatoria, plural of sanatorium, are institutions where convalescents or long-term invalids are treated."
+     "surface": "A worried thought: the air's gone up around my body, and I'm losing my patients?",
+     "walkthrough": "'raised' turns AIRS into SRIA; ANATOMY 'losing' MY is ANATO, and SRIA goes 'about' it.",
+     "definitionFit": "Sanatoria are institutions where convalescent or chronically ill people stay for treatment, so patients are found there."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Atmosphere's"
+     "misdirectedWord": "patients"
     }
    }
   },
@@ -1311,44 +1339,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "substitution",
+     "indicators": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "DITTO",
-       "indicators": [
-        {
-         "text": "replaces",
-         "note": "replacing means one letter is swapped out and another put in its place"
-        }
-       ],
-       "parts": [
-        {
-         "words": "simple song",
-         "gives": "DITTY",
-         "note": "a ditty is a short simple song"
-        },
-        {
-         "words": "nothing",
-         "gives": "O",
-         "note": "O looks like zero, nothing"
-        }
-       ]
+       "text": "replaces",
+       "at": 24,
+       "note": "replaces means the nothing letter takes the place of another letter in the song"
       },
       {
-       "unchecked": true,
-       "words": "end of",
-       "note": "the last letter, Y, is the one swapped out"
+       "text": "end of",
+       "at": 33,
+       "note": "end of points to the final letter of the song word as the one swapped out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "simple song",
+       "at": 40,
+       "gives": "DITTY",
+       "note": "a ditty is a short simple song"
+      },
+      {
+       "gives": "Y"
+      },
+      {
+       "words": "nothing",
+       "at": 16,
+       "gives": "O",
+       "note": "O, the figure zero, stands for nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether a copy was produced by leaving out the ending of a little tune.",
-     "definitionFit": "Ditto means the same again, used to show a repetition or duplicate of what came before."
+     "surface": "A question about plagiarism: is it copying if you change the last note of a tune?",
+     "walkthrough": "DITTY has its end letter Y replaced by O.",
+     "definitionFit": "Ditto means the same again, a duplicate, so it stands for a copy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "nothing"
     }

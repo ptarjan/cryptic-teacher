@@ -373,19 +373,14 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "'in' here adds the small piece to the rest to complete the wordplay"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "'about' means around, so the rearranged 'clue' goes around 'refractory'"
+         "at": 13,
+         "note": "about means the rearranged clue letters go round the rebel"
         }
        ],
        "parts": [
@@ -394,20 +389,23 @@
          "indicators": [
           {
            "text": "Strange",
-           "note": "something strange is out of its normal order, so the letters of 'clue' rearrange"
+           "at": 0,
+           "note": "strange signals the letters of clue appear in an odd arrangement"
           }
          ],
          "parts": [
           {
            "words": "clue",
-           "note": "anagram fodder, four letters"
+           "at": 8,
+           "note": "taken as written"
           }
          ]
         },
         {
          "words": "refractory",
+         "at": 19,
          "gives": "REBEL",
-         "note": "refractory means stubbornly unmanageable, which is what a rebel is"
+         "note": "refractory means stubborn and unruly, as a rebel is"
         }
        ]
       },
@@ -416,25 +414,26 @@
        "indicators": [
         {
          "text": "bit of",
-         "note": "a bit of a word is a small piece of it, here its opening letter only"
+         "at": 30,
+         "note": "bit of means just the first letter of material"
         }
        ],
        "parts": [
         {
          "words": "material",
-         "note": "the first letter of material"
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An odd hint about a stubborn scrap of tissue found somewhere in the head.",
-     "walkthrough": "'Refractory' has a technical sense, heat-resistant material, which suits 'material' later in the clue; here it means unruly. The rearranged letters are split to wrap the rebel.",
-     "definitionFit": "The cerebellum is the region at the back of the brain that coordinates balance and fine movement."
+     "surface": "An odd clue concerning a stubborn scrap of cloth hidden somewhere in the head.",
+     "walkthrough": "CLUE rearranged as CELU goes 'about' REBEL, then M from material.",
+     "definitionFit": "The cerebellum is the region at the back of the brain that coordinates movement and balance."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "refractory"
     }
@@ -1288,48 +1287,58 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "about",
-       "note": "'about' here means alongside, so Spain sits next to the border"
+       "at": 42,
+       "note": "about means the two single letters go round the border word"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "What's central to",
-         "note": "the central part of a word is its middle letter, here the seventh of thirteen"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Gibraltarians",
-         "note": "the seventh letter of the thirteen in Gibraltarians"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "What's central to",
+           "at": 0,
+           "note": "what's central to means the middle letter of the long word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Gibraltarians",
+           "at": 18,
+           "note": "the seventh of thirteen letters is the middle one"
+          }
+         ]
+        },
+        {
+         "words": "Spain",
+         "at": 36,
+         "gives": "E",
+         "note": "E is the international vehicle registration for Spain"
         }
        ]
       },
       {
        "words": "border",
+       "at": 48,
        "gives": "HEM",
-       "note": "a hem is the border of a garment"
-      },
-      {
-       "words": "Spain",
-       "gives": "E",
-       "note": "E is the international car code for Spain (España)"
+       "note": "a hem is the edge or border of cloth"
       }
      ]
     },
     "explanation": {
-     "surface": "The core concern of Gibraltar's people and of Spain is the question of the frontier.",
-     "walkthrough": "Gibraltar is a British territory on Spain's southern tip, and the border between them is a long-running dispute, which makes the surface topical.",
-     "definitionFit": "A theme is the subject or main idea being discussed, so it can stand in for a topic of conversation."
+     "surface": "A question on what matters most to Gibraltar's people and Spain in their frontier dispute.",
+     "walkthrough": "The middle letter of Gibraltarians is T; T and E go 'about' HEM.",
+     "definitionFit": "A theme is the subject of a discussion or piece of writing, a topic."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "border"
     }

@@ -865,64 +865,74 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "container",
      "indicators": [
       {
-       "text": "timeless",
-       "note": "timeless means without time, whose abbreviation is dropped from the word"
+       "text": "about",
+       "at": 5,
+       "note": "about means the fuss word wraps around the other letters"
       }
      ],
      "parts": [
       {
+       "words": "Fuss",
+       "at": 0,
+       "gives": "ADO",
+       "note": "ado is fuss, as in much ado"
+      },
+      {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "a fuss about something comes attached to it, so these pieces simply join up"
-        }
-       ],
        "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "timeless",
+           "at": 11,
+           "note": "timeless means the novel word loses T, the abbreviation for time"
+          }
+         ],
+         "parts": [
+          {
+           "words": "novel",
+           "at": 20,
+           "gives": "FICTION",
+           "note": "a novel is a work of fiction"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "beginning to",
-           "note": "the beginning of a word is its first letter alone"
+           "at": 26,
+           "note": "beginning to means the first letter of alienate"
           }
          ],
          "parts": [
           {
            "words": "alienate",
-           "note": "first letter of alienate"
+           "at": 39
           }
          ]
-        },
-        {
-         "words": "novel",
-         "gives": "FICTION",
-         "note": "a novel is a work of fiction"
-        },
-        {
-         "words": "Fuss",
-         "gives": "ADO",
-         "note": "ado is fuss, as in much ado about nothing"
         }
        ]
-      },
-      {
-       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A fuss over a novel whose opening puts off its fans.",
-     "walkthrough": "FICTION loses T (time). A leads, then FICION, then ADO.",
-     "definitionFit": "An aficionado is an enthusiast or devotee who knows a lot about a hobby, which is a fan."
+     "surface": "A fuss over an ageless novel starts to put off its devoted admirer.",
+     "walkthrough": "FICTION without T is FICION; add A from alienate, and ADO goes 'about' FICIONA.",
+     "definitionFit": "An aficionado is an enthusiast or devotee of some pursuit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "novel"
+     "misdirectedWord": "timeless"
     }
    }
   },

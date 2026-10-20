@@ -1168,33 +1168,30 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "EVENSUP",
+     "op": "move",
      "indicators": [
       {
        "text": "moving head down",
-       "note": "the head is the top letter, and moving it down means taking it out and reinserting it lower"
+       "at": 22,
+       "note": "moving head down means the first letter goes lower, to the bottom of this down entry"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EVENSUP",
-       "parts": [
-        {
-         "words": "fizzy drink",
-         "gives": "SEVENUP",
-         "note": "7 Up is a brand of lemon-lime soft drink"
-        }
-       ]
+       "words": "fizzy drink",
+       "at": 9,
+       "gives": "SEVENUP",
+       "note": "Seven Up (7UP) is a lemon-lime soft drink"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A fizzy drink keeps someone steady as they lower their head.",
-     "definitionFit": "To even up is to make equal, which is what balancing does."
+     "surface": "Someone balances a fizzy drink on their head, then lowers it.",
+     "walkthrough": "The S at the head of SEVENUP drops to the foot.",
+     "definitionFit": "To even up is to equalise or make level, which is what balancing does."
     },
     "features": {
      "answerInScene": false,

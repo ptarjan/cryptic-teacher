@@ -43,39 +43,40 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "KETCHUP",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "putting something back sends it the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "KETCHUP",
+       "words": "boat",
+       "at": 6,
+       "gives": "KETCH",
+       "note": "a ketch is a two-masted sailing boat"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "not completely",
-         "note": "a word not given in full loses its last letter, so PUT stops at PU"
+         "text": "back",
+         "at": 30,
+         "note": "back means the remaining letters are read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not completely",
+           "at": 11,
+           "note": "not completely means the last letter of put is left off"
+          }
+         ],
          "parts": [
           {
-           "words": "boat",
-           "gives": "KETCH",
-           "note": "a ketch is a two-masted sailing boat"
+           "words": "put",
+           "at": 26
           },
           {
-           "words": "put",
-           "gives": "UP",
-           "note": "PUT cut to PU, then turned round"
+           "gives": "T"
           }
          ]
         }
@@ -84,13 +85,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone half-heartedly returning the gravy boat to the table.",
-     "walkthrough": "\"Sauce boat\" reads as one thing, the jug gravy is served in; split it, and the sauce is the definition while the boat starts the wordplay.",
-     "definitionFit": "A plain synonym: the tomato condiment is one of the commonest table sauces."
+     "surface": "A gravy boat that has not been fully returned to its place.",
+     "walkthrough": "PUT without its end is PU, which reads backwards as UP.",
+     "definitionFit": "Ketchup is a tomato condiment, a sauce."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "boat"
     }
    }
@@ -1753,46 +1755,68 @@
      "op": "container",
      "indicators": [
       {
-       "text": "on board"
+       "text": "on",
+       "at": 24,
+       "note": "on, as in on board, means being carried within the ship letters"
       }
      ],
      "parts": [
       {
-       "words": "on board",
+       "words": "board",
+       "at": 27,
        "gives": "SS",
-       "note": "SS, steamship, the usual crossword ship"
+       "note": "on board is crossword shorthand for aboard a steamship, abbreviated SS"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "recruits"
+         "text": "recruits",
+         "at": 33,
+         "note": "recruits means the engineer letters take in the youth letters"
         }
        ],
        "parts": [
         {
          "words": "chief engineer",
+         "at": 9,
          "gives": "CE",
-         "note": "the abbreviation for chief engineer"
+         "note": "CE is the abbreviation for chief engineer"
         },
         {
-         "words": "youth leaving Oxford University",
-         "gives": "YTH",
-         "note": "YOUTH without OU, the Open University"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "leaving",
+           "at": 48,
+           "note": "leaving means the university letters go out of youth"
+          }
+         ],
+         "parts": [
+          {
+           "words": "youth",
+           "at": 42,
+           "note": "taken as written"
+          },
+          {
+           "words": "Oxford University",
+           "at": 56,
+           "gives": "OU"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The head engineer of a revenue cutter taking on a young recruit who has dropped out of Oxford.",
-     "walkthrough": "Cutters are ships as well as blades, which is why the surface is nautical; OU here is simply the letters O and U.",
-     "definitionFit": "A definition by example: long-bladed mowing tools are cutters."
+     "surface": "A ship's chief engineer signs up a lad who has dropped out of Oxford.",
+     "walkthrough": "YOUTH without OU is YTH, which CE takes in to give CYTHE; 'on board' puts it in SS, a steamship.",
+     "definitionFit": "Scythes are long curved blades for mowing grass or grain, so they are cutting tools."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Cutters'"
     }
    }
