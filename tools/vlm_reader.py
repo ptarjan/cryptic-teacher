@@ -815,9 +815,28 @@ def boxes(img, wins, readings):
         if not got:
             out.append(None)
             continue
-        out.append((max(0, min(l[2] for l in got) - PAD), max(0, min(l[0] for l in got) - PAD),
-                    min(img.width, max(l[3] for l in got) + PAD), min(img.height, max(l[1] for l in got) + PAD)))
+        box = (max(0, min(l[2] for l in got) - PAD), max(0, min(l[0] for l in got) - PAD),
+               min(img.width, max(l[3] for l in got) + PAD), min(img.height, max(l[1] for l in got) + PAD))
+        if too_small(box):
+            print(f"vlm_reader: no ask for a {box[2] - box[0]}x{box[3] - box[1]} px crop (column {i}): "
+                  f"too small to hold a clue column", file=sys.stderr)
+            SKIPPED_SMALL.append(box)
+            out.append(None)
+            continue
+        out.append(box)
     return out
+
+
+#: A crop (page pixels) narrower or shorter than this holds no clue column: the
+#: real ones are 370+ wide and 270+ tall (a short column's two or three clues);
+#: the junk a stray line makes is ~35 px (FT 1987-02-07: 33x36).
+MIN_BOX = (120, 80)
+#: Boxes boxes() refused, this process.
+SKIPPED_SMALL = []
+
+
+def too_small(box):
+    return box[2] - box[0] < MIN_BOX[0] or box[3] - box[1] < MIN_BOX[1]
 
 
 def crop(img, box):

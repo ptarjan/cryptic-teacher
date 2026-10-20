@@ -941,6 +941,17 @@ check("the VLM's column and pick readings have a line end's hyphen joined",
       ["14 Kohoutek's brilliant predecessor (7, 5)", "14 Kohoutek's brilliant predecessor (7, 5)"],
       [vlm_reader.read(None), vlm_reader.pick_in(None, "14-across", [])])
 vlm_reader.ask = _ask
+class _Page:
+    width, height = 2000, 3000
+_junk = [(500, 536, 100, 133)]    # lines (y0, y1, x0, x1): a stray 33x36 px crop (FT 1987-02-07)
+_column = [(500, 1500, 100, 480)]  # a clue column: 380x1000 px
+_short = [(500, 780, 100, 480)]    # a column of a few clues: 380x280 px
+_skipped = len(vlm_reader.SKIPPED_SMALL)
+check("a crop too small to hold a clue column gets no VLM ask; real columns keep theirs",
+      [None, True, True],
+      [vlm_reader.boxes(_Page, [0], [[_junk]])[0]]
+      + [vlm_reader.boxes(_Page, [0], [[c]])[0] is not None for c in (_column, _short)])
+check("the skipped crop is noted", _skipped + 1, len(vlm_reader.SKIPPED_SMALL))
 got, _ = ocr_clues.reconcile({"8-down": ("Odd minorities can with right bring counter-charges", "14", None)},
                              ["8 Odd minorities can with right bring counter-charges\n(14)"] * 2)
 check("an OCR reading's hyphen inside a line is the print's own", "Odd minorities can with right bring counter-charges",
