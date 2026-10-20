@@ -614,26 +614,26 @@
      "indicators": [
       {
        "text": "missing front",
-       "note": "A word missing its front has lost its first letter."
+       "at": 5,
+       "note": "the word is missing its front, the first letter"
       }
      ],
      "parts": [
       {
        "words": "Bird",
+       "at": 0,
        "gives": "FINCH",
-       "note": "the finch is a small seed-eating bird"
+       "note": "a finch is a small songbird"
       },
       {
-       "words": "missing front",
-       "gives": "F",
-       "note": "F is the front letter of finch, and it is the one dropped"
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "A bird that has lost the front of its foot.",
-     "walkthrough": "'Foot' sits beside 'Bird' and reads as a claw, but it is the unit of length: twelve inches make a foot.",
-     "definitionFit": "A definition by measurement: twelve of these imperial units make up a foot, so one of them is a literal fraction of it."
+     "surface": "A bird with part of its foot missing.",
+     "walkthrough": "'bit of foot' reads like the bird's foot, but it is the definition: a foot is a unit of length.",
+     "definitionFit": "An inch is a twelfth of a foot as a measure of length, so it is a small part of one."
     },
     "features": {
      "answerInScene": false,
@@ -1424,59 +1424,71 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "Nearly a word is the word not quite finished, so its last letter goes."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "slipping",
-         "note": "Letters that slip move out of place, so the pieces are rearranged."
+         "text": "at first",
+         "at": 48,
+         "note": "at first points to the opening letter of the word"
         }
        ],
        "parts": [
         {
-         "op": "first",
+         "words": "ice",
+         "at": 44,
+         "note": "the first letter of ice"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "slipping",
+         "at": 32,
+         "note": "slipping suggests things sliding out of place, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "at first",
-           "note": "Only the first letter of ice is taken."
+           "text": "nearly",
+           "at": 25,
+           "note": "nearly means not quite all, so the final letter is dropped"
           }
          ],
          "parts": [
           {
-           "words": "European",
-           "note": "E is a standard abbreviation for European"
+           "words": "climber",
+           "at": 17,
+           "note": "the word climber with its last letter lost"
+          },
+          {
+           "gives": "R"
           }
          ]
-        },
-        {
-         "words": "climber",
-         "gives": "CLIMBE",
-         "note": "climber nearly, without its last letter"
-        },
-        {
-         "words": "ice",
-         "gives": "I",
-         "note": "the first letter of ice"
         }
        ]
+      },
+      {
+       "words": "European",
+       "at": 8,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A reckless European mountaineer nearly falls on the ice.",
-     "walkthrough": "'Climber' looks like it wants a synonym such as a vine, but the word itself is the fodder, cut short by one letter.",
-     "definitionFit": "Imbecile can be an adjective meaning stupid or foolish, as in an imbecile remark."
+     "surface": "A daft European mountaineer, almost slipping on ice at the start of the climb.",
+     "walkthrough": "'Foolish European' reads as one phrase, but only the adjective is the definition; 'slipping' scrambles the shortened climber.",
+     "definitionFit": "Imbecile is an adjective as well as a noun, meaning stupid or idiotic."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "climber"
     }

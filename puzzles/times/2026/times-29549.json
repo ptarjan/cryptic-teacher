@@ -404,21 +404,53 @@
      "op": "charade",
      "parts": [
       {
-       "words": "cut cross off",
-       "gives": "DELET",
-       "note": "to cross off is to DELETE, then cut its end"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 14,
+         "note": "cut means docked at the end, so the final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cross off",
+         "at": 18,
+         "gives": "DELETE",
+         "note": "to cross off text is to delete it"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
-       "words": "unopened grave",
-       "gives": "ERIOUS",
-       "note": "grave = SERIOUS, minus its S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 28,
+         "note": "a thing unopened has lost its front, so the opening letter of the word goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grave",
+         "at": 37,
+         "gives": "SERIOUS",
+         "note": "grave means serious, as in a grave situation"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mourner hurt to find a cross cut away from a grave.",
-     "walkthrough": "'Grave' and 'cross' conjure a churchyard; grave is the adjective, serious, and 'cut' works on the next phrase rather than being a synonym.",
-     "definitionFit": "Deleterious means harmful, causing hurt or damage."
+     "surface": "Someone causing harm by striking out a cross from an unopened tomb.",
+     "walkthrough": "'cut' looks like the definition's partner in hurting, but it trims the word that 'cross off' gives.",
+     "definitionFit": "Something deleterious is harmful, so it is a synonym for causing hurt or damage."
     },
     "features": {
      "answerInScene": false,
@@ -1612,7 +1644,8 @@
      "indicators": [
       {
        "text": "charges",
-       "note": "to charge is to rush in, as cavalry charge into a line"
+       "at": 27,
+       "note": "to charge is to rush into something, so these letters go inside the others"
       }
      ],
      "parts": [
@@ -1621,14 +1654,16 @@
        "indicators": [
         {
          "text": "topped",
-         "note": "'topped' cuts a letter off"
+         "at": 10,
+         "note": "a thing topped has had its head cut off, so the opening letter of the word goes"
         }
        ],
        "parts": [
         {
          "words": "film",
+         "at": 5,
          "gives": "HAZE",
-         "note": "a film of mist is HAZE, minus its H"
+         "note": "a haze is a thin film, as of mist or smoke"
         },
         {
          "gives": "H"
@@ -1636,22 +1671,33 @@
        ]
       },
       {
-       "words": "half hour",
-       "gives": "UR",
-       "note": "the second half of HOUR"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 17,
+         "note": "half of the word hour, here its back half, is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hour",
+         "at": 22,
+         "note": "the back half of hour is taken"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A blue film that charged viewers by the half hour.",
-     "walkthrough": "'Blue film' is the obvious reading; blue alone is the definition and the film is a haze.",
-     "definitionFit": "A plain synonym from heraldry and poetry, naming the clear blue of a cloudless sky."
+     "surface": "A sad film whose top billing went to half-hourly fees.",
+     "walkthrough": "'topped' cuts the H from HAZE to give AZE; half of HOUR, UR, 'charges' into it.",
+     "definitionFit": "Azure is the bright colour of a clear sky, a shade of blue."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "film"
+     "misdirectedWord": "charges"
     }
    }
   },
@@ -1733,40 +1779,54 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "over"
-      },
-      {
-       "text": "binning last",
-       "note": "EQUINE throws away its last letter"
+       "text": "over",
+       "at": 5,
+       "note": "in an across clue one piece handed over before another comes first in the row"
       }
      ],
      "parts": [
       {
        "words": "Hand",
+       "at": 0,
        "gives": "MAN",
-       "note": "a hand is a worker, a man"
+       "note": "a hand is a worker, a man, as in all hands on deck"
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "N = new"
+       "at": 10,
+       "gives": "N"
       },
       {
-       "words": "charger, maybe",
-       "gives": "EQUIN",
-       "note": "a charger is a horse, an EQUINE, minus the E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "binning last",
+         "at": 29,
+         "note": "binning means throwing away, so the final letter of the word is discarded"
+        }
+       ],
+       "parts": [
+        {
+         "words": "charger, maybe",
+         "at": 14,
+         "gives": "EQUINE",
+         "note": "a charger is a warhorse, and equine means horse or horselike"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Handing over a new phone charger and throwing out the old display model.",
-     "walkthrough": "The charger is a war horse, not a phone lead; 'maybe' flags it as an example of an equine.",
-     "definitionFit": "A mannequin is a dummy used to display clothes, a display model."
+     "surface": "Hand in a new warhorse, maybe dumping the last one shown.",
+     "walkthrough": "'maybe' says a charger is only one example of something equine; 'binning last' drops its final E.",
+     "definitionFit": "A mannequin is a dummy used to show clothes in a shop window, a model for display."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "charger"
     }
    }

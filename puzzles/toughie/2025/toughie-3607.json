@@ -234,53 +234,54 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
+     "indicators": [
+      {
+       "text": "dropped",
+       "at": 29,
+       "note": "in a down clue the letter drops lower, moving further down the word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "dropped",
-         "note": "dropped means let fall, so the page letter falls out of its place and lands lower down"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Exchange",
+         "at": 0,
          "gives": "SWAP",
          "note": "to exchange is to swap"
         },
         {
-         "gives": "P"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "front",
-         "note": "the front of the word is its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Mart",
-         "note": "first letter of Mart"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "front",
+           "at": 18,
+           "note": "front points to the opening letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Mart's",
+           "at": 11,
+           "note": "the first letter of Mart's"
+          }
+         ]
         }
        ]
       },
       {
        "words": "page",
-       "gives": "P",
-       "note": "p is the standard abbreviation for page"
+       "at": 24,
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "The front page of Exchange & Mart, a British classified-ads magazine, ends up in a bog.",
-     "walkthrough": "SWAP + M, then the P (page) is dropped down to the bottom of this down entry: SWA + M + P.",
-     "definitionFit": "A swamp is a waterlogged stretch of wetland, the same as a bog or marsh."
+     "surface": "The front page of Exchange & Mart, a classified-ads paper, fell in the mud.",
+     "walkthrough": "'front' gives M, joined to SWAP; 'dropped' moves P down to the bottom, after the M.",
+     "definitionFit": "A swamp is waterlogged ground, the same thing as a bog or marsh."
     },
     "features": {
      "answerInScene": false,
@@ -1218,37 +1219,41 @@
       {
        "text": "ground",
        "at": 30,
-       "note": "ground as in milled or crushed, so the letters are broken up and remixed"
+       "note": "ground means crushed and broken up, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "half of team",
-       "at": 2,
-       "gives": "TE",
-       "note": "the first half of the word team is its first two letters"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 2,
+         "note": "half of points to two of the four letters, the front pair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "team",
+         "at": 10,
+         "note": "the front half of the word team"
+        }
+       ]
       },
       {
-       "words": "heckle",
-       "at": 15
-      },
-      {
-       "words": "mate",
-       "at": 22
-      },
-      {
-       "words": "at",
-       "at": 27
+       "words": "heckle mate at",
+       "at": 15,
+       "note": "the words as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Supporters at a stadium jeering a teammate, and a famously cold remark is the result.",
-     "walkthrough": "TE joins HECKLE MATE AT and the lot is 'ground' into a new order. 'Ground' looks like the football pitch but is the anagram signal. The quote is attributed, probably falsely, to Marie Antoinette.",
-     "definitionFit": "Let them eat cake is the remark supposedly made by Marie Antoinette about starving peasants, a byword for heartless indifference."
+     "surface": "Half the team jeer a teammate at the stadium, saying something infamously heartless.",
+     "walkthrough": "'half of' gives TE from team; 'ground' mixes it with HECKLEMATEAT. 'ground' looks like a sports field but it is the anagram signal.",
+     "definitionFit": "The remark is traditionally attributed to Marie Antoinette, dismissing starving peasants who had no bread."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "ground"
     }

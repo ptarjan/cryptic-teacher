@@ -889,20 +889,39 @@
      "parts": [
       {
        "words": "Against",
+       "at": 0,
        "gives": "ANTI",
-       "note": "anti = against"
+       "note": "anti means against"
       },
       {
-       "words": "mission forgetting saint",
-       "gives": "QUE",
-       "note": "QUEST (a mission) without ST, saint"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "forgetting",
+         "at": 16,
+         "note": "forgetting leaves out the saint's letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mission",
+         "at": 8,
+         "gives": "QUEST",
+         "note": "a quest is a mission"
+        },
+        {
+         "words": "saint",
+         "at": 27,
+         "gives": "ST"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly saint opposed to a mission he has forgotten about.",
-     "walkthrough": "ST is the usual abbreviation for saint, and it sits at the end of QUEST.",
-     "definitionFit": "A plain synonym: the adjective for anything old enough to be collectable."
+     "surface": "Opposing a crusade that leaves out the saint of old.",
+     "walkthrough": "'forgetting saint' removes ST from QUEST to give QUE.",
+     "definitionFit": "Antique describes something very old, such as old furniture."
     },
     "features": {
      "answerInScene": false,
@@ -988,32 +1007,45 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "scratching backside",
-       "note": "the back end, the last letter, is scratched out"
-      },
-      {
        "text": "in mirror",
-       "note": "a mirror image runs back to front"
+       "at": 33,
+       "note": "a mirror image is reversed, so the letters read backwards"
       }
      ],
      "parts": [
       {
-       "words": "spouse",
-       "gives": "PARTNE",
-       "note": "PARTNER minus its last letter R"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "scratching backside",
+         "at": 13,
+         "note": "scratching means striking out, so the back letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spouse",
+         "at": 6,
+         "gives": "PARTNER",
+         "note": "a spouse is a partner"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Catching your spouse scratching their bottom in the mirror.",
-     "walkthrough": "The surface is a domestic moment; 'scratching' deletes and 'mirror' reverses, both disguised as the scene.",
-     "definitionFit": "A plain synonym: to catch someone in a trap."
+     "surface": "A husband caught scratching his bottom in the mirror.",
+     "walkthrough": "'scratching backside' leaves PARTNE, and 'in mirror' reverses it.",
+     "definitionFit": "To entrap is to snare or trick someone, so to catch them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "backside"
+     "misdirectedWord": "scratching"
     }
    }
   },
