@@ -644,15 +644,71 @@ def wake_text(item, why, cur):
     ])[:1900]
 
 
+def causes(rows):
+    """Ranked causes as data: [{label, sessions, cost_after_check}], most sessions first
+    (then most dollars). Same keys as findings(); one session counts once per cause."""
+    n, out = len(rows), []
+    for f in findings(rows):
+        hit = [r for r in rows if _touches(r, f["key"])]
+        out.append({"label": f["title"], "key": f["key"], "sessions": len(hit),
+                    "share": round(len(hit) / n, 4) if n else 0,
+                    "cost_after_check": round(sum(r.get("cost_after_check") or 0 for r in hit), 4)})
+    out.sort(key=lambda c: (-c["sessions"], -c["cost_after_check"], c["key"]))
+    return out
+
+
+def _touches(r, key):
+    kind, _, name = key.partition(":")
+    if kind == "rule":
+        return name in r["first_rules"]
+    if kind == "tool":
+        return name in r["tool_errors"]
+    return bool({"waste:memory": r["memory"], "waste:validator": r["validator_reads"],
+                 "waste:max_tokens": r["max_tokens"], "waste:cache_1h": r["cache_1h"]}.get(key))
+
+
+def window_audit(since, until):
+    """The exact window [since, until) as one dict: what the ledger row and --json print."""
+    templates = load_templates(VALIDATOR.read_text(encoding="utf-8"))
+    retired = retired_templates(since, templates)
+    rows = [r for r in sessions(since, templates, retired) if not until or r["start"] < until]
+    s = summarise(rows)
+    return {"since": since.isoformat(), "until": until.isoformat() if until else None,
+            "sessions": s["n"], "puzzles": s["puzzles"], "clues": s["clues"],
+            "cost": round(sum(r["cost"] or 0 for r in rows), 4),
+            "cost_per_clue": s["cost_per_clue"], "turns_per_clue": s["turns_per_clue"],
+            "first_fail": s["first_fail"], "causes": causes(rows)}
+
+
+def parse_time(text):
+    t = datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
+    return t if t.tzinfo else t.astimezone()
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--hours", type=int, default=48)
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--since", help="audit exactly [--since, --until) (ISO time) instead of --hours windows")
+    ap.add_argument("--until", help="with --since: end of the window (default now)")
     ap.add_argument("--wake", action="store_true", help="save the report, wake the room with one fix target")
     ap.add_argument("--dry-run", action="store_true", help="with --wake: print, send nothing")
     args = ap.parse_args(argv)
 
     now = datetime.datetime.now(datetime.timezone.utc)
+    if args.since:
+        res = window_audit(parse_time(args.since), parse_time(args.until) if args.until else None)
+        if args.json:
+            json.dump(res, sys.stdout, indent=1, default=str)
+            print()
+        else:
+            print(f"{res['since']} .. {res['until'] or 'now'}: {res['sessions']} sessions, "
+                  f"{res['puzzles']} puzzles, {res['clues']} clues, ${res['cost']:.2f}, "
+                  f"{fmt_money(res['cost_per_clue']) if res['cost_per_clue'] is None else '$%.3f' % res['cost_per_clue']}/clue, "
+                  f"{res['turns_per_clue'] or 0:.2f} turns/clue")
+            for i, c in enumerate(res["causes"][:10], 1):
+                print(f"{i:3d}. {c['sessions']:3d} sessions ${c['cost_after_check']:.2f}  {c['label']}")
+        return 0
     templates = load_templates(VALIDATOR.read_text(encoding="utf-8"))
     window = datetime.timedelta(hours=args.hours)
     retired = retired_templates(now - 2 * window, templates)
