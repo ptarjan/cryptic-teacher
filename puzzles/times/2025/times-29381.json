@@ -549,29 +549,51 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "without starting",
-       "note": "take away the letter that starts the phrase"
-      },
-      {
        "text": "off",
-       "note": "the letters go off, gone wrong, so they are rearranged"
+       "at": 30,
+       "note": "off means the letters are knocked out of order"
       }
      ],
      "parts": [
       {
-       "words": "Top and tail",
-       "gives": "OPANDTAIL",
-       "note": "TOPANDTAIL with its starting T removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without starting",
+         "at": 13,
+         "note": "without starting means the first letter of top is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Top",
+         "at": 0,
+         "note": "the word top"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "and",
+       "at": 4,
+       "note": "taken as written"
+      },
+      {
+       "words": "tail",
+       "at": 8,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to trim something at both ends, without the first step being started.",
-     "walkthrough": "'Top and tail' is a British phrase for trimming the ends off vegetables; here it is just the letters to be used.",
-     "definitionFit": "Antipodal means on the directly opposite side of the globe, at opposite ends."
+     "surface": "Instructions to trim a vegetable at both ends without first switching anything on.",
+     "walkthrough": "'Top and tail' looks like part of the definition; it is the fodder. Drop T from TOP to get OP, then rearrange OP, AND and TAIL.",
+     "definitionFit": "Antipodal places are diametrically opposite each other on the globe, at contrary extremes."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "off"
     }
@@ -843,8 +865,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "involved",
-       "note": "tangled up, so SPEAKER is rearranged"
+       "text": "suppressing",
+       "at": 41,
+       "note": "suppressing means holding down inside, so the rearranged speaker goes round the rearranged riot"
       }
      ],
      "parts": [
@@ -852,14 +875,16 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "suppressing",
-         "note": "the rearranged SPEAKER holds the other letters down inside it"
+         "text": "involved",
+         "at": 24,
+         "note": "involved means tangled up, so the letters of speaker are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Speaker",
-         "note": "rearranged to PERES...KA"
+         "at": 33,
+         "note": "taken as written"
         }
        ]
       },
@@ -868,26 +893,28 @@
        "indicators": [
         {
          "text": "anarchic",
-         "note": "in disorder, so RIOT is rearranged"
+         "at": 53,
+         "note": "anarchic means disordered, so the letters of riot are jumbled"
         }
        ],
        "parts": [
         {
          "words": "riot",
-         "note": "rearranged to TROI"
+         "at": 62,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A parliamentary Speaker keeps a lid on a chaotic riot.",
-     "walkthrough": "'Speaker' looks like the parliamentary officer; it is only letters to rearrange.",
-     "definitionFit": "Perestroika was Gorbachev's restructuring of the Soviet state in the 1980s."
+     "surface": "Political reform in which the parliamentary Speaker clamps down on a violent riot.",
+     "walkthrough": "SPEAKER rearranged as PERESKA holds TROI, the rearrangement of RIOT.",
+     "definitionFit": "Perestroika was Gorbachev's 1980s restructuring of the Soviet economy and political system."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Speaker"
     }
    }
@@ -1804,33 +1831,25 @@
    "annotation": {
     "definitions": [
      {
-      "text": "likely",
-      "at": 42
+      "text": "is likely",
+      "at": 39
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
+     "indicators": [
+      {
+       "text": "delaying",
+       "at": 4,
+       "note": "delaying means the named letter is shifted later in the bug word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "delaying",
-         "at": 4,
-         "note": "the first letter of the word is held back, so it is dropped from the front"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Bug",
-         "at": 0,
-         "gives": "TAP",
-         "note": "to tap a phone is to bug it, and a tap is a listening device"
-        },
-        {
-         "gives": "T"
-        }
-       ]
+       "words": "Bug",
+       "at": 0,
+       "gives": "TAP",
+       "note": "to tap a phone is to bug it"
       },
       {
        "op": "last",
@@ -1838,26 +1857,26 @@
         {
          "text": "final stage of",
          "at": 13,
-         "note": "the last letter of deployment"
+         "note": "final stage of means the last letter"
         }
        ],
        "parts": [
         {
          "words": "deployment",
          "at": 28,
-         "note": "last letter of deployment"
+         "note": "its last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spy's listening device holds up the end of an operation, as seems probable.",
-     "walkthrough": "'delaying' takes the T of TAP off the front, and the T from 'final stage of deployment' comes in at the end instead, so the T is in effect moved back.",
-     "definitionFit": "Apt can mean likely or inclined, as in 'apt to forget'."
+     "surface": "A software bug holding up the last phase of a rollout seems probable.",
+     "walkthrough": "The T of TAP moves to the end.",
+     "definitionFit": "Apt to do something means inclined or liable to, so it can stand for probable."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Bug"
     }

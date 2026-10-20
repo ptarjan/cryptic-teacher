@@ -1274,26 +1274,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "A lot of rubbish",
-       "gives": "TOS",
-       "note": "TOSS (rubbish) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of means most but not all, so the last letter of the rubbish word goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rubbish",
+         "at": 9,
+         "gives": "TOSH",
+         "note": "tosh is nonsense or rubbish"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
        "words": "about",
+       "at": 17,
        "gives": "CA",
-       "note": "CA = circa, about"
+       "note": "CA is the abbreviation of circa, Latin for about"
       }
      ]
     },
     "explanation": {
-     "surface": "A critic dismissing an opera as nonsense.",
-     "walkthrough": "Toss is British slang for rubbish, as in 'talking toss'.",
-     "definitionFit": "Definition by example: Puccini's 1900 work about a Roman singer is one opera."
+     "surface": "A philistine's verdict that opera is mostly nonsense.",
+     "walkthrough": "TOS (TOSH without its last letter) plus CA.",
+     "definitionFit": "Tosca is Puccini's well-known opera about the singer Floria Tosca."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "about"
+     "aptDefinition": false
     }
    }
   },

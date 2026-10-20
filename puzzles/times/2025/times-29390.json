@@ -411,7 +411,7 @@
         {
          "text": "up",
          "at": 15,
-         "note": "in a down answer, up means the letters read from bottom to top"
+         "note": "in a down clue, up means the shortened word is read from bottom to top"
         }
        ],
        "parts": [
@@ -421,13 +421,14 @@
           {
            "text": "cut",
            "at": 11,
-           "note": "cut means the word loses its last letter here"
+           "note": "cut means the word are loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "are",
-           "at": 7
+           "at": 7,
+           "gives": "ARE"
           },
           {
            "gives": "E"
@@ -437,10 +438,16 @@
        ]
       },
       {
-       "words": "doubled force",
+       "words": "force",
+       "at": 31,
+       "gives": "F",
+       "note": "F is the physics abbreviation for force"
+      },
+      {
+       "words": "doubled",
        "at": 23,
-       "gives": "FF",
-       "note": "F is the physics abbreviation for force, and doubled gives two of them"
+       "gives": "F",
+       "note": "doubled means the force letter is written a second time"
       },
       {
        "op": "reversal",
@@ -448,7 +455,7 @@
         {
          "text": "climbing",
          "at": 40,
-         "note": "climbing in a down clue means the letters go upward, read backwards"
+         "note": "climbing means the sloth word goes upwards, reversed in a down clue"
         }
        ],
        "parts": [
@@ -456,21 +463,21 @@
          "words": "sloth",
          "at": 49,
          "gives": "AI",
-         "note": "the ai is a three-toed sloth, a crossword favourite"
+         "note": "an ai is a three-toed sloth"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sloth climbing a tree and tearing at plant fibres with twice its usual force.",
-     "walkthrough": "'are cut' gives AR, and 'up' turns it to RA; the sloth AI 'climbing' becomes IA.",
-     "definitionFit": "Raffia is the fibre from a palm's leaves, used for weaving baskets and tying plants."
+     "surface": "A jungle scene: fibres torn apart with great force by a sloth clambering up a tree.",
+     "walkthrough": "AR (are cut) turned up gives RA; then FF; then AI reversed gives IA. The ai is a South American sloth, a crossword favourite.",
+     "definitionFit": "Raffia is fibre stripped from palm leaves, used for weaving baskets and tying plants."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "climbing"
+     "misdirectedWord": "sloth"
     }
    }
   },
@@ -1287,59 +1294,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "deletion",
      "indicators": [
       {
        "text": "banned",
-       "note": "something banned is kept out, so the letter for one is removed"
+       "at": 23,
+       "note": "banned means the letters for one are thrown out"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "about means around, so the shortened lies wrap round the shortened town"
+         "at": 38,
+         "note": "about means the word lies goes around the place name"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "one's",
-           "gives": "I",
-           "note": "I = one, removed wherever it appears"
-          },
-          {
-           "words": "lies",
-           "gives": "LES",
-           "note": "LIES without I"
-          }
-         ]
+         "words": "lies",
+         "at": 33,
+         "note": "taken as written"
         },
         {
-         "gives": "I"
+         "words": "Widnes",
+         "at": 44,
+         "note": "taken as written; Widnes is a town in Cheshire, England"
         }
        ]
       },
       {
-       "words": "Widnes",
-       "gives": "WDNES",
-       "note": "WIDNES without I"
+       "words": "one's always",
+       "at": 10,
+       "gives": "II",
+       "note": "one is the Roman numeral I, and always means every one of them goes, here two"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint about indecency: dirty rumours about the town of Widnes should be banned.",
-     "walkthrough": "'Always' tells you I goes from both words, not just one. Widnes is an industrial town in Cheshire.",
-     "definitionFit": "A plain synonym: lewd talk is obscene, so lewdness and obscenity name the same quality."
+     "surface": "A complaint that filthy lies keep being told about the town of Widnes.",
+     "walkthrough": "'Lies about' reads as gossip concerning the town, but 'about' is a container; 'always' means every letter I goes, and there are two.",
+     "definitionFit": "Lewdness is crude sexual indecency, the quality of being obscene."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "always"
+     "misdirectedWord": "lies"
     }
    }
   },

@@ -376,7 +376,8 @@
      "indicators": [
       {
        "text": "When taken up",
-       "note": "in a down clue, taking up reads the letters upward"
+       "at": 0,
+       "note": "in a down clue, taken up means the letters are read from bottom to top"
       }
      ],
      "parts": [
@@ -385,28 +386,29 @@
        "indicators": [
         {
          "text": "a piece of",
-         "note": "the answer is a piece of the words that follow"
+         "at": 15,
+         "note": "a piece of says the answer is a run of letters within these words"
         }
        ],
        "parts": [
         {
          "words": "plissé is enough",
+         "at": 26,
          "gives": "SEISENO",
-         "note": "the run pliSSE IS ENOugh, accent dropped"
+         "note": "plissé is fabric with a puckered, pleated finish"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sewing talk: a scrap of pleated fabric is enough for some pyjamas.",
-     "walkthrough": "Plissé is a pleated fabric, so the surface sounds like dressmaking; the hidden run is read upward to give ONESIES.",
-     "definitionFit": "Definition by class: all-in-one zipped suits worn for lounging at home."
+     "surface": "A dressmaker reckoning a scrap of pleated fabric will be enough to make some loungewear.",
+     "walkthrough": "SEISENO sits inside 'plissé is enough' and is read upwards.",
+     "definitionFit": "A onesie is an all-in-one jumpsuit worn for lounging around the house."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "piece"
+     "aptDefinition": false
     }
    }
   },
@@ -999,26 +1001,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "employees to start late",
-       "gives": "EN",
-       "note": "MEN without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "start late",
+         "at": 22,
+         "note": "start late means the employees word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "employees",
+         "at": 9,
+         "gives": "MEN",
+         "note": "men are workers or employees"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       },
       {
        "words": "become more cheerful",
+       "at": 37,
        "gives": "LIGHTEN",
-       "note": "a mood lightens"
+       "note": "to lighten up is to become more cheerful"
       }
      ]
     },
     "explanation": {
-     "surface": "A manager telling staff to come in late to lift morale.",
-     "walkthrough": "Men is a crossword stock term for employees or workers.",
-     "definitionFit": "Plain synonym: to inform or educate someone."
+     "surface": "A boss letting staff come in late so that everyone's mood improves.",
+     "walkthrough": "EN (MEN without its first letter) plus LIGHTEN.",
+     "definitionFit": "To enlighten someone is to give them knowledge or understanding, so to teach them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "late"
+     "misdirectedWord": "employees"
     }
    }
   },

@@ -870,7 +870,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "one holding something back in theatre",
+      "text": "one holding something back in theatre?",
       "at": 37
      }
     ],
@@ -878,24 +878,41 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Attempt again diminished",
-       "gives": "RETR",
-       "note": "retry = attempt again, without its last letter Y"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "diminished",
+         "at": 14,
+         "note": "diminished means the attempt word is cut short by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Attempt again",
+         "at": 0,
+         "gives": "RETRY",
+         "note": "to retry is to attempt again"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "performer",
+       "at": 25,
        "gives": "ACTOR",
-       "note": "an actor is a performer"
+       "note": "an actor is a stage performer"
       }
      ]
     },
     "explanation": {
-     "surface": "A faded performer tries another comeback on stage.",
-     "walkthrough": "'Theatre' conjures the stage, which suits the actor, but the definition means an operating theatre.",
-     "definitionFit": "Definition by function: a surgical instrument that holds back the edges of a wound during an operation."
+     "surface": "A faded actor having another go at a role, complete with a stagehand holding the curtain.",
+     "walkthrough": "'Theatre' looks like the stage, but it is the operating theatre, where a surgical instrument holds tissue back.",
+     "definitionFit": "A retractor is a surgeon's instrument that keeps the edges of an incision apart during an operation."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "theatre"
@@ -1254,21 +1271,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "something similar, mostly",
-       "gives": "EQUA",
-       "note": "an equal = something similar, without its last letter L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 29,
+         "note": "mostly means the last letter of the similar word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "something similar",
+         "at": 10,
+         "gives": "EQUAL",
+         "note": "an equal is something of the same standing"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
        "words": "feature of Dartmoor",
+       "at": 36,
        "gives": "TOR",
-       "note": "a tor is a rocky hilltop; Dartmoor in Devon is full of them"
+       "note": "a tor is a rocky hilltop, typical of Dartmoor, an upland moor in Devon"
       }
      ]
     },
     "explanation": {
-     "surface": "A stone circle, or something like one, on Dartmoor.",
-     "walkthrough": "'Circle' calls up Dartmoor's stone circles, but it is a line of latitude.",
-     "definitionFit": "Definition by category: the great circle round the earth midway between the poles."
+     "surface": "A walker wondering whether a stone circle is a characteristic landmark of Dartmoor.",
+     "walkthrough": "EQUA (EQUAL without its last letter) plus TOR; Dartmoor is famous for its granite tors.",
+     "definitionFit": "The equator is the great circle drawn around the Earth midway between the poles."
     },
     "features": {
      "answerInScene": false,
