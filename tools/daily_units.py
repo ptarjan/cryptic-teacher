@@ -228,7 +228,11 @@ def keyed(text):
     """True when a puzzle file's text carries the paper's complete key."""
     import provenance
     puzzle = json.loads(text)
-    return not provenance.solution_detail(puzzle) and all(e.get("solution") for e in puzzle.get("entries", []))
+    entries = puzzle.get("entries", []) if isinstance(puzzle, dict) else None
+    # Not every file under puzzles/ is a puzzle (the .blog sidecars, a series index): no key there.
+    if not isinstance(entries, list) or not all(isinstance(e, dict) for e in entries):
+        return False
+    return not provenance.solution_detail(puzzle) and all(e.get("solution") for e in entries)
 
 
 def git(*args):
@@ -239,7 +243,7 @@ def git(*args):
 def record_keyed():
     """Note each puzzle this tree gave a complete key since HEAD."""
     rows = []
-    for path in git("diff", "--name-only", "HEAD", "--", "puzzles/").split():
+    for path in git("diff", "--name-only", "HEAD", "--", "puzzles/*.json").split():
         try:
             if not keyed(git("show", f"HEAD:{path}") or "{}") and keyed(Path(path).read_text()):
                 rows.append({"id": path.rsplit("/", 1)[-1].removesuffix(".json"), "at": time.time()})
