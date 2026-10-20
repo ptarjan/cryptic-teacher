@@ -1226,6 +1226,8 @@ sync_wave() {
   # The tables origin regenerates are not published from here (OWNED_BY_ORIGIN),
   # so a stale local rebuild is put back as HEAD has it. blog_compare.json stays:
   # the re-check phase reads its `due` list back and rewrites it when it starts.
+  # The per-puzzle puzzles/*/*/*.blog sidecars are origin's too: the tree-wide
+  # checkout above (it excludes only puzzles/*.json) puts them back as HEAD has them.
   under_index_lock git checkout -q -- tools/data/blog_facts/ tools/data/lexicons/
   # checkout only restores files git is tracking HERE. A generated page for a
   # puzzle this worktree's HEAD predates is untracked, and the moment origin

@@ -90,7 +90,7 @@ same("the homepage, restamped by every reindex", fp(blob_of={"index.html": Z}))
 
 code = pc.reached()
 paths = ["tools/data/lexicons/indicators.json", "style.css", "index.html", "docs/indicators.json",
-         "puzzles/times/2002/times-21965.json", "tools/data/blog_facts/times.json", "tools/fetch_puzzle.py",
+         "puzzles/times/2002/times-21965.json", "puzzles/times/2002/times-21965.blog", "tools/fetch_puzzle.py",
          "tools/data/deploy_budgets.json", "tools/data/clue_types.json", "tools/data/lexicons/blocks.json"]
 got = pc.inputs(code, paths)
 assert got == ["style.css", "tools/data/clue_types.json"], f"test_page_cache: inputs {got}"

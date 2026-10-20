@@ -12,7 +12,8 @@ import json
 import sys
 
 import post_index
-from blog_facts import BLOGS, OUT, rendered
+import blog_store
+from blog_facts import BLOGS, rendered
 
 BREAKS = {"p", "br", "div", "li", "tr", "h1", "h2", "h3", "h4", "table", "blockquote"}
 
@@ -45,12 +46,8 @@ def text(markup):
 
 def source(pid):
     """(blog key, url) blog_facts joined this puzzle to, or None."""
-    own = OUT / f"{pid.rsplit('-', 1)[0]}.json"  # the series' file, where it is filed
-    for f in [own, *(f for f in OUT.glob("*.json") if f != own)]:
-        rec = json.loads(f.read_text(encoding="utf-8")).get(pid) if f.exists() else None
-        if rec:
-            return rec["blog"], rec["url"]
-    return None
+    rec = blog_store.row_of_id(pid)
+    return (rec["blog"], rec["url"]) if rec else None
 
 
 def cached(pid, blog, url):

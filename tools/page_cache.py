@@ -64,6 +64,8 @@ STORE = ROOT / ".page-cache.pickle"
 VERSION = "4"
 
 PUZZLE_FILE = re.compile(r"puzzles/[^/]+/[0-9]{4}/[^/]+\.json")
+#: A puzzle's blog-facts sidecar, beside its file: a per-page input like it.
+BLOG_SIDECAR = re.compile(r"puzzles/[^/]+/[0-9]{4}/[^/]+\.blog")
 # Per-page inputs (keyed in page_key) or not inputs to a puzzle page at all.
 # index.html is restamped by every reindex, and no puzzle page reads it.
 NOT_GLOBAL = ("docs/", "tools/data/blog_facts/")
@@ -88,7 +90,7 @@ TOOLS_PY = re.compile(r"tools/[^/]+\.py")
 
 
 def _per_page(path):
-    return bool(PUZZLE_FILE.fullmatch(path) or path.startswith(NOT_GLOBAL)
+    return bool(PUZZLE_FILE.fullmatch(path) or BLOG_SIDECAR.fullmatch(path) or path.startswith(NOT_GLOBAL)
                 or path in NOT_GLOBAL_FILES)
 
 

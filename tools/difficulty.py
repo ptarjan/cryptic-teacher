@@ -220,8 +220,10 @@ from pathlib import Path
 from types import SimpleNamespace
 from fetch_puzzle import (  # one glob, one reader for every tool
     blog_fact_hashes, puzzle_files, puzzle_is_annotated, read_puzzle_view)
+import blog_store
 import definitions
 import parallel
+import puzzle_paths
 import puzzle_style
 import row_cache
 import series as series_meta
@@ -230,7 +232,6 @@ from groups import entry_id
 ROOT = Path(__file__).resolve().parent.parent
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 BASELINE = ROOT / "tools" / "data" / "difficulty_baseline.json"
-BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
 WORDNET = ROOT / "tools" / "data" / "wordnet.json.gz"
 # What an answer scores when the lexicon has never heard of it. Deliberately the
 # tail of the list rather than beyond it: unknown here almost always means a
@@ -668,36 +669,32 @@ def definition_unrelated(puz):
 @functools.lru_cache(maxsize=1)
 def blog_definitions():
     """{puzzle id: {entry id: definition}}: the blogger's underlined definition,
-    from tools/data/blog_facts/."""
+    from the blog-facts sidecars (tools/blog_store.py)."""
     out = {}
-    for part in parallel.pmap(blog_file_definitions, sorted(BLOG_FACTS.glob("*.json")),
-                              chunksize=1):
+    folders = sorted(p.name for p in puzzle_paths.PUZZLE_DIR.iterdir() if p.is_dir())
+    for part in parallel.pmap(blog_file_definitions, folders, chunksize=1):
         out.update(part)
     return out
 
 
 def puzzle_blog_definitions(pid):
-    """{entry id: definition} for one puzzle, reading only its series' file
-    of tools/data/blog_facts/ (each file holds its own series' puzzles, as
-    fetch_puzzle.blog_facts_for reads them): a pass that misses a few cached
-    rows parses one or two files, not all of them."""
-    series, _ = series_meta.parse_id(pid)
-    return _series_blog_definitions(series).get(pid, {})
+    """{entry id: definition} for one puzzle, read off its own sidecar
+    (fetch_puzzle.blog_facts_for reads it the same way)."""
+    row = blog_store.row_of_id(pid)
+    return _row_definitions(row) if row else {}
 
 
-@functools.cache
-def _series_blog_definitions(series):
-    f = BLOG_FACTS / f"{series}.json"
-    return blog_file_definitions(f) if series and f.exists() else {}
+def _row_definitions(v):
+    defs = {eid: definition_key(definitions.texts(b))
+            for eid, b in (v.get("entries") or {}).items()}
+    return {k: d for k, d in defs.items() if d}
 
 
-def blog_file_definitions(f):
-    """blog_definitions() for one tools/data/blog_facts/<series>.json."""
+def blog_file_definitions(folder):
+    """blog_definitions() for one series folder's sidecars."""
     out = {}
-    for pid, v in json.loads(f.read_text(encoding="utf-8")).items():
-        defs = {eid: definition_key(definitions.texts(b))
-                for eid, b in (v.get("entries") or {}).items()}
-        defs = {k: d for k, d in defs.items() if d}
+    for pid, v in blog_store.rows(folder):
+        defs = _row_definitions(v)
         if defs:
             out[pid] = defs
     return out
@@ -968,7 +965,7 @@ def clue_row(path):
 def clue_row_deps(path, row):
     """What clue_row() read besides its file and the lexicon and wordnet
     (tools/row_cache.py): the puzzle's blog facts."""
-    return blog_fact_hashes(BLOG_FACTS).get(row[0])
+    return blog_fact_hashes().get(row[0])
 
 
 def check_row(path):
@@ -993,7 +990,7 @@ def check_row(path):
 def check_row_deps(path, row):
     """What check_row() read besides its file, the lexicon and wordnet: the
     puzzle's blog facts."""
-    return blog_fact_hashes(BLOG_FACTS).get(row["pid"])
+    return blog_fact_hashes().get(row["pid"])
 
 
 def checked(paths):
@@ -1019,7 +1016,7 @@ def checked_score(row, ctx):
 
 def history_row_deps(path, row):
     """What history_row() read besides its file: the puzzle's blog facts."""
-    return row and blog_fact_hashes(BLOG_FACTS).get(row[1])
+    return row and blog_fact_hashes().get(row[1])
 
 
 def _files_hash(*paths):

@@ -119,7 +119,9 @@ const idOf = (p) => path.basename(p, ".json");
 
 /* puzzle path -> blob, every puzzle in the commit. */
 function puzzles() {
-  return new Map([...tree()].filter(([p]) => isPuzzle(p)));
+  // The key joins the puzzle's blog-facts sidecar (<id>.blog), which its checks read.
+  const t = tree();
+  return new Map([...t].filter(([p]) => isPuzzle(p)).map(([p, blob]) => [p, blob + (t.get(p.slice(0, -5) + ".blog") || "")]));
 }
 
 const keyMemo = {};

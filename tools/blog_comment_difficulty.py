@@ -171,11 +171,9 @@ def build():
     import row_cache
     by_post, ids = comments_by_post(), post_ids()
     wanted = []
+    import blog_store
     for series in SERIES:
-        facts = ROOT / f"tools/data/blog_facts/{series}.json"
-        if not facts.exists():
-            continue
-        for pid, v in json.loads(facts.read_text()).items():
+        for pid, v in blog_store.rows(series):
             if v.get("blog") != "timesforthetimes":
                 continue
             comments = by_post.get(ids.get(v["url"].rstrip("/")))

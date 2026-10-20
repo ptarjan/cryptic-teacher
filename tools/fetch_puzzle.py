@@ -743,64 +743,20 @@ def extract_crossword_data(page_html):
     return json.loads(html.unescape(m.group(1)))["data"]
 
 
-BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
-
-
-class _FactsFile:
-    """A tools/data/blog_facts/<series>.json read one puzzle's line at a time,
-    as blog_facts.rewrite_rows writes it: parsed whole, the corpus's facts were
-    most of what a reindex or a page build held."""
-
-    def __init__(self, path):
-        self.path, self.at = path, {}
-        with path.open("rb") as f:
-            pos = 0
-            for line in f:
-                if line.startswith(b'"'):
-                    self.at[line[1:line.index(b'"', 1)].decode()] = pos
-                pos += len(line)
-
-    def get(self, pid, default=None):
-        pos = self.at.get(pid)
-        if pos is None:
-            return default
-        with self.path.open("rb") as f:
-            f.seek(pos)
-            line = f.readline().rstrip(b",\n")
-        return json.loads(line[line.index(b'": ') + 3:])
-
-
 @functools.lru_cache(maxsize=None)
-def _blog_facts(series):
-    path = BLOG_FACTS / f"{series}.json"
-    return _FactsFile(path) if path.exists() else {}
-
-
-@functools.lru_cache(maxsize=None)
-def blog_fact_hashes(directory=BLOG_FACTS):
-    """{puzzle id: a hash of every line the blog facts in `directory` hold for
-    it, in every file}: what a row read off a puzzle's blog facts depends on
-    (tools/row_cache.py), found without parsing them. A line opening with a
-    quoted id starts that id's facts; the lines after it, up to the next id,
-    are its too."""
-    found, h = {}, None
-    for f in sorted(directory.glob("*.json")):
-        with f.open("rb") as fh:
-            for line in fh:
-                if line.startswith(b'"'):
-                    pid = line[1:line.index(b'"', 1)].decode()
-                    h = found.setdefault(pid, hashlib.sha1())
-                    h.update(f.name.encode() + b"\0")
-                if h is not None:
-                    h.update(line)
-        h = None
-    return {pid: v.hexdigest()[:16] for pid, v in found.items()}
+def blog_fact_hashes():
+    """{puzzle id: a hash of its blog-facts sidecar}: what a row read off a
+    puzzle's blog facts depends on (tools/row_cache.py), found without parsing."""
+    import blog_store
+    return blog_store.hashes()
 
 
 def blog_facts_for(puzzle):
-    """This puzzle's row of tools/data/blog_facts/, or None: the blog, its
-    name, the post's url, and per entry id what the write-up marks."""
-    return _blog_facts(series_meta.of(puzzle)).get(puzzle["id"])
+    """This puzzle's row of blog facts (the sidecar puzzles/<series>/<year>/<id>.blog,
+    tools/blog_store.py), or None: the blog, its name, the post's url, and per
+    entry id what the write-up marks."""
+    import blog_store
+    return blog_store.row_for(puzzle)
 
 
 def with_blog_facts(puzzle):

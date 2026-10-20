@@ -76,15 +76,13 @@ from blog_facts import (
     GOLD,
     INFERRED,
     LEADS,
-    OUT,
     PART_ORDER,
     clue_body,
     fact_from_json,
     fact_json,
-    file_rows,
     heard_blocks,
-    rewrite_rows,
 )
+import blog_store
 from groups import entry_id
 from indicator_keys import WORD, letters
 from indicator_keys import indicator_words as _key
@@ -1557,22 +1555,22 @@ def rows(said=None, as_written=False):
     what the write-up says short of its blocks, where `said` (read_leads) has
     it. The facts are as the blog stated them (see stated), or `as_written`,
     with what this file inferred."""
-    files = sorted(OUT.glob("*.json"))
-    held = _held_clues([pid for f in files for pid in _file_pids(f)])
-    for f in files:
-        for pid, rec in json.loads(f.read_text(encoding="utf-8")).items():
-            if pid in held:
-                clues = held[pid]
-            else:  # an id _file_pids did not see: looked up as it always was
-                path = find_puzzle(pid)
-                if path is None:
-                    continue
-                clues = puzzle_clues(path)
-            got = (said or {}).get(pid, {})
-            for eid, clue, answer in clues:
-                facts = fact_from_json(rec["entries"].get(eid, {}))
-                facts = facts if as_written else stated(facts)
-                yield (pid, eid, clue, answer, {**facts, "leads": got[eid]} if eid in got else facts)
+    files = blog_store.files()
+    held = _held_clues(list(files))
+    for pid, f in files.items():
+        rec = blog_store.read(f)
+        if pid in held:
+            clues = held[pid]
+        else:  # an id _held_clues did not see: looked up as it always was
+            path = find_puzzle(pid)
+            if path is None:
+                continue
+            clues = puzzle_clues(path)
+        got = (said or {}).get(pid, {})
+        for eid, clue, answer in clues:
+            facts = fact_from_json(rec["entries"].get(eid, {}))
+            facts = facts if as_written else stated(facts)
+            yield (pid, eid, clue, answer, {**facts, "leads": got[eid]} if eid in got else facts)
 
 
 def puzzle_clues(path):
@@ -2152,25 +2150,21 @@ def write(corpus, votes, said=None, jobs=None):
                 else _cached_clues(conn, corpus, said or {}, jobs, gen))
         head = next(done, None)
 
-        def filled(f):
-            nonlocal head
-            for pid, rec in file_rows(f):
-                if head is not None and head[0] == pid:
-                    new = head[1]
-                    head = next(done, None)
-                    if new:
-                        n.update(k for v in new.values() for k in v.get("inferred", ()))
-                        rec["entries"] = new
-                yield pid, rec
-
-        for f in sorted(OUT.glob("*.json")):
-            rewrite_rows(f, filled(f))
+        for pid, f in blog_store.files().items():
+            rec = blog_store.read(f)
+            if head is not None and head[0] == pid:
+                new = head[1]
+                head = next(done, None)
+                if new:
+                    n.update(k for v in new.values() for k in v.get("inferred", ()))
+                    rec["entries"] = new
+            blog_store.put(f, blog_store.encode(rec))  # only a puzzle whose facts moved is rewritten
         done.close()
     _WORKER.clear()
     if conn is not None:
         conn.close()
     if head is not None:
-        sys.exit(f"letter_facts.write: {head[0]} is out of step with {OUT.relative_to(ROOT)}: corpus must be rows() in order")
+        sys.exit(f"letter_facts.write: {head[0]} is out of step with the blog-facts sidecars: corpus must be rows() in order")
     return n
 
 
@@ -3288,7 +3282,7 @@ def main():
     if args.write:
         n = write(corpus, votes, said if alone else None, args.jobs)
         print(f"inferred a type for {n['type']} clues, blocks for {n['blocks']}, a definition for "
-              f"{n['definition']} and indicators for {n['indicators']} in {OUT.relative_to(ROOT)}; "
+              f"{n['definition']} and indicators for {n['indicators']} in the puzzles' .blog sidecars; "
               f"{n['blocks.json']} block and {n['indicators.json']} indicator readings in {LEXICON_OUT.relative_to(ROOT)}")
 
 
