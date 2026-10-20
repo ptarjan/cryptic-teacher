@@ -1569,38 +1569,50 @@
         {
          "text": "Short",
          "at": 0,
-         "note": "short means the word is cut, losing its last letter"
+         "note": "Short means the word is cut by its final letter"
         }
        ],
        "parts": [
         {
-         "words": "farm animal",
-         "at": 6,
-         "gives": "COW",
-         "note": "a cow is a farm animal"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "twice",
+           "at": 18,
+           "note": "twice means the shortened word is written two times"
+          }
+         ],
+         "parts": [
+          {
+           "words": "farm animal",
+           "at": 6,
+           "gives": "COW",
+           "note": "a cow is a farm animal"
+          },
+          {
+           "words": "farm animal",
+           "at": 6,
+           "gives": "COW",
+           "note": "cow again, as twice asks"
+          }
+         ]
         },
         {
-         "gives": "W"
+         "gives": "WW"
         }
        ]
       },
       {
-       "words": "twice",
-       "at": 18,
-       "gives": "CO",
-       "note": "twice gives the shortened animal a second time"
-      },
-      {
        "words": "accepted",
        "at": 24,
-       "gives": "A"
+       "gives": "A",
+       "note": "A is an abbreviation for accepted, as on a bill of exchange"
       }
      ]
     },
     "explanation": {
-     "surface": "A cow, cut short, accepting a drink twice over.",
-     "walkthrough": "'Short' acts on 'farm animal'; 'twice' then repeats the shortened word before A is added.",
-     "definitionFit": "Cocoa is a hot drink made from powdered cacao beans and milk."
+     "surface": "A small farm creature twice took a drink.",
+     "definitionFit": "Cocoa is a hot beverage made from powdered cacao beans, often taken at bedtime."
     },
     "features": {
      "answerInScene": false,

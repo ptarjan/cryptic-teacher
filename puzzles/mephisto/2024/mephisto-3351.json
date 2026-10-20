@@ -1270,52 +1270,55 @@
      "parts": [
       {
        "words": "Foresight",
+       "at": 0,
        "gives": "BEAD",
-       "note": "the foresight of a gun is the bead at the muzzle end"
+       "note": "the bead is the foresight on a gun barrel, the small knob at the muzzle used for aiming"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "for the most part",
-         "note": "for the most part means not entirely, so each following word loses its last letter"
+         "at": 10,
+         "note": "for the most part means each word keeps most of itself, losing its last letter"
         }
        ],
        "parts": [
         {
-         "words": "still",
-         "gives": "YET",
-         "note": "still means yet; it loses its last letter"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "still",
+           "at": 28,
+           "gives": "YET",
+           "note": "yet means still"
+          },
+          {
+           "words": "indeed",
+           "at": 38,
+           "gives": "YEA",
+           "note": "yea is an old word for indeed or yes"
+          }
+         ]
         },
         {
          "gives": "T"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "indeed",
-         "gives": "YES",
-         "note": "yes means indeed; it loses its last letter"
         },
         {
-         "gives": "S"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Foresight mostly still, and indeed sharp, watchfulness.",
-     "walkthrough": "'Foresight' looks like prudence; it is the front sight on a gun barrel.",
-     "definitionFit": "To keep a beady eye on something is to watch it closely and suspiciously, which is sharp watchfulness."
+     "surface": "Foresight, mostly calm and truly sharp watchfulness.",
+     "walkthrough": "'for the most part' covers both still and indeed: YET and YEA each lose their last letter to give YE twice.",
+     "definitionFit": "To keep a beady eye on something is to watch it closely and suspiciously, i.e. sharp watchfulness."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Foresight"
     }
    }
