@@ -2632,6 +2632,23 @@ laid, blank = ocr_clues.vlm_pick({"vlm": "x"}, {"13-across": ("", "9", None)}, {
                                  lambda lid, cands: "For example, a linner entangled")
 check("the VLM's pick of a non-word no reading corrects is not filed", ("", ["13-across"]),
       (laid["13-across"][0], sorted(blank)))
+check("the clean reading inside two others' table scraps is the clue (no pick asked)",
+      "Hanker after an unknown make (5)",
+      ocr_clues.clean_inside(["Hanker after an unknown Ipcome Growtb make (5)",
+                              "Hanker after an unknown Incorme Gronth Aock - make (5)",
+                              "Hanker after an unknown make (5)"], "5"))
+check("a word two readings both add is a known word lost from the third: no clean reading", None,
+      ocr_clues.clean_inside(["Sound made by cat to arouse bird (6)", "Sound made by the cat to arouse bird (6)",
+                              "Sound made by the cat to arouse bird (6)"], "6"))
+check("a clean reading whose count is not the light's is not taken", None,
+      ocr_clues.clean_inside(["Hanker after an unknown Ipcome Growtb make (5)",
+                              "Hanker after an unknown Incorme Gronth Aock - make (5)",
+                              "Hanker after an unknown make (5)"], "7"))
+check("the VLM's own reading beside an OCR slip of a letter is laid with no ask", "Mender of slippery eels in water",
+      ocr_clues.vlm_pick({"ch": "ACROSS\n1 Mender of slippery eals in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Lost rain falls on a hill (5,3)\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n5 Bird in a bush is worth two (5)\n",
+                          "vlm": "ACROSS\n1 Mender of slippery eels in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Lost rain falls on a hill (5,3)\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n5 Bird in a bush is worth two (5)\n"},
+                         {"1-across": ("", "5", None)}, {"1-across": "readings differ"}, f.parse,
+                         lambda lid, cands: 1 / 0)[0]["1-across"][0])
 
 # Times 13,998 as an older reading filed it: the loose lay put 18 across's
 # clue on 15 across too, where a misread number laid it, and 15 across's own
