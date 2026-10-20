@@ -567,30 +567,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "munches"
+       "text": "munches",
+       "at": 14,
+       "note": "the monkey munches, taking the size letter into its mouth"
       }
      ],
      "parts": [
       {
-       "words": "Monkey mostly",
-       "gives": "BABOO",
-       "note": "BABOO(n), a baboon without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 7,
+         "note": "mostly means all but the last letter of the monkey is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Monkey",
+         "at": 0,
+         "gives": "BABOON",
+         "note": "a baboon is a large monkey"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "medium-sized",
+       "at": 22,
        "gives": "M",
-       "note": "M = medium, as on clothing labels"
+       "note": "M is the clothing-size abbreviation for medium"
       }
      ]
     },
     "explanation": {
-     "surface": "A monkey chewing through a patch of moderately tall grass.",
-     "walkthrough": "The surface is almost literal, but the grass is the answer: bamboo is botanically a grass.",
-     "definitionFit": "Definition by category: despite its woody, tree-like canes, the plant belongs botanically to the grass family."
+     "surface": "A monkey chews its way through a patch of moderately tall grass.",
+     "walkthrough": "'mostly' trims BABOON to BABOO, and 'munches' puts M (medium) inside it.",
+     "definitionFit": "Bamboo is botanically a giant member of the grass family, so grass is a fair classification."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": false,
+     "misdirectedWord": "munches"
     }
    }
   },

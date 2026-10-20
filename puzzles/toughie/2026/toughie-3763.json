@@ -109,26 +109,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "hidden by"
+       "text": "hidden by",
+       "at": 5,
+       "note": "hidden by puts the wink inside the German's name"
       }
      ],
      "parts": [
       {
-       "words": "German contractor almost",
-       "gives": "FAUS",
-       "note": "FAUST, the German scholar who made a contract with the devil, without his last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 33,
+         "note": "almost means the last letter of the German is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "German contractor",
+         "at": 15,
+         "gives": "FAUST",
+         "note": "Faust is the German legend who made a contract with the Devil"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "Wink",
+       "at": 0,
        "gives": "MO",
-       "note": "a wink is an instant, a mo"
+       "note": "MO, short for moment, means a wink or instant"
       }
      ]
     },
     "explanation": {
-     "surface": "A German builder cuts corners while someone winks behind his back.",
-     "walkthrough": "'Contractor' reads as a builder, but it is Faust, who signed a contract with the devil in the German legend.",
-     "definitionFit": "Someone noted is well known, that is famous."
+     "surface": "A German builder hides a knowing wink.",
+     "walkthrough": "Faust signed a pact with Mephistopheles, hence contractor; FAUS takes MO inside.",
+     "definitionFit": "Famous means well known, the same as noted for a celebrated person."
     },
     "features": {
      "answerInScene": false,
@@ -496,7 +515,7 @@
        "words": "Hearts",
        "at": 0,
        "gives": "H",
-       "note": "H is the card abbreviation for hearts"
+       "note": "H is the card-game abbreviation for hearts"
       },
       {
        "op": "deletion",
@@ -504,35 +523,41 @@
         {
          "text": "wanting",
          "at": 17,
-         "note": "wanting means lacking, so the male letter is taken out"
+         "note": "wanting means lacking, so the male letters are taken away"
         }
        ],
        "parts": [
         {
-         "words": "go faster",
-         "at": 7,
-         "gives": "MUSH",
-         "note": "mush is the command to sled dogs to go faster"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "go faster",
+           "at": 7,
+           "gives": "MUSH",
+           "note": "mush is the cry to make sled dogs go faster"
+          },
+          {
+           "words": "repeatedly",
+           "at": 30,
+           "gives": "HMUSH",
+           "note": "repeatedly asks for the hearts letter and the sled cry a second time"
+          }
+         ]
         },
         {
          "words": "male",
          "at": 25,
-         "gives": "M"
+         "gives": "MM",
+         "note": "M is the abbreviation for male, taken from each of the two copies"
         }
        ]
-      },
-      {
-       "words": "repeatedly",
-       "at": 30,
-       "gives": "HUSH",
-       "note": "repeatedly means the four letters already built are given a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "Hearts race when a man is absent, in a secret affair.",
-     "walkthrough": "Mush is what a musher shouts to make a dog team speed up. Removing M leaves USH, so the first half is H and USH, and 'repeatedly' doubles it.",
-     "definitionFit": "Hush-hush means highly confidential, kept secret."
+     "surface": "Hearts racing at a secret encounter, with no man involved.",
+     "walkthrough": "Mush is the call that urges sled dogs on. 'repeatedly' doubles H + MUSH, and 'wanting male' strips the M (male) from each copy.",
+     "definitionFit": "Hush-hush is an informal reduplicated word for highly confidential or secret."
     },
     "features": {
      "answerInScene": true,
@@ -1359,43 +1384,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "up",
-       "note": "in a down clue, up means written bottom to top"
-      },
-      {
-       "text": "first"
+       "text": "first",
+       "at": 23,
+       "note": "first says the beer comes before the next piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "glass of beer",
+       "at": 9,
+       "gives": "JAR",
+       "note": "a jar is British slang for a glass of beer"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 6,
+         "note": "up, in a down clue, means the drink is read from the bottom"
+        }
+       ],
        "parts": [
         {
-         "words": "Drink up",
+         "words": "Drink",
+         "at": 0,
          "gives": "NOG",
-         "note": "NOG = drink, written upwards"
-        },
-        {
-         "words": "glass of beer",
-         "gives": "RAJ",
-         "note": "a jar is a pint of beer"
+         "note": "nog is a drink, as in eggnog"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Downing a pint first leaves someone's speech slurred.",
-     "walkthrough": "'Drink up' reads as an order to finish a glass; it is a drink, NOG, flipped. A jar is British slang for a glass of beer.",
-     "definitionFit": "Jargon is specialist language that outsiders find unintelligible."
+     "surface": "Someone downs a beer before talking nonsense.",
+     "walkthrough": "In a down clue NOG read upwards is GON, below JAR.",
+     "definitionFit": "Jargon is specialist language that outsiders cannot follow, hence unintelligible speech."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "up"
+     "misdirectedWord": "Drink"
     }
    }
   },

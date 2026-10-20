@@ -44,38 +44,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "at": 9,
+       "note": "endlessly means each word loses its final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "endlessly",
-         "at": 9,
-         "note": "each of the two words loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "to sea",
          "at": 31,
-         "gives": "TOSEA"
+         "gives": "TOSEA",
+         "note": "taken as written, the two words to and sea"
         },
         {
-         "gives": "OA"
+         "words": "repeatedly",
+         "at": 20,
+         "gives": "TOSEA",
+         "note": "repeatedly asks for the words to sea a second time"
         }
        ]
       },
       {
-       "words": "repeatedly",
-       "at": 20,
-       "gives": "TSE",
-       "note": "repeatedly says the three letters just made come again"
+       "gives": "OAOA"
       }
      ]
     },
     "explanation": {
-     "surface": "A fly heading out to sea, or endlessly doing so.",
+     "surface": "It sounds like an insect, or a traveller endlessly heading out to sea.",
+     "walkthrough": "To and sea each lose their last letter, giving T and SE; TSE twice makes the answer.",
      "definitionFit": "The tsetse is an African fly that spreads sleeping sickness."
     },
     "features": {
@@ -263,7 +265,8 @@
      "indicators": [
       {
        "text": "bored by",
-       "note": "To bore into a thing is to drill a hole through the middle of it, so whatever does the boring ends up inside."
+       "at": 41,
+       "note": "bored by means the pair drills into the middle of the first part"
       }
      ],
      "parts": [
@@ -272,25 +275,45 @@
        "parts": [
         {
          "words": "a",
-         "note": "the article is taken as the single letter it is written with"
+         "at": 28,
+         "gives": "A"
         },
         {
          "words": "journalist",
+         "at": 30,
          "gives": "ED",
-         "note": "the editor is the journalist crosswords reach for, shortened as it is on a masthead"
+         "note": "ED, short for editor, stands for a journalist"
         }
        ]
       },
       {
-       "words": "Double Dutch",
-       "gives": "DD",
-       "note": "Dutch is taken as D, and the word in front of it calls for a second copy"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Double",
+         "at": 50,
+         "gives": "D",
+         "note": "Double asks for the Dutch abbreviation a second time"
+        },
+        {
+         "words": "Dutch",
+         "at": 57,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Double Dutch' means gibberish and 'bored' means fed up, and neither reading is the working one: the first is a pair of letters, the second a drill.",
-     "definitionFit": "To add someone on a social network is to accept them as a friend, so the past-tense verb matches 'befriended' in both sense and inflection."
+     "surface": "Someone online adds a journalist friend who is bored by gibberish.",
+     "walkthrough": "Double Dutch is gibberish, but here it is D twice, inside A + ED.",
+     "definitionFit": "On social platforms such as Facebook, to add someone is to accept them as a friend or contact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dutch"
     }
    }
   },
@@ -414,39 +437,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "defending",
-       "at": 18,
-       "note": "defending means standing guard round something, so the scoundrel sits between the two halves"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "A supporter twice",
+       "words": "A",
        "at": 0,
-       "gives": "ABRAABRA",
-       "note": "A plus BRA, a supporter worn as underwear, written out two times"
+       "gives": "A"
       },
       {
-       "words": "scoundrel",
-       "at": 28,
-       "gives": "CAD",
-       "note": "a cad is a dishonourable man, a scoundrel"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "defending",
+         "at": 18,
+         "note": "defending means the pair surrounds the scoundrel like guards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "supporter",
+           "at": 2,
+           "gives": "BRA",
+           "note": "a bra is a supporting garment"
+          },
+          {
+           "words": "twice",
+           "at": 12,
+           "gives": "ABRA",
+           "note": "twice asks for A plus the supporter a second time"
+          }
+         ]
+        },
+        {
+         "words": "scoundrel",
+         "at": 28,
+         "gives": "CAD",
+         "note": "a cad is a scoundrel"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone backs a rogue twice over, and claims it was only for a while.",
-     "walkthrough": "'for a spell' looks like 'for a while', but the definition is a word said when casting a spell; CAD goes between the two ABRAs.",
-     "definitionFit": "Abracadabra is the conjuror's magic word, spoken as an incantation when performing a trick."
+     "surface": "Someone backs a rogue twice over, as if casting a spell.",
+     "walkthrough": "'it might be said' tells you the answer is a word spoken aloud by a magician, not a description of a spell.",
+     "definitionFit": "Abracadabra is the word a conjuror says when casting a spell."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "spell"
+     "misdirectedWord": "supporter"
     }
    }
   },
@@ -1255,14 +1298,7 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "to animate",
-       "at": 44,
-       "note": "to animate is to stir into motion, so the letters move about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
@@ -1270,47 +1306,61 @@
         {
          "text": "At first",
          "at": 0,
-         "note": "the first letter of Aston is taken"
+         "note": "At first means only the opening letter of Aston"
         }
        ],
        "parts": [
         {
          "words": "Aston",
          "at": 10,
-         "gives": "A"
+         "note": "taken as written"
         }
        ]
       },
       {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "without No 1",
-         "at": 23,
-         "note": "No 1 is the first letter, which is dropped from Villa"
+         "text": "to animate",
+         "at": 44,
+         "note": "to animate means to stir these letters into life in a new order"
         }
        ],
        "parts": [
         {
-         "words": "Villa",
-         "at": 16,
-         "gives": "VILLA"
+         "words": "hoping",
+         "at": 37,
+         "note": "taken as written"
         },
         {
-         "gives": "V"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without No 1",
+           "at": 23,
+           "note": "without No 1 means Villa loses its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Villa",
+           "at": 16,
+           "gives": "VILLA",
+           "note": "taken as written"
+          },
+          {
+           "gives": "V"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "hoping",
-       "at": 37
       }
      ]
     },
     "explanation": {
-     "surface": "Football fandom: Aston Villa, minus their top man, hoping to stir English feeling.",
-     "walkthrough": "A, ILLA and HOPING are rearranged together.",
-     "definitionFit": "Anglophilia is a love of England and Englishness, the feeling shared by admirers of the country."
+     "surface": "Aston Villa, an English football club, without its top player, hoping to stir up fans of England.",
+     "walkthrough": "A comes first; then the letters of HOPING plus ILLA (Villa without V) are rearranged.",
+     "definitionFit": "Anglophilia is a love of England and things English, the feeling of its admirers."
     },
     "features": {
      "answerInScene": true,

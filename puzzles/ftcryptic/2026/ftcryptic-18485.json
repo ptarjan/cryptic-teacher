@@ -1824,26 +1824,39 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "almost finished",
-       "note": "a word that is almost finished stops one letter short of its end"
-      },
-      {
        "text": "novel",
-       "note": "new, so the letters take a new order"
+       "at": 37,
+       "note": "novel means new, so these letters are given a new arrangement"
       }
      ],
      "parts": [
       {
-       "words": "writerly almost finished",
-       "gives": "WRITERL",
-       "note": "WRITERLY without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost finished",
+         "at": 21,
+         "note": "almost finished means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "writerly",
+         "at": 12,
+         "gives": "WRITERLY",
+         "note": "taken as written"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer nearly done with a novel.",
-     "walkthrough": "'Novel' and 'writerly' make a book; 'novel' is the rearranging signal, not the book.",
-     "definitionFit": "A twirler is someone who twirls, one turning round."
+     "surface": "An author with a literary style has almost completed a novel.",
+     "walkthrough": "WRITERL, writerly without Y, is rearranged.",
+     "definitionFit": "A twirler is someone who spins or twirls, such as a baton twirler."
     },
     "features": {
      "answerInScene": false,
@@ -1877,25 +1890,41 @@
      "parts": [
       {
        "words": "despicable person",
+       "at": 7,
        "gives": "RAT",
        "note": "a rat is a despicable person"
       },
       {
-       "words": "snubbed present",
-       "gives": "HER",
-       "note": "HERE = present, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "snubbed",
+         "at": 25,
+         "note": "snubbed means cut short, as a snub nose is, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "present",
+         "at": 33,
+         "gives": "HERE",
+         "note": "here means present"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nasty person snubbed a gift.",
-     "walkthrough": "'Present' looks like a gift; it is HERE, present in the room.",
-     "definitionFit": "Plain synonym as adverbs of degree: 'fairly cold' and 'rather cold' both mean somewhat cold."
+     "surface": "A nasty person is ignored by someone in attendance.",
+     "definitionFit": "Rather means somewhat or to a certain degree, as in rather good."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "present"
+     "misdirectedWord": "snubbed"
     }
    }
   },

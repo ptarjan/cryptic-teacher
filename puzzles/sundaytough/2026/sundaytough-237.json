@@ -94,20 +94,37 @@
      "parts": [
       {
        "words": "County",
+       "at": 19,
        "gives": "KENT",
-       "note": "Kent, the English county"
+       "note": "Kent is an English county"
       },
       {
-       "words": "fortunate to miss kick-off",
-       "gives": "UCKY",
-       "note": "LUCKY without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "miss kick-off",
+         "at": 39,
+         "note": "to miss the kick-off is to lose the opening letter of the word for fortunate"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fortunate",
+         "at": 26,
+         "gives": "LUCKY",
+         "note": "fortunate means lucky"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football fan hoping to see Derby County, who were lucky the match started without them.",
-     "walkthrough": "Derby County is an English football club, so 'kick-off' feels like part of a match report. The Derby here is the Kentucky Derby, the American horse race.",
-     "definitionFit": "The Kentucky Derby is run in Louisville, Kentucky, so that state is where to see it."
+     "surface": "A football fan, lucky to make it to a Derby County match, turns up after kick-off.",
+     "walkthrough": "Derby County is an English football club, but here Derby is the famous horse race; 'miss kick-off' drops the L of LUCKY.",
+     "definitionFit": "The Kentucky Derby, America's most famous horse race, is run each May at Churchill Downs in that US state."
     },
     "features": {
      "answerInScene": false,
@@ -969,26 +986,51 @@
      "op": "charade",
      "parts": [
       {
-       "words": "boy taking day off",
-       "gives": "LA",
-       "note": "LAD without its D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 11,
+         "note": "taking ... off says the day letter is removed from the boy"
+        },
+        {
+         "text": "off",
+         "at": 22,
+         "note": "with taking, says a letter is subtracted from the boy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boy",
+         "at": 7,
+         "gives": "LAD",
+         "note": "a lad is a boy"
+        },
+        {
+         "words": "day",
+         "at": 18,
+         "gives": "D"
+        }
+       ]
       },
       {
        "words": "November",
+       "at": 28,
        "gives": "N",
-       "note": "N is November in the NATO alphabet"
+       "note": "N is November in the NATO phonetic alphabet"
       },
       {
        "words": "2",
+       "at": 37,
        "gives": "KY",
-       "note": "the answer to 2 down, KENTUCKY, abbreviated KY"
+       "note": "refers to the answer at 2-down, the US state whose postal abbreviation is KY"
       }
      ]
     },
     "explanation": {
-     "surface": "A gawky lad skipping school on the second of November.",
-     "walkthrough": "'November 2' reads as a date; the 2 is a pointer to 2 down, and KY is Kentucky's postal code.",
-     "definitionFit": "Lanky means tall, thin and awkward, which is gangly."
+     "surface": "A tall, gangly boy has a day off school on the second of November.",
+     "walkthrough": "'2' is a cross-reference to 2-down, KENTUCKY, abbreviated KY; LAD loses D to give LA.",
+     "definitionFit": "Lanky describes someone tall and thin with awkward long limbs, which is what gangly means."
     },
     "features": {
      "answerInScene": true,
