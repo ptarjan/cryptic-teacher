@@ -43,32 +43,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ECLECTIC",
-     "indicators": [
-      {
-       "text": "half-backing",
-       "note": "only the front half of the club's name is turned to run backwards, the rest stays in order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "city",
+       "at": 9,
        "gives": "EC",
-       "note": "EC is the postcode district of the City of London"
+       "note": "EC is the postcode for the City of London"
       },
       {
-       "words": "Scottish club",
-       "gives": "CELTIC",
-       "note": "Celtic is the Glasgow football club"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "half-backing",
+         "at": 14,
+         "note": "half of the club's name, its first three letters, is turned to run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scottish club",
+         "at": 27,
+         "gives": "CELTIC",
+         "note": "Celtic is a Glasgow football club"
+        },
+        {
+         "gives": "CEL"
+        },
+        {
+         "gives": "LEC"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Catholic city is partly supporting a Scottish football club, Celtic having Catholic roots.",
-     "walkthrough": "Catholic with a capital C looks religious, especially beside Celtic; here it is the lower-case sense of wide-ranging.",
-     "definitionFit": "Catholic in its lower-case sense means broad and wide-ranging in taste, the same as drawing from many sources."
+     "surface": "A Catholic city gives partial support to a Glasgow football team.",
+     "walkthrough": "Celtic is a famously Catholic-rooted club, which strengthens the misdirection; CEL turned round gives LEC.",
+     "definitionFit": "Catholic with a lower-case sense means wide-ranging or all-embracing, as eclectic tastes are."
     },
     "features": {
      "answerInScene": false,
@@ -1166,57 +1178,54 @@
      "indicators": [
       {
        "text": "to tackle",
-       "note": "to tackle someone is to wrap arms round them, so one piece goes around another"
+       "at": 5,
+       "note": "to tackle is to take hold of, so the when-word wraps round the letters"
+      },
+      {
+       "text": "about",
+       "at": 25,
+       "note": "about means around, backing up the instruction that the when-word goes round the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "about means surrounding, so the pair of letters goes either side"
-        }
-       ],
+       "words": "When",
+       "at": 0,
+       "gives": "AS",
+       "note": "as means when, as in 'as I left'"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "When",
-           "gives": "AS",
-           "note": "as means when, as in as I left"
-          },
-          {
-           "words": "cold",
-           "gives": "C",
-           "note": "C for cold on a tap"
-          }
-         ]
+         "words": "cold",
+         "at": 15,
+         "gives": "C"
         },
         {
          "words": "my",
+         "at": 31,
          "gives": "COR",
-         "note": "cor and my are both exclamations of surprise"
+         "note": "cor is an exclamation like 'my!'"
+        },
+        {
+         "words": "duke",
+         "at": 20,
+         "gives": "D"
         }
        ]
-      },
-      {
-       "words": "duke",
-       "gives": "D",
-       "note": "D is the abbreviation for duke"
       }
      ]
     },
     "explanation": {
-     "surface": "Questions of when to confront a chilly duke over the speaker's grants.",
-     "walkthrough": "My is the exclamation, not the possessive; cor is the British equivalent.",
-     "definitionFit": "To accord means to give or bestow, so it is a verb synonym for grants."
+     "surface": "A question about when to confront a chilly aristocrat over a series of bequests.",
+     "walkthrough": "AS holds C, COR and D in sequence.",
+     "definitionFit": "To accord is to give or grant, as in according someone respect."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "my"
+     "misdirectedWord": "tackle"
     }
    }
   },

@@ -979,42 +979,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ENTERTAIN",
-     "indicators": [
-      {
-       "text": "given time for second run",
-       "note": "given one thing for another means a swap, and second picks out which occurrence is replaced"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "in French",
+       "at": 5,
        "gives": "EN",
-       "note": "en is French for in"
+       "note": "the French word for in is en"
       },
       {
-       "words": "land",
-       "gives": "TERRAIN",
-       "note": "terrain is ground or land"
-      },
-      {
-       "words": "time",
-       "gives": "T",
-       "note": "standard abbreviation for time"
-      },
-      {
-       "words": "run",
-       "gives": "R",
-       "note": "the cricket abbreviation for run"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "given",
+         "at": 20,
+         "note": "given means the land word receives a new letter in exchange"
+        },
+        {
+         "text": "for second",
+         "at": 31,
+         "note": "one letter stands in for the second of the land word's two matching letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "land",
+         "at": 15,
+         "gives": "TERRAIN",
+         "note": "terrain is land"
+        },
+        {
+         "words": "run",
+         "at": 42,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for run"
+        },
+        {
+         "words": "time",
+         "at": 26,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French host's land gets a second outing.",
-     "walkthrough": "'Second run' does not mean a rerun: it picks out the second of two run letters in the land word as the one to replace.",
-     "definitionFit": "To entertain is to receive and look after guests, which is what a host does."
+     "surface": "In France, ground is given a moment for another sprint.",
+     "walkthrough": "Run is R in cricket scoring; T takes the place of the second R in TERRAIN.",
+     "definitionFit": "To entertain guests is to act as their host, receiving them and providing hospitality."
     },
     "features": {
      "answerInScene": false,

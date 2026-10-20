@@ -393,39 +393,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "ANKH",
+     "op": "cycling",
      "indicators": [
       {
+       "text": "carried by",
+       "at": 17,
+       "note": "carried by asks for a word sitting inside a chain of the ruler's name"
+      },
+      {
        "text": "repeatedly",
-       "note": "repeatedly says the name is written out twice, one copy after the other"
+       "at": 33,
+       "note": "repeatedly means the name is written over and over in a loop, so a stretch can start partway through one copy"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ANKH",
-       "indicators": [
-        {
-         "text": "carried by",
-         "note": "what is carried by something rides inside it, so the outer letters of the doubled name fall away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Khan",
-         "note": "the name taken as written, twice over, with the answer straddling the join"
-        }
-       ]
+       "words": "Khan",
+       "at": 28,
+       "gives": "KHAN",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A sacred emblem worn again and again by a man named Khan.",
-     "walkthrough": "Writing the name twice gives KHANKHAN, and the answer sits in the middle, carried by the doubled name.",
-     "definitionFit": "The ankh is an ancient Egyptian cross with a loop, a symbol of life."
+     "surface": "An emblem of faith is borne again and again by a ruler.",
+     "walkthrough": "Write KHAN twice, KHANKHAN, and the answer sits across the join.",
+     "definitionFit": "The ankh is the ancient Egyptian looped cross, a sign of life used in religious art."
     },
     "features": {
      "answerInScene": true,
@@ -1831,48 +1824,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INTERNEE",
      "indicators": [
       {
        "text": "captured in",
-       "note": "captured in means held inside"
+       "at": 8,
+       "note": "captured in means the bird goes inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "INTERNEE",
+       "op": "middle",
        "indicators": [
         {
          "text": "not showing wings",
-         "note": "the wings of a word are its outer letters, here both dropped"
+         "at": 32,
+         "note": "wings are the outer edges, so the first and last letters are hidden"
         }
        ],
        "parts": [
         {
          "words": "cold season",
+         "at": 20,
          "gives": "WINTER",
          "note": "winter is the cold season"
-        },
-        {
-         "words": "Seabird",
-         "gives": "ERNE",
-         "note": "the erne is the sea eagle"
         }
        ]
+      },
+      {
+       "words": "Seabird",
+       "at": 0,
+       "gives": "ERNE",
+       "note": "the erne is the sea eagle"
       }
      ]
     },
     "explanation": {
-     "surface": "A seabird trapped through a wingless winter is caged for safety.",
-     "walkthrough": "'Wings' suggests a bird, but it means the outer letters of the season.",
-     "definitionFit": "An internee is someone confined, as in wartime, as a security precaution rather than for a crime."
+     "surface": "A seabird is caught in winter, its wings folded away.",
+     "walkthrough": "'Wings' suggests the seabird's, but they belong to the season: its outer letters go.",
+     "definitionFit": "An internee is a person confined, often in wartime, because of perceived risk rather than any crime."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "wings"
     }
    }

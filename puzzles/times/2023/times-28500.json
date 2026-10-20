@@ -933,42 +933,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARGOT",
-     "indicators": [
-      {
-       "text": "contracts",
-       "note": "a word that contracts gets shorter, so it loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "contracts",
+         "at": 4,
+         "note": "contracts means shrinks, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Are",
-         "gives": "AR",
-         "note": "are with its last letter dropped"
+         "at": 0,
+         "gives": "ARE",
+         "note": "taken as written"
         },
         {
-         "words": "obtained",
-         "gives": "GOT",
-         "note": "got is the past tense of get, to obtain"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "obtained",
+       "at": 14,
+       "gives": "GOT",
+       "note": "obtained means got"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about whether signed contracts include special conditions.",
-     "walkthrough": "'Contracts' looks like a noun for agreements, which suits 'special terms'; it is a verb telling you to shorten the word before it.",
-     "definitionFit": "Argot is the jargon or slang of a particular group, the special vocabulary its members use."
+     "surface": "A question about whether signed agreements secure favourable conditions.",
+     "walkthrough": "'Contracts' looks like a noun, legal agreements, but it is a verb meaning shortens.",
+     "definitionFit": "Argot is the jargon or slang of a particular group, its own specialised vocabulary."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "contracts"
     }
    }

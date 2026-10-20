@@ -294,53 +294,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "unpacked from cases",
+       "at": 23,
+       "note": "each word's cases are its outer letters, and the contents are unpacked by losing them"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "TART",
-       "indicators": [
-        {
-         "text": "unpacked from cases",
-         "note": "taking contents out of their cases leaves the insides, so each word loses its outermost letters"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "begins",
-         "gives": "TART",
-         "select": "middle",
-         "note": "begins is STARTS; its inside, without its cases, is kept"
-        }
-       ]
+       "words": "begins",
+       "at": 10,
+       "gives": "STARTS",
+       "note": "begins means starts"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "UFFE",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "meal",
-         "gives": "UFFE",
-         "select": "middle",
-         "note": "a buffet is a meal; its inside, without its cases, is kept"
-        }
-       ]
+       "words": "meal",
+       "at": 17,
+       "gives": "BUFFET",
+       "note": "a buffet is a meal where guests serve themselves"
       }
      ]
     },
     "explanation": {
-     "surface": "A two-faced diner starts eating a meal after unwrapping it.",
-     "walkthrough": "Tartuffe is the religious hypocrite of Molière's comedy, whose name became a byword.",
-     "definitionFit": "Molière's title character is a sanctimonious fraud, so his name is used for any hypocrite."
+     "surface": "A two-faced person starts eating, having taken the food out of boxes.",
+     "walkthrough": "STARTS without its ends is TART; BUFFET without its ends is UFFE. Tartuffe is the title character of Molière's comedy.",
+     "definitionFit": "Tartuffe, Molière's sanctimonious fraud, has become a byword for a religious hypocrite."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cases"
+     "misdirectedWord": "begins"
     }
    }
   },

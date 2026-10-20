@@ -351,41 +351,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUSKIN",
-     "indicators": [
-      {
-       "text": "half ignored",
-       "note": "ignoring half of a word means leaving out half its letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half ignored",
+         "at": 22,
+         "note": "half of the country's name is left out, so only its front half is kept"
+        }
+       ],
        "parts": [
         {
          "words": "big country",
-         "gives": "RUS",
-         "note": "Russia, the world's largest country, with its second half dropped"
-        },
-        {
-         "words": "relations",
-         "gives": "KIN",
-         "note": "kin are relatives"
+         "at": 10,
+         "gives": "RUSSIA",
+         "note": "Russia is the largest country in the world"
         }
        ]
+      },
+      {
+       "words": "relations",
+       "at": 38,
+       "gives": "KIN",
+       "note": "one's relations are one's kin"
       }
      ]
     },
     "explanation": {
-     "surface": "A commentator on a large nation is snubbed by half of his own family.",
-     "definitionFit": "John Ruskin was the leading Victorian art and social critic, author of Modern Painters."
+     "surface": "A commentator on a huge nation is snubbed by family.",
+     "walkthrough": "John Ruskin was the leading Victorian art critic.",
+     "definitionFit": "John Ruskin was the foremost English art and social critic of the Victorian era."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "relations"
     }
    }
   },
@@ -985,57 +987,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LENINGRAD",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "briefly means cut short, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Line",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 12,
+         "note": "in a down clue up means the word is written from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "Line",
-         "gives": "L",
-         "note": "L is the abbreviation for line"
-        },
+         "words": "number",
+         "at": 5,
+         "gives": "NINE",
+         "note": "nine is a number"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "in a down entry, up means the word is read from bottom to top"
-          }
-         ],
-         "parts": [
-          {
-           "words": "number",
-           "gives": "NINE",
-           "note": "nine is a number"
-          }
-         ]
-        },
+         "text": "briefly",
+         "at": 23,
+         "note": "briefly means cut short, losing the last letter"
+        }
+       ],
+       "parts": [
         {
          "words": "step",
-         "gives": "GRAD",
-         "note": "a grade is a step or level, cut short"
+         "at": 18,
+         "gives": "GRADE",
+         "note": "a grade is a step on a scale"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for drawing a line with a number above a stair.",
-     "definitionFit": "Leningrad was the Soviet name of St Petersburg from 1924 to 1991, so it is a former city name."
+     "surface": "A telephone line's number goes up a step in an old city.",
+     "walkthrough": "NINE written upward gives ENIN; GRADE cut short gives GRAD.",
+     "definitionFit": "Leningrad was the Soviet-era name of St Petersburg, from 1924 to 1991."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "step"
+     "misdirectedWord": "number"
     }
    }
   },

@@ -43,36 +43,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CLERIC",
-     "indicators": [
-      {
-       "text": "changing hands",
-       "note": "left and right are the two hands, so the letters standing for left and right trade places"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "caught",
+       "at": 12,
        "gives": "C",
-       "note": "C is the cricket scorecard abbreviation for caught"
+       "note": "C is the cricket abbreviation for caught"
       },
       {
-       "words": "religious artefact",
-       "gives": "RELIC",
-       "note": "a relic is an object venerated as holy"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changing hands",
+         "at": 38,
+         "note": "the hands are R and L, right and left, which swap places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "religious artefact",
+         "at": 19,
+         "gives": "RELIC",
+         "note": "a relic is a sacred object"
+        },
+        {
+         "gives": "REL"
+        },
+        {
+         "gives": "LER"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vicar is caught passing a holy object from one hand to the other.",
-     "walkthrough": "In the artefact's name, R stands for right and L for left, the two hands, so those letters trade places.",
-     "definitionFit": "A vicar is one example of a member of the clergy, hence the 'maybe'."
+     "surface": "A clergyman is caught with a sacred object passing to a new owner.",
+     "walkthrough": "'Changing hands' suggests a sale, but it swaps R (right) and L (left) in RELIC.",
+     "definitionFit": "A vicar is one example of a cleric, a member of the clergy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "hands"
     }
    }

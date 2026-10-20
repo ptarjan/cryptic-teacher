@@ -164,45 +164,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COPOUT",
+     "op": "container",
      "indicators": [
       {
-       "text": "when leader goes",
-       "note": "the leader of a word is its first letter, and it goes away here"
+       "text": "in",
+       "at": 11,
+       "note": "in means the work word is placed inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "one word goes in the other, placed inside its letters"
+         "text": "when leader goes",
+         "at": 21,
+         "note": "the leader is the first letter, and it goes away"
         }
        ],
        "parts": [
         {
          "words": "search",
-         "gives": "COUT",
-         "note": "to search is to scout, losing its first letter"
+         "at": 14,
+         "gives": "SCOUT",
+         "note": "to scout is to search"
         },
         {
-         "words": "work",
-         "gives": "OP",
-         "note": "OP is short for opus, a work"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "work",
+       "at": 6,
+       "gives": "OP",
+       "note": "OP is short for opus, a work"
       }
      ]
     },
     "explanation": {
-     "surface": "Avoiding a job search after the boss leaves.",
-     "definitionFit": "An evasion of responsibility is a dodge, an excuse that lets someone avoid doing something."
+     "surface": "Someone avoids the effort of searching once their boss has left.",
+     "walkthrough": "'Leader' sounds like a boss walking out, but it is just the first letter of the search word.",
+     "definitionFit": "A cop-out is an evasion of responsibility, a way of ducking out of something."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "leader"
     }
@@ -351,48 +357,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EUROPE",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of a word is all but its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 7,
+         "note": "about means turned round, so the regret word is written backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about means turned round, so the word is read from the end"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Regret",
-           "gives": "RUE",
-           "note": "to rue is to regret"
-          }
-         ]
-        },
+         "words": "Regret",
+         "at": 0,
+         "gives": "RUE",
+         "note": "to regret is to rue"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 13,
+         "note": "most of means all but the last letter"
+        }
+       ],
+       "parts": [
         {
          "words": "one group of countries",
-         "gives": "OPE",
-         "note": "OPEC, the oil-exporting countries, without its last letter"
+         "at": 21,
+         "gives": "OPEC",
+         "note": "OPEC is the Organization of the Petroleum Exporting Countries"
+        },
+        {
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Remorse over how one bloc of nations or another behaves.",
-     "walkthrough": "The definition is the single word 'another', meaning another group of countries.",
-     "definitionFit": "The continent, or the EU loosely, is a second group of countries besides the oil cartel."
+     "surface": "Someone sorry about the state of one trading bloc or a rival bloc.",
+     "walkthrough": "'Or another' is the definition: Europe is another group of countries besides OPEC.",
+     "definitionFit": "Europe, like OPEC, can be thought of as a group of countries, so it is a second such grouping."
     },
     "features": {
      "answerInScene": true,
@@ -1469,57 +1480,73 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Swearing in",
+      "text": "Swearing",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OBJURATION",
+     "op": "charade",
      "indicators": [
       {
-       "text": "given no",
-       "note": "given no start means the word loses its opening letter"
+       "text": "after",
+       "at": 18,
+       "note": "after places the judge's letter following the old boy's letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "old boy's",
+       "at": 24,
+       "gives": "OB",
+       "note": "OB is the abbreviation for old boy, a former pupil"
+      },
+      {
+       "words": "judge",
+       "at": 12,
+       "gives": "J"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after",
-         "note": "after means coming behind, so the letters follow the earlier ones"
+         "text": "given no",
+         "at": 34,
+         "note": "given no signals that a letter is lost"
+        },
+        {
+         "text": "to start",
+         "at": 48,
+         "note": "to start points at the opening letter"
+        },
+        {
+         "text": "on the contrary",
+         "at": 59,
+         "note": "the surface says no time is given to the start; the reverse is meant, so the time word loses its start"
         }
        ],
        "parts": [
         {
-         "words": "old boy's",
-         "gives": "OB",
-         "note": "OB is old boy, a former pupil"
-        },
-        {
-         "words": "judge",
-         "gives": "J",
-         "note": "J is the abbreviation for judge"
-        },
-        {
          "words": "time",
-         "gives": "URATION",
-         "note": "duration is time, losing its first letter"
+         "at": 43,
+         "gives": "DURATION",
+         "note": "duration is a length of time"
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A judge is sworn in after an old boy is refused time to begin.",
-     "walkthrough": "'On the contrary' flips 'given no time to start' to time given no start.",
-     "definitionFit": "Objuration is an archaic word for the act of binding by oath, as when someone is sworn into office."
+     "surface": "An oath is sworn in court after a former pupil is given no time to begin.",
+     "walkthrough": "'On the contrary' flips 'no time to start' into time with no start: DURATION loses its D.",
+     "definitionFit": "Objuration is an archaic word for the act of binding by oath, or swearing."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
     }
    }
   },
