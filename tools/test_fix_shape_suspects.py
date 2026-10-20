@@ -636,7 +636,18 @@ check("the anagram moves onto the scrambled leaf and the synonym stands bare",
 new, used = F.repair_tree(swt, swc, "TEAPARTX", SW)
 check("a swap that does not give the answer is left alone", used == [])
 
-# half_cut (round 15): "not half" over DARING less ING is the first half of DARING (SIRDAR)
+# reversalSplit: the reversal's indicator stands between its pieces; it reverses the one beside it
+rsc = "East to west, head for German city"
+rst = {"op": "reversal", "indicators": [{"text": "to west", "at": 5}], "parts": [{"op": "charade", "parts": [
+    {"words": "head", "at": 14, "gives": "NESS"}, {"words": "East", "at": 0, "gives": "E"}]}]}
+new, used = F.repair_tree(rst, rsc, "ESSEN", {"reversalSplit": F.r_reversal_split})
+check("only the piece beside the indicator is reversed: E + rev(NESS)",
+      used == ["reversalSplit"] and new["op"] == "charade" and new["parts"][0].get("gives") == "E"
+      and new["parts"][1]["op"] == "reversal")
+new, used = F.repair_tree(rst, rsc, "ESSEX", {"reversalSplit": F.r_reversal_split})
+check("no piece reversal gives the answer: left alone", used == [])
+
+# half_cut (round 15):"not half" over DARING less ING is the first half of DARING (SIRDAR)
 hc = "Military commander given title of respect, bold, not half!"
 hct = {"op": "charade", "parts": [{"words": "title of respect", "gives": "SIR"}, {"op": "deletion", "indicators": [{"text": "not half"}], "parts": [
     {"words": "bold", "gives": "DARING"}, {"gives": "ING"}]}]}

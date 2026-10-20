@@ -2887,7 +2887,40 @@ def r_halved_deletion(node, parent, ctx):
     return new if _eval_swapped(node, parent, new, ctx) else None
 
 
-RULE_REPAIRS = {"halvedAsDeletion": r_halved_deletion, "anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
+
+def r_reversal_split(node, parent, ctx):
+    """reversalSplit: a multi-part reversal whose indicator sits between its pieces in the clue reverses
+    only the piece beside it. One piece takes the reversal (its own indicator), the others join it in a
+    charade, in whichever order gives the answer. Kept only when exactly one tree does."""
+    if node.get("op") != "reversal" or node.get("unchecked") or not ctx.get("answer"):
+        return None
+    parts = node.get("parts") or []
+    inner = None            # the reversal sits over one charade/container: its pieces are the ones
+    if len(parts) == 1 and isinstance(parts[0], dict) and parts[0].get("op") in ("charade", "container"):
+        inner = parts[0]
+        parts = inner.get("parts") or []
+    if len(parts) < 2 or len(parts) > 4 or any(not isinstance(p, dict) or p.get("unchecked") for p in parts):
+        return None
+    if inner is not None and (inner.get("unchecked") or inner.get("indicators") and inner["op"] == "charade"):
+        return None
+    base_op = inner["op"] if inner is not None else "charade"
+    orders = [tuple(range(len(parts)))] if base_op == "container" else list(itertools.permutations(range(len(parts))))
+    good = {}
+    for i in range(len(parts)):
+        rev = {key: v for key, v in node.items() if key not in ("parts", "unchecked", "gives")}
+        rev["parts"] = [copy.deepcopy(parts[i])]
+        rest = [copy.deepcopy(p) for j, p in enumerate(parts) if j != i]
+        for order in orders:
+            seq = [rev if k == i else rest[k - (k > i)] for k in order]
+            cand = {key: v for key, v in (inner or {}).items() if key not in ("parts", "gives")}
+            cand.update({"op": base_op, "parts": copy.deepcopy(seq)})
+            if _eval_swapped(node, parent, cand, ctx):
+                good[json.dumps(cand, sort_keys=True)] = cand
+    return next(iter(good.values())) if len(good) == 1 else None
+
+
+
+RULE_REPAIRS = {"halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split, "anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
