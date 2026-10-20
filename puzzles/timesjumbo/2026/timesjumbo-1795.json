@@ -847,7 +847,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "taken in by"
+       "text": "taken in by",
+       "at": 32,
+       "note": "the doubled fool is taken in, enclosed, by the other pieces"
       }
      ],
      "parts": [
@@ -856,32 +858,50 @@
        "parts": [
         {
          "words": "eccentric",
+         "at": 44,
          "gives": "CHARACTER",
-         "note": "an eccentric person is a character"
+         "note": "a character is an eccentric person"
         },
         {
          "words": "island",
-         "gives": "I",
-         "note": "I = island"
+         "at": 54,
+         "gives": "I"
         },
         {
          "words": "race",
+         "at": 61,
          "gives": "NATION",
-         "note": "a race or people"
+         "note": "a nation is a race or people"
         }
        ]
       },
       {
-       "words": "fool repeatedly",
-       "gives": "ASSASS",
-       "note": "ass = fool, twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 21,
+         "note": "repeatedly asks for the word for fool to appear twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fool",
+         "at": 16,
+         "gives": "ASS",
+         "note": "an ass is a fool"
+        },
+        {
+         "gives": "ASS"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tale of a fool caught up with an odd island people.",
-     "walkthrough": "'Eccentric' looks like an anagram indicator for 'island race'; it is a noun, an odd person, and the doubled fool is slotted into the middle of the string.",
-     "definitionFit": "A gerund for gerund: traducing someone means maliciously destroying their reputation."
+     "surface": "A slanderous remark: a fool repeatedly deceived by a strange island people.",
+     "walkthrough": "'Eccentric island race' reads as an anagram signal followed by fodder, but each word is a synonym: an eccentric is a character, and a race is a nation.",
+     "definitionFit": "Character assassination is the malicious destruction of a person's reputation, which is what traducing means."
     },
     "features": {
      "answerInScene": false,
@@ -2564,25 +2584,36 @@
      "indicators": [
       {
        "text": "dancing",
-       "note": "the letters move about into a new order"
-      },
-      {
-       "text": "topless",
-       "note": "the top letter, S, comes off"
+       "at": 11,
+       "note": "letters dancing about are moved into a new order"
       }
      ],
      "parts": [
       {
-       "words": "Sensualist",
-       "gives": "ENSUALIST",
-       "note": "SENSUALIST without its top letter, 9 letters of fodder"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 19,
+         "note": "topless means without the top, so the first letter of the word goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sensualist",
+         "at": 0
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pleasure-seeker dancing topless, somehow keeping warm.",
-     "walkthrough": "'Topless' fits the risqué surface; in a down clue the top is the first letter, so the S goes.",
-     "definitionFit": "A verb phrase for a verb: to insulate is to stop heat escaping."
+     "surface": "A hedonist dances without a top, wrapped up against the cold.",
+     "walkthrough": "'Topless' drops the first S of SENSUALIST, and 'dancing' rearranges the remaining ENSUALIST.",
+     "definitionFit": "To insulate is to cover something with material that stops heat escaping."
     },
     "features": {
      "answerInScene": false,

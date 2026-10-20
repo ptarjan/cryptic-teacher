@@ -860,31 +860,48 @@
      "indicators": [
       {
        "text": "cuts",
-       "note": "the letter cuts into the word, splitting it in two"
+       "at": 4,
+       "note": "one cuts into the meat, going inside it"
       }
      ],
      "parts": [
       {
-       "words": "a lot of meat",
-       "gives": "FLES",
-       "note": "FLESH without its last letter; the outer letters FL…ES"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 9,
+         "note": "a lot of means most but not all, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meat",
+         "at": 18,
+         "gives": "FLESH",
+         "note": "flesh is meat"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
        "words": "One",
+       "at": 0,
        "gives": "I",
-       "note": "I = one, the Roman numeral, cutting into FLES"
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A butcher slicing up a quantity of meat to use as bait for fishing.",
-     "walkthrough": "'One cuts' reads as a butcher at work; 'One' is the letter I.",
-     "definitionFit": "A definition by example: anglers dangle real or artificial insects to hook fish."
+     "surface": "A butcher slices most of the meat to use as bait for fishing.",
+     "definitionFit": "Anglers use artificial flies as lures to catch fish such as trout."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "One"
+     "misdirectedWord": "cuts"
     }
    }
   },

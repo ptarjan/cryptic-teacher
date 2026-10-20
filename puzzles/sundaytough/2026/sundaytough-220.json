@@ -287,55 +287,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
+     "indicators": [
+      {
+       "text": "raised",
+       "at": 20,
+       "note": "in a down clue, raised means moved higher, towards the top of the word"
+      }
+     ],
      "parts": [
+      {
+       "words": "public",
+       "at": 30,
+       "gives": "OPEN",
+       "note": "open means public, not secret"
+      },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
          "at": 9,
-         "note": "ultimately picks the final letter of question"
+         "note": "ultimately means at the end, the last letter"
         }
        ],
        "parts": [
         {
          "words": "Question",
          "at": 0,
-         "note": "its last letter is used"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "raised in",
-         "at": 20,
-         "note": "raised in says that letter is lifted out of the word for public, to go to the top of this down entry"
-        }
-       ],
-       "parts": [
-        {
-         "words": "public",
-         "at": 30,
-         "gives": "OPEN",
-         "note": "open means public, available to all"
-        },
-        {
-         "gives": "N"
+         "note": "last letter N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A public figure is asked a question and gives an emphatic no.",
-     "walkthrough": "OPEN (public) ends in N, the last letter of 'Question'; 'raised in' lifts that N from the bottom of OPEN to the top of this down answer.",
-     "definitionFit": "Nope is an informal, emphatic way of saying no, so it is a flat refusal or denial."
+     "surface": "A query finally brought up in a public refusal.",
+     "walkthrough": "The N at the end of OPEN, matching the last letter of 'Question', is 'raised' to the top of the word.",
+     "definitionFit": "Nope is an informal no, a denial or refusal."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "raised"
     }
@@ -1673,8 +1665,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Novelist",
-      "at": 0
+      "text": "Novelist's",
+      "at": 0,
+      "note": "the novelist with 's as is: Novelist is the answer"
      }
     ],
     "wordplay": {
@@ -1682,28 +1675,47 @@
      "parts": [
       {
        "words": "wife",
-       "gives": "W",
-       "note": "W is wife"
+       "at": 11,
+       "gives": "W"
       },
       {
-       "words": "changes",
+       "words": "makes changes to",
+       "at": 16,
        "gives": "ALTERS",
-       "note": "to change is to alter"
+       "note": "alters means makes changes to"
       },
       {
-       "words": "yarn — not on",
-       "gives": "COTT",
-       "note": "COTTON without ON"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 40,
+         "note": "not tells the solver to leave out the word that follows from the yarn"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yarn",
+         "at": 33,
+         "gives": "COTTON",
+         "note": "cotton is a yarn, a spun thread"
+        },
+        {
+         "words": "on",
+         "at": 44,
+         "gives": "ON"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A novelist's wife keeps changing his story, and he objects.",
-     "walkthrough": "The ‘s is 'is' joining definition to wordplay. 'Yarn' suggests a story, but it is cotton thread.",
-     "definitionFit": "Sir Walter Scott was the Scottish novelist who wrote Ivanhoe."
+     "surface": "A writer's wife reworks a yarn, saying no to it.",
+     "walkthrough": "'Yarn' suggests a story, which suits a novelist, but it is the thread COTTON, minus ON.",
+     "definitionFit": "Sir Walter Scott was the Scottish author of Ivanhoe and Waverley, a novelist."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "yarn"
     }

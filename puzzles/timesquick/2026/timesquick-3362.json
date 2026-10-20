@@ -253,34 +253,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Scientist",
-      "at": 0
+      "text": "Scientist's",
+      "at": 0,
+      "note": "the scientist with 's as is: Scientist is the answer"
      }
     ],
     "wordplay": {
      "op": "charade",
      "parts": [
       {
-       "words": "venture largely",
-       "gives": "DAR",
-       "note": "to venture is to dare, and it stops before its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 20,
+         "note": "largely means most of, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "venture",
+         "at": 12,
+         "gives": "DARE",
+         "note": "to dare is to venture, to be bold enough"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "secure",
+       "at": 28,
        "gives": "WIN",
-       "note": "to secure a prize or a contract is to win it"
+       "note": "to win something is to secure it"
       }
      ]
     },
     "explanation": {
-     "surface": "A researcher's gamble paying off.",
-     "walkthrough": "'Venture' and 'secure' both read as business words, which is why neither looks like a synonym waiting to be chopped. The surname is the definition's whole content, given only by trade.",
-     "definitionFit": "Charles Darwin, the naturalist who published On the Origin of Species in 1859, is named here by his trade rather than by anything he did."
+     "surface": "A researcher's undertaking is mostly safe.",
+     "definitionFit": "Charles Darwin was the English naturalist who proposed evolution by natural selection."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "venture"
+     "misdirectedWord": "secure"
     }
    }
   },

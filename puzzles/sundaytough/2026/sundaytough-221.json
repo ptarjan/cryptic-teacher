@@ -1086,25 +1086,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "man cut",
-       "gives": "GU",
-       "note": "GUY = man, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 11,
+         "note": "cut means shortened, so the last letter of the man is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "man",
+         "at": 7,
+         "gives": "GUY",
+         "note": "guy is an informal word for a man"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "curvy shape",
+       "at": 15,
        "gives": "ESS",
-       "note": "an ess is an S-shaped curve"
+       "note": "an ess is the S-shaped curve, the letter's name"
       }
      ]
     },
     "explanation": {
-     "surface": "A godlike man with a shapely figure.",
-     "walkthrough": "'Divine man' reads as a god or a heart-throb; 'Divine' is the verb, to guess by intuition.",
-     "definitionFit": "A verb sense of divine: to discover by intuition rather than evidence, much as one makes an inspired guess."
+     "surface": "A holy man trims a curving figure.",
+     "walkthrough": "'Divine' looks like a noun or adjective for a god; it is the verb meaning to guess.",
+     "definitionFit": "To divine is to discover by intuition, which is a way to make a guess."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Divine"
     }
    }
