@@ -484,30 +484,44 @@
      "indicators": [
       {
        "text": "to store",
-       "note": "the refusal keeps the other word inside it"
-      },
-      {
-       "text": "mostly",
-       "note": "most of the word, dropping its last letter"
+       "at": 28,
+       "note": "the French no keeps the other letters stored inside it"
       }
      ],
      "parts": [
       {
        "words": "Charles de Gaulle's refusal",
+       "at": 0,
        "gives": "NON",
-       "note": "non is French for no, as de Gaulle famously said to British entry into the Common Market"
+       "note": "de Gaulle was French, and non is French for no"
       },
       {
-       "words": "more",
-       "gives": "ELS",
-       "note": "else = more, minus its last E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 43,
+         "note": "most of the word, with its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "more",
+         "at": 37,
+         "gives": "ELSE",
+         "note": "else means more, as in anything else"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "De Gaulle refusing to let more goods be kept in a ship's hold.",
-     "walkthrough": "N(ELS)ON. 'Hold' looks like a ship's cargo space; it is a wrestling hold, the nelson, applied from behind the opponent.",
-     "definitionFit": "A crossword-favourite sense: the nelson is a wrestler's grip, arms under the opponent's and hands behind the neck."
+     "surface": "De Gaulle refuses to keep any more cargo stored in the ship's hold.",
+     "walkthrough": "De Gaulle famously said 'Non' to Britain joining the Common Market. ELS is ELSE missing its last letter.",
+     "definitionFit": "A nelson is a wrestling hold applied by passing an arm under the opponent's arm and behind the neck."
     },
     "features": {
      "answerInScene": false,

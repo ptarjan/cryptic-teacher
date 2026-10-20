@@ -610,32 +610,65 @@
      "op": "charade",
      "parts": [
       {
-       "words": "poem's second half",
-       "gives": "EM",
-       "note": "the last two of its four letters"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "second half",
+         "at": 13,
+         "note": "only the back half of the word poem is kept, its latter two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poem's",
+         "at": 6,
+         "gives": "POEM",
+         "note": "the word poem, whose back half is wanted"
+        }
+       ]
       },
       {
-       "op": "anagram",
+       "op": "move",
        "indicators": [
         {
          "text": "moving",
-         "note": "moving shifts something from its place, so the order of letters changes"
+         "at": 54,
+         "note": "a letter of the word is shifted to a new position within that same word"
         }
        ],
        "parts": [
         {
          "words": "reminiscent of Don Juan",
+         "at": 27,
          "gives": "BYRONIC",
-         "note": "Don Juan is Lord Byron's long comic poem"
+         "note": "Don Juan is Lord Byron's epic poem, so something reminiscent of it is Byronic"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "heart",
+           "at": 73,
+           "note": "the central letter of the nine-letter word boyfriend"
+          }
+         ],
+         "parts": [
+          {
+           "words": "boyfriend's",
+           "at": 61,
+           "gives": "BOYFRIEND",
+           "note": "the word boyfriend, whose centre letter is the one shifted"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Literary criticism: the back half of a young poet's work echoes Byron and is touching about a lover.",
-     "walkthrough": "Byron wrote Don Juan, so 'reminiscent of' it is the adjective formed from his name; only one letter moves, hopping one place forward, so the anagram is a gentle one.",
-     "definitionFit": "Something embryonic is at a rudimentary first stage of development, like an unborn organism."
+     "surface": "A critic notes that the back half of an early poem recalls Byron's Don Juan and touches a boyfriend's heart.",
+     "walkthrough": "EM is the back half of POEM. The heart of BOYFRIEND is R, and 'moving' shifts that R in BYRONIC forward one place to give BRYONIC.",
+     "definitionFit": "Embryonic describes something at a rudimentary first stage of development, so it is a synonym for early."
     },
     "features": {
      "answerInScene": false,

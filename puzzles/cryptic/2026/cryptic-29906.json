@@ -1056,26 +1056,22 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "non-stop",
-       "note": "without its final stop, i.e. last letter"
-      }
-     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "the question goes in with the other letters"
+         "text": "non-stop",
+         "at": 6,
+         "note": "without its stop, i.e. with its closing letter cut off"
         }
        ],
        "parts": [
         {
          "words": "Swear",
+         "at": 0,
          "gives": "DAMN",
-         "note": "damn = swear; 'non-stop' then cuts its last letter, leaving DAM"
+         "note": "to swear is to damn"
         },
         {
          "gives": "N"
@@ -1083,40 +1079,53 @@
        ]
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "ridiculous",
-         "note": "the letters are made ridiculous, i.e. jumbled"
+         "text": "in",
+         "at": 25,
+         "note": "the question letter goes inside the shuffled letters"
         }
        ],
        "parts": [
         {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "ridiculous",
+           "at": 35,
+           "note": "pub is made ridiculous, its letters jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pub",
+           "at": 28
+          },
+          {
+           "words": "is",
+           "at": 32
+          }
+         ]
+        },
+        {
          "words": "question",
-         "gives": "Q",
-         "note": "Q = question"
-        },
-        {
-         "words": "pub",
-         "note": "as written"
-        },
-        {
-         "words": "is",
-         "note": "as written; Q, PUB and IS are jumbled together"
+         "at": 16,
+         "gives": "Q"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone cursing at a pub quiz that turned out a flop.",
-     "walkthrough": "'Is' looks like the verb of the sentence but is fodder, and Q is the standard abbreviation for question.",
-     "definitionFit": "An idiom: a squib is a small firework, and a damp one fizzles without a bang, hence a let-down or non-event."
+     "surface": "Someone swearing constantly over a question asked in a pub turns out to be a ridiculous anticlimax.",
+     "walkthrough": "'Non-stop' looks like 'constantly', but here it means the swear word loses its final letter.",
+     "definitionFit": "A damp squib is a British idiom for something that fails to live up to expectations, like a firework that fizzles."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "is"
+     "misdirectedWord": "ridiculous"
     }
    }
   },

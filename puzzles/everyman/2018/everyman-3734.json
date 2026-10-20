@@ -745,7 +745,8 @@
      "indicators": [
       {
        "text": "on",
-       "note": "on joins the first part to what follows it"
+       "at": 16,
+       "note": "in a down clue the first part sits on top of the second"
       }
      ],
      "parts": [
@@ -754,41 +755,54 @@
        "indicators": [
         {
          "text": "in",
-         "note": "in places the word for quantity inside the word for map"
-        },
-        {
-         "text": "around",
-         "note": "around says the rearranged letters wrap the abbreviation for west"
+         "at": 9,
+         "note": "the quantity goes inside the map"
         }
        ],
        "parts": [
         {
          "words": "map",
+         "at": 12,
          "gives": "CHART",
-         "note": "a chart is a map, especially a sea map"
+         "note": "a chart is a map"
         },
         {
          "words": "Quantity",
+         "at": 0,
          "gives": "LOT",
-         "note": "a lot is a quantity, as in a job lot"
+         "note": "a lot is a quantity"
         }
        ]
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "distribution of",
-         "note": "a distribution spreads things out, so the letters are scattered and rearranged"
+         "text": "around",
+         "at": 40,
+         "note": "the shuffled bees go around the compass letter"
         }
        ],
        "parts": [
         {
-         "words": "bees",
-         "note": "these letters are rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "distribution of",
+           "at": 19,
+           "note": "the letters of bees are distributed into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bees",
+           "at": 35
+          }
+         ]
         },
         {
          "words": "west",
+         "at": 47,
          "gives": "W",
          "note": "W is the compass abbreviation for west"
         }
@@ -798,14 +812,14 @@
     },
     "spelling": "CHARLOTTE'S WEB",
     "explanation": {
-     "surface": "A map plots how many bees are spread around to the west, like a nature survey.",
-     "walkthrough": "The bees fit the book's farmyard world, where a spider spins words into her web.",
-     "definitionFit": "Charlotte's Web is E. B. White's 1952 children's novel about a pig saved by a spider."
+     "surface": "A quantity shown on a map of how bees are spread around the west, as in a children's book.",
+     "walkthrough": "'Distribution of bees' could pass for a map's subject, but it signals only that the four letters are rearranged.",
+     "definitionFit": "Charlotte's Web is E. B. White's classic novel for young readers about a pig and a spider."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "map"
+     "misdirectedWord": "distribution"
     }
    }
   },

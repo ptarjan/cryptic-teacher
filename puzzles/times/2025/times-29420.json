@@ -534,28 +534,26 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "to obtain",
-       "note": "to obtain something is to take hold of it, so the duty word takes the key inside itself"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "implicating"
+         "text": "to obtain",
+         "at": 25,
+         "note": "the duty word takes in, or obtains, the key letter"
         }
        ],
        "parts": [
         {
          "words": "duty",
+         "at": 20,
          "gives": "JOB",
-         "note": "a job is a task or duty"
+         "note": "a job is a duty or task"
         },
         {
          "words": "key",
+         "at": 35,
          "gives": "E",
          "note": "E is a musical key"
         }
@@ -565,22 +563,31 @@
        "op": "container",
        "indicators": [
         {
-         "text": "leader of",
-         "note": "only the first letter of 'government'"
+         "text": "implicating",
+         "at": 47,
+         "note": "the records enfold, or implicate, the next letter"
         }
        ],
        "parts": [
         {
          "words": "records",
+         "at": 39,
          "gives": "LOGS",
-         "note": "logs are written records"
+         "note": "logs are records"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "leader of",
+           "at": 59,
+           "note": "the first letter of government"
+          }
+         ],
          "parts": [
           {
            "words": "government",
-           "note": "first letter of 'government'"
+           "at": 69
           }
          ]
         }
@@ -589,9 +596,9 @@
      ]
     },
     "explanation": {
-     "surface": "An ordinary citizen is expected to find documents that incriminate the Prime Minister.",
-     "walkthrough": "Joe Bloggs is the British name for a typical ordinary person, like John Doe or Joe Public.",
-     "definitionFit": "Joe Bloggs is the stock name for the average man in the street."
+     "surface": "An ordinary citizen's job is to get hold of key records that incriminate the head of government.",
+     "walkthrough": "Joe Bloggs is the British stock name for an average person, as John Doe is in America.",
+     "definitionFit": "Joe Bloggs is the British equivalent of John Doe, the hypothetical average citizen."
     },
     "features": {
      "answerInScene": true,
@@ -1741,43 +1748,53 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "Not quite",
-       "note": "the last letter of CRICK is dropped"
+       "text": "up",
+       "at": 30,
+       "note": "in a down clue the letters are read upwards, i.e. in reverse order"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "up",
-         "note": "in a down clue, the letters are read upwards"
-        }
-       ],
        "parts": [
         {
          "words": "A",
-         "note": "as printed"
+         "at": 0
         },
         {
-         "words": "pain in the neck",
-         "gives": "CRIC",
-         "note": "a crick is a painful stiffness in the neck; drop the last K"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Not quite",
+           "at": 20,
+           "note": "all but the final letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pain in the neck",
+           "at": 2,
+           "gives": "CRICK",
+           "note": "a crick is a painful stiffness in the neck"
+          },
+          {
+           "gives": "K"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An annoying person is not quite out of bed yet.",
-     "walkthrough": "'A pain in the neck' reads as an annoying person; here it is literal, a crick.",
-     "definitionFit": "Circa means about, used with approximate dates."
+     "surface": "Someone complaining about a pain in the neck says it is not quite up and about yet.",
+     "walkthrough": "A CRICK loses its last letter to give ACRIC, which reads upwards as the answer.",
+     "definitionFit": "Circa is Latin for around, used before approximate dates, so it is a synonym for about."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "pain"
+     "misdirectedWord": "about"
     }
    }
   },
