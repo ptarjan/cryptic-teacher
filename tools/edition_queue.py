@@ -1060,6 +1060,12 @@ def key_of(unit):
     return unit["kind"], unit["paper"], unit["rel"]
 
 
+def scan_share(ceiling, reads_due):
+    """The most scans at once while reads are due: a third of the unit ceiling, at least 1.
+    None when no read waits (scans keep their whole pool)."""
+    return max(1, ceiling // 3) if reads_due else None
+
+
 def slot_of(unit):
     """The pool a unit runs in: "scan", "read", "trove" (its article reads)
     or its fetch source ("fetch archive.org", "fetch trove")."""
@@ -1596,6 +1602,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
     stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
     ceiling_bound = False  # logged once each time the unit-children ceiling is met
+    scan_held = False  # logged once each time the scans are held to their share for the reads
     opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
     closed = []  # (start, end) wall times of those units that ended, the last hour's (desktop_sessions)
     burn_bound = False  # logged once each time the burn starts starving
@@ -2202,6 +2209,20 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # Whether a read waits on a scan; a partial, not a closure: no Python frame of its own.
         waits = functools.partial(read_waits, scanning=scanning_by, unscanned=unscanned,
                                   rescanned=rels_by_paper(rescanned))
+        # Reads feed the VLM and file puzzles; scans only find them. While a read is due the scans
+        # keep to scan_share of the unit ceiling, so they cannot crowd the reads out of it.
+        reads_due = not vlm_full and not yielding and any(k not in tried and not waits(u) for u, k in read_cands)
+        share = scan_share(mem_gate.unit_ceiling(), reads_due)
+        if free.get("scan", 0) > 0 and share is not None:
+            live = sum(1 for _, (v, _) in units_running() if v["kind"] == "scan")
+            if live + free["scan"] > share:
+                free["scan"] = max(0, share - live)
+                if not scan_held and free["scan"] == 0:
+                    scan_held = True
+                    log(f"scan held for reads: {live} scans running of {share} allowed while reads are due "
+                        f"(unit ceiling {mem_gate.unit_ceiling()})")
+        if free.get("scan", 0) > 0 or share is None:
+            scan_held = False
         # A fresh scan is never held for a backlog's reads (fed).
         firsts = {key_of(u) for u in first + fresh_scans}
         ready = []

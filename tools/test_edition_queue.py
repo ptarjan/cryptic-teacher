@@ -2255,6 +2255,11 @@ check("the watcher seeing code change reloads the queue with no signal: exit 75,
       (hr.RELOAD_RC, True, True), (rc, took < 10, len(pids) >= 1))
 os.environ["CT_AUTO_RELOAD"] = "0"
 
+# Scans keep to a third of the unit ceiling (at least 1) while reads are due; the whole pool otherwise.
+check("scan share: ceiling 10 with reads due holds scans to 3", 3, eq.scan_share(10, True))
+check("scan share: a tiny ceiling still leaves one scan", 1, eq.scan_share(2, True))
+check("scan share: no read due leaves the scan pool whole", None, eq.scan_share(10, False))
+
 print("FAILS", fails)
 
 print("test_edition_queue: all passed" if not fails else "test_edition_queue: FAILED")
