@@ -3843,17 +3843,23 @@ def words_of(text):
     return re.sub(r"[^a-z0-9]+", "", (text or "").lower())
 
 
+#: A clue's last word that a cross-reference or more words must follow: a clue every reader
+#: ends there lost what came after it (Gale 2005-03-17's 13 down "Separated but linked, like",
+#: the "21" all of them dropped), which only the image has, so the light is weak.
+OPEN_END = re.compile(r"(?<=\s)(?:like|see|of|and|the|a|an|with|than|versus|between)$")
+
+
 def weak_lights(read, laid, blank, lengths, confirmed=()):
     """The lights whose clue the scan's own readers do not settle: blank, or
     printed as filed by fewer than OCR_CONFIRM readings of `read`. `confirmed`:
     lights whose filed clue the variant readings (ocr_retry) printed too."""
     weak = set()
     for lid in lengths:
-        if lid in confirmed and (laid.get(lid) or ("",))[0].strip() and lid not in blank:
-            continue
         text = (laid.get(lid) or ("",))[0]
-        if not text.strip() or lid in blank:
+        if not text.strip() or lid in blank or OPEN_END.search(text.strip()):
             weak.add(lid)
+            continue
+        if lid in confirmed:
             continue
         mine = words_of(text)
         # Each reading as filed clues are: its own slips mended first, so
@@ -5061,9 +5067,11 @@ def unfit_blanked(laid, blank, lengths, printed=None):
     for lid, (text, enum, group) in list(laid.items()):
         cells = sum(lengths.get(i, 0) for i in group or [lid])
         why = ocr_clues.unfit(text, enum, cells, printed.get(lid, ()))
-        if why and (cut := ocr_clues.footer_laid(text, cells)) and not ocr_clues.unfit(cut[0], cut[1], cells, printed.get(lid, ())):
+        if (cut := ocr_clues.footer_laid(text, cells)) and not ocr_clues.unfit(cut[0], cut[1], cells, printed.get(lid, ())):
             # The solution-box footer the vote laid with the last clue, cut at its count: no
-            # blank, so no pick is asked of the VLM for it.
+            # blank, so no pick is asked of the VLM for it. Cut too when unfit() passes the
+            # text ("being sticky (5) 22,926 Solutic", no count laid: Gale 2005-03-17's 28
+            # across, filed with the footer until the VLM's column read it clean).
             laid[lid] = (cut[0], cut[1], group)
             continue
         if why:
