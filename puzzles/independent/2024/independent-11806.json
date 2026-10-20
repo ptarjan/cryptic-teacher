@@ -850,7 +850,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "seaside town",
+      "text": "seaside town?",
       "at": 29
      }
     ],
@@ -859,41 +859,49 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one item placed in another sits inside its letters"
+       "at": 20,
+       "note": "in means placed inside, so the jumbled letters and road go within the word for which"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "littered",
-         "note": "litter is scattered about, so the letters are strewn into a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Waste",
-         "note": "taken as written for rearranging"
-        },
-        {
-         "words": "which",
-         "gives": "WHO",
-         "note": "which was once used for people, as in 'Our Father, which art in heaven', so it stands for who"
-        }
-       ]
+       "words": "which",
+       "at": 23,
+       "gives": "WHO",
+       "note": "who can stand for which, as a relative pronoun"
       },
       {
-       "words": "road",
-       "gives": "RD",
-       "note": "Rd is the abbreviation for road"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "littered",
+           "at": 6,
+           "note": "littered means scattered about, so the letters of waste are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Waste",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "words": "road",
+         "at": 15,
+         "gives": "RD"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wondering which seaside town has its road strewn with rubbish.",
-     "walkthrough": "Waste and road together have one A too many, so road gives only its abbreviation, set inside the shuffled WASTE plus WHO.",
-     "definitionFit": "Westward Ho! is a seaside village in north Devon, named after Charles Kingsley's novel."
+     "surface": "Rubbish strewn over a coastal road: which resort could that be?",
+     "walkthrough": "'in which' reads as a link, but 'which' supplies letters and 'in' places the rest inside them. Westward Ho! is a seaside village in Devon, named after Charles Kingsley's novel.",
+     "definitionFit": "It is a Devon coastal resort, so an example of a seaside town, hence the question mark."
     },
     "features": {
      "answerInScene": true,

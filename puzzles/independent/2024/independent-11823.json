@@ -287,46 +287,30 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "of",
+       "at": 5,
+       "note": "of here means taken from, so the answer is drawn out of the words that follow"
+      }
+     ],
      "parts": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "ingredient",
-         "note": "an ingredient is something mixed inside, so a word is found within the drink's name"
-        }
-       ],
-       "parts": [
-        {
-         "words": "whiskey",
-         "gives": "KEY",
-         "note": "the last three letters of the drink"
-        }
-       ]
-      },
-      {
-       "op": "hidden",
-       "parts": [
-        {
-         "words": "ingredient",
-         "gives": "IN",
-         "note": "the clue reads as a statement that the first word sits in the drink"
-        }
-       ]
+       "words": "whiskey ingredient",
+       "at": 8
       }
      ]
     },
     "explanation": {
-     "surface": "Asks which kind of whiskey goes into a mix.",
-     "walkthrough": "The answer describes itself: the word KEY is IN whiskey, so it is a whiskey ingredient.",
-     "definitionFit": "To key in is to type data into a computer, so the phrasal verb matches the verb type."
+     "surface": "A drinker asks what kind of whiskey goes into a cocktail or recipe.",
+     "walkthrough": "'Type of whiskey' looks like the definition, a brand of spirit; only 'Type' defines, as a verb.",
+     "definitionFit": "To key in data is to type it on a keyboard, so the phrasal verb is a synonym of type."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Type"
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
     }
    }
   },
@@ -1050,70 +1034,81 @@
      "indicators": [
       {
        "text": "admitting",
-       "note": "admitting means letting in, so the outer letters take in what follows"
-      },
-      {
-       "text": "to secure",
-       "note": "to secure something is to hold it fast, so the abbreviation grips the next letter inside it"
+       "at": 10,
+       "note": "admitting means letting in, so the shuffled coy letters hold the rest"
       }
      ],
      "parts": [
       {
-       "words": "Coy",
-       "gives": "OCY",
-       "note": "the three letters rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 4,
+         "note": "about means around in disorder, signalling the letters of coy are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Coy",
+         "at": 0
+        }
+       ]
       },
       {
        "op": "charade",
        "parts": [
         {
-         "op": "reversal",
+         "op": "container",
          "indicators": [
           {
-           "text": "backing",
-           "note": "backing means going in reverse, so the abbreviation is read backwards"
+           "text": "to secure",
+           "at": 54,
+           "note": "to secure means to hold fast, so the reversed letters enclose the university"
           }
          ],
          "parts": [
           {
-           "op": "anagram",
+           "op": "reversal",
            "indicators": [
             {
-             "text": "about",
-             "note": "about can mean turned around or roughly arranged, so the word is reshuffled"
+             "text": "backing",
+             "at": 20,
+             "note": "backing means going backwards, so the abbreviation is read in reverse"
             }
            ],
            "parts": [
             {
              "words": "politically correct",
-             "gives": "CP",
-             "note": "PC, the abbreviation, backwards"
-            },
-            {
-             "words": "university",
-             "gives": "U",
-             "note": "U is the abbreviation for university"
+             "at": 28,
+             "gives": "PC"
             }
            ]
+          },
+          {
+           "words": "university",
+           "at": 64,
+           "gives": "U"
           }
          ]
         },
         {
          "words": "party",
+         "at": 48,
          "gives": "ANC",
-         "note": "the African National Congress, South Africa's governing party"
+         "note": "the ANC is the African National Congress, South Africa's governing party"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shy academic is evasive about backing a woke party to get a permanent university post.",
-     "walkthrough": "'To secure' puts U inside the reversed PC; that and ANC then sit inside the rearranged Coy, before its Y.",
-     "definitionFit": "Tenure is the holding or occupying of property or office, which is what occupancy means."
+     "surface": "A shy academic, backed by a correct-thinking political party, tries to win a permanent post at the university.",
+     "walkthrough": "COY rearranged by 'about' gives OCY, which admits CUP (PC reversed by 'backing', securing U) followed by ANC.",
+     "definitionFit": "Tenure is the holding or occupying of property or office, so it is the state of occupation."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "tenure"
     }

@@ -964,36 +964,35 @@
      "op": "container",
      "indicators": [
       {
-       "text": "first to",
-       "note": "the first of a word is its opening letter"
+       "text": "gripping",
+       "at": 45,
+       "note": "gripping means holding tight, so these letters enclose the word for lives"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "gripping",
-         "note": "to grip is to hold, so the outer letters hold the inner ones"
-        }
-       ],
        "parts": [
         {
          "words": "proverb",
+         "at": 20,
          "gives": "MAXIM",
-         "note": "a maxim is a proverb, a wise saying"
+         "note": "a maxim is a proverb, a short saying"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "E",
+         "indicators": [
+          {
+           "text": "first to",
+           "at": 28,
+           "note": "first to means the first letter of the following word, explain"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
            "words": "explain",
-           "gives": "E",
-           "select": "first",
-           "note": "the first letter of Explain"
+           "at": 37,
+           "note": "first letter of explain"
           }
          ]
         }
@@ -1001,15 +1000,16 @@
       },
       {
        "words": "lives",
+       "at": 54,
        "gives": "IS",
-       "note": "is = lives, exists"
+       "note": "is means lives, exists, as in 'there is'"
       }
      ]
     },
     "explanation": {
-     "surface": "Get the most out of a saying by using it to account for how people live.",
-     "walkthrough": "'Gripping' looks like 'fascinating', but it is a container instruction; 'lives' is the verb, not the plural of life.",
-     "definitionFit": "A plain synonym: to get the most out of something is to make the fullest use of it."
+     "surface": "A writer opens with a saying to explain some gripping biographies.",
+     "walkthrough": "'first' is easy to read as placing the proverb at the front; it belongs with 'to explain', picking that word's opening letter.",
+     "definitionFit": "To maximise something is to get the most out of it, which is making the fullest use of it."
     },
     "features": {
      "answerInScene": false,
@@ -1319,59 +1319,69 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one thing placed in another sits inside it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "words": "European",
+       "at": 11,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
         {
-         "words": "European",
-         "gives": "E",
-         "note": "E = European"
-        },
+         "text": "in",
+         "at": 33,
+         "note": "in means placed inside, so the cheeky one goes within the jumbled letters"
+        }
+       ],
+       "parts": [
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "kinky",
-           "note": "something kinked is bent out of shape, so its letters are twisted into a new order"
+           "at": 36,
+           "note": "kinky means twisted, so the letters of sex are rearranged"
           }
          ],
          "parts": [
           {
            "words": "sex",
-           "note": "joined with E, anagram fodder that splits around the middle"
-          },
+           "at": 42
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
           {
            "words": "cheeky",
+           "at": 21,
            "gives": "PERT",
-           "note": "pert = cheeky, saucy"
+           "note": "pert means cheeky, saucy"
+          },
+          {
+           "words": "one",
+           "at": 28,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "I = one, the Roman numeral"
       }
      ]
     },
     "explanation": {
-     "surface": "A European's skill in cheeky, unconventional lovemaking.",
-     "walkthrough": "The commas make 'cheeky one' look like a description of the European, but the European's letter belongs with the anagram, not with the insert.",
-     "definitionFit": "A plain synonym: great skill or knowledge in a field is mastery of it."
+     "surface": "A saucy European claims great skill at unusual bedroom practices.",
+     "walkthrough": "The scrambled letters split around the cheeky one, so the European letter starts the answer and another E ends it.",
+     "definitionFit": "Expertise is great skill or knowledge in a field, a synonym of command or proficiency."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "kinky"
     }
    }

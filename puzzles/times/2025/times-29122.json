@@ -1223,43 +1223,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "backing",
-       "note": "going backwards, so the outer letters that follow are read in reverse"
-      }
-     ],
      "parts": [
       {
        "words": "in favour of",
+       "at": 9,
        "gives": "FOR",
-       "note": "for = in favour of"
+       "note": "for means in favour of"
       },
       {
        "words": "trade union",
-       "gives": "TU",
-       "note": "TU = trade union"
+       "at": 22,
+       "gives": "TU"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "case for",
-         "note": "a case is the outside, so take the outer letters of 'election'"
+         "text": "backing",
+         "at": 34,
+         "note": "backing means going backwards, so the two outer letters are reversed"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "EN",
+         "indicators": [
+          {
+           "text": "case for",
+           "at": 42,
+           "note": "the case of a word is its outside, its first and last letters, here of election"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
            "words": "election",
-           "gives": "EN",
-           "select": "outer",
-           "note": "outer letters of election, turned round"
+           "at": 51
           }
          ]
         }
@@ -1268,14 +1266,14 @@
      ]
     },
     "explanation": {
-     "surface": "A union supporting an election campaign stands to gain millions.",
-     "walkthrough": "'Backing' reads as the union's support; it turns round the case of 'election'.",
-     "definitionFit": "Definition by example: a vast sum of money, such as millions."
+     "surface": "Millions back the trade union's case at the election.",
+     "walkthrough": "EN, the case of election, reversed by 'backing' to NE, ends the answer.",
+     "definitionFit": "A fortune is a very large sum of money, which millions of pounds are."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "backing"
+     "misdirectedWord": "Millions"
     }
    }
   },
@@ -1533,31 +1531,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ALTER",
      "indicators": [
       {
-       "text": "'arness",
-       "note": "the apostrophe marks a dropped H, so the synonym also loses its H"
+       "text": "'",
+       "at": 22,
+       "note": "the apostrophe in place of the H of harness is the Cockney dropped aitch, telling the solver to drop the H from the synonym too"
       }
      ],
      "parts": [
       {
-       "words": "'arness",
-       "gives": "ALTER",
-       "note": "harness = HALTER, spoken with a dropped H in Cockney style"
+       "words": "arness",
+       "at": 23,
+       "gives": "HALTER",
+       "note": "harness with its H dropped; a halter is the harness for a horse's head"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "A request to adjust some tack for a horse.",
-     "walkthrough": "The dropped H in 'arness tells you to drop the H of its synonym too, as a Cockney would.",
-     "definitionFit": "Plain synonym: to change."
+     "surface": "A Cockney groom talks about adjusting a horse's 'arness.",
+     "walkthrough": "The clue drops the H of harness; do the same to a halter, the rope harness for a horse's head.",
+     "definitionFit": "To change something is to make modifications to it, a plain synonym for the verb."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "misdirectedWord": "Make"
     }
    }
   },

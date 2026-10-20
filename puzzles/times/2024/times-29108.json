@@ -1143,45 +1143,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SANDERLING",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 22,
+       "note": "seen in means appearing inside, so the shortened course sits within the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "most of the word, so the last letter goes"
-        },
-        {
-         "text": "seen in",
-         "note": "something seen in a place is inside it, so these letters go inside the others"
-        },
-        {
          "text": "wild",
-         "note": "untamed, so the letters run free"
+         "at": 30,
+         "note": "wild means unruly, so the letters of gardens are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "wild gardens",
-         "gives": "SANDERG",
-         "note": "GARDENS rearranged"
+         "words": "gardens",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 15,
+         "note": "mostly means most of the word, its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "course",
+         "at": 8,
+         "gives": "LINE",
+         "note": "a line is a course, a direction taken"
         },
         {
-         "words": "of course mostly",
-         "gives": "LIN",
-         "note": "LINE (a course, as in a line of action) without its last letter, set inside"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bird of the kind you would expect to spot in overgrown gardens.",
-     "walkthrough": "'Of course' reads as 'naturally' but is a noun phrase: a course is a line. The sanderling is a small wading bird that races along the edge of the surf.",
-     "definitionFit": "The sanderling is a small sandpiper, a bird of sandy beaches."
+     "surface": "A bird, naturally, is mostly to be seen in overgrown gardens.",
+     "walkthrough": "'of course' reads as 'naturally', but 'of' is the link and 'course' supplies letters.",
+     "definitionFit": "The sanderling is a small grey-and-white wader seen running along beaches, so an example of a bird."
     },
     "features": {
      "answerInScene": false,

@@ -168,53 +168,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "edges either side of",
+       "at": 16,
+       "note": "the fish edges either side of the river, so its letters are split to sit around it"
+      }
+     ],
      "parts": [
       {
        "words": "Freshwater fish",
-       "gives": "PERCH",
-       "note": "the perch is a river and lake fish"
+       "at": 0,
+       "gives": "PERCHES",
+       "note": "perches, plural of the freshwater fish perch"
       },
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "either side of"
-        }
-       ],
-       "parts": [
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "edges",
-           "note": "the edges of a word are its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "edges",
-           "note": "the first and last letters of EdgeS"
-          }
-         ]
-        },
-        {
-         "words": "river",
-         "gives": "R",
-         "note": "R = river, as on maps"
-        }
-       ]
+       "words": "river",
+       "at": 37,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A description of where freshwater fish swim and what lives along the riverbank.",
-     "walkthrough": "\"Edges\" reads as the riverbanks; it is its own fodder, giving E and S, which then wrap round R.",
-     "definitionFit": "Perchers are birds that perch, the group that includes the songbirds."
+     "surface": "Freshwater fish edge along both banks of a river while birds watch.",
+     "walkthrough": "'Freshwater fish' looks singular, but it is the plural PERCHES, which is split around R.",
+     "definitionFit": "Perching birds, the passerines, are those that sit on branches, so the word names birds by habit."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "edges"
     }
    }
@@ -944,61 +927,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ESCAPERS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "above",
+       "at": 37,
+       "note": "in a down answer, above means this piece sits on top of the next"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "case of",
-         "note": "the case is the outside, first and last letters"
-        },
-        {
-         "text": "above",
-         "note": "in a down answer, placed on top of the next part"
+         "text": "over",
+         "at": 28,
+         "note": "over means turned over, so the two outer letters are read in reverse"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "ES",
          "indicators": [
           {
-           "text": "over",
-           "note": "turned over, read backwards"
+           "text": "case of",
+           "at": 14,
+           "note": "the case of a word is its outside, its first and last letters, here of Soave"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "case of Soave over",
-           "gives": "ES",
-           "select": "outer",
-           "note": "SoavE's outer letters, SE, turned over"
+           "words": "Soave",
+           "at": 22
           }
          ]
-        },
-        {
-         "words": "pickled cooking ingredients",
-         "gives": "CAPERS",
-         "note": "capers are pickled flower buds"
         }
        ]
+      },
+      {
+       "words": "pickled cooking ingredients",
+       "at": 43,
+       "gives": "CAPERS",
+       "note": "capers are pickled flower buds used in cooking"
       }
      ]
     },
     "explanation": {
-     "surface": "Diners who are given a free case of Soave wine along with their pickled capers.",
-     "walkthrough": "\"Get free\" looks like receiving something for nothing; it means breaking out. \"And\" is part of the placing instruction \"over and above\".",
-     "definitionFit": "Escapers are people who get free, break out."
+     "surface": "A recipe: a case of Soave wine goes in over and above pickled cooking ingredients.",
+     "walkthrough": "'over' is the reversal signal, while 'above' places the wine's case first in this down answer; 'over and above' reads as one phrase but does two jobs.",
+     "definitionFit": "Those who break out of prison or captivity are getting free, which defines them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "free"
     }
    }

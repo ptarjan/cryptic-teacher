@@ -667,63 +667,73 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Taxi",
+      "text": "Taxi's almost returned in one minute",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "returned",
-       "note": "returned also means sent back the way it came, so the string is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 14,
+         "note": "returned means sent back, so these letters are read in reverse order"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "almost",
-           "note": "almost means not quite all of it, so the last letter is cut"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "returned",
-           "gives": "BACK",
-           "note": "returned as in came back"
+           "words": "in",
+           "at": 23
           },
           {
-           "gives": "K"
+           "words": "one",
+           "at": 26,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          },
+          {
+           "words": "minute",
+           "at": 30,
+           "gives": "M"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 7,
+         "note": "almost means not quite all of the word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Taxi's",
+         "at": 0,
+         "gives": "CABS",
+         "note": "read as taxis, plural cabs"
         },
         {
-         "words": "in",
-         "note": "taken as written"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        },
-        {
-         "words": "minute",
-         "gives": "M",
-         "note": "M is the abbreviation for minute"
+         "gives": "S"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A cab has nearly come back within sixty seconds.",
-     "walkthrough": "'Returned' works twice: it is the word cut short and the instruction to read everything in reverse, as the Times for the Times blog parses it.",
-     "definitionFit": "A minicab is a hired car booked by phone, a kind of taxi that cannot be hailed in the street."
+     "surface": "A cab has nearly come back within a minute of being called.",
+     "walkthrough": "IN, I and M reversed by 'returned' give MINI; CABS less its last letter ('almost') gives CAB. The whole clue also describes the hired car.",
+     "definitionFit": "A minicab is a private hire car booked by phone, a kind of taxi that might well return quickly."
     },
     "features": {
      "answerInScene": true,
