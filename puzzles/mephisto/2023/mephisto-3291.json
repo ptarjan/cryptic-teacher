@@ -1794,32 +1794,42 @@
       {
        "text": "chewed",
        "at": 40,
-       "note": "chewed food is mangled, so these letters are rearranged"
+       "note": "chewed means mangled in the mouth, so the letters gathered here are worked into a new order"
       }
      ],
      "parts": [
       {
        "words": "ate",
-       "at": 22,
-       "note": "the letters ATE taken as written"
+       "at": 22
       },
       {
-       "words": "half of wort",
-       "at": 27,
-       "gives": "WO",
-       "note": "WO is the first half of the word wort"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 27,
+         "note": "half of the four-letter word wort means only its front two letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wort",
+         "at": 35,
+         "note": "wort is a plant word, here only a source of letters"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A caterpillar ate a plant, chewing half of a wort.",
-     "walkthrough": "'chewed' mixes ATE with WO, the front half of 'wort'.",
-     "definitionFit": "The aweto is a New Zealand caterpillar killed and filled by a parasitic fungus, so it looks like a plant."
+     "surface": "A caterpillar eating part of a wort plant, a natural-history snapshot.",
+     "walkthrough": "'half of' keeps WO from WORT; add ATE as written and 'chewed' rearranges ATEWO into the answer. AWETO is a New Zealand caterpillar killed and filled by a fungus, so it looks like a plant.",
+     "definitionFit": "The aweto is the New Zealand caterpillar mummified by a fungus, traditionally called a vegetable caterpillar because it seems to sprout from the soil."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "Vegetable"
+     "aptDefinition": false,
+     "misdirectedWord": "chewed"
     }
    }
   },
@@ -2132,54 +2142,29 @@
       {
        "text": "hiding in",
        "at": 23,
-       "note": "says the creature lurks inside the word for the field"
+       "note": "hiding in says the creature lurks among the letters of the following word rather than being built from synonyms"
       },
       {
        "text": "prime spots",
        "at": 45,
-       "note": "only the letters in the prime-numbered positions, second, third, fifth and seventh, are kept"
+       "note": "prime spots means only the letters at the prime-numbered positions, second, third, fifth and seventh, of the word are kept; the rest go"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "deletion",
-           "parts": [
-            {
-             "words": "cornfield's",
-             "at": 33,
-             "gives": "CORNFIELDS",
-             "note": "the letters CORNFIELDS taken as written"
-            },
-            {
-             "gives": "C"
-            }
-           ]
-          },
-          {
-           "gives": "N"
-          }
-         ]
-        },
-        {
-         "gives": "I"
-        }
-       ]
+       "words": "cornfield's",
+       "at": 33,
+       "note": "the word is taken letter by letter as written, apostrophe ignored"
       },
       {
-       "gives": "LDS"
+       "gives": "CNILDS"
       }
      ]
     },
     "explanation": {
-     "surface": "A golden creature hides out in the best places of a cornfield.",
-     "walkthrough": "'hiding in' and 'prime spots' keep only the letters of 'cornfield' in prime-numbered places, the 2nd, 3rd, 5th and 7th: removing C, N, I and LDS leaves ORFE.",
-     "definitionFit": "The orfe or ide is a fish, and its golden variety is a popular ornamental pond fish."
+     "surface": "A golden-yellow animal lurking in the best parts of a cornfield.",
+     "walkthrough": "Number the letters of CORNFIELDS: positions 2, 3, 5 and 7 (the primes) are O, R, F, E. The others, C N I L D S, are dropped. 'prime' looks like 'best' but is the mathematical sense.",
+     "definitionFit": "The orfe is a freshwater fish of the carp family, whose ornamental golden variety is kept in garden ponds."
     },
     "features": {
      "answerInScene": false,

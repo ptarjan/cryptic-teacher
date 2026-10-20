@@ -786,25 +786,43 @@
      "parts": [
       {
        "words": "Can",
+       "at": 0,
        "gives": "TIN",
        "note": "a tin is a can"
       },
       {
        "words": "small",
+       "at": 4,
        "gives": "S",
-       "note": "S = small"
+       "note": "S is the clothing-size abbreviation for small"
       },
       {
-       "words": "elf cut",
-       "gives": "EL",
-       "note": "ELF minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 14,
+         "note": "cut means the word loses its last letter, as if snipped short"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elf",
+         "at": 10,
+         "gives": "ELF",
+         "note": "taken as written before the cut"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Asking whether a little elf is allowed to trim the Christmas decorations.",
-     "walkthrough": "'Can' opens the clue as a request for permission; it is a noun, a tin.",
-     "definitionFit": "Tinsel is the glittering strands hung on Christmas trees."
+     "surface": "Asking whether a little elf could trim a Christmas tree decoration.",
+     "walkthrough": "'Can' looks like a verb but is the noun, a tin. 'cut' trims ELF to EL.",
+     "definitionFit": "Tinsel is the glittering metallic strands hung on Christmas trees as ornament."
     },
     "features": {
      "answerInScene": true,

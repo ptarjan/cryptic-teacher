@@ -1001,29 +1001,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "after"
+       "text": "after",
+       "at": 28,
+       "note": "after means the cut word follows the letter for second, so the letter comes first"
       }
      ],
      "parts": [
       {
        "words": "second",
-       "gives": "S",
-       "note": "S = second"
+       "at": 34,
+       "gives": "S"
       },
       {
-       "words": "Collapse, having lost heart",
-       "gives": "CRUPLE",
-       "note": "CRUMPLE without its middle letter M"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having lost heart",
+         "at": 10,
+         "note": "having lost heart means the word loses its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Collapse",
+         "at": 0,
+         "gives": "CRUMPLE",
+         "note": "to crumple is to collapse"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone collapsing after a second attack of doubt.",
-     "walkthrough": "The clue reads Collapse first, but 'after' puts it behind S.",
-     "definitionFit": "A scruple is a moral misgiving that holds you back."
+     "surface": "Someone collapsing, losing heart and having doubts.",
+     "walkthrough": "The heart of a word is its middle letter. 'Collapse' looks like the definition at the front, but the definition is the last word.",
+     "definitionFit": "A scruple is a moral doubt or qualm that holds someone back from acting."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "heart"
     }
@@ -1051,53 +1069,38 @@
    "annotation": {
     "definitions": [
      {
-      "text": "beef?",
+      "text": "beef",
       "at": 42
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "REDMEAT",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "at": 15,
+       "note": "on the radio means heard rather than seen, so the pieces count by sound"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "RED",
-       "indicators": [
-        {
-         "text": "on the radio",
-         "note": "radio is heard, not seen, so go by sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Recorded",
-         "gives": "READ",
-         "note": "a meter read, or recorded, a figure"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "MEAT",
-       "parts": [
-        {
-         "words": "match",
-         "gives": "MEET",
-         "note": "a meet is a sporting match"
-        }
-       ]
+       "words": "Recorded match",
+       "at": 0,
+       "gives": "READMEET",
+       "note": "read, past tense and said like red, means recorded as a meter is read; a meet is a sporting match"
       }
      ]
     },
     "explanation": {
-     "surface": "A match broadcast on the radio that sparks an argument.",
-     "walkthrough": "'Beef' looks like the slang for a quarrel, which suits a match; the question mark flags it as an example of red meat.",
-     "definitionFit": "A definition by example, flagged by the question mark: meat from cattle belongs to the dark-fleshed class alongside lamb and venison."
+     "surface": "A sports match heard on the radio, leading to talk of beef.",
+     "walkthrough": "Past-tense READ is said 'red', and MEET sounds like 'meat'. The question mark says beef is an example of the answer.",
+     "definitionFit": "Red meat is meat that is dark before cooking, such as beef, lamb or venison."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "beef"
+     "aptDefinition": false,
+     "misdirectedWord": "match"
     }
    }
   },
