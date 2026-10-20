@@ -4137,7 +4137,7 @@ def settled_by_vlm(texts, lid, parse, cands):
 
 #: What a Gale page prints under its last across clue: the puzzle's number and the
 #: heading of the solution box ("23,099 Solution", "SWORD 23,095"), however torn.
-_FOOTER_TAIL = re.compile(r"\W*(?:(?:S?WORD|Solu\w*|\d{1,2}[,.]?\d{3}|to|ou|so)\W*)+")
+_FOOTER_TAIL = re.compile(r"\W*(?:(?:S?WORD|Solu\w*|\d{1,2}[,.]?\d{0,3}|to|ou|so)\W*)+")
 #: Of a footer, the part no clue ends in: the puzzle's number or the box's heading.
 _FOOTER_MARK = re.compile(r"\d{2}[,.]?\d{3}|Solu|WORD")
 _COUNT_AT = re.compile(r"\(\s*[\dSIl,.\- ]{1,9}\)")
