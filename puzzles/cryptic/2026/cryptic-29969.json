@@ -1393,26 +1393,49 @@
      "indicators": [
       {
        "text": "rescued",
-       "note": "anyone rescued is taken in and sheltered, so the girl ends up housed inside the other word."
+       "at": 41,
+       "note": "rescued says the shortened word holds the girl safe inside"
       }
      ],
      "parts": [
       {
-       "words": "exhausted having killed leader",
-       "gives": "EARY",
-       "note": "WEARY is exhausted, and its leading W is killed off"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having killed leader",
+         "at": 16,
+         "note": "killing the leader means removing the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exhausted",
+         "at": 6,
+         "gives": "WEARY",
+         "note": "weary means exhausted"
+        },
+        {
+         "gives": "W"
+        }
+       ]
       },
       {
        "words": "girl",
+       "at": 49,
        "gives": "MISS",
-       "note": "a miss is a girl — the form of address for an unmarried woman"
+       "note": "a miss is a girl"
       }
      ]
     },
     "explanation": {
-     "surface": "An exhausted spy who has killed the boss and saved a girl.",
-     "walkthrough": "The thriller in the surface does its killing to a letter: 'leader' is the first character of a word. An emissary carries a message rather than a gun.",
-     "definitionFit": "An emissary is somebody sent on a mission on another's behalf — an agent in the diplomatic sense rather than the spying one."
+     "surface": "A tired secret agent assassinates a boss and saves a young woman.",
+     "walkthrough": "'Rescued' works as a container: the beheaded tired word takes the girl into its arms, as a rescuer would.",
+     "definitionFit": "An emissary is a representative or envoy sent on a mission, an agent acting for another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Agent"
     }
    }
   }

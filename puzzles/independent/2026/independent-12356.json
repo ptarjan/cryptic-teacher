@@ -647,20 +647,30 @@
       {
        "text": "getting",
        "at": 24,
-       "note": "getting means the half-word acquires the next letters after it"
+       "note": "getting means acquiring, so the half of lake gains the next letters after it"
       },
       {
        "text": "over",
        "at": 44,
-       "note": "over in a down clue means this piece sits above, so before, the next one"
+       "note": "over in a down clue means placed above, so the scrambled bird sits on top of the throw"
       }
      ],
      "parts": [
       {
-       "words": "half of lake",
-       "at": 10,
-       "gives": "KE",
-       "note": "the second half of the four-letter word lake"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 10,
+         "note": "half of the four-letter word lake is taken, its back two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lake",
+         "at": 18
+        }
+       ]
       },
       {
        "op": "anagram",
@@ -668,7 +678,7 @@
         {
          "text": "flying",
          "at": 37,
-         "note": "flying means the letters of ruff are sent in all directions, rearranged"
+         "note": "flying here means sent in all directions, so the letters of ruff are rearranged"
         }
        ],
        "parts": [
@@ -682,19 +692,19 @@
        "words": "pitch",
        "at": 49,
        "gives": "FLING",
-       "note": "to fling is to throw or pitch"
+       "note": "to pitch is to fling or throw"
       }
      ]
     },
     "explanation": {
-     "surface": "A ruff, the wading bird, takes off over half a lake and stirs it up.",
-     "walkthrough": "A ruff is a wading bird. Half of lake gives KE, RUFF 'flying' is rearranged to RFUF, and FLING (pitch) completes it.",
-     "definitionFit": "Kerfuffling is causing a fuss or commotion, so it means stirring up or agitating."
+     "surface": "A wading bird, the ruff, is seen flying low over a lake, causing a stir.",
+     "walkthrough": "The second half of lake gives KE; 'flying' rearranges RUFF to RFUF, and 'over' in a down clue puts that above FLING.",
+     "definitionFit": "Kerfuffle is a commotion or fuss, so kerfuffling is causing a fuss, stirring things up."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "pitch"
+     "misdirectedWord": "ruff"
     }
    }
   },
@@ -1130,31 +1140,49 @@
      "indicators": [
       {
        "text": "evident in",
-       "note": "something evident in a place can be seen inside it"
+       "at": 20,
+       "note": "evident in says the word for also is seen inside the shortened parties"
       }
      ],
      "parts": [
       {
-       "words": "a lot of wild parties",
-       "gives": "ORGIE",
-       "note": "ORGIES without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 31,
+         "note": "a lot of means most but not all, so the final letter is cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wild parties",
+         "at": 40,
+         "gives": "ORGIES",
+         "note": "wild parties are orgies"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
        "words": "also",
+       "at": 15,
        "gives": "AND",
-       "note": "and = also"
+       "note": "also means and"
       }
      ]
     },
     "explanation": {
-     "surface": "Filmy clothing on show at raucous parties.",
-     "walkthrough": "Orgies are the 'wild parties'; knocking off the plural S is what leaves room to finish on IE.",
-     "definitionFit": "A definition by example: organdie is a fine, stiff, sheer muslin, one gauzy fabric."
+     "surface": "Flimsy fabric is what you would also see at plenty of wild parties.",
+     "walkthrough": "'A lot of' means most but not all, so the parties lose their tail before taking in the word for also.",
+     "definitionFit": "Organdie is a fine, translucent cotton muslin, stiffened, used for dresses: a gauzy fabric."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "also"
+     "misdirectedWord": "evident"
     }
    }
   },

@@ -1084,42 +1084,54 @@
      "indicators": [
       {
        "text": "hiding",
-       "note": "Something hidden is tucked inside where it cannot be seen, so the name closes over the pieces that follow it."
+       "at": 18,
+       "note": "hiding says the family member holds the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "curling",
-         "note": "Letters that curl are bent out of the straight line they came in, so the three in front come out in another order."
-        }
-       ],
-       "parts": [
-        {
-         "words": "One of the Trumps",
-         "gives": "ERIC",
-         "note": "Eric is one of Donald Trump's sons"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S is the size label for small"
-        }
-       ]
+       "words": "One of the Trumps",
+       "at": 0,
+       "gives": "ERIC",
+       "note": "Eric Trump is one of Donald Trump's sons"
       },
       {
-       "words": "toe",
-       "gives": "OTE",
-       "note": "the three letters of toe, curled into a different order"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "small",
+         "at": 25,
+         "gives": "S"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "curling",
+           "at": 35,
+           "note": "curling means twisting round, so the letters of toe are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "toe",
+           "at": 31
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A member of the Trump family sitting on a small, cringe-making secret.",
-     "walkthrough": "'Toe-curling' is one word of embarrassment on the surface and comes apart into a body part and an instruction. The family name is the famous one; the first name is what the letters need.",
-     "definitionFit": "secret → ESOTERIC: knowledge that is esoteric is kept among the initiated few, secret in the sense of withheld rather than hidden."
+     "surface": "A member of the Trump family conceals a small, cringe-making secret.",
+     "walkthrough": "'Toe-curling' looks like one word meaning embarrassing; split, 'toe' is the fodder and 'curling' the anagram signal.",
+     "definitionFit": "Esoteric means known only to a select few, so hidden or secret knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "toe-curling"
     }
    }
   },
