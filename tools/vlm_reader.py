@@ -909,9 +909,11 @@ def boxes(img, wins, readings):
 
 
 #: A crop (page pixels) narrower or shorter than this holds no clue column: the
-#: real ones are 370+ wide and 270+ tall (a short column's two or three clues);
-#: the junk a stray line makes is ~35 px (FT 1987-02-07: 33x36).
-MIN_BOX = (120, 80)
+#: real ones are 320+ wide and 70+ tall (the 1945 Times' strip over the grid
+#: ends its down clues in two columns of two lines, 327x70 and 375x73: cut at
+#: 80 they left 21d, 24d and 25d out of every pick's crop, asked and answered
+#: NONE on 162 reads); the junk a stray line makes is ~35 px (FT 1987-02-07: 33x36).
+MIN_BOX = (120, 55)
 #: Boxes boxes() refused, this process.
 SKIPPED_SMALL = []
 

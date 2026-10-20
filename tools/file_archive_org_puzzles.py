@@ -5182,11 +5182,12 @@ def short_three_columns(row):
         for v in row.get("verdicts", ()))
 
 
-#: ISO time of the last fix to how a Gale page's clue columns are laid out (7a0796c690, the
-#: 1945-47 two-column pages): an edition whose read wrote a puzzle to the unfiled dir (a clue
-#: blank, destination()) before it is read again once, as "unfiled before its fix". A read
-#: after it that is incomplete again is not due until a newer time is set here.
-REREAD_UNFILED = "2026-10-19T23:53:40+00:00"
+#: ISO time of the last fix to how a Gale page's clue columns are laid out (vlm_reader.MIN_BOX
+#: 80 -> 55: the strip over the grid's two-line columns were left out of every pick's crop, 21d
+#: 24d 25d asked and left blank on 1945-47 pages): an edition whose read wrote a puzzle to the
+#: unfiled dir (a clue blank, destination()) before it is read again once, as "unfiled before its
+#: fix". A read after it that is incomplete again is not due until a newer time is set here.
+REREAD_UNFILED = "2026-10-20T13:25:00+00:00"
 
 
 def unfiled_blank(row):
