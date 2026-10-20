@@ -174,9 +174,24 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Visit with no parking",
-       "gives": "TRI",
-       "note": "TRIP (a visit) without P (parking)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no",
+         "note": "'with no' cuts a letter off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Visit",
+         "gives": "TRIP",
+         "note": "TRIP is what 'Visit' stands for"
+        },
+        {
+         "words": "parking",
+         "gives": "P"
+        }
+       ]
       },
       {
        "words": "a very long time",

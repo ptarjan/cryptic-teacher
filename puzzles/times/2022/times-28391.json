@@ -870,9 +870,23 @@
        "op": "charade",
        "parts": [
         {
-         "words": "Fuel running short",
-         "gives": "PETRO",
-         "note": "PETROL without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "running short",
+           "note": "'running short' cuts a letter off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Fuel",
+           "gives": "PETROL",
+           "note": "PETROL is what 'Fuel' stands for"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         },
         {
          "words": "as",

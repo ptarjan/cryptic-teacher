@@ -999,9 +999,23 @@
      "op": "charade",
      "parts": [
       {
-       "words": "road unfinished",
-       "gives": "HIGHWA",
-       "note": "HIGHWAY without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "note": "'unfinished' cuts a letter off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "road",
+         "gives": "HIGHWAY",
+         "note": "HIGHWAY is what 'road' stands for"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "Call",

@@ -611,9 +611,23 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Missing start, stadium",
-       "gives": "RENA",
-       "note": "ARENA (stadium) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Missing start",
+         "note": "'Missing start' cuts a letter off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stadium",
+         "gives": "ARENA",
+         "note": "ARENA is what 'stadium' stands for"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "track",

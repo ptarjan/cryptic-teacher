@@ -854,9 +854,23 @@
        "note": "among = in"
       },
       {
-       "words": "rebel group without leader",
-       "gives": "ACTION",
-       "note": "rebel group = FACTION, losing its F"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without leader",
+         "note": "'without leader' cuts a letter off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rebel group",
+         "gives": "FACTION",
+         "note": "FACTION is what 'rebel group' stands for"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },

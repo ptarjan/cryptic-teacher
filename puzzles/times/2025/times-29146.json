@@ -321,9 +321,23 @@
        "note": "m = male"
       },
       {
-       "words": "assistant briefly",
-       "gives": "AID",
-       "note": "AIDE, an assistant, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "note": "'briefly' cuts a letter off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "assistant",
+         "gives": "AIDE",
+         "note": "AIDE is what 'assistant' stands for"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
