@@ -269,25 +269,63 @@
      "op": "charade",
      "parts": [
       {
-       "words": "foot out of sock",
-       "gives": "SOC",
-       "note": "SOCK loses its 'foot' (last letter K)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 10,
+         "note": "the foot is taken out of the sock, so its bottom letter is removed from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sock",
+         "at": 17,
+         "gives": "SOCK",
+         "note": "taken as written"
+        },
+        {
+         "words": "foot",
+         "at": 5,
+         "gives": "K",
+         "note": "the foot of a word is its last letter, here the K at the end of sock"
+        }
+       ]
       },
       {
        "words": "that is",
+       "at": 22,
        "gives": "IE",
-       "note": "i.e. = that is"
+       "note": "i.e. is the abbreviation of id est, that is"
       },
       {
-       "words": "tiny without padding",
-       "gives": "TY",
-       "note": "TINY with no 'padding' (inner letters) leaves T…Y"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "without padding",
+         "at": 35,
+         "note": "with its stuffing gone, only the outside letters of the word are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tiny",
+         "at": 30,
+         "note": "taken as written, then trimmed to its ends"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two deletions dressed up as clothing: the foot comes off a sock, and the padding is the soft middle of a word. Both sit so neatly in the surface that neither reads as an instruction.",
-     "definitionFit": "Both words name an organised association of members sharing an interest, such as a debating or golfing one, so this is a plain synonym."
+     "surface": "A club foot pokes out of a sock that is too small and has no cushioning.",
+     "walkthrough": "'Club foot' reads as one medical phrase, but 'Club' alone is the definition. 'out of' drops K, the foot of SOCK, leaving SOC; IE is 'that is'; 'without padding' keeps only the T and Y of TINY.",
+     "definitionFit": "A club is a society: an association of members sharing an interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foot"
     }
    }
   },

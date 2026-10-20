@@ -1701,43 +1701,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NUNNERY",
+     "op": "container",
      "indicators": [
       {
-       "text": "misses start",
-       "note": "to miss the start is to lose the opening letter"
+       "text": "in",
+       "at": 24,
+       "note": "the shortened word is put in between the letters of the city abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "New York",
+       "at": 27,
+       "gives": "NY"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in means inside, so one piece goes within the other"
+         "text": "misses start",
+         "at": 11,
+         "note": "the word lacks its first letter"
         }
        ],
        "parts": [
         {
-         "words": "New York",
-         "gives": "NY",
-         "note": "NY is the standard abbreviation for New York"
+         "words": "Competitor",
+         "at": 0,
+         "gives": "RUNNER",
+         "note": "a runner is a competitor in a race"
         },
         {
-         "words": "Competitor",
-         "gives": "UNNER",
-         "note": "a runner is a competitor in a race, here without its first letter"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A runner missing the start of a New York race while waiting for instructions.",
-     "walkthrough": "'Under orders' sounds like a race about to start, but it means belonging to a religious order.",
-     "definitionFit": "Nuns living in a convent are members of a religious order, so their home is where everyone is under orders."
+     "surface": "A racer misses the start of a New York event, picturing a marathon runner who is late.",
+     "walkthrough": "'under orders' sounds like a race about to start, which suits the runner, but here it means members of a religious order.",
+     "definitionFit": "A nunnery is a convent, where nuns live under the rule of a religious order."
     },
     "features": {
      "answerInScene": false,

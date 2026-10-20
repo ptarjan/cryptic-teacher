@@ -218,60 +218,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ORPHAN",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 20,
+       "note": "the end letter comes after the rearranged name in the answer"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "End of",
-         "note": "the end of a word is its last letter"
-        },
-        {
          "text": "screwed",
-         "note": "the letters of OPRAH are twisted into a new order"
+         "at": 32,
+         "note": "something screwed up is twisted out of shape, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Oprah screwed",
-         "gives": "ORPHA",
-         "note": "OPRAH rearranged"
-        },
+         "words": "Oprah",
+         "at": 26,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "N",
-         "indicators": [
-          {
-           "text": "after"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "End of transmission",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of transmission, placed after"
-          }
-         ]
+         "text": "End of",
+         "at": 0,
+         "note": "the last letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "transmission",
+         "at": 7,
+         "note": "taken as written; its last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tabloid-style tease about what happened on air after Oprah had her way with someone called Annie.",
-     "walkthrough": "Annie is Little Orphan Annie, the comic-strip girl of the musical 'Annie'; the question mark marks her as one example of an orphan.",
-     "definitionFit": "Little Orphan Annie is the most famous orphan in American comics and musical theatre."
+     "surface": "A broadcast ends after a talk-show host has crudely dealt with someone called Annie.",
+     "walkthrough": "Oprah Winfrey is a US talk-show host. Little Orphan Annie is the comic-strip and musical heroine, hence the question mark on the definition by example.",
+     "definitionFit": "Annie of Little Orphan Annie is a famous fictional child without parents, an example of the answer."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "screwed"
     }
    }
@@ -1097,61 +1097,71 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "KILLER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to recruit",
+       "at": 11,
+       "note": "one piece takes another into its ranks, so those letters go inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "about",
-         "note": "Keir's letters are turned about into a new order"
-        },
-        {
-         "text": "finally (twice)",
-         "note": "the last letter of rebel, taken twice"
+         "at": 5,
+         "note": "about here means in a shuffled order, so the name's letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Keir about",
-         "gives": "KIER",
-         "note": "KEIR rearranged; it splits KI...ER around the recruits"
-        },
+         "words": "Keir",
+         "at": 0,
+         "note": "taken as written, as anagram fodder; Keir Starmer is the UK Labour leader"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "LL",
          "indicators": [
           {
-           "text": "to recruit",
-           "note": "the rearranged name takes in the new letters"
+           "text": "finally",
+           "at": 32,
+           "note": "the last letter of the word before it is used"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "rebel, finally (twice)",
-           "gives": "LL",
-           "select": "last",
-           "note": "last letter of rebel, L, twice over"
+           "words": "rebel",
+           "at": 25,
+           "note": "taken as written; its final letter is used"
           }
          ]
+        },
+        {
+         "words": "twice",
+         "at": 41,
+         "gives": "L",
+         "note": "the bracketed twice says the final letter is taken a second time"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Keir Starmer, the Labour leader, is about to take on a rebel, which the commentator calls criminal.",
-     "walkthrough": "'About to' reads as 'on the point of', but it splits: 'about' rearranges Keir and 'to recruit' puts LL inside.",
-     "definitionFit": "A killer is a criminal who has committed murder."
+     "surface": "Starmer is about to sign up a rebel, a satirical jab at a Labour leader poaching opponents.",
+     "walkthrough": "'about' rearranges KEIR into KI...ER; 'finally (twice)' gives the last letter of 'rebel' twice, LL, which 'to recruit' puts inside.",
+     "definitionFit": "A killer is a murderer, the most serious kind of criminal, so the noun is a specific example."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "rebel"
     }
    }
   },

@@ -322,12 +322,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "possibly",
-       "note": "an estate is one possible kind of car, so 'possibly' marks a definition by example"
-      },
-      {
-       "text": "two thirds of",
-       "note": "two thirds of a nine-letter city is its first six letters"
+       "text": "blocking",
+       "at": 16,
+       "note": "the car blocks the road through the city, so it sits inside the other letters"
       }
      ],
      "parts": [
@@ -335,38 +332,51 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "blocking",
-         "note": "the car blocks the road by sitting in the middle of the other letters"
-        },
-        {
          "text": "upset",
-         "note": "in a down clue, upset turns the letters upside down, so they read backwards"
+         "at": 52,
+         "note": "in a down clue, upset turns the letters upside down, so they are read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "Midland city",
-         "gives": "WORCES",
-         "note": "Worcester, a city in the English Midlands, minus its last third (TER)"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "two thirds of",
+           "at": 25,
+           "note": "only the first six of the nine letters are kept, dropping the final third"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Midland city",
+           "at": 39,
+           "gives": "WORCESTER",
+           "note": "Worcester is a cathedral city in the English West Midlands"
+          },
+          {
+           "gives": "TER"
+          }
+         ]
         }
        ]
       },
       {
-       "words": "Estate",
+       "words": "Estate possibly",
+       "at": 0,
        "gives": "CAR",
-       "note": "an estate is a British car body style (a station wagon)"
+       "note": "an estate is a type of car with a large boot, a station wagon; possibly marks the example"
       }
      ]
     },
     "explanation": {
-     "surface": "A car parked across the road leaves a Midlands city upset.",
-     "walkthrough": "An estate car is what Americans call a station wagon. The question mark flags that 'his field' is a literal field of crops, not an area of expertise.",
-     "definitionFit": "A definition by description: a scarecrow stands in a field to frighten birds off."
+     "surface": "A housing estate seems to be blocking a Midlands city and upsetting some figure in a field.",
+     "walkthrough": "WORCES (two thirds of WORCESTER) is turned upside down by 'upset' to SECROW, and CAR goes inside after the S. 'Estate' looks like housing but means the car.",
+     "definitionFit": "A scarecrow is a stuffed figure set up to frighten birds away from crops, the farmer's field being its domain."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Estate"
     }
    }
