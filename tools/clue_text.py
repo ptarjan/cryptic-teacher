@@ -392,6 +392,15 @@ DAGGER = re.compile(r"^(\W{0,2}\d{1,2}[.,:]? ?)?[tf\u2020](?=[A-Z](?:[a-z]|\s|$)
 REV_GLUED = re.compile(r"^(\W{0,2}\d{1,2})\s*rev\.\s*(?:,\s*(\d{1,2})\.)?\s*")
 
 
+#: A clue number (up to three digits or their lookalikes) opening a line.
+HEAD_NUMBER = re.compile(r"^[\dIlJ!|oO]{1,3}[.,:]?\s+")
+
+
+def head_off(text):
+    """A line's text without the clue number its first line opens on (HEAD_NUMBER)."""
+    return HEAD_NUMBER.sub("", (text or "").strip())
+
+
 def mend_opening(text):
     """`text`, a clue's opening, with a number run into "rev." ("20rev.,24.Charade:"
     is "20 rev., 24. Charade:"), a number run into its first word parted, and
