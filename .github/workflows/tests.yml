@@ -103,7 +103,31 @@ jobs:
           REF: ${{ github.ref }}
         run: |
           set -uo pipefail
-          full() { echo "full suite: $1"; echo "mode=full" >> "$GITHUB_OUTPUT"; exit 0; }
+          # A full run whose commit master has already moved past skips its
+          # suite: the newest push's run tests the code, and ten-minute shards
+          # for every commit of a burst filled GitHub's 20-job limit and starved
+          # the whole queue. The newest push is never superseded, so the tip is
+          # always tested. A skipped run is no base for later scopes (its shards
+          # and fast job are skipped, which the base filter below does not
+          # count). Accepted race: a newer run that counted this one as a base
+          # while its scope was still pending can go fast on code nobody ran;
+          # the next full run on a later commit, or nightly-smoke.yml, covers it.
+          # Any failure to look just runs the suite.
+          full() {
+            echo "full suite: $1"
+            if [ "$EVENT" = push ] && [ "$REF" = refs/heads/master ]; then
+              head=$(git ls-remote origin refs/heads/master 2>/dev/null | cut -f1)
+              newer=$(gh api "repos/$REPO/actions/workflows/tests.yml/runs?branch=master&event=push&per_page=5" \
+                        --jq ".workflow_runs[] | select(.id > $GITHUB_RUN_ID) | .id" 2>/dev/null | head -n 1)
+              if [ -n "$head" ] && [ "$head" != "$GITHUB_SHA" ] && [ -n "$newer" ]; then
+                echo "superseded by $head: the newest push's run tests the code"
+                echo "mode=skip" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+            fi
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+            exit 0
+          }
           [ "$EVENT" = push ] && [ "$REF" = refs/heads/master ] || full "not a push to master"
           list() { gh api "repos/$REPO/actions/workflows/tests.yml/runs?branch=master&event=push&status=$1&per_page=$2" \
                      --jq '.workflow_runs[] | "\(.id) \(.head_sha)"'; }
@@ -639,6 +663,11 @@ jobs:
           if [ "$SCOPE" = success ] && [ "$MODE" = fast ] && [ "$FAST" = success ] \
              && [ "$GENERATED" = skipped ] && [ "$TESTS" = skipped ] && [ "$CACHE" = skipped ]; then
             echo "puzzle-only push: schema, integrity and annotations passed"
+            exit 0
+          fi
+          if [ "$SCOPE" = success ] && [ "$MODE" = skip ] && [ "$FAST" = skipped ] \
+             && [ "$GENERATED" = skipped ] && [ "$TESTS" = skipped ] && [ "$CACHE" = skipped ]; then
+            echo "superseded by a newer push: its run tests the code"
             exit 0
           fi
           if [ "$SCOPE" = success ] && [ "$MODE" = full ] && [ "$FAST" = skipped ] \
