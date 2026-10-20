@@ -1410,30 +1410,49 @@
      "indicators": [
       {
        "text": "embracing",
-       "note": "to embrace is to hold in the arms"
+       "at": 15,
+       "note": "embracing means holding the other letters inside"
       }
      ],
      "parts": [
       {
        "words": "theologian",
+       "at": 4,
        "gives": "DD",
-       "note": "DD = Doctor of Divinity, a theologian"
+       "note": "DD is Doctor of Divinity, a theologian"
       },
       {
-       "words": "unmarried friend",
-       "gives": "ATE",
-       "note": "MATE without M (married)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unmarried",
+         "at": 25,
+         "note": "un- removes M, the abbreviation for married, from the friend word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "friend",
+         "at": 35,
+         "gives": "MATE",
+         "note": "a mate is a friend"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A theologian is spotted hugging a single friend.",
-     "walkthrough": "'Saw' looks like the past of see, or a tool; here it means went out with, as in 'she saw him for a year'.",
-     "definitionFit": "A colloquial sense: 'seeing' someone means going out with them."
+     "surface": "A theologian was spotted hugging a single friend.",
+     "walkthrough": "'Saw' is the past tense of see in the courting sense; 'unmarried' strips the abbreviation for married from the friend.",
+     "definitionFit": "To have seen someone romantically is to have dated them, gone out with them."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Saw"
     }
    }

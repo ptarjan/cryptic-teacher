@@ -1340,7 +1340,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "found in"
+       "text": "found in",
+       "at": 18,
+       "note": "the note is found inside the other letters"
       }
      ],
      "parts": [
@@ -1349,26 +1351,43 @@
        "parts": [
         {
          "words": "an",
-         "note": "an, as it stands"
+         "at": 27
         },
         {
-         "words": "endless search",
-         "gives": "QUES",
-         "note": "search = quest, without its end letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 30,
+           "note": "endless means the search word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "search",
+           "at": 38,
+           "gives": "QUEST",
+           "note": "a quest is a search"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       },
       {
        "words": "note",
+       "at": 13,
        "gives": "TI",
-       "note": "ti is a note of the sol-fa scale"
+       "note": "ti is the seventh note of the sol-fa scale"
       }
      ]
     },
     "explanation": {
-     "surface": "Hunting for a valuable old object in a search that never ends.",
-     "walkthrough": "'of note' reads as notable, but 'of' only links; the note sits between the two other parts.",
-     "definitionFit": "Antiques are old things valued for their age."
+     "surface": "Some old belongings turn up a musical note during a never-ending hunt.",
+     "walkthrough": "'endless' trims only the search; the note sits between 'an' and what is left of it.",
+     "definitionFit": "Antiques are collectable objects valued for their age, so they are literally old things."
     },
     "features": {
      "answerInScene": true,
@@ -1524,48 +1543,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "lacking"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E = English"
-        },
-        {
-         "words": "racecourse",
-         "gives": "AINTREE",
-         "note": "Aintree, near Liverpool, hosts the Grand National"
-        },
-        {
-         "words": "a current",
-         "gives": "NTREE",
-         "note": "lose A and I (the symbol for electric current)"
-        }
-       ]
+       "words": "English",
+       "at": 0,
+       "gives": "E"
       },
       {
-       "gives": "EAINTRE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 19,
+         "note": "lacking means the racecourse name loses the letters that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "racecourse",
+         "at": 8,
+         "gives": "AINTREE",
+         "note": "Aintree is the racecourse near Liverpool where the Grand National is run"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 27,
+           "gives": "A"
+          },
+          {
+           "words": "current",
+           "at": 29,
+           "gives": "I",
+           "note": "I is the symbol for electric current"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "spelling": "ENTRÉE",
     "explanation": {
-     "surface": "An English racecourse missing a stretch of its current track.",
-     "walkthrough": "'course' appears twice: first the racecourse, then the meal course that is the definition.",
-     "definitionFit": "A plain synonym: in Britain an entrée is a dish served between the main courses, in America the main course itself."
+     "surface": "An English racecourse with no running water flowing through it.",
+     "walkthrough": "'course' is the meal sense, not the racing one; the racecourse is Liverpool's home of the Grand National.",
+     "definitionFit": "An entree is a dish served as one stage of a meal, the main dish in American usage."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "current"
+     "joke": "pun",
+     "misdirectedWord": "course"
     }
    }
   }

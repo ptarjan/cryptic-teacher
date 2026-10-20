@@ -558,36 +558,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "cross",
-       "note": "to cross two breeds is to mix them together into something new, and these letters are interbred the same way"
-      },
-      {
        "text": "about",
-       "note": "'about' scatters the extra letters in among the rest instead of leaving them in a block at one end"
+       "at": 22,
+       "note": "about means going round, so the scrambled letters surround the rest"
       }
      ],
      "parts": [
       {
-       "words": "Andy Burnham is",
-       "note": "the mayor's name and the verb after it all go into the mix"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cross",
+         "at": 16,
+         "note": "cross in the sense of angry and worked up, so the politician's letters are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Andy",
+         "at": 0
+        },
+        {
+         "words": "Burnham",
+         "at": 5
+        },
+        {
+         "words": "is",
+         "at": 13
+        }
+       ]
       },
       {
-       "words": "a",
-       "note": "the article counts as one more letter"
-      },
-      {
-       "words": "Liberal",
-       "gives": "L",
-       "note": "L is the standard abbreviation for Liberal"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 28
+        },
+        {
+         "words": "Liberal",
+         "at": 30,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Andy Burnham is the mayor of Greater Manchester, and reading 'cross' as angry rather than as interbreeding is what keeps the sentence sounding like politics.",
-     "definitionFit": "Animal husbandry is the farming business of breeding and rearing livestock, and 'stock' is the farmer's own word for a herd."
+     "surface": "The politician Andy Burnham is angry with a Liberal over a livestock issue.",
+     "walkthrough": "Andy Burnham is a British Labour politician; 'cross' looks like his mood but tells you to scramble his name and 'is'.",
+     "definitionFit": "Animal husbandry is the farming practice of breeding and caring for livestock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
     }
    }
   },
@@ -1355,8 +1383,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Ruler",
-      "at": 0
+      "text": "Ruler's",
+      "at": 0,
+      "note": "Ruler's reads as 'Ruler is', the definition with a link"
      }
     ],
     "wordplay": {
@@ -1364,7 +1393,8 @@
      "indicators": [
       {
        "text": "touring",
-       "note": "a tour goes all the way round a place rather than past it, so these letters end up wrapped around what they visit"
+       "at": 33,
+       "note": "touring means going round, so the other letters surround the states"
       }
      ],
      "parts": [
@@ -1373,30 +1403,54 @@
        "parts": [
         {
          "words": "order",
+         "at": 8,
          "gives": "WILL",
-         "note": "a will is the order somebody leaves for what must happen"
+         "note": "a will is an order or command"
         },
         {
          "words": "for",
-         "note": "the little word is written straight in, letter for letter"
+         "at": 14
         },
         {
-         "words": "backer briefly",
-         "gives": "ANGE",
-         "note": "an angel is the backer who puts money into a show, docked of its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 25,
+           "note": "briefly means the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "backer",
+           "at": 18,
+           "gives": "ANGEL",
+           "note": "an angel is a financial backer, especially of a theatre show"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
       },
       {
        "words": "two states",
+       "at": 41,
        "gives": "IAMO",
-       "note": "IA is Iowa and MO Missouri, two postal abbreviations"
+       "note": "IA (Iowa) and MO (Missouri) are US state abbreviations"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The apostrophe-s is the join, and everything after it is machinery: an angel here is theatre money rather than a cherub, and the states are pure postcode.",
-     "definitionFit": "William of Orange took the English throne as William III in 1689, so 'ruler' names him by the office rather than the man."
+     "surface": "A monarch's instruction to a sponsor making a brief tour of two US states.",
+     "walkthrough": "The two states are Iowa and Missouri by their postal codes, and the backer is a theatrical investor; the states enter just after the order.",
+     "definitionFit": "William of Orange reigned as King William III of England, Scotland and Ireland from 1689."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backer"
     }
    }
   },

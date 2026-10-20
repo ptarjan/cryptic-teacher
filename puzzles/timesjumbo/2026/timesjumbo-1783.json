@@ -2581,21 +2581,37 @@
      "op": "charade",
      "parts": [
       {
-       "words": "summary of news disheartened",
-       "gives": "HEADINES",
-       "note": "HEADLINES, a summary of the news, minus its middle letter L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "at": 35,
+         "note": "losing heart means the central letter of the word is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "summary of news",
+         "at": 19,
+         "gives": "HEADLINES",
+         "note": "the headlines are a summary of the news"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
        "words": "son",
-       "gives": "S",
-       "note": "S = son"
+       "at": 48,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A son, drunk, is dismayed by the news headlines.",
-     "walkthrough": "HEADLINES has nine letters, so its heart is the single L in fifth place.",
-     "definitionFit": "Paraphrase: the state of being heady, light-headed as with drink."
+     "surface": "Drunk, a man gives a gloomy summary of the news to his son.",
+     "walkthrough": "HEADLINES has L at its centre; removing it leaves HEADINES, then S.",
+     "definitionFit": "Headiness is the state of being giddy or slightly drunk, as from strong drink."
     },
     "features": {
      "answerInScene": true,

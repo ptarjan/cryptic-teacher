@@ -113,25 +113,40 @@
      "parts": [
       {
        "words": "Test for car",
+       "at": 0,
        "gives": "MOT",
-       "note": "the MOT is the annual roadworthiness test for cars in Britain"
+       "note": "the MOT is the annual UK roadworthiness test for cars"
       },
       {
-       "words": "drivers repeatedly exposed",
-       "gives": "IVE",
-       "note": "DRIVERS loses D and S, then R and R, leaving IVE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "repeatedly exposed",
+         "at": 21,
+         "note": "exposed twice: the outer letters are stripped once, then again, from the drivers word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drivers",
+         "at": 13
+        },
+        {
+         "gives": "DRRS"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A driving test that keeps catching out learners gives them a reason to do something.",
-     "walkthrough": "'Test for car drivers' looks like the driving test, but the break falls after 'car': the MOT is Britain's yearly check of a car's roadworthiness.",
-     "definitionFit": "A plain synonym: a motive is literally what moves a person, from the Latin movere."
+     "surface": "A test for motorists keeps revealing someone's reason for acting.",
+     "walkthrough": "Stripping drivers' outer letters gives RIVER, and again gives IVE. The MOT is the UK's yearly vehicle safety test.",
+     "definitionFit": "A motive is what prompts someone to act, the reason behind a deed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "drivers"
+     "misdirectedWord": "exposed"
     }
    }
   },
@@ -597,39 +612,60 @@
      "parts": [
       {
        "words": "One",
+       "at": 0,
        "gives": "I",
-       "note": "one = I, the Roman numeral"
+       "note": "I is the Roman numeral for one"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "carries"
+         "text": "carries",
+         "at": 11,
+         "note": "carries means holds the other letters inside"
         }
        ],
        "parts": [
         {
          "words": "helper",
+         "at": 4,
          "gives": "MATE",
-         "note": "a mate is an assistant, as in a plumber's mate; it opens around BRIC"
+         "note": "a mate is an assistant, as in a plumber's mate"
         },
         {
-         "words": "most of building material",
-         "gives": "BRIC",
-         "note": "BRICK without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 19,
+           "note": "most of means all but the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "building material",
+           "at": 27,
+           "gives": "BRICK",
+           "note": "brick is a building material"
+          },
+          {
+           "gives": "K"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A builder's labourer hauling most of the bricks, on a roofing job.",
-     "walkthrough": "IMBRICATE is a rare adjective from Latin imbrex, a roof tile; the building surface is apt, which helps a solver who has never met the word.",
-     "definitionFit": "Imbricate describes things laid so that they overlap like roof tiles or fish scales."
+     "surface": "A builder's mate lugs most of the bricks for a tiled roof.",
+     "walkthrough": "'most of' trims only the building material; the helper is a tradesman's assistant, as in plumber's mate.",
+     "definitionFit": "Imbricate describes scales or leaves arranged so their edges overlap, as roof tiles do."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "helper"
     }
    }
   },
@@ -1362,24 +1398,43 @@
      "parts": [
       {
        "words": "left",
-       "gives": "L",
-       "note": "l = left"
+       "at": 6,
+       "gives": "L"
       },
       {
-       "words": "organic compound, river being destroyed",
-       "gives": "ETHE",
-       "note": "ETHER, an organic compound, without R for river"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "being destroyed",
+         "at": 40,
+         "note": "the river letter being destroyed means it is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "organic compound",
+         "at": 16,
+         "gives": "ETHER",
+         "note": "ether is an organic compound, once used as an anaesthetic"
+        },
+        {
+         "words": "river",
+         "at": 34,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A river spoilt by chemical waste, one river after another ruined.",
-     "walkthrough": "The Lethe is the river of forgetfulness in the Greek underworld. 'River' appears twice: once as the definition, once as the R to be removed.",
-     "definitionFit": "Lethe is a river of Hades in Greek myth, whose water made the dead forget."
+     "surface": "A river is left polluted by an organic chemical and ruined.",
+     "walkthrough": "The second 'river' is a single letter to remove; the first is the definition, the mythical river of forgetfulness.",
+     "definitionFit": "Lethe is the river of forgetfulness in the underworld of Greek myth."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "destroyed"
     }
    }
   },

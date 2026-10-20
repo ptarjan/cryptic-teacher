@@ -619,38 +619,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "to turn over",
-       "note": "the editor's letters are flipped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turn over",
+         "at": 22,
+         "note": "turn over means the editor letters are flipped round"
+        }
+       ],
        "parts": [
         {
-         "words": "documents",
-         "gives": "ELIF",
-         "note": "a file of documents"
-        },
-        {
          "words": "news chief",
+         "at": 8,
          "gives": "ED",
-         "note": "ED, an editor, reversed"
+         "note": "ED is short for editor, the chief of a newspaper"
         }
        ]
+      },
+      {
+       "words": "documents",
+       "at": 32,
+       "gives": "FILE",
+       "note": "a file is a set of documents"
       }
      ]
     },
     "explanation": {
-     "surface": "A crooked newspaper editor hands over incriminating papers.",
-     "walkthrough": "Corrupt looks like an adjective describing the chief; it is the verb, to spoil.",
-     "definitionFit": "A plain synonym for the verb: both mean to make something pure foul or tainted."
+     "surface": "A corrupt newspaper editor is about to hand over the papers.",
+     "walkthrough": "ED turned over gives DE, followed by FILE.",
+     "definitionFit": "To defile is to pollute or desecrate, making something impure."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Corrupt"
     }
@@ -993,30 +996,44 @@
      "indicators": [
       {
        "text": "collared by",
-       "note": "held inside, as by a collar"
-      },
-      {
-       "text": "Oscarless",
-       "note": "the O (Oscar in the NATO alphabet) is taken out"
+       "at": 19,
+       "note": "collared by means held inside, as a neck by a collar"
       }
      ],
      "parts": [
       {
-       "words": "extra",
-       "gives": "THER",
-       "note": "OTHER, meaning extra, without its O"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Oscarless",
+         "at": 31,
+         "note": "-less removes O, Oscar in the NATO alphabet, from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extra",
+         "at": 41,
+         "gives": "OTHER",
+         "note": "other in the sense of additional, extra"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       },
       {
        "words": "series",
+       "at": 12,
        "gives": "ROW",
-       "note": "a row is a series, placed inside THER"
+       "note": "a row is a series"
       }
      ]
     },
     "explanation": {
-     "surface": "A director casting a film keeps hiring the same extra who never won an Oscar.",
-     "walkthrough": "Casting suggests a film director picking actors; here it means hurling. Oscar is the NATO alphabet word for O.",
-     "definitionFit": "A plain synonym: to cast is to throw, so one casting is one throwing."
+     "surface": "An actor cast in a series of films is an extra who never won an Oscar.",
+     "walkthrough": "'casting' is throwing, not film casting, and 'Oscarless' removes the phonetic-alphabet letter, not an award.",
+     "definitionFit": "A thrower is someone who casts or hurls something, like a fisherman casting a line."
     },
     "features": {
      "answerInScene": false,

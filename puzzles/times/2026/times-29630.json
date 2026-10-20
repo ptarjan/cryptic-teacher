@@ -1056,30 +1056,51 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "gaining"
+       "text": "gaining",
+       "at": 41,
+       "note": "gaining means the height letters are added on at the end"
       }
      ],
      "parts": [
       {
-       "words": "bird without name",
-       "gives": "STARLIG",
-       "note": "STARLING minus N (name)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 28,
+         "note": "without means the name letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bird",
+         "at": 23,
+         "gives": "STARLING",
+         "note": "a starling is a common bird"
+        },
+        {
+         "words": "name",
+         "at": 36,
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "height",
-       "gives": "HT",
-       "note": "HT is the abbreviation for height"
+       "at": 49,
+       "gives": "HT"
       }
      ]
     },
     "explanation": {
-     "surface": "A nameless bird soaring higher in a glorious light.",
-     "walkthrough": "N is the abbreviation for name, and only the second N of STARLING goes; HT is added to the end.",
-     "definitionFit": "Starlight is the light of stars, a brilliance in the heavens."
+     "surface": "A bird goes nameless while soaring, catching the light of the heavens.",
+     "walkthrough": "STARLING without N is STARLIG; adding HT gives the answer.",
+     "definitionFit": "Starlight is the faint light shed by stars in the night sky."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "height"
     }
    }
   },

@@ -478,8 +478,7 @@
     "definitions": [
      {
       "text": "eggs",
-      "at": 33,
-      "note": "Caviar is a mass noun, one substance, where 'eggs' is plural. The two do not agree in number, but caviar is nothing except eggs, so the setter is allowed it."
+      "at": 33
      }
     ],
     "wordplay": {
@@ -487,7 +486,8 @@
      "indicators": [
       {
        "text": "fed",
-       "note": "Something fed into a word goes inside it, so the letter is dropped into the middle rather than added at either end."
+       "at": 9,
+       "note": "fed means put inside, as food is"
       }
      ],
      "parts": [
@@ -496,41 +496,50 @@
        "indicators": [
         {
          "text": "wanting",
-         "note": "A word wanting something does not have it, so the letters named are taken out."
+         "at": 25,
+         "note": "wanting means lacking, so these letters are removed"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Troops",
-           "gives": "CAVALRY",
-           "note": "the cavalry are mounted troops"
-          },
-          {
-           "words": "left",
-           "gives": "L",
-           "note": "L is the abbreviation for left, and it is one of the two letters removed"
-          }
-         ]
+         "words": "Troops",
+         "at": 0,
+         "gives": "CAVALRY",
+         "note": "cavalry are mounted troops"
         },
         {
-         "words": "yankee",
-         "gives": "Y",
-         "note": "Y is yankee in the NATO alphabet, and it goes as well"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "left",
+           "at": 13,
+           "gives": "L"
+          },
+          {
+           "words": "yankee",
+           "at": 18,
+           "gives": "Y",
+           "note": "Y is Yankee in the NATO phonetic alphabet"
+          }
+         ]
         }
        ]
       },
       {
        "words": "I",
-       "note": "the letter is lifted straight out of the clue"
+       "at": 7
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The NATO alphabet is worth learning whole: yankee is Y, and any of its other letters can be asked for in exactly this way.",
-     "definitionFit": "eggs → CAVIAR: caviar is the salted roe of the sturgeon, so the plain word names precisely what the delicacy is."
+     "surface": "Soldiers fed me after the Yankee left, though I was hungry for eggs.",
+     "walkthrough": "CAVALRY wanting L and Y is CAVAR; I is fed in.",
+     "definitionFit": "Caviar is the salted roe of sturgeon, prized fish eggs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fed"
     }
    }
   },
