@@ -284,9 +284,14 @@ check("an ask in this host's PNG is answered from its bytes, any other from the 
 
 # Each column cropped to its own lines, not the window's shared right edge.
 wins = [(10, 200, 390, 0), (200, 390, 390, 0)]
-readings = [[[(20, 40, 15, 180, "1 Left clue (5)")], [(30, 60, 210, 380, "2 Right (4)")]]]
+readings = [[[(20, 80, 15, 180, "1 Left clue (5)")], [(30, 100, 210, 380, "2 Right (4)")]]]
 check("crop boxes span each column's lines, padded",
-      [(5, 10, 190, 50), (200, 20, 390, 70)], vlm.boxes(img, wins, readings))
+      [(5, 10, 190, 90), (200, 20, 390, 110)], vlm.boxes(img, wins, readings))
+# A two-line column (the 1945 Times' strip over the grid, 327x70) is a clue column; a stray line's 33x36 is not.
+check("a two-line strip column is boxed, a stray line's speck is not",
+      [(5, 10, 345, 80), None],
+      vlm.boxes(img, [(10, 200, 390, 0), (200, 390, 390, 0)],
+                [[[(20, 70, 15, 335, "21 Foreign currency (5)")], [(30, 56, 210, 223, "x")]]]))
 
 # The pick fills a blank with the reply's words, its count cut off; a reply
 # of no words, or none, leaves it blank.
