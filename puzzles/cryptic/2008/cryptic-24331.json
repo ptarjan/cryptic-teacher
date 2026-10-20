@@ -520,42 +520,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CLOTHESPROP",
+     "op": "container",
      "indicators": [
       {
-       "text": "(most)",
-       "note": "most of something is nearly all of it, so the last bit is lost"
+       "text": "in",
+       "at": 18,
+       "note": "in tells us the see-plus-actors group goes inside the word for cut"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "to be in something is to sit inside it, so one piece goes within another"
-        }
-       ],
+       "words": "cut",
+       "at": 21,
+       "gives": "CROP",
+       "note": "to crop is to cut short"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "cut",
-         "gives": "CROP",
-         "note": "to crop is to cut short"
+         "words": "See",
+         "at": 0,
+         "gives": "LO",
+         "note": "lo is an old word meaning see! or behold"
         },
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most",
+           "at": 12,
+           "note": "most means all but the last letter of the word for actors is kept"
+          }
+         ],
          "parts": [
           {
-           "words": "See",
-           "gives": "LO",
-           "note": "lo is an old word meaning see or behold"
+           "words": "actors",
+           "at": 4,
+           "gives": "THESPS",
+           "note": "thesps is an informal word for actors, short for thespians"
           },
           {
-           "words": "actors",
-           "gives": "THESP",
-           "note": "thesps are actors; the final S goes"
+           "gives": "S"
           }
          ]
         }
@@ -565,14 +571,14 @@
     },
     "spelling": "CLOTHES PROP",
     "explanation": {
-     "surface": "Watch the performers in an edited version while a line is hauled into the sky.",
-     "walkthrough": "Thesp is a casual shortening of thespian, an actor.",
-     "definitionFit": "A clothes prop is a tall pole used to raise a washing line so the laundry hangs high."
+     "surface": "Someone is told to watch actors in a cut scene while a line is hauled up into the air.",
+     "walkthrough": "'See' reads as a verb but is the old exclamation lo; 'thesp' is informal for an actor, and a clothes prop is a pole holding up a washing line.",
+     "definitionFit": "A clothes prop is a long pole that props up a washing line, lifting the laundry higher in the breeze."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "See"
+     "misdirectedWord": "cut"
     }
    }
   },
@@ -1108,63 +1114,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YOYO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "topless",
-       "note": "without a top means the leading character is taken off"
+       "text": "here encores",
+       "at": 32,
+       "note": "here encores says the piece just made is played again, so it appears a second time"
       }
      ],
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "YOYO",
        "indicators": [
         {
          "text": "back",
-         "note": "going back means travelling the other way, so letters run right to left"
+         "at": 15,
+         "note": "back says the letters left over are read from right to left"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "encores",
-           "note": "an encore is a repeat performance, so the piece is given twice"
+           "text": "topless",
+           "at": 24,
+           "note": "topless says the word loses its top, its first letter"
           }
          ],
          "parts": [
           {
            "words": "toy",
-           "gives": "YO",
-           "note": "the word loses its first letter and is turned round"
+           "at": 4,
+           "gives": "TOY",
+           "note": "the word toy itself, taken as written"
           },
           {
-           "words": "here",
-           "gives": "YO",
-           "note": "the same piece once more"
+           "gives": "T"
           }
          ]
         }
        ]
+      },
+      {
+       "gives": "YO",
+       "note": "the encore: the same two letters repeated"
       }
      ]
     },
     "spelling": "YO-YO",
     "andLit": true,
     "explanation": {
-     "surface": "A plaything that keeps coming back and makes a repeat appearance here.",
-     "walkthrough": "The whole clue describes the toy, which goes down and comes back, again and again.",
-     "definitionFit": "A yo-yo is a spool on a string that climbs back to the hand repeatedly after each drop."
+     "surface": "A toy that keeps coming back, with a racy hint of a topless show getting repeated encores.",
+     "walkthrough": "Take the word toy twice, as 'encores' asks; 'topless' drops each first letter to leave OYOY, and 'back' turns that round.",
+     "definitionFit": "A yo-yo is a classic children's plaything, a spool on a string that climbs and drops."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "topless"
     }
    }
