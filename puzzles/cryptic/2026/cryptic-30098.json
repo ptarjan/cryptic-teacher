@@ -46,31 +46,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "mad",
-       "note": "Someone mad is deranged, out of their right mind, and the letters beside the word come out just as deranged."
-      },
-      {
-       "text": "involved",
-       "note": "An involved story is a tangled one, and tangled letters no longer keep the sequence they were handed over in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Last",
-       "note": "four letters of raw material, taken exactly as they stand"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mad",
+         "at": 5,
+         "note": "mad suggests the word Last has gone wild, so its letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Last",
+         "at": 0
+        }
+       ]
       },
       {
-       "words": "daring",
-       "note": "six more letters, to be jumbled together with the first four"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "involved",
+         "at": 16,
+         "note": "involved means twisted up and entangled, so the letters of daring are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "daring",
+         "at": 9
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface reads as a report of one last reckless act, and the two words that sound most like description, mad and involved, are both instructions.",
-     "definitionFit": "Definition by example: the six-month siege of 1942-43 was among the deadliest fights in history, so the city's name stands for one horrendous battle."
+     "surface": "A final reckless act of courage forms part of a dreadful battle.",
+     "walkthrough": "Two separate anagrams in a row: 'mad' turns LAST into STAL and 'involved' turns DARING into INGRAD. The battle of Stalingrad (1942-43) was one of the bloodiest of the Second World War.",
+     "definitionFit": "The siege of the Soviet city on the Volga was among the deadliest military engagements in history."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Last"
     }
    }
   },
@@ -712,39 +732,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "to get back",
-       "note": "Getting back is going the way you came, so those letters are read from the far end towards the front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Imogen",
+       "at": 0,
+       "gives": "ME",
+       "note": "the setter is Imogen, so the name stands for ME"
+      },
+      {
+       "words": "key",
+       "at": 11,
+       "gives": "ALT",
+       "note": "Alt is a key on a computer keyboard"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to get back",
+         "at": 15,
+         "note": "to get back means the word for home is read in reverse, returning to its start"
+        }
+       ],
        "parts": [
         {
          "words": "home",
+         "at": 27,
          "gives": "SEMI",
-         "note": "a semi is a semi-detached house, the standard British suburban home, written the other way round"
-        },
-        {
-         "words": "key",
-         "gives": "TLA",
-         "note": "Alt is the key beside the space bar on every keyboard"
-        },
-        {
-         "words": "Imogen",
-         "gives": "EM",
-         "note": "Imogen is this puzzle's setter, and a setter naming herself in her own clue means ME"
+         "note": "a semi is a semi-detached house, a home"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Setters sign their own clues more often than you would expect, and 'Imogen has' reads as a sentence about a person rather than an instruction to write two letters.",
-     "definitionFit": "Mealtimes are the fixed points of the day at which people sit down to eat, so they are occasions that recur to a regular schedule."
+     "surface": "The setter is given a key to get back into the house.",
+     "walkthrough": "Setters often refer to themselves by name, so 'Imogen' gives ME. A SEMI is a British house sharing one wall with its neighbour; 'to get back' turns it round to IMES.",
+     "definitionFit": "Breakfast, lunch and dinner are eaten at set times each day, recurring events in the daily routine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
     }
    }
   },
