@@ -2745,6 +2745,22 @@ check("a footer on a count that is not the light's stays blank",
       "29-across",
       next(iter(f.unfit_blanked({"29-across": ("Which us sort (6) WORD 22,9", None, None)}, {}, {"29-across": 7})[1])))
 check("a footer_laid with no footer is None", None, ocr_clues.footer_laid("Which us sort (6)", 6))
+# Gale 2005-03-17 28 across: the footer ran on after a count that fills the light, so unfit()
+# passed the text and it was filed with the footer until the VLM's column read it clean.
+check("a laid clue unfit() passes is cut at its count too when the footer follows it",
+      (("Went to ground without hesitation, being sticky", "5", None), {}),
+      (lambda r: (r[0]["28-across"], r[1]))(f.unfit_blanked(
+          {"28-across": ("Went to ground without hesitation, being sticky (5) 22,926 Solutic", None, None)},
+          {}, {"28-across": 5})))
+# Gale 2005-03-17 13 down: every reader lost the cross-reference ("like 21"), so the readers
+# agreed on a clue that ends in a word a reference follows; the VLM is asked for it.
+open_rd = {"djvu": good.replace("Fish in the sea", "Fish in the sea like"),
+           "ch": good.replace("Fish in the sea", "Fish in the sea like")}
+check("a clue the readers agree on that ends in a word a reference follows is weak", {"6-across"},
+      f.weak_lights(open_rd, {**filed_laid, "6-across": ("Fish in the sea like", "5", None)}, {}, lens))
+check("a clue that ends in such a word with a mark after it is not", set(),
+      f.weak_lights({k: t.replace("sea like", "sea, like?") for k, t in open_rd.items()},
+                    {**filed_laid, "6-across": ("Fish in the sea, like?", "5", None)}, {}, lens))
 check("a footer cut to a count that is not the light's is not taken", None,
       ocr_clues.agreed_past_footer(["Study applied to uninteresting poet (6) 23,099 Solutic",
                                     "Study applied to uninteresting poet (6) 23,099 Soluti"], "7"))
