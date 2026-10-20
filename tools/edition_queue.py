@@ -444,7 +444,8 @@ READ_SECONDS = seconds_from_env("CT_READ_SECONDS", 1200)
 #: slot, its pipeline and one more): at ~7 asks a puzzle the one-slot VLM finishes
 #: ~1 read a minute, so ~30 started reads sat ~30 min each in its lock holding
 #: ~0.5 GB apiece, past the read limit, and lost on every restart. While this many
-#: processes have an ask under way (vlm_reader.waiting_now) no read starts; reads OCR
+#: processes have an ask under way (vlm_reader.waiting_now, not the queue's own drainer) no read starts
+#: (spool off; spool on: see vlm_spool_max); reads OCR
 #: settles without an ask never wait, so they still flow at CPU speed.
 def vlm_waiting_cap():
     try:
@@ -2091,13 +2092,23 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if stage != stage_seen[0] and (stage[0] or stage_seen[0]) and time.monotonic() - stage_seen[1] >= 30:
             stage_seen[:] = [stage, time.monotonic()]
             log(f"vlm stage: {stage[0]} asks spooled, {stage[1]} reads waiting")
-        vlm_waiting += len(queued) * vlm_waiting_cap() // vlm_spool_max()  # a full spool counts as a full cap
-        vlm_full = vlm_waiting >= vlm_waiting_cap()
+        # With the spool on, a spooled read holds no RAM and no slot, so it never counts: the gate is the
+        # spool's depth (CT_VLM_SPOOL_MAX) plus the OTHER processes blocked in an ask. The queue's own mark
+        # (its drainer threads asking, slots()+PIPELINE) is not one: counting it held every read start
+        # while the GPU drained, so the CPU idled. Spool off: the old cap on reads waiting in the VLM's lock.
+        spool_on = os.environ.get(vlm_reader.SPOOL_ENV, "1") != "0"
+        if spool_on and (vlm_reader._waiting_dir() / str(os.getpid())).exists():
+            vlm_waiting -= 1
+        if spool_on:
+            vlm_full = vlm_waiting >= vlm_waiting_cap() or len(queued) >= vlm_spool_max()
+        else:
+            vlm_waiting += len(queued) * vlm_waiting_cap() // vlm_spool_max()  # a full spool counts as a full cap
+            vlm_full = vlm_waiting >= vlm_waiting_cap()
         if vlm_full != vlm_bound:
             vlm_bound = vlm_full
             if vlm_full:
-                log(f"vlm-bound: {vlm_waiting} reads wait for the VLM (CT_VLM_WAITING {vlm_waiting_cap()}); "
-                    f"no read starts until one finishes its asks")
+                log(f"vlm-bound: {vlm_waiting} reads wait for the VLM (CT_VLM_WAITING {vlm_waiting_cap()}), "
+                    f"{len(queued)} asks spooled (CT_VLM_SPOOL_MAX {vlm_spool_max()}); no read starts until it drains")
         begun_now = charged = 0
         costs = None  # unit_costs, measured at this pass's first start
         held_back = cpu_held = idle_held = False
@@ -2202,6 +2213,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             are there and none needs it. Then its desktop CPU (scans run above
             reads there) is the reads' instead. Worked out once a pass per
             rank: a pass asks it of every queued scan (~12k)."""
+            if vlm_full:
+                return False  # reads cannot start (vlm-bound), so no scan is held for their CPU
             if not ready:
                 ready.append([v for v, k in reads if k not in tried
                               and k not in busy and not waits(v) and not vlm_waits(v)])
