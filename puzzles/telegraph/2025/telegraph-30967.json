@@ -142,14 +142,30 @@
        "indicators": [
         {
          "text": "Short",
-         "note": "short means cut off, so the word loses its last letter"
+         "at": 0,
+         "note": "short means each copy of the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "policeman",
-         "gives": "COP",
-         "note": "cop is slang for a police officer"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "twice",
+           "at": 16,
+           "gives": "COP",
+           "note": "twice supplies a second copy of the policeman word"
+          },
+          {
+           "words": "policeman",
+           "at": 6,
+           "gives": "COP",
+           "note": "a cop is a policeman"
+          }
+         ]
+        },
+        {
+         "gives": "P"
         },
         {
          "gives": "P"
@@ -157,20 +173,16 @@
        ]
       },
       {
-       "words": "twice",
-       "gives": "CO",
-       "note": "the shortened policeman repeated"
-      },
-      {
        "words": "a",
-       "note": "taken as written"
+       "at": 32,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A short police officer is twice spotted having a drink.",
-     "walkthrough": "Short looks like a description of the officer's height, but it trims a letter from the word for him.",
-     "definitionFit": "Cocoa is a hot chocolate beverage, so it is an example of a drink."
+     "surface": "A small police officer is spotted twice with something to drink.",
+     "walkthrough": "'Short' looks like a description of the officer's height, but it is an instruction to cut.",
+     "definitionFit": "Cocoa is a hot drink made from powdered cacao beans and milk."
     },
     "features": {
      "answerInScene": true,

@@ -1079,23 +1079,40 @@
      "parts": [
       {
        "words": "Sam is one",
+       "at": 0,
        "gives": "UNCLE",
-       "note": "Uncle Sam"
+       "note": "Uncle Sam is the personification of the US government"
       },
       {
-       "words": "and mostly",
-       "gives": "AN",
-       "note": "AND without its D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 16,
+         "note": "most of the word, dropping its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "at": 12,
+         "gives": "AND",
+         "note": "the clue word itself before it is shortened"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Sam who is, for the most part, filthy.",
-     "walkthrough": "Uncle Sam personifies the United States.",
-     "definitionFit": "A plain synonym, covering both physical grime and ritual impurity."
+     "surface": "A man called Sam is described as mostly filthy.",
+     "walkthrough": "'Sam' looks like a person being insulted, but Sam is one kind of uncle: Uncle Sam, the figure standing for the USA.",
+     "definitionFit": "Unclean is a straightforward synonym of dirty, describing something soiled or impure."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Sam"
     }

@@ -327,42 +327,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "SEABREEZE",
+     "indicators": [
+      {
+       "text": "delivered",
+       "at": 29,
+       "note": "a speech is delivered aloud, so the words are taken by sound"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "SEA",
-       "indicators": [
-        {
-         "text": "delivered",
-         "note": "a speech is delivered, so the words are spoken"
-        }
-       ],
-       "parts": [
-        {
-         "words": "get",
-         "gives": "SEE",
-         "note": "get = see, as in 'I get it'"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "BREEZE",
-       "parts": [
-        {
-         "words": "dairy products",
-         "gives": "BRIES",
-         "note": "Bries are soft French cheeses"
-        }
-       ]
+       "words": "to get dairy products",
+       "at": 7,
+       "gives": "SEEBRIES",
+       "note": "to see is to get or understand; bries are cheeses, dairy products"
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor orders cheeses and yoghurts to the door.",
-     "walkthrough": "The Fremantle Doctor is the cooling afternoon sea breeze in Western Australia, which is why 'Doctor' is fair.",
-     "definitionFit": "Several cooling coastal winds are nicknamed 'the Doctor', most famously the Fremantle Doctor in Perth."
+     "surface": "A doctor arranging for milk and cheese to be brought round.",
+     "walkthrough": "'Doctor' looks like a physician, but a doctor is also a cooling sea breeze, as in the Fremantle Doctor of Western Australia.",
+     "definitionFit": "In Australia and elsewhere a cooling afternoon wind off the sea is nicknamed the doctor."
     },
     "features": {
      "answerInScene": false,
@@ -599,29 +585,48 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 15,
+       "note": "the squire word goes inside the cut harbour word"
       }
      ],
      "parts": [
       {
-       "words": "harbour, but heading off",
-       "gives": "ARINA",
-       "note": "MARINA without its M"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 31,
+         "note": "the heading, the first letter, comes off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "harbour",
+         "at": 18,
+         "gives": "MARINA",
+         "note": "a marina is a harbour for yachts"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       },
       {
        "words": "squire",
+       "at": 8,
        "gives": "GENT",
-       "note": "a squire is a gentleman, GENT"
+       "note": "a gent, or gentleman, is a squire"
       }
      ]
     },
     "explanation": {
-     "surface": "A country squire is found in the harbour, but he is setting off.",
-     "walkthrough": "'Country squire' reads as a type of landowner; 'Country' is the definition on its own.",
-     "definitionFit": "A definition by example: Argentina is one of many countries."
+     "surface": "A country squire sits in the harbour but sets off.",
+     "walkthrough": "'Country squire' reads as one phrase in the surface, but the definition is Country alone and squire is the gentleman.",
+     "definitionFit": "Argentina is a South American country, so it names a nation."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Country"
     }

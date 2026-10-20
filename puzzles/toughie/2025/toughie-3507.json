@@ -767,18 +767,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "blasted",
-       "note": "blasted means blown apart, so the letters are scattered and reformed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "A horn has twice",
-       "gives": "AHORNHASHAS",
-       "note": "the words a horn followed by has written two times"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "blasted",
+         "at": 17,
+         "note": "a blasted horn is blown hard, and the blast scatters these letters into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "horn",
+         "at": 2
+        },
+        {
+         "words": "twice",
+         "at": 11,
+         "gives": "HAS",
+         "note": "twice supplies a second copy of the word has"
+        },
+        {
+         "words": "has",
+         "at": 7,
+         "gives": "HAS",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "A",
+       "at": 0
       },
       {
        "op": "nth",
@@ -786,27 +807,28 @@
        "indicators": [
         {
          "text": "fifth of",
-         "note": "the fifth of a word is its fifth letter, so only that one is kept"
+         "at": 28,
+         "note": "only the fifth letter of the month name is used"
         }
        ],
        "parts": [
         {
          "words": "March",
-         "note": "fifth letter of the month name"
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A horn sounds twice on the fifth of March to mark a celebration.",
-     "walkthrough": "Fittingly, Rosh Hashanah is marked by blowing the shofar, a ram's horn.",
-     "definitionFit": "Rosh Hashanah is the Jewish New Year, a major holy day and so a religious festival."
+     "surface": "A horn is blown twice on the fifth of March to mark a celebration.",
+     "walkthrough": "'fifth of March' looks like a date, but it picks the fifth letter of the month; the A of the clue's opening is left unscrambled.",
+     "definitionFit": "Rosh Hashanah is the Jewish New Year holiday, marked by blowing the shofar, a ram's horn."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "March"
+     "misdirectedWord": "fifth"
     }
    }
   },
@@ -1406,13 +1428,14 @@
        "indicators": [
         {
          "text": "Initially",
-         "note": "initially means at the start, so only the opening letter is taken"
+         "at": 0,
+         "note": "initially points to the opening letter of the next word"
         }
        ],
        "parts": [
         {
          "words": "naughty",
-         "note": "first letter of the word"
+         "at": 11
         }
        ]
       },
@@ -1421,40 +1444,36 @@
        "indicators": [
         {
          "text": "abandons",
-         "note": "abandoning something means leaving it, so those letters are taken out"
+         "at": 26,
+         "note": "the sailor word leaves the duties word, so it is taken out"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "sailor",
-           "gives": "TAR",
-           "note": "a tar is a sailor"
-          },
-          {
-           "words": "duties",
-           "gives": "TARIFFS",
-           "note": "tariffs are taxes or duties on goods"
-          }
-         ]
+         "words": "duties",
+         "at": 35,
+         "gives": "TARIFFS",
+         "note": "tariffs are customs duties"
         },
         {
-         "gives": "TARTAR"
+         "words": "sailor",
+         "at": 19,
+         "gives": "TAR",
+         "note": "tar is an old word for a sailor"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheeky seaman shirks his duties and sings tunelessly to himself.",
-     "walkthrough": "'Hums' looks like singing but means smells; niff is British slang for a bad smell, and TARIFFS loses TAR.",
-     "definitionFit": "Both niff and hum are British slang verbs for giving off an unpleasant smell, so they are synonyms."
+     "surface": "A badly behaved sailor walks out on his duties and hums a tune.",
+     "walkthrough": "'hums' looks like singing, but in British slang to hum is to smell bad, and a niff is a bad smell.",
+     "definitionFit": "In British slang both niff and hum mean to give off an unpleasant smell, so niffs and hums are synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "hums"
     }
    }
@@ -1864,62 +1883,56 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "origins of",
+       "at": 7,
+       "note": "origins are the beginnings, so it is the opening letters that matter here"
+      },
+      {
+       "text": "covered up",
+       "at": 53,
+       "note": "with their origins covered up, each name loses its first letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "origins of",
-         "note": "the origins of words are their first letters, and here those are said to be covered up and so removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "playwright",
+         "at": 18,
          "gives": "PINTER",
-         "note": "Harold Pinter, the English dramatist"
+         "note": "Harold Pinter was a British playwright"
         },
-        {
-         "gives": "P"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
         {
          "words": "artist",
+         "at": 30,
          "gives": "EMIN",
-         "note": "Tracey Emin, the British artist"
+         "note": "Tracey Emin is a British artist"
         },
         {
-         "gives": "E"
+         "words": "movie star",
+         "at": 42,
+         "gives": "GABLE",
+         "note": "Clark Gable was a Hollywood star"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "movie star",
-         "gives": "GABLE",
-         "note": "Clark Gable, the Hollywood actor"
-        },
-        {
-         "gives": "G"
-        }
-       ]
+       "gives": "PEG",
+       "note": "the opening letters of the three names"
       }
      ]
     },
     "explanation": {
-     "surface": "The early careers of a dramatist, a painter and a film star were hushed up.",
-     "walkthrough": "Each name loses its first letter: Pinter, Emin and Gable.",
-     "definitionFit": "Something interminable drags on seemingly without end, which makes it tedious, a synonym of boring."
+     "surface": "A tedious story about the beginnings of a writer, a painter and a film actor being hidden.",
+     "walkthrough": "PINTER, EMIN and GABLE each lose their first letter, leaving INTER, MIN and ABLE.",
+     "definitionFit": "Something interminable seems endless, and an endless talk or wait is tedious."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "origins"
     }

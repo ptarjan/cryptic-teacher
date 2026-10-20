@@ -297,47 +297,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfortunately",
-       "note": "unfortunately suggests things gone wrong, so the letters are knocked out of order"
-      },
-      {
        "text": "drunk",
-       "note": "drunk means staggering and disordered, so the letters reel into a new arrangement"
+       "at": 48,
+       "note": "drunk means taken in, so the final letter is swallowed inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "words": "with ale gone",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unfortunately",
+         "at": 18,
+         "note": "things gone unfortunately have gone wrong, so the letters fall out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with",
+         "at": 4
+        },
+        {
+         "words": "ale",
+         "at": 9
+        },
+        {
+         "words": "gone",
+         "at": 13
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "last of",
-         "note": "last of asks for the final letter only of the following word"
+         "at": 33,
+         "note": "only the final letter of the following word is taken"
         }
        ],
        "parts": [
         {
          "words": "bitter",
-         "note": "the final letter of bitter"
+         "at": 41
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bar has run out of beer, sadly, and the last of the bitter has been drunk.",
-     "walkthrough": "Bitter is a British style of pale, hoppy beer.",
-     "definitionFit": "Watering hole is informal slang for a bar where people gather to drink, from animals gathering at water."
+     "surface": "A pub where the ale has sadly run out and the last of the bitter is drunk.",
+     "walkthrough": "'drunk' looks like it describes the beer being drunk up, but it means swallowed: the last letter of bitter, a British beer, goes inside the rearranged letters.",
+     "definitionFit": "A watering hole is a jocular term for a bar or pub where people go to drink."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "drunk"
     }
    }
