@@ -21,7 +21,8 @@
   "previousOrigin": "model"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -347,43 +348,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "Most of a word is the bulk of it and not all, so the tail is left behind — loosely used here, since two letters go rather than the usual one."
-      }
-     ],
      "parts": [
       {
-       "words": "cricket book",
-       "gives": "WISD",
-       "note": "Wisden is the fat yellow almanack that has recorded every first-class cricket match since 1864, and it hands over the greater part of itself"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "OM",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "for openers",
-         "note": "'For openers' means 'to begin with', and what begins a word is its opening letter."
+         "text": "most of",
+         "at": 15,
+         "note": "most of the word is kept, with its final pair of letters cut off"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "offering much",
-         "gives": "OM",
-         "select": "first",
-         "note": "the opening letters of the two words, in the order they come"
+         "words": "cricket book",
+         "at": 23,
+         "gives": "WISDEN",
+         "note": "Wisden is the famous annual almanack of cricket"
+        },
+        {
+         "gives": "EN"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "for openers",
+         "at": 51,
+         "note": "openers are the starts, so the first letters of offering and much are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "offering",
+         "at": 37,
+         "note": "first letter of offering"
+        },
+        {
+         "words": "much",
+         "at": 46,
+         "note": "first letter of much"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole surface is a review praising a cricket annual, and 'for openers' does double duty: batting slang in the picture, an instruction in the parse.",
-     "definitionFit": "Not just knowledge but sound judgement handed to somebody else, which is what good advice is when it turns out to be worth taking."
+     "surface": "A cricket reference book is praised for packing in plenty of sound counsel right from its opening pages.",
+     "walkthrough": "Wisden Cricketers' Almanack is the standard cricket annual; 'most of' leaves WISD, and 'for openers' adds O and M.",
+     "definitionFit": "Wisdom is sound judgement, and the word is also used for the sage counsel someone gives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "openers"
     }
    }
   },
@@ -750,51 +769,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MINSTRELSY",
-     "indicators": [
-      {
-       "text": "energy dropping",
-       "note": "E is the symbol for energy, and in a down entry a letter that drops falls to a lower place in the word rather than leaving it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "move",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 37,
+         "note": "in a down clue, dropping means this letter slips lower, further along the word"
+        }
+       ],
        "parts": [
         {
          "words": "church",
-         "gives": "MINSTRE",
-         "note": "a minster is a great church, as at York or Beverley, with its E fallen one place down the column"
+         "at": 22,
+         "gives": "MINSTER",
+         "note": "a minster is a large church, such as York Minster"
         },
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "LSY",
-         "indicators": [
-          {
-           "text": "intermittently",
-           "note": "Something intermittent happens every so often instead of continuously, so the letters are picked at every other step."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "lusty",
-           "gives": "LSY",
-           "select": "alternate",
-           "note": "the first, third and fifth letters of the word, taken in turn"
-          }
-         ]
+         "words": "energy",
+         "at": 30,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "intermittently",
+         "at": 47,
+         "note": "on and off, so every other letter of lusty is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lusty",
+         "at": 62
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'In church' looks like where the singing happens and is really the building's other name; the E is not deleted, it only shifts down a place.",
-     "definitionFit": "The minstrel's craft, singing verse to a harp in a lord's hall, which makes it precisely an old art of singing."
+     "surface": "A church singer runs out of energy while belting out a hymn in fits and starts.",
+     "walkthrough": "'dropping' moves the E of MINSTER further down, giving MINSTRE; 'intermittently' takes L, S, Y from lusty.",
+     "definitionFit": "Minstrelsy is the performance of medieval minstrels, wandering musicians who sang and recited verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dropping"
     }
    }
   },
@@ -1282,55 +1309,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WOLFISH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catch",
+       "at": 8,
+       "note": "the outer word catches the other letters, holding them inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Want",
+       "at": 0,
+       "gives": "WISH",
+       "note": "to want is to wish"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "regularly",
-         "note": "Taken regularly means taken at a fixed interval, and the interval here is every other letter."
-        },
-        {
          "text": "returning",
-         "note": "Returning is coming back the way you went, so those three letters are read from the last of them to the first."
+         "at": 31,
+         "note": "the letters picked from falcon go back the other way"
         }
        ],
        "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "WISH",
          "indicators": [
           {
-           "text": "to catch",
-           "note": "To catch something is to have it in your grasp, so the longer word closes around the letters named next."
+           "text": "regularly",
+           "at": 21,
+           "note": "taking letters at regular intervals, so the odd ones of falcon"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Want",
-           "gives": "WISH",
-           "select": "alternate",
-           "note": "a want is a wish, and the word opens after its first letter"
+           "words": "falcon",
+           "at": 14
           }
          ]
-        },
-        {
-         "words": "falcon",
-         "gives": "OLF",
-         "note": "the first, third and fifth letters of the bird, then turned round"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The falconry surface is a decoy: the bird's name is there only to be raided for letters, and the definition is about appetite.",
-     "definitionFit": "Ravenously hungry — to wolf your food is to bolt it down — so the adjective carries exactly that sense of insatiable appetite."
+     "surface": "A hungry hunter longs to snatch a falcon on its way back.",
+     "walkthrough": "'regularly' takes F, L, O from falcon; 'returning' reverses them to OLF; WISH catches that.",
+     "definitionFit": "Wolfish means greedy like a wolf, so it describes a ravenous appetite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "falcon"
     }
    }
   },
