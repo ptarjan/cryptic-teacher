@@ -7238,6 +7238,28 @@ def forgiven_dropped_words(old, new, clue):
     return lost & (CONNECTIVE_WORDS | (_accounted_words(old) - hard)) & link_vocabulary()
 
 
+def redo_lost_words(old, new, clue):
+    """The clue words the dropped_words gate refuses a redo `new` of `old` for losing."""
+    lost = (_accounted_words(old) - _accounted_words(new)) & _clue_words(clue)
+    # A connective only a leaf of the old tree held (an unchecked "with" leaf
+    # the re-annotation exists to remove) may go; as an indicator, definition
+    # or link word it still has to stay.
+    lost -= CONNECTIVE_WORDS - _accounted_words(old, leaves="real")
+    lost -= forgiven_dropped_words(old, new, clue)
+    return lost
+
+
+def redo_keep_words(old, clue):
+    """The words a redo of `old` must keep, in clue order: what the gate refuses
+    when the new annotation holds none of them. Shown to the redo up front."""
+    lost = redo_lost_words(old or {}, {}, clue)
+    seen = []
+    for w in re.findall(r"[a-z]+", re.sub(r"<[^>]*>|\([^)]*\)", " ", (clue or "").lower())):
+        if w in lost and w not in seen:
+            seen.append(w)
+    return seen
+
+
 def redo_regressions(old, new, clue):
     """Ways a redo `new` of an already-annotated clue gives up what the annotation
     `old` on file had, as "kind: what" strings; [] when it gives up nothing. The
@@ -7262,12 +7284,7 @@ def redo_regressions(old, new, clue):
     elif "spooner" in (clue or "").lower() and not any(n.get("op") == "spoonerism" for n in _walk(wp)):
         out.append("lost_spoonerism: the clue names Spooner and the tree has no spoonerism op")
     if old.get("wordplay"):
-        lost = (_accounted_words(old) - _accounted_words(new)) & _clue_words(clue)
-        # A connective only a leaf of the old tree held (an unchecked "with" leaf
-        # the re-annotation exists to remove) may go; as an indicator, definition
-        # or link word it still has to stay.
-        lost -= CONNECTIVE_WORDS - _accounted_words(old, leaves="real")
-        lost -= forgiven_dropped_words(old, new, clue)
+        lost = redo_lost_words(old, new, clue)
         if lost:
             roles = _old_roles(old, lost)
             out.append("dropped_words: " + ", ".join(f"{w} ({roles[w]})" for w in sorted(lost))

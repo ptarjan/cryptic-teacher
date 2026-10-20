@@ -301,6 +301,20 @@ def hidden_drafts(puzzle, only):
     return {eid: d for eid, d in drafts.items() if only is None or eid in only}
 
 
+def keep_words(puzzle, only):
+    """{entry id: "w1 w2 ..."} for each clue being redone (hinted already): the
+    old annotation's words the redo gate (validate_annotations.redo_regressions)
+    refuses to lose, so the run keeps them in the new tree up front."""
+    out = {}
+    for e in puzzle["entries"]:
+        eid = entry_id(e)
+        if eid in only and e.get("annotation"):
+            words = validate_annotations.redo_keep_words(e["annotation"], (e.get("clue") or {}).get("text"))
+            if words:
+                out[eid] = " ".join(words)
+    return out
+
+
 def write_view(path):
     """Write the annotate run's copy of the puzzle file, current as of now.
 
@@ -334,6 +348,9 @@ def write_view(path):
                                   f"parse the clue again and write a new `wp`; the check refuses "
                                   f"a tree with that fault, the old one included"
                                for c, r in flagged.items()}
+        keep = keep_words(puzzle, only)
+        if keep:
+            view["keepWords"] = keep
     drafts = hidden_drafts(puzzle, only)
     if drafts:
         view["draftAnnotations"] = drafts
