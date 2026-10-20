@@ -4135,6 +4135,43 @@ def settled_by_vlm(texts, lid, parse, cands):
     return None
 
 
+#: What a Gale page prints under its last across clue: the puzzle's number and the
+#: heading of the solution box ("23,099 Solution", "SWORD 23,095"), however torn.
+_FOOTER_TAIL = re.compile(r"\W*(?:(?:S?WORD|Solu\w*|\d{1,2}[,.]?\d{3})\W*)+")
+_COUNT_AT = re.compile(r"\(\s*[\dSIl,.\- ]{1,9}\)")
+
+
+def footer_cut(text):
+    """`text` ended at its count when all that follows the count is the page's
+    solution-box footer; else `text` as it was."""
+    for m in reversed(list(_COUNT_AT.finditer(text))):
+        if _FOOTER_TAIL.fullmatch(text[m.end():]):
+            return text[:m.end()].strip()
+        break
+    return text
+
+
+def agreed_past_footer(cands, enum):
+    """The clue (ending at its count) that most of `cands` give once the footer
+    under it is cut, or None: at least two readings, more than half of them,
+    print it alike (case and punctuation aside) with the light's count `enum`,
+    and one of them had the footer to cut. Two readers agreeing is what lays a
+    clue; a footer after the count only kept their texts from being alike."""
+    want = clue_text.count_total(enum) if enum else None
+    if not want:
+        return None
+    cut = [footer_cut(c) for c in cands]
+    groups = {}
+    for c, k in zip(cands, cut):
+        m = _COUNT_AT.search(k[-12:]) if k else None
+        if m and clue_text.count_total(m.group()[1:-1]) == want:
+            groups.setdefault(re.sub(r"\W+", "", k.lower()), []).append((c, k))
+    for ks in groups.values():
+        if len(ks) >= 2 and 2 * len(ks) > len(cands) and any(c != k for c, k in ks):
+            return next(k for c, k in ks if c != k)
+    return None
+
+
 #: The fewest words a clue has to be told from the page's text by its words.
 INSIDE_WORDS = 4
 
@@ -4204,7 +4241,8 @@ def vlm_pick(texts, laid, blank, parse, pick):
         cands = candidates(texts, lid, parse)
         if not cands:
             continue
-        own = settled_by_vlm(texts, lid, parse, cands) or clean_inside(cands, laid[lid][1])
+        own = settled_by_vlm(texts, lid, parse, cands) or clean_inside(cands, laid[lid][1]) \
+            or agreed_past_footer(cands, laid[lid][1])
         if own is not None:
             got = trimmed(held(clean(strip_count(own)), cands), lid)
             if tokens(got) and not merged(got):

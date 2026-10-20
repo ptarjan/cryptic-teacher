@@ -2681,6 +2681,28 @@ check("a clean reading whose count is not the light's is not taken", None,
       ocr_clues.clean_inside(["Hanker after an unknown Ipcome Growtb make (5)",
                               "Hanker after an unknown Incorme Gronth Aock - make (5)",
                               "Hanker after an unknown make (5)"], "7"))
+check("three readings of the last across clue that differ only in the solution-box footer agree (no pick asked)",
+      "Study applied to uninteresting poet (6)",
+      ocr_clues.agreed_past_footer(["Study applied to uninteresting poet (6) 23,099 Solutic",
+                                    "Study applied to uninteresting poet (6) 23,099 Soluti",
+                                    "Study applied to uninteresting poet (6) WORD 23,099"], "6"))
+check("a footer cut that leaves two readings unlike is no agreement (the pick is asked)", None,
+      ocr_clues.agreed_past_footer(["Net I weaved with my needle (6) 23,095 Soluti",
+                                    "Net I wove with my needle (6) SWORD 23,095"], "6"))
+check("a second clue after a mid-text count is not a footer: nothing is cut",
+      "Euclid's fifth proposition is game (9) perfect in conception (5)",
+      ocr_clues.footer_cut("Euclid's fifth proposition is game (9) perfect in conception (5)"))
+check("a footer cut to a count that is not the light's is not taken", None,
+      ocr_clues.agreed_past_footer(["Study applied to uninteresting poet (6) 23,099 Solutic",
+                                    "Study applied to uninteresting poet (6) 23,099 Soluti"], "7"))
+check("readings already alike with no footer to cut are left to the pick", None,
+      ocr_clues.agreed_past_footer(["Study applied to poet (6)", "Study applied to poet (6)"], "6"))
+check("the last across clue the readings agree on past the footer is laid with no ask", "Study applied to uninteresting poet",
+      ocr_clues.vlm_pick({"ch": "ACROSS\n1 Mender of slippery eels in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Study applied to uninteresting poet (6) 23,099 Solutic\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n",
+                          "en5": "ACROSS\n1 Mender of slippery eels in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Study applied to uninteresting poet (6) 23,099 Soluti\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n",
+                          "vlm": "ACROSS\n1 Mender of slippery eels in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Study applied to uninteresting poet (6) WORD 23,099\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n"},
+                         {"9-across": ("", "6", None)}, {"9-across": "readings differ"}, f.parse,
+                         lambda lid, cands: 1 / 0)[0]["9-across"][0])
 check("the VLM's own reading beside an OCR slip of a letter is laid with no ask", "Mender of slippery eels in water",
       ocr_clues.vlm_pick({"ch": "ACROSS\n1 Mender of slippery eals in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Lost rain falls on a hill (5,3)\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n5 Bird in a bush is worth two (5)\n",
                           "vlm": "ACROSS\n1 Mender of slippery eels in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Lost rain falls on a hill (5,3)\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n5 Bird in a bush is worth two (5)\n"},
