@@ -883,37 +883,53 @@
      "op": "container",
      "indicators": [
       {
-       "text": "not",
-       "note": "'not a' tells you the letter A is absent from the dessert that follows"
-      },
-      {
        "text": "smuggled into",
-       "note": "the dessert is slipped inside the prison"
+       "at": 23,
+       "note": "smuggled into means the shortened sweet goes inside the prison word"
       }
      ],
      "parts": [
       {
        "words": "prison",
+       "at": 37,
        "gives": "STIR",
        "note": "stir is slang for prison"
       },
       {
-       "words": "dessert",
-       "gives": "CKE",
-       "note": "CAKE without A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 8,
+         "note": "not means the dessert goes without the letter A"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dessert",
+         "at": 14,
+         "gives": "CAKE",
+         "note": "cake is a dessert"
+        },
+        {
+         "words": "a",
+         "at": 12,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A blade hidden in a cake is smuggled into jail, the old file-in-the-cake trick.",
-     "walkthrough": "'Not a' removes the letter A from CAKE, which then sits inside STIR.",
-     "definitionFit": "Something that sticks or stabs, so a knife used for killing pigs or a blade in general."
+     "surface": "A knife, rather than a cake with a file in it, is smuggled into a jail.",
+     "walkthrough": "The classic image of a file baked into a cake for a prisoner is the joke behind the surface.",
+     "definitionFit": "A sticker is an old word for a knife or dagger used for stabbing, from stick meaning to stab."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "not"
+     "misdirectedWord": "dessert"
     }
    }
   },

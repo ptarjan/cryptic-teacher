@@ -604,8 +604,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "failed",
-       "note": "the letters have gone wrong, so rearrange them"
+       "text": "before",
+       "at": 59,
+       "note": "before means the lie with its contents comes ahead of the next letter"
       }
      ],
      "parts": [
@@ -614,42 +615,60 @@
        "indicators": [
         {
          "text": "to cut",
-         "note": "the jumbled letters cut into the lie"
+         "at": 43,
+         "note": "to cut means the scrambled letters slice into the lie, splitting it"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "before",
-           "note": "coming before means placed in front"
-          }
-         ],
-         "parts": [
-          {
-           "words": "as butler, I",
-           "note": "jumbled together with D to give IBERALSTUD"
-          },
-          {
-           "words": "pork pie",
-           "gives": "LIE",
-           "note": "rhyming slang: pork pie = lie; IBERALSTUD goes inside after L"
-          }
-         ]
+         "words": "pork pie",
+         "at": 50,
+         "gives": "LIE",
+         "note": "rhyming slang: pork pie means lie"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Initially",
-           "note": "what comes initially in a word is its first letter"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "disorganised",
-           "note": "first letter of disorganised"
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "failed",
+             "at": 36,
+             "note": "failed suggests the letters have broken down and are reordered"
+            }
+           ],
+           "parts": [
+            {
+             "words": "as",
+             "at": 23
+            },
+            {
+             "words": "butler",
+             "at": 26
+            }
+           ]
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "Initially",
+             "at": 0,
+             "note": "initially points to the first letter only"
+            }
+           ],
+           "parts": [
+            {
+             "words": "disorganised",
+             "at": 10,
+             "note": "its first letter is D"
+            }
+           ]
+          },
+          {
+           "words": "I",
+           "at": 34
           }
          ]
         }
@@ -657,20 +676,19 @@
       },
       {
        "words": "second",
-       "gives": "S",
-       "note": "S = second"
+       "at": 66,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A muddled butler admits he couldn't slice the pork pie before the next course of the meal.",
-     "walkthrough": "'Pork pie' is Cockney rhyming slang for lie, often cut to 'porkie'. 'Second course' reads as a dish, but the course is one of study.",
-     "definitionFit": "Liberal studies is a college course in general arts subjects."
+     "surface": "A muddled butler failed to slice the pork pie before the second course of dinner.",
+     "walkthrough": "The anagram of AS BUTLER gives BERALSTU; with D and I after it, the whole run sits between LI and E of LIE.",
+     "definitionFit": "Liberal studies is a broad educational course in arts and humanities, often added to vocational training."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "course"
     }
    }

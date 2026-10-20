@@ -712,26 +712,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "really missing friend",
-       "gives": "RE",
-       "note": "REALLY without ALLY (friend)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 19,
+         "note": "missing means the word really goes without the letters for friend"
+        }
+       ],
+       "parts": [
+        {
+         "words": "really",
+         "at": 12
+        },
+        {
+         "words": "friend",
+         "at": 27,
+         "gives": "ALLY",
+         "note": "an ally is a friend"
+        }
+       ]
       },
       {
        "words": "bored",
+       "at": 38,
        "gives": "TIRED",
-       "note": "tired of = bored with"
+       "note": "tired, as in tired of something, means bored"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody went to bed missing a friend and fed up.",
-     "walkthrough": "'Missing friend' sounds like loneliness; the friend is a word that sits neatly inside the one before it.",
-     "definitionFit": "'Retire' in the old sense of withdrawing for the night, so 'went to bed' matches in tense."
+     "surface": "Someone without company and with nothing to do simply went to bed early.",
+     "definitionFit": "To retire for the night is a formal way of saying someone went to sleep."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "friend"
+     "misdirectedWord": "missing"
     }
    }
   },

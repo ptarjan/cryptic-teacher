@@ -615,12 +615,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SURPLUS",
      "indicators": [
       {
        "text": "Never completed",
-       "note": "what is never completed stops short of its last letter"
+       "at": 0,
+       "note": "never completed means each word stops short of its final letter"
       }
      ],
      "parts": [
@@ -629,27 +628,32 @@
        "parts": [
         {
          "words": "certainly",
-         "gives": "SUR",
-         "note": "sure, meaning certainly, without its last letter"
+         "at": 17,
+         "gives": "SURE",
+         "note": "sure, as a reply, means certainly"
         },
         {
          "words": "luxurious",
-         "gives": "PLUS",
-         "note": "plush, meaning luxurious, without its last letter"
+         "at": 27,
+         "gives": "PLUSH",
+         "note": "plush means luxurious"
         }
        ]
+      },
+      {
+       "gives": "EH"
       }
      ]
     },
     "explanation": {
-     "surface": "A luxurious project that was never finished, certainly far more lavish than it needed to be.",
-     "walkthrough": "'Never completed' applies to both following words: SURE and PLUSH each lose their final letter.",
-     "definitionFit": "A surplus is an excess, the amount left over beyond what is required or used."
+     "surface": "A luxurious building project that never got finished cost more than anyone needed.",
+     "walkthrough": "Both words lose their last letter: SURE becomes SUR and PLUSH becomes PLUS.",
+     "definitionFit": "A surplus is an amount left over, an excess beyond what is required."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "completed"
+     "misdirectedWord": "certainly"
     }
    }
   },
@@ -1629,56 +1633,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHENILLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "after cutting",
-       "note": "once cut, a word loses its final letter"
+       "text": "in",
+       "at": 13,
+       "note": "in means the two pieces go inside the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one piece inside another"
+         "text": "after cutting",
+         "at": 21,
+         "note": "after cutting means the word for neck is cut at its after end, losing its last letter"
         }
        ],
        "parts": [
         {
          "words": "neck",
-         "gives": "CHEE",
-         "note": "cheek, short for its last letter; neck is British slang for impudence, as is cheek"
+         "at": 16,
+         "gives": "CHEEK",
+         "note": "neck, as in brass neck, means cheek or nerve"
         },
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Nothing",
-           "gives": "NIL",
-           "note": "nil means nothing"
-          },
-          {
-           "words": "left",
-           "gives": "L",
-           "note": "L is the abbreviation for left"
-          }
-         ]
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Nothing",
+         "at": 0,
+         "gives": "NIL",
+         "note": "nil is nothing"
+        },
+        {
+         "words": "left",
+         "at": 8,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is left with no neck at all after a tailor cuts the cloth.",
-     "walkthrough": "'Neck' looks anatomical, but in British slang 'to have the neck' means to have the nerve, which is cheek.",
-     "definitionFit": "Chenille is a soft, tufted yarn and the velvety cloth woven from it, used for throws and upholstery."
+     "surface": "A cut on the neck leaves nothing behind, like a tailor trimming cloth.",
+     "definitionFit": "Chenille is a soft tufted yarn and the velvety fabric woven from it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "neck"
     }
@@ -1876,7 +1884,8 @@
      "indicators": [
       {
        "text": "repeating",
-       "note": "repeating means saying again, so the finished piece is written out a second time"
+       "at": 15,
+       "note": "repeating gives the four letters just built a second time, side by side"
       }
      ],
      "parts": [
@@ -1885,33 +1894,46 @@
        "indicators": [
         {
          "text": "keeps",
-         "note": "to keep something is to hold it inside, so one piece is held within another"
+         "at": 5,
+         "note": "keeps means the exclamation holds the letter for son inside it"
         }
        ],
        "parts": [
         {
          "words": "What",
+         "at": 0,
          "gives": "HUH",
-         "note": "Huh? is an exclamation meaning What?"
+         "note": "huh is an exclamation meaning what?"
         },
         {
          "words": "son",
-         "gives": "S",
-         "note": "S is the genealogical abbreviation for son"
+         "at": 11,
+         "gives": "S"
         }
        ]
       },
       {
-       "words": "What keeps son",
-       "gives": "HUSH",
-       "note": "the same combined piece once more, as the repetition asks"
+       "op": "container",
+       "parts": [
+        {
+         "words": "What",
+         "at": 0,
+         "gives": "HUH",
+         "note": "huh is an exclamation meaning what?"
+        },
+        {
+         "words": "son",
+         "at": 11,
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A riddle about what keeps a boy repeating a secret.",
-     "walkthrough": "'What' looks like the start of a question, but it is the exclamation of puzzlement; the result is then doubled.",
-     "definitionFit": "Hush-hush is an informal adjective for something kept highly confidential, which is exactly what secret means."
+     "surface": "A puzzled question about what a family keeps from its son, repeating the secret.",
+     "walkthrough": "Repeating means the whole first build is said twice over, so the pieces are used again.",
+     "definitionFit": "Something hush-hush is highly confidential, kept quiet as a secret is."
     },
     "features": {
      "answerInScene": true,
@@ -2737,38 +2759,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SERGE",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of means all but a little, so the last letter is lost"
+       "text": "Recall",
+       "at": 0,
+       "note": "recall means calling back, so the letters are read backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Recall",
-         "note": "to recall is to call back, so the letters come back in reverse"
+         "text": "most of",
+         "at": 7,
+         "note": "most of means the word loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "way out",
-         "gives": "EGRES",
-         "note": "egress, an exit, without its final letter"
+         "at": 15,
+         "gives": "EGRESS",
+         "note": "an egress is a way out, an exit"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone remembers most of some far-out material.",
-     "walkthrough": "'Way out stuff' sounds like weird ideas, but 'stuff' is the old word for woven cloth.",
-     "definitionFit": "Stuff is an old name for woven woollen fabric, and serge is a hard-wearing twilled cloth of that kind."
+     "surface": "Someone recalls how much clutter lay on the way out of the house.",
+     "definitionFit": "Serge is a hard-wearing twilled cloth, and stuff is an old word for woollen fabric."
     },
     "features": {
      "answerInScene": false,
@@ -2836,58 +2861,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SEQUENCE",
+     "op": "container",
      "indicators": [
       {
-       "text": "half of",
-       "note": "half of a word keeps only its first three of six letters"
+       "text": "to enter",
+       "at": 35,
+       "note": "to enter means the half-word goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to enter",
-         "note": "to enter a room is to walk into it, so one piece goes inside the other and is surrounded"
+         "text": "staged",
+         "at": 44,
+         "note": "staged means the letters of scene are arranged afresh, as if set up for performance"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "staged",
-           "note": "something staged is set up or arranged, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "scene",
-           "note": "taken as written"
-          }
-         ]
-        },
+         "words": "scene",
+         "at": 51
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 6,
+         "note": "half of means only the first three of its six letters are kept"
+        }
+       ],
+       "parts": [
         {
          "words": "card-carrying actors",
-         "gives": "EQU",
-         "note": "Equity is the British actors' trade union, whose members carry cards"
+         "at": 14,
+         "gives": "EQUITY",
+         "note": "Equity is the British actors' union, whose members carry a union card"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A director orders half the union-member cast to walk into a scene being staged.",
-     "walkthrough": "'Card-carrying actors' points to the actors' union, Equity; 'staged' looks like it describes the scene but reworks it.",
-     "definitionFit": "A sequence is an order in which things follow one another, as in alphabetical sequence."
+     "surface": "A director orders half the union actors to come on for a staged scene.",
+     "walkthrough": "Equity is the trade union for performers in the UK.",
+     "definitionFit": "A sequence is an arrangement in which things follow one another, an order in that sense."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "staged"
+     "misdirectedWord": "Order"
     }
    }
   },
@@ -2912,42 +2939,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUAYAGE",
-     "indicators": [
-      {
-       "text": "exposed",
-       "note": "exposed means stripped of its covering, so the outer letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "As",
+       "at": 0,
+       "gives": "QUA",
+       "note": "qua is Latin for as, in the capacity of"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 17,
+         "note": "in means the stripped name goes inside the old word for the"
+        }
+       ],
        "parts": [
         {
-         "words": "As",
-         "gives": "QUA",
-         "note": "qua is Latin for 'as', as in 'art qua art'"
+         "words": "the earlier",
+         "at": 20,
+         "gives": "YE",
+         "note": "ye is an earlier form of the, as in Ye Olde Shoppe"
         },
         {
-         "op": "container",
+         "op": "middle",
          "indicators": [
           {
-           "text": "in",
-           "note": "in places one piece inside another"
+           "text": "exposed",
+           "at": 9,
+           "note": "exposed means stripped of its outer letters"
           }
          ],
          "parts": [
           {
-           "words": "the earlier",
-           "gives": "YE",
-           "note": "ye is the old spelling of the, as in Ye Olde Tea Shoppe"
-          },
-          {
            "words": "Iago",
-           "gives": "AG",
-           "note": "the name without its first and last letters"
+           "at": 3
           }
          ]
         }
@@ -2956,9 +2984,9 @@
      ]
     },
     "explanation": {
-     "surface": "Iago is unmasked in the earlier scenes, and Othello the Moor pays the price.",
-     "walkthrough": "The capital M on 'Moor' is a deception after Othello: read it as moor, to tie up a boat.",
-     "definitionFit": "Quayage is the fee charged for using a quay, the price a vessel pays to tie up there."
+     "surface": "Iago, exposed, pays the earlier price for betraying the Moor Othello.",
+     "walkthrough": "Moor here is a verb, to tie up a ship, not Othello.",
+     "definitionFit": "Quayage is the fee charged for using a quay, the cost of mooring a ship there."
     },
     "features": {
      "answerInScene": false,
@@ -3052,48 +3080,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CREDOS",
+     "op": "container",
      "indicators": [
       {
-       "text": "for the most part",
-       "note": "most but not all of the word is used, so its last letter goes"
+       "text": "during",
+       "at": 6,
+       "note": "during means the party word sits within the shortened peak"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "during",
-         "note": "during means within the span of, so one piece sits inside another"
+         "text": "for the most part",
+         "at": 20,
+         "note": "for the most part means most of the word, losing its last letter"
         }
        ],
        "parts": [
         {
          "words": "peak",
-         "gives": "CRES",
-         "note": "crest, a summit, without its last letter"
+         "at": 13,
+         "gives": "CREST",
+         "note": "a crest is a peak or summit"
         },
         {
-         "words": "Party",
-         "gives": "DO",
-         "note": "a do is a party"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Party",
+       "at": 0,
+       "gives": "DO",
+       "note": "a do is a party"
       }
      ]
     },
     "explanation": {
-     "surface": "A party during the peak season, where for the most part people believe what they hear.",
-     "walkthrough": "'For the most part' reads as 'mostly' attached to 'people', but it trims the peak; the definition is a clause.",
-     "definitionFit": "Credos are statements of belief, so they are the things that people believe, plural to match 'them'."
+     "surface": "A party held on a mountain top, where most people believe in the spirits.",
+     "definitionFit": "Credos are statements of faith or principle, things that people hold as true."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Party"
+     "misdirectedWord": "peak"
     }
    }
   },
