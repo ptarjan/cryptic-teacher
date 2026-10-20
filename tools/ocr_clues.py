@@ -123,7 +123,45 @@ def engine_threads():
     n = int(os.environ.get("OCR_THREADS") or 1)
     import cv2
     cv2.setNumThreads(n)
+    if not _FRUGAL["set"]:
+        _FRUGAL["set"] = True
+        frugal_memory()
     return {"intra_op_num_threads": n, "inter_op_num_threads": 1}
+
+
+_FRUGAL = {"set": False}
+
+
+def frugal_memory():
+    """What a full-page OCR holds at its peak, cut with the same words out
+    (a sizing like the threads, so it is left out of the scan key):
+    - glibc malloc hands every block over 1 MB straight back when freed. Its
+      default grows the mmap threshold to the largest block freed (up to
+      32 MB), so after the first full-page detector run the next runs'
+      feature maps come off the heap, which a few live small blocks keep
+      from shrinking: a unit that read a page's crops several times held
+      what the largest took. (No-op without glibc.)
+    - RapidOCR's onnxruntime sessions are made with the memory-pattern
+      planner off, which otherwise holds a block sized for the largest input
+      between runs (RapidOCR sets neither)."""
+    try:
+        import ctypes
+        libc = ctypes.CDLL("libc.so.6")
+        libc.mallopt(-3, 1 << 20)  # M_MMAP_THRESHOLD
+        libc.mallopt(-1, 1 << 20)  # M_TRIM_THRESHOLD
+    except (OSError, AttributeError):
+        pass
+    try:
+        from rapidocr_onnxruntime.utils import infer_engine
+    except ImportError:
+        return
+    made = infer_engine.OrtInferSession._init_sess_opts
+
+    def opts(config):
+        sess_opt = made(config)
+        sess_opt.enable_mem_pattern = False
+        return sess_opt
+    infer_engine.OrtInferSession._init_sess_opts = staticmethod(opts)
 
 
 def capped_cv2():
