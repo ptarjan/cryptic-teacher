@@ -1102,29 +1102,49 @@
      "indicators": [
       {
        "text": "nursing",
-       "note": "a nurse holds a baby close, so the car holds the foot inside"
+       "at": 24,
+       "note": "nursing means holding close, so the car word holds the other piece inside"
       }
      ],
      "parts": [
       {
        "words": "open car",
+       "at": 15,
        "gives": "TOURER",
        "note": "a tourer is an open-topped touring car"
       },
       {
-       "words": "foot when I passed",
-       "gives": "AMB",
-       "note": "IAMB, a metrical foot, without its I; it goes inside the car after its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "passed",
+         "at": 44,
+         "note": "passed means gone by, so the letter I goes away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foot",
+         "at": 32,
+         "gives": "IAMB",
+         "note": "an iamb is a metrical foot, a short syllable then a long one"
+        },
+        {
+         "words": "I",
+         "at": 42,
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A needleworker drives an open-topped car, nursing a sore foot, just as I went by.",
-     "walkthrough": "'Foot' is the poetic foot, not a body part: an iamb is one short beat and one long.",
-     "definitionFit": "A definition by description: a tambour is a round frame holding fabric taut, and this is someone who embroiders on one."
+     "surface": "Someone in a convertible tends an injured foot as a passenger goes by.",
+     "walkthrough": "'foot' looks like part of the body, but it is a foot of verse, a unit of poetic metre.",
+     "definitionFit": "A tambourer works tambour embroidery, stitching fabric stretched on a round frame, so is a kind of needleworker."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "foot"
     }
@@ -1753,35 +1773,20 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "move",
      "indicators": [
       {
-       "text": "with",
-       "at": 24,
-       "note": "with says the couples word is joined again by that letter, now set a place higher in this down answer"
+       "text": "promoted",
+       "at": 47,
+       "note": "promoted means moved up, so the letter shifts earlier in the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "promoted",
-         "at": 47,
-         "note": "promoted means lifted from its place, so the romance letter comes out of the couples word to move higher"
-        }
-       ],
-       "parts": [
-        {
-         "words": "couples",
-         "at": 15,
-         "gives": "PAIRS",
-         "note": "pairs are couples"
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "words": "couples",
+       "at": 15,
+       "gives": "PAIRS",
+       "note": "pairs are couples"
       },
       {
        "op": "first",
@@ -1789,28 +1794,27 @@
         {
          "text": "primarily",
          "at": 37,
-         "note": "primarily means first, so just the initial letter of romance"
+         "note": "primarily means at first, so the first letter of the word"
         }
        ],
        "parts": [
         {
          "words": "romance",
          "at": 29,
-         "note": "the word whose opening letter is wanted"
+         "note": "its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Where do couples go when romance comes first?",
-     "walkthrough": "In PAIRS the R, which 'romance primarily' gives, is 'promoted': lifted out to leave PAIS and put back one place higher, above the I. The question mark admits the destination is a city famed for romance.",
-     "definitionFit": "Paris is a classic holiday destination for lovers, known as the city of romance."
+     "surface": "Where couples go when romance is given top billing, a city of love.",
+     "walkthrough": "In PAIRS the R moves up a place, ahead of the I.",
+     "definitionFit": "Paris is a classic city destination for honeymooners and romantic couples."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "promoted"
+     "aptDefinition": true
     }
    }
   },

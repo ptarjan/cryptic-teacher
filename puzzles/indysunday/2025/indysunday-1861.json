@@ -216,41 +216,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "EYEHOLE",
+     "indicators": [
+      {
+       "text": "when told",
+       "at": 17,
+       "note": "told means spoken aloud, so the words are taken by how they sound"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "EYE",
-       "indicators": [
-        {
-         "text": "when told",
-         "note": "told here means said out loud, so you write down what the words sound like rather than how a dictionary spells them"
-        }
-       ],
-       "parts": [
-        {
-         "words": "I",
-         "gives": "I",
-         "note": "the pronoun and the organ you see with are said exactly the same way"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "HOLE",
-       "parts": [
-        {
-         "words": "complete",
-         "gives": "WHOLE",
-         "note": "something complete is whole, and the W of whole is silent, so the ear cannot tell it from the gap"
-        }
-       ]
+       "words": "I complete",
+       "at": 6,
+       "gives": "IWHOLE",
+       "note": "taken as written; said aloud it is eye; whole means complete or entire"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Orbit' looks astronomical and is anatomical: the bony socket an eyeball sits in. Say the other two words aloud and the spelling you want falls out.",
-     "definitionFit": "In anatomy the orbit is the bony cavity holding the eyeball, so a hole made for an eye is precisely what the word names."
+     "surface": "A boastful line: I have finished orbiting, says the astronaut.",
+     "walkthrough": "'Orbit' looks like space travel, but it is the eye socket. Spoken, I WHOLE sounds like EYE HOLE.",
+     "definitionFit": "An orbit is the bony socket housing the eye, which is literally an eyehole in the skull."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Orbit"
     }
    }
   },
@@ -604,35 +597,59 @@
      "parts": [
       {
        "words": "Island",
+       "at": 0,
        "gives": "I",
-       "note": "I is the abbreviation for island on maps and charts"
+       "note": "I is the standard abbreviation for island on maps"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "taking",
-         "note": "what a body takes, it takes in, so the letters named next are swallowed by the word in front of them"
+         "at": 14,
+         "note": "the people word takes in the other piece, holding it inside"
         }
        ],
        "parts": [
         {
          "words": "people",
+         "at": 7,
          "gives": "NATION",
-         "note": "a people held together by one country is a nation"
+         "note": "a nation is a people"
         },
         {
-         "words": "mostly healthy",
-         "gives": "HAL",
-         "note": "hale means healthy — hale and hearty — and most of it stops short of the E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 21,
+           "note": "most of the word is used, its last letter going"
+          }
+         ],
+         "parts": [
+          {
+           "words": "healthy",
+           "at": 28,
+           "gives": "HALE",
+           "note": "hale means healthy, as in hale and hearty"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Island people' looks like one phrase naming islanders and is really two separate pieces. The definition is the last word, doing no work at all in the surface picture.",
-     "definitionFit": "An inhalation is one drawn breath, the intake half of breathing, so the singular noun names exactly that single act."
+     "surface": "Islanders mostly enjoy a lungful of healthy sea air.",
+     "walkthrough": "'healthy' sits beside 'breath' as if describing it, but it belongs to the wordplay, and 'mostly' trims it.",
+     "definitionFit": "An inhalation is a breath taken in, the act of drawing air into the lungs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -704,39 +721,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "turned up",
-       "note": "turning a thing up leaves it the other way round, and in a down entry that means its letters climb the column in reverse"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 11,
+         "note": "in a down answer, turned up means the letters read from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "to sharpen",
-         "gives": "ENOH",
-         "note": "you hone a blade to sharpen it"
-        },
-        {
-         "words": "bug",
-         "gives": "PAT",
-         "note": "to tap a phone is to bug it"
-        },
-        {
          "words": "Detectives",
+         "at": 0,
          "gives": "CID",
-         "note": "CID is Britain's Criminal Investigation Department, the plain-clothes detective branch, stood on its head"
+         "note": "CID is the Criminal Investigation Department, the detective branch of British police"
         }
        ]
+      },
+      {
+       "words": "bug",
+       "at": 21,
+       "gives": "TAP",
+       "note": "to tap a phone is to bug it"
+      },
+      {
+       "words": "sharpen",
+       "at": 28,
+       "gives": "HONE",
+       "note": "to hone a blade is to sharpen it"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Read straight, the surface is a police search that turns up a listening device — which is exactly what the wordplay is built from, three pieces borrowed out of the same scene.",
-     "definitionFit": "A Dictaphone is the desk machine a boss dictates letters into for typing up later, so 'recording device' names it by what it does."
+     "surface": "Police detectives arrive to plant a listening bug and sharpen up their recording equipment.",
+     "walkthrough": "CID turned up gives DIC, followed by TAP and HONE.",
+     "definitionFit": "A Dictaphone is a trademark machine for recording dictated speech, a type of recorder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },

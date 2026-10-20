@@ -897,25 +897,42 @@
      "parts": [
       {
        "words": "Feature of River",
+       "at": 0,
        "gives": "WEIR",
-       "note": "a weir is a low dam across a river"
+       "note": "a weir is a low dam across a river, a typical feature of one"
       },
       {
-       "words": "Don ultimately lacking",
-       "gives": "DO",
-       "note": "DON without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ultimately lacking",
+         "at": 21,
+         "note": "the word is missing its last letter, ultimately pointing at the final position"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Don",
+         "at": 17,
+         "gives": "DON",
+         "note": "taken as written; its last letter goes"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A landmark on the River Don, a Yorkshire river, turns out to have no charm at all.",
-     "walkthrough": "'River Don' is a real river, which glues the words together; split them. 'Lacking character' also reads as a phrase, but 'character' is the definition: an odd person.",
-     "definitionFit": "A character is an eccentric person, and a weirdo is an odd one."
+     "surface": "A geography question about some landmark on Yorkshire's River Don, with the end of the sentence trailing off.",
+     "walkthrough": "'River Don' reads as one name, but River goes with Feature to give WEIR, while Don loses its final N to give DO. The Don is a river in South Yorkshire.",
+     "definitionFit": "A weirdo is an odd person, and 'character' is used informally for an eccentric individual."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "character"
+     "misdirectedWord": "Don"
     }
    }
   },
