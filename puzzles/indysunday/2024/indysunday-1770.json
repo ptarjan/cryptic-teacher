@@ -181,47 +181,65 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "unnamed",
-       "note": "N is the abbreviation for name, so un-named means the lizard loses its N"
-      },
-      {
-       "text": "detailed",
-       "note": "read as de-tailed: the lizard's tail, its last letter, is cut off"
-      },
-      {
-       "text": "by",
-       "note": "by means beside, so the lizard stands next to the conservationists"
-      }
-     ],
      "parts": [
       {
        "words": "active",
+       "at": 36,
        "gives": "A",
-       "note": "a = active, as in grammar"
+       "note": "A is the grammar abbreviation for active"
       },
       {
        "words": "conservationists",
+       "at": 43,
        "gives": "NT",
-       "note": "the National Trust, the British heritage and conservation charity"
+       "note": "NT is the National Trust, a British heritage and conservation charity"
       },
       {
-       "words": "lizard",
-       "gives": "IGUA",
-       "note": "IGUANA without its N and without its final A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unnamed",
+         "at": 9,
+         "note": "N is the abbreviation for name, so unnamed removes it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "detailed",
+           "at": 24,
+           "note": "detailed means having its tail removed, so the last letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lizard",
+           "at": 17,
+           "gives": "IGUANA",
+           "note": "an iguana is a large lizard"
+          },
+          {
+           "gives": "A"
+          }
+         ]
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An island's nameless lizard is being described in detail by busy conservation workers.",
-     "walkthrough": "'Detailed' looks like 'described closely'; read it as de-tailed. 'Unnamed' works the same way, removing N for name.",
-     "definitionFit": "A definition by example: this Caribbean country, home of St John's, is one of many islands."
+     "surface": "An island's anonymous lizard is studied closely by busy conservationists.",
+     "walkthrough": "The National Trust is a British conservation charity; 'detailed' means losing a tail, the final letter.",
+     "definitionFit": "Antigua is a Caribbean island, part of the nation Antigua and Barbuda."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "detailed"
     }
    }
@@ -1897,44 +1915,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Scattered",
-       "note": "things scattered are strewn about, so the letters land in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "SAS men",
-       "note": "anagram fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Scattered",
+         "at": 0,
+         "note": "scattered letters are thrown about, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "SAS",
+         "at": 10,
+         "note": "taken as written"
+        },
+        {
+         "words": "men",
+         "at": 14,
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally means at the end, so only the last letter of strike is used"
+         "at": 18,
+         "note": "finally means at the end, so take the last letter"
         }
        ],
        "parts": [
         {
          "words": "strike",
-         "note": "last letter"
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Special forces soldiers, spread out, attack together.",
-     "walkthrough": "The SAS is the British Army's special forces regiment. 'Strike' reads as the attack; only its last letter is used.",
-     "definitionFit": "A French phrase used in English: 'in a mass', all together, so acting as one body."
+     "surface": "Special forces soldiers spread out before attacking together.",
+     "definitionFit": "En masse is French for all together in a body, which acting as one implies."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "strike"
+     "misdirectedWord": "Scattered"
     }
    }
   },

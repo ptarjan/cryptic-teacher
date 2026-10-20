@@ -986,59 +986,62 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "switched components of",
-       "note": "switching the components means the two parts swap places, so they join in the opposite order to the clue"
-      }
-     ],
      "parts": [
       {
        "words": "graduates",
+       "at": 12,
        "gives": "MAS",
-       "note": "MAs are Master of Arts graduates"
+       "note": "MAs are Masters of Arts, holders of a degree"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "endlessly",
-         "note": "endlessly means without an ending, so each word loses its final letter"
+         "at": 55,
+         "note": "each word loses its final letter, as if its end were cut away"
         }
        ],
        "parts": [
         {
-         "words": "term",
-         "note": "taken as written"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "switched components of",
+           "at": 22,
+           "note": "the two pieces of full term are swapped round, term first"
+          }
+         ],
+         "parts": [
+          {
+           "words": "term",
+           "at": 50,
+           "gives": "TERM",
+           "note": "taken as written"
+          },
+          {
+           "words": "full",
+           "at": 45,
+           "gives": "FULL",
+           "note": "taken as written"
+          }
+         ]
         },
         {
-         "gives": "M"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "full",
-         "note": "taken as written"
-        },
-        {
-         "gives": "L"
+         "gives": "ML"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Arrogant graduates rearranging the parts of a whole academic term.",
-     "walkthrough": "'full term' becomes TER and FUL once both are cut short and swapped.",
-     "definitionFit": "Masterful can mean domineering or imperious, used of someone who likes to take control."
+     "surface": "Domineering graduates reorganise the structure of an entire academic term.",
+     "definitionFit": "Masterful can mean domineering and imperious, the bossy manner that high-handed also describes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "components"
+     "misdirectedWord": "switched"
     }
    }
   },
@@ -1467,7 +1470,8 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "involving means enclosing, so the outer letters wrap around the rest"
+       "at": 30,
+       "note": "involving means containing, so the picked letters wrap around the rest"
       }
      ],
      "parts": [
@@ -1476,55 +1480,59 @@
        "indicators": [
         {
          "text": "every so often",
-         "note": "every so often means at intervals, so alternate letters are kept"
+         "at": 15,
+         "note": "taking letters at intervals picks alternate ones from the word"
         }
        ],
        "parts": [
         {
          "words": "pact",
-         "note": "the second and fourth letters"
+         "at": 10,
+         "note": "taken as written"
         }
        ]
       },
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
-        {
-         "words": "green",
-         "note": "taken as written"
-        },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "diminutive",
-           "note": "diminutive means made smaller, so a word is cut short by its last letter"
+           "at": 40,
+           "note": "made smaller, so the word loses its last letter"
           }
          ],
          "parts": [
           {
-           "words": "men",
+           "words": "green",
+           "at": 51,
            "note": "taken as written"
           },
           {
            "gives": "N"
           }
          ]
+        },
+        {
+         "words": "men",
+         "at": 57,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A treaty with little green men from Mars, mentioned now and then.",
-     "walkthrough": "'Treaty or pact' looks like a double definition, but 'pact' is the letter source.",
-     "definitionFit": "A treaty is a formal agreement between nations."
+     "surface": "A sci-fi tale of a treaty with little green men from Mars.",
+     "definitionFit": "A treaty is a formal accord between states, a kind of agreement."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "pact"
+     "misdirectedWord": "diminutive"
     }
    }
   },
