@@ -981,47 +981,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OKEYDOKE",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "briefly means cut short, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "old",
+       "at": 5,
+       "gives": "O"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 38,
+         "note": "the two keys sit either side of the performing word, around it"
+        }
+       ],
        "parts": [
         {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
-        },
-        {
-         "words": "pair of openers",
-         "gives": "KEY",
-         "note": "a key opens a lock; this is the first of the pair"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "pair of openers",
+           "at": 9,
+           "gives": "KEY",
+           "note": "the openers are keys, and the pair gives two of them; this is the first"
+          },
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "briefly",
+             "at": 30,
+             "note": "the second key is cut short by its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "one",
+             "at": 26,
+             "gives": "KEY",
+             "note": "one of the pair of openers, another key"
+            },
+            {
+             "gives": "Y"
+            }
+           ]
+          }
+         ]
         },
         {
          "words": "to perform",
+         "at": 44,
          "gives": "DO",
          "note": "to do is to perform"
-        },
-        {
-         "words": "one",
-         "gives": "KE",
-         "note": "the second key, with its last letter removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two veteran batsmen open the innings, one soon out, as another prepares to bat.",
-     "walkthrough": "'about' is loose: the clipped second key sits after DO rather than round it.",
-     "definitionFit": "Okey-doke is a jokey informal form of OK, meaning fine or all right."
+     "surface": "An old pair of opening batsmen, one about to go in to bat: fine.",
+     "walkthrough": "Openers are keys: the pair is one full key and one cut short, with the performing word between them.",
+     "definitionFit": "Okey-doke is a jokey informal way of saying all right, agreeing that something is fine."
     },
     "features": {
      "answerInScene": false,

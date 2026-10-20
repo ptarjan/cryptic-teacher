@@ -999,49 +999,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "here the circle simply follows the Liberal within the sequence"
-      }
-     ],
      "parts": [
       {
        "words": "Liberal",
-       "gives": "L",
-       "note": "abbreviation for Liberal"
+       "at": 20,
+       "gives": "L"
       },
       {
        "words": "circle",
+       "at": 10,
        "gives": "O",
-       "note": "a ring shape"
+       "note": "a circle is shaped like the letter O"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "capturing",
-         "note": "capturing means holding a letter inside"
+         "at": 34,
+         "note": "the party word holds the chosen letter within it, as if taking it prisoner"
         }
        ],
        "parts": [
         {
          "words": "party",
+         "at": 28,
          "gives": "ATHOME",
-         "note": "an at-home is a reception held in one's house"
+         "note": "an at-home is a party held in one's own house"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "last of",
-           "note": "last of means taking the final letter of the next word"
+           "at": 44,
+           "note": "only the final letter of seats is taken"
           }
          ],
          "parts": [
           {
            "words": "seats",
-           "note": "final letter"
+           "at": 52
           }
          ]
         }
@@ -1050,14 +1048,13 @@
      ]
     },
     "explanation": {
-     "surface": "A hateful clique within a Liberal party takes the last seats.",
-     "walkthrough": "L + O + AT HOME with S captured inside. An at-home is an old-fashioned party given at one's house.",
-     "definitionFit": "Loathsome means disgusting, causing hatred, like abhorrent."
+     "surface": "A political sketch: some loathed clique within the Liberals seizes one more seat.",
+     "definitionFit": "Loathsome describes something hateful or repellent, a close synonym of abhorrent."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "circle"
+     "misdirectedWord": "party"
     }
    }
   },
@@ -1635,80 +1632,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HOUSEPROUD",
      "indicators": [
       {
        "text": "feeding",
-       "note": "feeding means going into the middle of what follows"
+       "at": 41,
+       "note": "the expert-and-river letters are fed into the alternate letters of hound"
       }
      ],
      "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 55,
+         "note": "only every other letter of hound is used, at regular intervals"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hound",
+         "at": 49
+        }
+       ]
+      },
       {
        "op": "charade",
        "indicators": [
         {
          "text": "on",
-         "note": "in an across clue one thing on another comes after it"
+         "at": 31,
+         "note": "in an across clue, one item on another comes after it"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "H",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "regularly means taking every other letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "hound",
-           "gives": "H",
-           "select": "alternate",
-           "note": "first of the alternate letters"
-          }
-         ]
-        },
-        {
          "words": "river",
+         "at": 34,
          "gives": "OUSE",
-         "note": "a river in Yorkshire, also one in East Anglia"
+         "note": "the Ouse is a river in Yorkshire and another in Sussex"
         },
         {
          "words": "expert",
+         "at": 24,
          "gives": "PRO",
-         "note": "a professional"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "UD",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "hound",
-           "gives": "UD",
-           "select": "alternate",
-           "note": "the remaining alternate letters"
-          }
-         ]
+         "note": "a pro is a professional, an expert"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A specialist on a river is feeding a dog every so often.",
-     "walkthrough": "The river and expert go in just after the first of the alternate letters; the Ouse is a river in Yorkshire.",
-     "definitionFit": "Being house-proud means fussing over a tidy, well-kept home."
+     "surface": "A specialist on the riverbank feeds their dog, perhaps very fussily.",
+     "definitionFit": "A house-proud person takes great care over the tidiness and look of their home, fussy about domestic matters."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "feeding"
     }
    }
   },

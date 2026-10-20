@@ -1133,50 +1133,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GRILSE",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "most but not all of the word is kept, its final letter dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 10,
+         "note": "the cooking word is used all but its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "cook",
-         "gives": "GRIL",
-         "note": "grill, missing its final letter"
+         "at": 5,
+         "gives": "GRILL",
+         "note": "to grill is to cook under direct heat"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "SE",
-         "indicators": [
-          {
-           "text": "at first",
-           "note": "the opening letters of the following words are the ones kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "served eagerly",
-           "gives": "SE",
-           "select": "first",
-           "note": "first letters of these two words"
-          }
-         ]
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 32,
+         "note": "the opening letters of served and eagerly are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "served",
+         "at": 17
+        },
+        {
+         "words": "eagerly",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook keenly serves up fish.",
+     "surface": "A fish dish, mostly cooked, is served up eagerly early on.",
      "definitionFit": "A grilse is a young salmon returning from the sea to fresh water for the first time."
     },
     "features": {

@@ -390,58 +390,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KEBAB",
-     "indicators": [
-      {
-       "text": "a lot of",
-       "note": "a lot of means most but not all, so the last letter is cut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Cook",
+         "at": 0,
+         "note": "to cook the books is to fiddle them, so the letters are mixed into another order"
+        }
+       ],
        "parts": [
         {
-         "words": "baked",
-         "gives": "BAKE",
-         "note": "the word without its final letter"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Cook",
-           "note": "to cook something is to work it into a new form, so these letters are reworked"
+           "text": "a lot of",
+           "at": 5,
+           "note": "most of the word is kept, all but its final letter"
           }
          ],
          "parts": [
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "for starters",
-             "note": "starters are what come first, so only the opening letter is used"
-            }
-           ],
-           "parts": [
-            {
-             "words": "beans",
-             "note": "the opening letter"
-            }
-           ]
+           "words": "baked",
+           "at": 14
+          },
+          {
+           "gives": "D"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "for starters",
+         "at": 26,
+         "note": "only the opening letter of beans is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beans",
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A menu instruction: prepare plenty of baked beans as an appetiser, then a meat dish.",
-     "walkthrough": "'Starters' and 'course' make a meal of the surface; only 'meat course' defines.",
-     "definitionFit": "A kebab is a dish of grilled meat pieces on a skewer, served as the main part of a meal."
+     "surface": "Kitchen advice: make heaps of baked beans as starters and a meat main.",
+     "walkthrough": "BAKE rearranged gives KEBA, then B.",
+     "definitionFit": "A kebab is pieces of grilled meat on a skewer, served as a dish at a meal."
     },
     "features": {
      "answerInScene": true,

@@ -148,63 +148,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACID",
+     "op": "container",
      "indicators": [
       {
-       "text": "detailed",
-       "note": "de-tailed: the last letter, the tail, is cut from the word"
+       "text": "punches",
+       "at": 44,
+       "note": "the first letter is punched into the shortened word, put inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "punches"
+         "text": "detailed",
+         "at": 5,
+         "note": "de-tailed means the word loses its tail, its last letter"
         }
        ],
        "parts": [
         {
          "words": "swinging",
-         "gives": "ACD",
-         "note": "AC/DC is slang for bisexual, swinging both ways; with its tail C cut off it is ACD"
+         "at": 14,
+         "gives": "ACDC",
+         "note": "AC/DC is slang for bisexual, also called swinging both ways"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "I",
-         "indicators": [
-          {
-           "text": "first of",
-           "note": "only the opening letter of ill-advised is wanted"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "ill-advised",
-           "gives": "I",
-           "select": "first",
-           "note": "first letter of ill-advised"
-          }
-         ]
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "at": 23,
+         "note": "only the opening letter of ill-advised is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ill-advised",
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tart detailed swinging a few ill-judged punches, as in a bar-room brawl.",
-     "walkthrough": "'Tart' pretends to be a person in the surface; it is the adjective meaning sour. AC/DC is informal for bisexual.",
-     "definitionFit": "A tart taste is sharp and sour, which is what acid means as an adjective."
+     "surface": "An unwisely chosen pastry gets thumped after swinging loose.",
+     "walkthrough": "ACDC without its tail is ACD; I goes in to give the answer.",
+     "definitionFit": "Acid describes a sharp sour taste or manner, so it can mean tart."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Tart"
+     "misdirectedWord": "detailed"
     }
    }
   },
@@ -432,52 +432,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CULTIVARS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "picked out from",
-       "note": "takes the cut letters out of the word"
+       "text": "Fresh",
+       "at": 0,
+       "note": "fresh suggests something new, so the letters are made into a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "victuals",
+       "at": 6
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "picked out from",
+         "at": 19,
+         "note": "the three letters named are lifted out of rare, leaving one letter"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "Fresh",
-           "note": "the victuals are made fresh, reworked into a new arrangement"
-          }
-         ],
-         "parts": [
-          {
-           "words": "victuals",
-           "note": "taken letter for letter as fodder"
-          }
-         ]
+         "words": "rare",
+         "at": 35
         },
         {
-         "words": "rare",
-         "gives": "R",
-         "note": "RARE with ARE picked out of it"
+         "words": "are",
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fresh food chosen from rare, carefully bred plants, like a gourmet's kitchen garden.",
-     "walkthrough": "'are' is part of the machinery, not a verb: those three letters are removed from 'rare', leaving R to join the fodder.",
-     "definitionFit": "A cultivar is a plant variety produced by selective breeding, refined from its wild form."
+     "surface": "New food supplies are being chosen from rare, cultivated plants.",
+     "walkthrough": "Removing ARE from RARE leaves R; VICTUALS plus R is rearranged.",
+     "definitionFit": "Cultivars are plant varieties produced by selective breeding, so they are plants refined in cultivation."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "are"
+     "aptDefinition": true,
+     "misdirectedWord": "Fresh"
     }
    }
   },
@@ -1249,37 +1247,24 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "indicators": [
-      {
-       "text": "Cryptic",
-       "note": "it tells you to read St. literally as its parts rather than as saint or street"
-      }
-     ],
+     "op": "rebus",
+     "reading": "ST and .",
      "parts": [
       {
-       "words": "St",
-       "note": "the two letters as printed"
-      },
-      {
-       "words": "St.",
-       "gives": "AND",
-       "note": "the letters are followed by the full stop, so ST and a point"
-      },
-      {
-       "words": ".",
-       "gives": "POINT",
-       "note": "the full stop is a point"
+       "words": "Cryptic St.",
+       "at": 0,
+       "note": "read literally, the abbreviation shows the letters S and T and then a point, the full stop"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'St.' wants to be saint or street; spelt out, it is the letters ST and a point, the full stop.",
-     "definitionFit": "A standpoint is a position from which things are viewed, a station."
+     "surface": "A railway sign reading St. Station, mysteriously short.",
+     "walkthrough": "'St.' is read as its parts: ST, and a point.",
+     "definitionFit": "A standpoint is a position from which things are viewed, a station in the sense of a place one stands."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Station"
     }
