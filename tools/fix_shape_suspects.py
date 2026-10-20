@@ -2862,7 +2862,32 @@ def r_split_shared_indicator(node, parent, ctx):
     return new if _eval_swapped(node, parent, new, ctx) else None
 
 
-RULE_REPAIRS = {"anaLoneEdge": r_ana_lone_edge, "splitSharedIndicator": r_split_shared_indicator,
+def r_halved_deletion(node, parent, ctx):
+    """halvedAsDeletion: del<half of>(WORD, HALF) where the cut is exactly one end half of the word: it
+    becomes first/last<same indicator>(WORD), the half that is kept. Kept only when the tree still
+    gives the answer (_eval_swapped)."""
+    parts = node.get("parts") or []
+    inds = node.get("indicators") or []
+    if node.get("op") != "deletion" or node.get("unchecked") or len(parts) != 2 or len(inds) != 1:
+        return None
+    text = str(inds[0].get("text") or "")
+    if not V._HALVING.search(text) or V._NOT_A_HALVING.search(text):
+        return None
+    whole, gone = parts
+    if not leaf(whole) or "op" in gone or gone.get("words") or not gone.get("gives"):
+        return None
+    full = W.letters(whole.get("gives") or whole.get("words") or "")
+    cut = W.letters(gone["gives"])
+    if not full or len(full) % 2 or len(cut) != len(full) // 2:
+        return None
+    ops = [op for op, ok in (("first", full.endswith(cut)), ("last", full.startswith(cut))) if ok]
+    if len(ops) != 1:
+        return None
+    new = {"op": ops[0], "indicators": copy.deepcopy(inds), "parts": [copy.deepcopy(whole)]}
+    return new if _eval_swapped(node, parent, new, ctx) else None
+
+
+RULE_REPAIRS = {"halvedAsDeletion": r_halved_deletion, "anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,

@@ -571,6 +571,17 @@ check("del<half>(ins(SN, PA)) becomes ins(SN, first<half>(pate))",
 new, used = F.repair_tree(hlt, hlc, "SPANX", HL)
 check("a tree that does not give the answer is left alone", used == [] and new["op"] == "deletion")
 
+# halvedAsDeletion: del<half of>(WORD, other half) is first/last<half of>(WORD)
+HD = {"halvedAsDeletion": F.r_halved_deletion}
+hdc = "Hinder half of solution"
+hdt = {"op": "charade", "parts": [{"words": "Hinder", "at": 0, "gives": "BALK"}, {"op": "deletion", "indicators": [{"text": "half of", "at": 7}], "parts": [
+    {"words": "solution", "at": 15, "gives": "ANSWER"}, {"gives": "WER"}]}]}
+new, used = F.repair_tree(hdt, hdc, "BALKANS", HD)
+check("del<half of>(ANSWER, WER) becomes first<half of>(solution)",
+      used == ["halvedAsDeletion"] and new["parts"][1]["op"] == "first" and new["parts"][1]["parts"][0]["gives"] == "ANSWER")
+new, used = F.repair_tree(hdt, hdc, "BALKANSX", HD)
+check("halvedAsDeletion: a tree that does not give the answer is left alone", used == [])
+
 # anaCharade: the fodder pieces already spell the answer; the piece that is the scramble of its own
 # words is the real fodder, the rest are charade pieces
 ACH = {"anaCharade": F.r_ana_charade}
