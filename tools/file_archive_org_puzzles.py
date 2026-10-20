@@ -4027,8 +4027,68 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
         return verdict, puzzle
     if held_settled(d, verdict):
         return verdict, puzzle
-    only = None if (verdict.get("grid") != "image" or "imageDisagrees" in verdict) else weak
-    return read_page(d, found, hit, solutions, only if only is None else sorted(only), **ask_with)
+    off = disagreeing(verdict)
+    if verdict.get("grid") != "image" or off is None:
+        return read_page(d, found, hit, solutions, None, **ask_with)
+    if not off:
+        return read_page(d, found, hit, solutions, sorted(weak), **ask_with)
+    # The grid disagrees with a light the readers name (FT 1985-09-13: 13-across's count read
+    # "5,8,2" on a 10-letter light): only the columns holding it and the weak lights are read
+    # (every column cost 3 reads there for one weak light), and the readers' own puzzle
+    # stands for every other light. A pass shown part of the columns leads and lays the page
+    # differently (that page lost 26-down to a blank and 21-down read "out THE ward"), so it
+    # gives only the lights it was asked about, and a light the readers left blank.
+    asked = set(weak) | off
+    v, p = read_page(d, found, hit, solutions, sorted(asked), **ask_with)
+    return merged_read(verdict, puzzle, v, p, asked)
+
+
+def merged_read(verdict, puzzle, v, p, asked):
+    """(verdict, puzzle): the readers' own `puzzle` with each light of `asked`, and each
+    light it left blank, taken from the VLM pass's `p` when that pass filed a clue for it.
+    The VLM pass stands as it is when it filed no puzzle or another grid."""
+    if p is None or puzzle is None:
+        return v, p
+    def lid(e):
+        return f"{e['number']}-{e['direction']}"
+    def text(e):
+        return ((e.get("clue") or {}).get("text") or "").strip()
+    mine = {lid(e): e for e in puzzle.get("entries") or ()}
+    theirs = {lid(e): e for e in p.get("entries") or ()}
+    if set(mine) != set(theirs) or any(mine[k].get("length") != theirs[k].get("length") for k in mine) \
+            or puzzle.get("grid") != p.get("grid"):
+        return v, p
+    want = set(asked) | {k for k, e in mine.items() if not text(e)} | {
+        k for k, e in mine.items() if not (e.get("clue") or {}).get("enumeration")
+        and (theirs[k].get("clue") or {}).get("enumeration")}
+    # A linked light comes with its whole group.
+    for k in list(want):
+        for e in (mine.get(k), theirs.get(k)):
+            want |= set((e or {}).get("group") or ())
+    took = {k for k in want if k in theirs and text(theirs[k])}
+    for k in list(took):
+        took |= set(theirs[k].get("group") or ()) & set(theirs)
+    out = dict(puzzle)
+    out["entries"] = [theirs[lid(e)] if lid(e) in took else e for e in puzzle.get("entries") or ()]
+    got = dict(v)
+    blank = {k: why for k, why in (verdict.get("blank") or {}).items() if k not in took}
+    blank.update({k: why for k, why in (v.get("blank") or {}).items() if k in took})
+    got.pop("blank", None)
+    if blank:
+        got["blank"] = blank
+    got["agreed"] = sum(1 for e in out["entries"] if text(e))
+    got["vlmMerged"] = sorted(took)
+    return got, out
+
+
+def disagreeing(verdict):
+    """The lights the readers' imageDisagrees names ("13-across: the enumeration ..."), an
+    empty set when there is no disagreement; None when it names none (then every column)."""
+    why = verdict.get("imageDisagrees")
+    if why is None:
+        return set()
+    got = set(re.findall(r"\b(\d{1,2}-(?:across|down))\b", str(why)))
+    return got or None
 
 
 def held_copy(d, verdict, puzzle):

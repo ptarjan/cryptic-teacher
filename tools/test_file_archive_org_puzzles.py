@@ -54,6 +54,31 @@ _t = {"vlm": "ACROSS\n1 Old fashioned dance (5)\n3 Wet weather in town (4)\nDOWN
 check("two blanks, one no reading has: no pick asked", True, f.unpickable(_t, {"2-down": "x", "1-across": "y"}, 30))
 check("both blanks have readings: picked", False, f.unpickable(_t, {"4-down": "x", "1-across": "y"}, 30))
 check("one blank no reading has: nothing was asked anyway", False, f.unpickable(_t, {"2-down": "x"}, 30))
+
+check("disagreeing: none named in the verdict", set(), f.disagreeing({}))
+check("disagreeing: the lights the verdict names", {"13-across", "8-down"},
+      f.disagreeing({"imageDisagrees": "13-across: the enumeration reads as ['5,8,2'], the grid holds 10 letters; 8-down: x"}))
+check("disagreeing: a disagreement naming no light is None (every column)", None,
+      f.disagreeing({"imageDisagrees": "the grids differ"}))
+
+
+def _entry(n, d, text, enum="4", length=4, group=None):
+    return {"number": n, "direction": d, "length": length,
+            "clue": {"text": text, "enumeration": enum}, **({"group": group} if group else {})}
+
+
+_mine = {"grid": ["g"], "entries": [_entry(1, "across", "ocr one"), _entry(2, "down", "ocr two"),
+                                    _entry(3, "down", ""), _entry(4, "down", "ocr four", enum=None)]}
+_theirs = {"grid": ["g"], "entries": [_entry(1, "across", "vlm one"), _entry(2, "down", "vlm two"),
+                                      _entry(3, "down", "vlm three"), _entry(4, "down", "vlm four")]}
+_v, _p = f.merged_read({"blank": {"3-down": "no reading"}}, _mine, {"agreed": 4}, _theirs, {"2-down"})
+check("merged_read: asked, blank and countless lights come from the VLM, the rest stay",
+      ["ocr one", "vlm two", "vlm three", "vlm four"],
+      [e["clue"]["text"] for e in _p["entries"]])
+check("merged_read: the blank taken from the VLM is no longer blank", None, _v.get("blank"))
+check("merged_read: names what it took", ["2-down", "3-down", "4-down"], _v["vlmMerged"])
+_v, _p = f.merged_read({}, _mine, {"agreed": 4}, {"grid": ["g"], "entries": _theirs["entries"][:2]}, {"2-down"})
+check("merged_read: another set of lights: the VLM pass stands", 2, len(_p["entries"]))
 check("a poor window is read again, picks and all", False, f.unpickable(_t, {"2-down": "x", "5-down": "y", "6-down": "z", "7-down": "w", "8-down": "v"}, 30))
 
 # The readers' own list for a new puzzle that repeats a held puzzle's clues is refused as a copy
