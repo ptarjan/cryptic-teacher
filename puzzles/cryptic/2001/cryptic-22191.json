@@ -211,7 +211,8 @@
     "definitions": [
      {
       "text": "Flashes",
-      "at": 0
+      "at": 0,
+      "note": "flashes are badges or insignia sewn on a uniform"
      }
     ],
     "wordplay": {
@@ -220,7 +221,7 @@
       {
        "text": "retreating",
        "at": 8,
-       "note": "something retreating goes backwards, so the whole string of pieces is read from right to left"
+       "note": "retreating means going backwards, so the whole string built after it is read in reverse"
       }
      ],
      "parts": [
@@ -231,7 +232,7 @@
          "words": "Scots' own",
          "at": 19,
          "gives": "AIN",
-         "note": "ain is the Scots word for own"
+         "note": "AIN is the Scots word for own"
         },
         {
          "words": "soldiers",
@@ -240,24 +241,35 @@
          "note": "GIs are American soldiers"
         },
         {
-         "words": "half nine",
-         "at": 42,
-         "gives": "NI",
-         "note": "the first half of the word nine"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "half",
+           "at": 42,
+           "note": "half asks for only the first half of the word nine, its opening pair of letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nine",
+           "at": 47,
+           "note": "nine has four letters; its front half is NI"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Scottish soldiers in retreat show their own badges at half past nine.",
-     "walkthrough": "'Half nine' reads as a time of day but means half the letters of the word. Military flashes are cloth badges worn on a uniform.",
-     "definitionFit": "Flashes are badges of rank or unit sewn on uniforms, and such distinguishing badges are insignia."
+     "surface": "Soldiers' badges glint as Scottish troops pull back at half past nine.",
+     "walkthrough": "'Flashes' reads like a verb but is the noun for uniform badges; 'retreating' reverses everything that follows it, and 'at' is only a link.",
+     "definitionFit": "Military flashes are distinguishing cloth badges of rank or unit, the same thing as regimental emblems."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "half"
+     "aptDefinition": true,
+     "misdirectedWord": "Flashes"
     }
    }
   },
@@ -683,7 +695,8 @@
      "indicators": [
       {
        "text": "inspired by",
-       "note": "something inspired is breathed in, so one group of letters is drawn into the other"
+       "at": 12,
+       "note": "something inspired by another is breathed into it, so these letters go inside the rearranged word"
       }
      ],
      "parts": [
@@ -692,31 +705,39 @@
        "indicators": [
         {
          "text": "cultured",
-         "note": "cultured suggests grown and cultivated, so the name's letters are worked into a new form"
+         "at": 24,
+         "note": "cultured suggests something cultivated and worked into a new form, so the letters of Elian are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "type-face",
-         "gives": "FONT",
-         "note": "a typeface is a font"
-        },
-        {
          "words": "Elian",
-         "note": "taken as written"
+         "at": 33,
+         "note": "the letters of Elian are taken as written to be shuffled"
         }
        ]
       },
       {
-       "words": "A",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "type-face",
+         "at": 2,
+         "gives": "FONT",
+         "note": "a typeface is a font in printing"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A refined person called Elian is inspired by a particular typeface when writing fables.",
-     "walkthrough": "The letters of Elian are rearranged and A FONT goes in after their first letter.",
-     "definitionFit": "Jean de La Fontaine was the seventeenth-century French poet famous for his Fables, so he is the classic fabulist."
+     "surface": "A printing style drawn from a refined writer, with Elian suggesting Charles Lamb's essays as Elia.",
+     "walkthrough": "Elian rearranged ('cultured') gives LAINE; 'inspired by' puts A FONT inside it after the L. Jean de La Fontaine was the seventeenth-century French writer of fables.",
+     "definitionFit": "La Fontaine is famed for his Fables, so he is the archetypal writer of moral animal stories."
     },
     "features": {
      "answerInScene": false,
