@@ -567,7 +567,7 @@
       {
        "text": "before",
        "at": 30,
-       "note": "before places the jumbled gets ahead of the second piece in the answer"
+       "note": "before puts the first scrambled group ahead of the second in the answer"
       }
      ],
      "parts": [
@@ -577,13 +577,14 @@
         {
          "text": "out",
          "at": 26,
-         "note": "out in the sense of wrong or inaccurate tells us the letters of gets are put in a different order"
+         "note": "out signals that the letters of gets are put in disorder"
         }
        ],
        "parts": [
         {
          "words": "gets",
-         "at": 21
+         "at": 21,
+         "note": "taken as written, then rearranged"
         }
        ]
       },
@@ -593,29 +594,40 @@
         {
          "text": "collapses",
          "at": 49,
-         "note": "something that collapses falls into disorder, so the three letters are rearranged"
+         "note": "collapses says the half-word falls into a new jumbled order"
         }
        ],
        "parts": [
         {
-         "words": "Europe half",
-         "at": 37,
-         "gives": "EUR",
-         "note": "the first half of the word Europe, its first three letters"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "half",
+           "at": 44,
+           "note": "half says only the first three of the six letters of Europe are used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Europe",
+           "at": 37,
+           "note": "the first half of Europe is EUR"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political sketch: someone storms out just as the European project half falls apart, making a point by it.",
-     "walkthrough": "The surface reads like a Brexit walkout; both 'out' and 'collapses' are anagram signals, one on each half of the answer, and 'half' takes the front of Europe.",
-     "definitionFit": "To gesture is to make a movement of the head or hand, such as a nod or bow, that signals a feeling or wish."
+     "surface": "A commentator watching the European project wobble while someone storms out of the room.",
+     "walkthrough": "'out' scrambles GETS into GEST; 'half' keeps EUR from Europe, and 'collapses' turns that into URE.",
+     "definitionFit": "To gesture is to make a movement, such as a nod or bow of the head, that signals an attitude or wish."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "out"
+     "misdirectedWord": "collapses"
     }
    }
   },

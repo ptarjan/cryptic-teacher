@@ -3092,23 +3092,40 @@
      "parts": [
       {
        "words": "beer",
+       "at": 15,
        "gives": "ALE",
-       "note": "ale is a beer"
+       "note": "ale is a kind of beer"
       },
       {
-       "words": "presented without head",
-       "gives": "UT",
-       "note": "PUT, presented, without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without head",
+         "at": 30,
+         "note": "without head says the opening letter of the word for presented is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "presented",
+         "at": 20,
+         "gives": "PUT",
+         "note": "to put a question is to present it"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Alaskan served a beer with no froth on top.",
-     "walkthrough": "The head sounds like the foam on beer, but it is the first letter of PUT.",
-     "definitionFit": "The Aleuts are the native people of the Aleutian Islands of Alaska."
+     "surface": "A local drinker served a beer with no froth on top.",
+     "walkthrough": "'without head' sounds like a beer's foam but takes P off PUT.",
+     "definitionFit": "The Aleut are an Indigenous people of the Aleutian Islands and coastal Alaska."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "head"

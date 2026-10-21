@@ -762,44 +762,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "always last to leave",
+       "at": 32,
+       "note": "always last to leave says each word loses its final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "always last to leave",
-         "note": "in each case the final letter departs, so every word is cut short at its end"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "spring",
-         "note": "taken as written before trimming"
+         "at": 19,
+         "note": "taken as written, losing its end"
         },
         {
-         "gives": "G"
+         "words": "term",
+         "at": 26,
+         "note": "taken as written, losing its end"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "term",
-         "note": "taken as written before trimming"
-        },
-        {
-         "gives": "M"
-        }
-       ]
+       "gives": "G"
+      },
+      {
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A fast runner during the spring school term, never the last to go home.",
-     "walkthrough": "'always' tells you the deletion applies to both words, not just one.",
-     "definitionFit": "A sprinter is a runner who races short distances at top speed."
+     "surface": "A runner speeding through the spring term, always the last to go home.",
+     "definitionFit": "A sprinter is an athlete who runs short races at top speed."
     },
     "features": {
      "answerInScene": true,
@@ -1215,34 +1212,42 @@
        "indicators": [
         {
          "text": "initially",
-         "note": "initially points to the opening letter of each of the preceding words"
+         "at": 9,
+         "note": "initially picks the opening letter of each of Perks and up"
         }
        ],
        "parts": [
         {
          "words": "Perks",
+         "at": 0,
          "note": "first letter of Perks"
         },
         {
          "words": "up",
+         "at": 6,
          "note": "first letter of up"
         }
        ]
       },
       {
-       "words": "Doubly right",
-       "gives": "RR",
-       "note": "R for right, twice"
+       "words": "right",
+       "at": 27,
+       "gives": "R"
+      },
+      {
+       "words": "Doubly",
+       "at": 20,
+       "gives": "R",
+       "note": "Doubly supplies a second copy of the letter for right"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone cheering up and twice proved correct, looking pleased.",
-     "walkthrough": "The sign of contentment is the sound a happy cat makes.",
-     "definitionFit": "A purr is the low vibrating sound a cat makes when it is content."
+     "surface": "Something that cheers you up and is twice as right signals happiness.",
+     "definitionFit": "A cat makes a low continuous vibrating sound when it is pleased."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Perks"
     }
