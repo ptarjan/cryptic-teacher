@@ -149,31 +149,44 @@
      "indicators": [
       {
        "text": "absent",
-       "note": "something absent is missing, so a letter is taken away from the word"
+       "at": 24,
+       "note": "being absent means it is missing from the word"
       }
      ],
      "parts": [
       {
        "words": "Discuss",
+       "at": 0,
        "gives": "CONSULT",
-       "note": "to consult is to talk something over"
+       "note": "to consult is to discuss with someone"
       },
       {
-       "words": "Theresa's chief",
-       "gives": "T",
-       "note": "the first letter of Theresa"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "chief",
+         "at": 18,
+         "note": "the chief letter of a word is its first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Theresa's",
+         "at": 8
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A government envoy talks things over while Theresa May, the boss, is away.",
-     "walkthrough": "Theresa evokes Theresa May, then Prime Minister, but only her initial is wanted, removed from CONSULT.",
-     "definitionFit": "A consul is an official appointed by a state to look after its citizens and interests in a foreign city."
+     "surface": "Talk about how Theresa May's top man is missing from his government post.",
+     "walkthrough": "'chief' gives T from Theresa's; 'absent' takes it out of CONSULT.",
+     "definitionFit": "A consul is an official sent abroad by a state to look after its citizens and trade."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Theresa's"
+     "misdirectedWord": "chief"
     }
    }
   },

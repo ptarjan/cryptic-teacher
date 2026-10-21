@@ -1826,54 +1826,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "turned up",
-       "note": "in a down clue, turning up reads the letters bottom to top"
+       "text": "claiming",
+       "at": 23,
+       "note": "taking hold of, so the outer letters take the other inside"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 12,
+         "note": "in a down answer, turned up means read from the bottom, so the letters reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "An",
-         "note": "used as written"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "claiming",
-           "note": "the result claims the next letter, holding it inside"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "American",
-           "gives": "US",
-           "note": "US = American; AN US turned up gives SUNA"
+           "words": "An",
+           "at": 0,
+           "gives": "AN",
+           "note": "taken as written"
           },
           {
-           "words": "a",
-           "note": "placed inside S…UNA"
+           "words": "American",
+           "at": 3,
+           "gives": "US"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 32
       }
      ]
     },
     "explanation": {
-     "surface": "An American tourist shows up and books a Finnish bath.",
-     "walkthrough": "'Turned up' reads as arrived; in a down clue it means written upwards.",
-     "definitionFit": "The sauna is the Finnish steam bath, and the word itself is Finnish."
+     "surface": "An American appeared and said he was entitled to a bath in Finland.",
+     "walkthrough": "In a down clue 'turned up' reads the pair bottom to top; the 'a' then sits just inside the first letter.",
+     "definitionFit": "A sauna is a Finnish steam bath, a hot room for sweating."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "turned"
+     "misdirectedWord": "claiming"
     }
    }
   },
@@ -2935,8 +2939,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a poison",
-      "at": 50
+      "text": "poison",
+      "at": 52
      }
     ],
     "wordplay": {
@@ -2944,25 +2948,44 @@
      "parts": [
       {
        "words": "Source of alarm",
+       "at": 0,
        "gives": "BELL",
-       "note": "an alarm bell"
+       "note": "a bell sounds an alarm"
       },
       {
        "words": "commotion",
+       "at": 20,
        "gives": "ADO",
-       "note": "ado = fuss"
+       "note": "ado is fuss or commotion"
       },
       {
-       "words": "Grandma dispensing a",
-       "gives": "NNA",
-       "note": "NANA without an A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dispensing",
+         "at": 39,
+         "note": "dispensing with means doing without, so the letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Grandma",
+         "at": 31,
+         "gives": "NANA",
+         "note": "nana is a child's word for grandma"
+        },
+        {
+         "words": "a",
+         "at": 50
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Grandma hands out poison, causing alarm and uproar.",
-     "walkthrough": "'Dispensing' makes Grandma a poisoner handing it out; it means doing without the letter A.",
-     "definitionFit": "Belladonna is deadly nightshade, a poisonous plant, and the poison drawn from it."
+     "surface": "An alarm goes off and there is uproar when Grandma hands out poison.",
+     "walkthrough": "'dispensing' looks like handing out poison, but it means dispensing with, so the grandma word does without one of its letters.",
+     "definitionFit": "Belladonna, deadly nightshade, is a toxic plant yielding atropine."
     },
     "features": {
      "answerInScene": true,
@@ -3003,29 +3026,46 @@
      "parts": [
       {
        "words": "A",
-       "note": "used as written"
+       "at": 0
       },
       {
        "words": "politician",
+       "at": 2,
        "gives": "MP",
-       "note": "MP = Member of Parliament"
+       "note": "MP is a Member of Parliament"
       },
       {
-       "words": "bored, ousting leader",
-       "gives": "EDUP",
-       "note": "FED UP without its F"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ousting leader",
+         "at": 21,
+         "note": "ousting its leader means the first letter is thrown out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bored",
+         "at": 14,
+         "gives": "FEDUP",
+         "note": "fed up means bored and weary"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tired politician gets thrown out as party leader, only to be fired up.",
-     "walkthrough": "'Ousting leader' reads as a party coup; it removes the first letter of FED UP.",
-     "definitionFit": "A slang synonym: amped up comes from amplified, turned up to full volume, hence excited."
+     "surface": "A tired politician pushes aside the party leader in order to get stirred up.",
+     "walkthrough": "'ousting leader' sounds like a party coup, but it only drops the first letter of the word for bored; MP is a Member of Parliament.",
+     "definitionFit": "Amped up is informal for full of energy and agitation, worked up."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leader"
+     "misdirectedWord": "bored"
     }
    }
   },
