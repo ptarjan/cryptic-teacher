@@ -782,64 +782,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "corrupt",
        "at": 5,
-       "note": "corrupt means spoilt or altered, so the remaining letters are rearranged"
+       "note": "corrupt means spoiled or tampered with, so the letters are rearranged"
+      },
+      {
+       "text": "missing from original",
+       "at": 17,
+       "note": "missing from the original tells that the letters SMS are left out of the starting pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "missing from original",
-         "at": 17,
-         "note": "the clue's letters are dropped from the original word that follows, measurements"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "deletion",
-           "parts": [
-            {
-             "words": "measurements",
-             "at": 39,
-             "note": "taken as written, as the original word the letters leave"
-            },
-            {
-             "gives": "S"
-            }
-           ]
-          },
-          {
-           "gives": "M"
-          }
-         ]
-        },
-        {
-         "words": "SMS",
-         "at": 13,
-         "gives": "S",
-         "note": "the letters S, M and S are each removed; they are scattered through the word, not together"
-        }
-       ]
+       "words": "measurements",
+       "at": 39,
+       "note": "the word measurements as the letter pool"
+      },
+      {
+       "words": "SMS",
+       "at": 13,
+       "note": "the letters SMS taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A list of measurements has been corrupted by missing text messages.",
-     "definitionFit": "To enumerate is to name items one by one, as when you itemise them on a list."
+     "surface": "A list of measurements has been corrupted by some missing text messages.",
+     "walkthrough": "Remove S, M and S from MEASUREMENTS and rearrange the remaining nine letters.",
+     "definitionFit": "To enumerate is to name things one by one, which is to itemise or list them."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "SMS"
+     "misdirectedWord": "corrupt"
     }
    }
   },

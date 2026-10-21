@@ -639,33 +639,48 @@
      "indicators": [
       {
        "text": "comes with",
-       "note": "IT arrives wrapped in the covering"
-      },
-      {
-       "text": "mostly",
-       "note": "all but the last letter of CRUST"
+       "at": 11,
+       "note": "the little word comes wrapped with the shortened crust around it, so it goes inside"
       }
      ],
      "parts": [
       {
-       "words": "hard outer covering",
-       "gives": "CRUS",
-       "note": "CRUST without its final T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 22,
+         "note": "mostly drops the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hard outer covering",
+         "at": 29,
+         "gives": "CRUST",
+         "note": "a crust is a hard outer covering"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "it",
-       "note": "as printed"
+       "at": 8,
+       "gives": "IT"
       }
      ]
     },
     "explanation": {
-     "surface": "A description of fruit with a tough rind.",
-     "walkthrough": "The 'hard outer covering' fits the fruit's own peel, which is the disguise.",
-     "definitionFit": "Citrus fruit covers oranges, lemons, limes and their kin."
+     "surface": "A piece of fruit comes with a tough rind around it.",
+     "walkthrough": "'Covering' belongs to the crust's description, not the container signal; 'comes with' does that job.",
+     "definitionFit": "Citrus is a category of fruit including oranges, lemons and limes."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
     }
    }
   },
@@ -1120,30 +1135,44 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "KEEN loses its last letter"
-      },
-      {
        "text": "The reverse of",
-       "note": "read what remains backwards"
+       "at": 0,
+       "note": "the shortened word is written backwards"
       }
      ],
      "parts": [
       {
-       "words": "eager",
-       "gives": "KEE",
-       "note": "KEEN without its N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 22,
+         "note": "mostly removes the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eager",
+         "at": 15,
+         "gives": "KEEN",
+         "note": "eager means keen"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Far from keen, someone yelps in fright.",
-     "walkthrough": "The definition is an exclamation, so it swaps for a cry of fright.",
-     "definitionFit": "An interjection defined by the feeling behind it: the squeak of fright stands for a whole exclaimed sentence."
+     "surface": "Someone recoils: the opposite of eager, feeling alarmed.",
+     "walkthrough": "'The reverse of eager' looks like an antonym, but it signals writing KEE backwards.",
+     "definitionFit": "Eek is an exclamation of sudden fright, the noise of someone startled."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "reverse"
     }
    }
   },

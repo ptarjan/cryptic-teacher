@@ -875,37 +875,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "stewed",
-       "note": "stewed means cooked to a mush, so the letters lose their order"
-      },
-      {
-       "text": "busy",
-       "note": "busy suggests bustling movement, so the letters are moved around"
+       "text": "in",
+       "at": 17,
+       "note": "the first jumble is placed inside the second"
       }
      ],
      "parts": [
       {
-       "words": "tea",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "busy",
+         "at": 29,
+         "note": "a busy scene is full of movement, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ward",
+         "at": 20,
+         "note": "the word ward taken as written"
+        },
+        {
+         "words": "so",
+         "at": 26,
+         "note": "the word so taken as written"
+        }
+       ]
       },
       {
-       "words": "ward, so",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stewed",
+         "at": 6,
+         "note": "tea that has stewed has been left to brew too long, so its letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tea",
+         "at": 13,
+         "note": "the word tea taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "On a busy hospital ward, stewed tea is the drink on offer.",
-     "walkthrough": "Both 'stewed' and 'busy' shuffle their neighbours, so all nine letters of tea, ward and so are mixed together.",
-     "definitionFit": "Soda water is carbonated water drunk alone or as a mixer."
+     "surface": "A hospital ward is so busy that the tea has stewed and gone undrunk.",
+     "walkthrough": "Two separate rearrangements are at work: 'stewed' acts on the drink word alone, 'busy' on the rest, and the first then sits inside the second.",
+     "definitionFit": "Soda water is carbonated water, a fizzy beverage often used as a mixer."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "stewed"
+     "misdirectedWord": "busy"
     }
    }
   },

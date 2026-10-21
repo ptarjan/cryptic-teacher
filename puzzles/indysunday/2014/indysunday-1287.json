@@ -172,46 +172,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "turned up",
-       "note": "turned up in a down entry means the gangster's short name is read from the bottom"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 7,
+         "note": "turned up in a down clue means written upwards, so reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "clothing",
-         "gives": "TIUS",
-         "note": "a suit is a set of clothing"
-        },
-        {
-         "words": "with",
-         "gives": "W",
-         "note": "W is the standard abbreviation for with"
-        },
-        {
          "words": "Capone",
+         "at": 0,
          "gives": "AL",
-         "note": "AL Capone, the gangster, read upwards"
+         "note": "Al Capone, the gangster"
         }
        ]
+      },
+      {
+       "words": "with",
+       "at": 17,
+       "gives": "W"
+      },
+      {
+       "words": "clothing",
+       "at": 22,
+       "gives": "SUIT",
+       "note": "a suit is clothing"
       }
      ]
     },
     "explanation": {
-     "surface": "Al Capone appeared carrying clothes in a suitcase.",
-     "walkthrough": "'Case' looks like luggage holding the clothing, but it is the definition: a court case.",
-     "definitionFit": "A lawsuit is a legal action brought in court, which is what a case means in law."
+     "surface": "Al Capone arrived in court wearing a suit for his trial.",
+     "walkthrough": "AL reversed gives LA, then W and SUIT.",
+     "definitionFit": "A lawsuit is a legal action brought in court, a case."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "case"
+     "misdirectedWord": "clothing"
     }
    }
   },

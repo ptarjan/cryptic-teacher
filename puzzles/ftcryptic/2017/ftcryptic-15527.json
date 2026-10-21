@@ -908,59 +908,70 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a book",
-      "at": 55
+      "text": "book",
+      "at": 57
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DUODECIMO",
-     "indicators": [
-      {
-       "text": "playing",
-       "note": "The letters play about, landing in a new order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DUODECIMO",
+       "words": "Pair",
+       "at": 0,
+       "gives": "DUO",
+       "note": "a pair is a duo"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "having forgotten",
-         "note": "Forgotten letters are left out."
+         "text": "playing",
+         "at": 5,
+         "note": "playing suggests the letters are moved about freely, as in a game"
         }
        ],
        "parts": [
         {
-         "words": "Pair",
-         "gives": "DUO",
-         "note": "A duo is a pair."
+         "words": "dice",
+         "at": 13,
+         "note": "the word dice taken as written"
         },
         {
-         "words": "dice more",
-         "note": "The letters to be rearranged, before the removal."
-        },
-        {
-         "words": "about",
-         "gives": "RE",
-         "note": "RE, as in a memo's 're:', means about; these are the letters forgotten."
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "having forgotten",
+           "at": 24,
+           "note": "the word more has forgotten the letters for about, so they are dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "more",
+           "at": 18,
+           "note": "the word more, which loses two letters"
+          },
+          {
+           "words": "about",
+           "at": 41,
+           "gives": "RE",
+           "note": "RE means about, as in a letter heading"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two people keep playing dice and forget all about the book they should be writing.",
-     "walkthrough": "RE is the usual crossword word for 'about', as in a memo's 're:'.",
-     "definitionFit": "A duodecimo is a small book, made from sheets folded into twelve leaves."
+     "surface": "A couple playing dice keep rolling, having lost track of writing a book.",
+     "walkthrough": "'About' is not a link here: it is the short word for concerning that the second word forgets before the rearranging.",
+     "definitionFit": "A duodecimo is a small book format in which each printed sheet is folded into twelve leaves."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "Pair"
     }
    }
   },
