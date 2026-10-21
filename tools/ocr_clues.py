@@ -546,9 +546,11 @@ def align(mine, theirs):
 _LEXICON = None
 
 
+@functools.lru_cache(maxsize=1 << 16)
 def rank(word):
     """A word's frequency rank in tools/data/lexicon.tsv (1 the commonest),
-    or None when the lexicon lacks it."""
+    or None when the lexicon lacks it. (Kept per word: rejoin and the vote ask
+    it ~2.6M times on a Times page, of ~30k words.)"""
     global _LEXICON
     if _LEXICON is None:
         _LEXICON = {}
@@ -563,6 +565,7 @@ def rank(word):
     return _LEXICON.get(low) or _LEXICON.get(low.replace("'", ""))
 
 
+@functools.lru_cache(maxsize=1 << 16)
 def is_word(word):
     """Whether the committed lexicon has the word (cmudict and WordNet are
     too loose here: they hold "al", "imo" and "chaft")."""
