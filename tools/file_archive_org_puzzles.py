@@ -4142,9 +4142,12 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     verdict, puzzle = read_page(d, found, hit, solutions, False)
     weak = verdict.pop("_weak", None)
     window = verdict.pop("_alt", None)
+    dead = verdict.pop("_dead", None)
     # The VLM is shown the window the readers settled on, not the layout's
     # again (read_page's `first`); passed only when there is one.
     ask_with = {"first": window} if window is not None else {}
+    if dead:
+        ask_with["dead"] = dead
     if puzzle is None:
         if verdict.get("cause") == "no-reading-parses" or "pending" in verdict:
             if held_settled(d, verdict):
@@ -4369,7 +4372,7 @@ def clues_may_be_right(paper, d):
     return not (paper.key == "gale" and d.name[:4] < "2014")
 
 
-def read_page(d, found, hit, solutions, vlm_for=False, first=None):
+def read_page(d, found, hit, solutions, vlm_for=False, first=None, dead=()):
     """read_puzzle's one read: `vlm_for` False asks the VLM nothing; None
     asks it every column; a list of lights, the columns holding them.
 
@@ -4408,8 +4411,13 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
         return verdict, puzzle
     best = (crop_window.score(verdict, puzzle), verdict, puzzle)
     settled = None
+    gone = []
     for i, alt in enumerate(alts):
         if alt == first:
+            continue
+        # A window the readers found no clue in at all (FT 1980-81: the cut right of the
+        # grid, 0 of 32 lights) is not shown to the VLM: it would read the page's other print.
+        if alt in dead:
             continue
         # Every light filled, none blank: no other window can score higher
         # (a tie keeps the earlier), so the VLM is not shown more of them.
@@ -4422,6 +4430,8 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
         v, p = _read_page(d, found, hit, solutions, vlm_for, alt, None, **({"lent": lent} if lent else {}), defer=more)
         if vlm.unanswered() != waiting:
             break  # this window's asks are spooled: the read defers; the windows after it wait
+        if vlm_for is False and not (v.get("agreed") or 0) and d is not None and paper_of(d).key == "ft":
+            gone.append(alt)
         if crop_window.score(v, p) > best[0]:
             best = (crop_window.score(v, p), v, p)
         if not crop_window.poor(v, image_ok=vlm_for is not False):
@@ -4447,6 +4457,8 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
     # readers disagree with the grid), for the VLM pass to try first.
     if vlm_for is False and settled is not None:
         best[1]["_alt"] = settled
+    if gone:
+        best[1]["_dead"] = gone
     return best[1], best[2]
 
 
@@ -4625,8 +4637,8 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
         try:
             only = columns_with(list(cols.values()), vlm_for) if vlm_for else None
             # No weak light in any column: nothing for the VLM to read.
-            asked = "\n".join(vlm.read_all([vlm.crop(img, box) for i, box in enumerate(vlm.boxes(img, wins, list(cols.values())))
-                                            if box and (only is None or i in only)])) if only is None or only else None
+            asked = "\n".join(vlm.read_columns(f"{d}#{n}", img, [box for i, box in enumerate(vlm.boxes(img, wins, list(cols.values())))
+                                                                 if box and (only is None or i in only)])) if only is None or only else None
             if asked is not None:
                 texts["vlm"] = "\n".join(numbered_heading(t) or t for t in asked.splitlines())
         except RuntimeError:

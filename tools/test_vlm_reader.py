@@ -297,6 +297,19 @@ check("a two-line strip column is boxed, a stray line's speck is not",
       vlm.boxes(img, [(10, 200, 390, 0), (200, 390, 390, 0)],
                 [[[(20, 70, 15, 335, "21 Foreign currency (5)")], [(30, 56, 210, 223, "x")]]]))
 
+# A column another crop window re-cuts a few pixels apart is not read twice (FT 1980-10-25).
+read_kept, crop_kept = vlm.read, vlm.crop
+read_log = []
+vlm.crop = lambda im, box: tuple(box)
+vlm.read = lambda c: read_log.append(c) or f"text{len(read_log)}"
+got = vlm.read_columns("p#1", None, [(100, 50, 846, 2052), (900, 50, 1644, 1216)])
+got2 = vlm.read_columns("p#1", None, [(102, 52, 856, 2068), (900, 50, 1644, 1216), (900, 50, 1830, 1350)])
+check("a near-identical column takes the reading already made, a different one is read",
+      (["text1", "text2"], ["text1", "text2", "text3"], 3), (got, got2, len(read_log)))
+check("another page's columns are never reused", ["text4"],
+      vlm.read_columns("p#2", None, [(100, 50, 846, 2052)]))
+vlm.read, vlm.crop = read_kept, crop_kept
+
 # The pick fills a blank with the reply's words, its count cut off; a reply
 # of no words, or none, leaves it blank.
 texts = {"ch": "ACROSS\n1 Stop thief (4)\nDOWN\n2 Kettle (3)", "en5": "ACROSS\n1 Stop chief (4)\nDOWN\n2 Kettle (3)"}
