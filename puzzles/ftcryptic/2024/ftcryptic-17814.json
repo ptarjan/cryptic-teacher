@@ -566,40 +566,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PATCHOULI",
-     "indicators": [
-      {
-       "text": "edges cut",
-       "note": "cutting the edges trims off the outermost letters of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "plot",
+       "at": 15,
        "gives": "PATCH",
        "note": "a patch is a small plot of ground"
       },
       {
-       "words": "could",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "edges cut",
+         "at": 27,
+         "note": "the word loses its outside letters at both ends, leaving its middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "could",
+         "at": 21,
+         "note": "the word as written, trimmed at both ends"
+        }
+       ]
       },
       {
        "words": "one",
+       "at": 37,
        "gives": "I",
        "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener wonders whether trimming the borders of a bed of scented plants could take one out.",
-     "definitionFit": "Patchouli is an aromatic Asian shrub whose oil is used in perfume, so it is a scented plant."
+     "surface": "A gardener wonders whether a bed of scented plants could be trimmed at the borders.",
+     "definitionFit": "Patchouli is an Asian shrub of the mint family whose leaves yield a strongly scented oil used in perfume."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "edges"
     }
    }
   },
@@ -1259,51 +1266,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOLARPROBE",
-     "indicators": [
-      {
-       "text": "fancy",
-       "note": "fancy means elaborate or imaginative, so the letters are rearranged freely"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SOLARPROBE",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "not",
-         "note": "not means without, so a letter is left out"
+         "text": "fancy",
+         "at": 47,
+         "note": "fancy describes an elaborate, made-up version, so the letters are reworked"
         }
        ],
        "parts": [
         {
-         "words": "parasol",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "taken as written, this is the letter removed"
-        },
-        {
-         "words": "gown",
-         "gives": "ROBE",
-         "note": "a robe is a gown"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 62,
+           "note": "the following letter is left out of the sunshade word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "parasol",
+           "at": 53,
+           "note": "the word as written, losing one letter"
+          },
+          {
+           "words": "a",
+           "at": 66,
+           "gives": "A"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "gown",
+       "at": 68,
+       "gives": "ROBE",
+       "note": "a robe is a gown"
       }
      ]
     },
     "explanation": {
-     "surface": "Holiday advice: for a really hot destination, take a smart sunshade but leave the evening dress behind.",
-     "walkthrough": "The surface suggests a sunny holiday; 'somewhere very hot' is the Sun itself.",
-     "definitionFit": "A solar probe is an unmanned spacecraft sent to study the Sun at close range, the hottest place nearby."
+     "surface": "Advice for a holiday somewhere sweltering: pack a sunshade rather than an evening dress.",
+     "walkthrough": "PARASOL without an A is PRASOL, rearranged by 'fancy' to SOLAR P, followed by ROBE. The somewhere very hot is the Sun, not a beach.",
+     "definitionFit": "A solar probe is a spacecraft sent to study the Sun at close range, the hottest place one could visit."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "parasol"

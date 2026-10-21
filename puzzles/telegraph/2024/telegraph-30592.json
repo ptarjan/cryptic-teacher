@@ -156,46 +156,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "HEYPRESTO",
+     "indicators": [
+      {
+       "text": "they say",
+       "at": 48,
+       "note": "the pieces are spoken, so their sound gives the answer"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "HEY",
-       "indicators": [
-        {
-         "text": "they say",
-         "note": "reporting common speech points to how words sound rather than how they are spelt"
-        }
-       ],
-       "parts": [
-        {
-         "words": "what horses eat",
-         "gives": "HAY",
-         "note": "horses are fed on dried grass"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "PRESTO",
-       "parts": [
-        {
-         "words": "flattened piggy",
-         "gives": "PRESSEDTOE",
-         "note": "flattened means squashed, and a piggy is a toe, from the nursery rhyme 'This little piggy'"
-        }
-       ]
+       "words": "what horses eat flattened piggy",
+       "at": 15,
+       "gives": "HAYPRESSEDTOE",
+       "note": "horses eat hay; something flattened has been pressed; in the nursery rhyme 'This little piggy' each piggy is a toe"
       }
      ]
     },
     "explanation": {
-     "surface": "An exclamation of surprise at a horse's dinner squashing a pig.",
-     "walkthrough": "Said quickly, HAY PRESSED TOE runs together into HEY PRESTO. 'Piggy' for toe comes from the children's rhyme counting toes as little pigs.",
-     "definitionFit": "Both are conjuror's exclamations announcing a sudden surprising appearance, used interchangeably as interjections."
+     "surface": "A farmyard scene: a horse's feed lands on a piggy and squashes it.",
+     "walkthrough": "HAY PRESSED TOE run together aloud gives the answer. 'piggy' is not a pig but a toe from the children's rhyme.",
+     "definitionFit": "Hey presto is the magician's exclamation when a trick is revealed, just as lo and behold announces a surprise."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "absurd",
      "misdirectedWord": "piggy"
     }
@@ -775,41 +761,58 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Cockney's drunk",
-       "gives": "AD",
-       "note": "drunk as in consumed is 'had', and a Cockney drops the H"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cockney's",
+         "at": 7,
+         "note": "a Cockney drops the H at the start of words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drunk",
+         "at": 17,
+         "gives": "HAD",
+         "note": "had, as in 'had a drink', means drunk"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
-       "op": "anagram",
+       "op": "reversal",
        "indicators": [
         {
          "text": "rolling",
-         "note": "something rolling tumbles over, so these letters are tossed into a new order"
+         "at": 26,
+         "note": "the little word rolls over so it reads backwards"
         }
        ],
        "parts": [
         {
          "words": "or",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "it",
-         "note": "anagram fodder"
+         "at": 23
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 39,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A cunning Londoner who is either drunk or rich.",
-     "walkthrough": "'Rolling' suggests a staggering drunk or 'rolling in it' (rich). Cockneys, from London's East End, are said to drop their H's, so 'had' becomes 'AD.",
-     "definitionFit": "Adroit means skilful or clever with hands or mind, close to the sense of crafty as artful."
+     "surface": "A Cockney has had too much to drink, or is stumbling about with something.",
+     "walkthrough": "'drunk' looks like the anagram signal, but it is the participle, as in 'I have drunk' = 'I have had'; Cockneys famously drop their aitches.",
+     "definitionFit": "Adroit means skilful and clever with hands or mind, and crafty can mean cleverly skilful."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "rolling"
+     "misdirectedWord": "drunk"
     }
    }
   },
