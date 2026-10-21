@@ -939,42 +939,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "ANTENNA",
+     "indicators": [
+      {
+       "text": "Told",
+       "at": 0,
+       "note": "told means spoken aloud, so it is the sound of the pieces that counts"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "AN",
-       "indicators": [
-        {
-         "text": "Told",
-         "note": "told means spoken out loud, so we go by the sound of the words"
-        }
-       ],
-       "parts": [
-        {
-         "words": "girl",
-         "gives": "ANN",
-         "note": "Ann is a girl's name"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "TENNA",
-       "parts": [
-        {
-         "words": "£10",
-         "gives": "TENNER",
-         "note": "a tenner is British slang for a ten-pound note"
-        }
-       ]
+       "words": "girl £10",
+       "at": 5,
+       "gives": "ANNTENNER",
+       "note": "Ann is a girl's name; a tenner is British slang for a ten-pound note"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone telling a girl she can have ten pounds to buy a TV aerial.",
-     "walkthrough": "Said aloud, Ann tenner in a non-rhotic British accent matches the answer.",
-     "definitionFit": "An antenna is the rod or wire that receives radio or TV signals, i.e. an aerial."
+     "surface": "Someone tells a girl she owes ten pounds for a new TV aerial.",
+     "walkthrough": "ANN TENNER spoken aloud sounds like the answer; a tenner is British slang for a ten-pound note.",
+     "definitionFit": "An antenna is the rod or wire that picks up radio or television signals, the same device."
     },
     "features": {
      "answerInScene": true,
@@ -1360,49 +1346,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ADAPTING",
-     "indicators": [
-      {
-       "text": "restoration of",
-       "note": "restoring something reworks it, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ADAPTING",
+       "words": "commercial",
+       "at": 12,
+       "gives": "AD",
+       "note": "an ad is a commercial"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "not",
-         "note": "not tells us to leave the following letters out"
+         "text": "restoration of",
+         "at": 23,
+         "note": "restoring something rebuilds it, so the remaining letters are put back together in a new order"
         }
        ],
        "parts": [
         {
-         "words": "commercial",
-         "gives": "AD",
-         "note": "an ad is a commercial, a television advertisement"
-        },
-        {
-         "words": "painting",
-         "note": "taken as written"
-        },
-        {
-         "words": "popular",
-         "gives": "IN",
-         "note": "in means fashionable or popular"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 47,
+           "note": "not means the following word's letters are left out of painting"
+          }
+         ],
+         "parts": [
+          {
+           "words": "painting",
+           "at": 38
+          },
+          {
+           "words": "popular",
+           "at": 51,
+           "gives": "IN",
+           "note": "in means popular, as in the in thing"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An art restorer switching to advertising work because restoring paintings is unfashionable.",
-     "walkthrough": "The deletion happens before the rearrangement; 'restoration of painting' reads as art conservation in the surface.",
-     "definitionFit": "Adapting means modifying to suit new conditions, that is, changing."
+     "surface": "An art dealer turns to advertising after an unpopular restoration of a painting.",
+     "definitionFit": "Adapting is altering to suit new conditions, a synonym of changing in the verb sense."
     },
     "features": {
      "answerInScene": false,
@@ -1538,40 +1528,49 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the jumbled letters inside the other piece"
+       "at": 29,
+       "note": "in places the scrambled letters and the final letter within the setter's word"
       }
      ],
      "parts": [
       {
        "words": "setter's",
+       "at": 32,
        "gives": "MY",
-       "note": "the setter's means belonging to the setter, who would say my"
+       "note": "the setter's means my, the setter speaking of themself"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "astray",
-         "note": "something led astray wanders off course, so the letters go out of order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Led",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "astray",
+           "at": 4,
+           "note": "led astray suggests going off course, so the letters wander into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Led",
+           "at": 0
+          }
+         ]
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "finally",
-           "note": "finally points to the last letter of the word"
+           "at": 20,
+           "note": "finally points to the last letter of clue"
           }
          ],
          "parts": [
           {
            "words": "clue",
-           "note": "the last letter of this word"
+           "at": 14
           }
          ]
         }
@@ -1580,14 +1579,14 @@
      ]
     },
     "explanation": {
-     "surface": "A setter confessing they were misled by the last clue in their own puzzle collection.",
-     "walkthrough": "The setter's is MY, from the setter's own point of view; the rearranged letters sit between M and Y.",
-     "definitionFit": "A medley is a mixed collection, such as a sequence of songs put together."
+     "surface": "A solver complains of being misled by the last clue in the setter's collection.",
+     "walkthrough": "'Led astray' reads as being misled, but the first word is the fodder and the second its signal.",
+     "definitionFit": "A medley is a mixed collection, especially of songs, so it fits a compilation."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "setter's"
+     "misdirectedWord": "Led"
     }
    }
   }

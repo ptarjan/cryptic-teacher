@@ -801,53 +801,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOLECISMS",
-     "indicators": [
-      {
-       "text": "Sort of",
-       "note": "sort of suggests a version of the letters sorted into another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SOLECISMS",
+       "words": "single",
+       "at": 8,
+       "gives": "SOLE",
+       "note": "sole means single, only one"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "not",
-         "note": "not tells us a letter is left out of the word"
+         "text": "Sort of",
+         "at": 0,
+         "note": "sort of signals a loose version, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "single",
-         "gives": "SOLE",
-         "note": "sole means single or only"
-        },
-        {
-         "words": "schism",
-         "note": "taken as written"
-        },
-        {
-         "words": "hard",
-         "gives": "H",
-         "note": "H is the pencil abbreviation for hard"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 23,
+           "note": "not means the hard letter is left out of schism"
+          }
+         ],
+         "parts": [
+          {
+           "words": "schism",
+           "at": 15
+          },
+          {
+           "words": "hard",
+           "at": 27,
+           "gives": "H",
+           "note": "H is the abbreviation for hard, as on pencils"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A kind of split in a group produces blunders.",
-     "definitionFit": "Solecisms are errors of grammar or etiquette, social or verbal gaffes."
+     "surface": "A lone rift between factions leads to blunders.",
+     "walkthrough": "The bracketed '(not hard)' looks like an aside about the schism, but it tells you to drop the H.",
+     "definitionFit": "Solecisms are mistakes in grammar or etiquette, blunders that are gaffes."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "single"
+     "misdirectedWord": "Sort"
     }
    }
   },

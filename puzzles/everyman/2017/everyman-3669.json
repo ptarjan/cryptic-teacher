@@ -323,52 +323,56 @@
      "indicators": [
       {
        "text": "to keep",
-       "note": "something kept is held inside, so the payment goes around the rest"
+       "at": 8,
+       "note": "to keep means rent holds the other letters inside it"
       }
      ],
      "parts": [
       {
        "words": "Payment",
+       "at": 0,
        "gives": "RENT",
-       "note": "rent is a regular payment for property"
+       "note": "rent is a regular payment for housing"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "up",
-         "note": "in a down entry, going up means reading the word from bottom to top"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 24,
+           "note": "in a down clue up means read from the bottom, so backwards"
+          }
+         ],
          "parts": [
           {
            "words": "quality",
+           "at": 16,
            "gives": "MERIT",
            "note": "merit is a good quality"
-          },
-          {
-           "words": "electronic",
-           "gives": "E",
-           "note": "E is the standard abbreviation for electronic, as in e-mail"
           }
          ]
+        },
+        {
+         "words": "electronic",
+         "at": 32,
+         "gives": "E",
+         "note": "E is short for electronic, as in email"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pension payment is maintained while money is withdrawn online.",
-     "walkthrough": "RE(TIREM + E)NT: the payment holds the upturned quality plus E.",
-     "definitionFit": "Retirement is withdrawal from working life, and also a withdrawing or retreat in general use."
+     "surface": "A pension payment keeps its value with electronic transfer.",
+     "definitionFit": "Retirement is withdrawal from working life or into seclusion."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "withdrawal"
+     "misdirectedWord": "Payment"
     }
    }
   },
