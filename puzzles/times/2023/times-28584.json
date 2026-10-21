@@ -749,6 +749,13 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "twice",
+       "at": 5,
+       "note": "twice says the trimmed word is written a second time straight after itself"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
@@ -756,7 +763,7 @@
         {
          "text": "missing",
          "at": 12,
-         "note": "missing means the small letter has gone from the word for fire"
+         "note": "missing means going without, so the abbreviation for small is dropped from the word for fire"
         }
        ],
        "parts": [
@@ -769,23 +776,32 @@
         {
          "words": "small",
          "at": 20,
-         "gives": "S",
-         "note": "S is the clothing-size abbreviation for small"
+         "gives": "S"
         }
        ]
       },
       {
-       "words": "twice",
-       "at": 5,
-       "gives": "ACK",
-       "note": "twice says the shortened word is used two times over"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Fire",
+         "at": 0,
+         "gives": "SACK",
+         "note": "to sack someone is to fire them from a job"
+        },
+        {
+         "words": "small",
+         "at": 20,
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Shooting twice and missing the little weapons that bring down planes.",
-     "walkthrough": "'Fire' suggests shooting, which suits the guns, but it means sack, as in dismiss.",
-     "definitionFit": "Ack-ack is old military slang for anti-aircraft fire or guns, from the signallers' alphabet's name for AA."
+     "surface": "An order to shoot two volleys, though short of small anti-aircraft weapons.",
+     "walkthrough": "SACK without S is ACK; 'twice' repeats it.",
+     "definitionFit": "Ack-ack is the old military signallers' name for anti-aircraft fire and the guns that produce it."
     },
     "features": {
      "answerInScene": true,
