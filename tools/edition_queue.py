@@ -819,6 +819,7 @@ CANARY_PROVEN = (
     ("gale", "unfiled", 2005, 2006, "10-20 canary: 8 of 10 Dec 2005 pages read complete, 0 uncached VLM asks"),
     ("ft", "unfiled", 1986, 1986, "10-20 canary: 4 of 5 pages read complete, 0 uncached VLM asks"),
     ("gale", "no-reading-parses", 1950, 1959, "10-21 canary: 8 of 9 1950s pages parsed from OCR alone (was 0 of 6), 0 VLM asks"),
+    ("gale", "unfiled", 1950, 1959, "10-21 canary: 8 of 10 one-blank 1950s pages read complete from OCR alone (was 0 of 10), 4 of 4 filed pages still complete"),
 )
 
 

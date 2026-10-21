@@ -5873,7 +5873,10 @@ def short_three_columns(row):
 #: which left the last across clue of 5 of 19 Gale 2005 pages blank.
 #: 10-20 21:25: unfit_blanked cuts a footer the vote laid with the last across clue at its count
 #: (ocr_clues.footer_laid): 40 of 73 blanks of the unfiled Gale/FT pages read 19:05-21:05.
-REREAD_UNFILED = "2026-10-20T21:25:00+00:00"
+#: 10-21 23:42: suspect() keeps the print's own tokens ("l.-b.-w.", "tam-o'-shanter", "N—D—S",
+#: "20cwt", "Ven.", "s. d."), clue_repair.mend_text spaces a run of dashes, and clue_text marks a clue
+#: whose number was lost after a count wrapped onto its own line: 8 of 10 one-blank 1950s Gale pages.
+REREAD_UNFILED = "2026-10-21T23:42:00+00:00"
 
 
 def unfiled_blank(row):

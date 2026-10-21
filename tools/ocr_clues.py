@@ -3728,8 +3728,9 @@ DOUBLE_FLOOR = 5
 OPENS_NEXT = tuple(".?!:;\"'()\u2014\u2013-\u201c\u201d\u2018\u2019\u2026&")
 #: The lone small letters a clue prints: the article, and "v" for versus.
 LONE_LETTER_OK = {"a", "v"}
-#: Two lone small letters that are e.g. or i.e. with their stops lost.
-LETTER_PAIRS = {("e", "g"), ("i", "e")}
+#: Two lone small letters that are e.g. or i.e. with their stops lost, or "s. d." (shillings
+#: and pence: "N—D—S for £ s. d.", Gale 1950-03-14).
+LETTER_PAIRS = {("e", "g"), ("i", "e"), ("s", "d")}
 #: The words before a lone small letter that make it a letter the clue
 #: names ("with a c", "the letter n").
 NAMES_LETTER = {"a", "an", "the", "letter", "letters"}
@@ -3886,6 +3887,17 @@ def letter_put_back(text):
     return re.sub(r"[A-Za-z]+'[A-Za-z]+", mend_one, text or "")
 
 
+#: Tokens the print really has that suspect() would read as OCR's: a stopped
+#: abbreviation hyphened ("l.-b.-w.", "C.-in-C."), an "o'" set between hyphens
+#: ("tam-o'-shanter"), capitals parted by dashes for the letters a clue leaves
+#: out ("N—D—S"), and a weight or length ("20cwt"). The 1950-52 Gale
+#: Times pages whose one blank was one of these (the VLM printed it alike).
+PRINT_OWN = re.compile(r"(?:[A-Za-z]{1,3}\.?-)+[A-Za-z]{1,3}\.|[A-Za-z]+-o['’]-[A-Za-z]+(?:-[A-Za-z]+)*"
+                       r"|[A-Z]+(?:[—–]{1,2}[A-Z]+)+|\d+(?:cwt|lbs?|oz|yds?|mph|kg|mm|cm|km)\.?")
+#: Abbreviations the lexicon lacks that a clue prints ("Mer. of Ven.", "Ven. Bede", "jnr.").
+ABBREVIATED = {"ven", "jnr", "snr"}
+
+
 def suspect(text, vouched=(), printed=()):
     """[(token, why)] for each word of a clue's text that OCR, not the setter,
     wrote. `vouched` holds lower-case words every reading spelt alike, which
@@ -3894,7 +3906,7 @@ def suspect(text, vouched=(), printed=()):
     out = []
     for raw in (text or "").split():
         s = raw.strip(EDGE)
-        if not s or raw in printed:
+        if not s or raw in printed or PRINT_OWN.fullmatch(raw.rstrip(",;:)\"'”")):
             continue
         if DIGIT_IN_WORD.search(s) and not COUNTED.fullmatch(s.lstrip("£$")):
             out.append((raw, "a digit inside a word"))
@@ -3933,8 +3945,8 @@ def suspect(text, vouched=(), printed=()):
             if known(flat) or formed(plain(p).lower()) or any(
                     known(f) for f in {flat.translate(LIGATURES), flat.translate(LIGATURE_E)} - {flat}):
                 continue  # a ligature is its word's ("mediæval")
-            if flat.isupper() and len(flat) <= 4:
-                continue  # an abbreviation: "RN", "TUC"
+            if flat.isupper() and len(flat) <= 4 or flat.lower() in ABBREVIATED:
+                continue  # an abbreviation: "RN", "TUC", "Ven."
             if flat[0].islower():
                 out.append((raw, "not a word"))
                 break
