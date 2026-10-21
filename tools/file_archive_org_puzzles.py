@@ -4107,6 +4107,16 @@ def read_page_why(why, *args, **kw):
         return read_page(*args, **kw)
 
 
+def fallback_futile(paper, d):
+    """True for a page whose "no reading parses" refusal the VLM's every-column read has
+    not turned into a puzzle: the 10-21 vlm_asks.log (5h) has 19 such reads (104 asks) of
+    FT 1981 (8 reads, 32 asks: the clues stand left of the grid and the page's foot ads are
+    read for them) and Gale 1960-66 (11 reads, 88 asks) and not one filed. The page ends
+    refused, as it did after the asks."""
+    year = d.name[:4]
+    return (paper.key == "ft" and year == "1981") or (paper.key == "gale" and "1960" <= year <= "1966")
+
+
 def read_puzzle(d, found, hit, solutions, ocr_first=True):
     """(verdict, puzzle or None) for one title on one page. The scan's own
     readers read it first; the desktop's VLM (one at a time, ~8 asks a
@@ -4124,6 +4134,10 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     if puzzle is None:
         if verdict.get("cause") == "no-reading-parses" or "pending" in verdict:
             if held_settled(d, verdict):
+                return verdict, puzzle
+            if verdict.get("cause") == "no-reading-parses" and fallback_futile(paper_of(d), d):
+                verdict["vlmSkipped"] = "no reading parses here, and the VLM's every-column read rescued none of these pages"
+                verdict["vlmAsks"] = 0
                 return verdict, puzzle
             # the VLM's page
             return read_page_why(f"fallback:{verdict.get('cause') or 'pending'}", d, found, hit, solutions, None)

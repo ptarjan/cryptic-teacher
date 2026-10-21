@@ -3785,6 +3785,11 @@ check("why= caps a long list with +N",
 with f.vlm.because("fallback:no-reading-parses"):
     check("a reason set by the caller is the one the next ask carries", "fallback:no-reading-parses", f.vlm._WHY.get())
 check("and it is gone after the read", "", f.vlm._WHY.get())
+_fut = lambda paper, day: f.fallback_futile(paper, Path("x") / day)
+check("no-reading-parses fallback asks are skipped for FT 1981 and Gale 1960-66 only",
+      [True, True, True, False, False, False, False],
+      [_fut(f.FT, "1981-10-02_28588"), _fut(f.GALE, "1960-01-04"), _fut(f.GALE, "1966-12-31"),
+       _fut(f.FT, "1982-10-02_1"), _fut(f.FT, "1985-01-12_29522"), _fut(f.GALE, "1967-01-02"), _fut(f.GALE, "1945-04-11")])
 
 print(f"FAILS {fails}")
 sys.stdout = _stdout
