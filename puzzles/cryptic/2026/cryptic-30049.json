@@ -791,39 +791,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "This is a down clue, so a piece told to go up is read from the bottom of the grid back towards the top."
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 31,
+         "note": "in a down clue, up means the word for line is read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "line",
+         "at": 26,
+         "gives": "ROW",
+         "note": "a row is a line of things"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "open",
-         "note": "To open something out is to spread it apart and lay it down differently, so the letters after it need not keep their order."
+         "at": 36,
+         "note": "open in the sense of loose, laid out, so the letters of secret are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "line-up",
-         "gives": "WOR",
-         "note": "a line is a row, and this one is read upwards"
-        },
-        {
          "words": "secret",
-         "note": "the six letters of SECRET, opened out into another order"
+         "at": 41,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Line-up' looks like one word for a squad or an identity parade, and it is two instructions. The city's porcelain works are what make the definition fair.",
-     "definitionFit": "China might be after this → WORCESTER: the English cathedral city whose potteries gave Royal Worcester its name, so the china is named after the place."
+     "surface": "A puzzled look at a line-up whose secret is common knowledge, with China perhaps tagging along behind.",
+     "walkthrough": "Royal Worcester is a famous English porcelain maker, so 'china' may follow the word: Worcester china.",
+     "definitionFit": "Worcester names a city and its fine porcelain, so the city's name precedes 'china' in the phrase for that ware."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "China"
     }
    }
   },
@@ -1285,43 +1301,66 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "signals that the shortened word sits inside the string built from a, new and vote"
+      }
+     ],
      "parts": [
       {
-       "words": "a",
-       "note": "the clue's own 'a', taken as a letter"
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "'In' drops what precedes it inside the little assembly that follows, between its pieces rather than after them."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "one with leader ousted",
-         "gives": "NE",
-         "note": "ONE without the letter at its head"
+         "words": "a",
+         "at": 32
         },
         {
          "words": "new",
-         "gives": "N",
-         "note": "n = new, the standard abbreviation"
+         "at": 34,
+         "gives": "N"
+        },
+        {
+         "words": "vote",
+         "at": 38,
+         "gives": "X",
+         "note": "a cross, X, marks a vote on a ballot paper"
         }
        ]
       },
       {
-       "words": "vote",
-       "gives": "X",
-       "note": "a vote is cast by marking a cross on the ballot paper"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with leader ousted",
+         "at": 10,
+         "note": "the first letter of the word is thrown out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 6,
+         "gives": "ONE",
+         "note": "the word itself, before its first letter goes"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a leadership challenge, so 'leader ousted' reads as political news rather than an instruction to knock a letter off the front of a word.",
-     "definitionFit": "Seize → ANNEX: a state that annexes territory seizes it and keeps it, the formal word for taking land by force."
+     "surface": "A coup: someone grabs power once the leader has been ousted in a fresh ballot.",
+     "definitionFit": "To annex territory is to seize it and take it over, a verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ousted"
     }
    }
   },

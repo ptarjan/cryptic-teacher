@@ -855,30 +855,53 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "Scratching head",
-       "note": "scratching out the head removes the first letter"
-      },
-      {
-       "text": "repeatedly",
-       "note": "something done repeatedly happens more than once, so the headless son appears twice in a row"
-      },
-      {
        "text": "twisted",
-       "note": "turned round, reversing the letters"
+       "at": 32,
+       "note": "turned round, so the letters are reversed"
       }
      ],
      "parts": [
       {
-       "words": "son",
-       "gives": "OYOY",
-       "note": "son = BOY, twice, each losing its head B: OY OY, then turned round"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Scratching head",
+         "at": 0,
+         "note": "scratching out the head removes the first letter of each son"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 21,
+           "note": "repeatedly says the word for son is written a second time"
+          }
+         ],
+         "parts": [
+          {
+           "words": "son",
+           "at": 17,
+           "gives": "BOY",
+           "note": "a son is a boy"
+          },
+          {
+           "gives": "BOY"
+          }
+         ]
+        },
+        {
+         "gives": "BB"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled child keeps twisting a toy round and round.",
-     "walkthrough": "Scratching head looks like a puzzled gesture, but it tells you to scratch out the first letter.",
-     "definitionFit": "A yo-yo is a toy spun up and down on a string."
+     "surface": "A puzzled son keeps twisting his toy, scratching his head.",
+     "definitionFit": "A yo-yo is a toy spool that rolls up and down a string, a child's toy."
     },
     "features": {
      "answerInScene": true,
