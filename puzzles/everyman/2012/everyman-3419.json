@@ -790,52 +790,66 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 38,
+       "note": "after says the remaining letters follow the opening one"
+      }
+     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "start of",
-         "note": "the start of a word is its opening letter"
+         "at": 44,
+         "note": "the start of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "tribunal",
-         "note": "the opening letter of tribunal"
+         "at": 53
         }
        ]
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "nervously",
-         "note": "acting nervously means fidgeting and jumbled, so the letters are rearranged"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "chat",
-         "note": "the four letters of chat rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "nervously",
+           "at": 19,
+           "note": "doing something nervously is doing it jitteringly, so the letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chat",
+           "at": 14
+          }
+         ]
         },
         {
          "words": "her",
-         "note": "taken as written"
+         "at": 34
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nervous person chats with a female politician once the tribunal begins.",
-     "walkthrough": "The tribunal letter comes first, though the clue places it last.",
-     "definitionFit": "Margaret Thatcher was the British prime minister from 1979 to 1990, a leading stateswoman."
+     "surface": "A female politician chatting anxiously with a woman ahead of a tribunal hearing.",
+     "walkthrough": "T, then HATC from rearranging CHAT, then HER.",
+     "definitionFit": "Margaret Thatcher was Britain's first female Prime Minister, a famous stateswoman."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tribunal"
+     "misdirectedWord": "Stateswoman"
     }
    }
   },
@@ -963,49 +977,56 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "beneath",
+       "at": 32,
+       "note": "in a down entry beneath means the following letters come after the A"
+      }
+     ],
      "parts": [
       {
        "words": "a",
-       "note": "taken as written; it sits on top in a down answer"
+       "at": 40
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "Short",
-         "note": "short means cut off, so each of the mark words loses its final letter"
+         "at": 0,
+         "note": "short says both marks lose their last letters"
         }
        ],
        "parts": [
         {
-         "words": "signs for wrong",
-         "gives": "CROSS",
-         "note": "a cross marks a wrong answer"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "signs for wrong",
+           "at": 6,
+           "gives": "CROSS",
+           "note": "a cross is the mark a teacher uses for a wrong answer"
+          },
+          {
+           "words": "right",
+           "at": 26,
+           "gives": "TICK",
+           "note": "a tick is the mark for a right answer"
+          }
+         ]
         },
         {
-         "gives": "S"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "right",
-         "gives": "TICK",
-         "note": "a tick marks a right answer"
-        },
-        {
-         "gives": "K"
+         "gives": "SK"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher's brief marks of wrong and right appear under a puzzle.",
-     "walkthrough": "In a down clue, beneath means after, so the shortened marks follow the A.",
-     "definitionFit": "An acrostic is a word puzzle in which the first letters of lines spell out a word."
+     "surface": "Marking a puzzle with brief crosses and ticks below it.",
+     "walkthrough": "CROSS and TICK are both short, giving CROS and TIC, under A.",
+     "definitionFit": "An acrostic is a word puzzle in which the initial letters of lines spell a word."
     },
     "features": {
      "answerInScene": true,

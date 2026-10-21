@@ -588,20 +588,39 @@
      "parts": [
       {
        "words": "proper",
+       "at": 6,
        "gives": "PRIM",
-       "note": "prim = proper, prudish"
+       "note": "prim means proper, primly correct"
       },
       {
-       "words": "name to be extracted from second?",
-       "gives": "ORDIAL",
-       "note": "second is an ordinal number; ORDINAL minus N (name) leaves ORDIAL"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to be extracted from",
+         "at": 18,
+         "note": "something extracted from a word is pulled out of it, so a letter leaves the word for second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "second",
+         "at": 39,
+         "gives": "ORDINAL",
+         "note": "second is an ordinal number, so the question mark marks it as an example"
+        },
+        {
+         "words": "name",
+         "at": 13,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A riddle about the right first name being taken from the one that comes second.",
-     "walkthrough": "The question mark flags that 'second' is an example: it is an ordinal, like first and third. 'First' and 'second' seem a pair, but only 'First' is the definition.",
-     "definitionFit": "Primordial means existing at or from the very beginning, first in time."
+     "surface": "A puzzle about which name should be removed from a second-place listing.",
+     "walkthrough": "The question mark flags 'second' as just one example of its kind, an ordinal number; 'First' is the definition, not a first-letter instruction.",
+     "definitionFit": "Primordial describes what existed at the very beginning, so it is an adjective sense of first or original."
     },
     "features": {
      "answerInScene": false,
@@ -1200,25 +1219,43 @@
      "parts": [
       {
        "words": "rascal",
+       "at": 6,
        "gives": "IMP",
-       "note": "an imp is a mischievous child"
+       "note": "an imp is a mischievous child, a little rascal"
       },
       {
-       "words": "topless of course",
-       "gives": "URE",
-       "note": "of course = SURE, losing its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 14,
+         "note": "topless says the first letter of the word for 'of course' is removed, the top of a down entry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of course",
+         "at": 22,
+         "gives": "SURE",
+         "note": "'sure' is an informal way of saying of course"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheeky rascal, going topless as you'd expect.",
-     "walkthrough": "'Of course' is a phrase for SURE, not the word 'course'; beheading COURSE goes nowhere.",
-     "definitionFit": "Impure means dirty, contaminated or morally unclean."
+     "surface": "Calling someone a dirty rascal who is, naturally, going around topless.",
+     "walkthrough": "In a down entry the top of a word is its first letter; the two words 'of course' together stand for one short word.",
+     "definitionFit": "Impure means contaminated or unclean, a synonym of dirty."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "course"
+     "joke": "absurd",
+     "misdirectedWord": "topless"
     }
    }
   },
@@ -1359,31 +1396,44 @@
      "indicators": [
       {
        "text": "sandwiches",
-       "note": "to sandwich is to hold between"
+       "at": 29,
+       "note": "a word that sandwiches another holds it between its own letters"
       }
      ],
      "parts": [
       {
        "words": "tasty",
+       "at": 23,
        "gives": "DELISH",
-       "note": "delish = delicious, tasty, split DE…LISH"
+       "note": "delish is a slangy short form of delicious, tasty"
       },
       {
-       "words": "half of most",
-       "gives": "MO",
-       "note": "first half of MOST"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 10,
+         "note": "half of a four-letter word is its first two letters here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "most",
+         "at": 18,
+         "note": "the word most, of which the first half is taken"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Greedily eating up most of the tastiest sandwiches.",
-     "walkthrough": "'Sandwiches' is the food on the surface, but it is a verb meaning holds between. Delish is informal slang for delicious.",
-     "definitionFit": "To demolish food is to eat it up quickly, to wolf it down."
+     "surface": "A greedy eater bolting down the tastiest sandwiches.",
+     "walkthrough": "'Wolf' looks like the animal, but 'Wolf down' is the definition, to eat greedily; the tasty word is informal slang for delicious.",
+     "definitionFit": "To demolish food is to eat it up completely and quickly, an informal sense matching wolf down."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "sandwiches"
     }
    }

@@ -1735,69 +1735,64 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Diced",
+       "at": 0,
+       "note": "diced means chopped up, so the letters are cut and mixed"
+      },
+      {
+       "text": "twice",
+       "at": 14,
+       "note": "twice says the letter I is used two times"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "chard",
+       "at": 6
+      },
+      {
+       "words": "I",
+       "at": 12
+      },
+      {
+       "words": "I",
+       "at": 12
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Diced",
-         "note": "dicing chops something into pieces, so the letters are cut up and rearranged"
+         "text": "tossing out",
+         "at": 26,
+         "note": "tossing out means throwing away, so these letters leave the word cook"
         }
        ],
        "parts": [
         {
-         "words": "chard",
-         "note": "taken as written"
+         "words": "cook",
+         "at": 20
         },
-        {
-         "words": "I twice",
-         "gives": "II",
-         "note": "the letter written two times"
-        },
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "tossing out",
-           "note": "tossing something out throws it away, so those letters are removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "cook",
-           "note": "taken as written, before the removal"
-          },
-          {
-           "gives": "OOK"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
         {
          "words": "OK",
-         "note": "taken as written, the two letters thrown out of the previous word"
-        },
-        {
-         "gives": "K"
+         "at": 38,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe step: chop chard, cook twice, then throw out the bits that look all right.",
-     "walkthrough": "'OK' looks like approval but is two letters to strike from the word before it.",
-     "definitionFit": "Radicchio is a bitter red-leaved chicory, eaten raw in salads, so it is a salad leaf vegetable."
+     "surface": "A recipe: chop some chard and cook it twice, discarding the OK salad.",
+     "walkthrough": "'Diced' looks like part of the recipe but signals the shuffle. COOK without OK leaves CO; with CHARD and I twice the letters give the answer.",
+     "definitionFit": "Radicchio is a red-leaved Italian chicory eaten in salads."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "OK"
+     "misdirectedWord": "Diced"
     }
    }
   },
