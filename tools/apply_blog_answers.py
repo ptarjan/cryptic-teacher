@@ -125,6 +125,8 @@ def held(series, year):
 
 
 ROW = re.compile(r"<tr\b[^>]*>(.*?)</tr>", re.I | re.S)
+ROW_OR_HEADING = re.compile(
+    r"(?P<row><tr\b[^>]*>.*?</tr>)|>\s*(?P<dir>across|down)\s*:?\s*<", re.I | re.S)
 CELL = re.compile(r"<t([dh])\b[^>]*>(.*?)</t\1>", re.I | re.S)
 TAGS = re.compile(r"<[^>]+>")
 #: What the early posts print: a wordplay line whose answer follows the last
@@ -134,6 +136,7 @@ AFTER_EQUALS = re.compile(r"=\s*([A-Z][A-Z'’ ,\-]*)")
 QUOTED = re.compile(r"[“\"][^”\"]*[”\"]|‘[^’]*’")
 DELETION = re.compile(r"\([a-z]+\)")
 PIECE = re.compile(r"(?<![A-Za-z'’])[A-Z](?:[A-Z.]*[A-Z])?\.?(?![A-Za-z])")
+LOWER_ANSWER = re.compile(r"^((?:[A-Za-z'’]+ ?){1,5}?)\s*(?:[–—]|\s-\s)")
 LEADING = re.compile(r"^[\s\[\]()+A-Z'’,\-]+")
 
 
@@ -147,6 +150,16 @@ def cell_text(raw):
 def candidates(text, length):
     """The answers of `length` letters that one write-up line can mean, best first."""
     out = []
+    # An answer typed in ordinary case before its dash outranks any capitals in
+    # the wordplay after it: "no matter – rOMe in NATTER".
+    dashed = LOWER_ANSWER.match(text)
+    if (dashed and not dashed.group(1).strip().isupper()
+            and not re.search(r"(?i)omi|\bask\b|obvious|anagram|hidden|homophone|reversal",
+                              dashed.group(1))):
+        letters = re.sub(r"[^A-Z]", "", dashed.group(1).upper())
+        if (len(letters) == length and dashed.group(1).strip().lower()
+                not in ptt.PROSE_WORDS | ptt.WORDPLAY_WORDS):
+            return [letters]
     for m in reversed(list(AFTER_EQUALS.finditer(text))):
         # An answer is followed by prose in lower case: "PERSEVERE or soldier on".
         letters = re.sub(r"[^A-Z]", "", m.group(1))
@@ -156,9 +169,8 @@ def candidates(text, length):
             if len(letters) == length:
                 out.append(letters)
                 break
-        if out:
-            return out
-    lead = LEADING.match(text)
+    # Letters dropped in square brackets, "VIC(TOR[y])IOUS", "STAG[e]", are not in it.
+    lead = LEADING.match(re.sub(r"\[[a-z]+\]", "", text))
     if lead:
         letters = re.sub(r"[^A-Z]", "", lead.group(0))
         if len(letters) == length:
@@ -185,14 +197,17 @@ def candidates(text, length):
         letters = re.sub(r"[^A-Z]", "", head.upper())
         if len(letters) == length and letters not in out:
             out.append(letters)
-    return out
+    return list(dict.fromkeys(out))
 
 
 def table_lines(html_text):
     """[(direction, number, text)] from the post's Across/Down tables."""
     direction, rows = None, []
-    for row in ROW.findall(html_text):
-        cells = [(k.lower(), c) for k, c in CELL.findall(row)]
+    for token in ROW_OR_HEADING.finditer(html_text):
+        if token.group("dir"):               # <p><b>Across</b></p> outside any table
+            direction = token.group("dir").lower()
+            continue
+        cells = [(k.lower(), c) for k, c in CELL.findall(token.group("row"))]
         if len(cells) == 1 or (cells and cells[0][0] == "h"):
             head = cell_text(cells[0][1]).lower()
             if head.startswith("across"):
@@ -256,20 +271,50 @@ def blog_fill(puzzle, rec):
     by_key = {}
     for direction, number, text in rec.get("rows", []):
         by_key.setdefault((number, direction), []).append(text)
-    fill, why = {}, []
+    fill, why, alts = {}, [], {}
     for entry in puzzle["entries"]:
         texts = by_key.get((entry["number"], entry["direction"]), [])
-        options = {c for t in texts for c in candidates(t, entry["length"])[:1]}
-        if len(options) == 1:
-            fill[entry_id(entry)] = next(iter(options))
-        elif options:
-            why.append(f"{entry_id(entry)}: the post gives {len(options)} answers of that length")
+        options = list(dict.fromkeys(c for t in texts for c in candidates(t, entry["length"])))
+        if options:
+            fill[entry_id(entry)] = options[0]
+            alts[entry_id(entry)] = options
         elif texts:
             why.append(f"{entry_id(entry)}: no answer of {entry['length']} letters in the post's line")
         else:
             why.append(f"{entry_id(entry)}: the post gives no line")
+    settle(puzzle, fill, alts)
     cross_fill(puzzle, fill)
     return fill, [w for w in why if w.split(":")[0] not in fill]
+
+
+DISAGREE = re.compile(r"((?:\d+)-(?:across|down))=")
+
+
+def clashes(puzzle, fill):
+    """The ids of the lights in each crossing cell where the fill disagrees."""
+    return [DISAGREE.findall(p) for p in apply_solution.check_fill(puzzle, fill)[2]
+            if "disagree" in p]
+
+
+def settle(puzzle, fill, alts):
+    """Where a post's line can be read two ways ("MAYOR = MAJOR with a change
+    of middle letter"), take the reading that makes the crossings agree: swap a
+    clashing light to another reading while that lowers the clashes."""
+    for _ in range(25):
+        now = clashes(puzzle, fill)
+        if not now:
+            return
+        best = None
+        for eid in {i for pair in now for i in pair}:
+            for option in alts.get(eid, []):
+                if option != fill[eid]:
+                    trial = {**fill, eid: option}
+                    score = len(clashes(puzzle, trial))
+                    if score < len(now) and (best is None or score < best[0]):
+                        best = (score, eid, option)
+        if best is None:
+            return
+        fill[best[1]] = best[2]
 
 
 def judge(puzzle, rec):
