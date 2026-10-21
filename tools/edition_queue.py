@@ -1087,10 +1087,16 @@ def newest_first_papers():
 
 
 def fills_gpu(unit):
-    """Whether `unit` is another paper's never-read read, one that asks the VLM (the
-    CT_NEWEST_FIRST papers' rereads run on OCR alone)."""
-    return (unit["kind"] == "read" and unit["rank"] <= 1 and unit["paper"] not in newest_first_papers()
-            and needs_vlm(unit))
+    """Whether `unit` is a read that asks the VLM: another paper's never-read read, or a
+    CT_NEWEST_FIRST paper's reread of a page refused or unfiled before its fix (it reads
+    its clue columns again; those papers' other rereads run on OCR alone). Paul 10-21:
+    Times work goes ahead of FT's, and the GPU stays busy; the plan's order puts these
+    Times rereads first."""
+    if unit["kind"] != "read" or not needs_vlm(unit):
+        return False
+    if unit["paper"] in newest_first_papers():
+        return "before its fix" in (unit.get("reason") or "")
+    return unit["rank"] <= 1
 
 
 def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_fills, read_pool,
