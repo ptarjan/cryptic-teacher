@@ -4185,10 +4185,44 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     # stands for every other light. A pass shown part of the columns leads and lays the page
     # differently (that page lost 26-down to a blank and 21-down read "out THE ward"), so it
     # gives only the lights it was asked about, and a light the readers left blank.
-    asked = set(weak) | off
+    # A light the grid disagrees with that the readers still laid (a loose lay needs a count reading
+    # that fills the light) with the clue printed by OCR_CONFIRM readers is not weak: its count
+    # slip (14 for 4, 5 for 5,5) is settled by the grid's length, so it is not asked about. A
+    # light no reading laid is blank, so weak, and still asked. The 10-21 vlm_asks.log: 174
+    # pages / 492 reads tagged "count:", 8 pages (10 reads) with no weak light in the tag.
+    # (A light the puzzle holds with no text or count, or a speck in its text, is merged_read's to
+    # take from the VLM's column too, so it is asked.)
+    # The off light's column read is also where a neighbour light's missing count or speck is
+    # mended (FT 1981-06-15, 07-23: 3 of 10 sampled pages), so the light stays asked unless
+    # every light of the puzzle is whole.
+    loose_ends = {f"{e['number']}-{e['direction']}" for e in puzzle.get("entries") or ()
+                  if not settled_light(puzzle, f"{e['number']}-{e['direction']}")}
+    asked = set(weak) | ({k for k in off} | loose_ends if loose_ends else set())
+    if not asked:
+        verdict["vlmAsks"] = 0
+        return verdict, puzzle
     v, p = read_page_why("count:" + why_lights(off, blanks) + (";weak:" + why_lights(weak, blanks) if weak else ""),
                          d, found, hit, solutions, sorted(asked), **ask_with)
     return merged_read(verdict, puzzle, v, p, asked)
+
+
+#: A stray mark glued to a word's front in a clue ("source of -warmth", "from .late"): a reader's
+#: speck, which the VLM's reading of the same column does not have.
+STRAY_MARK = re.compile(r"(?:^|\s)[-.,;]\w")
+
+
+def settled_light(puzzle, lid):
+    """Whether the readers' `puzzle` has light `lid` whole: a clue text with no stray mark
+    and an enumeration (the grid's count settles a count slip; it does not give the
+    enumeration's commas and hyphens a light was laid without, or mend a speck in the text)."""
+    for e in (puzzle or {}).get("entries") or ():
+        if f"{e['number']}-{e['direction']}" == lid:
+            clue = e.get("clue") or {}
+            text = (clue.get("text") or "").strip()
+            if re.fullmatch(r"See \d+.*", text):
+                return True  # a "See 9" tail has no count of its own
+            return bool(text and clue.get("enumeration") and not STRAY_MARK.search(text))
+    return False
 
 
 def merged_read(verdict, puzzle, v, p, asked):
