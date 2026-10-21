@@ -781,38 +781,57 @@
      "parts": [
       {
        "words": "left",
-       "gives": "L",
-       "note": "L is the standard abbreviation for left"
+       "at": 12,
+       "gives": "L"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "off",
-         "note": "off means wrong or awry, so the letters are out of their proper order"
+         "at": 17,
+         "note": "off here means out of order or gone wrong, so the letters that follow are rearranged"
         }
        ],
        "parts": [
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 0
         },
         {
-         "words": "had twice",
-         "gives": "HADHAD",
-         "note": "the word had written two times"
+         "op": "substitution",
+         "indicators": [
+          {
+           "text": "twice",
+           "at": 6,
+           "note": "twice tells you to write the word had two times over, one copy after the other"
+          }
+         ],
+         "parts": [
+          {
+           "words": "had",
+           "at": 2,
+           "note": "taken as written"
+          },
+          {
+           "gives": "HAD"
+          },
+          {
+           "gives": "HADHAD"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "I had to stop being posh twice over.",
-     "walkthrough": "'I had twice' gives I HAD HAD; with L added, all eight letters are rearranged.",
-     "definitionFit": "La-di-dah describes an affectedly genteel, pretentious manner, a mocking word for over-refined."
+     "surface": "Someone admits they twice abandoned their attempt at being posh.",
+     "walkthrough": "'twice' supplies HAD a second time; 'off' shuffles I, HAD and HAD into AHDIDAH, and L for left goes in front.",
+     "definitionFit": "La-di-dah is a mocking word for affectedly genteel or posh manners, a sneering synonym for refined."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "off"
     }
