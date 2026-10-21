@@ -176,42 +176,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ERODED",
-     "indicators": [
-      {
-       "text": "not quite",
-       "note": "not quite whole means the word falls a letter short of complete"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "'E",
+         "at": 0,
+         "note": "the apostrophe in 'E shows a Cockney dropped aitch, telling us to lose the H from the next word too"
+        }
+       ],
        "parts": [
         {
-         "words": "'E was a brave man",
-         "gives": "ERO",
-         "note": "a brave man is a hero; the dropped H of 'E tells us to drop it here too, Cockney style"
+         "words": "a brave man",
+         "at": 7,
+         "gives": "HERO",
+         "note": "a hero is a brave man"
         },
         {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 20,
+         "note": "not quite means the word dead is left a letter short, here missing its A"
+        }
+       ],
+       "parts": [
+        {
          "words": "dead",
-         "gives": "DED",
-         "note": "dead with its A removed"
+         "at": 30,
+         "note": "taken as written before losing a letter"
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Cockney tribute to a brave man who is nearly dead and quite worn out.",
-     "walkthrough": "'ERO (hero without its H) plus DED gives ERODED; the apostrophe in 'E is the hint to drop an H.",
-     "definitionFit": "Rock or soil that has eroded has been gradually ground down by water, wind or weather."
+     "surface": "A Cockney eulogy for a fallen soldier, brave and barely alive, now just worn out.",
+     "walkthrough": "The limerick-filler 'E sets the Cockney tone: drop the H from HERO to get ERO, then 'not quite dead' gives DED, dead without its A.",
+     "definitionFit": "Something eroded has been gradually worn away, as rock is by water or wind."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "'E"
+     "misdirectedWord": "dead"
     }
    }
   },
