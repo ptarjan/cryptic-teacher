@@ -664,59 +664,46 @@
      "indicators": [
       {
        "text": "The reverse",
-       "note": "the reverse instructs us to read the result backwards"
+       "at": 31,
+       "note": "The reverse tells us to read the shortened pieces from back to front"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "tails off",
+         "at": 20,
+         "note": "tails off says each of the two words loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "tails off",
-           "note": "with its tail off, each word loses its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Your setter",
-           "gives": "MOOREY",
-           "note": "Tim Moorey, one of the setters of the Mephisto puzzle, so 'your setter' is the person addressing the solver"
-          },
-          {
-           "gives": "Y"
-          }
-         ]
+         "words": "Your setter",
+         "at": 0,
+         "gives": "MOOREY",
+         "note": "Tim Moorey set this Mephisto, so your setter is his surname"
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "finally",
-           "gives": "LAST",
-           "note": "last means finally, in the end"
-          },
-          {
-           "gives": "T"
-          }
-         ]
+         "words": "finally",
+         "at": 12,
+         "gives": "LAST",
+         "note": "finally means at last, giving the word last"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A self-deprecating setter wonders whether he is finally fading, then reverses himself.",
-     "walkthrough": "Both MOOREY and LAST lose their tails to give MOORE and LAS; the whole is then read backwards. This works only knowing that Tim Moorey set this puzzle.",
-     "definitionFit": "A saleroom is an auction house, where lots, items for sale, are offered to bidders."
+     "surface": "A setter wonders whether his clue is fizzling out, while an auction goes the other way.",
+     "walkthrough": "Tim Moorey is this puzzle's setter, which is how 'Your setter' gives his surname.",
+     "definitionFit": "A saleroom is an auction room, where numbered lots are put up for bidding."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "lots"
+     "misdirectedWord": "tails"
     }
    }
   },
@@ -1703,47 +1690,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "ARMALITE",
+     "indicators": [
+      {
+       "text": "as mentioned",
+       "at": 37,
+       "note": "as mentioned means as spoken, so the words are heard rather than spelt"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "ARMA",
-       "indicators": [
-        {
-         "text": "as mentioned",
-         "note": "as mentioned means spoken out, so the words are chosen for their sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "protective covering",
-         "gives": "ARMOUR",
-         "note": "armour is protective covering, said in a non-rhotic British accent"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "LITE",
-       "parts": [
-        {
-         "words": "whitish",
-         "gives": "LIGHT",
-         "note": "a light colour is pale and close to white"
-        }
-       ]
+       "words": "protective covering whitish",
+       "at": 9,
+       "gives": "ARMOURLIGHT",
+       "note": "armour is a protective covering; light describes a pale, whitish colour"
       }
      ]
     },
     "explanation": {
-     "surface": "A gun has a pale protective casing.",
-     "walkthrough": "In British speech, without a sounded R, armour ends in the same vowel as the start of the brand name.",
-     "definitionFit": "The ArmaLite is an American assault rifle, a brand name for a lightweight firearm."
+     "surface": "Describing a gun's shielding as pale in colour.",
+     "definitionFit": "The ArmaLite is a make of rifle, a brand name long tied to the AR-15 type."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "covering"
+     "misdirectedWord": "whitish"
     }
    }
   },

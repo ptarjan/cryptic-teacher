@@ -808,31 +808,64 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the shortened charm word is placed after the shortened neglect word"
+       "at": 28,
+       "note": "after places the charm piece behind the neglect piece"
       }
      ],
      "parts": [
       {
-       "words": "bottomless neglect",
-       "gives": "IGNOR",
-       "note": "neglect = ignore, losing its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bottomless",
+         "at": 34,
+         "note": "bottomless in a down clue means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neglect",
+         "at": 45,
+         "gives": "IGNORE",
+         "note": "to neglect is to ignore"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
-       "words": "no end of charm",
-       "gives": "AMUS",
-       "note": "charm = amuse, losing its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no end of",
+         "at": 12,
+         "note": "no end of says the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "charm",
+         "at": 22,
+         "gives": "AMUSE",
+         "note": "to charm someone is to amuse them"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fool whose neglect leaves him quite without charm.",
-     "walkthrough": "'No end of charm' reads as 'plenty of charm'; it means the word for charm with its end removed.",
-     "definitionFit": "An ignoramus is an ignorant, uninformed person, close enough to a fool to serve as a crossword synonym."
+     "surface": "A fool displays endless charm after a period of being ignored.",
+     "walkthrough": "'no end of' reads as 'plenty of', but here it chops the last letter.",
+     "definitionFit": "An ignoramus is an ignorant person, a near synonym for a dolt."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "no"
+     "misdirectedWord": "end"
     }
    }
   },
@@ -857,37 +890,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "suffering",
-       "note": "something suffering is in a bad state, so 'Tom in' and 'sent' are knocked into disorder"
-      },
-      {
-       "text": "out",
-       "note": "'out' here means out of order, backing up the instruction to rearrange the letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Tom in",
-       "note": "anagram fodder, first part"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "suffering",
+         "at": 7,
+         "note": "suffering suggests being in a bad way, so these letters are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tom",
+         "at": 0
+        },
+        {
+         "words": "in",
+         "at": 4
+        }
+       ]
       },
       {
-       "words": "sent",
-       "note": "anagram fodder, second part"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 22,
+         "note": "out means put out of order, so the letters of sent are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sent",
+         "at": 17
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tom, in pain, is sent out to buy something to ease it.",
-     "walkthrough": "'Suffering' and 'sent out' fit the picture of a patient seeking relief, and both signal that the letters of 'Tom in' and 'sent' are scrambled.",
-     "definitionFit": "Ointments are greasy salves rubbed on the skin to relieve pain or heal, which makes them calming treatments."
+     "surface": "Tom, in pain, was sent off to fetch something to ease it.",
+     "definitionFit": "Ointments are salves rubbed on the skin to ease pain or irritation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "suffering"
+     "misdirectedWord": "Tom"
     }
    }
   },

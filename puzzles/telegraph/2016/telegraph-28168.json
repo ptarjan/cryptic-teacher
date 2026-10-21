@@ -1272,43 +1272,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "merges with",
-       "note": "the two words overlap, sharing one A, so one copy drops out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Person in crowd scene",
-         "gives": "EXTRA",
-         "note": "an extra is a film actor with a non-speaking part in the background"
-        },
-        {
-         "words": "performer",
-         "gives": "ACTOR",
-         "note": "an actor is a performer"
-        }
-       ]
+       "words": "Person in crowd scene",
+       "at": 0,
+       "gives": "EXTRA",
+       "note": "an extra is a film actor hired to fill out a crowd scene"
       },
       {
-       "gives": "A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "merges with",
+         "at": 22,
+         "note": "merges with says the two words overlap, sharing one letter, so one copy goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "performer",
+         "at": 34,
+         "gives": "ACTOR",
+         "note": "an actor is a performer"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A film extra blending in with the star while being one of their admirers.",
-     "walkthrough": "'Fan' looks like an admirer, which fits the film set; it is a machine.",
+     "surface": "A film extra blends in with the star, being a big admirer.",
      "definitionFit": "An extractor fan draws stale air or fumes out of a room."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "fan"
     }
    }
