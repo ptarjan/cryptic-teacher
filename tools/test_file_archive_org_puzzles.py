@@ -3145,6 +3145,19 @@ check("an indented grid under its title has a clue column left of it, a flush on
       ((121, 3865), None),
       (f.indented_column((271, 3802, 1148, 3865), (491, 3879, 1211, 4595)),
        f.indented_column((198, 2784, 911, 2819), (190, 2829, 912, 3535))))
+# A title read from its second word ("CROSSWORD PUZZLE NO. ..." of "THE TIMES
+# CROSSWORD ..."; Gale 1962-11-02) sits level with its grid: its printed line
+# is walked left to the first word, so the clue column left of it is cropped.
+from PIL import Image as _Image, ImageDraw as _Draw
+_img = _Image.new("L", (1400, 200), 255)
+_d = _Draw.Draw(_img)
+for _x0 in (200, 340, 480):
+    _d.rectangle((_x0, 100, _x0 + 110, 130), fill=0)  # words, gaps under a grid's TITLE_GAP
+_d.rectangle((1300, 100, 1330, 130), fill=0)  # print far right: not the title
+check("a title read from its second word is walked left to its line's start",
+      (200, (0, 130)), (f.title_left(_img, (600, 100, 800, 130), (610, 140, 1210, 740))[0],
+                         f.indented_column(f.title_left(_img, (600, 100, 800, 130), (610, 140, 1210, 740)),
+                                           (610, 140, 1210, 740))))
 check("the column beside the grid is read first, then the two under it",
       ("ACROSS", "cause lock-jaw(7)", "ofNewport（5)"), tuple(c[0][4] for c in cols))
 check("a clue's run-on line opens the next column and stays with its clue",
