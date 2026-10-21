@@ -515,57 +515,69 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "IMPULSIVE",
+     "op": "charade",
      "indicators": [
       {
        "text": "at first",
-       "note": "at first places the new pair of letters at the front of the word"
-      },
-      {
-       "text": "scratching",
-       "note": "scratching means crossing out, so the named letters are struck off and replaced"
+       "at": 19,
+       "note": "at first puts I'm at the front"
       }
      ],
      "parts": [
       {
+       "words": "I'm",
+       "at": 28,
+       "gives": "IM"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "IMPULSIVE",
        "indicators": [
         {
-         "text": "endless",
-         "note": "endless means without its final letter, so the colour word is shortened"
+         "text": "scratching",
+         "at": 32,
+         "note": "scratching means striking out, as one scratches a name from a list"
         }
        ],
        "parts": [
         {
          "words": "revolting",
+         "at": 8,
          "gives": "REPULSIVE",
-         "note": "revolting and repulsive are synonyms"
+         "note": "repulsive means revolting"
         },
         {
-         "words": "I'm",
-         "note": "taken as written"
-        },
-        {
-         "words": "red",
-         "note": "taken as written, before trimming"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 43,
+           "note": "endless means red loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "red",
+           "at": 51,
+           "gives": "RED",
+           "note": "the word red itself, as written"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A skin rash looks revolting: the itchy patient starts scratching the red spots.",
-     "walkthrough": "Rash is the definition, not a skin complaint: the opening RE of the long word for revolting is swapped for IM.",
-     "definitionFit": "Rash as an adjective means acting hastily without thought, which is what an impetuous, spur-of-the-moment person does."
+     "surface": "A sufferer complains that a rash is horrible, with the first scratching leaving it red.",
+     "walkthrough": "'Rash' looks like a skin complaint; it is the adjective. 'Revolting' is a synonym, not an anagram signal, and 'scratching' strikes out red minus its end.",
+     "definitionFit": "Impulsive behaviour is hasty and done without thinking, the same as being rash."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Rash"
     }
    }

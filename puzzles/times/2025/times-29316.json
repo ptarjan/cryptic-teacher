@@ -359,40 +359,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "U-turning",
-       "note": "a U-turn sends you back the way you came, so the letters of 'about' run backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Shop",
+       "at": 0,
+       "gives": "COOP",
+       "note": "the Co-op is a British chain of shops"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "U-turning",
+         "at": 5,
+         "note": "U-turning means the word for about turns round and reads backwards"
+        }
+       ],
        "parts": [
         {
          "words": "about",
+         "at": 15,
          "gives": "RE",
-         "note": "RE means about; turned round it reads ER"
-        },
-        {
-         "words": "Shop",
-         "gives": "POOC",
-         "note": "the Co-op, a British chain of shops"
+         "note": "re means about, as in a letter heading"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shop doing an about-turn on the craftsman it employs.",
-     "walkthrough": "The Co-op is a long-established British cooperative that runs grocery stores.",
-     "definitionFit": "A cooper is a craftsman who makes and repairs barrels and casks."
+     "surface": "A shop doing an about-turn on a craftsman.",
+     "walkthrough": "The Co-op is a British retail chain, so shop gives COOP; RE reversed is ER.",
+     "definitionFit": "A cooper is a skilled maker of barrels and casks, a traditional craftsman."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "U-turning"
+     "misdirectedWord": "Shop"
     }
    }
   },
@@ -1170,21 +1173,39 @@
      "op": "charade",
      "parts": [
       {
-       "words": "help for diabetics dropping in",
-       "gives": "INSUL",
-       "note": "INSULIN with IN removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 26,
+         "note": "dropping means the letters of in are let fall from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "help for diabetics",
+         "at": 7,
+         "gives": "INSULIN",
+         "note": "insulin is the hormone diabetics take"
+        },
+        {
+         "words": "in",
+         "at": 35,
+         "gives": "IN"
+        }
+       ]
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "the standard abbreviation"
+       "at": 38,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A small help for diabetics arriving just in time.",
-     "walkthrough": "‘Dropping in’ looks like visiting, but it tells you to drop the letters IN.",
-     "definitionFit": "A plain synonym in the noun sense: a snub or affront."
+     "surface": "A diabetic's help is dropped in time, a slight on the patient.",
+     "walkthrough": "'Slight' is the noun, an affront, not the adjective meaning small; the hormone loses its closing two letters before the time abbreviation goes on.",
+     "definitionFit": "A slight is a snub or offensive remark, the same as an insult."
     },
     "features": {
      "answerInScene": false,

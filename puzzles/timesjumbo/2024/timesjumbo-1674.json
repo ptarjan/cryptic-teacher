@@ -321,25 +321,44 @@
      "parts": [
       {
        "words": "popular",
+       "at": 13,
        "gives": "IN",
-       "note": "in = fashionable"
+       "note": "in means popular, as in the in thing"
       },
       {
-       "words": "web browsers without using force",
-       "gives": "SURERS",
-       "note": "SURFERS minus F (force)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without using",
+         "at": 34,
+         "note": "without using means the letter for force is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "web browsers",
+         "at": 21,
+         "gives": "SURFERS",
+         "note": "people who browse the web are surfers"
+        },
+        {
+         "words": "force",
+         "at": 48,
+         "gives": "F",
+         "note": "F is the physics symbol for force"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Security software for well-used web browsers that works without heavy-handedness.",
-     "walkthrough": "Web browsers look like software; here they are people surfing the net. F = force is a physics abbreviation.",
-     "definitionFit": "Insurers protect policyholders against loss."
+     "surface": "Popular web browsers that protect without coercion.",
+     "walkthrough": "'Web browsers' are people surfing the internet, not software; 'They protect' is a plural definition matching the plural answer.",
+     "definitionFit": "Insurers provide cover, protecting people against financial loss."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "browsers"
     }
    }
@@ -1119,25 +1138,42 @@
      "parts": [
       {
        "words": "Collected works",
+       "at": 0,
        "gives": "CORPUS",
-       "note": "a corpus is a body of writings"
+       "note": "a corpus is a writer's whole body of work"
       },
       {
-       "words": "author abridged",
-       "gives": "CHRISTI",
-       "note": "Agatha CHRISTIE, the crime writer, minus E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abridged",
+         "at": 26,
+         "note": "abridged means shortened, so the last letter is cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "author",
+         "at": 19,
+         "gives": "CHRISTIE",
+         "note": "Agatha Christie, the crime novelist"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An author's complete works cut down to size for a literary festival.",
-     "walkthrough": "The surface suggests a book festival; the festival is the Christian feast.",
-     "definitionFit": "Corpus Christi is a Christian feast celebrating the Eucharist."
+     "surface": "A writer's complete works, shortened for a literary festival.",
+     "walkthrough": "CHRISTIE loses its final E.",
+     "definitionFit": "Corpus Christi is a Christian feast day celebrating the Eucharist, a church festival."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "festival"
+     "misdirectedWord": "author"
     }
    }
   },
@@ -1881,30 +1917,60 @@
      "parts": [
       {
        "words": "former partner",
+       "at": 9,
        "gives": "EX",
-       "note": "an ex"
+       "note": "an ex is a former partner"
       },
       {
-       "words": "fought to drop last of charges",
-       "gives": "TROVE",
-       "note": "STROVE minus S, the last letter of chargeS"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to drop",
+         "at": 31,
+         "note": "to drop means the letter is removed from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fought",
+         "at": 24,
+         "gives": "STROVE",
+         "note": "strove means fought, struggled"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 39,
+           "note": "last of picks the final letter of charges"
+          }
+         ],
+         "parts": [
+          {
+           "words": "charges",
+           "at": 47
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "right",
-       "gives": "RT",
-       "note": "RT = right"
+       "at": 56,
+       "gives": "RT"
       }
      ]
     },
     "explanation": {
-     "surface": "A sociable ex fought to have the final charges dropped, correct?",
-     "walkthrough": "'Charges' suggests a court case; only its last letter is used.",
-     "definitionFit": "An extrovert is outgoing; the word here is used adjectivally."
+     "surface": "A former partner fought charges, then dropped them; was that right?",
+     "walkthrough": "STROVE loses S, the last letter of charges, to give TROVE.",
+     "definitionFit": "An extrovert is a sociable, outgoing person."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "charges"
+     "misdirectedWord": "fought"
     }
    }
   },

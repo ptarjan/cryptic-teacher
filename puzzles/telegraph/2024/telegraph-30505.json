@@ -815,49 +815,54 @@
      "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
-         "text": "no new",
-         "note": "'no new' says there is no N (new), so that letter is taken out"
+         "text": "initially",
+         "at": 10,
+         "note": "initially points to the opening letter of Carpenter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "'initially' means at first, so only the carpenter's first letter is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Carpenter",
-           "note": "first letter of Carpenter"
-          }
-         ]
-        },
-        {
-         "gives": "A"
+         "words": "Carpenter",
+         "at": 0
         }
        ]
       },
       {
-       "words": "discovering",
-       "gives": "LEARING",
-       "note": "LEARNING (discovering) without one N for new"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 32,
+         "note": "no means without, so the stated letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "discovering",
+         "at": 20,
+         "gives": "LEARNING",
+         "note": "learning means discovering, as in learning the truth"
+        },
+        {
+         "words": "new",
+         "at": 35,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A carpenter finds that a piece of timber has no fresh cracks.",
-     "walkthrough": "'Gap in wood' sounds like a flaw in timber for the carpenter; it is a clear space in a forest.",
-     "definitionFit": "A descriptive definition: a clearing is an open patch where trees are absent, a gap in a wood in the forest sense."
+     "surface": "A carpenter, on first inspection, finds a fresh gap in some timber.",
+     "walkthrough": "'Wood' is a forest here, not timber, and 'gap in wood' is the whole definition.",
+     "definitionFit": "A clearing is an open space in a forest where trees are absent, a gap in a woodland."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "wood"
     }
    }

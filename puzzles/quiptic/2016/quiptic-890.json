@@ -1059,44 +1059,46 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "Starts to",
-         "note": "the starts of these words means only their opening letters are taken"
-        }
-       ],
+       "op": "container",
        "parts": [
         {
-         "words": "call",
-         "note": "the first letter"
-        }
-       ]
-      },
-      {
-       "words": "and",
-       "note": "taken as written"
-      },
-      {
-       "op": "first",
-       "parts": [
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Starts to",
+           "at": 0,
+           "note": "starts are opening letters, of call and of issue"
+          }
+         ],
+         "parts": [
+          {
+           "words": "call",
+           "at": 10
+          },
+          {
+           "words": "issue",
+           "at": 19
+          }
+         ]
+        },
         {
-         "words": "issue",
-         "note": "the first letter"
+         "words": "and",
+         "at": 15
         }
        ]
       },
       {
        "words": "appointments",
+       "at": 25,
        "gives": "DATES",
-       "note": "dates are fixed appointments"
+       "note": "dates are appointments"
       }
      ]
     },
     "explanation": {
-     "surface": "A recruiter begins calling and sending interview slots to job hunters.",
-     "walkthrough": "'Starts to' covers both 'call' and 'issue', while the 'and' between them is used whole.",
-     "definitionFit": "Candidates are people who apply or are nominated for a job, post or election."
+     "surface": "Instructions to begin calling and sending out interview times to job applicants.",
+     "walkthrough": "C from call, then AND as written, then I from issue, then DATES.",
+     "definitionFit": "Candidates are people applying for a job or position, which is what applicants are."
     },
     "features": {
      "answerInScene": true,

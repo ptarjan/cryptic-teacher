@@ -1271,50 +1271,45 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out of bounds",
+       "at": 21,
+       "note": "the bounds are the outer edges, and both are taken off the whole string"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "out of bounds",
-         "note": "the bounds are the outer edges, so the first and last letters go"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Helen's lover",
+         "at": 0,
          "gives": "PARIS",
-         "note": "Paris eloped with Helen of Troy"
+         "note": "Paris eloped with Helen of Troy in Greek myth"
         },
         {
-         "gives": "P"
-        }
-       ]
-      },
-      {
-       "words": "to",
-       "note": "used as it stands"
-      },
-      {
-       "op": "deletion",
-       "parts": [
+         "words": "to",
+         "at": 14
+        },
         {
          "words": "box",
+         "at": 17,
          "gives": "CRATE",
          "note": "a crate is a box"
-        },
-        {
-         "gives": "E"
         }
        ]
+      },
+      {
+       "gives": "PE"
       }
      ]
     },
     "explanation": {
-     "surface": "Helen's lover is told to fight a nobleman out of bounds.",
-     "walkthrough": "'Out of bounds' applies to the whole string: the joined words lose only the P at the front and the E at the back.",
-     "definitionFit": "A member of the hereditary titled class, such as a duke or earl, is an aristocrat."
+     "surface": "Paris boxing a nobleman, perhaps an illegal blow outside the ring.",
+     "walkthrough": "Join PARIS, TO and CRATE, then strip the first and last letters, P and E.",
+     "definitionFit": "An aristocrat is a member of the titled nobility, such as a lord or duke."
     },
     "features": {
      "answerInScene": true,
@@ -2673,32 +2668,36 @@
      "parts": [
       {
        "words": "sport",
+       "at": 6,
        "gives": "PE",
-       "note": "PE = physical education"
+       "note": "PE, physical education, is school sport"
       },
       {
        "words": "day",
-       "gives": "D",
-       "note": "D = day"
+       "at": 13,
+       "gives": "D"
       },
       {
        "words": "one",
+       "at": 17,
        "gives": "I",
-       "note": "I = one"
+       "note": "I is the Roman numeral for one"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "endless",
-         "note": "'endless' cuts a letter off"
+         "at": 22,
+         "note": "endless means the final letter is cut off"
         }
        ],
        "parts": [
         {
          "words": "avarice",
+         "at": 30,
          "gives": "GREED",
-         "note": "GREED is what 'avarice' stands for"
+         "note": "greed is avarice"
         },
         {
          "gives": "D"
@@ -2708,9 +2707,9 @@
      ]
     },
     "explanation": {
-     "surface": "On the first day of a hunt, greed takes over.",
-     "walkthrough": "'Blood sport' reads as one phrase, like fox hunting; 'Blood' alone is the definition, meaning lineage.",
-     "definitionFit": "Blood, as in 'of royal blood', means ancestry or breeding, a recorded line of descent."
+     "surface": "A list of a day's events: some blood sport and endless greed.",
+     "walkthrough": "'Blood' looks like part of 'blood sport', but it is the definition; GREED loses its end to GREE.",
+     "definitionFit": "Blood in the sense of lineage or ancestry, as in 'of noble blood', is one's pedigree."
     },
     "features": {
      "answerInScene": false,

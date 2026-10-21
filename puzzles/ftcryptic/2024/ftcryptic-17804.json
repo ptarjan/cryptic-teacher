@@ -606,21 +606,20 @@
      "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "40% off",
          "at": 0,
-         "note": "40% off means two of the five letters, the last two, are cut"
+         "note": "perch has five letters, and taking 40% off leaves the first three"
         }
        ],
        "parts": [
         {
          "words": "perch",
-         "at": 8
-        },
-        {
-         "gives": "CH"
+         "at": 8,
+         "gives": "PERCH",
+         "note": "the word perch, as written"
         }
        ]
       },
@@ -628,17 +627,18 @@
        "words": "hard",
        "at": 15,
        "gives": "SEVERE",
-       "note": "severe means harsh, hard"
+       "note": "severe means hard, as in a hard winter"
       }
      ]
     },
     "explanation": {
-     "surface": "A bird on a perch, given a discount, clings on hard.",
-     "definitionFit": "To persevere is to keep going despite difficulty, to stick with it, an idiom."
+     "surface": "An angler cutting off part of a perch, told to persist despite the difficulty.",
+     "walkthrough": "'Perch' has five letters, so 40% is two of them, cut from the end. 'Stick with it' is a phrasal definition, not a joining instruction.",
+     "definitionFit": "To persevere is to persist despite difficulty, which is to stick with it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "perch"
     }
    }
@@ -1174,48 +1174,55 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed inside, so these letters go within another word"
+       "at": 23,
+       "note": "in places the shuffled letters and L inside the word for dark"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "unfortunately",
-         "note": "unfortunately suggests things going wrong, so the letters are knocked out of order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "the usual abbreviation"
-        },
-        {
-         "words": "dark",
-         "gives": "NIGHT",
-         "note": "the hours of darkness"
-        }
-       ]
+       "words": "dark",
+       "at": 26,
+       "gives": "NIGHT",
+       "note": "night is the dark"
       },
       {
-       "words": "One",
-       "gives": "EON",
-       "note": "its three letters rearranged"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "unfortunately",
+           "at": 4,
+           "note": "unfortunately suggests things going wrong, so the letters of One are shuffled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "One",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "words": "left",
+         "at": 18,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
      "surface": "Someone stranded in the dark wonders what might help them see.",
-     "walkthrough": "The rearranged letters go in just after the first letter of the dark word; the whole clue then describes the answer, since a lamp helps someone left in the dark.",
-     "definitionFit": "A neon light is an illuminated sign or tube that would brighten darkness."
+     "walkthrough": "'Left' is the abbreviation, not departed. The whole clue doubles as the definition: a glowing tube would help someone stuck in darkness.",
+     "definitionFit": "A neon light is a glowing gas-filled tube lamp, just the thing to help someone stuck in darkness."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "unfortunately"
+     "misdirectedWord": "left"
     }
    }
   },

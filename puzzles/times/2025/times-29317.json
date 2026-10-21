@@ -564,39 +564,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "the wrong way",
-       "note": "going the wrong way means travelling backwards, so the word is read in reverse"
-      },
-      {
        "text": "follows",
-       "note": "a thing that follows comes after, so the companion goes second"
+       "at": 17,
+       "note": "follows places the dwarf after the reversed friends"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "the wrong way",
+         "at": 33,
+         "note": "the wrong way means the word for friends is written backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Grumpy companion",
-         "gives": "YPPAH",
-         "note": "Grumpy and his fellow dwarf in Snow White"
-        },
-        {
          "words": "friends",
+         "at": 25,
          "gives": "PALS",
-         "note": "PALS turned round"
+         "note": "pals are friends"
         }
        ]
+      },
+      {
+       "words": "Grumpy companion",
+       "at": 0,
+       "gives": "HAPPY",
+       "note": "Grumpy and Happy are two of the seven dwarfs in Snow White"
       }
      ]
     },
     "explanation": {
-     "surface": "A sulky partner trails along behind friends, heading the wrong direction.",
-     "walkthrough": "‘Grumpy’ looks like an adjective, but capitalised it is one of Snow White’s seven dwarfs, and his companion is another dwarf.",
-     "definitionFit": "A plain synonym: the word describes a cheerfully careless, devil-may-care attitude."
+     "surface": "A bad-tempered sidekick trailing pals who have gone astray, all done recklessly.",
+     "walkthrough": "'Grumpy' looks like an adjective; it is the dwarf, whose companion among the seven is Happy.",
+     "definitionFit": "Slap-happy describes a casual, careless attitude, the same as being reckless."
     },
     "features": {
      "answerInScene": false,
@@ -1577,25 +1583,38 @@
      "indicators": [
       {
        "text": "Rising",
-       "note": "in a down clue, rising means going upwards, so the letters are read from bottom to top"
-      },
-      {
-       "text": "nearly",
-       "note": "nearly the whole word means one letter short, so the last goes"
+       "at": 0,
+       "note": "in a down clue, rising means the letters are read upwards"
       }
      ],
      "parts": [
       {
-       "words": "late",
-       "gives": "TARD",
-       "note": "TARDY without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 13,
+         "note": "nearly means not quite all, so the last letter is cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "late",
+         "at": 7,
+         "gives": "TARDY",
+         "note": "tardy means late"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who oversleeps and nearly swears about it.",
-     "walkthrough": "‘Curses’ looks like a plural noun or verb, but read it as the exclamation.",
-     "definitionFit": "An interjection for an interjection: both are mild oaths of annoyance."
+     "surface": "Someone getting up late and swearing almost under their breath.",
+     "walkthrough": "TARDY loses its last letter to TARD, which is read bottom to top in this down clue.",
+     "definitionFit": "Both are mild exclamations of annoyance; 'Curses!' and 'Drat!' are used interchangeably."
     },
     "features": {
      "answerInScene": true,
