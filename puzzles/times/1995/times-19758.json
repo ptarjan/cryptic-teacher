@@ -640,55 +640,39 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Rice on board",
+      "text": "Rice",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "docked",
+       "at": 18,
+       "note": "docked means each vessel has its tail cut off, as a dog's tail is docked"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "docked",
-         "note": "a docked tail is cut short, so each word loses its last letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "vessels",
-         "gives": "SUB",
-         "note": "a sub, a submarine, is one vessel"
-        },
-        {
-         "gives": "B"
-        }
-       ]
+       "words": "vessels",
+       "at": 25,
+       "gives": "SUBSHIP",
+       "note": "two vessels: a sub and a ship"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "vessels",
-         "gives": "SHIP",
-         "note": "a ship is the other vessel"
-        },
-        {
-         "gives": "P"
-        }
-       ]
+       "gives": "BP"
       }
      ]
     },
     "explanation": {
-     "surface": "Rice is loaded aboard two ships tied up at the quay.",
-     "walkthrough": "'Docked' suggests ships moored in port; here it means cut short.",
-     "definitionFit": "Sushi is a Japanese dish of vinegared rice, often served on a wooden board."
+     "surface": "Rice is served aboard two ships tied up in harbour.",
+     "walkthrough": "'docked' looks like ships in port, but it cuts the last letter from each of the two vessels, SUB and SHIP, leaving SU and SHI.",
+     "definitionFit": "Sushi is the Japanese dish of vinegared rice topped or rolled with fish."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "docked"
     }
@@ -957,31 +941,36 @@
        "indicators": [
         {
          "text": "uttered",
-         "note": "uttered means spoken out, so the sound of the name is used, not its spelling"
+         "at": 10,
+         "note": "uttered means the detective's name is taken as it is spoken"
         }
        ],
        "parts": [
         {
          "words": "Detective",
+         "at": 0,
          "gives": "HOLMES",
-         "note": "Sherlock Holmes, the fictional detective, whose name is said without the L"
+         "note": "Sherlock Holmes, the fictional detective, whose name is said like 'homes'"
         }
        ]
       },
       {
        "words": "witticism",
+       "at": 18,
        "gives": "PUN",
-       "note": "a pun is a witticism"
+       "note": "a pun is a play on words"
       }
      ]
     },
     "explanation": {
-     "surface": "A detective made a quip that was rather unrefined.",
-     "definitionFit": "Homespun means plain and simple, like cloth woven at home, hence unsophisticated."
+     "surface": "A detective made a joke that fell flat for lack of sophistication.",
+     "walkthrough": "The L in Holmes is silent, so the name spoken sounds like HOMES.",
+     "definitionFit": "Homespun means plain and simple, originally of cloth woven at home, hence unsophisticated."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "uttered"
     }
    }

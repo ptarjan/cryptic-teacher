@@ -660,60 +660,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SANDPIPERS",
      "indicators": [
       {
        "text": "included",
-       "note": "something included is taken inside, so this goes into the middle of the other word"
+       "at": 18,
+       "note": "included means one set of letters goes inside the other"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "SANDPIPERS",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "odd",
-         "note": "odd means strange, so the word it describes appears in a scrambled order"
+         "text": "lost",
+         "at": 28,
+         "note": "lost means a letter goes missing from the swans"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "SANDPIPERS",
-         "indicators": [
-          {
-           "text": "lost",
-           "note": "what is lost is no longer there, so those letters are removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Swans",
-           "note": "taken as written"
-          },
-          {
-           "words": "dipper",
-           "note": "taken as written"
-          },
-          {
-           "words": "with",
-           "gives": "W",
-           "note": "W is the standard abbreviation for with"
-          }
-         ]
+         "words": "Swans",
+         "at": 0,
+         "gives": "SWANS",
+         "note": "taken as written"
+        },
+        {
+         "words": "with",
+         "at": 33,
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "odd",
+         "at": 7,
+         "note": "odd means the dipper's letters are oddly arranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dipper",
+         "at": 11,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Swans and a dipper, a water bird, are lost among birds on the shore.",
-     "walkthrough": "W for 'with' comes out of the swans, and the scrambled dipper goes inside what remains.",
-     "definitionFit": "Sandpipers are small waders that run along beaches and mudflats, so they are typical birds of the shore."
+     "surface": "A birdwatcher counts swans with a stray dipper among them and lists some coastal species.",
+     "walkthrough": "'dipper' is a real bird, which hides that it is just anagram fodder; 'lost' takes the abbreviation for 'with' out of the swans.",
+     "definitionFit": "Sandpipers are small wading birds that feed along beaches and mudflats."
     },
     "features": {
      "answerInScene": true,

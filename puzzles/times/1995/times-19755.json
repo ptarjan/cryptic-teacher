@@ -1012,63 +1012,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "around means surrounding the next item"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "last",
        "indicators": [
         {
-         "text": "loose",
-         "note": "letting letters loose frees them from their order"
+         "text": "Half of",
+         "at": 0,
+         "note": "half of a four-letter word is its last two letters here"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Half of",
-           "note": "half means only one of the two halves of the word stays"
-          }
-         ],
-         "parts": [
-          {
-           "words": "them",
-           "note": "taken as written; only its back half is kept"
-          },
-          {
-           "gives": "TH"
-          }
-         ]
-        },
-        {
-         "words": "let",
-         "note": "taken as written, joining the anagram"
+         "words": "them",
+         "at": 8,
+         "note": "second half of them"
         }
        ]
       },
       {
        "words": "club",
+       "at": 30,
        "gives": "BAT",
-       "note": "a cricket or baseball club"
+       "note": "a bat is a club used in cricket or baseball"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "loose around",
+         "at": 17,
+         "note": "let loose and turned around, the letters of let are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "let",
+         "at": 13,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half of a group are set free around a nightclub to get the barricades ready.",
-     "walkthrough": "The half of 'them' joins 'let' in the jumble, and the shuffled letters then wrap round the club.",
-     "definitionFit": "To embattle a town is to fortify it or set an army in battle order ready for attack."
+     "surface": "Half a group are released to swing a club as the defenders get ready.",
+     "walkthrough": "'let loose' reads as a phrase, but 'let' is the fodder and 'loose around' is the anagram signal; the club comes before it.",
+     "definitionFit": "To embattle a place is to fortify it or draw up troops for battle."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "club"
+     "misdirectedWord": "let"
     }
    }
   },
@@ -1268,14 +1264,16 @@
        "indicators": [
         {
          "text": "Half-hearted",
-         "note": "with only half a heart, the doubled middle of the name loses one of its two letters"
+         "at": 0,
+         "note": "half-hearted means half of the doubled middle, one of the two central letters, is lost"
         }
        ],
        "parts": [
         {
          "words": "composer",
+         "at": 13,
          "gives": "TALLIS",
-         "note": "Thomas Tallis, Tudor composer"
+         "note": "Thomas Tallis, Tudor English composer"
         },
         {
          "gives": "L"
@@ -1283,29 +1281,22 @@
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "a fellow",
-         "gives": "AMAN",
-         "note": "taken as a man"
-        },
-        {
-         "gives": "A"
-        }
-       ]
+       "words": "fellow",
+       "at": 25,
+       "gives": "MAN",
+       "note": "a man is a fellow"
       }
      ]
     },
     "explanation": {
-     "surface": "A lukewarm composer is described as a man of great charm.",
-     "walkthrough": "The heart of TALLIS is LL, and half of it goes. The 'a' of 'a fellow' does not feed the letters.",
-     "definitionFit": "An amulet or lucky charm, believed to carry magical protective power."
+     "surface": "A lukewarm composer is described as a charming fellow.",
+     "walkthrough": "Tallis has LL at its heart; losing half of it leaves TALIS.",
+     "definitionFit": "A talisman is an object believed to bring luck or ward off harm, a lucky charm."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "charm"
+     "misdirectedWord": "Half-hearted"
     }
    }
   },

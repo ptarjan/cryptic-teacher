@@ -468,6 +468,8 @@
      "parts": [
       {
        "words": "the",
+       "at": 11,
+       "gives": "THE",
        "note": "taken as written"
       },
       {
@@ -475,58 +477,60 @@
        "indicators": [
         {
          "text": "in",
-         "note": "the article sits in the newspaper's initials, inside them"
+         "at": 8,
+         "note": "in puts the article inside the newspaper's initials"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "sadly",
-           "note": "sadly here is treated as a word gone wrong, so its own letters are muddled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Financial Times",
-           "gives": "FT",
-           "note": "FT is the standard short form of the Financial Times"
-          },
-          {
-           "words": "Article",
-           "gives": "A",
-           "note": "a is the indefinite article"
-          },
-          {
-           "words": "sadly",
-           "note": "this word's own five letters, rearranged"
-          }
-         ]
+         "words": "Financial Times",
+         "at": 15,
+         "gives": "FT",
+         "note": "the newspaper is known as the FT"
         },
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "working",
-           "gives": "IN",
-           "note": "a machine that is working is in operation, or in"
-          },
-          {
-           "words": "in guineas",
-           "gives": "GS",
-           "note": "G is the abbreviation for guinea, an old coin worth 21 shillings, so two of them make GS"
-          }
-         ]
+         "words": "Article",
+         "at": 0,
+         "gives": "A",
+         "note": "a is the indefinite article"
         }
        ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "at": 38,
+         "note": "working means the letters of sadly are being worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sadly",
+         "at": 32,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "at": 46,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "words": "guineas",
+       "at": 49,
+       "gives": "GS",
+       "note": "g is short for guinea, so guineas are GS"
       }
      ]
     },
     "explanation": {
-     "surface": "A gloomy business-paper article, priced in old coin, announces that everything has ended.",
-     "walkthrough": "'sadly' is both indicator and its own fodder. The answer is from the saying 'it ain't over till the fat lady sings', from opera. The clue shows 'itês' where the paper printed 'it's'.",
-     "definitionFit": "In the saying, the fat lady singing marks the true end of an opera, so the phrase signals that a contest is finished."
+     "surface": "A grim report in the business paper about debts paid in old guineas signals the end.",
+     "walkthrough": "'sadly' looks like the anagram signal but is the fodder; 'working' rearranges it. A guinea was an old British coin worth 21 shillings.",
+     "definitionFit": "The saying 'it ain't over till the fat lady sings' makes her song the sign that something has ended."
     },
     "features": {
      "answerInScene": false,
@@ -924,51 +928,56 @@
    "annotation": {
     "definitions": [
      {
-      "text": "like a mouse",
+      "text": "like a mouse?",
       "at": 29
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "oddly",
-       "note": "done oddly, the letters of the number are put in a strange order"
+       "text": "holding",
+       "at": 12,
+       "note": "holding means the first word contains the second"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Like an ass",
+       "at": 0,
+       "gives": "SILLY",
+       "note": "an ass is a fool, so like one is silly"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "holding",
-         "note": "holding means having something inside, gripped within"
+         "text": "oddly",
+         "at": 23,
+         "note": "oddly signals the letters of ten in an odd order"
         }
        ],
        "parts": [
         {
          "words": "10",
-         "gives": "ENT",
-         "note": "the number ten written as a word, its letters rearranged"
-        },
-        {
-         "words": "Like an ass",
-         "gives": "SILLY",
-         "note": "an ass is a fool, so like an ass is silly"
+         "at": 20,
+         "gives": "TEN",
+         "note": "ten written out as a word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A comparison of a donkey and a mouse, with a number thrown in.",
-     "walkthrough": "'10' is the number, not a cross-reference to clue 10: spell it out as a word and rearrange it.",
-     "definitionFit": "Being quiet as a mouse is the stock simile, so like a mouse means making no noise."
+     "surface": "A donkey is somehow carrying the number ten, compared with a mouse.",
+     "walkthrough": "'oddly' could mean taking odd letters, but here it is an anagram signal working on the number spelt out.",
+     "definitionFit": "'Quiet as a mouse' is the stock comparison, so moving like a mouse is moving noiselessly."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "10"
+     "joke": "absurd",
+     "misdirectedWord": "oddly"
     }
    }
   },

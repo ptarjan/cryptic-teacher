@@ -219,50 +219,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "not died",
-       "note": "the abbreviation for died is to be left out of the word for God"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "What's wrong",
-         "gives": "VICE",
-         "note": "a vice is a wrong or a sin"
-        },
-        {
-         "words": "upper part of church",
-         "gives": "CHANCEL",
-         "note": "the chancel is the east end of a church, around the altar"
-        },
-        {
-         "words": "God's",
-         "gives": "LORD",
-         "note": "the Lord is God"
-        }
-       ]
+       "words": "wrong",
+       "at": 7,
+       "gives": "VICE",
+       "note": "a vice is a wrong or sin"
       },
       {
-       "words": "died",
-       "gives": "D",
-       "note": "D is the abbreviation for died"
+       "words": "upper part of church",
+       "at": 18,
+       "gives": "CHANCEL",
+       "note": "the chancel is the eastern end of a church, around the altar"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 46,
+         "note": "not means the died letter is not there"
+        }
+       ],
+       "parts": [
+        {
+         "words": "God's",
+         "at": 40,
+         "gives": "LORD",
+         "note": "Lord is God; the 's means 'is'"
+        },
+        {
+         "words": "died",
+         "at": 50,
+         "gives": "D",
+         "note": "d is the abbreviation for died in records"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A churchgoer asks what is amiss with the top end of the church, as if God were alive but busy at university.",
-     "walkthrough": "LORD loses its D to give LOR. In British universities the vice-chancellor is the working head.",
-     "definitionFit": "A vice-chancellor is the chief executive of a British university, so a figure within higher education."
+     "surface": "A theological puzzle about sin, the chancel and whether God has died.",
+     "walkthrough": "'God's not died' reads as a creed but drops D from LORD. A vice-chancellor is the effective head of a British university.",
+     "definitionFit": "The vice-chancellor is the chief executive of a British university, a senior figure in academia."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "upper"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "died"
     }
    }
   },
