@@ -284,58 +284,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "terrible",
-       "note": "something terrible is in a bad state, so the letters of the next word are mangled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "from",
-         "note": "from here means taken away out of, so a note is removed from the word"
+         "at": 14,
+         "note": "note from teacher means the note is taken away from the teacher word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "note",
-           "gives": "MI",
-           "note": "mi is the third note of the sol-fa scale"
-          },
-          {
-           "words": "teacher",
-           "gives": "MISTRESS",
-           "note": "a schoolmistress is a teacher"
-          },
-          {
-           "words": "flu",
-           "note": "rearranged"
-          }
-         ]
+         "words": "teacher",
+         "at": 19,
+         "gives": "MISTRESS",
+         "note": "a mistress is a schoolteacher, as in maths mistress"
         },
         {
-         "gives": "MIMI"
+         "words": "note",
+         "at": 9,
+         "gives": "MI",
+         "note": "mi is a note of the sol-fa scale"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "at": 32,
+         "note": "terrible suggests flu in a bad state, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flu",
+         "at": 41
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher sends home a note about a pupil with a nasty flu.",
-     "walkthrough": "'note' reads as a written message, but it is a sol-fa note taken away from the teacher.",
-     "definitionFit": "Something stressful causes anxiety, so it is worrying in the adjective sense."
+     "surface": "A worrying note from a teacher reports a bout of awful flu.",
+     "walkthrough": "'note from teacher' reads like a letter home, but it is MI taken out of MISTRESS, leaving STRESS; FLU rearranged gives FUL.",
+     "definitionFit": "Something stressful causes anxiety, which is what worrying circumstances do."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "note"
+     "misdirectedWord": "from"
     }
    }
   },

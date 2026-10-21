@@ -252,38 +252,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "before",
-       "note": "'before' in place rather than time: what comes before stands in front"
-      },
-      {
-       "text": "mainly",
-       "note": "most of the word, here all but its last letter"
-      }
-     ],
      "parts": [
       {
        "words": "European",
-       "gives": "E",
-       "note": "E = European"
+       "at": 0,
+       "gives": "E"
       },
       {
        "words": "spring",
+       "at": 17,
        "gives": "SPA",
        "note": "a spa is a mineral spring"
       },
       {
-       "words": "trained",
-       "gives": "DRILLE",
-       "note": "trained = drilled, cut short by one letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mainly",
+         "at": 25,
+         "note": "mainly means most of the word, so the last letter of drilled goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trained",
+         "at": 32,
+         "gives": "DRILLED",
+         "note": "drilled means trained, as soldiers are"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A European who, before the season of spring, was drilled in rope work.",
-     "walkthrough": "'Spring' pretends to be the season; it is a water source, SPA.",
-     "definitionFit": "An espadrille is a canvas shoe with a sole of plaited rope, hence 'ropy'."
+     "surface": "A European heading off to a spa resort, trained in some way, wearing rope-soled shoes.",
+     "definitionFit": "An espadrille is a canvas shoe with a sole of plaited rope, hence ropy footwear."
     },
     "features": {
      "answerInScene": false,
@@ -472,64 +478,64 @@
    "annotation": {
     "definitions": [
      {
-      "text": "who gave noble service",
-      "at": 26
+      "text": "one who gave noble service",
+      "at": 22
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "up",
-       "at": 9,
-       "note": "in a down clue, set up means the letters read upwards, from the bottom"
+       "text": "including",
+       "at": 12,
+       "note": "including says the reversed letters take the letter for one inside them"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 9,
+         "note": "in a down clue up means the two words read from the bottom, backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Call",
-         "at": 0,
-         "gives": "NAME",
-         "note": "to call someone something is to name them"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "including",
-           "at": 12,
-           "note": "the word for set includes one, holding it inside"
-          }
-         ],
+         "op": "charade",
          "parts": [
+          {
+           "words": "Call",
+           "at": 0,
+           "gives": "NAME",
+           "note": "to call someone something is to name them"
+          },
           {
            "words": "set",
            "at": 5,
            "gives": "GEL",
-           "note": "to set, as jelly does, is to gel"
-          },
-          {
-           "words": "one",
-           "at": 22,
-           "gives": "I",
-           "note": "one is the Roman numeral I"
+           "note": "to set, as a jelly does, is to gel"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 22,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A summons is arranged for a person who served the nobility.",
-     "walkthrough": "In a down entry 'set up' runs everything upwards: NAME plus GEIL (GEL holding I) read backwards.",
-     "definitionFit": "A liegeman was a vassal bound to give feudal service and loyalty to a lord."
+     "surface": "A call is set up that includes someone who served a noble.",
+     "walkthrough": "In a down clue 'set up' reads like 'arranged', but here both words are written upwards.",
+     "definitionFit": "A liegeman was a vassal sworn to serve a feudal lord, so he rendered service to a noble."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "set"
     }
@@ -1804,48 +1810,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Half-hearted",
-       "note": "the double M at the heart of the word loses one of its two letters"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "'about' means surrounding"
+         "at": 20,
+         "note": "about says the shortened pledge goes round the favourite"
         }
        ],
        "parts": [
         {
-         "words": "pledge",
-         "gives": "COMIT",
-         "note": "pledge = commit, with one M of its heart removed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Half-hearted",
+           "at": 0,
+           "note": "half-hearted means half of the double letter at the word's centre is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pledge",
+           "at": 13,
+           "gives": "COMMIT",
+           "note": "to commit is to pledge yourself"
+          },
+          {
+           "gives": "M"
+          }
+         ]
         },
         {
          "words": "favourite",
+         "at": 26,
          "gives": "PET",
-         "note": "a teacher's pet is a favourite, going inside"
+         "note": "a pet is a favourite, as in teacher's pet"
         }
        ]
       },
       {
        "words": "I have",
+       "at": 36,
        "gives": "IVE",
-       "note": "I've, without the apostrophe"
+       "note": "I've is the contraction of I have"
       }
      ]
     },
     "explanation": {
-     "surface": "A lukewarm promise from someone backing a favourite in a tight contest.",
-     "walkthrough": "'Half-hearted' is precise: COMMIT has MM at its heart, and half of that goes.",
-     "definitionFit": "To be competitive is to be able to match your rivals."
+     "surface": "A lukewarm promise about one's favourite, from someone who wants to keep up with rivals.",
+     "walkthrough": "Half-hearted here takes away half of the doubled letter at the centre, not the whole middle.",
+     "definitionFit": "Being competitive means holding your own against rivals, being as good as they are."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Half-hearted"
     }
@@ -2785,61 +2804,80 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "Reverse",
-       "note": "to reverse is to turn back, so A RUT is read from its end to its start"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "'in' places one thing inside another"
+         "at": 24,
+         "note": "in places the reversed letters inside the word for killing"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "killing",
+         "at": 27,
+         "gives": "CULL",
+         "note": "a cull is a killing, especially of animals"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "destroy",
-           "note": "what is destroyed is broken up, so the letters are rearranged"
+           "text": "Reverse",
+           "at": 0,
+           "note": "Reverse is an instruction to write a and the routine word backwards"
           }
          ],
          "parts": [
           {
-           "words": "killing",
-           "gives": "CULL",
-           "note": "a cull is a killing of animals"
-          },
-          {
-           "words": "our violent",
-           "note": "anagram fodder, 10 letters"
+           "op": "charade",
+           "parts": [
+            {
+             "words": "a",
+             "at": 8
+            },
+            {
+             "words": "fixed routine",
+             "at": 10,
+             "gives": "RUT",
+             "note": "a rut is a fixed routine you are stuck in"
+            }
+           ]
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "a fixed routine",
-         "gives": "ARUT",
-         "note": "a rut is a fixed routine; reversed it gives TURA"
+         "text": "destroy",
+         "at": 36,
+         "note": "destroy tells us to break up the letters of our violent and rebuild them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "our violent",
+         "at": 44
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A call to break out of routine and tear everything down.",
-     "walkthrough": "'Violent' looks like part of the definition, but it is anagram fodder. The answer is Mao's upheaval in 1960s China.",
-     "definitionFit": "A proper name as definition: China's Cultural Revolution of 1966-76 tore up schools, families and institutions, a disruption of a whole society."
+     "surface": "An instruction to undo a fixed killing routine and wreck something violent of ours.",
+     "walkthrough": "'violent' looks as if it belongs to the definition, but it is part of the letters to be rearranged.",
+     "definitionFit": "Mao's Cultural Revolution of 1966 to 1976 was a violent upheaval of Chinese society."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "violent"
+     "misdirectedWord": "Reverse"
     }
    }
   },
@@ -3155,57 +3193,27 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "YUCCA",
+     "indicators": [
+      {
+       "text": "From what we hear",
+       "at": 0,
+       "note": "from what we hear says the words are to be taken by their sound"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "Y",
-       "indicators": [
-        {
-         "text": "From what we hear",
-         "note": "each word is replaced by the letters that sound like it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "why",
-         "gives": "WHY",
-         "note": "the letter that sounds like this word"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "U",
-       "parts": [
-        {
-         "words": "you",
-         "gives": "YOU",
-         "note": "the letter that sounds like this word"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "CC",
-       "parts": [
-        {
-         "words": "seize",
-         "gives": "SEAS",
-         "note": "said aloud, two of the letter C"
-        }
-       ]
-      },
-      {
-       "words": "a",
-       "note": "used as it stands"
+       "words": "why you seize a",
+       "at": 27,
+       "note": "said aloud, why, you, seize and a sound like the letters Y, U, Cs and A"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle-setter explaining why you grab a plant in the desert.",
-     "walkthrough": "Read aloud, 'why you seize a' is Y, U, C's, A.",
-     "definitionFit": "The yucca is a spiky-leaved plant of American deserts."
+     "surface": "A puzzled question about why you would grab hold of a desert plant.",
+     "walkthrough": "Spoken, 'seize' is 'C's', two Cs, so the sounds spell Y-U-C-C-A.",
+     "definitionFit": "A yucca is a spiky-leaved plant native to the hot dry regions of the Americas."
     },
     "features": {
      "answerInScene": true,

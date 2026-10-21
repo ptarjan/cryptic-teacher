@@ -51,53 +51,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LONGODDS",
-     "indicators": [
-      {
-       "text": "when mangled",
-       "note": "something mangled is crushed out of shape, so the remaining letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LONGODDS",
+       "words": "Latin",
+       "at": 9,
+       "gives": "L"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
-         "text": "not one",
-         "note": "'not' tells us to leave out a single letter that the word 'one' stands for"
+         "text": "mangled",
+         "at": 30,
+         "note": "mangled says the letters of gonads do are torn up and rearranged"
+        },
+        {
+         "text": "not",
+         "at": 39,
+         "note": "not says a letter for one is left out of the mangled letters"
         }
        ],
        "parts": [
         {
-         "words": "Latin",
-         "gives": "L",
-         "note": "L is the standard abbreviation for Latin"
-        },
-        {
-         "words": "gonads",
-         "note": "taken as written"
-        },
-        {
-         "words": "do",
-         "note": "taken as written"
+         "words": "gonads do",
+         "at": 15
         },
         {
          "words": "one",
+         "at": 43,
          "gives": "A",
-         "note": "'a' means one; this letter is the one removed"
+         "note": "A means one, as in a single thing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mock-Latin anatomical joke about testicles getting mangled, with a coy aside about luck.",
-     "walkthrough": "Drop one A from L plus GONADS plus DO, then rearrange the rest to get LONG ODDS.",
-     "definitionFit": "Long odds describe an outcome that is unlikely, so a bet on them is a risky chance."
+     "surface": "A crude picture of Latin testicles being mangled, typical Private Eye smut.",
+     "walkthrough": "The bracketed 'not one' looks like part of the definition, but it tells us a letter for one is missing from the mangled words.",
+     "definitionFit": "Long odds are heavily against success, so a bet at long odds is a risky chance."
     },
     "features": {
      "answerInScene": false,
@@ -290,52 +283,64 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to grip",
-       "note": "gripping means holding something inside, so the rearranged letters surround the next piece"
-      },
-      {
        "text": "in",
-       "note": "'in' places the whole assembled group inside the word for the sack"
+       "at": 32,
+       "note": "in puts the mixed letters inside the word for the sack"
       }
      ],
      "parts": [
       {
        "words": "the sack",
+       "at": 35,
        "gives": "BED",
-       "note": "slang: the sack is bed"
+       "note": "the sack is slang for bed"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "Experimental",
-         "note": "an experimental version is tried in a new form, so these letters are rearranged"
+         "text": "to grip",
+         "at": 19,
+         "note": "to grip says the rearranged holds letters close around the love letter"
         }
        ],
        "parts": [
         {
-         "words": "holds",
-         "note": "taken as written, to be rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Experimental",
+           "at": 0,
+           "note": "experimental means trying out new forms, so the letters are tried in a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "holds",
+           "at": 13
+          }
+         ]
         },
         {
          "words": "love",
+         "at": 27,
          "gives": "O",
-         "note": "love is zero in tennis, which looks like O"
+         "note": "love is zero in tennis, O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Adventurous holds in bed while making love turn into a crime scene.",
-     "walkthrough": "There are two containers here, one inside the other: love sits inside the rearranged letters, and that group sits inside the sack.",
-     "definitionFit": "Bloodshed is killing or violent slaughter, which the exclamation 'murder!' stands for here."
+     "surface": "An experimental pair grapple lovingly in bed, then it turns to murder.",
+     "walkthrough": "'love in the sack' reads as romance, but love is the letter O and the sack is the bed that wraps everything.",
+     "definitionFit": "Bloodshed is killing, the spilling of blood, so it stands for murder."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "Experimental"
+     "misdirectedWord": "love"
     }
    }
   },

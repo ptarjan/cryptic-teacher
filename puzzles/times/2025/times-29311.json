@@ -222,26 +222,41 @@
      "op": "charade",
      "parts": [
       {
-       "words": "mostly excellent",
-       "gives": "TIPTO",
-       "note": "tip-top = excellent, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 26,
+         "note": "mostly means most of the word, so the last letter of tip-top goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "excellent",
+         "at": 33,
+         "gives": "TIPTOP",
+         "note": "tip-top means excellent, first-rate"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       },
       {
        "words": "English",
-       "gives": "E",
-       "note": "E = English"
+       "at": 43,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A school report: steady progress in English, with mostly excellent marks.",
-     "walkthrough": "The surface is a school report, so 'Make cautious progress' looks like a teacher's comment rather than the definition.",
-     "definitionFit": "To tiptoe is to move cautiously and quietly."
+     "surface": "Advice to tread carefully in mostly first-class English.",
+     "definitionFit": "To tiptoe is to walk quietly on the balls of the feet, moving forward warily."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "progress"
+     "misdirectedWord": "excellent"
     }
    }
   },
@@ -1290,20 +1305,37 @@
      "parts": [
       {
        "words": "university",
+       "at": 4,
        "gives": "UNI",
-       "note": "uni = university"
+       "note": "uni is the informal short form of university"
       },
       {
-       "words": "heartlessly sacked",
-       "gives": "FIED",
-       "note": "sacked = fired, minus its central R"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartlessly",
+         "at": 15,
+         "note": "heartlessly means the middle letter of fired is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sacked",
+         "at": 27,
+         "gives": "FIRED",
+         "note": "to be fired is to be sacked from a job"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A university academic callously dismissed.",
-     "walkthrough": "'One' looks like the start of the wordplay; it is the definition, as in 'made one'.",
-     "definitionFit": "An adjectival sense: 'one' as in 'we are one', joined together as a single whole."
+     "surface": "Someone from a university was callously dismissed.",
+     "walkthrough": "'One' looks like the subject of the sentence; it is the definition. FIRED without its central R is FIED.",
+     "definitionFit": "Unified means made into a single whole, so one in the sense of united."
     },
     "features": {
      "answerInScene": false,

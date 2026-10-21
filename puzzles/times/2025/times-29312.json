@@ -412,35 +412,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "going round",
-       "note": "turning round, so the bill reads backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going round",
+         "at": 5,
+         "note": "going round turns the word for bill back on itself, read right to left"
+        }
+       ],
        "parts": [
         {
-         "words": "church",
-         "gives": "HC",
-         "note": "CH is the standard abbreviation for church"
-        },
-        {
          "words": "Bill",
+         "at": 0,
          "gives": "TAB",
-         "note": "tab = bill, turned round"
+         "note": "a tab is a bill, as in a bar tab"
         }
        ]
+      },
+      {
+       "words": "church",
+       "at": 17,
+       "gives": "CH"
       }
      ]
     },
     "explanation": {
-     "surface": "A bill being passed around a church congregation.",
-     "walkthrough": "'Bill' is the tab you run up at a bar, not a law or a bird's beak.",
-     "definitionFit": "A plain synonym: a set of goods sold or made together, as at an auction where each is a lot."
+     "surface": "A bill circulating among a church congregation, or a lot at an auction.",
+     "definitionFit": "A batch is a quantity of things made or handled together, the same as a lot."
     },
     "features": {
      "answerInScene": false,
@@ -838,31 +839,49 @@
      "indicators": [
       {
        "text": "found in",
-       "note": "the shortened word sits inside the island"
+       "at": 28,
+       "note": "found in says the shortened word sits inside the island's name"
       }
      ],
      "parts": [
       {
        "words": "Greek island",
+       "at": 37,
        "gives": "CRETE",
-       "note": "Crete is a Greek island"
+       "note": "Crete is the largest Greek island"
       },
       {
-       "words": "at one time mainly",
-       "gives": "ONC",
-       "note": "once = at one time, without its last letter, placed inside C…RETE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mainly",
+         "at": 21,
+         "note": "mainly means most of the word, so the last letter of once is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at one time",
+         "at": 9,
+         "gives": "ONCE",
+         "note": "once means at one time, formerly"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fabric once made on a Greek island.",
-     "walkthrough": "'Material' suggests cloth; it is building material.",
-     "definitionFit": "A definition by category: the cement-and-aggregate mix is a building material."
+     "surface": "Something about a material that was once mostly found on a Greek island.",
+     "walkthrough": "'found in' means the shortened word sits inside the island's name, right after its first letter.",
+     "definitionFit": "Concrete is a building substance, so it is a material in the sense of stuff things are made from."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Material"
+     "misdirectedWord": "mainly"
     }
    }
   },
