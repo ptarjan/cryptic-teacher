@@ -1146,17 +1146,18 @@ def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_f
             break
         if not (fills_gpu(u) and k not in tried and k not in busy and not vlm_waits(u)):
             continue
-        if not waits(u):
+        if not waits(u):  # reads only: a scan never asks the VLM, so it cannot fill the GPU
             out.append(u)
             left -= 1
-        elif scan_of is not None and (u["paper"], u["rel"]) not in scanning:
-            s = scan_of(u)
-            if s is not None and key_of(s) not in tried:
-                out.append(s)
-                left -= 1
-        elif scan_of is not None:
-            left -= 1  # its scan is running: that slot is spoken for
     return out
+
+
+def cpu_only_unit(unit):
+    """Whether `unit` never asks the VLM: a "scan stale" scan or an answer-linked reread."""
+    reason = unit.get("reason") or ""
+    if unit["kind"] == "scan":
+        return reason.startswith("scan stale")
+    return unit["kind"] == "read" and reason.startswith(CPU_ONLY)
 
 
 def newest_first(unit):
@@ -1755,6 +1756,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
     full_wait = set()  # keys of the reads deferred for a full spool: not started until it is below its cap
     stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
+    cpu_cap_bound = False  # logged once each time the CPU-only cap holds a start back
     reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
     ceiling_bound = False  # logged once each time the unit-children ceiling is met
     times_first = [False]  # logged once each time the Times scans take the slots FT would
@@ -2458,8 +2460,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # GPU sat idle. While fills are wanted, that many ceiling slots (at most a third) are kept for them.
         reserve = min(len(fill), max(1, mem_gate.unit_ceiling() // 3)) if fill else 0
         reserve_hit = False
-        if free.get("scan", 0) <= 0 and ceiling_left > 0 and any(u["kind"] == "scan" for u in fill):
-            free["scan"] = 1  # the scan share held scans back for reads: a fill's scan is for a read that asks the VLM
+        # While the GPU is underfed the CPU-only units (stale scans, answer-linked rereads) share at most a
+        # third of the ceiling, so the rest goes to reads that ask the VLM.
+        cpu_cap = mem_gate.unit_ceiling() // 3 if len(queued) < vlm_feed_target() else None
+        cpu_live = sum(1 for _, (v, _at) in units_running() if cpu_only_unit(v)) if cpu_cap is not None else 0
+        cpu_capped = False
 
         def idle_key(gates, urgent=urgent, free=free, starved=starved, yielding=yielding, desk_mem=desk_mem):
             """What a walk of the queue (~12k units) that begins nothing
@@ -2497,6 +2502,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if reserve and ukey not in fill_keys and not uslot.startswith("fetch ") and ceiling_left <= reserve:
                 reserve_hit = True  # the last slots are for reads that ask the VLM
+                continue
+            if cpu_cap is not None and cpu_live >= cpu_cap and cpu_only_unit(u):
+                cpu_capped = True  # the GPU is underfed: the rest of the ceiling is for reads that ask the VLM
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):
                 continue
@@ -2560,6 +2568,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             local_now += local
             begun_now += 1
             live_scans += u["kind"] == "scan"
+            cpu_live += cpu_only_unit(u)
             charged += cost
             if began is not PENDING and not load_gated(u):
                 opened.append(time.time())
@@ -2580,6 +2589,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 log(f"slot reserve: {reserve} of {mem_gate.unit_ceiling()} unit slots held for VLM-asking reads "
                     f"({len(queued)} asks spooled, target {vlm_feed_target()}); other starts wait")
             reserve_bound = reserve_hit
+            if cpu_capped and not cpu_cap_bound:
+                log(f"cpu-only cap: {cpu_live} stale scans/answer-linked rereads running of {cpu_cap} allowed "
+                    f"while {len(queued)} asks spooled (target {vlm_feed_target()}); the rest wait for VLM-asking reads")
+            cpu_cap_bound = cpu_capped
         if walked and not skip_walk and not begun_now:
             idle_walk[:] = [idle_key((tuple(sorted(mem_read.items())), tuple(sorted(cpu_read.items())),
                                       tuple(sorted(idle_read.items())))),
