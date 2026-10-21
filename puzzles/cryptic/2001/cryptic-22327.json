@@ -44,46 +44,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RIPARIAN",
+     "op": "charade",
      "indicators": [
       {
-       "text": "less than",
-       "note": "less than the whole word means it falls short, so its final letter is dropped"
+       "text": "following",
+       "at": 5,
+       "note": "the song comes after the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "less than",
+         "at": 15,
+         "note": "falling short of the full word, so its final letter is lost"
+        }
+       ],
        "parts": [
         {
          "words": "mature",
-         "gives": "RIP",
-         "note": "ripe, cut short by its final letter"
+         "at": 25,
+         "gives": "RIPE",
+         "note": "ripe means mature"
         },
         {
-         "words": "Song",
-         "gives": "ARIA",
-         "note": "an aria is a solo song in opera"
-        },
-        {
-         "words": "north",
-         "gives": "N",
-         "note": "N is the abbreviation for north"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "Song",
+       "at": 0,
+       "gives": "ARIA",
+       "note": "an aria is a song in opera"
+      },
+      {
+       "words": "north",
+       "at": 32,
+       "gives": "N",
+       "note": "N is the compass abbreviation for north"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone living on the north bank of a river is described by song and maturity.",
-     "walkthrough": "'Following' tells us the song comes after the shortened word for mature.",
-     "definitionFit": "Riparian describes a creature or person living on a riverside, so used as a noun it is one who dwells there."
+     "surface": "A song comes after something not quite mature, involving a creature living by a river bank.",
+     "definitionFit": "Riparian describes something living or situated on a riverbank, so a riparian is a bank dweller."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "bank"
     }
    }
@@ -795,26 +806,36 @@
      "op": "container",
      "indicators": [
       {
-       "text": "eating",
-       "note": "something eaten ends up inside the eater, so the cheese goes within the rude fellow"
+       "text": "in",
+       "at": 28,
+       "note": "the boorish fellow with his cheese sits inside the abbreviation"
       }
      ],
      "parts": [
       {
        "words": "Old English",
-       "gives": "OE",
-       "note": "OE is the abbreviation for Old English"
+       "at": 31,
+       "gives": "OE"
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "at": 12,
+         "note": "the fellow takes the cheese inside himself"
+        }
+       ],
        "parts": [
         {
          "words": "Rude fellow",
+         "at": 0,
          "gives": "BOOR",
-         "note": "a boor is an ill-mannered man"
+         "note": "a boor is a rude, ill-mannered man"
         },
         {
          "words": "cheese",
+         "at": 19,
          "gives": "EDAM",
          "note": "Edam is a Dutch cheese"
         }
@@ -824,13 +845,13 @@
     },
     "spelling": "OBOE D'AMORE",
     "explanation": {
-     "surface": "An oaf munches cheese and smokes an antique pipe.",
-     "walkthrough": "Two insertions: the cheese goes inside the rude fellow, and that goes 'in' the Old English abbreviation.",
-     "definitionFit": "The oboe d'amore is a baroque woodwind instrument, a slightly lower oboe much used by Bach."
+     "surface": "A boorish man eats cheese, described in archaic English, alongside an antique wind instrument.",
+     "walkthrough": "Two containers nest here: 'eating' works inside 'in', so the cheese goes in first and the whole lot then sits within the abbreviation.",
+     "definitionFit": "The oboe d'amore is a baroque woodwind, slightly lower than the oboe, much used by Bach."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "pipe"
     }
    }
