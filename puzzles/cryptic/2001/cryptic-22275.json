@@ -211,48 +211,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MONSTROUSCARBUNCLE",
+     "op": "composite",
      "indicators": [
       {
        "text": "to be rebuilt",
-       "note": "something rebuilt is put together again in a new form, so the letters are rearranged"
+       "at": 32,
+       "note": "something rebuilt is put together in a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MONSTROUSCARBUNCLE",
-       "indicators": [
-        {
-         "text": "not ones",
-         "note": "one is I in crosswords, so 'not ones' tells us to strike out every I"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Clumsier",
-         "note": "taken as written"
-        },
-        {
-         "words": "conurbations",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Clumsier conurbations",
+       "at": 1,
+       "note": "taken as written"
+      },
+      {
+       "words": "not ones",
+       "at": 23,
+       "gives": "II",
+       "note": "ones in Roman numerals are I, and here two of them are left out"
       }
      ]
     },
     "explanation": {
-     "surface": "A quoted complaint about clumsy cities sounds like an architectural critique of a gallery wing.",
-     "walkthrough": "In 1984 Prince Charles called a proposed National Gallery extension a 'monstrous carbuncle on the face of a much-loved and elegant friend'.",
-     "definitionFit": "Prince Charles famously used this phrase in a 1984 speech attacking the planned modernist wing in Trafalgar Square."
+     "surface": "An architect's view that ugly cities should be redeveloped, as said of a gallery design.",
+     "walkthrough": "In 1984 Prince Charles called a proposed extension to London's National Gallery a 'monstrous carbuncle'; remove the two I's from the fodder before rearranging.",
+     "definitionFit": "The phrase is the famous royal put-down of the planned gallery wing, so it is what describes it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Clumsier"
+     "misdirectedWord": "ones"
     }
    }
   },
@@ -916,27 +905,56 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FALLAPART",
      "indicators": [
       {
-       "text": "when Spooner calls",
-       "note": "Spooner famously swapped the opening sounds of words, so the first consonants trade places"
+       "text": "Spooner",
+       "at": 27,
+       "note": "the Reverend Spooner famously swapped the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "me an old codger",
-       "gives": "FALLAPART",
-       "soundsLike": "PAL A FART",
-       "note": "what Spooner calls me is pal, and an old codger is an old fart; swap their opening sounds"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "PALL",
+         "indicators": [
+          {
+           "text": "calls",
+           "at": 35,
+           "note": "what someone calls a word is how it sounds when spoken, so spelling goes by ear"
+          }
+         ],
+         "parts": [
+          {
+           "words": "me",
+           "at": 41,
+           "gives": "PAL",
+           "note": "me, addressed familiarly, is called pal"
+          }
+         ]
+        },
+        {
+         "words": "an",
+         "at": 44,
+         "gives": "A",
+         "note": "an is the article A"
+        }
+       ]
+      },
+      {
+       "words": "old codger",
+       "at": 47,
+       "gives": "FART",
+       "note": "an old fart is a fuddy-duddy old codger"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone collapses entirely on being called a fogey by the famous Oxford don.",
-     "definitionFit": "To disintegrate or go to pieces is to collapse utterly, physically or emotionally."
+     "surface": "Someone about to crack under the strain of being called an old codger.",
+     "walkthrough": "'Pal, a fart' with its opening sounds swapped gives 'fall apart'.",
+     "definitionFit": "To fall apart is to collapse emotionally or physically, to disintegrate."
     },
     "features": {
      "answerInScene": true,

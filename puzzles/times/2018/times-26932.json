@@ -947,66 +947,74 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "NOTORIOUS",
-     "indicators": [
-      {
-       "text": "installed in",
-       "note": "something installed is put inside, so one piece sits within another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "installed in",
+         "at": 30,
+         "note": "installed in means put inside"
+        }
+       ],
        "parts": [
         {
-         "words": "Number",
-         "gives": "NO",
-         "note": "NO is the abbreviation for number"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Number",
+           "at": 43,
+           "gives": "NO"
+          },
+          {
+           "words": "Ten",
+           "at": 50,
+           "gives": "IO",
+           "note": "IO looks like the figure 10"
+          }
+         ]
         },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "briefly",
-           "note": "to put something briefly is to shorten it, so a final letter goes"
+           "at": 22,
+           "note": "briefly means cut short, the last letter lost"
           }
          ],
          "parts": [
           {
            "words": "Conservative",
+           "at": 9,
            "gives": "TORY",
-           "note": "a Tory is a member of the UK Conservative Party; the Y is dropped"
+           "note": "a Tory is a UK Conservative"
           },
           {
            "gives": "Y"
           }
          ]
-        },
-        {
-         "words": "Ten",
-         "gives": "IO",
-         "note": "ten written as the digits 1 and 0, read as the letters"
-        },
-        {
-         "words": "useless",
-         "gives": "US",
-         "note": "US is short for unserviceable, meaning useless"
         }
        ]
+      },
+      {
+       "words": "useless",
+       "at": 55,
+       "gives": "US",
+       "note": "US is short for unserviceable, useless"
       }
      ]
     },
     "explanation": {
-     "surface": "A disgraced Tory is briefly put into 10 Downing Street, the prime minister's residence, and proves hopeless.",
-     "walkthrough": "'Number Ten' looks like Downing Street, the prime minister's address, but it is two pieces: an abbreviation and the digits 1 and 0 read as letters, with the shortened Tory between them.",
-     "definitionFit": "Both words describe someone famous for bad deeds, known widely for the wrong reasons."
+     "surface": "A useless Tory is briefly installed in Downing Street.",
+     "walkthrough": "Number Ten Downing Street is the British Prime Minister's residence.",
+     "definitionFit": "Notorious means famous for something bad, the same as having a wicked reputation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Ten"
+     "misdirectedWord": "Number"
     }
    }
   },

@@ -249,37 +249,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABROGATE",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "majority",
-       "note": "the majority is the larger part, so the surname loses its tail"
+       "text": "return of",
+       "at": 7,
+       "note": "return means go back, so the letters are read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "return of",
-         "note": "returning sends everything back the way it came, so the whole string is read from right to left"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "Basque militants",
+         "at": 17,
+         "gives": "ETA",
+         "note": "ETA was the Basque separatist group"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "majority",
+           "at": 65,
+           "note": "the majority of a word is most of it, the end cut off"
+          }
+         ],
          "parts": [
           {
-           "words": "Basque militants",
-           "gives": "ETA",
-           "note": "ETA was the Basque separatist group"
+           "words": "former Soviet president's",
+           "at": 39,
+           "gives": "GORBACHEV",
+           "note": "Mikhail Gorbachev was the last Soviet leader"
           },
           {
-           "words": "former Soviet president's",
-           "gives": "GORBA",
-           "note": "the first five letters of Gorbachev, most of the name"
+           "gives": "CHEV"
           }
          ]
         }
@@ -288,13 +293,14 @@
      ]
     },
     "explanation": {
-     "surface": "A political headline about scrapping something once Basque separatists and Gorbachev get involved.",
-     "definitionFit": "To abrogate a law or treaty is formally to repeal or annul it, which is to cancel it."
+     "surface": "Calling off the return of Basque fighters with Gorbachev's support.",
+     "walkthrough": "GORBA, five of Gorbachev's nine letters, is the majority; ETA and GORBA together are read backwards.",
+     "definitionFit": "To abrogate a law or agreement is to repeal or annul it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "return"
+     "misdirectedWord": "majority"
     }
    }
   },
