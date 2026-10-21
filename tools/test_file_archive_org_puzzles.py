@@ -2013,8 +2013,14 @@ f._KEEP_VLM["names"] = set()
 ao_held[0]["entries"][1]["clue"].pop("enumeration")
 check("a held clue short of its count is read in full (the full read may mend it)", None, f.answers_only(*ao_args))
 ao_held[0] = lights_held([None] * 4)
-f.complete = lambda p: False
-check("a held file with an incomplete clue list is read in full", None, f.answers_only(*ao_args))
+ao_held[0]["entries"][2]["clue"]["text"] = ""
+check("a held file with a blank clue is read in full", None, f.answers_only(*ao_args))
+ao_held[0] = lights_held([None] * 4)
+ao_held[0]["entries"][2]["clue"]["text"] = "-clue 2 down words"
+verdict, puzzle = f.answers_only(*ao_args)
+check("a held clue the readers left unsettled (a stray mark) is kept as filed: the answers merge, no VLM ask",
+      (True, 0, "-clue 2 down words", "TOE"),
+      (verdict["answersOnly"], verdict["vlmAsks"], puzzle["entries"][2]["clue"]["text"], puzzle["entries"][2]["solution"]))
 f._KEEP_VLM["names"] = ao_kept
 for n, fn in ao_stubbed.items():
     setattr(f, n, fn)
