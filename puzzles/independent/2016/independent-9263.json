@@ -309,43 +309,43 @@
        "indicators": [
         {
          "text": "tailless",
-         "note": "without a tail means the final letter is dropped, here from each of the next two words"
+         "at": 10,
+         "note": "tailless means each of the two words loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "dog",
-         "gives": "MUTT",
-         "note": "a mutt is a mongrel dog"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "dog",
+           "at": 19,
+           "gives": "MUTT",
+           "note": "a mutt is a mongrel dog"
+          },
+          {
+           "words": "is",
+           "at": 23
+          }
+         ]
         },
         {
-         "gives": "T"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "is",
-         "note": "taken as written"
-        },
-        {
-         "gives": "S"
+         "gives": "TS"
         }
        ]
       },
       {
        "words": "dead",
+       "at": 26,
        "gives": "LATE",
-       "note": "the late someone is someone who has died"
+       "note": "late means dead, as in 'the late king'"
       }
      ]
     },
     "explanation": {
-     "surface": "A butcher's dog, its tail docked, has died.",
-     "walkthrough": "'Tailless' docks both the dog and the word 'is'. 'Butcher' is a verb here, not the shopkeeper.",
-     "definitionFit": "To butcher something is to hack it about savagely, which is what mutilating means."
+     "surface": "A butcher's dog without a tail has died.",
+     "walkthrough": "MUTT and IS each lose a last letter, giving MUT and I. 'Butcher's' is 'Butcher is'.",
+     "definitionFit": "To mutilate is to hack or maim a body, which is the verb sense of butcher."
     },
     "features": {
      "answerInScene": false,
@@ -1386,29 +1386,45 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "(cryptic)",
-       "note": "something cryptic is enigmatic and puzzling, so the letters are jumbled"
+       "text": "cryptic",
+       "at": 20,
+       "note": "cryptic means hidden or puzzling, so these letters are jumbled into a new order"
       }
      ],
      "parts": [
       {
-       "words": "Half finish",
-       "gives": "FIN",
-       "note": "the first half of the word"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Half",
+         "at": 0,
+         "note": "half takes the first three of the six letters of finish"
+        }
+       ],
+       "parts": [
+        {
+         "words": "finish",
+         "at": 5
+        }
+       ]
       },
       {
-       "words": "a grid",
-       "note": "taken as written"
+       "words": "a",
+       "at": 12
+      },
+      {
+       "words": "grid",
+       "at": 14
       }
      ]
     },
     "explanation": {
-     "surface": "A solver abandons a half-done cryptic grid, which seems a poor show.",
-     "walkthrough": "Infra dig is short for Latin infra dignitatem, below one's dignity.",
-     "definitionFit": "The phrase describes something beneath one's dignity, which is what unbecoming conduct is."
+     "surface": "A setter half finishes a cryptic grid and calls it beneath them.",
+     "walkthrough": "FIN, half of finish, with A and GRID is rearranged.",
+     "definitionFit": "Infra dig is Latin shorthand for beneath one's dignity, so undignified behaviour."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cryptic"
     }

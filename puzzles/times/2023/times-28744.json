@@ -966,7 +966,8 @@
      "indicators": [
       {
        "text": "backed",
-       "note": "going backwards, so the whole run of letters is read from the end"
+       "at": 14,
+       "note": "backed means the joined pieces are read backwards"
       }
      ],
      "parts": [
@@ -975,22 +976,39 @@
        "parts": [
         {
          "words": "everyone",
+         "at": 21,
          "gives": "ALL",
          "note": "all means everyone"
         },
         {
-         "words": "a lot in E London",
-         "gives": "EAP",
-         "note": "a heap is a lot; in East End cockney the H is dropped"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "in E London",
+           "at": 44,
+           "note": "Cockneys from east London drop their aitches, so the H goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "a lot",
+           "at": 38,
+           "gives": "HEAP",
+           "note": "a heap is a lot, a large amount"
+          },
+          {
+           "gives": "H"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An East End cook backs a chicken stew that everyone gets plenty of.",
-     "walkthrough": "Cockney speech of East London drops initial H, a common crossword device. ALL plus EAP, all read backwards.",
-     "definitionFit": "Paella is a Spanish rice dish that often contains chicken, a stew-like one-pan meal."
+     "surface": "A Cockney cook reverses an order: everyone gets a lot of chicken stew.",
+     "walkthrough": "ALL and 'EAP give ALLEAP, read backwards. The East End of London is the Cockney area where H is dropped.",
+     "definitionFit": "Paella is a Spanish rice dish often cooked with chicken, loosely a stew."
     },
     "features": {
      "answerInScene": true,

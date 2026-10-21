@@ -271,51 +271,46 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no tips",
+       "at": 27,
+       "note": "the combined word loses its tips, the letters at each end"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "with no tips",
-         "note": "the tips are the two ends, so the first and last letters go"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Render ineffective",
+         "at": 0,
          "gives": "NEUTER",
          "note": "to neuter something is to render it ineffective"
         },
         {
-         "gives": "N"
+         "words": "writer",
+         "at": 19,
+         "gives": "PEN",
+         "note": "a pen is a writer, the tool that writes"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "writer",
-         "gives": "PEN",
-         "note": "a pen is a writer; the N at each end of NEUTERPEN is then cut"
-        },
-        {
-         "gives": "N"
-        }
-       ]
+       "gives": "NN"
       }
      ]
     },
     "explanation": {
-     "surface": "A writer with blunted nibs is left unable to work and looking for inspiration.",
-     "walkthrough": "Euterpe is the Greek Muse of music and lyric poetry; a Muse inspires, hence the question mark on 'inspiration'.",
-     "definitionFit": "The Muses were the classical sources of artistic inspiration, so Euterpe is one example of inspiration."
+     "surface": "Disabling a writer by blunting the nibs leaves no inspiration.",
+     "walkthrough": "The tips are the very first and very last letters of the joined pieces, both of them N.",
+     "definitionFit": "Euterpe is the Greek muse of music and lyric poetry, and a muse is a source of inspiration."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "tips"
+     "misdirectedWord": "writer"
     }
    }
   },
@@ -1071,49 +1066,63 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "crossing",
-       "note": "the cries cross over the poles, lying on either side of them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "cry",
-         "gives": "YELL",
-         "note": "to yell is to cry out"
-        },
-        {
-         "words": "in pain",
-         "gives": "OW",
-         "note": "ow is the cry of someone in pain"
-        },
-        {
-         "words": "Repeatedly",
-         "gives": "OW",
-         "note": "the same OW said a second time"
-        }
-       ]
+       "words": "cry",
+       "at": 11,
+       "gives": "YELL",
+       "note": "to yell is to cry out"
       },
       {
-       "words": "Poles",
-       "gives": "SN",
-       "note": "S and N, the south and north poles; they sit between the two OWs"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "crossing",
+         "at": 23,
+         "note": "the two cries cross, or span, the next piece, which sits between them"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "Repeatedly",
+           "at": 0,
+           "note": "repeatedly says the cry of pain is given twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "in pain",
+           "at": 15,
+           "gives": "OW",
+           "note": "ow is the cry of someone in pain"
+          },
+          {
+           "gives": "OW"
+          }
+         ]
+        },
+        {
+         "words": "Poles",
+         "at": 32,
+         "gives": "SN",
+         "note": "S and N are the south and north poles"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An explorer yelling in pain as they cross the frozen poles.",
-     "walkthrough": "'In pain' tells you which cry: OW, said twice. Yellow snow is a jokey 'phenomenon': snow marked by someone relieving themselves.",
-     "definitionFit": "Yellow snow turns up wherever people camp on snow, the Antarctic included, hence a phenomenon there."
+     "surface": "An explorer yelling in pain while crossing between poles to see the Antarctic.",
+     "walkthrough": "Snow turned yellow by urine is a joke well known to polar travellers.",
+     "definitionFit": "Yellow snow is snow stained by urine, something visitors to icy places are warned not to eat."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "Poles"
     }
