@@ -1755,6 +1755,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
     full_wait = set()  # keys of the reads deferred for a full spool: not started until it is below its cap
     stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
+    reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
     ceiling_bound = False  # logged once each time the unit-children ceiling is met
     times_first = [False]  # logged once each time the Times scans take the slots FT would
     scan_held = False  # logged once each time the scans are held to their share for the reads
@@ -2453,6 +2454,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                         fill_scan, scanning
                         ) if (free.get("read", 0) > 0 and may_start() and not yielding and not starved) else []
         fill_keys = {key_of(u) for u in fill}
+        # Paul 10-21: CPU-only units (answers-linked rereads, scans) filled the whole unit ceiling and the
+        # GPU sat idle. While fills are wanted, that many ceiling slots (at most a third) are kept for them.
+        reserve = min(len(fill), max(1, mem_gate.unit_ceiling() // 3)) if fill else 0
+        reserve_hit = False
         if free.get("scan", 0) <= 0 and ceiling_left > 0 and any(u["kind"] == "scan" for u in fill):
             free["scan"] = 1  # the scan share held scans back for reads: a fill's scan is for a read that asks the VLM
 
@@ -2489,6 +2494,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if i > reach:
                 break
             if not may_start() or free[uslot] <= 0 or ukey in tried:
+                continue
+            if reserve and ukey not in fill_keys and not uslot.startswith("fetch ") and ceiling_left <= reserve:
+                reserve_hit = True  # the last slots are for reads that ask the VLM
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):
                 continue
@@ -2567,6 +2575,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if u["kind"] == "scan":
                 scanning.add((u["paper"], u["rel"]))
                 scanning_by.setdefault(u["paper"], set()).add(u["rel"])
+        if not skip_walk:
+            if reserve_hit and not reserve_bound:
+                log(f"slot reserve: {reserve} of {mem_gate.unit_ceiling()} unit slots held for VLM-asking reads "
+                    f"({len(queued)} asks spooled, target {vlm_feed_target()}); other starts wait")
+            reserve_bound = reserve_hit
         if walked and not skip_walk and not begun_now:
             idle_walk[:] = [idle_key((tuple(sorted(mem_read.items())), tuple(sorted(cpu_read.items())),
                                       tuple(sorted(idle_read.items())))),
