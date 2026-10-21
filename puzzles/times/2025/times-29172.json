@@ -1255,38 +1255,57 @@
     "definitions": [
      {
       "text": "Possible cause of complaint",
-      "at": 0
+      "at": 0,
+      "note": "complaint in the sense of illness"
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "bitten by"
+       "text": "bitten by",
+       "at": 42,
+       "note": "bitten by puts the European inside the camel's jaws, so it goes within"
       }
      ],
      "parts": [
       {
-       "words": "tailless camel",
-       "gives": "BACTRIA",
-       "note": "a Bactrian is the two-humped camel; without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailless",
+         "at": 52,
+         "note": "tailless means the camel's name loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "camel",
+         "at": 61,
+         "gives": "BACTRIAN",
+         "note": "a Bactrian is the two-humped camel"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "European",
-       "gives": "E",
-       "note": "E = European"
+       "at": 33,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A tourist complains after being bitten by a camel with no tail.",
-     "walkthrough": "\"Complaint\" means an illness here, not a grievance.",
-     "definitionFit": "Definition by example, using 'complaint' in its sense of illness: germs are one possible cause."
+     "surface": "A European tourist bitten by a camel has grounds to complain.",
+     "walkthrough": "'Complaint' reads as a grievance but means an ailment.",
+     "definitionFit": "Bacteria cause many infections, and an illness is called a complaint."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "complaint"
     }
    }

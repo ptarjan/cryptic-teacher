@@ -1288,50 +1288,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "GRANDCHILDREN",
      "indicators": [
       {
        "text": "phoney",
-       "note": "something phoney is fake and made up, so the letters are reworked"
+       "at": 25,
+       "note": "phoney means fake, so these letters are put in a false order"
       }
      ],
      "parts": [
       {
+       "words": "Dr",
+       "at": 32
+      },
+      {
+       "words": "Chandler",
+       "at": 35
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "GRANDCHILDREN",
        "indicators": [
         {
          "text": "releases",
-         "note": "to release something is to let it go, so that part is dropped"
+         "at": 49,
+         "note": "releases means the book letter is let go from Bing"
         }
        ],
        "parts": [
         {
-         "words": "Dr Chandler",
-         "note": "taken as written"
-        },
-        {
          "words": "Bing",
-         "note": "taken as written"
+         "at": 44
         },
         {
          "words": "book",
-         "gives": "B",
-         "note": "B is the abbreviation for book"
+         "at": 58,
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Chandler Bing, the Friends character, posing as a doctor, talks about having his own children.",
-     "walkthrough": "Chandler Bing is a character from the sitcom Friends. Bing loses its B before the anagram.",
-     "definitionFit": "Grandchildren are the offspring of one's own offspring, issue being a formal word for children."
+     "surface": "A sham Doctor Chandler Bing, the Friends character, gives up a book.",
+     "walkthrough": "Chandler Bing is a character in the US sitcom Friends.",
+     "definitionFit": "Issue means offspring; one's own issue's issue, the next generation down, are grandchildren."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Issue"
     }
@@ -1537,25 +1539,41 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "removing 50% of content",
-       "note": "removing half of what lies inside means dropping half of the middle letters"
+       "text": "removing",
+       "at": 25,
+       "note": "removing means that letter is taken out of the word"
       }
      ],
      "parts": [
       {
        "words": "sulks",
+       "at": 18,
        "gives": "MOOD",
-       "note": "someone who sulks is in a mood"
+       "note": "to mood is to sulk, so sulks gives mood here"
       },
       {
-       "gives": "O"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "50% of",
+         "at": 34,
+         "note": "50% of keeps half of the inner pair, one letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "content",
+         "at": 41,
+         "gives": "OO",
+         "note": "the content of mood is its inner pair of letters"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A forum moderator sulks after deleting half of the posts.",
-     "walkthrough": "The inside of the word for a sulk is a double letter; dropping half of that leaves the answer.",
-     "definitionFit": "A mod, short for moderator, polices an online forum or chat group."
+     "surface": "A forum moderator sulks after losing half the content.",
+     "definitionFit": "A mod, short for moderator, polices posts on an internet forum."
     },
     "features": {
      "answerInScene": true,

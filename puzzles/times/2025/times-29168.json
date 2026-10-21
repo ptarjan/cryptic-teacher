@@ -1071,62 +1071,66 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down clue, the soak word reads upwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "circulating",
-         "note": "the letters of air move round"
+         "text": "up",
+         "at": 5,
+         "note": "up, in a down clue, means the word is read from bottom to top"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "in",
-             "note": "the stirred air sits inside strange"
-            }
-           ],
-           "parts": [
-            {
-             "words": "strange",
-             "gives": "RUM",
-             "note": "rum = strange, odd (British)"
-            }
-           ]
-          },
-          {
-           "words": "Soak",
-           "gives": "RET",
-           "note": "to ret flax is to soak it"
-          }
-         ]
+         "words": "Soak",
+         "at": 0,
+         "gives": "RET",
+         "note": "to ret is to soak flax or hemp to soften it"
         }
        ]
       },
       {
-       "words": "air",
-       "gives": "ARI",
-       "note": "AIR rearranged"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 24,
+         "note": "in places the jumbled letters inside the word for strange"
+        }
+       ],
+       "parts": [
+        {
+         "words": "strange",
+         "at": 27,
+         "gives": "RUM",
+         "note": "rum is British slang for odd or strange"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "circulating",
+           "at": 12,
+           "note": "circulating moves these letters around into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "air",
+           "at": 8
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Absorbing the air that swirls around an odd zoo enclosure.",
-     "walkthrough": "\"Soak up\" is not absorb: it is RET turned upwards. Rum is British for odd.",
-     "definitionFit": "A terrarium is a glass enclosure for keeping small land animals or plants."
+     "surface": "Damp air circulates inside a strange cage for animals.",
+     "walkthrough": "Rum here is the old British adjective meaning odd, not the drink.",
+     "definitionFit": "A terrarium is a glass case for keeping small land animals or plants."
     },
     "features": {
      "answerInScene": true,
@@ -1806,33 +1810,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "first",
      "indicators": [
       {
        "text": "reduced by 25 per cent",
-       "note": "a four-letter word loses one letter, a quarter of it"
+       "at": 20,
+       "note": "reduced by 25 per cent keeps three of the four letters, cutting the last"
       }
      ],
      "parts": [
       {
        "words": "price",
+       "at": 14,
        "gives": "COST",
-       "note": "cost = price, losing its T"
-      },
-      {
-       "gives": "T"
+       "note": "cost means price"
       }
      ]
     },
     "explanation": {
-     "surface": "A supermarket promotion: healthy food at a quarter off.",
-     "walkthrough": "Cos is a lettuce, romaine to Americans.",
-     "definitionFit": "A lettuce is the definition by example: named for the Greek island of Kos, it is a crisp salad leaf, virtuous eating."
+     "surface": "A health food whose price has dropped by a quarter.",
+     "definitionFit": "Cos is a type of crisp lettuce, a salad green seen as wholesome."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "reduced"
+     "misdirectedWord": "price"
     }
    }
   },

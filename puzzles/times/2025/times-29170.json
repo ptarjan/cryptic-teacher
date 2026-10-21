@@ -1161,51 +1161,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Odd spots of",
-       "note": "the odd-numbered letters, first and third, of dirt"
-      },
-      {
-       "text": "trimmed",
-       "note": "trimmed has its end cut off, so ALONG loses its G"
-      }
-     ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "DR",
        "indicators": [
         {
-         "text": "over"
+         "text": "Odd spots of",
+         "at": 0,
+         "note": "odd spots picks the first, third and later odd letters of dirt"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "dirt",
-         "gives": "DR",
-         "select": "alternate",
-         "note": "first and third letters of dirt"
+         "at": 13
         }
        ]
       },
       {
-       "words": "the length of",
-       "gives": "ALON",
-       "note": "along = over the length of, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimmed",
+         "at": 37,
+         "note": "trimmed means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "over the length of",
+         "at": 18,
+         "gives": "ALONG",
+         "note": "along means over the length of, as along a road"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A few stray marks of dirt spread along a strip of cut cloth.",
-     "walkthrough": "Dralon is a trade name for an acrylic fibre, often made into velvety upholstery fabric.",
-     "definitionFit": "Dralon is a synthetic fabric used for upholstery and curtains."
+     "surface": "Specks of dirt all along a piece of cloth.",
+     "definitionFit": "Dralon is a trade name for an acrylic fibre used for upholstery material."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "spots"
     }
    }
   },

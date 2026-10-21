@@ -98,39 +98,46 @@
        "indicators": [
         {
          "text": "starts to",
-         "note": "the starts of the following words are their opening letters only"
+         "at": 12,
+         "note": "starts to picks the opening letter of each of the next three words"
         }
        ],
        "parts": [
         {
-         "words": "make auntie nauseous",
-         "note": "the opening letter of each of these three words"
+         "words": "make",
+         "at": 22
+        },
+        {
+         "words": "auntie",
+         "at": 27
+        },
+        {
+         "words": "nauseous",
+         "at": 34
         }
        ]
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "half in",
-         "note": "only half of the next word is kept, the back half being dropped"
+         "at": 45,
+         "note": "half takes the first half of the word trance"
         }
        ],
        "parts": [
         {
          "words": "trance",
-         "note": "taken as written before its second half goes"
-        },
-        {
-         "gives": "NCE"
+         "at": 53
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spell makes an aunt queasy while she is half asleep in a trance.",
-     "definitionFit": "A mantra is a word or phrase chanted repeatedly in meditation, a kind of incantation."
+     "surface": "Chanting starts to make an aunt queasy as she half falls into a trance.",
+     "definitionFit": "A mantra is a sacred word or chant repeated in meditation."
     },
     "features": {
      "answerInScene": true,
@@ -160,41 +167,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FORSWEARS",
-     "indicators": [
-      {
-       "text": "with no limits",
-       "note": "having no limits means losing the outermost letters at each end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "F",
-       "note": "taken as written"
+       "at": 9,
+       "gives": "F"
       },
       {
-       "words": "word",
-       "note": "taken as written, before its ends are lost"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "with no limits",
+         "at": 16,
+         "note": "with no limits means the word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "word",
+         "at": 11
+        }
+       ]
       },
       {
        "words": "curses",
+       "at": 34,
        "gives": "SWEARS",
-       "note": "to curse is to swear"
+       "note": "to swear is to curse"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone renounces the F-word, swearing without restraint.",
-     "walkthrough": "'F-word' reads as one taboo item, but it splits into the letter F and the word 'word' trimmed at both ends.",
-     "definitionFit": "To forswear something is to renounce or abandon it, so it means gives up."
+     "surface": "Someone renounces the F-word, with no limit on their cursing.",
+     "walkthrough": "'F-word' reads as one rude term but splits into F and the inside of 'word'.",
+     "definitionFit": "To forswear is to renounce or give up something under oath."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "F"
+     "misdirectedWord": "word"
     }
    }
   },

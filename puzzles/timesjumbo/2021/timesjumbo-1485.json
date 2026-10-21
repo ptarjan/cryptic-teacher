@@ -1561,41 +1561,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "doctor",
-       "note": "to doctor something is to tamper with it, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "was tired",
-       "note": "taken as written for the fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "doctor",
+         "at": 13,
+         "note": "to doctor is to tamper with, so these letters are altered in order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was tired",
+         "at": 20
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "end of",
-         "note": "the end of a word is its final letter, which is the only one kept"
+         "at": 33,
+         "note": "end of picks the final letter of shift"
         }
        ],
        "parts": [
         {
          "words": "shift",
-         "note": "the final letter of shift"
+         "at": 40
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rakish-looking doctor was worn out by the end of the shift.",
-     "definitionFit": "Tawdry means cheap and showy or sordid, close in sense to raffish, so the superlative matches."
+     "surface": "A medic was exhausted by the end of a long shift.",
+     "walkthrough": "'Doctor' looks like the subject of 'was tired' but is a verb telling us to rearrange those letters.",
+     "definitionFit": "Tawdry means cheap and showy, so the superlative fits something most vulgar or rakish."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "doctor"
     }
@@ -2134,43 +2142,46 @@
    "annotation": {
     "definitions": [
      {
-      "text": "bird's cries?",
+      "text": "bird's cries",
       "at": 37
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "endless means without its end, so the game loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "rocks below cliff",
-         "gives": "SCREE",
-         "note": "scree is loose stones at the foot of a cliff"
-        },
-        {
-         "words": "game",
-         "gives": "CHESS",
-         "note": "chess is a board game"
-        }
-       ]
+       "words": "rocks below cliff",
+       "at": 5,
+       "gives": "SCREE",
+       "note": "scree is the loose broken rock that piles up at the foot of a cliff"
       },
       {
-       "gives": "S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 24,
+         "note": "endless means the game's name loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "game",
+         "at": 32,
+         "gives": "CHESS",
+         "note": "chess is a board game"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "From the rocks below a cliff, a game bird calls out.",
-     "walkthrough": "Game bird runs together in the surface, but game is the chess and bird belongs to the definition.",
-     "definitionFit": "Screeches are shrill harsh cries, typical of owls or parrots, so they could be a bird's calls."
+     "surface": "From the rocks under a cliff come the calls of a game bird.",
+     "walkthrough": "'Game bird' looks like one unit, but 'endless game' is the wordplay and 'bird's cries' the definition.",
+     "definitionFit": "Screeches are loud harsh calls, typical of owls and parrots."
     },
     "features": {
      "answerInScene": true,

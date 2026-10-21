@@ -1140,46 +1140,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not starting",
+       "at": 11,
+       "note": "not starting tells us each of the words Nice and wage loses its opening letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "not starting",
-         "at": 11,
-         "note": "each of the two words loses its starting letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Nice",
-         "at": 0,
-         "note": "the word loses its starting letter"
+         "at": 0
         },
         {
-         "gives": "N"
+         "words": "wage",
+         "at": 5
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "wage",
-         "at": 5,
-         "note": "this word too loses its starting letter, under the same instruction"
-        },
-        {
-         "gives": "W"
-        }
-       ]
+       "gives": "NW"
       }
      ]
     },
     "explanation": {
-     "surface": "A decent salary that never begins to arrive during a bitter freeze.",
-     "definitionFit": "An ice age is a long period of glaciation, an extreme of cold climate."
+     "surface": "A worker on good pay ends up somewhere freezing.",
+     "definitionFit": "An ice age is a long period of severe glacial cold in the Earth's climate history."
     },
     "features": {
      "answerInScene": false,
@@ -1379,7 +1369,8 @@
     "definitions": [
      {
       "text": "Triumphant cry",
-      "at": 0
+      "at": 0,
+      "note": "an exclamation of gloating victory"
      }
     ],
     "wordplay": {
@@ -1388,7 +1379,7 @@
       {
        "text": "presented twice",
        "at": 32,
-       "note": "the shortened piece is given two times in a row"
+       "note": "presented twice says the shortened word is given two times in a row"
       }
      ],
      "parts": [
@@ -1398,15 +1389,14 @@
         {
          "text": "chopped",
          "at": 19,
-         "note": "a chopped word has its end cut off"
+         "note": "chopped means the word ham has its tail cut off"
         }
        ],
        "parts": [
         {
          "words": "ham",
          "at": 27,
-         "gives": "HAM",
-         "note": "the meat word, used for both copies"
+         "note": "taken as written, then a second time as twice asks"
         },
         {
          "gives": "M"
@@ -1418,9 +1408,7 @@
        "parts": [
         {
          "words": "ham",
-         "at": 27,
-         "gives": "HAM",
-         "note": "the same meat word again, chopped the same way"
+         "at": 27
         },
         {
          "gives": "M"
@@ -1430,12 +1418,14 @@
      ]
     },
     "explanation": {
-     "surface": "A cook gloating over sliced ham served up two times.",
-     "definitionFit": "Ha-ha is an exclamation of glee or mockery at someone else's misfortune."
+     "surface": "Someone cheers when chopped ham is served up twice.",
+     "walkthrough": "Cutting the last letter off 'ham' leaves HA, and 'presented twice' doubles it.",
+     "definitionFit": "Ha-ha is the laugh of someone crowing over a win or a rival's misfortune."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "chopped"
     }
    }

@@ -527,32 +527,46 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CURIE",
+     "spelt": "CURIE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words, so the starting sounds trade places"
-      },
-      {
-       "text": "some say",
-       "note": "some say flags that the result is judged by how it is spoken, not spelt"
+       "at": 20,
+       "note": "Spooner's tells us to swap the opening consonant sounds, as Reverend Spooner did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
+       "op": "homophone",
+       "spelt": "RU",
+       "indicators": [
+        {
+         "text": "some say",
+         "at": 42,
+         "note": "some say means the swap is judged by how the syllables sound, not their spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "apprentice",
+         "at": 30,
+         "gives": "ROO",
+         "note": "a rookie is a novice or apprentice; ROO is its first syllable"
+        }
+       ]
+      },
+      {
        "words": "apprentice",
-       "gives": "CURIE",
-       "soundsLike": "KOO-REE",
-       "note": "a novice is a rookie; swap its R and K sounds"
+       "at": 30,
+       "gives": "KIE",
+       "note": "KIE is the second syllable of rookie, the novice or apprentice"
       }
      ]
     },
     "explanation": {
-     "surface": "A French scientist is said to be someone's trainee.",
-     "walkthrough": "Usually a spoonerism swaps sounds between two words; here the R and K sounds within the one word ROOKIE trade places.",
-     "definitionFit": "Marie and Pierre Curie were the Paris-based physicists who discovered radium and polonium."
+     "surface": "A scientist turns out to be someone's apprentice, by some accounts.",
+     "walkthrough": "Swapping the R and K sounds in ROOKIE gives KOO-REE, which sounds like the name.",
+     "definitionFit": "Marie and Pierre Curie were French physicists famous for research on radioactivity."
     },
     "features": {
      "answerInScene": false,
@@ -1260,47 +1274,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIMOUSIN",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Briefly",
-       "note": "briefly means cut short, so the final letter goes"
+       "text": "after",
+       "at": 16,
+       "note": "after puts the hunting piece behind the two abbreviations"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Long",
+       "at": 22,
+       "gives": "L"
+      },
+      {
+       "words": "Island",
+       "at": 27,
+       "gives": "I"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after",
-         "note": "after places this piece behind the next one"
+         "text": "Briefly",
+         "at": 0,
+         "note": "briefly means the word is cut short by its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Long Island",
-         "gives": "LI",
-         "note": "the standard abbreviation"
+         "words": "hunting",
+         "at": 8,
+         "gives": "MOUSING",
+         "note": "mousing is hunting mice, as a cat does"
         },
         {
-         "words": "hunting",
-         "gives": "MOUSIN",
-         "note": "MOUSING, hunting mice as a cat does, minus its last letter"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brief hunting trip in pursuit of cattle on Long Island.",
-     "definitionFit": "Limousin is a French breed of beef cattle with a golden-red coat."
+     "surface": "A short hunting trip out on Long Island in search of cattle.",
+     "definitionFit": "Limousin is a French breed of beef cattle from the Limousin region."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hunting"
+     "misdirectedWord": "Island"
     }
    }
   },
