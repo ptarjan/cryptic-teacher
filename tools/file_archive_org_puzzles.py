@@ -6962,6 +6962,10 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
     target = path(where, series, puzzles)
     # An answers-only reading (answers_only) is the held file's own clues: merged, never laid over it.
     better = target.exists() and not verdict.get("answersOnly") and improves(puzzle, target)
+    if better:
+        kept = keep_held_clues(puzzle, json.loads(target.read_text()))
+        if kept:
+            verdict["heldClues"] = kept
     old = json.loads(target.read_text()) if target.exists() and not better else None
     answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict))
     if answered:
@@ -7042,6 +7046,36 @@ def improves(puzzle, path, tool=TOOL):
     if not all(have(old, f) <= have(puzzle, f) for f in ("clue", "solution")):
         return False
     return filled(puzzle) != filled(old)
+
+
+def keep_held_clues(puzzle, old):
+    """[lights] whose held clue of `old` (this tool's, on this grid) `puzzle`
+    takes back, in place, as a reading that improves() the file lays itself
+    over it whole: a held clue with words (no shared, strayed or refused
+    clue, nor one whose count the new reading changes) stays unless the new
+    words correct() it. A reread's OCR with no VLM to pick lays the
+    neighbouring print's words in a clue ("by For the fiddler"), which the
+    held, validated words never had."""
+    from fetch_puzzle import duplicated_clues
+    if (old.get("source") or {}).get("acquiredBy") != TOOL \
+            or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
+        return []
+    lost = {i for ids in duplicated_clues(old["entries"]) for i in ids} | strayed(old, spaces=False) | set(faults(old))
+    was = {entry_id(e): e for e in old["entries"]}
+    kept = []
+    for e in puzzle["entries"]:
+        lid, h = entry_id(e), was.get(entry_id(e))
+        held, now = (h or {}).get("clue") or {}, e.get("clue") or {}
+        if h is None or lid in lost or not (held.get("text") or "").strip() or ocr_clues.bled(held["text"]) \
+                or held.get("enumeration") != now.get("enumeration") or held.get("text") == now.get("text"):
+            continue
+        if (now.get("text") or "").strip() and corrects(held["text"], now["text"], now.get("asPrinted") or ()):
+            continue
+        e["clue"] = held
+        if h.get("annotation"):
+            e["annotation"] = h["annotation"]
+        kept.append(lid)
+    return kept
 
 
 def mend_held(puzzle, path, tool=TOOL):
