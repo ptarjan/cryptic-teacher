@@ -50,54 +50,59 @@
      "indicators": [
       {
        "text": "adopted by",
-       "note": "something adopted is taken into a household, so the reliable person takes in 'one store'"
+       "at": 14,
+       "note": "to be adopted by is to be taken in, so the reliable person holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 42,
+         "note": "the reliable person is not given in full, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Not entirely",
-           "note": "the reliable person is given not quite in full, so their last letter goes"
-          }
-         ],
-         "parts": [
-          {
-           "words": "reliable person",
-           "gives": "BRICK",
-           "note": "a brick is a reliable, solid person; 'not entirely' drops its final K"
-          },
-          {
-           "gives": "K"
-          }
-         ]
+         "words": "reliable person",
+         "at": 25,
+         "gives": "BRICK",
+         "note": "a brick is a dependable, good-hearted person"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
+         "gives": "K"
         }
        ]
       },
       {
-       "words": "store",
-       "gives": "SHOP",
-       "note": "a store is a shop"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 4,
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "store",
+         "at": 8,
+         "gives": "SHOP",
+         "note": "a shop is a store"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shopper is told to look at a store run by some trustworthy figure, then hedges.",
-     "walkthrough": "'See' looks like an instruction to look, but it is the definition: a bishop's see is his diocese. 'Brick' for a dependable person is old-fashioned British praise.",
-     "definitionFit": "A see is the district under a bishop's authority, and a bishopric is exactly that office or diocese."
+     "surface": "A question about seeing a single shop taken on by a trustworthy person.",
+     "walkthrough": "'See' looks like a verb but is a noun: the diocese a bishop governs. A brick is British slang for a reliable, generous person.",
+     "definitionFit": "A see is the diocese over which a bishop presides, which is exactly what this word names."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "See"
     }
    }
@@ -504,47 +509,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NUMBERTHEORY",
-     "indicators": [
-      {
-       "text": "nearly all",
-       "note": "nearly all of a word is it minus its last letter, applied to the word for 'allocated place'"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "miners",
+       "at": 20,
+       "gives": "NUM",
+       "note": "NUM is the National Union of Mineworkers, the British miners' union"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly all",
+         "at": 28,
+         "note": "only most of the word is used, so its last letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "miners",
-         "gives": "NUM",
-         "note": "the National Union of Mineworkers, the British miners' union"
-        },
-        {
          "words": "allocated place",
-         "gives": "BERTHE",
-         "note": "berthed means given a berth, an allotted place; 'nearly all' drops the D"
+         "at": 39,
+         "gives": "BERTHED",
+         "note": "berthed means given a mooring or sleeping place"
         },
         {
-         "words": "round",
-         "gives": "O",
-         "note": "O is round in shape"
-        },
-        {
-         "words": "track",
-         "gives": "RY",
-         "note": "ry is the abbreviation for railway, a track"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "round",
+       "at": 55,
+       "gives": "O",
+       "note": "O is round in shape"
+      },
+      {
+       "words": "track",
+       "at": 61,
+       "gives": "RY",
+       "note": "RY is short for railway, a track"
       }
      ]
     },
     "explanation": {
-     "surface": "Researchers counting the miners who have each been assigned a spot around a racetrack.",
-     "walkthrough": "The NUM is the National Union of Mineworkers, famous from the 1984 strike. 'Figures' looks like statistics about people but means numbers themselves.",
-     "definitionFit": "Number theory is the branch of pure mathematics concerned with integers and their properties, such as primes."
+     "surface": "Someone researching the numbers of mining workers, with nearly all given spots around a racetrack.",
+     "walkthrough": "'nearly all' cuts the D from BERTHED, leaving BERTHE.",
+     "definitionFit": "Number theory is the branch of mathematics that studies integers, so it is a study of figures."
     },
     "features": {
      "answerInScene": false,
@@ -802,46 +813,66 @@
    "annotation": {
     "definitions": [
      {
-      "text": "One off to see Musicians",
+      "text": "One off to see",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CONCERTGOER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "after note's missed",
-       "note": "once the note is missed out, the word for failure loses its single-letter abbreviation for note"
+       "text": "over",
+       "at": 31,
+       "note": "in a down answer, the first piece sits over the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "words": "Musicians Union",
+       "at": 15,
+       "gives": "CONCERT",
+       "note": "a concert is musicians performing in union, together"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "Union",
-         "gives": "CONCERT",
-         "note": "acting in concert is acting in union"
+         "text": "after",
+         "at": 45,
+         "note": "the failure word is taken as it stands after the note has gone from it"
         },
         {
+         "text": "missed",
+         "at": 58,
+         "note": "the note is missed out, so it is removed from the word for failure"
+        }
+       ],
+       "parts": [
+        {
          "words": "failure",
-         "gives": "GOER",
-         "note": "a goner is a lost cause; minus N for note"
+         "at": 36,
+         "gives": "GONER",
+         "note": "a goner is someone or something doomed to fail"
+        },
+        {
+         "words": "note's",
+         "at": 51,
+         "gives": "N",
+         "note": "N is short for note"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone heading to a Musicians' Union meeting about a failed campaign.",
-     "walkthrough": "'Musicians Union' reads as the British trade union for players, but the definition ends at 'Musicians' and 'Union' starts the wordplay. 'Over' puts the union part above the rest in this down entry.",
-     "definitionFit": "A person heading out to watch players perform live is attending a concert, so is a concertgoer."
+     "surface": "Someone heading off to see the trade union for musicians about a failure once a note has been missed.",
+     "walkthrough": "'Musicians Union' looks like the British trade union but is just a concert. 'missed' takes N out of GONER to give GOER.",
+     "definitionFit": "A person attending a performance is someone setting off to see live music."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Union"
     }
    }
@@ -982,37 +1013,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BLEEP",
-     "indicators": [
-      {
-       "text": "cut short",
-       "note": "cutting something short removes its end, so the last letter of the drawing-out word goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 23,
+         "note": "the word is shortened, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "to draw out",
-         "gives": "BLEE",
-         "note": "to bleed is to draw out blood or money; cut short, the D goes"
+         "at": 10,
+         "gives": "BLEED",
+         "note": "to bleed is to draw out blood or money"
         },
         {
-         "words": "piano",
-         "gives": "P",
-         "note": "p is the musical marking for piano, soft"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "piano",
+       "at": 36,
+       "gives": "P",
+       "note": "P is the musical abbreviation for piano, meaning soft"
       }
      ]
     },
     "explanation": {
-     "surface": "A singer holding a high note, cut off by the piano.",
-     "walkthrough": "The musical surface makes 'draw out' look like sustaining a note, but it means bleed, as a surgeon or a blackmailer does.",
-     "definitionFit": "A bleep is a short high-pitched electronic tone, like the one covering swear words on television."
+     "surface": "A high note being held, then cut off early by the piano.",
+     "walkthrough": "'cut short' drops the D from BLEED, and P for piano follows.",
+     "definitionFit": "A bleep is a short high-pitched electronic sound, a shrill tone."
     },
     "features": {
      "answerInScene": true,
@@ -1373,43 +1408,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PAPERCHASE",
+     "op": "container",
      "indicators": [
       {
-       "text": "brief",
-       "note": "something brief is cut short, so the last letter of the insight word goes"
+       "text": "includes",
+       "at": 32,
+       "note": "the stage word contains the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "stage",
+       "at": 26,
+       "gives": "PHASE",
+       "note": "a phase is a stage"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "includes",
-         "note": "a thing that includes another contains it, so the stage word holds the moment"
+         "text": "brief",
+         "at": 41,
+         "note": "the word is shortened, so its final letter goes"
         }
        ],
        "parts": [
         {
-         "words": "stage",
-         "gives": "PHASE",
-         "note": "a phase is a stage"
+         "words": "illuminating moment",
+         "at": 47,
+         "gives": "APERCU",
+         "note": "an aperçu is a flash of insight"
         },
         {
-         "words": "illuminating moment",
-         "gives": "APERC",
-         "note": "an aperçu is a flash of insight; 'brief' drops its final U"
+         "gives": "U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A film-maker describing the point in making a documentary where a revelation comes.",
-     "walkthrough": "'Documentary' is not a film here: it means done through documents. Aperçu is a French borrowing for a sudden insight.",
-     "definitionFit": "A paper chase is a laborious hunt through files and records, an inquiry carried out via documents."
+     "surface": "A documentary-making stage that contains a short moment of revelation.",
+     "walkthrough": "An aperçu, borrowed from French, is a sudden insight; 'Documentary' is not about film here but about documents.",
+     "definitionFit": "A paper chase is a search through records and paperwork, an investigation of documents."
     },
     "features": {
      "answerInScene": false,
@@ -2254,40 +2294,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALLORNOTHING",
-     "indicators": [
-      {
-       "text": "quietly fleeing",
-       "note": "the musical letter for quietly runs away from the wanness word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "fleeing",
+         "at": 28,
+         "note": "the quiet letter runs away, so it is removed"
+        }
+       ],
        "parts": [
         {
          "words": "being wan",
-         "gives": "ALLOR",
-         "note": "pallor is paleness; P for piano, quietly, flees"
+         "at": 37,
+         "gives": "PALLOR",
+         "note": "pallor is the state of being pale"
         },
         {
-         "words": "love",
-         "gives": "NOTHING",
-         "note": "love is nil, nothing, in tennis scoring"
+         "words": "quietly",
+         "at": 20,
+         "gives": "P",
+         "note": "P is the musical abbreviation for piano, quietly"
         }
        ]
+      },
+      {
+       "words": "love",
+       "at": 52,
+       "gives": "NOTHING",
+       "note": "love is nothing, as in a tennis score"
       }
      ]
     },
     "explanation": {
-     "surface": "A pale lovesick figure slinking quietly away, refusing to settle for less.",
-     "walkthrough": "Both P for quiet and love for zero are standard conventions, and the lovesick surface is a neat disguise.",
-     "definitionFit": "An all-or-nothing stance accepts only total success or total failure, with no middle ground."
+     "surface": "An uncompromising person, quietly running away, pale and in love.",
+     "walkthrough": "'fleeing' removes the P from PALLOR to leave ALLOR.",
+     "definitionFit": "An all-or-nothing stance accepts no middle ground, so it involves no concession."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "love"
     }
@@ -2320,11 +2367,12 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
-       "text": "hugging",
-       "note": "a hug wraps arms round someone, so the sailor goes round the metal symbol"
+       "text": "after",
+       "at": 22,
+       "note": "the sailor piece comes after the hospital piece"
       }
      ],
      "parts": [
@@ -2332,48 +2380,61 @@
        "op": "container",
        "indicators": [
         {
-         "text": "in",
-         "note": "the whole construction is admitted to hospital, whose letter heads it"
+         "text": "is in",
+         "at": 35,
+         "note": "the second copper sits inside the hospital abbreviation"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "hospital",
-           "gives": "H",
-           "note": "h is the map abbreviation for hospital"
-          },
-          {
-           "words": "Sailor hugging copper",
-           "gives": "OCUS",
-           "note": "OS, ordinary seaman, round Cu, the chemical symbol for copper"
-          }
-         ]
+         "words": "hospital",
+         "at": 41,
+         "gives": "HOSP",
+         "note": "HOSP is a short form of hospital"
         },
         {
          "words": "copper",
-         "gives": "P",
-         "note": "a copper is a penny coin, p"
+         "at": 28,
+         "gives": "CU",
+         "note": "CU is the chemical symbol for copper"
         }
        ]
       },
       {
-       "words": "is",
-       "gives": "OCUS",
-       "note": "read as 'is the same again': the sailor-and-copper unit repeats"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hugging",
+         "at": 7,
+         "note": "the sailor wraps around the copper"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sailor",
+         "at": 0,
+         "gives": "OS",
+         "note": "OS is an ordinary seaman"
+        },
+        {
+         "words": "copper",
+         "at": 15,
+         "gives": "CU",
+         "note": "CU is the chemical symbol for copper"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seaman embracing a policeman after another policeman ends up in hospital.",
-     "walkthrough": "'Copper' works three ways here: the element Cu, and the penny coin P. The parse is loose; the setter seems to intend the sailor-and-copper chunk to appear twice, either side of P.",
-     "definitionFit": "Hocus-pocus is a conjuror's nonsense incantation, a meaningless magic formula uttered while casting a trick."
+     "surface": "A sailor clinging to a policeman, after another policeman ends up in hospital.",
+     "walkthrough": "Both coppers are the metal, not police officers, and the hospital is its four-letter short form rather than the usual single letter.",
+     "definitionFit": "Hocus-pocus is a conjuror's magic formula, an incantation."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "copper"
     }
    }
@@ -2453,64 +2514,71 @@
      "parts": [
       {
        "words": "A",
-       "note": "the article as printed"
+       "at": 0
       },
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
-         "text": "not on",
-         "note": "'not' removes the two letters of 'on' from the city"
+         "text": "importing",
+         "at": 19,
+         "note": "the shortened city takes in the extra letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "for importing",
-           "note": "to import is to bring in, so the shortened city brings in the macadamia letter"
+           "text": "not",
+           "at": 8,
+           "note": "the word on is not included, so those letters are removed"
           }
          ],
          "parts": [
           {
            "words": "city",
-           "gives": "LOND",
-           "note": "London loses its ON"
+           "at": 2,
+           "gives": "LONDON",
+           "note": "London is a city"
           },
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "source of",
-             "note": "the source of a word is where it starts, its first letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "macadamia",
-             "note": "first letter of 'macadamia'"
-            }
-           ]
+           "words": "on",
+           "at": 12,
+           "gives": "ON",
+           "note": "taken as written"
           }
          ]
         },
         {
-         "gives": "ACADAMI"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "source of",
+           "at": 29,
+           "note": "a source is a beginning, so the first letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "macadamia",
+           "at": 39
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A city banning imports of macadamia nuts.",
-     "walkthrough": "'Macadamia nut' reads as a single thing, but 'macadamia' is only there for its first letter and 'nut' is the definition. The city is London.",
-     "definitionFit": "The almond is the edible seed of a stone fruit tree, eaten and sold as a common nut."
+     "surface": "A city refusing to import macadamias as a source of nuts.",
+     "walkthrough": "'not on' tells you to strip a two-letter word from the city, and 'importing' places the macadamia's initial just after the city's first letter.",
+     "definitionFit": "An almond is an edible kernel of the tree Prunus dulcis, a kind of nut."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "macadamia"
+     "misdirectedWord": "source"
     }
    }
   },
@@ -2655,35 +2723,48 @@
      "indicators": [
       {
        "text": "wildly",
-       "note": "doing something wildly means doing it in no order, so the letters are shuffled"
+       "at": 32,
+       "note": "the letters run wild, so they are rearranged"
       }
      ],
      "parts": [
       {
        "words": "A",
-       "note": "the article as printed"
+       "at": 0
       },
       {
-       "words": "horse without covering",
-       "gives": "ORS",
-       "note": "horse loses its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "without covering",
+         "at": 8,
+         "note": "the word loses its outer letters, its covering"
+        }
+       ],
+       "parts": [
+        {
+         "words": "horse",
+         "at": 2,
+         "note": "only the inside of this word is used"
+        }
+       ]
       },
       {
        "words": "bolted",
-       "note": "anagram fodder, 6 letters"
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "A horse has bolted, and only now does someone think of the way it got out.",
-     "walkthrough": "The surface is the proverb: shutting the stable door after the horse has bolted means acting too late. 'Bolted' is both fodder and the proverb's verb.",
-     "definitionFit": "The idiom says people secure the barn entrance only after the animal is gone, precisely when it is too late."
+     "surface": "A horse without a blanket has run off wildly, so attention turns to the yard only now.",
+     "walkthrough": "The definition rests on the idiom of shutting the stable door after the horse has bolted: acting too late.",
+     "definitionFit": "The proverb mocks closing this barn entrance only once the animal has already escaped."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "bolted"
+     "misdirectedWord": "turn"
     }
    }
   },
@@ -3008,37 +3089,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEBONAIR",
-     "indicators": [
-      {
-       "text": "trimmed",
-       "note": "trimming cuts off the end, so the fillet word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimmed",
+         "at": 8,
+         "note": "the end of the word is trimmed off"
+        }
+       ],
        "parts": [
         {
          "words": "fillet",
-         "gives": "DEBON",
-         "note": "to fillet a fish is to debone it; trimmed, the final E goes"
+         "at": 16,
+         "gives": "DEBONE",
+         "note": "to debone a fish is to fillet it"
         },
         {
-         "words": "character",
-         "gives": "AIR",
-         "note": "an air is a manner or character"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "character",
+       "at": 38,
+       "gives": "AIR",
+       "note": "an air is a manner or character"
       }
      ]
     },
     "explanation": {
-     "surface": "A smart plated fish dish served with flair.",
-     "walkthrough": "'Fillet' is the verb, to take the bones out.",
-     "definitionFit": "Debonair describes a stylish, suave, confident person, so it matches elegant."
+     "surface": "A stylish, trimmed fillet of fish presented with personality.",
+     "walkthrough": "'trimmed' cuts the E from DEBONE to give DEBON.",
+     "definitionFit": "Debonair means suave and stylish, which is a synonym for graceful."
     },
     "features": {
      "answerInScene": false,
@@ -3116,43 +3201,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STRICT",
+     "op": "container",
      "indicators": [
       {
-       "text": "cut",
-       "note": "a cut word has lost its end, so the instant word drops its last letter"
+       "text": "receiving",
+       "at": 11,
+       "note": "the stone abbreviation takes in the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "stone",
+       "at": 5,
+       "gives": "ST",
+       "note": "ST is the abbreviation for stone, the British unit of weight"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "receiving",
-         "note": "the stone abbreviation receives, takes in, the shortened instant"
+         "text": "cut",
+         "at": 29,
+         "note": "the word is cut short, so its last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "stone",
-         "gives": "ST",
-         "note": "st is the abbreviation for stone, the British weight of 14 pounds"
+         "words": "instant",
+         "at": 21,
+         "gives": "TRICE",
+         "note": "a trice is an instant"
         },
         {
-         "words": "instant",
-         "gives": "TRIC",
-         "note": "a trice is an instant; cut, it loses the E"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mason cutting a hard stone in no time.",
-     "walkthrough": "TRIC goes between S and T. 'In a trice' means in an instant.",
-     "definitionFit": "A hard taskmaster or regime is strict: severe and unbending in enforcing rules."
+     "surface": "A hard stone instantly cut.",
+     "walkthrough": "A stone is a British unit of weight, 14 pounds; 'Hard' is the definition in the sense of severe.",
+     "definitionFit": "Strict means severe and exacting, a sense of hard as in a hard taskmaster."
     },
     "features": {
      "answerInScene": false,
@@ -3509,12 +3599,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "INTUITIVE",
      "indicators": [
       {
        "text": "Heads off",
-       "note": "each word has its head, its first letter, taken off"
+       "at": 31,
+       "note": "each word loses its head, its first letter"
       }
      ],
      "parts": [
@@ -3523,31 +3612,37 @@
        "parts": [
         {
          "words": "Suggestion",
-         "gives": "INT",
-         "note": "a hint is a suggestion; headless, it loses its H"
+         "at": 0,
+         "gives": "HINT",
+         "note": "a hint is a suggestion"
         },
         {
          "words": "leave",
-         "gives": "UIT",
-         "note": "to quit is to leave; headless, it loses its Q"
+         "at": 14,
+         "gives": "QUIT",
+         "note": "to quit is to leave"
         },
         {
          "words": "dodgy bar",
-         "gives": "IVE",
-         "note": "a dive is a disreputable bar; headless, it loses its D"
+         "at": 20,
+         "gives": "DIVE",
+         "note": "a dive is a disreputable bar"
         }
        ]
+      },
+      {
+       "gives": "HQD"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to walk out of a seedy bar, acted on without thinking twice.",
-     "walkthrough": "Each of the three synonyms loses its first letter before they join.",
-     "definitionFit": "Intuitive judgements come from instinct and gut feeling rather than careful reasoning."
+     "surface": "A hint that someone should get out of a seedy bar, followed by heads leaving.",
+     "walkthrough": "'Heads off' removes the first letters of HINT, QUIT and DIVE, giving INT, UIT and IVE.",
+     "definitionFit": "An intuitive judgement comes from instinct rather than reasoning things through."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Heads"
     }
    }
@@ -3674,48 +3769,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEACHER",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "an unfinished word lacks its final letter"
+       "text": "to fill",
+       "at": 21,
+       "note": "the longing goes inside, filling the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to fill",
-         "note": "filling something means going inside it, so longing goes inside the shortened school period"
+         "text": "unfinished",
+         "at": 29,
+         "note": "the word is not finished, so its last letter goes"
         }
        ],
        "parts": [
         {
          "words": "part of school year",
-         "gives": "TER",
-         "note": "a term, minus its last letter M"
+         "at": 40,
+         "gives": "TERM",
+         "note": "a term is one division of the school year"
         },
         {
-         "words": "longing",
-         "gives": "ACHE",
-         "note": "to ache for something is to long for it"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "longing",
+       "at": 13,
+       "gives": "ACHE",
+       "note": "to ache is to long, so an ache is a longing"
       }
      ]
     },
     "explanation": {
-     "surface": "A schoolmaster yearning for the end of an incomplete term.",
-     "walkthrough": "ACHE fills TER(M). 'Maybe' marks master as one example: a schoolmaster is a kind of teacher.",
-     "definitionFit": "In British schools a master is a male schoolteacher, so a master is one kind of instructor."
+     "surface": "A schoolmaster yearning to fill out what remains of the term.",
+     "walkthrough": "'Maybe' signals that a master is only one example of the answer.",
+     "definitionFit": "A schoolmaster is a male schoolteacher, so this is an example of the class."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "longing"
+     "misdirectedWord": "master"
     }
    }
   },
