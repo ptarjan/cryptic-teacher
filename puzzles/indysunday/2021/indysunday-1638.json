@@ -382,25 +382,43 @@
      "parts": [
       {
        "words": "Democrat",
-       "gives": "D",
-       "note": "D is the abbreviation for Democrat"
+       "at": 0,
+       "gives": "D"
       },
       {
-       "words": "powerful releasing one female",
-       "gives": "EFECTIVE",
-       "note": "EFFECTIVE, powerful, minus one F for female"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "releasing",
+         "at": 18,
+         "note": "releasing means letting go, so one letter drops out of the word for powerful"
+        }
+       ],
+       "parts": [
+        {
+         "words": "powerful",
+         "at": 9,
+         "gives": "EFFECTIVE",
+         "note": "powerful means effective, having force"
+        },
+        {
+         "words": "one female",
+         "at": 28,
+         "gives": "F",
+         "note": "F is the abbreviation for female; one of the two Fs goes"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A powerful Democrat letting go of a woman who isn't pulling her weight.",
-     "walkthrough": "EFFECTIVE has two F's; 'one female' removes just one of them.",
-     "definitionFit": "Something defective is faulty, not working properly."
+     "surface": "A powerful Democratic politician lets a woman go, leaving her out of work.",
+     "definitionFit": "A defective machine is faulty and so out of order: it does not function."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "releasing"
+     "misdirectedWord": "working"
     }
    }
   },
@@ -1397,19 +1415,36 @@
      "parts": [
       {
        "words": "A",
-       "note": "as printed"
+       "at": 0
       },
       {
-       "words": "villain dropping old",
-       "gives": "RGUE",
-       "note": "ROGUE, a villain, without O for old"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 10,
+         "note": "dropping means letting fall, so the letter for old is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "villain",
+         "at": 2,
+         "gives": "ROGUE",
+         "note": "a rogue is a villain, a scoundrel"
+        },
+        {
+         "words": "old",
+         "at": 19,
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crook leaving behind an old quarrel.",
-     "walkthrough": "O is the standard abbreviation for old.",
-     "definitionFit": "A plain synonym as verbs: to disagree in words, as in disputing a bill."
+     "surface": "A villain lets an old grievance go.",
+     "definitionFit": "To argue is to dispute: to disagree with someone, debating the point."
     },
     "features": {
      "answerInScene": false,

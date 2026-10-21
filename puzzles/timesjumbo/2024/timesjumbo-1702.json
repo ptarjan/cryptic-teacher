@@ -591,20 +591,37 @@
      "parts": [
       {
        "words": "Girl",
+       "at": 0,
        "gives": "LASS",
-       "note": "a lass is a girl"
+       "note": "lass is a girl"
       },
       {
-       "words": "working to outlaw foremost",
-       "gives": "OING",
-       "note": "DOING, working, without its first letter D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to outlaw foremost",
+         "at": 13,
+         "note": "to outlaw the foremost letter is to ban the first one, removing it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "working",
+         "at": 5,
+         "gives": "GOING",
+         "note": "going means working, as in 'in going order'"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A girl campaigning to ban the leading event at a rodeo.",
-     "walkthrough": "'Working' is DOING, not ON or GOING; banning its first letter leaves OING.",
-     "definitionFit": "A definition by example: roping calves with a thrown loop is one of the standard rodeo events."
+     "surface": "A girl at work trying to ban a gunslinger at a rodeo.",
+     "walkthrough": "'outlaw' suggests a Wild West bandit, but it is a verb meaning ban, removing the first letter of GOING.",
+     "definitionFit": "Lassoing, catching cattle with a thrown rope loop, is a standard rodeo event."
     },
     "features": {
      "answerInScene": true,
@@ -1710,28 +1727,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "beside"
-      }
-     ],
      "parts": [
       {
        "words": "daughter",
-       "gives": "D",
-       "note": "D = daughter"
+       "at": 7,
+       "gives": "D"
       },
       {
-       "words": "jetty, abandoned by husband",
-       "gives": "WARF",
-       "note": "WHARF, a jetty, without H for husband"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoned by",
+         "at": 30,
+         "note": "abandoned by the husband means he leaves, so his letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jetty",
+         "at": 23,
+         "gives": "WHARF",
+         "note": "a wharf is a jetty or quay"
+        },
+        {
+         "words": "husband",
+         "at": 43,
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small daughter left on a quay by her husband.",
-     "walkthrough": "'Little daughter' looks like one phrase; 'Little' is the definition, used as an adjective for a dwarf plant or star.",
-     "definitionFit": "Used as an adjective, as in dwarf conifer or dwarf star, it means undersized."
+     "surface": "A little daughter stands beside the jetty after her husband deserts her.",
+     "walkthrough": "'Little daughter' reads as a phrase, but Little is the definition.",
+     "definitionFit": "As an adjective, dwarf means small or miniature, as in dwarf conifers."
     },
     "features": {
      "answerInScene": false,
@@ -3030,26 +3060,39 @@
      "op": "container",
      "indicators": [
       {
-       "text": "including"
+       "text": "including",
+       "at": 23,
+       "note": "including means holding within, so half a line goes inside the scheme"
       }
      ],
      "parts": [
       {
        "words": "Five line verse scheme",
+       "at": 0,
        "gives": "ABABA",
-       "note": "ABABA is a five-line rhyme scheme"
+       "note": "ABABA is a rhyme scheme for a five-line stanza"
       },
       {
-       "words": "half line",
-       "gives": "LI",
-       "note": "the first half of LINE"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 33,
+         "note": "half of line is its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "line",
+         "at": 38
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A poet planning a five-line poem, with half a line for a hero of Arabian tales.",
-     "walkthrough": "A rhyme scheme is written as letters, one per line; five lines rhyming ABABA give the frame.",
-     "definitionFit": "The woodcutter of the Forty Thieves tale is a hero of the Arabian Nights."
+     "surface": "A five-line poem, with half a line extra, about a hero of Arabian tales.",
+     "definitionFit": "Ali Baba is the woodcutter hero of the Arabian Nights tale of the forty thieves."
     },
     "features": {
      "answerInScene": true,
