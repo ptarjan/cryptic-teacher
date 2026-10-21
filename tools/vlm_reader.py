@@ -60,7 +60,7 @@ _RESOLVED = [False]
 MODEL = os.environ.get("VLM_READER_MODEL", "qwen3.8-vl-27b")
 PROMPT = TOOLS / "vlm_column_prompt.md"
 PICK_PROMPT = TOOLS / "vlm_pick_prompt.md"
-CACHE = Path(os.path.expanduser("~/.cache/vlm_reader"))
+CACHE = Path(os.environ.get("CT_VLM_CACHE") or os.path.expanduser("~/.cache/vlm_reader"))  # CT_VLM_CACHE: an offline A/B's own (empty) cache
 #: The scans print ~17px a line; the model reads them better twice the size.
 UPSCALE = 2
 #: Padding round a column's text, in page pixels.
