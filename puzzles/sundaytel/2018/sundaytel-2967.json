@@ -1014,63 +1014,62 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 21,
+       "note": "around means the shortened fish and the area letter go round the island letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "restricted",
-         "note": "restricted means cut short, so the fish loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Fish",
-         "gives": "SARDINE",
-         "note": "a sardine is a small fish"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "restricted",
+           "at": 5,
+           "note": "restricted means cut short, so the fish loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Fish",
+           "at": 0,
+           "gives": "SARDINE",
+           "note": "a sardine is a small oily fish"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
-         "gives": "E"
+         "words": "area",
+         "at": 16,
+         "gives": "A"
         }
        ]
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "around",
-         "note": "around means turned about, so area and island are read in the opposite order"
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "area",
-           "gives": "A",
-           "note": "standard abbreviation for area"
-          },
-          {
-           "words": "island",
-           "gives": "I",
-           "note": "standard abbreviation for island"
-          }
-         ]
-        }
-       ]
+       "words": "island",
+       "at": 28,
+       "gives": "I",
+       "note": "I is the usual abbreviation for island on maps"
       }
      ]
     },
     "explanation": {
-     "surface": "A no-fishing zone has been set up around an island in the Mediterranean.",
-     "walkthrough": "'Restricted area' looks like one phrase, but restricted belongs to the fish. 'One in Med' is the definition: one island in the Mediterranean.",
-     "definitionFit": "Sardinia is a large Italian island in the Mediterranean Sea, an example of an island there."
+     "surface": "A fishing exclusion zone around an island in the Mediterranean.",
+     "walkthrough": "'restricted area' reads as one phrase, a no-go zone, but 'restricted' belongs to the fish and 'area' is a separate piece.",
+     "definitionFit": "Sardinia is a large Italian island, one of the islands in the Mediterranean Sea."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "restricted"
     }
    }
@@ -1102,45 +1101,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "AIRMAIL",
+     "indicators": [
+      {
+       "text": "heard",
+       "at": 39,
+       "note": "heard means the words are taken as they sound, not as spelt"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "AIR",
-       "indicators": [
-        {
-         "text": "heard",
-         "note": "heard means the words are taken by how they sound when spoken"
-        }
-       ],
-       "parts": [
-        {
-         "words": "survivor",
-         "gives": "HEIR",
-         "note": "an heir survives the person whose estate they inherit"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "MAIL",
-       "parts": [
-        {
-         "words": "he",
-         "gives": "MALE",
-         "note": "he denotes a male"
-        }
-       ]
+       "words": "survivor he",
+       "at": 27,
+       "gives": "HEIRMALE",
+       "note": "an heir is one who survives to inherit, and he is a male: HEIR MALE"
       }
      ]
     },
     "explanation": {
-     "surface": "Deeply touching letters from someone who survived, he was told.",
-     "walkthrough": "'Highly moving' sounds emotional, but means travelling high up, by aeroplane.",
-     "definitionFit": "Airmail is post carried by aircraft, so the letters literally travel high in the sky."
+     "surface": "A deeply moving letter from a survivor, read out loud.",
+     "walkthrough": "'Highly moving' looks emotional but means travelling high in the sky.",
+     "definitionFit": "Airmail is post carried by aeroplane, so the letters move high above the ground."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "moving"
