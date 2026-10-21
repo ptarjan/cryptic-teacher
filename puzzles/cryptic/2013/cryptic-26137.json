@@ -885,34 +885,29 @@
      "indicators": [
       {
        "text": "goes missing",
-       "note": "something that goes missing is no longer there, so those letters are dropped"
+       "at": 26,
+       "note": "something that goes missing is no longer there, so these letters are taken out of the word before"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "work out",
-         "gives": "ARRANGE",
-         "note": "to arrange is to organise or work out"
-        },
-        {
-         "words": "Georgia",
-         "gives": "GA",
-         "note": "GA is the postal abbreviation for the US state of Georgia"
-        }
-       ]
+       "words": "work out",
+       "at": 7,
+       "gives": "ARRANGE",
+       "note": "to work out a plan or deal is to arrange it"
       },
       {
-       "gives": "GEGA"
+       "words": "Georgia",
+       "at": 18,
+       "gives": "GE",
+       "note": "GE is the international country code for Georgia"
       }
      ]
     },
     "explanation": {
-     "surface": "Planning a trip to an island while someone from Georgia disappears.",
-     "walkthrough": "Arran is an island off the west coast of Scotland.",
-     "definitionFit": "Arran is a real Scottish island in the Firth of Clyde, so it is a specific instance of the category."
+     "surface": "Someone planning a trip to a Scottish island finds that Georgia has dropped out of the itinerary.",
+     "walkthrough": "Georgia here is the country, whose code is GE, not the US state (GA). Taking GE from ARRANGE leaves the island.",
+     "definitionFit": "Arran is a large island in the Firth of Clyde, off Scotland's west coast."
     },
     "features": {
      "answerInScene": true,
@@ -2119,36 +2114,48 @@
      "indicators": [
       {
        "text": "inside",
-       "note": "inside means held within the other piece"
-      },
-      {
-       "text": "around",
-       "note": "around means wrapped about another piece"
+       "at": 15,
+       "note": "the whole assembly sits inside the word for keeps, between its letters"
       }
      ],
      "parts": [
       {
        "words": "Keeps",
+       "at": 0,
        "gives": "HAS",
-       "note": "to have is to keep or hold"
+       "note": "keeps, in the sense of holds or possesses, means has"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "poor",
-         "note": "something in poor shape is in a bad way, so these letters are disordered"
+         "text": "around",
+         "at": 22,
+         "note": "the jumbled name goes around the month, holding it in its middle"
         }
        ],
        "parts": [
         {
-         "words": "Roy",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "poor",
+           "at": 6,
+           "note": "something poor is in a bad state, so the letters of the name are knocked out of order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Roy",
+           "at": 11
+          }
+         ]
         },
         {
          "words": "start of year",
+         "at": 29,
          "gives": "JAN",
-         "note": "January begins the year; JAN is the calendar abbreviation"
+         "note": "January is the month at the start of the year, abbreviated JAN"
         }
        ]
       }
@@ -2156,9 +2163,9 @@
     },
     "spelling": "HÁRY JÁNOS",
     "explanation": {
-     "surface": "Someone holds a hapless Roy indoors around New Year.",
-     "walkthrough": "Two containers nest: the jumbled name wraps round the month, and that whole piece goes inside the verb. Háry János is Kodály's folk opera.",
-     "definitionFit": "The preamble covers it: this is one of the twelve paired works, the opera and suite by the Hungarian composer found elsewhere in the grid."
+     "surface": "A man named Roy is kept somewhere grim from the turn of the year, as if in custody.",
+     "walkthrough": "As the preamble says, this themed solution has no definition: it is paired with KODALY, who composed it. 'poor' scrambles ROY to RYO, which goes 'around' JAN, and the result goes 'inside' HAS.",
+     "definitionFit": "Háry János is a folk opera by the Hungarian composer Zoltán Kodály, about a boastful old soldier."
     },
     "features": {
      "answerInScene": false,
