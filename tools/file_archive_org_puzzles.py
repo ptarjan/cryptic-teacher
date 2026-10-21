@@ -4055,6 +4055,20 @@ def columns_with(cols, lights, all_if_lost=False):
     return None if all_if_lost and not seen >= want else got
 
 
+def why_lights(lights, blank=(), cap=6):
+    """A space-free list of `lights` ("12-across" -> "12a") for vlm_asks.log's why= field, each
+    marked "(blank)" when in `blank`, else "(unsettled)"; at most `cap`, then "+N"."""
+    names = sorted(lights, key=lambda l: (int(l.split("-")[0]), l))
+    out = [f"{l.split('-')[0]}{l.split('-')[1][:1]}({'blank' if l in blank else 'unsettled'})" for l in names[:cap]]
+    return ",".join(out) + (f",+{len(names) - cap}" if len(names) > cap else "")
+
+
+def read_page_why(why, *args, **kw):
+    """read_page with every ask it spools tagged `why` in vlm_asks.log (logging only)."""
+    with vlm.because(why):
+        return read_page(*args, **kw)
+
+
 def read_puzzle(d, found, hit, solutions, ocr_first=True):
     """(verdict, puzzle or None) for one title on one page. The scan's own
     readers read it first; the desktop's VLM (one at a time, ~8 asks a
@@ -4062,7 +4076,7 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     blank or do not settle (weak_lights), every column when the grid does not
     lie on them or nothing parses. A page they settle is filed with no ask."""
     if not ocr_first:
-        return read_page(d, found, hit, solutions, None)
+        return read_page_why("direct:no-ocr-first", d, found, hit, solutions, None)
     verdict, puzzle = read_page(d, found, hit, solutions, False)
     weak = verdict.pop("_weak", None)
     window = verdict.pop("_alt", None)
@@ -4073,7 +4087,8 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
         if verdict.get("cause") == "no-reading-parses" or "pending" in verdict:
             if held_settled(d, verdict):
                 return verdict, puzzle
-            return read_page(d, found, hit, solutions, None)  # the VLM's page
+            # the VLM's page
+            return read_page_why(f"fallback:{verdict.get('cause') or 'pending'}", d, found, hit, solutions, None)
         return verdict, puzzle
     twin = held_copy(d, verdict, puzzle)
     if twin:
@@ -4086,7 +4101,7 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     if weak is None:
         if held_settled(d, verdict):
             return verdict, puzzle
-        return read_page(d, found, hit, solutions, None)
+        return read_page_why("fallback:no-weak-info", d, found, hit, solutions, None)
     if not weak and verdict.get("grid") == "image" and "imageDisagrees" not in verdict:
         verdict["vlmAsks"] = 0
         return verdict, puzzle
@@ -4094,9 +4109,10 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
         return verdict, puzzle
     off = disagreeing(verdict)
     if verdict.get("grid") != "image" or off is None:
-        return read_page(d, found, hit, solutions, None, **ask_with)
+        return read_page_why("fallback:grid-not-image", d, found, hit, solutions, None, **ask_with)
+    blanks = verdict.get("blank") or ()
     if not off:
-        return read_page(d, found, hit, solutions, sorted(weak), **ask_with)
+        return read_page_why("weak:" + why_lights(weak, blanks), d, found, hit, solutions, sorted(weak), **ask_with)
     # The grid disagrees with a light the readers name (FT 1985-09-13: 13-across's count read
     # "5,8,2" on a 10-letter light): only the columns holding it and the weak lights are read
     # (every column cost 3 reads there for one weak light), and the readers' own puzzle
@@ -4104,7 +4120,8 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     # differently (that page lost 26-down to a blank and 21-down read "out THE ward"), so it
     # gives only the lights it was asked about, and a light the readers left blank.
     asked = set(weak) | off
-    v, p = read_page(d, found, hit, solutions, sorted(asked), **ask_with)
+    v, p = read_page_why("count:" + why_lights(off, blanks) + (";weak:" + why_lights(weak, blanks) if weak else ""),
+                         d, found, hit, solutions, sorted(asked), **ask_with)
     return merged_read(verdict, puzzle, v, p, asked)
 
 
@@ -4662,7 +4679,8 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None):
             verdict["vlmSkipped"] = "a blank clue no reading has: no pick can make the page whole"
         else:
             try:
-                laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
+                with vlm.because("pick:" + why_lights(blank, blank)):
+                    laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
             except RuntimeError:
                 pass
     if vlm_on:

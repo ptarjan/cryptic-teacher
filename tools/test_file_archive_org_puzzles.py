@@ -3714,6 +3714,14 @@ check("a Gale page is one day: Monday's prize notice (No 21,696) does not move N
 check("an archive.org item can still bind the next day's paper",
       datetime.date(2001, 4, 10), f.issue_day(mon, 21697, [21697, 21696], "NewsUK2001UKEnglish"))
 
+check("why= names the lights an ask is for, blank or unsettled, with no space",
+      "5d(blank),12a(unsettled)", f.why_lights({"12-across", "5-down"}, {"5-down"}))
+check("why= caps a long list with +N",
+      "1a(unsettled),2a(unsettled),+1", f.why_lights({"1-across", "2-across", "3-across"}, (), cap=2))
+with f.vlm.because("fallback:no-reading-parses"):
+    check("a reason set by the caller is the one the next ask carries", "fallback:no-reading-parses", f.vlm._WHY.get())
+check("and it is gone after the read", "", f.vlm._WHY.get())
+
 print(f"FAILS {fails}")
 sys.stdout = _stdout
 out = _buf.getvalue().rstrip("\n")

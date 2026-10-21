@@ -29,6 +29,7 @@ import base64
 import hashlib
 import io
 import contextlib
+import contextvars
 import json
 import os
 import random
@@ -698,15 +699,31 @@ def _unit_label():
         return ""
 
 
+_WHY = contextvars.ContextVar("vlm_why", default="")
+
+
+@contextlib.contextmanager
+def because(why):
+    """Within the block, asks spooled are tagged `why` in vlm_asks.log. Logging only: the reason
+    is in the spool entry, never in the prompt, the cache key or any output."""
+    tok = _WHY.set("".join(str(why).split())[:80])
+    try:
+        yield
+    finally:
+        _WHY.reset(tok)
+
+
 def _log_ask(key, entry):
     """One line in vlm_asks.log per real server call the drainer made: when, key, kind, the unit
-    that spooled it (so a page's real asks can be tallied against its final outcome)."""
+    that spooled it (so a page's real asks can be tallied against its final outcome), and last
+    `why=<trigger>` (no spaces) when the caller said why (because)."""
     try:
         p = Path(os.path.expanduser(os.environ.get("CT_VLM_ASK_LOG") or "~/.cache/corpus_queue/vlm_asks.log"))
         p.parent.mkdir(parents=True, exist_ok=True)
+        why = "".join(str(entry.get("why") or "").split())
         with open(p, "a") as f:
             f.write(f"{time.strftime('%H:%M:%S', time.gmtime())} vlm ask {entry.get('unit') or '?'} "
-                    f"{_kind(entry.get('prompt', ''))} {key[:12]}\n")
+                    f"{_kind(entry.get('prompt', ''))} {key[:12]}{' why=' + why if why else ''}\n")
     except OSError:
         pass
 
@@ -725,7 +742,7 @@ def put_spool(key, data, prompt, max_tokens):
     (d / f"{key}.png").write_bytes(data)
     tmp = d / f"{key}.tmp"
     tmp.write_text(json.dumps({"prompt": prompt, "max_tokens": max_tokens, "pid": os.getpid(), "at": time.time(),
-                               "unit": _unit_label()}))
+                               "unit": _unit_label(), "why": _WHY.get()}))
     tmp.replace(d / f"{key}.json")
 
 
