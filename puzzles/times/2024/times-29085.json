@@ -1665,38 +1665,66 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "by"
-      }
-     ],
      "parts": [
       {
-       "words": "in that place, nearly done",
-       "gives": "THER",
-       "note": "THERE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly done",
+         "at": 22,
+         "note": "nearly done means the word is not quite finished, so its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in that place",
+         "at": 7,
+         "gives": "THERE",
+         "note": "there means in that place"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "four",
+       "at": 37,
        "gives": "IV",
-       "note": "Roman four"
+       "note": "IV is four in Roman numerals"
       },
       {
-       "words": "too short",
-       "gives": "ALS",
-       "note": "ALSO (too) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 47,
+         "note": "short means the word for too loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "too",
+         "at": 43,
+         "gives": "ALSO",
+         "note": "also means too, as well"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A comedy is staged there and nearly finished by four, running short.",
-     "walkthrough": "'Too short' looks like one idea but is ALSO clipped.",
-     "definitionFit": "A definition by example: The Rivals is Sheridan's 1775 stage comedy, home of Mrs Malaprop."
+     "surface": "A grumble that a comedy is almost over by four o'clock and runs too brief.",
+     "walkthrough": "THER (THERE nearly done) + IV + ALS (ALSO cut short). The Rivals is Sheridan's 1775 comedy of manners.",
+     "definitionFit": "The Rivals is a famous stage play by Richard Brinsley Sheridan, an example of eighteenth-century comic theatre."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "too"
+     "misdirectedWord": "four"
     }
    }
   },

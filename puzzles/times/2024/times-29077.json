@@ -1358,12 +1358,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "'about' as in about-turn: the word faces the other way"
-      },
-      {
-       "text": "shortened",
-       "note": "the time loses its last letter"
+       "text": "accepting",
+       "at": 45,
+       "note": "accepting means the reversed word takes the shortened time inside it"
       }
      ],
      "parts": [
@@ -1371,33 +1368,52 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "accepting",
-         "note": "to accept something is to take it in, so the turned word holds the time inside it"
+         "text": "about",
+         "at": 39,
+         "note": "about means turned round, so the word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "outraged reaction",
+         "at": 21,
          "gives": "STINK",
-         "note": "to kick up a stink is to protest loudly; then turned round to KNITS"
+         "note": "to kick up a stink is to make an angry protest, so a stink is an outraged reaction"
         }
        ]
       },
       {
-       "words": "time",
-       "gives": "TER",
-       "note": "TERM (a time, as in school term) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 55,
+         "note": "shortened means the word for time loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time",
+         "at": 65,
+         "gives": "TERM",
+         "note": "a term is a period of time"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Artisans furious that their allotted time was cut short.",
-     "walkthrough": "'About' does the reversing here, not containing; 'accepting' does that job.",
-     "definitionFit": "Definition by example: knitting is one handicraft among many, so knitters are one kind of craftspeople."
+     "surface": "Artisans respond indignantly to a cut in their working hours.",
+     "walkthrough": "STINK backwards is KNITS; it takes in TER (TERM shortened): KNIT-TER-S.",
+     "definitionFit": "Knitters are people who make garments by hand with needles and yarn, a traditional craft."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "about"
     }
    }
   },

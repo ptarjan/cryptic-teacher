@@ -881,49 +881,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INNOCENTLY",
-     "indicators": [
-      {
-       "text": "in retirement",
-       "note": "retiring means withdrawing or going back, so the word for prison is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "Pope",
+       "at": 0,
+       "gives": "INNOCENT",
+       "note": "Innocent was the name of thirteen popes"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "INNOCENTLY",
        "indicators": [
         {
          "text": "avoiding",
-         "note": "avoiding means steering clear of, so those letters are removed from the inheritance word"
+         "at": 15,
+         "note": "avoiding means the reversed prison is kept out of the word legacy"
         }
        ],
        "parts": [
         {
-         "words": "Pope",
-         "gives": "INNOCENT",
-         "note": "thirteen popes took the name Innocent"
-        },
-        {
          "words": "legacy",
-         "note": "taken as written"
+         "at": 7,
+         "note": "taken as written before the removal"
         },
         {
-         "words": "prison",
-         "gives": "CAGE",
-         "note": "a cage is a prison"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "in retirement",
+           "at": 31,
+           "note": "in retirement means going backwards, so the prison word is read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "prison",
+           "at": 24,
+           "gives": "CAGE",
+           "note": "a cage is a prison"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A retired pontiff's legacy was keeping out of jail.",
-     "walkthrough": "'Pope' is the papal name, not a man to be housed in the prison; 'in retirement' turns the prison word round before it is removed from the inheritance word.",
-     "definitionFit": "To act innocently is to act artlessly or guilelessly, one sense of simply."
+     "surface": "A Pope's bequest, while keeping out of jail in old age, is simply stated.",
+     "walkthrough": "'in retirement' signals going backwards, as in retreating. Innocent is a papal name borne by thirteen popes.",
+     "definitionFit": "Done innocently means done naively and without guile, in an artless or simple way."
     },
     "features": {
      "answerInScene": false,

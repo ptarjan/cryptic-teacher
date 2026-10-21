@@ -2060,34 +2060,45 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "rocky",
-       "note": "a rocky path is uneven and jumbled, so the letters are jumbled"
-      },
-      {
        "text": "wildly",
-       "note": "acting wildly is acting without order, so these letters lose their order"
+       "at": 27,
+       "note": "wildly means in an uncontrolled way, so all the letters are mixed together"
       }
      ],
      "parts": [
       {
-       "words": "trek",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rocky",
+         "at": 7,
+         "note": "rocky means unsteady and shaken, so the letters of trek are first jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trek",
+         "at": 13,
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "words": "cheered",
+       "at": 19,
        "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Hikers on a stony route whoop at the thought of a big sandwich.",
-     "walkthrough": "Both words are jumbled together; a three-decker is a sandwich with three slices of bread.",
-     "definitionFit": "A three-decker sandwich has three layers of bread with two fillings between them."
+     "surface": "Hikers cheering madly on a rough walk over a hefty sandwich.",
+     "walkthrough": "Two anagram signals: 'rocky' stirs the trek, then 'wildly' throws it in with cheered, so in effect the two words are mixed as one pool.",
+     "definitionFit": "A three-decker is a sandwich built from three slices of bread with two layers of filling."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rocky"
+     "misdirectedWord": "cheered"
     }
    }
   },
@@ -2367,37 +2378,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COIFFEUSE",
-     "indicators": [
-      {
-       "text": "to lose edging",
-       "note": "losing the edging removes the first and last letters of the peeved word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "firm",
+       "at": 13,
        "gives": "CO",
-       "note": "Co is the abbreviation for company"
+       "note": "Co is the abbreviation for company, a firm"
       },
       {
-       "words": "peeved",
-       "gives": "MIFFED",
-       "note": "miffed means annoyed"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "to lose edging",
+         "at": 25,
+         "note": "to lose edging means the border letters come off, keeping the inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "peeved",
+         "at": 18,
+         "gives": "MIFFED",
+         "note": "miffed means peeved, annoyed"
+        }
+       ]
       },
       {
        "words": "work",
+       "at": 40,
        "gives": "USE",
        "note": "to use something is to work it"
       }
      ]
     },
     "explanation": {
-     "surface": "A locksmith's company is annoyed at losing its trim work.",
-     "walkthrough": "'Lock fixer' suggests a locksmith; the lock is a lock of hair, and a coiffeuse is a female hairdresser.",
-     "definitionFit": "A coiffeuse is a woman hairdresser, someone who arranges and styles locks of hair."
+     "surface": "A locksmith's company is irritated about losing work on trimming.",
+     "walkthrough": "'Lock fixer' suggests a locksmith but means a hairdresser of locks of hair. CO + IFFE (MIFFED without its ends) + USE.",
+     "definitionFit": "A coiffeuse is a female hairdresser, someone who arranges locks of hair."
     },
     "features": {
      "answerInScene": false,

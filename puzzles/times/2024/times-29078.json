@@ -1467,20 +1467,38 @@
      "parts": [
       {
        "words": "Old",
-       "gives": "O",
-       "note": "O = old"
+       "at": 0,
+       "gives": "O"
       },
       {
-       "words": "rover loses right",
-       "gives": "PIATE",
-       "note": "PIRATE without R = right"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "loses",
+         "at": 10,
+         "note": "loses means the letter for right drops out of the word for the rover"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rover",
+         "at": 4,
+         "gives": "PIRATE",
+         "note": "a rover is a sea rover, a pirate"
+        },
+        {
+         "words": "right",
+         "at": 16,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old wanderer drops out of the right side to deal drugs.",
-     "walkthrough": "A rover here is a sea-rover, a pirate, not a wanderer.",
-     "definitionFit": "A definition by class: drugs made from opium dull the senses and induce sleep, the core meaning of narcotic."
+     "surface": "An elderly wanderer loses his right to deal narcotics.",
+     "walkthrough": "O + PIRATE without its R.",
+     "definitionFit": "An opiate is a drug derived from opium, such as morphine, used as a narcotic painkiller."
     },
     "features": {
      "answerInScene": false,
