@@ -136,9 +136,12 @@ jobs:
           # shows as a red X. Skipping concludes green instead.
           superseded() {
             if [ "$EVENT" = push ] && [ "$REF" = refs/heads/master ]; then
-              head=$(git ls-remote origin refs/heads/master 2>/dev/null | cut -f1)
+              # The step runs under bash -e with pipefail: head closing the pipe
+              # gives gh SIGPIPE (exit 141), which killed the step red, so a
+              # failed look counts as "not superseded".
+              head=$(git ls-remote origin refs/heads/master 2>/dev/null | cut -f1) || head=
               newer=$(gh api "repos/$REPO/actions/workflows/tests.yml/runs?branch=master&event=push&per_page=5" \
-                        --jq ".workflow_runs[] | select(.id > $GITHUB_RUN_ID) | .id" 2>/dev/null | head -n 1)
+                        --jq ".workflow_runs[] | select(.id > $GITHUB_RUN_ID) | .id" 2>/dev/null | head -n 1) || newer=
               if [ -n "$head" ] && [ "$head" != "$GITHUB_SHA" ] && [ -n "$newer" ]; then
                 echo "superseded by $head: the newest push's run tests the code"
                 echo "mode=skip" >> "$GITHUB_OUTPUT"
