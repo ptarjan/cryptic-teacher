@@ -1077,32 +1077,43 @@
       {
        "text": "includes",
        "at": 16,
-       "note": "the first half of the capital holds the letter A inside it"
+       "note": "takes in, so the a goes inside"
       }
      ],
      "parts": [
       {
-       "words": "Half of capital",
-       "at": 0,
-       "gives": "LON",
-       "note": "the first half of London, the UK capital"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "only the first half of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capital",
+         "at": 8,
+         "gives": "LONDON",
+         "note": "London is the UK capital"
+        }
+       ]
       },
       {
        "words": "a",
-       "at": 25,
-       "gives": "A",
-       "note": "taken as written"
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "Part of the capital sum includes some money lent in advance.",
-     "walkthrough": "Capital looks financial, matching the money surface, but it is the city London.",
-     "definitionFit": "A loan is money lent out, to be repaid later."
+     "surface": "Part of a city's money is advanced as a cash sum.",
+     "walkthrough": "LONDON halved is LON, which takes A inside.",
+     "definitionFit": "A loan is money lent, handed over in advance on the understanding that it will be repaid."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "capital"
     }
    }
