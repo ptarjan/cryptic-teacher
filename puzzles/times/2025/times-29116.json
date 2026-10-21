@@ -323,7 +323,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the shortened plants go inside the area"
+       "at": 26,
+       "note": "in puts the shortened plants inside the emptied area"
       }
      ],
      "parts": [
@@ -332,32 +333,51 @@
        "indicators": [
         {
          "text": "vacated",
-         "note": "a vacated space has been emptied, so the word keeps only its outer letters"
+         "at": 29,
+         "note": "vacated means emptied, so only the outside letters of area remain"
         }
        ],
        "parts": [
         {
          "words": "area",
-         "note": "AREA emptied of its middle; it holds the plants"
+         "at": 37
         }
        ]
       },
       {
-       "words": "plants killing time",
-       "gives": "CACI",
-       "note": "CACTI without T for time"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "killing",
+         "at": 13,
+         "note": "killing means removing, so time's letter is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plants",
+         "at": 6,
+         "gives": "CACTI",
+         "note": "cacti are plants"
+        },
+        {
+         "words": "time",
+         "at": 21,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener's instruction to plant things and kill time in an empty patch.",
-     "walkthrough": "The first 'Plant' is the definition, a noun; the second word, 'plants', is wordplay, and the verb reading of both is the misdirection.",
-     "definitionFit": "A definition by class: the acacia, or wattle, is a tree or shrub and so a plant."
+     "surface": "Gardening gone wrong: plants dying off in a cleared patch.",
+     "walkthrough": "'Plant plants' looks like a stutter: the first is the definition, the second the start of the wordplay, and 'killing time' removes the time letter from it.",
+     "definitionFit": "Acacia is a genus of trees and shrubs, including wattle, so a plant."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Plant"
+     "misdirectedWord": "killing"
     }
    }
   },
