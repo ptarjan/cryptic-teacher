@@ -383,27 +383,59 @@
      "op": "charade",
      "parts": [
       {
-       "words": "meal, no starter",
-       "gives": "UNCH",
-       "note": "LUNCH without L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no starter",
+         "at": 11,
+         "note": "no starter means the opening letter of the word is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meal",
+         "at": 5,
+         "gives": "LUNCH",
+         "note": "lunch is a midday meal"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
-       "words": "central course (not starter)",
-       "gives": "AIN",
-       "note": "the MAIN course without M"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not starter",
+         "at": 39,
+         "note": "not starter again drops the opening letter, this time of the course"
+        }
+       ],
+       "parts": [
+        {
+         "words": "central course",
+         "at": 23,
+         "gives": "MAIN",
+         "note": "the main course is the central dish of a meal"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A menu offers a free meal: skip the starter and go straight to the main course.",
-     "walkthrough": "'Free meal' reads as one phrase, but Free is the definition, as a verb.",
-     "definitionFit": "A plain synonym as verbs: taking off a prisoner's chains sets them at liberty."
+     "surface": "An offer of a free lunch with no first course, just the main.",
+     "walkthrough": "Both pieces lose their first letters: LUNCH becomes UNCH and MAIN becomes AIN. 'Free' looks like part of the meal offer but is the definition.",
+     "definitionFit": "To unchain is to release from shackles, so it means to set at liberty."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Free"
+     "misdirectedWord": "starter"
     }
    }
   },
@@ -1088,21 +1120,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "All but meaning",
-       "gives": "IMPOR",
-       "note": "IMPORT (meaning) without its T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "All but",
+         "at": 0,
+         "note": "all but means everything except the last letter of the word for meaning"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meaning",
+         "at": 8,
+         "gives": "IMPORT",
+         "note": "import can mean meaning or significance"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "regulate",
+       "at": 19,
        "gives": "TUNE",
-       "note": "to tune an engine is to regulate it"
+       "note": "to tune an engine or instrument is to adjust or regulate it"
       }
      ]
     },
     "explanation": {
-     "surface": "A proposal to regulate the press, which means everything but that.",
-     "walkthrough": "'Press' looks like the newspapers; it is the verb, to urge.",
-     "definitionFit": "A plain synonym as verbs: to press someone with repeated requests is to importune them."
+     "surface": "A demand for a body to control what the press is allowed to say.",
+     "walkthrough": "'All but' trims IMPORT to IMPOR. 'press' sounds like the newspapers but is a verb here.",
+     "definitionFit": "To importune is to urge or pester someone persistently, as one presses them for something."
     },
     "features": {
      "answerInScene": false,

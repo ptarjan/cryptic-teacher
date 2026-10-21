@@ -525,68 +525,89 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TELECONFERENCE",
+     "op": "container",
      "indicators": [
       {
-       "text": "setting up",
-       "note": "setting things up means arranging them, so all the letters are arranged afresh"
+       "text": "to catch",
+       "at": 43,
+       "note": "to catch means to hold inside, so the reversed letters surround the rest"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TELECONFERENCE",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "out",
-         "note": "out means removed, so the letter for right is dropped from the word before it"
+         "text": "setting up",
+         "at": 19,
+         "note": "in a down clue, setting up means the letters are read from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the abbreviation for European"
-        },
-        {
-         "words": "net",
-         "note": "taken as written"
-        },
-        {
-         "words": "catch",
-         "gives": "C",
-         "note": "c is the cricket scorecard abbreviation for caught"
-        },
+         "op": "charade",
+         "parts": [
+          {
+           "words": "European",
+           "at": 30,
+           "gives": "EC",
+           "note": "EC is the abbreviation for the European Community"
+          },
+          {
+           "words": "net",
+           "at": 39,
+           "gives": "NET",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "the French",
+         "at": 52,
          "gives": "LE",
          "note": "le is French for the"
         },
         {
-         "words": "confrere",
-         "note": "taken as written"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "out",
+           "at": 78,
+           "note": "out means removed, so the letter for right is taken from the colleague"
+          }
+         ],
+         "parts": [
+          {
+           "words": "confrere",
+           "at": 63,
+           "gives": "CONFRERE",
+           "note": "taken as written"
+          },
+          {
+           "words": "right",
+           "at": 72,
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Organising an online meeting by using a European network to snare a French colleague.",
-     "walkthrough": "CONFRERE loses one R to give CONFERE; with E, NET, C and LE that makes fourteen letters to rearrange into TELECONFERENCE.",
-     "definitionFit": "A discussion held remotely over phone lines or the internet is a meeting conducted in cyberspace."
+     "surface": "Instructions for setting up a European network to reach a French colleague.",
+     "walkthrough": "'setting up' turns EC + NET into TENCE; 'out' removes R (right) from CONFRERE to give CONFERE; TENCE catches LE + CONFERE.",
+     "definitionFit": "A teleconference is a meeting held among people linked by telephone or online connection."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "catch"
+     "misdirectedWord": "net"
     }
    }
   },

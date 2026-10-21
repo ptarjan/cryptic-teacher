@@ -737,35 +737,55 @@
      "parts": [
       {
        "words": "ace",
+       "at": 25,
        "gives": "A",
-       "note": "A = ace in cards"
+       "note": "an ace in cards counts as one, written A"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "smuggling"
+         "text": "smuggling",
+         "at": 39,
+         "note": "smuggling means carrying something hidden inside, so one piece goes within the other"
         }
        ],
        "parts": [
         {
          "words": "smugglers",
+         "at": 29,
          "gives": "MULES",
-         "note": "drug mules carry contraband"
+         "note": "mules are people who smuggle drugs across borders"
         },
         {
-         "words": "a lot of marijuana",
-         "gives": "PO",
-         "note": "POT without its T, tucked in MULES"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "a lot of",
+           "at": 49,
+           "note": "a lot of, but not all, so the final letter of the slang word is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "marijuana",
+           "at": 58,
+           "gives": "POT",
+           "note": "pot is slang for marijuana"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A narcotics story: an expert gang of couriers hiding a stash of cannabis.",
-     "walkthrough": "The drug-running scene is consistent throughout, but the drugs in the definition are medicines in sealed glass phials.",
-     "definitionFit": "A descriptive definition: ampoules are small sealed glass vials that hold injectable medicine."
+     "surface": "A tale of drug mules carrying cannabis across a border.",
+     "walkthrough": "'drugs' tempts you to the cannabis itself; the definition is the containers, and a mule is slang for a drug courier.",
+     "definitionFit": "Ampoules are small sealed glass vials used to hold injectable medicines."
     },
     "features": {
      "answerInScene": true,
