@@ -688,58 +688,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaders having deserted",
+       "at": 23,
+       "note": "each word's leader, its first letter, has gone"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "leaders having deserted",
-         "note": "leaders are the front letters, and having deserted means they have left each word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "DUP",
-         "note": "taken as written; the DUP is the Democratic Unionist Party of Northern Ireland"
-        },
-        {
-         "gives": "D"
-        }
-       ]
+       "words": "DUP, the old",
+       "at": 10,
+       "note": "taken as written: the three words DUP, the and old"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "the",
-         "note": "taken as written"
-        },
-        {
-         "gives": "T"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "old",
-         "note": "taken as written"
-        },
-        {
-         "gives": "O"
-        }
-       ]
+       "gives": "DTO"
       }
      ]
     },
     "explanation": {
-     "surface": "A political story: the DUP propped up a government, but its veteran leaders walked out.",
-     "definitionFit": "Upheld is the past tense of uphold, meaning backed, sustained or kept from falling."
+     "surface": "A political note: the DUP, Northern Ireland's Democratic Unionist Party, backed something even after its veteran leaders walked out.",
+     "walkthrough": "Drop the first letters of DUP, THE and OLD to leave UP, HE and LD.",
+     "definitionFit": "Upheld is the past tense of uphold, meaning backed or maintained, a synonym of supported."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "leaders"
     }
@@ -1340,31 +1314,50 @@
      "indicators": [
       {
        "text": "without",
-       "note": "without here means outside, so the doubled word surrounds the number"
+       "at": 24,
+       "note": "without in its old sense of outside: the pair of words sits outside the letter"
       }
      ],
      "parts": [
       {
-       "words": "working repeatedly",
-       "gives": "ONON",
-       "note": "on means working, as a switched-on machine, taken twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 13,
+         "note": "the word for working is written twice in a row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "working",
+         "at": 5,
+         "gives": "ON",
+         "note": "a machine that is working is on"
+        },
+        {
+         "gives": "ON"
+        }
+       ]
       },
       {
        "words": "one",
+       "at": 32,
        "gives": "I",
        "note": "I is the Roman numeral one"
       }
      ]
     },
     "explanation": {
-     "surface": "A light bulb keeps working even with one part missing.",
-     "walkthrough": "'Without' looks like it means lacking, but it is the old sense of outside.",
-     "definitionFit": "An onion is a vegetable that grows as a bulb, the layered underground storage organ of the plant."
+     "surface": "A light bulb that keeps working without any help.",
+     "walkthrough": "'Without' looks like 'lacking' but means outside here, so ON ON wraps I. 'Bulb' suggests a lamp; it is the vegetable.",
+     "definitionFit": "An onion is a plant bulb, eaten as a vegetable."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "without"
+     "joke": "pun",
+     "misdirectedWord": "Bulb"
     }
    }
   },

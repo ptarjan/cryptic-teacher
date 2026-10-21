@@ -686,50 +686,65 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the outer word goes round the chess pieces"
+       "at": 37,
+       "note": "the word for odd goes about the other letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "move",
        "indicators": [
         {
-         "text": "I moved",
-         "note": "moving one letter rearranges the word, so the I shifts to a new place"
+         "text": "moved",
+         "at": 72,
+         "note": "the letter I is moved to a new place within the word"
         }
        ],
        "parts": [
         {
-         "words": "what's odd",
+         "words": "odd",
+         "at": 33,
          "gives": "PECULIAR",
          "note": "peculiar means odd"
         },
         {
-         "words": "king",
-         "gives": "R",
-         "note": "R for rex, king"
-        },
-        {
-         "words": "pawn",
-         "gives": "P",
-         "note": "P is the chess notation for pawn"
+         "words": "I",
+         "at": 70
         }
        ]
       },
       {
-       "words": "finish",
-       "gives": "END",
-       "note": "the end is the finish"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "king",
+         "at": 43,
+         "gives": "R",
+         "note": "R, from the Latin rex, is king"
+        },
+        {
+         "words": "pawn",
+         "at": 52,
+         "gives": "P",
+         "note": "P is the chess notation for pawn"
+        },
+        {
+         "words": "finish",
+         "at": 57,
+         "gives": "END",
+         "note": "the end is the finish"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chess puzzle: what is strange about king and pawn endings after a move?",
-     "walkthrough": "Only one letter moves in the odd word, one place earlier; the chess pieces then slot in after its first two letters.",
-     "definitionFit": "A rook travels along ranks and files, which meet at right angles, so its moves can be at right angles to each other."
+     "surface": "A chess puzzle asking what is strange about the king and pawn endgame.",
+     "walkthrough": "PECULIAR with its I moved forward becomes PEICULAR, which goes about R, P and END. A rook moves along straight lines at right angles.",
+     "definitionFit": "A rook travels along ranks and files, which meet at right angles, so its moves are perpendicular to each other."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "finish"
     }
