@@ -55,6 +55,12 @@ _t = {"vlm": "ACROSS\n1 Old fashioned dance (5)\n3 Wet weather in town (4)\nDOWN
 check("two blanks, one no reading has: no pick asked", True, f.unpickable(_t, {"2-down": "x", "1-across": "y"}, 30))
 check("both blanks have readings: picked", False, f.unpickable(_t, {"4-down": "x", "1-across": "y"}, 30))
 check("one blank no reading has: nothing was asked anyway", False, f.unpickable(_t, {"2-down": "x"}, 30))
+# A bare light the readers agree on is laid before the pick; one with a lost space after a stop is still asked.
+check("a sentence end glued to the next word is left to the pick", True,
+      bool(f.SENTENCE_GLUED.search("Sign of what happened.A small quantity")))
+check("a clue with its spaces is laid early", False,
+      bool(f.SENTENCE_GLUED.search("Sign of what happened. A small quantity")))
+check("a stop inside an abbreviation is not a glue", False, bool(f.SENTENCE_GLUED.search("Exam, e.g. in Paris")))
 
 check("disagreeing: none named in the verdict", set(), f.disagreeing({}))
 check("disagreeing: the lights the verdict names", {"13-across", "8-down"},
