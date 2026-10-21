@@ -276,30 +276,47 @@
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "spelt": "ACNE",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "announced locally",
-       "note": "said as a Londoner says it, dropping the H"
+       "text": "locally",
+       "at": 37,
+       "note": "locally means in the local Cockney accent, which drops the initial H"
       }
      ],
      "parts": [
       {
-       "words": "London borough",
-       "gives": "ACKNEY",
-       "note": "Hackney, with the H dropped in Cockney speech"
+       "op": "homophone",
+       "spelt": "HACNE",
+       "indicators": [
+        {
+         "text": "announced",
+         "at": 27,
+         "note": "announced means spoken, so the borough's name is heard, as H plus a word for spots"
+        }
+       ],
+       "parts": [
+        {
+         "words": "London borough",
+         "at": 12,
+         "gives": "HACKNEY",
+         "note": "Hackney is a borough of east London"
+        }
+       ]
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "News of a disease outbreak in one London district, told in the local dialect.",
-     "walkthrough": "Hackney is a borough of east London; Cockneys traditionally drop the H, so 'locally' it comes out as 'ACKNEY, which sounds like ACNE.",
-     "definitionFit": "A plain synonym: acne comes up as a sudden eruption of spots, so an outbreak."
+     "surface": "An epidemic in an East London district is reported by locals.",
+     "walkthrough": "Cockneys from east London traditionally drop their aitches, so HACKNEY is said as ACKNEY, which sounds like the answer.",
+     "definitionFit": "Acne is an outbreak of spots on the skin, typically in adolescence."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Outbreak"
     }
@@ -970,52 +987,49 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "drops in"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "words": "on",
+       "at": 20,
+       "gives": "RE",
+       "note": "re means on or concerning"
+      },
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "drops in",
+         "at": 11,
+         "note": "drops in means the letter falls lower in the word, in this down clue"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "on",
-           "gives": "RE",
-           "note": "re = on, about"
-          },
-          {
-           "words": "President",
-           "gives": "ERDOGAN",
-           "note": "Recep Tayyip Erdoğan, President of Turkey; take out its R"
-          }
-         ]
+         "words": "President",
+         "at": 23,
+         "gives": "ERDOGAN",
+         "note": "Recep Tayyip Erdogan is the President of Turkey"
         },
         {
+         "words": "Republican",
+         "at": 0,
          "gives": "R"
         }
        ]
-      },
-      {
-       "words": "Republican",
-       "gives": "R",
-       "note": "R = Republican, dropped back in two places lower"
       }
      ]
     },
     "explanation": {
-     "surface": "A Republican drops in on the President to look at some pipes.",
-     "walkthrough": "The R already in ERDOGAN slides down: ERDOGAN becomes EDORGAN. The question mark flags the definition: a reed organ's reeds are, loosely, a collection of pipes.",
-     "definitionFit": "A reed organ, such as a harmonium, sounds by reeds, which are a kind of pipe."
+     "surface": "An American politician pays a visit to a head of state about his pipe collection.",
+     "walkthrough": "In a down clue a letter that drops moves further down the word. The question mark flags that a reed organ is not literally a collection of pipes.",
+     "definitionFit": "A reed organ, such as a harmonium, makes its sound from a set of vibrating reeds rather than pipes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "drops"
+     "joke": "pun",
+     "misdirectedWord": "pipes"
     }
    }
   },

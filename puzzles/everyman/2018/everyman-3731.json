@@ -293,30 +293,51 @@
      "parts": [
       {
        "words": "Offence",
+       "at": 0,
        "gives": "SIN",
-       "note": "a sin is a moral offence"
+       "note": "a sin is an offence"
       },
       {
        "words": "Opening",
+       "at": 9,
        "gives": "GAP",
        "note": "a gap is an opening"
       },
       {
        "words": "old",
-       "gives": "O",
-       "note": "standard abbreviation for old"
+       "at": 17,
+       "gives": "O"
       },
       {
-       "words": "wine, not having one",
-       "gives": "RESLING",
-       "note": "Riesling, a white wine, minus its I"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not having",
+         "at": 27,
+         "note": "not having means a letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wine",
+         "at": 21,
+         "gives": "RIESLING",
+         "note": "Riesling is a white wine"
+        },
+        {
+         "words": "one",
+         "at": 38,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Is it a crime to open an old bottle of wine without offering a cocktail?",
-     "walkthrough": "Riesling is a white grape and wine; removing the I (one) leaves RESLING to finish the drink's name.",
-     "definitionFit": "The Singapore Sling is a gin-based mixed drink created at Raffles Hotel."
+     "surface": "A wrongdoer opens a bottle of vintage wine yet goes without a drink.",
+     "walkthrough": "RIESLING 'not having' I leaves RESLING.",
+     "definitionFit": "The Singapore Sling is a gin-based mixed drink created at Raffles Hotel in Singapore."
     },
     "features": {
      "answerInScene": true,
@@ -387,41 +408,60 @@
      "parts": [
       {
        "words": "Loudly",
+       "at": 0,
        "gives": "F",
-       "note": "f is forte, the musical mark for loud"
+       "note": "F is forte, the musical mark for loudly"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "to secure",
-         "note": "to secure something is to hold it fast, so 'working' wraps round the trimmed 'prize'"
+         "at": 15,
+         "note": "to secure means to hold something tightly inside"
         }
        ],
        "parts": [
         {
          "words": "working",
+         "at": 7,
          "gives": "ON",
-         "note": "a machine that is on is working"
+         "note": "on means working, as a machine is on"
         },
         {
-         "words": "prize, endlessly",
-         "gives": "REWAR",
-         "note": "reward without its last letter D"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endlessly",
+           "at": 32,
+           "note": "endlessly means the final letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "prize",
+           "at": 25,
+           "gives": "REWARD",
+           "note": "a reward is a prize"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone noisily busy trying to win a prize, never resting.",
-     "walkthrough": "'Alert' looks like an adjective meaning watchful but is the verb, to warn in advance.",
-     "definitionFit": "To forewarn is to give someone advance notice of danger, a verb synonym."
+     "surface": "A noisy team works to win a prize while staying watchful.",
+     "walkthrough": "'Loudly' looks like a homophone signal, but it is the musical abbreviation F, for forte.",
+     "definitionFit": "To forewarn is to warn in advance, so it means to alert someone before something happens."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "alert"
+     "misdirectedWord": "Loudly"
     }
    }
   },
@@ -1389,32 +1429,53 @@
      "op": "charade",
      "parts": [
       {
-       "words": "clue, not hard",
-       "gives": "INT",
-       "note": "hint without its H"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 14,
+         "note": "not means a letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clue",
+         "at": 8,
+         "gives": "HINT",
+         "note": "a hint is a clue"
+        },
+        {
+         "words": "hard",
+         "at": 18,
+         "gives": "H",
+         "note": "H is the pencil abbreviation for hard"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "taken back",
-         "note": "taken back means returned the way it came, so 'otherwise' runs backwards"
+         "at": 34,
+         "note": "taken back means the letters are read backwards"
         }
        ],
        "parts": [
         {
          "words": "otherwise",
+         "at": 24,
          "gives": "OR",
-         "note": "or else means otherwise"
+         "note": "or means otherwise, as in do it or else"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A first crossword clue that is easy, or else withdrawn.",
-     "walkthrough": "A clue is a HINT; H is the pencil-grade abbreviation for hard.",
-     "definitionFit": "An intro is an informal short form for an introduction, the opening part of something."
+     "surface": "A first crossword clue isn't difficult, or else it is withdrawn.",
+     "walkthrough": "HINT without H gives INT; OR 'taken back' gives RO.",
+     "definitionFit": "An intro is an introduction, the opening passage of a piece of music or writing."
     },
     "features": {
      "answerInScene": false,

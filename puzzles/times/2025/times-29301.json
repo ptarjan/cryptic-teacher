@@ -1448,29 +1448,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "winter stripped",
-       "gives": "INTE",
-       "note": "WINTER without its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "stripped",
+         "at": 24,
+         "note": "stripped means the outer letters of winter are peeled away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "winter",
+         "at": 17
+        }
+       ]
       },
       {
        "words": "navy",
+       "at": 33,
        "gives": "RN",
-       "note": "RN, the Royal Navy"
+       "note": "RN is the Royal Navy"
       },
       {
        "words": "vessel",
+       "at": 38,
        "gives": "SHIP",
        "note": "a ship is a vessel"
       }
      ]
     },
     "explanation": {
-     "surface": "A trainee sailor's winter job aboard a stripped-down naval vessel.",
-     "walkthrough": "Navy and vessel make a naval picture, but the answer is office work experience.",
-     "definitionFit": "A plain synonym: an internship is the post an intern, a trainee, holds."
+     "surface": "A junior is posted for the cold season on a bare naval ship.",
+     "walkthrough": "'Stripped' takes the outside letters off WINTER to leave INTE; 'in' is just a link word.",
+     "definitionFit": "An internship is a period of work experience taken by a trainee or student."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "stripped"
     }
@@ -1607,31 +1620,49 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places one piece within another, so the mistake sits inside the shortened recording"
+       "at": 8,
+       "note": "in tells us one piece sits inside the other"
       }
      ],
      "parts": [
       {
-       "words": "recording tailless",
-       "gives": "TAPIN",
-       "note": "TAPING (recording) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailless",
+         "at": 21,
+         "note": "tailless means the final letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recording",
+         "at": 11,
+         "gives": "TAPING",
+         "note": "taping is recording"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       },
       {
        "words": "Mistake",
+       "at": 0,
        "gives": "ERR",
        "note": "to err is to make a mistake"
       }
      ]
     },
     "explanation": {
-     "surface": "A slip-up while recording a reptile that has lost its tail.",
-     "walkthrough": "Tailless seems to describe the reptile, as lizards shed tails; it acts on the recording.",
-     "definitionFit": "A definition by example: a terrapin is a small freshwater turtle, one kind of reptile."
+     "surface": "A slip while filming a reptile without its tail.",
+     "walkthrough": "'Recording' reads as a noun in the surface, but here it is the verb form, as in putting on tape.",
+     "definitionFit": "A terrapin is a small freshwater turtle, which is a reptile."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tailless"
+     "misdirectedWord": "recording"
     }
    }
   },

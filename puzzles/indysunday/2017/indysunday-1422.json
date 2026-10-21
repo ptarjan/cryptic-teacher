@@ -795,8 +795,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "about",
-       "note": "the quote goes around the men"
+       "text": "all retired",
+       "at": 22,
+       "note": "all retired means the whole thing withdraws, read backwards"
       }
      ],
      "parts": [
@@ -804,32 +805,35 @@
        "op": "container",
        "indicators": [
         {
-         "text": "all retired",
-         "note": "everything withdraws, going back, so the whole is read backwards"
+         "text": "about",
+         "at": 11,
+         "note": "about means surrounding the other piece"
         }
        ],
        "parts": [
         {
          "words": "quote",
+         "at": 5,
          "gives": "CITE",
-         "note": "to quote is to cite"
+         "note": "to cite is to quote"
         },
         {
          "words": "men",
+         "at": 17,
          "gives": "OR",
-         "note": "OR = other ranks, ordinary soldiers"
+         "note": "OR, other ranks, means ordinary soldiers or men"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A saucy line about soldiers who have all left the service.",
-     "walkthrough": "'Retired' suggests pensioners; in wordplay it means going back, and 'all' makes the whole assembly turn round, not just the men.",
-     "definitionFit": "Erotic means sexy, arousing desire."
+     "surface": "Someone quotes something racy about a group of men who have all left work.",
+     "walkthrough": "'Retired' looks like men leaving work, but with 'all' it turns the whole construction round. OR, other ranks, is army shorthand for ordinary soldiers.",
+     "definitionFit": "Erotic means arousing sexual desire, a near synonym of sexy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "retired"
     }
@@ -1312,29 +1316,42 @@
      "indicators": [
       {
        "text": "having removed",
-       "note": "the named letter is taken away"
+       "at": 21,
+       "note": "having removed means a letter is taken away"
       }
      ],
      "parts": [
       {
        "words": "stuffing",
+       "at": 11,
        "gives": "PADDING",
-       "note": "padding = stuffing"
+       "note": "padding is stuffing, as in a cushion"
       },
       {
-       "words": "pigeon's head",
-       "gives": "P",
-       "note": "the first letter of pigeon, removed"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "at": 45,
+         "note": "head picks the first letter of pigeon"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pigeon's",
+         "at": 36
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A cook stuffs a pigeon after cutting off its head.",
-     "walkthrough": "The surface is a recipe, but the stuffing is PADDING, as in a cushion, and the pigeon only supplies its P.",
-     "definitionFit": "A plain synonym: putting in an extra ingredient or a remark is adding it."
+     "walkthrough": "PADDING loses P, the head of pigeon.",
+     "definitionFit": "Adding means including or inserting something extra, the same sense as putting in."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "stuffing"
     }
@@ -1823,41 +1840,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "repelled",
-       "note": "driven back, so read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "repelled",
+         "at": 15,
+         "note": "repelled means driven back, so the letters are read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "flatulence",
-         "gives": "SAG",
-         "note": "gas = flatulence"
-        },
-        {
          "words": "editor",
-         "gives": "ED",
-         "note": "ED, turned back"
+         "at": 8,
+         "gives": "ED"
         }
        ]
+      },
+      {
+       "words": "flatulence",
+       "at": 29,
+       "gives": "GAS",
+       "note": "gas is flatulence"
       }
      ]
     },
     "explanation": {
-     "surface": "An artist drives away his editor by breaking wind.",
-     "walkthrough": "Edgar Degas was the French painter of ballet dancers. The surface's joke is literal: the editor is repelled by the gas.",
-     "definitionFit": "A definition by example: the French Impressionist famous for ballet dancers is one painter among many."
+     "surface": "An editor is driven away by someone's wind.",
+     "walkthrough": "'Repelled' means driven back, which is why it turns the editor round.",
+     "definitionFit": "Edgar Degas was a French artist famous for his paintings of ballet dancers."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "repelled"
+     "misdirectedWord": "flatulence"
     }
    }
   }
