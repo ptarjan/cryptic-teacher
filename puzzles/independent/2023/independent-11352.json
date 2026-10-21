@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "How much? That's going to hurt",
     "enumeration": "6"
    },
-   "solution": "DAMAGE"
+   "solution": "DAMAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How much?",
+      "at": 0,
+      "meaning": "first meaning: 'what's the ...?' is a colloquial way of asking the cost"
+     },
+     {
+      "text": "That's going to hurt",
+      "at": 10,
+      "meaning": "second meaning: harm, something that will hurt"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two halves read like a customer wincing at a bill; each half is a separate meaning of the same word.",
+     "definitionFit": "Damage is informal for the price of something, and also means injury or harm done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hurt"
+    }
+   }
   },
   {
    "number": 2,
@@ -55,7 +82,59 @@
      }
     ]
    },
-   "solution": "ONTHERUN"
+   "solution": "ONTHERUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Escaping",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "'s trailing",
+       "at": 24,
+       "note": "the rearranged hunter is trailing, coming behind, the word for leg"
+      }
+     ],
+     "parts": [
+      {
+       "words": "leg",
+       "at": 36,
+       "gives": "ON",
+       "note": "in cricket the leg side is also called the on side, so leg gives ON"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "deranged",
+         "at": 9,
+         "note": "deranged means disordered, so the letters of hunter are put out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hunter",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fleeing, unhinged hunter drags an injured leg behind him.",
+     "walkthrough": "In cricket the leg side of the field is also called the on side, which is why leg gives ON.",
+     "definitionFit": "Someone on the run is fleeing capture, so the phrase is an adjectival equivalent of escaping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,7 +148,90 @@
     "text": "Medic in Austria on vacation, pulled up kinky sex trousers — spicy stuff!",
     "enumeration": "6"
    },
-   "solution": "MADRAS"
+   "solution": "MADRAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spicy stuff",
+      "at": 61
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trousers",
+       "at": 50,
+       "note": "used as a verb: to trouser is to pocket, so these letters take in the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "pulled up",
+         "at": 30,
+         "note": "in a down clue, pulled up means the letters are read upwards, in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kinky sex",
+         "at": 40,
+         "gives": "SM",
+         "note": "S and M, sadomasochism, is kinky sex"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 6,
+         "note": "in places the medic inside the emptied country"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "on vacation",
+           "at": 17,
+           "note": "on vacation means emptied out, leaving only the first and last letters of Austria"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Austria",
+           "at": 9
+          }
+         ]
+        },
+        {
+         "words": "Medic",
+         "at": 0,
+         "gives": "DR",
+         "note": "DR is short for doctor"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lurid tabloid tale of a doctor on holiday in Austria with spicy goings-on.",
+     "walkthrough": "AUSTRIA emptied leaves AA, with DR in it giving ADRA. SM reversed by 'pulled up' gives MS, which 'trousers' (pockets) ADRA.",
+     "definitionFit": "Madras is a hot curry, so it is a fairly spicy dish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +245,49 @@
     "text": "Overshadow telecoms provider claiming high speeds",
     "enumeration": "7"
    },
-   "solution": "ECLIPSE"
+   "solution": "ECLIPSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Overshadow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "claiming",
+       "at": 29,
+       "note": "claiming means taking hold of, so the provider's letters go around the speeds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "telecoms provider",
+       "at": 11,
+       "gives": "EE",
+       "note": "EE is a British mobile phone network"
+      },
+      {
+       "words": "high speeds",
+       "at": 38,
+       "gives": "CLIPS",
+       "note": "clips are fast paces, as in 'going at a fair clip'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A phone company boasting about fast broadband outdoes its rivals.",
+     "walkthrough": "EE is a British mobile network; a clip is a brisk speed, so 'high speeds' gives CLIPS.",
+     "definitionFit": "To eclipse something is to outshine it or put it in the shade, as the Moon blocks the Sun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "provider"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +307,62 @@
      }
     ]
    },
-   "solution": "TRYOUT"
+   "solution": "TRYOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "experiment",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 10,
+       "note": "following means the batting term comes after the shortened word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unsuccessful",
+         "at": 20,
+         "note": "unsuccessful means without a win, so those letters are dropped from wintry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wintry",
+         "at": 33
+        },
+        {
+         "gives": "WIN"
+        }
+       ]
+      },
+      {
+       "words": "On strike",
+       "at": 0,
+       "gives": "OUT",
+       "note": "workers on strike are out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Industrial action follows a failed attempt at something in winter weather.",
+     "walkthrough": "'Unsuccessful' is read literally as 'without a win', the letters taken from the weather word.",
+     "definitionFit": "A tryout is a trial run or test to see how something performs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wintry"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +376,57 @@
     "text": "New appearance after badly bruised facial feature",
     "enumeration": "8"
    },
-   "solution": "SIDEBURN"
+   "solution": "SIDEBURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "facial feature",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "appearance after",
+       "at": 4,
+       "note": "the abbreviation for new makes its appearance after the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "at": 21,
+         "note": "badly shows the letters of bruised are knocked out of shape"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bruised",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "New",
+       "at": 0,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows a fresh look after a face has been badly bruised.",
+     "definitionFit": "Sideburns are strips of whiskers grown down the side of the face in front of the ears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "appearance"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +446,59 @@
      }
     ]
    },
-   "solution": "BARNDANCE"
+   "solution": "BARNDANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Traditional social event",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 49,
+       "note": "by places the lawyers beside the rearranged word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lawyers",
+       "at": 52,
+       "gives": "BAR",
+       "note": "the Bar is the body of barristers"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unfortunately",
+         "at": 28,
+         "note": "unfortunately suggests things went wrong, so the letters of canned are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "canned",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A village get-together is sadly cancelled on legal advice.",
+     "walkthrough": "The Bar is the collective name for barristers, British courtroom lawyers.",
+     "definitionFit": "A barn dance is a country gathering with folk dancing, often held in a farm building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "canned"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +512,67 @@
     "text": "Head boy initially introduces rule over headphones",
     "enumeration": "5"
    },
-   "solution": "BRAIN"
+   "solution": "BRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 9,
+         "note": "initially takes just the opening letter of boy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boy",
+         "at": 5,
+         "note": "first letter of boy"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "RAIN",
+       "indicators": [
+        {
+         "text": "over headphones",
+         "at": 35,
+         "note": "what comes over headphones is heard, so the word is taken by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rule",
+         "at": 30,
+         "gives": "REIGN",
+         "note": "to reign is to rule"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A head boy brings in a rule about wearing headphones.",
+     "walkthrough": "B, the start of 'boy', then REIGN heard 'over headphones', which sounds like RAIN.",
+     "definitionFit": "The brain sits in the head, and head is used informally for intellect or mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "headphones"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +586,41 @@
     "text": "Evacuation chairs sat abandoned",
     "enumeration": "9"
    },
-   "solution": "CATHARSIS"
+   "solution": "CATHARSIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Evacuation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "abandoned",
+       "at": 22,
+       "note": "abandoned means wild and unrestrained, so the letters are thrown about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chairs sat",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A building is evacuated, leaving the chairs where people sat.",
+     "walkthrough": "'Abandoned' looks like part of the evacuation scene but signals the anagram.",
+     "definitionFit": "Catharsis is a purging or emotional release, a clearing out of feelings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +634,70 @@
     "text": "Discontented player receives zero points for difficult question",
     "enumeration": "5"
    },
-   "solution": "POSER"
+   "solution": "POSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "difficult question",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receives",
+       "at": 20,
+       "note": "receives means the outer letters take the others inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Discontented",
+         "at": 0,
+         "note": "with its contents removed, only the first and last letters of player remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "player",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "zero",
+         "at": 29,
+         "gives": "O",
+         "note": "O looks like zero"
+        },
+        {
+         "words": "points",
+         "at": 34,
+         "gives": "SE",
+         "note": "S and E are compass points, south and east"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unhappy sportsman scoring nothing faces a tough question.",
+     "walkthrough": "'Discontented' empties PLAYER to PR, which receives O and SE.",
+     "definitionFit": "A poser is a puzzling problem or tricky question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Discontented"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +711,53 @@
     "text": "Mediterranean product is of ultimately Greek character",
     "enumeration": "4"
    },
-   "solution": "FETA"
+   "solution": "FETA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mediterranean product",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 28,
+         "note": "ultimately takes just the final letter of of"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of",
+         "at": 25,
+         "note": "last letter of of"
+        }
+       ]
+      },
+      {
+       "words": "Greek character",
+       "at": 39,
+       "gives": "ETA",
+       "note": "eta is a letter of the Greek alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Mediterranean export is said to be Greek in character at heart.",
+     "walkthrough": "'Greek character' sounds like national temperament but is the letter ETA.",
+     "definitionFit": "Feta is a crumbly white cheese from Greece, a product of the Mediterranean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +777,49 @@
      }
     ]
    },
-   "solution": "DESRES"
+   "solution": "DESRES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nice place to live",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Wanting",
+       "at": 13,
+       "note": "wanting means lacking, so the letter for one is missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Aspirations",
+       "at": 0,
+       "gives": "DESIRES",
+       "note": "aspirations are desires"
+      },
+      {
+       "words": "one",
+       "at": 21,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dream of a lovely home, minus one thing.",
+     "walkthrough": "DESIRES without I gives DESRES, estate-agent shorthand for a desirable residence.",
+     "definitionFit": "Des res is estate-agent jargon for a desirable residence, an attractive home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Aspirations"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +833,50 @@
     "text": "Range of muscle displayed in David Gilmour's action?",
     "enumeration": "8"
    },
-   "solution": "SPECTRUM"
+   "solution": "SPECTRUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Range",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "displayed in",
+       "at": 16,
+       "note": "displayed in puts the muscle on show inside the guitarist's action"
+      }
+     ],
+     "parts": [
+      {
+       "words": "David Gilmour's action",
+       "at": 29,
+       "gives": "STRUM",
+       "note": "Gilmour is Pink Floyd's guitarist, and a guitarist strums"
+      },
+      {
+       "words": "muscle",
+       "at": 9,
+       "gives": "PEC",
+       "note": "pec is short for pectoral muscle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about Pink Floyd's guitarist showing a range of muscle when playing.",
+     "walkthrough": "David Gilmour is Pink Floyd's guitarist; the band's 'Dark Side of the Moon' cover shows a light spectrum, hence the question mark.",
+     "definitionFit": "A spectrum is a full range or scale, as of colours or opinions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "action"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +890,59 @@
     "text": "Knowledgeable person at university cutting grass area for dragonflies",
     "enumeration": "7"
    },
-   "solution": "ODONATA"
+   "solution": "ODONATA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dragonflies",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cutting",
+         "at": 35,
+         "note": "cutting means the don slices into the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grass",
+         "at": 43,
+         "gives": "OAT",
+         "note": "oat is a cereal grass"
+        },
+        {
+         "words": "Knowledgeable person at university",
+         "at": 0,
+         "gives": "DON",
+         "note": "a don is a university teacher"
+        }
+       ]
+      },
+      {
+       "words": "area",
+       "at": 49,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar mows a grassy patch where dragonflies live.",
+     "walkthrough": "A don is a British university lecturer, especially at Oxford or Cambridge.",
+     "definitionFit": "Odonata is the insect order containing dragonflies and damselflies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +956,64 @@
     "text": "Angled face hides endless suffering",
     "enumeration": "8"
    },
-   "solution": "DIAGONAL"
+   "solution": "DIAGONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Angled",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hides",
+       "at": 12,
+       "note": "hides means the face's letters go around the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "face",
+       "at": 7,
+       "gives": "DIAL",
+       "note": "a dial is the face of a clock or watch"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 18,
+         "note": "endless means the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suffering",
+         "at": 26,
+         "gives": "AGONY",
+         "note": "agony is suffering"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tilted face conceals its never-ending pain.",
+     "walkthrough": "AGONY loses its end, giving AGON, hidden by DIAL.",
+     "definitionFit": "A diagonal line runs at a slant, so the adjective means slanting or angled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1027,60 @@
     "text": "Rhythm method primarily interrupts coupling",
     "enumeration": "4"
    },
-   "solution": "TIME"
+   "solution": "TIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rhythm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupts",
+       "at": 24,
+       "note": "interrupts means the letter breaks into the coupling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coupling",
+       "at": 35,
+       "gives": "TIE",
+       "note": "a tie is a link or coupling"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 14,
+         "note": "primarily takes the first letter of method"
+        }
+       ],
+       "parts": [
+        {
+         "words": "method",
+         "at": 7,
+         "note": "first letter of method"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky reference to the rhythm method of contraception during lovemaking.",
+     "definitionFit": "In music, time is the metre or beat pattern, so it stands for rhythm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coupling"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1094,81 @@
     "text": "Scandal, at first informal chat, going about concerning Saint Nicholas?",
     "enumeration": "7"
    },
-   "solution": "PARSONS"
+   "solution": "PARSONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nicholas?",
+      "at": 62
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going about",
+         "at": 33,
+         "note": "going about means turning round, so these letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "at first",
+             "at": 9,
+             "note": "at first takes only the opening letter of scandal"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Scandal",
+             "at": 0,
+             "note": "first letter of scandal"
+            }
+           ]
+          },
+          {
+           "words": "informal chat",
+           "at": 18,
+           "gives": "RAP",
+           "note": "rap is informal talk"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "concerning",
+       "at": 45,
+       "gives": "ON",
+       "note": "on means about or concerning"
+      },
+      {
+       "words": "Saint",
+       "at": 56,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about Saint Nicholas, the patron of Christmas.",
+     "walkthrough": "'Saint Nicholas' looks like one name, but Saint is S and Nicholas is the definition. S + RAP turned 'going about' gives PARS.",
+     "definitionFit": "Nicholas Parsons was the long-serving British host of the radio panel game Just a Minute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Saint"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1182,68 @@
     "text": "Completely cover most of planet with tea supply",
     "enumeration": "8"
    },
-   "solution": "SATURATE"
+   "solution": "SATURATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Completely cover",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 17,
+         "note": "most of drops the final letter of the planet"
+        }
+       ],
+       "parts": [
+        {
+         "words": "planet",
+         "at": 25,
+         "gives": "SATURN",
+         "note": "Saturn is a planet"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "supply",
+         "at": 41,
+         "note": "supply in the sense of supple, flexibly, so the letters of tea bend into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tea",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to coat a large part of a planet with tea.",
+     "walkthrough": "SATURN loses its last letter to give SATUR, and TEA rearranged ('supply', read as supple-ly) gives ATE.",
+     "definitionFit": "To saturate is to soak something through, covering it entirely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1257,65 @@
     "text": "Hand over hospital department run by useless technocrats originally",
     "enumeration": "7"
    },
-   "solution": "ENTRUST"
+   "solution": "ENTRUST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hand over",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hospital department",
+       "at": 10,
+       "gives": "ENT",
+       "note": "ENT is the ear, nose and throat department"
+      },
+      {
+       "words": "run",
+       "at": 30,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
+      },
+      {
+       "words": "useless",
+       "at": 37,
+       "gives": "US",
+       "note": "U/S, unserviceable, means useless"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 57,
+         "note": "originally takes the first letter of technocrats"
+        }
+       ],
+       "parts": [
+        {
+         "words": "technocrats",
+         "at": 45,
+         "note": "first letter of technocrats"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about passing a hospital unit to incompetent managers to run.",
+     "walkthrough": "US comes from U/S, short for unserviceable, slang for useless.",
+     "definitionFit": "To entrust something is to give it into someone's care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1339,59 @@
      }
     ]
    },
-   "solution": "MANTOMAN"
+   "solution": "MANTOMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In frank and confidential manner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "male",
+       "at": 34,
+       "gives": "M"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hide",
+         "at": 48,
+         "note": "hide means the soldiers' letters go around the nothing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soldiers",
+         "at": 39,
+         "gives": "ANTMAN",
+         "note": "two kinds of soldier: an ANT (a soldier ant) and a MAN (a private)"
+        },
+        {
+         "words": "nothing",
+         "at": 53,
+         "gives": "O",
+         "note": "O is zero, nothing"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Male troops conceal nothing, being frank.",
+     "walkthrough": "'Soldiers' gives two soldiers, ANT (soldier ants) and MAN, which hide O.",
+     "definitionFit": "A man-to-man talk is a candid, private conversation between two people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soldiers"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1405,73 @@
     "text": "Impulsive response, almost very French and to a greater extent not English",
     "enumeration": "6"
    },
-   "solution": "TREMOR"
+   "solution": "TREMOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Impulsive response",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 20,
+         "note": "almost drops the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "very French",
+         "at": 27,
+         "gives": "TRES",
+         "note": "très is French for very"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 63,
+         "note": "not means the English letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to a greater extent",
+         "at": 43,
+         "gives": "MORE",
+         "note": "more means to a greater extent"
+        },
+        {
+         "words": "English",
+         "at": 67,
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sudden reaction, almost too French and more un-English.",
+     "definitionFit": "A tremor is an involuntary trembling, a reflex shudder rather than a chosen act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1485,63 @@
     "text": "Dilutes potential waste product, protecting river",
     "enumeration": "6"
    },
-   "solution": "WATERS"
+   "solution": "WATERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dilutes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protecting",
+       "at": 33,
+       "note": "protecting means the rearranged letters surround the river"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "potential",
+         "at": 8,
+         "note": "potential with product suggests what the letters of waste could be made into, a rearrangement"
+        },
+        {
+         "text": "product",
+         "at": 24,
+         "note": "product as the result of reworking the letters of waste, supporting the anagram"
+        }
+       ],
+       "parts": [
+        {
+         "words": "waste",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "river",
+       "at": 44,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something weakens a possible waste product while shielding a river.",
+     "walkthrough": "WASTE rearranged ('potential product') gives WATES, which protects R.",
+     "definitionFit": "To water a drink down is to thin it, so waters means makes weaker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "product"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1555,45 @@
     "text": "Sound like a bear and sound like a horse?",
     "enumeration": "6"
    },
-   "solution": "WHINNY"
+   "solution": "WHINNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sound like a horse?",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WHINNY",
+     "indicators": [
+      {
+       "text": "Sound like",
+       "at": 0,
+       "note": "sound like means the bear's name is said aloud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a bear",
+       "at": 11,
+       "gives": "WINNIE",
+       "note": "Winnie-the-Pooh is a famous bear"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle asking which noise is both bear-like and horse-like.",
+     "walkthrough": "Winnie, as in Winnie-the-Pooh, is a bear; said aloud it gives the horse's noise.",
+     "definitionFit": "A whinny is the gentle neighing a horse makes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1607,55 @@
     "text": "Thoroughly depraved person returns in secret to Russia",
     "enumeration": "6"
    },
-   "solution": "ROTTER"
+   "solution": "ROTTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thoroughly depraved person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "returns",
+       "at": 27,
+       "note": "returns says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 35,
+         "note": "in says the answer's letters lie inside the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "secret to Russia",
+         "at": 38,
+         "gives": "RETTOR",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain goes back to Russia carrying secrets.",
+     "walkthrough": "The draft left 'in' as a link word, but it is the hidden-word signal: the letters sit in 'secret to Russia', and 'returns' reads them backwards.",
+     "definitionFit": "A rotter is a cad or scoundrel, an old-fashioned word for a bad sort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1669,46 @@
     "text": "Expression of surprise about one's wealth",
     "enumeration": "5"
    },
-   "solution": "MONEY"
+   "solution": "MONEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wealth",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 23,
+       "note": "about means the exclamation goes around the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Expression of surprise",
+       "at": 0,
+       "gives": "MY",
+       "note": "'My!' is an exclamation of surprise"
+      },
+      {
+       "words": "one",
+       "at": 29,
+       "gives": "ONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims in surprise at how rich they are.",
+     "definitionFit": "Money is riches, so the words are close synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1722,60 @@
     "text": "Out of university, uncovered sedatives for judge",
     "enumeration": "9"
    },
-   "solution": "ARBITRATE"
+   "solution": "ARBITRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "judge",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Out of",
+       "at": 0,
+       "note": "out of means the university letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 19,
+         "note": "uncovered strips off the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sedatives",
+         "at": 29,
+         "gives": "BARBITURATES",
+         "note": "barbiturates are sedative drugs"
+        }
+       ]
+      },
+      {
+       "words": "university",
+       "at": 7,
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Students exposed for taking sedatives come before an adjudicator.",
+     "walkthrough": "BARBITURATES loses its outer letters ('uncovered') to give ARBITURATE, then the U goes.",
+     "definitionFit": "To arbitrate is to settle a dispute as an impartial referee would."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1789,40 @@
     "text": "Fraternity member described by team as one-dimensional",
     "enumeration": "5"
    },
-   "solution": "MASON"
+   "solution": "MASON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fraternity member",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "described by",
+       "at": 18,
+       "note": "described in the sense of outlined, enclosed, so the answer sits inside these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "team as one-dimensional",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A member of a brotherhood is dismissed by his teammates as shallow.",
+     "definitionFit": "Freemasons belong to a fraternal order, so a Mason is a brother of that society."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "described"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1846,52 @@
      }
     ]
    },
-   "solution": "USANDTHEM"
+   "solution": "USANDTHEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Two parties polarised",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cuts",
+       "at": 37,
+       "note": "cuts means the Democrat letter slices into the anthem"
+      },
+      {
+       "text": "in half",
+       "at": 63,
+       "note": "in half says the cut is made at the middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Star Spangled Banner",
+       "at": 42,
+       "gives": "USANTHEM",
+       "note": "it is the US national anthem"
+      },
+      {
+       "words": "Democrat",
+       "at": 28,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A divisive political spat after a Democrat cuts the national anthem short.",
+     "definitionFit": "Us and them describes a divided outlook with two opposing camps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cuts"
+    }
+   }
   }
  ]
 }
