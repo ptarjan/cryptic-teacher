@@ -1303,6 +1303,10 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
                 break
     if notes:
         _rekey(notes, tree)
+    if notes and not [1 for s, k in _spans(tree, True) if "note" not in s]:
+        # Every span has its note: a leftover is a stray extra (the commonest 'name no
+        # span' refusal in the annotate bag), and dropping it loses nothing.
+        notes.clear()
     if notes:
         keys = [s[k] for s, k in _spans(tree, True) if "note" not in s]
         raise WordplayError(f"notes {sorted(notes)} name no span of the wordplay; key each "
