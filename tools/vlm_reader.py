@@ -1027,6 +1027,53 @@ def read_all(images):
     return out
 
 
+#: A column box (page pixels) read again for another crop window of the same page, within
+#: this overlap (intersection over union) of one already read, is not asked again: the window
+#: loop re-cuts the same print a few pixels apart (FT 1980-10-25: the first column 746x2002,
+#: 754x2018 and 746x2004 in three windows, the second 744x1166 and 750x1170, each a separate
+#: ask of ~10 s for the same words). 0.95 is a margin of ~15 px on a 800 px column.
+NEAR_BOX = 0.95
+#: scope -> [(box, reading)] of the columns this process has read for a page; the newest
+#: NEAR_SCOPES scopes are kept.
+_NEAR = {}
+NEAR_SCOPES = 8
+
+
+def overlap(a, b):
+    """Intersection over union of two boxes (x0, y0, x1, y1)."""
+    w = min(a[2], b[2]) - max(a[0], b[0])
+    h = min(a[3], b[3]) - max(a[1], b[1])
+    if w <= 0 or h <= 0:
+        return 0.0
+    inter = w * h
+    return inter / ((a[2] - a[0]) * (a[3] - a[1]) + (b[2] - b[0]) * (b[3] - b[1]) - inter)
+
+
+def read_columns(scope, img, boxes):
+    """read_all of each box's crop, except a box that nearly is one this process has read under
+    `scope` (a page's name) takes that reading. A Spooled ask does not stop the rest."""
+    seen = _NEAR.setdefault(scope, [])
+    while len(_NEAR) > NEAR_SCOPES:
+        _NEAR.pop(next(iter(_NEAR)))
+    out, last = [], None
+    for box in boxes:
+        near = next((t for b, t in seen if overlap(b, box) >= NEAR_BOX), None)
+        if near is not None:
+            out.append(near)
+            continue
+        try:
+            text = read(crop(img, box))
+        except Spooled as e:
+            last = e
+            continue
+        if text.strip():
+            seen.append((tuple(box), text))
+        out.append(text)
+    if last:
+        raise last
+    return out
+
+
 def read(image):
     """The model's transcription of one clue column already cropped (and
     enlarged) on its own: a page's column, or a Trove article's text zone.
