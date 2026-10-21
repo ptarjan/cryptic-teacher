@@ -885,6 +885,9 @@ tools/solve_packet.py                          the clues and the grid’s crossi
 tools/solve_prompt.md                          the method the model follows
 tools/apply_solution.py                        writes a blind solve in only if every crossing
                                                letter agrees
+tools/apply_blog_answers.py                    fills a held Times puzzle's blank answers from
+                                               its timesforthetimes write-up, only if every
+                                               crossing agrees
 tools/reopen_answers.py                        blanks the model answers an annotate run found
                                                no parse for, once each, so the burn solves them
                                                again instead of parking the puzzle
