@@ -624,6 +624,39 @@ def settle(puzzle, fill, alts):
 MAX_OMITTED = 3
 
 
+def _letters(s):
+    """A-Z letters of `s`, accents folded as validate_annotations.letters does."""
+    folded = unicodedata.normalize("NFD", (s or "").upper())
+    return re.sub(r"[^A-Z]", "", folded)
+
+
+def annotated_answer(entry):
+    """The answer letters an entry's annotation states: the `spelling` the
+    annotation view shows as "answer", else what the wordplay tree gives."""
+    ann = entry.get("annotation") or {}
+    tree = ann.get("wordplay") if isinstance(ann.get("wordplay"), dict) else {}
+    gives = tree.get("gives") if not entry.get("alteration") else ""
+    return _letters(ann.get("spelling") or ann.get("answer")
+                    or (gives if isinstance(gives, str) else ""))
+
+
+def annotation_clash(puzzle, fill):
+    """Why the blog's answers contradict the puzzle's annotated answers (the
+    ones validate_annotations holds the grid to), else "". A post for another
+    puzzle shows here: its answers fit the grid but not the existing wordplay."""
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    for entry in puzzle["entries"]:
+        mine = annotated_answer(entry)
+        ids = entry.get("group") or [entry_id(entry)]
+        got = [fill.get(i) for i in ids]
+        if not mine or not all(got) or any(i not in by_id for i in ids):
+            continue
+        if mine != _letters("".join(got)):
+            return (f"disagrees with the annotated answer of {entry_id(entry)} "
+                    f"({mine} vs {''.join(got)}): probably another puzzle's post")
+    return ""
+
+
 def judge(puzzle, rec, partial=False):
     """(fill, problems): the blog's answers and why they must not be written.
     With `partial`, a post that gives no line for a few lights is accepted:
@@ -641,6 +674,9 @@ def judge(puzzle, rec, partial=False):
         if old and fill.get(entry_id(entry)) and old != fill[entry_id(entry)]:
             return fill, [f"disagrees with the file's {entry_id(entry)} "
                           f"({old} vs {fill.get(entry_id(entry))})"]
+    wrong = annotation_clash(puzzle, fill)
+    if wrong:
+        return fill, [wrong]
     _cells, crossings, bad = apply_solution.check_fill(puzzle, fill)
     bad = [b for b in bad if not (b.endswith("no answer given") and b.split(":")[0] not in fill)]
     bad += apply_solution.check_off_grid(puzzle, fill)
