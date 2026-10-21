@@ -87,6 +87,12 @@ eds = [("times", "1975-03-01", True), ("times", "1975-03-01", False),     # Gale
        ("ftcryptic", "1989-10-10_30968", False), ("ftcryptic", "1989-10-10_30969", True),
        ("ftcryptic", "1989-10-11_30970", False)]
 assert E.by_day(eds) == {"times": [3, 2], "ftcryptic": [2, 1]}, E.by_day(eds)
+# Read and not filed: a date some copy of which was read, with no puzzle filed
+# for it (none of these dates is filed), so To fetch never counts it.
+_corpus = E.archive_coverage.corpus
+E.archive_coverage.corpus = lambda series: ({"1989-10-10": 1} if series == "ftcryptic" else {}, {})
+assert E.read_not_filed(eds) == {"times": 1}, E.read_not_filed(eds)
+E.archive_coverage.corpus = _corpus
 
 # A Trove row is a Canberra puzzle when it is filed or held back as itself:
 # not a Times reprint (refused, renamed, or numbered by

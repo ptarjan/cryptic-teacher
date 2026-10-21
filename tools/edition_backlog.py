@@ -25,6 +25,10 @@ many copies are on disk: the Gale Times and archive.org's NewsUK Times both
 hold 1970-1999, and an item can hold a date twice, so on 2026-10-13 the Times
 had 14,712 edition dirs for 13,467 dates. A date is read once any copy is.
 
+An edition series' downloaded is its filed puzzles plus the unread scans plus
+the dates read and not filed (read_not_filed()), so progress's Read failed
+(downloaded less filed less queued) is those dates and To fetch excludes them.
+
     python3 tools/edition_backlog.py     # {series: [downloaded, queued]} and each source's raw counts
 
 dated() and history() give the same counts for past days, for
@@ -40,6 +44,7 @@ import re
 import sys
 
 import canberra_london_numbers
+import archive_coverage
 import downloads
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
@@ -111,7 +116,24 @@ def archive_counts(cache=downloads.ARCHIVE_ORG):
         c[0] += 1
         c[1] += unread
         rows.append((fa.FILERS[key].series, ed, not unread))
-    return out, by_day(rows)
+    return out, by_day(rows), read_not_filed(rows)
+
+
+def read_not_filed(rows):
+    """{series: print dates read with no puzzle filed for the date}, from
+    (series, edition dir, read) rows: the scans that were read and gave
+    nothing (coverage's blank-clues, no-crossword-found, crashed...). A date
+    is filed by its own date (archive_coverage.corpus), whichever source
+    filed it; a date is read once any copy is (by_day)."""
+    state = {}
+    for series, ed, read in rows:
+        k = (series, edition_day(ed))
+        state[k] = state.get(k, False) or bool(read)
+    out = {}
+    for (series, day), read in state.items():
+        if read and day not in archive_coverage.corpus(series)[0]:
+            out[series] = out.get(series, 0) + 1
+    return out
 
 
 def listener_counts(inbox=gale_listener.SAVED, store=gale_listener.STORE):
@@ -186,7 +208,7 @@ def _trove_listed(cache):
 
 def counts():
     """({series: [downloaded, queued]} in puzzles, {source: raw counts})."""
-    copies, editions = archive_counts()
+    copies, editions, failed = archive_counts()
     raw = {**copies, "listener": listener_counts(), "trove": trove_counts()}
     out = {}
 
@@ -194,8 +216,14 @@ def counts():
         c = out.setdefault(series, [0, 0])
         c[0] += round(n)
         c[1] += round(q)
-    for series, c in editions.items():
-        add(series, *c)
+    for series, (n, q) in editions.items():
+        # Downloaded is what the funnel can subtract from known: the filed
+        # puzzles (whichever source filed them, scans need not be among
+        # them), the unread and the read-and-not-filed scans. Without the
+        # last, a scan read and refused was neither here nor filed, and
+        # progress's "To fetch" counted it as a puzzle not yet downloaded.
+        filed = len(archive_coverage.corpus(series)[0])
+        add(series, max(n, filed + q + failed.get(series, 0)), q)
     add(gale_listener.lp.SERIES, *raw["listener"][2:])
     n, q, filed, read = raw["trove"]
     share = filed / read if read else 0
