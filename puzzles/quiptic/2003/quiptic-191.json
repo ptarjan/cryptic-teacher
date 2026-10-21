@@ -1181,57 +1181,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AEROSOL",
-     "indicators": [
-      {
-       "text": "perhaps",
-       "note": "perhaps hints the words are only a possible form, to be rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AEROSOL",
+       "words": "a",
+       "at": 6
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "left out",
-         "note": "something left out is removed from the word"
+         "text": "perhaps",
+         "at": 14,
+         "note": "perhaps hints that a rose and oil could take another form, so they are reordered"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
          "words": "rose",
-         "note": "taken as written"
+         "at": 8
         },
         {
-         "words": "oil",
-         "note": "taken as written"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "left out",
+           "at": 36,
+           "note": "left out means the letter for one is omitted from oil"
+          }
+         ],
+         "parts": [
+          {
+           "words": "oil",
+           "at": 28
+          },
+          {
+           "words": "one",
+           "at": 32,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions to mist a rose bush, maybe adding oil but leaving one out.",
-     "walkthrough": "'Spray a rose' reads as a gardening task; 'Spray' alone is the definition, a noun.",
-     "definitionFit": "A pressurised can that releases a fine mist is a spray, and the word covers both container and mist."
+     "surface": "Spraying a rose with oil, but forgetting one of them.",
+     "walkthrough": "Oil without its I is joined to rose and rearranged, after the A the clue gives.",
+     "definitionFit": "An aerosol is a pressurised can that releases its contents as a fine mist."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rose"
+     "misdirectedWord": "perhaps"
     }
    }
   },

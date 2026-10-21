@@ -1351,19 +1351,31 @@
        "words": "bust",
        "at": 9,
        "gives": "STATUE",
-       "note": "a bust is a sculpture, a kind of statue"
+       "note": "a bust is a piece of sculpture, loosely a statue"
       },
       {
-       "words": "half-squeezed",
-       "at": 14,
-       "gives": "SQUE",
-       "note": "half of the word squeezed: its first four of eight letters"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 14,
+         "note": "half asks for the front portion of squeezed, its first four letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "squeezed",
+         "at": 19,
+         "note": "the half comes from the word squeezed"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An impressive bosom squeezed in at the half.",
-     "definitionFit": "Statuesque describes a tall, dignified, impressive figure, like a sculpture."
+     "surface": "An impressive bust that has been partly squeezed, as if in a tight corset.",
+     "walkthrough": "Bust looks like a body part here, but it is a sculpture.",
+     "definitionFit": "A statuesque person is tall, dignified and impressive in appearance, like a classical sculpture."
     },
     "features": {
      "answerInScene": true,
@@ -1394,49 +1406,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
+     "indicators": [
+      {
+       "text": "not to be finished",
+       "at": 31,
+       "note": "not to be finished means each word stops short of its final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "too",
-         "at": 22,
-         "gives": "TOO",
-         "note": "the word too taken as written, losing its last letter"
-        },
-        {
-         "gives": "O"
-        }
-       ]
+       "words": "too",
+       "at": 22,
+       "note": "the first piece comes from too"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "not to be finished",
-         "at": 31,
-         "note": "neither word is allowed to finish: each loses its final letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "nice",
-         "at": 26,
-         "gives": "NICE",
-         "note": "the word nice taken as written, losing its last letter"
-        },
-        {
-         "gives": "E"
-        }
-       ]
+       "words": "nice",
+       "at": 26,
+       "note": "the second piece comes from nice"
       }
      ]
     },
     "explanation": {
-     "surface": "Fizzy water is just too pleasant to leave undrunk.",
-     "walkthrough": "The instruction applies to both words, too and nice, each losing its last letter.",
-     "definitionFit": "Tonic water is a carbonated mixer flavoured with quinine."
+     "surface": "Fizzy water is described as too nice to be left unfinished.",
+     "walkthrough": "TOO and NICE each lose their last letter, giving TO and NIC.",
+     "definitionFit": "Tonic is a carbonated mixer, so it is fizzy, a drink charged with bubbles."
     },
     "features": {
      "answerInScene": true,
