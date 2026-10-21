@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "More attractive installation engineer?",
     "enumeration": "6"
    },
-   "solution": "FITTER"
+   "solution": "FITTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "More attractive",
+      "at": 0,
+      "meaning": "first meaning: the comparative of fit in its slang sense of good-looking"
+     },
+     {
+      "text": "installation engineer?",
+      "at": 16,
+      "meaning": "second meaning: a tradesman who fits things such as gas appliances or kitchens"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second sense is one example of a tradesman who installs things.",
+     "definitionFit": "Fit is British slang for sexy, so fitter is its comparative; a fitter is also a mechanic who assembles or installs equipment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "attractive"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,76 @@
     "text": "Leaves fuddy-duddy briefly to suppress trouble that's returning",
     "enumeration": "7"
    },
-   "solution": "FOLIAGE"
+   "solution": "FOLIAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leaves",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to suppress",
+       "at": 27,
+       "note": "the shortened fogey holds the other part down inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 19,
+         "note": "cut short, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fuddy-duddy",
+         "at": 7,
+         "gives": "FOGEY",
+         "note": "a fogey is an old-fashioned fuddy-duddy"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "that's returning",
+         "at": 47,
+         "note": "coming back, so read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trouble",
+         "at": 39,
+         "gives": "AIL",
+         "note": "to ail is to trouble"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned person leaves to quell a recurring problem.",
+     "walkthrough": "'Leaves' looks like a verb but is the noun. FOGE holds LIA, AIL backwards.",
+     "definitionFit": "Foliage is the collective name for a plant's leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +155,49 @@
     "text": "Letter of thanks following article",
     "enumeration": "5"
    },
-   "solution": "THETA"
+   "solution": "THETA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 17,
+       "note": "coming after, so placed second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "article",
+       "at": 27,
+       "gives": "THE",
+       "note": "the definite article"
+      },
+      {
+       "words": "thanks",
+       "at": 10,
+       "gives": "TA",
+       "note": "ta is British informal for thanks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thank-you letter written after a newspaper article.",
+     "walkthrough": "Ta is everyday British slang for thank you.",
+     "definitionFit": "Theta is the eighth letter of the Greek alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +211,42 @@
     "text": "Gentleman's unusual queries",
     "enumeration": "7"
    },
-   "solution": "ESQUIRE"
+   "solution": "ESQUIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gentleman's",
+      "at": 0,
+      "note": "the 's stands for is, so the definition is gentleman"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusual",
+       "at": 12,
+       "note": "out of the ordinary, so the letters take an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "queries",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gentleman asks odd questions.",
+     "walkthrough": "The 's of Gentleman's is a contraction of is, linking definition to wordplay.",
+     "definitionFit": "An esquire is a title for a man of gentle birth, ranking just below a knight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unusual"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +260,75 @@
     "text": "Pushed brief to reject rather terse legal interpretation, initially",
     "enumeration": "6"
    },
-   "solution": "SHOVED"
+   "solution": "SHOVED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pushed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to reject",
+       "at": 13,
+       "note": "rejecting the letters means throwing them out of the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brief",
+       "at": 7,
+       "gives": "SHORTLIVED",
+       "note": "something brief is short-lived"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 58,
+         "note": "signals taking the opening letter of each of the four following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rather",
+         "at": 23,
+         "note": "first letter of rather"
+        },
+        {
+         "words": "terse",
+         "at": 30,
+         "note": "first letter of terse"
+        },
+        {
+         "words": "legal",
+         "at": 36,
+         "note": "first letter of legal"
+        },
+        {
+         "words": "interpretation",
+         "at": 42,
+         "note": "first letter of interpretation"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer's brief is turned down for being too curt in its reading of the law.",
+     "walkthrough": "'brief' looks like a lawyer's document but is the adjective SHORTLIVED; the initials R, T, L, I are thrown out, leaving the answer.",
+     "definitionFit": "To shove is to push roughly, so shoved and pushed are past-tense synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +348,31 @@
      }
     ]
    },
-   "solution": "HANGUP"
+   "solution": "HANGUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "End call",
+      "at": 0,
+      "meaning": "first meaning: to put the phone down"
+     },
+     {
+      "text": "display",
+      "at": 13,
+      "meaning": "second meaning: to hang a picture up on a wall"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as an instruction to stop a call for show; the two parts are separate meanings.",
+     "definitionFit": "Hanging up finishes a phone call, and hanging something up puts it on show on a wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "display"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +392,70 @@
      }
     ]
    },
-   "solution": "VOLTEFACE"
+   "solution": "VOLTEFACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "U-turn",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 20,
+       "note": "in a down clue the shuffled letters hold up, sitting beneath, the letter above"
+      }
+     ],
+     "parts": [
+      {
+       "words": "very",
+       "at": 31,
+       "gives": "V"
+      },
+      {
+       "words": "Oscar",
+       "at": 0,
+       "gives": "O",
+       "note": "O is Oscar in the NATO alphabet"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "at": 11,
+         "note": "dreadful, so the letters are wrecked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "felt",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "professional",
+       "at": 36,
+       "gives": "ACE",
+       "note": "an ace is an expert, a professional"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Oscar-winning star feels awful about backing a pro's reversal.",
+     "walkthrough": "In a down clue, 'supporting' puts Oscar and the scrambled felt beneath very; 'professional' is an ace, an expert.",
+     "definitionFit": "A volte-face is a complete reversal of opinion or policy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +469,63 @@
     "text": "Neighbouring Oblast is ready to support Kharkiv, primarily",
     "enumeration": "7"
    },
-   "solution": "DONETSK"
+   "solution": "DONETSK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Neighbouring Oblast",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ready",
+       "at": 23,
+       "gives": "DONE",
+       "note": "food that is ready is done"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 49,
+         "note": "signals the opening letter of each of the three words before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "at": 29,
+         "note": "first letter of to"
+        },
+        {
+         "words": "support",
+         "at": 32,
+         "note": "first letter of support"
+        },
+        {
+         "words": "Kharkiv",
+         "at": 40,
+         "note": "first letter of Kharkiv"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Ukrainian region next door stands ready to back Kharkiv.",
+     "walkthrough": "'primarily' takes the first letters of 'to support Kharkiv'.",
+     "definitionFit": "Donetsk is a province of eastern Ukraine bordering Kharkiv province."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +539,61 @@
     "text": "Poles receiving money in Germany to encourage nervous workers?",
     "enumeration": "13"
    },
-   "solution": "NEUROSURGEONS"
+   "solution": "NEUROSURGEONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nervous workers?",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receiving",
+       "at": 6,
+       "note": "the poles take in the rest between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Poles",
+       "at": 0,
+       "gives": "NS",
+       "note": "N and S, the north and south poles"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "money in Germany",
+         "at": 16,
+         "gives": "EUROS",
+         "note": "Germany's currency is the euro"
+        },
+        {
+         "words": "encourage",
+         "at": 36,
+         "gives": "URGEON",
+         "note": "to urge on is to encourage"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Polish workers getting paid in Germany are being motivated.",
+     "walkthrough": "'Poles' looks like Polish people; it is N and S, which take in EUROS and URGE ON.",
+     "definitionFit": "Neurosurgeons operate on the nervous system, so they work on nerves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +607,49 @@
     "text": "This learner's stopping signal",
     "enumeration": "4"
    },
-   "solution": "CLUE"
+   "solution": "CLUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stopping",
+       "at": 15,
+       "note": "the learner plugs or stops up the signal, sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "signal",
+       "at": 24,
+       "gives": "CUE",
+       "note": "a cue is a signal to act, as for an actor"
+      },
+      {
+       "words": "learner's",
+       "at": 5,
+       "gives": "L",
+       "note": "L is the learner sign on British cars; the 's stands for is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-referential riddle: a learner driver halted at a traffic signal.",
+     "walkthrough": "'This' refers to the very thing the solver is reading: a crossword clue.",
+     "definitionFit": "The words in front of the solver form a crossword clue, so 'This' points at the answer itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stopping"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +663,48 @@
     "text": "Prince Andrew, perhaps, probed by northern state",
     "enumeration": "10"
    },
-   "solution": "QUEENSLAND"
+   "solution": "QUEENSLAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "state",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "probed by",
+       "at": 24,
+       "note": "something probed has another thing pushed into it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prince Andrew, perhaps",
+       "at": 0,
+       "gives": "QUEENSLAD",
+       "note": "Andrew is one of the late Queen's sons, so a Queen's lad"
+      },
+      {
+       "words": "northern",
+       "at": 34,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal under investigation by a state from the north.",
+     "walkthrough": "N goes into QUEENS LAD, splitting LAD into LA and D.",
+     "definitionFit": "Queensland is a state of north-eastern Australia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "probed"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +718,59 @@
     "text": "A Persian son advances in hunting expedition",
     "enumeration": "6"
    },
-   "solution": "SAFARI"
+   "solution": "SAFARI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hunting expedition",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "advances",
+       "at": 14,
+       "note": "the son moves forward, from near the end to the very front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "Persian",
+         "at": 2,
+         "gives": "FARSI",
+         "note": "Farsi is the Persian language"
+        }
+       ]
+      },
+      {
+       "words": "son",
+       "at": 10,
+       "gives": "S",
+       "note": "S is the genealogical abbreviation for son"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Persian man's son makes progress while out on a hunt.",
+     "walkthrough": "Write A FARSI, then the S moves forward to the front.",
+     "definitionFit": "A safari is an overland trip, traditionally in Africa, to hunt or observe wild animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Persian"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +784,49 @@
     "text": "Allow to block path to goal in ball game",
     "enumeration": "8"
    },
-   "solution": "ROULETTE"
+   "solution": "ROULETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ball game",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to block",
+       "at": 6,
+       "note": "the word for allow sits inside the path, obstructing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "path to goal",
+       "at": 15,
+       "gives": "ROUTE",
+       "note": "a route is a way to a destination"
+      },
+      {
+       "words": "Allow",
+       "at": 0,
+       "gives": "LET",
+       "note": "to let is to allow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football picture: a defender is allowed to block the route to goal.",
+     "walkthrough": "The surface suggests football; the ball game is played at a casino wheel.",
+     "definitionFit": "Roulette is a casino game in which a small ball settles in a numbered pocket of a spinning wheel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "goal"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +840,48 @@
     "text": "With vegetarian tendencies, American abandoned virtual world",
     "enumeration": "9"
    },
-   "solution": "METAVERSE"
+   "solution": "METAVERSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "virtual world",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandoned",
+       "at": 37,
+       "note": "the American letter is left behind, dropped from the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "With vegetarian tendencies",
+       "at": 0,
+       "gives": "MEATAVERSE",
+       "note": "a vegetarian is meat-averse"
+      },
+      {
+       "words": "American",
+       "at": 28,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American gives up something while leaning toward vegetarianism.",
+     "walkthrough": "MEAT-AVERSE loses the A after MEAT's E.",
+     "definitionFit": "The metaverse is a proposed immersive online space where people interact through avatars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +895,47 @@
     "text": "In Poitiers, go to get information on special substances that provoke reaction …",
     "enumeration": "9"
    },
-   "solution": "ALLERGENS"
+   "solution": "ALLERGENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "substances that provoke reaction",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In Poitiers, go",
+       "at": 0,
+       "gives": "ALLER",
+       "note": "aller is the French verb to go, Poitiers being a French city"
+      },
+      {
+       "words": "information",
+       "at": 23,
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      },
+      {
+       "words": "special",
+       "at": 38,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a French city, someone goes to find out about special chemicals.",
+     "walkthrough": "Gen is British informal for information.",
+     "definitionFit": "Allergens are substances that trigger an allergic response in sensitive people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poitiers"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +949,44 @@
     "text": "Orphan language overheard in lounge",
     "enumeration": "4"
    },
-   "solution": "BASK"
+   "solution": "BASK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lounge",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BASK",
+     "indicators": [
+      {
+       "text": "overheard",
+       "at": 16,
+       "note": "heard by chance, so the word is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Orphan language",
+       "at": 0,
+       "gives": "BASQUE",
+       "note": "Basque is a language isolate, with no known relatives, so an orphan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A language overheard in a hotel lounge.",
+     "walkthrough": "'lounge' looks like a room but is the verb.",
+     "definitionFit": "To bask is to lie back lazily enjoying warmth, the same as lounging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lounge"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1000,36 @@
     "text": "Only fish in bottom of oven",
     "enumeration": "4"
    },
-   "solution": "SOLE"
+   "solution": "SOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Only",
+      "at": 0,
+      "meaning": "first meaning: single, the only one"
+     },
+     {
+      "text": "fish",
+      "at": 5,
+      "meaning": "second meaning: a flatfish"
+     },
+     {
+      "text": "bottom of oven",
+      "at": 13,
+      "meaning": "third meaning: the floor of a furnace or oven"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three meanings in a row; 'in' merely links the fish and the oven floor.",
+     "definitionFit": "The word means single, names a flatfish, and also names the flat base of a furnace or bread oven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1043,77 @@
     "text": "… because taking drug after bit of lovemaking results in calm",
     "enumeration": "7"
    },
-   "solution": "SILENCE"
+   "solution": "SILENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "calm",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 10,
+       "note": "accepting into itself, so the rest goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "because",
+       "at": 2,
+       "gives": "SINCE",
+       "note": "since means because"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 22,
+         "note": "the drug comes second, behind the other letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 28,
+           "note": "a small part, the first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lovemaking",
+           "at": 35
+          }
+         ]
+        },
+        {
+         "words": "drug",
+         "at": 17,
+         "gives": "E",
+         "note": "E is ecstasy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: drugs after sex lead to a peaceful mood.",
+     "walkthrough": "The ellipsis joins this to 14 down for the surface only. L then E go into SINCE.",
+     "definitionFit": "Silence is calm in the sense of stillness and absence of noise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drug"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1133,42 @@
      }
     ]
    },
-   "solution": "BREAKEVEN"
+   "solution": "BREAKEVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Avoid losing money",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "multiple pots",
+       "at": 22,
+       "gives": "BREAK",
+       "note": "in snooker a break is a run of successive pots"
+      },
+      {
+       "words": "all square",
+       "at": 37,
+       "gives": "EVEN",
+       "note": "level, as in a match score"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker player pots many balls and the frame is level.",
+     "walkthrough": "In snooker, a game played on a table with coloured balls, a break is a sequence of balls potted in one visit.",
+     "definitionFit": "To break even is to finish with neither profit nor loss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pots"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1182,41 @@
     "text": "Imposing area in Georgian city",
     "enumeration": "7"
    },
-   "solution": "AUGUSTA"
+   "solution": "AUGUSTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Georgian city",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Imposing",
+       "at": 0,
+       "gives": "AUGUST",
+       "note": "august means dignified, imposing"
+      },
+      {
+       "words": "area",
+       "at": 9,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An impressive district in a city of Georgia.",
+     "walkthrough": "'Georgian' means the US state, not the country or the period.",
+     "definitionFit": "Augusta is a city in the US state of Georgia, home of the Masters golf tournament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Georgian"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1230,50 @@
     "text": "Musk overwhelming Greek character — and another",
     "enumeration": "7"
    },
-   "solution": "EPSILON"
+   "solution": "EPSILON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "another",
+      "at": 40,
+      "note": "here, another Greek character"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "overwhelming",
+       "at": 5,
+       "note": "engulfing, so the first name surrounds the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Musk",
+       "at": 0,
+       "gives": "ELON",
+       "note": "Elon Musk, the tech billionaire"
+      },
+      {
+       "words": "Greek character",
+       "at": 18,
+       "gives": "PSI",
+       "note": "psi is a Greek letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tech billionaire dominating a Greek figure, and someone else besides.",
+     "walkthrough": "'another' means another Greek character, so the answer too is a Greek letter.",
+     "definitionFit": "Epsilon is the fifth letter of the Greek alphabet, a further Greek character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Musk"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1287,42 @@
     "text": "One shoots wading bird and rook",
     "enumeration": "6"
    },
-   "solution": "SNIPER"
+   "solution": "SNIPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One shoots",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wading bird",
+       "at": 11,
+       "gives": "SNIPE",
+       "note": "the snipe is a long-billed wader"
+      },
+      {
+       "words": "rook",
+       "at": 27,
+       "gives": "R",
+       "note": "R is the chess abbreviation for rook"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter fires at a wader and a crow.",
+     "walkthrough": "'rook' looks like a bird beside the wader; it is the chess piece.",
+     "definitionFit": "A sniper is a marksman who fires from a concealed position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1336,49 @@
     "text": "Key lost in blooming Italian city",
     "enumeration": "8"
    },
-   "solution": "FLORENCE"
+   "solution": "FLORENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Italian city",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lost",
+       "at": 4,
+       "note": "the key is gone from the longer word, removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "blooming",
+       "at": 12,
+       "gives": "FLORESCENCE",
+       "note": "florescence is the process or period of blooming"
+      },
+      {
+       "words": "Key",
+       "at": 0,
+       "gives": "ESC",
+       "note": "Esc is the escape key on a keyboard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A key goes missing in a city full of flowers.",
+     "walkthrough": "'blooming' looks like an anagram signal; it is the noun FLORESCENCE, which loses ESC.",
+     "definitionFit": "Florence is the Tuscan capital, Renaissance city on the Arno."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blooming"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1392,40 @@
     "text": "Greek river bird",
     "enumeration": "6"
    },
-   "solution": "GROUSE"
+   "solution": "GROUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greek",
+       "at": 0,
+       "gives": "GR"
+      },
+      {
+       "words": "river",
+       "at": 6,
+       "gives": "OUSE",
+       "note": "the Ouse is an English river"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird seen by a Greek river.",
+     "walkthrough": "The Ouse is the name of several English rivers, including the one through York.",
+     "definitionFit": "The grouse is a plump game bird of moorland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1439,49 @@
     "text": "Loathing of element (not sulphur)",
     "enumeration": "5"
    },
-   "solution": "ODIUM"
+   "solution": "ODIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Loathing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 21,
+       "note": "without, so the letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "element",
+       "at": 12,
+       "gives": "SODIUM",
+       "note": "sodium is a chemical element"
+      },
+      {
+       "words": "sulphur",
+       "at": 25,
+       "gives": "S",
+       "note": "S is the chemical symbol for sulphur"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hatred of a chemical element, except sulphur.",
+     "walkthrough": "SODIUM loses S, its chemical symbol letter for sulphur.",
+     "definitionFit": "Odium is general hatred or disgust directed at someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1495,46 @@
     "text": "Departs with nun, frolicking in Y-fronts?",
     "enumeration": "10"
    },
-   "solution": "UNDERPANTS"
+   "solution": "UNDERPANTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Y-fronts?",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "frolicking",
+       "at": 18,
+       "note": "playing about wildly, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Departs",
+       "at": 0
+      },
+      {
+       "words": "nun",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nun goes off, playing about in her underwear.",
+     "walkthrough": "The question mark marks Y-fronts as one example of the answer.",
+     "definitionFit": "Y-fronts are a brand of men's briefs, a kind of underwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Departs"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1548,55 @@
     "text": "Panel discussion about imprisoning unemployed",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unemployed",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "turned around, so the captured letters read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "imprisoning",
+         "at": 23,
+         "note": "the two words hold the letters locked up inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Panel discussion",
+         "at": 0,
+         "gives": "ELDI",
+         "note": "the letters straddle the two words"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A panel debate on locking up people out of work.",
+     "walkthrough": "'imprisoning' picks ELDI from inside 'panEL DIscussion'; 'about' turns it round.",
+     "definitionFit": "Idle can describe someone out of work, with no job to occupy them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discussion"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1610,54 @@
     "text": "Make certain last date becomes satisfactory",
     "enumeration": "6"
    },
-   "solution": "ENSURE"
+   "solution": "ENSURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make certain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "becomes",
+       "at": 23,
+       "note": "one letter turns into another, replacing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "last",
+       "at": 13,
+       "gives": "ENDURE",
+       "note": "to last is to endure"
+      },
+      {
+       "words": "date",
+       "at": 18,
+       "gives": "D"
+      },
+      {
+       "words": "satisfactory",
+       "at": 31,
+       "gives": "S",
+       "note": "S is the school grade for satisfactory"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A final deadline turns out to be acceptable.",
+     "walkthrough": "'last' looks like an adjective but is the verb ENDURE.",
+     "definitionFit": "To ensure is to make sure or guarantee that something happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1671,50 @@
     "text": "Eve's son claiming mother is fabricating reptile",
     "enumeration": "6"
    },
-   "solution": "CAIMAN"
+   "solution": "CAIMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reptile",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "claiming",
+       "at": 10,
+       "note": "taking hold of, so the son wraps round the mother"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Eve's son",
+       "at": 0,
+       "gives": "CAIN",
+       "note": "in Genesis Cain is the first son of Adam and Eve"
+      },
+      {
+       "words": "mother",
+       "at": 19,
+       "gives": "MA",
+       "note": "Ma is mother"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A biblical son lies that his mother is inventing a reptile.",
+     "walkthrough": "'is fabricating' is only link padding for the surface; the son's name holds the mother.",
+     "definitionFit": "The caiman is a Central and South American crocodilian related to alligators."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "fabricating"
+    }
+   }
   }
  ]
 }
