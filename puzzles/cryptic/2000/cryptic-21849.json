@@ -154,12 +154,14 @@
      "indicators": [
       {
        "text": "before",
-       "note": "before places the word for leave ahead of the rest"
+       "at": 7,
+       "note": "the first piece comes before the rest of the answer"
       }
      ],
      "parts": [
       {
        "words": "Leave",
+       "at": 0,
        "gives": "GO",
        "note": "to go is to leave"
       },
@@ -168,44 +170,53 @@
        "indicators": [
         {
          "text": "surrounded",
-         "note": "something surrounded is enclosed, so the season word wraps around the gold and the colour"
+         "at": 23,
+         "note": "the word for spring's has its letters placed around the others"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "growth",
-           "note": "growth suggests the letters of the colour word develop into a new shape"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Spring's",
-           "gives": "VERNAL",
-           "note": "vernal means belonging to the spring"
-          },
-          {
-           "words": "the gold",
-           "gives": "OR",
-           "note": "OR is gold in heraldry"
-          }
-         ]
+         "words": "Spring's",
+         "at": 14,
+         "gives": "VERNAL",
+         "note": "vernal means of spring"
         },
         {
-         "words": "green",
-         "gives": "GENER",
-         "note": "the five letters of green rearranged"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "the gold",
+           "at": 34,
+           "gives": "OR",
+           "note": "or is gold in heraldry"
+          },
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "growth",
+             "at": 54,
+             "note": "growth changes the shape of the word green, so its letters are rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "green",
+             "at": 48,
+             "note": "taken as written"
+            }
+           ]
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone leaves before spring to take up a Commonwealth post, the scene full of gold and green.",
-     "walkthrough": "OR for gold comes from heraldry. Spring's must become the adjective for the season, not a noun, before it can surround anything.",
-     "definitionFit": "A Governor-General represents the monarch in a Commonwealth realm such as Canada or Australia, so it is a post there."
+     "surface": "A gardener's instruction to leave, before spring wraps gold in green growth, for a colonial posting.",
+     "walkthrough": "Or is gold in heraldry; 'growth' signals that 'green' is reshaped, and the result sits inside the adjective for spring.",
+     "definitionFit": "A governor-general represents the Crown in a Commonwealth realm such as Canada or Australia, a post or office."
     },
     "features": {
      "answerInScene": false,
@@ -824,42 +835,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MANCHESTERSHIPCANAL",
-     "indicators": [
-      {
-       "text": "version",
-       "note": "a version is a different rendering, so these letters are put in another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "English Channel",
+       "at": 26,
+       "gives": "MANCHE",
+       "note": "the French call the English Channel La Manche"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "version",
+         "at": 60,
+         "note": "a version is a rendering, so the letters are rendered in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "the English Channel",
-         "gives": "MANCHE",
-         "note": "the French call the English Channel La Manche"
-        },
-        {
          "words": "the Paris clan's",
-         "gives": "STERSHIPCANAL",
-         "note": "all thirteen letters rearranged"
+         "at": 43,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The English Channel as a Parisian family would name it.",
-     "walkthrough": "The Paris and the bracket suggest a French translation, which is half right: only the Channel is translated.",
-     "definitionFit": "The Manchester Ship Canal links Manchester to the Mersey estuary and carries seagoing ships, so it is navigable."
+     "surface": "A description of the Channel, then a nod to how a Parisian family would name it.",
+     "walkthrough": "The Paris hint points to the French name, La Manche, of which MANCHE is used; the rest of the answer is a rearrangement of 'the Paris clan's'.",
+     "definitionFit": "The Manchester Ship Canal links Manchester to the Mersey estuary and carries seagoing ships, a waterway they can navigate."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Paris"
+     "misdirectedWord": "version"
     }
    }
   },

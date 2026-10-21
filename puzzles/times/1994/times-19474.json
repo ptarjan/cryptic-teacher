@@ -238,37 +238,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Odd",
-       "note": "odd means strange or irregular, so the letters are put out of their normal order"
-      },
-      {
-       "text": "perhaps",
-       "note": "perhaps hints that the island's name too could be spelt some other way"
+       "text": "received in",
+       "at": 9,
+       "note": "the jumbled card is taken into the jumbled Iona"
       }
      ],
      "parts": [
       {
-       "words": "card",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 27,
+         "note": "perhaps hints that the island's name may be arranged differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "iona",
+         "at": 21
+        }
+       ]
       },
       {
-       "words": "iona",
-       "note": "taken as written; the Hebridean island also prompts the islander theme"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Odd",
+         "at": 0,
+         "note": "odd means strange, so the letters are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "card",
+         "at": 4
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A strange playing card turns up on Iona, sent by someone from a different island.",
-     "walkthrough": "'received in iona, perhaps' tells you the word card goes in with Iona's letters before both are mixed; 'perhaps' warns that Iona's letters too are shuffled.",
-     "definitionFit": "An Orcadian is a native of Orkney, so a different islander from someone living on Iona."
+     "surface": "A strange postcard reaches Iona from someone on a different island.",
+     "walkthrough": "Iona is itself an island, so an Ionan looks like the islander; 'another' points to the Orkneys.",
+     "definitionFit": "An Orcadian is a native of Orkney, an island group, so a different islander from one on Iona."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Odd"
+     "misdirectedWord": "iona"
     }
    }
   },
@@ -561,42 +582,30 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WEPT",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "briefly asks for the word to be cut short, here reduced to its abbreviation"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "partners",
-         "gives": "WE",
-         "note": "West and East are partners at the bridge table"
-        },
-        {
-         "words": "part",
-         "gives": "PT",
-         "note": "PT is the standard abbreviation for part"
-        }
-       ]
+       "words": "partners",
+       "at": 9,
+       "gives": "WE",
+       "note": "West and East are partners at bridge"
+      },
+      {
+       "words": "briefly part",
+       "at": 18,
+       "gives": "PT",
+       "note": "PT is the short form of part"
       }
      ]
     },
     "explanation": {
-     "surface": "A question whether two eager partners split up.",
-     "walkthrough": "Keen here is a verb, to wail in mourning, not the adjective eager.",
-     "definitionFit": "To keen is to lament loudly over the dead, so having keened means having cried or wailed."
+     "surface": "A puzzle about whether two eager partners split up.",
+     "walkthrough": "'keen' is the verb to wail for the dead, not the adjective eager.",
+     "definitionFit": "To keen is to wail in grief, so did keen means cried, a past tense of weeping."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "keen"
     }
    }
