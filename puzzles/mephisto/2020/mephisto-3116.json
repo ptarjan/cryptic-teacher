@@ -64,46 +64,66 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding here: the repeated request goes round the trimmed recluse"
+       "at": 15,
+       "note": "about means the doubled asking word goes round the shortened recluse"
       }
      ],
      "parts": [
       {
-       "words": "Ask repeatedly",
-       "gives": "BEGBEG",
-       "note": "to beg is to ask, said twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 4,
+         "note": "repeatedly says the asking word is written twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ask",
+         "at": 0,
+         "gives": "BEG",
+         "note": "to beg is to ask earnestly"
+        },
+        {
+         "gives": "BEG"
+        }
+       ]
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "missing",
-         "note": "something missing is absent, so the following little word is taken out of the word for a recluse"
+         "at": 32,
+         "note": "missing means the word on is taken out"
         }
        ],
        "parts": [
         {
          "words": "recluse",
+         "at": 21,
          "gives": "LONER",
-         "note": "a loner keeps to themself"
+         "note": "a loner is a recluse"
         },
         {
          "words": "on",
-         "note": "taken as written, the letters to remove"
+         "at": 29,
+         "gives": "ON"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps pleading with a hermit who has gone missing, about an old official.",
-     "walkthrough": "'On missing' reads as a phrase about the hermit, but 'on' is the word to remove. The title is more often spelt beylerbey, the 'bey of beys'.",
-     "definitionFit": "A beglerbeg was the governor of a province in the Ottoman Empire, ranking above ordinary beys."
+     "surface": "A beggar keeps pleading with a hermit, who is absent, to see an old official.",
+     "walkthrough": "'on' is not a link here but the letters taken from the recluse; the asking word, said twice, wraps what is left.",
+     "definitionFit": "A beglerbeg was a provincial governor in the Ottoman Empire, a historical title meaning lord of lords."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "on"
+     "misdirectedWord": "recluse"
     }
    }
   },
@@ -2097,56 +2117,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "back means going in the opposite direction, so the words are read right to left"
+       "text": "catching",
+       "at": 17,
+       "note": "catching means the reversed letters take in the golf letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 12,
+         "note": "back means the call and number words together are read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Call",
-         "gives": "NAME",
-         "note": "to call someone something is to name them"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "catching",
-           "note": "catching means taking hold of, so the reversed letters close round another"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "number",
-           "gives": "NINE",
-           "note": "nine is a number"
+           "words": "Call",
+           "at": 0,
+           "gives": "NAME",
+           "note": "to name is to call"
           },
           {
-           "words": "Golf",
-           "gives": "G",
-           "note": "G is Golf in the NATO phonetic alphabet"
+           "words": "number",
+           "at": 5,
+           "gives": "NINE",
+           "note": "nine is a number"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "Golf",
+       "at": 26,
+       "gives": "G",
+       "note": "G is golf in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A caller rings back a number to reach a golf driver.",
-     "walkthrough": "'Golf driver' suggests a club; Golf is the letter and the driver drives an engine.",
-     "definitionFit": "An engineman is a man who drives or operates an engine, such as a railway locomotive driver."
+     "surface": "Phone the golf club again to get hold of a particular club.",
+     "walkthrough": "'back' turns NAMENINE into ENINEMAN, and 'catching' puts G inside, after EN. 'Golf driver' looks like a club; the driver is the train driver.",
+     "definitionFit": "An engineman drives or looks after an engine, such as a railway locomotive."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Golf"
+     "joke": "pun",
+     "misdirectedWord": "driver"
     }
    }
   }

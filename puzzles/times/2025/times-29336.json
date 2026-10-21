@@ -83,44 +83,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "missing his last",
-       "note": "the killer loses his final letter"
-      }
-     ],
      "parts": [
       {
-       "words": "a contract killer",
-       "gives": "JACKA",
-       "note": "JACKAL, the assassin of The Day of the Jackal, without his last letter L"
-      },
-      {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "SS",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "exhausted",
-         "note": "SHOTS emptied of its middle leaves only its outside letters"
+         "text": "missing his last",
+         "at": 27,
+         "note": "missing his last means the killer's name loses its final letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "shots, exhausted",
-         "gives": "SS",
-         "select": "outer",
-         "note": "SHOTS with its contents gone"
+         "words": "a contract killer",
+         "at": 9,
+         "gives": "JACKAL",
+         "note": "the Jackal is the assassin of Frederick Forsyth's The Day of the Jackal"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "exhausted",
+         "at": 51,
+         "note": "exhausted means emptied out, so only the outer letters of shots remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shots",
+         "at": 44
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hitman called Charlie has fired off all his ammunition.",
-     "walkthrough": "A charlie is British slang for a fool, as is a jackass; the surface makes Charlie a person's name.",
-     "definitionFit": "Charlie is British slang for a fool, a regional use that a jackass, a plain word for an idiot, matches."
+     "surface": "A gunman who missed with his final bullets is worn out.",
+     "walkthrough": "'missing his last' drops the L of JACKAL to leave JACKA, and 'exhausted' empties SHOTS to SS. A charlie is British slang for a fool.",
+     "definitionFit": "In British slang a charlie is a fool or idiot, and so is a jackass."
     },
     "features": {
      "answerInScene": false,
@@ -276,26 +282,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 13,
+       "note": "about means the shortened laugh goes round the tense letter"
       }
      ],
      "parts": [
       {
-       "words": "Laugh almost",
-       "gives": "TEEHE",
-       "note": "TEEHEE without its last E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 6,
+         "note": "almost means the laugh loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Laugh",
+         "at": 0,
+         "gives": "TEEHEE",
+         "note": "tee-hee is a giggle"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "tense",
+       "at": 19,
        "gives": "T",
-       "note": "T = tense, in grammar"
+       "note": "T is the grammar abbreviation for tense"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stifles a laugh while working under pressure on a piece of ivory.",
-     "walkthrough": "Ivory stands for teeth, so to teethe is to work at cutting ivory, as a baby does.",
-     "definitionFit": "A teething baby is working to cut its first teeth, and teeth are ivories."
+     "surface": "A sniggering account of someone carving ivory.",
+     "walkthrough": "'almost' cuts TEEHEE to TEEHE, and 'about' puts it round T. Ivory stands for teeth, as in 'tickling the ivories'.",
+     "definitionFit": "Babies teethe as their first teeth push through the gums, and ivory is a playful word for teeth."
     },
     "features": {
      "answerInScene": false,
@@ -588,7 +613,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "ball",
+      "text": "ball?",
       "at": 36
      }
     ],
@@ -597,49 +622,48 @@
      "indicators": [
       {
        "text": "missing",
-       "note": "the name goes without the listed letters"
+       "at": 11,
+       "note": "missing means these three letters are left out of the author's name"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "Sir Arthur",
-         "gives": "CONANDOYLE",
-         "note": "Sir Arthur Conan Doyle, creator of Sherlock Holmes"
-        },
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "removed"
-          },
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "N = new; removed"
-          }
-         ]
-        }
-       ]
+       "words": "Sir Arthur",
+       "at": 0,
+       "gives": "CONANDOYLE",
+       "note": "Sir Arthur Conan Doyle, creator of Sherlock Holmes"
       },
       {
-       "words": "old",
-       "gives": "O",
-       "note": "O = old; removed"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19,
+         "gives": "A"
+        },
+        {
+         "words": "new",
+         "at": 21,
+         "gives": "N"
+        },
+        {
+         "words": "old",
+         "at": 32,
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sir Arthur has gone without a new ball and an old one.",
-     "walkthrough": "CONAN DOYLE without A, N and O leaves CONDYLE; 'ball' is anatomical, not a plaything.",
-     "definitionFit": "A condyle is the rounded knob at the end of a bone that forms a joint."
+     "surface": "Sherlock Holmes's creator is absent from two balls, one new and one old.",
+     "walkthrough": "'missing' takes A, N and O out of CONANDOYLE, in order, leaving CONDYLE. 'and an' only links them.",
+     "definitionFit": "A condyle is a rounded knob on the end of a bone, a ball that fits a socket, hence the question mark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "ball"
     }
    }
@@ -1634,26 +1658,26 @@
      "indicators": [
       {
        "text": "last to depart",
-       "note": "depart means leave, so the last letter departs from the word"
+       "at": 5,
+       "note": "last to depart means the final letter of the city leaves"
       }
      ],
      "parts": [
       {
        "words": "Sin City",
+       "at": 20,
        "gives": "VEGAS",
-       "note": "nickname of the Nevada gambling city; its second word is needed"
+       "note": "Las Vegas is nicknamed Sin City"
       },
       {
-       "words": "last to depart",
-       "gives": "S",
-       "note": "removed"
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrity is the last to leave Las Vegas.",
-     "walkthrough": "Sin City is Las Vegas; take the second word and drop its final S.",
-     "definitionFit": "Vega is the brightest star in the constellation Lyra."
+     "surface": "A celebrity is the final one to leave Las Vegas.",
+     "walkthrough": "'last to depart' drops the final S of VEGAS.",
+     "definitionFit": "Vega is one of the brightest stars in the night sky, in the constellation Lyra."
     },
     "features": {
      "answerInScene": true,

@@ -870,54 +870,58 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "indicators": [
-      {
-       "text": "to",
-       "note": "one letter goes over to another, so the opening letter is swapped for a new one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "bacterial disease",
-       "gives": "LISTERIA",
-       "note": "listeria is a bacterium causing food poisoning"
+       "words": "with",
+       "at": 6,
+       "gives": "W"
       },
       {
-       "op": "first",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "beginning",
-         "note": "the beginning of a word is its opening letter, used for both words here"
+         "text": "to wither",
+         "at": 48,
+         "note": "to wither is to shrivel away, so the leaf's first letter dies off from the disease"
         }
        ],
        "parts": [
         {
-         "words": "leaf's",
-         "note": "the first letter of leaf, which is taken out"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
+         "words": "bacterial disease",
+         "at": 11,
+         "gives": "LISTERIA",
+         "note": "listeria is a bacterium, and the name is used for the illness it causes"
+        },
         {
-         "words": "wither",
-         "note": "the first letter of wither, which replaces it"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning",
+           "at": 38,
+           "note": "beginning picks the first letter of the word leaf's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "leaf's",
+           "at": 31
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener's plant has caught a disease and its leaves are starting to droop.",
-     "walkthrough": "Change the first letter of LISTERIA from L to W to get WISTERIA.",
-     "definitionFit": "Wisteria is a climbing shrub with hanging clusters of lilac flowers."
+     "surface": "A gardener's diagnosis: a plant has a bacterial infection, and its leaves start to shrivel.",
+     "walkthrough": "'with' looks like a link word but supplies the opening W. The leaf's first letter is what withers away from the disease's name.",
+     "definitionFit": "Wisteria is a climbing shrub with hanging clusters of lilac flowers, so it is a garden plant."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "beginning"
+     "misdirectedWord": "wither"
     }
    }
   },
@@ -1473,7 +1477,7 @@
       {
        "text": "in",
        "at": 51,
-       "note": "in means the game letters and the repeated start go inside the turned street"
+       "note": "in here means the game and letters are placed inside the street abbreviation"
       }
      ],
      "parts": [
@@ -1483,7 +1487,7 @@
         {
          "text": "back",
          "at": 54,
-         "note": "back means the street abbreviation is turned round"
+         "note": "back means the street abbreviation is turned round, read from the end"
         }
        ],
        "parts": [
@@ -1496,27 +1500,47 @@
       },
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 40,
+         "note": "repeatedly says the letter from linger is written a second time"
+        }
+       ],
        "parts": [
         {
          "words": "game",
          "at": 19,
          "gives": "RU",
-         "note": "RU is rugby union, the game"
+         "note": "RU is rugby union, the usual crossword game"
         },
         {
-         "words": "start to linger repeatedly",
-         "at": 24,
-         "gives": "LL",
-         "note": "the start of 'linger' is L, given twice because of 'repeatedly'"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start to",
+           "at": 24,
+           "note": "start to picks the first letter of linger"
+          }
+         ],
+         "parts": [
+          {
+           "words": "linger",
+           "at": 33
+          }
+         ]
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Streetwalkers who play a game and keep hanging about in a back alley.",
-     "walkthrough": "'back' turns ST into TS, and RU plus LL go 'in' between its letters.",
-     "definitionFit": "Trull is an archaic word for a prostitute or harlot, so trulls are prostitutes."
+     "surface": "Sex workers loiter again and again in a back alley, playing a game.",
+     "walkthrough": "'repeatedly' doubles the first letter of 'linger', and the street abbreviation, turned by 'back', wraps the game plus those two letters. 'having' only links.",
+     "definitionFit": "Trull is an archaic word for a prostitute or a loose woman, a Mephisto-style Chambers entry."
     },
     "features": {
      "answerInScene": true,
@@ -1884,36 +1908,38 @@
      "indicators": [
       {
        "text": "having adopted",
-       "note": "adopting something takes it in, so letters are placed inside"
+       "at": 41,
+       "note": "having adopted means taking the two letters into its middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "to be stupid as before",
-         "gives": "DOAT",
-         "note": "doat is an old spelling of dote, to be foolish"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
-        }
-       ]
+       "words": "to be stupid as before",
+       "at": 17,
+       "gives": "DOAT",
+       "note": "doat is an old spelling of dote, to be silly or feeble-minded, so 'as before' marks the archaic form"
       },
       {
-       "words": "name",
-       "gives": "N",
-       "note": "N is the abbreviation for name"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 56,
+         "gives": "N"
+        },
+        {
+         "words": "name",
+         "at": 60,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A layabout, once foolish, has taken on a fresh identity.",
-     "walkthrough": "'As before' signals an archaic spelling of the verb dote, which was once written with an A.",
-     "definitionFit": "Donnat is a Scots and dialect word for an idle, worthless person."
+     "surface": "An idle wastrel behaves foolishly as he always did, after taking on a fresh name.",
+     "walkthrough": "'as before' signals an archaic spelling of dote, the old word for being feeble-minded; the two N abbreviations go into its middle.",
+     "definitionFit": "Donnat (or donnot) is a Scottish and dialect word for a worthless idler, a ne'er-do-well listed in Chambers."
     },
     "features": {
      "answerInScene": true,
@@ -1947,25 +1973,44 @@
      "indicators": [
       {
        "text": "full of",
-       "note": "a thing full of something holds it inside"
+       "at": 25,
+       "note": "full of means the group's word holds the love letters inside it"
       }
      ],
      "parts": [
       {
        "words": "Distinct political group",
+       "at": 0,
        "gives": "WING",
-       "note": "a wing is a faction within a party"
+       "note": "a wing is a faction within a party, as in the left wing"
       },
       {
-       "words": "love repeatedly",
-       "gives": "OO",
-       "note": "love is zero, O, here given twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 38,
+         "note": "repeatedly says the love letter appears twice in a row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "love",
+         "at": 33,
+         "gives": "O",
+         "note": "O is love, the zero score in tennis"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political faction overflows with affection as it flatters voters.",
-     "definitionFit": "Wooing is courting someone with flattering, persuasive words."
+     "surface": "A political faction, brimming with affection, keeps flattering people.",
+     "walkthrough": "'repeatedly' doubles O, and 'full of' puts OO inside WING.",
+     "definitionFit": "Wooing is courting someone with flattery and charm, which is what sweet-talking means."
     },
     "features": {
      "answerInScene": true,

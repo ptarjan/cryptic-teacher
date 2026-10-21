@@ -89,28 +89,20 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
+     "indicators": [
+      {
+       "text": "delaying",
+       "at": 8,
+       "note": "delaying means the letter is held back to come later in the word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "delaying",
-         "at": 8,
-         "note": "delaying means holding back, so the E of the chemist's name is held back and comes at the end instead"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Chemist",
-         "at": 0,
-         "gives": "NOBEL",
-         "note": "Alfred Nobel, founder of the Nobel prizes, was a Swedish chemist"
-        },
-        {
-         "gives": "E"
-        }
-       ]
+       "words": "Chemist",
+       "at": 0,
+       "gives": "NOBEL",
+       "note": "Alfred Nobel was the Swedish chemist who invented dynamite"
       },
       {
        "op": "last",
@@ -118,7 +110,7 @@
         {
          "text": "ultimately",
          "at": 26,
-         "note": "ultimately points to the last letter of medicine"
+         "note": "ultimately picks the last letter of medicine"
         }
        ],
        "parts": [
@@ -131,12 +123,12 @@
      ]
     },
     "explanation": {
-     "surface": "A pharmacist slow to dispense the drugs to a lord.",
-     "walkthrough": "'Chemist' looks like a pharmacist but is the inventor of dynamite; delaying the final letter of medicine means letting it arrive later in his name than it did.",
-     "definitionFit": "A peer is a member of the nobility, a lord or lady, so a noble."
+     "surface": "A pharmacist is late with medicine for a lord.",
+     "walkthrough": "'ultimately' gives E, from 'medicine'; 'delaying' moves that E in NOBEL one place later.",
+     "definitionFit": "A noble is an aristocrat, a member of the peerage, as a peer is."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Chemist"
     }
@@ -167,7 +159,8 @@
      "indicators": [
       {
        "text": "found in",
-       "note": "something found in a place sits inside it, so one piece goes among the others"
+       "at": 11,
+       "note": "found in means the one letter is discovered sitting inside the jumbled terrain"
       }
      ],
      "parts": [
@@ -176,7 +169,8 @@
        "indicators": [
         {
          "text": "tricky",
-         "note": "tricky ground is awkward and uneven, suggesting the letters are jumbled"
+         "at": 20,
+         "note": "tricky means the remaining letters are twisted into a new order"
         }
        ],
        "parts": [
@@ -185,42 +179,37 @@
          "indicators": [
           {
            "text": "overlooking",
-           "note": "overlooking something means missing it out, so one letter is left behind"
+           "at": 35,
+           "note": "overlooking means leaving out, so the river letter is ignored"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "one",
-             "gives": "I",
-             "note": "the Roman numeral for one"
-            },
-            {
-             "words": "terrain",
-             "note": "taken as written"
-            }
-           ]
+           "words": "terrain",
+           "at": 27
           },
           {
-           "gives": "RR"
+           "words": "river",
+           "at": 47,
+           "gives": "R",
+           "note": "R is the map abbreviation for river"
           }
          ]
         }
        ]
       },
       {
-       "words": "river",
-       "gives": "R",
-       "note": "R is the standard abbreviation for river"
+       "words": "one",
+       "at": 7,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A slow-moving animal spotted crossing rough ground above a river.",
-     "walkthrough": "One R is dropped from TERRAIN, the I goes in, and the seven letters are rearranged. 'Sloth' looks like the animal but is the vice of laziness.",
-     "definitionFit": "Sloth as a vice is idleness or sluggishness, and inertia is that same reluctance to move or act."
+     "surface": "A sloth spotted in difficult ground beside a river.",
+     "walkthrough": "'overlooking' drops one R from TERRAIN to leave TERAIN; 'tricky' rearranges it as INERTA, and 'found in' puts I in, before the A.",
+     "definitionFit": "Sloth means laziness, and inertia is the same reluctance to act or move."
     },
     "features": {
      "answerInScene": false,

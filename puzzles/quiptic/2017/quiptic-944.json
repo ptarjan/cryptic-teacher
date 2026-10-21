@@ -1333,33 +1333,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "misrepresented",
-       "note": "misrepresented means presented wrongly, so the letters are given in a false order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "A",
-       "note": "taken as written"
+       "at": 0,
+       "gives": "A"
       },
       {
        "words": "paper",
+       "at": 2,
        "gives": "FT",
-       "note": "the FT is the Financial Times newspaper"
+       "note": "FT is the Financial Times newspaper"
       },
       {
-       "words": "or none",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misrepresented",
+         "at": 18,
+         "note": "misrepresented means the letters are presented in a false, altered order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "or",
+         "at": 9
+        },
+        {
+         "words": "none",
+         "at": 12
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper, or perhaps none at all, gave a false picture of the Prime Minister.",
-     "walkthrough": "PM looks like the Prime Minister, but it is the abbreviation for post meridiem.",
-     "definitionFit": "PM, post meridiem, labels the hours after midday, the part of the day after noon."
+     "surface": "A newspaper, or perhaps no paper at all, has given a false picture of the Prime Minister.",
+     "walkthrough": "'misrepresented' rearranges ORNONE as ERNOON. 'PM' looks like the Prime Minister but means post meridiem.",
+     "definitionFit": "PM, post meridiem, is the time after midday, which is the afternoon."
     },
     "features": {
      "answerInScene": false,
