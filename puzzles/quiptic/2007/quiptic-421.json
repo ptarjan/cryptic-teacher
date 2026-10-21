@@ -312,53 +312,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EFFERVESCE",
+     "op": "composite",
      "indicators": [
       {
-       "text": "ever-changing",
-       "note": "constantly changing signals that the letters are rearranged into a new order"
+       "text": "changing",
+       "at": 21,
+       "note": "letters that are changing shift about, so they are rearranged"
+      },
+      {
+       "text": "with loss of",
+       "at": 30,
+       "note": "the temperature letter must leave the pool before it spells the answer"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EFFERVESCE",
-       "indicators": [
-        {
-         "text": "with loss of",
-         "note": "a loss means something is taken away, so one letter must go from the words"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "effect's",
-         "note": "taken as written, with the S of the possessive"
+         "at": 7
         },
         {
          "words": "ever",
-         "note": "taken as written; ever-changing is split so ever is fodder too"
-        },
-        {
-         "words": "temperature",
-         "gives": "T",
-         "note": "T is the standard abbreviation for temperature, the letter removed"
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "temperature",
+       "at": 43,
+       "gives": "T",
+       "note": "T, standard abbreviation for temperature"
       }
      ]
     },
     "explanation": {
-     "surface": "Describing the shifting fizz of a drink that loses its bubbles as it warms.",
-     "walkthrough": "The hyphen in ever-changing hides that ever belongs to the fodder while changing is the signal.",
-     "definitionFit": "To effervesce is to give off gas bubbles, to fizz, so it is a synonym of the verb bubble."
+     "surface": "A shifting visual effect losing its heat.",
+     "walkthrough": "Mix EFFECTS EVER, then take out T: the ten left give the answer.",
+     "definitionFit": "To effervesce is to fizz, giving off gas bubbles."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ever-changing"
+     "misdirectedWord": "effect's"
     }
    }
   },
@@ -692,37 +689,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "package",
-         "gives": "BALE",
-         "note": "a bale is a large bound bundle of goods"
-        },
-        {
-         "words": "complete",
-         "gives": "FULL",
-         "note": "full means complete or entire"
-        }
-       ]
+       "words": "package",
+       "at": 10,
+       "gives": "BALE",
+       "note": "a bale is a large bundle, a package"
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 18,
+         "note": "almost means not quite all, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "complete",
+         "at": 25,
+         "gives": "FULL",
+         "note": "full means complete"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A harmful parcel that is nearly finished.",
-     "definitionFit": "Baleful means menacing or harmful, close in sense to damaging."
+     "surface": "A parcel that is nearly whole yet somehow harmful.",
+     "walkthrough": "BALE, then FULL short of its last letter, FUL.",
+     "definitionFit": "Baleful means threatening harm, menacing or destructive."
     },
     "features": {
      "answerInScene": false,

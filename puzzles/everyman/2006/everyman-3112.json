@@ -1396,32 +1396,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "possibly",
-       "note": "possibly signals the words may be arranged some other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "the",
-       "note": "taken as written"
+       "at": 27
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
-      },
-      {
-       "words": "Toledo",
-       "note": "taken as written"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 35,
+         "note": "the letter for one goes inside the rearranged city"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "possibly",
+           "at": 45,
+           "note": "possibly signals another possible arrangement of the letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Toledo",
+           "at": 38,
+           "note": "the Spanish city, anagram fodder"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "at": 31,
+         "gives": "I",
+         "note": "I, the Roman numeral one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A surveyor in the Spanish city of Toledo picking out the tool he might need.",
-     "definitionFit": "A theodolite is a surveyor's instrument for measuring horizontal and vertical angles."
+     "surface": "Wondering what instrument a surveyor in the Spanish city of Toledo might have.",
+     "walkthrough": "Toledo, the Spanish city, is only fodder; 'possibly' says its letters may take another order.",
+     "definitionFit": "A theodolite is a rotating telescope instrument surveyors use to measure angles."
     },
     "features": {
      "answerInScene": true,

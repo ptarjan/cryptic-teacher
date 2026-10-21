@@ -1112,48 +1112,47 @@
        "indicators": [
         {
          "text": "repeatedly missing last",
-         "note": "missing last, done more than once, drops the final letter from each of two words"
+         "at": 29,
+         "note": "each of the two words loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "the",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "the",
+           "at": 8
+          },
+          {
+           "words": "European capital",
+           "at": 12,
+           "gives": "ROME",
+           "note": "Rome, capital of Italy"
+          }
+         ]
         },
         {
-         "gives": "E"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "European capital",
-         "gives": "ROME",
-         "note": "Rome is the capital of Italy"
-        },
-        {
-         "gives": "E"
+         "gives": "EE"
         }
        ]
       },
       {
        "words": "coach",
+       "at": 53,
        "gives": "BUS",
-       "note": "a coach is a kind of bus"
+       "note": "a coach is a bus"
       }
      ]
     },
     "explanation": {
-     "surface": "A fool in a European capital keeps missing the last coach.",
-     "walkthrough": "'Clot' looks like an insult for a fool; it is the blood clot. THE and ROME each lose their last letter, then BUS.",
-     "definitionFit": "A thrombus is the medical term for a blood clot formed inside a vessel or the heart."
+     "surface": "A clot in the Italian capital who keeps missing the final bus.",
+     "walkthrough": "'Repeatedly' says the cut happens twice, once to each word before it; both happen to end in the same letter.",
+     "definitionFit": "A thrombus is a blood clot formed inside a vessel."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Clot"
     }
    }

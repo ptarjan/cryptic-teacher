@@ -891,38 +891,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "New",
-       "note": "new implies a fresh version, so the letters are made into something different"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "title",
-       "note": "taken as written"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 22,
+         "note": "the rearranged title goes round the British abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "New",
+           "at": 0,
+           "note": "something new is remade, so the letters of title are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "title",
+           "at": 4,
+           "note": "anagram fodder as written"
+          }
+         ]
+        },
+        {
+         "words": "British",
+         "at": 28,
+         "gives": "BR"
+        }
+       ]
       },
       {
        "words": "nothing",
+       "at": 14,
        "gives": "O",
-       "note": "nothing is zero, shaped like the letter O"
-      },
-      {
-       "words": "British",
-       "gives": "BR",
-       "note": "Br is the abbreviation for British"
+       "note": "O, the shape of zero"
       }
      ]
     },
     "explanation": {
-     "surface": "A newly published book whose title says nothing about Britain.",
-     "walkthrough": "'book' is not a novel here: an opera's book is its text.",
-     "definitionFit": "A libretto is the written text of an opera or musical, known in the theatre as its book."
+     "surface": "A publisher's complaint that a new title has nothing to say about a British book.",
+     "walkthrough": "'Book' reads as a printed volume, but in opera the book is the libretto, the text of the work.",
+     "definitionFit": "A libretto is the written text of an opera or musical, often called its book."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "book"
     }
    }
