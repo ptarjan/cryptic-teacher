@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -220,48 +221,34 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "homophone",
+     "spelt": "OHMS",
+     "indicators": [
+      {
+       "text": "reported",
+       "at": 17,
+       "note": "reported means the word is heard, not read"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "residences",
-         "gives": "HOMES",
-         "note": "residences are homes, the step before anything is said aloud"
-        },
-        {
-         "words": "East End",
-         "gives": "OMES",
-         "note": "the East End is working-class London, and Cockney speech there drops the aitch off the front"
-        },
-        {
-         "op": "homophone",
-         "spelt": "OHMS",
-         "indicators": [
-          {
-           "text": "reported",
-           "note": "What is reported is passed on by mouth, so you want the sound of the words rather than the way they are written."
-          }
-         ],
-         "parts": [
-          {
-           "words": "East End residences",
-           "gives": "OMES",
-           "note": "said out loud, that aitchless word is written with the aitch put back in the middle"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "gives": "HOMESOMES"
+       "words": "East End residences",
+       "at": 29,
+       "gives": "OMES",
+       "note": "homes are residences, and a Cockney of London's East End says the word as 'omes"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The joke is one sound with two spellings: a Londoner's word for houses, and the unit named after the physicist Georg Ohm.",
-     "definitionFit": "Resistance units -> OHMS: the ohm is the SI unit of electrical resistance, so the plural is simply several of them."
+     "surface": "A news item about electrical units in London houses.",
+     "walkthrough": "Cockneys of London's East End drop their aitches, so homes becomes 'omes, which sounds like OHMS.",
+     "definitionFit": "The ohm is the SI unit of electrical resistance, named after Georg Ohm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Resistance"
     }
    }
   },
@@ -367,36 +354,32 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "WHATHO",
+     "spelt": "WHATHO",
      "indicators": [
       {
-       "text": "you say?",
-       "note": "Saying it is the whole point: the words are to be heard rather than read, and the spelling changes on the way."
+       "text": "you say",
+       "at": 32,
+       "note": "you say means the words are spoken, so their sound counts"
       }
      ],
      "parts": [
       {
-       "words": "weeding tool",
-       "gives": "HOE",
-       "note": "the long-handled blade you chop weeds out of a bed with"
-      },
-      {
-       "op": "homophone",
-       "spelt": "WHATHO",
-       "parts": [
-        {
-         "words": "I see no weeding tool",
-         "gives": "WHATHOE",
-         "note": "seeing none of it, the question you ask is which one — and that question said aloud loses the tool's final letter"
-        }
-       ]
+       "words": "I see no weeding tool",
+       "at": 8,
+       "gives": "WHATHOE",
+       "note": "on looking for a hoe and not finding one you might ask what hoe?"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The greeting is Bertie Wooster's, hailed across a drawing room in Wodehouse. The joke rests on a garden tool and a hearty exclamation sounding identical.",
-     "definitionFit": "Hullo -> WHAT HO: a hearty, old-fashioned British hail, the greeting a P G Wodehouse character throws at a friend on sight."
+     "surface": "A greeting from a gardener who cannot find their hoe.",
+     "definitionFit": "What ho is an old-fashioned, Wodehouse-style British greeting, like hello."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hullo"
     }
    }
   },
@@ -1338,36 +1321,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IDEA",
-     "indicators": [
-      {
-       "text": "Not entirely",
-       "note": "Not entirely means you stop short of the end, so the word beside it hands over everything but its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Everyman",
+       "at": 12,
+       "gives": "I",
+       "note": "the setter Everyman refers to themself, so I"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 34,
+         "note": "not entirely means the last letter is missing"
+        }
+       ],
        "parts": [
         {
-         "words": "Everyman",
-         "gives": "I",
-         "note": "the setter signs these puzzles Everyman, so when a clue names him he is speaking of himself"
+         "words": "cherished",
+         "at": 21,
+         "gives": "DEAR",
+         "note": "dear means cherished"
         },
         {
-         "words": "cherished",
-         "gives": "DEA",
-         "note": "something cherished is dear, and here it is written one letter short"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Setters sign their own puzzles, and a clue that names the signature usually means the first person singular — one letter, and a habit worth learning early.",
-     "definitionFit": "Hypothesis -> IDEA: a hypothesis is a proposal put up to be tested, which is one particular kind of notion someone has had."
+     "surface": "The setter wonders aloud whether a theory is one they hold dear.",
+     "definitionFit": "An idea can be a notion or theory put forward, as a hypothesis is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cherished"
     }
    }
   }
