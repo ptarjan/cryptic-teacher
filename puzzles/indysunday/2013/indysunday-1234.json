@@ -132,54 +132,65 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "over",
-       "note": "in a down clue one part placed over another sits above it in the column"
-      }
-     ],
      "parts": [
       {
        "words": "Fashionable",
+       "at": 0,
        "gives": "IN",
-       "note": "in fashion means in"
+       "note": "in means fashionable"
       },
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "upset",
-         "note": "something upset is turned upside down, which in a down entry means read from the bottom up"
+         "text": "over",
+         "at": 30,
+         "note": "over here means covering, so the reversed letters are placed around the prince"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "upset",
+           "at": 24,
+           "note": "in a down clue upset means turned upside down, so the princess and is run backwards"
+          }
+         ],
          "parts": [
           {
-           "words": "princess",
-           "gives": "DI",
-           "note": "Princess Diana, the crossword's favourite princess"
-          },
-          {
-           "words": "prince",
-           "gives": "P",
-           "note": "abbreviation for prince"
-          },
-          {
-           "words": "is",
-           "note": "taken as written"
+           "op": "charade",
+           "parts": [
+            {
+             "words": "princess",
+             "at": 12,
+             "gives": "DI",
+             "note": "Di was the familiar name of Diana, Princess of Wales"
+            },
+            {
+             "words": "is",
+             "at": 21,
+             "gives": "IS",
+             "note": "taken as written"
+            }
+           ]
           }
          ]
+        },
+        {
+         "words": "prince",
+         "at": 35,
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trendy princess is annoyed at a prince who shows no interest in her.",
-     "walkthrough": "The princess, the prince and the word is form one string, which is then turned upside down.",
-     "definitionFit": "Insipid means dull and flavourless, a synonym for something without any interest."
+     "surface": "A trendy princess is cross with a prince who is boring.",
+     "walkthrough": "'over' is a container signal here: the reversed pair covers the prince on both sides, rather than sitting above it.",
+     "definitionFit": "Insipid means dull and lacking any flavour or interest."
     },
     "features": {
      "answerInScene": false,
@@ -1888,45 +1899,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to stab",
-       "note": "a blade that stabs goes inside, so this piece is pushed into the next"
-      },
-      {
        "text": "in",
-       "note": "everything so far goes inside the city's name"
+       "at": 39,
+       "note": "in places the whole construction inside the cathedral city's name"
       }
      ],
      "parts": [
       {
        "words": "Ely",
-       "note": "Ely is a cathedral city in Cambridgeshire"
+       "at": 42,
+       "gives": "ELY"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "butcher",
-         "note": "to butcher something is to hack it up, so these letters are chopped into a new order"
+         "text": "to stab",
+         "at": 21,
+         "note": "to stab is to pierce, so these letters go into the queen's"
         }
        ],
        "parts": [
         {
          "words": "the queen",
+         "at": 29,
          "gives": "ER",
-         "note": "ER, Elizabeth Regina"
+         "note": "ER stands for Elizabeth Regina"
         },
         {
-         "words": "meant",
-         "note": "the letters of meant rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "butcher",
+           "at": 7,
+           "note": "to butcher is to mangle, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "meant",
+           "at": 15
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A murderous butcher plans to knife the monarch in the cathedral city of Ely.",
-     "walkthrough": "'Butcher' looks like the killer's trade, but it is the verb telling us to hack up meant.",
-     "definitionFit": "Elementary means basic and easy to understand, as in Holmes's 'elementary, my dear Watson'."
+     "surface": "A grim tale of a butcher in a cathedral town who intended to knife the monarch.",
+     "walkthrough": "Ely is a small cathedral city in Cambridgeshire; 'to stab' puts the jumbled word inside the queen's royal cipher.",
+     "definitionFit": "Elementary means basic and straightforward, easy to understand."
     },
     "features": {
      "answerInScene": false,

@@ -457,44 +457,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "trimmed",
-       "note": "trimming cuts a little off the end, so mule loses its last letter"
-      },
-      {
-       "text": "rising",
-       "note": "in a down clue a word that rises is read from the bottom upwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimmed",
+         "at": 15,
+         "note": "trimmed means cut back, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Obstinate type",
+         "at": 0,
+         "gives": "MULE",
+         "note": "a mule is a stubborn person"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "US magazine",
+       "at": 23,
+       "gives": "TIME",
+       "note": "Time is an American news magazine"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 43,
+         "note": "in a down clue rising means the letters are read upwards, so backwards"
+        }
+       ],
        "parts": [
         {
          "words": "help",
+         "at": 38,
          "gives": "AID",
-         "note": "AID written upwards"
-        },
-        {
-         "words": "US magazine",
-         "gives": "EMIT",
-         "note": "Time, the American news magazine"
-        },
-        {
-         "words": "Obstinate type",
-         "gives": "LUM",
-         "note": "a mule is an obstinate type; drop its last letter"
+         "note": "help means aid"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stubborn editor cuts back an American magazine to push it into new media.",
-     "walkthrough": "The definition is a long descriptive phrase rather than a synonym; 'information outlets' are simply media.",
-     "definitionFit": "A descriptive definition: multimedia means combining many media, text, sound, video, in one presentation."
+     "surface": "A stubborn person shortens an American magazine to help it rise in the media.",
+     "walkthrough": "MULE is trimmed to MUL; AID rising gives DIA.",
+     "definitionFit": "Multimedia describes communication using several channels at once, such as text, sound and video."
     },
     "features": {
      "answerInScene": true,
@@ -963,44 +978,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "bearing",
-       "note": "to bear is to carry, so the branch carries A inside it"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "half-",
-         "note": "half of a word is used, here its second half"
+         "text": "bearing",
+         "at": 7,
+         "note": "bearing means carrying, so the first word holds the second"
         }
        ],
        "parts": [
         {
          "words": "Branch",
+         "at": 0,
          "gives": "LIMB",
-         "note": "a limb is a branch of a tree; it opens after LIM"
+         "note": "a limb is a branch of a tree"
         },
         {
          "words": "a",
-         "note": "used as printed"
+         "at": 15,
+         "gives": "A"
         }
        ]
       },
       {
-       "words": "half-Andean",
-       "gives": "EAN",
-       "note": "the second half of ANDEAN"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 17,
+         "note": "half the word is kept, here its last three of six letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Andean",
+         "at": 22
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A branch hung with a vegetable that is half from the Andes.",
-     "walkthrough": "The surface is apt: the lima bean is named after Lima, Peru's capital, so it really is Andean.",
-     "definitionFit": "A definition by example: the lima bean is a pale, flat bean eaten as a vegetable."
+     "surface": "A branch carrying a part-Andean vegetable, a nod to the plant's South American origins.",
+     "walkthrough": "LIMB bearing A gives LIMAB; add EAN, the back half of ANDEAN.",
+     "definitionFit": "The lima bean is a broad flat edible bean, named after the capital of Peru."
     },
     "features": {
      "answerInScene": true,
@@ -1157,28 +1180,54 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 9,
+       "note": "in a down clue over means the first piece sits above the second"
+      }
+     ],
      "parts": [
       {
        "words": "Question",
-       "gives": "QU",
-       "note": "QU is a standard abbreviation for question"
+       "at": 0,
+       "gives": "QU"
       },
       {
-       "words": "description of sea omitting one island",
-       "gives": "ADRATIC",
-       "note": "ADRIATIC, which describes a sea, without I (one island: I is both one and island)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "omitting",
+         "at": 33,
+         "note": "omitting means leaving out, so a letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "description of sea",
+         "at": 14,
+         "gives": "ADRIATIC",
+         "note": "Adriatic is the adjective describing the sea between Italy and the Balkans"
+        },
+        {
+         "words": "one island",
+         "at": 42,
+         "gives": "I",
+         "note": "I is an abbreviation for island, and only one of the two is dropped"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle set over a map of the sea, leaving out one island.",
-     "walkthrough": "In a down clue 'over' puts QU above the rest. Adriatic is the adjective in 'the Adriatic Sea', hence 'description of sea'.",
-     "definitionFit": "A noun sense: a quadratic is an equation in which the unknown is squared."
+     "surface": "A question about naming a sea, with one island missing from the equation.",
+     "walkthrough": "ADRIATIC has two I's; omitting one gives ADRATIC, placed under QU.",
+     "definitionFit": "A quadratic is an equation in which the highest power of the unknown is a square."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sea"
+     "misdirectedWord": "description"
     }
    }
   },
@@ -1203,39 +1252,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "two-thirds of",
-       "note": "two-thirds of a three-letter word is its first two letters"
-      },
-      {
-       "text": "recalled",
-       "note": "to recall is to call back, so the letters come back the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "everything",
+       "at": 11,
+       "gives": "ALL",
+       "note": "everything means all"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 54,
+         "note": "recalled means called back, so the letters run backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "crossword solvers",
-         "gives": "YO",
-         "note": "crossword solvers are YOU; two-thirds is YO, turned round"
-        },
-        {
-         "words": "everything",
-         "gives": "LLA",
-         "note": "all = everything"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "two-thirds of",
+           "at": 22,
+           "note": "two of the three letters are kept, the first two"
+          }
+         ],
+         "parts": [
+          {
+           "words": "crossword solvers",
+           "at": 36,
+           "gives": "YOU",
+           "note": "crossword solvers are addressed as you"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mixture of everything that most solvers can recall.",
-     "walkthrough": "Setters address solvers as 'you', so 'crossword solvers' is YOU.",
-     "definitionFit": "A specialised sense: an alloy is a metal made by mixing two or more metals."
+     "surface": "A survey finds that most crossword solvers remembered something about a mixture.",
+     "walkthrough": "Setters often stand for their solvers with 'you', as if speaking to the reader.",
+     "definitionFit": "An alloy is a metal made by combining two or more elements, so a blend."
     },
     "features": {
      "answerInScene": false,
@@ -1386,36 +1446,59 @@
      "indicators": [
       {
        "text": "after",
-       "note": "'after' puts these pieces behind the money"
+       "at": 25,
+       "note": "after puts the following pieces behind the word for money"
       }
      ],
      "parts": [
       {
        "words": "money",
+       "at": 31,
        "gives": "COIN",
-       "note": "coin = money"
+       "note": "coin is money"
       },
       {
-       "words": "Cut deal with",
-       "gives": "TREA",
-       "note": "to treat is to deal with; cut its last letter"
-      },
-      {
-       "words": "university",
-       "gives": "U",
-       "note": "U = university"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Cut",
+           "at": 0,
+           "note": "cut means shortened, so the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "deal",
+           "at": 4,
+           "gives": "TREAT",
+           "note": "to treat is to deal with something"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        },
+        {
+         "words": "university",
+         "at": 14,
+         "gives": "U"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cut-price deal with a university, sweetened by money and drinks.",
-     "walkthrough": "'Deal with' is one idea, TREAT; 'Cut deal' looks like a phrase on its own and must be split differently.",
-     "definitionFit": "A definition by example: Cointreau is a French orange liqueur."
+     "surface": "A student gets a cut-price deal, then spends the cash on a drink.",
+     "walkthrough": "'deal' is a verb here, as in dealing with or handling a matter, and 'with' simply joins the next piece on.",
+     "definitionFit": "Cointreau is a French orange-flavoured liqueur."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "deal"
+     "misdirectedWord": "Cut"
     }
    }
   },
