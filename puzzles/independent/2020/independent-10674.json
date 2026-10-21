@@ -751,16 +751,18 @@
      "indicators": [
       {
        "text": "is within",
-       "note": "one part being within another means it is placed inside it"
+       "at": 14,
+       "note": "the shuffled letters are placed inside the other piece"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "Suspect",
-         "note": "a suspect account is dubious and not straight, so these letters are rearranged"
+         "text": "recall of",
+         "at": 24,
+         "note": "recalling means calling back, so the initials are read backwards"
         }
        ],
        "parts": [
@@ -769,85 +771,62 @@
          "indicators": [
           {
            "text": "heads of",
-           "note": "the heads of words are their opening letters"
+           "at": 34,
+           "note": "the head of each word is its first letter"
           }
          ],
          "parts": [
           {
            "words": "some",
-           "note": "first letter"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "parts": [
+           "at": 43
+          },
           {
            "words": "leading",
-           "note": "first letter"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "parts": [
+           "at": 48
+          },
           {
            "words": "Anglican",
-           "note": "first letter"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "parts": [
+           "at": 56
+          },
           {
            "words": "Roman",
-           "note": "first letter"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "parts": [
+           "at": 69
+          },
           {
            "words": "Catholic",
-           "note": "first letter"
+           "at": 75
           }
          ]
         }
        ]
       },
       {
-       "op": "reversal",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "recall of",
-         "note": "to recall is to call back, so the letters run in the opposite direction"
+         "text": "Suspect",
+         "at": 0,
+         "note": "suspect read as an adjective means dubious, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "death",
-           "note": "taken as written, then rearranged"
-          }
-         ]
+         "words": "death",
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A suspicious death among senior figures of the Anglican and Catholic churches.",
-     "walkthrough": "The initials S, L, A, R, C run backwards to CRALS, and a mix of DEATH goes after the C. 'Churches' seems to belong to the surface, but it is the definition.",
-     "definitionFit": "A cathedral is the principal place of worship in a diocese, the seat of a bishop."
+     "surface": "A suspicious death recalled by senior Anglican and Catholic clergy.",
+     "walkthrough": "The 'and' between Anglican and Roman gives no initial; it is only a link inside the list.",
+     "definitionFit": "Cathedrals are the principal churches of dioceses, each housing a bishop's throne."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "recall"
+     "misdirectedWord": "Suspect"
     }
    }
   },
@@ -872,56 +851,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HELLO",
-     "indicators": [
-      {
-       "text": "ignored",
-       "note": "letters that are ignored are left out of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Henry",
+       "at": 15,
        "gives": "H",
-       "note": "H is the abbreviation for henry, the unit of inductance"
+       "note": "H is the symbol for the henry, the unit of inductance"
       },
       {
        "op": "nth",
-       "unchecked": true,
-       "gives": "E",
        "n": 2,
        "indicators": [
         {
-         "text": "Second",
-         "note": "the second of a word is its letter in position two"
+         "text": "the Second in",
+         "at": 21,
+         "note": "the second letter of the next word is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "the",
-         "gives": "E",
-         "select": 2,
-         "note": "the second letter of the"
+         "words": "league",
+         "at": 35,
+         "note": "the second letter of league is E"
         }
        ]
       },
       {
-       "words": "fellow",
-       "note": "taken as written"
-      },
-      {
-       "words": "few",
-       "note": "these letters are struck out of the previous word"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignored",
+         "at": 58,
+         "note": "the letters of the word few are left out of fellow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fellow",
+         "at": 47
+        },
+        {
+         "words": "few",
+         "at": 54,
+         "note": "few spells F, E, W, which come in that order in fellow"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A magazine reports that King Henry II had a band of allies, a few of whom were overlooked.",
-     "walkthrough": "As in 2-down, 'Henry the Second' looks like the king; here it is H plus the second letter of 'the'. Hello! is a British celebrity magazine.",
-     "definitionFit": "Hello! is a weekly celebrity news and photo publication sold in Britain."
+     "surface": "A magazine story about King Henry II in league with a fellow, with a few details skipped.",
+     "walkthrough": "Taking F, E and W out of FELLOW leaves LLO.",
+     "definitionFit": "Hello! is a British celebrity weekly, a glossy magazine of society photographs and interviews."
     },
     "features": {
      "answerInScene": false,
@@ -1373,46 +1355,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Almost",
+       "at": 0,
+       "note": "almost means not quite all, so each word loses its last letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Almost",
-         "note": "almost means not quite, so each word falls one letter short of its end"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "choose",
+         "at": 7,
          "gives": "PICK",
          "note": "to pick is to choose"
         },
         {
-         "gives": "K"
+         "words": "cut",
+         "at": 18,
+         "gives": "NICK",
+         "note": "to nick is to make a small cut"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "cut",
-         "gives": "NICK",
-         "note": "to nick is to make a small cut"
-        },
-        {
-         "gives": "K"
-        }
-       ]
+       "gives": "KK"
       }
      ]
     },
     "explanation": {
-     "surface": "Nearly deciding to slice a portion of cake.",
-     "walkthrough": "'a piece of cake' looks like the thing being cut, but it is the idiom for something easy.",
-     "definitionFit": "Both phrases are informal idioms for a task that is very easy, needing no effort."
+     "surface": "Nearly picking a cake and slicing it.",
+     "walkthrough": "'Almost' trims both words, PICK to PIC and NICK to NIC. 'A piece of cake' sounds like a slice of food; it is the idiom.",
+     "definitionFit": "Both phrases are idioms for an easy task, something that takes no effort at all."
     },
     "features": {
      "answerInScene": false,

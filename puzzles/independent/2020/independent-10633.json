@@ -760,26 +760,35 @@
      "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "outer",
        "indicators": [
         {
          "text": "Curtains for",
          "at": 0,
-         "note": "curtains means the end, so the band's name is cut down"
-        },
-        {
-         "text": "after half the characters leave",
-         "at": 27,
-         "note": "losing characters means losing letters, leaving each word's first two only"
+         "note": "curtains hang at either end, so the outside letters of the word are taken"
         }
        ],
        "parts": [
         {
-         "words": "Depeche Mode",
-         "at": 13
-        },
+         "words": "Depeche",
+         "at": 13,
+         "note": "Depeche starts with D and ends with E"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "gives": "PECHEDE"
+         "text": "after half the characters leave",
+         "at": 27,
+         "note": "half of the letters in the word go, leaving its first half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mode",
+         "at": 21
         }
        ]
       },
@@ -791,14 +800,13 @@
      ]
     },
     "explanation": {
-     "surface": "A music headline: Depeche Mode finished after members quit, a book telling of the split.",
-     "walkthrough": "Each word of the band name keeps its first two letters, DE and MO.",
-     "definitionFit": "To demob is to release soldiers from service, so to disband or break up a force."
+     "surface": "The end of the band Depeche Mode after half its members quit, a book describing the split.",
+     "walkthrough": "MODE losing half its letters keeps MO.",
+     "definitionFit": "To demob is to release troops from service, disbanding a military unit, which is to break it up."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "characters"
     }
    }
