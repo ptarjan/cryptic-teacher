@@ -150,6 +150,34 @@ def compact(text):
     return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
 
 
+def patch_bag(path, fix):
+    """Merge `fix`, {puzzle id: {entry id: {field: value or null}}}, into the bag
+    file `path`; what is wrong, or None. A fix by Edit has to reproduce the
+    file's bytes from memory and often misses; a patch names only fields."""
+    import annotate_check
+    try:
+        bag, changes = json.loads(path.read_text(encoding="utf-8")), json.loads(fix.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        return f"{path.name} or {fix.name} is not readable JSON: {e}"
+    unknown = sorted(set(changes) - set(bag))
+    if unknown:
+        return f"{fix.name} names puzzles {path.name} lacks: {', '.join(unknown)}"
+    tmp, tmpfix = path.with_name("_patch_tmp_part.json"), path.with_name("_patch_tmp_fix.json")
+    for pid, entries in changes.items():
+        tmp.write_text(json.dumps(bag[pid], ensure_ascii=False), encoding="utf-8")
+        tmpfix.write_text(json.dumps(entries, ensure_ascii=False), encoding="utf-8")
+        err = annotate_check.patch(tmp, tmpfix)
+        if err:
+            tmp.unlink(missing_ok=True)
+            tmpfix.unlink(missing_ok=True)
+            return f"{pid}: {err}"
+        bag[pid] = json.loads(tmp.read_text(encoding="utf-8"))
+    tmp.unlink(missing_ok=True)
+    path.write_text(json.dumps(bag, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    fix.unlink()
+    return None
+
+
 def check(path):
     path = Path(path)
     first = path.stem.removeprefix("_ann_bag_")
@@ -179,8 +207,10 @@ def check(path):
     done_path(first).write_text("\n".join(sorted(done)) + "\n")
     if failing:
         print(f"{len(done)} puzzles clean, {len(failing)} to fix in tools/{path.name}: "
-              f"{', '.join(failing)}. Use Edit on only the failing clues' entries (never Write "
-              f"the whole file), all in one go, then run this command again. Where a report "
+              f"{', '.join(failing)}. Write ONE small patch file {{puzzle id: {{entry id: {{field: "
+              f"new value, or null to drop it}}}}}} naming only the fields to change (notes merge key by "
+              f"key) and run `python3 tools/annotate_bag.py check tools/{path.name} --patch <patchfile>`: "
+              f"an Edit must match the file's bytes exactly and often misses. Where a report "
               f"names _ann_<id>.json or --patch, that is the puzzle's part of tools/{path.name}. "
               f"A line you cannot act on: `python3 tools/validate_annotations.py --explain "
               f"<[check_name]>` (print it once, do not cat it to a file). The clean ones are "
@@ -197,6 +227,12 @@ def main(argv):
         print(write_bag_view(argv[1:]).relative_to(TOOLS.parent))
         return 0
     if len(argv) == 2 and argv[0] == "check":
+        return check(argv[1])
+    if len(argv) == 4 and argv[0] == "check" and argv[2] == "--patch":
+        err = patch_bag(Path(argv[1]), Path(argv[3]))
+        if err:
+            print(f"annotate_bag: {err}")
+            return 2
         return check(argv[1])
     print(__doc__.strip(), file=sys.stderr)
     return 2
