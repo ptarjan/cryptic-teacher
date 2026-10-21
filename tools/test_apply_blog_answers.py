@@ -33,6 +33,52 @@ def main():
     assert a.candidates(rows[0][2], 8) == ["MEALYBUG"]
     print("ok   apply_blog_answers reads table and <br> write-ups")
 
+    daily = ("<p><strong>Across<br />\n</strong></p><p>1. Spider (5)<br />\n"
+             "{<span style=\"color:#fff;\">WIDOW</span>} &#8211; hint</p>"
+             "<p>9a &amp; 21d    Raging hell (6,4)<br />\n{<span>GRANGE HILL</span>} &#8211; anagram</p>"
+             "<p><strong>Down</strong></p><p>2d  Typo (9)<br />\n{<span>DISORDERD</span>} &#8211; x</p>")
+    assert [r[:3] for r in a.bigdave_rows(daily)] == [("across", 1, "WIDOW"), ("across", 9, "21d|GRANGE HILL"),
+                                     ("down", 2, "DISORDERD")], a.bigdave_rows(daily)
+    sunday = ("<p><strong>Across</strong></p><p>1a   Warship (10)<br />\n"
+              "SUBMISSIVE &#8211; SUB + MISSIVE.</p><p>6a   Presidents (4)<br />\nThe first refers to Bush.</p>"
+              "<p>24a   Perform (5,2)<br />\nSTAND-IN &#8211; hidden.</p>")
+    assert [r[:3] for r in a.bigdave_rows(sunday)] == [("across", 1, "SUBMISSIVE"), ("across", 6, ""),
+                                      ("across", 24, "STAND-IN")], a.bigdave_rows(sunday)
+    linked = a.break_lines("<p><strong>Across</strong><br />28,7 <strong>FINGAL</strong> FIN GAL</p>", linked=True)
+    assert linked == [("across", 28, "7|FINGAL – FINGAL FIN GAL")], linked
+    puzzle = {"entries": [
+        {"number": 28, "direction": "across", "length": 3, "position": {"x": 0, "y": 0}},
+        {"number": 7, "direction": "across", "length": 3, "position": {"x": 0, "y": 2}}]}
+    assert a.blog_fill(puzzle, {"rows": linked})[0] == {"28-across": "FIN", "7-across": "GAL"}
+    print("ok   apply_blog_answers reads bigdave44 posts and linked clues")
+
+    grid = {"entries": [
+        {"number": 1, "direction": "across", "length": 3, "position": {"x": 0, "y": 0}},
+        {"number": 3, "direction": "across", "length": 3, "position": {"x": 0, "y": 2}},
+        {"number": 2, "direction": "down", "length": 4, "position": {"x": 1, "y": 0}}]}
+    fill = {"1-across": "ABC", "3-across": "DEF"}
+    a.prose_fill(grid, fill, {"2-down": "A drink, BREW or tea, no brew on its own"})
+    assert fill["2-down"] == "BREW", fill
+    # Two words fit the crossings, so the prose does not settle it.
+    fill = {"1-across": "ABC", "3-across": "DEF"}
+    a.prose_fill(grid, fill, {"2-down": "Either BREW or BLEW"})
+    assert "2-down" not in fill, fill
+    # One crossing letter is too little for a capitalised word.
+    fill = {"1-across": "ABC"}
+    a.prose_fill(grid, fill, {"2-down": "A drink, BREW"})
+    assert "2-down" not in fill, fill
+    print("ok   apply_blog_answers fills a light only from a unique prose word that fits its crossings")
+
+    # "BREWS" typed for the four-letter BREW: dropping the S is the only word that fits.
+    fill = {"1-across": "ABC", "3-across": "DEF"}
+    a.repair_fill(grid, fill, {"2-down": "BREWS"})
+    assert fill["2-down"] == "BREW", fill
+    # A typed answer already the right length, or three letters off, is left alone.
+    fill = {"1-across": "ABC", "3-across": "DEF"}
+    a.repair_fill(grid, fill, {"2-down": "BREWERS"})
+    assert "2-down" not in fill, fill
+    print("ok   apply_blog_answers mends a misprinted answer only to a unique lexicon word")
+
 
 if __name__ == "__main__":
     main()
