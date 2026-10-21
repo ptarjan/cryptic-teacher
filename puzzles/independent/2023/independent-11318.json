@@ -94,42 +94,54 @@
      "indicators": [
       {
        "text": "Rising",
-       "note": "in a down clue the letters rise, so they read from the bottom of the grid upward, which reverses them"
+       "at": 0,
+       "note": "rising in a down clue says the whole is read from the bottom up"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "not initially",
-         "note": "the genre is not there at its start, so its first letter is lost"
-        }
-       ],
        "parts": [
         {
-         "words": "literary genre",
-         "gives": "CIFI",
-         "note": "SCI-FI, the literary genre, without its first letter S"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not initially",
+           "at": 22,
+           "note": "not initially says the genre's first letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "literary genre",
+           "at": 7,
+           "gives": "SCIFI",
+           "note": "sci-fi, science fiction, is a literary genre"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         },
         {
          "words": "better",
+         "at": 36,
          "gives": "CAP",
-         "note": "to cap is to better or outdo, as in capping a story"
+         "note": "to cap is to better or outdo"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A critic wonders whether a book genre that has lost its edge has become more peaceful.",
-     "walkthrough": "'Rising' applies to both chunks together, so the whole string turns upward. The question mark flags that 'regarding absence of violence' is a loose paraphrase of peaceable.",
-     "definitionFit": "Pacific in its older sense means peaceable, tending towards peace; the clue paraphrases that as a phrase."
+     "surface": "A literary genre is rising, but not at first better on the subject of peace.",
+     "walkthrough": "SCIFI without S is CIFI; CIFI and CAP read upwards give PAC and IFIC.",
+     "definitionFit": "Pacific means peaceable, inclined to peace and opposed to fighting, the root of pacifist."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "better"
+     "misdirectedWord": "Rising"
     }
    }
   },
@@ -1506,53 +1518,49 @@
    "annotation": {
     "definitions": [
      {
-      "text": "English writer",
-      "at": 22
+      "text": "writer",
+      "at": 30
      }
     ],
     "wordplay": {
      "op": "charade",
      "parts": [
       {
-       "op": "first",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Limitation to",
-         "note": "a limit of a word is one of its ends, the first letter or the last"
+         "text": "Limitation",
+         "at": 0,
+         "note": "limitation says the word for macabre is cut short, keeping only its start"
         }
        ],
        "parts": [
         {
          "words": "macabre",
-         "note": "first letter of macabre, one of its limits"
-        }
-       ]
-      },
-      {
-       "words": "Limitation",
-       "gives": "OR",
-       "note": "a single limitation can be either end, one end or the other"
-      },
-      {
-       "op": "last",
-       "parts": [
+         "at": 14,
+         "gives": "MORBID",
+         "note": "morbid means gruesome, macabre"
+        },
         {
-         "words": "macabre",
-         "note": "last letter of macabre, its other limit"
+         "gives": "BID"
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 22,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A critic finds a horror writer's range narrow.",
-     "walkthrough": "A limitation of 'macabre' is one of its ends, so it is literally 'M or E'. Thomas More wrote Utopia; with 11 across this makes FILLMORE, a US president.",
-     "definitionFit": "A definition by example: Sir Thomas More was an English statesman and the author of Utopia."
+     "surface": "A writer's work, confined to the macabre, made in England.",
+     "walkthrough": "MORBID cut back to MOR, then E. Thomas More was the Tudor author of Utopia.",
+     "definitionFit": "Sir Thomas More was an English author and statesman, best known for Utopia."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Limitation"
     }
    }

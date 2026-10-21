@@ -146,7 +146,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "and so on",
+      "text": "and so on?",
       "at": 20
      }
     ],
@@ -155,26 +155,43 @@
      "indicators": [
       {
        "text": "up",
-       "note": "in a down clue, up means the letters are read from the bottom, so backwards"
+       "at": 17,
+       "note": "up in a down clue says the whole doubled string is read upwards"
       }
      ],
      "parts": [
       {
-       "words": "24 hours doubled",
-       "gives": "ADAYADAY",
-       "note": "twenty-four hours is a day, and doubled means written twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "doubled",
+         "at": 9,
+         "note": "doubled says the day phrase is written two times in a row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "24 hours",
+         "at": 0,
+         "gives": "ADAY",
+         "note": "twenty-four hours makes a day"
+        },
+        {
+         "gives": "ADAY"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzling sum: a whole day, twice over, and then some.",
-     "walkthrough": "A DAY written twice gives ADAYADAY, which read upwards spells YADA YADA.",
-     "definitionFit": "Yada yada is a slangy dismissal meaning blah blah, standing for tedious further talk not worth repeating."
+     "surface": "A day's worth of time turned over twice, and so forth.",
+     "walkthrough": "A DAY read upwards gives YADA, which is then written twice.",
+     "definitionFit": "Yada yada is a dismissive phrase meaning 'and so forth', used to skip tedious detail."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "up"
+     "aptDefinition": true,
+     "misdirectedWord": "doubled"
     }
    }
   },
@@ -584,7 +601,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "In which one's local confused with home endlessly",
+      "text": "In which one's local confused with home endlessly?",
       "at": 0
      }
     ],
@@ -593,36 +610,36 @@
      "indicators": [
       {
        "text": "confused",
-       "note": "confused means mixed up, so these letters are jumbled together"
+       "at": 21,
+       "note": "confused says all these letters are mixed up"
       }
      ],
      "parts": [
+      {
+       "words": "one's",
+       "at": 9,
+       "gives": "IS",
+       "note": "one is I, and 's is is"
+      },
+      {
+       "words": "local",
+       "at": 15,
+       "note": "taken as written"
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "endlessly",
-         "note": "endlessly means with the last letter cut off"
+         "at": 40,
+         "note": "endlessly says the final letter of home is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "one's",
-           "gives": "IS",
-           "note": "one is I, plus the S of the possessive"
-          },
-          {
-           "words": "local",
-           "note": "taken as written"
-          },
-          {
-           "words": "home",
-           "note": "taken as written before trimming"
-          }
-         ]
+         "words": "home",
+         "at": 35,
+         "note": "taken as written"
         },
         {
          "gives": "E"
@@ -633,9 +650,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A condition in which someone confuses the pub with home.",
-     "walkthrough": "A local is a British neighbourhood pub; the whole clue also describes the answer, where the pub becomes home.",
-     "definitionFit": "Addiction to drink could be described as a state where a person treats the neighbourhood pub as their house."
+     "surface": "A condition in which a drinker mistakes the pub, the local, for home.",
+     "walkthrough": "IS, LOCAL and HOM are rearranged. The local is British slang for one's nearest pub.",
+     "definitionFit": "Alcoholism is addiction to drink, a state where the pub becomes a second home."
     },
     "features": {
      "answerInScene": true,
@@ -946,7 +963,8 @@
      "indicators": [
       {
        "text": "breaking into",
-       "note": "a burglar breaking into a building ends up inside it"
+       "at": 13,
+       "note": "breaking into says the pair go inside the rest, like burglars"
       }
      ],
      "parts": [
@@ -955,31 +973,47 @@
        "parts": [
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 27
         },
         {
          "words": "house",
-         "gives": "HO",
-         "note": "HO is the abbreviation for house"
+         "at": 29,
+         "gives": "HO"
         }
        ]
       },
       {
-       "words": "Caught twice",
-       "gives": "CC",
-       "note": "C is caught in cricket scoring, written twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 7,
+         "note": "twice says the caught letter appears two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Caught",
+         "at": 0,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
+        },
+        {
+         "gives": "C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A burglar caught twice breaking into the same house.",
-     "walkthrough": "Acre is the ancient port in northern Israel, not a unit of land.",
-     "definitionFit": "Accho is the old biblical name for the port city now called Acre or Akko."
+     "surface": "Someone caught twice burgling a house in the city of Acre.",
+     "walkthrough": "CC goes inside A plus HO.",
+     "definitionFit": "Accho is an older biblical name of Acre, the port city in present-day Israel."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Acre"
+     "misdirectedWord": "Caught"
     }
    }
   },

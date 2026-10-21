@@ -565,7 +565,7 @@
       {
        "text": "to be replaced",
        "at": 41,
-       "note": "the letters are to be replaced, put back in a new order"
+       "note": "to be replaced says the remaining letters are put back in a new order"
       }
      ],
      "parts": [
@@ -575,25 +575,29 @@
         {
          "text": "tailless",
          "at": 19,
-         "note": "tailless applies to both words: each loses its final letter"
+         "note": "tailless says each of the two words loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "llama",
-         "at": 28
+         "op": "charade",
+         "parts": [
+          {
+           "words": "llama",
+           "at": 28,
+           "gives": "LLAMA",
+           "note": "taken as written"
+          },
+          {
+           "words": "needed",
+           "at": 34,
+           "gives": "NEEDED",
+           "note": "taken as written"
+          }
+         ]
         },
         {
          "gives": "A"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "needed",
-         "at": 34
         },
         {
          "gives": "D"
@@ -603,15 +607,15 @@
      ]
     },
     "explanation": {
-     "surface": "A llama with no tail is given a shiny coat to replace it.",
-     "walkthrough": "Tailless docks both llama and needed of their last letters before the remaining letters are rearranged.",
-     "definitionFit": "Enamelled things have a hard shiny surface coating applied, like enamel paint on metal."
+     "surface": "A llama without a tail needs a replacement after being varnished.",
+     "walkthrough": "LLAMA and NEEDED each lose their last letter, giving LLAM and NEEDE, which are rearranged.",
+     "definitionFit": "Enamelled means coated with enamel, a hard shiny finish, as on pottery or metal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "tailless"
+     "misdirectedWord": "coat"
     }
    }
   },
@@ -1100,7 +1104,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "close call",
+      "text": "close call!",
       "at": 46
      }
     ],
@@ -1109,7 +1113,8 @@
      "indicators": [
       {
        "text": "torpedoed",
-       "note": "torpedoed things are blown apart and scattered"
+       "at": 11,
+       "note": "torpedoed says the remaining letters are blown apart and rearranged"
       }
      ],
      "parts": [
@@ -1118,32 +1123,55 @@
        "indicators": [
         {
          "text": "away",
-         "note": "away means these letters are taken out"
+         "at": 39,
+         "note": "away says those two letters are removed from submarines"
         }
        ],
        "parts": [
         {
          "words": "Submarines",
+         "at": 0,
          "note": "taken as written"
         },
         {
-         "words": "U-boat's heading",
-         "gives": "UB",
-         "note": "U plus the first letter of boat"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "U",
+           "at": 22,
+           "note": "taken as written"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "heading",
+             "at": 31,
+             "note": "heading says the first letter of boat's is taken"
+            }
+           ],
+           "parts": [
+            {
+             "words": "boat's",
+             "at": 24
+            }
+           ]
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Submarines fire torpedoes but a U-boat turns aside just in time.",
-     "walkthrough": "U and B are removed from the subs before the remaining letters are scrambled.",
-     "definitionFit": "A near miss is an incident where disaster was only narrowly avoided, the same as a close call."
+     "surface": "A naval report: submarines attacked and a U-boat headed off, a narrow escape.",
+     "walkthrough": "SUBMARINES without U and B leaves SMARINES, which is rearranged.",
+     "definitionFit": "A near miss is a narrow escape from disaster, a close shave."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "heading"
+     "misdirectedWord": "Submarines"
     }
    }
   },

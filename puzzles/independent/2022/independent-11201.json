@@ -457,43 +457,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "shifting ring",
-       "note": "the round letter moves its place within the word, rearranging it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "outer",
        "indicators": [
         {
          "text": "Extremely",
-         "note": "the extremes of a word are its two ends, so only its outer letters are kept"
+         "at": 0,
+         "note": "extremely says the outermost letters of rough are taken"
         }
        ],
        "parts": [
         {
          "words": "rough",
-         "note": "first and last letters of the word"
+         "at": 10
         }
        ]
       },
       {
-       "words": "gang",
-       "gives": "MOB",
-       "note": "a mob is a gang of criminals"
+       "op": "move",
+       "indicators": [
+        {
+         "text": "shifting",
+         "at": 21,
+         "note": "shifting says the ring letter moves to a new place in gang"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gang",
+         "at": 16,
+         "gives": "MOB",
+         "note": "a mob is a gang"
+        },
+        {
+         "words": "ring",
+         "at": 30,
+         "gives": "O",
+         "note": "a ring is round, the letter O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rough gang of thieves moves a ring and a diamond, stolen jewellery.",
-     "walkthrough": "Ring is the letter O, which moves from the middle of the gang word to its front.",
-     "definitionFit": "A rhomb or rhombus is a four-sided figure with equal sides, the shape usually called a diamond."
+     "surface": "A rough gang moving a ring and a diamond, like jewel thieves.",
+     "walkthrough": "RH from rough; in MOB the O moves to the front, giving OMB. A rhomb is a rhombus.",
+     "definitionFit": "A rhomb is a rhombus, a parallelogram with equal sides, the diamond shape."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "diamond"

@@ -542,30 +542,48 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "what eats something takes it inside"
+       "at": 41,
+       "note": "eating says the shortened camel swallows the next piece, taking it inside"
       }
      ],
      "parts": [
       {
-       "words": "tailless camel",
-       "gives": "BACTRIA",
-       "note": "BACTRIAN, the two-humped camel, without its last letter N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailless",
+         "at": 26,
+         "note": "tailless says the camel word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "camel",
+         "at": 35,
+         "gives": "BACTRIAN",
+         "note": "a Bactrian is the two-humped camel of Central Asia"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "earth",
-       "gives": "E",
-       "note": "E = earth, as on an electric plug"
+       "at": 48,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A warning that a camel eating dirt could make people ill.",
-     "walkthrough": "'Camel' has to be the specific Bactrian camel, the two-humped kind, before the tail comes off.",
-     "definitionFit": "A cautious description: some of these microbes cause disease, so they are potential rather than certain risks."
+     "surface": "A warning that a camel with no tail, munching soil, could make people ill.",
+     "walkthrough": "A Bactrian camel loses its last letter to give BACTRIA, which then takes E inside.",
+     "definitionFit": "Bacteria are microbes, some of which cause disease, so they are possible dangers to health."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "camel"
     }
    }

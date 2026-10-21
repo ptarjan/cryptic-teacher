@@ -851,7 +851,7 @@
       {
        "text": "about",
        "at": 7,
-       "note": "about means the colour goes around the other letters"
+       "note": "about says the colour word goes around the next piece"
       }
      ],
      "parts": [
@@ -859,23 +859,34 @@
        "words": "Colour",
        "at": 0,
        "gives": "MAROON",
-       "note": "maroon is a brownish-red colour"
+       "note": "maroon is a dark brownish-red colour"
       },
       {
-       "words": "half of cake",
-       "at": 13,
-       "gives": "CA",
-       "note": "the first half of the word cake"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 13,
+         "note": "half of says only the first two of the four letters are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cake",
+         "at": 21,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A colour description that half applies to some cake or biscuit.",
-     "walkthrough": "'cake or biscuit' looks like a single definition, but 'cake' is supplying letters.",
-     "definitionFit": "A macaroon is a sweet almond or coconut biscuit."
+     "surface": "Choosing a colour for roughly half a cake or a biscuit.",
+     "walkthrough": "'Cake' looks like the definition beside 'biscuit', but only its front half is used and 'or' is a link.",
+     "definitionFit": "A macaroon is a light biscuit made with ground almonds or coconut and egg white."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cake"
     }

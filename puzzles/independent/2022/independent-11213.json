@@ -1639,51 +1639,56 @@
      "indicators": [
       {
        "text": "hosting",
-       "note": "a host has guests inside, so one piece contains another"
+       "at": 11,
+       "note": "hosting says the party and time pieces take the next part in between them"
       }
      ],
      "parts": [
       {
-       "words": "time",
-       "gives": "DAY",
-       "note": "a day is a period of time"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Party",
+         "at": 0,
+         "gives": "DO",
+         "note": "a do is a party"
+        },
+        {
+         "words": "time",
+         "at": 6,
+         "gives": "DAY",
+         "note": "a day is a period of time"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "retired",
-         "note": "to retire is to withdraw backwards, so the letters run the other way"
+         "at": 19,
+         "note": "retired says the teacher word goes backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Party",
-           "gives": "DO",
-           "note": "a do is a party"
-          },
-          {
-           "words": "teacher",
-           "gives": "SIR",
-           "note": "sir is what British pupils call a male teacher"
-          }
-         ]
+         "words": "teacher",
+         "at": 27,
+         "gives": "SIR",
+         "note": "sir is a British schoolchild's word for a male teacher"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A party welcomes a retired schoolmaster and a veteran footballer.",
-     "walkthrough": "'Player' suggests sport, but it is an actress: an old word for an actor is a player.",
-     "definitionFit": "Doris Day was an American singer and film actress of the 1950s and 60s, so a player from the past."
+     "surface": "A party at which a retired teacher and an elderly musician are the guests.",
+     "walkthrough": "'Sir' is how British schoolchildren address a male teacher; 'old player' is the definition, as she was a film actress of an earlier era.",
+     "definitionFit": "Doris Day was an American actress and singer of the 1950s and 60s, a performer of an earlier era."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "player"
     }
    }
