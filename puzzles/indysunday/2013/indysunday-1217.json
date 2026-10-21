@@ -317,7 +317,8 @@
      "indicators": [
       {
        "text": "penning",
-       "note": "penning means enclosing as in a pen, so other letters go inside"
+       "at": 27,
+       "note": "penning means shutting in, so these letters enclose the next ones"
       }
      ],
      "parts": [
@@ -326,37 +327,48 @@
        "indicators": [
         {
          "text": "about",
-         "note": "about means turned round, so the word is read backwards"
+         "at": 21,
+         "note": "about means turned round, so the word for particulars runs backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "particulars",
-           "gives": "DETAIL",
-           "note": "details are particulars"
-          },
-          {
-           "words": "book",
-           "gives": "B",
-           "note": "B is the abbreviation for book"
-          }
-         ]
+         "words": "particulars",
+         "at": 9,
+         "gives": "DETAIL",
+         "note": "a detail is one of the particulars"
         }
        ]
       },
       {
-       "words": "the Queen",
-       "gives": "ER",
-       "note": "ER, Elizabeth Regina"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 40,
+         "note": "on in a down clue puts the book letter above the queen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "book",
+         "at": 35,
+         "gives": "B"
+        },
+        {
+         "words": "the Queen",
+         "at": 43,
+         "gives": "ER",
+         "note": "ER stands for Elizabeth Regina"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Detailed reports about writing a book on the monarch have been made public.",
-     "definitionFit": "Liberated and released both mean set free."
+     "surface": "Details about a book on the Queen are released.",
+     "walkthrough": "In a down clue 'on' means placed above, so the book letter sits over the Queen's initials. ER stands for Elizabeth Regina.",
+     "definitionFit": "Liberated means set free, the same as released from captivity."
     },
     "features": {
      "answerInScene": false,
@@ -1122,7 +1134,8 @@
      "indicators": [
       {
        "text": "contained in",
-       "note": "contained in means held inside something else"
+       "at": 9,
+       "note": "contained in means held inside the letters that follow"
       }
      ],
      "parts": [
@@ -1131,31 +1144,35 @@
        "indicators": [
         {
          "text": "fancy",
-         "note": "fancy means elaborate or ornamented, so the letters are rearranged"
+         "at": 22,
+         "note": "fancy means elaborate, so these letters are dressed up in a new order"
         }
        ],
        "parts": [
         {
-         "words": "Nonsense",
-         "gives": "ROT",
-         "note": "rot is nonsense"
+         "words": "polo",
+         "at": 28
         },
         {
-         "words": "polo",
-         "note": "the letters of polo, part of the fodder"
+         "words": "club",
+         "at": 33,
+         "gives": "C",
+         "note": "C is the card abbreviation for clubs"
         }
        ]
       },
       {
-       "words": "club",
-       "gives": "C",
-       "note": "C is the abbreviation for club"
+       "words": "Nonsense",
+       "at": 0,
+       "gives": "ROT",
+       "note": "rot means nonsense"
       }
      ]
     },
     "explanation": {
-     "surface": "Snobbish rubbish written into an upmarket polo club's rules of conduct.",
-     "definitionFit": "Protocol is the formal set of rules governing behaviour on official occasions."
+     "surface": "Nonsense rules are kept within an exclusive polo club.",
+     "walkthrough": "POLO plus C rearranged gives POCOL, which holds ROT.",
+     "definitionFit": "Protocol is the formal set of rules governing correct conduct, an etiquette code."
     },
     "features": {
      "answerInScene": true,

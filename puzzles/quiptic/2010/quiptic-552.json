@@ -1680,37 +1680,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "damaged",
-       "note": "something damaged is broken up, so these letters are reassembled"
-      },
-      {
-       "text": "clumsy",
-       "note": "a clumsy move is awkward and disordered, so these letters are rearranged too"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "net",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "clumsy",
+         "at": 32,
+         "note": "a clumsy dive is badly executed, so its letters land in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dive",
+         "at": 39
+        }
+       ]
       },
       {
-       "words": "dive",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "damaged",
+         "at": 21,
+         "note": "something damaged is broken, so these letters are reshaped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "net",
+         "at": 13
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "It is plain that the goal net was broken by a goalkeeper's awkward dive.",
-     "walkthrough": "Both words are rearranged together.",
-     "definitionFit": "Evident means plain to see, clearly apparent, the same as obvious."
+     "surface": "It was plain the net had been torn by an awkward plunge into the water.",
+     "walkthrough": "Two separate anagrams: DIVE gives EVID, NET gives ENT.",
+     "definitionFit": "Something evident is plainly visible or clear to see, the same as obvious."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "dive"
+     "aptDefinition": false
     }
    }
   }

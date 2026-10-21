@@ -567,24 +567,44 @@
      "op": "charade",
      "parts": [
       {
-       "words": "speak rudely",
+       "words": "speak rudely to",
+       "at": 14,
        "gives": "DIS",
-       "note": "to dis someone is to speak disrespectfully of them"
+       "note": "to dis someone is to insult them"
       },
       {
-       "words": "individual not working",
-       "gives": "PERSAL",
-       "note": "PERSONAL (individual) without ON"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 41,
+         "note": "not here means without, so these letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "individual",
+         "at": 30,
+         "gives": "PERSONAL",
+         "note": "personal means individual"
+        },
+        {
+         "words": "working",
+         "at": 45,
+         "gives": "ON",
+         "note": "on means working, as a machine that is switched on"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A couple breaking up, one insulting the other for being out of work.",
-     "walkthrough": "'Speak rudely to' reads as one verb phrase; the 'to' is only glue. The deletion takes ON out of the middle of PERSONAL, not off the end.",
-     "definitionFit": "A plain synonym, both nouns: a crowd's splitting up and scattering is its dispersal."
+     "surface": "During a break-up, someone is rude to a partner who is not employed.",
+     "walkthrough": "'individual' looks like a noun for a person, but here it is the adjective personal.",
+     "definitionFit": "Dispersal is scattering or splitting apart, as a crowd does when breaking up."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "individual"
     }

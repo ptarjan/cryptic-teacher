@@ -825,55 +825,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPIELBERG",
-     "indicators": [
-      {
-       "text": "Silly",
-       "note": "silly suggests nonsense, so the remaining letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SPIELBERG",
+       "words": "pitch",
+       "at": 13,
+       "gives": "SPIEL",
+       "note": "a spiel is a sales pitch"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "dismisses",
-         "note": "to dismiss is to send away, so these letters are taken out"
+         "text": "Silly",
+         "at": 21,
+         "note": "silly means daft, so these letters are put into a daft order"
         }
        ],
        "parts": [
         {
-         "words": "pitch",
-         "gives": "SPIEL",
-         "note": "a spiel is a sales pitch"
-        },
-        {
-         "words": "bugger",
-         "note": "taken as written"
-        },
-        {
-         "words": "what caveman said",
-         "gives": "UGH",
-         "note": "cartoon cavemen grunt this"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "dismisses",
+           "at": 34,
+           "note": "dismisses means sends away, so these letters are removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bugger",
+           "at": 27
+          },
+          {
+           "words": "what caveman said",
+           "at": 44,
+           "gives": "UG",
+           "note": "cartoon cavemen grunt ug"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A director's film pitch is mocked by a studio boss as caveman nonsense.",
-     "walkthrough": "Remove the grunt from the swear word, then rearrange the four letters left.",
-     "definitionFit": "Steven Spielberg is the American film director of Jaws and E.T., a maker of films."
+     "surface": "A director's sales pitch is mocked as nonsense by a rude caveman.",
+     "walkthrough": "BUGGER minus UG leaves BGER, rearranged as BERG; SPIEL goes first.",
+     "definitionFit": "Steven Spielberg is a Hollywood film director, the maker of films such as Jaws."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "Silly"
+     "misdirectedWord": "pitch"
     }
    }
   },
