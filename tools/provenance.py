@@ -486,7 +486,7 @@ SOURCE_REQUIRED = ("publisher", "retrievedFrom", "acquiredBy", "acquiredOn",
                    "gridOrigin")
 #: The keys that back a claim that the answers are not the publisher's.
 SOLUTION_DETAIL = ("blog", "url", "model", "date", "check", "officialKey",
-                   "printed", "corrected", "reopened", "graded")
+                   "printed", "corrected", "reopened", "graded", "partial")
 #: What each non-published origin must carry.
 DETAIL_REQUIRED = {"writeup": ("blog", "url", "date", "check"),
                    "model": ("model", "date", "check")}
@@ -543,9 +543,27 @@ def writeup_keyed(puzzle):
     mend, or stays blank, and a model fill would badge every answer unverified.
     The solve gate (apply_solution.check_writeup), this module's check() and
     the solve queues (fetch_puzzle.cold_solvable, via the index row) all ask
-    this."""
+    this.
+
+    Not so of a partial key (solutions.partial, see partial_lights): a blog
+    that left a light or two out on purpose (Times for the Times does) is
+    keyed except for the lights it lists, and a model may fill exactly
+    those."""
+    if partial_lights(puzzle):
+        return False
     return ("blog" in solution_detail(puzzle)
             or (puzzle.get("source") or {}).get("retrievedFrom") == "blog")
+
+
+def partial_lights(puzzle):
+    """The entry ids solutions.partial lists: the lights a blog's write-up
+    deliberately left out, still blank in the file; [] when the key is whole.
+    The blog's other answers are in the grid and stay as printed."""
+    blanks = {entry_id(e) for e in puzzle.get("entries") or [] if not (e.get("solution") or "").strip()}
+    listed = (puzzle.get("solutions") or {}).get("partial")
+    if not isinstance(listed, list) or set(listed) != blanks:
+        return []
+    return list(listed)
 
 
 def printed_answers(puzzle):
@@ -848,6 +866,14 @@ def check(puzzle):
                         f"model solve")
     if "blog" in detail and "model" in detail:
         findings.append("solutions names both a blog and a model")
+    if "partial" in solutions:
+        blanks = sorted(entry_id(e) for e in puzzle.get("entries") or []
+                        if not (e.get("solution") or "").strip())
+        if "blog" not in detail:
+            findings.append("solutions.partial is set but solutions names no blog whose write-up left the lights out")
+        if not isinstance(solutions["partial"], list) or sorted(solutions["partial"]) != blanks:
+            findings.append(f"solutions.partial is {solutions['partial']!r} but the blank lights are "
+                            f"{blanks}: it lists exactly the lights the blog left out")
     if writeup_keyed(puzzle) and origin == "model":
         findings.append(
             "solutions.origin is 'model' on a puzzle retrieved from a blog, whose "

@@ -1302,7 +1302,7 @@
    }
   },
   "solutions": {
-   "description": "Whose answers are in the grid. `blog`, `url`, `model`, `date`, `check`, `officialKey`, `printed`, `corrected` and `reopened` back an origin that is not the publisher's: a writeup carries blog, url, date and check; a model solve carries model, date and check; any other origin carries none of them (tools/provenance.py check).",
+   "description": "Whose answers are in the grid. `blog`, `url`, `model`, `date`, `check`, `officialKey`, `printed`, `corrected`, `partial` and `reopened` back an origin that is not the publisher's: a writeup carries blog, url, date and check; a model solve carries model, date and check; any other origin carries none of them (tools/provenance.py check).",
    "type": "object",
    "required": [
     "origin"
@@ -1385,6 +1385,14 @@
       }
      },
      "description": "Model answers the annotator replaced because the clue gives another word, each checked against every crossing and printed answer (tools/apply_annotations.py)."
+    },
+    "partial": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "string"
+     },
+     "description": "Entry ids of the lights a blog's write-up left out on purpose, still blank in the grid; the blog's other answers stand. A model may fill these and no other light (tools/apply_blog_answers.py --partial, apply_solution.check_writeup)."
     },
     "reopened": {
      "type": "object",

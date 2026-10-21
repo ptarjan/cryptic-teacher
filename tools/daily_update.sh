@@ -1390,6 +1390,8 @@ readable = {}  # id -> (present, total), only for puzzles the index flags
 unsolvable = set()
 # A puzzle whose answer key is a blog's write-up is not queued either, and not
 # reported: its blank light is the blog parser's to mend (cold_solvable says no).
+# A partial key (solutions.partial, the lights the blog left out on purpose) is
+# the exception: cold_solvable says yes and the solve fills only those lights.
 for p in idx["puzzles"]:
     if p["id"] in unsolved_ids and not cold_solvable(p):
         unsolvable.add(p["id"])

@@ -3018,6 +3018,11 @@ def index_row(path):
         # write-up (provenance.writeup_keyed): the solve queues never offer it
         # (cold_solvable), since no model fill of it can be written.
         **({"writeupKeyed": True} if not solved and provenance.writeup_keyed(p) else {}),
+        # Written only on a partial blog key (provenance.partial_lights): how
+        # many lights the blog left out. The rest are answered, so the queues
+        # treat the row as answered (prereset_plan.cold_row) and the solve
+        # fills only these.
+        **({"partial": n} if not solved and (n := len(provenance.partial_lights(p))) else {}),
         # Written only where the puzzle needs a preamble it does not hold
         # (puzzle_integrity.awaits_preamble): the annotation pickers leave it out.
         **({"awaitsPreamble": True} if puzzle_integrity.awaits_preamble(p) else {}),

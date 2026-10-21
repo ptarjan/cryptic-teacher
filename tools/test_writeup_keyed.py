@@ -18,6 +18,8 @@ from pathlib import Path
 import apply_solution
 import fetch_puzzle as F
 import provenance
+import solve_packet
+from groups import entry_id
 
 fails = 0
 def check(name, ok):
@@ -45,6 +47,39 @@ try:
     check("a blank light on a blog puzzle marks the row", row.get("writeupKeyed") is True)
     check("so no solve queue offers it", not F.cold_solvable(row))
     check("the solve gate asks the same question", apply_solution.check_writeup(blank) != [])
+
+    # A partial key: the blog left the blank light out on purpose and says so.
+    eid = entry_id(blank["entries"][0])
+    partial = copy.deepcopy(blank)
+    partial["solutions"]["partial"] = [eid]
+    check("a partial key naming the blank light is not writeup-keyed", not provenance.writeup_keyed(partial))
+    check("the solve gate lets a fill through", apply_solution.check_writeup(partial) == [])
+    check("the provenance check accepts the marker", not [f for f in provenance.check(partial) if "partial" in f])
+    F.write_puzzle_file(path, partial)
+    row = F.index_row(path)
+    check("the row is not marked writeupKeyed", "writeupKeyed" not in row)
+    check("the row says how many lights are open", row.get("partial") == 1)
+    check("so a solve queue offers it", F.cold_solvable(row))
+    import prereset_plan
+    check("and the plan does not treat it as cold", not prereset_plan.cold_row(row))
+    check("while an unmarked blank still is", prereset_plan.cold_row({**row, "partial": None}))
+
+    wrong = copy.deepcopy(partial)
+    wrong["solutions"]["partial"] = []
+    check("a marker that does not list the blank light does not unlock it", provenance.writeup_keyed(wrong))
+    check("and the provenance check names it", any("partial" in f for f in provenance.check(wrong)))
+    extra = copy.deepcopy(partial)
+    extra["entries"][1]["solution"] = None
+    check("a second blank the marker omits keeps it keyed", provenance.writeup_keyed(extra))
+
+    # The fill may not change a blog answer: check_printed refuses it.
+    fill = {entry_id(e): e["solution"] for e in partial["entries"] if e.get("solution")}
+    fill[eid] = "X" * partial["entries"][0]["length"]
+    other = entry_id(partial["entries"][1])
+    fill[other] = "Q" * partial["entries"][1]["length"]
+    check("a fill that changes a blog answer is refused", apply_solution.check_printed(partial, fill) != [])
+    check("the packet tells the solver which lights are open",
+          f"left 1 light(s) out on purpose ({eid})" in solve_packet.packet(F.read_puzzle_view(path)))
 
     cyclops = copy.deepcopy(blank)
     cyclops["source"]["retrievedFrom"] = "publisher"

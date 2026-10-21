@@ -250,7 +250,12 @@ def check_writeup(puzzle):
     """A grid whose answers a blog's write-up printed is never solved over: the
     write-up is the answer key, so a light it left blank is one its parser
     could not read, and a model's fill there would turn every answer the blog
-    printed into "unverified". The parser is what gets mended."""
+    printed into "unverified". The parser is what gets mended.
+
+    A partial key (solutions.partial: the blog left those lights out on
+    purpose) is let through, because writeup_keyed is false for it. The fill
+    then goes into the listed lights only: every blog answer is a printed
+    answer to check_printed, which refuses a fill that changes one."""
     if not provenance.writeup_keyed(puzzle):
         return []
     blank = [entry_id(e) for e in puzzle["entries"] if not (e.get("solution") or "").strip()]
