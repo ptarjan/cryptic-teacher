@@ -114,6 +114,17 @@ def main():
         a.blog_fill = real
     print("ok   apply_blog_answers refuses a post that contradicts the annotated answers")
 
+    # A row whose answer has the wrong length is dropped, not guessed: the
+    # light is left out of the fill (so --partial lists it) and the rest stays.
+    grid = {"entries": [
+        {"number": 1, "direction": "across", "length": 3, "position": {"x": 0, "y": 0}},
+        {"number": 4, "direction": "down", "length": 4, "position": {"x": 5, "y": 5}}]}
+    fill, why = a.blog_fill(grid, {"blog": "bigdave44", "rows": [
+        ("across", 1, "ROCKS"), ("down", 4, "MOIST")]})
+    assert fill == {}, fill
+    assert any(w.startswith("1-across") for w in why), why
+    print("ok   apply_blog_answers drops a wrong-length row")
+
 
 if __name__ == "__main__":
     main()
