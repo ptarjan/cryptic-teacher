@@ -442,58 +442,68 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ABRASIVE",
-     "indicators": [
-      {
-       "text": "different",
-       "note": "a different version of the letters means they are put in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ABRASIVE",
+       "words": "a",
+       "at": 7,
+       "gives": "A"
+      },
+      {
+       "words": "supporter",
+       "at": 9,
+       "gives": "BRA",
+       "note": "a bra is a supporting garment"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "once wicket's lost",
-         "note": "after the wicket abbreviation is lost, that letter is taken away"
+         "text": "different",
+         "at": 24,
+         "note": "different means the remaining letters of views are made into another order"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "supporter",
-         "gives": "BRA",
-         "note": "a bra is a supporting garment"
-        },
-        {
-         "words": "views",
-         "note": "taken as written before the change"
-        },
-        {
-         "words": "wicket",
-         "gives": "W",
-         "note": "W is the cricket scorecard abbreviation for wicket"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "once",
+           "at": 40,
+           "note": "once, read with lost, means as soon as the wicket letter has gone from the word views"
+          },
+          {
+           "text": "lost",
+           "at": 54,
+           "note": "lost means the cricket letter for wicket goes missing from the word views"
+          }
+         ],
+         "parts": [
+          {
+           "words": "views",
+           "at": 34
+          },
+          {
+           "words": "wicket's",
+           "at": 45,
+           "gives": "W",
+           "note": "W is the cricket scorecard abbreviation for wicket"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket fan's opinions change once their side loses a wicket, and they turn harsh.",
-     "walkthrough": "Drop W from VIEWS, then rearrange the remaining VIES.",
-     "definitionFit": "Abrasive literally means scraping or grinding, and figuratively harsh or rough in manner."
+     "surface": "A cricket fan with changing opinions after the team loses a wicket.",
+     "walkthrough": "'lost' drops W from VIEWS, leaving VIES, which 'different' rearranges as SIVE.",
+     "definitionFit": "Abrasive means rough and grating in manner, so a harsh person or remark fits."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "supporter"
     }
    }

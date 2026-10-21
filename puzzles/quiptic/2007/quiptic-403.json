@@ -499,13 +499,29 @@
      }
     ],
     "wordplay": {
-     "words": "Twice expressing contempt",
-     "gives": "BOOBOO",
-     "note": "the jeer a crowd shouts in scorn, said two times over"
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Twice",
+       "at": 0,
+       "note": "twice means the jeer is said two times in a row"
+      }
+     ],
+     "parts": [
+      {
+       "words": "expressing contempt",
+       "at": 6,
+       "gives": "BOO",
+       "note": "boo is the jeer that expresses contempt"
+      },
+      {
+       "gives": "BOO"
+      }
+     ]
     },
     "explanation": {
-     "surface": "Someone jeers twice at a blunder.",
-     "definitionFit": "A boo-boo is an informal, childish word for a silly error or blunder."
+     "surface": "Jeering twice at someone for a blunder.",
+     "definitionFit": "A boo-boo is an informal word for a silly blunder or error."
     },
     "features": {
      "answerInScene": true,
@@ -807,41 +823,44 @@
        "indicators": [
         {
          "text": "first element of",
-         "note": "the first element of a word is its opening letter"
+         "at": 14,
+         "note": "first element of means only the opening letter of betterment is used"
         }
        ],
        "parts": [
         {
          "words": "betterment",
-         "note": "the opening letter"
+         "at": 31,
+         "note": "the word whose opening letter is taken"
         }
        ]
+      },
+      {
+       "words": "or",
+       "at": 42
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "resort",
-         "note": "read as re-sort, meaning sort again, so the letters are put in a new order"
+         "at": 50,
+         "note": "read as re-sort, i.e. sort again, so the letters of the word last are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "or",
-         "note": "taken as written"
-        },
-        {
          "words": "last",
-         "note": "taken as written, then re-sorted"
+         "at": 45
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Is a reform school a first step toward improvement or a place of last resort?",
-     "walkthrough": "'last resort' looks like a set phrase; split resort as re-sort. A borstal was a British detention centre for young offenders.",
-     "definitionFit": "A reformatory is an institution for reforming young offenders, which is what the British borstal was."
+     "surface": "A wry question whether a reformatory is meant for improvement or is simply a last resort.",
+     "walkthrough": "'last resort' reads as a set phrase, but 'resort' is re-sort, rearranging 'last'.",
+     "definitionFit": "A borstal was a British reform institution for young offenders, so it is a reformatory."
     },
     "features": {
      "answerInScene": true,

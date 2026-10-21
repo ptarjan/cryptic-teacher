@@ -619,36 +619,61 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ALIBI",
      "indicators": [
       {
        "text": "out of",
-       "note": "taking something out of a word removes those letters, here from each of both names"
+       "at": 37,
+       "note": "out of means the word for prison is removed from each of the two names"
       }
      ],
      "parts": [
       {
-       "words": "both Caliban",
-       "gives": "CALIBAN",
-       "note": "taken as written; both says the next name loses the same letters"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "and",
+         "at": 28,
+         "note": "and joins the two names one after the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Caliban",
+         "at": 20
+        },
+        {
+         "words": "Cain",
+         "at": 32
+        }
+       ]
       },
       {
-       "words": "Cain",
-       "gives": "CAIN",
-       "note": "taken as written"
-      },
-      {
-       "words": "prison",
-       "gives": "CAN",
-       "note": "the can is slang for prison"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "both",
+         "at": 15,
+         "note": "both means the prison word comes out of each name, so it is removed twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prison",
+         "at": 44,
+         "gives": "CAN",
+         "note": "can is slang for prison"
+        },
+        {
+         "gives": "CAN"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two literary villains, Shakespeare's monster and the Bible's first murderer, both have a reason to walk free.",
-     "walkthrough": "Remove the letters of CAN from each name: CALIBAN leaves ALIB and CAIN leaves I.",
-     "definitionFit": "An alibi is a claim of being elsewhere, the classic excuse offered against a charge."
+     "surface": "Two villains, Shakespeare's Caliban and the biblical Cain, need an excuse to get out of jail.",
+     "walkthrough": "Removing C, A, N from CALIBAN leaves ALIB; removing them from CAIN leaves I.",
+     "definitionFit": "An alibi is a claim of being elsewhere, used as an excuse or defence."
     },
     "features": {
      "answerInScene": true,

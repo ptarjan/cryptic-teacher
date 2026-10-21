@@ -763,35 +763,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "move",
      "indicators": [
       {
-       "text": "containing",
-       "note": "to contain is to hold inside, so one piece goes within the other"
+       "text": "moving",
+       "at": 24,
+       "note": "moving means the letter for bishop is shifted to another spot in the word"
       }
      ],
      "parts": [
       {
-       "words": "Pitcher",
-       "gives": "JUG",
-       "note": "a jug is a pitcher for pouring"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "containing",
+         "at": 8,
+         "note": "containing means the jug holds the beer inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pitcher",
+         "at": 0,
+         "gives": "JUG",
+         "note": "a jug is a pitcher"
+        },
+        {
+         "words": "beer",
+         "at": 19,
+         "gives": "BITTER",
+         "note": "bitter is a British type of beer"
+        }
+       ]
       },
       {
-       "words": "beer moving bishop",
-       "gives": "ITTERB",
-       "note": "bitter, a British ale, with its B (chess notation for bishop) moved from the front to the back"
+       "words": "bishop",
+       "at": 31,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
       }
      ]
     },
     "explanation": {
-     "surface": "A jug of ale makes a churchman get up and dance.",
-     "walkthrough": "The bishop's letter moves from the front of the beer to its end. Bitter is a hoppy English pub ale.",
-     "definitionFit": "The jitterbug is a lively swing dance popular in America in the 1930s and 1940s."
+     "surface": "A jug of ale and a bishop on the move, ready to dance.",
+     "walkthrough": "Bitter is a British pale ale, and the exclamation mark hints at the energetic dance rather than a pub scene.",
+     "definitionFit": "The jitterbug is an energetic swing dance popular in the 1940s."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Pitcher"
     }
    }
@@ -1657,53 +1677,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SLOWCOACH",
      "indicators": [
       {
-       "text": "devouring",
-       "note": "food that is devoured is chewed up and mangled, so the letters are jumbled"
+       "text": "after devouring",
+       "at": 27,
+       "note": "after devouring suggests the letters have been chewed up and mixed"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SLOWCOACH",
        "indicators": [
         {
          "text": "not",
-         "note": "not tells you to leave out what follows, so those letters are subtracted"
+         "at": 14,
+         "note": "not says the word for consumed is no longer in the chocolate"
         }
        ],
        "parts": [
         {
          "words": "Chocolate",
-         "note": "taken as written"
-        },
-        {
-         "words": "was",
-         "note": "taken as written"
+         "at": 0,
+         "note": "the word from which the eating letters are taken"
         },
         {
          "words": "consumed",
+         "at": 18,
          "gives": "ATE",
-         "note": "ate is the past tense of eat, to consume"
+         "note": "ate means consumed"
         }
        ]
+      },
+      {
+       "words": "was",
+       "at": 10
       }
      ]
     },
     "explanation": {
-     "surface": "A chocolate bar was left uneaten after someone munched a snail instead.",
-     "walkthrough": "The letters of the first two words lose the three that spell the past of eat, then the remainder is mixed up.",
-     "definitionFit": "A slowcoach is British slang for someone who dawdles, and the snail is the proverbial creature that crawls along."
+     "surface": "A snail found to have eaten the chocolate after all.",
+     "walkthrough": "Removing ATE from CHOCOLATE leaves CHOCOL; with WAS, those letters are rearranged.",
+     "definitionFit": "A slowcoach is a person who moves slowly, figuratively a snail."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "consumed"
+     "misdirectedWord": "snail"
     }
    }
   },

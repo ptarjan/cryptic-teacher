@@ -43,36 +43,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "deranged",
-       "note": "something deranged is thrown into disorder, so the word beside it is mixed up"
-      },
-      {
-       "text": "tossing",
-       "note": "tossing a thing throws it about, so the second word is jumbled along with the first"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "nut",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "deranged",
+         "at": 15,
+         "note": "deranged means put into disorder, so the letters of nut are shuffled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nut",
+         "at": 24
+        }
+       ]
       },
       {
-       "words": "boulder",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tossing",
+         "at": 28,
+         "note": "tossing means throwing about, so the letters of boulder are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boulder",
+         "at": 36
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stays calm despite a madman hurling a big rock about.",
-     "definitionFit": "Untroubled means calm and unworried, the same state as not being alarmed."
+     "surface": "Someone calmly watching a madman hurling a rock.",
+     "definitionFit": "Untroubled means calm and free from worry, the opposite of alarmed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "nut"
+     "misdirectedWord": "deranged"
     }
    }
   },
@@ -1135,35 +1149,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARRANGE",
-     "indicators": [
-      {
-       "text": "stripped-down",
-       "note": "stripped means the outer layer is removed, so the end letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 6,
+       "gives": "A"
       },
       {
        "words": "luxury car",
+       "at": 8,
        "gives": "RR",
-       "note": "RR is Rolls-Royce"
+       "note": "RR stands for Rolls-Royce, the luxury car maker"
       },
       {
-       "words": "banger",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "stripped-down",
+         "at": 23,
+         "note": "stripped-down means the outside letters of banger are peeled off, leaving the middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "banger",
+         "at": 37,
+         "note": "the word whose middle letters are kept; a banger is British slang for an old car"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Buying a posh car and an old wreck stripped for parts.",
-     "walkthrough": "A banger is British slang for an old, battered car, which suits the surface.",
-     "definitionFit": "To order things is to arrange them, put them in sequence."
+     "surface": "Buying both a Rolls-Royce and an old wreck of a car with the bodywork stripped.",
+     "walkthrough": "A banger is British slang for a battered old car (or a sausage).",
+     "definitionFit": "To arrange things is to put them in order, so the verb order is a synonym."
     },
     "features": {
      "answerInScene": false,

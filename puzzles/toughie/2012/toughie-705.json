@@ -47,50 +47,75 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Tipsy",
-       "note": "a tipsy person staggers about, and so do these letters"
+       "text": "in",
+       "at": 29,
+       "note": "in means the mixture goes inside the edge letters of bar"
       }
      ],
      "parts": [
-      {
-       "words": "refugee",
-       "note": "anagram fodder, used as printed"
-      },
-      {
-       "words": "book",
-       "gives": "B",
-       "note": "B = book, the standard abbreviation"
-      },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "confines of",
-         "note": "the confines of a word are its boundary letters, the first and last"
+         "at": 32,
+         "note": "confines of means only the boundary letters, first and last, of bar"
         }
        ],
        "parts": [
         {
          "words": "bar",
-         "gives": "BAR",
-         "note": "the outer letters of BaR"
+         "at": 44,
+         "note": "the word whose outside letters are taken"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "clutching",
+         "at": 14,
+         "note": "clutching means the rearranged letters hold the book letter inside them"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Tipsy",
+           "at": 0,
+           "note": "tipsy means drunk and unsteady, so the letters of refugee are scrambled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "refugee",
+           "at": 6
+          }
+         ]
+        },
+        {
+         "words": "book",
+         "at": 24,
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk asylum-seeker at the edge of a pub, clutching a book and some chips.",
-     "walkthrough": "'Clutching' and 'in' only place B and BR beside the fodder; since everything is then shuffled, where they sit makes no difference.",
-     "definitionFit": "A beefburger is a patty usually fried or grilled, so 'fried food' is a fair loose description."
+     "surface": "A drunken refugee holding a book at a bar, ordering fried food.",
+     "definitionFit": "A beefburger is a patty of minced beef, usually fried or grilled."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Tipsy"
+     "misdirectedWord": "confines"
     }
    }
   },
@@ -291,8 +316,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "an amenity for travellers",
-      "at": 40
+      "text": "amenity for travellers",
+      "at": 43
      }
     ],
     "wordplay": {
@@ -300,29 +325,64 @@
      "indicators": [
       {
        "text": "to probe",
-       "note": "a probe goes inside what it examines"
+       "at": 13,
+       "note": "to probe means to go inside, so the book letters enter the complaint word"
       }
      ],
      "parts": [
       {
-       "words": "beef, not good",
-       "gives": "ROUSE",
-       "note": "beef = GROUSE (a complaint), losing G for good"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 28,
+         "note": "not means the letter for good is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beef",
+         "at": 22,
+         "gives": "GROUSE",
+         "note": "to beef or grouse is to complain"
+        },
+        {
+         "words": "good",
+         "at": 32,
+         "gives": "G"
+        }
+       ]
       },
       {
-       "words": "Book shortly",
-       "gives": "ESTH",
-       "note": "Esther, a book of the Old Testament, shortened to its abbreviation ESTH"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 5,
+         "note": "shortly means the book's name is cut short at the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Book",
+         "at": 0,
+         "gives": "ESTHER",
+         "note": "Esther is a book of the Old Testament"
+        },
+        {
+         "gives": "ER"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A travel guidebook item: a brief note on beef, not recommended as a service for tourists.",
-     "walkthrough": "Both 'beef' and 'grouse' are slang for a complaint; G is the standard abbreviation for good.",
-     "definitionFit": "A rest house is a lodging for travellers, especially in parts of Asia and Africa."
+     "surface": "Booking a short stay that turns out a poor deal for travellers.",
+     "walkthrough": "GROUSE minus G gives ROUSE; ESTHER cut short gives ESTH, its usual abbreviation, which goes inside after the R.",
+     "definitionFit": "A rest house is a building where travellers can stop and lodge, notably in India."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "beef"
     }
@@ -850,36 +910,58 @@
      "op": "container",
      "indicators": [
       {
-       "text": "around"
+       "text": "is seen around",
+       "at": 27,
+       "note": "is seen around means the shortened title surrounds the edge letters"
       }
      ],
      "parts": [
       {
-       "words": "Who possibly lacking depth",
-       "gives": "OCTOR",
-       "note": "DOCTOR, as in Doctor Who, lacking D for depth"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 13,
+         "note": "lacking means the letter for depth is missing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Who possibly",
+         "at": 0,
+         "gives": "DOCTOR",
+         "note": "Who suggests the Doctor of the TV series Doctor Who"
+        },
+        {
+         "words": "depth",
+         "at": 21,
+         "gives": "D"
+        }
+       ]
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "extremely",
-         "note": "the extremes of a word are its end letters"
+         "at": 42,
+         "note": "extremely means only the extreme letters, first and last, are taken"
         }
        ],
        "parts": [
         {
          "words": "bothersome",
-         "note": "the extreme letters of BothersomE"
+         "at": 52,
+         "note": "the word whose outer letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone shallow hangs around during an irritating stretch of time.",
-     "walkthrough": "'Who' reads as the pronoun; it is Doctor Who, the long-running BBC science-fiction series, so 'Who possibly' gives DOCTOR.",
-     "definitionFit": "A month is one kind of period, so the definition works by example with a deliberately vague word."
+     "surface": "A puzzled question about who, lacking depth, is seen during a tiresome stretch of time.",
+     "walkthrough": "Doctor Who is the long-running BBC science-fiction series, so 'Who possibly' points to the Doctor, not a question.",
+     "definitionFit": "October is a month, one of the calendar's periods of time."
     },
     "features": {
      "answerInScene": false,
@@ -1261,21 +1343,23 @@
      "indicators": [
       {
        "text": "we hear",
-       "note": "what we hear is the sound, not the spelling"
+       "at": 27,
+       "note": "we hear means the answer sounds like the words given, when said aloud"
       }
      ],
      "parts": [
       {
        "words": "planned with wonder",
+       "at": 6,
        "gives": "MEANTAWE",
-       "note": "meant = planned, awe = wonder, said together in an accent that drops a final R"
+       "note": "planned gives meant (intended) and wonder gives awe; said together they are heard as meant-awe"
       }
      ]
     },
     "explanation": {
-     "surface": "A railway train designed to inspire wonder.",
-     "walkthrough": "'Train' looks like a locomotive; it is the verb, to coach. The sound match relies on a non-rhotic British accent, in which MENTOR ends in 'aw'.",
-     "definitionFit": "Train is the verb here, and to coach and guide a junior is a plain synonym of it."
+     "surface": "A train that was planned, viewed with wonder.",
+     "walkthrough": "In a non-rhotic British accent the two words run together sound like the answer.",
+     "definitionFit": "To mentor is to coach and advise someone, which is to train them."
     },
     "features": {
      "answerInScene": false,
@@ -1461,29 +1545,46 @@
      "indicators": [
       {
        "text": "to be covered among",
-       "note": "the points are covered by the other letters"
+       "at": 7,
+       "note": "to be covered among means the points go inside the shortened word for spots"
       }
      ],
      "parts": [
       {
-       "words": "a lot of spots",
-       "gives": "RAS",
-       "note": "RASH, an outbreak of spots, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 27,
+         "note": "a lot of means most, not all, of the word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spots",
+         "at": 36,
+         "gives": "RASH",
+         "note": "a rash is an outbreak of spots"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
        "words": "Points",
+       "at": 0,
        "gives": "WNES",
-       "note": "four compass points: west, north, east, south"
+       "note": "W, N, E and S are compass points"
       }
      ]
     },
     "explanation": {
-     "surface": "Pimples that need covering up amid a spotty breakout on a teenager's face.",
-     "walkthrough": "'Points' is plural and takes four letters here, one for each compass point.",
-     "definitionFit": "Green carries its sense of inexperienced or unripe, and that unseasoned condition is the noun's plain sense."
+     "surface": "A spotty complexion described in a state of green.",
+     "definitionFit": "Rawness is inexperience, the state of being green or new to something."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "green"
     }
