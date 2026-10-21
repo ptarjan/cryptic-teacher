@@ -157,47 +157,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "set up",
-       "note": "in a down clue, set up lifts the letters so they read bottom to top"
-      },
-      {
-       "text": "a lot of",
-       "note": "most of the word, not all of it: the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set up",
+         "at": 8,
+         "note": "in a down clue, set up means written upwards, so reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "church",
-         "gives": "EC",
-         "note": "CE = Church of England"
-        },
-        {
-         "words": "ongoing",
-         "gives": "NERRUC",
-         "note": "CURRENT (ongoing) without its last letter"
-        },
-        {
          "words": "Company",
-         "gives": "CO",
-         "note": "CO (company) turned upward"
+         "at": 0,
+         "gives": "CO"
         }
        ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 15,
+         "note": "a lot of a word is most of it, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ongoing",
+         "at": 24,
+         "gives": "CURRENT",
+         "note": "current means ongoing"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 32,
+       "gives": "CE",
+       "note": "CE is the Church of England"
       }
      ]
     },
     "explanation": {
-     "surface": "A firm organises most of a parish's continuing activities.",
-     "walkthrough": "'Church event' looks like one phrase, but church is only CE; the definition is the last word alone.",
-     "definitionFit": "A plain synonym: anything that happens or takes place counts as both."
+     "surface": "A firm organises much of a continuing church function.",
+     "definitionFit": "An occurrence is something that happens, an incident."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "set"
     }
@@ -716,27 +729,50 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "deletion",
+     "indicators": [
       {
-       "words": "core",
-       "gives": "CRE",
-       "note": "CORE with O (over) removed"
+       "text": "withdrawing",
+       "at": 18,
+       "note": "withdrawing means the letter is pulled out of the words"
       },
       {
-       "words": "voice, withdrawing over and over again",
-       "gives": "VICE",
-       "note": "VOICE with O removed, the second time"
+       "text": "again",
+       "at": 44,
+       "note": "again says the same removal is made a second time, once from each word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "core voice",
+       "at": 6
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "over",
+         "at": 30,
+         "gives": "O",
+         "note": "O is the cricket abbreviation for over"
+        },
+        {
+         "words": "over",
+         "at": 39,
+         "gives": "O",
+         "note": "O again, for the second over"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A central voice drops out of the choir, time after time.",
-     "walkthrough": "An over in cricket is O in crosswords; 'over and over again' says take one O out of each of the two words.",
-     "definitionFit": "A plain synonym: a narrow opening or fissure in rock or a wall."
+     "surface": "A singer's central tone breaks after being taken off stage repeatedly.",
+     "walkthrough": "Take an O from CORE and an O from VOICE.",
+     "definitionFit": "A crevice is a narrow opening or fissure, a crack in rock or a wall."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "over"
     }
@@ -1768,35 +1804,30 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "in essence",
+       "at": 18,
+       "note": "the essence of a word is its middle, so the centre letters of each are kept"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "in essence",
-         "note": "the essence is the heart, so take the middle letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Love",
-         "note": "middle letters of lOVe"
-        }
-       ]
+       "words": "Love",
+       "at": 0
       },
       {
        "words": "Halo",
-       "gives": "AL",
-       "note": "middle letters of hALo"
+       "at": 6
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A musing on whether love and a halo look alike at heart.",
-     "walkthrough": "The whole clue is the definition too: love is 0 in tennis, and a halo is a ring, both round shapes.",
-     "definitionFit": "The letter O (love) and a halo are both oval shapes."
+     "surface": "A musing on whether love and a halo are, at heart, the same shape.",
+     "walkthrough": "The centres of LOVE and HALO give OV and AL. Love is O in tennis scoring, and a halo is a ring, so both look oval.",
+     "definitionFit": "Both a letter O and a halo are rounded rings, an elongated circle shape."
     },
     "features": {
      "answerInScene": true,
@@ -3247,39 +3278,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "to remove outer parts",
+       "at": 33,
+       "note": "each word loses its first and last letters, keeping the middle"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "to remove outer parts",
-         "note": "strip each word of its first and last letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "lines",
-         "note": "lINEs"
-        }
-       ]
+       "words": "lines",
+       "at": 8
       },
       {
        "words": "elegy",
-       "gives": "LEG",
-       "note": "eLEGy"
+       "at": 19
       },
       {
        "words": "Dante",
-       "gives": "ANT",
-       "note": "dANTe"
+       "at": 27
       }
      ]
     },
     "explanation": {
-     "surface": "Clumsy verse in a lament, so Dante sets about cutting it.",
-     "walkthrough": "The instruction applies to all three words, not just Dante.",
-     "definitionFit": "Inelegant means lacking grace, awkward."
+     "surface": "Clumsy verse in an elegy: Dante should cut the outer sections.",
+     "definitionFit": "Something inelegant lacks grace, so it is clumsy or ungainly."
     },
     "features": {
      "answerInScene": true,

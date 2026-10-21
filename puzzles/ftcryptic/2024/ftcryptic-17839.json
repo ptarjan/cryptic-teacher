@@ -813,7 +813,8 @@
      "indicators": [
       {
        "text": "In",
-       "note": "in means placed inside, so the rearranged letters go within the outside pair"
+       "at": 0,
+       "note": "these pieces go in the outer letters"
       }
      ],
      "parts": [
@@ -822,46 +823,52 @@
        "indicators": [
         {
          "text": "empty",
-         "note": "empty means hollowed out, so only the outside letters of the word survive"
+         "at": 6,
+         "note": "an empty word keeps only its outside letters"
         }
        ],
        "parts": [
         {
          "words": "bedroom",
-         "note": "only the first and last letters remain"
+         "at": 12
         }
        ]
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "playing",
-         "note": "playing suggests the letters are played with and moved around"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Wordle",
-         "note": "taken as written; Wordle is the online word game"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "playing",
+           "at": 21,
+           "note": "playing with the letters rearranges them"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Wordle",
+           "at": 29
+          }
+         ]
         },
         {
          "words": "is",
-         "note": "taken as written"
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzler alone in a bare bedroom playing Wordle prompts calls for a ban.",
-     "walkthrough": "Thomas Bowdler published a Shakespeare with the rude bits removed, giving us the word.",
-     "definitionFit": "Bowdlerism is the prudish expurgation of texts, a form of censorship."
+     "surface": "Someone playing a word game in a bare bedroom calls for some words to be banned.",
+     "walkthrough": "Wordle is the online five-letter word game; here it is only letters to shuffle.",
+     "definitionFit": "Bowdlerism is prudish expurgation of text, named after Thomas Bowdler, who sanitised Shakespeare."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "playing"
     }
    }

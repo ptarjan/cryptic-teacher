@@ -819,57 +819,71 @@
        "indicators": [
         {
          "text": "cutting",
-         "note": "something cutting into a word splits it apart and sits in the gap"
-        },
-        {
-         "text": "in",
-         "note": "in places one piece inside the other"
+         "at": 16,
+         "note": "OS is said to cut into the word for about, so it sits inside it"
         }
        ],
        "parts": [
         {
          "words": "about",
+         "at": 24,
          "gives": "RE",
-         "note": "re is Latin-derived for about, concerning"
+         "note": "RE means about or concerning, as in letter headings"
         },
         {
          "words": "Ordnance Survey",
+         "at": 0,
          "gives": "OS",
-         "note": "OS is the abbreviation for Ordnance Survey, Britain's national mapping agency"
+         "note": "OS is the standard abbreviation for the Ordnance Survey, Britain's mapping agency"
         }
        ]
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "misprinted",
-         "note": "a misprint puts characters in the wrong places, so the letters come out in a new order"
+         "text": "in",
+         "at": 35,
+         "note": "the page letter is placed in the middle of the rearranged letters"
         }
        ],
        "parts": [
         {
-         "words": "A-to-Z",
-         "note": "the letters to be rearranged; an A-to-Z is a British street atlas"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "misprinted",
+           "at": 38,
+           "note": "something misprinted has its letters in the wrong order, so they are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "A-to-Z",
+           "at": 49,
+           "gives": "ATOZ",
+           "note": "the letters A, T, O, Z as written"
+          }
+         ]
         },
         {
          "words": "page",
-         "gives": "P",
-         "note": "P is the abbreviation for page"
+         "at": 30,
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A map-maker notices a printing error on a page of a street atlas and calls it a gem.",
-     "walkthrough": "The map references dominate the surface, but only the abbreviation OS and the letters of A-to-Z are used.",
-     "definitionFit": "Rose topaz is a pink variety of the precious stone, so it is a kind of gemstone."
+     "surface": "A map-reader finds an Ordnance Survey sheet torn and a street atlas badly printed, and calls one of them a gem.",
+     "walkthrough": "'A-to-Z' looks like a street atlas, but here it is just four letters to rearrange.",
+     "definitionFit": "Rose topaz is a pink variety of the precious stone, so it is a gemstone."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cutting"
+     "misdirectedWord": "misprinted"
     }
    }
   },

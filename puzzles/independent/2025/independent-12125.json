@@ -43,37 +43,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "excited about",
-       "note": "something excited is stirred up and moved around, so the letters before and after get jumbled together"
+       "text": "about",
+       "at": 20,
+       "note": "the rearranged letters go about, that is around, the short pair"
       }
      ],
      "parts": [
       {
-       "words": "VP",
-       "note": "taken as written: the abbreviation for vice-president"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "excited",
+         "at": 12,
+         "note": "excited letters are stirred up, so these are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "VP insanely",
+         "at": 0,
+         "note": "taken as written as the letters to rearrange"
+        }
+       ]
       },
       {
-       "words": "insanely",
-       "note": "taken as written"
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
-      },
-      {
-       "words": "new",
-       "gives": "N",
-       "note": "N is the standard abbreviation for new"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 26,
+         "gives": "A"
+        },
+        {
+         "words": "new",
+         "at": 28,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vice-president gets wildly worked up about some newly admitted state.",
-     "walkthrough": "'Insanely' reads as an adverb modifying 'excited', but its letters are part of the mix.",
-     "definitionFit": "Pennsylvania is one of the fifty constituent states of the USA, an example of the category."
+     "surface": "An American vice-president gets wildly worked up over a newly formed state.",
+     "walkthrough": "'insanely' looks like the anagram signal, but it is fodder; 'excited' rearranges VPINSANELY around A and N.",
+     "definitionFit": "Pennsylvania is one of the fifty states of the USA."
     },
     "features": {
      "answerInScene": true,
@@ -1248,39 +1264,40 @@
     "definitions": [
      {
       "text": "Banker",
-      "at": 0
+      "at": 0,
+      "note": "a river has banks, so a crossword banker is a river"
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "first",
      "indicators": [
       {
        "text": "cutting",
-       "note": "cutting removes a portion, shortening the word that follows"
+       "at": 7,
+       "note": "cutting a word in half leaves only its first half here"
       },
       {
        "text": "in half",
-       "note": "in half says how much goes: exactly half the letters, the back three, are lost"
+       "at": 28,
+       "note": "half of the six letters are kept, the first three"
       }
      ],
      "parts": [
       {
        "words": "college area",
+       "at": 15,
        "gives": "CAMPUS",
-       "note": "a campus is a university or college's grounds"
-      },
-      {
-       "gives": "PUS"
+       "note": "a campus is the grounds of a college"
       }
      ]
     },
     "explanation": {
-     "surface": "A banker slashes the size of a college's grounds by half.",
-     "walkthrough": "'In half' finishes the cutting signal: three of the six letters stay. The Cam is the river through Cambridge, apt alongside a college.",
-     "definitionFit": "A banker is crossword slang for a river, something with banks, and the Cam is the river flowing through Cambridge."
+     "surface": "A financier slashes a university's grounds by half.",
+     "walkthrough": "'Banker' suggests money, but it is a river; the Cam flows through Cambridge.",
+     "definitionFit": "The Cam is the river in Cambridge, and any river is a thing with banks."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Banker"
