@@ -691,6 +691,7 @@ pool_drain() {
   POOL_HOLD=0
   sync_wave
   POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
+  ledger_tick
 }
 
 # The re-plan, bounded. It reads the backlog again and re-sorts queue[at..] in
@@ -975,6 +976,7 @@ run_pool() {
   POOL_HOLD=0
   sync_wave
   POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
+  ledger_tick
   return $stop
 }
 
@@ -1038,6 +1040,7 @@ reload_burn() {
   echo "=== reload asked: moving the tree to origin/master, ${#POOL_RUNS[@]} runs in flight stay ==="
   sync_wave
   POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
+  ledger_tick
   reload_watch
 }
 reload_watch() {  # one watcher at a time, firing once; reload_burn starts the next
