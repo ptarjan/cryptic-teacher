@@ -1343,62 +1343,66 @@
    "annotation": {
     "definitions": [
      {
-      "text": "sports field",
-      "at": 33
+      "text": "Dog running back in Swiss city's sports field",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BASEBALLDIAMOND",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in places the turned word inside the name of the city"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "BASEBALLDIAMOND",
+       "op": "container",
        "indicators": [
         {
-         "text": "running back",
-         "note": "running back means going in the opposite direction, so the animal's word is read backwards"
+         "text": "in",
+         "at": 17,
+         "note": "in means the reversed dog goes inside the name of the Swiss city"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "BASEBALLDIAMOND",
+         "words": "Swiss city",
+         "at": 20,
+         "gives": "BASEL",
+         "note": "Basel is a city in northern Switzerland"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "running back",
+           "at": 4,
+           "note": "running back means the dog's name is read from right to left"
+          }
+         ],
          "parts": [
           {
-           "words": "Swiss city's",
-           "gives": "BASEL",
-           "note": "Basel is a city in northern Switzerland"
-          },
-          {
            "words": "Dog",
+           "at": 0,
            "gives": "LAB",
-           "note": "a Lab is a Labrador retriever"
+           "note": "a lab is a Labrador retriever"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "sports field",
+       "at": 33,
+       "gives": "DIAMOND",
+       "note": "a diamond is the playing field in baseball"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A dog racing loose across a Swiss city's playing field.",
-     "walkthrough": "'Running back' sounds like a football position, but it turns the dog round. This is the third clue completed by 26 Across, which adds DIAMOND.",
-     "definitionFit": "A baseball diamond is the square infield of a baseball ground, and by extension the whole playing area."
+     "surface": "A dog sprints back onto a playing field in Basel.",
+     "walkthrough": "The clue reads as one sport's own playing field, so the whole of it defines the answer. 'Running back' tempts as the American football position, but it only turns the dog round.",
+     "definitionFit": "The infield of a baseball ground is laid out as a square on its point, so the field is called a diamond."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "running"
     }
    }

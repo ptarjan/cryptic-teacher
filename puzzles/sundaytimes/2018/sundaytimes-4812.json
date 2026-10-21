@@ -1511,50 +1511,56 @@
      "indicators": [
       {
        "text": "grabbing",
-       "note": "grabbing means taking hold of, so the first word wraps round the rest"
+       "at": 19,
+       "note": "grabbing means the word for forward holds the other letters inside it"
       }
      ],
      "parts": [
       {
        "words": "forward",
+       "at": 11,
        "gives": "PERT",
-       "note": "pert means cheeky or bold"
+       "note": "pert means cheeky or forward"
       },
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "not forward",
+         "at": 37,
+         "note": "not forward means read the other way, backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "not forward",
-           "note": "not forward means backwards, so these words are read right to left"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "goals",
+           "at": 28,
            "gives": "NETS",
-           "note": "in football a goal puts the ball in the net"
+           "note": "in football the goals are the nets"
+          },
+          {
+           "words": "is",
+           "at": 34,
+           "gives": "IS"
           }
          ]
-        },
-        {
-         "words": "is",
-         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A footballer, keen to score, claims the striker is not really a forward at all.",
-     "walkthrough": "The first 'forward' means cheeky, not a striker; the second sits in 'not forward', which turns the goals and 'is' round together.",
-     "definitionFit": "Persistent means refusing to give up, which is what a determined person is."
+     "surface": "A striker who goes for goal is called determined, though he is not really a forward!",
+     "walkthrough": "'forward' appears twice in two senses: first cheeky (PERT), then as 'not forward', meaning backwards, turning NETS IS into SISTEN.",
+     "definitionFit": "Persistent means continuing firmly despite difficulty, which is to be determined."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "forward"
     }
    }

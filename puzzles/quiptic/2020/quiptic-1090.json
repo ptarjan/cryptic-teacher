@@ -444,47 +444,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not quite",
+       "at": 10,
+       "note": "not quite means each word stops short, losing its final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "not quite",
-         "note": "not quite complete means each word is cut short by its final letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Happy",
-         "note": "taken as written"
-        },
-        {
-         "gives": "Y"
-        }
-       ]
+       "words": "Happy end",
+       "at": 0,
+       "gives": "HAPPYEND",
+       "note": "taken as written, then each word is cut short"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "end",
-         "note": "taken as written"
-        },
-        {
-         "gives": "D"
-        }
-       ]
+       "gives": "YD"
       }
      ]
     },
     "explanation": {
-     "surface": "A happy ending fails to materialise.",
-     "definitionFit": "To come to pass is an old idiom for occurring, so both are verbs for taking place."
+     "surface": "A story's happy ending almost comes about.",
+     "walkthrough": "HAPPY loses its Y and END loses its D, leaving HAPP and EN.",
+     "definitionFit": "To happen is to occur or take place, which is what come to pass means."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Happy"
     }
    }
   },
@@ -1069,9 +1057,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "by",
-       "at": 43,
-       "note": "by here means replaced by, so the new letters go into the gap left in the middle"
+       "text": "is moved by",
+       "at": 34,
+       "note": "the remaining outer letters are pushed apart by the scrambled letters, which go between them"
       }
      ],
      "parts": [
@@ -1079,15 +1067,17 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "whose heart is moved",
+         "text": "whose heart",
          "at": 22,
-         "note": "the heart of pig is its middle letter, and moving it out leaves only the outer two"
+         "note": "the heart of the word pig is its central letter, which is taken away"
         }
        ],
        "parts": [
         {
          "words": "pig",
-         "at": 18
+         "at": 18,
+         "gives": "PIG",
+         "note": "taken as written before its middle letter is swapped"
         },
         {
          "gives": "I"
@@ -1100,7 +1090,7 @@
         {
          "text": "distressed",
          "at": 48,
-         "note": "distressed means knocked about, so the letters of oink are rearranged"
+         "note": "distressed means upset or disordered, so the letters of oink are rearranged"
         }
        ],
        "parts": [
@@ -1113,14 +1103,15 @@
      ]
     },
     "explanation": {
-     "surface": "A farmer prods a pig that is upset and grunting.",
-     "walkthrough": "A pig's heart is its middle letter: take it out to leave PG, and 'by' puts the jumbled grunt into that gap. The pig's own noise doing the job is the joke.",
-     "definitionFit": "Poking someone means prodding them, which is to nudge them with a finger."
+     "surface": "Someone prods a pig, which lets out an upset oink.",
+     "walkthrough": "PIG's middle letter I gives way to OKIN, a rearrangement of OINK, giving P + OKIN + G.",
+     "definitionFit": "Poking is jabbing someone with a finger or stick, prodding them as a nudge does."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "distressed"
+     "joke": "absurd",
+     "misdirectedWord": "heart"
     }
    }
   },
