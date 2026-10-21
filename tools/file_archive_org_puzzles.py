@@ -4932,6 +4932,9 @@ def byline(img, hit, series=FT.series):
 #: trove_solution_ocr.SURE_BLOCKS (a noisy print: heavy letters, stippled
 #: blocks) only its lights bounded_light() keeps.
 SOLUTION_BLOCKS = 0.85
+#: The papers whose solution grids trove_solution_ocr's cell classifier
+#: reads (read_framed(classify=True)): the Times prints it was trained on.
+CELLS_CLASSIFIED = ("times", "gale")
 #: The gap, in pixels, closed across a solution grid's ink before its box is
 #: taken: a frame the scan broke leaves a part of the grid the largest ink
 #: (Gale's 1987-01-15, 248px of its 340).
@@ -4961,8 +4964,10 @@ def read_solution(img, sol, grid, above=False):
     sol = img.crop((crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3]))
     # The recogniser reads the ~23px cells far surer at three times the size.
     sol.resize((sol.width * 3, sol.height * 3), Image.BICUBIC).save(path)
-    # The crop is the grid, frame to frame: read on its own rules.
-    answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True)
+    # The crop is the grid, frame to frame: read on its own rules; a Times
+    # print's cells by the cell classifier too, which was trained on them.
+    answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True,
+                                                     classify=paper_of(d).key in CELLS_CLASSIFIED)
     if stats["blocks"] < SOLUTION_BLOCKS:
         return {}, {**stats, "refused": "its blocks are not the puzzle's"}
     return {f"{n}-{d}": w for (n, d), w in answers.items()}, stats
@@ -5672,7 +5677,11 @@ def unfiled_blank(row):
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
-    grid read in part or refused by other solution code (solution_key). Due
+    grid read in part or refused by other solution code (solution_key): a
+    Times paper's read in part before the cell classifier read its cells
+    (no "classified" in its stats) is due as such; another paper's read
+    under a SOLUTION_UNCLASSIFIED key stands, the classifier not reading
+    its grids. Due
     whether its scan stands or not, so a stale scan never sinks it to the
     whole-corpus rank."""
     for v in row.get("verdicts", ()):
@@ -5689,11 +5698,22 @@ def fix_reason(row):
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if row.get("solutionKey") != solution_key():
+        paper = paper_of(row.get("edition", "")).key
         for v in row.get("verdicts", ()):
             s = v.get("solution")
             if isinstance(s, dict) and (s.get("refused") or s.get("accepted", 0) < s.get("lights", 0)):
+                if paper in CELLS_CLASSIFIED and not s.get("refused") and "classified" not in s:
+                    return "solution short, its cells unclassified"
+                if paper not in CELLS_CLASSIFIED and row.get("solutionKey") in SOLUTION_UNCLASSIFIED:
+                    continue
                 return "solution short, read by other code"
     return None
+
+
+#: The solution_key()s before the cell classifier (CELLS_CLASSIFIED): it reads
+#: only the Times papers' grids, so another paper's row read under one of
+#: these reads its solution as it would now and stands.
+SOLUTION_UNCLASSIFIED = frozenset({"49e26fb92ece9e33"})
 
 
 #: The fixes a re-read is predicted to file a puzzle whole by (every clue
@@ -6096,6 +6116,7 @@ FRESH = 3600
 #: whole go first. Every reason due_reason or plan gives is named here.
 RANKS = {"just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
+         "solution short, its cells unclassified": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, "scan stale": 3, "--reread": 3,
          "read by another VLM": 3}

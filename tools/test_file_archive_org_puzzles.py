@@ -449,15 +449,24 @@ check("a write that raised KeyError 'text' before its fix is due, ranked with th
 part = lambda acc, refusal, key: {**refused(None, "2099-01-01T00:00:00+00:00"), "verdicts": [
     {"number": 1, "solution": {"accepted": acc, "lights": 30, **({"refused": refusal} if refusal else {})}}],
     **({"solutionKey": key} if key else {})}
-short = "solution short, read by other code"
+short, unclassified = "solution short, read by other code", "solution short, its cells unclassified"
 check("a solution read in part or refused by other solution code, or no key, is due; whole, or this code's, is not",
-      [short, short, short, None, None, None],
+      [unclassified, short, unclassified, None, None, None],
       [f.due_reason(part(20, None, "other"), "h", [], "v"),
        f.due_reason(part(0, "its blocks are not the puzzle's", "other"), "h", [], "v"),
        f.due_reason(part(20, None, None), "h", [], "v"),
        f.due_reason(part(30, None, "other"), "h", [], "v"),
        f.due_reason(part(30, None, None), "h", [], "v"),
        f.due_reason(part(20, None, f.solution_key()), "h", [], "v")])
+classified_part = {**part(20, None, "other"), "verdicts": [
+    {"number": 1, "solution": {"accepted": 20, "lights": 30, "classified": 3}}]}
+ft_part = lambda key: {**part(20, None, key), "edition": "FinancialTimes1985UKEnglish/1985-01-02"}
+check("a Times solution read short before the cell classifier is due as such, ranked 2; one it read, by other code; "
+      "another paper's under a key before it stands, under any other is due",
+      [unclassified, 2, short, None, short],
+      [f.fix_reason(part(20, None, "other")), f.rank_of_reason(unclassified), f.fix_reason(classified_part),
+       f.fix_reason(ft_part(next(iter(f.SOLUTION_UNCLASSIFIED)))), f.fix_reason(ft_part("other"))])
+check("the cell classifier reads the Times papers' grids only", ("times", "gale"), f.CELLS_CLASSIFIED)
 check("the solution key is the solution reader's code, not the scan's", True,
       len(f.solution_key()) == 16 and f.solution_key() != f.scan_key())
 import scan_queue
@@ -1679,7 +1688,7 @@ def stale_fixed(verdict):
     scan_queue.append(pl, [{**stale, "verdicts": [verdict]}, settled_row(e2)])
     return [(u["rank"], u["reason"]) for u in checked_plan(f.TIMES, pc)[1] if u["rel"].endswith("_1")]
 check("a stale scan's read a reader fix can change ranks with the fixes, not the whole corpus",
-      [[(2, "solution short, read by other code")], [(2, "refused not-a-grid before its fix")],
+      [[(2, "solution short, its cells unclassified")], [(2, "refused not-a-grid before its fix")],
        [(3, "scan stale")]],
       [stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 20, "lights": 30}}),
        stale_fixed({"number": 15436, "refused": True, "cause": "not-a-grid"}),
@@ -2048,6 +2057,65 @@ def swapped(word):
 check("a sure A whose swap to R makes the one word a letter away is that word",
       {(1, "across"): "ESCRITOIRE"}, swapped("ESCAITOIRE"))
 check("a sure R is not swapped to an A", {}, swapped("BRLLOON"))
+# The cell classifier: a second reader of a Times print's cells. Each cell's
+# 26 probabilities; a light is decoded as the listed word they make likeliest
+# by CLASS_MARGIN over the next, its accepted crossings' letters held (8059's
+# STONECROP, read by the recogniser as STONECBAD).
+def sure_cells(word, p=0.99, at=(0, 0), across=True):
+    out = {}
+    for i, ch in enumerate(word):
+        v = np.full(26, (1 - p) / 25)
+        if ch != "?":
+            v[tso.AZ.index(ch)] = p
+        else:
+            v[:] = 1 / 26
+        out[(at[0], at[1] + i) if across else (at[0] + i, at[1])] = v
+    return out
+row = {(1, "across"): [(0, i) for i in range(9)]}
+check("a light whose cells read surely is decoded as its listed word",
+      {(1, "across"): "STONECROP"}, tso.classified_reads(row, {}, sure_cells("STONECROP")))
+check("cells that make two listed words alike likely decode neither",
+      {}, tso.classified_reads({(1, "across"): [(0, i) for i in range(4)]}, {}, sure_cells("RI?E")))
+import hashlib
+cross = {(1, "across"): [(0, 0), (0, 1), (0, 2), (0, 3)], (2, "down"): [(0, 2), (1, 2), (2, 2)]}
+check("an accepted crossing's letter settles the cell the classifier cannot",
+      {(1, "across"): "RIDE"}, tso.classified_reads(cross, {(2, "down"): "DUE"}, sure_cells("RI?E")))
+check("a word whose letter the classifier rules out is not decoded",
+      {}, tso.classified_reads(row, {}, {**sure_cells("STONECROP"), (0, 6): np.eye(26)[tso.AZ.index("B")] * 0.999 + 0.001 / 26}))
+check("an accepted light the classifier reads otherwise is vetoed where a crossing light decodes against it too; "
+      "on its own cells alone (UNION, SINAI on a 1974 print), or one it agrees with, it is not",
+      ({(1, "across")}, set(), set()),
+      (tso.vetoed(cross, {(1, "across"): "RIDE"}, {**sure_cells("?UE", at=(0, 2), across=False), **sure_cells("RICE")}),
+       tso.vetoed(row, {(1, "across"): "STONECROP"}, {**sure_cells("STONECROP"), (0, 6): np.eye(26)[1] * 0.9999 + 1e-6}),
+       tso.vetoed(row, {(1, "across"): "STONECROP"}, sure_cells("STONECROP"))))
+check("a crossing the classifier reads otherwise pins no decoded light (14043: TIRINGS held, PREFERRER not taken)",
+      {}, tso.classified_reads(cross, {(2, "down"): "CUE"}, {**sure_cells("?UE", at=(0, 2), across=False),
+                                                              **sure_cells("RIDE")}))
+check("the cell model on disk is the one CELL_MODEL_SHA names", True,
+      hashlib.sha256(tso.CELL_MODEL.read_bytes()).hexdigest() == tso.CELL_MODEL_SHA)
+glyphs = {(0, 0): np.zeros((tso.GLYPH + 2 * tso.GLYPH_SHIFT,) * 2, np.float32)}
+check("the classifier gives each cell 26 probabilities summing to one", (26, True),
+      (len(tso.classified(glyphs)[(0, 0)]), abs(tso.classified(glyphs)[(0, 0)].sum() - 1) < 1e-4))
+# read_framed(classify=True): the classifier vetoes and decodes on the best
+# lattice, only where its blocks are surely the puzzle's.
+def framed_classify(blocks):
+    tso.framings = lambda gray, grid: [("l", [0, 1, 2, 3], [0, 1, 2, 3])]
+    tso.read_lattice = lambda g, ys, xs, grid: ({(1, "across"): "CAT"}, {"cellsSure": 7, "blocks": blocks}, {}, {})
+    real_classified = tso.classified
+    tso.classified = lambda glyphs: {**sure_cells("CAT"), **sure_cells("COB", across=False),
+                                     **sure_cells("BED", at=(2, 0)), **sure_cells("TOD", at=(0, 2), across=False)}
+    real_glyph = tso.glyph
+    tso.glyph = lambda g, ys, xs, r, c: None
+    try:
+        return tso.read_framed(os.path.join(os.environ["TMP"], "grid3.png"), grid3, classify=True)
+    finally:
+        tso.framings, tso.read_lattice, tso.classified, tso.glyph = real_framings, real_lattice, real_classified, real_glyph
+got, info = framed_classify(1.0)
+check("a sure grid's other lights are decoded by the classifier",
+      ({(1, "across"): "CAT", (1, "down"): "COB", (3, "across"): "BED", (2, "down"): "TOD"}, 3, 0),
+      (got, info["classified"], info["vetoed"]))
+check("a grid whose blocks read unsure is not classified", ({(1, "across"): "CAT"}, None),
+      (framed_classify(0.9)[0], framed_classify(0.9)[1].get("classified")))
 # numbered_swaps(): a clue number makes its cell's sure read a misread
 # (15839 BVEREAT, 17215 YMPLORE); the one listed word a change of that cell
 # makes is taken, where half the lights crossing it are accepted. A plain
@@ -2212,8 +2280,10 @@ im.save(ed / "leaf_0003.jpg")
 f.CROPS = Path(os.environ["TMP"]) / "crops"
 import trove_solution_ocr
 seen = []
-def fake(path, grid, tight=False, bounded=False):
+classify_seen = []
+def fake(path, grid, tight=False, bounded=False, classify=False):
     seen.append((Image.open(path).size, tight, bounded))
+    classify_seen.append(classify)
     return {(1, "across"): "ABC"}, {"blocks": stats_blocks}
 trove_solution_ocr.read_answers = fake
 sol = {"dir": ed, "leaf": 3, "number": 7, "box": (100, 100, 400, 140)}
@@ -2221,6 +2291,8 @@ stats_blocks = 1.0
 got, _ = f.read_solution(f.page(ed, 3), sol, ["..."])
 check("solution answers keyed as fill() reads them, the grid cropped tight at 3x and read on its own rules",
       ({"1-across": "ABC"}, ((352 * 3, 352 * 3), True, True)), (got, seen[0]))
+check("a Times edition's solution grid is read with the cell classifier (CELLS_CLASSIFIED)", True,
+      classify_seen[0])
 # A crop another cut left at the path is never read: each read cuts afresh.
 stale = f.CROPS / "solutions" / f"{ed.name}_7.png"
 Image.new("L", (90, 90), 255).save(stale)
