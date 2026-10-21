@@ -1021,27 +1021,42 @@
       {
        "text": "around",
        "at": 22,
-       "note": "around says the doubled street abbreviation surrounds the hills"
+       "note": "the two street letters go round the hills"
       }
      ],
      "parts": [
       {
-       "words": "A little way repeated",
-       "at": 0,
-       "gives": "STST",
-       "note": "ST, the abbreviation for street, given twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "repeated",
+         "at": 13,
+         "note": "repeated says the street abbreviation appears twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "little way",
+         "at": 2,
+         "gives": "ST",
+         "note": "ST, street, is a short way written small"
+        },
+        {
+         "gives": "ST"
+        }
+       ]
       },
       {
-       "words": "the group of hills",
-       "at": 29,
+       "words": "group of hills",
+       "at": 33,
        "gives": "RANGE",
        "note": "a range is a line of hills or mountains"
       }
      ]
     },
     "explanation": {
-     "surface": "A short road that loops twice round some hills: a very peculiar layout.",
-     "definitionFit": "Strangest is the superlative of strange, the most unusual or peculiar."
+     "surface": "A short path going round and round a hill range is very odd.",
+     "definitionFit": "Strangest is the superlative of strange, meaning the most peculiar."
     },
     "features": {
      "answerInScene": false,
@@ -1180,41 +1195,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "wrong",
-       "at": 5,
-       "note": "wrong says the letters of seem are out of order"
-      },
-      {
-       "text": "misplaced",
-       "at": 27,
-       "note": "misplaced says the letters of end are out of place too"
+       "text": "about it",
+       "at": 37,
+       "note": "the jumbled end goes round it, the jumbled seem"
       }
      ],
      "parts": [
       {
-       "words": "Seem",
-       "at": 0,
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misplaced",
+         "at": 27,
+         "note": "misplaced says the letters of end are moved out of place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "end",
+         "at": 20
+        }
+       ]
       },
       {
-       "words": "end",
-       "at": 20,
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 5,
+         "note": "wrong signals that the letters of seem are set in the wrong order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Seem",
+         "at": 0
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something looks amiss when the end of a land deed is mislaid.",
-     "walkthrough": "'wrong' and 'misplaced' together tell you to shuffle SEEM and END as one pool of letters.",
-     "definitionFit": "In law, demesne is holding land as one's own property, not as a tenant."
+     "surface": "Something seems amiss when the end moves around a landholding.",
+     "definitionFit": "A demesne is land held by a lord in his own hands, legally a holding in one's own right."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "end"
+     "misdirectedWord": "misplaced"
     }
    }
   },

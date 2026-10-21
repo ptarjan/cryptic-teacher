@@ -611,33 +611,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "crazy",
-       "at": 18,
-       "note": "the second crazy says the letters that follow are to be jumbled wildly"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Almost all",
-         "at": 0,
-         "note": "almost all of the word means it loses its last letter"
+         "text": "crazy",
+         "at": 18,
+         "note": "the second crazy says the shortened word goes wild and its letters rearrange"
         }
        ],
        "parts": [
         {
-         "words": "crazy",
-         "at": 11,
-         "gives": "CRAZY",
-         "note": "taken as written before it is shortened"
-        },
-        {
-         "gives": "Y"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Almost all",
+           "at": 0,
+           "note": "almost all means everything but the final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "crazy",
+           "at": 11
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         }
        ]
       },
@@ -652,12 +655,12 @@
      ]
     },
     "explanation": {
-     "surface": "Someone calls a queen thoroughly mad, twice over.",
-     "walkthrough": "'Almost all' cuts CRAZY to CRAZ, and the second 'crazy' scrambles CRAZ with IN and A.",
-     "definitionFit": "A czarina was the wife of a Russian czar or an empress ruling in her own right."
+     "surface": "A mad, mad scene inside a queen's court.",
+     "walkthrough": "CRAZ (crazy minus its last letter) rearranges to CZAR, followed by IN and A.",
+     "definitionFit": "A czarina was the wife of a czar or an empress of Russia, a woman who reigned."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "crazy"
     }

@@ -48,34 +48,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Wrong",
-       "note": "something wrong is out of order, so the letters before it are to be rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "An",
-       "note": "taken as written"
+       "at": 0
       },
       {
-       "words": "area",
-       "gives": "A",
-       "note": "A is the standard abbreviation for area"
-      },
-      {
-       "words": "ice contract",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Wrong",
+         "at": 45,
+         "note": "wrong signals that the letters are put out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "area",
+         "at": 3,
+         "gives": "A"
+        },
+        {
+         "words": "ice contract",
+         "at": 31
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A puzzled observer asks whether a sea where pack ice shrinks is the place meant, then dismisses the idea.",
-     "walkthrough": "The whole clue is both the wordplay and the definition: the letters of AN, A and ICE CONTRACT rearrange into a southern sea where ice is visible.",
-     "definitionFit": "The Southern sea surrounding the polar continent is covered by pack ice, so ice is seen over it."
+     "surface": "A place where the ice is shrinking, or is that wrong?",
+     "walkthrough": "The whole clue defines the answer: a sea where ice is seen, and its wordplay is AN plus an anagram of A and ICE CONTRACT.",
+     "definitionFit": "The Southern Ocean round Antarctica is covered in sea ice that grows and shrinks seasonally."
     },
     "features": {
      "answerInScene": true,
@@ -868,46 +874,39 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Suffering losses up front",
+       "at": 0,
+       "note": "each of the two words loses its leading letter, its front"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Suffering losses up front",
-         "note": "losing at the front means each of the words drops its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "sold",
-         "note": "taken as written, then headless"
+         "at": 27
         },
         {
-         "gives": "S"
+         "words": "what",
+         "at": 32
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "what",
-         "note": "taken as written, then headless"
-        },
-        {
-         "gives": "W"
-        }
-       ]
+       "gives": "SW"
       }
      ]
     },
     "explanation": {
-     "surface": "A trader making losses has sold goods past their best.",
-     "definitionFit": "An idiom for something stale, dated or overfamiliar, no longer novel."
+     "surface": "A trader losing money from the start sold stale goods.",
+     "definitionFit": "Old hat is an idiom for something outdated or stale, the opposite of novel."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "losses"
     }
