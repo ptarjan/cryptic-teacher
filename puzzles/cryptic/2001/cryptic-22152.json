@@ -247,49 +247,57 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "EXTIRPATE",
-     "indicators": [
-      {
-       "text": "carrying",
-       "note": "the emigre is carrying something inside, so it goes within that word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EXTIRPATE",
+       "op": "container",
        "indicators": [
         {
-         "text": "dishonoured",
-         "note": "stripping an honour away means removing the letters of a British honour from the word"
+         "text": "carrying",
+         "at": 18,
+         "note": "carrying means holding something inside"
         }
        ],
        "parts": [
         {
          "words": "emigr*",
+         "at": 11,
          "gives": "EXPAT",
-         "note": "someone living abroad"
+         "note": "an expat is an emigrant, someone living abroad"
         },
         {
-         "words": "timber",
-         "note": "taken as written"
-        },
-        {
-         "words": "Spain",
-         "gives": "E",
-         "note": "the international vehicle code for Spain"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "dishonoured",
+           "at": 35,
+           "note": "dishonoured means stripped of an honour, here the MBE, a British decoration"
+          }
+         ],
+         "parts": [
+          {
+           "words": "timber",
+           "at": 27
+          },
+          {
+           "gives": "MBE"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Spain",
+       "at": 51,
+       "gives": "E",
+       "note": "E is the international vehicle code for Spain"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to dispose of a disgraced emigre hauling wood to Spain.",
-     "walkthrough": "The honour removed is the MBE, a British order; the emigre's last letter is garbled in the source.",
-     "definitionFit": "To extirpate is to root out or destroy completely, an emphatic way of removing."
+     "surface": "An emigrant brings disgraced timber to Spain to dispose of it.",
+     "walkthrough": "The honour removed is the MBE, Member of the Order of the British Empire, a British decoration; E is Spain's vehicle code.",
+     "definitionFit": "To extirpate something is to root it out completely, to destroy or remove it."
     },
     "features": {
      "answerInScene": false,

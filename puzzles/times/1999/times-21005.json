@@ -478,70 +478,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SCARCITY",
      "indicators": [
       {
        "text": "in",
-       "note": "one word sits inside the other, which acts as its case"
+       "at": 24,
+       "note": "in together with case means one word is boxed inside another"
+      },
+      {
+       "text": "case",
+       "at": 38,
+       "note": "case is the outer container, the frightening word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "terrifying",
+       "at": 27,
+       "gives": "SCARY",
+       "note": "scary means terrifying"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 14,
+         "note": "cut short means the final letter is lopped off"
+        }
+       ],
        "parts": [
         {
-         "words": "terrifying",
-         "gives": "SCAR",
-         "note": "SCARY, the first part of the case"
+         "words": "evidence",
+         "at": 5,
+         "gives": "CITE",
+         "note": "to cite is to bring forward as evidence"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "cut short",
-           "note": "cutting something short trims its tail, so the final letter goes"
-          }
-         ],
-         "parts": [
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "CITE",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "evidence",
-             "gives": "CITE",
-             "select": "first",
-             "note": "to evidence a point is to cite it; it loses its last letter"
-            }
-           ]
-          },
-          {
-           "gives": "E"
-          }
-         ]
-        },
-        {
-         "words": "case",
-         "gives": "Y",
-         "note": "the end of SCARY, closing round the inserted piece"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer laments that evidence in a frightening trial has been trimmed.",
-     "walkthrough": "'Case' sounds like a court case, which suits the evidence, but it is the outer word holding the shortened piece. To evidence a claim is to cite something in support.",
-     "definitionFit": "Want in the sense of lack or shortage of something is a close synonym of a dearth."
+     "surface": "A lawyer worries that thin evidence will be cut short in a frightening trial.",
+     "walkthrough": "'Want' reads as a verb but is the noun meaning lack; 'case' tells you the terrifying word is the outer shell.",
+     "definitionFit": "Want in the sense of lack or need is the same as scarcity, a shortage."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "case"
+     "misdirectedWord": "Want"
     }
    }
   },

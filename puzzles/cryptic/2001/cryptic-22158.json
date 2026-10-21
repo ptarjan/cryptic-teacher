@@ -1242,37 +1242,47 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "BRISTOL",
-     "indicators": [
-      {
-       "text": "page left",
-       "note": "the page leaves the weapon and another letter takes its place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "British",
-       "gives": "B",
-       "note": "B is the abbreviation for British"
+       "at": 0,
+       "gives": "BR"
       },
       {
-       "words": "weapon",
-       "gives": "PISTOL",
-       "note": "a pistol is a handgun"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "at": 20,
+         "note": "left means went away, so that letter departs from the gun"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weapon",
+         "at": 8,
+         "gives": "PISTOL",
+         "note": "a pistol is a handgun, a weapon"
+        },
+        {
+         "words": "page",
+         "at": 15,
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A British gun left behind by a page in a city.",
-     "walkthrough": "Removing P from PISTOL leaves ISTOL, but nothing printed supplies the R that replaces it; the setter seems to mean 'page right', P becoming R.",
+     "walkthrough": "'Left' is not the letter L here: it means the page went away from the gun.",
      "definitionFit": "Bristol is a major port city in south-west England."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "page"
+     "misdirectedWord": "left"
     }
    }
   },

@@ -149,28 +149,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "first",
      "indicators": [
       {
        "text": "reduced by 50%",
-       "note": "cutting by fifty percent keeps just one half of the phrase"
+       "at": 24,
+       "note": "reduced by half means only the first half of the phrase is kept"
       }
      ],
      "parts": [
       {
        "words": "Way of buying something",
+       "at": 0,
        "gives": "NEVERNEVER",
-       "note": "the never-never is British slang for hire purchase, paying in instalments"
-      },
-      {
-       "gives": "NEVER"
+       "note": "British slang for hire purchase, buying in instalments, is a doubled word"
       }
      ]
     },
     "explanation": {
-     "surface": "A shopper offered something at half price on credit refuses outright.",
-     "walkthrough": "The 'never-never' is British slang for buying on hire purchase; halving it leaves one NEVER.",
-     "definitionFit": "As an exclamation the word is an emphatic refusal, meaning not at any time or under any circumstances."
+     "surface": "A shopper asks about a half-price way of buying and gets a flat refusal.",
+     "walkthrough": "The never-never is British slang for hire purchase; cut in half it leaves one NEVER.",
+     "definitionFit": "Saying 'never' is an emphatic refusal, the same as exclaiming certainly not."
     },
     "features": {
      "answerInScene": false,
@@ -554,60 +553,51 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GALVANISE",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the shortened word inside the word for storm"
+       "at": 48,
+       "note": "in means the shortened word sits inside the storm word"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "storm",
+       "at": 51,
+       "gives": "GALE",
+       "note": "a gale is a storm-force wind"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 31,
+         "note": "almost means the last letter is left off"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "almost",
-           "note": "almost means not quite all, so the final letter of disappear's synonym is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "disappear",
-             "gives": "VANISH",
-             "note": "to vanish is to disappear"
-            },
-            {
-             "words": "storm",
-             "gives": "GALE",
-             "note": "a gale is a violent wind storm"
-            }
-           ]
-          },
-          {
-           "gives": "H"
-          }
-         ]
+         "words": "disappear",
+         "at": 38,
+         "gives": "VANISH",
+         "note": "to vanish is to disappear"
+        },
+        {
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wraps up in a protective coat because they risk being blown away in a storm.",
-     "walkthrough": "'Put on coat' sounds like getting dressed, but it means coating metal.",
-     "definitionFit": "To galvanise iron or steel is to cover it with a protective layer of zinc against rust."
+     "surface": "Someone wraps up against a storm, nearly vanishing inside their coat.",
+     "walkthrough": "'Coat' is not a garment here: the definition describes zinc-plating metal, and the storm word is the outside of the wordplay.",
+     "definitionFit": "To galvanise iron is to give it a protective zinc coating against rust."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "coat"
     }
    }

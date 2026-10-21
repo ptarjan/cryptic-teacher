@@ -572,48 +572,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HIBISCUS",
-     "indicators": [
-      {
-       "text": "poorly",
-       "note": "done poorly suggests made badly, so the letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HIBISCUS",
+       "words": "hot",
+       "at": 13,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "short of time",
-         "note": "being short of something means lacking it, so the letter for time is dropped"
+         "text": "poorly",
+         "at": 26,
+         "note": "poorly suggests something badly made, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "hot",
-         "gives": "H",
-         "note": "H for hot, as on a tap"
-        },
-        {
-         "words": "biscuits",
-         "note": "taken as written"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the symbol for time"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short of",
+           "at": 34,
+           "note": "short of means lacking, so one letter is taken away"
+          }
+         ],
+         "parts": [
+          {
+           "words": "biscuits",
+           "at": 17
+          },
+          {
+           "words": "time",
+           "at": 43,
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A factory turning out warm biscuits does badly, running behind schedule.",
-     "definitionFit": "A tropical shrub of the mallow family with large showy trumpet flowers."
+     "surface": "A baker turns out a batch of badly made hot biscuits in a hurry.",
+     "walkthrough": "'Short of time' trims the biscuits before 'poorly' rearranges them, so the deletion happens first.",
+     "definitionFit": "Hibiscus is a shrub with large showy trumpet flowers, a garden and tropical plant."
     },
     "features": {
      "answerInScene": false,

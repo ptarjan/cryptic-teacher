@@ -681,40 +681,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WADI",
-     "indicators": [
-      {
-       "text": "spell, possibly",
-       "note": "a spell of letters is one possible spelling, so another arrangement of them is wanted"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "WADI",
+       "words": "With",
+       "at": 0,
+       "gives": "W"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "disappears",
-         "note": "whatever disappears is lost from the word it was in"
+         "text": "spell, possibly",
+         "at": 10,
+         "note": "to spell a word possibly another way rearranges its letters"
         }
        ],
        "parts": [
         {
-         "words": "With",
-         "gives": "W",
-         "note": "W is the standard abbreviation for with"
-        },
-        {
-         "words": "arid",
-         "note": "taken as written"
-        },
-        {
-         "words": "river",
-         "gives": "R",
-         "note": "R is the map abbreviation for river"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "disappears",
+           "at": 33,
+           "note": "disappears means that letter goes out of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "arid",
+           "at": 5
+          },
+          {
+           "words": "river",
+           "at": 27,
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
@@ -722,9 +725,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "In a dry spell a river vanishes into the ground at this place.",
-     "walkthrough": "Take R out of ARID and rearrange the rest after W to get WADI; the whole clue also describes one.",
-     "definitionFit": "A wadi is a desert valley whose stream runs only after rain and dries away in arid seasons."
+     "surface": "In a dry season a river vanishes, and this is where it happens.",
+     "walkthrough": "The whole clue is also the definition: a dry riverbed where the stream disappears in an arid season.",
+     "definitionFit": "A wadi is a desert valley whose stream runs only after rain and dries up in drought."
     },
     "features": {
      "answerInScene": true,
