@@ -180,59 +180,53 @@
        "indicators": [
         {
          "text": "failing to start",
-         "note": "each word that fails to start loses its opening letter"
+         "at": 12,
+         "note": "failing to start takes the opening letter off each of the three words man, in and suit"
         }
        ],
        "parts": [
         {
-         "words": "Man",
-         "note": "taken as written, then headless"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Man",
+           "at": 0,
+           "gives": "MAN"
+          },
+          {
+           "words": "in",
+           "at": 4,
+           "gives": "IN"
+          },
+          {
+           "words": "suit",
+           "at": 7,
+           "gives": "SUIT"
+          }
+         ]
         },
         {
-         "gives": "M"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "in",
-         "note": "taken as written, then headless"
-        },
-        {
-         "gives": "I"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "suit",
-         "note": "taken as written, then headless"
-        },
-        {
-         "gives": "S"
+         "gives": "MIS"
         }
        ]
       },
       {
        "words": "Yankee",
+       "at": 29,
        "gives": "Y",
-       "note": "Yankee is Y in the NATO phonetic alphabet"
+       "note": "Y is Yankee in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A man in a suit fails to begin paying out an American's guaranteed income.",
-     "walkthrough": "The deletion applies to all three words, not only to suit: (m)AN (i)N (s)UIT plus Y.",
-     "definitionFit": "An annuity is a fixed sum paid every year, typically bought as a secure pension income."
+     "surface": "A man in a suit fails to get an American's guaranteed income off the ground.",
+     "walkthrough": "'In' looks like a link word placing the man in a suit, but it is a third word that loses its first letter.",
+     "definitionFit": "An annuity is a fixed sum paid every year, often bought to give a guaranteed income in retirement."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Man"
+     "misdirectedWord": "in"
     }
    }
   },
@@ -474,47 +468,55 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 36,
+       "note": "over in a down clue places it above the years letter"
+      }
+     ],
      "parts": [
       {
        "words": "dog",
+       "at": 19,
        "gives": "PUG",
        "note": "a pug is a small breed of dog"
       },
       {
-       "op": "anagram",
+       "op": "reversal",
        "indicators": [
         {
          "text": "upset",
-         "note": "upsetting things knocks them out of order, so these letters are rearranged"
+         "at": 27,
+         "note": "upset in a down clue turns the word upside down, so it reads from the bottom"
         }
        ],
        "parts": [
         {
          "words": "can",
-         "note": "taken as written"
-        },
-        {
-         "words": "it",
-         "note": "taken as written"
+         "at": 23
         }
        ]
       },
       {
+       "words": "it",
+       "at": 33
+      },
+      {
        "words": "years",
-       "gives": "Y",
-       "note": "y is the abbreviation for year or years"
+       "at": 41,
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "A feisty dog's aggression can upset things over the years.",
-     "walkthrough": "In a down clue 'over' places the earlier pieces above Y.",
-     "definitionFit": "Pugnacity is an eagerness to quarrel or fight, from the Latin pugnare, to fight."
+     "surface": "The fighting spirit of a dog that can knock things over, given a few years.",
+     "definitionFit": "Pugnacity is a readiness to argue or fight, combativeness."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "can"
+     "misdirectedWord": "upset"
     }
    }
   },
@@ -702,28 +704,22 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "raising",
-       "at": 27,
-       "note": "in a down answer, raising means the letter is lifted to sit above the rest"
-      }
-     ],
      "parts": [
       {
        "words": "Mum or dad",
        "at": 0,
        "gives": "PARENT",
-       "note": "either is a parent"
+       "note": "either one is a parent"
       },
       {
-       "words": "Henry",
-       "at": 35,
-       "gives": "H",
-       "note": "H is the symbol for the henry, the unit of inductance"
-      },
-      {
-       "op": "deletion",
+       "op": "move",
+       "indicators": [
+        {
+         "text": "raising",
+         "at": 27,
+         "note": "raising in a down clue lifts the letter higher up, nearer the start of the word"
+        }
+       ],
        "parts": [
         {
          "words": "morally correct",
@@ -732,21 +728,24 @@
          "note": "ethical means morally correct"
         },
         {
-         "gives": "H"
+         "words": "Henry",
+         "at": 35,
+         "gives": "H",
+         "note": "H is the symbol for the henry, the unit of inductance"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mother or father of sound morals brings up a son called Henry with certificates.",
-     "walkthrough": "In this down answer 'raising' lifts the letter for Henry from the middle of the morally correct word to its top, so the word keeps its other letters in order.",
-     "definitionFit": "A parenthetical remark is an aside that adds a caveat, so it comes with qualifications."
+     "surface": "A principled parent brings up a boy called Henry, though with some conditions.",
+     "walkthrough": "Lifting the H in ETHICAL to the top gives HETICAL.",
+     "definitionFit": "A parenthetical remark is an inserted aside that qualifies a statement, so the word suggests hedging."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "qualifications"
+     "aptDefinition": false,
+     "misdirectedWord": "raising"
     }
    }
   },

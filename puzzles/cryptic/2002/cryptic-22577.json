@@ -48,50 +48,57 @@
      "indicators": [
       {
        "text": "without",
-       "note": "without here means outside, so the apple wraps around the other letters"
+       "at": 6,
+       "note": "without in its old sense of outside, so the apple goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "deranged",
-         "note": "deranged means thrown out of order, so these letters are jumbled"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Apple",
-         "gives": "CODLING",
-         "note": "a codling is a variety of cooking apple"
-        },
-        {
-         "words": "an",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Apple",
+       "at": 0,
+       "gives": "CODLING",
+       "note": "a codling is a variety of cooking apple"
       },
       {
-       "op": "first",
+       "op": "charade",
        "parts": [
         {
-         "words": "orange",
-         "note": "the opening letter of orange"
+         "words": "an",
+         "at": 14
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "deranged",
+           "at": 26,
+           "note": "read as de-ranged, it says the word range is taken out of orange"
+          }
+         ],
+         "parts": [
+          {
+           "words": "orange",
+           "at": 17
+          },
+          {
+           "gives": "RANGE"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disturbed person spurns an orange in favour of an apple as a way of declaring affection.",
-     "walkthrough": "Codling is a traditional English cooking apple; 'without' means outside, so the apple goes around the other letters rather than lacking them.",
-     "definitionFit": "Canoodling is kissing and cuddling, an affectionate courting behaviour between lovers."
+     "surface": "Eating an apple with no orange is a crazy way to express affection.",
+     "walkthrough": "'Deranged' looks like an anagram signal, but read as de-ranged it strips RANGE from ORANGE, leaving O.",
+     "definitionFit": "Canoodling is kissing and cuddling amorously, an affectionate display between lovers."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Apple"
+     "joke": "pun",
+     "misdirectedWord": "deranged"
     }
    }
   },
