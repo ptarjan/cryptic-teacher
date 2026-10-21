@@ -905,56 +905,64 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in sets the gathered letters inside the London street"
+       "at": 33,
+       "note": "in means the gent's letter and the reshaped greeting sit inside the street"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "form of",
-         "note": "a form of the greeting is a reshaped version of it, so its letters are rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "'hello'",
-         "note": "the greeting taken as written"
-        },
-        {
-         "words": "London street",
-         "gives": "STRAND",
-         "note": "the Strand is a famous street in central London"
-        }
-       ]
+       "words": "London street",
+       "at": 36,
+       "gives": "STRAND",
+       "note": "the Strand is a well-known street in central London"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "principal",
-         "note": "principal means chief or leading, so only the front letter of the gent is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Gent",
-         "note": "the first letter of gent"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "principal",
+           "at": 7,
+           "note": "the principal letter of a word is its first one, here of gent's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Gent's",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "form of",
+           "at": 17,
+           "note": "a form of the word is a new shape of its letters, so they are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hello",
+           "at": 26
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gentleman greeting someone on a London street in a way that takes their breath away.",
-     "walkthrough": "The Strand is a major street in central London. The definition is a cryptic hint: a choking grip literally leaves you breathless.",
-     "definitionFit": "A stranglehold is a grip around the throat that cuts off breathing, so the victim is left gasping."
+     "surface": "A gentleman greets someone on a London street, leaving them gasping.",
+     "walkthrough": "The Strand is a major street in central London. The definition is playful: a grip that leaves you breathless is one round the throat.",
+     "definitionFit": "A stranglehold is a grip on the throat that stops a person from breathing."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "principal"
     }
    }

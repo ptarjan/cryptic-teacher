@@ -548,56 +548,66 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "the ultimate letter is the last one"
+       "text": "in",
+       "at": 29,
+       "note": "in means the letter from motion is placed inside the reversed pair of words"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "one piece goes inside another"
+         "text": "spinning",
+         "at": 48,
+         "note": "something spinning turns round, so the letters of the article and the particle are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "a tiny particle",
-         "gives": "ANATOM",
-         "note": "a tiny particle = AN ATOM"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "N",
-         "indicators": [
-          {
-           "text": "spinning",
-           "note": "a spinning word turns round, so it reads backwards"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "unchecked": true,
-           "words": "motion",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of motion, placed inside: ANAT(N)OM"
+           "words": "a",
+           "at": 32,
+           "gives": "AN",
+           "note": "the indefinite article a can also be an"
+          },
+          {
+           "words": "tiny particle",
+           "at": 34,
+           "gives": "ATOM",
+           "note": "an atom is a tiny particle of matter"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 17,
+         "note": "ultimately means at the end, so take the final letter of motion"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motion",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A physicist describes a spinning atom's state of motion.",
-     "walkthrough": "\"State of motion\" reads as one physics phrase, but the definition is just State, the US one.",
-     "definitionFit": "Definition by category: the Treasure State is one of the fifty US states."
+     "surface": "A physics note on the condition of a spinning particle in motion.",
+     "walkthrough": "'State of motion' reads like physics, but 'State' is the definition, a US state; 'a' gives the longer form of the article before it spins.",
+     "definitionFit": "Montana is one of the fifty states of the USA, in the north-west."
     },
     "features": {
      "answerInScene": false,
@@ -744,46 +754,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "REDMIST",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "at": 41,
+       "note": "reportedly means as people say it, so the pieces are spoken aloud"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "RED",
-       "indicators": [
-        {
-         "text": "reportedly",
-         "note": "what is reported is heard, so the words are judged by sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "studied",
-         "gives": "READ",
-         "note": "read (past tense) = studied"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "MIST",
-       "parts": [
-        {
-         "words": "overlooked",
-         "gives": "MISSED",
-         "note": "missed = overlooked"
-        }
-       ]
+       "words": "studied then overlooked",
+       "at": 16,
+       "gives": "READMISSED",
+       "note": "studied is read (said 'red') and overlooked is missed, side by side"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who read something and then missed it gets cross.",
-     "walkthrough": "READ in the past tense rhymes with bed, which is what makes RED work.",
-     "definitionFit": "An idiom: the red mist is the sudden fury that descends, the source of anger boiling over."
+     "surface": "Someone read a document and then ignored it, as the story goes.",
+     "walkthrough": "READ (past tense, said 'red') then MISSED sounds like RED MIST.",
+     "definitionFit": "Red mist is an idiom for a sudden fit of rage that clouds a person's judgement."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "studied"
     }
    }
@@ -947,26 +944,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one piece goes inside another"
+       "at": 12,
+       "note": "in means the shortened jack-up word sits inside the word for disgust"
       }
      ],
      "parts": [
       {
        "words": "disgust",
+       "at": 15,
        "gives": "APPAL",
        "note": "to appal is to disgust"
       },
       {
-       "words": "Cut Jack up",
-       "gives": "RAIS",
-       "note": "RAISE = jack up; cut, it loses its E; placed inside the word for disgust"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cut",
+         "at": 0,
+         "note": "cut means trimmed, so the word for jack up loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jack up",
+         "at": 4,
+         "gives": "RAISE",
+         "note": "to jack up a car or a price is to raise it"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "In an evaluation, someone disgusted cuts a man called Jack down to size.",
-     "walkthrough": "Jack looks like a name, but \"Jack up\" is the verb for lifting, as with a car jack.",
-     "definitionFit": "A plain synonym: an evaluation of worth."
+     "surface": "Someone hacks a jack apart in revulsion while being assessed.",
+     "walkthrough": "'Cut Jack' suggests slicing a man named Jack; the phrase to take is 'Jack up', a verb meaning lift, and 'Cut' trims its end.",
+     "definitionFit": "An appraisal is an evaluation, a judgement of something's worth or quality."
     },
     "features": {
      "answerInScene": false,
@@ -1125,26 +1140,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Endure starting late",
-       "gives": "AST",
-       "note": "LAST = endure, minus the L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "starting late",
+         "at": 7,
+         "note": "starting late means the word begins after its usual first letter, so that letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Endure",
+         "at": 0,
+         "gives": "LAST",
+         "note": "to last is to endure"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
        "words": "journey",
+       "at": 21,
        "gives": "RIDE",
        "note": "a ride is a journey"
       }
      ]
     },
     "explanation": {
-     "surface": "A rider who set off late puts up with a long, bow-legged trip.",
-     "walkthrough": "Endure has to be read as the verb last, as in make it last.",
-     "definitionFit": "A plain synonym: sitting astride a horse means sitting with a leg on each side."
+     "surface": "Someone puts up with a late start to a trip, legs spread.",
+     "walkthrough": "LAST with its first letter gone is AST, followed by RIDE.",
+     "definitionFit": "To sit astride is to straddle something, one leg on each side."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Endure"
+     "misdirectedWord": "late"
     }
    }
   },

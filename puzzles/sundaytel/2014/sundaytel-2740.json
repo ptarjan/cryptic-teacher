@@ -833,47 +833,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
      "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "after places the good letter's journey once the politician's name is in place"
+      },
       {
        "text": "moves to left",
        "at": 33,
-       "note": "the letter for good is shifted from inside the name to its front, the left end"
+       "note": "in an across answer the left is the front, so the letter shifts to the start"
       }
      ],
      "parts": [
       {
+       "words": "Democratic politician",
+       "at": 0,
+       "gives": "ALGORE",
+       "note": "Al Gore was the Democratic US vice-president"
+      },
+      {
        "words": "good",
        "at": 28,
        "gives": "G"
-      },
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "after",
-         "at": 22,
-         "note": "the letter for good comes after the first two letters of the name, and is lifted out from there"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Democratic politician",
-         "at": 0,
-         "gives": "ALGORE",
-         "note": "Al Gore, the US Democratic vice-president"
-        },
-        {
-         "gives": "G"
-        }
-       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Democrat following something good shifts leftwards.",
-     "walkthrough": "The G already in AL GORE is moved to the front.",
-     "definitionFit": "Galore is an adverb-like adjective meaning in abundance, just as aplenty does."
+     "surface": "A political report that a Democrat shifts leftward after a good result, in abundance.",
+     "walkthrough": "The politician's surname already holds the good letter; moving it to the left end of the full name gives the answer. Al Gore was US vice-president.",
+     "definitionFit": "Galore means in abundance, in great numbers or quantity."
     },
     "features": {
      "answerInScene": false,
@@ -1389,7 +1379,7 @@
       {
        "text": "included in",
        "at": 31,
-       "note": "the rearranged letters are put inside the word for academic"
+       "note": "included in means put inside, so the other pieces go into the academic"
       }
      ],
      "parts": [
@@ -1397,40 +1387,44 @@
        "words": "academic's",
        "at": 43,
        "gives": "DON",
-       "note": "a don is a university teacher"
+       "note": "a don is a university academic"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "wrongly",
-         "at": 23,
-         "note": "the letters are arranged wrongly, giving a new order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Is",
-         "at": 0,
-         "note": "taken as written"
+         "at": 0
         },
         {
-         "op": "deletion",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "unfinished",
-           "at": 3,
-           "note": "the last letter of the following word is cut off"
+           "text": "wrongly",
+           "at": 23,
+           "note": "wrongly means incorrectly arranged, so the letters are mixed"
           }
          ],
          "parts": [
           {
-           "words": "treatise",
-           "at": 14,
-           "note": "taken as written"
-          },
-          {
-           "gives": "E"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "unfinished",
+             "at": 3,
+             "note": "unfinished means the word loses its final letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "treatise",
+             "at": 14,
+             "gives": "TREATISE"
+            },
+            {
+             "gives": "E"
+            }
+           ]
           }
          ]
         }
@@ -1439,14 +1433,14 @@
      ]
     },
     "explanation": {
-     "surface": "Asking whether an incomplete treatise was mistakenly put into a professor's work.",
-     "walkthrough": "Unfinished applies to treatise, the word after Is.",
-     "definitionFit": "A dissertation is a long scholarly essay, especially one for a degree."
+     "surface": "A faulty half-written treatise turns up in a lecturer's thesis.",
+     "walkthrough": "'Is' is taken as written and stays unmixed; only the shortened treatise is jumbled. A don is a British university lecturer.",
+     "definitionFit": "A dissertation is a long academic essay, written especially for a degree."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wrongly"
+     "misdirectedWord": "Is"
     }
    }
   },

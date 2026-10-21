@@ -1494,37 +1494,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "oily",
-       "note": "oily suggests something slippery that slides about, so the letters are moved into a new order"
+       "text": "after",
+       "at": 11,
+       "note": "after places the word for about behind the rest"
       }
      ],
      "parts": [
       {
+       "op": "container",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "oily",
+           "at": 29,
+           "note": "oily means slippery, so the letters of ploy slide into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ploy",
+           "at": 34
+          }
+         ]
+        },
+        {
+         "words": "American",
+         "at": 17,
+         "gives": "A"
+        }
+       ]
+      },
+      {
        "words": "about",
+       "at": 5,
        "gives": "A",
-       "note": "a is short for about, from circa"
-      },
-      {
-       "words": "American",
-       "gives": "A",
-       "note": "A is the abbreviation for American"
-      },
-      {
-       "words": "ploy",
-       "note": "taken as written"
+       "note": "a is an old preposition meaning on or about, as in a-hunting"
       }
      ]
     },
     "explanation": {
-     "surface": "A sprint around after an American who is caught up in a slippery trick.",
-     "walkthrough": "'Dash' looks like a sprint, but in West African English a dash is a tip or bribe.",
-     "definitionFit": "Payola is a secret bribe, especially to a DJ to play a record, and a dash is a West African bribe."
+     "surface": "A slick scheme sends someone dashing about after an American.",
+     "walkthrough": "Mix PLOY and put A inside to make PAYOL, then add the second A. Dash is the West African word for a bribe or tip, as Chambers gives it.",
+     "definitionFit": "Payola is secret bribery, especially of DJs to play records, and a dash is a bribe."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Dash"
     }

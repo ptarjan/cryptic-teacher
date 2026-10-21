@@ -531,53 +531,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "having no end means the final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 5,
+         "note": "endless means without its end, so the last letter of this goes"
+        }
+       ],
        "parts": [
         {
          "words": "This",
-         "gives": "THI",
-         "note": "THIS without its last letter"
+         "at": 0,
+         "gives": "THIS"
         },
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "empty",
-           "note": "emptied of its middle, only the outside letters of the word remain"
-          }
-         ],
-         "parts": [
-          {
-           "words": "road",
-           "note": "the first and last letters of road"
-          }
-         ]
+         "gives": "S"
         }
        ]
       },
       {
-       "gives": "OA"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 14,
+         "note": "an empty word has its insides removed, leaving only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "road",
+         "at": 20
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Directions along a deserted road that barely gets you to a mountain pass.",
-     "walkthrough": "A pass here is an exam result, not a mountain gap: a third is the lowest class of British honours degree.",
-     "definitionFit": "A third-class degree in the UK is the lowest honours award, a bare pass."
+     "surface": "A deserted road leads up to a mountain pass.",
+     "walkthrough": "THI and RD. A third is the lowest UK honours degree, a pass but only just.",
+     "definitionFit": "A third-class degree is the lowest honours grade a British university awards, barely a pass."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "pass"
     }
    }

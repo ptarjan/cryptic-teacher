@@ -623,25 +623,41 @@
      "parts": [
       {
        "words": "Kelly, in films",
+       "at": 0,
        "gives": "GENE",
-       "note": "Gene Kelly, star of Singin' in the Rain"
+       "note": "Gene Kelly was a Hollywood star"
       },
       {
-       "words": "a lot of credit",
-       "gives": "TIC",
-       "note": "TICK = credit, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 22,
+         "note": "a lot of a word is most of it, so the final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "credit",
+         "at": 31,
+         "gives": "TICK",
+         "note": "tick is informal for credit, as in buying on tick"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A film star earns plenty on account from his work in the make-up department.",
-     "walkthrough": "Buying on tick is old British slang for buying on credit. Make-up here is genetic make-up, not cosmetics.",
-     "definitionFit": "Genetic concerns genes, the inherited code that sets a creature's biological constitution."
+     "surface": "A film star is offered generous credit for doing actors' make-up.",
+     "walkthrough": "'Make-up' looks like cosmetics for the film star, but it means a person's inherited constitution.",
+     "definitionFit": "Genetic means relating to genes, the inherited code that determines an organism's constitution."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "make-up"
     }
    }
@@ -2131,7 +2147,8 @@
      "indicators": [
       {
        "text": "hosting",
-       "note": "the pair take the king in as a guest, holding him inside"
+       "at": 26,
+       "note": "hosting means having a guest inside, so the king goes in"
       }
      ],
      "parts": [
@@ -2139,33 +2156,53 @@
        "op": "charade",
        "parts": [
         {
-         "words": "Time off work",
-         "gives": "OIL",
-         "note": "TOIL = work, minus T for time"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "off",
+           "at": 5,
+           "note": "off means taken away, so time's letter leaves the word for work"
+          }
+         ],
+         "parts": [
+          {
+           "words": "work",
+           "at": 9,
+           "gives": "TOIL",
+           "note": "to toil is to work"
+          },
+          {
+           "words": "Time",
+           "at": 0,
+           "gives": "T"
+          }
+         ]
         },
         {
-         "words": "for Otto I",
+         "words": "Otto I",
+         "at": 18,
          "gives": "ICH",
-         "note": "ich is German for I, as a German emperor would say it"
+         "note": "Ich is German for I, as Otto, a German, would say it"
         }
        ]
       },
       {
        "words": "king",
+       "at": 34,
        "gives": "R",
-       "note": "R = rex, king"
+       "note": "R is the abbreviation for rex, king"
       }
      ]
     },
     "explanation": {
-     "surface": "A German emperor takes leave from ruling and entertains another king.",
-     "walkthrough": "Time off work reads as a holiday; it is an instruction. Otto I was a tenth-century German king and emperor.",
-     "definitionFit": "A country with plentiful petroleum reserves is well endowed with a valuable natural resource."
+     "surface": "The first Holy Roman Emperor takes a break from work to entertain a king.",
+     "walkthrough": "Otto I looks like the medieval emperor, but it means the word I as a German such as Otto would say it.",
+     "definitionFit": "An oil-rich country has large petroleum reserves, a valuable natural resource."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Time"
+     "misdirectedWord": "Otto"
     }
    }
   },
