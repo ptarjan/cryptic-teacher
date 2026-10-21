@@ -1215,53 +1215,62 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ERROR",
      "indicators": [
       {
        "text": "abandoning",
-       "note": "abandoning means leaving behind, so those letters are taken away from the later word"
+       "at": 51,
+       "note": "abandoning means leaving behind, so the next letters are taken out"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "IT",
+       "op": "middle",
        "indicators": [
         {
-         "text": "leads to",
-         "note": "leads are the front letters, so the opening letters of the next two words are taken"
+         "text": "extremists",
+         "at": 40,
+         "note": "extremists here are the extremes of the word, which go, leaving only its middle"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Italian terrorists",
-         "gives": "IT",
-         "select": "first",
-         "note": "the opening letter of each word, to be removed; the run of letters sitting inside terrorists is a coincidence, not the parse"
+         "words": "territory",
+         "at": 62,
+         "note": "the word taken as written"
         }
        ]
       },
       {
-       "words": "extremists",
-       "gives": "TY",
-       "note": "the extremes, the first and last letters, of the word that follows, also removed"
-      },
-      {
-       "words": "territory",
-       "note": "taken as written"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leads to",
+         "at": 8,
+         "note": "the leads of words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian",
+         "at": 17,
+         "note": "first letter of Italian"
+        },
+        {
+         "words": "terrorists",
+         "at": 25,
+         "note": "first letter of terrorists; the run of letters inside this word that matches the solution is a coincidence, not a hidden word"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mistake by the authorities lets militants and radicals leave a contested region.",
-     "walkthrough": "Take TERRITORY, strip its outer T and Y to get ERRITOR, then remove the I and T (the starts of Italian and terrorists) to leave ERROR.",
-     "definitionFit": "A blunder is a clumsy mistake, and error is the general word for any mistake."
+     "surface": "A mistake lets Italian terrorists and other extremists leave a region.",
+     "walkthrough": "Territory without its ends gives ERRITOR; then the first letters of Italian and terrorists, I and T, abandon it.",
+     "definitionFit": "A blunder is a careless mistake, and an error is any mistake."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "extremists"
     }
