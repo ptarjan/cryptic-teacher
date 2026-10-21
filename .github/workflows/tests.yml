@@ -77,6 +77,8 @@ on:
   # It is not a push, so the base search (event=push) never counts it.
   schedule:
     - cron: "23 */4 * * *"
+  # A hand-started full run, to confirm a fix without waiting for the cron.
+  workflow_dispatch:
 
 jobs:
   # Puzzle-only pushes (the burn jobs push them every few minutes) skip the
