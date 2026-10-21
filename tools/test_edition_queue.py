@@ -1759,6 +1759,26 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
 check("spool on, spool full: reads still start (a read needing an ask defers itself)", (3, 0),
       (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("vlm-bound")))
 check("the queue's cap is the reader's", True, eq.vlm_spool_max() == vlm_reader.vlm_spool_max() == 10)
+# GPU fill: with the VLM stage short of asks, another paper's never-read read goes ahead of the
+# CT_NEWEST_FIRST paper's OCR-only rereads (Times first otherwise), and the queue says so.
+_pipe0, _sl0 = vlm_reader.PIPELINE, vlm_reader._SLOTS[0]
+vlm_reader.PIPELINE, vlm_reader._SLOTS[0] = 1, 2
+os.environ["CT_NEWEST_FIRST"] = "gale"
+_mk = lambda paper, rel, rank, reason: {"kind": "read", "paper": paper, "rel": rel, "rank": rank, "reason": reason, "needs": []}
+_tm = [_mk("gale", f"g{k}", 2, "scan stale, answers linked") for k in range(3)]
+_ft = [_mk("times", f"t{k}", 1, "never read") for k in range(3)]
+_cands = [(u, eq.key_of(u)) for u in _tm + _ft]
+_none = lambda u: False
+check("gpu_fill: an unfed VLM stage takes the other paper's never-read reads, within half the read pool", ["t0", "t1"],
+      [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 0, 4)])
+check("gpu_fill: spooled asks at the floor, no fill", [], eq.gpu_fill(_cands, set(), set(), _none, _none, 3, False, 0, 4))
+check("gpu_fill: a full spool, no fill", [], eq.gpu_fill(_cands, set(), set(), _none, _none, 0, True, 0, 4))
+check("gpu_fill: fills running count against the half pool", ["t0"], [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 1, 4)])
+check("gpu_fill: tried, running and waiting reads are skipped", ["t2"],
+      [u["rel"] for u in eq.gpu_fill(_cands, {eq.key_of(_ft[0])}, {eq.key_of(_ft[1])}, _none, _none, 2, False, 0, 4)])
+del os.environ["CT_NEWEST_FIRST"]
+check("gpu_fill: without CT_NEWEST_FIRST, no fill", [], eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 0, 4))
+vlm_reader.PIPELINE, vlm_reader._SLOTS[0] = _pipe0, _sl0
 _own.unlink(missing_ok=True)
 vlm_reader.spooled = _sp
 os.environ.pop("CT_VLM_SPOOL_MAX")
@@ -1926,6 +1946,11 @@ for kind, paper, fn in (("scan", "gale", "scan_unit"), ("read", "trove", "read_u
                          timeout=120).stderr.strip().splitlines()[-1]
     check(f"a {kind} {paper} unit loads {name}'s reach, not the queue's, and exits its outcome",
           f"{eq.EXITS['busy']} True []", got)
+# The queue process leaves the blog filers' modules unloaded (their pushes reload nothing) and the static closure free of them.
+_skipped = eq.never_loaded(code_reach.modules("edition_queue"))
+check("the queue does not load the blog filers' modules, so a push to them is no reload",
+      (True, True), ({"file_blog_puzzles", "parse_timesforthetimes"} <= _skipped,
+                     not (_skipped & {Path(p).stem for p in eq.hot_reload.queue_code(eq.TOOLS)})))
 # code_reach keeps its answers per version of tools/: an edit is a new answer.
 saved = code_reach.TOOLS, code_reach.STORE
 code_reach.TOOLS, code_reach.STORE = T / "reach-tools", T / "reach-store"
