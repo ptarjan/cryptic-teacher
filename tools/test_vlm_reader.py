@@ -726,6 +726,21 @@ check("dry run: one uncached ask noted once with its size", (1, [30, 20], vlm.sp
 check("dry run: nothing cached for the uncached ask", False, (vlm.CACHE / f"{vlm.ask_key(_data, 'p2')}.txt").exists())
 check("dry run off by default", False, vlm.dryrun())
 
+# vlm_asks.log: a trailing why=<trigger> from vlm.because, in the spool entry only (the key is the same).
+_log = Path(tempfile.mkdtemp()) / "asks.log"
+os.environ["CT_VLM_ASK_LOG"] = str(_log)
+_key_before = vlm.ask_key(b"why-img", "why-prompt")
+vlm._log_ask("a" * 40, {"unit": "p/i/e", "prompt": "why-prompt"})
+with vlm.because("weak:12a(blank),5d(unsettled)"):
+    _key_in = vlm.ask_key(b"why-img", "why-prompt")
+    vlm._log_ask("b" * 40, {"unit": "p/i/e", "prompt": "why-prompt", "why": vlm._WHY.get()})
+check("ask log: no why= when no reason", False, "why=" in _log.read_text().splitlines()[0])
+check("ask log: why= is the last field, space-free", "weak:12a(blank),5d(unsettled)",
+      _log.read_text().splitlines()[1].split()[-1][len("why="):])
+check("ask log: the reason does not change the cache key", _key_before, _key_in)
+check("ask log: the reason is reset after the block", "", vlm._WHY.get())
+os.environ.pop("CT_VLM_ASK_LOG")
+
 if fails:
     print("test_vlm_reader: failed")
     sys.exit(1)
