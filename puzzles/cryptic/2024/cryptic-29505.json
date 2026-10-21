@@ -692,7 +692,8 @@
      "indicators": [
       {
        "text": "receives",
-       "note": "to receive is to take in, so the combined letters hold the next piece"
+       "at": 28,
+       "note": "receives means the note is taken inside the other letters"
       }
      ],
      "parts": [
@@ -700,21 +701,18 @@
        "op": "charade",
        "parts": [
         {
-         "op": "deletion",
+         "op": "first",
          "indicators": [
           {
            "text": "half",
-           "note": "half means only part of the name is kept, the rest discarded"
+           "at": 8,
+           "note": "half here takes the first three of the six letters of Maria's"
           }
          ],
          "parts": [
           {
            "words": "Maria's",
-           "gives": "MARIA",
-           "note": "the name taken as written"
-          },
-          {
-           "gives": "IA"
+           "at": 0
           }
          ]
         },
@@ -723,13 +721,14 @@
          "indicators": [
           {
            "text": "at last",
-           "note": "at last points to the final letter of the word it follows"
+           "at": 20,
+           "note": "at last picks out the final letter of cousin"
           }
          ],
          "parts": [
           {
            "words": "cousin",
-           "note": "the final letter of cousin"
+           "at": 13
           }
          ]
         }
@@ -737,15 +736,16 @@
       },
       {
        "words": "note",
+       "at": 37,
        "gives": "TI",
-       "note": "ti (or te) is the seventh note of the sol-fa scale"
+       "note": "TI is the seventh note of the sol-fa scale"
       }
      ]
     },
     "explanation": {
-     "surface": "A relative of Maria's spots a bird after a message arrives.",
-     "walkthrough": "'Half-cousin' looks like a family relation; the hyphen joins two separate instructions.",
-     "definitionFit": "The martin is a small swallow-like bird such as the house martin."
+     "surface": "A distant relative of Maria's finally gets a message that pins down a bird species.",
+     "walkthrough": "'half-cousin' looks like a relative; the hyphen hides that half belongs to Maria's and cousin gives just its last letter.",
+     "definitionFit": "The martin is a small swallow-like songbird, as in the house martin and sand martin."
     },
     "features": {
      "answerInScene": true,
@@ -1682,56 +1682,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RANCHEROS",
-     "indicators": [
-      {
-       "text": "ignoring",
-       "note": "to ignore something is to leave it out, so those letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "managed",
+       "at": 8,
        "gives": "RAN",
-       "note": "to run a business is to manage it"
+       "note": "ran as in ran a business, managed it"
       },
       {
-       "words": "goodbyes",
-       "gives": "CHEERIOS",
-       "note": "cheerio is an informal British goodbye"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "EI",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "at first",
-         "note": "at first points to the opening letter of each of the two words before it"
+         "text": "ignoring",
+         "at": 25,
+         "note": "ignoring means those two opening letters are left out of the goodbyes"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "expletives and insults",
-         "gives": "EI",
-         "select": "first",
-         "note": "the opening letters of expletives and insults"
+         "words": "goodbyes",
+         "at": 16,
+         "gives": "CHEERIOS",
+         "note": "cheerios are informal goodbyes"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 57,
+           "note": "at first picks the opening letter of each of the two following words"
+          }
+         ],
+         "parts": [
+          {
+           "words": "expletives",
+           "at": 34
+          },
+          {
+           "words": "insults",
+           "at": 49
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cowhands managed farewells without swearing or abuse at first.",
-     "definitionFit": "Rancheros are ranchers or ranch hands in the American Southwest and Mexico, so they are cowboys."
+     "surface": "Ranch hands ran the show and said their farewells without swearing or abuse at first.",
+     "definitionFit": "Rancheros are ranchers or cowhands in the south-western United States and Mexico, Spanish-derived cowboys."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "managed"
+     "misdirectedWord": "expletives"
     }
    }
   }
