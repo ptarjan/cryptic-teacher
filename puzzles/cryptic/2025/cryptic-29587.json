@@ -511,32 +511,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "first",
      "indicators": [
       {
        "text": "Half",
-       "note": "half tells us to keep only the front half of the word"
+       "at": 0,
+       "note": "half says only the first half of the word is kept"
       },
       {
        "text": "missing",
-       "note": "missing confirms that the rest of the word is gone, dropped entirely"
+       "at": 12,
+       "note": "missing says the other half is gone"
       }
      ],
      "parts": [
       {
-       "words": "a ball",
+       "words": "ball",
+       "at": 7,
        "gives": "TESTICLE",
-       "note": "ball is slang for this body part"
-      },
-      {
-       "gives": "ICLE"
+       "note": "ball is slang for a testicle"
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket or football match is held up because half the ball has gone missing.",
-     "walkthrough": "The front four letters of the eight-letter word are kept. A test is an international cricket match.",
-     "definitionFit": "A Test is an international match, especially in cricket or rugby, between national sides."
+     "surface": "A cricket ball with half of it gone during a match.",
+     "walkthrough": "The first half of TESTICLE, a slang 'ball', is the answer; a Test is an international cricket match.",
+     "definitionFit": "A Test is an international cricket or rugby fixture, so the word names a match."
     },
     "features": {
      "answerInScene": true,
@@ -1128,52 +1128,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GALILEO",
+     "op": "composite",
      "indicators": [
       {
        "text": "forced",
-       "note": "forced suggests the letters are pushed and wrenched into a new order"
+       "at": 10,
+       "note": "forced suggests the words are wrenched into a new order"
+      },
+      {
+       "text": "coming out of that",
+       "at": 42,
+       "note": "coming out of that tells us the letters for no and good are removed from the mixed pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GALILEO",
-       "indicators": [
-        {
-         "text": "coming out of",
-         "note": "coming out of means these letters leave the words before them"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "lie",
-         "note": "taken as written"
+         "at": 20
         },
         {
          "words": "long",
-         "note": "taken as written"
+         "at": 24
         },
         {
          "words": "ago",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "no",
+         "at": 34,
+         "gives": "NO",
          "note": "taken as written"
         },
         {
-         "words": "no good",
-         "gives": "NOG",
-         "note": "no taken as written, plus G for good"
+         "words": "good",
+         "at": 37,
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Long ago a scientist was forced to lie, and no good came of it.",
-     "walkthrough": "N, O and G leave LONG to give L, and LIE plus L plus AGO is rearranged. The surface recalls the astronomer forced by the Inquisition to recant.",
-     "definitionFit": "Galileo Galilei was the Italian astronomer and physicist who championed the Copernican view of the solar system."
+     "surface": "A scientist long ago compelled to deny the truth, with nothing good resulting.",
+     "walkthrough": "The letters of LIE LONG AGO are the answer plus N, O and G, which leave the mix. Galileo was forced by the Inquisition to recant.",
+     "definitionFit": "Galileo Galilei was the Italian astronomer and physicist who championed heliocentrism."
     },
     "features": {
      "answerInScene": true,

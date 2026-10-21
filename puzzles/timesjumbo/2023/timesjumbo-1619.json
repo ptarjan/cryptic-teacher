@@ -3475,9 +3475,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "the result?",
-      "at": 42,
-      "note": "a noun phrase standing for an adjective: the result of such stoning"
+      "text": "the result",
+      "at": 42
      }
     ],
     "wordplay": {
@@ -3485,26 +3484,43 @@
      "parts": [
       {
        "words": "Pelted with rocks",
+       "at": 0,
        "gives": "STONED",
-       "note": "stoned = pelted with stones"
+       "note": "to be stoned is to be pelted with rocks"
       },
       {
-       "words": "seemingly scalped",
-       "gives": "EAD",
-       "note": "HEAD scalped loses its top letter H"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "scalped",
+         "at": 32,
+         "note": "scalped means the top has been cut off, so the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seemingly",
+         "at": 22,
+         "gives": "HEAD",
+         "note": "seemingly points to how the scalped part looks: the head, whose top is what a scalping removes"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grisly scene: someone pelted with rocks and seemingly scalped, and the outcome.",
-     "walkthrough": "The definition is the outcome of the wordplay's own violence, which is why it ends on a question mark.",
-     "definitionFit": "A cryptic definition by consequence: stoning and scalping would leave someone utterly lifeless."
+     "surface": "A grim scene: someone stoned and apparently scalped, and the outcome asked about.",
+     "walkthrough": "The head is only implied: a scalped head is one with its top gone, so HEAD loses its H. The definition looks back at the whole clue.",
+     "definitionFit": "Stone dead means completely lifeless, the plain outcome of such a brutal attack."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "seemingly"
+     "joke": "pun",
+     "misdirectedWord": "scalped"
     }
    }
   }
