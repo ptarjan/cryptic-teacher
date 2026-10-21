@@ -583,12 +583,19 @@
       {
        "text": "sent back",
        "at": 28,
-       "note": "sent back means turned around, so the whole is read backwards"
+       "note": "sent back means the doubled letters are returned in reverse order"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 22,
+         "note": "twice asks for the block made from I'm and hot to be written two times"
+        }
+       ],
        "parts": [
         {
          "op": "container",
@@ -596,7 +603,7 @@
           {
            "text": "keeping",
            "at": 9,
-           "note": "keeping means holding, so the hot letter goes inside after the I"
+           "note": "keeping means holding inside, so the single letter goes into I am"
           }
          ],
          "parts": [
@@ -610,29 +617,34 @@
            "words": "hot",
            "at": 17,
            "gives": "H",
-           "note": "H is the tap abbreviation for hot"
+           "note": "H is the abbreviation for hot, as on taps"
           }
          ]
         },
         {
-         "words": "twice",
-         "at": 22,
-         "gives": "IHAM",
-         "note": "twice asks for the I'm-keeping-hot piece a second time"
+         "op": "container",
+         "parts": [
+          {
+           "gives": "IAM"
+          },
+          {
+           "gives": "H"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps a dish warm but has it returned twice.",
-     "walkthrough": "I AM holding H gives IHAM; twice gives IHAMIHAM, and sent back that reads as the fish's doubled name.",
-     "definitionFit": "Mahi-mahi is a large tropical game fish, also called dolphinfish or dorado."
+     "surface": "I'm holding on to a hot dish that got sent back to the kitchen twice.",
+     "walkthrough": "'keeping' puts H into each I AM; 'sent back' reverses the whole doubled string.",
+     "definitionFit": "Mahi-mahi is a large tropical sea fish, the dorado or dolphinfish, eaten widely."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hot"
+     "misdirectedWord": "sent"
     }
    }
   },
