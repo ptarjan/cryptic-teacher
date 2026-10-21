@@ -179,6 +179,23 @@ for want in "File times-1" "File times-2" "File times-3" "File book-1" "File boo
 done
 case "$(git -C "$tmp/multi" log -1 --format=%s origin/master)" in "Read a book") ;; *) fail "the ledger is not the closing commit" ;; esac
 
+# 4a'. Rereads of filed puzzles go out together (Paul 10-21: "reasonable
+#      batches ... Look at the annotation ones"): "Update 2 puzzles", ids in the body.
+cat >"$tmp/upd.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles clues_only tools/data/book_reads.json)
+. tools/durable.sh
+echo '{"n": 11}' >puzzles/m/times-1.json; echo '{"n": 12}' >puzzles/m/times-2.json
+echo '{"n": 4}' >puzzles/m/times-4.json
+durable_checkpoint "upd pass"
+EOF
+out=$(bash "$tmp/upd.sh" "$tmp/multi" 2>&1) || fail "update checkpoint failed: $out"
+git -C "$tmp/multi" fetch -q origin master
+subjects=$(git -C "$tmp/multi" log --format=%s origin/master -n 2 | sort | tr '\n' '|')
+[ "$subjects" = "File times-4|Update 2 puzzles|" ] || fail "rereads not batched: $subjects"
+c=$(git -C "$tmp/multi" log --format=%H --grep='^Update 2 puzzles' origin/master -n 1)
+case "$(git -C "$tmp/multi" log -1 --format=%b "$c")" in *"times-1 times-2"*) ;; *) fail "batch body lacks the ids" ;; esac
+
 # 4b. A commit that conflicts with origin/master (another job filed the same
 #     puzzle meanwhile) is set aside, never blocking the commits after it:
 #     they are pushed, origin's version stands, its puzzle asks a re-read
