@@ -182,7 +182,8 @@ def stopped_names(text):
     # that reads "refused to write, fix these in" or "refused to write — fix these in".
     listed = re.split(r"refused to write[^\n]*:\n", text, maxsplit=1)[1:]
     for line in (listed[0].split("\n\n")[0].splitlines() if listed else []):
-        m = re.match(r"\s+\d+-(?:across|down)\s*(.*)$", line)
+        # a refusal may carry a tag before the id: "  QUOTE 9-across: indicator ..."
+        m = re.match(r"\s+(?:[A-Z]+ )?\d+-(?:across|down)\s*(.*)$", line)
         if m:
             found.add(refusal_class(m.group(1)))
     if found:
