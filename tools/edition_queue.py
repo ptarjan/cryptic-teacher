@@ -2865,14 +2865,15 @@ def ledger_upkeep(papers, cache):
     """Re-key and fold each paper's ledger (under its lock, so units append
     meanwhile): tens of seconds on the media mount."""
     for key in [k for k in papers if k != "listener"]:
-        ledger, by = (media_manifest.trove_ledger(ftp.CACHE), "article") if key == "trove" else (fa.ledger_of(cache, fa.FILERS[key]), "edition")
+        ledger = media_manifest.trove_ledger(ftp.CACHE) if key == "trove" else fa.ledger_of(cache, fa.FILERS[key])
         if key != "trove" and (n := fa.rekey_scans(ledger)):
             log(f"{ledger.name}: {n} scans re-keyed to the narrowed scan key")
         if key == "trove" and (n := ftp.rekey_unchanged(ledger)):
             log(f"{ledger.name}: {n} articles re-keyed: their files are as they were read")
-        folded = scan_queue.compact(ledger, by)
-        if folded and folded[0] != folded[1]:
-            log(f"{ledger.name}: {folded[0]} rows folded to {folded[1]}")
+        # No fold here (scan_queue.compact, kept for a ledger no other machine writes): replacing a
+        # ledger the Mac also appends to leaves its SMB client writing at the old, longer EOF, which
+        # tore filed-gale.jsonl (a partial row, hundreds of NULs, a full row; 10-21). Readers keep
+        # the last row a key (scan_queue.ledger_rows), so duplicates only cost file size.
 
 
 def main(argv=None):
