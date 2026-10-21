@@ -1776,6 +1776,19 @@ check("gpu_fill: a full spool, no fill", [], eq.gpu_fill(_cands, set(), set(), _
 check("gpu_fill: fills running count against the half pool", ["t0"], [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 1, 4)])
 check("gpu_fill: tried, running and waiting reads are skipped", ["t2"],
       [u["rel"] for u in eq.gpu_fill(_cands, {eq.key_of(_ft[0])}, {eq.key_of(_ft[1])}, _none, _none, 2, False, 0, 4)])
+# Every FT read waits on its own scan, queued behind the Gale and Times scans: the fill brings the scan forward.
+_sc = {("times", f"t{k}"): {"kind": "scan", "paper": "times", "rel": f"t{k}", "rank": 1, "reason": "never scanned", "needs": []}
+       for k in range(3)}
+_waiting = lambda u: u["kind"] == "read" and u["paper"] == "times"
+_scan_of = lambda u: _sc.get((u["paper"], u["rel"]))
+check("gpu_fill: reads waiting on their own scan bring those scans forward, scan_of None leaves them", ([], ["t0", "t1"]),
+      ([u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 0, False, 0, 4)],
+       [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 0, False, 0, 4, _scan_of)]))
+check("gpu_fill: the fill's scans are scans", {"scan"},
+      {u["kind"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 0, False, 0, 4, _scan_of)})
+check("gpu_fill: a running scan holds a fill slot, a tried one is passed over", (["t1"], ["t1"]),
+      ([u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 1, False, 0, 4, _scan_of, {("times", "t0")})],
+       [u["rel"] for u in eq.gpu_fill(_cands, {eq.key_of(_sc[("times", "t0")])}, set(), _waiting, _none, 2, False, 0, 4, _scan_of)]))
 del os.environ["CT_NEWEST_FIRST"]
 check("gpu_fill: without CT_NEWEST_FIRST, no fill", [], eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 0, 4))
 vlm_reader.PIPELINE, vlm_reader._SLOTS[0] = _pipe0, _sl0
