@@ -3015,57 +3015,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "in",
-       "note": "being in something means sitting inside it, so one piece goes within another"
+       "text": "neither finished",
+       "at": 42,
+       "note": "neither of the two words gets its ending, so the last letter of each is dropped"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
-         "text": "neither finished",
-         "note": "if neither is finished, both are left without their final letter"
+         "text": "in",
+         "at": 21,
+         "note": "the poor quarter is placed within the land, so one word goes inside the other"
         }
        ],
        "parts": [
         {
          "words": "land round Madrid",
+         "at": 24,
          "gives": "SPAIN",
          "note": "Spain is the country surrounding its capital, Madrid"
         },
         {
-         "gives": "N"
+         "words": "poor quarter",
+         "at": 8,
+         "gives": "GHETTO",
+         "note": "a ghetto is a poor, crowded quarter of a city"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "poor quarter",
-         "gives": "GHETTO",
-         "note": "a ghetto is a poor, crowded district"
-        },
-        {
-         "gives": "O"
-        }
-       ]
+       "gives": "ON"
       }
      ]
     },
     "explanation": {
-     "surface": "Food served in a poor district of a Spanish city, with the meal left half-eaten.",
-     "walkthrough": "Both words are cut short before the slum goes inside the country.",
-     "definitionFit": "Spaghetti is a kind of pasta in long thin strands, so it is a type of food."
+     "surface": "A description of cheap fare served in a deprived district somewhere in Spain.",
+     "walkthrough": "'round Madrid' looks like a containment signal, but it only defines the country; 'neither finished' is one instruction trimming the tail of both words.",
+     "definitionFit": "Spaghetti is a kind of pasta, a staple Italian dish."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "finished"
+     "misdirectedWord": "Madrid"
     }
    }
   },
