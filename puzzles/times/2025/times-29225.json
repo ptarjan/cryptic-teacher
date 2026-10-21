@@ -931,24 +931,41 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Repeatedly cut extra",
-       "gives": "SURPL",
-       "note": "SURPLUS, extra, loses its last two letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Repeatedly cut",
+         "at": 0,
+         "note": "cut once and then cut again, so the word for extra loses its last letter twice over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extra",
+         "at": 15,
+         "gives": "SURPLUS",
+         "note": "surplus means extra, more than is needed"
+        },
+        {
+         "gives": "US"
+        }
+       ]
       },
       {
        "words": "diamonds",
+       "at": 21,
        "gives": "ICE",
        "note": "ice is slang for diamonds"
       }
      ]
     },
     "explanation": {
-     "surface": "A jeweller keeps cutting extra diamonds to adorn a church robe.",
-     "walkthrough": "'Repeatedly cut' is two single-letter cuts, not one; SURPLUS becomes SURPL.",
-     "definitionFit": "A surplice is a loose white linen vestment worn over a cassock by clergy and choristers."
+     "surface": "Someone trims spare jewels off a priest's robe, again and again.",
+     "walkthrough": "Cutting SURPLUS once gives SURPLU; cutting it again gives SURPL, which takes ICE.",
+     "definitionFit": "A surplice is a loose white linen garment worn by clergy and choristers, a kind of vestment."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cut"
     }
@@ -1336,35 +1353,57 @@
      "indicators": [
       {
        "text": "covering",
-       "note": "AD goes over, outside, the other letters"
+       "at": 14,
+       "note": "the word ad wraps round the other pieces, covering them"
       }
      ],
      "parts": [
       {
        "words": "ad",
-       "note": "taken as it stands"
+       "at": 11,
+       "gives": "AD",
+       "note": "taken as written"
       },
       {
        "op": "charade",
        "parts": [
         {
          "words": "second",
-         "gives": "S",
-         "note": "s = second"
+         "at": 23,
+         "gives": "S"
         },
         {
-         "words": "excursion that avoids island",
-         "gives": "SORTE",
-         "note": "SORTIE, an excursion, without I for island"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "that avoids",
+           "at": 40,
+           "note": "the excursion steers clear of the island, so that letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "excursion",
+           "at": 30,
+           "gives": "SORTIE",
+           "note": "a sortie is a sally or outing, an excursion"
+          },
+          {
+           "words": "island",
+           "at": 52,
+           "gives": "I",
+           "note": "I is the map abbreviation for island"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A classified advert for a trip that skips the island.",
-     "walkthrough": "'Classified ad' reads as one phrase; the definition is 'Classified' alone, meaning sorted.",
-     "definitionFit": "Assorted can mean sorted into classes, classified."
+     "surface": "A small advert promoting a day trip that skips any islands.",
+     "walkthrough": "'Classified' is not an advert here but means sorted into kinds; the clue's 'ad' is the container.",
+     "definitionFit": "Classified things have been sorted into groups, so they are assorted in that older sense of arranged by kind."
     },
     "features": {
      "answerInScene": false,
