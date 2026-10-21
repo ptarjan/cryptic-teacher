@@ -151,6 +151,7 @@ import argparse
 import ast
 import bisect
 import collections
+import copy
 import contextlib
 import datetime
 import functools
@@ -1828,8 +1829,28 @@ def tidy(text):
     return clue_text.tidy_ocr_clues(text, line_hook=glued_a)
 
 
+#: {column text: its parse's answer}: the readers' vote asks parse of the same few
+#: column texts once per light (readings_for: 779 lights x 4 readings on a Times
+#: page, 2846 parses of ~30 texts, 108 of the read's 257 CPU seconds), and the
+#: window passes of one page read the same texts again. Bounded, so a pass over
+#: many pages keeps no more than the last few; read-side only (scan() never parses).
+_PARSED = {}
+PARSED_KEEP = 64
+
+
 def parse(text):
-    """({"across": [...], "down": [...]}, None) or (None, why) for a column text."""
+    """({"across": [...], "down": [...]}, None) or (None, why) for a column text.
+    Each call has its own copy, as the parse made afresh would be: callers edit it."""
+    got = _PARSED.get(text)
+    if got is None:
+        if len(_PARSED) >= PARSED_KEEP:
+            _PARSED.pop(next(iter(_PARSED)))
+        got = _PARSED[text] = parse_text(text)
+    return copy.deepcopy(got)
+
+
+def parse_text(text):
+    """parse() made afresh."""
     secs = ftp.sections(tidy(text))
     if secs is None:
         return None, "no ACROSS and DOWN lists under the grid"
