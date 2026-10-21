@@ -1158,6 +1158,28 @@ def scan_share(ceiling, reads_due):
     return max(1, ceiling // 3) if reads_due else None
 
 
+def times_scans_pending(scan_lists, tried, busy, scanned):
+    """The CT_NEWEST_FIRST papers' queued scans not yet tried, running or done: each is for a read of
+    those papers (only_evidence keeps no other scan), so while any is left the Times work still has
+    something to start and FT may fill only the slots it cannot use. Empty with no CT_NEWEST_FIRST."""
+    named = newest_first_papers()
+    if not named:
+        return []
+    return [u for us in scan_lists for u in us
+            if u["paper"] in named and key_of(u) not in tried and key_of(u) not in busy
+            and (u["paper"], u["rel"]) not in scanned]
+
+
+def times_scan_room(pending, ready_reads, free_scan, free_read, ceiling_left):
+    """How many scans may start now while the CT_NEWEST_FIRST papers' scans are `pending` (a count):
+    every unit-ceiling slot but those their `ready_reads` will take (at most `free_read`), so the
+    reads waiting on those scans are not left idle behind the scan share while FT reads fill the
+    slots. Never fewer than `free_scan` (the pool's own room)."""
+    if not pending:
+        return free_scan
+    return max(free_scan, min(pending, ceiling_left - min(ready_reads, free_read)))
+
+
 def slot_of(unit):
     """The pool a unit runs in: "scan", "read", "trove" (its article reads)
     or its fetch source ("fetch archive.org", "fetch trove")."""
@@ -1699,6 +1721,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     full_wait = set()  # keys of the reads deferred for a full spool: not started until it is below its cap
     stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
     ceiling_bound = False  # logged once each time the unit-children ceiling is met
+    times_first = [False]  # logged once each time the Times scans take the slots FT would
     scan_held = False  # logged once each time the scans are held to their share for the reads
     opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
     closed = []  # (start, end) wall times of those units that ended, the last hour's (desktop_sessions)
@@ -2321,7 +2344,16 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                                   rescanned=rels_by_paper(rescanned))
         # Reads feed the VLM and file puzzles; scans only find them. While a read is due the scans
         # keep to scan_share of the unit ceiling, so they cannot crowd the reads out of it.
-        reads_due = not vlm_full and not yielding and any(k not in tried and not waits(u) for u, k in read_cands)
+        # Paul 10-21: "Read the remaining times puzzles before doing ft". While the CT_NEWEST_FIRST papers'
+        # scans are pending, their reads wait on them (1,123 Times answer fills behind ~1,200 scans), so FT
+        # reads, FT scans and the scan share took the slots: the scans those reads need take every slot
+        # the ready Times reads will not, and FT fills only what is left (no gpu_fill ahead of them).
+        named_now = newest_first_papers()
+        tf_pending = times_scans_pending(scan_keys[2], tried, busy, scanned) if named_now else []
+        tf_ready = sum(1 for u, k in read_cands if u["paper"] in named_now and k not in tried and k not in busy
+                       and not waits(u)) if named_now else 0
+        reads_due = not vlm_full and not yielding and (
+            tf_ready > 0 or (not tf_pending and any(k not in tried and not waits(u) for u, k in read_cands)))
         share = scan_share(mem_gate.unit_ceiling(), reads_due)
         if free.get("scan", 0) > 0 and share is not None:
             live = sum(1 for _, (v, _) in units_running() if v["kind"] == "scan")
@@ -2331,6 +2363,16 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     scan_held = True
                     log(f"scan held for reads: {live} scans running of {share} allowed while reads are due "
                         f"(unit ceiling {mem_gate.unit_ceiling()})")
+        if tf_pending and not yielding and ceiling_left > 0 and may_start():
+            room = times_scan_room(len(tf_pending), tf_ready, free.get("scan", 0), free.get("read", 0), ceiling_left)
+            if room > free.get("scan", 0):
+                free["scan"] = room
+                if not times_first[0]:
+                    times_first[0] = True
+                    log(f"times first: {len(tf_pending)} Times/Gale scans pending for {tf_ready} ready reads and "
+                        f"the reads waiting on them; scans may use {room} slots, FT fills only what is left")
+        elif times_first[0] and not tf_pending:
+            times_first[0] = False
         if free.get("scan", 0) > 0 or share is None:
             scan_held = False
         # A fresh scan is never held for a backlog's reads (fed).
@@ -2368,7 +2410,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         fill = gpu_fill(read_cands, tried, busy, waits, vlm_waits, len(queued), vlm_full or spool_cap_hit,
                         sum(1 for _, (v, _) in units_running() if fills_gpu(v)), pools.get("read", 0),
                         fill_scan, scanning
-                        ) if free.get("read", 0) > 0 and may_start() and not yielding and not starved else []
+                        ) if (free.get("read", 0) > 0 and may_start() and not yielding and not starved
+                              and not tf_pending and not tf_ready) else []  # Times first: FT fills only what it leaves
         fill_keys = {key_of(u) for u in fill}
         if free.get("scan", 0) <= 0 and ceiling_left > 0 and any(u["kind"] == "scan" for u in fill):
             free["scan"] = 1  # the scan share held scans back for reads: a fill's scan is for a read that asks the VLM

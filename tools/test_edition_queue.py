@@ -1789,7 +1789,17 @@ check("gpu_fill: the fill's scans are scans", {"scan"},
 check("gpu_fill: a running scan holds a fill slot, a tried one is passed over", (["t1"], ["t1"]),
       ([u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 1, False, 0, 4, _scan_of, {("times", "t0")})],
        [u["rel"] for u in eq.gpu_fill(_cands, {eq.key_of(_sc[("times", "t0")])}, set(), _waiting, _none, 2, False, 0, 4, _scan_of)]))
+# Times first (Paul 10-21): the named papers' pending scans take every slot their ready reads will not.
+_ms = lambda paper, rel: {"kind": "scan", "paper": paper, "rel": rel, "rank": 2, "reason": "scan stale"}
+_tsc = [_ms("gale", "a"), _ms("ft", "f"), _ms("gale", "b"), _ms("gale", "c"), _ms("gale", "d")]
+check("times_scans_pending: the named papers' scans, not FT's, not tried, running or done", ["a"],
+      [u["rel"] for u in eq.times_scans_pending([_tsc], {eq.key_of(_tsc[2])}, {eq.key_of(_tsc[3])}, {("gale", "d")})])
+check("times_scan_room: all but the ready reads' slots, capped at the pending scans", (10, 3, 7, 7),
+      (eq.times_scan_room(40, 5, 2, 12, 15), eq.times_scan_room(3, 0, 1, 12, 20), eq.times_scan_room(40, 5, 2, 3, 10),
+       eq.times_scan_room(40, 0, 7, 12, 4)))
+check("times_scan_room: nothing pending leaves the pool's own room", 4, eq.times_scan_room(0, 5, 4, 12, 20))
 del os.environ["CT_NEWEST_FIRST"]
+check("times_scans_pending: without CT_NEWEST_FIRST, none", [], eq.times_scans_pending([_tsc], set(), set(), set()))
 check("gpu_fill: without CT_NEWEST_FIRST, no fill", [], eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 0, 4))
 vlm_reader.PIPELINE, vlm_reader._SLOTS[0] = _pipe0, _sl0
 _own.unlink(missing_ok=True)
