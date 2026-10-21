@@ -877,7 +877,8 @@
      "indicators": [
       {
        "text": "rejected",
-       "note": "something rejected is sent back the way it came, so the letters run backwards"
+       "at": 41,
+       "note": "sent back, so the word is read backwards"
       }
      ],
      "parts": [
@@ -885,27 +886,40 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "nearly half",
-         "note": "half the city word is kept, and nearly means one letter short of that half, so the rest is dropped"
+         "text": "nearly",
+         "at": 14,
+         "note": "not quite all, so one letter of that half goes"
         }
        ],
        "parts": [
         {
-         "words": "the metropolis",
-         "gives": "METROPOLIS",
-         "note": "the city word taken as written, ten letters long"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "half",
+           "at": 21,
+           "note": "the back half of the word metropolis is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "metropolis",
+           "at": 30,
+           "note": "the word itself, used as letters"
+          }
+         ]
         },
         {
-         "gives": "METROP"
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A missile depot has been turned down by most of the city.",
-     "walkthrough": "The back half of the word is POLIS, itself Greek for city; nearly that is OLIS, which then runs backwards.",
-     "definitionFit": "An underground launching shaft where a ballistic rocket is housed ready for firing is called by this farm word."
+     "surface": "An arms depot is nearly half the city, sent away.",
+     "walkthrough": "The back half of METROPOLIS is POLIS; dropping the P leaves OLIS, which 'rejected' turns round.",
+     "definitionFit": "Underground silos are where intercontinental ballistic missiles are kept ready for launch."
     },
     "features": {
      "answerInScene": false,
