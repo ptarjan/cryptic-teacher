@@ -4112,13 +4112,27 @@ def held(text, cands):
 SETTLE_SIMILAR = 0.9
 
 
-def settled_by_vlm(texts, lid, parse, cands):
+#: The fewest words of the VLM's column reading of a clue that a worn page's
+#: readers need no word of (settled_by_vlm's `enum` branch).
+WORN_WORDS = 4
+
+
+def settled_by_vlm(texts, lid, parse, cands, enum=None):
     """The VLM's own column reading of clue `lid` when a pick would only
     confirm it: another reader's clue is within SETTLE_SIMILAR of it with the
     same word count, and the VLM's words hold up against every reading
     (held(): no word suspect() flags that no reader has known). None otherwise
     (the pick is asked). An OCR slip of a letter or two is what kept the two
-    from agreeing outright; the VLM's reading is the one that is not worn."""
+    from agreeing outright; the VLM's reading is the one that is not worn.
+
+    Given the light's `enum`, a page whose readers are all worn (the FT 1984's
+    worn type: three readers, three different garbles of every clue, none
+    within SETTLE_SIMILAR of another) settles too: the VLM's reading has a
+    count that is the light's, WORN_WORDS words or more, every word one the
+    lexicon knows or a reader prints just so, and held() leaves it as it is.
+    The pick the model gave to these (FT 1984-09-20 and 12-18/12-21, 14 cached)
+    was the column reading word for word, but for one that copied the next
+    clue's number in ahead of it."""
     import difflib
     vlm_cands = candidates({"vlm": texts.get("vlm", "")}, lid, parse) if texts.get("vlm", "").strip() else []
     if not vlm_cands:
@@ -4132,6 +4146,14 @@ def settled_by_vlm(texts, lid, parse, cands):
                 difflib.SequenceMatcher(None, mine.lower(), o.lower()).ratio() >= SETTLE_SIMILAR:
             if held(mine, cands) and re.sub(r"\W+", "", held(mine, cands).lower()) == re.sub(r"\W+", "", mine.lower()):
                 return mine
+    count = re.search(r"\(([^()]*)\)\s*$", vlm_cands[0])
+    if enum and count and clue_text.count_total(count.group(1)) == clue_text.count_total(enum) \
+            and len(tokens(mine)) >= WORN_WORDS:
+        printed = {w.lower() for o in others for w in tokens(o)}
+        held_mine = held(mine, cands)
+        if held_mine and re.sub(r"\W+", "", held_mine.lower()) == re.sub(r"\W+", "", mine.lower()) \
+                and all(known(w) or w.lower() in printed for w in tokens(mine)):
+            return mine
     return None
 
 
@@ -4263,7 +4285,7 @@ def vlm_pick(texts, laid, blank, parse, pick):
         cands = candidates(texts, lid, parse)
         if not cands:
             continue
-        own = settled_by_vlm(texts, lid, parse, cands) or clean_inside(cands, laid[lid][1]) \
+        own = settled_by_vlm(texts, lid, parse, cands, laid[lid][1]) or clean_inside(cands, laid[lid][1]) \
             or agreed_past_footer(cands, laid[lid][1])
         if own is not None:
             got = trimmed(held(clean(strip_count(own)), cands), lid)
