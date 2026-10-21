@@ -3158,6 +3158,9 @@ tools/test_ocr_retry.py                        does tools/ocr_retry.py settle a 
                                                corpus row a call?
 tools/apply_blog_answers.py                    fill a held puzzle's missing answers from the
                                                blog that wrote it up
+tools/bigdave_layout.py                        read a bigdave44 post that splits clue and answer
+                                               over two paragraphs, and find a puzzle's post by
+                                               the blog's search when the slug guess misses
 tools/blog_comment_rows.py                     read the answers a Times for the Times post's
                                                commenters list for the lights it left out
 tools/fill_checked_lights.py                   fill a blog-keyed puzzle's blank lights that the
