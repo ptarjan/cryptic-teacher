@@ -105,25 +105,40 @@
      "indicators": [
       {
        "text": "Throw",
-       "note": "to throw the letters is to toss them into a new order"
+       "at": 0,
+       "note": "to throw something is to toss it about, so the letters are thrown into a new order"
       }
      ],
      "parts": [
       {
        "words": "a",
-       "note": "kept as it is"
+       "at": 6
       },
       {
-       "words": "square cut",
-       "gives": "SQUAR",
-       "note": "SQUARE loses its last letter, E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 15,
+         "note": "cut means trimmed short, so the last letter of square is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "square",
+         "at": 8
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A craftsman rages and hurls a cut square of material at a glowing heater.",
-     "walkthrough": "'Square cut' reads like a cricket shot or a joiner's cut; here it just trims one letter.",
-     "definitionFit": "A quasar is a distant galaxy core pouring out enormous amounts of radiation."
+     "surface": "Someone tosses a square at a source of radiation, like an odd physics experiment.",
+     "walkthrough": "SQUARE 'cut' loses its last letter, giving SQUAR; with A, those letters are then 'thrown' into a new order.",
+     "definitionFit": "A quasar is a very distant, extremely bright galactic nucleus that gives off huge amounts of energy."
     },
     "features": {
      "answerInScene": false,
@@ -494,31 +509,50 @@
        "indicators": [
         {
          "text": "first",
-         "note": "the teller's first letter only"
+         "at": 15,
+         "note": "first picks the opening letter of teller"
         }
        ],
        "parts": [
         {
          "words": "teller",
-         "note": "first letter of teller"
+         "at": 8,
+         "note": "the word teller supplies its opening letter"
         }
        ]
       },
       {
-       "words": "comfort with limited success",
-       "gives": "REASURE",
-       "note": "REASSURE (comfort) with one S (success) removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with limited success",
+         "at": 35,
+         "note": "comforting with limited success means the word only partly works, so one of its letters is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "comfort",
+         "at": 27,
+         "gives": "REASSURE",
+         "note": "to reassure someone is to comfort them"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fortune teller tries to reassure clients, with only modest success.",
-     "walkthrough": "'Fortune teller' is a single phrase in the surface, but it splits: Fortune is the definition and teller supplies T.",
-     "definitionFit": "Plain synonym: a hoard of gold and jewels is a great store of wealth, which is the money sense of fortune."
+     "surface": "A fortune teller offers consolation that only partly helps.",
+     "walkthrough": "'Fortune teller' looks like one unit but splits: Fortune is the definition. Comfort that has only limited success falls short, losing one of its two S's.",
+     "definitionFit": "A fortune is a great store of wealth, which is what treasure means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "teller"
     }
    }
@@ -1620,26 +1654,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "overwrought pointless",
-       "gives": "HARRID",
-       "note": "HARRIED without E (east, a compass point)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "pointless",
+         "at": 18,
+         "note": "pointless means without a compass point, so east's letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "overwrought",
+         "at": 6,
+         "gives": "HARRIED",
+         "note": "someone overwrought is harried, harassed and stressed"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "article",
+       "at": 28,
        "gives": "AN",
-       "note": "the indefinite article"
+       "note": "an is the indefinite article"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone berates a frantic, useless piece of writing.",
-     "walkthrough": "'Scold' is the noun, a nagging woman, not the verb the surface suggests.",
-     "definitionFit": "A harridan is a bossy, scolding old woman, as is a scold."
+     "surface": "Someone tells off a fussing, useless piece of writing.",
+     "walkthrough": "E is the compass point east, so 'pointless' takes it out of HARRIED. 'article' looks like a newspaper item but is the grammar term, AN.",
+     "definitionFit": "A harridan is a bossy, nagging old woman, and a scold is the old word for such a nagging person."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Scold"
+     "misdirectedWord": "article"
     }
    }
   },

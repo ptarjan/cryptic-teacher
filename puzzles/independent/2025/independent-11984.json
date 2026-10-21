@@ -1497,49 +1497,60 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "ignoring every",
-       "note": "ignoring every instance means each copy is left out"
+       "text": "ignoring",
+       "at": 19,
+       "note": "ignoring means leaving out, so the letters are removed from the monks word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "monks",
-         "gives": "ORDER",
-         "note": "a religious order is a body of monks"
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "words": "monks",
+       "at": 13,
+       "gives": "ORDER",
+       "note": "a religious order is a body of monks"
       },
       {
-       "op": "first",
+       "op": "charade",
        "indicators": [
         {
-         "text": "opening for",
-         "note": "the opening of a word is its first letter"
+         "text": "every",
+         "at": 28,
+         "note": "every says each copy of that opening letter goes, so it is written twice"
         }
        ],
        "parts": [
         {
-         "words": "religion",
-         "note": "the first letter of religion"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "opening",
+           "at": 34,
+           "note": "the opening of a word is its first letter, taken from religion"
+          }
+         ],
+         "parts": [
+          {
+           "words": "religion",
+           "at": 46
+          }
+         ]
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A poem portrays monks who have abandoned their faith.",
-     "definitionFit": "An ode is a lyric poem, typically addressed to a particular subject in an elevated style."
+     "surface": "A poem portrays monks who turn away from faith.",
+     "walkthrough": "R is the opening of 'religion'; 'every' R is ignored in ORDER, removing both.",
+     "definitionFit": "An ode is a lyric poem addressed to a subject, often in elevated style."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "monks"
+     "misdirectedWord": "religion"
     }
    }
   },

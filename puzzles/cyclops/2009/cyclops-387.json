@@ -282,37 +282,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "playing",
-       "note": "playing with something means fiddling it about, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Hint",
-       "note": "taken as written"
-      },
-      {
-       "words": "he's",
-       "note": "taken as written, apostrophe dropped"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 11,
+         "note": "playing means fooling about, so the letters of hint and he's are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hint",
+         "at": 0
+        },
+        {
+         "words": "he's",
+         "at": 6
+        }
+       ]
       },
       {
        "words": "it",
-       "note": "taken as written"
+       "at": 24
       }
      ]
     },
     "explanation": {
-     "surface": "A suggestive warning that a boy fiddling with himself is going to get into trouble.",
-     "definitionFit": "To be in the shit is a crude idiom for being in serious trouble and facing punishment."
+     "surface": "A tip that someone fooling around will end up in trouble.",
+     "walkthrough": "HINTHES rearranged gives INTHESH, then IT unchanged.",
+     "definitionFit": "In the shit is vulgar slang meaning in serious trouble and facing blame."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "playing"
+     "misdirectedWord": "Hint"
     }
    }
   },
@@ -541,57 +547,60 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SPLITVOTE",
      "indicators": [
       {
        "text": "Duff",
-       "note": "duff is British slang for useless or broken, so the letters are reworked"
+       "at": 0,
+       "note": "duff is British slang for useless or broken, so these letters are rearranged"
       }
      ],
      "parts": [
       {
+       "words": "ITV",
+       "at": 5
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SPLITVOTE",
        "indicators": [
         {
-         "text": "out",
-         "note": "out means removed, so those letters are taken from the word"
+         "text": "out of",
+         "at": 29,
+         "note": "out of means removed from, so those letters are taken from pollster"
         }
        ],
        "parts": [
         {
-         "words": "ITV",
-         "note": "taken as written; ITV is a British TV channel"
-        },
-        {
          "words": "pollster",
-         "note": "taken as written"
+         "at": 9
         },
         {
-         "words": "left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "left",
+           "at": 18,
+           "gives": "L"
+          },
+          {
+           "words": "right",
+           "at": 23,
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A useless TV pollster got the result of a deadlocked election wrong.",
-     "walkthrough": "'Left' reads as remaining, but it is the letter L, removed alongside R; only one of the pollster's two Ls goes.",
-     "definitionFit": "A split vote divides support so no side wins outright, giving a deadlocked result."
+     "surface": "A useless TV pollster has called an indecisive election wrong.",
+     "walkthrough": "POLLSTER without L and R is POLSTE, rearranged with ITV.",
+     "definitionFit": "A split vote divides support between candidates, so no clear winner emerges, a deadlocked result."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "left"
+     "misdirectedWord": "Duff"
     }
    }
   },
@@ -616,8 +625,7 @@
     "definitions": [
      {
       "text": "As the terrorist posed",
-      "at": 9,
-      "note": "a clause standing for the noun: what the terrorist posed"
+      "at": 9
      }
     ],
     "wordplay": {
@@ -625,49 +633,43 @@
      "indicators": [
       {
        "text": "rotten",
-       "note": "something rotten has decayed out of shape, so the letters are rearranged"
+       "at": 55,
+       "note": "rotten means decayed and broken up, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "hard hat",
+       "at": 35
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "80%",
-         "note": "80 per cent of a five-letter word is four letters, so the last is dropped"
+         "at": 51,
+         "note": "80% of a five-letter word is its first four letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "hard hat",
-           "note": "taken as written"
-          },
-          {
-           "words": "teeth",
-           "note": "taken as written"
-          }
-         ]
-        },
-        {
-         "gives": "H"
+         "words": "teeth",
+         "at": 45
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A terrorist poses for a photo in a hard hat, showing his decayed teeth.",
-     "walkthrough": "'Posed' suggests modelling for a camera, but a terrorist poses a threat.",
-     "definitionFit": "A terrorist poses a danger of killing, which is a threat of death."
+     "surface": "A terrorist wearing a hard hat, with badly decayed teeth.",
+     "walkthrough": "80% of TEETH is TEET; with HARDHAT, these letters are rearranged.",
+     "definitionFit": "A death threat is a menace to kill someone, the kind a terrorist issues."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "posed"
+     "joke": "absurd",
+     "misdirectedWord": "hard"
     }
    }
   },
@@ -758,13 +760,14 @@
        "indicators": [
         {
          "text": "Entrance of",
-         "note": "the entrance to a word is its opening letter"
+         "at": 0,
+         "note": "an entrance is a way in, so the first letter of Cameron's"
         }
        ],
        "parts": [
         {
          "words": "Cameron's",
-         "note": "the first letter"
+         "at": 12
         }
        ]
       },
@@ -773,39 +776,33 @@
        "indicators": [
         {
          "text": "sadly",
-         "note": "sadly means badly or wretchedly here, so the letters are disordered"
+         "at": 36,
+         "note": "sadly means in a sorry state, so the flock and hull letters are rearranged"
         }
        ],
        "parts": [
+        {
+         "words": "flock",
+         "at": 23
+        },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "out",
-           "note": "left out means omitted, so that letter is removed"
+           "at": 47,
+           "note": "out means taken away, so the left letter is removed from Hull"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "flock",
-             "note": "taken as written"
-            },
-            {
-             "words": "Hull",
-             "note": "taken as written"
-            },
-            {
-             "words": "left",
-             "gives": "L",
-             "note": "L is the abbreviation for left"
-            }
-           ]
+           "words": "Hull",
+           "at": 31
           },
           {
-           "gives": "LL"
+           "words": "left",
+           "at": 42,
+           "gives": "L"
           }
          ]
         }
@@ -814,13 +811,14 @@
      ]
     },
     "explanation": {
-     "surface": "David Cameron's Conservative followers come in, with the northern city of Hull excluded.",
-     "definitionFit": "Chock-full means crammed completely full, so a stuffed container is chock-full."
+     "surface": "David Cameron's Tory faithful, with Hull sadly excluded, packed in.",
+     "walkthrough": "Hull, an English city, loses an L, giving HUL; that and FLOCK are rearranged after C.",
+     "definitionFit": "Chock-full means filled to capacity, crammed or packed full."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "flock"
+     "misdirectedWord": "Hull"
     }
    }
   },
@@ -1441,53 +1439,51 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ARMADILLO",
      "indicators": [
       {
        "text": "going off",
-       "note": "going off like an alarm, the letters are set jangling into a new order"
+       "at": 33,
+       "note": "going off means sounding or exploding, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ARMADILLO",
        "indicators": [
         {
          "text": "scarpers",
-         "note": "to scarper is to run away, so that letter leaves the word"
+         "at": 50,
+         "note": "scarpers is British slang for runs away, so the date letter leaves dildo"
         }
        ],
        "parts": [
         {
          "words": "dildo",
-         "note": "taken as written"
-        },
-        {
-         "words": "alarm",
-         "note": "taken as written"
+         "at": 21
         },
         {
          "words": "date",
-         "gives": "D",
-         "note": "D is the abbreviation for date"
+         "at": 45,
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "alarm",
+       "at": 27
       }
      ]
     },
     "explanation": {
-     "surface": "A sex toy's alarm goes off and the date flees in embarrassment.",
-     "walkthrough": "D for date is a dictionary abbreviation; only one of the two available Ds is lost.",
-     "definitionFit": "The armadillo is an animal protected by bony armour plates, so the definition is a pun on 'protected'."
+     "surface": "A sex toy sets off an alarm, so the date flees.",
+     "walkthrough": "DILDO loses a D, giving ILDO, which is rearranged with ALARM.",
+     "definitionFit": "The armadillo is an armoured mammal; some kinds are listed as protected wildlife."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Protected"
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "alarm"
     }
    }
   },

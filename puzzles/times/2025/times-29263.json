@@ -1798,23 +1798,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "German prince abandons love",
-       "gives": "ELECTR",
-       "note": "ELECTOR, a prince entitled to elect the Holy Roman Emperor, losing O (love = zero)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandons",
+         "at": 14,
+         "note": "abandons means gives up, so the love letter is removed from the prince"
+        }
+       ],
+       "parts": [
+        {
+         "words": "German prince",
+         "at": 0,
+         "gives": "ELECTOR",
+         "note": "an Elector was a German prince entitled to elect the Holy Roman Emperor"
+        },
+        {
+         "words": "love",
+         "at": 23,
+         "gives": "O",
+         "note": "love is zero in tennis, so O"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 29,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A German prince giving up on romance with a difficult woman.",
-     "walkthrough": "'Complex woman' is a pun: 'complex' looks like 'complicated', but it is the psychological complex named after her.",
-     "definitionFit": "A pun: the Greek heroine who avenged her father lends her name to a daughter's fixation on her father."
+     "surface": "A German prince leaves his beloved for a woman who is complicated.",
+     "walkthrough": "'complex woman' is fair: the Electra complex is named after her.",
+     "definitionFit": "Electra is the Greek heroine who gives her name to the Electra complex in psychology."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "complex"

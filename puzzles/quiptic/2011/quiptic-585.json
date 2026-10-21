@@ -1618,40 +1618,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MISGOVERN",
-     "indicators": [
-      {
-       "text": "corrupt",
-       "note": "corrupt means spoiled or debased, so the letters are thrown into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MISGOVERN",
+       "words": "money",
+       "at": 6,
+       "gives": "M",
+       "note": "M is the abbreviation for money, as in economics (M1, M2)"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "not",
-         "note": "not means without, so one letter for English is left out of the ruler word"
+         "text": "corrupt",
+         "at": 13,
+         "note": "corrupt means spoiled or perverted, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "money",
-         "gives": "M",
-         "note": "m is a common abbreviation for money"
-        },
-        {
-         "words": "sovereign",
-         "note": "taken as written"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 32,
+           "note": "not here means without, so the English letter is removed from the sovereign word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sovereign",
+           "at": 21
+          },
+          {
+           "words": "English",
+           "at": 36,
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
@@ -1659,14 +1663,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A bribed and crooked monarch abroad would rule badly.",
-     "walkthrough": "The whole clue is the definition too: a corrupt king who takes bribes would rule a country badly.",
-     "definitionFit": "To misgovern is to rule badly, exactly what a bribed, crooked monarch would be expected to do."
+     "surface": "A bribed, crooked monarch would rule badly.",
+     "walkthrough": "The whole clue is both definition and wordplay: a bribed, corrupt king would rule badly.",
+     "definitionFit": "To misgovern is to rule a country badly or dishonestly, as a bribed king would."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Given"
+     "misdirectedWord": "corrupt"
     }
    }
   }
