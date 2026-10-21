@@ -43,52 +43,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "charade",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite complete, so the final letter is cut off"
+       "text": "faces",
+       "at": 38,
+       "note": "faces means the company letters stand in front of the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "faces",
-         "note": "to face something is to stand in front of it, so this piece comes first in the answer"
-        }
-       ],
-       "parts": [
-        {
-         "words": "company",
-         "gives": "CO",
-         "note": "CO is the standard abbreviation for company"
-        },
-        {
-         "words": "deficit",
-         "gives": "LOSS",
-         "note": "a deficit is a shortfall or loss"
-        },
-        {
-         "words": "the whole",
-         "gives": "ALL",
-         "note": "the whole of something is all of it"
-        }
-       ]
+       "words": "company",
+       "at": 30,
+       "gives": "CO"
       },
       {
-       "gives": "L"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "deficit",
+         "at": 5,
+         "gives": "LOSS",
+         "note": "a loss is a deficit"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 13,
+           "note": "almost means the final letter of the word is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the whole",
+           "at": 20,
+           "gives": "ALL",
+           "note": "all means the whole"
+          },
+          {
+           "gives": "L"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A firm is staring at an enormous shortfall that wipes out almost everything it has.",
-     "walkthrough": "'faces' is not a verb about confronting the loss; it says the company stands at the front.",
-     "definitionFit": "Colossal is a straightforward synonym for huge, enormous or gigantic."
+     "surface": "A firm is confronted by an enormous shortfall wiping out nearly everything.",
+     "walkthrough": "'faces' here means stands in front of, so the company abbreviation leads; 'almost' trims the word for the whole by its final letter.",
+     "definitionFit": "Colossal means enormous, a straightforward synonym of huge."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "faces"
     }

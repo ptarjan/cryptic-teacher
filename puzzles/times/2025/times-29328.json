@@ -801,6 +801,7 @@
      "parts": [
       {
        "words": "Essay",
+       "at": 0,
        "gives": "TRY",
        "note": "to essay is to try"
       },
@@ -809,22 +810,24 @@
        "indicators": [
         {
          "text": "lacking content",
-         "note": "the word is emptied of its middle, leaving the outside letters"
+         "at": 14,
+         "note": "lacking content means the inside of the word is removed, leaving its outside letters"
         }
        ],
        "parts": [
         {
-         "words": "subject lacking content",
-         "note": "SubjecT with the middle removed"
+         "words": "subject",
+         "at": 6,
+         "note": "first and last letters of subject"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student's essay topic turns out to be thin, so tutor and student arrange to meet.",
-     "walkthrough": "Essay looks like a noun for a piece of writing, but it is the verb meaning attempt.",
-     "definitionFit": "To tryst is to arrange a meeting, usually a lovers' one."
+     "surface": "An essay topic with nothing in it? Let's arrange a meeting.",
+     "walkthrough": "'Essay' looks like a noun but is the verb TRY; SUBJECT 'lacking content' is ST.",
+     "definitionFit": "To tryst is to arrange a romantic or secret rendezvous, an old-fashioned verb."
     },
     "features": {
      "answerInScene": false,
@@ -1127,25 +1130,39 @@
      "indicators": [
       {
        "text": "running",
-       "note": "the narcotics are on the move, so their letters change order"
-      },
-      {
-       "text": "offloading",
-       "note": "one T is unloaded before the shuffle"
+       "at": 9,
+       "note": "running means in disarray, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "narcotics, offloading tons",
-       "gives": "NARCOICS",
-       "note": "NARCOTICS minus T, for tons"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "offloading",
+         "at": 28,
+         "note": "offloading means getting rid of the tons letter from narcotics"
+        }
+       ],
+       "parts": [
+        {
+         "words": "narcotics",
+         "at": 17,
+         "note": "taken as written as fodder"
+        },
+        {
+         "words": "tons",
+         "at": 39,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man from an island smuggles drugs and dumps a heavy load.",
-     "walkthrough": "Running narcotics is a smuggling phrase; running also signals the anagram. T for tons is the standard abbreviation.",
-     "definitionFit": "A Corsican comes from the Mediterranean island of Corsica."
+     "surface": "An island resident is caught dealing drugs while dumping heavy cargo.",
+     "walkthrough": "NARCOTICS 'offloading' T leaves NARCOICS, which is rearranged ('running').",
+     "definitionFit": "A Corsican is a native of Corsica, the French island in the Mediterranean."
     },
     "features": {
      "answerInScene": true,
