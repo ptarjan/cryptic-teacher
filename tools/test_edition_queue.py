@@ -1771,7 +1771,16 @@ _cands = [(u, eq.key_of(u)) for u in _tm + _ft]
 _none = lambda u: False
 check("gpu_fill: an unfed VLM stage takes the other paper's never-read reads, within half the read pool", ["t0", "t1"],
       [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 0, 4)])
-check("gpu_fill: spooled asks at the floor, no fill", [], eq.gpu_fill(_cands, set(), set(), _none, _none, 3, False, 0, 4))
+check("gpu_fill: spooled asks at the feed target (CT_VLM_FEED, 4), no fill", ([], ["t0"]),
+      (eq.gpu_fill(_cands, set(), set(), _none, _none, 4, False, 0, 4), [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 3, False, 0, 4)]))
+# answers_only rereads ask the VLM nothing: they never feed it, even ranked first; never-read, fix-landed and proven ones do.
+_al = _mk("times", "al", 2, "inputs changed: answers linked x1")
+_fx = _mk("times", "fx", 2, "unfiled before its fix")
+_cp = _mk("gale", "cp", 2, "inputs changed: answers linked x1")
+check("fills_gpu: answers-linked rereads are CPU-only, never-read and fix-landed ones feed", (False, True, True, False),
+      (eq.fills_gpu(_al), eq.fills_gpu(_fx), eq.fills_gpu(_ft[0]), eq.fills_gpu(_cp)))
+check("gpu_fill: answers-linked rereads ranked first do not fill, the never-read ones behind them do", ["t0", "fx"],
+      [u["rel"] for u in eq.gpu_fill([(u, eq.key_of(u)) for u in [_al, _cp, _ft[0], _fx]], set(), set(), _none, _none, 2, False, 0, 4)])
 check("gpu_fill: a full spool, no fill", [], eq.gpu_fill(_cands, set(), set(), _none, _none, 0, True, 0, 4))
 check("gpu_fill: fills running count against the half pool", ["t0"], [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 1, 4)])
 check("gpu_fill: tried, running and waiting reads are skipped", ["t2"],
@@ -1800,7 +1809,8 @@ check("times_scan_room: all but the ready reads' slots, capped at the pending sc
 check("times_scan_room: nothing pending leaves the pool's own room", 4, eq.times_scan_room(0, 5, 4, 12, 20))
 del os.environ["CT_NEWEST_FIRST"]
 check("times_scans_pending: without CT_NEWEST_FIRST, none", [], eq.times_scans_pending([_tsc], set(), set(), set()))
-check("gpu_fill: without CT_NEWEST_FIRST, no fill", [], eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 0, 4))
+check("gpu_fill: without CT_NEWEST_FIRST the VLM is fed too", ["t0", "t1"],
+      [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 0, 4)])
 vlm_reader.PIPELINE, vlm_reader._SLOTS[0] = _pipe0, _sl0
 _own.unlink(missing_ok=True)
 vlm_reader.spooled = _sp
