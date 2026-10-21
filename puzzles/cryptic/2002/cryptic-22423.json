@@ -425,52 +425,41 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SEMANTIC",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "the jumbled letters go around the other piece, enclosing it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "are confused",
+         "at": 14,
+         "note": "confused means muddled up, so these letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "are confused",
-           "note": "words that are confused are muddled up, so their letters come out in a jumbled order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "It means",
-           "note": "taken as written"
-          }
-         ]
-        },
-        {
-         "words": "many",
-         "gives": "C",
-         "note": "C is the Roman numeral for a hundred, a large number"
+         "words": "It means",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "many",
+       "at": 9,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, a large number"
       }
      ]
     },
     "explanation": {
-     "surface": "A grammarian notes that a phrase means several people are puzzled about what words signify.",
-     "walkthrough": "The anagram letters wrap around C here only at the end, so 'about' is loose; 'about meaning' doubles as the definition.",
-     "definitionFit": "Semantic describes anything concerned with the sense of words, so it means relating to meaning."
+     "surface": "A word's meaning is muddled when many people misunderstand it.",
+     "walkthrough": "'about' is part of the definition, not a container signal.",
+     "definitionFit": "Semantic is an adjective for things relating to meaning in language."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "many"
+     "misdirectedWord": "about"
     }
    }
   },

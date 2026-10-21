@@ -1319,46 +1319,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "FICHU",
+     "indicators": [
+      {
+       "text": "said",
+       "at": 20,
+       "note": "said tells us the pieces are spoken, so their sound gives the answer"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "FI",
-       "indicators": [
-        {
-         "text": "said",
-         "note": "said means spoken, so the sound of the words counts, not their spelling"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Charge",
-         "gives": "FEE",
-         "note": "a fee is a charge"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "CHU",
-       "parts": [
-        {
-         "words": "footwear",
-         "gives": "SHOE",
-         "note": "a shoe is footwear"
-        }
-       ]
+       "words": "Charge for footwear",
+       "at": 0,
+       "gives": "FEESHOE",
+       "note": "a fee is a charge and a shoe is footwear, together fee shoe"
       }
      ]
     },
     "explanation": {
-     "surface": "A cobbler's price for a pair of shoes, it seems, will buy a scarf.",
-     "walkthrough": "The 'for' between charge and footwear only joins them; the spoken pair sounds like the French word.",
-     "definitionFit": "A fichu is a triangular shawl or scarf worn round a woman's neck and shoulders, fashionable in the eighteenth century."
+     "surface": "A cobbler's price is apparently what a scarf costs.",
+     "definitionFit": "A fichu is a small triangular shawl worn round the neck and shoulders, a kind of neckwear."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Charge"
     }
    }
@@ -1501,51 +1487,63 @@
      "op": "container",
      "indicators": [
       {
-       "text": "drinking",
-       "note": "drinking means taking in, so the solver word swallows the mixed spirit"
-      },
-      {
        "text": "in",
-       "note": "in means inside, so everything so far sits within the comfort word"
+       "at": 29,
+       "note": "in places the solver-and-gin piece inside the word for comfort"
       }
      ],
      "parts": [
       {
        "words": "comfort",
+       "at": 32,
        "gives": "EASE",
        "note": "ease is comfort"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "cocktail",
-         "note": "a cocktail is a mixture, so the spirit's letters are mixed up"
+         "text": "drinking",
+         "at": 7,
+         "note": "drinking takes something in, so the solver's word swallows the mixed gin"
         }
        ],
        "parts": [
         {
          "words": "Solver",
+         "at": 0,
          "gives": "THOU",
-         "note": "the old word for you, the person solving"
+         "note": "the clue addresses the solver as you, here the old form thou"
         },
         {
-         "words": "gin",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "cocktail",
+           "at": 20,
+           "note": "a cocktail is a mixed drink, so the letters of gin are mixed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gin",
+           "at": 16
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crossword solver relaxes over a gin cocktail at a restaurant.",
-     "walkthrough": "Crosswords often address the solver as 'you'; here it is the old form thou.",
-     "definitionFit": "An eating house is an old term for a cheap restaurant or café where meals are served."
+     "surface": "You, sipping a gin cocktail, relax comfortably in a restaurant.",
+     "walkthrough": "'Solver' means you, the person doing the puzzle, in its old form; two containers nest, one inside the other.",
+     "definitionFit": "An eating house is an old-fashioned term for a place serving meals, a restaurant."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Solver"
+     "misdirectedWord": "cocktail"
     }
    }
   }
