@@ -1219,13 +1219,18 @@ def _connected(s, reasons):
     one first, desktop_hosts.ranked). The line says what failed (brief):
     "no LAN address answers" only when none did; a LAN host that answered
     and then failed (its code missing, a cold start too slow) is named as
-    that, not as a dead address (2026-10-15)."""
+    that, not as a dead address (2026-10-15).
+
+    The line goes to the log only, never to alert_once: switching the KVM to
+    the Mac drops the desktop's wired LAN link, so the LAN address times out
+    and the tailnet is the intended path. It works and is not actionable
+    (2026-10-21)."""
     alert_over("down")
     if reasons and desktop_hosts.tailnet(s.host.rpartition("@")[2]):
-        alert_once(f"fallback-{s.host}", f"desktop OCR: fell back to {s.host} "
-                   + ("(no LAN address answers)" if all(dead(r) for r in reasons)
-                      else "after a LAN session failed")
-                   + f": {'; '.join(brief(r) for r in reasons)}")
+        log(f"desktop OCR: fell back to {s.host} "
+            + ("(no LAN address answers)" if all(dead(r) for r in reasons)
+               else "after a LAN session failed")
+            + f": {'; '.join(brief(r) for r in reasons)}")
     return s
 
 
