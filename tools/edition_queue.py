@@ -1094,9 +1094,28 @@ def fills_gpu(unit):
     Times rereads first."""
     if unit["kind"] != "read" or not needs_vlm(unit):
         return False
-    if unit["paper"] in newest_first_papers():
-        return "before its fix" in (unit.get("reason") or "")
-    return unit["rank"] <= 1
+    reason = unit.get("reason") or ""
+    if reason.startswith(CPU_ONLY):
+        return False  # answers_only: links answers, asks the VLM nothing
+    # Never-read reads of any paper, fix-landed rereads and canary-proven rereads ask the VLM.
+    return (unit["rank"] <= 1 or "before its fix" in reason or reason in FIX_LANDED
+            or canary_proven(unit))
+
+
+#: Reasons of rereads that finish on CPU alone (answers_only, no VLM ask): they never feed the GPU.
+CPU_ONLY = ("inputs changed: answers linked",)
+#: A fill that started less than this many seconds ago may still be about to ask the VLM.
+FEED_YOUNG_S = 150
+
+
+def vlm_feed_target():
+    """The asks (spooled plus VLM-needing reads in flight) the queue keeps the VLM fed with:
+    CT_VLM_FEED (default 4), at least the stage's slots + PIPELINE."""
+    try:
+        n = int(os.environ.get("CT_VLM_FEED", "4"))
+    except ValueError:
+        n = 4
+    return max(n, vlm_reader.slots() + vlm_reader.PIPELINE)
 
 
 def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_fills, read_pool,
@@ -1108,9 +1127,10 @@ def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_f
     on its own scan (queued far back behind the Gale and Times scans) brings that scan forward
     (`scan_of(u)`: the scan unit or None; one running in `scanning` counts as a fill). Empty with no
     CT_NEWEST_FIRST, a fed VLM or a full spool."""
-    if not newest_first_papers() or full or spooled >= vlm_reader.slots() + vlm_reader.PIPELINE:
+    target = vlm_feed_target()
+    if full or spooled >= target:
         return []
-    left = min(max(1, read_pool // 2) - running_fills, vlm_reader.slots() + vlm_reader.PIPELINE - spooled)
+    left = min(max(1, read_pool // 2) - running_fills, target - spooled)
     out = []
     for u, k in read_cands:
         if left <= 0:
@@ -2415,7 +2435,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 scan_of_rel[:] = [scan_keys[2], {(s["paper"], s["rel"]): s for us in scan_keys[2] for s in us}]
             return scan_of_rel[1].get((u["paper"], u["rel"]))
         fill = gpu_fill(read_cands, tried, busy, waits, vlm_waits, len(queued), vlm_full or spool_cap_hit,
-                        sum(1 for _, (v, _) in units_running() if fills_gpu(v)),
+                        sum(1 for _, (v, at) in units_running() if fills_gpu(v) and time.monotonic() - at < FEED_YOUNG_S),
                         # Paul 10-21: "you should also be letting things through which use gpu so it doesn't sit
                         # idle". While Times work is pending, fills are capped at what keeps the VLM fed
                         # (slots + PIPELINE running), so Times keeps every other slot.
@@ -2516,8 +2536,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 unscanned.add((u["paper"], u["rel"]))
                 continue
             if ukey in fill_keys:
-                log(f"gpu idle: starting {ukey[0]} {ukey[1]} {ukey[2]} beside Times work "
-                    f"({len(queued)} asks spooled, floor {vlm_reader.slots() + vlm_reader.PIPELINE})")
+                log(f"vlm feed: start {ukey[0]} {ukey[1]} {ukey[2]} ({u.get('reason') or 'rank ' + str(u['rank'])}; "
+                    f"{len(queued)} asks spooled, target {vlm_feed_target()})")
             # A unit whose brief is being made holds its slot and its gates' charges as if begun.
             local_now += local
             begun_now += 1
