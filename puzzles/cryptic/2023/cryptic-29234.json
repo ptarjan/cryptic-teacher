@@ -814,37 +814,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "incomplete",
-       "note": "incomplete means the word is missing its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "impressive",
-         "gives": "EPIC",
-         "note": "epic means grand or impressive"
-        },
-        {
-         "words": "dish",
-         "gives": "ENTREE",
-         "note": "an entree is a dish in a meal"
-        }
-       ]
+       "words": "impressive",
+       "at": 9,
+       "gives": "EPIC",
+       "note": "epic means impressive on a grand scale"
       },
       {
-       "gives": "E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 21,
+         "note": "incomplete says the word for dish loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dish",
+         "at": 32,
+         "gives": "ENTREE",
+         "note": "an entree is a dish served at a meal"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grand dish left half-finished is the centrepiece of the meal.",
-     "definitionFit": "The epicentre is the central point of something, its heart."
+     "surface": "Something at the core is as grand as a dish that isn't quite finished.",
+     "walkthrough": "EPIC then ENTRE, the dish ENTREE with its last letter gone.",
+     "definitionFit": "The epicentre is the central point of something, its heart or focus."
     },
     "features": {
      "answerInScene": false,

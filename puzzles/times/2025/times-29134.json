@@ -286,63 +286,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "Lacking",
-       "note": "to be lacking something is to be without it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "at first",
-         "note": "what comes at first is the opening, so only the first letter of in is taken"
+         "at": 38,
+         "note": "at first takes the opening letter of in"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "I",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "in",
-           "gives": "I",
-           "select": "first",
-           "note": "first letter of in"
-          }
-         ]
-        },
-        {
-         "words": "tiny bit of cash",
-         "gives": "P",
-         "note": "a penny, the smallest coin"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "standard abbreviation, removed"
-        },
-        {
-         "words": "change",
-         "gives": "SWICH",
-         "note": "SWITCH with T removed"
+         "words": "in",
+         "at": 47
         }
        ]
       },
       {
-       "gives": "T"
+       "words": "tiny bit of cash",
+       "at": 21,
+       "gives": "P",
+       "note": "P, a penny, is a tiny amount of cash"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Lacking",
+         "at": 0,
+         "note": "Lacking says the word for change is missing the letter for time"
+        }
+       ],
+       "parts": [
+        {
+         "words": "change",
+         "at": 14,
+         "gives": "SWITCH",
+         "note": "to switch is to change"
+        },
+        {
+         "words": "time",
+         "at": 8,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone short of time hunts for small change in town.",
-     "walkthrough": "IPSWICH is the county town of Suffolk in eastern England. In looks like a link to town, but it supplies the opening letter.",
-     "definitionFit": "Plainly a place of that size: the Suffolk port is a large town, not a city."
+     "surface": "Someone short of time changes a tiny coin first thing in town.",
+     "walkthrough": "SWITCH without T gives SWICH, behind I and P. Ipswich is the county town of Suffolk.",
+     "definitionFit": "Ipswich is a large town in Suffolk, in eastern England."
     },
     "features": {
      "answerInScene": true,
@@ -670,32 +666,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EALING",
      "indicators": [
       {
        "text": "Cockney",
-       "note": "Cockney speakers famously drop the H at the start of words"
+       "at": 0,
+       "note": "a Cockney speaker famously drops the h sound at the start of words"
       }
      ],
      "parts": [
       {
        "words": "recovering",
-       "gives": "EALING",
-       "note": "HEALING without its H"
+       "at": 8,
+       "gives": "HEALING",
+       "note": "healing means recovering from injury"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "A Londoner is getting over an illness.",
-     "walkthrough": "Cockneys are working-class East Londoners, whose accent loses the H of words like healing.",
-     "definitionFit": "The west London borough is one part of the capital."
+     "surface": "A Londoner is getting better after an illness.",
+     "walkthrough": "Cockneys are Londoners whose accent drops initial H, so 'healing' becomes 'ealing'. Ealing is a London borough.",
+     "definitionFit": "Ealing is a borough in west London, so it is one district of the British capital."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "recovering"
+     "misdirectedWord": "capital"
     }
    }
   },
@@ -1261,43 +1259,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "leaving",
-       "note": "someone leaving walks out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Implore",
+       "at": 0,
+       "gives": "BEG",
+       "note": "to beg is to implore"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 17,
+         "note": "leaving says the letter for daughter goes away from the word for meal"
+        }
+       ],
        "parts": [
         {
-         "words": "Implore",
-         "gives": "BEG",
-         "note": "to implore is to beg"
+         "words": "meal's",
+         "at": 25,
+         "gives": "DINNER",
+         "note": "dinner is a meal"
         },
         {
          "words": "daughter",
-         "gives": "D",
-         "note": "standard abbreviation, removed"
-        },
-        {
-         "words": "meal's",
-         "gives": "INNER",
-         "note": "DINNER without D; the 's is has, joining the parts"
+         "at": 8,
+         "gives": "D"
         }
        ]
-      },
-      {
-       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent pleads as their daughter walks out of dinner before the first course.",
-     "walkthrough": "Starter seems to be the first course of the meal; it is a novice, someone starting out.",
-     "definitionFit": "A plain synonym: a novice who is just starting out."
+     "surface": "Someone pleads as their daughter leaves the table before the first course.",
+     "walkthrough": "'starter' looks like the first course of the meal, but here it means a novice. BEG plus INNER, DINNER without D.",
+     "definitionFit": "A beginner is someone just starting out, a novice."
     },
     "features": {
      "answerInScene": false,

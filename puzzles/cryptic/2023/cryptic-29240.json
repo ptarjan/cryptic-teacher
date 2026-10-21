@@ -1101,67 +1101,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "last",
+     "indicators": [
+      {
+       "text": "half",
+       "at": 23,
+       "note": "half here means only one half of each of the three words is kept"
+      },
+      {
+       "text": "missing",
+       "at": 43,
+       "note": "missing, after went, says the front halves of the words disappear, leaving the back halves"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "half",
-         "note": "half of each word is lost, so only the back part of each survives"
-        }
-       ],
-       "parts": [
-        {
-         "words": "your",
-         "note": "taken as written"
-        },
-        {
-         "gives": "YO"
-        }
-       ]
+       "words": "your",
+       "at": 28
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "missing",
-         "note": "something missing has gone, confirming that the front parts are dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "wage",
-         "note": "taken as written"
-        },
-        {
-         "gives": "WA"
-        }
-       ]
+       "words": "wage",
+       "at": 33
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "went",
-         "note": "taken as written"
-        },
-        {
-         "gives": "WE"
-        }
-       ]
+       "words": "went",
+       "at": 38
       }
      ]
     },
     "explanation": {
-     "surface": "It matters that half your pay has disappeared.",
-     "walkthrough": "'went missing' reads as part of the story, but 'half ... missing' tells you to drop the first two letters of each of the three words.",
-     "definitionFit": "Something urgent is pressing and needs attention at once, so it is important."
+     "surface": "Someone stresses how serious it is that half their pay has vanished.",
+     "walkthrough": "The back halves of YOUR, WAGE and WENT survive: UR, GE and NT. 'went' does double duty in the surface but is fodder here, with 'missing' carrying the signal.",
+     "definitionFit": "Something urgent is pressing and demands attention, so it is important."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "went"
+     "misdirectedWord": "wage"
     }
    }
   },
