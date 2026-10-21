@@ -88,5 +88,16 @@ with contextlib.redirect_stdout(io.StringIO()) as buf2:
 check("the second run re-checks only the failing puzzle", calls == ["a", "b", "b"])
 check("all clean ends the run", rc == 0 and "all 2 puzzles checked" in buf2.getvalue())
 
+f.write_text('{"a": {"1-across": {"wp": "x", "notes": {"p": "q"}}}, "b": {"2-down": {"wp": "y"}}}')
+pf = annotate_bag.TOOLS / "fix.json"
+pf.write_text('{"a": {"1-across": {"wp": "z", "notes": {"r": "s"}}}}')
+err = annotate_bag.patch_bag(f, pf)
+got = __import__("json").loads(f.read_text())
+check("a bag patch merges fields without matching bytes",
+      err is None and got["a"]["1-across"] == {"wp": "z", "notes": {"p": "q", "r": "s"}}
+      and got["b"]["2-down"] == {"wp": "y"} and not pf.exists())
+pf.write_text('{"zz": {}}')
+check("a patch naming an unknown puzzle is refused", "lacks: zz" in (annotate_bag.patch_bag(f, pf) or ""))
+
 print("annotate_bag: all checks passed" if not fails else f"annotate_bag: {fails} FAILED")
 sys.exit(1 if fails else 0)
