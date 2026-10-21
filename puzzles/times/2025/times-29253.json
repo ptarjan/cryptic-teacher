@@ -49,36 +49,58 @@
      "op": "charade",
      "parts": [
       {
-       "words": "No saint, unscrupulous individual",
-       "gives": "HYSTER",
-       "note": "SHYSTER (an unscrupulous individual) without S = saint"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "No",
+         "at": 0,
+         "note": "no here means without, so the saint letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unscrupulous individual",
+         "at": 10,
+         "gives": "SHYSTER",
+         "note": "a shyster is a crooked or unscrupulous person, especially a lawyer"
+        },
+        {
+         "words": "saint",
+         "at": 3,
+         "gives": "S"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "filled with",
-         "note": "Something filled with a thing has it inside, so IS wraps round the letter that follows."
+         "at": 37,
+         "note": "filled with means the word is has the constant inside it"
         }
        ],
        "parts": [
         {
          "words": "is",
-         "note": "used as is"
+         "at": 34,
+         "gives": "IS",
+         "note": "taken as written"
         },
         {
          "words": "constant",
+         "at": 49,
          "gives": "C",
-         "note": "c = a constant, as in the speed of light; sits inside IS"
+         "note": "c is the symbol for a constant, such as the speed of light"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A moralist frets about some villain who is anything but saintly.",
-     "walkthrough": "A shyster is a crook, especially a dishonest lawyer. 'Constant' reads as a steady adjective in the surface but is the physicist's symbol.",
-     "definitionFit": "The answer is a noun for a fit of uncontrolled emotional excitement, a plain synonym of agitation in its frantic sense."
+     "surface": "A crook who is no saint keeps everyone in a constant state of alarm.",
+     "walkthrough": "SHYSTER loses its first S, leaving HYSTER; then I(C)S.",
+     "definitionFit": "Hysterics are a fit of wild emotional excitement, a state of uncontrolled agitation."
     },
     "features": {
      "answerInScene": false,
@@ -1231,26 +1253,39 @@
      "indicators": [
       {
        "text": "in",
-       "note": "Something caught in a storm is inside it, so the doubled good goes inside the force 8 wind."
+       "at": 27,
+       "note": "in puts the pair inside the strong wind"
       }
      ],
      "parts": [
       {
        "words": "force 8",
+       "at": 30,
        "gives": "GALE",
-       "note": "force 8 on the Beaufort wind scale is a gale"
+       "note": "force 8 on the Beaufort scale is a gale"
       },
       {
-       "words": "doubly good",
-       "gives": "GG",
-       "note": "g = good, twice; goes inside GALE"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "doubly",
+         "at": 15,
+         "gives": "G",
+         "note": "doubly repeats the good letter a second time"
+        },
+        {
+         "words": "good",
+         "at": 22,
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Birds bob on the water, well sheltered, in a severe gale.",
-     "walkthrough": "The Beaufort scale runs from 0 (calm) to 12 (hurricane); force 8 is the one named for a strong wind.",
-     "definitionFit": "A collective noun: the answer is the word for a flock of geese, birds often seen on water."
+     "surface": "A flock of birds bobbing on rough water in a gale.",
+     "walkthrough": "The Beaufort scale grades wind strength; force 8 is a gale.",
+     "definitionFit": "A gaggle is the collective noun for geese, especially when they are on the ground or water."
     },
     "features": {
      "answerInScene": true,
