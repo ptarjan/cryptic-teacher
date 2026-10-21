@@ -43,50 +43,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RENOWN",
-     "indicators": [
-      {
-       "text": "diminished",
-       "note": "the first word is made smaller by having the second word's letters taken away from it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 8,
+         "note": "new signals that the letters of owner are made afresh in a different order"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "new",
-           "note": "something new has been remade, so the following word's letters come in a fresh order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "owner",
-           "note": "taken as written, to be rearranged"
-          }
-         ]
+         "words": "owner",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "diminished",
+         "at": 29,
+         "note": "diminished means never is made smaller by losing the word ever from inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "never",
+         "at": 18
         },
         {
-         "words": "never ever",
-         "gives": "N",
-         "note": "the word never with the four letters of ever taken out leaves a single letter"
+         "words": "ever",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A business has a new owner but its fame has never faded at all.",
-     "walkthrough": "'Never ever diminished' reads as emphasis, but it is a subtraction: never minus ever leaves N, which joins the shuffled OWNER.",
-     "definitionFit": "Renown is a direct synonym of fame: wide public acclaim and celebrity."
+     "surface": "A new owner's celebrity will never, ever fade.",
+     "walkthrough": "'new' rearranges OWNER into RENOW; 'never ever diminished' means NEVER with EVER taken out, leaving N.",
+     "definitionFit": "Renown is widespread celebrity or acclaim, a close synonym of fame."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "diminished"
     }
@@ -113,46 +116,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RESPOND",
-     "indicators": [
-      {
-       "text": "no core",
-       "note": "having no core means the middle letters of the word are taken out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "twisted",
+         "at": 8,
+         "note": "twisted ropes are bent out of shape, so their letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "twisted",
-           "note": "ropes that are twisted have their strands wound into a new arrangement"
-          }
-         ],
-         "parts": [
-          {
-           "words": "ropes",
-           "note": "taken as written, to be rearranged"
-          }
-         ]
-        },
+         "words": "ropes",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no core",
+         "at": 27,
+         "note": "no core means the middle of need is removed, leaving only its two ends"
+        }
+       ],
+       "parts": [
         {
          "words": "need",
-         "gives": "ND",
-         "note": "the word need with its two middle letters removed"
+         "at": 22
+        },
+        {
+         "gives": "EE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks what is needed and is told: ropes that are twisted, without any core.",
-     "definitionFit": "To respond is to reply, so the verb is a simple synonym for giving a reply."
+     "surface": "A reply to a query: twisted ropes can do without a central core.",
+     "walkthrough": "'twisted' rearranges ROPES into RESPO; 'no core' removes the middle EE of NEED, leaving ND.",
+     "definitionFit": "To respond is to reply, so as a verb it matches answer."
     },
     "features": {
      "answerInScene": false,
@@ -533,37 +539,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THRUST",
-     "indicators": [
-      {
-       "text": "but not at",
-       "note": "but not means without, so those two letters are excluded from the first word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not",
+         "at": 11,
+         "note": "but not means that is taken without the little word at which it contains"
+        }
+       ],
        "parts": [
         {
          "words": "that",
-         "gives": "TH",
-         "note": "the word that with its last two letters taken away"
+         "at": 5
         },
         {
-         "words": "Brown",
-         "gives": "RUST",
-         "note": "rust is a reddish-brown colour"
+         "words": "at",
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "Brown",
+       "at": 22,
+       "gives": "RUST",
+       "note": "rust is a reddish-brown colour"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to push that, but not at someone named Brown.",
-     "walkthrough": "Brown looks like a surname, but it is the colour.",
-     "definitionFit": "A thrust is a forceful shove, and as a verb it means to push hard."
+     "surface": "Someone is urged to push that object, but not at a person named Brown.",
+     "walkthrough": "'but not at' removes AT from THAT, leaving TH; rust is a shade of brown, and the capital B makes it look like a surname.",
+     "definitionFit": "A thrust is a forceful shove, so the word matches push as noun or verb."
     },
     "features": {
      "answerInScene": false,

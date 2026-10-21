@@ -147,38 +147,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut off",
+       "at": 18,
+       "note": "cut off means a piece is chopped away from the front of the word for injurious"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "cut off head",
-         "note": "cutting off a word's head removes its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "injurious",
-         "gives": "MALIGN",
-         "note": "malign means harmful or injurious"
-        },
-        {
-         "gives": "M"
-        }
-       ]
+       "words": "injurious",
+       "at": 5,
+       "gives": "MALIGN",
+       "note": "malign means harmful or injurious"
       },
       {
-       "unchecked": true,
        "words": "headdress",
-       "note": "a split word giving no letters: its first half closes the deletion signal and its second half is the definition"
+       "at": 26,
+       "gives": "M",
+       "note": "the head of headdress names what is cut off, the first letter of malign, while its dress is the definition"
       }
      ]
     },
     "explanation": {
-     "surface": "A warning that a headdress can do harm and should be removed.",
-     "walkthrough": "'headdress' looks like one word but splits into 'head' (part of the deletion signal) and 'dress', the definition. To dress ranks is the military term for lining soldiers up.",
-     "definitionFit": "In drill, to dress a line of troops is to straighten it, putting everyone into proper alignment."
+     "surface": "Damaging someone's headdress is seen as harmful.",
+     "walkthrough": "'headdress' splits into 'head' and 'dress': cut off the head of MALIGN, and dress is the definition.",
+     "definitionFit": "To dress a line of soldiers is to straighten it, the military sense of align."
     },
     "features": {
      "answerInScene": false,
@@ -763,39 +758,41 @@
      "parts": [
       {
        "words": "cold",
+       "at": 9,
        "gives": "C",
-       "note": "C is the abbreviation for cold, as on a tap"
+       "note": "C stands for cold, as on a tap"
+      },
+      {
+       "words": "and",
+       "at": 14
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "cooked",
-         "note": "cooked food is transformed, so the word after it is mixed up"
+         "at": 18,
+         "note": "cooked suggests the meals are prepared and mixed, so their letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "and",
-         "note": "taken as written"
-        },
-        {
          "words": "meals",
-         "note": "taken as written, to be rearranged"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A banquet made up of cold dishes and hot cooked ones.",
-     "walkthrough": "'Cold and cooked meals' reads as a menu; 'and' is kept as letters, not a joiner.",
-     "definitionFit": "Candlemas is the Christian festival on 2 February marking the Presentation of Christ, a church feast day."
+     "surface": "A spread of cold dishes and hot cooked meals.",
+     "walkthrough": "The small word 'and' is used just as it stands, between the cold abbreviation and the rearranged meals.",
+     "definitionFit": "Candlemas is the Christian festival on 2 February marking the presentation of Christ in the Temple, a church feast day."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "and"
+     "misdirectedWord": "Feast"
     }
    }
   },
