@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,48 @@
     "text": "Obscure book recommendation — book withdrawn",
     "enumeration": "4"
    },
-   "solution": "BLUR"
+   "solution": "BLUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Obscure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "withdrawn",
+       "at": 35,
+       "note": "a book withdrawn is taken off the shelf, so its letter is pulled out of the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "book recommendation",
+       "at": 8,
+       "gives": "BLURB",
+       "note": "a blurb is the publisher's puff on a book's cover"
+      },
+      {
+       "words": "book",
+       "at": 30,
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer recommends an obscure book, then the book is pulled from sale.",
+     "walkthrough": "Removing one B from BLURB leaves the verb meaning to obscure.",
+     "definitionFit": "To blur something is to make it indistinct, so the verb is a synonym of obscure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Obscure"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +89,59 @@
     "text": "Constables cooked plaice aboard ship?",
     "enumeration": "8"
    },
-   "solution": "SPECIALS"
+   "solution": "SPECIALS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Constables",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "aboard",
+       "at": 25,
+       "note": "something aboard a vessel sits within it, so the shuffled fish goes between the ship's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ship",
+       "at": 32,
+       "gives": "SS",
+       "note": "SS stands for steamship"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 11,
+         "note": "cooked fish is prepared and altered, so the letters of plaice are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plaice",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A galley cook prepares plaice for the policemen on board.",
+     "walkthrough": "SS takes PECIAL, the reworked plaice, to give the word.",
+     "definitionFit": "Special constables are part-time volunteer police officers in Britain, known for short as specials."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +155,42 @@
     "text": "What to expect from, say, an uncooperative Frenchman soon?",
     "enumeration": "4"
    },
-   "solution": "ANON"
+   "solution": "ANON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soon",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "an",
+       "at": 26,
+       "gives": "A"
+      },
+      {
+       "words": "uncooperative Frenchman",
+       "at": 29,
+       "gives": "NON",
+       "note": "what a Frenchman refusing to help says: non, French for no"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking how soon a stubborn Frenchman will refuse you.",
+     "walkthrough": "'What to expect from, say,' tells you to hear what the Frenchman says: 'a non', a refusal in French.",
+     "definitionFit": "Anon is an old-fashioned word meaning shortly or in a little while."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Frenchman"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +204,55 @@
     "text": "Bury's opposite side: tin production, right?",
     "enumeration": "8"
    },
-   "solution": "DISINTER"
+   "solution": "DISINTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bury's opposite",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "production",
+         "at": 26,
+         "note": "a production is something made or worked up, so the letters of side and tin are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "side",
+         "at": 16
+        },
+        {
+         "words": "tin",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 38,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Notes from a metals works: one side for tin production, the other for its opposite.",
+     "walkthrough": "SIDE and TIN rearrange as DISINTE; R completes it.",
+     "definitionFit": "To disinter is to dig up a buried body, the reverse of burying it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +266,61 @@
     "text": "Funny person quit protecting aide's back",
     "enumeration": "6"
    },
-   "solution": "SCREAM"
+   "solution": "SCREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Funny person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protecting",
+       "at": 18,
+       "note": "something protecting another surrounds it, so the departure word wraps the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "quit",
+       "at": 13,
+       "gives": "SCRAM",
+       "note": "scram means get out, leave quickly"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 36,
+         "note": "the back of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aide's",
+         "at": 29,
+         "gives": "E",
+         "note": "its last letter is E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian walks out of the job while covering for an assistant.",
+     "walkthrough": "E, the end of aide's, goes inside SCRAM.",
+     "definitionFit": "A hilarious person is informally called a scream, as they make you laugh loudly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quit"
+    }
+   }
   },
   {
    "number": 6,
@@ -111,7 +344,70 @@
      }
     ]
    },
-   "solution": "ONTHERADIO"
+   "solution": "ONTHERADIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "broadcasting",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Possibly",
+         "at": 0,
+         "note": "possibly signals another arrangement of the letters that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "another",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 21,
+         "note": "one is placed in the party word, so its letter goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 24,
+         "gives": "DO",
+         "note": "a do is a party"
+        },
+        {
+         "words": "one",
+         "at": 17,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Maybe there is another one at the party, playing on the airwaves.",
+     "walkthrough": "'Possibly' works only on the word another; 'in' then puts the one inside the party word, which ends the answer.",
+     "definitionFit": "Something on the radio is being transmitted over the airwaves, that is, broadcast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 7,
@@ -125,7 +421,49 @@
     "text": "First border described by China",
     "enumeration": "6"
    },
-   "solution": "PRIMAL"
+   "solution": "PRIMAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "First",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "described by",
+       "at": 13,
+       "note": "to describe a shape is to draw round it, so the friend word encloses the edge word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "China",
+       "at": 26,
+       "gives": "PAL",
+       "note": "china is rhyming slang: china plate = mate, i.e. a pal"
+      },
+      {
+       "words": "border",
+       "at": 6,
+       "gives": "RIM",
+       "note": "a rim is a border or edge"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The first frontier drawn round China.",
+     "walkthrough": "China looks like the country; in Cockney rhyming slang 'china plate' means mate, so it gives PAL.",
+     "definitionFit": "Primal means original or earliest, the very first in a sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 8,
@@ -139,7 +477,42 @@
     "text": "Parking was to be found for Candida, perhaps",
     "enumeration": "4"
    },
-   "solution": "PLAY"
+   "solution": "PLAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Candida, perhaps",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Parking",
+       "at": 0,
+       "gives": "P",
+       "note": "P is the road-sign abbreviation for parking"
+      },
+      {
+       "words": "was to be found",
+       "at": 8,
+       "gives": "LAY",
+       "note": "lay, past tense of lie, means was situated"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks where a parking place was for a woman called Candida.",
+     "walkthrough": "Candida looks like a person's name; it is a play by George Bernard Shaw.",
+     "definitionFit": "Candida is a comedy by Shaw, so it is an example of a stage drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Candida"
+    }
+   }
   },
   {
    "number": 9,
@@ -153,7 +526,61 @@
     "text": "Duck upset about erect garden plant",
     "enumeration": "5"
    },
-   "solution": "LUPIN"
+   "solution": "LUPIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "garden plant",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 11,
+       "note": "about means surrounding, so the overturned zero wraps the upright word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 5,
+         "note": "upset means knocked over, so the zero word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Duck",
+         "at": 0,
+         "gives": "NIL",
+         "note": "a duck is a score of nothing in cricket, i.e. nil"
+        }
+       ]
+      },
+      {
+       "words": "erect",
+       "at": 17,
+       "gives": "UP",
+       "note": "erect means standing up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An upset duck waddles round a tall flower bed plant.",
+     "walkthrough": "Duck is the cricket score of nothing, not the bird; 'upset' turns that zero word over before it wraps 'erect'.",
+     "definitionFit": "Lupins are tall flowering perennials with spikes of blooms, common in cottage gardens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +600,45 @@
      }
     ]
    },
-   "solution": "INCONTROL"
+   "solution": "INCONTROL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Managing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "playing",
+       "at": 13,
+       "note": "playing with letters means toying with their order, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "or",
+       "at": 10
+      },
+      {
+       "words": "Clinton",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether you are running things or just toying with Clinton.",
+     "walkthrough": "OR and CLINTON together give the nine letters to rearrange.",
+     "definitionFit": "Someone in control is directing or running things, which is what managing is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clinton"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +652,69 @@
     "text": "Hidden eastern prisoner tried to break outside",
     "enumeration": "9"
    },
-   "solution": "RECONDITE"
+   "solution": "RECONDITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hidden",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 39,
+       "note": "the broken word lies outside, so its letters surround the prisoner piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to break",
+         "at": 30,
+         "note": "to break the word is to smash it into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tried",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "eastern",
+         "at": 7,
+         "gives": "E"
+        },
+        {
+         "words": "prisoner",
+         "at": 15,
+         "gives": "CON",
+         "note": "a con is a convict"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hidden eastern inmate made a breakout attempt.",
+     "walkthrough": "'Hidden' is the definition, not a signal that the answer lies hidden in the clue; the broken 'tried' splits around the eastern prisoner.",
+     "definitionFit": "Recondite knowledge is obscure, little known, and so hidden from most people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +728,48 @@
     "text": "Heroin in the morning? Well over the top",
     "enumeration": "5"
    },
-   "solution": "HAMMY"
+   "solution": "HAMMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "over the top",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Heroin",
+       "at": 0,
+       "gives": "H",
+       "note": "H is slang for heroin"
+      },
+      {
+       "words": "in the morning",
+       "at": 7,
+       "gives": "AM",
+       "note": "AM, ante meridiem, means before noon"
+      },
+      {
+       "words": "Well",
+       "at": 23,
+       "gives": "MY",
+       "note": "my! is an exclamation of surprise, like well!"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shock at someone taking heroin in the morning: well, that's excessive.",
+     "walkthrough": "'Well' is an exclamation here, swapped for another: MY.",
+     "definitionFit": "Hammy acting is exaggerated and overdone, which over the top describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Well"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +789,49 @@
      }
     ]
    },
-   "solution": "CLAYPIT"
+   "solution": "CLAYPIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the result of earthmoving occurrences",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "About",
+       "at": 0,
+       "gives": "C",
+       "note": "C is circa, Latin for about"
+      },
+      {
+       "words": "sexual partner",
+       "at": 6,
+       "gives": "LAY",
+       "note": "a lay is slang for a sexual partner"
+      },
+      {
+       "words": "depression",
+       "at": 26,
+       "gives": "PIT",
+       "note": "a pit is a hollow or depression in the ground"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lover with depression: the earth moved, and this is the result.",
+     "walkthrough": "'Earthmoving' plays on the slang 'did the earth move?' for sex; literally, digging out clay leaves the hole.",
+     "definitionFit": "A clay pit is an excavation left when clay is dug out for brick or pottery making."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "earthmoving"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +845,40 @@
     "text": "Best college sheets",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "college",
+       "at": 5,
+       "gives": "C"
+      },
+      {
+       "words": "sheets",
+       "at": 13,
+       "gives": "REAM",
+       "note": "a ream is a quantity of paper sheets, usually 500"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The finest bedding at a university college.",
+     "definitionFit": "The cream of something is its finest part, the elite, as cream rises to the top of milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sheets"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +892,42 @@
     "text": "They would be crowned before getting on boats",
     "enumeration": "10"
    },
-   "solution": "PRETENDERS"
+   "solution": "PRETENDERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They would be crowned",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "before",
+       "at": 22,
+       "gives": "PRE",
+       "note": "pre- is a prefix meaning before"
+      },
+      {
+       "words": "boats",
+       "at": 40,
+       "gives": "TENDERS",
+       "note": "tenders are small boats that ferry people to a larger ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Royals waiting to be crowned before they board the boats.",
+     "walkthrough": "'Getting on' only joins the pieces; it suggests boarding.",
+     "definitionFit": "Pretenders are claimants to a throne who would like to be crowned king or queen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "boats"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +941,31 @@
     "text": "Game: if lost, it would make you mad?",
     "enumeration": "7"
    },
-   "solution": "MARBLES"
+   "solution": "MARBLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0,
+      "meaning": "first meaning: the children's game played with glass balls"
+     },
+     {
+      "text": "if lost, it would make you mad",
+      "at": 6,
+      "meaning": "second meaning: one's wits, from the idiom 'lose your ...', go mad"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half plays on the idiom: lose them and you are crazy.",
+     "definitionFit": "Marbles is both the children's game of rolling glass balls and slang for one's sanity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +979,70 @@
     "text": "Right time to turn back during eg ramble",
     "enumeration": "5"
    },
-   "solution": "STRAY"
+   "solution": "STRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ramble",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 24,
+       "note": "during places one thing within the span of another, so the reversed pair goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eg",
+       "at": 31,
+       "gives": "SAY",
+       "note": "say means for example, as eg does"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to turn back",
+         "at": 11,
+         "note": "turning back means going the other way, so the pair of letters is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Right",
+           "at": 0,
+           "gives": "R"
+          },
+          {
+           "words": "time",
+           "at": 6,
+           "gives": "T"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walker decides when is the right time to turn back during a hike.",
+     "walkthrough": "RT reversed is TR, inside SAY.",
+     "definitionFit": "To stray is to wander off course, much as to ramble is to roam aimlessly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ramble"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1056,59 @@
     "text": "Follow writer, but not Penny Townsend, say",
     "enumeration": "5"
    },
-   "solution": "ENSUE"
+   "solution": "ENSUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Follow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not",
+         "at": 15,
+         "note": "but not means excluding, so the coin letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "writer",
+         "at": 7,
+         "gives": "PEN",
+         "note": "a pen is a writer"
+        },
+        {
+         "words": "Penny",
+         "at": 23,
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "words": "Townsend, say",
+       "at": 29,
+       "gives": "SUE",
+       "note": "Sue Townsend wrote the Adrian Mole diaries"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to follow a certain author, but not one Penny Townsend.",
+     "walkthrough": "Sue Townsend was the English author of the Adrian Mole diaries; Penny is not her name but a coin abbreviation to drop.",
+     "definitionFit": "To ensue is to come after or result, so it means follow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1122,47 @@
     "text": "It's often potted and propagated with top removed",
     "enumeration": "3"
    },
-   "solution": "RED"
+   "solution": "RED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's often potted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with top removed",
+       "at": 33,
+       "note": "in an across clue the top is taken as the opening letter, so that is lost"
+      }
+     ],
+     "parts": [
+      {
+       "words": "propagated",
+       "at": 22,
+       "gives": "BRED",
+       "note": "bred means produced or propagated, as plants are"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant that is often grown in pots and propagated by cutting off its top.",
+     "walkthrough": "The gardening picture misleads: the potting is snooker, where the red balls are potted.",
+     "definitionFit": "In snooker the reds are the balls most often sunk into pockets between the colours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "potted"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1176,59 @@
     "text": "Organic compound put into water gets egg producer extremely youthful",
     "enumeration": "8"
    },
-   "solution": "DIPHENYL"
+   "solution": "DIPHENYL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Organic compound",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "put into water",
+       "at": 17,
+       "gives": "DIP",
+       "note": "to dip is to put briefly into liquid"
+      },
+      {
+       "words": "egg producer",
+       "at": 37,
+       "gives": "HEN",
+       "note": "a hen lays eggs"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 50,
+         "note": "extremely means at the extremes, so the word's first and last letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "youthful",
+         "at": 60,
+         "note": "its outer letters are Y and L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemical compound is dropped into water and makes a hen lay young.",
+     "definitionFit": "Diphenyl, also called biphenyl, is an aromatic hydrocarbon of two linked benzene rings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "producer"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1242,62 @@
     "text": "Pole accepts the church over style and ornamentation",
     "enumeration": "5"
    },
-   "solution": "DECOR"
+   "solution": "DECOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "style and ornamentation",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 24,
+       "note": "over means turned over, so the combined letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepts",
+         "at": 5,
+         "note": "accepting means taking in, so the rod encloses the church letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pole",
+         "at": 0,
+         "gives": "ROD",
+         "note": "a pole is a rod"
+        },
+        {
+         "words": "the church",
+         "at": 13,
+         "gives": "CE",
+         "note": "CE is the Church of England"
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "DÉCOR",
+    "explanation": {
+     "surface": "A Polish visitor admires the church's style and decorations.",
+     "walkthrough": "Pole wants to be a Polish person; it is a rod. ROCED reads backwards.",
+     "definitionFit": "Decor is the furnishing and decoration of a room, its style and ornament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1311,75 @@
     "text": "Unemotional Clinton not turned away by one state",
     "enumeration": "8"
    },
-   "solution": "CLINICAL"
+   "solution": "CLINICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unemotional",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "at": 31,
+         "note": "taken away means removed, so the reversed word comes off the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Clinton",
+         "at": 12
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned",
+           "at": 24,
+           "note": "turned means reversed, so the word not is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "not",
+           "at": 20,
+           "gives": "NOT"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 39,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "state",
+       "at": 43,
+       "gives": "CAL",
+       "note": "CAL is an abbreviation for California"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cool Clinton was not turned away by a single US state.",
+     "walkthrough": "'Not turned' is the word to reverse, and 'away' strips that reversed word from the end of the surname.",
+     "definitionFit": "Clinical behaviour is detached and coldly efficient, without feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1393,60 @@
     "text": "Nutty quality refined and introduced to stew",
     "enumeration": "7"
    },
-   "solution": "MADNESS"
+   "solution": "MADNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nutty quality",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "introduced to",
+       "at": 26,
+       "note": "something introduced to another is put into it, so the reworked word sits inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stew",
+       "at": 40,
+       "gives": "MESS",
+       "note": "a mess is a dish of stew, as in a mess of pottage"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "refined",
+         "at": 14,
+         "note": "refined means processed into a new form, so the letters of and are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef adds a nutty, refined note to a stew.",
+     "walkthrough": "'Refined' acts only on 'and'; stew is the old sense of mess, a dish of food.",
+     "definitionFit": "Being nutty in the slang sense means being crazy, and madness is that condition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nutty"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1460,41 @@
     "text": "In Florida? Go bag a Sri Lankan shrine",
     "enumeration": "6"
    },
-   "solution": "DAGOBA"
+   "solution": "DAGOBA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sri Lankan shrine",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "in signals the answer is contained within the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Florida? Go bag",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller in Florida is urged to buy a bag from a Sri Lankan temple.",
+     "walkthrough": "The letters run across the end of Florida, all of Go and the start of bag.",
+     "definitionFit": "A dagoba is a Buddhist stupa, a dome-shaped relic monument found in Sri Lanka."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Florida"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1508,51 @@
     "text": "Just start to simmer and make insinuations",
     "enumeration": "6"
    },
-   "solution": "SIMPLY"
+   "solution": "SIMPLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 5,
+         "note": "the start to a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "simmer",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "make insinuations",
+       "at": 25,
+       "gives": "IMPLY",
+       "note": "to imply is to suggest indirectly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook just starts to simmer and makes sly hints.",
+     "definitionFit": "Simply in the sense of merely or only is a synonym of just."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1566,59 @@
     "text": "Perhaps the young Mozart's expert crack at symphony's finale",
     "enumeration": "7"
    },
-   "solution": "PRODIGY"
+   "solution": "PRODIGY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps the young Mozart",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "expert",
+       "at": 27,
+       "gives": "PRO",
+       "note": "a pro is a professional or expert"
+      },
+      {
+       "words": "crack",
+       "at": 34,
+       "gives": "DIG",
+       "note": "a dig is a jibe or wisecrack"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finale",
+         "at": 54,
+         "note": "a finale is the ending, so the final letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "symphony's",
+         "at": 43,
+         "gives": "Y",
+         "note": "its last letter is Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An expert takes a crack at the finale of a Mozart symphony.",
+     "definitionFit": "Mozart was composing and performing as a small child, the classic example of a gifted youngster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1632,52 @@
     "text": "At first, convict turned grey in the pen",
     "enumeration": "5"
    },
-   "solution": "CAGED"
+   "solution": "CAGED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in the pen",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "At first",
+         "at": 0,
+         "note": "at first means taking the opening letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "convict",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "turned grey",
+       "at": 18,
+       "gives": "AGED",
+       "note": "aged means grown old, as hair turns grey"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner's hair went grey while he was in jail.",
+     "walkthrough": "The pen is a cage or pound, with jail as the surface sense.",
+     "definitionFit": "An animal in a pen is enclosed, confined like a bird in a cage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1691,40 @@
     "text": "Indifferent military officer on date",
     "enumeration": "4"
    },
-   "solution": "COLD"
+   "solution": "COLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Indifferent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "military officer",
+       "at": 12,
+       "gives": "COL",
+       "note": "Col is the abbreviation for colonel"
+      },
+      {
+       "words": "date",
+       "at": 32,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unmoved colonel goes out on a date.",
+     "definitionFit": "A cold manner is unfriendly and unfeeling, showing indifference."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1738,68 @@
     "text": "Monsieur Simenon excited about college for the art of memory assistance",
     "enumeration": "9"
    },
-   "solution": "MNEMONICS"
+   "solution": "MNEMONICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the art of memory assistance",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Monsieur",
+       "at": 0,
+       "gives": "M"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 25,
+         "note": "about means around, so the shuffled surname surrounds the college letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "excited",
+           "at": 17,
+           "note": "excited means stirred up, so the letters of Simenon are mixed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Simenon",
+           "at": 9
+          }
+         ]
+        },
+        {
+         "words": "college",
+         "at": 31,
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Maigret author Georges Simenon gets excited about a college course on memory.",
+     "walkthrough": "SIMENON rearranges to NEMONIS, wrapped around C to give NEMONICS after M.",
+     "definitionFit": "Mnemonics are devices such as rhymes or acronyms that help you remember things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +1813,45 @@
     "text": "Feel leaderless? That's painful!",
     "enumeration": "4"
    },
-   "solution": "OUCH"
+   "solution": "OUCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That's painful!",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaderless",
+       "at": 5,
+       "note": "losing its leader means the opening letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Feel",
+       "at": 0,
+       "gives": "TOUCH",
+       "note": "to touch is to feel"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling without a leader really hurts.",
+     "definitionFit": "Ouch is the exclamation people blurt out on suffering sudden pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "leaderless"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +1865,30 @@
     "text": "Old hunting cry that's heard in part of central London",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old hunting cry that's heard",
+      "at": 0,
+      "meaning": "first meaning: a call hunters shouted on sighting a hare"
+     },
+     {
+      "text": "part of central London",
+      "at": 32,
+      "meaning": "second meaning: the district of the West End known for nightlife"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The London area is said to take its name from the old hunting shout once raised in its fields.",
+     "definitionFit": "Soho was a huntsman's call when a hare was spotted, and Soho is a West End district of London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 30,
@@ -487,7 +1902,59 @@
     "text": "Britain enters whopper motor event quite freely",
     "enumeration": "9"
    },
-   "solution": "LIBERALLY"
+   "solution": "LIBERALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quite freely",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "enters",
+         "at": 8,
+         "note": "enters means goes into, so the country letter goes inside the falsehood"
+        }
+       ],
+       "parts": [
+        {
+         "words": "whopper",
+         "at": 15,
+         "gives": "LIE",
+         "note": "a whopper is a big lie"
+        },
+        {
+         "words": "Britain",
+         "at": 0,
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "words": "motor event",
+       "at": 23,
+       "gives": "RALLY",
+       "note": "a rally is a motor race on public roads"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British driver tells a big lie about a car rally, quite freely.",
+     "walkthrough": "A whopper here is a big lie, not a burger; Britain goes into it before the motor event.",
+     "definitionFit": "Doing something liberally means doing it generously and without restraint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whopper"
+    }
+   }
   },
   {
    "number": 31,
@@ -501,7 +1968,47 @@
     "text": "Disagree about line taken by Wood",
     "enumeration": "5"
    },
-   "solution": "CLASH"
+   "solution": "CLASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disagree",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 9,
+       "gives": "C",
+       "note": "C is circa, Latin for about"
+      },
+      {
+       "words": "line",
+       "at": 15,
+       "gives": "L"
+      },
+      {
+       "words": "Wood",
+       "at": 29,
+       "gives": "ASH",
+       "note": "ash is a type of tree and its timber"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An argument about a line of dialogue cut by someone called Wood.",
+     "walkthrough": "Wood looks like a surname; it is the timber, ash.",
+     "definitionFit": "To clash is to conflict or argue, the same as to disagree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wood"
+    }
+   }
   }
  ]
 }
