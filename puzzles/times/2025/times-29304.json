@@ -207,7 +207,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "LeShuttle?",
+      "text": "LeShuttle",
       "at": 40
      }
     ],
@@ -216,31 +216,48 @@
      "parts": [
       {
        "words": "Female",
-       "gives": "F",
-       "note": "F = female"
+       "at": 0,
+       "gives": "F"
       },
       {
        "words": "called",
+       "at": 7,
        "gives": "RANG",
-       "note": "rang, as on the telephone"
+       "note": "rang means telephoned, called"
       },
       {
-       "words": "about to leave Calais",
-       "gives": "LAIS",
-       "note": "CALAIS without CA (circa, about)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to leave",
+         "at": 21,
+         "note": "to leave means the letters for about go out of the port name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Calais",
+         "at": 30
+        },
+        {
+         "words": "about",
+         "at": 15,
+         "gives": "CA",
+         "note": "CA is circa, about"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman phones about leaving Calais on the Channel Tunnel train.",
-     "walkthrough": "LeShuttle is the Channel Tunnel car train to Calais; its name mixes a French article with an English word, and the question mark flags it as an example.",
-     "definitionFit": "Franglais is French mixed with English, as in the name LeShuttle."
+     "surface": "A woman phoned to say she was leaving Calais on the Channel Tunnel train.",
+     "walkthrough": "LeShuttle, the brand name of the Channel Tunnel car train, mixes French and English, an example of the answer.",
+     "definitionFit": "Franglais is French spiked with English words, and LeShuttle is a brand name formed that way."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "LeShuttle"
+     "misdirectedWord": "Calais"
     }
    }
   },
@@ -331,31 +348,67 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "borders"
+       "text": "borders",
+       "at": 26,
+       "note": "borders says one part sits beside, alongside, the other"
       }
      ],
      "parts": [
       {
-       "words": "can save hours",
-       "gives": "JON",
-       "note": "JOHN (a can, slang for toilet) without H (hours)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "save",
+         "at": 38,
+         "note": "save means except, so the hours letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "at": 34,
+         "gives": "JOHN",
+         "note": "john is slang for a toilet, as is can"
+        },
+        {
+         "words": "hours",
+         "at": 43,
+         "gives": "H"
+        }
+       ]
       },
       {
-       "words": "bed covering short",
-       "gives": "QUIL",
-       "note": "QUILT without its final T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 20,
+         "note": "short means the final letter is lopped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bed covering",
+         "at": 7,
+         "gives": "QUILT",
+         "note": "a quilt is a bed covering"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A flower bed is covered to help gardeners save hours of weeding.",
-     "walkthrough": "'Flower bed' runs together in the surface; the definition is just 'Flower'. Both 'can' and 'john' are American slang for a toilet.",
-     "definitionFit": "A definition by example: the jonquil is a fragrant yellow narcissus, one kind of flower."
+     "surface": "A flower bed, with a cover over its short edges, can keep going for hours.",
+     "walkthrough": "'Flower bed' looks like a garden bed, but only Flower is the definition; 'can' is US slang for a lavatory, JOHN.",
+     "definitionFit": "A jonquil is a sweet-scented daffodil species, Narcissus jonquilla."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bed"
+     "misdirectedWord": "can"
     }
    }
   },
@@ -488,19 +541,36 @@
        "indicators": [
         {
          "text": "in",
-         "note": "to be in something is to be inside it, so 'husband' sits within 'loveless marriage'"
+         "at": 24,
+         "note": "in places the husband letter inside the shortened marriage"
         }
        ],
        "parts": [
         {
-         "words": "loveless marriage",
-         "gives": "UNIN",
-         "note": "UNION without O (love, a zero score)"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "loveless",
+           "at": 27,
+           "note": "love is zero, the letter O, and -less removes it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "marriage",
+           "at": 36,
+           "gives": "UNION",
+           "note": "a marriage is a union"
+          },
+          {
+           "gives": "O"
+          }
+         ]
         },
         {
          "words": "husband",
-         "gives": "H",
-         "note": "H = husband"
+         "at": 16,
+         "gives": "H"
         }
        ]
       },
@@ -509,27 +579,28 @@
        "indicators": [
         {
          "text": "empty",
-         "note": "emptied, a word keeps only its outer letters"
+         "at": 45,
+         "note": "empty leaves only the outer letters of garage"
         }
        ],
        "parts": [
         {
          "words": "garage",
-         "note": "GaragE with its insides removed"
+         "at": 51
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A husband in a loveless marriage clears out the garage to take his mind off it.",
-     "walkthrough": "'Loveless' reads as unhappy; it removes an O, the love score in tennis.",
-     "definitionFit": "To unhinge someone is to drive them to distraction."
+     "surface": "A husband in a cold marriage is driven mad by clearing out the garage.",
+     "walkthrough": "UNION without O is UNIN, which holds H; GE is garage emptied of its middle.",
+     "definitionFit": "To unhinge someone is to unbalance their mind, driving them to distraction."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "loveless"
+     "misdirectedWord": "garage"
     }
    }
   },
@@ -661,8 +732,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Partner",
-      "at": 0
+      "text": "Partner's",
+      "at": 0,
+      "note": "read as partner is, so the definition is the noun partner"
      }
     ],
     "wordplay": {
@@ -670,26 +742,42 @@
      "indicators": [
       {
        "text": "cracks",
-       "note": "to crack something is to break into it"
+       "at": 33,
+       "note": "cracks means breaks into, so the shortened word goes inside the corn part"
       }
      ],
      "parts": [
       {
        "words": "corny part",
+       "at": 10,
        "gives": "COB",
-       "note": "the cob is the core of an ear of corn"
+       "note": "a cob is the part of maize, corn, bearing the kernels"
       },
       {
-       "words": "has endless",
-       "gives": "HA",
-       "note": "HAS without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 25,
+         "note": "endless drops the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "has",
+         "at": 21
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A partner's corny jokes are wearing thin and starting to crack.",
-     "walkthrough": "'Corny' suggests stale humour; it is literal, the cob of a corn plant. The ’s stands for 'is'.",
-     "definitionFit": "A cohab, short for cohabitee, is a partner one lives with."
+     "surface": "A partner's cheesy bit of a routine is full of cracks.",
+     "walkthrough": "'corny' looks like trite humour, but it means of corn; the cob takes HA (has, endless).",
+     "definitionFit": "A cohab is an informal word for a cohabitant, a live-in partner."
     },
     "features": {
      "answerInScene": false,
@@ -839,27 +927,40 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Unclad Roman lady",
-       "gives": "IGNOR",
-       "note": "SIGNORA, Italian for a lady, without its outer S and A"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Unclad",
+         "at": 0,
+         "note": "unclad means stripped of its outer layer, the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Roman lady",
+         "at": 7,
+         "gives": "SIGNORA",
+         "note": "signora is Italian for a married woman, a lady in Rome"
+        }
+       ]
       },
       {
        "words": "entertains",
+       "at": 18,
        "gives": "AMUSES",
-       "note": "to entertain is to amuse"
+       "note": "amuses means entertains"
       }
      ]
     },
     "explanation": {
-     "surface": "A naked Roman woman entertains some rather unsophisticated guests.",
-     "walkthrough": "'Roman' suggests ancient Rome; a signora is a modern Italian lady.",
-     "definitionFit": "A plain synonym: ignoramus is Latin for 'we do not know', applied to people who are ignorant or backward."
+     "surface": "A naked Italian woman provides entertainment for slow-witted folk.",
+     "walkthrough": "'entertains' looks like a containment signal, but here it is a plain synonym, following the Italian lady stripped of her outer letters.",
+     "definitionFit": "Ignoramuses are ignorant people, and backward is used here for slow or unlearned."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Roman"
+     "misdirectedWord": "entertains"
     }
    }
   },
@@ -1270,31 +1371,50 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "facing"
+       "text": "facing",
+       "at": 14,
+       "note": "facing says one part is set opposite, next to, the other"
       }
      ],
      "parts": [
       {
        "words": "teacher",
+       "at": 6,
        "gives": "BED",
-       "note": "a BEd, Bachelor of Education, is a teacher's degree"
+       "note": "a BEd, Bachelor of Education, is a teaching degree"
       },
       {
-       "words": "hell in the East End",
-       "gives": "ECK",
-       "note": "HECK, a mild word for hell, without its H"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in the East End",
+         "at": 26,
+         "note": "speakers in the East End of London famously drop an initial H"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hell",
+         "at": 21,
+         "gives": "HECK",
+         "note": "heck is a mild substitute for hell, as in what the heck"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A supply teacher faces a hellish class in a tough part of London.",
-     "walkthrough": "'Cover teacher' is British for a substitute; here 'Cover' is the definition and the teacher is a BEd, a graduate in education. The East End is working-class London.",
-     "definitionFit": "A plain synonym: to bedeck a room with flowers is to cover it with them."
+     "surface": "A teacher shielding pupils from a hellish part of London.",
+     "walkthrough": "The East End is the area of East London where Cockney speech drops the H, so HECK becomes ECK.",
+     "definitionFit": "To bedeck is to adorn or decorate, covering something with ornaments."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "teacher"
+     "misdirectedWord": "Cover"
     }
    }
   },

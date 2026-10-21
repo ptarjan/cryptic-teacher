@@ -701,15 +701,16 @@
      "parts": [
       {
        "words": "English",
-       "gives": "E",
-       "note": "E is the abbreviation for English"
+       "at": 21,
+       "gives": "E"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "in places one group of letters inside another word"
+         "at": 18,
+         "note": "in places the first pieces inside the exam word"
         }
        ],
        "parts": [
@@ -717,17 +718,21 @@
          "op": "deletion",
          "indicators": [
           {
-           "text": "dropping second half",
-           "note": "dropping the second half means only the first part of the word is kept"
+           "text": "dropping",
+           "at": 35,
+           "note": "dropping means the letter for second is let fall from the exam word"
           }
          ],
          "parts": [
           {
            "words": "exam",
+           "at": 29,
            "gives": "TEST",
            "note": "a test is an exam"
           },
           {
+           "words": "second",
+           "at": 44,
            "gives": "S"
           }
          ]
@@ -737,42 +742,48 @@
          "parts": [
           {
            "words": "one",
+           "at": 5,
            "gives": "I",
-           "note": "Roman numeral one"
+           "note": "I is the Roman numeral one"
           },
           {
            "words": "question",
-           "gives": "QU",
-           "note": "QU is a standard abbreviation for question"
+           "at": 9,
+           "gives": "QU"
           }
          ]
         }
        ]
       },
       {
-       "op": "deletion",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 51,
+         "note": "half of keeps just the front two of the four letters"
+        }
+       ],
        "parts": [
         {
          "words": "another",
+         "at": 59,
          "gives": "TEST",
-         "note": "another exam, a second test"
-        },
-        {
-         "gives": "ST"
+         "note": "another exam, so a second TEST"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for a candidate in an English exam: answer one question and drop half of another.",
-     "walkthrough": "The parse is imperfect: the first exam must also lose its S, which nothing in the clue signals. Form here means correct social behaviour, not a document.",
-     "definitionFit": "Good form means proper behaviour by convention, which is exactly what etiquette describes."
+     "surface": "Instructions for an English paper: answer one question, and drop the second half of another.",
+     "walkthrough": "'second' is the abbreviation S, dropped from TEST to leave TET, which takes I and QU inside. 'another' is another exam, TEST again, of which half, TE, ends the answer.",
+     "definitionFit": "Good form is correct social behaviour, and etiquette is the code of polite conduct."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Form"
+     "aptDefinition": false,
+     "misdirectedWord": "second"
     }
    }
   },
@@ -803,46 +814,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Lacking cover",
+       "at": 0,
+       "note": "without its cover the two-word string loses its outside letters, first and last"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Lacking cover",
-         "note": "with no cover the outside edges are gone, so the first and last letters of the phrase are removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "soldiers",
+         "at": 15,
          "gives": "MEN",
-         "note": "men is a common word for soldiers, as opposed to officers"
+         "note": "men are soldiers, as in officers and men"
         },
         {
-         "gives": "M"
+         "words": "gathered",
+         "at": 24,
+         "gives": "MASSED",
+         "note": "massed means gathered together in numbers"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "gathered",
-         "gives": "MASSED",
-         "note": "massed means gathered together"
-        },
-        {
-         "gives": "D"
-        }
-       ]
+       "gives": "MD"
       }
      ]
     },
     "explanation": {
-     "surface": "Troops with no protection huddle together.",
-     "walkthrough": "The covering letters come off the whole phrase men massed, not each word separately.",
-     "definitionFit": "En masse is French borrowed into English meaning all together, as one body."
+     "surface": "Without shelter, troops huddled together as a group.",
+     "walkthrough": "MEN and MASSED together make MENMASSED; take off the cover, its outer letters M and D, to leave the answer.",
+     "definitionFit": "En masse is a borrowed French phrase meaning all together, as one body."
     },
     "features": {
      "answerInScene": true,

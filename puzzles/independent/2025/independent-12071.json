@@ -100,14 +100,22 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 38,
+       "note": "around means the shortened words go round the letter for Spain"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "around",
-         "note": "the trimmed words are placed round the country abbreviation, enclosing it"
+         "text": "scratch their bottoms",
+         "at": 16,
+         "note": "scratch means delete, and the bottoms are each word's last letter"
         }
        ],
        "parts": [
@@ -115,80 +123,46 @@
          "op": "charade",
          "parts": [
           {
-           "op": "deletion",
-           "indicators": [
-            {
-             "text": "scratch their bottoms",
-             "note": "to scratch the bottom of each word is to rub out its final letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Why",
-             "note": "taken as written"
-            },
-            {
-             "gives": "Y"
-            }
-           ]
+           "words": "Why",
+           "at": 0
           },
           {
-           "words": "Spain",
-           "gives": "E",
-           "note": "E is the international vehicle code for Spain (España)"
+           "words": "old",
+           "at": 4
           },
           {
-           "op": "deletion",
-           "parts": [
-            {
-             "words": "men",
-             "note": "taken as written"
-            },
-            {
-             "gives": "N"
-            }
-           ]
+           "words": "men",
+           "at": 8
+          },
+          {
+           "words": "all",
+           "at": 12
           }
          ]
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "old",
-           "note": "taken as written"
-          },
-          {
-           "gives": "D"
-          }
-         ]
+         "gives": "YDNL"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "all",
-         "note": "taken as written"
-        },
-        {
-         "gives": "L"
-        }
-       ]
+       "words": "Spain",
+       "at": 45,
+       "gives": "E",
+       "note": "E is the international vehicle code for Spain"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheeky question about why elderly men scratch their backsides in Spain, with an aside that it's crude.",
-     "walkthrough": "Each of the four words loses its last letter, and the Spain letter sits between the second and third of them.",
-     "definitionFit": "Wholemeal flour keeps the whole grain, bran included, so it is not refined like white flour."
+     "surface": "A cheeky question about elderly men's habits, with the answer that it is crude.",
+     "walkthrough": "Remove the last letter of each of Why, old, men and all to get WH, OL, ME, AL, which go round E.",
+     "definitionFit": "Wholemeal flour is made from the whole grain, not refined to remove the bran."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "bottoms"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scratch"
     }
    }
   },
@@ -1994,49 +1968,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "JADE",
-     "indicators": [
-      {
-       "text": "broken",
-       "note": "something broken is in pieces, ready to be put back in another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "JADE",
+       "words": "Juliet",
+       "at": 19,
+       "gives": "J",
+       "note": "J is Juliet in the NATO phonetic alphabet"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "without",
-         "note": "without something means with those letters left out"
+         "text": "broken",
+         "at": 27,
+         "note": "broken means the letters are smashed and put back in another order"
         }
        ],
        "parts": [
         {
-         "words": "dear",
-         "note": "taken as written"
-        },
-        {
-         "words": "Juliet",
-         "gives": "J",
-         "note": "Juliet is J in the NATO alphabet"
-        },
-        {
-         "words": "Romeo",
-         "gives": "R",
-         "note": "Romeo is R in the NATO alphabet"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without",
+           "at": 34,
+           "note": "without means the letter for Romeo is left out of dear"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dear",
+           "at": 14
+          },
+          {
+           "words": "Romeo",
+           "at": 42,
+           "gives": "R",
+           "note": "R is Romeo in the NATO phonetic alphabet"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dear Juliet tires, heartbroken without Romeo.",
-     "walkthrough": "Romeo and Juliet are the lovers on the surface but just R and J here.",
-     "definitionFit": "To jade is to tire or wear out, so someone jaded has grown weary of something."
+     "surface": "Juliet grows tired of her beloved, heartbroken with Romeo gone.",
+     "walkthrough": "The Shakespeare names are NATO alphabet letters; dear loses the Romeo letter and the remainder is rearranged after the Juliet letter.",
+     "definitionFit": "To jade is to tire or become sated with something, hence jaded meaning worn out."
     },
     "features": {
      "answerInScene": false,
