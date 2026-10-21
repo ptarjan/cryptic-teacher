@@ -4390,21 +4390,25 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
     # asks, spooled in this same pass), and the read, deferred, runs again once the drainer has
     # answered, to judge this window by its answers and try the next only if it is poor.
     waiting = vlm.unanswered()
+    # A poor window with another to try is not picked for (_read_page's "_deferred"): the
+    # best window is read again with its picks once chosen.
     if first is not None:
-        v, p = _read_page(d, found, hit, solutions, vlm_for, first, None)
+        v, p = _read_page(d, found, hit, solutions, vlm_for, first, None, defer=True)
         v.pop("_laid", None)
         if vlm.unanswered() != waiting:
+            v.pop("_deferred", None)
             return v, p
         if not crop_window.poor(v, image_ok=vlm_for is not False):
             v["cropFrom"] = "gutter"
             return v, p
-    verdict, puzzle = _read_page(d, found, hit, solutions, vlm_for, None, alts)
+    verdict, puzzle = _read_page(d, found, hit, solutions, vlm_for, None, alts, defer=None)
     if not alts or not crop_window.poor(verdict, image_ok=vlm_for is not False) or vlm.unanswered() != waiting:
         verdict.pop("_laid", None)
+        verdict.pop("_deferred", None)
         return verdict, puzzle
     best = (crop_window.score(verdict, puzzle), verdict, puzzle)
     settled = None
-    for alt in alts:
+    for i, alt in enumerate(alts):
         if alt == first:
             continue
         # Every light filled, none blank: no other window can score higher
@@ -4414,7 +4418,8 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
         # The VLM is not asked again for a clue the best window so far already has
         # (lend_laid): another window is read for the clues that one is still missing.
         lent = best[1].get("_laid") if vlm_for is not False else None
-        v, p = _read_page(d, found, hit, solutions, vlm_for, alt, None, **({"lent": lent} if lent else {}))
+        more = any(a != first for a in alts[i + 1:])
+        v, p = _read_page(d, found, hit, solutions, vlm_for, alt, None, **({"lent": lent} if lent else {}), defer=more)
         if vlm.unanswered() != waiting:
             break  # this window's asks are spooled: the read defers; the windows after it wait
         if crop_window.score(v, p) > best[0]:
@@ -4422,8 +4427,19 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
         if not crop_window.poor(v, image_ok=vlm_for is not False):
             settled = alt
             break
+    chosen = best[1].pop("_deferred", None)
+    if chosen is not None and vlm.unanswered() == waiting:
+        # The window stands, its picks not yet asked: read it again (every column read is
+        # cached) with them, for the blanks of this window alone.
+        was = best[1] is verdict
+        lent = chosen["lent"]
+        v, p = _read_page(d, found, hit, solutions, vlm_for, chosen["alt"], None, **({"lent": lent} if lent else {}))
+        best = (crop_window.score(v, p), v, p)
+        if was:
+            verdict = v
     for v in (verdict, best[1]):
         v.pop("_laid", None)
+        v.pop("_deferred", None)
     if best[1] is not verdict:
         best[1]["cropFrom"] = "gutter"
     # The readers' own pass notes the window that held the columns (not
@@ -4448,7 +4464,7 @@ def lend_laid(laid, blank, lent):
     return laid, blank, got
 
 
-def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None):
+def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=False):
     """read_page's one read from a window: `alt` is (kind, x) and moves the
     window edge of that kind ("lead": a lead column's left edge; "right": the
     right clue columns' far edge; "over": the third column's; "under": the
@@ -4796,7 +4812,21 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None):
             if not SENTENCE_GLUED.search(early[lid][0] or ""):
                 laid[lid] = early[lid]
                 blank = {k: v for k, v in blank.items() if k != lid}
-    if blank and "vlm" in texts and vlm_on and vlm.wanted():
+    # A window already poor before any pick, with another to try (`defer`; None: when `alts`
+    # holds one), is not picked for: the best window is chosen first, and read_page picks
+    # that one's blanks alone (FT 1982-02-16: 8 picks over two poor windows, then a third).
+    if blank and "vlm" in texts and vlm_on and vlm.wanted() and (defer or (defer is None and alts)):
+        try:
+            t_laid, t_blank, _ = tail(laid, blank)
+            now = {"lights": len(rg.light_cells(grid)), "blank": t_blank,
+                   "agreed": sum(1 for t, _, _ in t_laid.values() if t)}
+            if crop_window.poor(now, image_ok=True):
+                verdict["_deferred"] = {"alt": alt, "lent": lent}
+        except Exception:  # a trial that cannot be judged defers nothing
+            pass
+    if "_deferred" in verdict:
+        verdict["vlmSkipped"] = "poor window, another to try: the best one is picked after"
+    elif blank and "vlm" in texts and vlm_on and vlm.wanted():
         if doomed():
             verdict["vlmSkipped"] = "a laid clue is refused whatever the VLM picks"
         elif unpickable(texts, blank, len(rg.light_cells(grid))):

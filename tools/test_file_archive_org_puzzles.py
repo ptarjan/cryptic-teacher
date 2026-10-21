@@ -2725,7 +2725,7 @@ check("the VLM pass is handed the window the readers settled on", [(False, None)
 f.read_page = real_page
 tried = []
 real_inner = f._read_page
-def fake_inner(d, found, hit, sols, vlm_for, alt, alts):
+def fake_inner(d, found, hit, sols, vlm_for, alt, alts, defer=False):
     tried.append(alt)
     if alts is not None:
         alts.extend([("lead", 1), ("plain", None)])
@@ -2742,7 +2742,7 @@ tried.clear()
 v, p = f.read_page(None, None, None, None, False)
 check("the readers' own pass keeps the window it settled on for the VLM pass", [None, ("lead", 1), ("plain", None)], tried)
 check("and notes it", ("plain", None), v.get("_alt"))
-def fake_full(d, found, hit, sols, vlm_for, alt, alts):
+def fake_full(d, found, hit, sols, vlm_for, alt, alts, defer=False):
     tried.append(alt)
     if alts is not None:
         alts.extend([("lead", 1), ("plain", None)])
@@ -2754,7 +2754,7 @@ check("a poor window that fills every light with none blank ends the VLM's searc
 tried.clear()
 f.read_page(None, None, None, None, False)
 check("the readers' own pass still tries the other windows", [None, ("lead", 1), ("plain", None)], tried)
-def fake_spooling(d, found, hit, sols, vlm_for, alt, alts):
+def fake_spooling(d, found, hit, sols, vlm_for, alt, alts, defer=False):
     tried.append(alt)
     if alts is not None:
         alts.extend([("lead", 1), ("plain", None)])
@@ -2768,7 +2768,7 @@ tried.clear()
 f.read_page(None, None, None, None, ["6-across"], ("plain", None))
 check("nor is the first window the readers settled on", [("plain", None)], tried)
 lents = []
-def fake_lending(d, found, hit, sols, vlm_for, alt, alts, lent=None):
+def fake_lending(d, found, hit, sols, vlm_for, alt, alts, lent=None, defer=False):
     lents.append((alt, lent))
     if alts is not None:
         alts.extend([("lead", 1), ("plain", None)])
@@ -2791,6 +2791,26 @@ laid, blank, got = f.lend_laid({"1-across": ("", "3", None), "2-down": ("", "4",
 check("a blank light takes the clue lent for it when the count is the same, and not otherwise",
       ({"1-across": "One", "2-down": "", "3-down": ""}, ["2-down", "3-down"], {"1-across"}),
       ({k: v[0] for k, v in laid.items()}, sorted(blank), got))
+# Picks wait for the best window: a poor window with another to try defers them.
+reads = []
+def fake_deferring(d, found, hit, sols, vlm_for, alt, alts, lent=None, defer=False):
+    reads.append((alt, defer))
+    if alts is not None:
+        alts.extend([("lead", 1), ("plain", None)])
+        defer = bool(alts)
+    n = {None: 3, ("lead", 1): 6, ("plain", None): 5}[alt]  # blanks of each window
+    v = {"number": 1, "lights": 10, "agreed": 10 - n, "blank": {f"{i}-down": 1 for i in range(n)}}
+    if defer:
+        v["_deferred"] = {"alt": alt, "lent": lent}
+    else:
+        v["agreed"], v["blank"] = v["agreed"] + 2, dict(list(v["blank"].items())[2:])  # the picks fill two
+        v["picked"] = True
+    return v, {"id": "x"}
+f._read_page = fake_deferring
+v, p = f.read_page(None, None, None, None, ["6-across"])
+check("a poor window with others to try asks no pick; the best, chosen, is read again with them",
+      [(None, None), (("lead", 1), True), (("plain", None), False), (None, False)], reads)
+check("and that window's verdict is the one filed, picked, with no deferral left in it", (True, False), (v.get("picked"), "_deferred" in v))
 f._read_page = real_inner
 def fake_refused(d, found, hit, sols, vlm_for=False):
     asked.append(vlm_for)
