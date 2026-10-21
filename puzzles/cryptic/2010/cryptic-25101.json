@@ -183,59 +183,68 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "AVERYBRITISHCOUP",
-     "indicators": [
-      {
-       "text": "start to finish",
-       "note": "the opening of the word is carried round to its end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AVERYBRITISHCOUP",
+       "op": "move",
        "indicators": [
         {
-         "text": "briefly",
-         "note": "said briefly means shortened, so only the start of each word is used"
+         "text": "start to finish",
+         "at": 14,
+         "note": "the opening pair of letters of the word for courage is shifted from the front to the back"
         }
        ],
        "parts": [
         {
          "words": "courage",
+         "at": 5,
          "gives": "BRAVERY",
-         "note": "bravery is courage; its first two letters move to the end"
+         "note": "courage is bravery"
         },
         {
-         "words": "it is",
-         "note": "taken as written"
-        },
-        {
-         "words": "the last words of 11",
-         "gives": "H",
-         "note": "11 parses as REVOLVERS plus HOT, so its last word, shortened, gives this letter"
-        },
-        {
-         "words": "14",
-         "gives": "CO",
-         "note": "14 ends in COMPANY, whose standard short form is this"
-        },
-        {
-         "words": "exalted",
-         "gives": "UP",
-         "note": "something exalted is raised up"
+         "gives": "BR"
         }
        ]
+      },
+      {
+       "words": "it is",
+       "at": 31,
+       "gives": "ITIS",
+       "note": "taken as written, the two words run together"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 65,
+         "note": "the two closing words are cut short, as an abbreviation would be, keeping only a scrap of each"
+        }
+       ],
+       "parts": [
+        {
+         "words": "last words of 11 and 14",
+         "at": 41,
+         "gives": "SHOTCOMPANY",
+         "note": "11 ends with SHOT and 14 ends with COMPANY"
+        },
+        {
+         "gives": "SOTMPANY"
+        }
+       ]
+      },
+      {
+       "words": "exalted",
+       "at": 73,
+       "gives": "UP",
+       "note": "exalted means raised up, so up"
       }
      ]
     },
     "explanation": {
-     "surface": "A tribute to a writer's courage, built from the closing words of other answers.",
-     "walkthrough": "10 is ALAN PLATER; '10's' alone is the definition, pointing to his work. He adapted Chris Mullin's novel A Very British Coup for television in 1988. The H is the loosest step: it takes HOT, 11's wordplay ending, as its last word.",
-     "definitionFit": "A Very British Coup was Plater's acclaimed television serial about a left-wing prime minister undermined by the establishment."
+     "surface": "A tribute line praising the playwright's nerve from first to last, quoting the closing words of two other entries in raised tones.",
+     "walkthrough": "'start to finish' moves BR, not just B, from the front of BRAVERY, giving AVERYBR. 'briefly' cuts SHOT to H (the blogger read it as H from 'hot') and COMPANY to its usual short form CO.",
+     "definitionFit": "Alan Plater (entry 10) adapted Chris Mullin's political novel for the 1988 Channel 4 television serial of this title."
     },
     "features": {
      "answerInScene": false,
@@ -769,49 +778,53 @@
      "parts": [
       {
        "words": "naval body",
+       "at": 5,
        "gives": "HULL",
-       "note": "the hull is the body of a ship"
+       "note": "the hull is the main body of a ship"
       },
       {
        "words": "traffic",
+       "at": 19,
        "gives": "TRUCK",
-       "note": "to have truck with is to have dealings, an old sense of traffic"
+       "note": "to truck is to trade or have dealings, as in 'have no truck with'"
+      },
+      {
+       "words": "the",
+       "at": 30
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "new",
-         "note": "something made new is remade in a different form, so these letters change order"
+         "at": 34,
+         "note": "new signals that the word rate is made afresh in a different order"
         }
        ],
        "parts": [
         {
-         "words": "the",
-         "note": "taken as written"
-        },
-        {
          "words": "rate",
-         "note": "taken as written, then rearranged"
+         "at": 38,
+         "note": "anagram fodder"
         }
        ]
       },
       {
        "words": "2",
+       "at": 45,
        "gives": "COMPANY",
-       "note": "from the saying two's company, three's a crowd"
+       "note": "from the saying 'two's company, three's a crowd'"
       }
      ]
     },
     "explanation": {
-     "surface": "A navy committee setting out to trade at a fresh price.",
-     "walkthrough": "10 is ALAN PLATER; '10's' alone is the definition. Hull Truck is the Hull theatre company Plater supported for decades. '2' gives its word through the saying 'two's company'.",
-     "definitionFit": "Hull Truck Theatre Company in Yorkshire staged many of Plater's plays, and he was its long-time president."
+     "surface": "A note about a ship's hull trading at a newly set rate, as if from shipping news.",
+     "walkthrough": "'Full price' tempts as a reading of 'at the new rate', but the words are wordplay. The closing '2' is a bare number that stands in through the saying 'two's company'.",
+     "definitionFit": "Alan Plater had a long association with this Hull-based theatre group, which staged many of his plays."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "naval"
     }
    }
@@ -1700,58 +1713,66 @@
        "indicators": [
         {
          "text": "back",
-         "note": "going back means running the other way, right to left"
+         "at": 10,
+         "note": "back tells us to read the word for look in the opposite direction"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "look",
+         "at": 5,
+         "gives": "PEEK",
+         "note": "to look is to peek"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 24,
+         "note": "off, as in gone off or out of order, signals that the letters of heat's are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heat's",
+         "at": 17,
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "at": 36,
+         "note": "eating means the singer's surname takes the jumbled letters into her middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Edith",
+         "at": 30,
+         "gives": "PIAF",
+         "note": "Edith Piaf, the French singer"
+        },
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "eating",
-           "note": "what is eaten goes inside, so one piece swallows the other"
+           "text": "wildly",
+           "at": 50,
+           "note": "wildly signals that the letters of dirt's are thrown into a new order"
           }
          ],
          "parts": [
           {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "off",
-             "note": "something gone off is spoiled and out of shape, so the letters are jumbled"
-            }
-           ],
-           "parts": [
-            {
-             "words": "look",
-             "gives": "PEEK",
-             "note": "a peek is a quick look"
-            },
-            {
-             "words": "heat's",
-             "note": "taken as written with its s"
-            },
-            {
-             "words": "Edith",
-             "gives": "PIAF",
-             "note": "Edith Piaf, the French singer"
-            }
-           ]
-          },
-          {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "wildly",
-             "note": "acting wildly is out of control, so these letters scatter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "dirt's",
-             "note": "taken as written with its s"
-            }
-           ]
+           "words": "dirt's",
+           "at": 43,
+           "note": "anagram fodder"
           }
          ]
         }
@@ -1759,15 +1780,16 @@
       },
       {
        "words": "untrue",
+       "at": 57,
        "gives": "LYING",
-       "note": "a lying account is untrue"
+       "note": "something untrue is lying"
       }
      ]
     },
     "explanation": {
-     "surface": "A writer glancing back as the pressure eases, while Edith dishes dirt that is wildly false.",
-     "walkthrough": "10 is ALAN PLATER; '10's' alone is the definition. He wrote the screenplay for the 1997 film of Orwell's novel. 'Edith' is Piaf, split round the jumbled dirt.",
-     "definitionFit": "Plater adapted George Orwell's novel Keep the Aspidistra Flying for the 1997 film, so the title counts as his work."
+     "surface": "A gossipy complaint that a story about Edith eating dirt is wildly false, with someone glancing back once the heat dies down.",
+     "walkthrough": "Edith here is the French singer Piaf, known by her first name alone; the dashes break the surface into asides, but the pieces simply run on in clue order.",
+     "definitionFit": "Plater wrote the screenplay for the 1997 film of George Orwell's novel with this title."
     },
     "features": {
      "answerInScene": false,
