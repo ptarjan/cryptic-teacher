@@ -1089,11 +1089,14 @@ def fills_gpu(unit):
             and needs_vlm(unit))
 
 
-def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_fills, read_pool):
-    """The reads to start ahead of the queue's order because the VLM stage is short of asks (spooled
+def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_fills, read_pool,
+             scan_of=None, scanning=frozenset()):
+    """The units to start ahead of the queue's order because the VLM stage is short of asks (spooled
     below vlm_reader.slots() + PIPELINE) while CT_NEWEST_FIRST papers' OCR-only work holds the read
     pool: the next never-read reads of other papers that ask the VLM, as many as keep running fills
-    under half the read pool (Times keeps the rest, so the CPU stays busy). Empty with no
+    under half the read pool (Times keeps the rest, so the CPU stays busy). A such read still waiting
+    on its own scan (queued far back behind the Gale and Times scans) brings that scan forward
+    (`scan_of(u)`: the scan unit or None; one running in `scanning` counts as a fill). Empty with no
     CT_NEWEST_FIRST, a fed VLM or a full spool."""
     if not newest_first_papers() or full or spooled >= vlm_reader.slots() + vlm_reader.PIPELINE:
         return []
@@ -1102,9 +1105,18 @@ def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_f
     for u, k in read_cands:
         if left <= 0:
             break
-        if fills_gpu(u) and k not in tried and k not in busy and not waits(u) and not vlm_waits(u):
+        if not (fills_gpu(u) and k not in tried and k not in busy and not vlm_waits(u)):
+            continue
+        if not waits(u):
             out.append(u)
             left -= 1
+        elif scan_of is not None and (u["paper"], u["rel"]) not in scanning:
+            s = scan_of(u)
+            if s is not None and key_of(s) not in tried:
+                out.append(s)
+                left -= 1
+        elif scan_of is not None:
+            left -= 1  # its scan is running: that slot is spoken for
     return out
 
 
@@ -1821,6 +1833,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     # each slot, (unit, key, slot) of the urgent candidates, (unit, key) of the read-slot reads, lists,
     # the urgent candidates' keys, {key: its first index among them}).
     queue_memo = [None] * 10
+    scan_of_rel = [None, {}]  # the scan_keys lists, their scans by (paper, rel): gpu_fill's scan_of
     scan_keys = [None, frozenset(), None]  # the lists' (id, len), their scans' (paper, rel), the lists
 
     def replan_all(notes=None):
@@ -2337,10 +2350,20 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         walked = may_start() and any(v > 0 for v in free.values())
         # An idle GPU is a bug: with the VLM stage short of asks, other papers' never-read reads (which
         # ask the VLM) go ahead of the CT_NEWEST_FIRST papers' OCR-only rereads (gpu_fill).
+        def fill_scan(u, scan_keys=scan_keys, unscanned=unscanned):
+            """The queued scan read `u` waits on (its own, not yet done), or None."""
+            if (u["paper"], u["rel"]) not in unscanned:
+                return None
+            if scan_of_rel[0] is not scan_keys[2]:
+                scan_of_rel[:] = [scan_keys[2], {(s["paper"], s["rel"]): s for us in scan_keys[2] for s in us}]
+            return scan_of_rel[1].get((u["paper"], u["rel"]))
         fill = gpu_fill(read_cands, tried, busy, waits, vlm_waits, len(queued), vlm_full or spool_cap_hit,
-                        sum(1 for _, (v, _) in units_running() if fills_gpu(v)), pools.get("read", 0)
+                        sum(1 for _, (v, _) in units_running() if fills_gpu(v)), pools.get("read", 0),
+                        fill_scan, scanning
                         ) if free.get("read", 0) > 0 and may_start() and not yielding and not starved else []
         fill_keys = {key_of(u) for u in fill}
+        if free.get("scan", 0) <= 0 and ceiling_left > 0 and any(u["kind"] == "scan" for u in fill):
+            free["scan"] = 1  # the scan share held scans back for reads: a fill's scan is for a read that asks the VLM
 
         def idle_key(gates, urgent=urgent, free=free, starved=starved, yielding=yielding, desk_mem=desk_mem):
             """What a walk of the queue (~12k units) that begins nothing
@@ -2380,7 +2403,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             # Held before its ledger row is checked: stood() stats the
             # edition's files, and a held scan is asked again every pass.
-            if u["kind"] == "scan" and ukey not in firsts and fed(u) and not newest_first(u):
+            if u["kind"] == "scan" and ukey not in firsts and ukey not in fill_keys and fed(u) and not newest_first(u):
                 continue
             if u["kind"] == "scan" and u["paper"] in fa.FILERS and stood(u):
                 # Scanned since the plan was made (a kept plan, a read, another queue): its reads may go on.
