@@ -1437,35 +1437,41 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "LEVI",
+     "op": "move",
      "indicators": [
       {
-       "text": "putting money first instead of last",
-       "note": "the instruction moves one letter from the end of a word to its front"
+       "text": "putting",
+       "at": 27,
+       "note": "putting signals that a letter is moved to a new position in the word"
+      },
+      {
+       "text": "first instead of last",
+       "at": 41,
+       "note": "the money letter goes to the front rather than staying at the end of the word"
       }
      ],
      "parts": [
       {
        "words": "sinful",
+       "at": 20,
        "gives": "EVIL",
-       "note": "evil means sinful"
+       "note": "sinful means evil"
       },
       {
        "words": "money",
+       "at": 35,
        "gives": "L",
-       "note": "L stands for pound, the British unit of money"
+       "note": "L stands for pounds sterling (from Latin libra), money"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone claims a father figure is wicked for valuing cash above all.",
-     "walkthrough": "The L ending the word for sinful moves to the front.",
-     "definitionFit": "He was the third son of Jacob in Genesis and founder of one of the twelve tribes of Israel."
+     "surface": "A moral judgement on a biblical patriarch who valued money over goodness.",
+     "walkthrough": "EVIL ends in L; moving that L from last place to first gives the name.",
+     "definitionFit": "Levi was one of the twelve sons of Jacob, founder of a tribe of Israel, so a patriarch."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "money"
     }
@@ -1628,43 +1634,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "endlessly means the last letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "fast",
-         "gives": "LENT",
-         "note": "Lent is the Christian season of fasting"
-        },
-        {
-         "words": "unwell",
-         "gives": "ILL",
-         "note": "ill means unwell"
-        }
-       ]
+       "words": "fast",
+       "at": 9,
+       "gives": "LENT",
+       "note": "Lent is the Christian season of fasting"
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 16,
+         "note": "endlessly says the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unwell",
+         "at": 26,
+         "gives": "ILL",
+         "note": "unwell means ill"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patient's heartbeat is racing and they can't stop feeling sick.",
-     "walkthrough": "'Pulse' and 'fast' suggest a racing heartbeat, but pulse is a food and fast is a religious season.",
-     "definitionFit": "Pulses are the edible seeds of legumes such as beans and peas, and a lentil is one kind."
+     "surface": "Someone fasting and feeling not quite well.",
+     "walkthrough": "'Pulse' looks like a heartbeat but is the edible seed; 'fast' is the season, not speed.",
+     "definitionFit": "A lentil is a legume seed, and pulses are the dried edible seeds of such plants."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Pulse"
     }
    }

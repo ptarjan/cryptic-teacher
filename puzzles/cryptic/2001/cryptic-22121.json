@@ -732,36 +732,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MISER",
-     "indicators": [
-      {
-       "text": "having lost",
-       "note": "having lost something means it has been taken away, so letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "motorway",
-       "gives": "M",
-       "note": "M as in the M1, the British motorway prefix"
+       "at": 20,
+       "gives": "MI",
+       "note": "the M1 is a British motorway, written MI"
       },
       {
-       "words": "service",
-       "note": "taken as written"
-      },
-      {
-       "words": "grip",
-       "gives": "VICE",
-       "note": "a vice is a tool that grips a workpiece"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having lost its",
+         "at": 37,
+         "note": "having lost its says the grip letters are taken out of service"
+        }
+       ],
+       "parts": [
+        {
+         "words": "service",
+         "at": 29
+        },
+        {
+         "words": "grip",
+         "at": 53,
+         "gives": "VICE",
+         "note": "a vice is a tool that grips"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mean-spirited figure running a motorway service area that has gone downhill.",
-     "walkthrough": "Removing VICE from SERVICE leaves SER. British motorways are numbered with M, like the M25.",
-     "definitionFit": "A miser hoards money and refuses to spend it, the very type of a stingy person."
+     "surface": "A motorway service station that has lost its hold.",
+     "walkthrough": "The M1 is the main motorway north out of London; read as MI. SERVICE without VICE leaves SER.",
+     "definitionFit": "A miser is a person who hoards money and spends as little as possible."
     },
     "features": {
      "answerInScene": false,

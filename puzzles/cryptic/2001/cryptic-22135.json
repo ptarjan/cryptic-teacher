@@ -944,33 +944,62 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BLOODANDTHUNDER",
      "indicators": [
       {
        "text": "from Spooner",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts are exchanged"
+       "at": 51,
+       "note": "Spooner was famous for swapping the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "sounds dull, given mistake",
-       "gives": "BLOODANDTHUNDER",
-       "soundsLike": "THUD AND BLUNDER",
-       "note": "a thud is a dull sound, given means plus, and a blunder is a mistake; swap the opening sounds"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "THOOD",
+         "indicators": [
+          {
+           "text": "sounds",
+           "at": 24,
+           "note": "sounds says the noise is taken as heard: it rhymes with blood, so it can be written thood for the swap"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dull",
+           "at": 31,
+           "gives": "THUD",
+           "note": "dull stands for a dull noise, a thud"
+          }
+         ]
+        },
+        {
+         "words": "given",
+         "at": 37,
+         "gives": "AND",
+         "note": "given here means plus, and"
+        }
+       ]
+      },
+      {
+       "words": "mistake",
+       "at": 43,
+       "gives": "BLUNDER",
+       "note": "a blunder is a mistake"
       }
      ]
     },
     "explanation": {
-     "surface": "A theatrical show that sounds tedious and botched, as the famously muddled Reverend Spooner might put it.",
-     "definitionFit": "Blood-and-thunder describes sensational, violent melodrama, the stuff of lurid stage shows and pulp stories."
+     "surface": "A critic panning a melodrama as a dull, mistaken production.",
+     "walkthrough": "Swap the opening sounds of THUD AND BLUNDER: BL and TH trade places, giving a phrase pronounced like the answer.",
+     "definitionFit": "Blood-and-thunder describes sensational, violent melodrama on stage or in print."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "sounds"
+     "joke": "pun",
+     "misdirectedWord": "given"
     }
    }
   },
@@ -1483,50 +1512,47 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "FELON",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "On the contrary",
+       "at": 36,
+       "note": "on the contrary signals the letters running the opposite way"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "On the contrary",
-         "note": "doing things contrariwise means the opposite way round, so the letters run backwards"
+         "text": "virtually",
+         "at": 15,
+         "note": "virtually means almost, so the phrase loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "virtually",
-           "note": "virtually means almost, so the word stops a letter short"
-          }
-         ],
-         "parts": [
-          {
-           "words": "all right",
-           "gives": "NOLEFT",
-           "note": "each word swapped for its opposite: the opposite of all is no and of right is left"
-          },
-          {
-           "gives": "T"
-          }
-         ]
+         "words": "all right",
+         "at": 25,
+         "gives": "NOLEFT",
+         "note": "if everything is right, there is no left: a punning reading of all right"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether a criminal is more or less fine, then answers no.",
-     "walkthrough": "'On the contrary' does double work: it turns all right into its opposite, no left, and then runs that, missing its last letter, backwards.",
-     "definitionFit": "A felon is someone convicted of a serious crime, a criminal."
+     "surface": "A criminal who then turns out to be more or less fine, or perhaps the reverse.",
+     "walkthrough": "'all right' is read literally: all is right, so no left. Cut the final letter ('virtually') and run the result backwards ('On the contrary').",
+     "definitionFit": "A felon is someone who has committed a serious crime."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "right"
     }
    }

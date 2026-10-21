@@ -777,55 +777,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "EDENTATE",
      "indicators": [
       {
        "text": "replacing",
-       "note": "replacing says the former prime minister takes the place of a letter, swapping it out"
+       "at": 8,
+       "note": "replacing says one letter of the word is swapped for the PM"
+      },
+      {
+       "text": "head of",
+       "at": 18,
+       "note": "head of points to the first letter of state as the one swapped out"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "PM once",
-         "gives": "EDEN",
-         "note": "Anthony Eden was British Prime Minister in the 1950s"
-        },
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "head of",
-           "note": "head of points at the first letter of the following word, the one that is swapped away"
-          }
-         ],
-         "parts": [
-          {
-           "words": "state",
-           "gives": "STATE",
-           "note": "state without its first letter"
-          },
-          {
-           "gives": "S"
-          }
-         ]
-        }
-       ]
+       "words": "state",
+       "at": 26
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "words": "PM once",
+       "at": 0,
+       "gives": "EDEN",
+       "note": "Anthony Eden was a British prime minister in the 1950s"
       }
      ]
     },
     "explanation": {
-     "surface": "A former prime minister takes over as head of state.",
-     "walkthrough": "EDEN stands where the S of STATE was. Anthony Eden was a British prime minister.",
-     "definitionFit": "Edentate describes animals such as sloths and anteaters that lack front teeth, a zoological adjective for toothlessness."
+     "surface": "A former prime minister taking over as head of state, though toothless.",
+     "walkthrough": "Eden replaces the first letter of STATE.",
+     "definitionFit": "Edentate means toothless; it also names the order of mammals such as sloths and anteaters."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "head"
+     "misdirectedWord": "state"
     }
    }
   },

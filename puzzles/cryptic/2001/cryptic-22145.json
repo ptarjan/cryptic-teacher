@@ -1084,49 +1084,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UPTOTHENINES",
+     "op": "composite",
      "indicators": [
       {
-       "text": "no use",
-       "note": "with no use, the three letters spelling that word are taken away"
+       "text": "no",
+       "at": 21,
+       "note": "no use says the letters of use are to be left out of the pool"
+      },
+      {
+       "text": "development",
+       "at": 51,
+       "note": "a development is a reworking, so the remaining letters are rearranged into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "development",
-         "note": "development turns the material into something new and different"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
+         "at": 31,
+         "gives": "N"
         },
         {
          "words": "penthouse",
-         "note": "taken as written"
+         "at": 35
         },
         {
          "words": "suite",
-         "gives": "IT",
-         "note": "the word with the letters of 'use' removed"
+         "at": 45
         }
        ]
+      },
+      {
+       "words": "use",
+       "at": 24,
+       "note": "taken as written; its letters are the ones removed from the pool"
       }
      ]
     },
     "explanation": {
-     "surface": "A developer's flashy new penthouse suite turns out to be useless.",
-     "definitionFit": "The idiom describes someone dressed elaborately and showily, in their very finest clothes."
+     "surface": "A property puff: dressing up a new penthouse suite so flashily that it serves no purpose.",
+     "walkthrough": "Pool N with PENTHOUSE SUITE, remove the letters U, S, E ('no use'), and rearrange the twelve letters that are left ('development').",
+     "definitionFit": "Dressed up to the nines is an idiom for wearing showy, elaborate clothes."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "development"
     }
