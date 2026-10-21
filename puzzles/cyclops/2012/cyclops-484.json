@@ -414,31 +414,66 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Ordered to take time off",
-       "gives": "IDY",
-       "note": "ordered is tidy; with T for time removed, three letters remain"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to take",
+         "at": 8,
+         "note": "to take ... off says the letter for time is removed from the word for ordered"
+        },
+        {
+         "text": "off",
+         "at": 21,
+         "note": "part of the removal phrase to take ... off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ordered",
+         "at": 0,
+         "gives": "TIDY",
+         "note": "tidy means ordered, neat"
+        },
+        {
+         "words": "time",
+         "at": 16,
+         "gives": "T"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "leaders",
-         "note": "the leaders of the four parties are the letters at the front of each name"
+         "at": 56,
+         "note": "leaders means the first letters of the four party words"
         }
        ],
        "parts": [
         {
-         "words": "Lab, Lib, Independent and Con",
-         "note": "first letters of the four party labels"
+         "words": "Lab",
+         "at": 26
+        },
+        {
+         "words": "Lib",
+         "at": 31
+        },
+        {
+         "words": "Independent",
+         "at": 36
+        },
+        {
+         "words": "Con",
+         "at": 52
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Party leaders ordered on holiday together, with a sarcastic 'how lovely' at the end.",
-     "walkthrough": "'Charming!' in the surface is sarcastic, but as the definition it is meant straight.",
-     "definitionFit": "An idyllic scene is delightfully peaceful and pleasing, which is what charming describes."
+     "surface": "MPs from all parties told to take time off sounds like a charming break.",
+     "definitionFit": "Idyllic means delightfully peaceful and picturesque, close to charming in sense."
     },
     "features": {
      "answerInScene": false,
@@ -1385,31 +1420,48 @@
      "indicators": [
       {
        "text": "wantonly",
-       "note": "acting wantonly means acting recklessly, so the letters are thrown about"
+       "at": 22,
+       "note": "wantonly means recklessly, so the letters are thrown into a new order"
       }
      ],
      "parts": [
       {
        "words": "e.g.",
-       "note": "the abbreviation itself, taken letter for letter"
+       "at": 0,
+       "gives": "EG",
+       "note": "taken as written, its two letters"
       },
       {
-       "words": "Brenda, topless",
-       "gives": "RENDA",
-       "note": "the name minus its opening B"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 13,
+         "note": "topless means the top, here the first letter, of Brenda is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Brenda",
+         "at": 5,
+         "note": "taken as written before its first letter goes"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Brenda, Private Eye's nickname for the Queen, going topless: a scandal waiting to explode.",
-     "walkthrough": "'e.g.' looks like the start of an example but is fodder. Private Eye calls the Queen Brenda.",
-     "definitionFit": "A hand grenade explodes once its safety pin is pulled, so removing that pin makes it deadly."
+     "surface": "A satirical jab at someone named Brenda, topless and wanton, being dangerous when uncovered.",
+     "definitionFit": "A hand grenade explodes once its safety pin is pulled, so the definition describes this weapon."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "e.g."
+     "joke": "pun",
+     "misdirectedWord": "unpinned"
     }
    }
   }

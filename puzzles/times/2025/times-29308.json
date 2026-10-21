@@ -530,24 +530,44 @@
      "parts": [
       {
        "words": "engineers",
+       "at": 11,
        "gives": "RE",
-       "note": "RE = Royal Engineers"
+       "note": "RE is the Royal Engineers"
       },
       {
-       "words": "likely to start action without it",
-       "gives": "LIGIOUS",
-       "note": "LITIGIOUS, quick to start legal action, without IT"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 44,
+         "note": "without says the word it is left out of the word for likely to start action"
+        }
+       ],
+       "parts": [
+        {
+         "words": "likely to start action",
+         "at": 21,
+         "gives": "LITIGIOUS",
+         "note": "litigious means inclined to start legal actions"
+        },
+        {
+         "words": "it",
+         "at": 52,
+         "gives": "IT",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about whether careful engineers might begin work without some component.",
-     "walkthrough": "The action is legal action, and the word to find is LITIGIOUS before IT comes out.",
-     "definitionFit": "Religious can mean scrupulous or conscientious, as in religiously careful."
+     "surface": "Careful engineers who might sue if they lacked something.",
+     "walkthrough": "Action here is a lawsuit, not physical activity.",
+     "definitionFit": "Religious can mean meticulous and conscientious, as in doing something with religious care."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "action"
     }
    }
