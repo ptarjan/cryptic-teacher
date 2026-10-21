@@ -289,46 +289,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "BUZFUZ",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 13,
+       "note": "say tells us the words are spoken, so the result only needs to sound right"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "BUZ",
-       "indicators": [
-        {
-         "text": "say",
-         "note": "say asks us to speak the words and keep the sounds rather than the spellings"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Ring",
-         "gives": "BUZZ",
-         "note": "to ring someone is to give them a buzz"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "FUZ",
-       "parts": [
-        {
-         "words": "police",
-         "gives": "FUZZ",
-         "note": "fuzz is slang for the police"
-        }
-       ]
+       "words": "Ring police",
+       "at": 0,
+       "gives": "BUZZFUZZ",
+       "note": "to ring someone is to give them a buzz; fuzz is slang for the police"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone phones the police to summon a sergeant.",
-     "walkthrough": "Serjeant Buzfuz is the blustering barrister for the plaintiff in Dickens's Pickwick Papers; serjeant here is the old legal rank, not the police one.",
-     "definitionFit": "Buzfuz holds the rank of serjeant-at-law in Dickens's novel, so the title names that fictional character."
+     "surface": "Phoning the police to bring in a sergeant.",
+     "walkthrough": "Serjeant Buzfuz is the bullying barrister in Dickens's The Pickwick Papers, counsel in Bardell v Pickwick; the spelling 'Serjeant' marks the old legal rank.",
+     "definitionFit": "Serjeant-at-law was a senior rank of barrister, and Dickens's Buzfuz holds that rank in Pickwick."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Serjeant"
     }
@@ -1081,8 +1067,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "this weapon",
-      "at": 25
+      "text": "weapon",
+      "at": 30
      }
     ],
     "wordplay": {
@@ -1090,26 +1076,39 @@
      "indicators": [
       {
        "text": "up",
-       "note": "in a down entry, up means the letters are read from the bottom upwards"
+       "at": 17,
+       "note": "in a down clue up says the pair is read from bottom to top, backwards"
       }
      ],
      "parts": [
       {
-       "words": "Repeatedly clean",
-       "gives": "MOPMOP",
-       "note": "to mop is to clean, and repeatedly means doing it twice"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "clean",
+         "at": 11,
+         "gives": "MOP",
+         "note": "to mop is to clean"
+        },
+        {
+         "words": "Repeatedly",
+         "at": 0,
+         "gives": "MOP",
+         "note": "Repeatedly says the cleaning word comes a second time"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps tidying away with a particular weapon.",
-     "walkthrough": "Mop up is a cleaning phrase, but up is the reversal signal.",
-     "definitionFit": "The pom-pom was a quick-firing automatic gun, named for the sound of its shots."
+     "surface": "An instruction to keep wiping up using this tool.",
+     "walkthrough": "Mop twice, read upwards. The pom-pom earned its name from the sound of its rapid firing.",
+     "definitionFit": "The pom-pom was a quick-firing automatic gun used especially against aircraft in both world wars."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "up"
+     "misdirectedWord": "clean"
     }
    }
   },

@@ -1070,51 +1070,54 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Without",
+       "at": 0,
+       "note": "Without says these letters are taken away"
+      },
+      {
+       "text": "finally",
+       "at": 15,
+       "note": "finally says the letters go from the ends of the two words"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Without kings, finally",
-         "note": "kings is the chess abbreviation, and 'without, finally' strips that letter from the end of each word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "ship",
+         "at": 24,
          "gives": "BARK",
-         "note": "a bark (barque) is a sailing ship"
+         "note": "a bark is a sailing ship"
         },
         {
-         "gives": "K"
+         "words": "wine from Spain",
+         "at": 29,
+         "gives": "SACK",
+         "note": "sack was the old name for sherry, a Spanish wine"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "wine from Spain",
-         "gives": "SACK",
-         "note": "sack is an old name for Spanish white wine"
-        },
-        {
-         "gives": "K"
-        }
-       ]
+       "words": "kings",
+       "at": 8,
+       "gives": "KK",
+       "note": "K is the chess abbreviation for king, so kings are two Ks"
       }
      ]
     },
     "explanation": {
-     "surface": "A cargo of Spanish or French wine shipped with no royal involvement.",
-     "walkthrough": "Both words end in the abbreviation for king, and each loses it.",
-     "definitionFit": "Barsac is a sweet white wine from a commune in the Bordeaux region of France."
+     "surface": "A ship sailing without monarchs, carrying wine from Spain or France.",
+     "walkthrough": "BARK and SACK each lose their final K.",
+     "definitionFit": "Barsac is a sweet white wine from the Bordeaux region of France."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ship"
+     "misdirectedWord": "kings"
     }
    }
   },

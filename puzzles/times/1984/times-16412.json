@@ -663,43 +663,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "sort of",
-       "note": "sort of says the next word is only loosely matched, a looser synonym is wanted"
-      }
-     ],
      "parts": [
       {
-       "words": "tack",
+       "words": "sort of tack",
+       "at": 24,
        "gives": "ATTACH",
-       "note": "to tack something on is to fasten or join it"
+       "note": "to tack is to fasten something on loosely, one kind of fixing"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "head of",
-         "note": "the head of a word is its opening letter"
+         "at": 39,
+         "note": "head of says we take the first letter of embassy"
         }
        ],
        "parts": [
         {
          "words": "embassy",
-         "note": "the opening letter of the word"
+         "at": 47
         }
        ]
       }
      ]
     },
+    "spelling": "ATTACHÉ",
     "explanation": {
-     "surface": "An ambassador's aide with some kind of fastening, and an embassy chief who needs one.",
-     "walkthrough": "'his' points at the head of embassy later in the clue, so the definition leans on the wordplay's words.",
-     "definitionFit": "An attache is a junior diplomat posted to an ambassador's staff at an embassy."
+     "surface": "An ambassador's staff member with some idea of tact, which an embassy chief needs.",
+     "walkthrough": "'tack' looks like a misspelling of tact, but it is the verb: to tack is to fasten. 'his' points to the ambassador of the surface.",
+     "definitionFit": "An attaché is a diplomatic official on an ambassador's staff at an embassy."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "tack"
     }
    }
@@ -1193,56 +1191,57 @@
      "indicators": [
       {
        "text": "put in",
-       "note": "put in places pieces inside a word"
+       "at": 26,
+       "note": "put in says these letters go inside the word for place"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "place",
-         "gives": "SPOT",
-         "note": "a spot is a place"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        }
-       ]
+       "words": "place",
+       "at": 33,
+       "gives": "SPOT",
+       "note": "a spot is a place"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "G",
-       "indicators": [
-        {
-         "text": "end",
-         "note": "an end is the final position, so only the closing letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "which",
-         "gives": "G",
-         "select": "last",
-         "note": "which refers back to the peg, so this is the end of peg"
+         "words": "one",
+         "at": 6,
+         "gives": "I",
+         "note": "one is I, the Roman numeral"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 10,
+           "note": "end of says we take the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "which",
+           "at": 17,
+           "gives": "PEG",
+           "note": "which refers back to the peg of the definition"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A peg with one end that has to be pushed into position.",
-     "walkthrough": "'which' stands for the definition word, so its end is the last letter of Peg.",
-     "definitionFit": "A spigot is a small peg or plug used to stop the vent hole of a cask."
+     "surface": "A peg with one end pushed into position.",
+     "walkthrough": "'which' points back to the peg, whose last letter is G; I and G go inside SPOT.",
+     "definitionFit": "A spigot is a small wooden peg or plug used to stop the vent of a cask."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "which"
+     "misdirectedWord": "place"
     }
    }
   },

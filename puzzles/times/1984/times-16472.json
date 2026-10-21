@@ -442,71 +442,58 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "RUMMY",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "to hold",
-       "note": "holding something means wrapping round it"
+       "text": "up",
+       "at": 35,
+       "note": "in a down clue up says the whole thing is read from the bottom, backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down clue, going up means reading from the bottom to the top"
+         "text": "hold",
+         "at": 20,
+         "note": "hold says the letters for the thousands go inside"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "homophone",
+         "spelt": "YUR",
+         "indicators": [
+          {
+           "text": "said",
+           "at": 12,
+           "note": "said means the three words are spoken, giving the sounds of three letters"
+          }
+         ],
          "parts": [
           {
-           "op": "homophone",
-           "spelt": "Y",
-           "indicators": [
-            {
-             "text": "said",
-             "note": "said means spoken, so the words count for their sound as single letters"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Why",
-             "gives": "WHY",
-             "note": "the letter whose name is pronounced like the question word"
-            }
-           ]
-          },
-          {
-           "words": "thousands",
-           "gives": "MM",
-           "note": "M is the Roman numeral for a thousand, doubled for the plural"
-          },
-          {
-           "op": "homophone",
-           "spelt": "UR",
-           "parts": [
-            {
-             "words": "you are",
-             "gives": "YOUARE",
-             "note": "two letters spoken like the two words, text-message style"
-            }
-           ]
+           "words": "Why you are",
+           "at": 0,
+           "gives": "WHYYOUARE",
+           "note": "Why gives WHY; you gives YOU; are gives ARE"
           }
          ]
+        },
+        {
+         "words": "thousands",
+         "at": 25,
+         "gives": "MM",
+         "note": "M is a thousand in Roman numerals, so two of them are thousands"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A player wonders aloud why someone is holding up thousands in the middle of a card game.",
-     "walkthrough": "Letters standing for words is text-message style: Y for why, U for you, R for are. M is the Roman thousand.",
-     "definitionFit": "Rummy is a card game in which players collect sets and runs of cards, a standard family pastime."
+     "surface": "Someone asking why you are holding thousands in a card game.",
+     "walkthrough": "'Why you are' sounds like the letters Y, U, R. Put MM after the Y to get YMMUR, then read it backwards.",
+     "definitionFit": "Rummy is a card game in which players collect sets and runs."
     },
     "features": {
      "answerInScene": true,

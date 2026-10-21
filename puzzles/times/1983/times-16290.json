@@ -524,43 +524,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VAUNTED",
-     "indicators": [
-      {
-       "text": "'aving",
-       "note": "the dropped aitch in this Cockney spelling tells the solver to drop the opening letter of the next word too"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "see",
+       "at": 9,
+       "gives": "V",
+       "note": "V is the abbreviation for vide, Latin for see"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "'aving",
+         "at": 14,
+         "note": "the dropped H of 'aving says the word for having ghosts loses its H as well, in Cockney style"
+        }
+       ],
        "parts": [
         {
-         "words": "see",
-         "gives": "V",
-         "note": "v is short for vide, Latin for see, used in references"
+         "words": "supernatural inhabitants",
+         "at": 21,
+         "gives": "HAUNTED",
+         "note": "a place having ghosts is haunted"
         },
         {
-         "words": "supernatural inhabitants",
-         "gives": "AUNTED",
-         "note": "a place with ghostly inhabitants is haunted, here said without its first letter"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boastful Cockney claim that the house has ghosts living in it.",
-     "walkthrough": "The apostrophe in 'aving shows the aitch dropped, and the same treatment strips the H from HAUNTED.",
-     "definitionFit": "Vaunted is the past tense of vaunt, meaning to brag about or praise loudly, so it equals boasted."
+     "surface": "Someone bragging that the house is haunted, told in Cockney.",
+     "walkthrough": "The apostrophe in 'aving is the signal: a Cockney drops the H, so the word for having ghosts loses its H too, after V for see (Latin vide).",
+     "definitionFit": "Vaunted means bragged about or praised boastfully."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "'aving"
+     "misdirectedWord": "see"
     }
    }
   },
@@ -1304,24 +1308,36 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Part of stair",
-      "at": 0,
-      "meaning": "first meaning: the vertical board between two treads"
-     },
-     {
-      "text": "is erect",
-      "at": 14,
-      "note": "the answer is one who rises, a noun rather than a verb phrase",
-      "meaning": "second meaning: one who gets up, who stands upright"
+      "text": "Part of stair is erect",
+      "at": 0
      }
     ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "at": 0,
+       "note": "Part of says the letters are found within the run of words stair is erect"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stair is erect",
+       "at": 8
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
-     "surface": "A piece of a staircase stands upright.",
-     "definitionFit": "The upright panel of each step carries this name, and so does a person who gets out of bed, as an early one."
+     "surface": "A carpenter notes that the bit of the staircase standing upright is this.",
+     "walkthrough": "The answer sits across 'staiR IS ERect', and the whole clue also describes it: the upright piece of a step.",
+     "definitionFit": "In a staircase the riser is the vertical board between treads, the upright part of each step."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "misdirectedWord": "erect"
     }
    }
   },
