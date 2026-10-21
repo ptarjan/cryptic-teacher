@@ -40,7 +40,11 @@ Answered first (Paul 10-21: "Should we do the ones with solutions first"): one
 stable partition of all those pins, after the lockout cut-offs and hand
 requests, which stay at the very front. The puzzles with every answer keep
 their order; the cold solves and clues-only ones (cold solves fail about 86%)
-leave the head and go behind the whole queue, the round-robin rest included.
+leave the head and go behind the whole queue. The round-robin rest gets the
+same partition: the final queue is the lockout cut-offs and hand requests, then
+every answered puzzle (pins, the indicator cover, then the round-robin rest),
+then every cold or clues-only one (the formerly pinned in pin order, then the
+rest in round-robin order). The cover and the shape tier never reorder that tail.
 
     tools/prereset_plan.py [--may-pause] --width [CURRENT]  # runs to keep in flight
     tools/prereset_plan.py --backlog "ANNOTATE_BLOCKED" "SOLVE_BLOCKED"  # the queue
@@ -1096,6 +1100,15 @@ def small_self_test():
     if pinned[:2] != ["tls-6", "cryptic-1"] or "cryptic-2" in pinned or ordered[-1] != "cryptic-2":
         print(f"FAIL head_of_queue answered first pins {pinned}, queue {ordered}", file=sys.stderr)
         bad += 1
+    # the round-robin rest too: an unpinned cold solve drops behind every
+    # answered puzzle
+    xrows = arows + [_dated("extra-1", "2025-01-01"), dict(_dated("extra-2", "2025-01-02"), hasSolutions=False)]
+    ordered, _, _ = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7", "extra-1", "extra-2"],
+                                  ["tls-6"], xrows, small=["tls", "book"], asked=["cryptic-1"])
+    cold_ids = {"cryptic-2", "extra-2"}
+    if set(ordered[-2:]) != cold_ids or cold_ids & set(ordered[:-2]) or len(ordered) != 7:
+        print(f"FAIL head_of_queue cold rest last: {ordered}", file=sys.stderr)
+        bad += 1
     return bad
 
 
@@ -1992,6 +2005,12 @@ def tails_first(queue, pinned, rows):
                      if pid not in taken and clue_bag.row_is_tail(by_id.get(pid))]
 
 
+def cold_row(row, kept=False):
+    """True when `row` is an index row lacking solutions (a cold solve or a
+    clues-only puzzle) and not `kept` at the front by a lockout or request."""
+    return bool(row) and not kept and not row.get("hasSolutions")
+
+
 def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
     (cut off by a lockout), then the hand requests (asked, requested()), then the bag-eligible tails incl. redo ones (tails_first), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
@@ -2049,7 +2068,12 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     redo_k = sum(1 for pid in pinned[base + recent_new:base + recent] if pid not in cold)
     deferred = [pid for pid in pinned if pid in cold]
     pinned = [pid for pid in pinned if pid not in cold]
-    queue = [pid for pid in queue if pid not in cold] + [pid for pid in deferred]
+    # The round-robin rest gets the same partition: every cold or clues-only
+    # puzzle goes behind every answered one, the formerly pinned ones first
+    # (in pin order), then the rest in round-robin order.
+    cold_rest = [pid for pid in queue if cold_row(by_id.get(pid), pid in keep) and pid not in cold]
+    gone = cold | set(cold_rest)
+    queue = [pid for pid in queue if pid not in gone] + deferred + cold_rest
     stages += [partly_k, asked_n, tails_k, new_k, redo_k]
     return queue, pinned, stages
 
@@ -2139,6 +2163,14 @@ def cover_first(pinned):
           file=sys.stderr)
     print(f"tagged: {n[3] - n[2]} queued puzzles with a notable tag go first",
           file=sys.stderr)
+    # Cold solves stay behind every answered puzzle: the cover and the shape
+    # tier reorder only the answered part, the cold tail is appended as is.
+    by_id, held = {r["id"]: r for r in rows}, set(pinned)
+    cold_tail = [p for p in queue if cold_row(by_id.get(p), p in held)]
+    gone = set(cold_tail)
+    queue = [p for p in queue if p not in gone]
+    print(f"answered first: {len(cold_tail)} cold or clues-only puzzles go behind "
+          f"the other {len(queue)}", file=sys.stderr)
     ordered, picks, weight = best_effort(
         "indicator cover", lambda: indicator_cover.plan(queue, pinned),
         (indicator_cover.order(queue, {}, {}, pinned)[0], [], {}), 1.0)
@@ -2146,7 +2178,7 @@ def cover_first(pinned):
     head = ", ".join(f"{pid} ({len(m)})" for pid, m in picks[:4])
     print(f"indicator cover: {len(picks)} puzzles reach {len(reached)} of {len(weight)} "
           f"unlinked indicators" + (f"; next {head}" if picks else ""), file=sys.stderr)
-    ordered = interleave_shape(ordered, len(pinned), rows)
+    ordered = interleave_shape(ordered, len(pinned), rows) + cold_tail
     print("\n".join(ordered))
     return 0
 
