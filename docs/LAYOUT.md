@@ -3158,6 +3158,10 @@ tools/test_ocr_retry.py                        does tools/ocr_retry.py settle a 
                                                corpus row a call?
 tools/apply_blog_answers.py                    fill a held puzzle's missing answers from the
                                                blog that wrote it up
+tools/fill_checked_lights.py                   fill a blog-keyed puzzle's blank lights that the
+                                               crossings or the write-up's own word settle
+tools/test_fill_checked_lights.py              fill_checked_lights fills only what the grid or
+                                               the write-up settles
 tools/test_apply_blog_answers.py               apply_blog_answers reads an answer off a
                                                write-up line however the era prints it
 ```

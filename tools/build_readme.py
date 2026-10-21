@@ -844,6 +844,8 @@ LAYOUT = [
     ("fetching", "tools/ocr_retry.py", "a clue the scan's readers leave blank or unsettled, read again line by line with Tesseract variants (scale, binarisation, model) on spare CPU before the VLM is asked about it: opt-in (CT_OCR_RETRY=1, it spared no ask in the A/B), it fills the clue only where two variants print every line alike and a scan reader prints the whole too; always appends each clue the VLM answered, beside the OCR's readings, to the VLM corpus (~/.cache/corpus_queue/vlm_corpus.jsonl)"),
     ("fetching", "tools/test_ocr_retry.py", "does tools/ocr_retry.py settle a weak clue only from lines two variants print alike and only when a scan reader prints the whole too, find a clue's lines by number and direction, read each line once (cached per page), and append one corpus row a call?"),
     ("fetching", "tools/apply_blog_answers.py", "fill a held puzzle's missing answers from the blog that wrote it up"),
+    ("fetching", "tools/fill_checked_lights.py", "fill a blog-keyed puzzle's blank lights that the crossings or the write-up's own word settle"),
+    ("fetching", "tools/test_fill_checked_lights.py", "fill_checked_lights fills only what the grid or the write-up settles"),
     ("fetching", "tools/test_apply_blog_answers.py", "apply_blog_answers reads an answer off a write-up line however the era prints it"),
 ]
 
