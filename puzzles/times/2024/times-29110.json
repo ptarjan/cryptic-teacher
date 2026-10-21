@@ -426,33 +426,39 @@
        "indicators": [
         {
          "text": "carrying",
-         "note": "the rearranged letters hold A and L inside them"
+         "at": 36,
+         "note": "carrying says the rearranged letters hold a and the large letter"
         }
        ],
        "parts": [
-        {
-         "words": "airstrip's",
-         "gives": "SPIR",
-         "note": "first part of AIRSTRIPS rearranged"
-        },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "rescheduled",
-           "note": "the letters of airstrips are rearranged"
+           "at": 23,
+           "note": "rescheduled says the letters of airstrip's are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "a large",
-           "gives": "AL",
-           "note": "A plus L for large, carried inside"
+           "words": "airstrip's",
+           "at": 12
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 45
           },
           {
-           "words": "airstrip's",
-           "gives": "STAIR",
-           "note": "rest of AIRSTRIPS rearranged"
+           "words": "large",
+           "at": 47,
+           "gives": "L",
+           "note": "L is the clothing-size abbreviation for large"
           }
          ]
         }
@@ -460,15 +466,16 @@
       },
       {
        "words": "luggage item",
+       "at": 53,
        "gives": "CASE",
-       "note": "a suitcase"
+       "note": "a case is an item of luggage"
       }
      ]
     },
     "explanation": {
-     "surface": "An air passenger's flight has been moved and they are hauling a big suitcase.",
-     "walkthrough": "'Flight' in an airport scene means a plane trip; the definition is a flight of stairs.",
-     "definitionFit": "A spiral staircase is a flight of stairs winding round a central post."
+     "surface": "An airline flight is rescheduled, and a passenger is carrying a big bag.",
+     "walkthrough": "'Flight' and 'airstrip' suggest planes, but a flight is a set of stairs. SPIRSTAIR, from airstrip's, holds AL.",
+     "definitionFit": "A flight is a series of stairs between floors, and a spiral staircase is one kind."
     },
     "features": {
      "answerInScene": false,
@@ -1399,31 +1406,49 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in an across clue, placed after the cape letter"
+       "at": 15,
+       "note": "on places the month's start after the cape letter in this across clue"
       }
      ],
      "parts": [
       {
        "words": "cape",
+       "at": 18,
        "gives": "C",
-       "note": "C for cape, on maps"
+       "note": "C is the map abbreviation for cape"
       },
       {
-       "words": "Start of month",
-       "gives": "APRI",
-       "note": "APRIL without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Start of",
+         "at": 0,
+         "note": "Start of says only the opening part of the month is kept, its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "month",
+         "at": 9,
+         "gives": "APRIL",
+         "note": "April is a month"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A holidaymaker spends the start of the month on a headland of a pretty island.",
-     "walkthrough": "'Start of month' is not a single first letter but most of the month's name.",
-     "definitionFit": "Capri is an Italian island in the Bay of Naples famous for its scenery."
+     "surface": "At the start of the month we arrive on a headland on a scenic island.",
+     "walkthrough": "In an across clue 'on' puts the second piece after the first; 'Start of' keeps all of the month but its final letter.",
+     "definitionFit": "Capri is an Italian island in the Bay of Naples, famous for its beautiful scenery."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Start"
+     "misdirectedWord": "cape"
     }
    }
   },

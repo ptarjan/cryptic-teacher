@@ -789,37 +789,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "something reduced is cut down, so the phrase loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Entropy",
-         "gives": "S",
-         "note": "S is the symbol for entropy in physics"
-        },
-        {
-         "words": "completely",
-         "gives": "INFULL",
-         "note": "in full means completely"
-        }
-       ]
+       "words": "Entropy",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the symbol for entropy in physics"
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 19,
+         "note": "reduced says the phrase is cut short, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "completely",
+         "at": 8,
+         "gives": "INFULL",
+         "note": "in full means completely"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A physicist wondering whether disorder has been entirely eliminated, and deciding no.",
-     "definitionFit": "Wrong in the moral sense, as in wicked behaviour, is what sinful describes."
+     "surface": "A physics question asks whether entropy has been entirely reduced, and answers that it is wrong.",
+     "walkthrough": "'reduced' trims IN FULL to INFUL, which follows S.",
+     "definitionFit": "Something sinful is morally wicked, a stronger sense of what is wrong."
     },
     "features": {
      "answerInScene": false,

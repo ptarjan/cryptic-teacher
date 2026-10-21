@@ -419,7 +419,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Tended to",
+      "text": "Tended",
       "at": 0
      }
     ],
@@ -428,7 +428,8 @@
      "indicators": [
       {
        "text": "after",
-       "note": "one part coming after another means it is placed following it"
+       "at": 36,
+       "note": "after places the reversed letters behind the dinner letter"
       }
      ],
      "parts": [
@@ -437,13 +438,14 @@
        "indicators": [
         {
          "text": "start of",
-         "note": "the start of a word is its opening letter alone"
+         "at": 42,
+         "note": "start of picks the first letter of dinner"
         }
        ],
        "parts": [
         {
          "words": "dinner",
-         "note": "first letter of dinner"
+         "at": 51
         }
        ]
       },
@@ -451,27 +453,27 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "send back",
-         "note": "sending something back returns it the way it came, so the letters are read in the opposite direction"
+         "text": "to send back",
+         "at": 7,
+         "note": "to send back says the kept letters are reversed"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
+         "op": "first",
          "indicators": [
           {
            "text": "75% of",
-           "note": "three quarters of an eight-letter word leaves six letters, so the last two are dropped"
+           "at": 20,
+           "note": "75% of keeps the first six of the eight letters"
           }
          ],
          "parts": [
           {
            "words": "puddings",
+           "at": 27,
            "gives": "DESSERTS",
-           "note": "puddings are desserts in British usage"
-          },
-          {
-           "gives": "TS"
+           "note": "desserts are puddings"
           }
          ]
         }
@@ -480,14 +482,14 @@
      ]
     },
     "explanation": {
-     "surface": "A waiter returned most of the puddings once dinner had begun.",
-     "walkthrough": "Three quarters of an eight-letter word drops its last two letters. In Britain 'pudding' is the general word for a sweet course.",
-     "definitionFit": "A nurse who dressed a wound tended to it, cleaning and bandaging it; both are past tense verbs."
+     "surface": "A diner sends back three-quarters of the puddings after starting dinner.",
+     "walkthrough": "Three-quarters of an eight-letter word is its first six letters.",
+     "definitionFit": "To dress a wound is to tend it, cleaning and bandaging it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Tended"
+     "aptDefinition": false,
+     "misdirectedWord": "puddings"
     }
    }
   },
@@ -895,53 +897,48 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "move",
      "indicators": [
       {
-       "text": "lowered",
-       "note": "in a down entry, lowering a letter moves it further down the word, so it is put back in later"
+       "text": "is lowered",
+       "at": 36,
+       "note": "is lowered says that letter moves further down in this down clue"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "balconies",
-         "gives": "GALLERIES",
-         "note": "theatre galleries are upper balconies"
-        },
-        {
-         "gives": "G"
-        }
-       ]
+       "words": "balconies",
+       "at": 9,
+       "gives": "GALLERIES",
+       "note": "galleries are balconies in a theatre"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "end of",
-         "note": "the end of a word is its final letter"
+         "at": 24,
+         "note": "end of picks the last letter of rung"
         }
        ],
        "parts": [
         {
          "words": "rung",
-         "note": "last letter of rung, which is also the first of the balconies word"
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "People who hate balconies once the bottom rung of the ladder has been let down.",
-     "walkthrough": "The G that opens the word for balconies is moved lower down, from the top to the sixth place.",
-     "definitionFit": "Informally an allergy to something is a strong dislike of it, as in an allergy to hard work."
+     "surface": "Someone dislikes balconies when the bottom rung of a ladder is let down.",
+     "walkthrough": "The G of GALLERIES drops down the word to sit after ALLER.",
+     "definitionFit": "Allergies are adverse reactions, and informally the word means strong aversions."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "lowered"
+     "misdirectedWord": "rung"
     }
    }
   },
@@ -1080,50 +1077,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANSWERS",
+     "op": "move",
      "indicators": [
       {
-       "text": "put acting first",
-       "note": "the abbreviation for acting is taken from its place and moved to the front"
+       "text": "put",
+       "at": 30,
+       "note": "put, with first, says the acting letter is moved to the front"
+      },
+      {
+       "text": "first",
+       "at": 41,
+       "note": "first, with put, says the acting letter goes to the front of the word"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially means at the start, so only the first letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Netflix",
-         "note": "first letter of Netflix"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 8,
+           "note": "initially picks the first letter of Netflix"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Netflix",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "words": "promises",
+         "at": 18,
+         "gives": "SWEARS",
+         "note": "swears means promises"
         }
        ]
       },
       {
-       "words": "promises",
-       "gives": "SWEARS",
-       "note": "to swear is to promise solemnly"
-      },
-      {
        "words": "acting",
+       "at": 34,
        "gives": "A",
-       "note": "A is the abbreviation for acting, as in A/Captain"
+       "note": "A is the abbreviation for acting, as in a job title"
       }
      ]
     },
     "explanation": {
-     "surface": "Netflix promises to put good acting first to get the viewing figures it wants.",
-     "walkthrough": "N and SWEARS give NSWEARS; its A, standing for acting, is lifted out and placed at the very start.",
-     "definitionFit": "Answers are the results of solving problems or sums, as in getting the right results."
+     "surface": "Netflix first promises to put good acting ahead of everything to get results.",
+     "walkthrough": "In N SWEARS the A, for acting, moves to the front.",
+     "definitionFit": "Answers to a sum or exam are its results or solutions."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "acting"
     }

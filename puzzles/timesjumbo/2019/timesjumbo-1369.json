@@ -1468,38 +1468,38 @@
      "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "half-cut",
-         "note": "half-cut means half is cut away, so only two of the four letters stay"
+         "at": 5,
+         "note": "half-cut says only the first half of the word asks is kept"
         }
        ],
        "parts": [
         {
          "words": "Asks",
-         "note": "taken as written"
-        },
-        {
-         "gives": "SK"
+         "at": 0
         }
        ]
       },
       {
        "words": "buccaneer",
+       "at": 14,
        "gives": "PIRATE",
        "note": "a buccaneer is a pirate"
       }
      ]
     },
     "explanation": {
-     "surface": "A drunken pirate wants to breathe in.",
-     "walkthrough": "'Half-cut' is British slang for drunk, but here it trims a word in half.",
-     "definitionFit": "To aspirate is to draw in by breathing, as when fluid is breathed into the lungs."
+     "surface": "A drunk pirate is asked to breathe in.",
+     "walkthrough": "'half-cut' is British slang for drunk, but here it halves ASKS to AS.",
+     "definitionFit": "To aspirate can mean to draw breath, or a substance, into the lungs."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "half-cut"
     }
    }
@@ -2816,28 +2816,26 @@
        "indicators": [
         {
          "text": "scratching heads",
-         "note": "scratching heads strikes out the first letter of each of the words"
+         "at": 10,
+         "note": "scratching heads says each of the two words loses its first letter"
         }
        ],
        "parts": [
         {
-         "words": "Bald",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Bald",
+           "at": 0
+          },
+          {
+           "words": "men",
+           "at": 5
+          }
+         ]
         },
         {
-         "gives": "B"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "men",
-         "note": "taken as written"
-        },
-        {
-         "gives": "M"
+         "gives": "BM"
         }
        ]
       },
@@ -2846,38 +2844,31 @@
        "indicators": [
         {
          "text": "finally",
-         "note": "finally points to the last letter of the next word"
+         "at": 28,
+         "note": "finally picks the last letter of each of taught and me"
         }
        ],
        "parts": [
         {
          "words": "taught",
-         "note": "the last letter of taught"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "me",
-         "note": "taken as written"
+         "at": 36
         },
         {
-         "gives": "M"
+         "words": "me",
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bald men, puzzled, eventually show the speaker how to make spaghetti.",
-     "walkthrough": "Bald, men and me each lose their first letter; the T sits between EN and E.",
-     "definitionFit": "The Italian phrase means to the tooth: pasta cooked so it is still firm when bitten."
+     "surface": "Bald men scratching their heads finally got taught how to cook pasta.",
+     "walkthrough": "BALD and MEN lose their heads, B and M, giving ALD and EN; T and E end taught and me.",
+     "definitionFit": "Al dente is the Italian cooking term for pasta left firm to the bite."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "scratching"
     }
    }
