@@ -30,6 +30,7 @@ from pathlib import Path
 import file_archive_org_puzzles as f
 f.HELD_SERIES_CACHE = None  # no on-disk snapshot leaking in from ~/.cache; the snapshot case sets its own
 import ocr_clues
+import clue_repair
 
 fails = 0
 def check(what, want, got):
@@ -2554,6 +2555,25 @@ check("clues read alike by two readers are settled, a blank one is weak", {"7-ac
 rd3 = {"djvu": good, "ch": good.replace("Fish in the sea", "Fisk in the sea")}
 check("a clue only one of two readings prints as filed is weak", {"6-across"},
       f.weak_lights(rd3, filed_laid, {}, lens))
+# Gale 1965 (vlm_corpus.jsonl): one reader's slip in a word the other printed right, or an
+# accent it dropped, is no disagreement; the VLM was asked 60 times for such lights.
+slip_laid = {**filed_laid, "6-across": ("Fish flourish in the sea", "5", None)}
+slip_rd = {"en5": good.replace("Fish in the", "Fish flourish in the"),
+           "ch": good.replace("Fish in the", "Fish fourish in the")}
+check("a reading with one slip in a word the other printed right settles the clue", set(),
+      f.weak_lights(slip_rd, slip_laid, {}, lens))
+check("a lone reading is still weak", True,
+      "6-across" in f.weak_lights({"ch": slip_rd["ch"]}, slip_laid, {}, lens))
+check("a reading two words off is no slip of it", False,
+      clue_repair.slip_of("Fish flourish in the sea", "Fish fourish in tho sea"))
+check("a dropped accent is no disagreement", True,
+      clue_repair.slip_of("The cur\u00e9 is indisposed", "The cure is indisposed"))
+check("a one for the I a clue opens with is a slip", True,
+      clue_repair.slip_of("I am punctual with a film", "1 am punctual with a film"))
+check("a slip that is another real word is no slip", False,
+      clue_repair.slip_of("Fish flourish in the sea", "Fish flourishes in the sea"))
+check("a word the clues print is no slip", False,
+      clue_repair.slip_of("Seen in dance by Pyrrho", "Seen in dance by Pyrrhos"))
 # A "See N" tail is a clue of only a cross-reference: two readings printing it settle it, laid
 # as "See 1" as filed puzzles have it, so the VLM is not asked for it.
 seen = good.replace("7 Dog on a lead (5)", "7 See 1 across")

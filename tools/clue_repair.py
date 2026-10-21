@@ -302,6 +302,44 @@ def lexicon():
     return ocr_clues.is_word, uses
 
 
+SLIP_MIN_LETTERS = 5
+
+
+def _fold(word):
+    """A word's lower-case letters, digits and apostrophes with accents dropped ("curé" -> "cure")."""
+    import unicodedata
+    return re.sub(r"[^a-z0-9']", "", unicodedata.normalize("NFKD", word.lower()).encode("ascii", "ignore").decode())
+
+
+def slip_of(filed, reading, is_word=None):
+    """Whether `reading` is the filed clue `filed` with one word's own slip: the same words, all
+    alike (accents and marks aside) but one, which is a letter lost, added or changed in the
+    reading ("fourish", "simp!y", "genera!", "ihe" for "flourish", "simply", "general", "the"),
+    or a "1" for the "I" the clue opens with. The filed word must be a lexicon word of
+    SLIP_MIN_LETTERS letters or more and the reading's one the lexicon lacks, so no real
+    word's difference counts: only a reader's slip on a word the other reader got right.
+    A reading with another word count, a figure, or two differing words is no slip of it."""
+    if is_word is None:
+        is_word = lexicon()[0]
+    mine, theirs = (filed or "").split(), (reading or "").split()
+    if len(mine) != len(theirs):
+        return False
+    odd = [(a, b) for a, b in zip(mine, theirs) if _fold(a) != _fold(b)]
+    if not odd:
+        return True  # the same words, only an accent apart
+    if len(odd) != 1 or len(mine) < 3:
+        return False
+    a, b = odd[0]
+    if a == "I" and b == "1" and mine[0] == a:
+        return True
+    a, b = _fold(a), re.sub(r"[^A-Za-z0-9']", "", b.lower())
+    if len(a) < SLIP_MIN_LETTERS or not is_word(a) or not b or re.search(r"\d", b):
+        return False
+    import ocr_clues
+    # known(), not is_word: a name the corpus's clues print ("Pyrrho") is no slip
+    return not ocr_clues.known(b) and ocr_clues.within_one(a, b)
+
+
 def count_digits(enum):
     """The figures of a printed count: "5,4" is [5, 4]."""
     return [int(n) for n in re.findall(r"\d+", enum or "")]

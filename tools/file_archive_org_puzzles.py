@@ -3876,6 +3876,12 @@ def weak_lights(read, laid, blank, lengths, confirmed=()):
                            if words_of(clue_repair.mend_text(clue_repair.leaked_number(t, lid), enum)) == mine)
         if agreeing < OCR_CONFIRM:
             agreeing = sum(1 for t in read.values() if prints_clue(t, mine))
+        if 0 < agreeing < OCR_CONFIRM:
+            # A reading with one slip of its own in a word the other printed right ("fourish",
+            # "simp!y", "curé" read "cure") is no disagreement with a clue another prints whole.
+            agreeing += sum(1 for t, _ in ocr_clues.readings_for(read, lid, parse)
+                            if words_of(clue_repair.mend_text(t, enum)) != mine
+                            and clue_repair.slip_of(text, clue_repair.mend_text(t, enum)))
         if agreeing < OCR_CONFIRM and words_confirmed(text, enum, ocr_clues.readings_for(read, lid, parse)):
             continue
         if agreeing < OCR_CONFIRM:
