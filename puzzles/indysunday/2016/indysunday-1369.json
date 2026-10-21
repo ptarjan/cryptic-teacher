@@ -614,57 +614,64 @@
    "annotation": {
     "definitions": [
      {
-      "text": "familiar sight in kitchen",
+      "text": "familiar sight in kitchen?",
       "at": 43
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "OVENWARE",
      "indicators": [
       {
        "text": "worn",
-       "note": "something worn is battered out of shape, so the letters lose their order"
+       "at": 12,
+       "note": "worn suggests something battered and knocked out of shape, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "OVENWARE",
        "indicators": [
         {
-         "text": "with no hint of",
-         "note": "with no hint of says the first letter of the following word is taken away"
+         "text": "with no",
+         "at": 17,
+         "note": "with no tells us to take a letter out of the word apron"
         }
        ],
        "parts": [
         {
          "words": "Apron",
-         "note": "taken as written"
-        },
-        {
-         "words": "we've",
-         "note": "taken as written, apostrophe dropped"
+         "at": 0
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "hint of",
+           "at": 25,
+           "note": "a hint of a word is just a trace of it, its first letter"
+          }
+         ],
          "parts": [
           {
            "words": "problem",
-           "note": "the opening letter of problem, which is removed"
+           "at": 33
           }
          ]
         }
        ]
+      },
+      {
+       "words": "we've",
+       "at": 6,
+       "gives": "WEVE",
+       "note": "taken as written, with the apostrophe dropped"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone has worn an apron in the kitchen without mishap.",
-     "walkthrough": "Remove the P from APRON, then rearrange what is left with WEVE.",
-     "definitionFit": "Ovenware covers the dishes and trays used for baking, which are a common sight in any kitchen."
+     "surface": "An apron someone has worn without any trouble, a familiar sight in a kitchen.",
+     "walkthrough": "'with no hint of problem' drops P from APRON to leave ARON; 'worn' then rearranges ARON with WEVE.",
+     "definitionFit": "Ovenware is the baking dishes and trays that go in an oven, so it is seen in almost every kitchen."
     },
     "features": {
      "answerInScene": true,
@@ -1227,7 +1234,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "infection",
+      "text": "infection?",
       "at": 54
      }
     ],
@@ -1236,7 +1243,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the first items within the group"
+       "at": 33,
+       "note": "in places the holiday and certificate letters inside the reversed group word"
       }
      ],
      "parts": [
@@ -1245,43 +1253,47 @@
        "indicators": [
         {
          "text": "returning",
-         "note": "returning means going back, so the group is read in the opposite direction"
+         "at": 36,
+         "note": "returning has the word for group come back the other way, as fits a down clue"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "group",
-           "gives": "SET",
-           "note": "a set is a group"
-          },
-          {
-           "words": "for all to see",
-           "gives": "U",
-           "note": "U is the British film certificate meaning suitable for all audiences"
-          }
-         ]
+         "words": "group",
+         "at": 46,
+         "gives": "SET",
+         "note": "a set is a group"
         }
        ]
       },
       {
-       "words": "Effect of holiday",
-       "gives": "TAN",
-       "note": "a suntan is a typical result of a beach holiday"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Effect of holiday",
+         "at": 0,
+         "gives": "TAN",
+         "note": "a tan is what a sunny holiday leaves on your skin"
+        },
+        {
+         "words": "for all to see",
+         "at": 18,
+         "gives": "U",
+         "note": "U is the British film certificate meaning suitable for everyone"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Asking whether some holiday souvenir among a returning party is an infection.",
-     "walkthrough": "TANU goes inside the reversed group, between TE and S.",
-     "definitionFit": "Tetanus, or lockjaw, is a bacterial infection usually entering through a wound."
+     "surface": "Someone wonders whether the souvenir of a holiday, visible to all as the group comes home, might be an infection.",
+     "walkthrough": "U is the British film rating for a universal audience, hence 'for all to see'.",
+     "definitionFit": "Tetanus is a bacterial disease caught through dirty wounds, a kind of infection; the question mark admits the looseness."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "holiday"
+     "misdirectedWord": "returning"
     }
    }
   },

@@ -311,47 +311,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "EPHEMERAL",
      "indicators": [
       {
        "text": "sacked",
-       "note": "sacked suggests being ransacked and thrown into disorder, so the letters are jumbled"
+       "at": 36,
+       "note": "sacked suggests something ransacked and thrown about, so the letters are mixed"
       }
      ],
      "parts": [
       {
+       "words": "male",
+       "at": 11
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "EPHEMERAL",
        "indicators": [
         {
          "text": "no",
-         "note": "'no learner' tells us to drop the letter that stands for a learner driver"
+         "at": 24,
+         "note": "no indicates the word helper goes without a letter"
         }
        ],
        "parts": [
         {
-         "words": "male",
-         "note": "taken as written"
-        },
-        {
          "words": "helper",
-         "note": "taken as written"
+         "at": 16
         },
         {
          "words": "learner",
+         "at": 27,
          "gives": "L",
-         "note": "L is the learner plate; this letter is removed"
+         "note": "L is the learner plate"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A male assistant, not a trainee, was only there briefly before being fired.",
-     "walkthrough": "Take one L out of MALE HELPER, then rearrange the remaining nine letters.",
-     "definitionFit": "Ephemeral describes something lasting a very short time, a direct synonym of transitory."
+     "surface": "A man's assistant, no longer a novice, has been fired after only a short stint.",
+     "walkthrough": "'(no learner)' removes L from HELPER to give HEPER, which 'sacked' mixes with MALE.",
+     "definitionFit": "Ephemeral means lasting a very short time, so it is fleeting and passing."
     },
     "features": {
      "answerInScene": true,
@@ -554,35 +553,53 @@
      "indicators": [
       {
        "text": "entering",
-       "note": "entering means going into, so these letters are put inside the word for thus"
+       "at": 30,
+       "note": "entering puts the shortened muscle and if inside the word for thus"
       }
      ],
      "parts": [
       {
        "words": "thus",
+       "at": 39,
        "gives": "SIC",
-       "note": "sic is Latin for thus, used to mark a quotation as exact"
+       "note": "sic is Latin for thus, used to flag a quoted error"
       },
       {
        "op": "charade",
        "parts": [
         {
-         "words": "muscle contracted",
-         "gives": "PEC",
-         "note": "pec is the shortened form of pectoral, a chest muscle"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "contracted",
+           "at": 15,
+           "note": "contracted means the word is shortened by its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "muscle",
+           "at": 8,
+           "gives": "PECS",
+           "note": "pecs are the chest muscles"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         },
         {
          "words": "if",
-         "note": "taken as written"
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A precise instruction about a tightened muscle, given conditionally.",
-     "walkthrough": "'Contracted' suggests a flexing muscle, but it means the word is abbreviated. PEC and IF go inside SIC: S(PECIF)IC.",
-     "definitionFit": "Specific means clearly defined and exact, a close synonym of precise."
+     "surface": "A precise instruction: tighten the muscle if going in this way.",
+     "walkthrough": "'contracted' reads like a muscle flexing, but it means shortened; sic is printed after a quotation to show an error was the writer's own.",
+     "definitionFit": "Specific means exact and clearly defined, so precise."
     },
     "features": {
      "answerInScene": false,
@@ -1302,45 +1319,51 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SHABBY",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "the answer letter is in, and the socially acceptable letter is not, so one replaces the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "second",
-       "gives": "S",
-       "note": "S abbreviates second"
+       "at": 9,
+       "gives": "S"
       },
       {
-       "words": "husband",
-       "gives": "HUBBY",
-       "note": "hubby is informal for husband"
-      },
-      {
-       "words": "answer",
-       "gives": "A",
-       "note": "A abbreviates answer"
-      },
-      {
-       "words": "socially acceptable",
-       "gives": "U",
-       "note": "U means upper-class or socially acceptable; this letter is swapped out"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 33,
+         "note": "not here means one letter is there instead of another, the answer letter in place of the posh one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "husband",
+         "at": 16,
+         "gives": "HUBBY",
+         "note": "hubby is an informal word for husband"
+        },
+        {
+         "words": "socially acceptable",
+         "at": 37,
+         "gives": "U",
+         "note": "U stands for upper-class, hence socially acceptable, in Nancy Mitford's U and non-U"
+        },
+        {
+         "words": "answer",
+         "at": 26,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A second spouse's reply is socially unacceptable.",
-     "walkthrough": "U as 'socially acceptable' comes from the old U and non-U class distinction in British speech. In HUBBY, A replaces U.",
-     "definitionFit": "Shabby can mean mean-spirited or dishonourable, as in shabby treatment, so it is close to unworthy."
+     "surface": "A second husband's response is not socially acceptable, unworthy of him.",
+     "walkthrough": "U, from Nancy Mitford's 'U and non-U', is the upper-class mark of acceptability; here A replaces it in HUBBY.",
+     "definitionFit": "Shabby behaviour is mean and dishonourable, so unworthy of someone decent."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "answer"
     }

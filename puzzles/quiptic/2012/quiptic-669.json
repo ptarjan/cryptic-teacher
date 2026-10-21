@@ -358,36 +358,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUANDARY",
-     "indicators": [
-      {
-       "text": "heartless",
-       "note": "without a heart means the middle letter of the word is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Queen's",
-       "gives": "Q",
-       "note": "Q is an abbreviation for queen"
+       "words": "Queen",
+       "at": 0,
+       "gives": "QU"
       },
       {
        "words": "article",
+       "at": 8,
        "gives": "AN",
        "note": "an is the indefinite article"
       },
       {
-       "words": "milk producer",
-       "gives": "DAIRY",
-       "note": "a dairy produces milk"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 19,
+         "note": "heartless means the middle letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "milk producer",
+         "at": 29,
+         "gives": "DAIRY",
+         "note": "a dairy produces milk"
+        },
+        {
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The monarch's piece about a dairy farm with no heart makes for an awkward situation.",
-     "definitionFit": "A quandary is a dilemma, an awkward state of uncertainty."
+     "surface": "A monarch's essay on a cold-hearted milk business causes an awkward situation.",
+     "walkthrough": "'on' in a down clue means the queen and article come first; DAIRY loses its heart, the I, to give DARY.",
+     "definitionFit": "A quandary is a state of perplexity over what to do, an awkward predicament."
     },
     "features": {
      "answerInScene": false,
@@ -1067,36 +1077,38 @@
        "indicators": [
         {
          "text": "about",
-         "note": "turned about means the letters are moved round into another order"
+         "at": 22,
+         "note": "about suggests the letters of mad are turned around and moved"
         }
        ],
        "parts": [
         {
          "words": "mad",
-         "note": "taken as written"
-        },
-        {
-         "words": "IT",
-         "note": "taken as written"
+         "at": 18
         }
        ]
       },
       {
+       "words": "IT",
+       "at": 28
+      },
+      {
        "words": "man",
+       "at": 31,
        "gives": "TED",
        "note": "Ted is a man's name"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone confessed to being furious with the computer support person.",
-     "walkthrough": "'IT man' looks like the office tech person, but it splits into IT and a man's name.",
-     "definitionFit": "To own up to something is to confess or admit it, so admitted fits."
+     "surface": "Someone has confessed to being crazy about the computer man.",
+     "walkthrough": "'about' looks like a container signal, but here it only stirs up the word before it, and the computing abbreviation is taken as written.",
+     "definitionFit": "Admitted means confessed: to own up to something is to concede it is true."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "mad"
+     "misdirectedWord": "about"
     }
    }
   },

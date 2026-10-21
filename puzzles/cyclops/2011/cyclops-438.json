@@ -1408,13 +1408,14 @@
        "indicators": [
         {
          "text": "debut",
-         "note": "a debut is a first appearance, so only the name's opening letter shows up"
+         "at": 15,
+         "note": "a debut is a first appearance, so take the opening letter of Dicky"
         }
        ],
        "parts": [
         {
-         "words": "Dicky's",
-         "note": "first letter of 'Dicky'"
+         "words": "Dicky",
+         "at": 7
         }
        ]
       },
@@ -1423,42 +1424,55 @@
        "indicators": [
         {
          "text": "edited",
-         "note": "something edited has been reworked, so its letters get rearranged"
+         "at": 30,
+         "note": "edited means the letters of TV and piece are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "TV piece",
-         "note": "fodder, taken as printed"
+         "words": "TV",
+         "at": 21
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "all but one of",
-           "note": "deleting all but one letter of the word leaves a single survivor"
-          }
-         ],
-         "parts": [
-          {
-           "words": "expletives deleted",
-           "note": "every letter of 'expletives' removed except one, its first"
-          }
-         ]
+         "words": "piece",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "all but one of",
+         "at": 38,
+         "note": "all but one of says every letter of expletives goes except a single one"
+        },
+        {
+         "text": "deleted",
+         "at": 64,
+         "note": "deleted confirms the letters of expletives are struck out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expletives",
+         "at": 53
+        },
+        {
+         "gives": "XPLETIVES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nixon's first television interview is cut, with the swearing bleeped out as in the Watergate transcripts.",
-     "walkthrough": "'Tricky Dicky' was Richard Nixon's nickname and the Watergate tapes famously read 'expletive deleted'; but 'Tricky' alone is the definition.",
-     "definitionFit": "Tricky can mean crafty or misleading, which is what deceptive means."
+     "surface": "Nixon's first TV appearance was edited, with every curse but one bleeped out.",
+     "walkthrough": "Tricky Dicky is Richard Nixon, whose released tapes famously marked his swearing 'expletive deleted'; here just one letter of that word survives.",
+     "definitionFit": "Deceptive means misleading, and tricky can mean crafty and not to be trusted."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Tricky"
     }
    }

@@ -545,7 +545,8 @@
      "indicators": [
       {
        "text": "manoeuvring",
-       "note": "manoeuvring means shifting things around, so the letters are rearranged"
+       "at": 35,
+       "note": "manoeuvring moves the remaining letters of corporate into a new arrangement"
       }
      ],
      "parts": [
@@ -554,34 +555,29 @@
        "indicators": [
         {
          "text": "out",
-         "note": "out means excluded, so that letter leaves the word it is in"
+         "at": 18,
+         "note": "out says the letter for caught leaves the word corporate"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "caught",
-           "gives": "C",
-           "note": "C is the cricket scoring abbreviation for caught"
-          },
-          {
-           "words": "corporate",
-           "note": "taken as written"
-          }
-         ]
+         "words": "corporate",
+         "at": 25
         },
         {
-         "gives": "CC"
+         "words": "caught",
+         "at": 11,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A speculator is caught in boardroom intrigue and thrown out.",
-     "definitionFit": "An operator in finance is a dealer who trades shares on the market, hoping to profit from speculation."
+     "surface": "A trader is caught out in some corporate scheming.",
+     "walkthrough": "'caught out' looks like a phrase; caught gives C, and out removes it from CORPORATE, leaving ORPORATE to mix.",
+     "definitionFit": "On the stock market an operator is a shrewd dealer who trades for gain, a speculator."
     },
     "features": {
      "answerInScene": true,
@@ -983,58 +979,54 @@
      "indicators": [
       {
        "text": "returned",
-       "note": "returned means sent back, so the combined letters are read from right to left"
+       "at": 24,
+       "note": "returned has the joined letters read back to front"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Unopened",
+         "at": 0,
+         "note": "unopened means each word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Unopened",
-           "note": "something unopened is missing its start, so each word loses its first letter"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "drinks",
+           "at": 9,
            "gives": "PORTS",
-           "note": "port is a fortified wine"
+           "note": "ports are fortified wines"
           },
           {
-           "gives": "P"
+           "words": "players",
+           "at": 16,
+           "gives": "TEAM",
+           "note": "a team is a group of players"
           }
          ]
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "players",
-           "gives": "TEAM",
-           "note": "a team is a set of players"
-          },
-          {
-           "gives": "T"
-          }
-         ]
+         "gives": "PT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A team returns to the bar for drinks still sealed and toasts a genius.",
-     "walkthrough": "Both words lose their first letter: ORTS and EAM, then the whole is read backwards.",
-     "definitionFit": "A maestro is a master of an art, especially music, a great talent or virtuoso."
+     "surface": "Unopened drinks are sent back by the players: what a genius!",
+     "walkthrough": "PORTS and TEAM lose their openings to give ORTS and EAM; 'returned' reverses ORTSEAM.",
+     "definitionFit": "A maestro is a master of an art, especially music, so a genius in the field."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Unopened"
+     "misdirectedWord": "returned"
     }
    }
   },
@@ -1059,46 +1051,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "undressing",
+       "at": 31,
+       "note": "undressing strips off the outer layer, the first and last letters of the pair taken together"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "for undressing",
-         "note": "undressing strips off the outer layer, so the first and last letters go"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "a female",
+         "at": 10,
          "gives": "IRENE",
-         "note": "Irene is a woman's name"
+         "note": "Irene is a female name, so a female"
         },
         {
-         "gives": "I"
+         "words": "visitor",
+         "at": 19,
+         "gives": "GUEST",
+         "note": "a guest is a visitor"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "visitor",
-         "gives": "GUEST",
-         "note": "a guest is a visitor"
-        },
-        {
-         "gives": "T"
-        }
-       ]
+       "gives": "IT"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman calls off a visitor's planned striptease.",
-     "walkthrough": "IRENEGUEST loses its outer letters. RENEGUE is a variant spelling of renege.",
-     "definitionFit": "To renege is to go back on a promise or abandon a commitment, giving it up."
+     "surface": "A woman's caller is turned away for stripping off.",
+     "walkthrough": "Undressing takes the first and last letters off IRENE GUEST as a whole, leaving RENE GUES. Renegue is a variant spelling of renege.",
+     "definitionFit": "To renegue, a variant of renege, is to go back on a promise or give up a commitment."
     },
     "features": {
      "answerInScene": false,
@@ -1455,35 +1442,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BIRDCAGE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "after ditching",
-       "note": "ditching means getting rid of, so those letters are thrown out of the word"
+       "text": "after",
+       "at": 32,
+       "note": "after places the second piece behind the first"
       }
      ],
      "parts": [
       {
        "words": "time",
+       "at": 19,
        "gives": "BIRD",
-       "note": "bird is slang for time served in prison"
+       "note": "bird is British slang for prison time, from rhyming slang bird-lime"
       },
       {
-       "words": "changed",
-       "note": "taken as written"
-      },
-      {
-       "words": "HND",
-       "note": "taken as written; these letters are removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ditching",
+         "at": 38,
+         "note": "ditching means the three letters are dropped from changed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "changed",
+         "at": 24
+        },
+        {
+         "words": "HND",
+         "at": 47,
+         "note": "HND, a Higher National Diploma, is taken as its letters"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Polly's home life changes after she drops her vocational diploma.",
-     "walkthrough": "Doing bird is British slang for serving a jail sentence. Polly is a stock name for a parrot.",
-     "definitionFit": "A parrot such as Polly would typically live in a cage built for pet birds, hence maybe."
+     "surface": "A parrot's home is changed after the owner drops a diploma course.",
+     "walkthrough": "'Polly' is the classic name for a parrot. 'time changed' looks like an anagram, but time is British slang for a prison sentence, from the rhyming slang bird-lime.",
+     "definitionFit": "A pet parrot called Polly lives in a cage for birds, so this is a definition by example."
     },
     "features": {
      "answerInScene": true,

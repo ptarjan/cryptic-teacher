@@ -1191,48 +1191,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OLDTIMER",
-     "indicators": [
-      {
-       "text": "suspect",
-       "note": "suspect here means dodgy, so the letters are not to be trusted in their order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "suspect",
+         "at": 25,
+         "note": "suspect as a verb means doubt, hinting the letters of model T and I are not in their right order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Model T",
+         "at": 14
+        },
+        {
+         "words": "I",
+         "at": 23
+        }
+       ]
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "OLDTIMER",
        "indicators": [
         {
          "text": "to be driven away",
-         "note": "something driven away leaves, so those letters are dropped"
+         "at": 41,
+         "note": "to be driven away says the letters for about leave the word car"
         }
        ],
        "parts": [
         {
          "words": "car",
-         "note": "taken as written"
-        },
-        {
-         "words": "Model T, I",
-         "note": "taken as written"
+         "at": 8
         },
         {
          "words": "about",
+         "at": 35,
          "gives": "CA",
-         "note": "circa, abbreviated"
+         "note": "CA, short for circa, means about"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone eyeing an early Ford and guessing it is a vintage motor.",
-     "walkthrough": "CAR loses CA to leave R, which joins MODELTI for the rearrangement. 'Veteran car' looks like one phrase but car is fodder.",
-     "definitionFit": "An old-timer is someone with long experience of something, which is what a veteran is."
+     "surface": "A classic car, say a Ford Model T, looks set to be driven off.",
+     "walkthrough": "'Veteran car' looks like the definition, but car is only fodder, and 'about' is the Latin circa in its short form.",
+     "definitionFit": "An old-timer is a person who has been around a long time, a veteran of some activity."
     },
     "features": {
      "answerInScene": true,
