@@ -527,6 +527,11 @@ def clues(text):
             out.append({"tokens": tokens, "text": tail.group(0).rstrip("."),
                         "enums": set(), "see": see_number(see.group(1))})
             pos = body_from + tail.end()
+            # The 1950s Times prints a count after its See ("3 See 27 (4)."): not the
+            # next clue's number, so it is passed over (the list then stopped there).
+            count = re.compile(r"\s*\(\d{1,2}(?:[,\-]\s?\d{1,2})*\)\s*\.?(?=\s|$)").match(text, pos)
+            if count:
+                pos = count.end()
             continue
         # "See Preamble" prints no count and names no number (Cyclops 199's
         # 1/29/40/78/58/60): it ends where the next clue's number starts, as

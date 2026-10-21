@@ -1392,13 +1392,23 @@ def counted(text, grid):
 UNDER_SPAN = 0.1
 
 
-def under_gutter(lines, grid):
+#: Where, as shares of the grid's width from its left edge, the gutter of the
+#: 1950-59 Times' two columns under the grid may lie: the first column is the
+#: narrower (the 1957-03-04 page: text to 0.33, the second from 0.39 of 720px),
+#: so the usual window about the grid's middle began inside the second.
+UNDER_FIFTIES = (0.25, 0.45)
+
+
+def under_gutter(lines, grid, shares=None):
     """The x between the two clue columns under the grid: where the fewest
-    words (`lines`, every reading's) cross near the grid's middle. A paper's
+    words (`lines`, every reading's) cross near the grid's middle (or in
+    `shares` of the grid's width from its left edge). A paper's
     columns need not split at the grid's middle, and a right-hand clue
     whose number starts left of it is read into the left column's row."""
     gx0, _, gx1, gy1 = grid
     mid, span = gx0 + (gx1 - gx0) / 2 - 10, UNDER_SPAN * (gx1 - gx0)
+    if shares:
+        mid, span = gx0 + (gx1 - gx0) * sum(shares) / 2, (gx1 - gx0) * (shares[1] - shares[0]) / 2
     bottom = gy1 + 1.8 * (gx1 - gx0)
     return gutter(lines, (gx0, bottom, gx1, bottom), gy1, mid - span, mid + span)
 
@@ -4452,7 +4462,14 @@ def two_columns_only(paper, d):
     grid's 840, where the listings stand): its clues are the two columns under the grid and
     the page's TV listings stand in the band right of it (overhang() read them as a
     third clue column: the readers then laid the listings' lines, no reading had
-    the clues of 22-down on 1984-11-10, and the VLM was asked to pick for them)."""
+    the clues of 22-down on 1984-11-10, and the VLM was asked to pick for them).
+    Also a Gale Times of 1950-59: the grid stands mid-page with ACROSS and the first
+    DOWN clues in a column left of it and the rest in two columns under it; the
+    adverts right of it were read as a third column (overhang() = 1732 on the
+    1957-03-04 page, grid ending at 1222), which dropped the left column
+    (no lead) and every reading was refused "no ACROSS and DOWN lists"."""
+    if paper.key == "gale" and d is not None and "1950" <= d.name[:4] <= "1959":
+        return True
     return paper.key == "ft" and d is not None and "1982" <= d.name[:4] <= "1986"
 
 
@@ -4721,7 +4738,7 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
         right = right_gutter(every, gbox, right)
     if not paper.four:
         split = over_gutters(every, gbox, over) if over else \
-            under_gutter(every, gbox) if above is None and left is None and not right else None
+            under_gutter(every, gbox, UNDER_FIFTIES if paper.key == "gale" and "1950" <= d.name[:4] <= "1959" else None) if above is None and left is None and not right else None
         if split is not None and not over:
             if kind == "under":
                 split = alt_x
