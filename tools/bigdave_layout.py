@@ -18,10 +18,34 @@ TITLES = {
 }
 
 
+TABLE_ROW = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S)
+TABLE_CELL = re.compile(r"<t([dh])[^>]*>(.*?)</t[dh]>", re.S)
+
+
+def table_paragraphs(html_text):
+    """A Sunday post laid out as a table (a heading row, then a number|clue row and a
+    one-cell answer row per clue) rewritten as the paragraph layout: "Across", then
+    "<number> <clue><br /><answer line>" paragraphs."""
+    if "<table" not in html_text:
+        return html_text
+    out, clue = [], None
+    for row in TABLE_ROW.findall(html_text):
+        cells = TABLE_CELL.findall(row)
+        texts = [html.unescape(TAGS.sub("", c)).strip() for _, c in cells]
+        if len(cells) == 1 and cells[0][0] == "h":
+            out.append(f"<p>{texts[0]}</p>")
+        elif len(cells) == 2 and re.fullmatch(r"\d{1,2}", texts[0]):
+            clue = f"{texts[0]} {cells[1][1]}"
+        elif len(cells) == 1 and clue:
+            out.append(f"<p>{clue}<br />{cells[0][1]}</p>")
+            clue = None
+    return re.sub(r"<table.*?</table>", lambda _: "".join(out), html_text, flags=re.S)
+
+
 def join_split_clues(html_text):
     """scchua's layout puts the clue in one <p> and its answer, as { ANSWER }, in the
     next. Join the two with a <br> so they read like the single-paragraph layout."""
-    paras = html_text.split("</p>")
+    paras = table_paragraphs(html_text).split("</p>")
     out, i = [], 0
     while i < len(paras):
         para = paras[i]

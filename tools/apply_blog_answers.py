@@ -175,12 +175,13 @@ CLUE_HEAD = re.compile(r"^\s*(\d{1,2})\s*(?:ac|dn|a|d)?\b", re.I)
 LINKED_HEAD = re.compile(r"(?:&|and|,|/)\s*(\d{1,2})\s*(ac|dn|a|d)?\b", re.I)
 LINKED_LEAD = re.compile(
     r"^\s*\d{1,2}\s*(?:ac|dn|a|d)?\s*((?:(?:&|and|,|/)\s*\d{1,2}\s*(?:ac|dn|a|d)?\b\s*)+)", re.I)
+LEADING_HEAD = re.compile(r"^(?:\s|<[^>]*>)*(Across|Down)\s*:?(?:\s|<[^>]*>)*(?=\d)", re.I)
 #: The answer between curly brackets, however many <span>s the blogger nested in it.
 HIDDEN_ANSWER = re.compile(r"\{(.*?)\}", re.S)
 #: A clue's printed enumeration, which ends the clue when no <br> does.
 ENUMERATION = re.compile(r"\(\s*\d[\d,\-–\s]*\)")
 #: A Sunday post prints the answer in capitals at the head of the line under the clue.
-LEAD_CAPS = re.compile(r"^([A-Z][A-Z' \-]*[A-Z])(?=\s*(?:[–—]|-\s|$))")
+LEAD_CAPS = re.compile(r"^([A-Z](?:[A-Z']|-(?=[A-Z])|\s(?!-))*[A-Z])(?=\s*(?:[–—=:]|-\s?|$)|\s+[A-Z]?[a-z])")
 
 
 def bigdave_rows(html_text):
@@ -195,6 +196,10 @@ def bigdave_rows(html_text):
         if heading and cell_text(para).lower().strip(": ") in ("across", "down"):
             direction = heading.group(1).lower()
             continue
+        lead_head = LEADING_HEAD.match(para)    # "Across" run into the first clue's paragraph
+        if lead_head:
+            direction = lead_head.group(1).lower()
+            para = para[lead_head.end():]
         if not direction:
             continue
         if "<br" in para:
