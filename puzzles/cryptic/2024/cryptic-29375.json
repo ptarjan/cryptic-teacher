@@ -1323,42 +1323,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite the whole, so the phrase loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Dad",
-         "gives": "PA",
-         "note": "pa is an informal word for father"
-        },
-        {
-         "words": "completely",
-         "gives": "INFULL",
-         "note": "in full means completely, with nothing left out"
-        }
-       ]
+       "words": "Dad",
+       "at": 8,
+       "gives": "PA",
+       "note": "pa is father"
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 12,
+         "note": "almost means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "completely",
+         "at": 19,
+         "gives": "INFULL",
+         "note": "completely means in full"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child complaining that their father has hurt them nearly as much as possible.",
-     "definitionFit": "Painful as an adjective means causing pain, as a hurting injury does."
+     "surface": "A child complains that Dad hurt them almost totally.",
+     "walkthrough": "PA, then IN FULL missing its last letter.",
+     "definitionFit": "Painful describes what is hurting, causing pain."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Dad"
+     "aptDefinition": false
     }
    }
   },

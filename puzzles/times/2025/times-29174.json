@@ -388,26 +388,39 @@
      "indicators": [
       {
        "text": "to abandon",
-       "note": "to abandon something is to leave it"
+       "at": 13,
+       "note": "the letter leaves the support, so it is taken out"
       }
      ],
      "parts": [
       {
        "words": "support",
+       "at": 24,
        "gives": "BRACE",
        "note": "a brace is a support"
       },
       {
-       "words": "City's first",
-       "gives": "C",
-       "note": "first letter of City, removed"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 7,
+         "note": "first means the opening letter of city"
+        }
+       ],
+       "parts": [
+        {
+         "words": "City's",
+         "at": 0
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The City of London withdrawing support for the Bank of Scotland in a crisis.",
-     "walkthrough": "Bank of Scotland reads as the lender; it is a Scottish bank of earth.",
-     "definitionFit": "Regional use: brae is the Scots word for a hillside or steep bank."
+     "surface": "A city's leading bank pulls its backing from the Bank of Scotland.",
+     "walkthrough": "BRACE without C. 'Bank of Scotland' looks like the institution; a brae is a Scottish hillside.",
+     "definitionFit": "In Scots a brae is a steep slope or hillside, a riverbank."
     },
     "features": {
      "answerInScene": false,
@@ -1063,8 +1076,7 @@
     "definitions": [
      {
       "text": "she's off to foreign parts",
-      "at": 42,
-      "note": "The definition is a clause describing the answer: a person heading abroad."
+      "at": 42
      }
     ],
     "wordplay": {
@@ -1072,31 +1084,49 @@
      "indicators": [
       {
        "text": "hosting",
-       "note": "a host has guests inside the house"
+       "at": 18,
+       "note": "hosting means having guests inside, so the party goes within"
       }
      ],
      "parts": [
       {
        "words": "Election official",
+       "at": 0,
        "gives": "TELLER",
-       "note": "a teller counts votes, split round RAV"
+       "note": "a teller counts votes"
       },
       {
-       "words": "party briefly",
-       "gives": "RAV",
-       "note": "RAVE, shortened"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 32,
+         "note": "briefly means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 26,
+         "gives": "RAVE",
+         "note": "a rave is a party"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vote counter throwing a quick party before leaving the country.",
-     "walkthrough": "The dash splits wordplay from a definition that is a whole clause, describing the answer.",
-     "definitionFit": "Description: someone going abroad is making a journey."
+     "surface": "A vote counter throws a quick party before jetting abroad.",
+     "walkthrough": "The definition is a playful description: the answer is anyone heading abroad, here a woman.",
+     "definitionFit": "A traveller is someone who journeys, often abroad."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "party"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hosting"
     }
    }
   },
@@ -1532,28 +1562,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "poorly placed",
-       "note": "letters poorly placed are in the wrong positions and need moving"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Accra",
-       "note": "fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poorly placed",
+         "at": 6,
+         "note": "letters poorly placed are out of order, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Accra",
+         "at": 0
+        }
+       ]
       },
       {
        "words": "as",
-       "note": "fodder"
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "A verdict that Accra is badly sited to be a capital.",
-     "walkthrough": "Accra, capital of Ghana, is only fodder; the answer is another capital.",
-     "definitionFit": "Definition by example: the Venezuelan seat of government is one capital city."
+     "surface": "A grumble that Ghana's capital is badly sited to serve as a capital.",
+     "walkthrough": "ACCRA rearranged gives CARAC, then AS. Accra is itself a capital, which tempts as the answer.",
+     "definitionFit": "Caracas is the capital city of Venezuela."
     },
     "features": {
      "answerInScene": true,

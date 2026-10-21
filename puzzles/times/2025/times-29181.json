@@ -1668,30 +1668,47 @@
      "op": "charade",
      "parts": [
       {
-       "words": "got up shortly",
-       "gives": "ROS",
-       "note": "ROSE, got up, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 25,
+         "note": "said briefly, so the final letter of the word for got up is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "got up",
+         "at": 18,
+         "gives": "ROSE",
+         "note": "got up means rose"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "as printed"
+       "at": 38
       },
       {
        "words": "line",
+       "at": 40,
        "gives": "RY",
-       "note": "RY = railway line"
+       "note": "RY is the abbreviation for railway, a line"
       }
      ]
     },
     "explanation": {
-     "surface": "Prayers are said after rising briefly and joining a queue.",
-     "walkthrough": "'Shortly' reads as 'soon'; it trims the word before it.",
-     "definitionFit": "The rosary is a set sequence of Catholic prayers counted on beads."
+     "surface": "Someone rose early and wrote out a line of verse or prayer.",
+     "walkthrough": "ROSE loses its last letter to give ROS; then A and RY, the railway abbreviation.",
+     "definitionFit": "A rosary is the Catholic devotion of repeated prayers counted on beads."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "shortly"
+     "misdirectedWord": "line"
     }
    }
   }
