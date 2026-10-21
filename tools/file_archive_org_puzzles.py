@@ -4261,6 +4261,14 @@ def held_settled(d, verdict):
     return True
 
 
+def two_columns_only(paper, d):
+    """True for an FT page of 1984: its clues are the two columns under the grid and
+    the page's TV listings stand in the band right of it (overhang() read them as a
+    third clue column: the readers then laid the listings' lines, no reading had
+    the clues of 22-down on 1984-11-10, and the VLM was asked to pick for them)."""
+    return paper.key == "ft" and d is not None and d.name[:4] == "1984"
+
+
 def clues_may_be_right(paper, d):
     """False for a Gale edition before 2014: its clues never lie right of the grid."""
     return not (paper.key == "gale" and d.name[:4] < "2014")
@@ -4408,7 +4416,8 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None):
     # there is an advert column (1947-48: the grid at the page's foot made
     # right_columns() read the ads, and the clue column left of the grid went unread).
     right, over = right_or_over(img, gbox, clues_may_be_right(paper, d)) if side == "below" and top is None \
-        and not column and not paper.four and not third and kind != "plain" else (None, None)
+        and not column and not paper.four and not third and kind != "plain" and not two_columns_only(paper, d) \
+        else (None, None)
     if (right or over) and alts is not None:
         alts.append(("plain", None))
     # The 2005 Times: the same, the grid left of its title (side "left").
