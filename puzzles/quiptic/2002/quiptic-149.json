@@ -259,49 +259,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "standing",
-       "note": "in a down clue a word standing up is written from bottom to top"
+       "text": "holding",
+       "at": 13,
+       "note": "holding means containing, so the next pieces sit inside"
       }
      ],
      "parts": [
       {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "standing",
+         "at": 3,
+         "note": "in a down clue something standing is upright, read from the bottom up, so this word is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Is",
+         "at": 0,
+         "gives": "IS"
+        }
+       ]
+      },
+      {
        "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "holding",
-           "note": "the turned word holds the other pieces within it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Is",
-           "note": "taken as written, then turned upward"
-          },
-          {
-           "words": "hot",
-           "gives": "H",
-           "note": "H is the abbreviation for hot, as on taps"
-          }
-         ]
+         "words": "American",
+         "at": 21,
+         "gives": "US"
         },
         {
-         "words": "American",
-         "gives": "US",
-         "note": "US is short for American"
+         "words": "hot",
+         "at": 30,
+         "gives": "H",
+         "note": "H is the tap abbreviation for hot"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A US visitor stands holding a hot dish while in Japan.",
-     "definitionFit": "Sushi is the Japanese dish of vinegared rice with raw fish, a typical food of that country."
+     "surface": "Is a standing American holding a hot dish in a Japanese restaurant?",
+     "walkthrough": "IS read upwards gives SI, and that holds US and H.",
+     "definitionFit": "Sushi is the Japanese dish of vinegared rice with raw fish, typical eating in Japan."
     },
     "features": {
      "answerInScene": true,
@@ -1131,23 +1136,39 @@
      "parts": [
       {
        "words": "Finished",
+       "at": 0,
        "gives": "OVER",
-       "note": "something over is finished"
+       "note": "over means finished, as in the game is over"
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 9
       },
       {
-       "words": "double length",
-       "gives": "LL",
-       "note": "L for length, doubled"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "double",
+         "at": 11,
+         "note": "double says the abbreviation for length is written twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "length",
+         "at": 18,
+         "gives": "L"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tailor completes a coat cut twice the usual length.",
-     "definitionFit": "An overall is a loose protective coat worn over clothes, so it is a type of clothing item."
+     "surface": "A tailor has completed a garment of double length.",
+     "definitionFit": "An overall is a loose protective coat or one-piece work suit worn over ordinary clothes."
     },
     "features": {
      "answerInScene": true,

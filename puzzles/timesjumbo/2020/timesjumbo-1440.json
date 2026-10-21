@@ -1600,55 +1600,58 @@
      "parts": [
       {
        "words": "A",
-       "note": "taken as written"
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 9,
+         "note": "mostly means most of the word, so its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "friend",
+         "at": 2,
+         "gives": "MATE",
+         "note": "a mate is a friend"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "confounded",
-         "note": "confounded means thrown into confusion, so these letters are jumbled"
+         "at": 28,
+         "note": "confounded means mixed up, so these letters are jumbled"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not quite all, so the word loses its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "friend",
-             "gives": "MATE",
-             "note": "a pal"
-            },
-            {
-             "words": "ensures his",
-             "note": "the letters to be rearranged"
-            }
-           ]
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "ensures",
+         "at": 16
+        },
+        {
+         "words": "his",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pal's muddled assurances reveal a lack of expertise.",
-     "definitionFit": "Being unskilled or inexpert, like a dabbler rather than a trained practitioner, is the opposite of professional."
+     "surface": "A friend more or less guarantees his baffling lack of professionalism.",
+     "walkthrough": "'mostly' means all but the last letter; 'confounded' looks like an oath on 'lack', but it rearranges the two words before it.",
+     "definitionFit": "Amateurishness is the quality of being inexpert, the opposite of how a skilled professional behaves."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "confounded"
     }

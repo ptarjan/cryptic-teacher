@@ -1564,45 +1564,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "WAYFARER",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 24,
+       "note": "say signals that the words are spoken, giving a word that sounds the same"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "WAY",
-       "indicators": [
-        {
-         "text": "say",
-         "note": "say asks for the words to be spoken, so their sound gives the answer"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Consider",
-         "gives": "WEIGH",
-         "note": "to weigh something up is to consider it"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "FARER",
-       "parts": [
-        {
-         "words": "more passable",
-         "gives": "FAIRER",
-         "note": "fair means passable, so fairer is more so"
-        }
-       ]
+       "words": "Consider more passable",
+       "at": 0,
+       "gives": "WEIGHFAIRER",
+       "note": "to weigh something is to consider it; fairer means more passable, as fair means acceptable"
       }
      ]
     },
     "explanation": {
-     "surface": "Judging something a bit more acceptable on someone's behalf.",
-     "definitionFit": "A wayfarer is someone who journeys on foot, a traveller along roads."
+     "surface": "Someone asked to think whether a road is more passable for a traveller.",
+     "walkthrough": "WEIGH FAIRER spoken aloud sounds like the answer.",
+     "definitionFit": "A wayfarer is someone who journeys on foot, a traveller on the road."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "passable"
     }
    }
@@ -2202,57 +2190,50 @@
      "indicators": [
       {
        "text": "being rejected",
-       "note": "rejected suggests thrown back, so the words are read backwards"
+       "at": 36,
+       "note": "rejected means sent back, so the letters are written in reverse"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing face",
+         "at": 8,
+         "note": "a word's face is its first letter, so each word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "losing face",
-           "note": "the face of a word is its front, so the first letter is lost"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "boy",
-           "note": "taken as written"
+           "at": 4
           },
           {
-           "gives": "B"
+           "words": "Joy",
+           "at": 22
           }
          ]
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Joy",
-           "note": "taken as written"
-          },
-          {
-           "gives": "J"
-          }
-         ]
+         "gives": "BJ"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A toy boy and his girlfriend Joy are both being dumped.",
-     "walkthrough": "A toy boy is a much younger lover, but 'Toy' alone is the definition. 'Joy too' means Joy also loses her face.",
-     "definitionFit": "A yo-yo is a spool toy that spins down and climbs back up its string."
+     "surface": "A toy boy humiliated, and his girlfriend Joy too, both dumped.",
+     "walkthrough": "'losing face' covers both boy and Joy ('too'), and 'both being rejected' sends the whole result backwards.",
+     "definitionFit": "A yo-yo is a spinning toy that climbs and drops on a string."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Toy"
+     "misdirectedWord": "face"
     }
    }
   },
