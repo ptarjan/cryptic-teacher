@@ -935,64 +935,72 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to eclipse",
+       "at": 42,
+       "note": "to eclipse something is to block it out by covering it, so the other letters surround this one"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "Front two",
-         "note": "the front pair of a word are its opening couple of letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Manchester",
-         "note": "the first letters of the city's name: its first two"
-        }
-       ]
-      },
-      {
-       "op": "anagram",
-       "indicators": [
+         "words": "Front two of Manchester",
+         "at": 0,
+         "gives": "MA",
+         "note": "the opening pair of letters of the word Manchester"
+        },
         {
-         "text": "struggling",
-         "note": "a team that is struggling is in disarray, so the letters are thrown into a new order"
-        }
-       ],
-       "parts": [
-        {
-         "op": "first",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "primacy",
-           "note": "primacy means being first, so only the first letter is wanted"
+           "text": "struggling",
+           "at": 31,
+           "note": "a struggling side is in disarray, so the letters of United are thrown into a new order"
           }
          ],
          "parts": [
           {
-           "words": "Giggs'",
-           "note": "the first letter of the surname"
+           "words": "United",
+           "at": 24,
+           "note": "the anagram fodder, taken as written"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "United",
-         "note": "taken as written"
+         "text": "the primacy of",
+         "at": 53,
+         "note": "primacy is first place, so only the first letter of Giggs' is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Giggs'",
+         "at": 68,
+         "gives": "G",
+         "note": "first letter G; Ryan Giggs was a long-serving Manchester United winger"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Manchester United's strike pair find it hard to outshine the brilliance of Ryan Giggs, the club's legendary winger.",
-     "walkthrough": "The G is mixed in with the other letters; the jumbled word together with it is placed after the opening pair of the city.",
-     "definitionFit": "Magnitude means size or importance, which is the same idea as greatness."
+     "surface": "A football lament: Manchester United's front two are off form and fail to outshine the great Ryan Giggs.",
+     "walkthrough": "MA (front two of Manchester) is followed by NITUDE, an anagram of UNITED signalled by 'struggling'; together these 'eclipse' G, the first letter of Giggs', giving MA-G-NITUDE.",
+     "definitionFit": "Magnitude means great size or importance, a direct synonym for greatness."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "United"
+     "misdirectedWord": "eclipse"
     }
    }
   },
