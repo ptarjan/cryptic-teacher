@@ -110,40 +110,49 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "one word holding others means it wraps around them"
+       "at": 21,
+       "note": "holding means keeping inside, so the cardinal word is split open around the rest"
       }
      ],
      "parts": [
       {
        "words": "cardinal",
+       "at": 12,
        "gives": "MAIN",
-       "note": "cardinal in the sense of chief or principal"
+       "note": "cardinal as an adjective means principal or main"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "battered",
-         "note": "something battered is knocked out of shape, so these letters are rearranged"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "battered",
+           "at": 31,
+           "note": "battered means knocked out of shape, so the letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tin",
+           "at": 40,
+           "note": "taken as written"
+          }
+         ]
         },
         {
-         "words": "tin",
-         "note": "taken as written; with the A it is rearranged"
+         "words": "a",
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A churchman in red clutches a dented tin can, perhaps collecting for charity.",
-     "walkthrough": "'Cardinal' suggests a churchman or a number, but here it means principal, as in cardinal rule.",
-     "definitionFit": "To maintain someone is to support or provide for them financially."
+     "surface": "A churchman offers help while clutching a dented tin.",
+     "walkthrough": "'cardinal' suggests a churchman; here it is the adjective, and 'holding' splits it open in the middle.",
+     "definitionFit": "To maintain something is to keep it up or uphold it, a verb sense of support."
     },
     "features": {
      "answerInScene": false,
@@ -541,46 +550,57 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "involving means taking something inside"
-      },
-      {
-       "text": "bedding",
-       "note": "bedding means taking someone to bed, so one piece lies within another"
+       "at": 10,
+       "note": "involving means wrapping round, so the rearranged bet letters surround the rest"
       }
      ],
      "parts": [
-      {
-       "words": "bet",
-       "gives": "BTE",
-       "note": "the letters of bet rearranged, then split around the rest"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Fixed",
-         "note": "fixed in the sense of rigged or rearranged"
+         "at": 0,
+         "note": "fixed as in rigged, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bet",
+         "at": 6,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bedding",
+         "at": 26,
+         "note": "bedding means taking to bed, so the woman's name takes the duke letter inside"
         }
        ],
        "parts": [
         {
          "words": "woman",
+         "at": 20,
          "gives": "LINDA",
-         "note": "a woman's name"
+         "note": "Linda is a woman's name"
         },
         {
          "words": "duke",
-         "gives": "D",
-         "note": "standard abbreviation for duke"
+         "at": 34,
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rigged wager over whether a woman will seduce a duke.",
-     "walkthrough": "Linda wraps around D, and the reshuffled bet wraps around both.",
-     "definitionFit": "A blind date is a meeting arranged between two strangers who may become romantically involved."
+     "surface": "A rigged wager about a woman sleeping with an aristocrat.",
+     "walkthrough": "'Fixed' looks like 'arranged in advance' but signals a rearrangement, and 'bedding' puts the duke into the woman's name.",
+     "definitionFit": "A blind date is a social meeting between two people who have never met, set up in hope of romance."
     },
     "features": {
      "answerInScene": true,

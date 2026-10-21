@@ -243,52 +243,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LOGARITHM",
+     "op": "composite",
      "indicators": [
       {
        "text": "collaborate",
-       "note": "to collaborate is to work together, so the surviving letters are jointly worked into a new order"
+       "at": 18,
+       "note": "to collaborate is to work together, so these words are mixed into one new arrangement"
+      },
+      {
+       "text": "without",
+       "at": 30,
+       "note": "without says the hesitation letters are taken out of the mixed pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LOGARITHM",
-       "indicators": [
-        {
-         "text": "without",
-         "note": "without means going lacking something, so the hesitation sound is taken out of the words before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "A",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "mother",
+         "at": 2,
          "note": "taken as written"
         },
         {
          "words": "girl",
+         "at": 13,
          "note": "taken as written"
-        },
-        {
-         "words": "hesitation",
-         "gives": "ER",
-         "note": "er is the sound of someone hesitating"
         }
        ]
+      },
+      {
+       "words": "hesitation",
+       "at": 38,
+       "gives": "ER",
+       "note": "er is a hesitant pause in speech"
       }
      ]
     },
     "explanation": {
-     "surface": "A mother and her daughter work together smoothly, without hesitating, for some event.",
-     "walkthrough": "Removing ER from mother leaves MOTH; A, MOTH and GIRL then rearrange into LOGARITHM.",
-     "definitionFit": "A logarithm is a mathematical function, the inverse of raising a base to a power."
+     "surface": "A mother and daughter work together smoothly, with no dithering, for an event.",
+     "walkthrough": "A MOTHER GIRL has the letters of the answer plus E and R, the hesitation removed.",
+     "definitionFit": "A logarithm is a mathematical function, the inverse of exponentiation."
     },
     "features": {
      "answerInScene": false,
@@ -1285,54 +1284,64 @@
      "parts": [
       {
        "words": "Seaside attraction",
+       "at": 0,
        "gives": "PIER",
-       "note": "a pier is a classic British seaside attraction"
+       "note": "a pier is a classic attraction at a British seaside resort"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "to accommodate",
-         "note": "accommodating a guest means housing them, so the phrase for able holds the rest inside"
+         "at": 27,
+         "note": "to accommodate is to take in, so the can word holds the other letters"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "strangely",
-           "note": "strangely means in an odd fashion, so the following word is rearranged oddly"
-          }
-         ],
-         "parts": [
-          {
-           "words": "is able",
-           "gives": "CAN",
-           "note": "can means is able to"
-          },
-          {
-           "words": "sober",
-           "note": "the letters of sober rearranged"
-          }
-         ]
+         "words": "is able",
+         "at": 19,
+         "gives": "CAN",
+         "note": "can means is able"
         },
         {
-         "words": "Northern",
-         "gives": "N",
-         "note": "N is the abbreviation for northern"
+         "op": "charade",
+         "parts": [
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "strangely",
+             "at": 42,
+             "note": "strangely signals the letters are oddly reordered"
+            }
+           ],
+           "parts": [
+            {
+             "words": "sober",
+             "at": 52,
+             "note": "taken as written"
+            }
+           ]
+          },
+          {
+           "words": "Northern",
+           "at": 58,
+           "gives": "N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seaside resort hosts a teetotal actor from Northern Ireland.",
-     "walkthrough": "Northern Irish reads as one phrase, but Northern supplies a letter and Irish belongs to the definition.",
-     "definitionFit": "Pierce Brosnan is an actor born in Ireland, best known for playing James Bond."
+     "surface": "A pier can host an oddly teetotal actor from Northern Ireland.",
+     "walkthrough": "'Northern Irish' reads as one phrase, but Northern gives N and the definition is just 'Irish actor'.",
+     "definitionFit": "Pierce Brosnan is an Irish-born actor best known for playing James Bond."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Northern"
     }
