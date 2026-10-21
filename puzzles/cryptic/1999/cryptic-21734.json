@@ -192,40 +192,36 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PANGA",
+     "op": "move",
      "indicators": [
       {
        "text": "swallowing his tail",
-       "note": "the word swallows its own final letter, which is taken off the end and put inside"
+       "at": 22,
+       "note": "swallowing his tail says the last letter is taken back inside the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PANGA",
-       "parts": [
-        {
-         "words": "11",
-         "gives": "PAGAN",
-         "note": "11-across is HEATHEN, and a heathen is a pagan"
-        }
-       ]
+       "words": "11",
+       "at": 18,
+       "gives": "PAGAN",
+       "note": "11 is PAGAN"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks which African blade suits a heathen who is eating his own tail.",
-     "walkthrough": "The last letter N moves from the end of PAGAN to its middle, giving PA-N-GA.",
-     "definitionFit": "A panga is a broad heavy machete used in East Africa for cutting brush."
+     "surface": "A knife suited to a heathen who seems to devour himself from behind.",
+     "walkthrough": "PAGAN's final N moves inside, after the A.",
+     "definitionFit": "A panga is a broad-bladed machete used in East Africa for cutting crops and brush."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "tail"
+     "misdirectedWord": "swallowing"
     }
    }
   },
@@ -863,28 +859,47 @@
      "indicators": [
       {
        "text": "taken in by",
-       "note": "something taken in by another is held inside it"
+       "at": 40,
+       "note": "taken in by says the charity piece goes inside the forger"
       }
      ],
      "parts": [
       {
        "words": "forger",
+       "at": 52,
        "gives": "COINER",
-       "note": "a coiner makes counterfeit money"
+       "note": "a coiner forges counterfeit money"
       },
       {
-       "words": "singular charity",
-       "gives": "ALM",
-       "note": "alms is charity; made singular it loses its S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "singular",
+         "at": 18,
+         "note": "singular drops the plural ending of the word for charity"
+        }
+       ],
+       "parts": [
+        {
+         "words": "charity",
+         "at": 27,
+         "gives": "ALMS",
+         "note": "alms are charitable gifts"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A miner shows rare generosity when a counterfeiter cons him.",
-     "definitionFit": "A pitman is a worker in a pit, a colliery, so someone digging coal underground."
+     "surface": "A miner shows unusual generosity when a counterfeiter cons him.",
+     "walkthrough": "'singular' is a grammatical signal here, not 'unusual': alms is a plural, and making it singular drops its last letter.",
+     "definitionFit": "A pitman is a worker in a pit, a coal mine, so a collier."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "singular"
     }
@@ -1496,48 +1511,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "ANGELICO",
+     "indicators": [
+      {
+       "text": "speaks of",
+       "at": 15,
+       "note": "speaks of says the pieces are given as they sound aloud"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "AN",
-       "indicators": [
-        {
-         "text": "speaks of",
-         "note": "speaking the names out loud gives the sound needed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "girl",
-         "gives": "ANN",
-         "note": "Ann is a girl's name"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "GELICO",
-       "parts": [
-        {
-         "words": "the victor of Jutland",
-         "gives": "JELLICOE",
-         "note": "Admiral Jellicoe commanded the British fleet at the Battle of Jutland, 1916"
-        }
-       ]
+       "words": "girl to the victor of Jutland",
+       "at": 25,
+       "gives": "ANNJELLICOE",
+       "note": "Ann is a girl's name, and Admiral Jellicoe commanded the British fleet at the Battle of Jutland in 1916; said together they run into the painter's name"
       }
      ]
     },
     "explanation": {
-     "surface": "A painting monk talks of a young woman to the admiral who won at Jutland.",
-     "walkthrough": "Ann Jellicoe was also a real playwright, which adds to the surface.",
-     "definitionFit": "Fra Angelico was a Dominican friar and early Renaissance Florentine painter."
+     "surface": "A painter monk talks of a young woman to an admiral.",
+     "walkthrough": "Said aloud, ANN and JELLICOE run into the painter's name.",
+     "definitionFit": "Fra Angelico was an early Renaissance Florentine painter and Dominican friar."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "girl"
+     "misdirectedWord": "victor"
     }
    }
   },
