@@ -43,21 +43,22 @@ import archive_coverage
 import file_archive_org_puzzles as fa
 import gale_docs
 import gale_fetch
+import local_config
 import media_manifest
 import pypdf
 import trove_grid
 
 TOOLS = Path(__file__).resolve().parent
 
-HOST = os.environ.get("GALE_INBOX_HOST", "pt@host.docker.internal")
-#: The Mac folder the Gale pages and the progress page live in, on the
-#: Media disk (the SMB share "Media").
-GALE_ROOT = "/Volumes/Media/Gale crosswords"
+HOST = os.environ.get("GALE_INBOX_HOST") or local_config.get("mac_host")
+#: The media host's folder the Gale pages and the progress page live in, on the
+#: media disk (the local config's media_root).
+GALE_ROOT = local_config.path("media_root") + "/Gale crosswords"
 CHECKLIST_NAME = "Checklist.html"
 
 
 SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=15", "-o", "HostKeyAlias=localhost",
-       "-i", os.path.expanduser("~/.ssh/host_hatch")]
+       *(["-i", local_config.path("mac_ssh_key")] if local_config.get("mac_ssh_key") else [])]
 #: This module's and tools/gale_fetch.py's state.
 HOME = Path(os.path.expanduser("~/.cache/gale_inbox"))
 CHECKLIST = HOME / CHECKLIST_NAME

@@ -118,7 +118,7 @@ def main():
                 w.send(f"down:{int(since)}",
                        f"The desktop VLM ({vlm_reader.URL}, {vlm_reader.MODEL}) has been down "
                        f"since {when} with no game running, so OCR is reading without it.\n"
-                       f"{detail}\nRestart: `ssh micro@100.68.145.15 \"schtasks /run /tn "
+                       f"{detail}\nRestart: `ssh {desktop_busy.USER}@{desktop_busy.DESKTOPS[-1] if desktop_busy.DESKTOPS else 'desktop'} \"schtasks /run /tn "
                        "llamaswap-boot\"`; game-guard also restarts it 30s after a game ends.",
                        ROOM)
     w.seen.append(f"{STATE}\t{json.dumps(state, sort_keys=True)}")

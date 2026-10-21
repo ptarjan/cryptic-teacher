@@ -3,7 +3,7 @@
 #
 #     python3 tools/test_no_media_scans.py
 #
-# The media disk (tools/downloads.py's ROOT, /Volumes/Media) spins; Paul
+# The media disk (tools/downloads.py's ROOT) spins; Paul
 # 2026-10-14: "I don't want anything regularly scanning the spinning disk".
 # The functions below run on a household schedule (every minute, every ten)
 # and read what is there from tools/media_manifest.py's SSD manifests, which

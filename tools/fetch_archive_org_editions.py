@@ -149,7 +149,7 @@ import media_manifest
 #: starts (under the queue's code lock, edition_queue.snapshot), so none is
 #: loaded later from a tree that moved meanwhile. test_edition_queue.py
 #: checks this is what code_reach finds fetch_unit reaching.
-MODULES = ("desktop_busy", "desktop_hosts", "dir_cache", "downloads", "file_archive_org_puzzles", "media_manifest", "ocr_clues",
+MODULES = ("desktop_busy", "desktop_hosts", "dir_cache", "downloads", "file_archive_org_puzzles", "local_config", "media_manifest", "ocr_clues",
            "ocr_remote", "scan_queue", "trove_grid", "trove_solution_ocr", "vlm_reader")
 
 UA = "cryptic-teacher-fetcher/1.0 (cryptic-teacher@paulisageek.com)"

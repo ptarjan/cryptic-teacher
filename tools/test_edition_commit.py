@@ -11,6 +11,10 @@
 # No ssh, no OCR: temp dirs only.
 import atexit
 import os
+
+# The desktop the code reaches is a fake one: the real addresses live in an untracked local config.
+os.environ.update(CT_LOCAL_CONFIG="/nonexistent", CT_DESKTOP_USER="tester", CT_VLM_PORT="8000",
+                  CT_DESKTOP_ADDRESSES="192.0.2.198 192.0.2.180 100.64.0.15", CT_DESKTOP_HOME="C:\\Users\\tester\\ocrw")
 import shutil
 import sys
 import tempfile
@@ -173,8 +177,8 @@ check("an answer from the desktop marks it seen", True,
       (lost_run(0, True, 3600)[0], time.time() - ocr_remote.SEEN.stat().st_mtime < 60)[1])
 os.environ.pop(ocr_remote.DEFER, None)
 check("the desktop's hosts become every address it may be at, LAN before tailnet (unprobed: the json's order), then the rest",
-      ["micro@192.168.1.198", "micro@192.168.1.180", "micro@100.68.145.15", "box"],
-      ocr_remote.by_path(["micro@100.68.145.15", "micro@192.168.1.180", "box"]))
+      ["tester@192.0.2.198", "tester@192.0.2.180", "tester@100.64.0.15", "box"],
+      ocr_remote.by_path(["tester@100.64.0.15", "tester@192.0.2.180", "box"]))
 check("other hosts alone: LAN before tailnet", ["box", "me@100.64.0.9"], ocr_remote.by_path(["me@100.64.0.9", "box"]))
 
 size = ledger.stat().st_size

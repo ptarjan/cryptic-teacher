@@ -45,10 +45,11 @@ host-wide slots (local_slot()): the full pass runs 20 workers for the
 desktop, and 20 reading here at once (the desktop off or gaming) put the
 4-core host at load 20-40.
 
-Desktop layout (C:\\Users\\micro\\ocrw): venv/ (the pinned Python packages),
-tess/ (conda-forge tesseract, micromamba), v-<code hash>/tools/ (shipped here);
-the reader models outside the code (en_PP-OCRv5_rec_mobile, en_PP-OCRv3_rec)
-in C:\\Users\\micro\\.cache\\rapidocr, as here in ~/.cache/rapidocr.
+Desktop layout (HOME below, the local config's desktop_home): venv/ (the pinned
+Python packages), tess/ (conda-forge tesseract, micromamba), v-<code hash>/tools/
+(shipped here); the reader models outside the code (en_PP-OCRv5_rec_mobile,
+en_PP-OCRv3_rec) in the desktop user's .cache\\rapidocr, as here in
+~/.cache/rapidocr.
 """
 import contextlib
 import hashlib
@@ -65,13 +66,17 @@ import time
 from pathlib import Path
 import desktop_busy
 import desktop_hosts
+import local_config
 from desktop_busy import SSH
 
 TOOLS = Path(__file__).resolve().parent
 
 
-#: The desktop's directory.
-HOME = r"C:\Users\micro\ocrw"
+#: The desktop's directory. Run from there (shipped code sits in its v-<hash>
+#: directory) it is that directory's parent; elsewhere the local config's
+#: desktop_home names it (local_config.py).
+HOME = (str(Path(__file__).resolve().parents[2]) if Path(__file__).resolve().parents[1].name.startswith("v-")
+        else local_config.get("desktop_home") or "C:\\ocrw")
 #: Seconds to wait for a session to say it is ready, for one crop and for
 #: one edition.
 CONNECT_TIMEOUT = 60

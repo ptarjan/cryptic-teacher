@@ -83,6 +83,7 @@ from pathlib import Path
 
 import gale_docs
 import hot_reload
+import local_config
 import media_manifest
 from gale_http import Chrome, click_headers, verifies
 
@@ -119,10 +120,10 @@ REPLAN = 15
 #: A Gale page PDF is a whole newspaper page: far more than this.
 MIN_PDF = 20_000
 FETCHED = Path(os.path.expanduser("~/.cache/gale_inbox/fetched.json"))
-HOST = os.environ.get("GALE_INBOX_HOST", "pt@host.docker.internal")
+HOST = os.environ.get("GALE_INBOX_HOST") or local_config.get("mac_host")
 SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=15", "-o", "HostKeyAlias=localhost",
-       "-i", os.path.expanduser("~/.ssh/host_hatch")]
-GALE_ROOT = "/Volumes/Media/Gale crosswords"
+       *(["-i", local_config.path("mac_ssh_key")] if local_config.get("mac_ssh_key") else [])]
+GALE_ROOT = local_config.path("media_root") + "/Gale crosswords"
 INBOX = f"{GALE_ROOT}/Times"
 ASIDE = "Set aside"
 #: Where each downloaded Times PDF is kept on the Mac (fetched_dir: each

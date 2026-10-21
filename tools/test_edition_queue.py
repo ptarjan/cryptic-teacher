@@ -14,6 +14,10 @@
 # Temp dirs only; no OCR, no VLM, no network.
 import atexit
 import os
+
+# The desktop the code reaches is a fake one: the real addresses live in an untracked local config.
+os.environ.update(CT_LOCAL_CONFIG="/nonexistent", CT_DESKTOP_USER="tester", CT_VLM_PORT="8000",
+                  CT_DESKTOP_ADDRESSES="192.0.2.198 192.0.2.180 100.64.0.15", CT_DESKTOP_HOME="C:\\Users\\tester\\ocrw")
 import shutil
 import sys
 import tempfile
@@ -534,7 +538,7 @@ t4 = edition("NewsUK1980UKEnglish", "1980-03-08_4", 10)
 real_busy, real_failure, failed = ocr_remote.desktop_busy.busy, q.failure, []
 ocr_remote.desktop_busy.busy = lambda hosts: "playing Wow"
 q.failure = lambda *a, **k: failed.append(a)
-os.environ.update(OCR_REMOTE="micro@100.68.145.15", OCR_REMOTE_DEFER="1")
+os.environ.update(OCR_REMOTE="tester@100.64.0.15", OCR_REMOTE_DEFER="1")
 lines_before = len(tl.read_text().splitlines())
 with contextlib.redirect_stderr(io.StringIO()):
     got = eq.unit_status({"kind": "scan", "paper": "times", "rel": "NewsUK1980UKEnglish/1980-03-08_4"},
@@ -1250,7 +1254,7 @@ check("over the load ceiling nothing starts, and it says so once", (False, 1),
 eq.cpu_gate_reader = lambda: 0.0
 # A desktop set, this host's load holds back fetches alone: a scan's or
 # read's OCR runs there, its reads here wait on ocr_remote.LOCAL_SLOTS.
-os.environ["OCR_REMOTE"] = "micro@100.68.145.15"
+os.environ["OCR_REMOTE"] = "tester@100.64.0.15"
 check("with a desktop set the load gates fetches, not scans or reads", (True, False, False),
       tuple(eq.load_gated({"kind": k}) for k in ("fetch", "scan", "read")))
 os.environ["OCR_REMOTE"] = ""
@@ -1260,7 +1264,7 @@ check("mirror: with no desktop the load gates every unit", (True, True, True),
 # on this host's CPU start only while a core is idle, so the burn (its quota
 # expires at each reset) keeps the CPU; the pools waiting on the desktop or
 # the network stay their full width.
-os.environ["OCR_REMOTE"] = "micro@100.68.145.15"
+os.environ["OCR_REMOTE"] = "tester@100.64.0.15"
 _kinds = (("read", "trove"), ("read", "listener"), ("read", "times"), ("scan", "gale"), ("fetch", "trove"))
 check("with a desktop set only Trove and Listener units are local CPU", (True, True, False, False, False),
       tuple(eq.local_cpu({"kind": k, "paper": p}) for k, p in _kinds))
@@ -1418,12 +1422,12 @@ def yield_run(hosts, game_for=None):
     os.environ.pop("CT_YIELD_GRACE")
     os.environ.pop("CT_YIELD_HOSTS", None)
     return err.getvalue(), out.getvalue(), flag.exists(), took
-msg, out, flagged, took = yield_run("micro@192.168.1.198")
+msg, out, flagged, took = yield_run("tester@192.0.2.198")
 check("a game stops the running units after the grace: TERMed, deferred, not failed, left for the next run",
       (2, False, True, True, True),
       (msg.count("deferred (stopped for a game)"), "failed" in msg, "TERM to 2" in msg, "left for the next run" in out, took < 7))
 check("and durable.sh is told to commit at the start of the yield", True, flagged)
-msg, out, flagged, took = yield_run("micro@192.168.1.198", game_for=1.2)
+msg, out, flagged, took = yield_run("tester@192.0.2.198", game_for=1.2)
 
 check("the units stopped for a game start again once it is over", (2, 4), (msg.count("deferred (stopped for a game)"), log.read_text().count("start")))
 msg, out, flagged, took = yield_run(None)
@@ -1440,7 +1444,7 @@ def game_on(hosts):
         eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2, replan=0.5)
     os.environ.pop("CT_YIELD_HOSTS", None)
     return log.read_text() if log.exists() else ""
-got = game_on("micro@192.168.1.198")
+got = game_on("tester@192.0.2.198")
 check("during a game (opt-in) a scan starts, a read does not", (True, False), ("s9" in got, "g0" in got))
 got = game_on(None)
 check("mirror: without CT_YIELD_HOSTS neither starts while it yields", (False, False), ("s9" in got, "g0" in got))
@@ -1450,7 +1454,7 @@ fake(outcome={}, default=0.1)
 # Paul 10-17: a game (desktop_busy's "game: ...") TERMs the scans beyond CT_GAME_SCAN_WORKERS (their RAM
 # comes back; ended deferred, never failed, run again after it), starts no scan past the cap, and the
 # --beside filers are SIGSTOPped with their clock stopped, SIGCONTed when it ends or on a TERM.
-os.environ["CT_YIELD_HOSTS"] = "micro@192.168.1.198"
+os.environ["CT_YIELD_HOSTS"] = "tester@192.0.2.198"
 os.environ["CT_GAME_SCAN_WORKERS"] = "1"
 t_game = {}
 def game_gate():
@@ -1545,7 +1549,7 @@ check("mirror: the VLM back, the edition's read starts", True,
 # The desktop's free memory gates the units that open an OCR session there:
 # each started since its last reading is charged DESKTOP_SESSION_MB, and none
 # starts that would take it under DESKTOP_FLOOR_MB.
-os.environ["OCR_REMOTE"] = "micro@100.68.145.15"
+os.environ["OCR_REMOTE"] = "tester@100.64.0.15"
 real_prepare, eq.prepare = eq.prepare, lambda *a: None
 read_at = time.time()
 eq.desktop_mem_reader = lambda: (read_at, eq.DESKTOP_FLOOR_MB + 2 * eq.DESKTOP_SESSION_MB)
@@ -1596,7 +1600,7 @@ os.environ.pop("OCR_REMOTE")
 # A unit the desktop keeps losing (its read ends the server there) is started
 # again with the desktop until it has ended lost LOST_TRIES times, then with none: read here.
 eq.LOST_TRIES = 1
-os.environ["OCR_REMOTE"] = "micro@192.168.1.180"
+os.environ["OCR_REMOTE"] = "tester@192.0.2.180"
 real_prepare, eq.prepare = eq.prepare, lambda *a: None  # no desktop probe
 eq.plan = units([], [("d0", [])])  # its own plan: the cases above leave theirs
 eq.desktop_mem_reader = lambda: None  # no memory gate
@@ -1607,7 +1611,7 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.5)
 desk = [line.split(" ", 2)[2] for line in log.read_text().splitlines() if line.startswith("desktop ")]
 check("a lost unit is started again with the desktop, then after LOST_TRIES with none",
-      (["'micro@192.168.1.180'", "''"], True, False),
+      (["'tester@192.0.2.180'", "''"], True, False),
       (desk[:2], "deferred (the desktop was lost)" in err.getvalue(), "failed" in err.getvalue()))
 # A read whose own scan went stale after its plan (a kept plan across a scan
 # code change) is not started whole: a scan unit runs first, then the read
@@ -2072,31 +2076,31 @@ desktop_busy.busy = lambda hosts: asked.append(list(hosts)) or "a game is runnin
 check("no hosts, no CT_YIELD_HOSTS: desktop_busy is never asked, not yielding", (None, []), (eq.desktop_yielding(), asked))
 os.environ["CT_YIELD_HOSTS"] = "  "
 check("blank CT_YIELD_HOSTS is the same as unset", (None, []), (eq.desktop_yielding(), asked))
-os.environ["CT_YIELD_HOSTS"] = "micro@192.168.1.198 b@host"
+os.environ["CT_YIELD_HOSTS"] = "tester@192.0.2.198 b@host"
 check("CT_YIELD_HOSTS with OCR_REMOTE empty: yields to a busy host",
-      ("a game is running", [["micro@100.68.145.15", "micro@192.168.1.198", "micro@192.168.1.180", "b@host"]]),
+      ("a game is running", [["tester@100.64.0.15", "tester@192.0.2.198", "tester@192.0.2.180", "b@host"]]),
       (eq.desktop_yielding(), asked))
 # A launcher host that is the desktop's old LAN lease also tries the others, and a switch is logged once.
 import desktop_hosts
 real_ranked, logged = desktop_hosts.ranked, []
 real_log, eq._YIELD_VIA[0] = eq.log, None
 eq.log = logged.append
-desktop_hosts.ranked = lambda port=22, fresh=False, tailnet_first=False: ["192.168.1.180", "100.68.145.15", "192.168.1.198"]
-os.environ["CT_YIELD_HOSTS"] = "micro@192.168.1.198"
+desktop_hosts.ranked = lambda port=22, fresh=False, tailnet_first=False: ["192.0.2.180", "100.64.0.15", "192.0.2.198"]
+os.environ["CT_YIELD_HOSTS"] = "tester@192.0.2.198"
 check("yield host at a desktop address: the ranked addresses, the answering one first",
-      ["micro@192.168.1.180", "micro@100.68.145.15", "micro@192.168.1.198"], eq.yield_hosts())
+      ["tester@192.0.2.180", "tester@100.64.0.15", "tester@192.0.2.198"], eq.yield_hosts())
 eq.yield_hosts()
 check("the first probe logs nothing and a repeat none", [], logged)
-desktop_hosts.ranked = lambda port=22, fresh=False, tailnet_first=False: ["100.68.145.15", "192.168.1.180", "192.168.1.198"]
+desktop_hosts.ranked = lambda port=22, fresh=False, tailnet_first=False: ["100.64.0.15", "192.0.2.180", "192.0.2.198"]
 eq.yield_hosts(); eq.yield_hosts()
 check("a switch of the first address is logged once", 1, len(logged))
 desktop_hosts.ranked, eq.log = real_ranked, real_log
-os.environ["CT_YIELD_HOSTS"] = "micro@192.168.1.198 b@host"
+os.environ["CT_YIELD_HOSTS"] = "tester@192.0.2.198 b@host"
 os.environ["OCR_REMOTE"] = "d@one,b@host"
 asked.clear()
 eq.desktop_yielding()
 check("OCR_REMOTE's hosts come first, CT_YIELD_HOSTS adds the rest once, the desktop at every address",
-      [["d@one", "b@host", "micro@100.68.145.15", "micro@192.168.1.198", "micro@192.168.1.180"]], asked)
+      [["d@one", "b@host", "tester@100.64.0.15", "tester@192.0.2.198", "tester@192.0.2.180"]], asked)
 desktop_busy.busy = lambda hosts: None
 os.environ.pop("OCR_REMOTE")
 check("an idle CT_YIELD_HOSTS host does not yield", None, eq.desktop_yielding())

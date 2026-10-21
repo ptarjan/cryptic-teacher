@@ -1,5 +1,5 @@
-"""The desktop's addresses, defined once in desktop_hosts.json (LAN first,
-tailnet as fallback) for python callers (import desktop_hosts) and shell ones:
+"""The desktop's addresses, defined once in the untracked local config
+(tools/local_config.py: LAN first, tailnet as fallback) for python callers (import desktop_hosts) and shell ones:
 
     OCR_REMOTE="${OCR_REMOTE-$(python3 tools/desktop_hosts.py remote)}"
 
@@ -16,7 +16,7 @@ keeps that order host-wide for TTL seconds. A caller whose address then
 fails calls forget(port), and the next ranked() probes afresh. When no LAN
 address answers ssh but the tailnet one does, the desktop is asked over the
 tailnet for its LAN addresses (learn), kept LEARN_TTL seconds, so a lease
-the json never listed is still found.
+the config never listed is still found.
 """
 import ipaddress
 import json
@@ -29,12 +29,13 @@ import threading
 import time
 from pathlib import Path
 
-_DATA = json.loads((Path(__file__).resolve().parent / "desktop_hosts.json").read_text())
-USER = _DATA["user"]
-ADDRESSES = tuple(_DATA["addresses"])
-VLM_PORT = _DATA["vlm_port"]
+import local_config
+
+USER = local_config.get("desktop_user")
+ADDRESSES = tuple(local_config.get("desktop_addresses"))
+VLM_PORT = local_config.get("vlm_port")
 REMOTE = ",".join(f"{USER}@{a}" for a in ADDRESSES)
-VLM_URLS = tuple(f"http://{a}:{VLM_PORT}" for a in ADDRESSES)
+VLM_URLS = tuple(f"http://{a}:{VLM_PORT}" for a in ADDRESSES) if VLM_PORT else ()
 
 #: The port whose probe needs an ssh banner, not a connect alone.
 SSH_PORT = 22
@@ -82,7 +83,7 @@ def learned():
 
 
 def candidates():
-    """Every address the desktop may be at: the json's, then any it reported."""
+    """Every address the desktop may be at: the config's, then any it reported."""
     return list(dict.fromkeys([*ADDRESSES, *learned()]))
 
 
@@ -163,7 +164,7 @@ def ranked(port=22, fresh=False, tailnet_first=False):
     """candidates() ranked for `port`, those answering now first (order),
     the ranking kept host-wide TTL seconds unless `fresh`. Every address is
     in it: a caller still tries the silent ones, last. With
-    DESKTOP_HOSTS_STATIC set (the tests: no network), the json's order,
+    DESKTOP_HOSTS_STATIC set (the tests: no network), the configured order,
     LAN first, unprobed. `tailnet_first` re-sorts that (answering ones still
     first) with the tailnet address before the LAN ones."""
     out = _ranked(port, fresh)

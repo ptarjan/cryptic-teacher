@@ -81,7 +81,7 @@ import downloads
 #: The tools modules a queue unit's fetch_unit may load, loaded as the unit
 #: starts (under the queue's code lock, edition_queue.snapshot).
 #: test_edition_queue.py checks this is what code_reach finds it reaching.
-MODULES = ("downloads", "media_manifest", "scan_queue")
+MODULES = ("downloads", "local_config", "media_manifest", "scan_queue")
 
 
 @contextlib.contextmanager

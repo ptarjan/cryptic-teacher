@@ -6,19 +6,10 @@ room     = "cryptic-crosswords"
 # the hour and annotated at the tick after, not at the next 04:45.
 schedule = "*/10 * * * *"
 where    = "container"
-run      = "/Users/pt/github/cryptic-teacher/tools/daily_update.sh"
+run      = "~/github/cryptic-teacher/tools/daily_update.sh"
 # The run's whole transcript is how a day that went wrong is read back, each
 # unit's lines under its key, and the scheduler's own stdout goes to `docker
 # logs`, where nothing looks for it.
-log      = "/Users/pt/github/cryptic-teacher/.update.log"
+log      = "~/github/cryptic-teacher/.update.log"
 # The tick only plans; one still going after this is wedged.
 timeout  = 600
-
-# Both pin this job's state to the volume. $HOME points there too, so these
-# agree with the default rather than overriding it — spelled out because the
-# job is also run by hand, and a shell that inherited some other $HOME would
-# put the Cloudflare credential and a half-finished worktree somewhere nothing
-# looks for them again.
-[env]
-XDG_CONFIG_HOME  = "/Users/pt/.config"
-CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"

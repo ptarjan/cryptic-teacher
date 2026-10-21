@@ -10,6 +10,10 @@
 import fcntl
 import json
 import os
+
+# The desktop the code reaches is a fake one: the real addresses live in an untracked local config.
+os.environ.update(CT_LOCAL_CONFIG="/nonexistent", CT_DESKTOP_USER="tester", CT_VLM_PORT="8000",
+                  CT_DESKTOP_ADDRESSES="192.0.2.198 192.0.2.180 100.64.0.15", CT_DESKTOP_HOME="C:\\Users\\tester\\ocrw")
 import shutil
 import subprocess
 import sys
@@ -56,7 +60,7 @@ try:
     sent = []
     real_run = db.subprocess.run
     db.subprocess.run = lambda cmd, **kw: (sent.append(cmd), types.SimpleNamespace(stdout=b'{"gpu3d": 0}'))[1]
-    db.probe("micro@100.68.145.15")
+    db.probe("tester@100.64.0.15")
     db.subprocess.run = real_run
     script = base64.b64decode(sent[0][-1].rsplit(" ", 1)[1]).decode("utf-16-le")
     check("the probe script is told the VLM's process names", True,
@@ -79,7 +83,7 @@ try:
     db.stop_sessions = lambda host, pids: stopped.append(
         (list(pids), bool(json.loads((T / "desktop_busy.json").read_text())["why"])))
     db.log = logs.append
-    DESK = "micro@100.68.145.15"
+    DESK = "tester@100.64.0.15"
 
     check("a host that is not the desktop is never probed", (None, 0), (db.busy(["nobody@127.0.0.1"]), len(probes)))
     check("idle: not busy, one probe, nothing logged", (None, 1, 0), (db.busy([DESK]), len(probes), len(logs)))
@@ -168,7 +172,7 @@ print(bool(db.busy([{DESK!r}])))"""], capture_output=True, text=True)
             return io.BytesIO(json.dumps({"data": [{"id": vlm_reader.MODEL}]}).encode())
         return io.BytesIO(json.dumps({"choices": [{"message": {"content": "1 Clue (5)"}}]}).encode())
     urllib.request.urlopen = fake
-    vlm_reader.URL = "http://100.68.145.15:8090"
+    vlm_reader.URL = "http://100.64.0.15:8000"
     vlm_reader._RESOLVED[0] = True
     vlm_reader.CACHE = T / "vlm"
     vlm_reader.desktop_busy.busy = lambda hosts: why[0]

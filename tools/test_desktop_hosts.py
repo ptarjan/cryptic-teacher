@@ -9,6 +9,10 @@
 # Fake desktops on loopback addresses: no network, nothing written outside a temp dir.
 import atexit
 import os
+
+# The desktop the code reaches is a fake one: the real addresses live in an untracked local config.
+os.environ.update(CT_LOCAL_CONFIG="/nonexistent", CT_DESKTOP_USER="tester", CT_VLM_PORT="8000",
+                  CT_DESKTOP_ADDRESSES="192.0.2.198 192.0.2.180 100.64.0.15", CT_DESKTOP_HOME="C:\\Users\\tester\\ocrw")
 import shutil
 import socket
 import sys
@@ -98,18 +102,18 @@ check("after the flip the new address ranks first", "127.0.0.4", dh.ranked(port)
 
 # LAN before tailnet when both answer.
 dh.probe_all = lambda a, p, timeout=1.0: {x: True for x in a}
-dh.ADDRESSES = ("100.68.145.15", "192.0.2.180")
-check("both answer: LAN before tailnet", ["192.0.2.180", "100.68.145.15"], dh.ranked(99, fresh=True))
-check("both answer, tailnet_first (the VLM, the game-yield probe): tailnet before LAN", ["100.68.145.15", "192.0.2.180"],
+dh.ADDRESSES = ("100.64.0.15", "192.0.2.180")
+check("both answer: LAN before tailnet", ["192.0.2.180", "100.64.0.15"], dh.ranked(99, fresh=True))
+check("both answer, tailnet_first (the VLM, the game-yield probe): tailnet before LAN", ["100.64.0.15", "192.0.2.180"],
       dh.ranked(99, tailnet_first=True))
-dh.probe_all = lambda a, p, timeout=1.0: {x: x != "100.68.145.15" for x in a}
-check("tailnet_first: a silent tailnet address still ranks after the answering LAN one", ["192.0.2.180", "100.68.145.15"],
+dh.probe_all = lambda a, p, timeout=1.0: {x: x != "100.64.0.15" for x in a}
+check("tailnet_first: a silent tailnet address still ranks after the answering LAN one", ["192.0.2.180", "100.64.0.15"],
       dh.ranked(98, fresh=True, tailnet_first=True))
 dh.probe_all = lambda a, p, timeout=1.0: {x: True for x in a}
 
 # Only the tailnet answers: the desktop is asked for its LAN address, which then ranks first.
-dh.ADDRESSES = ("192.0.2.198", "100.68.145.15")
-dh.probe_all = lambda a, p, timeout=1.0: {x: x in ("100.68.145.15", "192.0.2.77") for x in a}
+dh.ADDRESSES = ("192.0.2.198", "100.64.0.15")
+dh.probe_all = lambda a, p, timeout=1.0: {x: x in ("100.64.0.15", "192.0.2.77") for x in a}
 asked = []
 def learn(via, timeout=30):
     asked.append(via)
@@ -119,19 +123,19 @@ dh.learn = learn
 dh.SSH_PORT = 22
 got = dh.ranked(22, fresh=True)
 check("only the tailnet answers: the LAN lease is learned over it and ranks first",
-      (["100.68.145.15"], "192.0.2.77"), (asked, got[0]))
+      (["100.64.0.15"], "192.0.2.77"), (asked, got[0]))
 check("a learned address counts as the desktop", True, dh.is_desktop("192.0.2.77"))
 
 # ocr_remote.by_path: every desktop address, ranked; other hosts kept.
 import ocr_remote
-ocr_remote.desktop_hosts.ranked = lambda port=22, fresh=False: ["192.0.2.77", "100.68.145.15", "192.0.2.198"]
+ocr_remote.desktop_hosts.ranked = lambda port=22, fresh=False: ["192.0.2.77", "100.64.0.15", "192.0.2.198"]
 check("by_path: desktop hosts become the live ranking, with their user",
-      ["micro@192.0.2.77", "micro@100.68.145.15", "micro@192.0.2.198"], ocr_remote.by_path(["micro@192.0.2.198"]))
+      ["tester@192.0.2.77", "tester@100.64.0.15", "tester@192.0.2.198"], ocr_remote.by_path(["tester@192.0.2.198"]))
 check("by_path: a test's loopback host is left alone", ["me@127.0.0.1"], ocr_remote.by_path(["me@127.0.0.1"]))
 
 # vlm_reader.resolve: every URL asked at once; a dead LAN URL costs one timeout, not a "down".
 import vlm_reader as vlm
-vlm.URLS = ["http://192.0.2.198:8090", "http://192.0.2.180:8090", "http://198.51.100.15:8090"]
+vlm.URLS = ["http://192.0.2.198:8000", "http://192.0.2.180:8000", "http://198.51.100.15:8000"]
 asked = []
 def answers(url):
     asked.append(url)
@@ -144,7 +148,7 @@ vlm.URL, vlm._RESOLVED[0] = vlm.URLS[0], False
 t = time.monotonic()
 got = vlm.resolve()
 took = time.monotonic() - t
-check("resolve: the dead LAN URL loses to the next live LAN one", "http://192.0.2.180:8090", got)
+check("resolve: the dead LAN URL loses to the next live LAN one", "http://192.0.2.180:8000", got)
 check(f"resolve: one timeout in parallel, not one per URL ({took:.1f}s)", True, took < vlm.CONNECT_TIMEOUT + 1.5)
 check("resolve: every URL asked", 3, len(set(asked)))
 

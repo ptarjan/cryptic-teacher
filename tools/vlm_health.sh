@@ -9,7 +9,7 @@ CT_GENERATED=none
 if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ $# = 0 ]; then
   _vh_stamp=~/.cache/vlm_health/full_tick.stamp
   if [ -n "$(find "$_vh_stamp" -mmin -60 2>/dev/null)" ] &&
-     PYTHONPATH="/Users/pt/github/household/tools${PYTHONPATH:+:$PYTHONPATH}" \
+     PYTHONPATH="$(python3 "$(dirname "$0")/local_config.py" household_dir)/tools${PYTHONPATH:+:$PYTHONPATH}" \
        python3 "$(dirname "$0")/vlm_health.py" --quick; then
     exit 0
   fi
@@ -18,4 +18,4 @@ fi
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 # watchlib, the wake's state, is household's.
-PYTHONPATH="/Users/pt/github/household/tools${PYTHONPATH:+:$PYTHONPATH}" exec python3 tools/vlm_health.py "$@"
+PYTHONPATH="$(python3 tools/local_config.py household_dir)/tools${PYTHONPATH:+:$PYTHONPATH}" exec python3 tools/vlm_health.py "$@"
