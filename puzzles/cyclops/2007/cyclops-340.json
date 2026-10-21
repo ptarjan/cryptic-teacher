@@ -610,7 +610,8 @@
      "indicators": [
       {
        "text": "squeeze",
-       "note": "to squeeze something is to hold it tight inside, so the reversed name encloses the rest"
+       "at": 53,
+       "note": "to squeeze something in is to fit it inside, so these pieces go within the editor's name"
       }
      ],
      "parts": [
@@ -619,48 +620,53 @@
        "indicators": [
         {
          "text": "to turn",
-         "note": "turning a name round makes it read from its end back to its start"
+         "at": 41,
+         "note": "turning the editor's name around makes it read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "ex-Torygraph editor",
-           "gives": "MOORE",
-           "note": "Charles Moore edited the Daily Telegraph, which Private Eye calls the Torygraph"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "chief of",
-             "note": "the chief of a word is its head, its opening letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "liars",
-             "note": "the first letter of liars"
-            }
-           ]
-          }
-         ]
+         "words": "ex-Torygraph editor",
+         "at": 21,
+         "gives": "MOORE",
+         "note": "Charles Moore edited the Daily Telegraph, which Private Eye calls the Torygraph"
         }
        ]
       },
       {
-       "words": "Archer's thing",
-       "gives": "BOW",
-       "note": "an archer shoots with a bow"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "chief of",
+           "at": 61,
+           "note": "the chief of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "liars",
+           "at": 70,
+           "note": "taken for its first letter"
+          }
+         ]
+        },
+        {
+         "words": "Archer's thing",
+         "at": 77,
+         "gives": "BOW",
+         "note": "an archer shoots with a bow; also a nod to Jeffrey Archer"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former Telegraph editor turning on liars, with a sly nod to Jeffrey Archer, the novelist peer jailed for perjury.",
-     "walkthrough": "'Archer' tempts you towards Jeffrey Archer, a Private Eye target; here it is just a bowman. The Torygraph is the Eye's nickname for the Daily Telegraph.",
-     "definitionFit": "Elbow-room is enough space to move or act freely, an idiom for adequate scope."
+     "surface": "A Private Eye jibe at a former Telegraph editor pressed in among liars and Jeffrey Archer.",
+     "walkthrough": "Private Eye nicknames the Daily Telegraph the Torygraph for its Conservative leanings. 'Archer's thing' tempts you toward Jeffrey Archer, but it is simply what an archer shoots with.",
+     "definitionFit": "Elbow room is enough space to move freely, i.e. adequate freedom of action."
     },
     "features": {
      "answerInScene": false,
@@ -751,55 +757,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ABELINCOLN",
-     "indicators": [
-      {
-       "text": "to get screwed",
-       "note": "screwed means twisted round, so the remaining letters are turned into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ABELINCOLN",
+       "words": "Done-in brother",
+       "at": 0,
+       "gives": "ABEL",
+       "note": "Abel was killed by his brother Cain in Genesis"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "no",
-         "note": "no here means without, so a letter is dropped from the name"
+         "text": "to get screwed",
+         "at": 33,
+         "note": "screwed means twisted out of shape, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Done-in brother",
-         "gives": "ABEL",
-         "note": "Abel was the brother killed by Cain in Genesis"
-        },
-        {
-         "words": "Clinton",
-         "note": "taken as written"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "no",
+           "at": 25,
+           "note": "no means lacking, so the time letter is dropped from Clinton"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Clinton",
+           "at": 16
+          },
+          {
+           "words": "time",
+           "at": 28,
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lurid sketch of Bill Clinton's scandals, with a sly bang at the end of a presidency.",
-     "walkthrough": "ABEL's final L doubles as LINCOLN's first; the rest is CLINTON without T, rearranged.",
-     "definitionFit": "Abraham Lincoln was shot dead in 1865 at Ford's Theatre, a gunshot that ended his presidency."
+     "surface": "A Private Eye-style quip about Bill Clinton's troubles turning into a famous assassination.",
+     "walkthrough": "The done-in brother is the first murder victim in Genesis, killed by Cain; 'screwed' twists the shortened surname.",
+     "definitionFit": "Abraham Lincoln was shot at a theatre in 1865, ending his presidency with a gunshot."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "bang"
+     "misdirectedWord": "Clinton"
     }
    }
   },
