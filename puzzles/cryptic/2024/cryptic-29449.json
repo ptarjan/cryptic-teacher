@@ -318,42 +318,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "ignoring initial",
-       "note": "to ignore the initial is to leave off the opening letter of the word for a group"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Stylish",
-         "gives": "CLASS",
-         "note": "classy, informally 'class', means stylish"
-        },
-        {
-         "words": "group",
-         "gives": "FACTION",
-         "note": "a faction is a group within a larger body"
-        }
-       ]
+       "words": "Stylish",
+       "at": 0,
+       "gives": "CLASS",
+       "note": "class used as an adjective means stylish, first-rate"
       },
       {
-       "gives": "F"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring initial",
+         "at": 14,
+         "note": "ignoring initial says the group is read without its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "group",
+         "at": 8,
+         "gives": "FACTION",
+         "note": "a faction is a group within a larger body"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fashionable crowd decides to skip the first step of a court procedure.",
-     "definitionFit": "A class action is a lawsuit brought by many claimants together, a kind of legal proceeding."
+     "surface": "A smart crowd skipping the opening stage of a court case.",
+     "definitionFit": "A class action is a lawsuit brought on behalf of a whole group of claimants."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "initial"
+     "misdirectedWord": "Stylish"
     }
    }
   },

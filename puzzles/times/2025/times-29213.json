@@ -348,23 +348,38 @@
      "parts": [
       {
        "words": "Davos summit",
+       "at": 17,
        "gives": "ALP",
-       "note": "Davos is in the Swiss Alps, so its summit is an alp"
+       "note": "Davos is a Swiss resort in the Alps, so its summit is an alp"
       },
       {
-       "words": "has finished early",
-       "gives": "HA",
-       "note": "HAS without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finished early",
+         "at": 34,
+         "note": "finished early says the word stops before its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "has",
+         "at": 30
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The most influential delegates' meeting at the Davos summit wrapping up ahead of schedule.",
-     "walkthrough": "The Davos summit is the World Economic Forum, but here it is literally a mountain peak.",
-     "definitionFit": "The alpha member of a group is the dominant, most influential one."
+     "surface": "A news line about the World Economic Forum at Davos ending ahead of time.",
+     "walkthrough": "'Davos summit' suggests the economic forum; here it is a mountain.",
+     "definitionFit": "The alpha member of a group is the dominant, top-ranking one."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "summit"
@@ -587,25 +602,40 @@
      "parts": [
       {
        "words": "standard",
+       "at": 17,
        "gives": "PAR",
-       "note": "par = the standard or normal level"
+       "note": "par is the standard or norm"
       },
       {
-       "words": "planet waning in the east",
-       "gives": "VENU",
-       "note": "VENUS losing its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "waning in the east",
+         "at": 33,
+         "note": "in an across answer the east is the right-hand end, which wanes away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "planet",
+         "at": 26,
+         "gives": "VENUS",
+         "note": "Venus, the second planet"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An astronomy note: a planet newly risen, then fading low in the eastern sky.",
-     "walkthrough": "'Newly risen' sounds like a star or planet, but it describes a person who has risen socially.",
-     "definitionFit": "A parvenu is someone who has recently risen to wealth or position, an upstart."
+     "surface": "An astronomical note on a planet fading low in the eastern sky.",
+     "definitionFit": "A parvenu is an upstart who has recently gained wealth or status."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "risen"
     }
    }

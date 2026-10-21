@@ -328,7 +328,7 @@
        "words": "crap",
        "at": 16,
        "gives": "BUM",
-       "note": "in British slang bum means rubbish or worthless, as does crap"
+       "note": "bum means rubbish, of poor quality"
       },
       {
        "op": "substitution",
@@ -336,7 +336,12 @@
         {
          "text": "swapping",
          "at": 35,
-         "note": "swapping one thing for another tells us a letter of the band name is exchanged for a different one"
+         "note": "swapping with for says one letter is exchanged for another"
+        },
+        {
+         "text": "for",
+         "at": 56,
+         "note": "for completes the exchange phrase"
         }
        ],
        "parts": [
@@ -344,7 +349,7 @@
          "words": "Britpop group",
          "at": 21,
          "gives": "BLUR",
-         "note": "Blur, the 1990s band fronted by Damon Albarn"
+         "note": "Blur, the 1990s Britpop band"
         },
         {
          "op": "first",
@@ -352,36 +357,28 @@
           {
            "text": "leader",
            "at": 49,
-           "note": "a band's leader is its front, so this takes the opening letter of each band name mentioned"
+           "note": "leader asks for the opening letter of the band name U2"
           }
          ],
          "parts": [
           {
            "words": "U2's",
-           "at": 44,
-           "gives": "U",
-           "note": "the opening letter of the Irish band's name"
+           "at": 44
           }
          ]
         },
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "ELO's",
-           "at": 60,
-           "gives": "E",
-           "note": "the opening letter of the Electric Light Orchestra's initials"
-          }
-         ]
+         "words": "ELO's",
+         "at": 60,
+         "gives": "E",
+         "note": "the leader of ELO, Electric Light Orchestra, its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A music critic sneering at a rubbish Britpop band with a line-up change.",
-     "walkthrough": "The single 'leader' serves both bands: the U from U2 goes out and the E from ELO comes in.",
+     "surface": "A music critic dismisses a Britpop band with a pointless bit of band trivia.",
      "definitionFit": "A bumbler is an incompetent, blundering person, a useless type."
     },
     "features": {
@@ -1192,40 +1189,12 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "involved",
-       "at": 13,
-       "note": "involved means tangled together, so these letters are mixed into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Short",
-         "at": 0,
-         "note": "short means cut off, so the name loses its last letter; also Clare Short, the cabinet minister"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Clare",
-         "at": 7,
-         "gives": "CLARE",
-         "note": "the first name of Clare Short, Labour cabinet minister in 2003"
-        },
-        {
-         "gives": "E"
-        }
-       ]
-      },
       {
        "words": "a",
        "at": 27,
-       "note": "taken as written"
+       "gives": "A"
       },
       {
        "words": "Conservative",
@@ -1233,21 +1202,64 @@
        "gives": "C"
       },
       {
-       "words": "Unionist",
-       "at": 42,
-       "gives": "U"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 51,
+         "note": "in says the Unionist letter is placed inside the jumbled name"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "involved",
+           "at": 13,
+           "note": "involved means entangled, so these letters are muddled"
+          }
+         ],
+         "parts": [
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "Short",
+             "at": 0,
+             "note": "short means the name is cut, losing its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Clare",
+             "at": 7,
+             "gives": "CLARE",
+             "note": "the name Clare"
+            },
+            {
+             "gives": "E"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "Unionist",
+         "at": 42,
+         "gives": "U"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Political gossip: Clare Short getting mixed up with the Ulster Unionists and Tories.",
-     "walkthrough": "'Short' first reads as Clare Short's surname, then does a job of its own, trimming her first name.",
-     "definitionFit": "An accrual is an accumulation that builds up over time, such as interest, i.e. an increase."
+     "surface": "A short politician named Clare in a coalition with a Tory-Unionist.",
+     "definitionFit": "An accrual is an accumulation or increase, such as interest building up over time."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Short"
     }
    }

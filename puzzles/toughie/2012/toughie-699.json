@@ -137,31 +137,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "fails to start",
-       "note": "the word loses its starting letter"
-      },
-      {
        "text": "exploding",
-       "note": "what explodes is blown apart, so its letters are scattered"
+       "at": 33,
+       "note": "exploding blows the remaining letters apart into a new order"
       }
      ],
      "parts": [
       {
-       "words": "dynamite fails to start",
-       "gives": "YNAMITE",
-       "note": "DYNAMITE without its first letter D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "fails to start",
+         "at": 18,
+         "note": "fails to start means the explosive loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dynamite",
+         "at": 9
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble that the dynamite never goes off when it should.",
-     "walkthrough": "'Fails to start' looks like part of the dud-explosive story, but it is an instruction to drop the D.",
-     "definitionFit": "'Anytime' means at whatever time, the same as 'whenever'."
+     "surface": "A dud stick of dynamite that won't go off.",
+     "walkthrough": "DYNAMITE without its D leaves YNAMITE, which 'exploding' rearranges.",
+     "definitionFit": "Anytime is an informal adverb meaning at any time at all, whenever you like."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "fails"
+     "misdirectedWord": "exploding"
     }
    }
   },
@@ -1163,26 +1174,42 @@
      "parts": [
       {
        "words": "Frenchman",
+       "at": 0,
        "gives": "M",
-       "note": "M, monsieur, is the French title for a man"
+       "note": "M is the abbreviation for Monsieur, a Frenchman"
       },
       {
-       "words": "bulk of fruit",
-       "gives": "ANANA",
-       "note": "ANANAS, the pineapple, without its last S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bulk of",
+         "at": 19,
+         "note": "bulk of keeps most of the word, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 27,
+         "gives": "ANANAS",
+         "note": "ananas is the French (and old English) name for the pineapple"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "spelling": "MAÑANA",
     "explanation": {
-     "surface": "A Frenchman promised most of the fruit order by tomorrow.",
-     "walkthrough": "Ananas is the pineapple, the word for it in French and in many other languages.",
-     "definitionFit": "A Spanish word borrowed into English, used both literally and for some vague later time, the put-it-off attitude."
+     "surface": "A Frenchman will be eating most of his fruit the next day.",
+     "definitionFit": "Mañana is Spanish for tomorrow, borrowed into English for putting things off indefinitely."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Frenchman"
+     "misdirectedWord": "bulk"
     }
    }
   },
