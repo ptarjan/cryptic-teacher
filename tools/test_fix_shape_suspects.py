@@ -314,6 +314,13 @@ new, used = F.repair_tree(pge2, "Toady given a small coin in wrought gold", "LAP
 check("a piece goes into the container arm beside the anagram",
       used == ["poolGap"] and new["parts"][1]["op"] == "charade" and [p["words"] for p in new["parts"][0]["parts"]] == ["gold"])
 
+# apply's landed(): the model's poolGap tree is mended before the redo gate judges it
+import apply_annotations as AA
+pg_entry = {"clue": {"text": "Unusual thing to have bloke close to union at?"}, "solution": "HENNIGHT"}
+pg_new = AA.repair_pool_gap({"wordplay": pge}, pg_entry)
+check("repair_pool_gap returns a tree (mended or as given) without raising", isinstance(pg_new.get("wordplay"), dict))
+check("repair_pool_gap leaves a non-tree alone", AA.repair_pool_gap({"x": 1}, pg_entry) == {"x": 1})
+
 # tidy_wordplay_shapes.write_allowances: only the puzzles a run touched move, and only down
 import json
 import pathlib
