@@ -26,7 +26,7 @@ trap 'rm -rf "$tree"' EXIT
 export CT_DOWNLOADS="$tree/downloads"
 mkdir -p "$tree/tools/data" "$tree/puzzles/book/2000"
 cp "$REPO/tools/book_queue.py" "$REPO/tools/downloads.py" "$REPO/tools/json_merge.py" \
-  "$REPO/tools/media_manifest.py" "$tree/tools/"
+  "$REPO/tools/media_manifest.py" "$REPO/tools/local_config.py" "$tree/tools/"
 # The book texts' manifest (media_manifest.BOOK_TEXTS), as its one-off build leaves it.
 mkdir -p "$CT_DOWNLOADS/.manifest" "$CT_DOWNLOADS/ia-books"
 : > "$CT_DOWNLOADS/.manifest/ia-books.jsonl"
