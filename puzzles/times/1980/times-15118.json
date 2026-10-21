@@ -211,10 +211,51 @@
    },
    "length": 8,
    "clue": {
-    "enumeration": "8",
-    "missing": true
+    "text": "One roasted out in space",
+    "enumeration": "8"
    },
-   "solution": "ASTEROID"
+   "solution": "ASTEROID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in space",
+      "at": 16,
+      "note": "the definition is a phrase standing for a thing found in space, read as a noun"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 12,
+       "note": "out here means disordered or put out of place, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "words": "roasted",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something cooked to a crisp and flung off into the heavens.",
+     "walkthrough": "The OCR copy lost this clue; the page prints it. 'out' rearranges I (one) with ROASTED to give ASTEROID.",
+     "definitionFit": "An asteroid is a small rocky body orbiting the sun, so it is something found out in space."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roasted"
+    }
+   }
   },
   {
    "number": 5,
@@ -965,42 +1006,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "YOYO",
+     "op": "deletion",
      "indicators": [
       {
        "text": "doubly",
-       "note": "doubly means the piece is written out twice in a row"
+       "at": 7,
+       "note": "doubly says the cut is made on two copies of the word, so the letter goes from each"
+      },
+      {
+       "text": "non-U",
+       "at": 14,
+       "note": "non-U, the old label for speech not used by the upper class, here literally means the letter U is taken away"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "YOYO",
-       "indicators": [
-        {
-         "text": "non-U",
-         "note": "non-U literally means without U, so that letter is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "you",
-         "note": "taken as written"
-        }
-       ]
+       "words": "you",
+       "at": 21,
+       "gives": "YOUYOU",
+       "note": "you is written out twice, since doubly says the word is taken two times over"
+      },
+      {
+       "gives": "UU"
       }
      ]
     },
     "explanation": {
-     "surface": "A toy dismissed as twice over lower-class, you see.",
-     "walkthrough": "Non-U is the old British label for language the upper classes thought common; here it means remove the U.",
-     "definitionFit": "The spinning disc on a string climbs and drops as a child flicks the wrist, a classic plaything."
+     "surface": "A remark that a certain plaything is vulgar, not upper-class, you understand.",
+     "walkthrough": "'non-U' is the 1950s label for lower-class usage; here it means 'without U', so YOU loses its U to give YO, and 'doubly' writes that twice.",
+     "definitionFit": "A yo-yo is a spool-shaped plaything that climbs and drops along a string."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "non-U"
@@ -1453,55 +1490,22 @@
     "definitions": [
      {
       "text": "Complete",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: entire, whole, as an adjective"
      },
      {
-      "text": "some",
+      "text": "some, say",
       "at": 9,
-      "note": "stands for the homophone sum, a noun"
+      "meaning": "second meaning: a sum, spoken the same as the word some, is the amount everything adds up to"
      }
     ],
-    "wordplay": {
-     "op": "charade",
-     "parts": [
-      {
-       "unchecked": true,
-       "words": "Complete",
-       "note": "first meaning: whole, absolute"
-      },
-      {
-       "op": "homophone",
-       "unchecked": true,
-       "gives": "TOTAL",
-       "indicators": [
-        {
-         "text": "say",
-         "note": "say asks for the word as spoken aloud rather than as spelt"
-        }
-       ],
-       "parts": [
-        {
-         "op": "homophone",
-         "spelt": "SUM",
-         "parts": [
-          {
-           "words": "some",
-           "gives": "SOME",
-           "note": "second meaning: a word spoken the same as this one, an amount added up"
-          }
-         ]
-        }
-       ]
-      }
-     ]
-    },
     "explanation": {
-     "walkthrough": "Some sounds like sum, and an amount added up is the answer as a noun.",
-     "definitionFit": "As an adjective it means utter or entire; as a noun it is the figure reached by adding up."
+     "walkthrough": "The second definition plays on sound: 'some' said out loud is 'sum', and a sum is another word for the answer as a noun.",
+     "definitionFit": "Total is both an adjective meaning entire and a noun for the sum of added figures."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "some"
     }
