@@ -177,54 +177,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "container",
      "indicators": [
       {
-       "text": "topless",
-       "note": "without a top means the first letter is lost"
+       "text": "visiting",
+       "at": 30,
+       "note": "visiting means the beheaded word goes inside the emptied one"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "when visiting",
-         "note": "a visitor goes inside, so this piece sits within the other"
+         "text": "on vacation",
+         "at": 46,
+         "note": "on vacation means the word Cyprus is emptied, keeping only its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "on vacation",
-           "note": "a place on vacation has been emptied, leaving only its outside letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Cyprus",
-           "note": "the first and last letters of the island's name"
-          }
-         ]
-        },
-        {
-         "words": "ecstasy",
-         "gives": "APTURE",
-         "note": "rapture means ecstasy; topless loses its R"
+         "words": "Cyprus",
+         "at": 39,
+         "note": "taken as written, then emptied"
         }
        ]
       },
       {
-       "gives": "YPRU"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 16,
+         "note": "topless means the word for ecstasy loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ecstasy",
+         "at": 6,
+         "gives": "RAPTURE",
+         "note": "ecstasy means rapture, intense delight"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A holidaymaker in Cyprus goes topless and takes drugs.",
-     "walkthrough": "'Ecstasy' suggests the drug and the letter E, but it means raptures here.",
-     "definitionFit": "To capture something is to take it, as a piece in chess or a prisoner in war."
+     "surface": "A holidaymaker in Cyprus takes drugs and goes topless.",
+     "walkthrough": "RAPTURE without its top is APTURE; Cyprus emptied by 'on vacation' is CS, and APTURE visits it.",
+     "definitionFit": "Captures and takes are synonyms as verbs, as when an army seizes a town."
     },
     "features": {
      "answerInScene": false,

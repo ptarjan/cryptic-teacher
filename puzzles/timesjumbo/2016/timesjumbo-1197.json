@@ -899,7 +899,13 @@
      "indicators": [
       {
        "text": "against",
-       "note": "against means placed beside, so the following letters join on next"
+       "at": 40,
+       "note": "against means next to, so the English letters are placed up against the shortened country"
+      },
+      {
+       "text": "repeatedly",
+       "at": 56,
+       "note": "repeatedly means the letter for English is given more than once"
       }
      ],
      "parts": [
@@ -908,38 +914,44 @@
        "indicators": [
         {
          "text": "coming out",
-         "note": "coming out means a letter leaves the country word, removing it"
+         "at": 29,
+         "note": "coming out means the letter for one leaves the country's name"
         }
        ],
        "parts": [
         {
          "words": "country",
+         "at": 16,
          "gives": "IRAN",
          "note": "Iran is a country"
         },
         {
          "words": "one",
+         "at": 25,
          "gives": "I",
-         "note": "I is the Roman numeral one, the letter removed"
+         "note": "I is the Roman numeral for one"
         }
        ]
       },
       {
-       "words": "English repeatedly",
-       "gives": "EE",
-       "note": "E for English, twice"
+       "words": "English",
+       "at": 48,
+       "gives": "E"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A queen in some country turns against the English again and again.",
-     "walkthrough": "The I taken out of the country is the 'one coming out'.",
-     "definitionFit": "A ranee, or rani, is the wife of a rajah or an Indian queen, hence a royal woman."
+     "surface": "A queen abroad, emerging to oppose the English over and over.",
+     "walkthrough": "IRAN without I is RAN, then E twice. A ranee (or rani) is the wife of a rajah or a Hindu queen.",
+     "definitionFit": "A ranee is an Indian queen or princess, a rajah's wife."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "against"
+     "misdirectedWord": "country"
     }
    }
   },
@@ -3324,31 +3336,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "housed in",
-       "note": "housed in means the quiet letter is lodged inside the rearranged letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "various",
-         "note": "various means assorted, so the letters are arranged differently"
+         "text": "housed in",
+         "at": 26,
+         "note": "housed in means the letter for quietly is placed inside the jumbled letters"
         }
        ],
        "parts": [
         {
-         "words": "quietly",
-         "gives": "P",
-         "note": "p is piano, quietly in music"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "various",
+           "at": 36,
+           "note": "various means the letters of these two words are mixed up"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sheds",
+           "at": 44
+          },
+          {
+           "words": "here",
+           "at": 50
+          }
+         ]
         },
         {
-         "words": "sheds here",
-         "note": "letters to rearrange"
+         "words": "quietly",
+         "at": 18,
+         "gives": "P",
+         "note": "P, piano, is the musical direction for quietly"
         }
        ]
       },
@@ -3357,25 +3381,28 @@
        "indicators": [
         {
          "text": "at first",
-         "note": "at first asks for the opening letter of sleeps"
+         "at": 63,
+         "note": "at first means only the opening letter of sleeps is used"
         }
        ],
        "parts": [
         {
          "words": "sleeps",
-         "note": "the first letter of sleeps"
+         "at": 56,
+         "note": "taken as written, for its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A farm hand quietly beds down in assorted sheds, sleeping there at first.",
-     "definitionFit": "A shepherdess is a woman who looks after sheep, and a tender is one who tends."
+     "surface": "A farmhand quietly kept in assorted outbuildings, where she sleeps at first.",
+     "walkthrough": "'Tender' looks like an adjective meaning gentle, but it is one who tends. P stands for piano, the musical marking for quietly.",
+     "definitionFit": "A shepherdess tends sheep, so she is a woman who looks after animals."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Tender"
     }
    }
