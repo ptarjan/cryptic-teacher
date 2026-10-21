@@ -51,20 +51,40 @@
      "parts": [
       {
        "words": "Mum's",
+       "at": 0,
        "gives": "MAS",
-       "note": "MA = mum, plus the 'S"
+       "note": "ma is mum, so mum's gives ma's"
       },
       {
-       "words": "mobile comms device is missing — hard",
-       "gives": "CARPONE",
-       "note": "a CAR PHONE with H (hard) removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "is missing",
+         "at": 26,
+         "note": "is missing means the letter for hard is left out of the device"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mobile comms device",
+         "at": 6,
+         "gives": "CARPHONE",
+         "note": "a carphone is a mobile telephone fitted in a car"
+        },
+        {
+         "words": "hard",
+         "at": 39,
+         "gives": "H",
+         "note": "H is the abbreviation for hard, as on pencils"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mum has lost her mobile phone, and the reply is a shrug of 'hard cheese!', meaning tough luck.",
-     "walkthrough": "'Hard cheese' is British slang for 'bad luck', so the ending reads as a comment, but the H comes from 'hard' and the definition is just 'cheese'. H = hard is the pencil grading.",
-     "definitionFit": "Mascarpone is a soft Italian cream cheese."
+     "surface": "Mum has lost her mobile phone, and the reply is a sarcastic hard cheese.",
+     "walkthrough": "'Hard cheese' reads as a single British phrase for tough luck, but it splits: hard is the letter that goes missing, and cheese is the definition.",
+     "definitionFit": "Mascarpone is a soft, creamy Italian cheese used in tiramisu."
     },
     "features": {
      "answerInScene": false,

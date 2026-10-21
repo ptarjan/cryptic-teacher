@@ -644,27 +644,20 @@
        "indicators": [
         {
          "text": "not finished",
-         "note": "something unfinished lacks its ending, so the final letter goes"
+         "at": 11,
+         "note": "not finished means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Apprentice",
-           "gives": "INTERN",
-           "note": "an intern is a trainee or apprentice"
-          },
-          {
-           "words": "very",
-           "gives": "V",
-           "note": "v is the standard abbreviation for very"
-          }
-         ]
+         "words": "Apprentice",
+         "at": 0,
+         "gives": "INTERN",
+         "note": "an intern is a trainee or apprentice"
         },
         {
-         "gives": "NV"
+         "gives": "N",
+         "note": "the last letter of the word for apprentice"
         }
        ]
       },
@@ -673,16 +666,20 @@
        "indicators": [
         {
          "text": "put off",
-         "note": "to put something off is to send it away, so the named letter is removed"
+         "at": 30,
+         "note": "put off means the letter for very is removed"
         }
        ],
        "parts": [
         {
          "words": "suffering experience",
+         "at": 38,
          "gives": "CALVARY",
-         "note": "a calvary is an ordeal of great suffering, after the place of the Crucifixion"
+         "note": "a calvary is an experience of great suffering, after the hill of the Crucifixion"
         },
         {
+         "words": "very",
+         "at": 25,
          "gives": "V"
         }
        ]
@@ -690,14 +687,14 @@
      ]
     },
     "explanation": {
-     "surface": "A trainee who quit halfway through after a gruelling time.",
-     "walkthrough": "The apprentice loses its last letter, and the very abbreviation is taken out of the suffering experience.",
-     "definitionFit": "Intercalary describes a day or month inserted into a calendar, as 29 February is in a leap year."
+     "surface": "A trainee who quits early has an awful time and then marks it in the diary.",
+     "walkthrough": "INTERN without its end gives INTER, and CALVARY without V gives CALARY.",
+     "definitionFit": "An intercalary day, like 29 February, is inserted into the calendar to keep it in step with the seasons."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "put"
+     "aptDefinition": true,
+     "misdirectedWord": "experience"
     }
    }
   },

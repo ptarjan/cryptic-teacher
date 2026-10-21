@@ -1639,67 +1639,72 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "about",
-       "note": "turned about means turned round, so the letters are read in the opposite direction"
+       "text": "supporting",
+       "at": 32,
+       "note": "in a down answer, supporting means the following pieces sit below the first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "supporting",
-         "note": "in a down answer, a supporting piece sits underneath what it holds up"
+         "text": "lead of",
+         "at": 43,
+         "note": "lead of means the first letter of Edward"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "Edward",
+         "at": 51
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 13,
+         "note": "in means the letter for Conservative goes inside the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "in",
-           "note": "one piece goes inside another, here the party letter into the broadcast word"
+           "text": "about",
+           "at": 26,
+           "note": "about means the word for broadcast is turned round"
           }
          ],
          "parts": [
           {
            "words": "broadcast",
+           "at": 16,
            "gives": "AIR",
-           "note": "to air a programme is to broadcast it"
-          },
-          {
-           "words": "Conservative",
-           "gives": "C",
-           "note": "C is short for Conservative"
+           "note": "to air something is to broadcast it"
           }
          ]
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "lead of",
-           "note": "the lead is what goes in front, so only the first letter of Edward is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Edward",
-           "note": "first letter of Edward"
-          }
-         ]
+         "words": "Conservative",
+         "at": 0,
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory TV programme about backing former Prime Minister Edward Heath.",
-     "walkthrough": "Edward Heath was a Conservative Prime Minister, but 'Heath' here is the plant; C goes into AIR, all reversed, under E.",
-     "definitionFit": "Erica is the botanical genus of heaths and heathers, low evergreen shrubs."
+     "surface": "A Conservative on air talks about backing Edward Heath, the former Tory prime minister.",
+     "walkthrough": "Edward Heath reads as one name, but Heath is the definition. AIR turned round is RIA, with C inside it to give RICA, which sits under E.",
+     "definitionFit": "Erica is the botanical genus of heathers, plants also called heaths."
     },
     "features": {
      "answerInScene": false,
@@ -1731,51 +1736,56 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "EMBARGO",
      "indicators": [
       {
        "text": "return of",
-       "note": "a return goes back the way it came, so the whole string is read backwards"
+       "at": 4,
+       "note": "return of means everything that follows is read backwards"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EMBARGO",
-       "indicators": [
-        {
-         "text": "not content",
-         "note": "without its content means emptied, so the inner letters of the loan word go"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "zero",
+         "at": 14,
          "gives": "O",
-         "note": "zero looks like the letter O"
+         "note": "O looks like zero"
         },
         {
          "words": "interest",
+         "at": 19,
          "gives": "GRAB",
-         "note": "something that interests you grabs you"
+         "note": "to grab someone is to interest them"
         },
         {
-         "words": "mortgage",
-         "note": "taken as written, then emptied"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "not content",
+           "at": 38,
+           "note": "not content means the inside of the word is dropped, leaving its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mortgage",
+           "at": 28
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ban on bringing back zero-interest mortgages, to the disappointment of borrowers.",
-     "walkthrough": "Mortgage emptied of its middle leaves ME; 'zero interest' looks like a finance phrase but splits into two pieces.",
-     "definitionFit": "An embargo is an official prohibition, especially on trade, so it is a ban."
+     "surface": "A ban on zero-interest mortgages leaves borrowers unhappy.",
+     "walkthrough": "'Return of' governs everything after it, so the three pieces are joined first and the whole string is then read backwards.",
+     "definitionFit": "An embargo is an official ban, especially on trade with a country."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "interest"
     }

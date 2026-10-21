@@ -216,32 +216,46 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "atop"
-      }
-     ],
      "parts": [
       {
-       "words": "Manx cat",
-       "gives": "PANTHE",
-       "note": "PANTHER without its tail"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Manx",
+         "at": 6,
+         "note": "a Manx cat has no tail, so the word for cat loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cat",
+         "at": 11,
+         "gives": "PANTHER",
+         "note": "a panther is a big cat"
+        },
+        {
+         "gives": "R",
+         "note": "the last letter of the word for cat"
+        }
+       ]
       },
       {
-       "words": "sitting",
+       "words": "sitting atop",
+       "at": 15,
        "gives": "ON",
-       "note": "sitting on something"
+       "note": "sitting atop something is being on it"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone spots a cat perched on top of a statue and wonders if it is the tailless Isle of Man breed.",
-     "walkthrough": "Manx cats, from the Isle of Man, are born without tails, so 'Manx' is a neat instruction to drop the last letter of the cat.",
-     "definitionFit": "A definition by example: the Pantheon in Paris is a building that honours the illustrious dead, a national monument."
+     "surface": "A puzzled look at a tailless cat perched on top of a monument.",
+     "walkthrough": "Manx cats, from the Isle of Man, are born without tails, so 'Manx' tells you to dock the last letter of the cat.",
+     "definitionFit": "The Pantheon in Rome is a famous ancient temple, and a pantheon is also a building honouring the illustrious dead."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Manx"
     }
    }
@@ -2426,38 +2440,45 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "girt"
+       "text": "seen from east",
+       "at": 28,
+       "note": "in an across answer, reading from the east means reading right to left, so the whole build is turned around"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "seen from east",
-         "note": "in an across answer, reading from the east is reading right to left"
-        }
-       ],
        "parts": [
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "girt",
+           "at": 13,
+           "note": "girt means surrounded, so the word for sea goes around the other pieces"
+          }
+         ],
          "parts": [
           {
            "words": "sea",
-           "note": "used as itself"
+           "at": 9,
+           "gives": "SEA",
+           "note": "taken as written"
           },
           {
            "op": "charade",
            "parts": [
             {
              "words": "On",
+             "at": 0,
              "gives": "LEG",
-             "note": "in cricket the on side is the leg side"
+             "note": "in cricket the on side is also called the leg side"
             },
             {
              "words": "pole",
+             "at": 3,
              "gives": "N",
-             "note": "the North Pole"
+             "note": "N is the north pole"
             }
            ]
           }
@@ -2465,17 +2486,18 @@
         },
         {
          "words": "sun",
+         "at": 24,
          "gives": "SOL",
-         "note": "Sol, the sun"
+         "note": "Sol is the Latin name for the sun"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A travelogue: land at a pole, circled by sea, the sun rising from the east.",
-     "walkthrough": "In cricket the leg side of the field is also called the on side. Everything is assembled first and then read backwards.",
-     "definitionFit": "A definition by class: Los Angeles, in California, is one particular city."
+     "surface": "A puzzle-picture of a city on a pole, ringed by sea and with the sun rising in the east.",
+     "walkthrough": "'On' is not a link word here: it is the cricket side. Everything is built west to east and then read from the east end.",
+     "definitionFit": "Los Angeles is the largest city in California, on the US west coast."
     },
     "features": {
      "answerInScene": false,

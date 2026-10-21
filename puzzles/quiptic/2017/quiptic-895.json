@@ -323,49 +323,42 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing heads",
+       "at": 39,
+       "note": "missing heads means each of the two words loses its first letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "missing heads",
-         "note": "the head of a word is its first letter, and missing means each word loses it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "dig",
-         "note": "taken as written"
+         "at": 31
         },
         {
-         "gives": "D"
+         "words": "for",
+         "at": 35
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "for",
-         "note": "taken as written"
-        },
-        {
-         "gives": "F"
-        }
-       ]
+       "gives": "DF",
+       "note": "the first letters of dig and for"
       }
      ]
     },
     "explanation": {
-     "surface": "A lab assistant sent off to dig up heads for his master's experiments.",
-     "walkthrough": "The surface suggests grave-robbing for heads; the heads missing are the first letters of the two words.",
-     "definitionFit": "Igor is the stock name of the hunchbacked servant assisting the mad scientist in Frankenstein films."
+     "surface": "A mad scientist's assistant is sent digging for heads that have gone missing.",
+     "walkthrough": "DIG and FOR without their first letters give IG and OR.",
+     "definitionFit": "Igor is the stock hunchbacked lab assistant of horror films, helping Frankenstein-type scientists."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "heads"
     }
    }
@@ -1033,27 +1026,34 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "having returned",
-       "note": "returning means going back the way you came, so the letters are read from right to left"
+       "text": "returned",
+       "at": 21,
+       "note": "returned means the letters found are read backwards"
       }
      ],
      "parts": [
       {
        "op": "hidden",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 14,
+         "note": "having means the first words hold the answer inside them"
+        }
+       ],
        "parts": [
         {
          "words": "Blame Nicola",
-         "gives": "AMENIC",
-         "note": "letters spanning the two words"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Blaming Nicola for coming back late from the cinema.",
-     "walkthrough": "There is no explicit hiding word; the answer runs backwards through the middle of the first two words.",
-     "definitionFit": "'The pictures' is a British idiom for a film theatre, where films are shown."
+     "surface": "Someone blames Nicola for coming back from the films.",
+     "walkthrough": "BlAME NICola holds AMENIC, read backwards.",
+     "definitionFit": "The pictures is British slang for a movie theatre, the place where films are shown."
     },
     "features": {
      "answerInScene": true,
