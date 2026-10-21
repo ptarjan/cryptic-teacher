@@ -53,63 +53,76 @@
     "definitions": [
      {
       "text": "in the 20 23",
-      "at": 64,
-      "note": "the definition is the famous stage direction found in that play, so 'in the play' points to a line of it"
+      "at": 64
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "during",
-       "note": "what happens during something sits inside its span, so the preceding letters go inside the call"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "way-out",
-         "gives": "EXIT",
-         "note": "a way out of a building"
-        },
-        {
-         "words": "cat-call",
-         "gives": "PURR",
-         "note": "the sound a contented cat makes"
-        }
-       ]
+       "words": "way-out",
+       "at": 47,
+       "gives": "EXIT",
+       "note": "an exit is a way out"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "corrupt",
-         "note": "something corrupt has been spoilt and twisted out of shape, so the word it qualifies is rearranged"
+         "text": "during",
+         "at": 40,
+         "note": "during means while it lasts, so these pieces sit within the cat's call"
         }
        ],
        "parts": [
         {
-         "words": "Prosecuted",
-         "gives": "SUED",
-         "note": "took to court"
+         "words": "cat-call",
+         "at": 55,
+         "gives": "PURR",
+         "note": "a purr is the call of a contented cat"
         },
         {
-         "words": "abbey",
-         "note": "taken as written"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "A",
+         "op": "charade",
          "parts": [
           {
-           "unchecked": true,
-           "words": "its leader",
-           "gives": "A",
-           "select": "first",
-           "note": "the first letter of abbey"
+           "words": "Prosecuted",
+           "at": 0,
+           "gives": "SUED",
+           "note": "sued means took to law, prosecuted"
+          },
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "corrupt",
+             "at": 11,
+             "note": "corrupt means debased or altered, so the letters of abbey are scrambled"
+            }
+           ],
+           "parts": [
+            {
+             "words": "abbey",
+             "at": 19
+            }
+           ]
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "leader",
+             "at": 33,
+             "note": "the leader of a word is its first letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "its",
+             "at": 29,
+             "gives": "ABBEY",
+             "note": "its refers back to the abbey, so this stands for that word"
+            }
+           ]
           }
          ]
         }
@@ -118,12 +131,12 @@
      ]
     },
     "explanation": {
-     "surface": "A monk is hauled into court after heckling with a cat-call at a performance of a Shakespeare play.",
-     "walkthrough": "20 23 is The Winter's Tale, whose most famous stage direction sends Antigonus off chased by a bear. The hyphens mislead: 'way-out' is one piece and 'cat-call' another, with the rest wrapped inside the call.",
-     "definitionFit": "Shakespeare wrote this exact instruction into Act III of The Winter's Tale, the most celebrated stage direction in English drama."
+     "surface": "A legal action against a corrupt abbey and its head during a rowdy heckling.",
+     "walkthrough": "The 20 23 is The Winter's Tale, where Antigonus leaves the stage with this famous direction; 'its leader' points back to the abbey.",
+     "definitionFit": "This is the best-known stage direction in Shakespeare, found in Act 3 of the play the cross-reference names."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "cat-call"
     }

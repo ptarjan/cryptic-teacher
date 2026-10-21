@@ -527,59 +527,64 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removed",
+       "at": 59,
+       "note": "removed says the letters named are taken away"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "removed",
-         "note": "removed tells us the selected letters are taken out of the rest"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "depressing",
+         "at": 8,
          "gives": "GREY",
-         "note": "grey can mean dull and gloomy"
+         "note": "grey means dull, depressing"
+        },
+        {
+         "words": "call",
+         "at": 19,
+         "gives": "PHONE",
+         "note": "to phone is to call"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 37,
+           "note": "the head of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "eagle's",
+           "at": 29
+          }
+         ]
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "tail",
-           "note": "a word's tail is its closing letter"
+           "at": 54,
+           "note": "the tail of a word is its last letter"
           }
          ],
          "parts": [
           {
            "words": "leonine",
-           "note": "closing letter, removed from the second word"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "call",
-         "gives": "PHONE",
-         "note": "to phone is to call"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "head",
-           "note": "a word's head is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "eagle's",
-           "note": "opening letter, removed from the first word"
+           "at": 46
           }
          ]
         }
@@ -588,13 +593,14 @@
      ]
     },
     "explanation": {
-     "surface": "A mythical beast cries mournfully after losing the eagle's head and lion's tail that make it what it is.",
-     "walkthrough": "Eagle's head and lion's body are exactly what a griffin has, which makes the deletions look like zoology.",
-     "definitionFit": "The gryphon, or griffin, is a legendary creature with an eagle's head and wings on a lion's body."
+     "surface": "A creature's gloomy cry once it has lost an eagle's head and a lion's tail.",
+     "walkthrough": "The eagle's head E comes out of GREY and the leonine tail E comes out of PHONE. The joke is that the beast itself has an eagle's head and a lion's tail.",
+     "definitionFit": "The gryphon, or griffin, is a mythical creature with an eagle's head and wings on a lion's body."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "eagle's"
     }
    }

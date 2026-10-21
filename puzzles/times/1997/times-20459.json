@@ -325,33 +325,46 @@
        "indicators": [
         {
          "text": "absorbing",
-         "note": "something absorbing another takes it in, so one piece goes inside the word before"
+         "at": 21,
+         "note": "absorbing means taking in, so the half-word goes inside"
         }
        ],
        "parts": [
         {
          "words": "homework",
+         "at": 12,
          "gives": "PREP",
-         "note": "prep is school slang for homework, short for preparation"
+         "note": "prep is British school slang for homework"
         },
         {
-         "words": "half of them",
-         "gives": "EM",
-         "note": "the second half of the word them"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "half of",
+           "at": 31,
+           "note": "half of picks out half of the word's letters, here the latter half"
+          }
+         ],
+         "parts": [
+          {
+           "words": "them",
+           "at": 39
+          }
+         ]
         }
        ]
       },
       {
        "words": "Exactly",
+       "at": 45,
        "gives": "T",
        "note": "to a T means exactly"
       }
      ]
     },
     "explanation": {
-     "surface": "A schoolchild cheekily claims suitable homework takes half of 'them'.",
-     "walkthrough": "Prep is British school slang for homework. 'Appropriate' is the verb meaning seize, not the adjective.",
-     "definitionFit": "To appropriate is to take for yourself, and to pre-empt is to seize something before anyone else can."
+     "surface": "Fitting homework that takes in half of them: precisely!",
+     "definitionFit": "To pre-empt is to seize or take for oneself in advance, so it means appropriate as a verb."
     },
     "features": {
      "answerInScene": false,
@@ -510,36 +523,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "shortly asks for the contracted form of the phrase, as in speech"
-      }
-     ],
      "parts": [
       {
-       "words": "the governor",
+       "words": "governor",
+       "at": 19,
        "gives": "HE",
-       "note": "HE is His Excellency, the title of a governor"
+       "note": "HE, His Excellency, is the title of a colonial governor"
       },
       {
-       "words": "will",
-       "gives": "LL",
-       "note": "the contraction of will, as in 'he'll'"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 33,
+         "note": "shortly means in short form, so the word will is cut to its contraction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "will",
+         "at": 28
+        },
+        {
+         "gives": "WI"
+        }
+       ]
       },
       {
        "words": "fix",
+       "at": 41,
        "gives": "HOLE",
-       "note": "in a fix and in a hole both mean in trouble"
+       "note": "to be in a hole is to be in a fix"
       }
      ]
     },
     "explanation": {
-     "surface": "A grim colonial outpost that the governor promises to sort out soon.",
-     "definitionFit": "A hellhole is an extremely unpleasant, squalid or oppressive place to live or be."
+     "surface": "A dreadful spot that the governor says he will soon sort out.",
+     "walkthrough": "'The governor will shortly' reads as HE'LL: HE for His Excellency, and 'll as the contraction of will.",
+     "definitionFit": "A hellhole is an extremely unpleasant or squalid place."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "fix"
     }
