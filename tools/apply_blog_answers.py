@@ -38,6 +38,7 @@ from collections import Counter
 from pathlib import Path
 
 import apply_solution
+import blog_comment_rows
 import parse_timesforthetimes as ptt
 import provenance
 from fetch_puzzle import read_puzzle_file, reindex, write_puzzle_file
@@ -114,8 +115,17 @@ def blog_records(series, year, month):
                 if rows:
                     found.setdefault(number, []).append(
                         {"number": number, "link": post["link"], "date": post["date"][:10],
-                         "rows": rows})
+                         "post_id": post["id"], "rows": rows})
     return found
+
+
+def with_comments(rec):
+    """`rec` with the answers its commenters list for lights the post omits."""
+    if not rec.get("post_id"):
+        return rec
+    extra = blog_comment_rows.extra_rows(
+        rec, blog_comment_rows.comments(rec["post_id"], CACHE, get))
+    return {**rec, "rows": list(rec["rows"]) + extra} if extra else rec
 
 
 def held(series, year):
@@ -733,6 +743,10 @@ def process(series, year, only, check_only, log, partial=False):
             log(f"{pid}: REFUSED no post")
             continue
         verdicts = [(judge(puzzle, rec, partial), rec) for rec in options]
+        if series in CATEGORIES and not any(not v[0][1] for v in verdicts):
+            # The post left lights out: its commenters often list them. The same
+            # judge still checks the rows against crossings and annotations.
+            verdicts = [(judge(puzzle, with_comments(rec), partial), rec) for _v, rec in verdicts]
         good = [(fill, rec) for (fill, problems), rec in verdicts if not problems]
         if not good:
             reason = verdicts[0][0][1][0]
