@@ -1042,28 +1042,54 @@
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "spelt": "SUBZERO",
-     "indicators": [
-      {
-       "text": "we hear",
-       "at": 37,
-       "note": "what we hear is spoken, so the words before are matched by their sound"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "reserves star at West Ham",
+       "words": "reserves",
        "at": 10,
-       "gives": "SUBSERO",
-       "note": "reserves are subs, short for substitutes, and the star is the hero, which in the Cockney accent of West Ham in East London loses its H"
+       "gives": "SUB",
+       "note": "a sub is a substitute, one of a team's reserves"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "at West Ham",
+         "at": 24,
+         "note": "in East London speech, as around West Ham, the H is dropped from the start of a word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "ZHERO",
+         "indicators": [
+          {
+           "text": "we hear",
+           "at": 37,
+           "note": "we hear means the words are matched by sound rather than spelling"
+          }
+         ],
+         "parts": [
+          {
+           "words": "star",
+           "at": 19,
+           "gives": "HERO",
+           "note": "a hero is a star of a team, and said after the S of subs it picks up a Z sound"
+          }
+         ]
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football fan raves about the substitute bench's star player at West Ham.",
-     "walkthrough": "With a Cockney accent HERO loses its H and becomes 'ERO, so SUBS 'ERO said out loud sounds like SUBZERO. West Ham United is a London football club.",
-     "definitionFit": "Sub-zero means below the freezing point, which is extremely cold."
+     "surface": "A football report on a substitute who became the star at West Ham.",
+     "walkthrough": "West Ham is an East London football club; dropping the H Cockney-style makes 'subs hero' sound like the answer.",
+     "definitionFit": "Sub-zero means below freezing point, so extremely cold."
     },
     "features": {
      "answerInScene": false,
