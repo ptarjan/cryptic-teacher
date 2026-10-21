@@ -34,7 +34,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 3, "LSNR": 2, "TGRH": 2, "FTHA": 2, "INDA": 2, "STHA": 2, "TLSH": 2}
+MATCHER = {"TTDA": 4, "LSNR": 2, "TGRH": 2, "FTHA": 2, "INDA": 2, "STHA": 2, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -122,7 +122,8 @@ def crossword(prod, titles, number=None):
                      + (r"|^\W*[cg]ross-? ?w[oa]rd \d{1,3}\W*$" if prod == "TTDA" else ""), re.IGNORECASE)
     # Gale's OCR'd titles: "Grossword", "Crossward", "Cross-number" too; the
     # Telegraph's to 1990 or so are its clue heading, "No. 12,212 across".
-    kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}", re.IGNORECASE) if prod == "TGRH" else KIND
+    kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}", re.IGNORECASE) if prod == "TGRH" else \
+        TIMES_KIND if prod == "TTDA" else KIND
     cands = [i for i, t in enumerate(titles) if kind.search(t) and not bad.search(t)]
     if prod == "TLSH":
         # The TLS's last solution is indexed under its puzzle's own title
@@ -135,9 +136,16 @@ def crossword(prod, titles, number=None):
     return cands[0] if cands else None
 
 
+#: "Crossword" as Gale's OCR misreads it in the Times' own title: "Crossworld",
+#: "Crossmord", "Crosswork", "Crosssword", "Crossoword", "Crossw0rd", "Crossworo",
+#: "Crosswor" (found 2026-10-21 on dates whose contents then read as no crossword).
+CROSSWORD_OCR = r"(?:[cg]ros{2,3}o?-?[wm][o0a]r[a-z0-9]{0,2}\b|[cg]ross-? ?w[oa]rd)"
+#: A title that may name the Times' crossword (TTDA's KIND).
+TIMES_KIND = re.compile(f"{CROSSWORD_OCR}|[cg]ross-? ?number", re.IGNORECASE)
+
 #: The Times' cryptic as Gale titles it: "The Times Crossword 23,303",
 #: "Times Crossword", "The Times Crossword Puzzle No 17,563".
-TIMES_CRYPTIC = re.compile(r"\btimes\W+[cg]ross-? ?w[oa]rd\W*(puzzle\W*)?(no\b\W*)?(\d[\d,. ]*)?$", re.IGNORECASE)
+TIMES_CRYPTIC = re.compile(r"\btimes\W+" + CROSSWORD_OCR + r"\W*(puzzle\W*)?(no\b\W*)?(\d[\d,. ]*)?$", re.IGNORECASE)
 
 
 def stale(prod, e):

@@ -263,6 +263,8 @@ ac.CACHE, ac.LEDGERS, ac.corpus = saved
 assert cov.scanless("ftcryptic", "1971-01-01") == ("gale", "by-hand-only")
 assert cov.scanless("ftcryptic", "1887-06-01") == ("none", "no-source")
 assert cov.scanless("telegraph", "1971-01-01") == ("none", "no-source")
+assert cov.scanless("times", "2014-12-31") == ("gale", "by-hand-only")
+assert cov.scanless("times", "2015-06-01") == ("none", "no-source")
 assert not cov.CAUSES[("gale", "by-hand-only")].actionable
 
 
