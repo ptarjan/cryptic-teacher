@@ -190,59 +190,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CHASTISE",
      "indicators": [
       {
        "text": "in",
-       "note": "placing something in another word puts it inside that word's letters"
+       "at": 19,
+       "note": "in places the turned word within the hunt"
       }
      ],
      "parts": [
       {
+       "words": "hunting",
+       "at": 22,
+       "gives": "CHASE",
+       "note": "a chase is a hunt"
+      },
+      {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "CHASTISE",
        "indicators": [
         {
          "text": "raised",
-         "note": "in a down entry, raising letters lifts them upwards so they read from bottom to top"
+         "at": 12,
+         "note": "in a down answer, raised means read upwards, so the word is reversed"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "hunting",
-           "gives": "CHA",
-           "note": "first part of chase, the hunt"
-          },
-          {
-           "words": "it's",
-           "gives": "STI",
-           "note": "the letters of it's, turned upwards"
-          },
-          {
-           "words": "hunting",
-           "gives": "SE",
-           "note": "rest of chase, the hunt"
-          }
-         ]
+         "words": "it's",
+         "at": 7,
+         "gives": "ITS",
+         "note": "taken as written, without the apostrophe"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A whip held up during a fox hunt.",
-     "walkthrough": "CHASE (hunting) holds STI, which is IT'S read upwards: CHA-STI-SE.",
-     "definitionFit": "To chastise is to punish, originally physically, so it fits whip as a verb of beating or rebuking."
+     "surface": "A whip is cracked during a hunt.",
+     "walkthrough": "In a down clue 'raised' means read upwards, so the apostrophe-free word turns round before it goes inside the hunt.",
+     "definitionFit": "To whip someone is to punish them physically, and chastise once meant just that."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "raised"
+     "misdirectedWord": "Whip"
     }
    }
   },
@@ -1288,44 +1278,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catches",
+       "at": 19,
+       "note": "catches means holding something within"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "catches",
-         "note": "to catch something is to grab and hold it, so one word holds the other inside"
-        }
-       ],
-       "parts": [
-        {
-         "words": "girl",
-         "gives": "IRI",
-         "note": "start of Iris, a girl's name"
-        },
-        {
-         "words": "it",
-         "note": "taken as written"
-        }
-       ]
+       "words": "girl",
+       "at": 14,
+       "gives": "IRIS",
+       "note": "Iris is a girl's name"
       },
       {
-       "words": "girl",
-       "gives": "S",
-       "note": "end of Iris"
+       "words": "it",
+       "at": 27,
+       "gives": "IT",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl comes down with an eye infection.",
-     "walkthrough": "IRIS, also part of the eye, holds IT.",
-     "definitionFit": "Iritis is inflammation of the coloured ring around the pupil, a medical condition of the eye."
+     "surface": "A young woman picks up an eye infection.",
+     "walkthrough": "IRIS is both a girl's name and the part of the eye the disease affects.",
+     "definitionFit": "Iritis is inflammation of the iris, the coloured part of the eye."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "catches"
+     "misdirectedWord": "girl"
     }
    }
   },
