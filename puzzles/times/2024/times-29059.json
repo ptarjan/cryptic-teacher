@@ -104,38 +104,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a futile endeavour",
-      "at": 35
+      "text": "futile endeavour",
+      "at": 37
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "somehow",
-       "note": "the letters come together in some unstated way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Married twice",
-       "gives": "MM",
-       "note": "M = married, as in genealogies, taken twice"
+       "words": "Married",
+       "at": 0,
+       "gives": "M"
       },
       {
-       "words": "gauges",
-       "note": "anagram fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "somehow",
+         "at": 22,
+         "note": "somehow means in some unspecified way, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "twice",
+         "at": 8,
+         "gives": "M",
+         "note": "twice gives the letter for married a second time"
+        },
+        {
+         "words": "gauges",
+         "at": 15,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "spelling": "MUG'S GAME",
     "explanation": {
-     "surface": "Someone who has married twice decides that measuring anything is pointless.",
-     "walkthrough": "'Married twice' sounds like a weary divorcee's history, but it is just two Ms to add to the fodder.",
-     "definitionFit": "A mug's game is an activity only a fool (a mug) would take on, since it cannot pay off."
+     "surface": "A twice-married person measures things in an odd way and finds it pointless.",
+     "walkthrough": "MM and GAUGES are rearranged together.",
+     "definitionFit": "A mug's game is a British idiom for an activity only a fool would take on, one that will never pay off."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Married"
     }
@@ -1308,40 +1321,70 @@
      "op": "charade",
      "parts": [
       {
-       "words": "me from meal",
-       "gives": "AL",
-       "note": "MEAL without ME"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "from",
+         "at": 11,
+         "note": "from here means taken away from, so those letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meal",
+         "at": 16
+        },
+        {
+         "words": "me",
+         "at": 8
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "interjecting"
+         "text": "interjecting",
+         "at": 35,
+         "note": "interjecting means thrown in between, so the letter goes between the pair"
         }
        ],
        "parts": [
         {
-         "words": "I repeated",
-         "gives": "II",
-         "note": "I twice"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I",
+           "at": 23,
+           "note": "taken as written"
+          },
+          {
+           "words": "repeated",
+           "at": 25,
+           "gives": "I",
+           "note": "repeated gives the letter I a second time"
+          }
+         ]
         },
         {
          "words": "Bravo",
+         "at": 49,
          "gives": "B",
-         "note": "Bravo is B in the NATO alphabet"
+         "note": "Bravo is B in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps asking to leave the dinner table while another guest shouts applause.",
-     "walkthrough": "'Excuse me' reads as a polite phrase; 'Excuse' alone is the definition and 'me from meal' is an instruction.",
-     "definitionFit": "An alibi is an excuse, strictly a claim to have been elsewhere."
+     "surface": "Someone asks to be let off a meal, saying it over and over with a cheer thrown in.",
+     "walkthrough": "'Excuse me' reads as a polite phrase, but only 'Excuse' is the definition; 'me from meal' asks for those two letters to be taken out.",
+     "definitionFit": "An alibi is a claim that one was elsewhere, used as an excuse to escape blame."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "me"
     }
    }

@@ -1200,24 +1200,41 @@
      "parts": [
       {
        "words": "Problem",
+       "at": 0,
        "gives": "SUM",
        "note": "a sum is an arithmetic problem"
       },
       {
        "words": "a",
-       "note": "as written"
+       "at": 13
       },
       {
-       "words": "carrier missing out the last",
-       "gives": "TRA",
-       "note": "TRAM, a carrier of passengers, loses its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing out the last",
+         "at": 23,
+         "note": "missing out the last means the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "carrier",
+         "at": 15,
+         "gives": "TRAY",
+         "note": "a tray is used to carry things"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shipping firm has trouble with a vessel that skipped the final island stop.",
-     "walkthrough": "'Carrier' suggests a ship or airline; it is a tram.",
-     "definitionFit": "A definition by example: the large Indonesian island west of Java."
+     "surface": "Trouble arises when an aircraft carrier fails to call at the final island on its route.",
+     "walkthrough": "TRAY loses its final Y to give TRA.",
+     "definitionFit": "Sumatra is a large Indonesian island in the Indian Ocean."
     },
     "features": {
      "answerInScene": true,

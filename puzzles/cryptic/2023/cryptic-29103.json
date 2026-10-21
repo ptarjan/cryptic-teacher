@@ -878,35 +878,40 @@
      "parts": [
       {
        "words": "Stole",
+       "at": 0,
        "gives": "BOA",
-       "note": "a boa is a long scarf or stole"
+       "note": "a boa is a long scarf, a kind of stole"
       },
       {
        "words": "M",
+       "at": 6,
        "gives": "THOU",
-       "note": "M is the Roman numeral for a thousand, a thou"
+       "note": "M is the Roman numeral for a thousand, abbreviated THOU"
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "case",
-         "note": "a word's case is its outer shell, so only the outside letters of the philosopher's name are kept"
+         "at": 17,
+         "note": "the case of a word is its outside, so take its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "Sartre's case",
-         "note": "the first and last letters of Sartre"
+         "words": "Sartre's",
+         "at": 8,
+         "gives": "SARTRE",
+         "note": "the name of the French philosopher Sartre"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stole Monsieur Sartre's suitcase from a shed by the water.",
-     "walkthrough": "'Stole' is a noun, a scarf, not the past tense of steal, and 'M' is not Monsieur but a thousand.",
-     "definitionFit": "A boathouse is a building at the edge of a river or lake for storing boats."
+     "surface": "A French philosopher's wrap is stolen from a riverside shed.",
+     "walkthrough": "'Stole' reads as a past-tense verb but is the scarf; 'M' looks like the French Monsieur but is a thousand.",
+     "definitionFit": "A boathouse is a shed by the water where boats are kept."
     },
     "features": {
      "answerInScene": true,
@@ -1750,25 +1755,45 @@
      "parts": [
       {
        "words": "Outspoken",
+       "at": 0,
        "gives": "FRANK",
-       "note": "frank means blunt and candid"
+       "note": "frank means candid, outspoken"
       },
       {
-       "words": "genius rejects one",
-       "gives": "ENSTEIN",
-       "note": "EINSTEIN, the byword for genius, without I, the Roman one"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "rejects",
+         "at": 17,
+         "note": "rejects means throws out, so the letter for one is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "genius",
+         "at": 10,
+         "gives": "EINSTEIN",
+         "note": "Einstein is the archetypal genius"
+        },
+        {
+         "words": "one",
+         "at": 25,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A blunt genius turns away a scientist who thinks he is God.",
-     "walkthrough": "'Scientist' looks like part of the wordplay beside 'genius', but it belongs to the definition, which runs to the end.",
-     "definitionFit": "Victor Frankenstein in Mary Shelley's novel creates life, usurping a power reserved for the Creator."
+     "surface": "A blunt genius refuses to work with a researcher who meddles in creating life.",
+     "walkthrough": "Only the first I of EINSTEIN goes, leaving ENSTEIN.",
+     "definitionFit": "Victor Frankenstein, in Mary Shelley's novel, creates life from dead tissue, the archetypal scientist who usurps a divine role."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "rejects"
+     "misdirectedWord": "genius"
     }
    }
   }
