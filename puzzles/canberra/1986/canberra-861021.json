@@ -557,57 +557,67 @@
      "indicators": [
       {
        "text": "after",
-       "note": "after places the returned help-one words behind the crashed car in the answer"
+       "at": 22,
+       "note": "the reversed help-and-one comes after the crashed car in the answer"
       }
      ],
      "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crash",
+         "at": 32,
+         "note": "a car crash leaves the car wrecked, so its letters are knocked out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "car",
+         "at": 28
+        }
+       ]
+      },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "to come back",
-         "note": "coming back means returning the way it went, so these words are read right to left"
+         "at": 9,
+         "note": "the pieces for help and one are to come back, read from right to left"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "crash",
-           "note": "a crash leaves a vehicle mangled, so the letters of the car are wrecked into a new order"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "car",
-           "note": "taken as written"
+           "words": "Help",
+           "at": 0,
+           "gives": "AID",
+           "note": "aid is help"
           },
           {
-           "words": "Help",
-           "gives": "AID",
-           "note": "to aid is to help"
+           "words": "one",
+           "at": 5,
+           "gives": "A",
+           "note": "A means one"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "one",
-       "gives": "A",
-       "note": "a means one, as in a single thing"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone helps an accident victim recover after a car crash on holiday in the Peloponnese.",
-     "walkthrough": "The surface reads like a news story, but the order is the wrecked car first, then help-one turned round.",
-     "definitionFit": "Arcadia is a region in the central Peloponnese peninsula, the southern part of mainland Greece."
+     "surface": "Someone needs help after a road accident while touring southern Greece.",
+     "walkthrough": "Read 'help one' as two pieces, the word for help followed by the article meaning one, before turning them round.",
+     "definitionFit": "Arcadia is a mountainous region in the Peloponnese, the southern peninsula of the Greek mainland."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Help"
+     "misdirectedWord": "crash"
     }
    }
   },

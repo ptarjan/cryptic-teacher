@@ -603,40 +603,35 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "going back means reading the word cuts from its last letter to its first"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 5,
+         "note": "cutting back here means reading the word cuts in the backward direction"
+        }
+       ],
        "parts": [
         {
-         "words": "firm",
-         "gives": "OC",
-         "note": "CO is short for company, a firm"
-        },
-        {
          "words": "Cuts",
-         "gives": "CUT",
-         "note": "the word cut, read backwards"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S is the usual abbreviation for small"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "small firm",
+       "at": 10,
+       "gives": "CO",
+       "note": "CO is the short form of company, a firm"
       }
      ]
     },
     "explanation": {
-     "surface": "A small building company trims back its spending on plastering.",
-     "walkthrough": "'Cuts' is a plural verb in the surface but only the singular cut is reversed; the S comes from 'small'.",
-     "definitionFit": "Stucco is fine plaster used to coat walls and mould decoration, so it is plaster-work."
+     "surface": "A small business making plaster mouldings cuts back on costs.",
+     "definitionFit": "Stucco is fine plaster used for coating walls and decorative mouldings."
     },
     "features": {
      "answerInScene": true,
@@ -876,27 +871,41 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "twice",
+       "at": 21,
+       "note": "the animal appears two times running"
+      }
+     ],
      "parts": [
       {
-       "words": "an animal twice",
-       "gives": "ASSASS",
-       "note": "an ass, the donkey, written two times"
+       "words": "an animal",
+       "at": 11,
+       "gives": "ASS",
+       "note": "an ass is a donkey"
+      },
+      {
+       "words": "an animal",
+       "at": 11,
+       "gives": "ASS",
+       "note": "an ass is a donkey, the animal again"
       },
       {
        "words": "in",
-       "note": "taken as written"
+       "at": 27
       }
      ]
     },
     "explanation": {
-     "surface": "A killer strikes down one creature after another.",
-     "walkthrough": "'in succession' looks like a phrase meaning one after another, but 'in' is kept as letters.",
-     "definitionFit": "An assassin is a killer, especially one hired to murder a prominent person."
+     "surface": "A killer strikes at a donkey again and again.",
+     "walkthrough": "ASS twice, then IN.",
+     "definitionFit": "An assassin is someone who kills, especially a public figure, for political or hired motives."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "in"
+     "misdirectedWord": "animal"
     }
    }
   },
@@ -1099,44 +1108,34 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INDIAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "reject",
-       "note": "to reject is to throw back, so the word for help is turned round"
+       "text": "in",
+       "at": 20,
+       "note": "the reversed help goes in the inn"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "inn",
+       "at": 27
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one piece inside the other, here within the lodging house"
+         "text": "reject",
+         "at": 8,
+         "note": "rejecting the word throws it back, so it reads backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "inn",
-           "gives": "IN",
-           "note": "the first two letters of the word inn, which wraps round"
-          },
-          {
-           "words": "help",
-           "gives": "DIA",
-           "note": "aid, read backwards"
-          }
-         ]
-        },
-        {
-         "words": "inn",
-         "gives": "N",
-         "note": "the last letter of the word inn"
+         "words": "help",
+         "at": 15,
+         "gives": "AID",
+         "note": "aid is help"
         }
        ]
       }
@@ -1144,12 +1143,12 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question about a man at an inn who turns down a helping hand.",
-     "walkthrough": "The whole question gestures at the answer: an Indian is the 'he', and the wordplay puts aid backwards inside the word inn.",
-     "definitionFit": "The clue's 'he' is a man from India, or a Native American; the question form is the setter's loose way of defining a person."
+     "surface": "A traveller turns down assistance at a tavern.",
+     "walkthrough": "'reject' throws the word for help back, and the result goes in the inn after its first two letters.",
+     "definitionFit": "Loosely, the whole clue pictures a proud native American brave refusing assistance at a lodging."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "reject"
     }

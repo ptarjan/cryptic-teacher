@@ -447,37 +447,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "parts": [
       {
-       "op": "first",
+       "op": "container",
        "parts": [
         {
-         "words": "the",
-         "note": "the opening letter of the word"
+         "op": "anagram",
+         "parts": [
+          {
+           "words": "plates",
+           "at": 29,
+           "note": "the letters of plates, rearranged"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "the",
+           "at": 19,
+           "note": "T is the first letter of the"
+          }
+         ]
         }
        ]
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
-      },
-      {
-       "words": "plates",
-       "note": "taken as written"
+       "at": 23,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Creating a stir by owning the correct dishes.",
-     "walkthrough": "This is the closest parse found, not a clean one: the clue has no clear signal for the rearrangement or for taking one letter of 'the'.",
-     "definitionFit": "To splatter is to splash liquid about in drops, so it means to make a splash."
+     "surface": "Washing up the plates properly gets water everywhere.",
+     "walkthrough": "The scrambled plates take the first letter of 'the' inside, before their last letter, and R for right goes on the end.",
+     "definitionFit": "To splatter is to splash liquid about messily."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "splash"
+     "misdirectedWord": "plates"
     }
    }
   },
@@ -818,37 +830,39 @@
      "parts": [
       {
        "words": "Play",
+       "at": 0,
        "gives": "RUR",
-       "note": "R.U.R. is Karel Čapek's 1920 play that gave us the word robot"
+       "note": "R.U.R. is Karel Capek's 1920 play that introduced the word robot"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "false",
-         "note": "something false is not genuine, so the following word appears in a fake order"
+         "at": 11,
+         "note": "a false version of lead has its letters in the wrong order"
         }
        ],
        "parts": [
         {
          "words": "lead",
-         "note": "the letters of lead rearranged"
-        },
-        {
-         "words": "an",
-         "note": "taken as written"
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "an",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "A drama misleads people about a churchman.",
-     "walkthrough": "'False lead' looks like a misleading clue; it is the word lead jumbled.",
-     "definitionFit": "A rural dean is a Church of England cleric who oversees a group of parishes, a senior church office."
+     "surface": "A theatre production gives a churchman a misleading clue.",
+     "walkthrough": "'Play' is a specific one: Capek's R.U.R., the 1920 drama that gave the world the word robot.",
+     "definitionFit": "A rural dean is a Church of England cleric supervising a group of parishes, a senior clergyman."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "lead"
     }
