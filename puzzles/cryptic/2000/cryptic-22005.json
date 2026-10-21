@@ -45,53 +45,51 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MEXICO",
      "indicators": [
       {
-       "text": "that produced",
-       "note": "the dictionary word is made to produce a different opening letter, swapped in for its own initial"
+       "text": "produced",
+       "at": 13,
+       "note": "produced signals one letter being exchanged to make a new word from the dictionary word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MEXICO",
+       "words": "dictionary",
+       "at": 37,
+       "gives": "LEXICO",
+       "note": "lexico is Spanish for lexicon, a dictionary or vocabulary"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 31,
+         "note": "first points to the opening letter of Murray's"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first",
-           "note": "the first of the Scotsman's name is its opening initial, so only that letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Murray's",
-           "note": "the initial letter of the name Murray"
-          }
-         ]
-        },
-        {
-         "words": "dictionary",
-         "gives": "LEXICON",
-         "note": "a lexicon is a dictionary, especially of an ancient language"
+         "words": "Murray's",
+         "at": 22,
+         "note": "its first letter is M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quip about which nation gave the world James Murray's first dictionary, he being the founding editor of the Oxford English Dictionary.",
-     "walkthrough": "M replaces the L of LEXICON, and the final N also has to go to leave MEXICO; nothing in the clue as given signals that loss, and the double space suggests a word may be missing.",
-     "definitionFit": "Mexico is a nation of Central America, the southern neighbour of the United States."
+     "surface": "A trivia question asking where the first dictionary by James Murray, editor of the OED, was made.",
+     "walkthrough": "Swap the opening L of LEXICO, a Spanish word for lexicon, for M, the first letter of 'Murray's'. Spanish fits the country.",
+     "definitionFit": "Mexico is a nation in North America, south of the United States."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Murray's"
+     "misdirectedWord": "dictionary"
     }
    }
   },
