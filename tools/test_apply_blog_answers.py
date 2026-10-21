@@ -96,6 +96,24 @@ def main():
         a.blog_fill = real
     print("ok   apply_blog_answers: a left-out light does not clash with the file")
 
+    # A post whose answers differ from the annotated answers is another puzzle's.
+    ann = {"entries": [
+        {"number": 1, "direction": "across", "length": 4, "position": {"x": 0, "y": 0},
+         "annotation": {"spelling": "ALMS"}},
+        {"number": 2, "direction": "down", "length": 6, "position": {"x": 0, "y": 0},
+         "annotation": {"wordplay": {"op": "deletion", "gives": "LANCER"}}}]}
+    assert "2-down" in a.annotation_clash(ann, {"2-down": "GALUMP"})
+    assert a.annotation_clash(ann, {"1-across": "ALMS"}) == ""
+    assert a.annotation_clash(ann, {"2-down": "LANCER"}) == ""
+    assert "1-across" in a.annotation_clash(ann, {"1-across": "LAMP"})
+    real = a.blog_fill
+    try:
+        a.blog_fill = lambda p, r: ({"1-across": "LAMP"}, [])
+        assert a.judge(ann, {}, True)[1][0].startswith("disagrees with the annotated"), a.judge(ann, {}, True)
+    finally:
+        a.blog_fill = real
+    print("ok   apply_blog_answers refuses a post that contradicts the annotated answers")
+
 
 if __name__ == "__main__":
     main()
