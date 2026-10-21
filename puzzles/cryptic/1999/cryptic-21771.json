@@ -242,44 +242,62 @@
      "indicators": [
       {
        "text": "after",
-       "note": "following on means the girl's name is written second, behind the number"
+       "at": 27,
+       "note": "after places the church letters following the rest"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "anyway",
-         "note": "arranged any way you like, so the letters may be set down in a different order"
+         "text": "seen in",
+         "at": 12,
+         "note": "seen in puts the name inside the word ten"
         }
        ],
        "parts": [
         {
          "words": "ten",
-         "note": "the number written as a word"
+         "at": 33,
+         "gives": "TEN",
+         "note": "taken as written"
         },
         {
-         "words": "Girl",
-         "gives": "ADA",
-         "note": "a common crossword girl's name"
+         "op": "palindrome",
+         "indicators": [
+          {
+           "text": "anyway",
+           "at": 5,
+           "note": "anyway here says the name reads the same whichever way round it is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Girl",
+           "at": 0,
+           "gives": "ADA",
+           "note": "Ada is a girl's name"
+          }
+         ]
         }
        ]
       },
       {
        "words": "church",
+       "at": 20,
        "gives": "CE",
        "note": "CE is the Church of England"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl turns up at church after ten o'clock, looking for some way to pass the afternoon.",
-     "walkthrough": "'Anyway' reads as a casual filler word but tells you to rearrange the girl and the number; the church abbreviation then follows.",
-     "definitionFit": "A tea dance is an afternoon social with dancing and refreshments, a genteel diversion between lunch and dinner."
+     "surface": "A girl attends church after ten o'clock for an afternoon outing.",
+     "walkthrough": "'Anyway' is the clue's oddity: a palindromic name reads the same any way round, so the girl is unchanged. CE is the Church of England.",
+     "definitionFit": "A tea dance is an afternoon social dance with tea served, a genteel pastime."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "anyway"
     }

@@ -1212,41 +1212,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "leave",
-       "note": "a letter that leaves goes away, so it is struck out of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leave",
+         "at": 2,
+         "note": "leave tells us the letter I goes away from the word supplied by 14"
+        }
+       ],
        "parts": [
         {
-         "words": "I",
-         "note": "taken as written: the letter removed"
-        },
-        {
          "words": "14",
+         "at": 8,
          "gives": "IDIOT",
-         "note": "the answer to 14 across"
+         "note": "the answer to clue 14 is IDIOT"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "I",
+         "at": 0
         }
        ]
       },
       {
-       "gives": "II"
+       "words": "a",
+       "at": 16
       }
      ]
     },
     "explanation": {
-     "surface": "Someone takes leave of a fool, carrying an ancient pot.",
-     "walkthrough": "The first I goes from the answer to 14 across, then A follows.",
-     "definitionFit": "A diota is a two-handled ancient jar or amphora; the name is Greek for two-eared, after its handles."
+     "surface": "Someone abandons a cross-reference to pick up an ancient Greek pot.",
+     "walkthrough": "Take the I away from the answer to 14 and A is added after. A diota is a two-handled jar.",
+     "definitionFit": "A diota is a classical two-handled vessel, the kind of jar found among ancient Greek pottery."
     },
     "features": {
      "answerInScene": false,
@@ -1470,37 +1469,52 @@
     "definitions": [
      {
       "text": "in the undergrowth",
-      "at": 41,
-      "note": "read as under-growth: growing underground"
+      "at": 41
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "RHIZOME",
      "indicators": [
       {
        "text": "as Spooner did",
-       "note": "Spooner was famous for swapping the opening sounds of words, so the starts of two words are exchanged"
+       "at": 26,
+       "note": "Spooner was the Oxford don famed for swapping the opening sounds of words, so his habit signals the swap"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Looks at the Eternal City",
-       "gives": "RHIZOME",
-       "soundsLike": "RISE OHM",
-       "note": "looks at is eyes and the Eternal City is Rome; 'eyes Rome' with its opening sounds swapped"
+       "op": "homophone",
+       "spelt": "IZ",
+       "parts": [
+        {
+         "words": "Looks at",
+         "at": 0,
+         "gives": "EYES",
+         "note": "looks at means eyes, as a verb, heard here as the sound iz"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "RHOME",
+       "parts": [
+        {
+         "words": "the Eternal City",
+         "at": 9,
+         "gives": "ROME",
+         "note": "the Eternal City is Rome"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tourist eyeing Rome with Spooner's tongue-twisting, lost in the shrubbery.",
-     "walkthrough": "Swap the opening sounds of 'eyes Rome' and you say 'rize ohm'.",
-     "definitionFit": "A rhizome is a creeping stem that grows horizontally below the soil surface, sending out roots and shoots."
+     "surface": "A tourist gazes at Rome, comically tangled in words, from among the shrubbery.",
+     "walkthrough": "EYES ROME, said with the R moved to the front of the first word, sounds like 'rise ohm', which is how RHIZOME is pronounced.",
+     "definitionFit": "A rhizome is an underground plant stem that spreads horizontally beneath the surface soil."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "undergrowth"
