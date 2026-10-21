@@ -4722,6 +4722,18 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None):
         if lent_to:
             verdict["lent"] = sorted(lent_to)
     if blank and "vlm" in texts and vlm_on and vlm.wanted():
+        # A light no reading laid, that the readers (two of the one scan) print alike under its
+        # number with its count, is laid now as tail() would lay it after the pick: the pick of
+        # the VLM was spent on a clue the readers had already agreed (FT 1983-03-26: 4 across,
+        # "doctor" in two readings, 1 across, 26 across).
+        early, left = ocr_clues.relaid(read, laid, blank, parse, lengths, bare=bare)
+        # Not one a reader printed with a mark glued to the next word ("happened.A small"): the
+        # VLM's pick has the space the print has, so that one is still asked.
+        for lid in blank.keys() - left.keys():
+            if not SENTENCE_GLUED.search(early[lid][0] or ""):
+                laid[lid] = early[lid]
+                blank = {k: v for k, v in blank.items() if k != lid}
+    if blank and "vlm" in texts and vlm_on and vlm.wanted():
         if doomed():
             verdict["vlmSkipped"] = "a laid clue is refused whatever the VLM picks"
         elif unpickable(texts, blank, len(rg.light_cells(grid))):
@@ -4819,6 +4831,10 @@ def screened(texts, grid):
             continue
         keep[k] = t
     return keep, dropped
+
+
+#: A sentence end glued to the next word's capital ("happened.A"): a space a reader lost.
+SENTENCE_GLUED = re.compile(r"[a-z][.?!,;:][A-Z]")
 
 
 def unpickable(texts, blank, lights):
