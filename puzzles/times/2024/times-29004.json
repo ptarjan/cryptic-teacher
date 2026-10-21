@@ -205,51 +205,46 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "tails off",
+       "at": 36,
+       "note": "cuts the final letter from each of the two words"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "tails off",
-         "note": "with tails off, each word loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "friend",
+         "at": 19,
          "gives": "MATE",
          "note": "a mate is a friend"
         },
         {
-         "gives": "E"
+         "words": "love",
+         "at": 30,
+         "gives": "ADORE",
+         "note": "to adore is to love"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "love",
-         "gives": "ADORE",
-         "note": "to adore is to love"
-        },
-        {
-         "gives": "E"
-        }
-       ]
+       "gives": "EE"
       }
      ]
     },
     "explanation": {
-     "surface": "A Spanish athlete whose friendships and romance are fading away.",
-     "walkthrough": "'Tails off' sounds like interest waning, but it clips the last letter from both words before them.",
-     "definitionFit": "Bullfighting is treated as a sport in Spain, and the matador is the bullfighter who makes the kill."
+     "surface": "A Spanish athlete, his friend and lover, all fading away.",
+     "walkthrough": "'tails off' removes the last E of MATE and of ADORE, leaving MAT and ADOR.",
+     "definitionFit": "A matador is the bullfighter who kills the bull, bullfighting being a Spanish spectacle."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "tails"
+     "aptDefinition": false,
+     "misdirectedWord": "love"
     }
    }
   },
@@ -1175,7 +1170,8 @@
        "indicators": [
         {
          "text": "to round",
-         "note": "to round something is to go around it, enclosing it"
+         "at": 34,
+         "note": "the doubled pair goes around the next letters"
         }
        ],
        "parts": [
@@ -1184,14 +1180,31 @@
          "indicators": [
           {
            "text": "turned",
-           "note": "something turned faces the other way, so the letters run backwards"
+           "at": 27,
+           "note": "the doubled two-letter string is read backwards"
           }
          ],
          "parts": [
           {
-           "words": "it twice",
-           "gives": "ITIT",
-           "note": "the word it, written two times"
+           "op": "charade",
+           "indicators": [
+            {
+             "text": "twice",
+             "at": 21,
+             "note": "the word it appears two times in a row"
+            }
+           ],
+           "parts": [
+            {
+             "words": "it",
+             "at": 18,
+             "gives": "IT",
+             "note": "taken as written"
+            },
+            {
+             "gives": "IT"
+            }
+           ]
           }
          ]
         },
@@ -1200,12 +1213,14 @@
          "parts": [
           {
            "words": "a",
+           "at": 43,
+           "gives": "A",
            "note": "taken as written"
           },
           {
            "words": "Northern",
-           "gives": "N",
-           "note": "N is the abbreviation for northern"
+           "at": 45,
+           "gives": "N"
           }
          ]
         }
@@ -1213,15 +1228,16 @@
       },
       {
        "words": "cape",
+       "at": 54,
        "gives": "C",
        "note": "C is the map abbreviation for cape"
       }
      ]
     },
     "explanation": {
-     "surface": "A famous ship turning twice to sail round a northern headland.",
-     "walkthrough": "The nautical surface hides that the reversed pair wraps 'a Northern', and the cape is just its letter added at the end.",
-     "definitionFit": "The liner that sank on its maiden voyage in 1912 is the most famous ship in history."
+     "surface": "A famous ship turns twice to go round a cape in the north.",
+     "walkthrough": "'twice' doubles the word it before 'turned' reverses the pair; the result goes round A and N, and the cape letter closes the word.",
+     "definitionFit": "The Titanic is the famous liner that sank on its maiden voyage in 1912 after hitting an iceberg."
     },
     "features": {
      "answerInScene": true,

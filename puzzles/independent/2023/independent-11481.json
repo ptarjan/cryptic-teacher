@@ -1673,35 +1673,55 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Brief greetings",
-       "at": 0,
+       "words": "greetings",
+       "at": 6,
        "gives": "HI",
-       "note": "hi is a short, informal hello"
+       "note": "hi is a greeting"
       },
       {
-       "words": "Rose",
-       "at": 25,
-       "gives": "ROS",
-       "note": "the name cut short too, as the brief greetings are, dropping its last letter"
-      },
-      {
-       "words": "for both",
-       "at": 16,
-       "gives": "HI",
-       "note": "the same short greeting is said again for the second name"
-      },
-      {
-       "words": "May",
-       "at": 34,
-       "gives": "MA",
-       "note": "the name likewise cut short, losing its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Brief",
+         "at": 0,
+         "note": "cuts the last letter of each name short"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Rose",
+           "at": 25,
+           "gives": "ROSE",
+           "note": "the name Rose"
+          },
+          {
+           "words": "for both",
+           "at": 16,
+           "gives": "HI",
+           "note": "the greeting is given for each of the two women, so it comes again"
+          },
+          {
+           "words": "May",
+           "at": 34,
+           "gives": "MAY",
+           "note": "the name May"
+          }
+         ]
+        },
+        {
+         "gives": "EY"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Short hellos to two women named Rose and May in town.",
-     "walkthrough": "Brief works on everything: a short hello, then each name with its tail cut, the greeting repeated for both.",
-     "definitionFit": "Hiroshima is a Japanese port city, devastated by the atomic bomb in 1945."
+     "surface": "Quick hellos to two friends, Rose and May, somewhere in a city.",
+     "walkthrough": "HI ROS(E) plus HI MA(Y): one greeting each, with 'Brief' shortening both names.",
+     "definitionFit": "Hiroshima is the Japanese port destroyed by an atomic bomb in 1945."
     },
     "features": {
      "answerInScene": false,
