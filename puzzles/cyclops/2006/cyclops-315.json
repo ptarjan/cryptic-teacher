@@ -1085,51 +1085,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GLASNOST",
-     "indicators": [
-      {
-       "text": "awful",
-       "note": "something awful is a mess, so the letters come out in bad order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GLASNOST",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to depart",
-         "note": "the letter told to depart leaves the group it was in"
+         "text": "off",
+         "at": 5,
+         "note": "gone bad, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Slag",
-         "note": "the word as written"
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "composite",
+       "indicators": [
+        {
+         "text": "awful",
+         "at": 16,
+         "note": "terrible, so these letters are shuffled too"
         },
         {
+         "text": "to depart",
+         "at": 26,
+         "note": "the letter for yen leaves the jumbled pool"
+        }
+       ],
+       "parts": [
+        {
          "words": "Tony's",
-         "note": "the word as written, apostrophe dropped"
+         "at": 9
         },
         {
          "words": "yen",
+         "at": 22,
          "gives": "Y",
-         "note": "Y is the abbreviation for the Japanese currency"
+         "note": "Y is the abbreviation for the Japanese yen"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mocking Tony Blair's dreadful craving to escape public scrutiny.",
-     "walkthrough": "'Slag off' looks like 'criticise', but 'off' only links; Tony is Blair, Prime Minister in 2006.",
-     "definitionFit": "Glasnost was Gorbachev's Soviet policy of transparency in government, a borrowed Russian word for openness."
+     "surface": "Someone attacks Blair, whose terrible craving drives out transparency.",
+     "walkthrough": "GLAS is an anagram of SLAG; NOST is TONYS with Y taken out and rearranged.",
+     "definitionFit": "Glasnost was the Soviet policy of political transparency under Gorbachev."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "yen"
     }

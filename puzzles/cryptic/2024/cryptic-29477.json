@@ -1277,51 +1277,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Out",
-       "note": "out can mean in error or out of place, so the letters go into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "most of",
-         "note": "most of a word means all but its last letter"
+         "text": "Out",
+         "at": 0,
+         "note": "out of place, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 4,
+           "note": "all but the last letter of Saturday"
+          }
+         ],
          "parts": [
           {
            "words": "Saturday",
-           "note": "the day, taken as written before trimming"
+           "at": 12
           },
           {
-           "words": "to",
-           "note": "taken as written"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
+           "gives": "Y"
           }
          ]
         },
         {
-         "gives": "Y"
+         "words": "to",
+         "at": 29
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 32
       }
      ]
     },
     "explanation": {
-     "surface": "Away most of the weekend, driving on a motorway with tolls on the Continent.",
-     "walkthrough": "'Out' looks like part of the trip; it signals the anagram, and 'to a' belongs to the fodder, not the link.",
-     "definitionFit": "An autostrada is an Italian motorway, and most of them charge drivers tolls."
+     "surface": "Someone spends much of the weekend away, driving to a motorway on the Continent.",
+     "walkthrough": "SATURDA (most of SATURDAY) plus TO and A are rearranged.",
+     "definitionFit": "An autostrada is an Italian motorway, many of which charge tolls."
     },
     "features": {
      "answerInScene": true,

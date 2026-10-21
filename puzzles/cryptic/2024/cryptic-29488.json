@@ -102,9 +102,9 @@
        "op": "substitution",
        "indicators": [
         {
-         "text": "having swapped",
-         "at": 34,
-         "note": "having swapped means the two named letters change places between the two words"
+         "text": "swapped",
+         "at": 41,
+         "note": "the two letters trade places, so the factory worker takes the second letter in place of the first"
         }
        ],
        "parts": [
@@ -115,23 +115,17 @@
          "note": "a hand is a manual worker in a factory"
         },
         {
+         "gives": "N"
+        },
+        {
          "op": "first",
          "indicators": [
           {
            "text": "starts of",
            "at": 49,
-           "note": "starts of means the first letters of the words next and rota"
+           "note": "the opening letters of next and rota are the ones that trade places"
           }
          ],
-         "parts": [
-          {
-           "words": "next",
-           "at": 59
-          }
-         ]
-        },
-        {
-         "op": "first",
          "parts": [
           {
            "words": "rota",
@@ -143,6 +137,13 @@
       },
       {
        "op": "substitution",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 34,
+         "note": "the resentful word has the same exchange made the other way round, as part of the one swap"
+        }
+       ],
        "parts": [
         {
          "words": "resentful",
@@ -154,21 +155,27 @@
          "gives": "R"
         },
         {
-         "gives": "N"
+         "op": "first",
+         "parts": [
+          {
+           "words": "next",
+           "at": 59
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A harsh factory hand resents having to swap shifts on the rota.",
-     "walkthrough": "HAND and BITTER exchange N and R (the starts of 'next' and 'rota'): HAND becomes HARD and BITTER becomes BITTEN.",
-     "definitionFit": "Hard-bitten describes someone toughened and unsentimental by experience, which is close to ruthless."
+     "surface": "A merciless worker on the shop floor sulks after the duty schedule has been reshuffled.",
+     "walkthrough": "'having swapped starts of next rota' works on both words: N (start of 'next') gives way to R (start of 'rota') in the factory worker, and the R gives way to N in the resentful word.",
+     "definitionFit": "Hard-bitten describes someone tough and unsentimental, a close synonym of ruthless."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rota"
+     "misdirectedWord": "swapped"
     }
    }
   },
@@ -1302,46 +1309,41 @@
      "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "last",
        "indicators": [
         {
          "text": "connecting",
-         "note": "where two pipes connect only their facing ends meet, so just the touching letters are kept"
+         "at": 25,
+         "note": "the letters where the two words meet, the end of one joined to the start of the other, form the answer"
         }
        ],
        "parts": [
         {
          "words": "reservoir",
-         "note": "only its closing pair of letters is used"
-        },
-        {
-         "gives": "RESERVO"
+         "at": 36
         }
        ]
       },
       {
-       "op": "deletion",
+       "op": "first",
        "parts": [
         {
          "words": "aqueduct",
-         "note": "only its opening pair of letters is used"
-        },
-        {
-         "gives": "UEDUCT"
+         "at": 49
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A country builds an aqueduct to link its reservoir to the waterways.",
-     "walkthrough": "Connecting the two words means joining where they touch: the tail of the first and the head of the second.",
-     "definitionFit": "Iraq is a sovereign nation in the Middle East, and state means a country."
+     "surface": "A country is credited with building the link from a reservoir to an aqueduct.",
+     "walkthrough": "Take the last two letters of 'reservoir' and the first two of 'aqueduct', the letters at the join; 'to' and 'is instrumental in' are link words.",
+     "definitionFit": "Iraq is a sovereign country in the Middle East, so it is an example of a state."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "State"
+     "misdirectedWord": "connecting"
     }
    }
   },

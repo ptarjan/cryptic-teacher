@@ -1283,7 +1283,8 @@
      "indicators": [
       {
        "text": "suffering",
-       "note": "suffering suggests being in a bad way, so the letters are knocked out of shape"
+       "at": 20,
+       "note": "in a bad way, so the remaining letters are jumbled"
       }
      ],
      "parts": [
@@ -1292,32 +1293,44 @@
        "indicators": [
         {
          "text": "left",
-         "note": "left means departed, so that letter goes"
+         "at": 15,
+         "note": "has gone away, so that letter is taken out"
         }
        ],
        "parts": [
         {
          "words": "Police",
-         "note": "taken as written"
+         "at": 0
         },
         {
-         "words": "chief",
-         "gives": "P",
-         "note": "the chief, or first, letter of police is removed"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "chief's",
+           "at": 7,
+           "note": "the chief of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Police",
+           "at": 0
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The police chief has gone off sick with a stomach bug.",
-     "walkthrough": "'Police chief' reads as a senior officer; chief means the word's first letter, which has left.",
-     "definitionFit": "E. coli is a bacterium that can cause food poisoning, and bug is everyday slang for such a germ."
+     "surface": "The head of the police force has gone off sick with a bug.",
+     "walkthrough": "POLICE loses its first letter P, and the remaining OLICE is rearranged.",
+     "definitionFit": "E. coli is a bacterium that can cause food poisoning, colloquially a bug."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "chief"
+     "misdirectedWord": "left"
     }
    }
   },
