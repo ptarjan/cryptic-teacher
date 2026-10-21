@@ -461,6 +461,8 @@ def main():
                     help=f"also write a puzzle the post leaves up to {MAX_OMITTED} lights out of "
                          "(it gives no line for them): the checked answers plus solutions.partial "
                          "naming the blanks, which a model may then fill and no other light")
+    ap.add_argument("--no-reindex", action="store_true",
+                    help="leave puzzles/index.json for the caller to rebuild")
     args = ap.parse_args()
 
     def log(line):
@@ -472,7 +474,7 @@ def main():
         total += counts
         log(f"== {year}: {dict(counts)}")
     log(f"== total: {dict(total)}")
-    if not args.check_only and total["answered"]:
+    if not args.check_only and not args.no_reindex and total["answered"]:
         reindex()
 
 
