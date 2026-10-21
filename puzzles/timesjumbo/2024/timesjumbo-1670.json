@@ -377,53 +377,33 @@
     "definitions": [
      {
       "text": "mind them?",
-      "at": 59,
-      "note": "The definition describes the answer: P's and Q's are what you mind."
+      "at": 59
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "PSANDQS",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 50,
+       "note": "we hear means the words are spoken, so their sound gives the letters"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "PS",
-       "indicators": [
-        {
-         "text": "we hear",
-         "note": "What we hear is sound, so the words are spelt differently from how they are said."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Vegetables",
-         "gives": "PEAS",
-         "note": "peas said aloud are the letters P's"
-        }
-       ]
-      },
-      {
-       "words": "with",
-       "gives": "AND",
-       "note": "with = and"
-      },
-      {
-       "op": "homophone",
-       "spelt": "QS",
-       "parts": [
-        {
-         "words": "lots of people in line",
-         "gives": "QUEUES",
-         "note": "queues of people, said aloud, are the letters Q's"
-        }
-       ]
+       "words": "Vegetables, with lots of people in line",
+       "at": 0,
+       "gives": "PEASANDQUEUES",
+       "note": "peas are vegetables, with means and, and queues are lines of people waiting"
       }
      ]
     },
     "spelling": "P'S AND Q'S",
     "explanation": {
-     "surface": "Crowds line up for vegetables at a market stall.",
-     "walkthrough": "The definition sits at the end as a question: 'mind your P's and Q's' means watch your manners.",
-     "definitionFit": "The idiom is 'mind your P's and Q's', so P's and Q's are the things to mind."
+     "surface": "Greengrocer's peas so popular that people queue up for them.",
+     "walkthrough": "PEAS AND QUEUES said aloud is 'Ps and Qs'; to mind your Ps and Qs is a British idiom for watching your manners.",
+     "definitionFit": "To mind your Ps and Qs is an idiom meaning to be careful about manners, so these are what one must mind."
     },
     "features": {
      "answerInScene": false,
@@ -763,20 +743,34 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "Without leader",
-         "note": "A word without its leader has lost the letter that leads it, its first."
+         "text": "Without",
+         "at": 0,
+         "note": "without means the orchestra's name loses its opening letter"
         }
        ],
        "parts": [
         {
          "words": "orchestra",
+         "at": 16,
          "gives": "HALLE",
-         "note": "the Hallé is the Manchester orchestra"
+         "note": "the Hallé is a Manchester orchestra"
         },
         {
-         "words": "Without leader",
-         "gives": "H",
-         "note": "the first letter, which goes"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 8,
+           "note": "the leader of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "orchestra",
+           "at": 16,
+           "gives": "HALLE"
+          }
+         ]
         }
        ]
       },
@@ -785,19 +779,21 @@
        "indicators": [
         {
          "text": "to keep",
-         "note": "To keep something is to hold it, so the word for try holds the letter for right inside it."
+         "at": 30,
+         "note": "to keep something is to hold it, so the right letter goes inside"
         }
        ],
        "parts": [
         {
          "words": "try",
+         "at": 26,
          "gives": "GO",
-         "note": "have a go = have a try"
+         "note": "to have a go is to have a try"
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "R = right"
+         "at": 38,
+         "gives": "R"
         }
        ]
       }
@@ -805,12 +801,13 @@
     },
     "explanation": {
      "surface": "An orchestra without its leader tries to hold the right tempo.",
-     "walkthrough": "The orchestra's leader is its principal violinist, which makes 'Without leader' read as players in trouble; it means lose the first letter.",
-     "definitionFit": "Allegro, Italian for lively, marks a brisk, quick musical speed."
+     "walkthrough": "The Hallé is a Manchester orchestra; its leader here is its first letter, not a principal violinist.",
+     "definitionFit": "Allegro is a musical direction for a brisk, lively speed, so a tempo marking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "leader"
     }
    }

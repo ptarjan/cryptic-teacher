@@ -697,20 +697,37 @@
      "parts": [
       {
        "words": "Married",
+       "at": 0,
        "gives": "M",
-       "note": "M = married, as in genealogies"
+       "note": "M is the genealogical abbreviation for married"
       },
       {
-       "words": "traditional place for ceremony, shunning close",
-       "gives": "ALTA",
-       "note": "ALTAR without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shunning close",
+         "at": 43,
+         "note": "shunning the close means avoiding the final letter, so it is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "traditional place for ceremony",
+         "at": 11,
+         "gives": "ALTAR",
+         "note": "a wedding traditionally takes place at the altar"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A couple wed in the traditional way, at the altar, avoiding a registry office nearby.",
-     "walkthrough": "'At' simply glues the surface together; the wordplay is M plus ALTA(R).",
-     "definitionFit": "A definition by example: the answer is one particular island, in the Mediterranean south of Sicily."
+     "surface": "A couple wed at a traditional church venue, avoiding a nearby island.",
+     "walkthrough": "M for married, then ALTAR with its close, the last letter R, shunned.",
+     "definitionFit": "Malta is a Mediterranean island nation south of Sicily."
     },
     "features": {
      "answerInScene": true,
@@ -999,39 +1016,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "Avoiding the sides",
+       "at": 0,
+       "note": "avoiding the sides of each word drops its first and last letters, keeping its middle"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "Avoiding the sides",
-         "note": "each word loses its sides, its first and last letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "slid",
-         "note": "SLID without S and D"
-        }
-       ]
+       "words": "slid",
+       "at": 20,
+       "note": "taken as written"
       },
       {
        "words": "one's",
-       "gives": "NE",
-       "note": "ONE'S without O and S"
+       "at": 25,
+       "note": "taken as written, its apostrophe ignored"
       },
       {
        "words": "oars",
-       "gives": "AR",
-       "note": "OARS without O and S"
+       "at": 31,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A rower keeps a straight course by keeping the oars clear of the banks.",
-     "walkthrough": "The rowing picture makes 'avoiding the sides' a steering instruction; it strips the ends off each of the next three words.",
-     "definitionFit": "A plain synonym: from Latin linea, a line, so something arranged along a line with no bends."
+     "surface": "A rower keeps away from the banks, sliding the oars to row in a straight line.",
+     "walkthrough": "The middles are LI from 'slid', NE from 'one's' and AR from 'oars'.",
+     "definitionFit": "Linear means arranged in or along a line, so straight rather than curved."
     },
     "features": {
      "answerInScene": true,
@@ -1131,51 +1145,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "enveloping"
+       "text": "enveloping",
+       "at": 17,
+       "note": "enveloping means wrapping around, so the air conditioning letters go outside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Air conditioning",
-         "gives": "AC",
-         "note": "AC = air conditioning; it splits A…C"
-        },
-        {
-         "words": "church",
-         "gives": "RC",
-         "note": "RC = Roman Catholic, a church"
-        }
-       ]
+       "words": "Air conditioning",
+       "at": 0,
+       "gives": "AC"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "turned"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "it",
-         "gives": "IT",
-         "note": "IT reversed"
+         "words": "church",
+         "at": 28,
+         "gives": "RC",
+         "note": "RC stands for Roman Catholic, a church"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned",
+           "at": 39,
+           "note": "turned means flipped around, so the word it is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "it",
+           "at": 36,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The church's air conditioning is set so high it has become freezing.",
-     "walkthrough": "RC for the Roman Catholic church is a standard abbreviation, alongside CH and CE.",
-     "definitionFit": "Arctic, informally, means extremely cold."
+     "surface": "The air conditioning running in a church made it far too chilly.",
+     "walkthrough": "The church is the Roman Catholic one, shortened to its initials, and the plain word 'it' turned round follows it inside the air conditioning.",
+     "definitionFit": "Arctic is used informally of weather or rooms that are freezing, like the polar region."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd"
+     "misdirectedWord": "conditioning"
     }
    }
   },

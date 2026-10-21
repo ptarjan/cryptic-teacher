@@ -697,29 +697,47 @@
      "parts": [
       {
        "words": "A",
-       "note": "used as printed"
+       "at": 0
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "N = new"
+       "at": 2,
+       "gives": "N"
       },
       {
-       "words": "parent, male out",
-       "gives": "OTHER",
-       "note": "MOTHER without M (male)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 19,
+         "note": "out means the male letter is removed from parent"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parent",
+         "at": 6,
+         "gives": "MOTHER",
+         "note": "a mother is a parent"
+        },
+        {
+         "words": "male",
+         "at": 14,
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A new mother, with the man gone, becomes the other option.",
-     "walkthrough": "The parent is MOTHER, whose M is the male that goes out.",
-     "definitionFit": "Another means one more, a different or alternative one."
+     "surface": "A new parent, with the father gone, looks for some other option.",
+     "walkthrough": "A, N for new, then MOTHER with M for male taken out.",
+     "definitionFit": "Another means one more or a different one, so an alternative choice."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "male"
+     "misdirectedWord": "parent"
     }
    }
   },

@@ -222,32 +222,45 @@
      "indicators": [
       {
        "text": "potting",
-       "note": "potting a ball in snooker sinks it from the table, so letters are removed"
+       "at": 8,
+       "note": "in snooker, potting a ball removes it from the table, so letters are taken away"
       }
      ],
      "parts": [
       {
        "words": "Clubman",
+       "at": 0,
        "gives": "MEMBER",
-       "note": "a club's man is a member"
+       "note": "a clubman is a member of a club"
       },
       {
-       "words": "two in the middle",
-       "gives": "MB",
-       "note": "the central pair of letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "two in the middle",
+         "at": 16,
+         "note": "the central pair of a six-letter word are its two middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Clubman",
+         "at": 0,
+         "gives": "MEMBER"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A club regular potting two balls mid-table in an old-fashioned pool game.",
-     "walkthrough": "The surface is a game of pool at the club; the pool is actually water and potting removes letters.",
-     "definitionFit": "Meer is an old spelling of mere, a lake or pond."
+     "surface": "A club member pots balls in a snooker game somewhere in an old-fashioned pool hall.",
+     "walkthrough": "MEMBER loses its middle pair, MB, leaving MEER.",
+     "definitionFit": "Meer is an obsolete spelling of mere, a lake or pond, so a pool in older English."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "pool"
+     "misdirectedWord": "potting"
     }
    }
   },

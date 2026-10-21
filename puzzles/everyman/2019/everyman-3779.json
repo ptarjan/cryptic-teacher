@@ -252,41 +252,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "after",
-       "at": 25,
-       "note": "after places the shortened lectures following the abbreviation for negative"
-      }
-     ],
      "parts": [
       {
-       "words": "negative",
-       "at": 31,
-       "gives": "NEG"
-      },
-      {
-       "op": "deletion",
+       "op": "charade",
        "indicators": [
         {
-         "text": "Half of",
-         "at": 0,
-         "note": "half of points to the second half of the word as the part that goes"
-        },
-        {
-         "text": "skipped",
-         "at": 17,
-         "note": "skipped means that half is missed out, leaving the first four letters"
+         "text": "after",
+         "at": 25,
+         "note": "after means the half lecture follows the negative piece"
         }
        ],
        "parts": [
         {
-         "words": "lectures",
-         "at": 8,
-         "note": "the word lectures, taken as written"
+         "words": "negative",
+         "at": 31,
+         "gives": "NEG"
         },
         {
-         "gives": "URES"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Half of",
+           "at": 0,
+           "note": "half of an eight-letter word keeps its first four letters"
+          },
+          {
+           "text": "skipped",
+           "at": 17,
+           "note": "skipped means the rest of the word is missed out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lectures",
+           "at": 8,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
       },
@@ -296,14 +298,14 @@
         {
          "text": "beginning",
          "at": 51,
-         "note": "beginning picks out the first letter of the word"
+         "note": "the beginning of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "feedback's",
          "at": 40,
-         "note": "the word feedback, whose first letter is used"
+         "note": "taken as written"
         }
        ]
       },
@@ -313,22 +315,22 @@
        "gives": "U"
       },
       {
-       "words": "student",
+       "words": "student's",
        "at": 73,
        "gives": "L",
-       "note": "L is for learner, the crossword student, from the L-plate"
+       "note": "L, for learner, stands for a student"
       }
      ]
     },
     "explanation": {
-     "surface": "A university student who skipped half the lectures gets criticism and is told they have been careless.",
-     "walkthrough": "The surface reads as a skiving student, but every piece is an abbreviation or a fragment. L for student comes from the learner's L-plate on British cars.",
-     "definitionFit": "Remiss means careless about one's duties, and neglectful describes someone who fails to give proper attention."
+     "surface": "A student who skipped half of lectures, after poor feedback, is told they have been slack.",
+     "walkthrough": "NEG, then LECT (the first half of 'lectures'), then F from 'feedback's', U for university and L for learner.",
+     "definitionFit": "Being neglectful means failing to give due care or attention, the same as being remiss."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "negative"
+     "misdirectedWord": "feedback's"
     }
    }
   },
@@ -759,41 +761,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "NEWDELHI",
+     "indicators": [
+      {
+       "text": "they say",
+       "at": 43,
+       "note": "they say means the words are spoken, so the sound gives the spelling"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "NEW",
-       "indicators": [
-        {
-         "text": "they say",
-         "note": "what people say is heard, not read, so the words are taken by their sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Was familiar with",
-         "gives": "KNEW",
-         "note": "past tense of to know"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "DELHI",
-       "parts": [
-        {
-         "words": "where to buy cold meats",
-         "gives": "DELI",
-         "note": "a delicatessen sells sliced cold meats"
-        }
-       ]
+       "words": "Was familiar with where to buy cold meats",
+       "at": 0,
+       "gives": "KNEWDELI",
+       "note": "to have known something is to have been familiar with it; a deli, or delicatessen, sells cold meats"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone knew the local shop for sliced ham in a large city.",
-     "definitionFit": "India's capital is one of the world's largest metropolitan areas, so calling it a big city is fair."
+     "surface": "Someone knew a good place to buy cold cuts in a large city.",
+     "walkthrough": "KNEW DELI, said aloud, sounds like the capital of India.",
+     "definitionFit": "New Delhi is India's capital, part of the vast Delhi urban area, so a huge city."
     },
     "features": {
      "answerInScene": true,
@@ -997,31 +986,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "gone berserk",
-       "note": "running wild and out of control, so these letters are thrown out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Salem's",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "gone berserk",
+         "at": 8,
+         "note": "going berserk means running wild, so these letters are thrown about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Salem's",
+         "at": 0,
+         "note": "taken as written, the apostrophe ignored"
+        }
+       ]
       },
       {
        "words": "an",
-       "note": "taken as written"
+       "at": 22
       }
      ]
     },
     "explanation": {
-     "surface": "Salem, setting of The Crucible, runs amok, as in a Miller play.",
-     "walkthrough": "Salem's witch-hunt hysteria is the setting of Miller's The Crucible, which makes 'gone berserk' fit; the answer comes from his other famous play.",
-     "definitionFit": "Willy Loman, the hero of Miller's Death of a Salesman, is a travelling commercial representative, the play's central figure."
+     "surface": "A wild frenzy in Salem, setting for Arthur Miller's The Crucible.",
+     "walkthrough": "Salem points to The Crucible, Miller's witch-trial play, but the play meant is Death of a Salesman, whose subject is Willy Loman.",
+     "definitionFit": "Death of a Salesman centres on Willy Loman, a travelling seller, so he is the subject of Miller's play."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Salem's"
     }
