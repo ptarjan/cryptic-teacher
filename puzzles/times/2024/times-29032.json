@@ -167,28 +167,43 @@
        "indicators": [
         {
          "text": "corrupted",
-         "note": "corrupted letters are spoilt out of their proper order"
+         "at": 20,
+         "note": "corrupted means debased, and the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Erotica stunted",
-         "gives": "EROTIC",
-         "note": "EROTICA without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "stunted",
+           "at": 8,
+           "note": "stunted means kept short, so the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Erotica",
+           "at": 0
+          },
+          {
+           "gives": "A"
+          }
+         ]
         }
        ]
       },
       {
        "words": "European",
-       "gives": "E",
-       "note": "E = European"
+       "at": 30,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A secret European society is exposed through its sordid literature.",
-     "walkthrough": "The racy surface hides a plain recipe: trim the A from EROTICA, add E, and rearrange.",
-     "definitionFit": "A coterie is a small exclusive group, as a cabal is."
+     "surface": "A corrupt European group trading in cut-down erotic material.",
+     "walkthrough": "EROTICA stunted is EROTIC, which corrupted gives COTERI; E for European ends it.",
+     "definitionFit": "A coterie is a small exclusive circle of people, like a clique or cabal."
     },
     "features": {
      "answerInScene": true,

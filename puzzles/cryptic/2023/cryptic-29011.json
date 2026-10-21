@@ -1264,7 +1264,7 @@
       {
        "text": "filling",
        "at": 39,
-       "note": "the reworked letters fill the space inside the emptied glass"
+       "note": "filling means going inside, so these letters sit within the emptied glass"
       }
      ],
      "parts": [
@@ -1274,75 +1274,50 @@
         {
          "text": "empty",
          "at": 47,
-         "note": "an empty word keeps only its outer letters"
+         "note": "an empty word has lost its middle, leaving its outer letters"
         }
        ],
        "parts": [
         {
          "words": "glass",
          "at": 53,
-         "note": "an emptied glass keeps only its first and last letters"
+         "note": "outer letters G and S"
         }
        ]
       },
       {
-       "op": "anagram",
+       "op": "composite",
        "indicators": [
         {
          "text": "drunken",
          "at": 11,
-         "note": "drunken means the remaining letters reel into a new order"
+         "note": "drunken means unsteady, so these letters are mixed up"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "endlessly",
-           "at": 29,
-           "note": "read as end-less, the word serenade loses the letters of end"
-          }
-         ],
-         "parts": [
-          {
-           "op": "deletion",
-           "parts": [
-            {
-             "op": "deletion",
-             "parts": [
-              {
-               "words": "serenade",
-               "at": 19,
-               "note": "the fodder, taken as written"
-              },
-              {
-               "gives": "D"
-              }
-             ]
-            },
-            {
-             "gives": "N"
-            }
-           ]
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "serenade",
+         "at": 19
+        },
+        {
+         "words": "endlessly",
+         "at": 29,
+         "gives": "END",
+         "note": "read as end-less: the letters of end come out of the word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy singer crooning a serenade while topping up an empty glass.",
-     "walkthrough": "'Endlessly' does not mean losing the last letter here; it removes the three letters E-N-D.",
-     "definitionFit": "To grease something is to lubricate it with oil or fat so its parts move smoothly."
+     "surface": "A drunk keeps up an endless serenade while emptying his glass, oiling his throat.",
+     "walkthrough": "SERENADE without the letters END leaves SERAE, which drunken gives REASE; it fills G and S, the outside of glass.",
+     "definitionFit": "To grease something is to apply oil or fat so it runs smoothly, which is to lubricate it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "endlessly"
     }
    }
