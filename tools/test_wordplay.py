@@ -178,6 +178,8 @@ try:
     check("a note naming no span is refused", False, "accepted")
 except w.WordplayError as e:
     check("a note naming no span is refused", "name no span" in str(e), str(e))
+tree = w.translate({"wp": "[a]A", "notes": {"a": "the letter", "frail numb": "stray"}}, "a", "A")
+check("a stray note when every span has one is dropped", "the letter" in str(tree) and "stray" not in str(tree), tree)
 
 # A repeat counts copies without regard to case: the clue's first "Fruit" is a copy.
 t = w.parse("[fruit]APPLE + [fruit#2]PEAR", "Fruit fly turning peeled fruit")
