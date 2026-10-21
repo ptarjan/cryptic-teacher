@@ -99,5 +99,25 @@ check("a bag patch merges fields without matching bytes",
 pf.write_text('{"zz": {}}')
 check("a patch naming an unknown puzzle is refused", "lacks: zz" in (annotate_bag.patch_bag(f, pf) or ""))
 
+# the redo gate runs in check: a listed clue whose new tree is still flagged fails
+import shape_queue
+import apply_annotations
+wp_old = {"op": "anagram", "parts": [{"words": "x", "gives": "X"}]}
+gpuz = {"id": "g-1", "entries": [{"number": 5, "direction": "down", "annotation": {"wordplay": wp_old},
+                                  "clue": {"text": "x"}}]}
+saved = (shape_queue.listed, shape_queue.findings, shape_queue.regressions, apply_annotations.landed)
+shape_queue.listed = lambda p: {"5-down": "scrambledLeaf: x"}
+shape_queue.findings = lambda e, n: ["scrambledLeaf: still"]
+shape_queue.regressions = lambda e, n: []
+apply_annotations.landed = lambda ann, e, es, eid, errs: {"wordplay": ann["wordplay"]}
+got = annotate_bag.redo_gate(gpuz, {"5-down": {"wordplay": wp_old}})
+check("redo gate names the entry and the same-tree fault",
+      len(got) == 1 and "redo gate 5-down" in got[0] and "same tree" in got[0] and "scrambledLeaf: still" in got[0])
+shape_queue.findings = lambda e, n: []
+check("a tree that clears the rule passes the redo gate", not annotate_bag.redo_gate(gpuz, {"5-down": {"wordplay": wp_old}}))
+shape_queue.regressions = lambda e, n: ["dropped 'mixed'"]
+check("a redo losing words fails the gate", "dropped 'mixed'" in annotate_bag.redo_gate(gpuz, {"5-down": {"wordplay": wp_old}})[0])
+shape_queue.listed, shape_queue.findings, shape_queue.regressions, apply_annotations.landed = saved
+
 print("annotate_bag: all checks passed" if not fails else f"annotate_bag: {fails} FAILED")
 sys.exit(1 if fails else 0)
