@@ -346,42 +346,46 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "failing to",
-       "note": "the two countries fail to appear in the verb that follows, so their letters drop out of it"
+       "text": "failing",
+       "at": 18,
+       "note": "failing means the two country letters drop out of the word for respect"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "respect",
-         "gives": "ADMIRE",
-         "note": "to admire someone is to respect them"
-        },
-        {
-         "words": "Germany",
-         "gives": "D",
-         "note": "D is the international vehicle code for Germany"
-        }
-       ]
+       "words": "respect",
+       "at": 29,
+       "gives": "ADMIRE",
+       "note": "to respect someone is to admire them"
       },
       {
-       "words": "Spain",
-       "gives": "E",
-       "note": "E is the international vehicle code for Spain"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Germany",
+         "at": 0,
+         "gives": "D",
+         "note": "D is the international vehicle code for Germany"
+        },
+        {
+         "words": "Spain",
+         "at": 12,
+         "gives": "E",
+         "note": "E is the international vehicle code for Spain"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two European nations are accused of showing too little regard for a Middle Eastern leader.",
-     "walkthrough": "Remove D and E from ADMIRE: A(D)MIR(E). The surface wants 'failing to respect' as one phrase, but 'respect' is the word losing letters.",
-     "definitionFit": "An amir, also spelt emir, is a Muslim prince, commander or governor, especially one heading an Arab state."
+     "surface": "Two European countries fail to show due regard to a Middle Eastern leader.",
+     "walkthrough": "D and E (vehicle codes for Germany and Spain) are removed from ADMIRE.",
+     "definitionFit": "An amir, also spelt emir, is a Muslim prince, commander or governor."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "respect"
+     "misdirectedWord": "failing"
     }
    }
   },
@@ -471,46 +475,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "ARMAMENT",
+     "indicators": [
+      {
+       "text": "reporting",
+       "at": 14,
+       "note": "reporting means the words are as they would be spoken out, giving a word that sounds like them"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "ARMA",
-       "indicators": [
-        {
-         "text": "reporting",
-         "note": "a report is spoken, so the two synonyms are to be heard rather than read"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Mail",
-         "gives": "ARMOUR",
-         "note": "chain mail is armour"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "MENT",
-       "parts": [
-        {
-         "words": "intended",
-         "gives": "MEANT",
-         "note": "what you intended is what you meant"
-        }
-       ]
+       "words": "Mail intended",
+       "at": 0,
+       "gives": "ARMOURMEANT",
+       "note": "mail is chain armour; intended means meant"
       }
      ]
     },
     "explanation": {
-     "surface": "Letters sent through the post are said to have been aimed at weapons.",
-     "walkthrough": "'Mail' looks like post but is chain mail. Said with a British accent that drops the final R, ARMOUR MEANT runs together as ARMAMENT.",
-     "definitionFit": "Armament is the collective term for a military force's guns and other arms, so it serves as a synonym."
+     "surface": "Letters meant for someone are being reported on, in a dull story about weapons.",
+     "walkthrough": "'Mail' looks like post, but here it is chain mail, ARMOUR; said with MEANT it sounds like the answer.",
+     "definitionFit": "Armament is military equipment, the arms and guns a force or vessel carries."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Mail"
     }
    }

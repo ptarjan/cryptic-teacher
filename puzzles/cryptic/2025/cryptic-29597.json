@@ -44,7 +44,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "some food",
+      "text": "some food?",
       "at": 43
      }
     ],
@@ -53,42 +53,58 @@
      "indicators": [
       {
        "text": "Before",
-       "note": "the word for finished is placed before the shortened work, so the clue fixes the order of the first two pieces"
+       "at": 0,
+       "note": "before puts the word for finished ahead of the piece from work"
       }
      ],
      "parts": [
       {
        "words": "finished",
+       "at": 17,
        "gives": "DONE",
-       "note": "finished = done"
+       "note": "something finished is done"
       },
       {
-       "words": "work half",
-       "gives": "RK",
-       "note": "the second half of the word 'work'"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 12,
+         "note": "half means only the last half of the word work is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work",
+         "at": 7,
+         "note": "last half of work"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "in a down clue 'up' means the word for darling is read from bottom to top"
+         "at": 36,
+         "note": "up, in a down answer, means the word for darling is read from the bottom upwards"
         }
        ],
        "parts": [
         {
          "words": "darling",
+         "at": 27,
          "gives": "BABE",
-         "note": "babe = darling, a term of endearment"
+         "note": "babe is an affectionate name for a darling"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone half-way through a job asks their sweetheart to fetch a snack.",
-     "walkthrough": "'Before' governs only the first two pieces: finished comes ahead of the half of work. The question mark flags that this dish is only one example of food.",
-     "definitionFit": "A doner kebab is a Turkish dish of spit-roasted sliced meat in bread, one example among many foods."
+     "surface": "A tired worker, half-way through a shift, asks a sweetheart if they fancy getting something to eat.",
+     "walkthrough": "'Up' reverses only because this is a down answer; 'half' keeps the second half of 'work', and 'Before' sends the word for finished to the front.",
+     "definitionFit": "A doner kebab is a Turkish dish of sliced spit-roasted meat, a popular takeaway meal."
     },
     "features": {
      "answerInScene": true,
@@ -230,42 +246,45 @@
      "indicators": [
       {
        "text": "can become",
-       "note": "the letters of the secret police name plus the kept letter can become something else by rearrangement"
+       "at": 22,
+       "note": "can become means the letters are reshaped into something new"
       }
      ],
      "parts": [
       {
        "words": "Gestapo",
-       "note": "anagram fodder, taken as printed"
+       "at": 0,
+       "note": "taken as written"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "at last",
-         "note": "'at last' keeps only the final letter of the word 'agent'"
+         "at": 14,
+         "note": "at last points to the final letter of the word agent"
         }
        ],
        "parts": [
         {
-         "words": "agent at last",
-         "gives": "AGENT",
-         "note": "the last letter of 'agent'"
+         "words": "agent",
+         "at": 8,
+         "note": "last letter of agent"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A secret-police officer finally turns into a trusted friend.",
-     "walkthrough": "The definition leans on the idiom 'between you, me and the gatepost', said before sharing a secret, so the gatepost is the silent third party in the confidence.",
-     "definitionFit": "In the idiom 'between you, me and the gatepost', a gatepost is the listener who keeps our secret."
+     "surface": "A secret-police officer who might turn into a trusted friend.",
+     "walkthrough": "The anagram of GESTAPO + T gives the answer. The definition alludes to the saying 'between you, me and the gatepost', used before sharing a secret.",
+     "definitionFit": "In the idiom 'between you, me and the gatepost', the post is the silent third party privy to a secret."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Gestapo"
+     "misdirectedWord": "agent"
     }
    }
   },

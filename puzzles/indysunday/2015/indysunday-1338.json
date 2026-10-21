@@ -491,69 +491,82 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "TRULY",
+     "op": "container",
      "indicators": [
       {
        "text": "where",
-       "note": "the shortened word fills the very place a letter has vacated, standing in for it"
-      },
-      {
-       "text": "hath fled away",
-       "note": "a letter that has fled leaves an empty slot for the other piece to fill"
+       "at": 29,
+       "note": "where marks the spot in the first word that the shortened word for reign fills"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TRULY",
        "indicators": [
         {
-         "text": "hath no end",
-         "note": "a word with no end has lost its final letter"
+         "text": "hath fled away",
+         "at": 56,
+         "note": "hath fled away means that letter leaves the word Thy, leaving a gap"
         }
        ],
        "parts": [
         {
          "words": "Thy",
+         "at": 7,
          "note": "taken as written"
-        },
-        {
-         "words": "reign",
-         "gives": "RULE",
-         "note": "to reign is to rule"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "last vestige",
-           "note": "the last trace of a word is its final letter"
+           "at": 43,
+           "note": "the last vestige of a word is its final letter"
           }
          ],
          "parts": [
           {
            "words": "Earth's",
+           "at": 35,
            "gives": "EARTH",
-           "note": "the final letter of the word earth"
+           "note": "Earth's is the possessive of Earth; its last letter is wanted"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "hath no end",
+         "at": 17,
+         "note": "hath no end means the final letter is dropped from the word for reign"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reign",
+         "at": 11,
+         "gives": "RULE",
+         "note": "to reign is to rule"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A biblical-sounding prophecy that a reign will last forever once the earth has passed away.",
-     "walkthrough": "Take the H out of THY and put the curtailed RUL in its place. The mock-scriptural language suits the archaic definition.",
-     "definitionFit": "Verily is an archaic word for truly or in truth, familiar from the King James Bible."
+     "surface": "Mock-biblical prose about an everlasting reign on an earth that has vanished.",
+     "walkthrough": "RULE without its end is RUL. In THY, the H (Earth's last letter) flees and RUL takes its place: T + RUL + Y.",
+     "definitionFit": "Verily is the archaic word for truly, as in 'verily I say unto you'; both mean in truth."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "Earth's"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reign"
     }
    }
   },

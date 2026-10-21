@@ -922,36 +922,43 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 30,
+       "note": "before puts the shortened words ahead of the letter from autumn"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "closed early",
-         "note": "closing early means stopping before the end, so the last letter is dropped from each word"
+         "at": 17,
+         "note": "closed early means each of the two words loses its final letter, as if shutting before time"
         }
        ],
        "parts": [
         {
-         "words": "Springfield",
-         "gives": "DUSTY",
-         "note": "Dusty Springfield was a British pop singer of the 1960s"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Springfield",
+           "at": 0,
+           "gives": "DUSTY",
+           "note": "Dusty Springfield was a British singer, so her first name stands for Springfield"
+          },
+          {
+           "words": "shop",
+           "at": 12,
+           "gives": "STORE",
+           "note": "a shop is a store"
+          }
+         ]
         },
         {
-         "gives": "Y"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "shop",
-         "gives": "STORE",
-         "note": "a store is a shop"
-        },
-        {
-         "gives": "E"
+         "gives": "YE"
         }
        ]
       },
@@ -961,25 +968,27 @@
        "indicators": [
         {
          "text": "fifth",
-         "note": "fifth points to the letter in position five of the word"
+         "at": 46,
+         "note": "fifth means the letter in fifth place of autumn"
         }
        ],
        "parts": [
         {
          "words": "autumn's",
-         "note": "the fifth letter of autumn"
+         "at": 37,
+         "note": "fifth letter of autumn"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shop in Springfield shut early because the autumn weather turned bad.",
-     "walkthrough": "Springfield reads as a town, maybe The Simpsons' one, but it is the surname of the singer Dusty Springfield.",
-     "definitionFit": "A dust storm is a strong wind carrying clouds of dust across dry land, a kind of weather phenomenon."
+     "surface": "A shop in the town of Springfield shuts early ahead of autumn bad weather.",
+     "walkthrough": "Springfield is the singer Dusty Springfield. DUSTY and STORE each lose their last letter, giving DUST and STOR; then M, the fifth letter of autumn.",
+     "definitionFit": "A dust storm is a meteorological phenomenon in which strong winds lift clouds of dust."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Springfield"
     }
