@@ -1387,61 +1387,78 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "getting into",
-       "note": "'getting into' means one piece goes inside the next part of the clue"
-      }
-     ],
+     "op": "charade",
      "parts": [
-      {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "question",
-         "gives": "Q",
-         "note": "Q is short for question"
-        },
-        {
-         "words": "good",
-         "gives": "G",
-         "note": "G is short for good"
-        }
-       ]
-      },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "backed up",
-         "note": "backing up means going backwards, so the built chunk is read in the opposite direction"
+         "at": 9,
+         "note": "backed up means everything before the good letter is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "container",
+         "indicators": [
+          {
+           "text": "getting into",
+           "at": 34,
+           "note": "getting into means the EU letters go inside the other pair of pieces"
+          }
+         ],
          "parts": [
           {
-           "words": "N. Ireland",
-           "gives": "NI",
-           "note": "NI is the abbreviation for Northern Ireland"
+           "op": "charade",
+           "parts": [
+            {
+             "words": "N. Ireland",
+             "at": 47,
+             "gives": "NI",
+             "note": "NI is the abbreviation for Northern Ireland"
+            },
+            {
+             "words": "question",
+             "at": 58,
+             "gives": "Q"
+            }
+           ]
           },
           {
-           "words": "EU repeatedly",
-           "gives": "EUEU",
-           "note": "EU twice"
+           "op": "charade",
+           "indicators": [
+            {
+             "text": "repeatedly",
+             "at": 23,
+             "note": "repeatedly means EU is used twice in a row"
+            }
+           ],
+           "parts": [
+            {
+             "words": "EU",
+             "at": 20
+            },
+            {
+             "gives": "EU"
+            }
+           ]
           }
          ]
         }
        ]
+      },
+      {
+       "words": "good",
+       "at": 68,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A political headline about the EU and the Northern Ireland question causing a backlog.",
-     "walkthrough": "'Backed up' looks like part of the definition, a line of waiting people, but it reverses everything built before the final G is added.",
-     "definitionFit": "Queueing is standing in line, the British word for waiting your turn in a line of people."
+     "surface": "A Brexit-era image of queues at the Northern Irish border over the EU question.",
+     "walkthrough": "'repeatedly' gives EUEU, 'getting into' puts it between NI and Q for NIEUEUQ, and 'backed up' turns that round; G follows.",
+     "definitionFit": "Queueing means standing in line waiting your turn, so being in a queue is waiting."
     },
     "features": {
      "answerInScene": true,

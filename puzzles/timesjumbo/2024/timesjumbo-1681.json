@@ -858,31 +858,49 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places the shortened rent inside the food store"
+       "at": 30,
+       "note": "in means the cut word goes inside the food store word"
       }
      ],
      "parts": [
       {
        "words": "food store",
+       "at": 33,
        "gives": "PANTRY",
-       "note": "a pantry stores food"
+       "note": "a pantry is a small room for storing food"
       },
       {
-       "words": "reduced rent",
-       "gives": "LEAS",
-       "note": "LEASE (rent) cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 17,
+         "note": "reduced means cut short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rent",
+         "at": 25,
+         "gives": "LEASE",
+         "note": "a lease is a contract to rent a property"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friendly comment about cheaper rent at a grocery.",
-     "walkthrough": "'Reduced rent' looks like a bargain; it is a verb for renting, cut short.",
-     "definitionFit": "A light, polite remark made to be friendly is an agreeable one."
+     "surface": "Someone praises a cut in the rent charged on a food shop.",
+     "walkthrough": "'rent' is not money paid but the contract to rent, and 'reduced' acts on that word, not on the sum.",
+     "definitionFit": "A pleasantry is a polite, friendly comment made in conversation, such as a light joke."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "reduced"
+     "misdirectedWord": "rent"
     }
    }
   },
@@ -1619,25 +1637,42 @@
      "parts": [
       {
        "words": "and not",
+       "at": 7,
        "gives": "NOR",
-       "note": "nor = and not"
+       "note": "nor means and not, as in neither this nor that"
       },
       {
-       "words": "American detective lacking conclusion",
-       "gives": "DIC",
-       "note": "a dick is US slang for a detective; minus the K"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking conclusion",
+         "at": 34,
+         "note": "lacking its conclusion means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "American detective",
+         "at": 15,
+         "gives": "DICK",
+         "note": "dick is American slang for a private detective"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Scandinavian crime story, not American, with a detective who never solves the case.",
-     "walkthrough": "The surface evokes Scandinavian noir crime fiction, the setter's cover for the word itself.",
-     "definitionFit": "A plain synonym: 'Scandi' is informal for Scandinavian, and the answer covers the same countries."
+     "surface": "A Scandinavian crime drama, but no American sleuth and no ending.",
+     "walkthrough": "'and not' is one piece of wordplay, not a link. Dick as slang for a private eye is chiefly American, as in hard-boiled crime fiction.",
+     "definitionFit": "Nordic describes Scandinavia and its people, and Scandi is a casual adjective for the same region."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "conclusion"
+     "misdirectedWord": "detective"
     }
    }
   },
@@ -3102,33 +3137,40 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "scratching head",
-       "note": "to scratch is to strike out, so the deer's name has its head, the first letter, struck out"
-      }
-     ],
      "parts": [
       {
-       "op": "first",
-       "parts": [
-        {
-         "words": "Island",
-         "note": "I = island"
-        }
-       ]
+       "words": "Island",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the map abbreviation for island"
       },
       {
-       "words": "deer animated",
-       "gives": "AMBI",
-       "note": "Bambi, the cartoon deer, minus its B"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "scratching head",
+         "at": 22,
+         "note": "scratching its head means the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deer animated",
+         "at": 7,
+         "gives": "BAMBI",
+         "note": "Bambi is the deer in the Disney animated film"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lively island deer scratches its head and hooves.",
-     "walkthrough": "'Animated' means lively on the surface; it points to the Disney cartoon deer. 'Feet' are units of poetic metre.",
-     "definitionFit": "A poetry sense: each is a metrical foot of one unstressed and one stressed syllable."
+     "surface": "A cartoon deer on an island scratches its head and its hooves.",
+     "walkthrough": "'feet' is metrical, not anatomical: the surface pictures hooves, but the answer is a set of units in verse.",
+     "definitionFit": "Iambi is the plural of iambus, a metrical foot of one short and one long syllable, so these are poetic units."
     },
     "features": {
      "answerInScene": false,

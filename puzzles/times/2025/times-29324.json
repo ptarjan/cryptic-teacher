@@ -110,29 +110,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "with no finish",
-       "note": "a word with no finish has no ending, so its final letter is dropped"
-      }
-     ],
      "parts": [
       {
-       "words": "mostly appeared",
-       "gives": "CAM",
-       "note": "CAME (appeared) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 12,
+         "note": "mostly means most of the word is kept, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "appeared",
+         "at": 19,
+         "gives": "CAME",
+         "note": "appeared means came, as in turned up"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
-       "words": "reddish-brown",
-       "gives": "BRIC",
-       "note": "BRICK, the colour, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no finish",
+         "at": 46,
+         "note": "no finish means the word loses its ending letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reddish-brown",
+         "at": 28,
+         "gives": "BRICK",
+         "note": "brick is the name of a reddish-brown colour"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Describing a fine cloth that looked reddish-brown but had not been finished.",
-     "walkthrough": "'Finish' looks like a textile process for cloth, which suits the surface; here it just means the end of a word.",
-     "definitionFit": "Definition by class: the answer is a particular fine, closely woven linen or cotton, named after the town of Cambrai."
+     "surface": "A fine cloth looked rust-coloured but was left without a final treatment.",
+     "walkthrough": "'mostly' cuts CAME to CAM, and 'with no finish' cuts BRICK to BRIC; 'but' is a link.",
+     "definitionFit": "Cambric is a fine, closely woven white linen or cotton cloth, originally from Cambrai in France."
     },
     "features": {
      "answerInScene": true,

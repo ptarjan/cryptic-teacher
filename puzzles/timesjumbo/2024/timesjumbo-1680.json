@@ -1138,25 +1138,41 @@
      "indicators": [
       {
        "text": "rehashed",
-       "note": "the letters are hashed up again into a new order"
+       "at": 25,
+       "note": "rehashed means reworked, so the letters are jumbled"
       }
      ],
      "parts": [
       {
-       "words": "Most of teaching",
-       "gives": "TEACHIN",
-       "note": "TEACHING without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of the word means all but its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "teaching",
+         "at": 8,
+         "gives": "TEACHING"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       },
       {
        "words": "unit",
-       "note": "joins the anagram as it is"
+       "at": 17
       }
      ]
     },
     "explanation": {
-     "surface": "A teaching module reworked to serve as a practice exam.",
-     "walkthrough": "\"Teaching unit\" looks like a single item with \"most of\" applying to both words, but only TEACHING is cut. \"Mock\" is the adjective, fake, not a practice exam.",
-     "definitionFit": "Mock as an adjective means imitation, as in mock Tudor houses, which are not genuine."
+     "surface": "A school module is recycled for a practice exam.",
+     "walkthrough": "'Most of' cuts TEACHING to TEACHIN; 'rehashed' rearranges it with UNIT; 'is' is a link. 'mock' looks like a practice exam but is the adjective.",
+     "definitionFit": "Mock as an adjective means imitation or fake, and inauthentic means not genuine."
     },
     "features": {
      "answerInScene": false,
@@ -1634,44 +1650,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "Reversed",
-       "note": "a reversed car goes backwards, and so do these letters"
-      },
-      {
-       "text": "heading off",
-       "note": "the word loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Reversed",
+         "at": 0,
+         "note": "reversed means the trend word is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trend",
+         "at": 9,
+         "gives": "TIDE",
+         "note": "a tide is a trend, as in the tide of opinion"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 16,
+         "note": "heading off means the word loses its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "praise",
-         "gives": "PIHSRO",
-         "note": "WORSHIP, praise, without its first letter"
+         "at": 28,
+         "gives": "WORSHIP",
+         "note": "worship is praise, especially of a god"
         },
         {
-         "words": "trend",
-         "gives": "TIDE",
-         "note": "tide = trend, as in the tide of opinion; turned round"
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A columnist changing tack and dropping the flattery.",
-     "walkthrough": "\"Reversed trend\" reads as a market turning, but it is TIDE turned round. The question mark flags a definition by example: the journalist is an editor.",
-     "definitionFit": "An editorship is the post held by the editor of a publication."
+     "surface": "A journalist switches course and stops praising someone.",
+     "walkthrough": "'Reversed' turns TIDE into EDIT, and 'heading off' takes the W off WORSHIP; 'for' is a link. The question mark marks one kind of journalist.",
+     "definitionFit": "An editorship is the post of editor, a post a journalist can occupy at a newspaper."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "trend"
+     "aptDefinition": true,
+     "misdirectedWord": "Reversed"
     }
    }
   },
