@@ -808,28 +808,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "first",
      "indicators": [
       {
        "text": "half",
-       "note": "half means only one of two equal parts is kept and the other discarded"
+       "at": 8,
+       "note": "half means only one of the two halves of the index name is kept, here the front"
       }
      ],
      "parts": [
       {
        "words": "those quoted in share index",
+       "at": 13,
        "gives": "HANGSENG",
-       "note": "the Hang Seng index lists the shares quoted on the Hong Kong stock exchange"
-      },
-      {
-       "gives": "SENG"
+       "note": "the index of shares quoted on the Hong Kong stock exchange, named after a bank"
       }
      ]
     },
     "explanation": {
-     "surface": "A trader suspends half of the shares listed on an index.",
-     "walkthrough": "The Hang Seng is Hong Kong's main stock market index; its first half is HANG.",
-     "definitionFit": "To hang something is to suspend it from above."
+     "surface": "A trader wants to suspend half the companies listed in a stock index.",
+     "walkthrough": "The Hang Seng is Hong Kong's main stock market index; its first half gives the answer.",
+     "definitionFit": "To hang a picture or a weight is to suspend it from above."
     },
     "features": {
      "answerInScene": false,
@@ -1488,42 +1487,43 @@
      "indicators": [
       {
        "text": "invested in",
-       "note": "money invested in a bank is put inside it, so one piece goes within the other"
+       "at": 13,
+       "note": "money invested in a bank is put inside it, so the letters go inside the word for bank"
       }
      ],
      "parts": [
       {
        "words": "bank",
+       "at": 25,
        "gives": "CAY",
-       "note": "a cay is a low bank or reef of sand"
+       "note": "a cay is a low bank or reef of sand or coral"
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "60% of",
-         "note": "sixty per cent of a five-letter word is three letters, so the last two go"
+         "at": 0,
+         "note": "60% of a five-letter word is its first three letters"
         }
        ],
        "parts": [
         {
          "words": "Thais",
-         "note": "taken as written"
-        },
-        {
-         "gives": "IS"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some Thai people have put money in a bank in China.",
-     "definitionFit": "Cathay is an old, poetic name for China, from medieval European travellers."
+     "surface": "More than half of Thai people have put their money in a Chinese bank.",
+     "walkthrough": "'bank' suggests money being invested, but it is a sandbank or coral reef, and the percentage is worked out on the letters of the word.",
+     "definitionFit": "Cathay is the old poetic name for China, from the medieval travellers' accounts."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "bank"
     }
    }

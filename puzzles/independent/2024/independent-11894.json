@@ -1069,7 +1069,8 @@
      "indicators": [
       {
        "text": "engaged in",
-       "note": "something engaged in an activity is inside it"
+       "at": 4,
+       "note": "something engaged in another is held inside it, so the letter goes into the scrambled letters"
       }
      ],
      "parts": [
@@ -1078,36 +1079,38 @@
        "indicators": [
         {
          "text": "unfortunate",
-         "note": "an unfortunate state of affairs has gone awry, so the letters are disordered"
+         "at": 25,
+         "note": "unfortunate letters have had bad luck and come out in a mixed-up order"
         }
        ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "the Roman numeral for one"
+         "words": "theft",
+         "at": 15
         },
         {
-         "words": "theft",
-         "note": "taken as written"
+         "words": "if",
+         "at": 22
         }
        ]
       },
       {
-       "words": "if",
-       "note": "taken as written"
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
       }
      ]
     },
     "explanation": {
-     "surface": "A thief, if unlucky, gets a two per cent share.",
-     "walkthrough": "'One engaged in theft' reads as a thief, but it is an instruction to put a letter inside the word theft.",
-     "definitionFit": "Two per cent is two hundredths, which is the same as one fiftieth."
+     "surface": "A warning that anyone who takes part in a theft, if unlucky, will be stung for a small percentage.",
+     "walkthrough": "The surface makes 'engaged in' mean taking part, but it means held inside; '2%' is a fraction written as a percentage.",
+     "definitionFit": "Two per cent is two parts in a hundred, which is the same fraction as one part in fifty."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "One"
+     "misdirectedWord": "engaged"
     }
    }
   },
@@ -1422,41 +1425,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARGUE",
-     "indicators": [
-      {
-       "text": "without",
-       "note": "without means lacking, so a letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "A",
-       "note": "taken as written"
+       "at": 0
       },
       {
-       "words": "regret",
-       "gives": "RUE",
-       "note": "to rue is to regret"
-      },
-      {
-       "words": "good",
-       "gives": "G",
-       "note": "G for good"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 10,
+         "note": "here 'without' has its old sense of outside, so the word for regret sits around the letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "regret",
+         "at": 2,
+         "gives": "RUE",
+         "note": "to rue something is to regret it"
+        },
+        {
+         "words": "good",
+         "at": 18,
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone expresses remorse for no good cause.",
-     "walkthrough": "'Without' here means outside: RUE sits outside G, making ARGUE after A.",
-     "definitionFit": "To argue is to reason, to present a case with logical points."
+     "surface": "Someone expresses a regret with no good grounds for it.",
+     "walkthrough": "'without' looks like 'lacking', but it means outside: RUE (regret) goes around G (good), after A.",
+     "definitionFit": "To reason with someone is to put a case to them, which is what it means to argue."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "reason"
+     "misdirectedWord": "without"
     }
    }
   },

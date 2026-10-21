@@ -663,29 +663,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TEC",
      "indicators": [
       {
        "text": "doesn't finish",
-       "note": "The word loses its final letter."
+       "at": 13,
+       "note": "doesn't finish tells us the word stops short of its last letter"
       }
      ],
      "parts": [
       {
        "words": "college",
-       "gives": "TEC",
-       "note": "TECH, a technical college, without its last letter"
+       "at": 28,
+       "gives": "TECH",
+       "note": "a tech is a British technical college"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "A detective drops out of college before completing the course.",
-     "walkthrough": "TEC is short for detective; a tech is a technical college.",
-     "definitionFit": "Tec is informal shorthand for a detective, an investigator."
+     "surface": "A detective drops out of college before finishing the course.",
+     "walkthrough": "TECH is a British technical college; without its last letter it gives the slang word for a detective.",
+     "definitionFit": "Tec is informal short slang for a detective, the person who investigates crimes."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "finish"
     }
@@ -712,49 +715,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "about",
-       "note": "Turn the word for cheers around."
-      },
-      {
        "text": "following",
-       "note": "The rest comes after the word for provincial."
+       "at": 25,
+       "note": "following means the pieces for cheers and the charged one come after the provincial word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "provincial",
+       "at": 35,
+       "gives": "RUSTIC",
+       "note": "rustic means of the countryside, provincial"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 7,
+         "note": "about here means turned round, so the word for cheers reads backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "charged",
-         "gives": "NO",
-         "note": "as in live, a switched-on circuit"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral"
-        },
-        {
          "words": "Cheers",
+         "at": 0,
          "gives": "TA",
-         "note": "TA, thanks, turned round"
-        },
-        {
-         "words": "provincial",
-         "gives": "CITSUR",
-         "note": "from the country"
+         "note": "ta is British informal for thank you, like cheers"
         }
        ]
+      },
+      {
+       "words": "one charged",
+       "at": 13,
+       "gives": "ION",
+       "note": "an ion is an atom carrying an electric charge"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is thanked after being charged with an offence against a regional university.",
-     "walkthrough": "TA is British slang for thank you. At Oxford and Cambridge, sending a student away from the university for a time is called rustication.",
-     "definitionFit": "Rustication is the temporary suspension of a student, sent down to the country for a term."
+     "surface": "A cheer goes up as a provincial student is charged and punished by the university.",
+     "walkthrough": "'one charged' looks like an accused person, but it is the physics particle.",
+     "definitionFit": "Rustication is the Oxbridge penalty of sending a student away from the university for a time."
     },
     "features": {
      "answerInScene": true,
@@ -987,8 +992,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "about",
-       "note": "The prophetess's letters go around the chorus."
+       "text": "knocking back",
+       "at": 27,
+       "note": "knocking back means the whole assembled word is reversed, read from the back"
       }
      ],
      "parts": [
@@ -996,29 +1002,32 @@
        "op": "container",
        "indicators": [
         {
-         "text": "knocking back",
-         "note": "The whole assembly is then turned round."
+         "text": "about",
+         "at": 6,
+         "note": "about means the seer's letters go round the singing"
         }
        ],
        "parts": [
         {
          "words": "Sybil",
+         "at": 0,
          "gives": "SEER",
-         "note": "a sibyl was a prophetess; the container goes around the chorus"
+         "note": "a sibyl is a prophetess, a seer; the setter spells it like the name"
         },
         {
-         "words": "to sing chorus",
+         "words": "sing chorus",
+         "at": 15,
          "gives": "LALA",
-         "note": "the meaningless refrain of a song"
+         "note": "to la-la is to sing a wordless chorus"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman named Sybil is about to join in a song while downing old-fashioned drinks.",
-     "walkthrough": "Sybil looks like a woman's name but stands for a sibyl, a prophetess, so SEER. \"Knocking back\" suggests drinking; it reverses the lot.",
-     "definitionFit": "Real ales are traditional cask-conditioned British beers."
+     "surface": "Sybil is about to join in a singing chorus while knocking back traditional drinks.",
+     "walkthrough": "'knocking back' looks like downing drinks, but it reverses SELALAER, the seer around LALA, to give the answer.",
+     "definitionFit": "Real ale is British cask-conditioned beer brewed in the traditional way, as championed by CAMRA."
     },
     "features": {
      "answerInScene": true,

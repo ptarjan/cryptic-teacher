@@ -254,50 +254,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "deprived of filling",
-       "note": "TREASURER loses everything between its ends"
-      }
-     ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "TR",
        "indicators": [
         {
-         "text": "without starter",
-         "note": "LUNCHEON loses its first letter"
+         "text": "deprived of filling",
+         "at": 15,
+         "note": "a word deprived of its filling loses everything between its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "treasurer",
-         "gives": "TR",
-         "select": "outer",
-         "note": "TreasureR with its middle removed"
+         "at": 5
         }
        ]
       },
       {
-       "words": "meal",
-       "gives": "UNCHEON",
-       "note": "LUNCHEON minus its L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without starter",
+         "at": 40,
+         "note": "without starter tells us the meal loses its first letter, its starter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meal",
+         "at": 35,
+         "gives": "LUNCHEON",
+         "note": "luncheon is a formal word for the midday meal"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A club's treasurer goes hungry at a lunch served with no first course.",
-     "walkthrough": "'Club' reads as a society with a treasurer; it is the policeman's weapon. 'Filling' and 'starter' keep up the meal picture while doing the trimming.",
-     "definitionFit": "A truncheon is a short thick club, as carried by police."
+     "surface": "A club treasurer misses out on a lunch that had no first course.",
+     "walkthrough": "'starter' looks like a first course of the meal, but it means its first letter; 'filling' likewise means the inside letters of the treasurer, not food.",
+     "definitionFit": "A truncheon is a short heavy club carried by a British police officer."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Club"
+     "misdirectedWord": "starter"
     }
    }
   },

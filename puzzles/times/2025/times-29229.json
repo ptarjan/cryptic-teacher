@@ -719,36 +719,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "with",
-       "note": "puts time and prince together"
-      },
-      {
        "text": "on",
-       "note": "in an across clue, the first pair is placed on (after) the isle piece"
+       "at": 25,
+       "note": "in an across clue, A on B puts A after B, so the time and prince follow"
       }
      ],
      "parts": [
       {
-       "words": "isle, half-cut",
-       "gives": "LE",
-       "note": "the second half of ISLE"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 34,
+         "note": "half-cut tells us the word loses half its letters, keeping the second half here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "isle",
+         "at": 28,
+         "note": "the word isle, of which only the back half is kept"
+        }
+       ]
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
+       "at": 8,
+       "gives": "T"
       },
       {
        "words": "prince",
+       "at": 18,
        "gives": "HAL",
-       "note": "Prince Hal, the young Henry V in Shakespeare"
+       "note": "Hal is Prince Hal, Shakespeare's young Henry V"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone passing the hours with royalty on an island, getting half-cut.",
-     "walkthrough": "Half-cut is British slang for tipsy, a false trail; here it cuts ISLE in half. Hal is the name used for the young Prince Henry in Shakespeare's Henry IV.",
-     "definitionFit": "Killing as an adjective, like a killing blow, means lethal."
+     "surface": "Someone half-cut, meaning drunk, on an island is having a killing time with a prince.",
+     "walkthrough": "'half-cut' is British slang for drunk, but here it trims the isle to its back half; 'on' in an across clue sends the time and prince after it.",
+     "definitionFit": "Lethal is an adjective for what kills, so it matches killing used as an adjective, as in a killing blow."
     },
     "features": {
      "answerInScene": false,
@@ -831,32 +841,53 @@
      "indicators": [
       {
        "text": "containing",
-       "note": "what is left of the sermon holds common sense"
+       "at": 28,
+       "note": "containing means the shortened sermon holds the other piece inside it"
       }
      ],
      "parts": [
       {
-       "words": "hard-left sermon",
-       "gives": "OMILY",
-       "note": "HOMILY, a sermon, without H for hard"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "at": 16,
+         "note": "left here means departed, so the letter for hard leaves the sermon"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sermon",
+         "at": 21,
+         "gives": "HOMILY",
+         "note": "a homily is a sermon"
+        },
+        {
+         "words": "hard",
+         "at": 11,
+         "gives": "H",
+         "note": "H is the pencil-grade abbreviation for hard"
+        }
+       ]
       },
       {
        "words": "common sense",
+       "at": 39,
        "gives": "NOUS",
-       "note": "nous is British slang for common sense"
+       "note": "nous is a British informal word for common sense"
       }
      ]
     },
     "explanation": {
-     "surface": "A frightening, politically extreme speech from the pulpit.",
-     "walkthrough": "'Hard-left' reads as the far left of politics; split it as H (hard) having left the word.",
-     "definitionFit": "Ominously means in a threatening, alarming manner."
+     "surface": "A preacher delivers a worrying hard-left sermon that nonetheless shows some sense.",
+     "walkthrough": "'hard-left' looks like politics, but it is the letter for hard leaving the sermon, which leaves OMILY to hold the common sense.",
+     "definitionFit": "Something done ominously threatens trouble ahead, so it is a near-synonym for alarmingly."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "hard-left"
+     "misdirectedWord": "left"
     }
    }
   },
