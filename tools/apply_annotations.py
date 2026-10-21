@@ -340,10 +340,24 @@ def landed(ann, entry, entries, eid, errors):
     as "<eid>: why" (None back)."""
     import wordplay
     try:
-        return repair_pool_gap(normalize(ann, entry, entries), entry)
+        return carry_indicators(repair_pool_gap(normalize(ann, entry, entries), entry), entry)
     except wordplay.WordplayError as e:
         errors.append(f"{eid}: {e}")
     return None
+
+
+def carry_indicators(new, entry):
+    """`new` with an indicator the redo trimmed ("after leaving" -> "leaving") given back the
+    words the annotation on file had on it, so the redo gate's dropped_words (the biggest
+    first-check refusal in the audit) never fires on a trim. Else `new` as it was."""
+    old = entry.get("annotation")
+    if not isinstance(new, dict) or not isinstance(old, dict):
+        return new
+    try:
+        import validate_annotations as V
+        return V.carry_old_indicators(old, new, (entry.get("clue") or {}).get("text", ""))
+    except Exception:
+        return new
 
 
 def repair_pool_gap(new, entry):
