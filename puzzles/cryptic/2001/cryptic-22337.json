@@ -664,42 +664,32 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "ESSAY",
+     "spelt": "ESSAY",
      "indicators": [
       {
+       "text": "heads of",
+       "at": 19,
+       "note": "the heads of the two words are their opening letters, which are then spoken"
+      },
+      {
        "text": "read aloud",
-       "note": "reading out the two letters by name produces a word heard rather than seen"
+       "at": 42,
+       "note": "read aloud means the two letters are spoken by their names"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ESSAY",
-       "indicators": [
-        {
-         "text": "heads of",
-         "note": "the heads of words are their opening letters"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "school always",
-         "gives": "ESSAY",
-         "select": "first",
-         "soundsLike": "S A",
-         "note": "the two initials spoken as letter names"
-        }
-       ]
+       "words": "school always",
+       "at": 28,
+       "gives": "SA",
+       "note": "the first letters of school and always are S and A, spoken as 'ess' and 'ay'"
       }
      ]
     },
     "explanation": {
-     "surface": "A school motto: pupils' work should always be read out in class.",
-     "walkthrough": "The initials of 'school always', S and A, sound like ESSAY when said aloud.",
-     "definitionFit": "An essay is a short written composition, a typical piece of school homework, hence 'perhaps'."
+     "surface": "School principals always read their pupils' work aloud.",
+     "walkthrough": "S and A said as letter names, 'ess-ay', sound like the answer.",
+     "definitionFit": "An essay is a short written composition, often set as homework, so homework is an example."
     },
     "features": {
      "answerInScene": true,
@@ -1397,23 +1387,34 @@
    "annotation": {
     "definitions": [
      {
-      "text": "This part of stair",
-      "at": 0,
-      "meaning": "first meaning: the vertical board between two treads"
-     },
-     {
-      "text": "is erect",
-      "at": 19,
-      "note": "one who stands up, read as 'one that is erect'",
-      "meaning": "second meaning: one that rises or stands up"
+      "text": "This part of stair is erect",
+      "at": 0
      }
     ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part of",
+       "at": 5,
+       "note": "part of says the answer is a stretch of letters inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stair is erect",
+       "at": 13
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
-     "definitionFit": "A riser is the upright face of a step, and also anyone or anything that gets up or stands upright."
+     "surface": "A description of a staircase component that stands upright.",
+     "definitionFit": "A riser is the vertical board of a step, the upright part between treads."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": true
     }
    }
   },

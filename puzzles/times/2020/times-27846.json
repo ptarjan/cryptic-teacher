@@ -1254,37 +1254,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVERAGE",
-     "indicators": [
-      {
-       "text": "to forget its beginning",
-       "note": "OVERAGE forgets its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "area",
+       "at": 5,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "forget its beginning",
+         "at": 25,
+         "note": "forgetting its beginning means the phrase loses its opening letter"
+        }
+       ],
        "parts": [
         {
-         "words": "area",
-         "gives": "A",
-         "note": "A is the abbreviation for area"
+         "words": "old enough",
+         "at": 11,
+         "gives": "OVERAGE",
+         "note": "over age means past the age limit, so old enough"
         },
         {
-         "words": "old enough",
-         "gives": "VERAGE",
-         "note": "OVERAGE, old enough, without its beginning"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A miserly neighbourhood whose elderly folk have forgotten their pasts.",
-     "walkthrough": "'Mean' looks like stingy, but it is the statistical mean.",
-     "definitionFit": "The statistical sense: the arithmetic middle value of a set of numbers."
+     "surface": "Someone muses that an ordinary district, though mature, has lost track of how it started.",
+     "walkthrough": "'Mean' looks like a verb or an adjective for stingy; it is the statistical average.",
+     "definitionFit": "An average is the arithmetic mean of a set of figures, so the noun matches the statistical term."
     },
     "features": {
      "answerInScene": false,
@@ -1438,32 +1441,32 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "GARGANTUA",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "about"
+       "text": "reversing over",
+       "at": 36,
+       "note": "reversing over says the whole assembly is turned round and read backwards"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GARGANTUA",
+       "op": "container",
        "indicators": [
         {
-         "text": "Endless",
-         "note": "AUTO and RAGE both lose their last letters"
+         "text": "about",
+         "at": 18,
+         "note": "about means the shortened words go round the next piece"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "when reversing",
-           "note": "the whole string is then read backwards"
+           "text": "Endless",
+           "at": 0,
+           "note": "endless says each of the two words loses its final letter"
           }
          ],
          "parts": [
@@ -1472,36 +1475,40 @@
            "parts": [
             {
              "words": "auto",
-             "gives": "AUT",
-             "note": "AUTO without its end"
-            },
-            {
-             "words": "badger",
-             "gives": "NAG",
-             "note": "to badger is to nag"
+             "at": 8,
+             "note": "taken as written before its end is cut"
             },
             {
              "words": "rage",
-             "gives": "RAG",
-             "note": "RAGE without its end"
+             "at": 13,
+             "note": "taken as written before its end is cut"
             }
            ]
+          },
+          {
+           "gives": "OE"
           }
          ]
+        },
+        {
+         "words": "badger",
+         "at": 24,
+         "gives": "NAG",
+         "note": "to badger is to nag"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A road-rage incident as a driver reverses over something large.",
-     "walkthrough": "'Reversing' fits the car scene but signals reading backwards; the word 'about' puts NAG between the two shortened words.",
-     "definitionFit": "Gargantua is the giant of Rabelais's novels, so a very big one."
+     "surface": "A furious driver seems to swerve around a badger while backing up a huge vehicle.",
+     "walkthrough": "'Endless' cuts the last letter from both words before the nagging piece goes between them.",
+     "definitionFit": "Gargantua is the enormous giant of Rabelais, the source of the word gargantuan, so he is a very big one."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "reversing"
+     "misdirectedWord": "badger"
     }
    }
   },

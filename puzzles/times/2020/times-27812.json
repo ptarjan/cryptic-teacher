@@ -348,57 +348,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
+       "text": "engulfing",
+       "at": 22,
+       "note": "engulfing means the shortened parasite surrounds the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "engulfing",
-         "note": "to engulf is to swallow up, so one piece goes inside another"
+         "text": "almost",
+         "at": 15,
+         "note": "almost means the word stops one letter short of its end"
         }
        ],
        "parts": [
         {
          "words": "parasite",
-         "gives": "LOUS",
-         "note": "a louse is a parasite, here missing its last letter"
+         "at": 6,
+         "gives": "LOUSE",
+         "note": "a louse is a parasitic insect"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "top of",
-           "note": "the top of a down-reading word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tree",
-           "note": "first letter of the word"
-          }
-         ]
+         "gives": "E"
         }
        ]
       },
       {
-       "gives": "RE"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "at": 32,
+         "note": "the top of a word in an across clue is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tree",
+         "at": 39
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A parasitic pest nearly swallowing the crown of a tree.",
-     "walkthrough": "LOUS(e) holds T.",
-     "definitionFit": "The lotus is a water lily, an aquatic flowering plant sacred in several Asian religions."
+     "surface": "A garden pest nearly smothers the crown of a tree.",
+     "definitionFit": "The lotus is a water lily, the sacred flowering plant of Asian art and religion."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false
     }
    }
@@ -791,48 +794,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BOTHERED",
+     "op": "container",
      "indicators": [
       {
-       "text": "unmarried",
-       "note": "M is the abbreviation for married, so removing marriage removes that letter"
+       "text": "grabbing",
+       "at": 14,
+       "note": "grabbing means the teacher's letters hold the next piece inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "teacher",
+       "at": 6,
+       "gives": "BED",
+       "note": "a BEd, Bachelor of Education, is a teaching degree, so its holder is a teacher"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "grabbing",
-         "note": "to grab is to seize and hold, so one piece is held within another"
+         "text": "unmarried",
+         "at": 23,
+         "note": "unmarried means the letter for married is taken away, M being the abbreviation for married"
         }
        ],
        "parts": [
         {
-         "words": "teacher",
-         "gives": "BED",
-         "note": "BEd, Bachelor of Education, is a teaching degree"
+         "words": "mum",
+         "at": 33,
+         "gives": "MOTHER",
+         "note": "mum is an informal word for mother"
         },
         {
-         "words": "mum",
-         "gives": "OTHER",
-         "note": "mum is mother, with its M taken away"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A distressed teacher seizing hold of a single mother.",
-     "walkthrough": "'Unmarried' removes M, the abbreviation for married, from MOTHER; the result sits inside BED.",
-     "definitionFit": "To be bothered is to be troubled or disturbed, an adjective close in meaning to distressed."
+     "surface": "A distressed teacher seizes a single mother.",
+     "walkthrough": "M is the abbreviation for married, so an unmarried MOTHER loses its M.",
+     "definitionFit": "Bothered and upset both describe someone troubled or agitated, so they are synonyms as adjectives."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "unmarried"
+     "misdirectedWord": "teacher"
     }
    }
   },
