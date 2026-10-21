@@ -665,7 +665,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 6,
+       "note": "in means the letter goes inside the other pieces"
       }
      ],
      "parts": [
@@ -674,27 +676,47 @@
        "parts": [
         {
          "words": "pound",
+         "at": 9,
          "gives": "L",
-         "note": "L = pound, from the Latin libra (£)"
+         "note": "L stands for pound sterling (libra)"
         },
         {
-         "words": "store ejecting English",
-         "gives": "IKA",
-         "note": "IKEA, the furniture store, without E for English"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "ejecting",
+           "at": 21,
+           "note": "ejecting means throwing out, so the letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "store",
+           "at": 15,
+           "gives": "IKEA",
+           "note": "IKEA is the Swedish furniture store"
+          },
+          {
+           "words": "English",
+           "at": 30,
+           "gives": "E"
+          }
+         ]
         }
        ]
       },
       {
        "words": "Adult",
+       "at": 0,
        "gives": "A",
-       "note": "A = adult, the old film certificate"
+       "note": "A is the film-rating abbreviation for adult"
       }
      ]
     },
     "explanation": {
-     "surface": "An adult in a pound shop throws out an English dog.",
-     "walkthrough": "'Pound store' reads as a single shop (a pound store sells everything for £1), but it is two pieces: L and a store.",
-     "definitionFit": "Laika was the Soviet dog sent into orbit on Sputnik 2 in 1957."
+     "surface": "A grown-up at a dog pound's shop throws out an English dog.",
+     "walkthrough": "'Pound' looks like a dogs' home but is the currency; the store is the Swedish furniture chain.",
+     "definitionFit": "Laika was the Soviet dog sent into orbit aboard Sputnik 2 in 1957."
     },
     "features": {
      "answerInScene": true,
@@ -972,9 +994,25 @@
      "op": "charade",
      "parts": [
       {
-       "words": "unintroduced brand",
-       "gives": "ARK",
-       "note": "MARK (a brand) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unintroduced",
+         "at": 12,
+         "note": "without its introduction, the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brand",
+         "at": 25,
+         "gives": "MARK",
+         "note": "a brand is a mark"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       },
       {
        "op": "homophone",
@@ -982,28 +1020,30 @@
        "indicators": [
         {
          "text": "in speech",
-         "note": "in speech means as spoken, so RIGHT is heard"
+         "at": 39,
+         "note": "in speech means as spoken, so a word sounding the same is used"
         }
        ],
        "parts": [
         {
          "words": "fitting",
+         "at": 31,
          "gives": "RIGHT",
-         "note": "right = fitting, said out loud"
+         "note": "fitting means right, proper"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An inventor of a brand of fittings that nobody introduced properly.",
-     "walkthrough": "The inventor is Richard Arkwright, whose water frame for spinning cotton helped start the Industrial Revolution.",
-     "definitionFit": "Arkwright was the 18th-century inventor of the water frame."
+     "surface": "Someone invents a brand with no launch that suits spoken use.",
+     "walkthrough": "MARK without its first letter is ARK; RIGHT said aloud gives WRIGHT.",
+     "definitionFit": "Richard Arkwright devised the water frame, a spinning machine central to the Industrial Revolution."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "fitting"
+     "misdirectedWord": "brand"
     }
    }
   },
@@ -1173,29 +1213,44 @@
      "indicators": [
       {
        "text": "lapped by",
-       "note": "to lap is to wrap or fold round"
+       "at": 24,
+       "note": "lapped by means wrapped round, so the runner goes outside"
       }
      ],
      "parts": [
       {
        "words": "runner",
+       "at": 34,
        "gives": "SKI",
-       "note": "a ski is a runner, as on a sledge"
+       "note": "a ski is a runner, like a sledge's"
       },
       {
-       "words": "half of graduates",
-       "gives": "ALU",
-       "note": "the first half of ALUMNI"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 6,
+         "note": "half of means only the first three of its six letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "graduates",
+         "at": 14,
+         "gives": "ALUMNI",
+         "note": "alumni are former students, graduates"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pack of graduates is hounded by a runner who laps them.",
-     "walkthrough": "'Runner' suggests an athlete lapping the field; here it is the runner of a sledge.",
-     "definitionFit": "The saluki is a slender Middle Eastern hunting hound."
+     "surface": "A hound with half the graduates being overtaken by a racing runner.",
+     "walkthrough": "'Runner' is not an athlete but the long blade of a sledge or a ski.",
+     "definitionFit": "The saluki is a slender Middle Eastern sighthound bred for hunting gazelle."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "runner"
     }

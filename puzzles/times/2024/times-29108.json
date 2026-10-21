@@ -1230,41 +1230,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "set up",
-       "note": "in a down clue, raised up means reading from the bottom"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set up",
+         "at": 24,
+         "note": "in a down clue, set up means raised, so the number is written bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "It means nothing!",
-         "gives": "OREZ",
-         "note": "zero means nothing, nil"
-        },
-        {
          "words": "number",
+         "at": 17,
          "gives": "TEN",
-         "note": "TEN, a number, turned upside down"
+         "note": "ten is a number"
         }
        ]
+      },
+      {
+       "words": "nothing",
+       "at": 41,
+       "gives": "ZERO",
+       "note": "zero means nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "A cynic dismisses a climate target as a number that means nothing.",
-     "walkthrough": "The exclamation reads as a jibe at climate pledges, which makes the surface feel topical while it spells out ZERO.",
-     "definitionFit": "Net zero is the goal of balancing greenhouse gas emissions against removals."
+     "surface": "A sceptic scoffs that a much-touted emissions goal is meaningless.",
+     "walkthrough": "The exclamation 'It means nothing!' reads as scorn, but it simply supplies the second word.",
+     "definitionFit": "Net zero is the policy goal of balancing greenhouse gases released against those removed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "target"
+     "joke": "pun",
+     "misdirectedWord": "nothing"
     }
    }
   },
@@ -1731,30 +1734,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "shortly",
-       "note": "cut short, so the last letter goes"
-      },
-      {
        "text": "to be scrambled",
-       "note": "mixed up, so the letters are rearranged"
+       "at": 19,
+       "note": "scrambled means jumbled, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Helicopter",
-       "gives": "HELICOPTE",
-       "note": "HELICOPTER without its last letter; anagram fodder"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 11,
+         "note": "shortly means cut short, so the last letter of the word goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Helicopter",
+         "at": 0
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A police helicopter is about to be scrambled for an emergency.",
-     "walkthrough": "'Scrambled' reads as sending aircraft up in a hurry, the natural sense for a helicopter, but here it mixes the letters.",
-     "definitionFit": "The police are the people who enforce the law."
+     "surface": "A helicopter is to be sent up in a hurry for the police.",
+     "walkthrough": "'Shortly' drops the final R of HELICOPTER, and 'to be scrambled' rearranges HELICOPTE.",
+     "definitionFit": "The police are the civil force whose job is enforcing the law."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "scrambled"
     }
    }

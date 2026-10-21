@@ -1554,12 +1554,14 @@
        "indicators": [
         {
          "text": "Endlessly",
-         "note": "endlessly means without an end, so the final letter of each word is dropped"
+         "at": 0,
+         "note": "endlessly means the last letter is lost"
         }
        ],
        "parts": [
         {
          "words": "badger",
+         "at": 10,
          "gives": "BROCK",
          "note": "brock is an old name for a badger"
         },
@@ -1570,13 +1572,23 @@
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "requiring",
+         "at": 21,
+         "note": "requiring means lacking: the name is what you get only once N is added, so without it"
+        }
+       ],
        "parts": [
         {
          "words": "man",
+         "at": 17,
          "gives": "COLIN",
-         "note": "a man's name"
+         "note": "Colin is a man's name"
         },
         {
+         "words": "new",
+         "at": 31,
          "gives": "N"
         }
        ]
@@ -1584,14 +1596,13 @@
      ]
     },
     "explanation": {
-     "surface": "Nag a man who needs fresh green vegetables.",
-     "walkthrough": "'Requiring new' jokes that the shortened name lacks its final N, which is the abbreviation for new.",
-     "definitionFit": "Broccoli is a green vegetable with a thick stalk and clustered flower heads."
+     "surface": "Pester a fellow endlessly until he needs a new green vegetable.",
+     "walkthrough": "BROCK loses its end; COLI needs N to become the man COLIN, so 'requiring new' leaves COLI.",
+     "definitionFit": "Broccoli is a green vegetable of the cabbage family, eaten for its flower heads."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "badger"
     }
    }
@@ -2888,36 +2899,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Unexpected",
-       "note": "something unexpected comes out differently, so these letters take a new order"
-      },
-      {
-       "text": "loosely",
-       "note": "loosely means not fixed in place, so these letters are free to rearrange"
+       "text": "in",
+       "at": 18,
+       "note": "in means one set of letters is put inside the other"
       }
      ],
      "parts": [
       {
-       "words": "action",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "loosely",
+         "at": 25,
+         "note": "loosely means not fixed, so the letters of lab are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lab",
+         "at": 21
+        }
+       ]
       },
       {
-       "words": "lab",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Unexpected",
+         "at": 0,
+         "note": "unexpected suggests something surprising, so the letters of action are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "action",
+         "at": 11
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Surprise goings-on in a laboratory, studying plants in a relaxed way.",
-     "definitionFit": "Botanical means concerning botany, the science of plant life."
+     "surface": "Something surprising happens in a laboratory studying plants.",
+     "walkthrough": "Two words are each rearranged on their own, and 'in' sets one inside the other.",
+     "definitionFit": "Botanical is the adjective from botany, the science of plant life."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "action"
+     "misdirectedWord": "Unexpected"
     }
    }
   },

@@ -547,49 +547,63 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PLATONIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be caught",
+       "at": 37,
+       "note": "caught means held inside, so the reversed word goes into the shortened fish"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "almost",
-         "note": "the fish loses its last letter"
-        },
-        {
-         "text": "about",
-         "note": "'about' means turned around, so the word is read backwards"
-        },
-        {
-         "text": "to be caught",
-         "note": "the reversed word is caught inside the fish"
+         "at": 19,
+         "note": "almost means the word lacks its last letter"
         }
        ],
        "parts": [
         {
          "words": "fish",
-         "gives": "PLAIC",
-         "note": "PLAICE without its E"
+         "at": 14,
+         "gives": "PLAICE",
+         "note": "plaice is a flatfish"
         },
         {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 31,
+         "note": "about means turned around, so the word not is read backwards"
+        }
+       ],
+       "parts": [
+        {
          "words": "not",
-         "gives": "TON",
-         "note": "NOT turned round"
+         "at": 27,
+         "gives": "NOT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone describes a firm fish that is nearly, but not quite, caught.",
-     "walkthrough": "The Platonic solids are the five regular polyhedra, cube and tetrahedron among them. 'Type of solid' tempts toward a state of matter; here it is geometry.",
-     "definitionFit": "A definition by adjective: Platonic names one type of solid in geometry, the regular polyhedron."
+     "surface": "Someone describes a solid fish dish that has nearly, but not quite, got caught.",
+     "walkthrough": "PLAIC is the fish almost; NOT 'about' gives TON, which is caught in it: PLA(TON)IC. 'Solid' is the geometric sense.",
+     "definitionFit": "The Platonic solids are the five regular polyhedra, such as the cube and tetrahedron, named after Plato."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "solid"
     }
    }
@@ -933,21 +947,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "no end of space",
-       "gives": "ROO",
-       "note": "ROOM without the M"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "With no end of",
+         "at": 0,
+         "note": "the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "space",
+         "at": 15,
+         "gives": "ROOM",
+         "note": "room means space"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       },
       {
        "words": "looks for oil",
+       "at": 22,
        "gives": "FRACKS",
-       "note": "fracking extracts oil and gas from rock"
+       "note": "to frack is to fracture rock to extract oil or gas, so this is prospecting for oil"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone prospects for oil on their country estates.",
-     "walkthrough": "'Estates' are estate cars, the British name for station wagons, which often carry roof racks; the surface wants country estates.",
-     "definitionFit": "Roof racks are fitted to the roofs of estate cars."
+     "surface": "Short of room, a landowner prospects for oil on their country estates.",
+     "walkthrough": "'Estates' are estate cars (station wagons), not landed property.",
+     "definitionFit": "Roof racks are frames fitted on a car's roof for luggage, and estate cars often carry them."
     },
     "features": {
      "answerInScene": false,
