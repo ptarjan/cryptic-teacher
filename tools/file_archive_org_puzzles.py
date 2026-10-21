@@ -4262,11 +4262,12 @@ def held_settled(d, verdict):
 
 
 def two_columns_only(paper, d):
-    """True for an FT page of 1984: its clues are the two columns under the grid and
+    """True for an FT page of 1982-86 (1983-12-02 too: overhang() = 1336, past the
+    grid's 840, where the listings stand): its clues are the two columns under the grid and
     the page's TV listings stand in the band right of it (overhang() read them as a
     third clue column: the readers then laid the listings' lines, no reading had
     the clues of 22-down on 1984-11-10, and the VLM was asked to pick for them)."""
-    return paper.key == "ft" and d is not None and d.name[:4] == "1984"
+    return paper.key == "ft" and d is not None and "1982" <= d.name[:4] <= "1986"
 
 
 def clues_may_be_right(paper, d):
