@@ -893,38 +893,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "fiasco",
-       "note": "a fiasco is a total mess, so the letters end up in disorder"
-      },
-      {
        "text": "crushed",
-       "note": "something crushed is pounded out of shape, so these added letters are mixed in too"
+       "at": 40,
+       "note": "the balls are crushed, squeezed in among the jumbled letters, so this signals placing them inside"
       }
      ],
      "parts": [
       {
-       "words": "bakery",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fiasco",
+         "at": 26,
+         "note": "a fiasco is a shambles, so the letters of bakery end up in a mess and get rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bakery",
+         "at": 19
+        }
+       ]
       },
       {
        "words": "balls",
+       "at": 34,
        "gives": "OO",
-       "note": "two balls look like two Os"
+       "note": "balls are round, like the letter O, so two of them give OO"
       }
      ]
     },
     "explanation": {
-     "surface": "An inspector's report on a disaster at a bakery, with a painful aside about someone's testicles.",
-     "walkthrough": "The plural 'balls' gives a pair of round letters, which join the bakery's letters before the lot is rearranged.",
-     "definitionFit": "A yearbook is an annual publication summing up the year's events, so it is a review that appears at regular intervals."
+     "surface": "A catty review of a disastrous bake, the bread rolls flattened, as if from a cookery show.",
+     "walkthrough": "The bracketed aside reads like part of the baking disaster, but it is the second instruction: once the jumble is made, the two round letters are pressed into it.",
+     "definitionFit": "A yearbook is an annual publication surveying the past twelve months, so it is a review issued at regular intervals."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "balls"
     }
    }
@@ -2007,7 +2017,8 @@
      "indicators": [
       {
        "text": "Drunken",
-       "note": "a drunk staggers about, so the letters reel into another order"
+       "at": 0,
+       "note": "someone drunken staggers about, so the letters that follow are thrown into a new order"
       }
      ],
      "parts": [
@@ -2016,39 +2027,35 @@
        "indicators": [
         {
          "text": "top off",
-         "note": "taking the top off removes the first letter"
+         "at": 13,
+         "note": "the top of a word across is its first letter, and off says that letter is removed from sot"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "sot",
-           "note": "taken as written"
-          },
-          {
-           "words": "must",
-           "note": "taken as written"
-          }
-         ]
+         "words": "sot",
+         "at": 8
         },
         {
          "gives": "S"
         }
        ]
+      },
+      {
+       "words": "must",
+       "at": 22
       }
      ]
     },
     "explanation": {
-     "surface": "A drunkard knocks back his drink and has to keep going.",
-     "walkthrough": "'top off' looks like finishing a drink; it beheads the drunkard before both words are rearranged together.",
-     "definitionFit": "Utmost can mean farthest or final, the last point reached, as in the utmost ends of the earth."
+     "surface": "Advice that a stumbling drunk, hat knocked off, has to be the last to leave.",
+     "walkthrough": "'top off' removes the S from SOT, leaving OT; 'Drunken' then shuffles OT with MUST.",
+     "definitionFit": "As in fighting to the last, meaning to the furthest possible extent, which is what doing one's utmost means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "top"
+     "misdirectedWord": "last"
     }
    }
   },
