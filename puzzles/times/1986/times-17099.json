@@ -141,33 +141,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "maybe",
-       "note": "'maybe' says the words that follow could appear in another form, so their letters may be reordered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "or",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "maybe",
+         "at": 44,
+         "note": "maybe says or could be written another way, so its two letters swap"
+        }
+       ],
+       "parts": [
+        {
+         "words": "or",
+         "at": 41,
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "words": "get",
+       "at": 50,
        "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A reference book helps a reader find exactly the right word.",
-     "walkthrough": "Le mot juste is French for the exact word, which a thesaurus helps a writer find.",
-     "definitionFit": "Peter Mark Roget compiled the Thesaurus of English Words and Phrases, the standard book of synonyms."
+     "surface": "A tribute to a reference book that helps writers find the exact word.",
+     "walkthrough": "Peter Mark Roget compiled the Thesaurus; 'le mot juste' (the right word) is the surface's flourish.",
+     "definitionFit": "Roget's Thesaurus groups synonyms so that writers can widen their range of words."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "get"
+     "misdirectedWord": "maybe"
     }
    }
   },
@@ -483,42 +491,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 14,
+       "note": "includes says the trainee letter is held inside the multitude"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "includes",
-         "note": "to include is to take inside, so one word holds the other"
-        }
-       ],
-       "parts": [
-        {
-         "words": "The multitude",
-         "gives": "HOS",
-         "note": "a host is a large crowd; it splits to hold the other piece"
-        },
-        {
-         "words": "a trainee",
-         "gives": "L",
-         "note": "L for learner, as on British L-plates"
-        }
-       ]
+       "words": "multitude",
+       "at": 4,
+       "gives": "HOST",
+       "note": "a host is a great number, a multitude"
       },
       {
-       "words": "The multitude",
-       "gives": "T",
-       "note": "the last letter of host"
+       "words": "a trainee",
+       "at": 23,
+       "gives": "L",
+       "note": "L is a learner, as on British L-plates"
       }
      ]
     },
     "explanation": {
-     "surface": "A big orchestra has a student composer among them.",
-     "definitionFit": "Gustav Holst was the English composer of The Planets suite, writing in the early twentieth century."
+     "surface": "A large crowd of people turns out to contain one apprentice music writer.",
+     "walkthrough": "L goes inside HOST. Gustav Holst wrote The Planets.",
+     "definitionFit": "Gustav Holst was an English composer, best known for the orchestral suite The Planets."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "multitude"
     }
@@ -959,69 +961,64 @@
      "op": "charade",
      "parts": [
       {
+       "words": "a",
+       "at": 38
+      },
+      {
        "op": "container",
        "indicators": [
         {
-         "text": "an entry in",
-         "note": "making an entry into something puts it inside"
+         "text": "entry in",
+         "at": 29,
+         "note": "entry in says the pieces are entered inside a way"
         }
        ],
        "parts": [
         {
-         "words": "an",
-         "note": "taken as written"
+         "words": "way",
+         "at": 40,
+         "gives": "ST",
+         "note": "ST is the abbreviation for street, a way"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "in a down entry, 'up' means the word is read from bottom to top"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "container",
+           "op": "reversal",
+           "indicators": [
+            {
+             "text": "up",
+             "at": 23,
+             "note": "up reads the word backwards, as this is a down clue"
+            }
+           ],
            "parts": [
             {
-             "op": "charade",
-             "parts": [
-              {
-               "words": "a",
-               "note": "taken as written"
-              },
-              {
-               "words": "way",
-               "gives": "S",
-               "note": "ST, the abbreviation for street, splits to hold the rest"
-              }
-             ]
-            },
-            {
              "words": "tear",
+             "at": 18,
              "gives": "RIP",
              "note": "to rip is to tear"
             }
            ]
+          },
+          {
+           "words": "an",
+           "at": 26,
+           "note": "taken as written"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "way",
-       "gives": "T",
-       "note": "the end of the street abbreviation"
       }
      ]
     },
     "explanation": {
-     "surface": "An ambitious man is out to rip up a competition form.",
-     "walkthrough": "'Tear up' looks like destroying a form, but in a down clue 'up' means reading a word bottom to top. ST is the usual abbreviation for street, a way.",
-     "definitionFit": "An aspirant is a person who aspires, who hopes and strives to achieve a high position."
+     "surface": "A go-getter is urged to rip up a submission on the road.",
+     "walkthrough": "In a down clue 'up' reads a word from the bottom, so the tear is turned around before it goes in. 'to' is a link.",
+     "definitionFit": "An aspirant is a person who aims high and seeks advancement, an ambitious one."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "entry"
     }

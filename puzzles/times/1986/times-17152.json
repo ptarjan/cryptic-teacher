@@ -671,39 +671,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DROVE",
+     "op": "move",
      "indicators": [
       {
-       "text": "moving right to left",
-       "note": "the letter for right is shifted leftwards and slotted in earlier in the word"
+       "text": "moving",
+       "at": 22,
+       "note": "moving says the right letter shifts its place within the port"
+      },
+      {
+       "text": "to left",
+       "at": 35,
+       "note": "to left says that letter travels leftwards toward the front of the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DROVE",
-       "parts": [
-        {
-         "words": "Channel port",
-         "gives": "DOVER",
-         "note": "Dover is the English port on the Channel"
-        }
-       ]
+       "words": "Channel port",
+       "at": 9,
+       "gives": "DOVER",
+       "note": "Dover is the English port on the Channel"
+      },
+      {
+       "words": "right",
+       "at": 29,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A mass of people jostling in a ferry port.",
-     "walkthrough": "The R at the end of DOVER moves forward to become the second letter.",
-     "definitionFit": "A drove is a herd of animals being driven, and by extension a large moving throng of people."
+     "surface": "A busy scene at a ferry port with people being shuffled about.",
+     "walkthrough": "The R at the end of DOVER travels left to sit after the D.",
+     "definitionFit": "A drove is a large moving mass of people or animals, so a crowd."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "right"
+     "misdirectedWord": "Crowd"
     }
    }
   },
