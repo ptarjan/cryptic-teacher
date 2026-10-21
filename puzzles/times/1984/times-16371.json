@@ -192,10 +192,57 @@
    },
    "length": 7,
    "clue": {
-    "enumeration": "7",
-    "missing": true
+    "text": "Having made a slam, he is given the money",
+    "enumeration": "7"
    },
-   "solution": "ALMSMAN"
+   "solution": "ALMSMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Having made a slam, he is given the money",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "made",
+         "at": 7,
+         "note": "to make something of letters is to form them into something new, so slam's letters are recast"
+        }
+       ],
+       "parts": [
+        {
+         "words": "slam",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "he",
+       "at": 20,
+       "gives": "MAN",
+       "note": "a man is a 'he', the male pronoun standing for one"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A bridge player bids and makes a slam and is rewarded with the stakes.",
+     "walkthrough": "'made' recasts SLAM as ALMS, the charity money, and 'he' gives MAN; the whole clue then describes the recipient. A slam in bridge is winning all or all but one of the tricks.",
+     "definitionFit": "An almsman is a person who lives on charity, receiving handouts of money from benefactors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slam"
+    }
+   }
   },
   {
    "number": 5,
@@ -658,55 +705,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INTEGER",
-     "indicators": [
-      {
-       "text": "perhaps",
-       "note": "perhaps signals one possible rearrangement among several"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "INTEGER",
+       "words": "one",
+       "at": 7,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "No",
-         "note": "no means without, so the following item is dropped"
+         "text": "perhaps",
+         "at": 29,
+         "note": "'perhaps' says the remaining letters are only one possible arrangement, so they are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        },
-        {
-         "words": "Regent Street",
-         "gives": "REGENTST",
-         "note": "street abbreviated to ST"
-        },
-        {
-         "words": "way",
-         "gives": "ST",
-         "note": "a street is a way, abbreviated ST"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "No",
+           "at": 38,
+           "note": "'no way' here means the way is absent, so those letters are dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Regent Street",
+           "at": 12
+          },
+          {
+           "words": "way",
+           "at": 41,
+           "gives": "STREET",
+           "note": "a street is a way, a public road"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A London address is ruled out of a list of options.",
-     "walkthrough": "The % appears to be a printing stray. Regent Street is a big London shopping street.",
-     "definitionFit": "A whole number, with no fractional part, is the mathematical meaning of this word."
+     "surface": "A puzzled question about whether a famous London shopping street could really be number one.",
+     "walkthrough": "The surface makes 'No way!' an exclamation of disbelief; read literally it drops the way, Street, from the name. Regent Street is a major shopping street in central London.",
+     "definitionFit": "An integer is a whole number, with no fractional part, so it is a kind of number."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Number"
+     "misdirectedWord": "Regent"
     }
    }
   },
@@ -829,27 +880,38 @@
     "definitions": [
      {
       "text": "bit of fodder",
-      "at": 24,
-      "note": "a portion of the crop; the answer names the crop itself"
+      "at": 24
      }
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "twice",
+       "at": 11,
+       "note": "'twice' says the boy's name is written down two times in a row"
+      }
+     ],
      "parts": [
       {
-       "words": "Boy called twice",
-       "gives": "ALFALF",
-       "note": "Alf is a boy's name, written out two times"
+       "words": "Boy called",
+       "at": 0,
+       "gives": "ALF",
+       "note": "Alf is a boy's name, short for Alfred"
+      },
+      {
+       "gives": "ALF"
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 22,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A boy's name is shouted twice as he feeds the animals.",
-     "definitionFit": "Lucerne, also called by this name, is a clover-like plant grown as cattle feed."
+     "surface": "A lad is shouted for two times while carrying some animal feed.",
+     "definitionFit": "Alfalfa, also called lucerne, is a leguminous plant grown as hay and feed for livestock."
     },
     "features": {
      "answerInScene": false,
