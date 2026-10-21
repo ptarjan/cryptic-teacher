@@ -105,26 +105,39 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Right away",
-       "note": "R, right, is sent away from the word"
-      },
-      {
        "text": "crackpot",
-       "note": "a crackpot is crazy, so the letters go crazy"
+       "at": 12,
+       "note": "crackpot means crazy, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "words": "pursues",
-       "gives": "PUSUES",
-       "note": "PURSUES without its R"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "at": 6,
+         "note": "away says the letter for right is sent off from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pursues",
+         "at": 21
+        },
+        {
+         "words": "Right",
+         "at": 0,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crank is hounding someone until they are worn out, straight away.",
-     "walkthrough": "'Crackpot' looks like a noun doing the pursuing; it is the instruction to rearrange, and 'pursues' is not a verb here but the letters to work on.",
-     "definitionFit": "To use up is to exhaust a supply."
+     "surface": "A crank who chases people, once put right, wears them out.",
+     "walkthrough": "'Right away' removes R from PURSUES, leaving PUSUES; 'crackpot' rearranges those letters.",
+     "definitionFit": "To consume all of something is to exhaust it, and the phrasal verb has that meaning."
     },
     "features": {
      "answerInScene": false,
@@ -457,7 +470,8 @@
     "definitions": [
      {
       "text": "27/22/4/6",
-      "at": 0
+      "at": 0,
+      "note": "the cross-referenced entries together give a phrase that this word stands for"
      }
     ],
     "wordplay": {
@@ -465,24 +479,36 @@
      "parts": [
       {
        "words": "bowled",
+       "at": 10,
        "gives": "B",
-       "note": "b = bowled, the cricket scoring abbreviation"
+       "note": "B is the cricket abbreviation for bowled"
       },
       {
        "words": "a",
-       "note": "as written"
+       "at": 17
       },
       {
-       "words": "yorker, half-cut",
-       "gives": "KER",
-       "note": "YORKER with its first half, YOR, cut off"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 27,
+         "note": "half-cut says only half of the word is kept, the back half here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yorker",
+         "at": 19
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunken bowler delivered a yorker, a cricket ball pitched at the batsman's feet.",
-     "walkthrough": "Two Doctors share this name, the fourth and the sixth. Half-cut is British slang for drunk, which is the surface's joke about the bowler.",
-     "definitionFit": "Tom Baker was the fourth Doctor and Colin Baker the sixth."
+     "surface": "A cricketer bowls a yorker, the ball pitched at the batter's feet, while a bit drunk.",
+     "walkthrough": "A yorker is a cricket delivery aimed at the batter's toes; 'half-cut', British slang for tipsy, keeps the last three letters, KER.",
+     "definitionFit": "The cross-referenced entries combine into a description that this surname or trade fits, as the linked lights confirm."
     },
     "features": {
      "answerInScene": false,
