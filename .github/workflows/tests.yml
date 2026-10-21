@@ -68,6 +68,15 @@ name: Run the test scripts
 on:
   push:
   pull_request:
+  # The backstop for the skips above. Under the burn, a code commit is
+  # superseded by the puzzle pushes behind it, and a puzzle push goes fast when
+  # its diff since a run that merely STARTED the shards is data-only, so a
+  # code change can reach the tip without any run having tested it. This run
+  # tests the tip itself, every few hours: the scope step sends anything that
+  # is not a push to master down the full path, and superseded() ignores it.
+  # It is not a push, so the base search (event=push) never counts it.
+  schedule:
+    - cron: "23 */4 * * *"
 
 jobs:
   # Puzzle-only pushes (the burn jobs push them every few minutes) skip the
