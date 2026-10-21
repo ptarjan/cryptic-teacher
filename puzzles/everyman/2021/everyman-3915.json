@@ -538,11 +538,8 @@
      "indicators": [
       {
        "text": "captures",
-       "note": "to capture is to seize and hold, so one piece wraps around another"
-      },
-      {
-       "text": "concealing",
-       "note": "to conceal is to hide inside, so a piece goes within another"
+       "at": 14,
+       "note": "captures means holds inside, so the anagram surrounds the spy"
       }
      ],
      "parts": [
@@ -551,35 +548,49 @@
        "indicators": [
         {
          "text": "Bungling",
-         "note": "a bungled job is botched and muddled, so these letters come out in a mess"
+         "at": 0,
+         "note": "bungling means botched, so the letters of tail are rearranged"
         }
        ],
        "parts": [
         {
          "words": "tail",
-         "note": "taken as written"
-        },
-        {
-         "words": "spy",
-         "gives": "AGENT",
-         "note": "a spy is a secret agent"
+         "at": 9
         }
        ]
       },
       {
-       "words": "note",
-       "gives": "N",
-       "note": "N for note"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "concealing",
+         "at": 27,
+         "note": "concealing means hiding inside, so the spy word contains the note"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spy",
+         "at": 23,
+         "gives": "AGENT",
+         "note": "an agent is a spy"
+        },
+        {
+         "words": "note",
+         "at": 38,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clumsy shadow catches a spy hiding a message that turns out not to matter.",
-     "walkthrough": "'Tail' suggests someone following the spy; it is just four letters to rearrange. Two containers nest: one letter inside the spy, the spy inside the reordered word.",
-     "definitionFit": "A tangential remark only touches the subject at one point, so it is peripheral and beside the point."
+     "surface": "A clumsy tail following a spy who hides an unimportant note.",
+     "walkthrough": "The tail is a shadowing spy only in the surface; here its letters are the anagram fodder, and N for note is a dictionary abbreviation.",
+     "definitionFit": "A tangential remark goes off at a tangent, only loosely connected to the subject."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "tail"
     }

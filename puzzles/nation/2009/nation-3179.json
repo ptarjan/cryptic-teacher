@@ -1028,44 +1028,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
-      {
-       "text": "Possibly",
-       "at": 0,
-       "note": "possibly signals one possible arrangement of the letters"
-      },
       {
        "text": "out around",
        "at": 13,
-       "note": "out and around both suggest letters jumbled from their order"
-      },
-      {
-       "text": "confusion",
-       "at": 29,
-       "note": "confusion mixes the letters of near, along with let, into a new order"
+       "note": "out around means outside and surrounding, so the reworked let encloses the reworked near"
       }
      ],
      "parts": [
       {
-       "words": "let",
-       "at": 9
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Possibly",
+         "at": 0,
+         "note": "possibly shows the letters of let may be arranged another way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "let",
+         "at": 9
+        }
+       ]
       },
       {
-       "words": "near",
-       "at": 24
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "confusion",
+         "at": 29,
+         "note": "confusion means a jumble, so the letters of near are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "near",
+         "at": 24
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A city of confusion might let its residents out.",
-     "walkthrough": "Three signals pile up on one anagram: 'Possibly', 'out around' and 'confusion' all ask for the two short words to be mixed together. Rome is famously called the Eternal City.",
-     "definitionFit": "Rome has been nicknamed the Eternal City since antiquity, for its supposed everlasting nature."
+     "surface": "A puzzling remark about letting someone out near some confusion in Rome.",
+     "walkthrough": "'out' here means outside rather than an anagram signal; Rome is traditionally called the Eternal City.",
+     "definitionFit": "Rome is called the Eternal City, so eternal is an adjective describing it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "near"
+     "misdirectedWord": "out"
     }
    }
   },

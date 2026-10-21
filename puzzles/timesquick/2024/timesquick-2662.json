@@ -854,49 +854,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing final bits",
+       "at": 17,
+       "note": "the final bits are the last letters of has and of me, and both are dropped"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "missing final bits",
-         "note": "missing the final bits means each word loses its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "has",
-         "note": "taken as written, before its end is removed"
+         "at": 10
         },
         {
-         "gives": "S"
+         "words": "me",
+         "at": 14
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "me",
-         "note": "taken as written, before its end is removed"
-        },
-        {
-         "gives": "E"
-        }
-       ]
+       "gives": "SE"
       }
      ]
     },
     "explanation": {
-     "surface": "A poor performer complains that a part has been cut, leaving out his best lines.",
-     "walkthrough": "Dropping the last letter of each word leaves HA and M.",
-     "definitionFit": "A ham is an actor who overacts in a crude, exaggerated way, so a bad actor."
+     "surface": "A poor performer admits he has missed the ends of his lines.",
+     "definitionFit": "A ham is an actor who overacts, a poor or showy performer."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "missing"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },

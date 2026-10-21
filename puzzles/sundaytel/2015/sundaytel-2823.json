@@ -896,31 +896,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "out",
-       "note": "out here means put out of place, so the letters are disturbed"
-      },
-      {
-       "text": "confused",
-       "note": "confused means jumbled up, so the letters are mixed"
+       "text": "in",
+       "at": 18,
+       "note": "in places the rearranged set inside the rearranged error"
       }
      ],
      "parts": [
       {
-       "words": "set",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "confused",
+         "at": 28,
+         "note": "confused means muddled, so the letters of error are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "error",
+         "at": 21
+        }
+       ]
       },
       {
-       "words": "error",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 14,
+         "note": "out means disordered, so the letters of set are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "at": 10
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A muddled mechanic heads off on a job by mistake.",
-     "definitionFit": "A restorer is someone who repairs old furniture, paintings or buildings to their former condition."
+     "surface": "A repairman, confused, sets things up wrongly.",
+     "walkthrough": "Two separate anagrams: 'out' works only on set and 'confused' only on error, with 'in' joining them.",
+     "definitionFit": "A restorer repairs old things such as furniture or paintings to their original condition."
     },
     "features": {
      "answerInScene": true,

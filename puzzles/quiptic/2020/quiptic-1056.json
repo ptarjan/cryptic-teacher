@@ -794,41 +794,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "lacking top",
-       "note": "lacking its top means the drink's first letter is missing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Swiss city",
-         "gives": "BASEL",
-         "note": "Basel is a city in northern Switzerland on the Rhine"
-        },
-        {
-         "words": "wine",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Swiss city",
+       "at": 19,
+       "gives": "BASEL",
+       "note": "Basel is a city in northern Switzerland"
       },
       {
-       "gives": "W"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking top",
+         "at": 30,
+         "note": "lacking top means the first letter of wine is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wine",
+         "at": 42
+        },
+        {
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Swiss city tour begins somewhere that has run out of good wine.",
-     "definitionFit": "A reference level from which progress or change is measured is the initial benchmark for comparison."
+     "surface": "A Swiss city as the place to begin, though short of decent wine.",
+     "definitionFit": "A baseline is a reference point from which measurements or comparisons begin."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "top"
+     "aptDefinition": false
     }
    }
   },
