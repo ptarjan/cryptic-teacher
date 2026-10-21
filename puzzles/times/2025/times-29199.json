@@ -1144,7 +1144,7 @@
       {
        "text": "cooked",
        "at": 30,
-       "note": "cooked means prepared or doctored, so the collected letters are rearranged"
+       "note": "cooked means prepared or messed about, so the letters before it are mixed into a new order"
       }
      ],
      "parts": [
@@ -1153,15 +1153,10 @@
        "at": 0
       },
       {
-       "words": "very",
+       "words": "very small",
        "at": 4,
-       "gives": "V"
-      },
-      {
-       "words": "small",
-       "at": 9,
-       "gives": "S",
-       "note": "S is the clothing-size abbreviation for small"
+       "gives": "VS",
+       "note": "V is the abbreviation for very and S for small, as on clothing labels"
       },
       {
        "op": "last",
@@ -1169,21 +1164,23 @@
         {
          "text": "finally",
          "at": 22,
-         "note": "finally means the last letter of dinner"
+         "note": "finally points to the closing letter of the word dinner"
         }
        ],
        "parts": [
         {
          "words": "dinner",
-         "at": 15
+         "at": 15,
+         "note": "its last letter is R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone eats a tiny cooked dinner, or goes without food entirely.",
-     "definitionFit": "To starve is to go without food, eating none at all."
+     "surface": "A dieter weighs up a tiny cooked meal against skipping food altogether.",
+     "walkthrough": "'very small' looks like a description of the meal, but it is two abbreviations, V and S; 'cooked' mixes them with EAT and the R that ends 'dinner'.",
+     "definitionFit": "To starve is to go without food, eating nothing at all."
     },
     "features": {
      "answerInScene": true,
@@ -1216,31 +1213,43 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "First off",
-       "note": "the first letter is taken off the next word"
-      },
-      {
        "text": "cast",
-       "note": "cast as metal is cast, poured into a new shape"
+       "at": 22,
+       "note": "cast in the sense of thrown about or moulded anew, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "candelabra",
-       "gives": "ANDELABRA",
-       "note": "CANDELABRA without its first letter C; anagram fodder, 9 letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "First off",
+         "at": 0,
+         "note": "first off says the opening letter of the next word is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "candelabra",
+         "at": 11
+        },
+        {
+         "gives": "C",
+         "note": "the first letter of candelabra"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A candelabra giving off only a faint glow after dark.",
-     "walkthrough": "'First off' reads like 'to begin with', but it removes the C of candelabra.",
-     "definitionFit": "Definition by example: Aldebaran is a bright star in Taurus, which looks like a small light in the night sky."
+     "surface": "A candlestick gives out a small glow after dark.",
+     "walkthrough": "Remove the C from CANDELABRA, leaving ANDELABRA, then 'cast' rearranges those letters. Aldebaran is a bright star in Taurus.",
+     "definitionFit": "A star is, from Earth, a tiny point of brightness in the night sky."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "First"
+     "misdirectedWord": "candelabra"
     }
    }
   },

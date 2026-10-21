@@ -806,7 +806,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Toy",
+      "text": "Toy boy's taken up, abandoning tops?",
       "at": 0
      }
     ],
@@ -815,57 +815,55 @@
      "indicators": [
       {
        "text": "taken up",
-       "note": "in a down clue taking something up lifts it so it reads from the bottom upwards"
+       "at": 10,
+       "note": "in a down clue taken up means lifted, so the letters read upwards"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoning tops",
+         "at": 20,
+         "note": "abandoning tops means dropping the first letter of each word"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "abandoning tops",
-           "note": "abandoning the tops means dropping the first letter of each word"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "Toy",
-           "note": "the definition word also serves as wordplay"
+           "at": 0
           },
           {
-           "gives": "T"
+           "words": "boy's",
+           "at": 4,
+           "gives": "BOY",
+           "note": "boy's here is boy is, so the word boy itself"
           }
          ]
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "boy",
-           "note": "taken as written"
-          },
-          {
-           "gives": "B"
-          }
-         ]
+         "gives": "TB",
+         "note": "the tops of toy and boy"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A young lover is picked up and then dropped by older women.",
-     "walkthrough": "'Toy' does double duty: it is the definition, and with 'boy' it supplies TOY BOY, which loses its initials to leave OY OY, then flips.",
-     "definitionFit": "A yo-yo is the classic spool-shaped plaything that runs up and down a string."
+     "surface": "A young lover is picked up and dropped like a spinning toy.",
+     "walkthrough": "TOY and BOY lose their first letters to OY OY, which reads up as the answer.",
+     "definitionFit": "A yo-yo is a toy that rises up its string after falling, so is taken up."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "tops"
+     "misdirectedWord": "boy's"
     }
    }
   },

@@ -102,19 +102,22 @@
        "indicators": [
         {
          "text": "aboard",
-         "note": "being aboard a vehicle means sitting inside it, so one word goes into another"
+         "at": 5,
+         "note": "aboard means inside the vehicle, so the word for when sits inside"
         }
        ],
        "parts": [
         {
          "words": "taxi",
+         "at": 12,
          "gives": "CAB",
          "note": "a cab is a taxi"
         },
         {
          "words": "When",
+         "at": 0,
          "gives": "AS",
-         "note": "as can mean when, as in 'as I left'"
+         "note": "as means when"
         }
        ]
       },
@@ -123,28 +126,30 @@
        "indicators": [
         {
          "text": "half of",
-         "note": "only half of the county's name is used, the first five of its ten letters"
+         "at": 18,
+         "note": "half of keeps the first five letters of the ten-letter county"
         }
        ],
        "parts": [
         {
          "words": "English county",
+         "at": 26,
          "gives": "LANCASHIRE",
-         "note": "Lancashire, a county in north-west England, cut to its first half"
+         "note": "Lancashire is a county in north-west England"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Taking a cab through half of Lancashire is claimed to be more exotic than it sounds.",
-     "walkthrough": "Lancashire is a county in north-west England. The 's stands for 'is', linking wordplay to definition.",
-     "definitionFit": "The Moroccan port city, famous from the Bogart film, is certainly a more exotic destination than Lancashire."
+     "surface": "A taxi ride in Lancashire is set against a more exotic destination.",
+     "walkthrough": "Lancashire is a county in north-west England; 'half of' keeps its front five letters.",
+     "definitionFit": "Casablanca is a Moroccan port city, far more glamorous for a British solver."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "When"
+     "misdirectedWord": "county's"
     }
    }
   },
@@ -653,41 +658,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "move",
      "indicators": [
       {
-       "text": "backing",
-       "note": "backing means going backwards, so the word is read right to left"
+       "text": "shifting",
+       "at": 32,
+       "note": "shifting means moving, so a letter changes place in the word"
+      },
+      {
+       "text": "position",
+       "at": 52,
+       "note": "position says the letter is moved to a new place, together with shifting"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "shifting a European position",
-         "note": "the letter standing for European is moved to a different place in the word"
+         "text": "backing",
+         "at": 24,
+         "note": "backing means going backwards, so the word is reversed"
         }
        ],
        "parts": [
         {
-         "words": "to repay",
+         "words": "repay",
+         "at": 17,
          "gives": "AVENGE",
-         "note": "to avenge a wrong is to repay it"
+         "note": "to avenge is to repay a wrong"
         }
        ]
+      },
+      {
+       "words": "a European",
+       "at": 41,
+       "gives": "E",
+       "note": "E is short for European"
       }
      ]
     },
     "explanation": {
-     "surface": "A city where a European might relocate, perhaps to pay back a debt.",
-     "walkthrough": "Reversed, the verb gives EGNEVA; move its leading E (European) one place along to finish.",
-     "definitionFit": "Geneva is the Swiss city on Lake Geneva, home to many international organisations."
+     "surface": "Someone in a European city seeks to repay an injury and changes their stance.",
+     "walkthrough": "AVENGE backwards is EGNEVA; the first E moves one place right.",
+     "definitionFit": "Geneva, on its lake in western Switzerland, is an example of a city on the Continent."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "position"
+     "misdirectedWord": "repay"
     }
    }
   },

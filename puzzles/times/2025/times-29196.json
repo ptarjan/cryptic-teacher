@@ -108,26 +108,45 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the chat comes after the port"
+       "at": 10,
+       "note": "after places the shortened chat word later than the port"
       }
      ],
      "parts": [
       {
        "words": "port",
+       "at": 16,
        "gives": "RIO",
-       "note": "Rio de Janeiro, a Brazilian port"
+       "note": "Rio de Janeiro is a port"
       },
       {
-       "words": "Curt chat",
-       "gives": "JA",
-       "note": "JAW = chat, cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Curt",
+         "at": 0,
+         "note": "curt means cut short, so the last letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chat",
+         "at": 5,
+         "gives": "JAW",
+         "note": "jaw is slang for chat"
+        },
+        {
+         "gives": "W",
+         "note": "the last letter of jaw"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brusque conversation over a glass of port.",
-     "walkthrough": "'Port wine' reads as one drink; the definition is only 'wine', and 'port' is a harbour city.",
-     "definitionFit": "Definition by example: the Spanish region of La Rioja gives its name to its red and white wines."
+     "surface": "A brief conversation follows a glass of port.",
+     "walkthrough": "'port wine' looks like one drink; the port is RIO and 'wine' is the definition.",
+     "definitionFit": "Rioja is a red wine from northern Spain."
     },
     "features": {
      "answerInScene": true,
@@ -809,70 +828,81 @@
      "op": "container",
      "indicators": [
       {
-       "text": "around",
-       "note": "one thing around another encircles it"
+       "text": "hosted by",
+       "at": 60,
+       "note": "hosted by means put inside, so the inner letters sit within the patriot's name"
       }
      ],
      "parts": [
       {
+       "words": "legendary US patriot",
+       "at": 70,
+       "gives": "REVERE",
+       "note": "Paul Revere made the famous midnight ride of 1775"
+      },
+      {
        "op": "container",
        "indicators": [
         {
-         "text": "hosted by"
+         "text": "around",
+         "at": 41,
+         "note": "around means enclosing the queen's letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "playing",
+           "at": 33,
+           "note": "playing means performing differently, so the initials are rearranged"
+          }
+         ],
          "parts": [
           {
-           "words": "legendary US patriot",
-           "gives": "REVERE",
-           "note": "Paul Revere, of the midnight ride of 1775"
-          },
-          {
            "op": "first",
-           "unchecked": true,
-           "gives": "B",
            "indicators": [
             {
              "text": "initially",
-             "note": "only the first letter of Bunnymen"
+             "at": 23,
+             "note": "initially picks out the first letter of each of the three words"
             }
            ],
            "parts": [
             {
-             "unchecked": true,
-             "words": "the Bunnymen, initially",
-             "gives": "B",
-             "select": "first",
-             "note": "first letter"
+             "words": "and",
+             "at": 5
+            },
+            {
+             "words": "the",
+             "at": 9
+            },
+            {
+             "words": "Bunnymen",
+             "at": 13
             }
            ]
           }
          ]
         },
         {
-         "words": "playing",
-         "gives": "AT",
-         "note": "at = playing, as in 'at cards'"
+         "words": "Queen, once",
+         "at": 48,
+         "gives": "ER",
+         "note": "ER is Elizabeth Regina, the late queen"
         }
        ]
-      },
-      {
-       "words": "Queen, once",
-       "gives": "ER",
-       "note": "Elizabeth Regina, the late queen"
       }
      ]
     },
     "explanation": {
-     "surface": "The Liverpool band Echo and the Bunnymen playing before a queen at an old American hero's house.",
-     "walkthrough": "The band name is broken up: 'Echo' is the definition, and only the B of Bunnymen is used. Two nested containers: one inside another, all inside the patriot.",
-     "definitionFit": "Plain synonym as verbs: a sound that echoes round a hall reverberates."
+     "surface": "The band Echo and the Bunnymen play to a queen in an American setting.",
+     "walkthrough": "'Echo' looks like part of the band name but it is the definition, so 'initially' takes only 'and the Bunnymen'. The Queen is 'once' because Elizabeth II has died.",
+     "definitionFit": "To reverberate is to resound, as a sound bouncing back."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Echo"
     }
@@ -1262,46 +1292,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shunning",
+       "at": 34,
+       "note": "shunning means avoiding, so letters are taken out of the words before"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "shunning",
-         "note": "the Rs are shunned, left out"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "called",
+         "at": 17,
          "gives": "RANG",
-         "note": "rang = called on the phone, then without R"
+         "note": "rang means phoned, called"
         },
         {
-         "gives": "R"
+         "words": "perjurer",
+         "at": 24,
+         "gives": "LIAR",
+         "note": "a perjurer is a liar under oath"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "perjurer",
-         "gives": "LIAR",
-         "note": "a perjurer lies under oath, then without R"
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "words": "Republicans",
+       "at": 43,
+       "gives": "RR",
+       "note": "R is short for Republican, so two of them are RR"
       }
      ]
     },
     "explanation": {
-     "surface": "A former US president, Gerald Ford, branded a perjurer and avoiding his own party.",
-     "walkthrough": "Ford looks like the president; it is the carmaker, whose Anglia was a small British family car of the 1940s to 1960s.",
-     "definitionFit": "Definition by example: the Anglia is a discontinued Ford car model, hence 'in the past'."
+     "surface": "A former Ford executive phoned a perjurer and avoided the Republicans.",
+     "walkthrough": "RANG and LIAR each lose an R. The Anglia was a Ford car made in Britain until 1967.",
+     "definitionFit": "The Ford Anglia is a discontinued British car model from Ford."
     },
     "features": {
      "answerInScene": false,
@@ -1671,53 +1699,45 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
+     "indicators": [
+      {
+       "text": "shifting",
+       "at": 16,
+       "note": "shifting means relocating, so one letter takes a new place in the word"
+      }
+     ],
      "parts": [
       {
-       "words": "grand",
-       "at": 25,
-       "gives": "G",
-       "note": "G is a standard abbreviation for grand, a thousand"
-      },
-      {
-       "op": "deletion",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "shifting",
-         "at": 16,
-         "note": "the grand is shifted, taken from its place and put at the front"
+         "text": "about",
+         "at": 10,
+         "note": "about means turned round, so the word is reversed"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "about",
-           "at": 10,
-           "note": "about here means turned around, so the word is read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Retaliate",
-           "at": 0,
-           "gives": "AVENGE",
-           "note": "to avenge is to retaliate for a wrong"
-          }
-         ]
-        },
-        {
-         "gives": "G"
+         "words": "Retaliate",
+         "at": 0,
+         "gives": "AVENGE",
+         "note": "avenge means retaliate"
         }
        ]
+      },
+      {
+       "words": "grand",
+       "at": 25,
+       "gives": "G",
+       "note": "G is short for grand, a thousand"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone vowing revenge for a shift in a grand European city.",
-     "walkthrough": "AVENGE read backwards ('about') is EGNEVA; 'shifting' moves its G (grand) to the front.",
-     "definitionFit": "Geneva is a major Swiss city on Lake Geneva, home to many international organisations."
+     "surface": "Someone seeks revenge over a moving piano.",
+     "walkthrough": "AVENGE reversed is EGNEVA; the G moves to the front.",
+     "definitionFit": "Geneva is a Swiss city on Lake Geneva."
     },
     "features": {
      "answerInScene": false,
