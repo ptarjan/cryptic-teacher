@@ -282,7 +282,8 @@ row = {"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "scanKey": f.scan_key
 check("scan_current's caches: a paper's name as the globals walk finds it, again after a re-bind; one key set "
       "shared by every ask; an edition named by string read as paper_of's (asked twice, by rel and by row)",
       (True, "ZZ_CACHED", "ZZ_MOVED", True, {f.scan_key(gt), f.sized_scan_key(gt), *f._BAND_CACHE_FIX[gt.key][:2],
-                                                                      *f._LINES_FIX[gt.key][:2]},
+                                                                      *f._LINES_FIX[gt.key][:2],
+                                                                      *f._WORDS_CACHE_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -2017,6 +2018,7 @@ ao_held[0]["entries"][2]["clue"]["text"] = ""
 check("a held file with a blank clue is read in full", None, f.answers_only(*ao_args))
 ao_held[0] = lights_held([None] * 4)
 ao_held[0]["entries"][2]["clue"]["text"] = "-clue 2 down words"
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "4-across": "DOE"}
 verdict, puzzle = f.answers_only(*ao_args)
 check("a held clue the readers left unsettled (a stray mark) is kept as filed: the answers merge, no VLM ask",
       (True, 0, "-clue 2 down words", "TOE"),
