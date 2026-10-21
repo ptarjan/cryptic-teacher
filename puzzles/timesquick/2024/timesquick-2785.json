@@ -1265,50 +1265,45 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Never a",
+       "at": 22,
+       "note": "never an A means every letter A is struck out of the combined words"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Never a",
-         "note": "never a says there is no letter a, so it is removed from both the spy and the beer words"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Spy",
+         "at": 0,
          "gives": "AGENT",
-         "note": "an agent is a spy, as in secret agent"
+         "note": "a spy is an agent"
         },
         {
-         "gives": "A"
+         "words": "traditional beer",
+         "at": 4,
+         "gives": "ALE",
+         "note": "ale is the traditional English beer"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "traditional beer",
-         "gives": "ALE",
-         "note": "ale is traditional British beer"
-        },
-        {
-         "gives": "A"
-        }
-       ]
+       "gives": "AA"
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker spurns mild in favour of real ale, as a spy might.",
-     "walkthrough": "Mild is also a kind of British beer, which is the misdirection.",
-     "definitionFit": "Gentle means soft and not harsh or severe, a synonym of moderate or kind in manner."
+     "surface": "A drinker insists a real spy would never drink a mild, the low-strength beer.",
+     "walkthrough": "AGENT followed by ALE, with both of its A's removed under 'Never a', leaves the answer. Mild is also a kind of British beer, which is the false trail.",
+     "definitionFit": "Gentle and mild are synonyms describing something soft, kind or moderate."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "mild"
     }

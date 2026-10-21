@@ -851,39 +851,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "pissed",
-       "at": 19,
-       "note": "pissed is British slang for drunk, and drunk letters stagger out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Topless",
-         "at": 0,
-         "note": "topless means with the top removed, so the first letter goes"
+         "text": "pissed",
+         "at": 19,
+         "note": "pissed is British slang for drunk, so the letters stagger into a new order"
         }
        ],
        "parts": [
         {
-         "words": "lager",
-         "at": 8,
-         "note": "taken as written"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Topless",
+           "at": 0,
+           "note": "topless means the word loses its top, its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lager",
+           "at": 8
+          },
+          {
+           "gives": "L"
+          }
+         ]
         },
         {
-         "gives": "L"
+         "words": "lout",
+         "at": 14
         }
        ]
-      },
-      {
-       "words": "lout",
-       "at": 14,
-       "note": "taken as written"
       },
       {
        "op": "last",
@@ -891,28 +894,27 @@
         {
          "text": "last of",
          "at": 29,
-         "note": "the last of a word is its final letter, so only that letter is taken"
+         "note": "last of picks the final letter of the word"
         }
        ],
        "parts": [
         {
          "words": "beer",
-         "at": 37,
-         "note": "final letter R"
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shirtless, drunken lager lout at the end of a night's drinking, perhaps confronting a governor.",
-     "walkthrough": "'Pissed' is British slang for drunk, not angry as in American usage. 'Topless lager' gives AGER, which joins LOUT and R in the mix.",
-     "definitionFit": "A governor in engineering is a device controlling speed or flow, which is a type of regulator."
+     "surface": "A drunken lager lout tops up with beer and is told off by the boss.",
+     "definitionFit": "A regulator is a device controlling speed, like the governor of an engine."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Governor"
+     "joke": "absurd",
+     "misdirectedWord": "Topless"
     }
    }
   },

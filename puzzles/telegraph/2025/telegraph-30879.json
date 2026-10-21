@@ -425,73 +425,77 @@
      "op": "charade",
      "parts": [
       {
-       "words": "British",
-       "gives": "B",
-       "note": "standard abbreviation"
-      },
-      {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down clue, up means the word is read from bottom to top"
+         "text": "holding",
+         "at": 14,
+         "note": "holding means containing, so the two letters wrap the reversed snake"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
+         "parts": [
+          {
+           "words": "British",
+           "at": 0,
+           "gives": "B"
+          },
+          {
+           "words": "adult",
+           "at": 8,
+           "gives": "A",
+           "note": "A is the film certificate abbreviation for adult"
+          }
+         ]
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "holding",
-           "note": "holding means gripping something inside, so one piece goes within the other"
+           "text": "up",
+           "at": 28,
+           "note": "up in a down clue means read upwards"
           }
          ],
          "parts": [
           {
            "words": "snake",
+           "at": 22,
            "gives": "BOA",
-           "note": "a boa is a constricting snake"
-          },
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "adult",
-             "gives": "A",
-             "note": "A is the film certificate for adult"
-            },
-            {
-             "op": "first",
-             "indicators": [
-              {
-               "text": "initially",
-               "note": "initially means only the first letter of the next word is taken"
-              }
-             ],
-             "parts": [
-              {
-               "words": "by",
-               "note": "the opening letter of the word"
-              }
-             ]
-            }
-           ]
+           "note": "a boa is a large constricting snake"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 32,
+         "note": "initially picks the first letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "by",
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A British grown-up clutches a snake beside a tree on safari.",
-     "walkthrough": "British and adult are two single letters, and the upturned snake sits between them.",
-     "definitionFit": "The baobab is the massive, thick-trunked tree of the African savanna."
+     "surface": "A British adult on safari grips a snake beside an African tree.",
+     "definitionFit": "The baobab is a massive, thick-trunked tree native to Africa."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "holding"
+     "misdirectedWord": "up"
     }
    }
   },

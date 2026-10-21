@@ -107,7 +107,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "hardly any matter!",
+      "text": "hardly any matter",
       "at": 34
      }
     ],
@@ -115,21 +115,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "the first one stunted",
-       "gives": "BO",
-       "note": "the first of the two lads, BOY, cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stunted",
+         "at": 24,
+         "note": "something stunted is cut short, so the first lad loses his last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lads",
+         "at": 4,
+         "gives": "BOY",
+         "note": "a lad is a boy"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
-       "words": "Two lads",
+       "words": "one",
+       "at": 20,
        "gives": "SON",
-       "note": "the second lad, a son"
+       "note": "the second of the two lads: a son is a lad too"
       }
      ]
     },
     "explanation": {
-     "surface": "Two young brothers, one of them small for his age, dismissed as not mattering.",
-     "walkthrough": "'Two lads' supplies two words, BOY and SON, and only the first is docked. Bosons carry force rather than making up matter, which is the scientific joke in the definition.",
-     "definitionFit": "A boson is a force-carrying particle, not really a building block of matter at all."
+     "surface": "A wry remark about two boys, the elder undersized, and how little substance they add up to.",
+     "walkthrough": "'Two lads' asks for two words for a boy; 'the first one stunted' clips the end off BOY. The definition plays on matter in the physics sense.",
+     "definitionFit": "A boson is a force-carrying particle rather than a matter particle, hence a playful description as next to no matter."
     },
     "features": {
      "answerInScene": false,
@@ -2697,31 +2714,48 @@
      "indicators": [
       {
        "text": "for",
-       "note": "The new case stands for the old, wrapping round what is left."
+       "at": 40,
+       "note": "for here means in exchange for: the shell that is lost is replaced by a new word wrapped round what is left"
       }
      ],
      "parts": [
       {
        "words": "unfortunate",
+       "at": 44,
        "gives": "SAD",
-       "note": "sad means unfortunate, as in a sad state"
+       "note": "unfortunate means sad, as in a sad state of affairs"
       },
       {
-       "words": "Cross-border crime force drops its case",
-       "gives": "UROPO",
-       "note": "EUROPOL, the EU police agency, without its first and last letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "drops its case",
+         "at": 25,
+         "note": "the case of a word is its outside pair of letters, and this force sheds them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cross-border crime force",
+         "at": 0,
+         "gives": "EUROPOL",
+         "note": "Europol is the European Union's police cooperation agency"
+        },
+        {
+         "gives": "EL"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Europol dropping a case of unfortunate death.",
-     "walkthrough": "'Dead' goes with the definition, not the wordplay: a sauropod is an extinct, so dead, herbivore.",
-     "definitionFit": "Sauropods were huge long-necked plant-eating dinosaurs, long extinct."
+     "surface": "A news item about an international police agency abandoning an investigation for some sorry reason.",
+     "walkthrough": "Europol is the EU's police agency; the case of a word is its outer letters, and 'for' swaps that lost case for a new one.",
+     "definitionFit": "Sauropods were huge long-necked herbivorous dinosaurs, long extinct, so a dead plant-eater."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "case"
     }
    }
