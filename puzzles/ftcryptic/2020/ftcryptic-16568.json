@@ -1794,32 +1794,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "translated",
-       "note": "translation turns words into different forms"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Spanish",
-       "note": "anagram fodder"
+       "words": "twice",
+       "at": 20,
+       "gives": "E",
+       "note": "twice means the abbreviation for English is taken a second time, giving one more E"
       },
       {
-       "words": "English twice",
-       "gives": "EE",
-       "note": "E = English, twice"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "translated",
+         "at": 26,
+         "note": "translated means changed into another form, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spanish",
+         "at": 0
+        },
+        {
+         "words": "English",
+         "at": 12,
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spanish and English text translated side by side in a book.",
-     "walkthrough": "The translation surface fits a Bible book well.",
-     "definitionFit": "A definition by example: Paul's letter to the church at Ephesus is one book of the New Testament."
+     "surface": "A text is rendered into Spanish and then into English twice over.",
+     "definitionFit": "Ephesians is Paul's letter to the church at Ephesus, a book of the New Testament."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "translated"
     }
