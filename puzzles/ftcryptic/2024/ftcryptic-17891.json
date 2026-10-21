@@ -111,46 +111,33 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Bird",
-      "at": 0
+      "text": "Bird's",
+      "at": 0,
+      "note": "the definition is Bird, with 's standing for 'is' to link it to the wordplay"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "PEAFOWL",
+     "indicators": [
+      {
+       "text": "we've heard",
+       "at": 33,
+       "note": "we've heard means the words are judged by sound"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "PEA",
-       "indicators": [
-        {
-         "text": "we've heard",
-         "note": "something heard is taken by its sound, not its spelling"
-        }
-       ],
-       "parts": [
-        {
-         "words": "waste product",
-         "gives": "PEE",
-         "note": "pee is urine, a bodily waste product"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "FOWL",
-       "parts": [
-        {
-         "words": "disgusting",
-         "gives": "FOUL",
-         "note": "foul means revolting or disgusting"
-        }
-       ]
+       "words": "waste product disgusting",
+       "at": 7,
+       "gives": "PEEFOUL",
+       "note": "pee is urine, a bodily waste product, and foul means disgusting"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that some bird's droppings are revolting.",
-     "definitionFit": "The peafowl is the species of large pheasant whose male is the peacock."
+     "surface": "A bird's droppings are revolting, or so we are told.",
+     "definitionFit": "A peafowl is the pheasant-family species whose male is the peacock."
     },
     "features": {
      "answerInScene": true,
@@ -1521,41 +1508,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IMPORTANCE",
-     "indicators": [
-      {
-       "text": "uncovered",
-       "note": "with its covering stripped off, so the outside letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "this writer's",
+       "at": 5,
        "gives": "IM",
-       "note": "this writer is the setter, so I'm"
+       "note": "this writer is I, so this writer's is I'm"
       },
       {
        "words": "left",
+       "at": 19,
        "gives": "PORT",
        "note": "port is the left side of a ship"
       },
       {
-       "words": "surgical instrument",
-       "gives": "LANCET",
-       "note": "a lancet is a small surgeon's knife"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 44,
+         "note": "uncovered means stripped of its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "surgical instrument",
+         "at": 24,
+         "gives": "LANCET",
+         "note": "a lancet is a small surgeon's knife"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor's note that the writer has left a scalpel unsheathed.",
-     "walkthrough": "'Note' looks like a written message, but it is the noun meaning distinction, as in a person of note.",
-     "definitionFit": "Note can mean distinction or significance, as in 'a person of note', which is importance."
+     "surface": "A writer leaves a memo that a surgical tool was left lying exposed.",
+     "definitionFit": "A person of note has significance or prominence, as in 'nothing of note'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Note"
     }
    }

@@ -123,42 +123,77 @@
      "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "disturbed",
-         "note": "something disturbed is thrown out of order, so the letters are rearranged"
+         "text": "about",
+         "at": 28,
+         "note": "about means the pieces go round the editor"
         }
        ],
        "parts": [
         {
-         "words": "Is Rev repeatedly",
-         "gives": "ISREVISREV",
-         "note": "the two words written out twice"
+         "op": "charade",
+         "parts": [
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "disturbed",
+             "at": 18,
+             "note": "disturbed means the letters are thrown into a new order"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Is Rev",
+             "at": 0,
+             "gives": "ISREV",
+             "note": "taken as written"
+            }
+           ]
+          },
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "repeatedly",
+             "at": 7,
+             "note": "repeatedly says the same pair of words is used and jumbled a second time"
+            }
+           ],
+           "parts": [
+            {
+             "gives": "ISREV"
+            }
+           ]
+          }
+         ]
         },
         {
          "words": "editor",
-         "gives": "ED",
-         "note": "ED is the usual abbreviation for editor"
+         "at": 34,
+         "gives": "ED"
         }
        ]
       },
       {
-       "words": "about",
+       "words": "over",
+       "at": 41,
        "gives": "ON",
-       "note": "on can mean 'about', as in a book on birds"
+       "note": "on can mean over, as in a lid on a jar"
       }
      ]
     },
     "explanation": {
-     "surface": "A worried vicar fusses with an editor over the wording of scripture.",
-     "walkthrough": "Each copy of IS REV is rearranged separately: one is followed by ED, the other by ON, with 'over' placing the first part above the second in this down answer.",
-     "definitionFit": "The Revised Version is the late nineteenth-century English revision of the King James Bible, a sacred scripture."
+     "surface": "A troubled vicar circles an editor over a holy book.",
+     "walkthrough": "'Rev' looks like the clergyman but is just letters; the two jumbles come out differently, one each side of the editor.",
+     "definitionFit": "The Revised Version is the late-19th-century British revision of the King James Bible."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "Rev"
     }
    }
   },

@@ -1357,38 +1357,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Cricket side",
-         "gives": "LEG",
-         "note": "the leg side is one half of a cricket field, the batter's legward side"
-        },
-        {
-         "words": "completely",
-         "gives": "ALL",
-         "note": "all means wholly, completely"
-        }
-       ]
+       "words": "Cricket side",
+       "at": 0,
+       "gives": "LEG",
+       "note": "the leg side is the half of a cricket field behind the batter's legs"
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 13,
+         "note": "almost means not quite all, dropping the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "completely",
+         "at": 20,
+         "gives": "ALL",
+         "note": "all can mean completely, as in all alone"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket team plays almost entirely within the laws.",
-     "walkthrough": "'Cricket side' looks like a team; it is the leg side, also called on side, of the field. ALL loses its last L.",
-     "definitionFit": "Something legal is permitted by law, so it is in line with the rules."
+     "surface": "A cricket team nearly always sticks to the rules.",
+     "definitionFit": "Something legal is permitted by law, so it conforms to the rules."
     },
     "features": {
      "answerInScene": true,

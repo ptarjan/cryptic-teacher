@@ -1061,41 +1061,37 @@
      "op": "deletion",
      "indicators": [
       {
+       "text": "repeatedly",
+       "at": 33,
+       "note": "repeatedly says the cutting happens to each copy of the word, not just one"
+      },
+      {
        "text": "for cutting",
-       "note": "a letter marked for cutting is to be removed from the word"
+       "at": 49,
+       "note": "for cutting means the letter for left is to be cut out"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "repeatedly",
-         "note": "repeatedly says the removal happens more than once, to each copy of the doubled word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Double work",
-         "gives": "TOILTOIL",
-         "note": "work is toil, written twice because it is doubled"
-        },
-        {
-         "gives": "L"
-        }
-       ]
+       "words": "Double work",
+       "at": 21,
+       "gives": "TOILTOIL",
+       "note": "toil is hard work, and double asks for it twice; the parser has no repeat step, so the pair sits in one block"
       },
       {
        "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "at": 44,
+       "gives": "L"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Is grass in a cathedral city's close twice the labour, again and again left for mowing?",
-     "walkthrough": "Canterbury is not the English cathedral city but the region of New Zealand's South Island, hence the question mark.",
-     "definitionFit": "Toitoi is a tall native New Zealand grass, so it grows in the Canterbury region."
+     "surface": "Seemingly an odd instruction: work twice as hard, leaving off cutting the grass.",
+     "walkthrough": "Canterbury is the New Zealand region, signalling an NZ word. Each copy of TOIL loses its L.",
+     "definitionFit": "Toitoi is a tall native New Zealand plant related to pampas grass, found in Canterbury."
     },
     "features": {
      "answerInScene": true,

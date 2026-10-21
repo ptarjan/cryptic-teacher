@@ -465,7 +465,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "porridge once",
+      "text": "porridge once?",
       "at": 59
      }
     ],
@@ -474,56 +474,65 @@
      "indicators": [
       {
        "text": "in",
-       "note": "to be in something is to sit inside it, so one piece goes inside another"
+       "at": 38,
+       "note": "in puts the letters within the car"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "travelling",
-         "note": "something travelling moves about, so its letters move into a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Toad",
-         "note": "taken as written"
-        },
-        {
-         "words": "posh car",
-         "gives": "ROLLS",
-         "note": "short for Rolls-Royce"
-        }
-       ]
+       "words": "posh car",
+       "at": 41,
+       "gives": "ROLLS",
+       "note": "a Rolls is a Rolls-Royce, a luxury car"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "at the end",
-         "note": "only the final letter of the name is wanted"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Grahame",
-         "note": "final letter of the name"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at the end",
+           "at": 9,
+           "note": "at the end picks the closing letter of Grahame"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Grahame",
+           "at": 0,
+           "note": "last letter of Grahame"
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "travelling",
+           "at": 27,
+           "note": "travelling suggests the letters move about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Toad",
+           "at": 21,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Kenneth Grahame's Mr Toad, motoring in a grand car, gets his comeuppance or his breakfast.",
-     "walkthrough": "The surface evokes The Wind in the Willows, where Toad loves motor cars. \"Porridge\" is also British slang for a prison term, which Toad serves, but here it is the food.",
-     "definitionFit": "Porridge is made from flattened oat flakes, so the dish was once these grains before cooking."
+     "surface": "Kenneth Grahame's Toad, from The Wind in the Willows, motoring in a grand car and being served porridge.",
+     "definitionFit": "Rolled oats are flattened oat grains, the basis of porridge; the question mark allows for the oats before cooking."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "Toad"
     }
    }

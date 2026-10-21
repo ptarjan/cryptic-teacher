@@ -50,20 +50,37 @@
      "parts": [
       {
        "words": "Underwear",
+       "at": 0,
        "gives": "BRAS",
-       "note": "bras are underwear"
+       "note": "bras are items of women's underwear"
       },
       {
-       "words": "line made smaller",
-       "gives": "SERIE",
-       "note": "SERIES (a line of things) minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "made smaller",
+         "at": 15,
+         "note": "made smaller says the word for line loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "line",
+         "at": 10,
+         "gives": "SERIES",
+         "note": "a series is a line or succession of things"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lingerie brand shrinks its range to suit a French shop.",
-     "walkthrough": "The surface suggests a clothing range being cut back; in fact 'line' is SERIES, which loses its final S.",
-     "definitionFit": "A brasserie is an informal French restaurant, an establishment in France."
+     "surface": "A lingerie range is cut down in size for the French market.",
+     "walkthrough": "'Underwear' is plural here, and 'line' means a run of things, not a line of clothing.",
+     "definitionFit": "A brasserie is a French-style restaurant serving drinks and simple food, a typical eating place in France."
     },
     "features": {
      "answerInScene": false,
@@ -455,30 +472,49 @@
      "indicators": [
       {
        "text": "pens",
-       "note": "encloses, as a pen encloses animals"
+       "at": 16,
+       "note": "pens is a verb here: to enclose, so the first piece holds the second"
       }
      ],
      "parts": [
       {
-       "words": "Majority of gel",
-       "gives": "CLIC",
-       "note": "CLICK (gel, as ideas or people do) minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Majority of",
+         "at": 0,
+         "note": "majority of means most but not all, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gel",
+         "at": 12,
+         "gives": "CLICK",
+         "note": "people who gel are said to click"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       },
       {
        "words": "in",
+       "at": 21,
+       "gives": "IN",
        "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Most of the gel pens are kept at the health centre.",
-     "walkthrough": "'Gel pens' looks like stationery, but 'pens' is a verb: the shortened word encloses IN.",
-     "definitionFit": "A clinic is a place where patients receive medical treatment."
+     "surface": "Most gel pens are kept in the medical centre's stationery cupboard.",
+     "walkthrough": "'gel pens' reads as stationery, but 'gel' is the verb (people gel, or click) and 'pens' means encloses.",
+     "definitionFit": "A clinic is a place where outpatients receive medical treatment or advice."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pens"
+     "misdirectedWord": "gel"
     }
    }
   },

@@ -241,8 +241,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "is bearing",
-       "note": "the phrase bears, carries, the answer within its letters"
+       "text": "up",
+       "at": 42,
+       "note": "in a down clue, up means read from the bottom, i.e. backwards"
       }
      ],
      "parts": [
@@ -250,28 +251,28 @@
        "op": "hidden",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down clue, a word going up is read from bottom to top, backwards"
+         "text": "is bearing",
+         "at": 31,
+         "note": "is bearing means the phrase carries the answer within its letters"
         }
        ],
        "parts": [
         {
          "words": "take note, capitalist",
-         "gives": "ENOTECA",
-         "note": "takE NOTE CApitalist, read upwards"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A capitalist, financially solvent, tells everyone to take note of how well he is doing.",
-     "walkthrough": "'Solvent' plays as the adjective, able to pay debts, which suits the capitalist; it is the noun, a liquid that dissolves things.",
-     "definitionFit": "A definition by example: acetone is a common solvent, the main ingredient of nail-varnish remover."
+     "surface": "An exclamation that a capitalist is coping, as if solvent in the financial sense.",
+     "walkthrough": "'Solvent' looks financial beside 'capitalist'; it is the chemical. The letters ENOTECA sit inside 'take note capitalist' and read upwards.",
+     "definitionFit": "Acetone is a volatile liquid used to dissolve things such as nail varnish."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Solvent"
     }
@@ -3128,25 +3129,41 @@
      "parts": [
       {
        "words": "secretary",
+       "at": 7,
        "gives": "PA",
-       "note": "PA = personal assistant"
+       "note": "PA is a personal assistant, a secretary"
       },
       {
-       "words": "at length scrubbing back",
-       "gives": "INFUL",
-       "note": "in full = at length, losing its last L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "scrubbing back",
+         "at": 27,
+         "note": "scrubbing back means wiping out the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at length",
+         "at": 17,
+         "gives": "INFULL",
+         "note": "something told at length is told in full"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A secretary spends ages scrubbing someone's back.",
-     "walkthrough": "'Tender' sounds loving in this bath-time picture; it means sore.",
-     "definitionFit": "A near synonym: a tender spot hurts when touched."
+     "surface": "A secretary spends a long time scrubbing someone's back.",
+     "walkthrough": "IN FULL loses its final L to give INFUL.",
+     "definitionFit": "A tender spot is sore when touched, so painful is a synonym."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Tender"
     }
    }
@@ -3531,23 +3548,40 @@
      "parts": [
       {
        "words": "Strong",
+       "at": 0,
        "gives": "F",
-       "note": "f = forte, loud or strong in music"
+       "note": "F is forte, loud or strong in music"
       },
       {
-       "words": "programme cut",
-       "gives": "AGEND",
-       "note": "an agenda is a programme, minus its last A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 17,
+         "note": "cut means the last letter is chopped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "programme",
+         "at": 7,
+         "gives": "AGENDA",
+         "note": "an agenda is a programme of things to be done"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A strong schedule is trimmed back, but the smoking habit remains.",
-     "walkthrough": "A fag is British slang for a cigarette.",
-     "definitionFit": "A British slang term: the stub left when a cigarette has been smoked."
+     "surface": "A demanding schedule is trimmed and only the smoke is left.",
+     "walkthrough": "A fag is British slang for a cigarette; 'Strong' is the musical forte.",
+     "definitionFit": "A fag end is the stub left after a cigarette is smoked, the leftover part."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Strong"
     }

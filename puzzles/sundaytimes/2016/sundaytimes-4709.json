@@ -443,43 +443,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about suggests the letters are moved around into a new arrangement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially points to the very first letter only"
+         "at": 7,
+         "note": "initially picks the opening letter of troops"
         }
        ],
        "parts": [
         {
          "words": "Troops",
-         "note": "the first letter"
+         "at": 0,
+         "note": "first letter of Troops"
         }
        ]
       },
       {
-       "words": "told Ben-Hur",
-       "note": "the letters taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 30,
+         "note": "about suggests the letters are turned around and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "told",
+         "at": 17,
+         "note": "taken as written"
+        },
+        {
+         "words": "Ben-Hur",
+         "at": 22,
+         "note": "taken as written, the hyphen ignored"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Soldiers break shocking news to the hero of the epic film.",
-     "definitionFit": "Both a thunderbolt and a bombshell are sudden shocking surprises, used figuratively."
+     "surface": "Soldiers break the news of a shocking event to Ben-Hur.",
+     "walkthrough": "T comes first; 'about' rearranges TOLD BENHUR into HUNDERBOLT.",
+     "definitionFit": "A thunderbolt is a sudden shock, a figurative synonym for a bombshell."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Ben-Hur"
+     "misdirectedWord": "about"
     }
    }
   },

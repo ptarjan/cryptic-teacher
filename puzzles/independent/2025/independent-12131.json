@@ -629,38 +629,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "short means cut off, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Article",
-         "gives": "THE",
-         "note": "the definite article"
-        },
-        {
-         "words": "doctor who wrote",
-         "gives": "SEUSS",
-         "note": "Dr Seuss, the American children's author"
-        }
-       ]
+       "words": "Article",
+       "at": 0,
+       "gives": "THE",
+       "note": "the is the definite article"
       },
       {
-       "gives": "S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 11,
+         "note": "short means the name is cut by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctor who wrote",
+         "at": 17,
+         "gives": "SEUSS",
+         "note": "Dr Seuss was the pen name of the American children's author Theodor Geisel"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A piece of writing by a doctor-author about some mythical hero.",
-     "walkthrough": "'doctor who wrote' tempts a Doctor Who writer; it is Dr Seuss of The Cat in the Hat.",
-     "definitionFit": "Theseus is the Greek mythological hero who killed the Minotaur in the Cretan labyrinth."
+     "surface": "A newspaper article written next to a short piece by a medical writer.",
+     "walkthrough": "'doctor who wrote' tempts Doctor Who fans; it is Dr Seuss, the author, whose name loses an S.",
+     "definitionFit": "Theseus is the hero of Greek myth who killed the Minotaur."
     },
     "features": {
      "answerInScene": false,

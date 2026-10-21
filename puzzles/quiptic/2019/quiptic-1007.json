@@ -196,73 +196,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
+     "indicators": [
+      {
+       "text": "50% reduction of",
+       "at": 10,
+       "note": "a 50% reduction keeps just the first half of each word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "50% reduction of",
-         "at": 10,
-         "note": "a 50% reduction halves each following word, keeping its first half"
-        }
-       ],
-       "parts": [
-        {
-         "words": "narcotic",
-         "at": 27,
-         "note": "the first half of narcotic is kept"
-        },
-        {
-         "gives": "OTIC"
-        }
-       ]
+       "words": "narcotic",
+       "at": 27,
+       "note": "first half of narcotic"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "issues",
-         "at": 36,
-         "note": "the first half of issues is kept"
-        },
-        {
-         "gives": "UES"
-        }
-       ]
+       "words": "issues",
+       "at": 36,
+       "note": "first half of issues"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "in",
-         "at": 43,
-         "note": "the first half of in is kept"
-        },
-        {
-         "gives": "N"
-        }
-       ]
+       "words": "in",
+       "at": 43,
+       "note": "first half of in"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "smug",
-         "at": 46,
-         "note": "the first half of smug is kept"
-        },
-        {
-         "gives": "UG"
-        }
-       ]
+       "words": "smug",
+       "at": 46,
+       "note": "first half of smug"
       }
      ]
     },
     "explanation": {
-     "surface": "A smug person's drug problems produce self-love — halving their narcotic use is the achievement.",
-     "walkthrough": "Halve each of narcotic, issues, in and smug: NARC + ISS + I + SM.",
-     "definitionFit": "Narcissism is excessive love of oneself, named after Narcissus, who fell for his own reflection."
+     "surface": "Halving drug problems makes someone smugly pleased with themselves.",
+     "walkthrough": "Halve each of the four words: NARC, ISS, I and SM.",
+     "definitionFit": "Narcissism is excessive love of oneself, named after Narcissus who fell for his reflection."
     },
     "features": {
      "answerInScene": true,
@@ -555,43 +523,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "salad",
-       "note": "a salad is a tossed mix, so the colour word is tossed up with what follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Green",
-       "note": "anagram fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "salad",
+         "at": 6,
+         "note": "a salad is a mixture, so the letters are tossed together"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Green",
+         "at": 0,
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "words": "is",
-       "note": "taken as it stands"
+       "at": 12,
+       "note": "taken as written"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "primarily",
-         "note": "primarily means first of all, so only the opening letter of the word after is used"
+         "at": 15,
+         "note": "primarily picks the opening letter of eaten"
         }
        ],
        "parts": [
         {
          "words": "eaten",
-         "note": "the first letter of this word"
+         "at": 25,
+         "note": "first letter of eaten"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Health advice: eating green salad gives you a boost.",
-     "walkthrough": "'salad' looks like a noun in a food tip, but it is telling you to toss the letters. 'primarily' only affects 'eaten'.",
-     "definitionFit": "To energise is to give vitality and strength, the same as to invigorate."
+     "surface": "Eating a green salad gives you a boost.",
+     "definitionFit": "To energise is to fill with energy, a direct synonym for invigorate."
     },
     "features": {
      "answerInScene": true,
@@ -1053,7 +1030,8 @@
      "indicators": [
       {
        "text": "over",
-       "note": "over can mean knocked over, so the remaining letters are tumbled"
+       "at": 29,
+       "note": "over suggests the letters are knocked over and rearranged"
       }
      ],
      "parts": [
@@ -1062,41 +1040,34 @@
        "indicators": [
         {
          "text": "left",
-         "note": "left can mean departed, so the railway letters leave the word that follows"
+         "at": 13,
+         "note": "left means gone away, so these letters are taken out"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "British Rail",
-           "gives": "BR",
-           "note": "the old national rail operator's initials"
-          },
-          {
-           "words": "bankrupted",
-           "gives": "ANKUPTED",
-           "note": "the word with B and R removed, leaving eight letters of fodder"
-          }
-         ]
+         "words": "bankrupted",
+         "at": 18
         },
         {
-         "gives": "BR"
+         "words": "British Rail",
+         "at": 0,
+         "gives": "BR",
+         "note": "BR was the abbreviation for British Rail, the former UK state railway"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The nationalised rail company went bust and someone drank to forget.",
-     "walkthrough": "British Rail was the UK's state railway operator until the 1990s, abbreviated BR. 'left' looks like the political word, not an instruction.",
-     "definitionFit": "Tanked up is British slang for having drunk a lot of alcohol, so intoxicated."
+     "surface": "The national railway ended up broke and wrecked.",
+     "walkthrough": "Take B and R from BANKRUPTED, leaving ANKUPTED, which 'over' rearranges.",
+     "definitionFit": "Tanked up is British slang for having drunk a lot of alcohol."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "left"
+     "misdirectedWord": "over"
     }
    }
   },
