@@ -718,39 +718,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "fiddle",
-       "note": "to fiddle is to tamper or rig, so these letters are tampered into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Tried tax",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fiddle",
+         "at": 10,
+         "note": "to fiddle accounts is to rig them, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tried",
+         "at": 0
+        },
+        {
+         "words": "tax",
+         "at": 6
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "source of",
-         "note": "the source of something is where it starts, so only the opening letter is wanted"
+         "at": 25,
+         "note": "the source of a word is where it starts, so take its opening letter"
         }
        ],
        "parts": [
         {
          "words": "earnings",
-         "note": "the first letter of earnings"
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tax-dodger who cooked the books is shipped off overseas to face justice.",
-     "walkthrough": "'Fiddle' looks like the crime itself, a tax fiddle, but it is the signal to rearrange the letters.",
-     "definitionFit": "To extradite is to hand a suspect over to the authorities of another country, sending them abroad for trial."
+     "surface": "Someone attempted tax fraud, sending their income offshore.",
+     "walkthrough": "'Tried tax fiddle' looks like a tale of fraud, but 'fiddle' scrambles TRIED and TAX into EXTRADIT; E, the first letter of 'earnings', ends the word.",
+     "definitionFit": "To extradite is to hand over a suspect to another country's legal system for trial."
     },
     "features": {
      "answerInScene": true,
@@ -1224,25 +1235,37 @@
      "op": "charade",
      "parts": [
       {
-       "words": "half-mile",
-       "gives": "LE",
-       "note": "the second half of the word mile"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 17,
+         "note": "half of the word mile here is its back two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mile",
+         "at": 22
+        }
+       ]
       },
       {
        "words": "run",
+       "at": 27,
        "gives": "TRIP",
-       "note": "a run is a short journey or outing, a trip"
+       "note": "a run is a short trip or journey"
       }
      ]
     },
     "explanation": {
-     "surface": "An athlete is told the half-mile run won't be timed or inspected.",
-     "walkthrough": "'Run' looks like the athlete's race, but it is a jaunt, as in a run to the coast. 'Check' means restrain, not inspect.",
-     "definitionFit": "To let rip is to act without any restraint, so it describes a case where holding back is unnecessary."
+     "surface": "An athlete is told no timing is needed on a half-mile race.",
+     "walkthrough": "'half-mile' reads as one distance, but 'half' takes LE, the second half of MILE, and 'run' gives TRIP.",
+     "definitionFit": "To let rip is to act without restraint, so there is no need to hold back or restrain."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "check"
     }
    }

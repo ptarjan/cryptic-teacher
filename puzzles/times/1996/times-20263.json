@@ -728,54 +728,51 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PURSUIT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "collected in",
-       "note": "something collected in is gathered inside, so one word goes within the other"
+       "text": "collected",
+       "at": 32,
+       "note": "collected means gathered together, so the two pieces are set side by side"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 9,
+         "note": "cut here means docked: the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "cut",
-           "note": "cut means trimmed short, so the final letter is lopped off"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Flawless",
-           "gives": "PURE",
-           "note": "pure means without flaw"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "Flawless",
+         "at": 0,
+         "gives": "PURE",
+         "note": "flawless means pure, without a blemish"
         },
         {
-         "words": "diamonds, perhaps",
-         "gives": "SUIT",
-         "note": "diamonds is one of the four suits of cards"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "diamonds, perhaps",
+       "at": 13,
+       "gives": "SUIT",
+       "note": "diamonds are one suit in a pack of cards; 'perhaps' marks them as an example"
       }
      ]
     },
     "explanation": {
-     "surface": "A jeweller hunts for perfectly cut diamonds.",
-     "walkthrough": "'Flawless cut diamonds' reads as a jeweller's phrase, but cut applies to the first word: the cards go inside it before its last letter is trimmed.",
-     "definitionFit": "A pursuit is a chase or hunt, the act of seeking after something."
+     "surface": "A jeweller hunting for perfect cut stones gathers them during the search.",
+     "walkthrough": "'Flawless cut' reads as describing gems, but 'cut' trims the last letter from the word for flawless.",
+     "definitionFit": "A pursuit is a chase or quest, the act of looking for or going after something."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cut"
     }

@@ -1435,26 +1435,49 @@
      "indicators": [
       {
        "text": "subtract",
-       "note": "subtracting takes letters away from the phrase that follows"
+       "at": 10,
+       "note": "subtract means take away the named letters"
+      },
+      {
+       "text": "from",
+       "at": 44,
+       "note": "from points to the phrase the letters are taken away from"
       }
      ],
      "parts": [
       {
        "words": "perfect answer",
+       "at": 49,
        "gives": "THEVERYTHING",
-       "note": "the very thing is exactly what is wanted"
+       "note": "the very thing is an ideal solution"
       },
       {
-       "words": "half of this, initially",
-       "gives": "TH",
-       "note": "the first two of the four letters of this"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 19,
+         "note": "half of means only two of the four letters"
+        },
+        {
+         "text": "initially",
+         "at": 33,
+         "note": "initially means the first part is the half wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this",
+         "at": 27
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A maths instruction for taking part of a quantity from a total.",
-     "walkthrough": "'Initially' says which half: the front two letters of 'this' come off the front of the phrase.",
-     "definitionFit": "The sum of things is the whole lot, every part of it taken together."
+     "surface": "An instruction for arithmetic: take part of a number away to get the ideal answer.",
+     "walkthrough": "TH, the first half of THIS, is removed from THE VERY THING.",
+     "definitionFit": "Everything is the whole lot, the total of all that there is."
     },
     "features": {
      "answerInScene": false,

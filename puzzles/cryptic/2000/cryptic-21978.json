@@ -684,46 +684,50 @@
      "indicators": [
       {
        "text": "got about",
-       "note": "having got about something means placing one word around another"
+       "at": 16,
+       "note": "got about means surrounded, holding the other piece inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "going back means the article and the abbreviation for grand are read in reverse"
-          }
-         ],
-         "parts": [
-          {
-           "words": "cut",
-           "gives": "NOITELED",
-           "note": "a cut in a text is a deletion"
-          }
-         ]
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "cut",
+       "at": 11,
+       "gives": "DELETION",
+       "note": "a deletion is a cut from a text"
       },
       {
-       "words": "grand",
-       "gives": "G",
-       "note": "G is short for a grand, a thousand pounds"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 34,
+         "note": "back means the two letters are read in reverse order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 26
+          },
+          {
+           "words": "grand",
+           "at": 28,
+           "gives": "G",
+           "note": "G is the abbreviation for a grand, a thousand pounds"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A commission got cut back after a thousand pounds went missing.",
-     "walkthrough": "'Commission' looks like a fee being cut, but it is the definition; the cut is the long word that holds the rest. A grand is slang for a thousand pounds.",
-     "definitionFit": "A delegation is a group of people given a commission to act or negotiate for others."
+     "surface": "A sales commission was reduced, but a thousand came back.",
+     "walkthrough": "'Commission' looks like a sales payment but is a group sent on a task. A and G reversed as GA go inside DELETION.",
+     "definitionFit": "A delegation is a body of representatives given a task, a commission in that sense."
     },
     "features": {
      "answerInScene": false,
