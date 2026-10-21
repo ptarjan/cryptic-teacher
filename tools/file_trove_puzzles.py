@@ -695,8 +695,12 @@ def match(parsed, grid):
                            if any(count(e) == length[f"{expected[m]}-{direction}"] for e in clue["enums"])]
                     j = fit[0] if len(fit) == 1 else None
             if j is None:
+                # A clue whose number was lost ("[]") belongs on the light the grid numbers next:
+                # named, so the readers ask only the columns holding it (an unnamed disagreement
+                # asks every column: FT 1983-08-16, 6 of 192 asks).
+                nxt = f" (the next is {expected[i]}-{direction})" if not first and i < len(expected) else ""
                 return None, (f"{direction} clue {sorted(first)} names no light the grid "
-                              f"numbers after {expected[i - 1] if i else 'the start'}")
+                              f"numbers after {expected[i - 1] if i else 'the start'}{nxt}")
             n = expected[j]
             i = j + 1
             lid = f"{n}-{direction}"
