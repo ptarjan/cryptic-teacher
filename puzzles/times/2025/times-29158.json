@@ -292,31 +292,52 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the rest follows the date"
+       "at": 42,
+       "note": "after puts the later pieces behind the date"
       }
      ],
      "parts": [
       {
        "words": "1/12",
+       "at": 48,
        "gives": "DECI",
-       "note": "1/12 in British date order is 1 December, written Dec I"
+       "note": "1/12 is the British way of writing the first of December: DEC I"
       },
       {
        "words": "couple",
+       "at": 19,
        "gives": "DUO",
-       "note": "a duo is a pair"
+       "note": "a couple is a duo"
       },
       {
-       "words": "use less energy",
-       "gives": "US",
-       "note": "USE without E (energy)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "less",
+         "at": 30,
+         "note": "less means without, so the energy letter is dropped from use"
+        }
+       ],
+       "parts": [
+        {
+         "words": "use",
+         "at": 26,
+         "gives": "USE"
+        },
+        {
+         "words": "energy",
+         "at": 35,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tip about a couple going green by cutting energy use from the start of December.",
-     "walkthrough": "The fraction 1/12 looks like arithmetic but is a date: Britain writes day then month, so 1/12 is the first of December, DEC plus the Roman I.",
-     "definitionFit": "Deciduous trees are green only part of the year, shedding leaves each autumn."
+     "surface": "An eco-tip: from the first of December a couple should cut energy use, being green from time to time.",
+     "walkthrough": "In British date order 1/12 is 1 December, read as DEC + I.",
+     "definitionFit": "Deciduous trees shed leaves each autumn, so they are only green for part of the year, in cycles."
     },
     "features": {
      "answerInScene": false,

@@ -1104,34 +1104,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "on",
-       "note": "the braking system is attached to the vehicle, after it"
-      }
-     ],
      "parts": [
       {
-       "words": "vehicle losing its front end",
-       "gives": "AR",
-       "note": "CAR without its C"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing its front end",
+         "at": 46,
+         "note": "losing its front end means the first letter of the word goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vehicle",
+         "at": 38,
+         "gives": "CAR",
+         "note": "a car is a vehicle"
+        },
+        {
+         "gives": "C"
+        }
+       ]
       },
       {
        "words": "braking system",
+       "at": 20,
        "gives": "ABS",
-       "note": "ABS, anti-lock braking system"
+       "note": "ABS is an anti-lock braking system"
       }
      ]
     },
     "explanation": {
-     "surface": "Iraqi mechanics repair the brakes on a car whose front has been smashed.",
-     "walkthrough": "Front end sounds like the bumper; here it is just the first letter.",
-     "definitionFit": "A definition by example: Iraq is an Arab country, so its people are one instance of the wider group, which say signals."
+     "surface": "A mechanic fits brakes on a car that has lost its front.",
+     "walkthrough": "'say' marks Iraqis as an example of the wider group.",
+     "definitionFit": "Iraqis are an example of Arabs, the people of the Arab world."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "front"
+     "misdirectedWord": "fixing"
     }
    }
   },

@@ -1378,45 +1378,65 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 25,
+       "note": "after puts the word for flushed behind what comes before it"
+      }
+     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "coming in",
-         "note": "coming in means entering, so the coin's letter goes inside the doubled subject"
+         "at": 7,
+         "note": "coming in means the penny's letter enters between the two copies of what precedes it"
         }
        ],
        "parts": [
         {
-         "words": "double PE",
-         "gives": "PEPE",
-         "note": "PE twice"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "double",
+           "at": 31,
+           "gives": "PE",
+           "note": "double supplies a second copy of the two letters written in the clue"
+          },
+          {
+           "words": "PE",
+           "at": 38,
+           "gives": "PE",
+           "note": "PE as written"
+          }
+         ]
         },
         {
          "words": "Penny",
-         "gives": "P",
-         "note": "P is the abbreviation for a penny"
+         "at": 0,
+         "gives": "P"
         }
        ]
       },
       {
        "words": "flushed",
+       "at": 17,
        "gives": "RED",
        "note": "a flushed face is red"
       }
      ]
     },
     "explanation": {
-     "surface": "A pupil named Penny arrives red-faced after two PE lessons and takes a shower.",
-     "walkthrough": "PE is physical education at school; the surface makes 'showered' a post-games wash, but it means bombarded.",
-     "definitionFit": "To pepper is to bombard or sprinkle with many small things, so peppered means showered with them."
+     "surface": "A sweaty PE class: someone red in the face after two lessons heads for the showers.",
+     "walkthrough": "PE is physical education, the school sports lesson; here it is just its two letters.",
+     "definitionFit": "To be peppered is to be showered with many small things, like bullets or questions."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "showered"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "PE"
     }
    }
   },
@@ -2203,40 +2223,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REHEARSAL",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "again",
+       "at": 14,
+       "gives": "RE",
+       "note": "RE is a prefix meaning again"
+      },
+      {
        "words": "Tries",
+       "at": 0,
        "gives": "HEARS",
        "note": "a judge hears or tries a case"
       },
       {
-       "words": "again",
-       "gives": "RE",
-       "note": "the prefix meaning again"
-      },
-      {
-       "words": "the lot",
-       "gives": "ALL",
-       "note": "the lot means everything"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 21,
+         "note": "mostly means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the lot",
+         "at": 6,
+         "gives": "ALL",
+         "note": "the lot means all of it"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A judge rehears nearly every case simply to keep his hand in.",
-     "walkthrough": "RE comes first because 'tries again' makes REHEARS.",
-     "definitionFit": "A rehearsal is a trial run of a performance, done to practise before the real thing."
+     "surface": "Someone repeats everything again, as a way of practising.",
+     "walkthrough": "'Tries ... again' reads as one idea, re-hears; the RE and HEARS come from separate words.",
+     "definitionFit": "A rehearsal is a practice performance before the real show."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Tries"
     }
