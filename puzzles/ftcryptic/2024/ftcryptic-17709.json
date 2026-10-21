@@ -1058,50 +1058,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "hindmost",
-       "at": 44,
-       "note": "the American letter goes at the back, after the wandered word without it"
-      }
-     ],
      "parts": [
       {
        "words": "also",
        "at": 15,
        "gives": "AND",
-       "note": "and as in as well, in addition"
+       "note": "and means also"
       },
       {
-       "op": "deletion",
+       "op": "move",
+       "indicators": [
+        {
+         "text": "hindmost",
+         "at": 44,
+         "note": "hindmost means the letter goes to the very back of the word"
+        }
+       ],
        "parts": [
         {
          "words": "wandered",
          "at": 20,
          "gives": "ROAMED",
-         "note": "roamed as a verb"
+         "note": "roamed means wandered"
         },
         {
+         "words": "American",
+         "at": 35,
          "gives": "A"
         }
        ]
-      },
-      {
-       "words": "American",
-       "at": 35,
-       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A group of stars also drifted off, with the American lagging behind.",
-     "walkthrough": "The A of the wandered word moves to the very end.",
-     "definitionFit": "Andromeda is a constellation of the northern sky, home to the nearest large galaxy."
+     "surface": "A cluster of stars also drifted, with an American bringing up the rear.",
+     "walkthrough": "ROAMED has its A moved to the end, giving ROMEDA.",
+     "definitionFit": "Andromeda is a constellation in the northern sky, which is a group of stars."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "stars"
+     "misdirectedWord": "wandered"
     }
    }
   },
@@ -1851,7 +1848,7 @@
       {
        "text": "restricted by",
        "at": 16,
-       "note": "held in by, so the pink word encloses the other piece"
+       "note": "restricted by means held inside"
       }
      ],
      "parts": [
@@ -1859,23 +1856,38 @@
        "words": "pink",
        "at": 30,
        "gives": "GAY",
-       "note": "pink as in relating to gay people"
+       "note": "pink is a slang word for gay"
       },
       {
-       "words": "Mike repeatedly",
-       "at": 0,
-       "gives": "MM",
-       "note": "Mike is M in the NATO alphabet, given twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 5,
+         "note": "repeatedly means that letter appears more than once, here two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mike",
+         "at": 0,
+         "gives": "M",
+         "note": "Mike is M in the NATO phonetic alphabet"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mike's repeated pink sores are a nuisance.",
-     "walkthrough": "Gammy is British slang for a lame or injured leg.",
-     "definitionFit": "A gammy limb is painful or not working properly, close to an injured one."
+     "surface": "A man called Mike keeps getting hemmed in by something pink and painful.",
+     "walkthrough": "MM goes inside GAY.",
+     "definitionFit": "Gammy is British slang for lame or injured, a bad leg."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "pink"
     }

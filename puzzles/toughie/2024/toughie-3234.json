@@ -933,41 +933,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "charade",
      "indicators": [
       {
-       "text": "is oversharing with",
-       "note": "oversharing here means the two pieces overlap and share a letter, so one copy of it is dropped"
+       "text": "with",
+       "at": 41,
+       "note": "with means joined to, so the member follows the office directly"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "is oversharing",
+         "at": 26,
+         "note": "oversharing means its last letter is shared with the next word, so it is written only once"
+        }
+       ],
        "parts": [
         {
          "words": "Foreign Office",
-         "gives": "FO",
-         "note": "FO is the abbreviation for the UK Foreign Office"
+         "at": 11,
+         "gives": "FO"
         },
         {
-         "words": "member of parliament",
-         "gives": "OWL",
-         "note": "a group of owls is called a parliament"
+         "gives": "O"
         }
        ]
       },
       {
-       "gives": "O"
+       "words": "member of parliament",
+       "at": 46,
+       "gives": "OWL",
+       "note": "a group of owls is a parliament, so an owl is one of its members"
       }
      ]
     },
     "explanation": {
-     "surface": "Turkey's foreign ministry is caught leaking too much to an MP.",
-     "walkthrough": "'member of parliament' wants to be an MP, but it is a bird: owls gather in a parliament. FO and OWL share their O.",
-     "definitionFit": "A turkey is an example of fowl, the domestic birds kept for meat and eggs."
+     "surface": "Political chatter: the Foreign Office leaks too much to an MP about Turkey.",
+     "walkthrough": "FO and OWL overlap on the shared O. 'member of parliament' wants to be an MP; it is an owl, since a group of owls is a parliament.",
+     "definitionFit": "A turkey is a domestic bird, so it is an example of fowl."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "parliament"

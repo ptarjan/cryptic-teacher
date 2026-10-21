@@ -629,28 +629,28 @@
       {
        "text": "in",
        "at": 4,
-       "note": "in says the word for one is placed inside the other letters"
+       "note": "in places the single letter between the two words"
+      },
+      {
+       "text": "flipping",
+       "at": 23,
+       "note": "flipping says the pair of words is turned about, station before railway, with the letter set between them"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "flipping",
-         "at": 23,
-         "note": "flipping, as in flipping over, sets the letters tumbling into a new order"
-        }
-       ],
+       "op": "charade",
        "parts": [
+        {
+         "words": "station",
+         "at": 15,
+         "gives": "STATION",
+         "note": "taken as written"
+        },
         {
          "words": "railway",
          "at": 7,
          "gives": "RY"
-        },
-        {
-         "words": "station",
-         "at": 15
         }
        ]
       },
@@ -658,19 +658,18 @@
        "words": "One",
        "at": 0,
        "gives": "A",
-       "note": "a, the indefinite article, means one"
+       "note": "a means one, as in a dog"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stuck at a railway station is cursing that the trains are going nowhere.",
-     "walkthrough": "'Flipping' reads as a mild British curse; it is the anagram signal. The clue gives STATIONARY, and the grid takes the word that sounds the same, STATIONERY.",
-     "definitionFit": "Something stationary is standing still, not moving from its spot."
+     "surface": "A passenger in a station, furious that the train is not moving.",
+     "walkthrough": "'flipping' swaps the order of 'railway station', so the station comes first. The clue builds STATIONARY, which the puzzle's theme changes for the grid.",
+     "definitionFit": "Stationary means not moving, standing still."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "flipping"
     }
    }
@@ -1282,34 +1281,62 @@
     "enumeration": "6"
    },
    "solution": "PETREL",
+   "alteration": {
+    "from": "PETROL",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
    "annotation": {
     "definitions": [
      {
       "text": "what fuels you",
-      "at": 34,
-      "note": "defines petrol, the sound-alike of the grid answer"
+      "at": 34
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "spelt": "PETREL",
+     "op": "charade",
      "parts": [
       {
-       "words": "Favourite kind of sandwich mostly",
-       "gives": "PETROL",
-       "note": "PET is a favourite, and a ROLL, a kind of sandwich, loses its last letter"
+       "words": "Favourite",
+       "at": 0,
+       "gives": "PET",
+       "note": "a pet is a favourite, as in teacher's pet"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 27,
+         "note": "mostly means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kind of sandwich",
+         "at": 10,
+         "gives": "ROLL",
+         "note": "a roll is a filled bread roll, a kind of sandwich"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A favourite sandwich is what keeps you going.",
-     "walkthrough": "The across clues in this April Fool puzzle lead to words whose sound-alikes fill the grid: the clue makes PETROL, entered as PETREL, a seabird.",
-     "definitionFit": "Petrol is British for gasoline, the fuel that powers a car; 'you' here is a driver's car."
+     "surface": "A favourite sandwich is mostly what keeps someone going.",
+     "walkthrough": "The clue builds PETROL, which the puzzle's theme changes for the grid.",
+     "definitionFit": "Petrol is the fuel for a car, so it is what fuels you on the road."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "fuels"
+     "misdirectedWord": "sandwich"
     }
    }
   },
