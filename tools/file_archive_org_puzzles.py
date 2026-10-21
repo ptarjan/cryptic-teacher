@@ -5298,6 +5298,27 @@ for _paper, _pins in _TITLE_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before ocr_clues.read_words kept its
+#: readings on disk (WORDS_CACHE: a restarted read reads each crop once): an edit to code every
+#: paper's scan reaches that moves no reading, so the scans under the old keys stand.
+_WORDS_CACHE_FIX = {
+    'ft': ('f8fa782027006f36', 'd70116d5b4587cfb', '6f126cec76a9da34'),
+    'gale': ('d470e20725cfad05', '576a9788a8fc47e2', '3129653d3ea92bb6'),
+    'galeft': ('b91e60f0bf486bd0', '94aed6451a6413f7', 'e56475066ddb1198'),
+    'galeindependent': ('49e5aa898f77c900', '79254bacf6b39b92', '435c9cfc94ae8e79'),
+    'galesundaytimes': ('da64c98f54178a8c', '29ac688546d9bf23', 'ab29b4d8a0d49880'),
+    'galetelegraph': ('80896c9302ec7e7b', '747de3620207d8d7', '2710eb7f5728dfad'),
+    'galetls': ('cf369c2954aa9130', 'e310838465482ff7', 'ef730323537ce941'),
+    'guardian': ('34ed1a212a8cddc4', '2b7c3f6cc94d05e0', '3e8d1907b65b2142'),
+    'telegraph': ('df3912f16a91f7f5', 'e97d6b32e0954c12', '3e84c20d8749529a'),
+    'times': ('930dd842c679fca1', 'ed3db9056c358409', '6c00a2f34e6f42d7'),
+    'times1930': ('81aad3c2558f6560', 'd17fad46a07843fc', '37c08a1d050a7f0d'),
+}
+for _paper, _pins in _WORDS_CACHE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 
 
 def current_keys(paper):
