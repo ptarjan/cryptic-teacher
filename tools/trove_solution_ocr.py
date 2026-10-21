@@ -53,6 +53,12 @@ of a page) is read by read_framed instead:
      BVEREAT) or any cell (plain_swaps: BEEIZEBUB), and a sure read that is
      a listed word no other letter in its numbered cells makes another of
      (listed_reads: MOWGLI, not BINNER).
+  5. On a Times print (classify), a cell classifier trained on Times
+     solution grids reads every cell again, independently of the
+     recogniser: an accepted light it surely reads otherwise is dropped
+     (vetoed), and each light left is the listed() word its cells make
+     likeliest by CLASS_MARGIN, the accepted crossings' letters held
+     (classified_reads: STONECROP, read by the recogniser as STONECBAD).
 
 read_grid_letters reads a Listener report's filled grid the same way, on
 the lattice listener_grid finds and the lights of the puzzle's own grid.
@@ -737,7 +743,7 @@ def framings(gray, grid):
     return tried
 
 
-def read_framed(image, grid, bounded=False):
+def read_framed(image, grid, bounded=False, classify=False):
     """read_answers for an image that is the grid, read on each of its
     framings(). The lattice reading the most cells surely fits best (blocks
     read alike on a lattice half a cell off; letters do not): its accepted
@@ -746,7 +752,10 @@ def read_framed(image, grid, bounded=False):
     apart, two lattices cut a heavy print's letters differently, and each
     reads lights the other misses). Its "blocks" is the best framing's
     block_agreement. With `bounded`, a grid whose blocks read below
-    SURE_BLOCKS keeps only its bounded() lights."""
+    SURE_BLOCKS keeps only its bounded() lights. With `classify` (a Times
+    print, which the cell classifier was trained on) and blocks read at
+    SURE_BLOCKS, the classifier checks every accepted light (vetoed()) and
+    decodes the rest (classified_reads())."""
     gray = np.asarray(Image.open(image).convert("L"))
     framed = framings(gray, grid)
     reads = [read_lattice(g, ys, xs, grid) for g, ys, xs in framed]
@@ -787,6 +796,18 @@ def read_framed(image, grid, bounded=False):
         seen = blocks_read(lat[0], lat[1:], len(grid))
         accepted = {key: w for key, w in accepted.items()
                     if bounded_light(lts[key], key[1], seen, w, [p.get(key, ()) for p in printeds])}
+    more = {}
+    if classify and blocks >= SURE_BLOCKS:
+        # The classifier reads the best-fitting lattice's cells: an accepted
+        # light it surely reads otherwise is dropped, and the lights left are
+        # decoded from its letters.
+        g, ys, xs = lat
+        probs = classified({rc: glyph(g, ys, xs, *rc) for cells in lts.values() for rc in cells})
+        dropped = vetoed(lts, accepted, probs)
+        accepted = {k: w for k, w in accepted.items() if k not in dropped}
+        more = classified_reads(lts, accepted, probs)
+        accepted.update(more)
+        stats = {**stats, "vetoed": len(dropped), "classified": len(more)}
     return accepted, {**stats, "blocks": blocks, "accepted": len(accepted), "lattices": len(reads)}
 
 
@@ -1116,17 +1137,194 @@ def swapped_reads(lts, every, full, accepted, letters):
     return out
 
 
-def read_answers(image, grid, tight=False, bounded=False):
+# ------------------------------------------------------------ the cell classifier
+
+#: A second reader of a printed Times solution grid's cells, independent of
+#: RapidOCR's word recogniser: a small network trained on ~125k cells of
+#: Times solution grids (1940s-90s, Gale and archive.org scans), each cell's
+#: glyph() labelled by the answers read_framed accepted around it. The
+#: recogniser reads a heavy print's glyphs as their neighbours (STONECROP as
+#: STONECBAD, BREATHINGSPACE as BDEATHINGSPXCE), and each cell once, so no
+#: crossing catches it; the classifier, trained on these prints, reads them.
+CELL_MODEL = TOOLS / "data" / "solution_cells.npz"
+#: The model's sha256, so a retrained model is another solution_key().
+CELL_MODEL_SHA = "41c734a2d238f615f3853405c8dc4aa3ee58a620488f91f11aef16c496efbe8f"
+_CELLS = []
+
+
+def cell_model():
+    """The classifier's weights {name: float32 array}, checked against CELL_MODEL_SHA."""
+    if not _CELLS:
+        data = CELL_MODEL.read_bytes()
+        if hashlib.sha256(data).hexdigest() != CELL_MODEL_SHA:
+            raise ValueError(f"{CELL_MODEL.name} is not the model CELL_MODEL_SHA names")
+        import io
+        with np.load(io.BytesIO(data)) as z:
+            _CELLS.append({k: z[k].astype(np.float32) for k in z.files})
+    return _CELLS[0]
+
+
+def classified(glyphs):
+    """{cell: 26 letter probabilities} for {cell: glyph()}: the mean of the
+    network's softmax over the nine GLYPH crops within a pixel of the middle."""
+    if not glyphs:
+        return {}
+    m = cell_model()
+    keys = list(glyphs)
+    # Cut to a byte first, as the training glyphs were stored.
+    g = (np.stack([glyphs[k] for k in keys]) * 255).astype(np.uint8).astype(np.float32) / 255
+    out = 0
+    for dy in (GLYPH_SHIFT - 1, GLYPH_SHIFT, GLYPH_SHIFT + 1):
+        for dx in (GLYPH_SHIFT - 1, GLYPH_SHIFT, GLYPH_SHIFT + 1):
+            x = g[:, dy:dy + GLYPH, dx:dx + GLYPH].reshape(len(keys), -1) - 0.25
+            h = np.maximum(0, x @ m["w1"] + m["b1"])
+            h = np.maximum(0, h @ m["w2"] + m["b2"])
+            z = h @ m["w3"] + m["b3"]
+            z = np.exp(z - z.max(1, keepdims=True))
+            out = out + z / z.sum(1, keepdims=True)
+    return dict(zip(keys, out / 9))
+
+
+_BY_LENGTH = {}
+
+
+def listed_of(n):
+    """(words, letter-index array) of the listed() words of `n` letters."""
+    if not _BY_LENGTH:
+        listed("A")
+        words = {w.upper() for w in wordnet()} | _LISTED | set(corpus_words())
+        by = {}
+        for w in words:
+            if w.isascii() and w.isalpha():
+                by.setdefault(len(w), []).append(w)
+        for k, ws in by.items():
+            ws.sort()
+            _BY_LENGTH[k] = (ws, np.array([[AZ.index(c) for c in w] for w in ws], np.int8))
+    return _BY_LENGTH.get(n, ([], np.zeros((0, n), np.int8)))
+
+
+#: A light is decoded as the listed() word its cells' probabilities make
+#: likeliest only by CLASS_MARGIN (log odds) over every other listed word
+#: the accepted crossings leave, each of its letters at least CLASS_FLOOR
+#: likely in its cell.
+CLASS_MARGIN, CLASS_FLOOR = np.log(1000), 0.01
+
+
+def decoded(cells, probs, held):
+    """(word, margin) of the light on `cells` as decoded(): the likeliest
+    listed() word agreeing with `held` ({cell: letter}), and its log-odds
+    margin over the next; (None, 0) when no word agrees."""
+    ws, arr = listed_of(len(cells))
+    ok = np.ones(len(ws), bool)
+    score = np.zeros(len(ws))
+    for i, rc in enumerate(cells):
+        if rc in held:
+            ok &= arr[:, i] == AZ.index(held[rc])
+        else:
+            score += np.log(np.maximum(probs[rc][arr[:, i]], 1e-12))
+    idx = np.nonzero(ok)[0]
+    if not len(idx):
+        return None, 0.0
+    sc = score[idx]
+    order = np.argsort(-sc)
+    second = sc[order[1]] if len(order) > 1 else -np.inf
+    return ws[idx[order[0]]], float(sc[order[0]] - second)
+
+
+def classified_reads(lts, accepted, probs):
+    """{key: word} for lights not `accepted` the classifier's `probs`
+    ({cell: 26 probabilities}) decode by CLASS_MARGIN, each letter at least
+    CLASS_FLOOR likely: the light with the widest margin is taken first and
+    its letters hold for its crossings, until none decodes."""
+    have, out, memo = dict(accepted), {}, {}
+    while True:
+        held = {rc: ch for k, w in have.items() for rc, ch in zip(lts[k], w)}
+        best = None
+        for key, cells in lts.items():
+            if key in have or any(rc not in probs for rc in cells) or all(rc in held for rc in cells):
+                continue
+            pattern = tuple(held.get(rc) for rc in cells)
+            if memo.get(key, (None,))[0] != pattern:
+                memo[key] = (pattern, decoded(cells, probs, held))
+            word, margin = memo[key][1]
+            if word is None or margin < CLASS_MARGIN:
+                continue
+            # Every letter, a held crossing's too: an accepted light the
+            # recogniser misread (TIRINGS for TIDINGS) pins no new light
+            # (PREFERRER for PREFERRED) through a cell the classifier reads
+            # otherwise.
+            if any(probs[rc][AZ.index(ch)] < CLASS_FLOOR for rc, ch in zip(cells, word)):
+                continue
+            if best is None or margin > best[0]:
+                best = (margin, key, word)
+        if best is None:
+            return out
+        have[best[1]] = out[best[1]] = best[2]
+
+
+#: The log odds by which the classifier must read an accepted light's cells
+#: as another listed() word, or (for a word not listed: a run-together)
+#: as its own likeliest letters, and by which a crossing light not accepted
+#: must decode (decoded(), the other accepted lights held) to a letter
+#: contradicting it, for the light to be dropped (vetoed). Either alone drops
+#: correct lights (a light's own cells: UNION, SINAI, RECOUNTS on a 1974
+#: print, up to e^38; a crossing alone: up to a sole fit), both together
+#: none of 993 on 44 model-solved prints (5 of the recogniser's 25 misreads
+#: dropped), each puzzle scored by a model that never saw it.
+VETO_MARGIN = np.log(100)
+
+
+def likelihood(cells, probs, word):
+    """The log likelihood of `word` in `cells` by the classifier's `probs`."""
+    return float(sum(np.log(max(probs[rc][AZ.index(ch)], 1e-12)) for rc, ch in zip(cells, word)))
+
+
+def vetoed(lts, accepted, probs):
+    """The keys of `accepted` lights the classifier reads otherwise, each on
+    its own cells, by VETO_MARGIN: as another listed() word (a 1970s Gale
+    print's recogniser accepted BISHER for FISHER, BLIP for CLIP, HOWLER for
+    BOWLER), or, for a word not listed (a run-together: A + TILTS for STILTS,
+    BASSING + BUT for PASSINGOUT), as its likeliest letter in each cell; and
+    some crossing light not accepted decodes, the other accepted lights held,
+    by VETO_MARGIN to a letter in a shared cell other than the light's."""
+    out = set()
+    where = {}
+    for key, cells in lts.items():
+        for i, rc in enumerate(cells):
+            where.setdefault(rc, []).append((key, i))
+    for key, word in accepted.items():
+        cells = lts[key]
+        if any(rc not in probs for rc in cells):
+            continue
+        own = likelihood(cells, probs, word)
+        if listed(word):
+            rival, _ = decoded(cells, probs, {})
+            if not rival or rival == word or likelihood(cells, probs, rival) - own < VETO_MARGIN:
+                continue
+        elif sum(float(np.log(max(probs[rc].max(), 1e-12))) for rc in cells) - own < VETO_MARGIN:
+            continue
+        held = {rc: ch for k, w in accepted.items() if k != key for rc, ch in zip(lts[k], w)}
+        for i, rc in enumerate(cells):
+            crossed = [(k, j) for k, j in where[rc] if k != key and k not in accepted
+                       and all(c in probs for c in lts[k])]
+            if any(w2 and w2[j] != word[i] and mg >= VETO_MARGIN
+                   for (k, j) in crossed for w2, mg in [decoded(lts[k], probs, held)]):
+                out.add(key)
+                break
+    return out
+
+
+def read_answers(image, grid, tight=False, bounded=False, classify=False):
     """({(number, direction): answer} accepted, stats) for a solution image
     and the puzzle's grid (rows of "#" and ".").
 
     With `tight` (the image is the grid, frame to frame) it is read_framed
-    (`bounded` passed on).
+    (`bounded` and `classify` passed on).
     Else cells are read by read_lights and sure_letters. A light is accepted when every one of its cells is read, some
     recogniser read the light itself as exactly that word, and the word is
     known()."""
     if tight:
-        return read_framed(image, grid, bounded)
+        return read_framed(image, grid, bounded, classify)
     gray = np.asarray(Image.open(image).convert("L"))
     lat = lattice(gray, len(grid), tight)
     lts = lights(grid)

@@ -562,6 +562,8 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_cross_validate.py", "does tools/cross_validate.py name each way two copies of a puzzle differ?"),
     ("tables everything else reads", "tools/test_clue_counts.py", "does a clue that carries its own letter count, or a stray letter, get refused?"),
     ("tables everything else reads", "tools/trove_solution_ocr.py", "read a Canberra Times puzzle's answers off the paper's printed solution grid"),
+    ("fetching", "tools/solution_cells.py", "harvest labelled cell glyphs off printed Times solution grids and train trove_solution_ocr's cell classifier on them"),
+    ("fetching", "tools/data/solution_cells.npz", "the cell classifier's weights (float16, 1024-384-128-26) that read a Times solution grid's letters again beside RapidOCR; trove_solution_ocr.CELL_MODEL_SHA pins it, tools/solution_cells.py trains it"),
     ("tables everything else reads", "tools/file_georgeho_puzzles.py", "file the puzzles only georgeho's ODbL clue database holds into puzzles/"),
     ("tables everything else reads", "tools/test_file_georgeho_puzzles.py", "does tools/file_georgeho_puzzles.py read georgeho's rows into the record the grid rebuild and file_blog_puzzles.build take?"),
     ("tables everything else reads", "tools/fetch_archive_org_editions.py", "fetch archive.org newspaper editions' OCR, word positions and crossword page scans"),

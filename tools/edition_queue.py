@@ -1057,7 +1057,7 @@ def by_urgency(units):
 #: they are the rereads that can file. Other rank 2 reasons ("inputs changed",
 #: "titles changed", ...) are held behind them unless likely_gain > 0.
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
-              "read without the VLM", "unfiled before its fix")
+              "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix")
 
 
 def files_likely_tier(rank, unit):
