@@ -2994,7 +2994,8 @@ function blogSidecars() {
         `${m.words.length} words — a gap sits somewhere that is not a word end`);
       split++;
     }
-    assert(split > 5, "broken rings actually drawn: " + split);
+    // A 50-puzzle sample can hold only a handful: the floor is enough()'s, as above.
+    assert(enough(split, 5), "broken rings actually drawn: " + split);
   }
 
   // --- typing edits the ring: a letter adds a tile, Backspace removes the
