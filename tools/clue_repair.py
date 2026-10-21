@@ -311,6 +311,20 @@ def _fold(word):
     return re.sub(r"[^a-z0-9']", "", unicodedata.normalize("NFKD", word.lower()).encode("ascii", "ignore").decode())
 
 
+def _unglue(mine, theirs):
+    """`theirs` (a reading's words) with a word that is two adjacent words of the filed clue
+    `mine` run together ("Springyour," for "Spring your") split back into them: a lost space
+    is no other word's difference."""
+    out = []
+    for word in theirs:
+        i = len(out)
+        if i + 1 < len(mine) and _fold(word) and _fold(word) == _fold(mine[i]) + _fold(mine[i + 1]):
+            out += mine[i:i + 2]
+        else:
+            out.append(word)
+    return out
+
+
 def slip_of(filed, reading, is_word=None):
     """Whether `reading` is the filed clue `filed` with one word's own slip: the same words, all
     alike (accents and marks aside) but one, which is a letter lost, added or changed in the
@@ -322,6 +336,7 @@ def slip_of(filed, reading, is_word=None):
     if is_word is None:
         is_word = lexicon()[0]
     mine, theirs = (filed or "").split(), (reading or "").split()
+    theirs = _unglue(mine, theirs)
     if len(mine) != len(theirs):
         return False
     odd = [(a, b) for a, b in zip(mine, theirs) if _fold(a) != _fold(b)]

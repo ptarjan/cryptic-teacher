@@ -165,6 +165,7 @@ import subprocess
 import sys
 import threading
 import time
+import unicodedata
 import urllib.parse
 import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
@@ -3870,8 +3871,8 @@ OCR_CONFIRM = 2
 
 
 def words_of(text):
-    """A clue's letters and digits, lower case, for comparing readings."""
-    return re.sub(r"[^a-z0-9]+", "", (text or "").lower())
+    """A clue's letters and digits, lower case, accents folded, for comparing readings."""
+    return re.sub(r"[^a-z0-9]+", "", unicodedata.normalize("NFKD", (text or "").lower()))
 
 
 #: A clue's last word that a cross-reference or more words must follow: a clue every reader
