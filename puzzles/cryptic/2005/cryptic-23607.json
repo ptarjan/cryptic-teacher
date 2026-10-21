@@ -49,49 +49,71 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DISTRICTNURSE",
-     "indicators": [
-      {
-       "text": "backed",
-       "note": "something backed has been sent the other way, so its letters run in reverse"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "DISTRICTNURSE",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "to be about something is to surround it, so one piece goes around others"
+         "text": "backed",
+         "at": 17,
+         "note": "backed means written backwards, so the letters of I'd are turned round"
         }
        ],
        "parts": [
         {
          "words": "I'd",
-         "note": "I'd written without the apostrophe"
+         "at": 13,
+         "gives": "ID",
+         "note": "taken as written, without the apostrophe"
+        }
+       ]
+      },
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "separate",
+         "at": 52,
+         "note": "separate says the two compass points are parted, so the second one shifts away from the first inside the criticism"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 46,
+           "note": "about means going around, so the criticism wraps the compass points"
+          }
+         ],
+         "parts": [
+          {
+           "words": "severe criticism",
+           "at": 29,
+           "gives": "STRICTURE",
+           "note": "a stricture is a severe criticism or censure"
+          },
+          {
+           "words": "points",
+           "at": 61,
+           "gives": "NS",
+           "note": "points are compass points: N for north and S for south"
+          }
+         ]
         },
         {
-         "words": "severe criticism",
-         "gives": "STRICTURE",
-         "note": "a stricture is a sharp critical remark"
-        },
-        {
-         "words": "separate points",
-         "gives": "NS",
-         "note": "two compass points, north and south, slotted in at different places"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A council's local tender, retracted after harsh criticism over a few disputed points.",
-     "walkthrough": "'Tender' looks like a contract bid but is one who tends the sick. 'Separate' tells you the two compass points do not go in side by side but at different places.",
-     "definitionFit": "A British community nurse visits patients at home within an assigned area, so she is a carer attached to one locality."
+     "surface": "Someone describes a local who was tender-hearted but harshly criticised for some divided opinions.",
+     "walkthrough": "'about' puts the compass points N and S inside STRICTURE, after STRICT; 'separate' then parts them, sending S on past UR. A district nurse visits patients at home.",
+     "definitionFit": "A district nurse is a community nurse who tends patients in their own homes within a local area."
     },
     "features": {
      "answerInScene": false,
@@ -801,46 +823,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EPITAPHER",
+     "op": "composite",
      "indicators": [
       {
-       "text": "no point",
-       "note": "having no point means losing a compass letter, so one is taken away"
+       "text": "no",
+       "at": 23,
+       "note": "no tells us one letter is missing from the letters to be rearranged"
+      },
+      {
+       "text": "problem",
+       "at": 48,
+       "note": "a problem leaves things in disorder, so the letters are worked into a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "problem",
-         "note": "a problem is a tangle to be worked out, so the letters are jumbled"
-        }
-       ],
-       "parts": [
-        {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "three",
-         "gives": "THRE",
-         "note": "one E, east, is dropped"
-        },
-        {
-         "words": "pipe",
-         "note": "taken as written"
-        }
-       ]
+       "words": "a three-pipe",
+       "at": 35,
+       "note": "the phrase taken as written, Sherlock Holmes's description of a hard case"
+      },
+      {
+       "words": "point",
+       "at": 26,
+       "gives": "E",
+       "note": "E, east, is a compass point"
       }
      ]
     },
     "explanation": {
-     "surface": "Sherlock Holmes called a puzzling case 'a three-pipe problem'; here a gravestone writer stumbles on one.",
-     "walkthrough": "The Holmes allusion is a decoy: 'a three-pipe' loses one E (east, a compass point) and the rest is rearranged.",
-     "definitionFit": "An epitapher composes epitaphs, the memorial inscriptions carved on graves and monuments."
+     "surface": "Sherlock Holmes called a hard case a three-pipe problem; here the writer of a gravestone is found within one.",
+     "walkthrough": "The letters of A THREE PIPE, with one E (a compass point) taken away by 'no', are rearranged by 'problem'. A three-pipe problem is Holmes's term for a puzzle needing three pipes of tobacco to solve.",
+     "definitionFit": "An epitapher composes epitaphs, the memorial inscriptions carved on gravestones."
     },
     "features": {
      "answerInScene": false,
