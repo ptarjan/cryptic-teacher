@@ -4271,7 +4271,7 @@ def clean_inside(cands, enum):
     return None
 
 
-def vlm_pick(texts, laid, blank, parse, pick):
+def vlm_pick(texts, laid, blank, parse, pick, lengths=None):
     """(laid, blank) with each clue reconcile() filed blank read by the VLM
     (tools/vlm_reader.py): `pick(light, candidates)` is its text for the
     clue, shown every reading's text for it (the VLM's own column reading
@@ -4285,7 +4285,10 @@ def vlm_pick(texts, laid, blank, parse, pick):
         cands = candidates(texts, lid, parse)
         if not cands:
             continue
-        own = settled_by_vlm(texts, lid, parse, cands, laid[lid][1]) or clean_inside(cands, laid[lid][1]) \
+        # A light no reader laid has no count of its own: the grid's `lengths` give it one (FT
+        # 1981-10-19: 14 of the 16 picks were for lights with none, so the worn-page rule never ran).
+        enum = laid[lid][1] or (str(lengths[lid]) if lengths and lengths.get(lid) else None)
+        own = settled_by_vlm(texts, lid, parse, cands, enum) or clean_inside(cands, laid[lid][1]) \
             or agreed_past_footer(cands, laid[lid][1])
         if own is not None:
             got = trimmed(held(clean(strip_count(own)), cands), lid)
