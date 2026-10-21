@@ -131,41 +131,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CITRON",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter of the word for a hag is dropped"
+       "text": "swallows",
+       "at": 21,
+       "note": "swallows means the shortened word takes the next piece inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "swallows",
-         "note": "to swallow is to take something inside, so one piece goes into the other"
+         "text": "almost",
+         "at": 14,
+         "note": "almost means the word loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "a hag",
-         "gives": "CRON",
-         "note": "a crone is a hag; almost all of it is kept"
+         "words": "hag",
+         "at": 10,
+         "gives": "CRONE",
+         "note": "a crone is an ugly old woman, a hag"
         },
         {
-         "words": "it",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 30
       }
      ]
     },
     "explanation": {
-     "surface": "An old witch gobbling a piece of fruit.",
-     "definitionFit": "The citron is a large lemon-like citrus fruit whose thick peel is often candied."
+     "surface": "A witch in a story gulps down a piece of fruit.",
+     "definitionFit": "A citron is a large lemon-like citrus fruit with a thick rind."
     },
     "features": {
      "answerInScene": true,
@@ -462,55 +466,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "back tells us to read the combined letters from right to left"
+       "text": "Put",
+       "at": 0,
+       "note": "Put ... in tells us to place the duck inside the reversed letters"
+      },
+      {
+       "text": "in",
+       "at": 14,
+       "note": "with Put, in signals that one piece goes inside another"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 9,
+         "note": "back means the words pot for are read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "pot",
-         "note": "taken as written"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "Put",
-           "note": "to put one thing in another is to place it inside"
-          }
-         ],
-         "parts": [
-          {
-           "words": "for",
-           "note": "taken as written"
-          },
-          {
-           "words": "duck",
-           "gives": "O",
-           "note": "a duck is a score of nought in cricket, shaped like O"
-          }
-         ]
+         "words": "pot, for",
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "duck",
+       "at": 4,
+       "gives": "O",
+       "note": "a duck is a score of nothing in cricket, so the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A cooking instruction to return the duck to the pot.",
-     "walkthrough": "The duck goes into 'pot, for' between the O and R, and the whole string is then read backwards; 'for' looks like a link word but is part of the letters.",
-     "definitionFit": "A rooftop is the top of a building, quite literally sitting on the house; 'on the house' also hints at something free."
+     "surface": "A cook returns a duck to the pot, as the meal is free of charge.",
+     "walkthrough": "'back' turns POT FOR into ROFTOP; 'Put ... in' places O (a cricket duck, zero) inside it. 'on the house' looks like the idiom for free, but it is literal.",
+     "definitionFit": "The rooftop is the top of a building, literally sitting on the house."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "for"
+     "misdirectedWord": "house"
     }
    }
   },

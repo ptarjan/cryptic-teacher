@@ -768,32 +768,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "frisky",
-       "note": "a frisky animal jumps about, so the letters of the word beside it move around"
-      },
-      {
-       "text": "animated",
-       "note": "animated means lively and moving, so these letters are jumbled too"
+       "text": "in",
+       "at": 26,
+       "note": "in means the first jumble goes inside the second"
       }
      ],
      "parts": [
       {
-       "words": "lamb",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "animated",
+         "at": 29,
+         "note": "animated means lively, so scene is jumbled too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scene",
+         "at": 38
+        }
+       ]
       },
       {
-       "words": "scene",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "frisky",
+         "at": 14,
+         "note": "frisky means lively and playful, so lamb is jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lamb",
+         "at": 21
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A playful lamb shows up in a cartoon.",
-     "walkthrough": "Both words are mixed together; 'animated' suggests a cartoon but works as a second signal for rearranging.",
-     "definitionFit": "A semblance is an outward look or show of something, often a mere outward impression."
+     "surface": "A lively lamb shows up in a cartoon scene.",
+     "walkthrough": "Both words are jumbled, each by its own signal, and one goes inside the other.",
+     "definitionFit": "A semblance is an outward look or show of something, an appearance."
     },
     "features": {
      "answerInScene": false,
