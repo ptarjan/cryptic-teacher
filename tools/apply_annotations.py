@@ -340,10 +340,35 @@ def landed(ann, entry, entries, eid, errors):
     as "<eid>: why" (None back)."""
     import wordplay
     try:
-        return normalize(ann, entry, entries)
+        return repair_pool_gap(normalize(ann, entry, entries), entry)
     except wordplay.WordplayError as e:
         errors.append(f"{eid}: {e}")
     return None
+
+
+def repair_pool_gap(new, entry):
+    """`new` with its poolGap (an anagram pool read across words the anagram does not gather)
+    mended by the shape sweep's own poolGap repair, when that clears it and the tree still
+    gives the answer; else `new` as it was. The model never sees a fault the fixer owns."""
+    wp = new.get("wordplay") if isinstance(new, dict) else None
+    clue = (entry.get("clue") or {}).get("text", "")
+    if not isinstance(wp, dict) or not clue:
+        return new
+    try:
+        import fix_shape_suspects as F
+        import validate_annotations as V
+        import wordplay
+        if not V.pool_gaps(wp, clue):
+            return new
+        fixed, used = F.repair_tree(wp, clue, entry.get("solution"), {"poolGap": F.RULE_REPAIRS["poolGap"]})
+        if not used:
+            return new
+        fixed = wordplay.normalize(fixed, clue, entry.get("solution", ""))[0]
+        if V.pool_gaps(fixed, clue):
+            return new
+        return {**new, "wordplay": fixed}
+    except Exception:
+        return new
 
 
 def keep_spelling(new, entry, was):
