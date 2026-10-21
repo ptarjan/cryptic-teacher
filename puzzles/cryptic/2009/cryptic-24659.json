@@ -1256,21 +1256,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Cockney semi",
-       "gives": "ALF",
-       "note": "semi means half, which a Cockney says without its H"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cockney",
+         "at": 0,
+         "note": "a Cockney speaker drops the H at the start of words, so the leading H of the word for semi goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "semi",
+         "at": 8,
+         "gives": "HALF",
+         "note": "semi- means half"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
        "words": "embarrassed",
+       "at": 13,
        "gives": "RED",
-       "note": "an embarrassed face goes red"
+       "note": "an embarrassed person goes red in the face"
       }
      ]
     },
     "explanation": {
-     "surface": "A Londoner who is half embarrassed.",
-     "walkthrough": "Cockney speech, the working-class London accent, drops the initial H. Alfred the Great was the 9th-century king of Wessex who fought the Vikings.",
-     "definitionFit": "Alfred the Great, Anglo-Saxon king of Wessex, is the only English monarch traditionally called Great."
+     "surface": "A Londoner from the East End admits to feeling a bit sheepish.",
+     "walkthrough": "As the preamble says, this answer is one of the 'Greats' (17 across) and has no definition: the clue is all wordplay. The hyphen in 'semi-embarrassed' hides that 'semi' is a separate piece of wordplay.",
+     "definitionFit": "Alfred the Great was the ninth-century king of Wessex who fought off the Viking invaders."
     },
     "features": {
      "answerInScene": false,
@@ -1487,56 +1504,57 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "GERIATRIC",
      "indicators": [
       {
        "text": "with difficulty",
-       "note": "doing a thing with difficulty suggests struggle and disorder, so these letters are rearranged"
+       "at": 25,
+       "note": "letters arranged only with difficulty are being forced into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "GERIATRIC",
        "indicators": [
         {
          "text": "losing",
-         "note": "losing something means it goes missing, so that letter is dropped"
+         "at": 42,
+         "note": "losing means the letter for pounds is taken out of girl"
         }
        ],
        "parts": [
         {
          "words": "girl",
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
-         "words": "cater",
-         "note": "taken as written"
+         "at": 12,
+         "note": "taken as written, then cut to GIR"
         },
         {
          "words": "pounds",
+         "at": 49,
          "gives": "L",
          "note": "L is the abbreviation for pounds sterling, from Latin libra"
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 17
+      },
+      {
+       "words": "cater",
+       "at": 19,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone struggles to feed an elderly woman while cutting costs.",
-     "walkthrough": "'Old girl' looks like one phrase, but 'For the old' is the definition and 'girl' is raw material. The letter dropped comes out before the rest is rearranged.",
-     "definitionFit": "Geriatric relates to the care of elderly people, as in geriatric medicine, so it describes what is meant for them."
+     "surface": "Someone struggles to cook for an elderly woman on a budget that has run short of money.",
+     "walkthrough": "'losing pounds' takes L from GIRL to leave GIR; 'with difficulty' then rearranges GIR + I + CATER.",
+     "definitionFit": "Geriatric care and medicine are the branch dealing with elderly people, so geriatric means for the aged."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "girl"
+     "misdirectedWord": "pounds"
     }
    }
   },
