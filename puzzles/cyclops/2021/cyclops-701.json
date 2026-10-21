@@ -250,60 +250,58 @@
        "indicators": [
         {
          "text": "away",
-         "note": "something sent away is no longer present, so those letters are removed"
+         "at": 31,
+         "note": "away means the reversed letters are taken out of the surname before it"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Clinton",
-           "note": "taken as written"
-          },
-          {
-           "words": "not",
-           "note": "taken as written, then read backwards"
-          }
-         ]
+         "words": "Clinton",
+         "at": 12,
+         "note": "the former US president's surname, taken as written"
         },
         {
-         "gives": "TONNOT"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned",
+           "at": 24,
+           "note": "turned means the word not is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "not",
+           "at": 20,
+           "gives": "NOT"
+          }
+         ]
         }
        ]
       },
       {
        "words": "one",
+       "at": 39,
        "gives": "I",
-       "note": "the Roman numeral for one"
+       "note": "I is the Roman numeral for one"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "turned",
-         "note": "turned round means facing the other way, so the word is read backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "state",
-         "gives": "LAC",
-         "note": "Cal is a short form for California"
-        }
-       ]
+       "words": "state",
+       "at": 43,
+       "gives": "CAL",
+       "note": "Cal is an abbreviation for California, a US state"
       }
      ]
     },
     "explanation": {
-     "surface": "Coldly, a Clinton is not dismissed by voters in one particular state.",
-     "walkthrough": "'Not turned away' reads as 'not rejected', but it splits: the reversed word is taken out of the surname. Cal is the familiar abbreviation for California.",
-     "definitionFit": "Clinical behaviour is detached and efficient, coolly lacking any warmth or feeling."
+     "surface": "A cold Clinton refuses to be sent away by a single state.",
+     "walkthrough": "The surface reads 'not turned away' as a refusal to be rejected; split it, and 'not turned' is a piece that 'away' strips from the president's name.",
+     "definitionFit": "A clinical manner is detached and coolly efficient, showing no feeling at all."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "not"
+     "misdirectedWord": "turned"
     }
    }
   },
