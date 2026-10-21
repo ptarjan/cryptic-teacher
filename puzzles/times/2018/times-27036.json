@@ -532,40 +532,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "withdrawal",
-       "note": "a withdrawal draws back, so the police come in backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "withdrawal of",
+         "at": 10,
+         "note": "'withdrawal' suggests drawing back, so the police letters are read in the opposite direction"
+        }
+       ],
        "parts": [
         {
-         "words": "Cheers",
-         "gives": "AT",
-         "note": "ta is British slang for thanks"
-        },
-        {
          "words": "police",
+         "at": 24,
          "gives": "CID",
-         "note": "CID, the British Criminal Investigation Department, reversed"
+         "note": "CID is the Criminal Investigation Department, the British plain-clothes police"
         }
        ]
+      },
+      {
+       "words": "Cheers",
+       "at": 0,
+       "gives": "TA",
+       "note": "TA is British slang for thanks, like cheers"
       }
      ]
     },
     "explanation": {
-     "surface": "People cheer as the police pull back, and statements are issued.",
-     "walkthrough": "'Police statements' looks like one phrase, but 'statements' alone is the definition; TA comes after the reversed CID, as 'on' says.",
-     "definitionFit": "Latin plural of dictum, used in English for formal pronouncements, especially a judge's remarks."
+     "surface": "People toast the police being pulled off a case.",
+     "walkthrough": "In Britain 'cheers' and 'ta' both mean thank you.",
+     "definitionFit": "Dicta are pronouncements or formal remarks, the plural of dictum."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "police"
+     "misdirectedWord": "Cheers"
     }
    }
   },
@@ -763,41 +766,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RABBINICAL",
-     "indicators": [
-      {
-       "text": "Short",
-       "note": "a short RABBIT is cut off before its last letter"
-      },
-      {
-       "text": "no end",
-       "note": "LACING with no end loses its final G"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "'Short' cuts off the final letter of the slang word"
+        }
+       ],
        "parts": [
         {
          "words": "talk",
-         "gives": "RABBI",
-         "note": "to rabbit is British slang for to talk on and on; RABBIT without its T"
+         "at": 6,
+         "gives": "RABBIT",
+         "note": "rabbit is British slang for talk (from rhyming slang rabbit and pork)"
         },
         {
-         "op": "reversal",
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 17,
+         "note": "in a down clue 'up' reads the shortened word from the bottom, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "up",
-           "note": "in a down clue, up means the letters read bottom to top"
+           "text": "no end",
+           "at": 20,
+           "note": "'no end' drops the last letter of the word for tying"
           }
          ],
          "parts": [
           {
            "words": "tying",
-           "gives": "LACIN",
-           "note": "tying = LACING, less its end G"
+           "at": 11,
+           "gives": "LACING",
+           "note": "lacing means tying, as with shoelaces"
+          },
+          {
+           "gives": "G"
           }
          ]
         }
@@ -806,12 +825,12 @@
      ]
     },
     "explanation": {
-     "surface": "A brief address that ties up the loose ends of the priests' business.",
-     "walkthrough": "'Tying up' reads as one phrase meaning finishing, but 'tying' is LACING and 'up' flips it.",
-     "definitionFit": "Rabbinical means relating to rabbis, Jewish religious teachers, loosely called priests here."
+     "surface": "A brief chat ties up all but the end of some clergy.",
+     "walkthrough": "To rabbit (on) is British slang for chatter. LACIN read upward gives NICAL.",
+     "definitionFit": "Rabbinical means relating to rabbis, the Jewish religious teachers who serve as clergy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "tying"
     }
@@ -1029,21 +1048,33 @@
      "indicators": [
       {
        "text": "Cook",
-       "note": "to cook letters is to cook the books, doctoring them"
+       "at": 0,
+       "note": "'Cook' as a verb means to fiddle or rework, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "comparing skinned",
-       "gives": "OMPARIN",
-       "note": "COMPARING without its outer C and G"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "skinned",
+         "at": 15,
+         "note": "'skinned' strips the outer letters, the skin, from the word comparing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "comparing",
+         "at": 5
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook peels and compares the vegetables for a salad.",
-     "walkthrough": "'Cook' sits beside 'salad' as the kitchen worker, but it is the anagram signal.",
-     "definitionFit": "Rampion is a bellflower whose roots and leaves were once eaten in salads."
+     "surface": "A chef is weighing up peeled vegetables for a salad.",
+     "walkthrough": "Remove C and G from COMPARING to get OMPARIN, then rearrange.",
+     "definitionFit": "Rampion is a bellflower whose roots and leaves were once eaten raw as a salad vegetable."
     },
     "features": {
      "answerInScene": true,

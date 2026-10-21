@@ -219,46 +219,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "both unfinished",
+       "at": 17,
+       "note": "'both unfinished' takes the final letter from each of the two words"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "both unfinished",
-         "note": "something unfinished lacks its ending, so each word drops its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Cowshed",
+         "at": 0,
          "gives": "BYRE",
          "note": "a byre is a cowshed"
         },
         {
-         "gives": "E"
+         "words": "shelved",
+         "at": 8,
+         "gives": "ONICE",
+         "note": "a plan that is shelved is put on ice"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "shelved",
-         "gives": "ONICE",
-         "note": "a plan that is shelved is put on ice"
-        },
-        {
-         "gives": "E"
-        }
-       ]
+       "gives": "EE"
       }
      ]
     },
     "explanation": {
-     "surface": "A cowshed project has been shelved, left half-done, and its owner broods.",
-     "walkthrough": "BYRE loses its E and ON ICE loses its E, then the two stumps join.",
-     "definitionFit": "Byronic describes the brooding, passionate hero typical of the poet Lord Byron and his writing."
+     "surface": "A cowshed project is put aside, half done, and someone is gloomy about it.",
+     "definitionFit": "Byronic describes a brooding, passionate temperament like that of the poet Lord Byron."
     },
     "features": {
      "answerInScene": false,
@@ -910,49 +904,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SEMICONDUCTORS",
+     "op": "composite",
      "indicators": [
       {
        "text": "cracked",
-       "note": "something cracked is broken apart, so the letters are rearranged"
+       "at": 22,
+       "note": "'cracked' means broken up, so the letters are rearranged"
+      },
+      {
+       "text": "losing",
+       "at": 57,
+       "note": "'losing' means one letter goes from the mixed-up pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SEMICONDUCTORS",
-       "indicators": [
-        {
-         "text": "losing",
-         "note": "whatever is lost is taken away, so a letter drops out"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "on some circuits",
-         "note": "taken as written"
+         "words": "on",
+         "at": 30
+        },
+        {
+         "words": "some",
+         "at": 33
+        },
+        {
+         "words": "circuits",
+         "at": 38
         },
         {
          "words": "died",
-         "gives": "D",
-         "note": "D is the abbreviation for died"
-        },
-        {
-         "words": "current",
-         "gives": "I",
-         "note": "I is the physics symbol for electric current"
+         "at": 51,
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "current",
+       "at": 64,
+       "gives": "I",
+       "note": "I is the symbol for electric current in physics"
       }
      ]
     },
     "explanation": {
-     "surface": "Parts on some circuit boards cracked and failed after the power went off.",
-     "walkthrough": "Add D to the three words, take away one I, and shuffle what remains. The electrical surface makes 'current' look literal.",
-     "definitionFit": "Semiconductors are materials such as silicon used to make transistors and chips, basic parts of electronic devices."
+     "surface": "Some electrical parts broke when wired into circuits and failed, the power cutting out.",
+     "walkthrough": "The letters of ON SOME CIRCUITS plus D, with one I removed, rearrange to give the answer.",
+     "definitionFit": "Semiconductors are materials such as silicon used to build chips and transistors in electronics."
     },
     "features": {
      "answerInScene": true,

@@ -746,42 +746,32 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NIRVANA",
      "indicators": [
       {
        "text": "during",
-       "note": "during means in the middle of, so one piece sits inside the other"
+       "at": 10,
+       "note": "'during' puts the vehicle inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "storm",
-         "note": "a storm throws things about, so the preceding letters are scrambled"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Transport",
-         "gives": "VAN",
-         "note": "a van is a means of transport"
-        },
-        {
-         "words": "rainstorm",
-         "gives": "NIRA",
-         "note": "the first four letters are rearranged, the rest of the word signals it"
-        }
-       ]
+       "words": "rainstorm",
+       "at": 17,
+       "gives": "NIRA",
+       "note": "rain storm: the word rain is stormed, thrown into disorder, giving these letters"
+      },
+      {
+       "words": "Transport",
+       "at": 0,
+       "gives": "VAN",
+       "note": "a van is a vehicle, a means of transport"
       }
      ]
     },
     "explanation": {
-     "surface": "Getting a lift during a downpour feels like paradise.",
-     "walkthrough": "'Rainstorm' looks like one word but splits into fodder and indicator.",
-     "definitionFit": "Nirvana is the Buddhist state of perfect bliss, used generally for paradise."
+     "surface": "Getting a lift in a downpour feels like bliss.",
+     "walkthrough": "'rainstorm' reads as one weather word, but it splits into RAIN and 'storm', the signal to shuffle it.",
+     "definitionFit": "Nirvana is the Buddhist state of perfect peace, used loosely for paradise or bliss."
     },
     "features": {
      "answerInScene": false,
@@ -935,49 +925,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DEXTEROUS",
+     "op": "composite",
      "indicators": [
       {
        "text": "Ragged",
-       "note": "ragged means torn and disordered, so the letters are rearranged"
+       "at": 0,
+       "note": "'Ragged' suggests tattered, so the letters are torn into a new order"
+      },
+      {
+       "text": "away",
+       "at": 39,
+       "note": "'away' removes the letter for right from the mixed-up pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DEXTEROUS",
-       "indicators": [
-        {
-         "text": "away",
-         "note": "away means taken off, so that letter is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "trousered",
-         "note": "taken as written"
+         "at": 7
         },
         {
          "words": "unknown",
+         "at": 17,
          "gives": "X",
-         "note": "X is the classic algebraic unknown"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "note": "X is the classic unknown in algebra"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 33,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A nod to The Ragged-Trousered Philanthropists, with an anonymous figure showing skill.",
-     "walkthrough": "One R goes from TROUSERED, X joins it, and the lot is shuffled.",
-     "definitionFit": "A dexterous person is deft and adroit, especially with the hands."
+     "surface": "Echoes the novel The Ragged-Trousered Philanthropists: an unknown worker in tattered trousers is exposed as clever.",
+     "walkthrough": "'Ragged-trousered' calls to mind Robert Tressell's novel; 'exposed' is surface padding.",
+     "definitionFit": "Dexterous means deft with the hands, nimble and adroit."
     },
     "features": {
      "answerInScene": false,

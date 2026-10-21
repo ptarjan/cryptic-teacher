@@ -938,58 +938,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SURGICAL",
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed inside, so the soldier goes within the other letters"
+       "at": 31,
+       "note": "'in' places the soldier inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SURGICAL",
-       "indicators": [
-        {
-         "text": "Almost",
-         "note": "almost means not quite all, so the last letter of the word is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Almost",
+           "at": 0,
+           "note": "'Almost' cuts the last letter off the word for certain"
+          }
+         ],
          "parts": [
           {
            "words": "certain",
-           "gives": "SUR",
-           "note": "sure without its final letter"
+           "at": 7,
+           "gives": "SURE",
+           "note": "certain means sure"
           },
           {
-           "words": "soldier's",
-           "gives": "GI",
-           "note": "a GI is an American soldier"
-          },
-          {
-           "words": "state",
-           "gives": "CAL",
-           "note": "Cal. is short for California"
+           "gives": "E"
           }
          ]
+        },
+        {
+         "words": "state",
+         "at": 15,
+         "gives": "CAL",
+         "note": "CAL is the abbreviation for California, a US state"
         }
        ]
+      },
+      {
+       "words": "soldier",
+       "at": 21,
+       "gives": "GI",
+       "note": "GI is an American soldier"
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier from a particular state in a confident frame of mind.",
-     "walkthrough": "Spirit here is not mood but the liquid: surgical spirit is the British name for rubbing alcohol.",
-     "definitionFit": "Surgical spirit is methylated alcohol used to clean skin and instruments, so it is one particular kind of spirit."
+     "surface": "A trooper is nearly sure he is in a certain frame of mind.",
+     "walkthrough": "'spirit' suggests mood, but surgical spirit is an antiseptic alcohol used to clean skin.",
+     "definitionFit": "Surgical spirit is methylated alcohol used as a skin disinfectant, so the answer names this kind of spirit."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "spirit"
     }
    }
@@ -1072,36 +1076,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INDICT",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite complete, so the last letter of the country is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 15,
+         "note": "'almost' drops the final letter of the country's name"
+        }
+       ],
        "parts": [
         {
          "words": "land",
-         "gives": "INDI",
-         "note": "the country India, missing its last letter"
+         "at": 10,
+         "gives": "INDIA",
+         "note": "India is a land, a country"
         },
         {
-         "words": "court",
-         "gives": "CT",
-         "note": "Ct is the abbreviation for court"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "court",
+       "at": 33,
+       "gives": "CT"
       }
      ]
     },
     "explanation": {
-     "surface": "A charge relating to land, nearly taken to court.",
-     "definitionFit": "To indict is to formally accuse someone of a crime, which is what charging them means."
+     "surface": "An accusation about land is very nearly taken before the judges.",
+     "definitionFit": "To indict is to formally accuse someone of a crime, a verb meaning to charge."
     },
     "features": {
      "answerInScene": true,

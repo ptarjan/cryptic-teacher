@@ -461,41 +461,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GALILEO",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "brief means cut short, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 40,
+         "note": "'briefly' asks for the lake's name cut short by its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Middle Eastern lake",
-         "gives": "GALILE",
-         "note": "the Sea of Galilee in Israel, a lake, with its final letter cut"
+         "at": 19,
+         "gives": "GALILEE",
+         "note": "the Sea of Galilee is a lake in Israel"
         },
         {
-         "words": "over",
-         "gives": "O",
-         "note": "O is the cricket abbreviation for an over"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "over",
+       "at": 48,
+       "gives": "O",
+       "note": "O is the cricket scorer's abbreviation for an over"
       }
      ]
     },
     "explanation": {
-     "surface": "An ancient researcher who came from a lake region of the Middle East.",
-     "walkthrough": "The Sea of Galilee is really a freshwater lake. O for over comes from cricket scorecards.",
-     "definitionFit": "Galileo Galilei was the Italian astronomer and physicist of the sixteenth and seventeenth centuries."
+     "surface": "A historical scientist is said to come from a lake in the Middle East, mentioned in passing.",
+     "walkthrough": "In cricket an over is a set of six balls, abbreviated O on scorecards.",
+     "definitionFit": "Galileo Galilei was the seventeenth-century Italian astronomer and physicist."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "over"
     }
    }
   },
@@ -732,39 +737,39 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LUIG",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Prime letters",
-         "note": "prime numbers are 2, 3, 5 and 7, so the letters in those positions are kept"
+         "text": "Prime letters for",
+         "at": 0,
+         "note": "keep only the letters standing at prime-numbered positions (2nd, 3rd, 5th, 7th) of the following word, dropping the others"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "clueing",
-         "gives": "LUIG",
-         "select": "prime",
-         "note": "the 2nd, 3rd, 5th and 7th letters"
+         "at": 18
+        },
+        {
+         "gives": "CEN"
         }
        ]
       },
       {
        "words": "a single",
+       "at": 26,
        "gives": "I",
        "note": "a single is one, written as the Roman numeral I"
       }
      ]
     },
     "explanation": {
-     "surface": "Choosing the best letters for writing a crossword clue about one Italian.",
-     "walkthrough": "'Prime' looks like it means best, but it means prime-numbered positions in the word that follows.",
-     "definitionFit": "Luigi is a common Italian given name, standing here for an Italian man, a typical crossword example."
+     "surface": "A setter jokes about choosing the best letters to clue one Italian person.",
+     "walkthrough": "'Prime' sounds like 'best', but it means prime numbers: positions 2, 3, 5 and 7 of CLUEING give L, U, I, G, so C, E and N go.",
+     "definitionFit": "Luigi is a common Italian man's given name, so it stands for an Italian person."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Prime"
@@ -1786,38 +1791,48 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PASTEUR",
+     "op": "move",
      "indicators": [
       {
-       "text": "finally moving forward",
-       "note": "the last letter is shifted to an earlier slot, so it goes back inside the rest"
+       "text": "moving forward",
+       "at": 39,
+       "note": "'moving forward' sends that letter earlier in the word for grazing"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PASTEUR",
+       "words": "grazing",
+       "at": 16,
+       "gives": "PASTURE",
+       "note": "grazing land is pasture"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 31,
+         "note": "'finally' picks just the last letter of the word cattle"
+        }
+       ],
        "parts": [
         {
-         "words": "grazing cattle",
-         "gives": "PASTURE",
-         "note": "to pasture cattle is to put them out grazing"
+         "words": "cattle",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French farmer of old, whose cattle were grazing and finally advancing across the field.",
-     "walkthrough": "The final E of the grazing word moves forward two places.",
-     "definitionFit": "Louis Pasteur was the nineteenth-century French chemist and microbiologist, a Frenchman of a past era."
+     "surface": "A French person of the past is described with cows advancing across a field.",
+     "walkthrough": "The last letter of 'cattle', E, already sits at the end of PASTURE; it moves forward two places to sit after PAST.",
+     "definitionFit": "Louis Pasteur was the nineteenth-century French chemist behind pasteurisation."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "grazing"
     }
    }
   }
