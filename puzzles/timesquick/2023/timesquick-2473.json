@@ -1412,51 +1412,57 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the thanks inside the surrounding letters"
+       "at": 16,
+       "note": "in puts the reversed thanks inside the other pieces"
       }
      ],
      "parts": [
       {
-       "words": "article",
-       "gives": "THE",
-       "note": "the definite article"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "article",
+         "at": 19,
+         "gives": "THE",
+         "note": "the is the definite article"
+        },
+        {
+         "words": "about",
+         "at": 27,
+         "gives": "RE",
+         "note": "re means about, concerning"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "returned",
-         "note": "returned means sent back, so the word for thanks is read backwards"
+         "at": 7,
+         "note": "returned means sent back, so the word is read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "about",
-           "gives": "RE",
-           "note": "re means about or concerning"
-          },
-          {
-           "words": "Thanks",
-           "gives": "TA",
-           "note": "ta is informal British for thank you"
-          }
-         ]
+         "words": "Thanks",
+         "at": 0,
+         "gives": "TA",
+         "note": "ta is British informal for thank you"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Thanks are given back in an essay about the stage.",
-     "definitionFit": "Theatre is the art of drama and live performance, so it is a name for dramatic art."
+     "surface": "An essay on stagecraft sends its thanks.",
+     "walkthrough": "'returned' turns TA to AT, which goes 'in' THE and RE.",
+     "definitionFit": "Theatre is the art of performing drama on stage."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "article"
+     "misdirectedWord": "returned"
     }
    }
   }

@@ -869,40 +869,74 @@
      "op": "charade",
      "parts": [
       {
-       "words": "brief ceremony",
-       "gives": "RIT",
-       "note": "RITE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 3,
+         "note": "brief means cut short, so the last letter of the word goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ceremony",
+         "at": 9,
+         "gives": "RITE",
+         "note": "a rite is a ceremony"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "goes around the next piece"
+         "at": 33,
+         "note": "about means going round, so the shortened word surrounds the next piece"
         }
        ],
        "parts": [
         {
-         "words": "almost nothing",
-         "gives": "ZER",
-         "note": "ZERO without its last letter; the outer piece"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 18,
+           "note": "almost means not quite all, so the final letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nothing",
+           "at": 25,
+           "gives": "ZERO",
+           "note": "zero is nothing"
+          },
+          {
+           "gives": "O"
+          }
+         ]
         },
         {
          "words": "one",
+         "at": 39,
          "gives": "I",
-         "note": "I = one, placed inside Z…ER"
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pared-down ceremony, with next to nothing spent on anyone, might turn out more elegant.",
-     "walkthrough": "RITZY comes from the Ritz hotels, a byword for luxury; two different words for 'shortened' do the trimming here.",
-     "definitionFit": "Ritzy means luxuriously smart, so ritzier is more richly stylish."
+     "surface": "A short ceremony with almost nothing in it might still be more elegant.",
+     "walkthrough": "'In' and 'could be' are link words; the definition is the comparative at the end, which is why the answer ends -IER.",
+     "definitionFit": "Ritzy is slang for luxuriously smart, after the Ritz hotels; the comparative means more so."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "nothing"
     }
@@ -2809,25 +2843,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Reformation composer shortly",
-       "gives": "TALLI",
-       "note": "Thomas TALLIS, Tudor composer, without his last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 29,
+         "note": "shortly means briefly, so the name loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Reformation composer",
+         "at": 8,
+         "gives": "TALLIS",
+         "note": "Thomas Tallis was the English composer who wrote through the Reformation"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
-       "words": "his monarch",
+       "words": "monarch",
+       "at": 49,
        "gives": "ER",
-       "note": "ER = Elizabeth Regina, Queen Elizabeth I, whom Tallis served"
+       "note": "ER is Elizabeth Regina, and Tallis served Elizabeth I"
       }
      ]
     },
     "explanation": {
-     "surface": "A composer of the Counter-Reformation is briefly presented to his sovereign.",
-     "walkthrough": "'Counter Reformation' is a famous phrase, but the definition is 'Counter' alone: one who tallies. Tallis composed through the English Reformation.",
-     "definitionFit": "Someone who keeps a tally, adding up a score or stock, is a counter in the agent-noun sense."
+     "surface": "A Tudor composer briefly meets the queen he served, with a pointed nod to the Counter-Reformation.",
+     "walkthrough": "'Counter Reformation' reads as the Catholic revival; 'Counter' is the definition and 'Reformation' belongs to the composer. 'shortly' trims TALLIS to TALLI.",
+     "definitionFit": "A tallier is one who tallies or keeps a count, so it is a person who counts things up."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Counter"
     }
    }
