@@ -688,47 +688,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELFINGROT",
+     "op": "container",
      "indicators": [
       {
-       "text": "Topless",
-       "note": "with its top removed a word loses its first letter"
-      },
-      {
-       "text": "not point",
-       "note": "a point of the compass is a letter to be dropped from the word"
+       "text": "must hold",
+       "at": 13,
+       "note": "one piece must hold the other, so the serf word goes round the finger word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "must hold",
-         "note": "to hold something is to have it inside, so one piece sits within another"
+         "text": "Topless",
+         "at": 0,
+         "note": "a top-less word loses its first letter, here the H at the head of the serf word"
         }
        ],
        "parts": [
         {
          "words": "serf",
-         "gives": "ELOT",
-         "note": "a helot was a serf of ancient Sparta; the first letter goes"
+         "at": 8,
+         "gives": "HELOT",
+         "note": "a helot was a serf in ancient Sparta"
         },
         {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 31,
+         "note": "says the finger word appears without the compass point that follows"
+        }
+       ],
+       "parts": [
+        {
          "words": "finger",
-         "gives": "FINGR",
-         "note": "the finger loses its E, a compass point"
+         "at": 23
+        },
+        {
+         "words": "point",
+         "at": 35,
+         "gives": "E",
+         "note": "E, east, is a point of the compass"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A half-naked peasant clutching a finger at the haunt of Keats's merciless lady.",
-     "walkthrough": "In Keats's ballad 'La Belle Dame sans Merci' the knight says 'She took me to her elfin grot'. 'Serf' leads not to SERF but to its synonym helot.",
-     "definitionFit": "Keats's poem names the fairy lady's dwelling as her elfin grot, a grot being a poetic grotto."
+     "surface": "A bare-chested labourer clutching a finger, not pointing, somehow ends up at the fairy lady's dwelling from Keats's ballad.",
+     "walkthrough": "'Topless' takes the H off HELOT to leave ELOT; 'not point' drops the E from FINGER to leave FINGR; ELOT 'must hold' FINGR to give ELFINGROT.",
+     "definitionFit": "In Keats's poem the knight is taken by the fairy lady to her elfin grot, a magical cave or grotto where she lives."
     },
     "features": {
      "answerInScene": true,
@@ -1457,62 +1474,69 @@
      {
       "text": "16",
       "at": 40,
-      "note": "a cross-reference to 16 across, a wine estate"
+      "note": "16 across is VINEYARD; a vineyard is what this château is"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YQUEM",
+     "op": "container",
      "indicators": [
       {
-       "text": "some",
-       "note": "only some of a word is wanted, so the rest is cut away"
+       "text": "to circulate",
+       "at": 8,
+       "note": "to circulate is to go around, so the turned word goes round the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to circulate",
-         "note": "to circulate is to go round, so one piece goes round another"
+         "text": "turn",
+         "at": 3,
+         "note": "the turn of the word my means it is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "turn",
-           "note": "a turn faces something the other way, so the letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "My",
-           "note": "taken as written"
-          }
-         ]
-        },
+         "words": "My",
+         "at": 0,
+         "gives": "MY",
+         "note": "taken as written before being turned"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "some",
+         "at": 21,
+         "note": "only some of the word questions is used, its opening letters"
+        }
+       ],
+       "parts": [
         {
          "words": "questions",
-         "gives": "QUE",
-         "note": "just the opening of the word"
+         "at": 26,
+         "gives": "QUESTIONS",
+         "note": "taken as written before being cut short"
+        },
+        {
+         "gives": "STIONS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quizmaster announcing it is their turn to hand round the questions.",
-     "walkthrough": "16 across is VINEYARD; Château d'Yquem is the celebrated Sauternes estate near Bordeaux.",
-     "definitionFit": "Château d'Yquem is a famous Bordeaux wine estate, which makes it a vineyard."
+     "surface": "Someone declares it is their turn to hand round a few questions.",
+     "walkthrough": "'My turn' gives YM; 'some questions' gives QUE; YM goes round QUE.",
+     "definitionFit": "Château d'Yquem is a famous Sauternes wine estate, so it is a vineyard."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "turn"
+     "misdirectedWord": "circulate"
     }
    }
   },
@@ -1643,42 +1667,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GONAD",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "something unfinished lacks its end, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 9,
+         "note": "without its finish, the word for finished loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Finished",
-         "gives": "GON",
-         "note": "finished means gone, here without its last letter"
+         "at": 0,
+         "gives": "GONE",
+         "note": "something finished is gone, over"
         },
         {
-         "words": "commercial",
-         "gives": "AD",
-         "note": "an ad is a commercial"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "commercial",
+       "at": 20,
+       "gives": "AD",
+       "note": "an ad is a commercial, an advertisement"
       }
      ]
     },
     "explanation": {
-     "surface": "An abandoned advertising campaign for a medical product.",
-     "walkthrough": "'Finished unfinished' looks like a contradiction; the second word cuts the end off a synonym of the first.",
-     "definitionFit": "A gonad is a testis or ovary, the organ that produces sex cells."
+     "surface": "A finished but incomplete advertisement is promoting a reproductive organ.",
+     "walkthrough": "'unfinished' cuts the last letter of GONE to leave GON, and AD follows.",
+     "definitionFit": "A gonad is a gland producing sex cells, such as a testis or ovary."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "commercial"
+     "misdirectedWord": "Finished"
     }
    }
   },
