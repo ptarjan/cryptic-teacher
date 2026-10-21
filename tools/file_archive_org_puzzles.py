@@ -4257,7 +4257,7 @@ def answers_only(d, found, hit, solutions):
     merges them into the held file (merge_answers) and takes no whole reading
     over it. None when a held answer differs from the grid's, two answers cross
     on different letters, or the grid is not the Times's (cells classified)."""
-    if d is None or d.name in _KEEP_VLM["names"]:
+    if d is None or hit is None or not solutions or d.name in _KEEP_VLM["names"]:
         return None
     paper = paper_of(d)
     if paper.key not in CELLS_CLASSIFIED:
