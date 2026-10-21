@@ -217,45 +217,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DISCONCERTING",
-     "indicators": [
-      {
-       "text": "lacking",
-       "note": "lacking says one named letter goes missing from the instrument"
-      },
-      {
-       "text": "replacement",
-       "note": "replacement says another item is put in where the lost letter was"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "little girl's",
+       "at": 12,
        "gives": "DIS",
-       "note": "Di is short for Diana, with the possessive s"
+       "note": "Di is a short girl's name, plus the S of the possessive"
       },
       {
-       "words": "musical instrument",
-       "gives": "CONCERTINA",
-       "note": "a small hexagonal squeezebox"
-      },
-      {
-       "words": "a",
-       "note": "the letter removed from the instrument"
-      },
-      {
-       "words": "string",
-       "gives": "G",
-       "note": "G is one of the strings of a violin or guitar"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 45,
+         "note": "lacking means the a is missing from the instrument"
+        },
+        {
+         "text": "replacement",
+         "at": 62,
+         "note": "something else is put in where the missing letter was"
+        }
+       ],
+       "parts": [
+        {
+         "words": "musical instrument",
+         "at": 26,
+         "gives": "CONCERTINA",
+         "note": "a concertina is a musical instrument"
+        },
+        {
+         "words": "a",
+         "at": 53,
+         "gives": "A"
+        },
+        {
+         "words": "string",
+         "at": 55,
+         "gives": "G",
+         "note": "G is one of the strings of a violin or guitar"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child's squeezebox missing a string, which would indeed be unsettling to hear.",
-     "walkthrough": "The final A of the instrument is dropped and G, a string, takes its place.",
-     "definitionFit": "Something disconcerting throws you off balance and makes you uneasy, the same as unsettling."
+     "surface": "A little girl's squeezebox is missing a string and needs a replacement.",
+     "walkthrough": "CONCERTINA 'lacking a' with the G string as 'replacement' gives CONCERTING.",
+     "definitionFit": "Something disconcerting throws a person off balance, causing unease."
     },
     "features": {
      "answerInScene": false,
@@ -1115,31 +1124,48 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the first verb surrounds the relative"
+       "at": 9,
+       "note": "about means around, so the send-out word goes round the other"
       }
      ],
      "parts": [
       {
        "words": "Send out",
+       "at": 0,
        "gives": "TRANSMIT",
-       "note": "to transmit is to send out a signal"
+       "note": "to transmit is to send out"
       },
       {
-       "words": "relative briefly",
-       "gives": "GRAN",
-       "note": "gran is a shortened grandmother"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 24,
+         "note": "briefly means shortened, the end cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relative",
+         "at": 15,
+         "gives": "GRANNY",
+         "note": "a granny is a relative"
+        },
+        {
+         "gives": "NY"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Seeing off a granny who is only stopping by on her travels.",
-     "walkthrough": "Briefly marks that the relative is a shortened form, not that a letter is lost from it.",
+     "surface": "Instructions to send something out about a relative who is only briefly visiting.",
      "definitionFit": "A transmigrant is a migrant crossing one country on the way to settle in another."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "briefly"
+     "misdirectedWord": "relative"
     }
    }
   },

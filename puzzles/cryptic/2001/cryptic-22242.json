@@ -1315,48 +1315,57 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "before and after",
+       "at": 18,
+       "note": "the same letter is placed both before and after the other word, surrounding it"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "overture",
-         "note": "an overture opens a piece, so only the first letter of the word is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "orchestral",
-         "note": "opening letter, placed before"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "overture",
+           "at": 46,
+           "note": "an overture is the opening piece, so the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "orchestral",
+           "at": 35,
+           "note": "the word whose opening letter is used"
+          }
+         ]
+        },
+        {
+         "gives": "O"
         }
        ]
       },
       {
        "words": "say",
+       "at": 13,
        "gives": "TELL",
        "note": "to say is to tell"
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "orchestral",
-         "note": "the same opening letter, placed after"
-        }
-       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Introducing a Verdi opera with its orchestral prelude.",
-     "walkthrough": "The single O goes both before and after TELL, giving OTELLO, Verdi's Italian spelling of Othello.",
-     "definitionFit": "Otello is Verdi's 1887 opera based on Shakespeare's tragedy Othello."
+     "surface": "A Verdi opera described as coming before and after its orchestral overture.",
+     "walkthrough": "'before and after' places the O from 'orchestral overture' on both sides of TELL.",
+     "definitionFit": "Otello is Verdi's 1887 opera based on Shakespeare's Othello."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "say"
+     "misdirectedWord": "overture"
     }
    }
   },

@@ -1761,40 +1761,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUDITORIA",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without ends means both the first and last letters are lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 20,
+       "gives": "A"
       },
       {
        "words": "posh",
+       "at": 22,
        "gives": "U",
-       "note": "U means upper-class, as in U and non-U"
+       "note": "U is the label for upper-class or posh usage"
       },
       {
-       "words": "leader",
-       "gives": "EDITORIAL",
-       "note": "a leader is a newspaper's editorial article"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 34,
+         "note": "with no ends, so the first and last letters of the word go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leader",
+         "at": 27,
+         "gives": "EDITORIAL",
+         "note": "a leader is a newspaper's editorial"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An audience listens to an upper-class chief who goes on and on.",
-     "walkthrough": "'Leader' suggests a person, but it is the newspaper's leading article; EDITORIAL loses both ends, not only the last.",
-     "definitionFit": "Auditoria, plural of auditorium, are halls where an audience sits to listen to concerts, lectures and performances."
+     "surface": "A cryptic hint at where an audience listens, made to sound like an aristocratic chief who never stops.",
+     "walkthrough": "A leader in British papers is the editorial; 'endlessly' trims EDITORIAL to DITORIA.",
+     "definitionFit": "Auditoria are halls where audiences sit to listen to performances or speeches."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "leader"
     }
    }

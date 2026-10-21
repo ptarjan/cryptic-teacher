@@ -365,41 +365,60 @@
      "parts": [
       {
        "words": "turn",
+       "at": 7,
        "gives": "GO",
-       "note": "your turn is your go"
+       "note": "a go is a turn in a game"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "detaining",
-         "note": "detaining means holding someone in custody, so one piece is held within another"
+         "at": 19,
+         "note": "the green holds the other letters inside it"
         }
        ],
        "parts": [
         {
          "words": "green",
+         "at": 12,
          "gives": "VERT",
-         "note": "vert is green in heraldry and French"
+         "note": "vert is the heraldic word for green"
         },
         {
-         "words": "Vikings briefly",
-         "gives": "NMEN",
-         "note": "Northmen shortened by keeping only the initial of the first part"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 37,
+           "note": "briefly shortens the word, here cutting Norse to its initial"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Vikings",
+           "at": 29,
+           "gives": "NORSEMEN",
+           "note": "Vikings were Norsemen"
+          },
+          {
+           "gives": "ORSE"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Politicians go pale with envy while holding Norse raiders prisoner.",
-     "walkthrough": "'Turn green' looks like an anagram hint or a description of sickness; it is two separate pieces.",
-     "definitionFit": "The body that governs a country is the collective group of people ruling it."
+     "surface": "Rulers turning envious while they hold some Vikings for a short time.",
+     "walkthrough": "Vert is the heraldic term for green, and 'briefly' shortens only the Norse half of the Vikings to its initial, keeping the men.",
+     "definitionFit": "A government is the body of people who rule a country."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "turn"
+     "misdirectedWord": "green"
     }
    }
   },
@@ -1244,48 +1263,52 @@
     "definitions": [
      {
       "text": "concentration",
-      "at": 37,
-      "note": "the answer is a concentrated ray"
+      "at": 37
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LASERBEAM",
+     "op": "container",
      "indicators": [
       {
-       "text": "Cooked",
-       "note": "cooked food has been worked over and changed, so these letters are rearranged"
+       "text": "interrupting",
+       "at": 24,
+       "note": "the Slav breaks into the middle of the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "interrupting",
-         "note": "interrupting means breaking in on, so the Slav breaks into the middle of the mixture"
+         "text": "Cooked",
+         "at": 0,
+         "note": "cooked suggests the letters have been prepared in a new form"
         }
        ],
        "parts": [
         {
-         "words": "meal with a",
-         "gives": "LAEAM",
-         "note": "a meal plus the letter a"
+         "words": "meal",
+         "at": 7,
+         "note": "taken as written"
         },
         {
-         "words": "Slav",
-         "gives": "SERB",
-         "note": "a Serb is a Slav"
+         "words": "a",
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "Slav",
+       "at": 19,
+       "gives": "SERB",
+       "note": "a Serb is a Slav"
       }
      ]
     },
     "explanation": {
-     "surface": "A dinner is prepared while an Eastern European guest breaks someone's focus.",
-     "walkthrough": "'With a Slav' looks like one unit, but the a goes into the anagram.",
-     "definitionFit": "Such a ray is light concentrated into a narrow intense stream, hence a concentration of energy."
+     "surface": "A meal is cooked while a Slav breaks someone's concentration.",
+     "walkthrough": "'concentration' looks like the thing broken in the surface, but it is the definition; the Slav is a Serb.",
+     "definitionFit": "A laser beam is light concentrated into a narrow, intense ray."
     },
     "features": {
      "answerInScene": false,
