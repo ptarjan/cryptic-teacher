@@ -648,37 +648,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of a word is all of it but the final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Share",
-         "gives": "CUT",
-         "note": "a cut is a share, as in a cut of the profits"
-        },
-        {
-         "words": "Latvian",
-         "gives": "LETT",
-         "note": "a Lett is a Latvian"
-        }
-       ]
+       "words": "Share",
+       "at": 0,
+       "gives": "CUT",
+       "note": "a cut is a share, as in a cut of the profits"
       },
       {
-       "gives": "T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 6,
+         "note": "most of means all but the last letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Latvian",
+         "at": 14,
+         "gives": "LETT",
+         "note": "a Lett is a Latvian"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Taking a large share of a Latvian's dinner.",
-     "definitionFit": "A cutlet is a small piece of meat, typically a chop cut from the neck, so a meat portion."
+     "surface": "Someone hands over the greater part of a Latvian's meal.",
+     "walkthrough": "CUT (share) then LETT (a Latvian) with its last letter dropped.",
+     "definitionFit": "A cutlet is a small slice of meat, such as veal or lamb, usually cooked by frying."
     },
     "features": {
      "answerInScene": true,

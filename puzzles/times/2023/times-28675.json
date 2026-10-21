@@ -496,45 +496,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXECUTIVE",
-     "indicators": [
-      {
-       "text": "not two",
-       "note": "not two tells us to drop a pair of things from the word before it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "river",
+       "at": 12,
        "gives": "EXE",
        "note": "the Exe is a river in Devon"
       },
       {
        "words": "channel",
+       "at": 18,
        "gives": "CUT",
-       "note": "a cut is a dug channel or canal"
+       "note": "a cut is a channel, a canal dug through land"
       },
       {
-       "words": "river",
-       "note": "taken as written"
-      },
-      {
-       "words": "rivers",
-       "gives": "RR",
-       "note": "R is the abbreviation for river, so two of them"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 38,
+         "note": "not means without, so the two river abbreviations are taken out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river",
+         "at": 30,
+         "gives": "RIVER",
+         "note": "the word river itself, taken as written"
+        },
+        {
+         "words": "two rivers",
+         "at": 42,
+         "gives": "RR",
+         "note": "R is the abbreviation for river, so two of them are RR"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A water engineer controls a river channel while doing without two rivers.",
-     "definitionFit": "Executive as an adjective means having the power to manage or direct, as in executive powers."
+     "surface": "Managing a river by digging a channel, but without two of the rivers involved.",
+     "walkthrough": "EXE, CUT, then RIVER with both its Rs taken out, leaving IVE.",
+     "definitionFit": "Executive powers are those used in managing or directing, so executive means having control."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rivers"
+     "misdirectedWord": "Controlling"
     }
    }
   },

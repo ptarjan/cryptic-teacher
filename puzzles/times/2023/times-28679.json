@@ -1339,52 +1339,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCRIPTURAL",
-     "indicators": [
-      {
-       "text": "changes",
-       "note": "changes means alterations, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SCRIPTURAL",
+       "words": "Small",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "ignoring an",
-         "note": "to ignore something is to leave it out, so a letter is removed"
+         "text": "changes",
+         "at": 17,
+         "note": "changes means the letters are rearranged into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Small",
-         "gives": "S",
-         "note": "S is the abbreviation for small"
-        },
-        {
-         "words": "particular",
-         "note": "taken as written"
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "A is the abbreviation for area"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "ignoring",
+           "at": 25,
+           "note": "ignoring means leaving out, so the area letter is dropped from particular"
+          }
+         ],
+         "parts": [
+          {
+           "words": "particular",
+           "at": 6
+          },
+          {
+           "words": "area",
+           "at": 37,
+           "gives": "A"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Minor, fussy changes skip over one section of Bible scholarship.",
-     "walkthrough": "One A is removed from PARTICULAR before the rest is rearranged; S goes in front.",
-     "definitionFit": "Relating to the holy writings of the Bible, the adjective describes that field of theology."
+     "surface": "Minor detailed amendments that skip one field of theology.",
+     "walkthrough": "'Particular' has two As, and only one goes; the definition is the adjectival phrase 'of Biblical studies', not the noun 'studies'.",
+     "definitionFit": "Scriptural means relating to the Bible or other sacred writings, the subject matter of Biblical studies."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "particular"
     }

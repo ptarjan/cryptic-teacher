@@ -906,55 +906,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "overturned",
-       "note": "a vehicle overturned is upside down, so in a down clue the run of letters is flipped end to end"
+       "text": "rounding",
+       "at": 28,
+       "note": "rounding means going round, so the reversed letters enclose the opening letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturned",
+         "at": 17,
+         "note": "overturned means upside down, so in this down answer the kart and e-car letters read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "rounding",
-           "note": "going round something means surrounding it, so the flipped run is put around the single letter"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "Kart",
+           "at": 0,
+           "gives": "KART",
            "note": "taken as written"
           },
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "entrance to",
-             "note": "the entrance to a word is where it begins, its opening character"
-            }
-           ],
-           "parts": [
-            {
-             "words": "cambered",
-             "note": "opening letter of cambered"
-            }
-           ]
+           "words": "e-vehicle",
+           "at": 6,
+           "gives": "ECAR",
+           "note": "an e-car is an electric car, an e-vehicle"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "e-",
-         "note": "taken as written, the letter E"
-        },
+         "text": "entrance to",
+         "at": 37,
+         "note": "the entrance to a word is its first letter"
+        }
+       ],
+       "parts": [
         {
-         "words": "vehicle",
-         "gives": "CAR",
-         "note": "a car is a vehicle"
+         "words": "cambered",
+         "at": 49
         }
        ]
       }
@@ -962,13 +964,12 @@
     },
     "explanation": {
      "surface": "An electric go-kart flips over while taking a banked bend on a track.",
-     "walkthrough": "The parenthesis splits as e + vehicle; the reversal of those three pieces then wraps round the C.",
-     "definitionFit": "A racetrack is a circuit, a closed course on which races are run."
+     "walkthrough": "'Overturned' acts on both the kart and the e-vehicle together, read as one string backwards, before the opening letter of 'cambered' is put inside.",
+     "definitionFit": "A racetrack is a circuit where cars or horses race, often with banked bends."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "e-vehicle"
+     "aptDefinition": false
     }
    }
   },

@@ -86,47 +86,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "mixed",
-       "note": "mixed things are stirred together, so their letters lose their original order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "rice",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixed",
+         "at": 27,
+         "note": "mixed means the letters are stirred into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rice",
+         "at": 33
+        }
+       ]
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "half portion of",
-         "note": "only half of the following word is wanted, so its back two letters are dropped"
+         "at": 42,
+         "note": "half portion of keeps the first two of the four letters"
         }
        ],
        "parts": [
         {
          "words": "peas",
-         "note": "taken as written, then cut to its front half"
-        },
-        {
-         "gives": "AS"
+         "at": 58
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook reads a list of what goes into a dish of rice and peas.",
-     "walkthrough": "PE, half of peas, joins the rice letters before they are rearranged.",
-     "definitionFit": "A recipe sets out the ingredients and method for preparing a dish."
+     "surface": "A list of what goes in a dish, featuring stirred rice and half a serving of peas.",
+     "walkthrough": "RICE is mixed to RECI, then PE, the first half of PEAS.",
+     "definitionFit": "A recipe lists the ingredients needed for a dish and the method for preparing it."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "mixed"
+     "aptDefinition": false
     }
    }
   },
@@ -313,7 +316,8 @@
        "indicators": [
         {
          "text": "accepting",
-         "note": "accepting means taking something in, so the greeting goes inside"
+         "at": 23,
+         "note": "accepting means taking in, so the reshuffled poet letters hold the greeting"
         }
        ],
        "parts": [
@@ -322,37 +326,40 @@
          "indicators": [
           {
            "text": "unusually",
-           "note": "unusually means not in the normal way, so the letters of poet are disordered"
+           "at": 13,
+           "note": "unusually means the letters are taken in an odd order"
           }
          ],
          "parts": [
           {
            "words": "poet",
-           "note": "taken as written"
-          },
-          {
-           "words": "greeting",
-           "gives": "HI",
-           "note": "an informal hello"
+           "at": 8
           }
          ]
         },
         {
-         "words": "I",
-         "note": "taken as written"
+         "words": "greeting",
+         "at": 33,
+         "gives": "HI",
+         "note": "hi is an informal greeting"
         }
        ]
       },
       {
+       "words": "I",
+       "at": 44
+      },
+      {
        "words": "answer",
-       "gives": "A",
-       "note": "A is the standard abbreviation for answer"
+       "at": 46,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A poet, against habit, returns a greeting and gives a reply.",
-     "definitionFit": "Ethiopia is a nation in the Horn of Africa."
+     "surface": "A poet behaves strangely by accepting a hello, and then gives a reply.",
+     "walkthrough": "'Poet' looks like the subject of the sentence, but it is only letters to rearrange; the greeting sits in the middle of them.",
+     "definitionFit": "Ethiopia is a nation in the Horn of Africa, with Addis Ababa as its capital."
     },
     "features": {
      "answerInScene": false,
@@ -1485,7 +1492,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Perhaps Thurber's",
+      "text": "Perhaps Thurber",
       "at": 0
      }
     ],
@@ -1494,43 +1501,38 @@
      "indicators": [
       {
        "text": "comic",
-       "note": "comic suggests clowning, so the letters tumble into a new order"
+       "at": 18,
+       "note": "comic means funny or absurd, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "truism",
+       "at": 24
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "Not half",
-         "note": "not half means one half is dropped, leaving the other"
+         "at": 39,
+         "note": "not half means only half is kept, the first of the two ho's"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "truism",
-           "note": "taken as written"
-          },
-          {
-           "words": "ho-ho",
-           "note": "taken as written, then halved"
-          }
-         ]
-        },
-        {
-         "gives": "HO"
+         "words": "ho-ho",
+         "at": 32,
+         "note": "a laughing exclamation, of which half is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "James Thurber's funny platitude gets a hearty laugh, or perhaps not.",
-     "walkthrough": "James Thurber was an American cartoonist and humour writer, which explains the US spelling.",
-     "definitionFit": "Thurber is an example of a humorist, a writer of comic pieces; the apostrophe-s stands for 'is'."
+     "surface": "A joke version of a platitude, followed by laughter and the slang exclamation 'not half'.",
+     "walkthrough": "TRUISM and HO (half of HO-HO) are rearranged. 'Not half!' looks like British slang for 'very much so', but it trims the laugh.",
+     "definitionFit": "James Thurber was an American cartoonist and writer of comic pieces, an example of a humorist."
     },
     "features": {
      "answerInScene": true,
