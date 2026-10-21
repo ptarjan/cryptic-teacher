@@ -1083,46 +1083,50 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "reversal",
      "indicators": [
       {
        "text": "suffering setback",
-       "note": "a setback sends things backwards, so the whole assembly is reversed"
+       "at": 17,
+       "note": "a setback sends things backwards, so the whole assembled string is read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "about means around, so the anger goes round the team"
+         "at": 6,
+         "note": "about means surrounding, so the word for anger goes round the team"
         }
        ],
        "parts": [
         {
          "words": "Anger",
+         "at": 0,
          "gives": "RILE",
          "note": "to rile is to anger"
+        },
+        {
+         "words": "team",
+         "at": 12,
+         "gives": "XI",
+         "note": "XI is eleven, a cricket or football team"
         }
        ]
-      },
-      {
-       "words": "team",
-       "gives": "XI",
-       "note": "XI = eleven, a football or cricket team"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is angry that the team has had a setback that nothing can cure.",
-     "walkthrough": "'Alas' makes the definition fair: the answer promises a cure but, sadly, is no real one.",
-     "definitionFit": "An elixir is a supposed cure-all potion, the stuff of quacks, so it is regrettably no genuine remedy."
+     "surface": "A sports fan's moan that a team's defeat has left them angry with no remedy.",
+     "walkthrough": "RILE goes round XI to make RIXILE, and 'suffering setback' turns that round. XI is a crossword staple for a side of eleven players.",
+     "definitionFit": "An elixir is a supposed cure-all potion of alchemy and quack medicine, so it is a remedy that sadly does not work."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Anger"
+     "misdirectedWord": "setback"
     }
    }
   },
@@ -1147,46 +1151,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
+     "indicators": [
+      {
+       "text": "promoting",
+       "at": 15,
+       "note": "promoting raises a letter in rank, here to the front of the word"
+      }
+     ],
      "parts": [
       {
-       "words": "American",
-       "at": 25,
-       "gives": "A"
-      },
-      {
-       "words": "Catholic",
-       "at": 0,
-       "gives": "RC",
-       "note": "RC is short for Roman Catholic"
-      },
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "promoting",
-         "at": 15,
-         "note": "promoting means the American letter is lifted out of the constellation and moved up to the front"
-        }
-       ],
+       "op": "charade",
        "parts": [
+        {
+         "words": "Catholic",
+         "at": 0,
+         "gives": "RC",
+         "note": "RC is short for Roman Catholic"
+        },
         {
          "words": "stars",
          "at": 9,
          "gives": "TAURUS",
          "note": "Taurus is a constellation, a group of stars"
-        },
-        {
-         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "American",
+       "at": 25,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Catholic celebrities promote an American star.",
-     "walkthrough": "RC then TAURUS gives RCTAURUS; promoting its A to the front gives the answer.",
-     "definitionFit": "Arcturus is the brightest star in the northern constellation Bootes."
+     "surface": "A Catholic publicity drive for celebrities, pushing an American star.",
+     "walkthrough": "RC and TAURUS give RCTAURUS; 'promoting' lifts its A (American) to the front.",
+     "definitionFit": "Arcturus is the brightest star in the northern sky, in the constellation Bootes."
     },
     "features": {
      "answerInScene": true,
@@ -1223,48 +1224,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "inadequate",
-       "note": "something inadequate falls short, so the word loses its last letter"
-      }
-     ],
      "parts": [
       {
        "words": "A",
-       "note": "a, as it stands"
+       "at": 0
       },
       {
-       "words": "person like Macbeth",
-       "gives": "THAN",
-       "note": "Macbeth was Thane of Glamis; THANE cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "inadequate",
+         "at": 23,
+         "note": "inadequate means falling short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "person like Macbeth",
+         "at": 2,
+         "gives": "THANE",
+         "note": "Macbeth was Thane of Glamis and Cawdor, a Scottish noble title"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "first sign of",
-         "note": "the first sign of a word is its opening letter, here of death"
+         "at": 39,
+         "note": "the first letter of the word death"
         }
        ],
        "parts": [
         {
          "words": "death",
-         "note": "the first letter of death"
+         "at": 53
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A figure like Macbeth, not up to the job, with death drawing near.",
-     "walkthrough": "A thane was a Scottish lord holding land from the king; Macbeth was Thane of Glamis and of Cawdor.",
-     "definitionFit": "Something at hand is near in time, about to happen, so it is approaching."
+     "surface": "Macbeth, not up to the job, sensing that death is drawing near.",
+     "walkthrough": "A thane was a Scottish lord, as Macbeth was; 'inadequate' cuts THANE short to THAN.",
+     "definitionFit": "Something at hand is near in time or place, close by and about to happen."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Macbeth"
+     "aptDefinition": false
     }
    }
   },

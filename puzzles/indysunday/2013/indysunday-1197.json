@@ -768,48 +768,43 @@
      "indicators": [
       {
        "text": "Reproduction",
-       "note": "a reproduction is something made again, so the letters are remade in a different arrangement"
+       "at": 0,
+       "note": "a reproduction remakes the original, so the letters are rearranged"
       }
      ],
      "parts": [
+      {
+       "words": "main",
+       "at": 16
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "obscuring",
-         "note": "to obscure something is to hide it from view, so those letters disappear from the fodder"
+         "at": 27,
+         "note": "obscuring hides the letter from view, so it is removed from salon"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "main",
-           "note": "taken as written"
-          },
-          {
-           "words": "salon",
-           "note": "taken as written"
-          },
-          {
-           "words": "one new",
-           "gives": "N",
-           "note": "a single N, the abbreviation for new, which is removed"
-          }
-         ]
+         "words": "salon",
+         "at": 21
         },
         {
-         "gives": "NN"
+         "words": "one new",
+         "at": 37,
+         "gives": "N",
+         "note": "N is an abbreviation for new; one such letter goes"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A copy hung in the main gallery hides a newly acquired picture.",
-     "walkthrough": "Removing one N from MAIN SALON leaves eight letters to rearrange.",
-     "definitionFit": "The Mona Lisa is Leonardo da Vinci's portrait in the Louvre, an example of a painting."
+     "surface": "A copy of a famous painting hangs in the main salon, blocking another new one.",
+     "walkthrough": "'obscuring' takes one N out of SALON to leave SALO, and 'Reproduction' rearranges MAIN plus SALO.",
+     "definitionFit": "The Mona Lisa is Leonardo da Vinci's portrait in the Louvre, the world's best-known painting."
     },
     "features": {
      "answerInScene": true,
@@ -1217,7 +1212,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places these letters inside the other piece"
+       "at": 45,
+       "note": "the two letters go inside the jumbled suit"
       }
      ],
      "parts": [
@@ -1226,34 +1222,50 @@
        "indicators": [
         {
          "text": "woven",
-         "note": "woven threads are interlaced, so the letters are worked into a new pattern"
+         "at": 48,
+         "note": "woven means interlaced, so the letters of suit are intertwined in a new order"
         }
        ],
        "parts": [
         {
          "words": "suit",
-         "note": "the word's letters rearranged"
-        },
-        {
-         "words": "politician",
-         "gives": "MP",
-         "note": "MP is Member of Parliament"
+         "at": 54
         }
        ]
       },
       {
-       "words": "energy",
-       "gives": "E",
-       "note": "E for energy"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "introduced by",
+         "at": 20,
+         "note": "energy is brought in after the politician, so it follows those letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "politician",
+         "at": 34,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        },
+        {
+         "words": "energy",
+         "at": 13,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An MP in a tweed suit brings drive and energy.",
-     "definitionFit": "Impetus is the force or driving push that keeps something moving, much like momentum."
+     "surface": "An MP in a woven suit brings energy and drive to the campaign.",
+     "walkthrough": "'introduced by' sets the energy letter after the politician, and that pair goes inside the jumbled suit after its first letter.",
+     "definitionFit": "Impetus is the force or driving energy that keeps something moving."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false
     }
    }

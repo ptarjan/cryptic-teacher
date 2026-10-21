@@ -1837,50 +1837,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "returns",
-       "note": "returning means going back, so the letters are read in the other direction"
+       "text": "during",
+       "at": 78,
+       "note": "during places the reversed letters within the jumble"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "during",
-         "note": "during means in the middle of, so one piece sits inside the other"
+         "text": "sad",
+         "at": 85,
+         "note": "sad in the sense of sorry or wretched, so the letters of decay are put into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "sad",
-           "note": "sad suggests something in a sorry, broken state, so these letters are disordered"
-          }
-         ],
-         "parts": [
-          {
-           "words": "decay",
-           "note": "the anagram fodder"
-          }
-         ]
-        },
+         "words": "decay",
+         "at": 89
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "at": 70,
+         "note": "returns means goes back, so the two letters are read backwards"
+        }
+       ],
+       "parts": [
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially points to the opening letters of the words that precede it"
+           "at": 60,
+           "note": "the opening letters of rheumatoid and arthritis"
           }
          ],
          "parts": [
           {
-           "words": "rheumatoid arthritis",
-           "note": "first letters of the two words"
+           "words": "rheumatoid",
+           "at": 39
+          },
+          {
+           "words": "arthritis",
+           "at": 50
           }
          ]
         }
@@ -1889,13 +1897,13 @@
      ]
     },
     "explanation": {
-     "surface": "Where to put elderly relatives when their arthritis flares up amid physical decline.",
-     "definitionFit": "Day care is supervised care during the day for old people or children, so a facility where they can be left."
+     "surface": "A grim picture of elderly people left in care while arthritis comes back in their sorry decline.",
+     "walkthrough": "The surface reads 'returns' as arthritis flaring up again, but it turns round the two initials before they go inside the jumbled decay.",
+     "definitionFit": "Day care is supervision and activity for elderly or dependent people during the daytime, at a centre they return home from."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "sad"
+     "aptDefinition": true
     }
    }
   }

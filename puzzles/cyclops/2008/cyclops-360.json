@@ -582,44 +582,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "Tossing",
-       "note": "tossing throws things about, so the remaining letters land in a new order"
+       "at": 0,
+       "note": "tossing throws things about, so the letters of the two words are jumbled"
+      },
+      {
+       "text": "lacking",
+       "at": 28,
+       "note": "lacking means without, so those letters must be taken out of the jumble"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "lacking",
-         "note": "what is lacking is missing, so those letters drop out of the fodder"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "your penis",
-         "note": "taken as written"
+         "words": "your",
+         "at": 8
         },
         {
+         "words": "penis",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "love",
+         "at": 20,
          "gives": "O",
-         "note": "love is zero in tennis scoring, shaped like O"
+         "note": "love is zero in tennis scoring, the letter O"
         },
         {
          "words": "is",
-         "note": "taken as written"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grim verdict on loveless self-pleasure as a sorry way to live.",
-     "walkthrough": "Strip O and IS from YOURPENIS, leaving YURPEN, then rearrange.",
-     "definitionFit": "Penury is extreme poverty, so it is a state of being poor."
+     "surface": "A crude Private Eye jibe at a sad, loveless act of self-gratification.",
+     "walkthrough": "Jumble YOUR and PENIS, but without O (love) and IS: the nine letters minus those three leave the six of the answer.",
+     "definitionFit": "Penury is extreme poverty, a condition of being so poor that even necessities are lacking."
     },
     "features": {
      "answerInScene": false,
@@ -1291,45 +1301,45 @@
      "indicators": [
       {
        "text": "contains",
-       "note": "a drink that contains something holds it inside, so one piece sits within the other"
+       "at": 10,
+       "note": "the drink holds the other piece inside it"
       }
      ],
      "parts": [
       {
        "words": "drink",
+       "at": 4,
        "gives": "TOT",
-       "note": "a tot is a small measure of spirits"
+       "note": "a tot is a small drink of spirits"
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "75%",
-         "note": "three quarters of the word is kept, so its final quarter is cut away"
+         "at": 19,
+         "note": "three of the four letters of the word make seventy-five per cent, taken from its front"
         }
        ],
        "parts": [
         {
          "words": "torment",
+         "at": 23,
          "gives": "HELL",
-         "note": "hell is torment, as in going through hell"
-        },
-        {
-         "gives": "L"
+         "note": "hell means torment"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cry that every drink holds most of a torment, the morning-after view of alcohol.",
-     "walkthrough": "'All' looks like it qualifies 'drink', but it stands alone as the definition.",
-     "definitionFit": "The lot is an informal phrase meaning everything, so it can stand in for 'all'."
+     "surface": "A boozer's lament that every drink is mostly misery.",
+     "walkthrough": "Seventy-five per cent of a four-letter word is its first three letters; the exclamation mark is just surface flourish.",
+     "definitionFit": "The phrase is an idiom meaning everything, the whole lot, as in taking the lot."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "All"
+     "aptDefinition": false
     }
    }
   },

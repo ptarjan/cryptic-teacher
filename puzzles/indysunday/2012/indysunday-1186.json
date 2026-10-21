@@ -839,66 +839,70 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "PLAIDCYMRU",
      "indicators": [
       {
+       "text": "requires",
+       "at": 11,
+       "note": "the game needs the other piece attached to it"
+      },
+      {
        "text": "at first",
-       "note": "at first puts this section ahead of the game in the answer"
+       "at": 37,
+       "note": "the other piece comes in front of the game"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "PLAIDCYMRU",
        "indicators": [
         {
          "text": "subtle",
-         "note": "subtle suggests something worked cunningly, so the letters are craftily rearranged"
+         "at": 20,
+         "note": "subtle means finely worked, so the letters are reordered"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "PLAIDCYMRU",
          "indicators": [
           {
            "text": "lacking",
-           "note": "lacking says something is missing and must be removed"
+           "at": 55,
+           "note": "lacking means without, so the letter for nothing is removed"
           }
          ],
          "parts": [
           {
            "words": "diplomacy",
-           "note": "taken as written"
+           "at": 27
           },
           {
            "words": "nothing",
+           "at": 47,
            "gives": "O",
-           "note": "zero, the letter O"
-          },
-          {
-           "words": "game",
-           "gives": "RU",
-           "note": "rugby union"
+           "note": "O is a zero, nothing"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "game",
+       "at": 6,
+       "gives": "RU",
+       "note": "RU is rugby union"
       }
      ]
     },
     "explanation": {
-     "surface": "A party game needs a little tact to get started, with nothing missing.",
-     "walkthrough": "Remove O from the reworked word before rearranging. Plaid Cymru is the Welsh nationalist political party.",
-     "definitionFit": "Plaid Cymru is a political party in Wales, so it fits a one-word definition by example."
+     "surface": "A political party's game plan demands subtle diplomacy from the start.",
+     "walkthrough": "'subtle diplomacy' reads as tact, but 'subtle' is the anagram signal; 'requires ... at first' puts the jumble before the game, rugby union.",
+     "definitionFit": "Plaid Cymru is a political party in Wales, campaigning for Welsh independence."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Party"
+     "misdirectedWord": "subtle"
     }
    }
   },

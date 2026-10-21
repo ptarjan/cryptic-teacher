@@ -1474,7 +1474,8 @@
      "indicators": [
       {
        "text": "defective",
-       "note": "something defective is faulty, so the letters are rearranged"
+       "at": 27,
+       "note": "something defective is faulty or out of order, so the remaining letters are put in a new order"
       }
      ],
      "parts": [
@@ -1483,39 +1484,34 @@
        "indicators": [
         {
          "text": "is missing from",
-         "note": "something missing is absent, so that letter is taken out"
+         "at": 11,
+         "note": "the letter for power is absent from the word pylon, so it is taken out"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "power",
-           "gives": "P",
-           "note": "P is the symbol for power"
-          },
-          {
-           "words": "pylon",
-           "note": "the word to be rearranged"
-          }
-         ]
+         "words": "pylon",
+         "at": 37
         },
         {
-         "gives": "PP"
+         "words": "power",
+         "at": 5,
+         "gives": "P",
+         "note": "P is the physics abbreviation for power"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Electricity is simply absent from a broken pylon.",
-     "definitionFit": "Only and just are adverb synonyms meaning merely or no more than."
+     "surface": "An electricity pylon is faulty, and the only problem is that the power has gone off.",
+     "walkthrough": "'is missing from' takes P out of PYLON to leave YLON, and 'defective' then rearranges those four letters.",
+     "definitionFit": "As an adverb, just and only are synonyms, both meaning merely or no more than."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "power"
+     "misdirectedWord": "Just"
     }
    }
   },
