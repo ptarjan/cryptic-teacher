@@ -1246,12 +1246,14 @@
      "indicators": [
       {
        "text": "got into",
-       "note": "getting into something means going inside it"
+       "at": 44,
+       "note": "got into means entered, so these pieces go inside the word for row"
       }
      ],
      "parts": [
       {
        "words": "row",
+       "at": 53,
        "gives": "TIER",
        "note": "a tier is a row, as of seats"
       },
@@ -1260,33 +1262,49 @@
        "indicators": [
         {
          "text": "after",
-         "note": "after puts this letter behind the doubled parking symbol"
+         "at": 22,
+         "note": "after places the left letter behind the pair"
         }
        ],
        "parts": [
         {
-         "words": "double parking",
-         "gives": "PP",
-         "note": "P is the parking symbol, doubled here"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "double",
+           "at": 28,
+           "note": "says the parking letter appears twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "parking",
+           "at": 35,
+           "gives": "P",
+           "note": "P is the map symbol for parking"
+          },
+          {
+           "gives": "P"
+          }
+         ]
         },
         {
          "words": "left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
+         "at": 17,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk who left the car double-parked then got into a fight.",
-     "walkthrough": "'Row' looks like a quarrel, rhyming with cow, but it is a line of seats.",
-     "definitionFit": "A tippler is a habitual drinker, one who tipples, so a drunkard."
+     "surface": "A drunk driver double-parks, then leaves and gets into a quarrel.",
+     "walkthrough": "PP followed by L makes PPL, which sits inside TIER.",
+     "definitionFit": "A tippler is a habitual drinker, someone fond of the bottle."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "row"
     }
    }

@@ -1335,58 +1335,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "dropping from",
-       "note": "dropping from means that letter falls out of the word that follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "not entirely",
-         "note": "not entirely means the word loses its last letter"
+         "text": "dropping from",
+         "at": 12,
+         "note": "the temperature letter drops out of the word for peak"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "peak",
-           "gives": "HEIGHT",
-           "note": "a peak is a high point, a height"
-          },
-          {
-           "words": "warm",
-           "gives": "HOT",
-           "note": "hot is very warm"
-          }
-         ]
+         "words": "peak",
+         "at": 26,
+         "gives": "HEIGHT",
+         "note": "a height is a peak"
         },
         {
+         "words": "Temperature",
+         "at": 0,
          "gives": "T"
         }
        ]
       },
       {
-       "words": "Temperature",
-       "gives": "T",
-       "note": "T is the abbreviation for temperature"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not entirely",
+         "at": 32,
+         "note": "not entirely means its last letter is missing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "warm",
+         "at": 45,
+         "gives": "HOT",
+         "note": "hot means warm"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The thermometer falls from its high, it is not quite warm, and someone sighs resignedly.",
-     "definitionFit": "Heigh-ho is a sighing exclamation of weary resignation, used just as one says oh well."
+     "surface": "A shrug at the temperature falling from its peak, not quite warm.",
+     "walkthrough": "HEIGHT minus T gives HEIGH; HOT without its last letter is HO.",
+     "definitionFit": "Heigh-ho is a sighing exclamation of weary resignation."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "peak"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "warm"
     }
    }
   },

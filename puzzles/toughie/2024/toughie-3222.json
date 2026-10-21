@@ -460,36 +460,45 @@
      "op": "charade",
      "parts": [
       {
-       "op": "cycling",
+       "op": "move",
        "indicators": [
         {
-         "text": "leader demoted",
-         "note": "demoting a leader sends the front letter down to the back of the word"
+         "text": "demoted",
+         "at": 14,
+         "note": "demoted means sent down, so the leading letter drops to the bottom in this down entry"
         }
        ],
        "parts": [
         {
          "words": "Island",
+         "at": 0,
          "gives": "BALI",
-         "note": "the Indonesian island, with its first letter then moved to the end"
+         "note": "Bali is an Indonesian island"
+        },
+        {
+         "words": "leader",
+         "at": 7,
+         "gives": "B",
+         "note": "the leader of Bali is its first letter"
         }
        ]
       },
       {
        "words": "island",
-       "gives": "I",
-       "note": "I is the abbreviation for island"
+       "at": 23,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "An island chief is downgraded and the island issues a justification.",
-     "definitionFit": "An alibi is a claim of being elsewhere, used as an excuse or defence."
+     "surface": "An island's leader loses rank and blames the island.",
+     "walkthrough": "BALI with its B sent down gives ALIB.",
+     "definitionFit": "An alibi is a claim of being elsewhere, used as a defence or excuse."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leader"
+     "misdirectedWord": "demoted"
     }
    }
   },
@@ -1418,66 +1427,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ignoring every small",
+       "at": 25,
+       "note": "small gives S, and every one of them is dropped"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "ignoring every",
-         "note": "ignoring every instance removes all copies of a letter throughout"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Gardening society",
-             "gives": "RHS",
-             "note": "the Royal Horticultural Society"
-            },
-            {
-             "words": "'s",
-             "gives": "IS",
-             "note": "the 's read as is"
-            }
-           ]
-          },
-          {
-           "gives": "S"
-          }
-         ]
+         "words": "Gardening society's",
+         "at": 0,
+         "gives": "RHSIS",
+         "note": "RHS is the Royal Horticultural Society, and the 's is read as is"
         },
         {
-         "words": "small",
-         "gives": "S",
-         "note": "S is the abbreviation for small; every one is removed"
+         "words": "head",
+         "at": 20,
+         "gives": "NESS",
+         "note": "a ness is a headland"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "head",
-         "gives": "NESS",
-         "note": "a ness is a headland"
-        },
-        {
-         "gives": "SS"
-        }
-       ]
+       "gives": "SSSS"
       }
      ]
     },
     "explanation": {
-     "surface": "The leader of a gardening club takes no notice of any little bloom.",
-     "walkthrough": "In crosswords a flower is often something that flows, so a river. Strip every S from RHS IS NESS.",
-     "definitionFit": "The Rhine is a great European river, and a river is a flower in the sense of something that flows."
+     "surface": "The leader of a gardening club overlooking every little bloom.",
+     "walkthrough": "RHS + IS + NESS loses all four S letters to leave RH-I-NE. Flower is a river, a thing that flows.",
+     "definitionFit": "The Rhine is a major European river, and a flower in crosswords is something that flows."
     },
     "features": {
      "answerInScene": false,

@@ -118,46 +118,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
      "indicators": [
+      {
+       "text": "putting",
+       "at": 39,
+       "note": "with down, putting the king down means shifting that letter lower in this down entry"
+      },
       {
        "text": "down",
        "at": 52,
-       "note": "in a down entry, putting the king letter down means moving it to the bottom of the word"
+       "note": "with putting, says the king letter is lowered to the bottom of the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "member of royal family",
-         "at": 16,
-         "gives": "PRINCE",
-         "note": "a prince is a son of a monarch"
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "words": "member of royal family",
+       "at": 16,
+       "gives": "PRINCE",
+       "note": "a prince is a member of a royal family"
       },
       {
        "words": "king",
        "at": 47,
        "gives": "R",
-       "note": "R stands for Rex, Latin for king"
+       "note": "R is the abbreviation for king (Latin rex)"
       }
      ]
     },
     "explanation": {
-     "surface": "A royal who demotes the king turns out to be the one grabbing power.",
-     "walkthrough": "The R of the royal word is moved from second place to the very end.",
-     "definitionFit": "A pincer is a claw or gripping tool, an instrument whose job is to grip things tightly."
+     "surface": "A grabbing royal who demotes the monarch beside him.",
+     "walkthrough": "In PRINCE the R (king) is moved down to the end, giving the answer.",
+     "definitionFit": "A pincer is a claw, as on a crab, whose job is to grip things."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "putting"
+     "misdirectedWord": "down"
     }
    }
   },
@@ -1229,63 +1226,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "cooking",
        "at": 10,
-       "note": "being cooked up, so what is left is rearranged"
+       "note": "cooking stirs ingredients up, so the letters of Malaysian are worked into a new order"
+      },
+      {
+       "text": "doesn't contain",
+       "at": 18,
+       "note": "says the letters of the word any are not part of what is left once mixed"
+      },
+      {
+       "text": "nuts",
+       "at": 38,
+       "note": "nuts means crazy, a second hint that the letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "doesn't contain",
-         "at": 18,
-         "note": "the scrambled letters are taken out of Malaysian"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "deletion",
-           "parts": [
-            {
-             "words": "Malaysian",
-             "at": 0,
-             "note": "the letters of Malaysian as written, before any are removed"
-            },
-            {
-             "gives": "N"
-            }
-           ]
-          },
-          {
-           "gives": "Y"
-          }
-         ]
-        },
-        {
-         "words": "any nuts",
-         "at": 34,
-         "gives": "A",
-         "note": "the letters of any, in a scrambled (nuts) order; the A, Y and N are each struck out of Malaysian where they fall"
-        }
-       ]
+       "words": "Malaysian",
+       "at": 0
+      },
+      {
+       "words": "any",
+       "at": 34
       }
      ]
     },
     "explanation": {
-     "surface": "A diner is assured that a Malaysian dish has no nuts or sausage in it.",
-     "walkthrough": "Nuts looks like an allergen on the menu, but it signals a jumble of any.",
-     "definitionFit": "Salami is a cured, spiced Italian meat, a kind of sausage."
+     "surface": "A warning that Malaysian food is nut-free, or else it's sausage.",
+     "walkthrough": "Take the letters A, N, Y out of MALAYSIAN and rearrange the remaining M, L, A, S, I, A.",
+     "definitionFit": "Salami is a cured Italian-style sausage, usually eaten sliced."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "nuts"
     }

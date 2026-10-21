@@ -1450,20 +1450,39 @@
      "parts": [
       {
        "words": "English",
-       "gives": "E",
-       "note": "E is short for English"
+       "at": 0,
+       "gives": "E"
       },
       {
-       "words": "mutt spitting out one round",
-       "gives": "POCH",
-       "note": "POOCH less one O (round)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "spitting out",
+         "at": 13,
+         "note": "spitting out means ejecting, so one round letter leaves the word for mutt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mutt",
+         "at": 8,
+         "gives": "POOCH",
+         "note": "a pooch is a dog, a mutt"
+        },
+        {
+         "words": "one round",
+         "at": 26,
+         "gives": "O",
+         "note": "a round thing is O, and only one of the two goes"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An English dog spits out a round thing on a date.",
-     "walkthrough": "'Date' means a point in history, not a dinner out.",
-     "definitionFit": "Epoch originally meant a fixed date from which time is reckoned, as astronomers still use it."
+     "surface": "An English dog spitting out a ball, perhaps on a date.",
+     "walkthrough": "POOCH loses one of its two Os.",
+     "definitionFit": "An epoch is a period of time marked by distinctive events, like a date in history."
     },
     "features": {
      "answerInScene": false,
