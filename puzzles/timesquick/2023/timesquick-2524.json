@@ -234,7 +234,8 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the jumbled letters go around the next piece"
+       "at": 46,
+       "note": "about means the jumbled letters go round the letters for right and nothing"
       }
      ],
      "parts": [
@@ -243,32 +244,39 @@
        "indicators": [
         {
          "text": "Sadly",
-         "note": "things that turn out sadly have gone wrong, so the letters are put out of order"
+         "at": 20,
+         "note": "sadly signals that the following letters are in a sorry, jumbled state"
         }
        ],
        "parts": [
         {
          "words": "it means",
-         "note": "taken as written"
-        },
-        {
-         "words": "nothing",
-         "gives": "O",
-         "note": "the letter O looks like zero, nothing"
+         "at": 27
         }
        ]
       },
       {
-       "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "right",
+         "at": 52,
+         "gives": "R"
+        },
+        {
+         "words": "nothing",
+         "at": 36,
+         "gives": "O",
+         "note": "O is zero, nothing"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sighs that a pressing matter turns out to mean nothing at all.",
-     "walkthrough": "'Something pressing' suggests an urgent matter; the question mark hints at pressing clothes.",
-     "definitionFit": "A steam iron is used to press creases out of clothes, so it is literally a thing that presses."
+     "surface": "A worried person says that something urgent turns out to mean nothing at all.",
+     "walkthrough": "'Pressing' suggests urgency; the question mark shows it is literal ironing. The mixed-up 'it means' wraps round R then O.",
+     "definitionFit": "A steam iron presses clothes, so it is literally a thing that does pressing."
     },
     "features": {
      "answerInScene": false,
@@ -523,46 +531,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "EYEBALLS",
+     "indicators": [
+      {
+       "text": "out loud",
+       "at": 32,
+       "note": "out loud means the pieces are spoken, giving a word that sounds like them"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "EYE",
-       "indicators": [
-        {
-         "text": "out loud",
-         "note": "out loud means spoken, so we want words that are heard like these"
-        }
-       ],
-       "parts": [
-        {
-         "words": "yours truly",
-         "gives": "I",
-         "note": "yours truly is the speaker, I, which is said like eye"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "BALLS",
-       "parts": [
-        {
-         "words": "cries",
-         "gives": "BAWLS",
-         "note": "to bawl is to cry loudly"
-        }
-       ]
+       "words": "yours truly and cries",
+       "at": 10,
+       "gives": "IBAWLS",
+       "note": "yours truly is a jokey way of saying I, and bawls means cries noisily: I bawls"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone glares and then bursts into noisy tears.",
-     "definitionFit": "To eyeball someone is an informal idiom for staring hard at them."
+     "surface": "The speaker describes staring at people and weeping noisily.",
+     "walkthrough": "Said aloud, 'I bawls' sounds like the answer.",
+     "definitionFit": "To eyeball someone is to stare at them hard."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cries"
+     "joke": "pun",
+     "misdirectedWord": "yours"
     }
    }
   },

@@ -119,22 +119,32 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the repeated pronoun goes about, that is around, the two abbreviations in the middle"
+       "at": 28,
+       "note": "about means the doubled pronoun goes round the other letters"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "repeated",
+         "at": 19,
+         "note": "repeated says that pronoun is written a second time"
+        }
+       ],
        "parts": [
         {
-         "words": "man",
+         "words": "that man",
+         "at": 10,
          "gives": "HE",
-         "note": "the male pronoun"
+         "note": "that man is he"
         },
         {
-         "words": "repeated",
+         "words": "that man",
+         "at": 10,
          "gives": "HE",
-         "note": "the pronoun given a second time"
+         "note": "that man is he, used a second time"
         }
        ]
       },
@@ -143,27 +153,28 @@
        "parts": [
         {
          "words": "Notice",
+         "at": 34,
          "gives": "AD",
-         "note": "a notice placed in a paper is an advertisement, AD for short"
+         "note": "an ad is a notice, an advertisement"
         },
         {
          "words": "Account",
-         "gives": "AC",
-         "note": "standard abbreviation for account"
+         "at": 41,
+         "gives": "AC"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man keeps grumbling about his bank's notice account.",
-     "walkthrough": "'Notice Account' reads as one banking product, but the two words supply separate abbreviations, with 'man repeated' supplying the pronoun on both sides.",
-     "definitionFit": "A headache is an ailment, and complaint is the medical word for an illness or pain."
+     "surface": "A man keeps complaining about a notice from his bank account.",
+     "walkthrough": "'Complaint' looks like a grievance about the bank, but it is the definition in its sense of an ailment.",
+     "definitionFit": "A headache is a common ailment, and complaint can mean a minor illness."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Notice"
+     "misdirectedWord": "Complaint"
     }
    }
   },
@@ -1002,78 +1013,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AZERI",
-     "indicators": [
-      {
-       "text": "returned",
-       "note": "returned means turned back, so the weight abbreviation is read in the opposite direction before it is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "by",
-         "note": "by here means next to, so one more piece is set alongside"
+         "text": "discounted by",
+         "at": 15,
+         "note": "discounted by means the letters that follow are taken off the jacket word"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
+         "words": "Formal jacket",
+         "at": 0,
+         "gives": "BLAZER",
+         "note": "a blazer is a tailored jacket, often part of a uniform"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "discounted by",
-           "note": "discounted means having something taken off, so the abbreviation for the weight unit is removed"
+           "text": "returned",
+           "at": 36,
+           "note": "returned means the pound abbreviation is read backwards"
           }
          ],
          "parts": [
           {
-           "words": "Formal jacket",
-           "gives": "BLAZER",
-           "note": "a blazer is a smart jacket"
-          },
-          {
-           "gives": "BL"
-          }
-         ]
-        },
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "pound",
-             "gives": "LB",
-             "note": "lb is the abbreviation for a pound weight"
-            },
-            {
-             "words": "one",
-             "gives": "I",
-             "note": "Roman numeral one"
-            }
-           ]
-          },
-          {
-           "gives": "LB"
+           "words": "pound",
+           "at": 29,
+           "gives": "LB",
+           "note": "lb is the abbreviation for a pound in weight"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 48,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A smart jacket marked down by a pound, then returned by a shopper from Asia.",
-     "walkthrough": "The pound abbreviation is turned round before removal, because it sits at the front of the jacket in the opposite order.",
-     "definitionFit": "An Azeri is a native of Azerbaijan, a country at the meeting of western Asia and Europe."
+     "surface": "A smart jacket marked down by a pound is sent back by an Asian customer.",
+     "walkthrough": "'Returned' looks like the jacket going back to the shop, but it turns the pound abbreviation round before it is taken off the jacket's front.",
+     "definitionFit": "An Azeri is a native of Azerbaijan, a country in western Asia."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "returned"
     }

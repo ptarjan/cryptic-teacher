@@ -620,60 +620,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "looking back",
-       "at": 31,
-       "note": "looking back says the whole string is read in reverse"
+       "text": "over",
+       "at": 44,
+       "note": "over means the reversed letters lie over and around the letter for century"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "looking back",
+         "at": 31,
+         "note": "looking back means the letters of if plus one's are read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "if",
-         "at": 22,
-         "note": "taken as written"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "over",
-           "at": 44,
-           "note": "over has the letters of one's spread across the century letter, enclosing it"
-          }
-         ],
+         "op": "charade",
          "parts": [
+          {
+           "words": "if",
+           "at": 22
+          },
           {
            "words": "one's",
            "at": 25,
            "gives": "IS",
-           "note": "one is I, so one's (one is) is IS"
-          },
-          {
-           "words": "century",
-           "at": 49,
-           "gives": "C",
-           "note": "C is the Roman numeral for a hundred"
+           "note": "one is I, and the 's adds S"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "century",
+       "at": 49,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, a century"
       }
      ]
     },
     "explanation": {
-     "surface": "Imagining the future means looking back over a hundred years, if you are that sort of person.",
-     "walkthrough": "One's is read as one is, giving I plus S.",
-     "definitionFit": "Science fiction is the genre of imagined futures, so its stories are visions of what is to come."
+     "surface": "Someone imagines the future, wondering what if while looking back across a hundred years.",
+     "walkthrough": "'Looking back' reads as nostalgia but turns 'if one's' round; 'over' then wraps that round the century letter, which lands after the first letter.",
+     "definitionFit": "Sci-fi, science fiction, imagines possible future worlds and technologies."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "back"
+     "aptDefinition": true,
+     "misdirectedWord": "looking"
     }
    }
   },
@@ -1255,7 +1254,7 @@
       {
        "text": "consuming",
        "at": 14,
-       "note": "consuming means the word for annoy holds the diamonds inside"
+       "note": "consuming means the word for put out swallows the other letters inside it"
       }
      ],
      "parts": [
@@ -1263,19 +1262,37 @@
        "words": "put out",
        "at": 6,
        "gives": "RILE",
-       "note": "to put someone out is to annoy, or rile, them"
+       "note": "to rile someone is to annoy them, put them out"
       },
       {
-       "words": "Double Diamonds",
-       "at": 24,
-       "gives": "DD",
-       "note": "D is diamonds in card notation, so two diamonds is DD; Double Diamond is also a British beer"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Double",
+         "at": 24,
+         "note": "double says the diamonds letter is written twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Diamonds",
+         "at": 31,
+         "gives": "D",
+         "note": "D is the card-suit abbreviation for diamonds"
+        },
+        {
+         "words": "Diamonds",
+         "at": 31,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is annoyed while drinking Double Diamond, a British bitter beer.",
-     "definitionFit": "A poser is a puzzling question, and a riddle is a puzzle set as a question."
+     "surface": "A man is annoyed after drinking Double Diamond, a brand of British beer.",
+     "walkthrough": "Double Diamond was a well-known British bottled beer, which makes the surface a drinking scene.",
+     "definitionFit": "A poser is a puzzling question, which is what a riddle is."
     },
     "features": {
      "answerInScene": false,
