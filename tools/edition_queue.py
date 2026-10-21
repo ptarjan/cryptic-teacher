@@ -666,8 +666,13 @@ def only_evidence(paper, scans, reads):
     rereads, each kept read carrying "detail" (the puzzle and what the
     annotation or the refusal said); a scan stays when it is a first scan or a
     kept read waits on it."""
-    reads = [u for u in reads if evidence_reason(u["reason"])]
+    # A read fa.likely() predicts to file a puzzle whole (e.g. "answers linked": a scan now links the
+    # printed solution of a puzzle filed without answers) is evidence too. Paul 10-21: filling the
+    # Times answers printed in the papers takes priority over the other papers.
+    reads = [u for u in reads if evidence_reason(u["reason"]) or fa.likely_gain(u) > 0]
     for u in reads:
+        if not evidence_reason(u["reason"]) and not u.get("detail"):
+            u["detail"] = ", ".join(f"{k} x{n}" for k, n in sorted((u.get("likely") or {}).items()))
         if u["reason"] == "annotation asked" and not u.get("detail"):
             u["detail"] = _ASKED_WHY.get((paper, u["rel"]), "")
     needed = {rel for u in reads for rel in u.get("needs") or ()}
@@ -819,7 +824,11 @@ def hold_refusal_rereads(scans, reads, out=None):
     if proven and out is not None:
         for note in dict.fromkeys(canary_proven(t[3]) for t in proven):
             out.append(f"canary-proven rereads: kept {sum(canary_proven(t[3]) == note for t in proven)} ({note})")
-    held = [t for t in reads if refusal_reread(t[3]["reason"]) and not canary_proven(t[3])]
+    # CT_NEWEST_FIRST papers' refusal rereads are never held: Paul 10-21, "Read the remaining times
+    # puzzles before doing ft" (their never-read pages ran out; ~1,200 rereads waited behind FT's).
+    named = newest_first_papers()
+    held = [t for t in reads if refusal_reread(t[3]["reason"]) and not canary_proven(t[3])
+            and t[3]["paper"] not in named]
     if not held:
         return scans, reads
     if refusal_rereads_wanted():
@@ -1012,8 +1021,12 @@ def by_urgency(units):
         proven = [t for t in units if canary_proven(t[3])]
         newest = [t for t in newest if t not in proven]
         rest = [t for t in rest if t not in proven]
-        units = ([t for t in newest if files_likely_tier(t[0], t[3]) == 0] + alternate([t for t in rest if t[0] <= 1], proven)
-                 + [t for t in newest if files_likely_tier(t[0], t[3]) > 0] + [t for t in rest if t[0] > 1])
+        # Paul 10-21: "Read the remaining times puzzles before doing ft": every unit of the named papers
+        # (their proven and fix-landed rereads too) goes before any other paper's.
+        units = ([t for t in newest if files_likely_tier(t[0], t[3]) == 0] + [t for t in proven if t[3].get("paper") in named]
+                 + [t for t in newest if files_likely_tier(t[0], t[3]) > 0]
+                 + alternate([t for t in rest if t[0] <= 1], [t for t in proven if t[3].get("paper") not in named])
+                 + [t for t in rest if t[0] > 1])
     return [u for *_, u in units]
 
 

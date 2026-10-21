@@ -168,7 +168,7 @@ del os.environ["CT_BLANKET_REREADS"]
 sc_ev, rd_ev = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
 check("no blanket rereads: inputs changed, scan stale and --reread are not planned; refusals whose fix landed are",
       {"1992-01-01_1", "1990-06-01_1", "1990-05-01_1", "1970-01-01_1"}, {u["rel"].split("/")[1] for u in rd_ev})
-check("every planned read's reason is a kept one", True, all(eq.evidence_reason(u["reason"]) for u in rd_ev))
+check("every planned read's reason is a kept one", True, all(eq.evidence_reason(u["reason"]) or f.likely_gain(u) > 0 for u in rd_ev))
 check("the refusal's read says which puzzle and what the refusal said", True,
       all("puzzle 1" in u.get("detail", "") for u in rd_ev if u["reason"].startswith("refused ")) and
       any(u.get("detail") for u in rd_ev))
@@ -179,6 +179,10 @@ _, ask = eq.only_evidence("times", [], [{"rel": "X/1", "reason": "annotation ask
                                          {"rel": "X/2", "reason": "inputs changed", "needs": []}])
 check("annotation asked carries its puzzle and checks; inputs changed is dropped",
       [("X/1", "annotation asked", "puzzle times-1: printedClue")], [(u["rel"], u["reason"], u["detail"]) for u in ask])
+_, lk = eq.only_evidence("times", [], [{"rel": "X/3", "reason": "scan stale, answers linked", "needs": [], "likely": {"answers linked": 2}},
+                                        {"rel": "X/4", "reason": "scan stale", "needs": [], "likely": {}}])
+check("a read predicted to file whole (answers linked) stays, with its detail", [("X/3", "answers linked x2")],
+      [(u["rel"], u["detail"]) for u in lk])
 # ---- a read that wrote an incomplete puzzle before the cause time is due once ("unfiled before its fix")
 _un = {"id": "times-1", "number": 1, "complete": False, "wrote": True, "unfiled": 3, "clues": 27, "lights": 30}
 _unrow = {"verdicts": [_un], "scan": {"item": "GaleTimes1947UKEnglish", "date": "1947-04-19"}}
@@ -227,6 +231,9 @@ gk = lambda rel, date, reason="refused no-reading-parses before its fix", paper=
     {"paper": paper, "rel": rel, "reason": reason, "date": date, "needs": []})
 _, rd_p = eq.hold_refusal_rereads([], [tup(unit_n), gk("g61", "1961-05-01"), gk("g70", "1970-05-01"), gk("g05", "2005-03-02"),
                                        gk("t61", "1961-05-01", paper="times"), tup(unit_c)], notes_p := [])
+_, rd_nf = (os.environ.__setitem__("CT_NEWEST_FIRST", "times"), eq.hold_refusal_rereads([], [tup(unit_n), tup(unit_c), tup(unit_t)]))[1]
+del os.environ["CT_NEWEST_FIRST"]
+check("CT_NEWEST_FIRST papers' refusal rereads are not held", ["X/n", "X/c"], [t[3]["rel"] for t in rd_nf])
 check("canary: only gale no-reading-parses of 1960-66 and 2005-06 survive the hold", ["X/n", "g61", "g05"],
       [t[3]["rel"] for t in rd_p])
 check("canary: one note counts the kept", 1, sum("canary-proven rereads: kept 2 (" in n for n in notes_p))
@@ -241,8 +248,9 @@ gu = lambda *a, **k: gk(*a, **k)[3]
 ordered = eq.by_urgency([(2, 0, 0, gu("g61", "1961-05-01")), (2, 0, 1, gu("g70", "1970-05-01")),
                          (2, 1, 0, {**unit_c, "date": "2000-01-01"}), (1, 1, 1, {**unit_n, "date": "1990-01-01"}),
                          (1, 0, 2, {**unit_n, "rel": "gnew", "paper": "gale", "date": "2001-01-01"})])
-check("canary: after the never-read work, ahead of other rereads", ["gnew", "X/n", "g61"], [u["rel"] for u in ordered][:3])
-check("canary: alternates with other papers' never-read work", ["gnew", "X/n", "g61", "X/m"],
+check("named papers first: never-read, then proven, then fix-landed rereads, then other papers", ["gnew", "g61", "g70", "X/n"],
+      [u["rel"] for u in ordered][:4])
+check("named papers' proven rereads go before other papers' never-read work", ["gnew", "g61", "X/n", "X/m"],
       [u["rel"] for u in eq.by_urgency([(2, 0, 0, gu("g61", "1961-05-01")), (1, 1, 1, {**unit_n, "date": "1990-01-01"}),
                                         (1, 1, 2, {**unit_n, "rel": "X/m", "date": "1989-01-01"}),
                                         (1, 0, 2, {**unit_n, "rel": "gnew", "paper": "gale", "date": "2001-01-01"})])])
@@ -335,8 +343,8 @@ check("eq.by_urgency: CT_NEWEST_FIRST unset leaves the order alone",
       ["gale-hand", "other", "gale-old-gain", "gale-new", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
 os.environ["CT_NEWEST_FIRST"] = "gale, times"
-check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' likely filers first, another paper's never-read ahead of their rereads",
-      ["gale-old-gain", "gale-hand", "other", "gale-new", "times-mid"],
+check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' likely filers first, then their rereads, then other papers (Paul 10-21)",
+      ["gale-old-gain", "gale-hand", "gale-new", "times-mid", "other"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
 rr = lambda rel, date, reason, **k: (2, 0, 0, {"rel": rel, "date": date, "paper": "times", "rank": 2, "reason": reason, **k})
 check("eq.by_urgency: CT_NEWEST_FIRST, never read first, then rereads after a refusal or short read, then ones whose page holds the puzzle",
@@ -347,8 +355,8 @@ check("eq.by_urgency: CT_NEWEST_FIRST, never read first, then rereads after a re
           rr("changed-old", "2000", "inputs changed"),
           rr("refused", "2015", "refused no-reading-parses before its fix"),
           (1, 0, 0, {"rel": "never", "date": "1990", "paper": "times", "rank": 1, "reason": "never read"})])])
-check("eq.by_urgency: CT_NEWEST_FIRST, a fix-landed reread after another paper's never-read, before other rereads",
-      ["never", "ft-never", "short", "changed", "ft-stale"],
+check("eq.by_urgency: CT_NEWEST_FIRST, the named papers' rereads before another paper's never-read (Paul 10-21)",
+      ["never", "short", "changed", "ft-never", "ft-stale"],
       [u["rel"] for u in eq.by_urgency([
           rr("changed", "2020", "inputs changed"),
           rr("short", "2010", "solution short, read by other code"),
