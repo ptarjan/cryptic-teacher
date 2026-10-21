@@ -628,20 +628,35 @@
        "note": "a pizza is an Italian dish"
       },
       {
-       "words": "zip and zing primarily",
-       "at": 10,
-       "gives": "ZZ",
-       "note": "primarily means at first, so each of the two nouns gives its opening letter; and only joins them"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 23,
+         "note": "primarily asks for the opening letters of the two words before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "zip",
+         "at": 10
+        },
+        {
+         "words": "zing",
+         "at": 18
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lively, zesty dish served with style.",
-     "definitionFit": "Pizzazz is an informal word for glamorous vitality or stylish panache."
+     "surface": "A meal served with energy and a lively edge, plus style.",
+     "definitionFit": "Pizzazz is an informal word for stylish dash and showmanship."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "zip"
     }
    }
   },
@@ -1369,12 +1384,12 @@
      "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "move",
        "indicators": [
         {
-         "text": "moving left",
+         "text": "moving",
          "at": 19,
-         "note": "the L of the gunfire shifts leftward, rearranging the letters"
+         "note": "moving tells us one letter of the gunfire word shifts to a new position"
         }
        ],
        "parts": [
@@ -1383,6 +1398,11 @@
          "at": 0,
          "gives": "FLAK",
          "note": "flak is anti-aircraft gunfire"
+        },
+        {
+         "words": "left",
+         "at": 26,
+         "gives": "L"
         }
        ]
       },
@@ -1390,17 +1410,17 @@
        "op": "container",
        "indicators": [
         {
-         "text": "coming in",
-         "at": 36,
-         "note": "the numeral enters between the doubled word"
+         "text": "secures",
+         "at": 52,
+         "note": "secures means holds fast, so the arriving word holds the numeral within it"
         }
        ],
        "parts": [
         {
-         "words": "twice secures",
-         "at": 46,
-         "gives": "LANDSLANDS",
-         "note": "lands, as in lands a deal, written two times"
+         "words": "coming in",
+         "at": 36,
+         "gives": "LANDS",
+         "note": "lands means comes in to land, as an aircraft does"
         },
         {
          "words": "one",
@@ -1409,18 +1429,24 @@
          "note": "I is the Roman numeral for one"
         }
        ]
+      },
+      {
+       "words": "twice",
+       "at": 46,
+       "gives": "LANDS",
+       "note": "twice means the arriving word appears a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "Anti-aircraft fire drifts as a lone figure lands in a contested territory.",
-     "walkthrough": "The L of FLAK moves one place left. The British-ruled South Atlantic islands are claimed by Argentina as Las Malvinas.",
-     "definitionFit": "These South Atlantic islands are a British territory whose sovereignty Argentina contests, fought over in 1982."
+     "surface": "Guns shift to the left as a single aircraft makes two approaches over contested land.",
+     "walkthrough": "FLAK with its L moved becomes FALK; LANDS holding I gives LANDIS; then LANDS again for 'twice'.",
+     "definitionFit": "The Falklands are a South Atlantic island group whose sovereignty Argentina contests with Britain."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "secures"
+     "misdirectedWord": "coming"
     }
    }
   },

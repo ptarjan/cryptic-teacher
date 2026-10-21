@@ -1167,53 +1167,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THOMASHARDY",
+     "op": "container",
      "indicators": [
       {
-       "text": "Nearly",
-       "note": "nearly means not quite all of it, so the final letter of the next word is dropped"
+       "text": "eaten by",
+       "at": 20,
+       "note": "eaten by means swallowed inside, so these letters go within the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "eaten by",
-         "note": "what is eaten ends up inside the eater, so the first part goes within the second"
-        }
-       ],
+       "words": "late",
+       "at": 29,
+       "gives": "TARDY",
+       "note": "tardy means late"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "late",
-         "gives": "TARDY",
-         "note": "tardy means late, behind time"
-        },
-        {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Nearly",
+           "at": 0,
+           "note": "nearly means almost all, so the word loses its final letter"
+          }
+         ],
          "parts": [
           {
            "words": "hot",
-           "gives": "HO",
-           "note": "hot with its last letter cut off"
+           "at": 7,
+           "gives": "HOT",
+           "note": "taken as written before shortening"
           },
           {
-           "words": "potatoes",
-           "gives": "MASH",
-           "note": "mash is mashed potatoes"
+           "gives": "T"
           }
          ]
+        },
+        {
+         "words": "potatoes",
+         "at": 11,
+         "gives": "MASH",
+         "note": "mash is mashed potatoes"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone nearly finished hot potatoes, a meal devoured by a writer now dead.",
-     "walkthrough": "'late writer' reads as a dead author, but 'late' is wordplay and 'writer' alone is the definition. The trimmed hot and the potatoes go inside the word for late, after its first letter.",
-     "definitionFit": "Thomas Hardy was an English novelist and poet, author of Wessex novels, so he is a famous writer."
+     "surface": "Not-quite-hot spuds are consumed by a dead author.",
+     "walkthrough": "'Late' in the surface suggests a dead writer; in the wordplay it simply means behind time.",
+     "definitionFit": "Thomas Hardy was the English novelist and poet of Wessex, who wrote Tess of the d'Urbervilles."
     },
     "features": {
      "answerInScene": true,

@@ -43,44 +43,62 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "round",
-       "note": "round means surrounding, so the selected letters go on either side of the next piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "first",
+       "words": "I",
+       "at": 0
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "mainly",
-         "note": "mainly here stands for the chief or leading part, so only the head of each of the opening words counts"
+         "text": "round",
+         "at": 21,
+         "note": "round means surrounding, so the shortened word goes round the fish"
         }
        ],
        "parts": [
         {
-         "words": "I mainly encountered",
-         "note": "the leading letters of the three words I, mainly and encountered"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mainly",
+           "at": 2,
+           "note": "mainly means most of, so the word drops its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "encountered",
+           "at": 9,
+           "gives": "MET",
+           "note": "met means encountered"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        },
+        {
+         "words": "fish",
+         "at": 27,
+         "gives": "BIB",
+         "note": "the bib is a fish, also called pouting"
         }
        ]
-      },
-      {
-       "words": "fish",
-       "gives": "BIB",
-       "note": "the bib, or pouting, is a small fish of the cod family"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone recounts meeting a round fish while having a drink.",
-     "definitionFit": "To imbibe is to take in liquid, especially alcohol, so it works as the verb sense of drink."
+     "surface": "Someone mostly met a fish roundabout while having a drink.",
+     "walkthrough": "The bib, also called pouting, is a small fish of the cod family.",
+     "definitionFit": "To imbibe is to drink, especially alcohol."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "mainly"
+     "misdirectedWord": "round"
     }
    }
   },
@@ -171,6 +189,13 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "repeatedly",
+       "at": 29,
+       "note": "repeatedly says the heard syllables come twice"
+      }
+     ],
      "parts": [
       {
        "op": "homophone",
@@ -178,34 +203,33 @@
        "indicators": [
         {
          "text": "we're told",
-         "note": "we're told means we hear it spoken, so the spelling follows the sound rather than the word"
+         "at": 18,
+         "note": "we're told marks what follows as heard rather than seen"
         }
        ],
        "parts": [
         {
          "words": "fruit",
+         "at": 11,
          "gives": "BERRY",
-         "note": "a small soft fruit, written to match how it is pronounced"
+         "note": "a berry is a fruit"
         }
        ]
       },
       {
-       "words": "repeatedly",
-       "gives": "BERI",
-       "note": "the same sound said a second time"
+       "gives": "BERI"
       }
      ]
     },
     "explanation": {
-     "surface": "A plant disease is reported again and again in a crop of fruit.",
-     "walkthrough": "The name of the disease comes from Sinhalese and sounds like the fruit said twice.",
-     "definitionFit": "Beriberi is a nutritional illness caused by a lack of vitamin B1, thiamine."
+     "surface": "A sickness carried by fruit, so we keep hearing.",
+     "walkthrough": "BERRY sounds like BERI; say it twice.",
+     "definitionFit": "Beriberi is an illness caused by a lack of vitamin B1 (thiamine)."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Disease"
+     "misdirectedWord": "fruit"
     }
    }
   },

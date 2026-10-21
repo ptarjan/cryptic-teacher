@@ -365,58 +365,62 @@
      "parts": [
       {
        "words": "cold",
+       "at": 5,
        "gives": "C",
-       "note": "C = cold, as on taps"
+       "note": "C is the abbreviation for cold, as on a tap"
       },
       {
        "words": "and",
-       "note": "kept as it stands"
+       "at": 10,
+       "gives": "AND"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 14,
+         "note": "ultimately picks the final letter of dismal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dismal",
+         "at": 25
+        }
+       ]
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "left unfinished",
-         "note": "a word left unfinished loses its final letter"
+         "at": 38,
+         "note": "left unfinished means the word for best loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "ultimately points to the last letter of dismal"
-          }
-         ],
-         "parts": [
-          {
-           "words": "dismal",
-           "note": "last letter of dismal"
-          }
-         ]
+         "words": "best",
+         "at": 33,
+         "gives": "ELITE",
+         "note": "the elite are the best"
         },
         {
-         "gives": "A"
+         "gives": "E"
         }
        ]
-      },
-      {
-       "words": "best",
-       "gives": "ELIT",
-       "note": "the elite are the best; ELITE without its last E"
       }
      ]
     },
     "explanation": {
-     "surface": "A gloomy verdict on something dark and cold that is best abandoned.",
-     "walkthrough": "\"And\" looks like a link but goes straight into the answer as letters.",
-     "definitionFit": "A candlelit room is dimly lit."
+     "surface": "A gloomy description: dark, chilly and depressing, something better not finished.",
+     "definitionFit": "A candlelit room is softly lit, dim rather than bright."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "and"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "best"
     }
    }
   },
@@ -443,48 +447,52 @@
     "definitions": [
      {
       "text": "alert?",
-      "at": 28,
-      "note": "\"on the qui vive\" means alert; the answer alone is the state of watchfulness"
+      "at": 28
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUIVIVE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Brief",
-       "note": "a brief word is cut short, so QUIVER loses its R"
+       "text": "keeping",
+       "at": 13,
+       "note": "keeping means holding within, so the six numeral sits inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "keeping",
-         "note": "the tremor keeps the sextet inside it"
+         "text": "Brief",
+         "at": 0,
+         "note": "brief means the shaking word is cut short by its last letter"
         }
        ],
        "parts": [
         {
          "words": "tremor",
-         "gives": "QUIVE",
-         "note": "a quiver is a tremor, shortened to QUIVE"
+         "at": 6,
+         "gives": "QUIVER",
+         "note": "a quiver is a tremor"
         },
         {
-         "words": "sextet",
-         "gives": "VI",
-         "note": "VI is six in Roman numerals"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "sextet",
+       "at": 21,
+       "gives": "VI",
+       "note": "VI is the Roman numeral for six, a sextet's number"
       }
      ]
     },
     "explanation": {
-     "surface": "A small shiver runs through six musicians waiting to come in.",
-     "walkthrough": "The question mark covers the stretch: the phrase is usually \"on the qui vive\", meaning on the alert.",
-     "definitionFit": "Qui vive, from a French sentry's challenge, is a state of watchful alertness."
+     "surface": "A short shiver holding a group of six musicians on their toes.",
+     "walkthrough": "The question mark flags that the phrase is usually 'on the qui vive'.",
+     "definitionFit": "On the qui vive means watchful and on guard, a French sentry's challenge borrowed into English."
     },
     "features": {
      "answerInScene": false,

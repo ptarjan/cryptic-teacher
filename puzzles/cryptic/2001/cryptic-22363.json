@@ -1219,66 +1219,62 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SEEPED",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "take",
-       "note": "to take something in is to let it inside, so the weapon goes between the other letters"
+       "text": "in back",
+       "at": 41,
+       "note": "in back means the whole assembled string is read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "back",
-         "note": "back means going in the opposite direction, so the assembled letters are read from the end"
+         "text": "take",
+         "at": 29,
+         "note": "take means accept inside, so the two initials hold the sword"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 16,
+           "note": "initially takes the first letters of the two words before it"
+          }
+         ],
          "parts": [
           {
            "words": "Detective",
-           "gives": "D",
-           "note": "D is the abbreviation for detective, as in DI and DS"
+           "at": 0
           },
           {
-           "words": "weapon",
-           "gives": "EPEE",
-           "note": "an epee is a fencing sword"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "initially",
-             "note": "initially points to the start of the word, so only its opening letter is used"
-            }
-           ],
-           "parts": [
-            {
-             "words": "seen",
-             "note": "the opening letter of seen"
-            }
-           ]
+           "words": "seen",
+           "at": 11
           }
          ]
+        },
+        {
+         "words": "weapon",
+         "at": 34,
+         "gives": "EPEE",
+         "note": "an epee is a fencing sword"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A detective sees a man stabbed in the back, bleeding.",
-     "walkthrough": "'Detective' and 'seen initially' give the outer letters, the sword goes between them, and the whole is then turned round. 'In back' tempts as a stabbing, but 'back' is only the reversal signal.",
-     "definitionFit": "Liquid that seeped has oozed or leaked out slowly, just as blood does from a wound."
+     "surface": "A sleuth, spotted at first stabbed in the back, lost blood.",
+     "walkthrough": "D and S hold EPEE to give DEPEES, which read backwards gives the answer.",
+     "definitionFit": "To seep is to ooze or leak slowly, as blood does from a wound."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "back"
     }
