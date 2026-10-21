@@ -187,7 +187,8 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about suggests being turned around and moved here and there, so the letters are rearranged"
+       "at": 27,
+       "note": "about means moved around, so the remaining letters are rearranged"
       }
      ],
      "parts": [
@@ -196,37 +197,31 @@
        "indicators": [
         {
          "text": "No",
-         "note": "No here means without, so the Conservative letter is dropped from the complaints"
+         "at": 0,
+         "note": "no means without, so the Conservative letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Conservative",
-           "gives": "C",
-           "note": "C is the standard abbreviation for Conservative"
-          },
-          {
-           "words": "complaints",
-           "note": "taken as written"
-          }
-         ]
+         "words": "complaints",
+         "at": 16
         },
         {
-         "gives": "CC"
+         "words": "Conservative",
+         "at": 3,
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political party with no complaints about a certain way of thinking.",
-     "definitionFit": "Platonism is the body of philosophy derived from Plato, so it is one particular philosophy."
+     "surface": "No one in the Tory party grumbles about this way of thinking.",
+     "walkthrough": "Drop C from COMPLAINTS to get OMPLAINTS, then rearrange it.",
+     "definitionFit": "Platonism is the philosophical school of Plato, founded on the theory of ideal forms."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Conservative"
     }
@@ -968,52 +963,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AUTUMNALEQUINOX",
+     "op": "composite",
      "indicators": [
       {
        "text": "sadly",
-       "note": "sadly suggests things going wrong, so the remaining letters fall into a different order"
+       "at": 24,
+       "note": "sadly means badly, so the letters are thrown together anew"
+      },
+      {
+       "text": "sacking",
+       "at": 30,
+       "note": "sacking means dismissing, so the letters for you and me leave"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AUTUMNALEQUINOX",
-       "indicators": [
-        {
-         "text": "sacking",
-         "note": "sacking means dismissing, so the letters for you and me are thrown out"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Quixote",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "unusual",
-         "note": "taken as written"
+         "at": 10
         },
         {
          "words": "man",
-         "note": "taken as written"
-        },
-        {
-         "words": "you and me",
-         "gives": "US",
-         "note": "you and me together are us"
+         "at": 18
         }
        ]
+      },
+      {
+       "words": "you and me",
+       "at": 38,
+       "gives": "US",
+       "note": "us means you and me"
       }
      ]
     },
     "explanation": {
-     "surface": "Don Quixote, a strange man, sadly dismisses the pair of us one autumn day.",
-     "walkthrough": "'unusual' reads like an anagram signal but is part of the fodder; one U and the S are removed from it.",
-     "definitionFit": "The autumnal equinox, when day and night are equal, falls around 22 or 23 September in the northern hemisphere."
+     "surface": "Don Quixote, an odd man, gloomily fires the pair of us one autumn day.",
+     "walkthrough": "Pool QUIXOTE, UNUSUAL and MAN, take out U and S, and rearrange the rest.",
+     "definitionFit": "The autumnal equinox falls around 22 or 23 September in the northern hemisphere, when day and night are equal."
     },
     "features": {
      "answerInScene": false,
@@ -1726,54 +1718,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WHIRL",
-     "indicators": [
-      {
-       "text": "Pirouetting",
-       "note": "a pirouette is a spin, so the letters of the word for sure turn into another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "with",
+       "at": 13,
+       "gives": "W"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "WHIRL",
        "indicators": [
         {
          "text": "to be de trop",
-         "note": "de trop means unwanted, too much, so those letters are taken away"
+         "at": 44,
+         "note": "de trop means unwanted or superfluous, so these letters are removed"
         }
        ],
        "parts": [
         {
-         "words": "with",
-         "gives": "W",
-         "note": "W is the abbreviation for with"
-        },
-        {
          "words": "Shirley",
-         "note": "taken as written"
+         "at": 18
         },
         {
-         "words": "sure",
-         "gives": "YES",
-         "note": "sure is an affirmative, yes"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "Pirouetting",
+           "at": 27,
+           "note": "pirouetting means spinning round, so the word for sure is turned backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sure",
+           "at": 39,
+           "gives": "YES",
+           "note": "yes means sure"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dancing the twist with Shirley, spinning around seems too much.",
-     "walkthrough": "SEY is removed from the girl's name, its S from the front and EY from the end. De trop is French for superfluous.",
-     "definitionFit": "To whirl is to spin round fast, which is what doing the twist describes."
+     "surface": "A dancer called Shirley does the twist and pirouettes, sure of being excessive.",
+     "walkthrough": "'Pirouetting' turns YES into SEY; those letters are taken from SHIRLEY one by one, leaving HIRL.",
+     "definitionFit": "To whirl is to spin round quickly, like dancing the twist."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "sure"
+     "aptDefinition": false,
+     "misdirectedWord": "Shirley"
     }
    }
   },

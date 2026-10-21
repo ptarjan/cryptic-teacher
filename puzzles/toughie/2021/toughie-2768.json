@@ -1528,7 +1528,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Vessel",
+      "text": "Vessel's",
       "at": 0
      }
     ],
@@ -1537,6 +1537,7 @@
      "parts": [
       {
        "words": "strategy",
+       "at": 9,
        "gives": "PLAN",
        "note": "a plan is a strategy"
       },
@@ -1544,34 +1545,49 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "50 per cent reduction",
-         "note": "cutting something by half leaves only one of the two matching items"
+         "text": "reduction of",
+         "at": 44,
+         "note": "reduction means taking some away"
         }
        ],
        "parts": [
         {
          "words": "in ruins",
+         "at": 18,
          "gives": "TOPOT",
-         "note": "something gone to pot is in ruins"
+         "note": "gone to pot means in ruins"
         },
         {
-         "words": "oxygen",
-         "gives": "O",
-         "note": "the chemical symbol for oxygen, one of the two in the phrase being dropped"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "50 per cent",
+           "at": 32,
+           "note": "fifty per cent is half, so one O of two"
+          }
+         ],
+         "parts": [
+          {
+           "words": "oxygen",
+           "at": 57,
+           "gives": "OO",
+           "note": "oxygen is O2, a molecule of two O atoms"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scheme collapsing once its oxygen supply is cut by half, as if a space mission had failed.",
-     "walkthrough": "The phrase 'to pot' has two Os; losing half of them leaves T and POT. Going to pot is a British idiom for falling apart.",
-     "definitionFit": "A vessel is any container, and this is the earthenware or plastic container in which a houseplant grows."
+     "surface": "A ship's tactics fail after its oxygen supply is cut by half.",
+     "walkthrough": "'in ruins' is the phrase TO POT (gone to pot), which has two O's; halving its oxygen leaves TPOT.",
+     "definitionFit": "A plant pot is a container for growing plants, a vessel in the household sense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "oxygen"
+     "misdirectedWord": "Vessel's"
     }
    }
   },
@@ -1715,60 +1731,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no longer including",
+       "at": 7,
+       "note": "no longer including means the letters for price are now left out"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "no longer including",
-         "note": "to stop including something is to leave it out, so these letters are dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "'unreal'",
-         "gives": "PHONEY",
-         "note": "phoney means fake or unreal"
-        },
-        {
-         "gives": "P"
-        }
-       ]
+       "words": "'unreal' ale",
+       "at": 27,
+       "gives": "PHONEYBEER",
+       "note": "phoney beer is unreal ale"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "ale",
-           "gives": "BEER",
-           "note": "ale is a kind of beer"
-          },
-          {
-           "words": "price",
-           "gives": "PR",
-           "note": "PR is an abbreviation for price; its two letters are removed from either end"
-          }
-         ]
-        },
-        {
-         "gives": "RPR"
-        }
-       ]
+       "words": "price",
+       "at": 43,
+       "gives": "PR"
       }
      ]
     },
     "explanation": {
-     "surface": "A labourer who has given up drinking fake beer at the pub price.",
-     "walkthrough": "'Phoney beer' sits with its P and R at the outer edges; take those away and the worker remains. 'Worker' is the crossword's favourite word for a bee or ant.",
-     "definitionFit": "Sterile female bees that forage and tend the hive are called workers, so one of these hive insects is a worker."
+     "surface": "A worker gives up putting fake beer into the price.",
+     "walkthrough": "Phoney beer is fake ale; remove P and R, the abbreviation for price.",
+     "definitionFit": "Worker bees are the sterile females that do the work in a honeybee colony, a familiar insect worker."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Worker"
     }
    }

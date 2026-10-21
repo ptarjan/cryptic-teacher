@@ -1378,44 +1378,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "variation in",
-       "note": "a variation is a changed version, so the remaining letters are reordered"
+       "at": 9,
+       "note": "a variation in something reworks it, so the letters of incidence are rearranged"
+      },
+      {
+       "text": "missed",
+       "at": 47,
+       "note": "missed means left out, so the letters for new and detectives go"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "missed",
-         "note": "letters that are missed are skipped, so they are taken out"
-        }
-       ],
+       "words": "incidence",
+       "at": 22
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "incidence",
-         "note": "taken as written"
-        },
-        {
          "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new; it is removed"
+         "at": 32,
+         "gives": "N"
         },
         {
          "words": "detectives",
+         "at": 36,
          "gives": "CID",
-         "note": "CID, the Criminal Investigation Department, is the British police detective branch; removed"
+         "note": "CID is the Criminal Investigation Department, British police detectives"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A statistician notes a change in how often new detectives were overlooked.",
-     "definitionFit": "A niece, a sibling's daughter, is one kind of relative."
+     "surface": "Changes in crime figures that police detectives failed to notice.",
+     "walkthrough": "Remove N and CID from INCIDENCE, leaving IENCE, and rearrange that.",
+     "definitionFit": "A niece is a sibling's daughter, a family member."
     },
     "features": {
      "answerInScene": false,

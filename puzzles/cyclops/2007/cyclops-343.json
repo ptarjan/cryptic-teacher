@@ -1354,47 +1354,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "bent",
-       "note": "bent means crooked or twisted out of shape, so the letters are twisted into a new order"
+       "text": "in",
+       "at": 22,
+       "note": "the half word goes in among the bent letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bent",
+         "at": 34,
+         "note": "bent means twisted out of shape, so politics is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "politics",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "Half of",
-         "note": "half of a word keeps only one of its two equal parts and drops the other"
+         "at": 1,
+         "note": "half of a four-letter word is two letters, here the back half"
         }
        ],
        "parts": [
         {
          "words": "those people",
+         "at": 9,
          "gives": "THEM",
-         "note": "them refers to those people; its second half is kept"
-        },
-        {
-         "gives": "TH"
+         "note": "them refers to those people"
         }
        ]
-      },
-      {
-       "words": "politics",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A cynic grumbles that half of all politicians are crooked.",
-     "walkthrough": "The quotation marks make it look like a remark about bent politicians; 'bent' is the instruction to rearrange, and 'Half of' trims a word before it joins in.",
-     "definitionFit": "A polemicist writes or speaks in fierce attack on others' opinions, so is a person given to controversy."
+     "surface": "A cynic remarks that half of all politicians are crooked.",
+     "walkthrough": "'bent' is British slang for corrupt, which suits the surface, but here it is the signal to rearrange.",
+     "definitionFit": "A polemicist writes forceful attacks on other people's views, so is a combative, argumentative sort."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "bent"
     }
    }

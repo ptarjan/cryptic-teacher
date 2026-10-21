@@ -275,30 +275,47 @@
      "parts": [
       {
        "words": "exercise",
+       "at": 20,
        "gives": "PE",
-       "note": "PE = physical education, school exercise"
+       "note": "PE is physical education, school exercise"
       },
       {
        "words": "books",
+       "at": 29,
        "gives": "NT",
-       "note": "NT = New Testament, a set of books of the Bible"
+       "note": "NT is the New Testament, a set of books of the Bible"
       },
       {
-       "words": "endless suffering",
-       "gives": "AGON",
-       "note": "AGONY = suffering, without its end"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 36,
+         "note": "endless means losing the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suffering",
+         "at": 44,
+         "gives": "AGONY",
+         "note": "agony is suffering"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pupil groans that geometry exercise books are nothing but misery.",
-     "walkthrough": "'Exercise books' reads as school jotters, but it splits in two, and 'books' is the usual crossword shorthand for a Testament.",
-     "definitionFit": "A pentagon, a five-sided figure, is one of the shapes studied in geometry."
+     "surface": "A pupil complains that geometry homework is torture.",
+     "definitionFit": "A pentagon is a five-sided polygon, a standard figure studied in geometry."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "books"
+     "misdirectedWord": "exercise"
     }
    }
   },
@@ -1207,49 +1224,58 @@
    "annotation": {
     "definitions": [
      {
-      "text": "cause distress",
-      "at": 53
+      "text": "to cause distress",
+      "at": 50
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AGGRIEVE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "to keep"
+       "text": "to keep",
+       "at": 8,
+       "note": "to keep is to hold within, so the consent word takes the other letters into itself"
       },
       {
        "text": "separately",
-       "note": "the letters go in one at a time, at different places"
-      },
-      {
-       "text": "only half",
-       "note": "just the first half of GIVING is used"
+       "at": 23,
+       "note": "separately means the half word's letters are split up and spread through the consent word, not kept together"
       }
      ],
      "parts": [
       {
        "words": "Consent",
+       "at": 0,
        "gives": "AGREE",
-       "note": "agree = consent"
+       "note": "to agree is to consent"
       },
       {
-       "words": "giving",
-       "gives": "GIV",
-       "note": "only half of GIVING's six letters, the first three"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "only half",
+         "at": 39,
+         "note": "only half of giving, its first three letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "giving",
+         "at": 16
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Agreeing to keep donating piecemeal, and only half as much, is bound to upset people.",
-     "walkthrough": "An unusual container: 'separately' means G, I and V go in one at a time, AG(G)R(I)E(V)E, not as a block.",
-     "definitionFit": "A plain synonym, though a formal one: to aggrieve is to wrong someone so they feel hurt, familiar mostly from 'aggrieved'."
+     "surface": "Agreeing to donate, but only in part and in instalments, causes upset.",
+     "walkthrough": "G, I and V go into AGREE one by one, after AG, R and the first E.",
+     "definitionFit": "To aggrieve is to wrong or upset someone, making them feel resentful."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "separately"
+     "misdirectedWord": "giving"
     }
    }
   },
