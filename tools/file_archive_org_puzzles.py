@@ -172,6 +172,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 import clue_repair
 import clue_text
+import quotes
 import crop_window
 from clue_text import (CAPS_HEADING, COUNT_END, HEADING_ALONE, NUMBERED_HEADING, OPENING_NUMBER, OPENING_SPECK,
                        count_left, counts_mended, direction, heading_of, number_digits, numbered_heading,
@@ -3932,10 +3933,10 @@ def words_confirmed(text, enum, readings):
     letter). Not a clue with a figure or a short one."""
     if re.search(r"\d", text):
         return False
-    laid = re.findall(r"[a-z']+", text.lower().replace("’", "'"))
+    laid = re.findall(r"[a-z']+", quotes.straight(text).lower())
     if len(laid) < CONFIRM_WORDS:
         return False
-    sets = [set(re.findall(r"[a-z']+", clue_repair.mend_text(t, enum).lower().replace("’", "'")))
+    sets = [set(re.findall(r"[a-z']+", quotes.straight(clue_repair.mend_text(t, enum)).lower()))
             for t, _ in readings]
     if len(sets) < OCR_CONFIRM:
         return False

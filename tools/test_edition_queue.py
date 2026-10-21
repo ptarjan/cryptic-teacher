@@ -182,7 +182,8 @@ check("annotation asked carries its puzzle and checks; inputs changed is dropped
 # ---- a read that wrote an incomplete puzzle before the cause time is due once ("unfiled before its fix")
 _un = {"id": "times-1", "number": 1, "complete": False, "wrote": True, "unfiled": 3, "clues": 27, "lights": 30}
 _unrow = {"verdicts": [_un], "scan": {"item": "GaleTimes1947UKEnglish", "date": "1947-04-19"}}
-_before, _after = "2026-10-19T23:11:28+00:00", "2026-10-20T19:00:00+00:00"
+# _after must stay later than f.REREAD_UNFILED, which each reader fix bumps.
+_before, _after = "2026-10-19T23:11:28+00:00", "2099-01-01T00:00:00+00:00"
 check("an incomplete write read before the cause time is due, with its puzzle and blank count", True,
       f.fix_reason({**_unrow, "readAt": _before}) == "unfiled before its fix"
       and f.unfiled_blank(_unrow) == [("times-1", 3)])
