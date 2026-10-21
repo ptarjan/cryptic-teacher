@@ -95,13 +95,14 @@
     ],
     "wordplay": {
      "op": "charade",
-     "parts": [
+     "indicators": [
       {
-       "words": "Repeatedly",
+       "text": "Repeatedly",
        "at": 0,
-       "gives": "HEAR",
-       "note": "asks for the sounded word twice over, so this supplies the second copy of it"
-      },
+       "note": "repeatedly says the sound is written out a second time"
+      }
+     ],
+     "parts": [
       {
        "op": "homophone",
        "spelt": "HEAR",
@@ -109,7 +110,7 @@
         {
          "text": "pronounced",
          "at": 11,
-         "note": "pronounced means spoken aloud, so the word is replaced by one that sounds the same"
+         "note": "pronounced means spoken aloud, so the word is taken by its sound"
         }
        ],
        "parts": [
@@ -117,19 +118,22 @@
          "words": "present",
          "at": 22,
          "gives": "HERE",
-         "note": "here means present, as when answering a register"
+         "note": "here means present, in attendance"
         }
        ]
+      },
+      {
+       "gives": "HEAR"
       }
      ]
     },
     "explanation": {
-     "surface": "Saying 'present' over and over to signal that you concur.",
-     "walkthrough": "HERE (present) is 'pronounced' as HEAR, and 'Repeatedly' asks for it twice.",
-     "definitionFit": "Hear, hear is the cry of approval in Parliament and at meetings, voicing support for a speaker."
+     "surface": "A gift spoken of over and over as a sign of agreement.",
+     "walkthrough": "'Present' is not a gift but HERE, as in a roll call; said aloud it is HEAR, written twice.",
+     "definitionFit": "'Hear, hear!' is a cry of approval, endorsing what a speaker has just said."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "present"
     }
@@ -471,46 +475,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not reaching conclusions",
+       "at": 30,
+       "note": "not reaching conclusions means neither word reaches its end, so each loses its final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "not reaching conclusions",
-         "note": "failing to reach the end means each of the two words stops short of its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Everybody",
+         "at": 0,
          "gives": "ALL",
-         "note": "everybody is all"
+         "note": "all means everybody"
         },
         {
-         "gives": "L"
+         "words": "used their brains",
+         "at": 10,
+         "gives": "THOUGHT",
+         "note": "thought means used their brains"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "used their brains",
-         "gives": "THOUGHT",
-         "note": "to use one's brains is to think"
-        },
-        {
-         "gives": "T"
-        }
-       ]
+       "gives": "LT"
       }
      ]
     },
     "explanation": {
-     "surface": "Everyone thought hard but nobody got to an answer.",
-     "walkthrough": "Both words lose their last letters, giving ALTHOUGH.",
-     "definitionFit": "Although and however are both conjunctions or adverbs introducing a contrast or concession."
+     "surface": "Everyone thought hard but came to no decision.",
+     "walkthrough": "ALL loses its last L and THOUGHT its last T.",
+     "definitionFit": "Although and however both introduce a contrast, as conjunctions of concession."
     },
     "features": {
      "answerInScene": false,

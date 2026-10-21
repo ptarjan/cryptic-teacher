@@ -660,7 +660,7 @@
       {
        "text": "in it",
        "at": 58,
-       "note": "in it means the jumbled letters are placed inside the shortened word, it"
+       "note": "in it means the other letters are placed inside this shortened word"
       }
      ],
      "parts": [
@@ -670,13 +670,14 @@
         {
          "text": "short",
          "at": 12,
-         "note": "short means the word letter is cut off before its final letter"
+         "note": "short means trimmed, so the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "letter",
-         "at": 18
+         "at": 18,
+         "gives": "LETTER"
         },
         {
          "gives": "R"
@@ -684,18 +685,23 @@
        ]
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "broken",
-         "at": 27,
-         "note": "broken means the letters of heart are smashed up and reassembled"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "heart",
-         "at": 34
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "broken",
+           "at": 27,
+           "note": "broken means smashed apart, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "heart",
+           "at": 34
+          }
+         ]
         },
         {
          "op": "first",
@@ -703,14 +709,13 @@
           {
            "text": "initially",
            "at": 40,
-           "note": "initially takes only the first letter of the word that follows"
+           "note": "initially takes just the opening letter"
           }
          ],
          "parts": [
           {
            "words": "exposed",
-           "at": 50,
-           "note": "first letter of exposed"
+           "at": 50
           }
          ]
         }
@@ -719,9 +724,9 @@
      ]
     },
     "explanation": {
-     "surface": "A curt note reveals a broken heart, laid bare for the first time.",
-     "walkthrough": "'short letter' gives LETTE; 'broken' mixes HEART with E (the first of 'exposed', taken 'initially') into EATHER, which goes 'in it'.",
-     "definitionFit": "Leatherette is an imitation leather fabric, a cheap upholstery material made of plastic-coated cloth."
+     "surface": "A brief letter reveals a broken heart in its contents.",
+     "walkthrough": "The dash splits the clue: 'it' refers back to the shortened letter, which holds the rest.",
+     "definitionFit": "Leatherette is an imitation leather fabric used for upholstery and bindings."
     },
     "features": {
      "answerInScene": false,

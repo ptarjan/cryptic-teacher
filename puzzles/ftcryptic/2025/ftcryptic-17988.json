@@ -228,30 +228,47 @@
      "parts": [
       {
        "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right."
+       "at": 5,
+       "gives": "R"
       },
       {
        "words": "over",
+       "at": 11,
        "gives": "O",
-       "note": "O is the cricket scorer's abbreviation for an over."
+       "note": "O is the cricket abbreviation for over"
       },
       {
-       "words": "short lock",
-       "gives": "YAL",
-       "note": "A Yale lock, with its final E dropped."
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 16,
+         "note": "short means the word is cut, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lock",
+         "at": 22,
+         "gives": "YALE",
+         "note": "a Yale is a brand of door lock"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor is told to sail right past a short canal lock.",
-     "walkthrough": "\"Sail\" reads as a verb but is the noun being defined; Yale is a brand of door lock.",
+     "surface": "Steer the sailing boat right over a canal lock that is too short.",
+     "walkthrough": "The surface suggests boats and canal locks, but the lock is a Yale, a common brand of door lock.",
      "definitionFit": "A royal is a small sail set above the topgallant on a square-rigged ship."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Sail"
+     "misdirectedWord": "lock"
     }
    }
   },
@@ -407,21 +424,36 @@
      "indicators": [
       {
        "text": "bedevilled",
-       "note": "Bedevilled letters are thrown into confusion."
+       "at": 16,
+       "note": "bedevilled means thrown into confusion, so the letters are mixed up"
       }
      ],
      "parts": [
       {
-       "words": "A lot of ladies",
-       "gives": "LADIE",
-       "note": "LADIES without its last letter."
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of, but not all, so the last letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ladies",
+         "at": 9
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crowd of ladies is tormented by a model.",
-     "walkthrough": "\"Model\" looks like a noun for a person on the catwalk; here it is an ideal to copy.",
-     "definitionFit": "A model is a perfect example to follow, an ideal."
+     "surface": "Many women are troubled by a fashion model.",
+     "walkthrough": "'A lot of ladies' is LADIE, without its S; 'bedevilled' scrambles those five letters.",
+     "definitionFit": "An ideal is a perfect example to copy, a model to follow."
     },
     "features": {
      "answerInScene": false,

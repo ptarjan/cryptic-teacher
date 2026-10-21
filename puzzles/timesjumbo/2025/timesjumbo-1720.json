@@ -47,28 +47,32 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "repeated",
+       "at": 14,
+       "note": "repeated says the French word is written out a second time"
+      }
+     ],
      "parts": [
       {
        "words": "French word",
+       "at": 23,
        "gives": "MOT",
-       "note": "mot is French for 'word'"
+       "note": "mot is French for word"
       },
       {
-       "words": "repeated",
-       "gives": "MOT",
-       "note": "the same word again"
+       "gives": "MOT"
       }
      ]
     },
     "explanation": {
-     "surface": "A birdwatcher in the tropics hears a call that sounds like one French word said twice.",
-     "walkthrough": "The motmot is a real Central and South American bird with a racket-shaped tail, and its name really does look like French doubled.",
-     "definitionFit": "A plain naming: the motmot is a real bird of Central and South American forests, known for its racket-tipped tail."
+     "surface": "A question about a bird whose name is a French word said twice.",
+     "definitionFit": "The motmot is a colourful Central and South American bird with a racket-shaped tail."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "word"
+     "aptDefinition": false
     }
    }
   },
@@ -1000,20 +1004,36 @@
      "parts": [
       {
        "words": "British",
-       "gives": "B",
-       "note": "B = British"
+       "at": 0,
+       "gives": "B"
       },
       {
-       "words": "prime minister cut down",
-       "gives": "ATTLE",
-       "note": "Clement ATTLEE, post-war Labour prime minister, without his final E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut down",
+         "at": 23,
+         "note": "cut down means shortened, so the name loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prime minister",
+         "at": 8,
+         "gives": "ATTLEE",
+         "note": "Clement Attlee was the British prime minister from 1945 to 1951"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A British premier is struck down during a war.",
-     "walkthrough": "Clement Attlee was the British Labour prime minister from 1945 to 1951.",
-     "definitionFit": "A battle is a conflict between armed forces."
+     "surface": "A British leader is killed in a war.",
+     "walkthrough": "'Cut down' reads as slain in battle but tells you to trim the last E from ATTLEE.",
+     "definitionFit": "A battle is a fight between armed forces, a clash or conflict."
     },
     "features": {
      "answerInScene": true,
@@ -2919,31 +2939,49 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 26,
+       "note": "in places the shortened word inside the state abbreviation"
       }
      ],
      "parts": [
       {
        "words": "Pennsylvania",
+       "at": 29,
        "gives": "PA",
-       "note": "PA, the state abbreviation, split P|A"
+       "note": "PA is the postal abbreviation for Pennsylvania"
       },
       {
-       "words": "Endlessly lie around idly",
-       "gives": "LAZ",
-       "note": "to laze = to lie around idly, without its final E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endlessly",
+         "at": 0,
+         "note": "endlessly means without its end, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lie around idly",
+         "at": 10,
+         "gives": "LAZE",
+         "note": "to laze is to lie around idly"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Loafers lounge forever in a Pennsylvania town square.",
-     "walkthrough": "'Lie around idly' is one definition of LAZE, not a separate instruction to reverse.",
-     "definitionFit": "A borrowing: plaza is Spanish for a town square, used in English for an open public space."
+     "surface": "Lazing about in a town square in Pennsylvania.",
+     "walkthrough": "'Lie around idly' is one phrase giving a single verb, not three separate instructions.",
+     "definitionFit": "A plaza is an open public square in a town, especially in Spanish-speaking places."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "around"
+     "aptDefinition": false
     }
    }
   },
@@ -3191,35 +3229,54 @@
      "parts": [
       {
        "words": "Throughout",
+       "at": 0,
        "gives": "ALLOVER",
-       "note": "all over = throughout"
+       "note": "all over means throughout, everywhere"
       },
       {
        "words": "pub",
+       "at": 11,
        "gives": "BAR",
        "note": "a bar is a pub"
       },
       {
-       "words": "mainly after that",
-       "gives": "THE",
-       "note": "after that = THEN, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mainly",
+         "at": 16,
+         "note": "mainly means most of it, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "after that",
+         "at": 23,
+         "gives": "THEN",
+         "note": "then means after that"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "clamour",
+       "at": 34,
        "gives": "SHOUTING",
-       "note": "shouting = clamour"
+       "note": "shouting is a clamour"
       }
      ]
     },
     "explanation": {
-     "surface": "Across the pub, the noise mostly dies down once last orders are called.",
-     "walkthrough": "'Pub, mainly' looks like it trims BAR; 'mainly' belongs to 'after that'. The answer's 'is' makes the definition a verb phrase.",
-     "definitionFit": "\"It's all over bar the shouting\" means the result is settled and the thing is almost done."
+     "surface": "The din continues all through the pub after that.",
+     "walkthrough": "'Is almost done' is the definition at the end; the rest builds the phrase piece by piece in clue order.",
+     "definitionFit": "The idiom 'all over bar the shouting' says the outcome is settled and only the reaction remains."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mainly"
+     "misdirectedWord": "pub"
     }
    }
   },
