@@ -809,58 +809,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "REMBRANDT",
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the rearranged word surrounds the next piece"
+       "at": 21,
+       "note": "about means the rearranged letters wrap around the other piece"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "REMBRANDT",
        "indicators": [
         {
          "text": "odd",
-         "note": "odd means strange or out of order, so the following word is rearranged"
+         "at": 12,
+         "note": "odd means the letters of term are put into a strange order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "term",
-           "gives": "REM",
-           "note": "first part of the rearranged word"
-          },
-          {
-           "words": "trade-mark",
-           "gives": "BRAND",
-           "note": "a brand is a trademark"
-          },
-          {
-           "words": "term",
-           "gives": "T",
-           "note": "last part of the rearranged word"
-          }
-         ]
+         "words": "term",
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "trade-mark",
+       "at": 27,
+       "gives": "BRAND",
+       "note": "a brand is a trade mark identifying a product"
       }
      ]
     },
     "explanation": {
-     "surface": "A painter adopts a strange word around his signature mark.",
-     "definitionFit": "Rembrandt van Rijn was the great seventeenth-century Dutch painter, so he is a famous example of an artist."
+     "surface": "A painter uses a strange word concerning a trade mark.",
+     "walkthrough": "'trade-mark' reads as one thing, but it is just the brand; 'odd' scrambles the clue's own word term, which then wraps the brand.",
+     "definitionFit": "Rembrandt van Rijn was the great Dutch painter of the seventeenth century."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "odd"
+     "misdirectedWord": "uses"
     }
    }
   },
@@ -1490,53 +1479,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MONITOR",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "enter",
-       "note": "to enter is to go inside, so the first word is placed within the second"
+       "text": "backwards",
+       "at": 32,
+       "note": "backwards means the whole combination is then read from the end"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "backwards",
-         "note": "backwards means the combined result is read from end to start"
+         "text": "enter",
+         "at": 21,
+         "note": "enter means the tin goes inside the word room"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "room",
-           "gives": "RO",
-           "note": "first part of the word"
-          },
-          {
-           "words": "can",
-           "gives": "TIN",
-           "note": "a tin is a can"
-          },
-          {
-           "words": "room",
-           "gives": "OM",
-           "note": "rest of the word"
-          }
-         ]
+         "words": "room",
+         "at": 27
+        },
+        {
+         "words": "can",
+         "at": 17,
+         "gives": "TIN",
+         "note": "a can is a tin"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An older pupil may walk into a classroom backwards.",
-     "walkthrough": "The whole assembly is turned, not just one piece.",
-     "definitionFit": "In British schools a monitor is an older pupil given duties such as keeping order, a prefect-like role."
+     "surface": "An older pupil is allowed to walk backwards into a room.",
+     "walkthrough": "'can' looks like a verb meaning 'may'; it is the noun TIN. TIN goes into ROOM to give ROTINOM, which read backwards gives the answer.",
+     "definitionFit": "In British schools a monitor is an older pupil given duties of supervising others."
     },
     "features": {
      "answerInScene": true,

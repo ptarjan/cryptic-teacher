@@ -972,53 +972,54 @@
      "indicators": [
       {
        "text": "into",
-       "note": "'into' says one piece goes inside the other"
+       "at": 30,
+       "note": "into means that piece goes inside the other"
       }
      ],
      "parts": [
       {
-       "words": "the odd tree",
-       "gives": "RETE",
-       "note": "the letters of the tree, scrambled"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "odd",
+         "at": 39,
+         "note": "odd means the letters of tree are put in a strange order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tree",
+         "at": 43
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "reversed",
-         "note": "'reversed' means turned the other way, so the word is read backwards"
+         "at": 21,
+         "note": "reversed means car is spelt the other way round"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "odd",
-           "note": "odd means strange, so the tree's letters are put in an unusual order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "car",
-           "gives": "RAC",
-           "note": "taken as written, then turned round"
-          }
-         ]
+         "words": "car",
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Reviewing how a motorist backed into a strange tree.",
-     "walkthrough": "RET(RAC)E.",
-     "definitionFit": "To retrace steps is to go back along the same route again."
+     "surface": "Describing a car that backed into a peculiar tree, with the driver retracing the route.",
+     "walkthrough": "CAR reversed is RAC; 'odd' makes RETE from TREE, and RAC goes into it.",
+     "definitionFit": "To retrace one's steps is to return along the same path, travelling back over it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "odd"
+     "misdirectedWord": "reversed"
     }
    }
   },

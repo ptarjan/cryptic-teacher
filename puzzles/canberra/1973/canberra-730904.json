@@ -726,31 +726,49 @@
      "op": "charade",
      "parts": [
       {
-       "words": "singularly short vacation",
-       "gives": "HOL",
-       "note": "hols is British slang for holidays; singular gives the one word without its S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "singularly",
+         "at": 15,
+         "note": "singularly means in the singular, so the plural S is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "short vacation",
+         "at": 26,
+         "gives": "HOLS",
+         "note": "hols is the informal shortened form of holidays"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
        "words": "inhabiting",
+       "at": 41,
        "gives": "IN",
-       "note": "something inhabiting a place is in it"
+       "note": "inhabiting a place means being in it"
       },
       {
        "words": "a hut",
+       "at": 52,
        "gives": "SHED",
        "note": "a shed is a hut"
       }
      ]
     },
     "explanation": {
-     "surface": "A historian who takes one brief holiday living in a cabin.",
-     "walkthrough": "Hols is British slang for holidays, so a single short vacation is a hol. Raphael Holinshed's Chronicles were Shakespeare's main source for his history plays.",
-     "definitionFit": "Holinshed compiled the Tudor Chronicles of England, Scotland and Ireland, making him a famous chronicler."
+     "surface": "A historian goes on a brief holiday staying in a cabin.",
+     "walkthrough": "HOLS is the British informal word for holidays; made singular it is HOL. Raphael Holinshed compiled the Chronicles that Shakespeare used.",
+     "definitionFit": "Raphael Holinshed wrote the Chronicles of England, Scotland and Ireland, making him a famous chronicler."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "inhabiting"
+     "misdirectedWord": "singularly"
     }
    }
   },
