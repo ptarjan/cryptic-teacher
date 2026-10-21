@@ -724,37 +724,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter of the next word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Mark",
-         "gives": "BLOT",
-         "note": "a blot is a stain or mark"
-        },
-        {
-         "words": "excessively",
-         "gives": "TOO",
-         "note": "too means excessively"
-        }
-       ]
+       "words": "Mark",
+       "at": 0,
+       "gives": "BLOT",
+       "note": "a blot is a mark or stain"
       },
       {
-       "gives": "O"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 5,
+         "note": "almost means the word falls one letter short of its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "excessively",
+         "at": 12,
+         "gives": "TOO",
+         "note": "too means excessively, as in too much"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A smudge showing someone is very nearly over the limit.",
-     "definitionFit": "Blotto is British slang for extremely intoxicated, a colloquial synonym of drunk."
+     "surface": "Someone is nearly blind drunk, and marks it.",
+     "walkthrough": "TOO almost gives TO; 'blotto' is British slang for very drunk.",
+     "definitionFit": "Blotto is informal for extremely intoxicated, a slang synonym for very much the worse for drink."
     },
     "features": {
      "answerInScene": false,

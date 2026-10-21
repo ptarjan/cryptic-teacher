@@ -700,53 +700,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FEIGN",
-     "indicators": [
-      {
-       "text": "melting",
-       "note": "melting turns a solid into a fluid that can be reshaped, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "FEIGN",
+       "words": "Iron",
+       "at": 0,
+       "gives": "FE",
+       "note": "Fe is the chemical symbol for iron"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "without",
-         "note": "without means lacking, so a letter is removed"
+         "text": "melting",
+         "at": 10,
+         "note": "melting means the remaining letters run together into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Iron",
-         "gives": "FE",
-         "note": "Fe is the chemical symbol for iron"
-        },
-        {
-         "words": "ring",
-         "note": "taken as written"
-        },
-        {
-         "words": "resistance",
-         "gives": "R",
-         "note": "R is the symbol for electrical resistance"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without",
+           "at": 18,
+           "note": "without means lacking, so the resistance letter is taken away"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ring",
+           "at": 5
+          },
+          {
+           "words": "resistance",
+           "at": 26,
+           "gives": "R",
+           "note": "R is the physics symbol for resistance"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Iron being melted down to make a ring in a blacksmith's forge.",
-     "walkthrough": "'Forge' looks like the smithy of the surface, but it is the verb meaning fake.",
-     "definitionFit": "To forge or feign is to counterfeit or pretend, making something false look genuine."
+     "surface": "A ring of iron melting in a blacksmith's forge, with nothing to resist it.",
+     "walkthrough": "RING without R leaves ING, and 'melting' rearranges it to IGN. 'Forge' looks like the smithy; it is the verb, to fake.",
+     "definitionFit": "To forge is to fake or counterfeit, and to feign is to pretend or simulate."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "forge"
     }
    }

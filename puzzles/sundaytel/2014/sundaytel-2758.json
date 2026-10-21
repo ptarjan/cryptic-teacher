@@ -749,40 +749,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "change",
-       "at": 31,
-       "note": "to change the letters of these two words is to rearrange them"
-      },
-      {
-       "text": "possibly",
-       "at": 53,
-       "note": "possibly says the letters may be put in another order"
+       "text": "in",
+       "at": 38,
+       "note": "in means the first set of letters goes inside the second"
       }
      ],
      "parts": [
       {
-       "words": "due",
-       "at": 24,
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 53,
+         "note": "possibly signals that the letters can be put in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "transition",
+         "at": 41
+        }
+       ]
       },
       {
-       "words": "transition",
-       "at": 41,
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "change",
+         "at": 31,
+         "note": "change means the three letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "due",
+         "at": 24
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worker in a labour movement facing upheaval during a period of change.",
-     "definitionFit": "A trade unionist belongs to a union, an organised body of workers."
+     "surface": "A worker is due to switch jobs during a period of transition.",
+     "walkthrough": "Each of the two words is rearranged separately, the short one ending up inside the long one; 'to' is a link.",
+     "definitionFit": "A trade unionist belongs to a trade union, an organisation of workers in a trade or industry."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "transition"
+     "misdirectedWord": "working"
     }
    }
   },
