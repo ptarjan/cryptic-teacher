@@ -61,6 +61,8 @@ check("disagreeing: the lights the verdict names", {"13-across", "8-down"},
       f.disagreeing({"imageDisagrees": "13-across: the enumeration reads as ['5,8,2'], the grid holds 10 letters; 8-down: x"}))
 check("disagreeing: a disagreement naming no light is None (every column)", None,
       f.disagreeing({"imageDisagrees": "the grids differ"}))
+check("disagreeing: a clue that lost its number names the next light", {"7-down"},
+      f.disagreeing({"imageDisagrees": "down clue [] names no light the grid numbers after 6 (the next is 7-down)"}))
 
 
 def _entry(n, d, text, enum="4", length=4, group=None):
