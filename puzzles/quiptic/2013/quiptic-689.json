@@ -1088,42 +1088,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "clumsily",
-       "note": "done clumsily means done awkwardly and out of order, so the letters are jumbled"
+       "text": "after",
+       "at": 24,
+       "note": "the shortened author comes after the rearranged word"
       }
      ],
      "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "clumsily",
+         "at": 37,
+         "note": "something done clumsily is jumbled, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "asking",
+         "at": 30,
+         "note": "the fodder for the rearrangement"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "short",
-         "note": "short means lacking its end, so the last letter of the name is dropped"
+         "at": 18,
+         "note": "short means the final letter is cut off"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "after",
-           "note": "after places one piece behind the other in the answer"
-          }
-         ],
-         "parts": [
-          {
-           "words": "asking",
-           "note": "the letters of asking, rearranged"
-          },
-          {
-           "words": "Children's author",
-           "gives": "RANSOME",
-           "note": "Arthur Ransome wrote Swallows and Amazons"
-          }
-         ]
+         "words": "Children's author",
+         "at": 0,
+         "gives": "RANSOME",
+         "note": "Arthur Ransome wrote Swallows and Amazons"
         },
         {
          "gives": "E"
@@ -1134,13 +1139,14 @@
     },
     "spelling": "A KING'S RANSOM",
     "explanation": {
-     "surface": "A children's writer, falling short, awkwardly asks for a lot of cash.",
-     "walkthrough": "Arthur Ransome loses his final E and goes after the jumbled 'asking'.",
-     "definitionFit": "A king's ransom is an idiom for a very large sum, like the price of freeing a captured monarch."
+     "surface": "A writer of children's books is short of money after asking awkwardly for a loan.",
+     "walkthrough": "Arthur Ransome wrote Swallows and Amazons. 'short' looks like it describes the money, but it docks the author's name.",
+     "definitionFit": "A king's ransom is an idiom for a very large sum, as much as would free a captured monarch."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "short"
     }
    }

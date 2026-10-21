@@ -408,76 +408,73 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcoming",
+       "at": 6,
+       "note": "the outer word takes the other letters in, welcoming them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "welcoming",
-         "note": "to welcome is to take in, so the first word holds the others"
-        }
-       ],
+       "words": "Prick",
+       "at": 0,
+       "gives": "CHOPPER",
+       "note": "chopper is slang for penis"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Prick",
-           "gives": "C",
-           "note": "slang for penis is CHOPPER; its first letter opens the wrapper"
-          },
-          {
-           "op": "reversal",
-           "indicators": [
-            {
-             "text": "reverse",
-             "note": "going into reverse means the word for party runs backwards"
-            }
-           ],
-           "parts": [
-            {
-             "words": "party",
-             "gives": "DO",
-             "note": "a do is a party"
-            }
-           ]
-          }
-         ]
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "leader",
-           "note": "'leader' keeps only the first letter of 'Labour'"
+           "at": 25,
+           "note": "a word's leader is its first letter"
           }
          ],
          "parts": [
           {
-           "words": "Labour",
-           "note": "first letter of Labour"
+           "words": "Labour's",
+           "at": 16,
+           "note": "its first letter is L"
+          }
+         ]
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "reverse",
+           "at": 45,
+           "note": "reverse means the word for party is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "party",
+           "at": 39,
+           "gives": "DO",
+           "note": "a do is a party"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "Prick",
-       "gives": "HOPPER",
-       "note": "the rest of CHOPPER closes the wrapper"
       }
      ]
     },
     "explanation": {
-     "surface": "A sneer at a politician: a prick who took in Labour's leader before the party went backwards is still a prick.",
-     "walkthrough": "The first 'Prick' is CHOPPER, holding L and OD; the second is the definition, in the sense of an oaf.",
-     "definitionFit": "A clodhopper is a clumsy, oafish person, and calling someone a prick is a cruder insult of the same kind."
+     "surface": "A Labour politician who reverses party policy is called a prick, in Private Eye's crude style.",
+     "walkthrough": "The first 'Prick' is wordplay, the slang word for a penis; the second is the definition, and 'remains' only joins them.",
+     "definitionFit": "A clodhopper is a clumsy oaf, a term of contempt close to calling someone a prick."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "remains"
+     "joke": "pun",
+     "misdirectedWord": "Prick"
     }
    }
   },
@@ -700,50 +697,68 @@
      "indicators": [
       {
        "text": "nabbing",
-       "note": "to nab is to grab hold of, so the first word takes the rest inside"
-      },
-      {
-       "text": "protecting",
-       "note": "to protect is to surround and shield, so the jumbled letters wrap the short word"
+       "at": 19,
+       "note": "the outer word nabs the rest, holding it inside"
       }
      ],
      "parts": [
       {
        "words": "Subject",
+       "at": 10,
        "gives": "THEME",
        "note": "a theme is a subject"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "bastard",
-         "note": "bastard as an adjective means debased or irregular, so the letters are corrupted into a new order"
+         "text": "protecting",
+         "at": 47,
+         "note": "the rearranged letters wrap round the next piece to protect it"
         }
        ],
        "parts": [
         {
-         "words": "rich, proud",
-         "note": "the nine letters to rearrange"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "bastard",
+           "at": 39,
+           "note": "bastard, something corrupted, signals that the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rich",
+           "at": 27,
+           "note": "fodder"
+          },
+          {
+           "words": "proud",
+           "at": 33,
+           "note": "fodder"
+          }
+         ]
         },
         {
          "words": "those coarse people",
+         "at": 58,
          "gives": "EM",
-         "note": "'em is a coarse way of saying them, those people"
+         "note": "'em is a coarse form of them, those people"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A satirical take on a press scandal: a rich, proud bastard shielding coarse people inside a disgraced organisation.",
-     "walkthrough": "'Those coarse people' is them said coarsely, dropping the TH. The puzzle appeared in 2011, at the height of the News of the World phone-hacking scandal.",
-     "definitionFit": "Rupert Murdoch's media group, News Corporation, was publicly disgraced by the News of the World phone-hacking scandal."
+     "surface": "A press baron is a proud bastard shielding grubby staff in a disgraced company.",
+     "walkthrough": "'bastard' sounds like an insult aimed at the proud man, but it scrambles RICH PROUD. The answer runs across this light and 23 down.",
+     "definitionFit": "Rupert Murdoch's media group was disgraced by the News of the World phone-hacking scandal."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "bastard"
+     "aptDefinition": true,
+     "misdirectedWord": "Subject"
     }
    }
   },

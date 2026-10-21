@@ -866,31 +866,53 @@
      "indicators": [
       {
        "text": "Pervy",
-       "note": "perverted, twisted, so the letters are rearranged"
-      },
-      {
-       "text": "getting end away",
-       "note": "the end letter of prole goes away"
+       "at": 0,
+       "note": "pervy, a twisted kind of thing, signals that the letters are bent into a new order"
       }
      ],
      "parts": [
       {
-       "words": "as a prole",
-       "gives": "ASAPROL",
-       "note": "PROLE loses its final E, leaving ASAPROL to be rearranged"
+       "words": "as",
+       "at": 6,
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 9,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "getting end away",
+         "at": 20,
+         "note": "the word loses its last letter; also Private Eye's slang for sex"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prole",
+         "at": 11,
+         "note": "prole is a working-class person; minus its end it becomes PROL"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lecherous working-class man having sex, with a smutty double meaning.",
-     "walkthrough": "'Getting one's end away' is British slang for having sex; here it simply removes the last letter of prole. A prole is a working-class person.",
-     "definitionFit": "A parasol is a sunshade, which protects against ultraviolet rays."
+     "surface": "A sleazy working-class man is caught having sex, in Private Eye's crude style.",
+     "walkthrough": "PROLE without its last letter is PROL; mixed with AS and A, the letters give PARASOL.",
+     "definitionFit": "A parasol is a light umbrella carried to shade the user from the sun's ultraviolet rays."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "end"
+     "misdirectedWord": "Pervy"
     }
    }
   },
@@ -1730,47 +1752,80 @@
    "annotation": {
     "definitions": [
      {
-      "text": "and similar things",
-      "at": 41
+      "text": "similar things",
+      "at": 45
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "trashed",
-       "note": "wrecked, so the letters are jumbled"
-      },
-      {
-       "text": "ruined",
-       "note": "reinforces the wrecking of the letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Two Tory leaders",
-       "gives": "TT",
-       "note": "the first letter of Tory, twice"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trashed",
+         "at": 21,
+         "note": "something trashed is wrecked, so these letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leaders",
+           "at": 9,
+           "note": "the leaders of words are their opening letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Two",
+           "at": 0,
+           "note": "its first letter is T"
+          },
+          {
+           "words": "Tory",
+           "at": 4,
+           "note": "its first letter is T"
+          }
+         ]
+        },
+        {
+         "words": "EEC",
+         "at": 17,
+         "note": "taken as written: the European Economic Community"
+        }
+       ]
       },
       {
-       "words": "EEC",
-       "note": "anagram fodder"
-      },
-      {
-       "words": "are",
-       "note": "anagram fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ruined",
+         "at": 33,
+         "note": "ruined says these letters are spoilt and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "are",
+         "at": 29,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two Conservative leaders wrecking the European Economic Community.",
-     "walkthrough": "The EEC was the European Economic Community, forerunner of the EU. The two leaders are not people but two copies of Tory's first letter.",
-     "definitionFit": "Et cetera is Latin for 'and the rest', meaning and similar things."
+     "surface": "Tory leaders wreck the European Economic Community and are themselves undone.",
+     "walkthrough": "Two T's from 'Two Tory' join EEC, and 'trashed' rearranges those letters into ETCET; 'ruined' turns ARE into ERA.",
+     "definitionFit": "Et cetera is Latin for 'and the rest', used to stand for further items of the same kind."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leaders"
+     "misdirectedWord": "Two"
     }
    }
   }

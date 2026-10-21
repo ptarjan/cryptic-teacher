@@ -1433,59 +1433,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPIROGRAM",
-     "indicators": [
-      {
-       "text": "playing",
-       "note": "playing about with letters rearranges them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SPIROGRAM",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "out of",
-         "note": "out of means without, so that letter is taken away"
+         "text": "playing",
+         "at": 58,
+         "note": "playing suggests letters being played about with and rearranged"
         }
        ],
        "parts": [
         {
          "words": "Is",
+         "at": 31,
          "note": "taken as written"
         },
         {
-         "words": "group",
-         "note": "taken as written"
-        },
-        {
-         "words": "university",
-         "gives": "U",
-         "note": "U is short for university"
-        },
-        {
-         "words": "hit",
-         "gives": "RAM",
-         "note": "to ram is to hit"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "out of",
+           "at": 40,
+           "note": "out of means the following letter leaves the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "group",
+           "at": 34,
+           "note": "the word from which a letter is taken"
+          },
+          {
+           "words": "university",
+           "at": 47,
+           "gives": "U"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "hit",
+       "at": 66,
+       "gives": "RAM",
+       "note": "to ram is to strike hard"
       }
      ]
     },
     "explanation": {
-     "surface": "A record playing on the radio after its release, by a group from university.",
-     "walkthrough": "'Record on air' sounds like broadcasting but is a chart of breathing out after drawing breath in.",
-     "definitionFit": "A spirogram is the tracing a spirometer makes of air breathed in and out, a record of exhalation."
+     "surface": "A record company asks whether a band that has left university is playing its hit on the radio.",
+     "walkthrough": "GROUP without U is GROP; with IS, 'playing' rearranges them into SPIROG. 'record on air' looks like radio, but it is breath: air released from the lungs.",
+     "definitionFit": "A spirogram is a chart of breathing produced by a spirometer, a record of air breathed out."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "air"
+     "misdirectedWord": "record"
     }
    }
   },

@@ -1274,64 +1274,74 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means moved around, so all the collected letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
-      {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "Ultimately",
-         "note": "ultimately points to the final letter of the next word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "smitten",
-         "note": "the final letter"
-        }
-       ]
-      },
-      {
-       "words": "old",
-       "gives": "O",
-       "note": "O is the abbreviation for old"
-      },
-      {
-       "words": "Italian",
-       "gives": "IT",
-       "note": "IT is the abbreviation for Italian"
-      },
-      {
-       "words": "car",
-       "note": "taken as written"
-      },
       {
        "op": "first",
        "indicators": [
         {
          "text": "beginning to",
-         "note": "beginning to takes the opening letter of the word that follows"
+         "at": 41,
+         "note": "the beginning of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "think",
-         "note": "the opening letter"
+         "at": 54,
+         "note": "its first letter is T"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 60,
+         "note": "about means the letters are turned about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian",
+         "at": 28,
+         "gives": "IT"
+        },
+        {
+         "words": "car",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "words": "old",
+       "at": 24,
+       "gives": "O"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Ultimately",
+         "at": 0,
+         "note": "ultimately points to the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "smitten",
+         "at": 11,
+         "note": "its last letter is N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Smitten with a classic Italian car, someone starts to consider buying it.",
-     "walkthrough": "'purchase' suggests buying the car, but it means grip. The ellipsis just runs the story into the next clue.",
-     "definitionFit": "Purchase can mean a firm hold or grip, and traction is the grip of a tyre or wheel on a surface."
+     "surface": "Someone besotted with a vintage Italian car is starting to consider buying it.",
+     "walkthrough": "IT and CAR rearranged by 'about' give RACTI, followed by O and N. 'purchase' looks like buying the car, but it is a noun meaning grip.",
+     "definitionFit": "Traction is the grip of tyres on a road, and purchase also means a firm hold."
     },
     "features": {
      "answerInScene": false,
@@ -1447,60 +1457,59 @@
      "indicators": [
       {
        "text": "grabbing",
-       "note": "grabbing means the following words take hold of the key letter and hold it inside"
+       "at": 2,
+       "note": "the outer letters take hold of the musical key"
       }
      ],
      "parts": [
       {
-       "words": "to",
-       "note": "taken as written"
-      },
-      {
-       "op": "container",
+       "op": "charade",
        "parts": [
+        {
+         "words": "to",
+         "at": 15,
+         "note": "taken as written"
+        },
+        {
+         "words": "new",
+         "at": 18,
+         "gives": "N"
+        },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "Transit",
-           "note": "a thing in transit is moving, so the car maker's letters shift places"
+           "at": 27,
+           "note": "transit suggests the letters are in motion, so they are moved about; also the Ford van"
           }
          ],
          "parts": [
           {
            "words": "Ford",
+           "at": 22,
            "note": "taken as written"
-          }
-         ]
-        },
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "key",
-           "gives": "A",
-           "note": "A is a musical key"
-          },
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "N is the abbreviation for new"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "key",
+       "at": 11,
+       "gives": "A",
+       "note": "A is a musical key"
       }
      ]
     },
     "explanation": {
-     "surface": "Continuing the story: grabbing the keys to a new Ford Transit van for the daily commute.",
-     "walkthrough": "'Ford Transit' is a well-known van, but Transit is the anagram signal for Ford. TO and N take A inside before the shuffled Ford follows.",
-     "definitionFit": "Going to and fro means travelling back and forth, as a commuter does daily between home and work."
+     "surface": "A Ford Transit van gets a new key for the daily commute.",
+     "walkthrough": "FORD rearranged by 'Transit' gives DFRO; TO N DFRO grabs A to give TO A NDFRO. Ford Transit is a common van, so 'Transit' looks like part of the name.",
+     "definitionFit": "Commuters go back and forth between home and work each day, which is to and fro."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Transit"
     }
    }

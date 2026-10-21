@@ -102,30 +102,30 @@
        "indicators": [
         {
          "text": "Endlessly",
-         "note": "without an end, so each of the next two words loses its final letter"
+         "at": 0,
+         "note": "both words lose their last letters"
         }
        ],
        "parts": [
         {
-         "words": "dry",
-         "gives": "ARID",
-         "note": "a synonym, cut short by the indicator"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "dry",
+           "at": 10,
+           "gives": "ARID",
+           "note": "arid means dry"
+          },
+          {
+           "words": "region",
+           "at": 14,
+           "gives": "ZONE",
+           "note": "a zone is a region"
+          }
+         ]
         },
         {
-         "gives": "D"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "region",
-         "gives": "ZONE",
-         "note": "a synonym, also cut short"
-        },
-        {
-         "gives": "E"
+         "gives": "DE"
         }
        ]
       },
@@ -133,14 +133,16 @@
        "op": "last",
        "indicators": [
         {
-         "text": "easternmost tip",
-         "note": "in an across-reading word the east is the right-hand end, so the last letter is kept"
+         "text": "easternmost tip of",
+         "at": 28,
+         "note": "in an across sense the eastern end of a word is its last letter"
         }
        ],
        "parts": [
         {
          "words": "California",
-         "note": "its final letter"
+         "at": 47,
+         "note": "its last letter is A"
         }
        ]
       }
@@ -148,14 +150,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A geography question about the arid land on California's eastern border.",
-     "walkthrough": "The whole clue doubles as the definition: the desert state lies on California's eastern edge, and its name is built from the truncated words plus the last letter of California.",
-     "definitionFit": "The US state is largely desert and borders California to the east, so the full description fits it."
+     "surface": "An endless desert at the far eastern edge of California.",
+     "walkthrough": "ARID and ZONE each lose their ends to give ARI and ZON, and the last letter of California adds A. The whole clue also describes the answer, a desert state east of California.",
+     "definitionFit": "Arizona is the largely desert US state lying along California's eastern border."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "Endlessly"
+     "aptDefinition": true
     }
    }
   },
