@@ -468,13 +468,6 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "on",
-       "at": 41,
-       "note": "in a down entry, X on Y puts X directly above Y, so the lines come before the last word"
-      }
-     ],
      "parts": [
       {
        "words": "Women",
@@ -485,57 +478,68 @@
        "words": "breed",
        "at": 6,
        "gives": "HATCH",
-       "note": "to hatch is to breed or produce young from eggs"
+       "note": "to breed is to hatch young"
       },
       {
-       "words": "a",
-       "at": 12,
-       "gives": "A"
-      },
-      {
-       "op": "deletion",
+       "op": "charade",
        "indicators": [
         {
-         "text": "tailless",
-         "at": 14,
-         "note": "tailless means the last letter of the bird's name is removed"
+         "text": "on",
+         "at": 41,
+         "note": "on places the lines ahead of it in the answer"
         }
        ],
        "parts": [
         {
-         "words": "parrot",
-         "at": 23,
-         "gives": "MACAW",
-         "note": "a macaw is a large brightly coloured parrot"
+         "words": "a",
+         "at": 12,
+         "gives": "A"
         },
         {
-         "gives": "W"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "tailless",
+           "at": 14,
+           "note": "tailless means the last letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "parrot",
+           "at": 23,
+           "gives": "MACAW",
+           "note": "a macaw is a large parrot"
+          },
+          {
+           "gives": "W"
+          }
+         ]
+        },
+        {
+         "words": "lines",
+         "at": 35,
+         "gives": "LL",
+         "note": "L is a line, so two Ls are lines"
+        },
+        {
+         "words": "it",
+         "at": 44,
+         "gives": "IT"
         }
        ]
-      },
-      {
-       "words": "lines",
-       "at": 35,
-       "gives": "LL",
-       "note": "L is the abbreviation for line, so LL means lines"
-      },
-      {
-       "words": "it",
-       "at": 44,
-       "gives": "IT"
       }
      ]
     },
     "explanation": {
-     "surface": "Women raise an unnamed parrot with markings, its name forgotten.",
-     "walkthrough": "MACAW without its tail is MACA. The definition is the speaker's own admission, which is what the answer word is used for.",
-     "definitionFit": "A whatchamacallit is the word people use for a thing whose proper name escapes them."
+     "surface": "Women raising a stub-tailed parrot with stripes on it, though the species escapes them.",
+     "walkthrough": "MACAW without its tail gives MACA.",
+     "definitionFit": "A whatchamacallit is a word used for a thing whose proper name the speaker has forgotten."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "breed"
+     "misdirectedWord": "lines"
     }
    }
   },

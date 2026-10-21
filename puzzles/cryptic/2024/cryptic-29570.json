@@ -1262,53 +1262,60 @@
        "indicators": [
         {
          "text": "dropping",
-         "note": "dropping means letting something fall away, so the named letter is removed from each word"
+         "at": 20,
+         "note": "dropping means the letter for time falls away"
         }
        ],
        "parts": [
         {
          "words": "Drunkard",
+         "at": 0,
          "gives": "SOT",
-         "note": "a sot is a habitual drinker"
+         "note": "a sot is a drunkard"
         },
         {
-         "gives": "T"
+         "words": "time",
+         "at": 29,
+         "gives": "T",
+         "note": "T is the physics abbreviation for time"
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "again",
+         "at": 43,
+         "note": "again says the same dropping happens a second time, to the next word"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "sweating",
-           "gives": "HOT",
-           "note": "someone sweating is hot"
-          },
-          {
-           "words": "time and time again",
-           "gives": "TT",
-           "note": "T is the abbreviation for time, taken once and then again"
-          }
-         ]
+         "words": "sweating",
+         "at": 10,
+         "gives": "HOT",
+         "note": "someone sweating is hot"
         },
         {
-         "gives": "TTT"
+         "words": "time",
+         "at": 38,
+         "gives": "T",
+         "note": "T again for time"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A perspiring drunk staggers about a London district, losing time repeatedly.",
-     "walkthrough": "One T goes from each of the two words.",
-     "definitionFit": "Soho is a district of London's West End famous for nightlife, restaurants and theatres."
+     "surface": "A sweaty drunk keeps losing track of time in central London.",
+     "walkthrough": "SOT minus T gives SO, HOT minus T gives HO.",
+     "definitionFit": "Soho is a district of London's West End known for nightlife."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "sweating"
     }
    }
   },

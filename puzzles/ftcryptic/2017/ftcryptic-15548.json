@@ -953,7 +953,8 @@
      "indicators": [
       {
        "text": "picked up",
-       "note": "in a down clue, picking something up lifts it so it reads bottom to top"
+       "at": 34,
+       "note": "in a down clue picked up means lifted so it reads bottom to top"
       }
      ],
      "parts": [
@@ -961,14 +962,31 @@
        "op": "charade",
        "parts": [
         {
-         "words": "most mockery",
-         "gives": "SATIR",
-         "note": "satire is mockery, minus its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most",
+           "at": 16,
+           "note": "most means all but the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mockery",
+           "at": 21,
+           "gives": "SATIRE",
+           "note": "satire is mockery"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
          "words": "I've",
+         "at": 29,
          "gives": "ONES",
-         "note": "'I've' means 'I have', and so does 'one's', as in one's done it"
+         "note": "I have, in impersonal style one has, contracted to one's"
         }
        ]
       }
@@ -976,13 +994,14 @@
     },
     "spelling": "SEÑORITAS",
     "explanation": {
-     "surface": "Someone admitting they have absorbed the scorn aimed at Spanish women.",
-     "walkthrough": "'Picked up' suggests hearing or learning, but in a down clue it lifts the pieces to read upwards.",
-     "definitionFit": "Señoritas are young unmarried women in Spanish-speaking places, the equivalent of the English title miss."
+     "surface": "A Spanish woman is mocked and the jibe is overheard.",
+     "walkthrough": "SATIR (most of SATIRE) + ONES, read upwards.",
+     "definitionFit": "Señoritas are young unmarried Spanish women, the Spanish equivalent of misses."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "misses"
     }
    }

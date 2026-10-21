@@ -1467,26 +1467,45 @@
      "op": "charade",
      "parts": [
       {
-       "words": "bishop to leave bin",
-       "gives": "IN",
-       "note": "BIN minus B (bishop, as in chess notation)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to leave",
+         "at": 15,
+         "note": "to leave means the bishop's letter goes from bin"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bin",
+         "at": 24,
+         "note": "taken as written, minus its B"
+        },
+        {
+         "words": "bishop",
+         "at": 8,
+         "gives": "B",
+         "note": "B is the chess notation for bishop"
+        }
+       ]
       },
       {
        "words": "out",
+       "at": 28,
        "gives": "AWAY",
-       "note": "out = away, not at home"
+       "note": "out means away, not at home"
       }
      ]
     },
     "explanation": {
-     "surface": "A bishop is told to leave the bin put out.",
-     "walkthrough": "'Kind of bishop' reads as a question about bishops, but 'Kind of' alone is the definition.",
-     "definitionFit": "Kind of and in a way both mean to some extent, sort of."
+     "surface": "A sort of bishop is told to throw away the rubbish.",
+     "walkthrough": "BIN without B leaves IN; then AWAY for out.",
+     "definitionFit": "In a way and kind of are both hedges meaning partly or to some extent."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "bishop"
+     "misdirectedWord": "bin"
     }
    }
   },
