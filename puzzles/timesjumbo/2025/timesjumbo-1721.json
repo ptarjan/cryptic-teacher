@@ -50,28 +50,46 @@
      "parts": [
       {
        "words": "English",
-       "gives": "E",
-       "note": "E = English"
+       "at": 8,
+       "gives": "E"
       },
       {
        "words": "pub",
+       "at": 16,
        "gives": "PH",
-       "note": "PH = public house, the map abbreviation"
+       "note": "PH, for public house, is the map abbreviation for a pub"
       },
       {
-       "words": "green? Days lost!",
-       "gives": "EMERAL",
-       "note": "EMERALD without D (days)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lost",
+         "at": 35,
+         "note": "lost says the letter for days is taken out of the green word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "green",
+         "at": 23,
+         "gives": "EMERALD",
+         "note": "emerald is a shade of green"
+        },
+        {
+         "words": "Days",
+         "at": 30,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone walks past an English pub on the village green and wonders where the days went.",
-     "walkthrough": "'Passing' looks like a verb about walking by; it is the adjective meaning fleeting.",
-     "definitionFit": "Something ephemeral is passing: it lasts only a short time."
+     "surface": "An English pub on the village green, where the days slip away.",
+     "definitionFit": "Ephemeral things last only briefly, so the adjective means fleeting or transitory, like time going by."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Passing"
     }
@@ -212,45 +230,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "to return",
-       "note": "the word for slow is turned back"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "Mike",
+       "at": 0,
+       "gives": "M",
+       "note": "M is Mike in the NATO alphabet"
+      },
+      {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 20,
+         "note": "after says the reversed word comes after the year abbreviation"
+        }
+       ],
        "parts": [
         {
-         "words": "working",
-         "gives": "NO",
-         "note": "on = working, as a machine is"
-        },
-        {
-         "words": "slow",
-         "gives": "DIM",
-         "note": "DIM (slow-witted) turned back"
-        },
-        {
          "words": "year",
-         "gives": "RY",
-         "note": "YR = year"
+         "at": 26,
+         "gives": "YR"
         },
         {
-         "words": "Mike",
-         "gives": "M",
-         "note": "Mike is M in the NATO alphabet"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "to return",
+           "at": 10,
+           "note": "to return is to go back, so the word for slow is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "slow",
+           "at": 5,
+           "gives": "DIM",
+           "note": "dim means slow-witted"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "working",
+       "at": 31,
+       "gives": "ON",
+       "note": "on means working, as a machine is on"
       }
      ]
     },
     "explanation": {
-     "surface": "Mike, sluggish about coming back after a year, is now employed as someone's heavy.",
-     "walkthrough": "The Myrmidons were Achilles's loyal troops, so the word came to mean a follower who carries out orders without question.",
-     "definitionFit": "A myrmidon is a hired follower who does the dirty work, which is a henchman."
+     "surface": "Mike is slow to come back after a year at work as a loyal henchman.",
+     "definitionFit": "A myrmidon is a faithful follower who carries out orders unquestioningly, after Achilles' warriors in the Iliad."
     },
     "features": {
      "answerInScene": true,

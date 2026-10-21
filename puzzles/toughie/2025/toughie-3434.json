@@ -959,59 +959,63 @@
      "indicators": [
       {
        "text": "over",
-       "note": "papering over something covers it, so the reversed piece wraps around the reworked word"
+       "at": 32,
+       "note": "over says the reversed letters cover the talent letters, one at each side"
       }
      ],
      "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "comeback",
+         "at": 12,
+         "note": "a comeback is a return, so it and the papers are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "it",
+           "at": 22
+          },
+          {
+           "words": "papers",
+           "at": 25,
+           "gives": "ID",
+           "note": "ID, identity papers"
+          }
+         ]
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "surprisingly",
-         "note": "surprisingly suggests an unexpected arrangement, so the letters are mixed up"
+         "at": 44,
+         "note": "surprisingly says the letters of talent come out in an unexpected order"
         }
        ],
        "parts": [
         {
-         "words": "it",
-         "note": "taken as written"
-        },
-        {
-         "words": "papers",
-         "gives": "ID",
-         "note": "ID means identity papers"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "in comeback",
-         "note": "a comeback is a return, so the short pair of words is read backwards"
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "talent",
-           "note": "taken as written"
-          }
-         ]
+         "words": "talent",
+         "at": 37,
+         "note": "taken as written as the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dabblers staging a comeback, where publicity covers up a lack of talent.",
-     "walkthrough": "'it papers' is read backwards as one string, then split so its halves bracket the rearranged talent; ID is the usual crossword shorthand for identity papers.",
-     "definitionFit": "Dilettanti, the Italian plural, are dabblers in the arts who lack professional commitment, ie amateurs."
+     "surface": "Amateurs make a comeback, and it papers over a surprising talent.",
+     "definitionFit": "Dilettanti are dabblers in the arts who lack professional commitment, the Italian plural of dilettante."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "papers"
     }
@@ -1612,55 +1616,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no",
+       "at": 10,
+       "note": "with no says both Es are removed"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "with no",
-         "note": "with no means lacking, so every one of the letters named is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Dull",
+         "at": 0,
          "gives": "GREY",
-         "note": "grey means dreary and dull"
+         "note": "grey means dull"
         },
         {
-         "gives": "E"
+         "words": "ring",
+         "at": 5,
+         "gives": "PHONE",
+         "note": "to ring someone is to phone them"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "ring",
-           "gives": "PHONE",
-           "note": "to ring someone is to phone them"
-          },
-          {
-           "words": "echoes",
-           "gives": "EE",
-           "note": "Echo is E in the NATO alphabet"
-          }
-         ]
-        },
-        {
-         "gives": "EEE"
-        }
-       ]
+       "words": "echoes",
+       "at": 18,
+       "gives": "EE",
+       "note": "E is echo in the NATO alphabet, so echoes are two Es"
       }
      ]
     },
     "explanation": {
-     "surface": "A dull ring without reverberation, set beside a fantastical beast.",
-     "definitionFit": "The gryphon, or griffin, is a mythical beast with an eagle's head and a lion's body."
+     "surface": "A dull ring that produces no echoes for a mythical animal.",
+     "walkthrough": "GREY loses its E and PHONE loses its E, leaving GRY + PHON.",
+     "definitionFit": "A gryphon, or griffin, is a mythical beast with an eagle's head and wings and a lion's body."
     },
     "features": {
      "answerInScene": false,

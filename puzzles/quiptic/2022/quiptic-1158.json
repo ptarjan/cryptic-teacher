@@ -726,14 +726,20 @@
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 10
+      },
+      {
+       "words": "book",
+       "at": 12,
+       "gives": "B"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "translation",
-         "note": "translating turns words into a different form, so the letters are rearranged"
+         "at": 36,
+         "note": "a translation turns words into another form, so these letters are rearranged"
         }
        ],
        "parts": [
@@ -742,50 +748,37 @@
          "indicators": [
           {
            "text": "out",
-           "note": "out means removed or absent, so a letter is taken away"
+           "at": 61,
+           "note": "out says the letter for miles is removed from verbatim"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "book",
-             "gives": "B",
-             "note": "B is the abbreviation for book"
-            },
-            {
-             "words": "English",
-             "gives": "E",
-             "note": "E is the abbreviation for English"
-            },
-            {
-             "words": "verbatim",
-             "note": "taken as written"
-            },
-            {
-             "words": "miles",
-             "gives": "M",
-             "note": "M is the abbreviation for miles"
-            }
-           ]
+           "words": "verbatim",
+           "at": 27
           },
           {
-           "gives": "MM"
+           "words": "miles",
+           "at": 55,
+           "gives": "M"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 19,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A literal English rendering of a book proves wildly inaccurate and needs trimming.",
-     "walkthrough": "'Translation' looks like part of the story about a book but rearranges English plus VERBATIM once the M for miles is removed.",
-     "definitionFit": "To shorten a word or text by dropping letters or parts is a direct synonym of trimming it down."
+     "surface": "A book's English word-for-word translation has had the miles left out, so it seems shortened.",
+     "definitionFit": "To abbreviate a word or text is to shorten it, so the verb matches the phrase cut short."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "translation"
     }

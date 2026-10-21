@@ -1274,32 +1274,57 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 38,
+       "note": "before says the doubled department comes ahead of that last letter"
+      }
+     ],
      "parts": [
       {
-       "words": "double hospital facility",
-       "gives": "ENTENT",
-       "note": "ENT, the ear, nose and throat department, twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "to double",
+         "at": 10,
+         "note": "to double says the hospital department is written twice in succession"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hospital facility",
+         "at": 20,
+         "gives": "ENT",
+         "note": "ENT is the ear, nose and throat department of a hospital"
+        },
+        {
+         "gives": "ENT"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "end of",
-         "note": "the end of a word is its last letter"
+         "at": 45,
+         "note": "end of picks the final letter of decade"
         }
        ],
        "parts": [
         {
          "words": "decade",
-         "note": "its final letter"
+         "at": 52
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A deal to double a hospital's capacity before the decade is out.",
-     "definitionFit": "An entente is a friendly understanding between nations, as in the Entente Cordiale."
+     "surface": "A deal to double the size of a hospital unit before the decade is out.",
+     "walkthrough": "ENTENT plus the final E of decade.",
+     "definitionFit": "An entente is a friendly understanding between nations, as in the Entente Cordiale, so it is a kind of accord."
     },
     "features": {
      "answerInScene": false,
@@ -1483,7 +1508,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Extracts metal from",
+      "text": "Extracts metal",
       "at": 0
      }
     ],
@@ -1492,35 +1517,37 @@
      "indicators": [
       {
        "text": "for extraction",
-       "note": "the named items are marked to be pulled out"
+       "at": 44,
+       "note": "for extraction says both pieces are pulled out of mountains"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "mountains",
-         "note": "taken as written"
-        },
-        {
-         "words": "second",
-         "gives": "MO",
-         "note": "a mo is a moment, a second"
-        }
-       ]
+       "words": "mountains",
+       "at": 20
       },
       {
-       "words": "area",
-       "gives": "A",
-       "note": "A is the abbreviation for area"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "second",
+         "at": 32,
+         "gives": "MO",
+         "note": "a mo is a moment, a second"
+        },
+        {
+         "words": "area",
+         "at": 39,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mining metal out of the mountains in a fresh district.",
-     "walkthrough": "MOUNTAINS loses MO and A.",
-     "definitionFit": "To untin is to remove the tin from something, so it extracts a metal."
+     "surface": "Mining takes metal from mountains, with a second area marked out for digging.",
+     "walkthrough": "MOUNTAINS loses MO from the front and the A, leaving UNTINS.",
+     "definitionFit": "To untin is to remove the tin from something, so untins means takes that metal out, a third-person verb."
     },
     "features": {
      "answerInScene": true,

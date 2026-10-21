@@ -454,44 +454,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "around means surrounding another piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "dotted",
-         "note": "things dotted about are scattered, out of order"
+         "text": "dotted around",
+         "at": 23,
+         "note": "dotted around means scattered here and there, so all these letters are mixed up together"
         }
        ],
        "parts": [
         {
          "words": "Pretty",
-         "note": "taken as written"
+         "at": 0,
+         "note": "taken as written as part of the anagram fodder"
         },
         {
          "words": "little pictures",
+         "at": 7,
          "gives": "PICS",
-         "note": "pics is a short form of pictures"
+         "note": "pics is a short informal word for pictures"
         }
        ]
       },
       {
        "words": "second",
-       "gives": "S",
-       "note": "S is the abbreviation for second"
+       "at": 37,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Charming small images scattered round a duplicate.",
-     "definitionFit": "Typescripts are typed copies of texts, as for a manuscript sent to a publisher."
+     "surface": "Someone admires a page of pretty little pictures scattered around a second copy of a document.",
+     "walkthrough": "This is an indirect anagram: the letters of pics, the short word for pictures, are mixed in with pretty, and S for second follows.",
+     "definitionFit": "Typescripts are typed copies of texts, so the plural noun matches a typed duplicate of a document."
     },
     "features": {
      "answerInScene": false,
@@ -615,26 +613,45 @@
      "indicators": [
       {
        "text": "introduces it",
-       "note": "what introduces something comes in front of it"
+       "at": 42,
+       "note": "introduces it says the dropped-aitch word comes first, ahead of the reversed piece"
       }
      ],
      "parts": [
       {
-       "words": "the way Cockney",
-       "gives": "OW",
-       "note": "the way is HOW, and a Cockney says it without the H"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cockney",
+         "at": 34,
+         "note": "a Cockney speaker famously drops the aitch at the start of a word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the way",
+         "at": 26,
+         "gives": "HOW",
+         "note": "how means the way something is done"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "turned about means facing the other way, so the word is read backwards"
+         "at": 11,
+         "note": "about means turned round, so the word for wordplay is read backwards"
         }
        ],
        "parts": [
         {
          "words": "wordplay",
+         "at": 17,
          "gives": "PUN",
          "note": "a pun is a piece of wordplay"
         }
@@ -643,14 +660,13 @@
      ]
     },
     "explanation": {
-     "surface": "Someone confesses to a joke, Cockney style.",
-     "walkthrough": "Cockney is the London working-class accent known for dropping the H, so HOW becomes 'OW.",
-     "definitionFit": "To own up is an idiom for confessing, the same as coming clean about something."
+     "surface": "Someone is urged to confess about the wordplay, the way a Cockney would introduce it.",
+     "definitionFit": "To own up is to confess or admit a fault, which is what coming clean means as an idiom."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "way"
+     "misdirectedWord": "clean"
     }
    }
   },

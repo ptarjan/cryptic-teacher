@@ -1415,7 +1415,8 @@
      "indicators": [
       {
        "text": "accepting",
-       "note": "to accept is to take in, so one piece is received inside the other"
+       "at": 24,
+       "note": "accepting says the string takes the unknown letter inside it"
       }
      ],
      "parts": [
@@ -1424,32 +1425,50 @@
        "parts": [
         {
          "words": "See",
+         "at": 0,
          "gives": "LA",
-         "note": "la is an old exclamation meaning look or see"
+         "note": "la is an old exclamation meaning see or behold"
         },
         {
-         "words": "the old, repeatedly",
-         "gives": "YEYE",
-         "note": "ye is an archaic form of the, and repeatedly means twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 13,
+           "note": "repeatedly says the old word for the appears twice in a row"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the old",
+           "at": 4,
+           "gives": "YE",
+           "note": "ye is an old form of the"
+          },
+          {
+           "gives": "YE"
+          }
+         ]
         }
        ]
       },
       {
        "words": "unknown",
+       "at": 34,
        "gives": "Z",
-       "note": "Z is an algebraic unknown"
+       "note": "Z is a letter used for an unknown in algebra"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone notices that the elderly keep tolerating a mysterious eyesight problem.",
-     "walkthrough": "LA and the doubled YE join first, and Z goes into the gap between them. 'The old' means the old word for the, not old people.",
-     "definitionFit": "Lazy eye, or amblyopia, is a condition in which one eye develops poorer vision than its partner."
+     "surface": "An instruction to look at old people again and again, taking in an unknown eye problem.",
+     "walkthrough": "LA + YEYE takes Z in after LA.",
+     "definitionFit": "Lazy eye, or amblyopia, is a condition of weak vision in one eye, so it is a sight disorder."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "old"
+     "misdirectedWord": "See"
     }
    }
   },
