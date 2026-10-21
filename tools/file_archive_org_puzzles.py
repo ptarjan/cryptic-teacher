@@ -4461,6 +4461,11 @@ def clues_may_be_right(paper, d):
     return not (paper.key == "gale" and d.name[:4] < "2014")
 
 
+#: The windows (the layout's, the readers' settled one, the gutters near its edge) a page's VLM
+#: reads are shown at most (env CT_VLM_WINDOWS; 0: no cap): read_page's alt loop stops there.
+VLM_WINDOWS = int(os.environ.get("CT_VLM_WINDOWS") or 3)
+
+
 def read_page(d, found, hit, solutions, vlm_for=False, first=None, dead=()):
     """read_puzzle's one read: `vlm_for` False asks the VLM nothing; None
     asks it every column; a list of lights, the columns holding them.
@@ -4501,9 +4506,17 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None, dead=()):
     best = (crop_window.score(verdict, puzzle), verdict, puzzle)
     settled = None
     gone = []
+    judged = 1 + (first is not None)  # windows the VLM has been shown (and found poor) so far
     for i, alt in enumerate(alts):
         if alt == first:
             continue
+        # A page whose first VLM_WINDOWS windows were all poor is not shown more of them: each costs a
+        # full page of column reads (2-3 asks) and the next window of such a page has not filed it (the
+        # 10-21 vlm_asks.log, 5.75h: 150 new filings, none from a page that took 7 or more column
+        # reads; the 15 pages that did took 125 asks and ended refused or unfiled). The windows
+        # already read stand (cached): the best of them is the page's reading, as before.
+        if vlm_for is not False and VLM_WINDOWS and judged >= VLM_WINDOWS and alt not in dead:
+            break
         # A window the readers found no clue in at all (FT 1980-81: the cut right of the
         # grid, 0 of 32 lights) is not shown to the VLM: it would read the page's other print.
         if alt in dead:
@@ -4516,9 +4529,12 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None, dead=()):
         # (lend_laid): another window is read for the clues that one is still missing.
         lent = best[1].get("_laid") if vlm_for is not False else None
         more = any(a != first for a in alts[i + 1:])
+        if vlm_for is not False and VLM_WINDOWS and judged + 1 >= VLM_WINDOWS:
+            more = False  # the last window shown: its picks are not deferred to a window that will not come
         v, p = _read_page(d, found, hit, solutions, vlm_for, alt, None, **({"lent": lent} if lent else {}), defer=more)
         if vlm.unanswered() != waiting:
             break  # this window's asks are spooled: the read defers; the windows after it wait
+        judged += 1
         if vlm_for is False and not (v.get("agreed") or 0) and d is not None and paper_of(d).key == "ft":
             gone.append(alt)
         if crop_window.score(v, p) > best[0]:
