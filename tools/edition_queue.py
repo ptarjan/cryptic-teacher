@@ -407,9 +407,31 @@ import ocr_remote
 import scan_queue
 import vlm_reader
 
+#: Modules the queue process reaches only through lazy imports of the blog filers' paths (clues_only's
+#: _blog_build, ft_puzzles, ...) and never runs: it starts units, it reads no blog post. Loaded, they were in
+#: queue_closure, so each push touching them reloaded the queue (a replan, 55-175 s) for nothing. The units
+#: that do use them are their own processes, which load their own reach (load_unit).
+#: (Named inside never_loaded, not in a module-level constant: hot_reload._needs reads a module-level
+#: string as a module the file loads, which would put them in the static closure.)
+def never_loaded(reach, tools=None):
+    """The modules of `reach` the queue process does not load: file_blog_puzzles, parse_timesforthetimes
+    and each module outside the queue's own static closure (hot_reload.queue_code) that imports one at
+    module level, so loading it would load them again."""
+    tools = TOOLS if tools is None else Path(tools)
+    names = {p.name for p in tools.iterdir() if p.suffix == ".py"}
+    static = {Path(p).stem for p in hot_reload.queue_code(tools)}
+    skip = {"file_blog_puzzles", "parse_timesforthetimes"}
+    while True:
+        more = {m for m in reach if m not in skip and m not in static
+                and {Path(n).stem for n in hot_reload._needs(tools, f"{m}.py", names)} & skip}
+        if not more:
+            return skip & set(reach)
+        skip |= more
+
+
 if _snapshot is not None:
     _reach = code_reach.modules("edition_queue")
-    load_reach(_reach - {"edition_queue"}, _reach)
+    load_reach(_reach - {"edition_queue"} - never_loaded(_reach), _reach)
     os.close(_snapshot)
 
 #: The papers in the order a rank's units are taken; "trove" is the
@@ -1058,6 +1080,32 @@ def newest_first_papers():
     "gale,times"), read at each call so a plan after an env change follows
     it; empty when unset: the order is then by rank and fa.likely_gain."""
     return frozenset(k.strip() for k in os.environ.get("CT_NEWEST_FIRST", "").split(",") if k.strip())
+
+
+def fills_gpu(unit):
+    """Whether `unit` is another paper's never-read read, one that asks the VLM (the
+    CT_NEWEST_FIRST papers' rereads run on OCR alone)."""
+    return (unit["kind"] == "read" and unit["rank"] <= 1 and unit["paper"] not in newest_first_papers()
+            and needs_vlm(unit))
+
+
+def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_fills, read_pool):
+    """The reads to start ahead of the queue's order because the VLM stage is short of asks (spooled
+    below vlm_reader.slots() + PIPELINE) while CT_NEWEST_FIRST papers' OCR-only work holds the read
+    pool: the next never-read reads of other papers that ask the VLM, as many as keep running fills
+    under half the read pool (Times keeps the rest, so the CPU stays busy). Empty with no
+    CT_NEWEST_FIRST, a fed VLM or a full spool."""
+    if not newest_first_papers() or full or spooled >= vlm_reader.slots() + vlm_reader.PIPELINE:
+        return []
+    left = min(max(1, read_pool // 2) - running_fills, vlm_reader.slots() + vlm_reader.PIPELINE - spooled)
+    out = []
+    for u, k in read_cands:
+        if left <= 0:
+            break
+        if fills_gpu(u) and k not in tried and k not in busy and not waits(u) and not vlm_waits(u):
+            out.append(u)
+            left -= 1
+    return out
 
 
 def newest_first(unit):
@@ -2287,6 +2335,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             needed = heads[u["rank"]]
             return needed is not None and (u["paper"], u["rel"]) not in needed
         walked = may_start() and any(v > 0 for v in free.values())
+        # An idle GPU is a bug: with the VLM stage short of asks, other papers' never-read reads (which
+        # ask the VLM) go ahead of the CT_NEWEST_FIRST papers' OCR-only rereads (gpu_fill).
+        fill = gpu_fill(read_cands, tried, busy, waits, vlm_waits, len(queued), vlm_full or spool_cap_hit,
+                        sum(1 for _, (v, _) in units_running() if fills_gpu(v)), pools.get("read", 0)
+                        ) if free.get("read", 0) > 0 and may_start() and not yielding and not starved else []
+        fill_keys = {key_of(u) for u in fill}
 
         def idle_key(gates, urgent=urgent, free=free, starved=starved, yielding=yielding, desk_mem=desk_mem):
             """What a walk of the queue (~12k units) that begins nothing
@@ -2297,7 +2351,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             IDLE_WALK seconds)."""
             return (planned, plan_done, fresh_at, len(queue), len(first), len(tried), len(scanned), len(scan_failed),
                     sum(losses.values()), len(vlm_held), len(spool_wait), len(full_wait), spool_cap_hit, vlm_full, tuple(running), tuple(adopted), tuple(sorted(free.items())),
-                    len(stopped), urgent, bool(starved), bool(yielding), desk_mem, len(opened), len(closed),
+                    len(stopped), urgent, tuple(fill_keys), bool(starved), bool(yielding), desk_mem, len(opened), len(closed),
                     int(time.monotonic() // IDLE_WALK), gates)
 
         def gates_again(gates):
@@ -2316,7 +2370,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             held_back, desk_held, cpu_held, idle_held, vlm_deferred = idle_walk[1]
         # The walk ends past the last unit of any pool with a free slot: no later unit can start.
         reach = max((last_of.get(sl, -1) for sl, v in free.items() if v > 0), default=-1)
-        for i, (u, ukey, uslot) in enumerate(zip(queue, qkeys, qslots) if reach >= 0 and not skip_walk else ()):
+        for i, (u, ukey, uslot) in enumerate(itertools.chain(((v, key_of(v), slot_of(v)) for v in fill), zip(queue, qkeys, qslots))
+                                             if reach >= 0 and not skip_walk else (), -len(fill)):
             if i > reach:
                 break
             if not may_start() or free[uslot] <= 0 or ukey in tried:
@@ -2376,6 +2431,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if not began and began is not PENDING:
                 unscanned.add((u["paper"], u["rel"]))
                 continue
+            if ukey in fill_keys:
+                log(f"gpu idle: starting {ukey[0]} {ukey[1]} {ukey[2]} beside Times work "
+                    f"({len(queued)} asks spooled, floor {vlm_reader.slots() + vlm_reader.PIPELINE})")
             # A unit whose brief is being made holds its slot and its gates' charges as if begun.
             local_now += local
             begun_now += 1
