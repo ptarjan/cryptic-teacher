@@ -583,43 +583,53 @@
      "parts": [
       {
        "words": "Radius",
+       "at": 0,
        "gives": "R",
-       "note": "r is the usual symbol for radius in geometry"
+       "note": "R is the standard abbreviation for radius in geometry"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "sorted",
-         "note": "sorting puts things in a new order, so the word 'out' gets its letters rearranged"
-        },
-        {
-         "text": "altered",
-         "note": "altered means changed, so the word 'and' is changed round too"
+         "at": 7,
+         "note": "sorted asks for the little word out to be put into a different letter order"
         }
        ],
        "parts": [
         {
          "words": "out",
-         "note": "anagram fodder, 3 letters"
-        },
+         "at": 14
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "altered",
+         "at": 24,
+         "note": "altered says the word and is changed into a different letter order"
+        }
+       ],
+       "parts": [
         {
          "words": "and",
-         "note": "anagram fodder, 3 letters"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A geometry problem where the radius is worked out and then changed for a round building.",
-     "walkthrough": "'Sorted out' looks like a single phrase, and 'and' looks like a link, but each of 'out' and 'and' is a separate three-letter anagram.",
-     "definitionFit": "A rotunda is a round building or hall, typically topped with a dome, so a round structure."
+     "surface": "A circle's radius gets fixed and the plan for a round building is revised.",
+     "walkthrough": "'Sorted out' reads as one phrase, but 'sorted' is the signal and 'out' is its material; 'altered' then works on 'and' separately.",
+     "definitionFit": "A rotunda is a round building, typically one topped with a dome."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "and"
+     "misdirectedWord": "sorted"
     }
    }
   },
@@ -1074,26 +1084,43 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in an across or down charade, one piece placed on another follows it"
+       "at": 22,
+       "note": "in a down clue, on places the first piece above the one that follows"
       }
      ],
      "parts": [
       {
-       "words": "being incomplete",
-       "gives": "ENTIT",
-       "note": "an entity is a being, here cut short by one letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 11,
+         "note": "incomplete means the word is left without its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "being",
+         "at": 5,
+         "gives": "ENTITY",
+         "note": "an entity is a being, something that exists in its own right"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "article from France",
+       "at": 25,
        "gives": "LE",
-       "note": "le is a French word for 'the'"
+       "note": "le is the French masculine definite article, meaning the"
       }
      ]
     },
     "explanation": {
-     "surface": "A French article being named but left unfinished.",
-     "walkthrough": "'Being' is a noun, a creature or entity, not the verb it pretends to be.",
-     "definitionFit": "To entitle a book or painting is to give it a title, so to call it something."
+     "surface": "A name that comes out unfinished when it sits beside a French article.",
+     "definitionFit": "To entitle a book or person is to give it a title, that is, to name it."
     },
     "features": {
      "answerInScene": false,
