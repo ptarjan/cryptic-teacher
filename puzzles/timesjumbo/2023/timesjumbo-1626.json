@@ -664,29 +664,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ENTER",
      "indicators": [
       {
        "text": "fails to open",
-       "note": "not opening means the first letter is missing"
+       "at": 25,
+       "note": "fails to open means the word loses its opening letter"
       }
      ],
      "parts": [
       {
        "words": "hub in San Francisco",
-       "gives": "NTER",
-       "note": "a hub is a centre, spelt the American way in an American city; minus its first letter C"
+       "at": 4,
+       "gives": "CENTER",
+       "note": "center is the American spelling of centre, a hub; San Francisco signals the US form"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A crucial transport hub in San Francisco is unable to start operating.",
-     "walkthrough": "'In San Francisco' is the signal for American spelling: the British word ends -RE, the American one -ER.",
-     "definitionFit": "The Enter key on a computer keyboard submits a line or command, so it is one particular key."
+     "surface": "A key piece of the San Francisco transport hub won't open.",
+     "walkthrough": "The US setting points to the spelling CENTER rather than British CENTRE.",
+     "definitionFit": "Enter is a key on a computer keyboard, used to confirm input."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Key"
     }
@@ -3367,20 +3370,15 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "recalled",
-       "note": "to recall is to call back, so these letters are taken backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "in places one thing inside another"
+         "at": 17,
+         "note": "in places the turned-round motif inside the rearranged title"
         }
        ],
        "parts": [
@@ -3389,39 +3387,63 @@
          "indicators": [
           {
            "text": "new",
-           "note": "a new form is a changed one, so these letters are rearranged"
+           "at": 20,
+           "note": "new says the letters of title are formed afresh"
           }
          ],
          "parts": [
           {
            "words": "title",
-           "note": "taken as written"
-          },
-          {
-           "words": "dealing with",
-           "gives": "ON",
-           "note": "on means about, dealing with"
+           "at": 24
           }
          ]
         },
         {
-         "words": "A motif",
-         "gives": "ATROPE",
-         "note": "a trope is a recurring motif"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "recalled",
+           "at": 8,
+           "note": "recalled, called back, reads A plus the motif word backwards"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "A",
+             "at": 0
+            },
+            {
+             "words": "motif",
+             "at": 2,
+             "gives": "TROPE",
+             "note": "a trope is a recurring motif"
+            }
+           ]
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "dealing with",
+       "at": 30,
+       "gives": "ON",
+       "note": "on means dealing with, about"
       }
      ]
     },
     "explanation": {
-     "surface": "A recurring theme in a new sci-fi book about space travel.",
-     "walkthrough": "'Dealing with' seems to link the title to its subject, but it is fodder, the word ON, shuffled with the title's letters.",
-     "definitionFit": "Teleportation is instant transport of a person from place to place, a staple of science fiction such as Star Trek."
+     "surface": "A recurring theme reappears in a fresh title about science-fiction journeys.",
+     "walkthrough": "'recalled' acts on both A and the motif together, so the article is read backwards with it, landing at the end of that stretch.",
+     "definitionFit": "Teleportation is instantaneous transport of matter across distance, a staple of science fiction."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "dealing"
+     "misdirectedWord": "recalled"
     }
    }
   },

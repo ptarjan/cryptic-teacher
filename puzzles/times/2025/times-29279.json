@@ -1785,40 +1785,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "discarding",
-       "note": "to discard is to throw away, as with a card, so C is thrown out of JOCK"
-      }
-     ],
      "parts": [
       {
-       "words": "US player discarding clubs",
-       "gives": "JOK",
-       "note": "JOCK, American slang for a sporty type, without C for clubs"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "discarding",
+         "at": 10,
+         "note": "discarding means the clubs letter is thrown out of the athlete word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US player",
+         "at": 0,
+         "gives": "JOCK",
+         "note": "jock is American slang for an athlete or sports player"
+        },
+        {
+         "words": "clubs",
+         "at": 21,
+         "gives": "C",
+         "note": "C is the card-game abbreviation for clubs"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "turning over",
-         "note": "turning over flips something"
+         "at": 30,
+         "note": "turning over means the word for on is read backwards"
         }
        ],
        "parts": [
         {
          "words": "on",
+         "at": 27,
          "gives": "RE",
-         "note": "on = about, concerning; turned over to ER"
+         "note": "re means on, concerning"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American card player throwing away clubs before turning a card over.",
-     "walkthrough": "The card-game surface makes 'clubs' and 'card' look like one scene; 'card' alone is the definition.",
-     "definitionFit": "Two senses fit: the joker is the wild card in a pack, and a card is also a joker, a funny person."
+     "surface": "An American player throws away a club and flips over a card.",
+     "walkthrough": "JOCK without C is JOK; RE, meaning on, reverses to ER.",
+     "definitionFit": "The joker is an extra playing card in a standard pack, often wild."
     },
     "features": {
      "answerInScene": true,

@@ -982,42 +982,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PROPRIETOR",
-     "indicators": [
-      {
-       "text": "renovation",
-       "note": "renovation means rebuilding, so the letters of the structure are reworked"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PROPRIETOR",
+       "words": "in favour of",
+       "at": 8,
+       "gives": "PRO",
+       "note": "pro means in favour of"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "losing",
-         "note": "losing means giving something up, so part of the resort's name drops away"
+         "text": "renovation",
+         "at": 26,
+         "note": "renovation of the pier means its letters are rebuilt in a new order"
         }
        ],
        "parts": [
         {
-         "words": "in favour of",
-         "gives": "PRO",
-         "note": "pro means for or in favour of"
-        },
-        {
          "words": "pier",
-         "note": "letters taken as written for rearranging"
-        },
+         "at": 21
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 50,
+         "note": "losing says the town's name sheds the word for wharf"
+        }
+       ],
+       "parts": [
         {
          "words": "Torquay",
-         "note": "the Devon seaside town, taken as written"
+         "at": 42
         },
         {
          "words": "wharf",
+         "at": 57,
          "gives": "QUAY",
          "note": "a quay is a wharf"
         }
@@ -1026,14 +1031,14 @@
      ]
     },
     "explanation": {
-     "surface": "The owner supports rebuilding the pier, though Torquay will lose its wharf.",
-     "walkthrough": "Torquay without QUAY leaves TOR; Torquay is a resort town on England's south-west coast.",
-     "definitionFit": "A proprietor is the owner of a business or property."
+     "surface": "A seaside owner backs rebuilding the pier, though Torquay loses its wharf in the process.",
+     "walkthrough": "Torquay is a seaside resort in Devon, England; taking QUAY off it leaves TOR.",
+     "definitionFit": "A proprietor is the person who owns a business or property."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wharf"
+     "misdirectedWord": "renovation"
     }
    }
   },
