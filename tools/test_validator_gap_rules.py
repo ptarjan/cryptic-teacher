@@ -163,6 +163,33 @@ shown = [r for r in v.redo_regressions(
         {"words": "once", "at": 11, "gives": "PART"}]}}, CLUE4)]
 check("an old indicator is still refused and named with its role",
       True, len(shown) == 1 and "displayed (in the charade indicator 'displayed')" in shown[0] and "Do not add `linkWords`" in shown[0])
+# Audit 10-21: a redo that trims "after leaving" to "leaving" gets the old text back
+# instead of a dropped_words refusal; a word really gone stays refused.
+CLUE7 = "Moral tale after leaving part (4)"
+trim_old = {"definitions": [{"text": "Moral tale", "at": 0}],
+            "wordplay": {"op": "deletion", "indicators": [{"text": "after leaving", "at": 11, "note": "n"}],
+                         "parts": [{"words": "part", "at": 25, "gives": "PART"}]}}
+trim_new = copy.deepcopy(trim_old)
+trim_new["wordplay"]["indicators"] = [{"text": "leaving", "at": 17}]
+check("a trimmed indicator is refused by the gate as it stands", ["dropped_words"], redo(trim_new, old=trim_old, clue=CLUE7))
+carried = v.carry_old_indicators(trim_old, trim_new, CLUE7)
+check("carry gives the old indicator text and position back", ("after leaving", 11),
+      (carried["wordplay"]["indicators"][0]["text"], carried["wordplay"]["indicators"][0]["at"]))
+check("the carried redo passes the gate", [], redo(carried, old=trim_old, clue=CLUE7))
+check("the input is not changed", "leaving", trim_new["wordplay"]["indicators"][0]["text"])
+gone = copy.deepcopy(trim_new)
+gone["wordplay"]["indicators"] = []
+check("a dropped indicator is not invented", gone, v.carry_old_indicators(trim_old, gone, CLUE7))
+split_old = {"definitions": [{"text": "Moral", "at": 0}],
+             "wordplay": {"op": "deletion", "indicators": [{"text": "Nameless", "at": 6}],
+                          "parts": [{"words": "bird", "at": 15, "gives": "BIRD"}]}}
+split_new = copy.deepcopy(split_old)
+split_new["wordplay"]["indicators"] = [{"text": "less", "at": 10}]
+check("a word-part indicator is widened to the whole word", "Nameless", v.carry_old_indicators(
+    split_old, split_new, "Moral Nameless bird (4)")["wordplay"]["indicators"][0]["text"])
+clash = copy.deepcopy(trim_new)
+clash["wordplay"]["parts"] = [{"words": "after", "at": 11, "gives": "A"}, {"words": "part", "at": 25, "gives": "PART"}]
+check("no carry over another span of the new tree", clash, v.carry_old_indicators(trim_old, clash, CLUE7))
 # r29: truncation / cut leaves (times-29276 9a, cryptic-30110 19d, times-29183 28a)
 rue = {"op": "charade", "parts": [{"op": "reversal", "indicators": [{"text": "back"}], "parts": [
     {"words": "French way back", "gives": "RUE"}]}]}

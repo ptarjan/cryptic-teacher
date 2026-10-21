@@ -7249,6 +7249,53 @@ def redo_lost_words(old, new, clue):
     return lost
 
 
+def carry_old_indicators(old, new, clue):
+    """`new` with each indicator the redo cut short given back its full text from `old`.
+    Audit 10-21: most dropped_words refusals were a model trimming a multi-word indicator
+    to its head ("after leaving" -> "leaving", "worn by" -> "worn", "Nameless" -> "less")
+    and the gate then refusing the words trimmed off. When a new indicator's span sits
+    inside an old indicator's span (same clue text, no other span of the new tree in the
+    way) and that old indicator holds a word the redo would lose, the new indicator takes
+    the old one's text and position. The gate still judges the result, so nothing a redo
+    really drops is carried. `new` back as it was when nothing applies."""
+    lost = redo_lost_words(old or {}, new or {}, clue)
+    wp = (new or {}).get("wordplay")
+    if not lost or not isinstance(wp, dict) or not (old or {}).get("wordplay"):
+        return new
+    olds = [i for n in _walk(old["wordplay"]) for i in n.get("indicators") or []
+            if isinstance(i, dict) and isinstance(i.get("at"), int) and i.get("text")
+            and clue[i["at"]:i["at"] + len(i["text"])].lower() == i["text"].lower()
+            and lost & _clue_words(i["text"])]
+    if not olds:
+        return new
+    wp = copy.deepcopy(wp)
+
+    def spans(skip):
+        out = [(d["at"], d["at"] + len(d["text"])) for d in (new.get("definitions") or [])
+               if isinstance(d.get("at"), int) and d.get("text")]
+        for n in _walk(wp):
+            for s in [n] if "op" not in n else n.get("indicators") or []:
+                text = s.get("words") if "op" not in n else s.get("text")
+                if isinstance(s, dict) and s is not skip and isinstance(s.get("at"), int) and text:
+                    out.append((s["at"], s["at"] + len(text)))
+        return out
+
+    changed = False
+    for n in _walk(wp):
+        for ind in n.get("indicators") or []:
+            if not (isinstance(ind, dict) and isinstance(ind.get("at"), int) and ind.get("text")):
+                continue
+            a, b = ind["at"], ind["at"] + len(ind["text"])
+            for o in olds:
+                oa, ob = o["at"], o["at"] + len(o["text"])
+                if oa <= a and b <= ob and (oa, ob) != (a, b) \
+                        and not any(s < ob and oa < e for s, e in spans(ind)):
+                    ind["text"], ind["at"] = clue[oa:ob], oa
+                    changed = True
+                    break
+    return {**new, "wordplay": wp} if changed else new
+
+
 def redo_keep_words(old, clue):
     """The words a redo of `old` must keep, in clue order: what the gate refuses
     when the new annotation holds none of them. Shown to the redo up front."""
