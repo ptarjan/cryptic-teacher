@@ -457,59 +457,60 @@
      "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
-         "text": "never finishing",
-         "note": "not finishing means stopping short, so the final letter is dropped"
+         "text": "starts in",
+         "at": 5,
+         "note": "starts in means take the beginnings of the next two words"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "starts in",
-           "note": "a start is where something begins, so each word is cut down to its first letter"
-          }
-         ],
+         "words": "confusion",
+         "at": 15
+        },
+        {
+         "words": "opening",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "never finishing",
+         "at": 44,
+         "note": "never finishing means the following words stop short of their final letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "words": "confusion",
-           "note": "first letter"
+           "words": "once",
+           "at": 34
+          },
+          {
+           "words": "and",
+           "at": 40
           }
          ]
         },
         {
-         "gives": "ONF"
+         "gives": "ED",
+         "note": "the last letters of once and and"
         }
        ]
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "opening",
-         "note": "first letter"
-        }
-       ]
-      },
-      {
-       "words": "once",
-       "gives": "ONC",
-       "note": "the word without its last letter"
-      },
-      {
-       "words": "and",
-       "gives": "AN",
-       "note": "the word without its last letter"
       }
      ]
     },
     "explanation": {
-     "surface": "A game that begins chaotically and, once under way, never ends.",
-     "walkthrough": "The indicators are shared: 'starts in' covers two words and 'never finishing' covers the two after it.",
-     "definitionFit": "Cooncan is an old two-player card game of the rummy family, so it is a specific example of a game."
+     "surface": "A game begins chaotically, as it once did, and never ends.",
+     "walkthrough": "C and O come from the starts of 'confusion' and 'opening'; ONCE and AND each lose their last letter to give ONC and AN.",
+     "definitionFit": "Cooncan is an old rummy-type card game for two players, ancestor of gin rummy."
     },
     "features": {
      "answerInScene": true,
@@ -1664,47 +1665,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "FICHU",
+     "indicators": [
+      {
+       "text": "picked up",
+       "at": 24,
+       "note": "picked up means heard, so the two words are said aloud"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "FI",
-       "indicators": [
-        {
-         "text": "picked up",
-         "note": "to pick up a signal is to hear it, so the sound matters, not the spelling"
-        }
-       ],
-       "parts": [
-        {
-         "words": "payment",
-         "gives": "FEE",
-         "note": "a fee is a payment"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "CHU",
-       "parts": [
-        {
-         "words": "Drive off",
-         "gives": "SHOO",
-         "note": "to shoo is to drive away"
-        }
-       ]
+       "words": "Drive off after payment",
+       "at": 0,
+       "gives": "FEESHOO",
+       "note": "a fee is a payment, and to shoo is to drive off; the second comes after the first"
       }
      ]
     },
     "explanation": {
-     "surface": "A driver speeds off after paying, collecting a scarf on the way.",
-     "walkthrough": "'After' reverses the order of the clue: the payment sound comes first. A fichu is pronounced fee-shoo.",
-     "definitionFit": "A fichu is a small triangular scarf worn over a woman's shoulders and neck, a kind of wrap."
+     "surface": "Someone drives away after paying, collecting a shawl.",
+     "walkthrough": "FEE then SHOO, said aloud, sounds like the French-derived word for a small shawl.",
+     "definitionFit": "A fichu is a small triangular shawl or kerchief worn around the neck and shoulders."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Drive"
+     "misdirectedWord": "picked"
     }
    }
   },

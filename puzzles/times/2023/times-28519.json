@@ -879,31 +879,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Awfully",
-       "note": "awfully means very badly done, so these letters are jumbled"
-      },
-      {
-       "text": "badly",
-       "note": "badly means not in proper order, so these letters too are rearranged"
+       "text": "housing",
+       "at": 13,
+       "note": "housing means holding a further piece inside"
       }
      ],
      "parts": [
       {
-       "words": "poor",
-       "note": "letters to be rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Awfully",
+         "at": 0,
+         "note": "awfully means in a terrible way, so the letters of poor are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poor",
+         "at": 8
+        }
+       ]
       },
       {
-       "words": "built",
-       "note": "letters to be rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "at": 27,
+         "note": "badly built means put together wrongly, so these letters are scrambled too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "built",
+         "at": 21
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Shoddy Soviet-era housing, badly built for the leaders in Moscow.",
-     "definitionFit": "The Politburo was the chief policy-making committee of the Soviet Communist Party."
+     "surface": "Wretched poor people are housed in shoddy buildings, thanks to the Soviet leadership.",
+     "walkthrough": "Each word has its own anagram signal: 'Awfully' for the outer word and 'badly' for the inner one.",
+     "definitionFit": "The Politburo was the chief policy-making committee of the Soviet Communist Party, based in the Kremlin."
     },
     "features": {
      "answerInScene": true,
@@ -1340,40 +1362,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REIKI",
-     "indicators": [
-      {
-       "text": "flayed",
-       "note": "flayed means stripped of its outer layer, so the outside letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "concerning",
+       "at": 21,
        "gives": "RE",
-       "note": "re means concerning"
+       "note": "re means concerning, about"
       },
       {
        "words": "current",
+       "at": 37,
        "gives": "I",
        "note": "I is the symbol for electric current"
       },
       {
-       "words": "skin",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "flayed",
+         "at": 45,
+         "note": "flayed means stripped of its outer layer, so the word skin loses both its end letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "skin",
+         "at": 52
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A therapy that involves electric current on raw, flayed skin.",
-     "definitionFit": "Reiki is a Japanese alternative therapy channelling energy through the hands to promote healing."
+     "surface": "A therapy that deals with electric current and stripped skin sounds alarming.",
+     "walkthrough": "SKIN with its outside letters stripped leaves KI.",
+     "definitionFit": "Reiki is a Japanese therapy in which practitioners claim to channel energy through the hands to promote recovery."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "current"
+     "misdirectedWord": "flayed"
     }
    }
   },
