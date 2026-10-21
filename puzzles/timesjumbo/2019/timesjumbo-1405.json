@@ -690,35 +690,37 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "move",
      "indicators": [
       {
        "text": "to move down",
-       "note": "in a down answer the letter for good is shifted lower down the hall, lodging near the bottom"
+       "at": 5,
+       "note": "in a down entry, moving down sends the letter further along the word"
       }
      ],
      "parts": [
       {
        "words": "exhibition hall",
-       "gives": "ALLERY",
-       "note": "a gallery, with its first letter taken away to be moved"
+       "at": 18,
+       "gives": "GALLERY",
+       "note": "a gallery is a hall for exhibiting art"
       },
       {
        "words": "Good",
-       "gives": "G",
-       "note": "G is the usual abbreviation for good"
+       "at": 0,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "Visitors are asked to proceed down a gallery while showing tact.",
-     "walkthrough": "Take the G from the front of GALLERY and slide it further down the word, to just before the Y.",
-     "definitionFit": "An allergy is a physical oversensitivity to a substance such as pollen."
+     "surface": "Something good is moving down through an exhibition hall that shows off sensitivity.",
+     "walkthrough": "Take GALLERY and shift its leading G lower in the word, after ALLER, to make the answer.",
+     "definitionFit": "An allergy is the body's abnormal sensitivity to a substance such as pollen."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sensitivity"
+     "misdirectedWord": "showing"
     }
    }
   },
@@ -3402,26 +3404,49 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "'after' sets the word for secretive behind the cut hiding place"
+      }
+     ],
      "parts": [
       {
-       "words": "short retreat",
-       "gives": "HIDEOU",
-       "note": "hideout, a retreat, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 28,
+         "note": "'short' means cut short, so the hiding place loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "retreat",
+         "at": 34,
+         "gives": "HIDEOUT",
+         "note": "a hideout is a retreat or refuge"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "secretive",
+       "at": 12,
        "gives": "SLY",
-       "note": "sly means secretive and cunning"
+       "note": "sly means secretive or furtive"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is awfully furtive following a brief getaway.",
-     "walkthrough": "'after' puts SLY after the curtailed hideout, reversing the clue order.",
-     "definitionFit": "Frightfully and hideously both mean in a horrible, dreadful way."
+     "surface": "Someone frightened behaves furtively after a brief withdrawal.",
+     "definitionFit": "Hideously means horribly or dreadfully, and frightfully is a synonym for that intensifying sense."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "retreat"
     }

@@ -416,51 +416,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "HOCK",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing",
+       "at": 7,
+       "note": "'losing' says some letters are taken away from the painter's name"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "Artist",
+       "at": 0,
+       "gives": "HOCKNEY",
+       "note": "David Hockney, the English painter"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "losing",
-         "note": "an artist losing something no longer has it, so those letters come out"
+         "text": "knocked back",
+         "at": 20,
+         "note": "something knocked back is pushed backwards, so the word for urge is read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "knocked back",
-           "note": "a drink knocked back is thrown back, so the urge is turned round before it goes"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Artist",
-           "gives": "HOCKNEY",
-           "note": "David Hockney, the painter"
-          },
-          {
-           "words": "urge",
-           "gives": "YEN",
-           "note": "a yen is an urge; knocked back it is NEY, which Hockney loses"
-          }
-         ]
-        },
-        {
-         "gives": "NEYYEN"
+         "words": "urge",
+         "at": 14,
+         "gives": "YEN",
+         "note": "a yen is an urge or longing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A painter giving up drinking and then downing some wine.",
-     "walkthrough": "'Knocked back wine' reads as a drink downed; 'knocked back' belongs to the urge, and wine is the definition alone.",
-     "definitionFit": "Definition by example: the British name for German white Rhine vintages, from the town of Hochheim."
+     "surface": "A painter, past caring, downs a glass of wine.",
+     "walkthrough": "YEN reversed by 'knocked back' gives NEY, which leaves HOCKNEY to give HOCK. 'Knocked back' looks like drinking the wine but is the reversal.",
+     "definitionFit": "Hock is the British name for German white wine from the Rhine region."
     },
     "features": {
      "answerInScene": true,
@@ -616,46 +610,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "REINDEER",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "at": 19,
+       "note": "'reportedly' means as others say it, so the answer is heard rather than spelt"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "REIND",
-       "indicators": [
-        {
-         "text": "reportedly",
-         "note": "what is reported is passed on by word of mouth, so go by the sound of the words"
-        }
-       ],
-       "parts": [
-        {
-         "words": "ruled",
-         "gives": "REIGNED",
-         "note": "reigned = ruled"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "EER",
-       "parts": [
-        {
-         "words": "this place in the East End",
-         "gives": "ERE",
-         "note": "here, with the H dropped as in Cockney speech"
-        }
-       ]
+       "words": "ruled this place in the East End",
+       "at": 30,
+       "gives": "REIGNEDERE",
+       "note": "a monarch who ruled reigned; this place is here, and East End Cockneys drop the H to say 'ere"
       }
      ]
     },
     "explanation": {
-     "surface": "People up north are said to have governed round these parts of London.",
-     "walkthrough": "'Residents' suggests people; they are animals of the Arctic. The East End of London drops its H's, so here becomes 'ere.",
-     "definitionFit": "These antlered deer live wild in Lapland, Siberia and the Arctic tundra, so they are residents of the far north."
+     "surface": "A historical note about who once ruled a part of London's East End.",
+     "walkthrough": "The East End of London is home to Cockney speech, which drops initial H. REIGNED + 'ERE spoken aloud matches the animal.",
+     "definitionFit": "Reindeer live in the Arctic and subarctic, so they are residents of the far north."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "residents"
     }
    }

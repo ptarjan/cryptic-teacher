@@ -946,43 +946,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "after treatment",
-       "note": "treatment works on the letters and changes their order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "and opens",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "after treatment",
+         "at": 37,
+         "note": "words given a treatment are processed and reshaped, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and opens",
+         "at": 11
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "at last",
-         "note": "the last of a word is its final letter only"
+         "at": 28,
+         "note": "'at last' points to the final letter"
         }
        ],
        "parts": [
         {
          "words": "bowels",
-         "note": "last letter of bowels"
+         "at": 21,
+         "note": "its final letter is S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A laxative that loosens the bowels once it takes effect.",
-     "definitionFit": "Senna pods, the dried fruit of the senna plant, are a well-known traditional laxative."
+     "surface": "A laxative opens the bowels at last once treatment is given.",
+     "walkthrough": "AND OPENS rearranged gives SENNAPOD, and the last letter of bowels adds the plural S.",
+     "definitionFit": "Senna pods are dried seed pods of the senna plant, used as a herbal purgative."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "treatment"
     }
    }
@@ -1272,44 +1280,47 @@
      "parts": [
       {
        "words": "When",
+       "at": 0,
        "gives": "AS",
-       "note": "as means when, as in 'as I left'"
+       "note": "as can mean when"
+      },
+      {
+       "words": "100",
+       "at": 5,
+       "gives": "C",
+       "note": "C is the Roman numeral for 100"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "sprawled",
-         "note": "cities that sprawl spread out in a disordered way, so the letters are rearranged"
+         "at": 16,
+         "note": "sprawled suggests the word is spread out untidily, so its letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "100",
-         "gives": "C",
-         "note": "C is the Roman numeral for 100"
-        },
-        {
          "words": "cities",
-         "note": "taken as written"
-        },
-        {
-         "words": "millions",
-         "gives": "M",
-         "note": "M is the abbreviation for millions"
+         "at": 9
         }
        ]
+      },
+      {
+       "words": "millions",
+       "at": 26,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "When cities sprawl, millions of people would have to go without.",
-     "definitionFit": "Asceticism is the practice of severe self-discipline and abstention from pleasures, often for religious reasons."
+     "surface": "As many cities grow, millions of people would have to go without.",
+     "definitionFit": "Asceticism is the practice of strict self-discipline and abstinence from pleasures."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "When"
+     "misdirectedWord": "sprawled"
     }
    }
   },
@@ -1458,7 +1469,8 @@
      "indicators": [
       {
        "text": "surrounded by",
-       "note": "the earlier pieces are enclosed by the river that is named next"
+       "at": 36,
+       "note": "'surrounded by' says the first pieces sit inside the reversed river"
       }
      ],
      "parts": [
@@ -1467,38 +1479,40 @@
        "indicators": [
         {
          "text": "ebbing",
-         "note": "a tide that ebbs flows back, so the river's name runs backwards"
+         "at": 50,
+         "note": "an ebbing tide flows back, so the river name is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "African river",
-           "gives": "NILE",
-           "note": "the Nile is Africa's great river"
-          },
-          {
-           "words": "area",
-           "gives": "A",
-           "note": "A is the abbreviation for area"
-          }
-         ]
+         "words": "African river",
+         "at": 57,
+         "gives": "NILE",
+         "note": "the Nile"
         }
        ]
       },
       {
-       "words": "imperfect",
-       "gives": "LAME",
-       "note": "lame, as in a lame excuse, means feeble or imperfect"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "area",
+         "at": 13,
+         "gives": "A"
+        },
+        {
+         "words": "that's imperfect",
+         "at": 18,
+         "gives": "LAME",
+         "note": "something lame is weak or imperfect, like a lame excuse"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An imperfect patch of land beside a receding African river, as a battlefield.",
-     "walkthrough": "'Ebbing' suits a river's flow in the surface, but it tells you to read the river's name backwards.",
-     "definitionFit": "El Alamein in Egypt was the scene of two key Second World War battles in 1942."
+     "surface": "A battlefield's poor terrain lies along a river flowing back in Africa.",
+     "definitionFit": "El Alamein in Egypt was the site of decisive Second World War battles in 1942."
     },
     "features": {
      "answerInScene": true,

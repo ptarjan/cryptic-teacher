@@ -745,31 +745,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "changes",
-       "note": "a change alters the order, so these letters are moved around"
-      },
-      {
-       "text": "failing",
-       "note": "something failing is going wrong, so these letters are mixed up too"
+       "text": "in",
+       "at": 16,
+       "note": "'in' places the first rearrangement inside the second"
       }
      ],
      "parts": [
       {
-       "words": "Entices",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "failing",
+         "at": 19,
+         "note": "failing implies things going wrong, so these letters are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sex",
+         "at": 27,
+         "note": "taken as written"
+        }
+       ]
       },
       {
-       "words": "sex",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "at": 8,
+         "note": "changes says the word has been altered, so its letters shift"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Entices",
+         "at": 0,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone flirts to spice up a flagging love life.",
-     "definitionFit": "Lives as a plural noun means people's existences, the courses of being they lead."
+     "surface": "Temptations shift when someone's love life is in decline.",
+     "definitionFit": "An existence is a life, so existences means lives in the sense of ways of living."
     },
     "features": {
      "answerInScene": false,
@@ -1424,46 +1447,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "FRANZLISZT",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "at": 26,
+       "note": "radio is heard rather than read, so the answer sounds like these words"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "FRANZ",
-       "indicators": [
-        {
-         "text": "on the radio",
-         "note": "a radio broadcast is only heard, so words are matched by how they sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "country",
-         "gives": "FRANCE",
-         "note": "the European country, said aloud"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "LISZT",
-       "parts": [
-        {
-         "words": "record",
-         "gives": "LIST",
-         "note": "a list is a written record"
-        }
-       ]
+       "words": "country record",
+       "at": 11,
+       "gives": "FRANCELIST",
+       "note": "France is a country; a list is a record"
       }
      ]
     },
     "explanation": {
-     "surface": "A pianist's national recording is broadcast.",
-     "definitionFit": "Franz Liszt was a Hungarian virtuoso pianist and composer, an expert at the keyboard."
+     "surface": "A specialist's national record is being broadcast.",
+     "walkthrough": "'8' refers to the answer of clue 8. FRANCE LIST spoken aloud sounds like the composer's name.",
+     "definitionFit": "Franz Liszt was a Hungarian virtuoso pianist and composer, an expert in the field named by clue 8."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "record"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "country"
     }
    }
   },
