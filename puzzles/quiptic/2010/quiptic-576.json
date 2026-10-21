@@ -1016,54 +1016,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NIGHTMARE",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means moved around, so the remaining letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NIGHTMARE",
+       "words": "At the end of the day",
+       "at": 0,
+       "gives": "NIGHT",
+       "note": "night comes at the end of the day"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "losing",
-         "note": "losing means giving up, so the daughter's letter is taken out"
+         "text": "about",
+         "at": 28,
+         "note": "about means around, in a muddle, so the letters left are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "At the end of the day",
-         "gives": "NIGHT",
-         "note": "night comes when the day ends"
-        },
-        {
-         "words": "dream",
-         "note": "taken as written"
-        },
-        {
-         "words": "daughter",
-         "gives": "D",
-         "note": "D is the abbreviation for daughter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "losing",
+           "at": 34,
+           "note": "losing the daughter means her letter is taken out of dream"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dream",
+           "at": 22
+          },
+          {
+           "words": "daughter",
+           "at": 41,
+           "gives": "D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "At bedtime someone dreams of losing their daughter, and it's a horrible dream.",
-     "walkthrough": "The definition leans on the clue's word dream: 'a bad one' means a bad dream.",
-     "definitionFit": "A nightmare is a frightening or distressing dream."
+     "surface": "At day's end, someone dreams about losing their daughter, which is a terrible dream.",
+     "walkthrough": "'At the end of the day' sounds like a cliché; it is NIGHT. 'Losing' removes D from DREAM, and 'about' rearranges REAM to MARE. The definition leans on dream earlier in the clue.",
+     "definitionFit": "A nightmare is a frightening, unpleasant sleep vision, the bad kind of dream."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "about"
+     "misdirectedWord": "At"
     }
    }
   },

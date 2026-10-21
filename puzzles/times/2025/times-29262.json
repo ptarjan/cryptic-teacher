@@ -49,31 +49,58 @@
      "op": "charade",
      "parts": [
       {
-       "words": "hungover husband leaves",
-       "gives": "UNGOVER",
-       "note": "HUNGOVER without H (husband)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "at": 29,
+         "note": "the husband leaves, that is departs from, the word hungover, so his letter is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hungover",
+         "at": 12
+        },
+        {
+         "words": "husband",
+         "at": 21,
+         "gives": "H"
+        }
+       ]
       },
       {
        "words": "nick",
+       "at": 36,
        "gives": "NAB",
-       "note": "to nick is to nab, i.e. arrest"
+       "note": "to nick is to arrest, to nab"
       },
       {
-       "words": "half-cut male",
-       "gives": "LE",
-       "note": "the second half of MALE"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 46,
+         "note": "half-cut, slangily drunk, here says cut the word in half and keep only its back half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "male",
+         "at": 55
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk husband staggers out of the police station with an equally tipsy man.",
-     "walkthrough": "'Half-cut' is British slang for drunk, which suits the hungover husband, but here it simply trims MALE to its last two letters. 'Nick' is British slang for a police station, but it works as the verb 'arrest'.",
-     "definitionFit": "A plain synonym: someone ungovernable cannot be kept in order, which is what disorderly describes."
+     "surface": "A drunken husband in a police cell, sharing it with a man who is also tipsy.",
+     "walkthrough": "'Hungover' and 'half-cut' both look like scene-setting about drink. 'Leaves' takes H out of HUNGOVER to give UNGOVER, and 'half-cut' keeps the second half of MALE, LE.",
+     "definitionFit": "Someone disorderly refuses control, which is exactly what being impossible to rule or govern means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "half-cut"
     }
    }
@@ -1376,20 +1403,40 @@
      "parts": [
       {
        "words": "Quiet",
+       "at": 0,
        "gives": "P",
-       "note": "p (piano) = quiet in music"
+       "note": "P (piano) is the musical marking for quiet"
       },
       {
-       "words": "sound of sheep (not black)",
-       "gives": "LEAT",
-       "note": "BLEAT without B (black)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 22,
+         "note": "not black asks for the letter for black to be absent from the bleat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sound of sheep",
+         "at": 6,
+         "gives": "BLEAT",
+         "note": "a sheep's cry is a bleat"
+        },
+        {
+         "words": "black",
+         "at": 26,
+         "gives": "B",
+         "note": "B is the pencil-grading abbreviation for black"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A white sheep bleats softly in its pen.",
-     "walkthrough": "'Fold' is a sheep pen in the surface, which is why 'in fold' reads naturally; the definition is fold as a crease.",
-     "definitionFit": "A specific kind: a pleat is a fold pressed or stitched into fabric."
+     "surface": "A soft bleat from a white sheep penned in a sheepfold.",
+     "walkthrough": "'Fold' looks like the sheep pen; here it is a fold in cloth. The sheep 'not black' is a white one only in the surface.",
+     "definitionFit": "A pleat is a crease pressed or sewn into fabric, a kind of fold."
     },
     "features": {
      "answerInScene": false,

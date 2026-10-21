@@ -1778,7 +1778,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "returned"
+       "text": "returned",
+       "at": 42,
+       "note": "returned means sent back, so the whole assembly is read in reverse"
       }
      ],
      "parts": [
@@ -1786,33 +1788,52 @@
        "op": "container",
        "indicators": [
         {
-         "text": "in"
+         "text": "in",
+         "at": 17,
+         "note": "in says the echoes are placed inside the manner of speaking"
         }
        ],
        "parts": [
         {
          "words": "a manner of speaking",
+         "at": 20,
          "gives": "DRAWL",
-         "note": "a drawl is a slow way of speaking"
+         "note": "a drawl is a slow, drawn-out way of speaking"
         },
         {
-         "words": "Repeated echoes",
-         "gives": "EE",
-         "note": "E is echo in the NATO alphabet, twice over"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "Repeated",
+           "at": 0,
+           "note": "repeated says the echo letter appears twice running, matching the plural echoes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "echoes",
+           "at": 9,
+           "gives": "E",
+           "note": "Echo is E in the NATO phonetic alphabet"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Echoes coming back on the wind, repeated like a way of talking.",
-     "walkthrough": "'In a manner of speaking' looks like the idiom meaning 'so to speak', but it is the container signal plus a drawl.",
-     "definitionFit": "Leeward is the side away from the wind, so downwind."
+     "surface": "Echoes come back again and again, speaking of something carried downwind.",
+     "walkthrough": "EE goes inside DRAWL to make DRAWEEL; 'returned' turns that round.",
+     "definitionFit": "Leeward is the side sheltered from the wind, facing away from it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "manner"
+     "misdirectedWord": "echoes"
     }
    }
   },
