@@ -773,30 +773,45 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the short piece sits inside the word that follows"
+       "at": 41,
+       "note": "in means placed inside another word"
       }
      ],
      "parts": [
       {
        "words": "washing",
+       "at": 44,
        "gives": "ABLUTION",
-       "note": "ablution is a ritual or formal washing"
+       "note": "ablution is the act of washing oneself"
       },
       {
-       "words": "only half the soap",
-       "gives": "SO",
-       "note": "the first half of soap"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "only half",
+         "at": 22,
+         "note": "only the first half of the word soap is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soap",
+         "at": 36,
+         "note": "the word whose front half is taken"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is excused for being sparing with soap while washing.",
-     "definitionFit": "Absolution is the formal remission of sins, a pardon granted by a priest."
+     "surface": "Someone seeks pardon for skimping on soap at bath time.",
+     "walkthrough": "'the' is only a link; 'only half' keeps the front half of the soap.",
+     "definitionFit": "Absolution is formal release from guilt or sin, as granted by a priest, a kind of pardon."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "soap"
+     "misdirectedWord": "washing"
     }
    }
   },

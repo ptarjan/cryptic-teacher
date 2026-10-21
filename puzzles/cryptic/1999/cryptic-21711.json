@@ -515,48 +515,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ITINERANT",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "out suggests the letters are knocked out of their usual order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ITINERANT",
+       "words": "I",
+       "at": 8
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
-         "text": "East?",
-         "note": "the compass point read with out means that letter is removed"
+         "text": "out",
+         "at": 20,
+         "note": "out means not in proper order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
          "words": "entertain",
-         "note": "taken as written"
+         "at": 10,
+         "note": "the anagram fodder, taken as written"
         },
         {
          "words": "East",
+         "at": 24,
          "gives": "E",
-         "note": "E is the abbreviation for East"
+         "note": "E is the compass abbreviation for east"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tramp says he puts on shows wandering in the East.",
-     "walkthrough": "Removing one E from I plus ENTERTAIN leaves nine letters that rearrange to the answer.",
-     "definitionFit": "An itinerant travels from place to place without a settled home, like a wandering tramp."
+     "surface": "A wanderer asks whether they should host guests away in the East.",
+     "walkthrough": "'out' does the rearranging, and the East letter is one the shuffled word has spare, so it drops out.",
+     "definitionFit": "An itinerant travels from place to place with no settled home, just like a vagrant."
     },
     "features": {
      "answerInScene": true,
@@ -1409,30 +1402,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "turning over",
-       "note": "turning over flips the whole thing to run the other way"
+       "text": "found in",
+       "at": 19,
+       "note": "found in means placed within another word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "found in",
-         "note": "found in means sitting within, so the French article goes inside"
+         "text": "over",
+         "at": 36,
+         "note": "over means the rock's letters are turned over, read backwards"
         }
        ],
        "parts": [
         {
          "words": "molten rock",
+         "at": 41,
          "gives": "MAGMA",
          "note": "magma is molten rock beneath the earth's crust"
-        },
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 28,
+         "note": "turning means the French article is read backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "the French",
+         "at": 8,
          "gives": "LA",
          "note": "la is the French feminine word for the"
         }
@@ -1441,13 +1450,14 @@
      ]
     },
     "explanation": {
-     "surface": "A blend that a French person discovers while stirring lava.",
-     "definitionFit": "An amalgam is a blend of different elements, originally an alloy of mercury."
+     "surface": "A mixture of the French found in churning molten rock.",
+     "walkthrough": "Both pieces are turned round before one goes inside the other.",
+     "definitionFit": "An amalgam is a blend of different things, especially a mercury alloy, so a mixture."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "French"
+     "misdirectedWord": "turning"
     }
    }
   },

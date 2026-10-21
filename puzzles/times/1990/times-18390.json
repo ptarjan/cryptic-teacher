@@ -614,43 +614,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GANGSTER",
+     "op": "container",
      "indicators": [
       {
-       "text": "abandoned",
-       "note": "abandoned means left behind, so those letters are dropped from the word"
+       "text": "in",
+       "at": 25,
+       "note": "in means placed inside another word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one piece inside the other"
+         "text": "abandoned",
+         "at": 43,
+         "note": "abandoned means left out, so these letters are removed"
         }
        ],
        "parts": [
         {
-         "words": "country many",
-         "gives": "GER",
-         "note": "GERMANY with the letters of many taken away"
+         "words": "a country",
+         "at": 28,
+         "gives": "GERMANY",
+         "note": "Germany is a country"
         },
         {
-         "words": "anxiety",
-         "gives": "ANGST",
-         "note": "angst is dread or anxiety"
+         "words": "many",
+         "at": 38,
+         "gives": "MANY",
+         "note": "this word's letters are the ones removed"
         }
        ]
+      },
+      {
+       "words": "anxiety",
+       "at": 17,
+       "gives": "ANGST",
+       "note": "angst is anxiety or dread"
       }
      ]
     },
     "explanation": {
-     "surface": "A crook spreading fear across a land that many people have fled.",
-     "walkthrough": "'Many abandoned' tells you to take the word many out of the country's name, not that people left it.",
-     "definitionFit": "A gangster is a member of an organised gang of crooks, so a criminal by trade."
+     "surface": "A criminal spreads fear in a country that many have fled.",
+     "definitionFit": "A gangster is a member of an organised gang of violent lawbreakers."
     },
     "features": {
      "answerInScene": true,

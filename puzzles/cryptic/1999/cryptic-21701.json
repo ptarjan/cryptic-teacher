@@ -293,7 +293,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "he drinks",
+      "text": "he drinks!",
       "at": 50
      }
     ],
@@ -302,31 +302,44 @@
      "indicators": [
       {
        "text": "going around",
-       "note": "a word going around another surrounds it, so one piece is wrapped about the other"
+       "at": 16,
+       "note": "going around means one piece surrounds the other"
       }
      ],
      "parts": [
       {
        "words": "Building worker",
+       "at": 0,
        "gives": "TILER",
-       "note": "a tradesman who lays tiles"
+       "note": "a tiler lays tiles on buildings"
       },
       {
-       "words": "double-parking",
-       "gives": "PP",
-       "note": "P for parking, doubled"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "double",
+         "at": 29,
+         "gives": "P",
+         "note": "double means the parking letter appears twice"
+        },
+        {
+         "words": "parking",
+         "at": 36,
+         "gives": "P",
+         "note": "P is the road-sign abbreviation for parking"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A builder who parks badly also turns out to be fond of a drink.",
-     "walkthrough": "P is the standard road-sign abbreviation for parking.",
-     "definitionFit": "A tippler habitually drinks alcohol, so the noun describes a man who drinks often."
+     "surface": "A builder circles a double-parked car, and turns out to be a drinker.",
+     "definitionFit": "A tippler is someone who habitually drinks alcohol, a toper."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "double-parking"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Building"
     }
    }
   },

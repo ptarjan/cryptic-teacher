@@ -48,13 +48,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LONEWOLF",
+     "op": "container",
      "indicators": [
       {
-       "text": "Over half of",
-       "note": "only a portion just past the midpoint of the word is kept, so its tail is dropped"
+       "text": "about",
+       "at": 30,
+       "note": "about means around, so one piece goes round another"
       }
      ],
      "parts": [
@@ -63,33 +62,47 @@
        "indicators": [
         {
          "text": "raving",
-         "note": "someone raving is wild and disordered, so the letters are thrown into a new order"
+         "at": 23,
+         "note": "raving means wildly disordered, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "followers",
-         "gives": "FOLLO",
-         "note": "the first five of its nine letters"
-        },
-        {
-         "words": "modern",
-         "gives": "NEW",
-         "note": "modern means new"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Over half of",
+           "at": 0,
+           "note": "the first five of the nine letters are taken, more than half"
+          }
+         ],
+         "parts": [
+          {
+           "words": "followers",
+           "at": 13,
+           "note": "the word whose front portion is used"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "modern",
+       "at": 36,
+       "gives": "NEW",
+       "note": "new means modern"
       }
      ]
     },
     "explanation": {
-     "surface": "Fans in a frenzy surround a contemporary artist who performs alone.",
-     "walkthrough": "'About' reads like a container signal, but here it just joins the pieces; both sets of letters go into the mix together.",
-     "definitionFit": "A loner who prefers acting independently is called this, so a solo performer, with a question mark for the playful stretch, fits."
+     "surface": "A crowd of fans raving about some modern musician who plays alone.",
+     "walkthrough": "'Over half of' takes five of the nine letters, more than half, from the front.",
+     "definitionFit": "A lone wolf is someone who acts independently; the question mark makes a soloist a playful example."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "raving"
+     "misdirectedWord": "followers"
     }
    }
   },
@@ -176,42 +189,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VACANT",
-     "indicators": [
-      {
-       "text": "Briefly",
-       "note": "said briefly, the word is cut down to its short informal form"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Briefly",
+         "at": 0,
+         "note": "briefly means shortened, here cut to its familiar short form"
+        }
+       ],
        "parts": [
         {
          "words": "leave",
-         "gives": "VAC",
-         "note": "leave is a vacation, shortened to the informal vac"
+         "at": 8,
+         "gives": "VACATION",
+         "note": "vacation is leave from work, shortened to vac"
         },
         {
-         "words": "worker",
-         "gives": "ANT",
-         "note": "the worker ant is a crossword staple"
+         "gives": "ATION"
         }
        ]
+      },
+      {
+       "words": "worker",
+       "at": 14,
+       "gives": "ANT",
+       "note": "the ant is the classic worker insect"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to walk out quickly on an employee who has nothing to do.",
-     "walkthrough": "Vac is British student slang for the university holidays.",
-     "definitionFit": "Both words describe a seat, room or post that has nobody in it, a straightforward synonym."
+     "surface": "Someone takes a short break from a worker and the place sits empty.",
+     "walkthrough": "VAC is the familiar short form of vacation.",
+     "definitionFit": "Vacant means empty, with no occupant, as of a room or seat."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leave"
+     "misdirectedWord": "worker"
     }
    }
   },
@@ -892,47 +909,52 @@
      "indicators": [
       {
        "text": "butting in to",
-       "note": "butting in means interrupting, so these letters push into the middle of the next word"
+       "at": 19,
+       "note": "butting in means pushing into the middle of something"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "talk",
+       "at": 33,
+       "gives": "SPEAK",
+       "note": "to speak is to talk"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "talk",
-         "gives": "SPEAK",
-         "note": "to speak is to talk"
+         "words": "Call",
+         "at": 0,
+         "gives": "RING",
+         "note": "to ring is to call by phone"
         },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "back",
-           "note": "back means going the reverse way, so the city is read right to left"
+           "at": 13,
+           "note": "back means the city's letters are reversed"
           }
          ],
          "parts": [
           {
            "words": "US city",
+           "at": 5,
            "gives": "LA",
-           "note": "Los Angeles"
+           "note": "LA is Los Angeles"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "Call",
-       "gives": "RING",
-       "note": "to ring is to call by phone"
       }
      ]
     },
     "explanation": {
-     "surface": "Phoning a US city again, interrupting the conversation, and getting effusive.",
-     "walkthrough": "Gushing sounds like effusive talk, fitting the surface; the question mark flags the literal sense of water pouring out.",
-     "definitionFit": "When a boat or pipe develops a hole it begins to let water out, so gushing is the result."
+     "surface": "Someone phones Los Angeles in return and interrupts a conversation, then starts pouring out words.",
+     "walkthrough": "'butting in to' puts the call and the turned-round city inside the word for talk.",
+     "definitionFit": "To spring a leak is for a vessel or pipe to develop a hole, so water starts pouring out."
     },
     "features": {
      "answerInScene": false,
