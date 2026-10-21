@@ -522,25 +522,45 @@
      "parts": [
       {
        "words": "award",
+       "at": 20,
        "gives": "OBE",
-       "note": "OBE, Officer of the Order of the British Empire, is a British honour"
+       "note": "the OBE is a British honour, Officer of the Order of the British Empire"
       },
       {
-       "words": "almost the 60th",
-       "gives": "LIX",
-       "note": "LIX is Roman 59, one short of LX, sixty"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 27,
+         "note": "one short of sixty is written in Roman numerals by setting a one in front of the ten"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the 60th",
+         "at": 34,
+         "gives": "LX",
+         "note": "LX is the Roman numeral for sixty"
+        },
+        {
+         "gives": "X"
+        },
+        {
+         "gives": "IX"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French mason receives an honour, nearly at his sixtieth birthday.",
-     "walkthrough": "'The 60th' sounds like an anniversary, but it is a Roman numeral count: 'almost' it is the 59th, LIX.",
-     "definitionFit": "Obelix, the Gaulish sidekick of Asterix in the French comics, carves and delivers menhirs, the standing stones of his village."
+     "surface": "An honour is handed out, almost as a milestone sixtieth, to a French craftsman in stone.",
+     "walkthrough": "'Almost the 60th' means the 59th; Roman numerals write one less than a ten by setting a one in front of it, so the final ten of sixty becomes nine.",
+     "definitionFit": "Obelix, Asterix's huge Gaulish friend in the comic, carves and delivers menhirs, so he is a worker in stone from Gaul."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "60th"
+     "misdirectedWord": "award"
     }
    }
   },
@@ -991,49 +1011,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "burnished",
-       "note": "burnished metal has been worked and polished, so these letters are worked into a new order"
+       "at": 8,
+       "note": "burnished metal has been rubbed and worked over, so the letters of regal gold are worked into a new order"
+      },
+      {
+       "text": "dumped",
+       "at": 36,
+       "note": "dumped says the letters of a and duke's abbreviation are thrown out of the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "dumped",
-         "note": "what is dumped is thrown away, so these letters are taken out"
-        }
-       ],
+       "words": "regal gold",
+       "at": 18
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "regal gold",
-         "note": "taken as written, to be rearranged"
-        },
-        {
          "words": "a",
-         "note": "taken as written, then removed"
+         "at": 29
         },
         {
          "words": "duke",
-         "gives": "D",
-         "note": "D is the abbreviation for duke, removed"
+         "at": 31,
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A platter of polished royal gold was thrown out by a duke.",
-     "walkthrough": "Remove one A and the D from the nine letters, then rearrange the seven left.",
-     "definitionFit": "An egg roll is a Chinese-American fried snack, a filled pastry roll served as a dish or starter."
+     "surface": "A grand dish of polished royal gold that some duke threw away.",
+     "walkthrough": "Take A and D (duke) out of the letters of REGAL GOLD and rearrange the rest: 'burnished' signals the rearrangement and 'dumped' the removal.",
+     "definitionFit": "An egg roll is a Chinese-style fried snack of filling wrapped in pastry, so it is a dish served at a meal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Dish"
+     "misdirectedWord": "burnished"
     }
    }
   },
@@ -1423,21 +1443,18 @@
      "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "over half of",
          "at": 3,
-         "note": "LIMO, four of the seven letters of Limoges, is more than half the word, so the end is dropped"
+         "note": "four of the seven letters of the city's name is more than half of it, taken from the front"
         }
        ],
        "parts": [
         {
          "words": "Limoges",
          "at": 16
-        },
-        {
-         "gives": "GES"
         }
        ]
       },
@@ -1445,19 +1462,19 @@
        "words": "its factories",
        "at": 24,
        "gives": "USINES",
-       "note": "usines is French for factories, the French city's own word for them"
+       "note": "usines is French for factories, and 'its' points to the French city of Limoges"
       }
      ]
     },
     "explanation": {
-     "surface": "A claim that most of the French city of Limoges' factories turn out motor cars.",
-     "walkthrough": "'over half of' keeps LIMO, four of the seven letters of Limoges, dropping GES. 'its factories' asks for the French word, since Limoges is in France: USINES.",
-     "definitionFit": "Limousines are large luxurious motor vehicles, a type of car often chauffeur-driven."
+     "surface": "A report that in Limoges, the French porcelain town, the factories have turned to making motor cars.",
+     "walkthrough": "LIMO is over half of LIMOGES; Limoges is French, so 'its factories' are in French, USINES.",
+     "definitionFit": "Limousines are large luxurious chauffeur-driven motor vehicles, so they are a kind of car."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "its"
+     "misdirectedWord": "factories"
     }
    }
   },
