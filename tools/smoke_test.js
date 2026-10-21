@@ -6573,18 +6573,16 @@ global.realSetTimeout(() => {
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const spot = ["definition", "indicators"];
-  let found = null;
+  const cands = [];
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
       if (!a || !(a.indicators || []).length) continue;
       if (!defTexts(a).length || !(a.blocks || []).some((b) => b.clueFragment && b.gives)) continue;
-      found = { id, e };
-      break;
+      cands.push({ id, e });
     }
-    if (found) break;
   }
-  assert(found, "some clue has a definition, an indicator and a named block");
+  let found = cands[0] || null;
 
   const open = () => {
     registry["btn-picker"].onclick();
@@ -6606,6 +6604,16 @@ global.realSetTimeout(() => {
   // appendChild does not write innerHTML in the stub, so a failure message built
   // from it says nothing at all. Read the buttons.
   const offered = () => registry["hint-next"].children.map((b) => b.textContent).join(" | ");
+  // Only a clue whose ladder actually shows the assembly rung (two locks cold)
+  // can carry this test; some qualifying clues have a shorter ladder.
+  found = null;
+  for (const c of cands) {
+    found = c;
+    open();
+    if (locked().length === 2) break;
+    found = null;
+  }
+  assert(found, "some clue has a definition, an indicator, a named block and an assembly rung");
   // Which words answer this rung, asked of the app rather than worked out again
   // here: one wrong pick, and the marks that come back name the whole target.
   // A second copy of guessAsk's span arithmetic in the test would only ever
