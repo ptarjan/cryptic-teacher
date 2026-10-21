@@ -1597,43 +1597,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "complex",
-       "note": "a complex is a tangled knot, so the letters are jumbled together"
+       "text": "going into",
+       "at": 28,
+       "note": "going into means one set of letters is placed inside the other"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "complex",
+         "at": 47,
+         "note": "complex means intricate or tangled, so the letters of Electra are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Electra",
+         "at": 39
+        }
+       ]
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "half-cut",
-         "note": "cutting half of a word removes half of its letters, here the front half"
+         "at": 14,
+         "note": "half-cut means only half of the word is kept, here its back half"
         }
        ],
        "parts": [
         {
          "words": "Jung's",
+         "at": 7,
          "gives": "JUNG",
-         "note": "the psychiatrist's name, losing its first half"
-        },
-        {
-         "gives": "JU"
+         "note": "Carl Jung, the Swiss psychiatrist, gives his name"
         }
        ]
-      },
-      {
-       "words": "Electra",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Carl Jung, half drunk, ponders the Electra complex he named.",
-     "walkthrough": "'Half-cut' is British slang for tipsy, but here it chops JU off. The Electra complex is Jung's term, so the surface hides the anagram signal in plain sight.",
-     "definitionFit": "A rectangle is a geometric shape, and a figure in geometry is any such shape."
+     "surface": "The psychoanalyst Jung, a bit drunk, wanders into a discussion of the Electra complex.",
+     "walkthrough": "'Half-cut' in the surface means tipsy, but here it keeps the back half of the psychiatrist's name. 'Complex' looks like part of Jung's theory but is the anagram signal.",
+     "definitionFit": "A rectangle is a geometric shape, and figure is a common word for a shape in geometry."
     },
     "features": {
      "answerInScene": false,

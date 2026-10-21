@@ -1198,54 +1198,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "going uphill",
-       "note": "in a down clue going uphill means reading from the bottom up, so backwards"
+       "text": "around",
+       "at": 42,
+       "note": "around means the reversed letters go round another letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going uphill",
+         "at": 29,
+         "note": "going uphill in a down clue means the letters are read from the bottom up"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "around",
-           "note": "one word goes around the letter, enclosing it"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "lacking in energy",
+           "at": 7,
            "gives": "FLAT",
-           "note": "flat means listless, without energy"
+           "note": "flat means dull and lacking in energy"
           },
           {
-           "words": "hospital",
-           "gives": "H",
-           "note": "H is the abbreviation for hospital"
+           "words": "on",
+           "at": 26
           }
          ]
-        },
-        {
-         "words": "on",
-         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "hospital",
+       "at": 49,
+       "gives": "H",
+       "note": "H is the map abbreviation for hospital"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone running out of steam while climbing a hill near a hospital.",
-     "walkthrough": "'Not half' is British slang: 'Did you enjoy it?' 'Not half!' means very much indeed.",
-     "definitionFit": "In British speech 'not half' is an emphatic intensifier meaning extremely or truly, as really is."
+     "surface": "Someone tired trudging uphill past a hospital.",
+     "walkthrough": "Both pieces are read upwards together as one string, and the hospital letter then goes inside it. 'Not half' is British slang for 'very much so'.",
+     "definitionFit": "Not half is a British idiom used as an emphatic yes, meaning very much or certainly so."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Really"
     }
    }
@@ -1565,30 +1569,26 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "rebus",
+     "reading": "124 days",
      "parts": [
       {
-       "words": "124",
-       "gives": "C",
-       "note": "the 100 of 124, C in Roman numerals"
-      },
-      {
-       "words": "days",
-       "gives": "APRI",
-       "note": "the remaining 24 days are four-fifths of the 30 days of April, so APRIL loses one letter of five"
+       "words": "124 days",
+       "at": 8,
+       "note": "100 is C in Roman numerals, then 24 days are four-fifths of April, its first four letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about how long a trip to an island might last.",
-     "walkthrough": "124 splits as 100 plus 24: C, then 24 of April's 30 days, which is four of its five letters, APRI.",
-     "definitionFit": "Capri is an island in the Bay of Naples, famous as a resort."
+     "surface": "A puzzling question about how long a stay on an island lasts.",
+     "walkthrough": "C is the Roman numeral for 100; April has 30 days, so 24 of them are four-fifths of the month, and four-fifths of APRIL is APRI.",
+     "definitionFit": "Capri is an island in the Bay of Naples, off the coast of southern Italy."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "124"
+     "misdirectedWord": "days"
     }
    }
   },
