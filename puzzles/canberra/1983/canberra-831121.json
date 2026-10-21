@@ -18,7 +18,10 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-09",
-  "check": "29 entries, 52 crossings, 0 conflicts"
+  "check": "29 entries, 52 crossings, 0 conflicts",
+  "reopened": {
+   "27-across": "DALE"
+  }
  },
  "annotatedBy": [
   "claude-opus-5-5"
@@ -721,33 +724,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "various",
-       "note": "various means differing or assorted, so the letters are mixed up"
-      },
-      {
-       "text": "possibly",
-       "note": "possibly suggests one of several arrangements, backing up the instruction to reorder"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "nets and lines",
-       "gives": "NETSLINES",
-       "note": "the two words taken as written, 'and' only joining them"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "various",
+         "at": 7,
+         "note": "various suggests the letters of nets put in a different, varied order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nets",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 31,
+         "note": "possibly hints that the word lines may be rearranged into another form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lines",
+         "at": 24
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Guards protect a site with an assortment of nets and lines.",
-     "definitionFit": "Sentinels are soldiers or watchmen posted to keep watch, the same job as guards."
+     "surface": "A list of things a fisherman or gardener might use to protect something: assorted nets and lines.",
+     "walkthrough": "Each word is rearranged separately: 'various' makes SENT from NETS and 'possibly' makes INELS from LINES.",
+     "definitionFit": "Sentinels are soldiers posted to keep watch, so they are guards in the plural noun sense."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Guards"
+     "misdirectedWord": "nets"
     }
    }
   },
@@ -1363,31 +1384,6 @@
    "clue": {
     "text": "Old diarist well known in Yorkshire?",
     "enumeration": "4"
-   },
-   "solution": "DALE",
-   "annotation": {
-    "definitions": [
-     {
-      "text": "Old diarist",
-      "at": 0,
-      "meaning": "surface reading: a historical diary-writer; this part is not accounted for by any parse found, and may be a misprint or misread in the scanned clue"
-     },
-     {
-      "text": "well known in Yorkshire?",
-      "at": 12,
-      "meaning": "setter's reading: a valley feature for which the county is famous, its northern uplands being named after such valleys"
-     }
-    ],
-    "explanation": {
-     "surface": "A diarist of long ago is famous throughout Yorkshire.",
-     "walkthrough": "Unparsed: DALE rests on the crossings D?L? and the Yorkshire Dales. Nothing found explains 'Old diarist', so treat this answer as unconfirmed until the published key arrives.",
-     "definitionFit": "The Yorkshire Dales are upland valleys in northern England, so a valley is the landscape feature famously linked with that county."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "diarist"
-    }
    }
   },
   {
