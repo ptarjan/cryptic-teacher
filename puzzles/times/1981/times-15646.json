@@ -949,50 +949,51 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WHISKERY",
      "indicators": [
       {
        "text": "without",
-       "note": "without means outside, so the spirit goes round the other piece"
+       "at": 15,
+       "note": "without in its old sense of outside, so the spirit goes around the rest"
       }
      ],
      "parts": [
       {
+       "words": "spirit",
+       "at": 8,
+       "gives": "WHISKY",
+       "note": "whisky is a spirit"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "WHISKERY",
        "indicators": [
         {
          "text": "not",
-         "note": "not here means the following letters are taken out of the word before"
+         "at": 31,
+         "note": "not says the letters of bad are taken away from beard"
         }
        ],
        "parts": [
         {
-         "words": "spirit",
-         "gives": "WHISKY",
-         "note": "whisky is a spirit"
-        },
-        {
          "words": "beard",
-         "note": "taken as written"
+         "at": 23
         },
         {
          "words": "bad",
-         "note": "taken as written, to be removed"
+         "at": 35,
+         "gives": "BAD",
+         "note": "the word bad, removed letter by letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hairy spirit, with a beard that is not half bad.",
-     "walkthrough": "Take the letters of bad out of beard to leave two letters, and put them inside the spirit.",
-     "definitionFit": "Whiskery describes having whiskers, so it means hairy, which is what hirsute means."
+     "surface": "A hairy drinker says whisky without a beard is not at all bad.",
+     "walkthrough": "'Without' is the old sense of outside, not 'lacking'; the letters of bad are scattered through the beard word rather than in one run.",
+     "definitionFit": "Whiskery means covered in whiskers, so it is a synonym of hairy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "without"
     }

@@ -494,12 +494,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PENTACLE",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one piece inside the other"
+       "at": 28,
+       "note": "in says the rearranged ten goes inside the rearranged place"
       }
      ],
      "parts": [
@@ -507,33 +506,43 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "perhaps",
-         "note": "perhaps marks a word as only one possible version, so its letters may be shuffled"
-        },
-        {
          "text": "different",
-         "note": "a different arrangement of a word means its letters are reordered"
+         "at": 33,
+         "note": "a different place is the letters of place in another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "place",
+         "at": 43
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 20,
+         "note": "ten perhaps means the letters of ten in some other arrangement"
         }
        ],
        "parts": [
         {
          "words": "ten",
-         "note": "the three letters of ten reordered"
-        },
-        {
-         "words": "place",
-         "note": "the letters of place reordered, with the first piece set inside after the P"
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A magic figure involving the number ten turns up somewhere unexpected.",
-     "definitionFit": "A pentacle is a five-pointed star or similar symbol used in magic and occult ritual."
+     "surface": "A sorcerer's diagram might show the number ten moved somewhere else.",
+     "walkthrough": "The two words are rearranged separately: 'different' works on place, 'perhaps' on ten, and the second goes inside the first just after its opening letter.",
+     "definitionFit": "A pentacle is a five-pointed star used as a symbol in ritual magic and the occult."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "ten"
     }
