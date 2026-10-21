@@ -291,7 +291,8 @@
      "indicators": [
       {
        "text": "hosted by",
-       "note": "a host has the guest inside, so the party word sits within the others"
+       "at": 13,
+       "note": "a guest is hosted by, so held within, the surrounding letters"
       }
      ],
      "parts": [
@@ -300,41 +301,45 @@
        "indicators": [
         {
          "text": "retired",
-         "note": "retired means drawn back, so these abbreviations are read backwards"
+         "at": 23,
+         "note": "retired means drawn back, so the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "American",
-         "gives": "US",
-         "note": "abbreviation for the United States"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "British",
+           "at": 31,
+           "gives": "UK",
+           "note": "UK is the United Kingdom"
+          },
+          {
+           "words": "American",
+           "at": 39,
+           "gives": "US",
+           "note": "US is the United States"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "British",
-         "gives": "UK",
-         "note": "abbreviation for the United Kingdom"
-        },
-        {
-         "words": "party",
-         "gives": "DO",
-         "note": "a do is an informal party"
-        }
-       ]
+       "words": "party",
+       "at": 7,
+       "gives": "DO",
+       "note": "a do is a party"
       }
      ]
     },
     "explanation": {
-     "surface": "A party thrown by a pensioner with dual British and American nationality.",
-     "walkthrough": "The slash keeps the two abbreviations as a pair, so the party can sit between them once the pair is turned round.",
-     "definitionFit": "Sudoku is a number-placement logic game in a nine-by-nine grid, a kind of puzzle."
+     "surface": "A puzzle evening thrown by a pensioner with dual British and American nationality.",
+     "walkthrough": "'retired' is not about leaving work: it turns the two country abbreviations round, and 'hosted by' wraps them around the party.",
+     "definitionFit": "Sudoku is a number-placement puzzle on a nine-by-nine grid."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "retired"
     }

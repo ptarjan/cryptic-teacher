@@ -832,31 +832,36 @@
      "indicators": [
       {
        "text": "Floundering",
-       "note": "something floundering struggles about in confusion, so the letters are jumbled"
+       "at": 0,
+       "note": "floundering means struggling clumsily, so these letters are jumbled"
       }
      ],
      "parts": [
+      {
+       "words": "but",
+       "at": 13
+      },
+      {
+       "words": "they",
+       "at": 17
+      },
+      {
+       "words": "reach",
+       "at": 22
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "almost",
-         "note": "almost all of the word is kept, its last letter dropped"
+         "at": 28,
+         "note": "almost a word is the word without its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "but they reach",
-           "note": "taken as written"
-          },
-          {
-           "words": "the",
-           "note": "taken as written before trimming"
-          }
-         ]
+         "words": "the",
+         "at": 35
         },
         {
          "gives": "E"
@@ -866,13 +871,13 @@
      ]
     },
     "explanation": {
-     "surface": "Struggling, they nearly make it to the back row.",
-     "walkthrough": "'End row' looks like a back row of seats, but it is a verb phrase: end a quarrel.",
-     "definitionFit": "To bury the hatchet is an idiom for making peace, ending a quarrel or row with someone."
+     "surface": "Struggling, they nearly reach the end of the line.",
+     "walkthrough": "'row' rhymes with 'cow' here, a quarrel; 'end row' is the definition. BUT THEY REACH + TH is rearranged.",
+     "definitionFit": "To bury the hatchet is to make peace, ending a quarrel."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "row"
     }
    }
@@ -1926,44 +1931,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "messing",
-       "note": "messing about makes a mess, so the letters are scrambled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Any more",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "messing",
+         "at": 9,
+         "note": "messing means messing about, so these letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Any more",
+         "at": 0
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally points to the end, so just the last letter of the word is used"
+         "at": 21,
+         "note": "finally means the last letter is taken"
         }
        ],
        "parts": [
         {
          "words": "they",
-         "note": "the last letter"
+         "at": 29,
+         "note": "last letter of they"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fed-up commander warns that any more trouble means calling in the horsemen.",
-     "walkthrough": "The yeomanry were volunteer cavalry regiments drawn from British farmers.",
-     "definitionFit": "The yeomanry was a British volunteer cavalry force, formed from landowners and farmers, so a body of horse soldiers."
+     "surface": "A threat: carry on like this and they will call in the mounted troops.",
+     "walkthrough": "ANY MORE rearranged gives YEOMANR, then Y from the end of 'they'.",
+     "definitionFit": "The yeomanry was a British volunteer cavalry force raised from landowners and farmers."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "messing"
+     "aptDefinition": false
     }
    }
   },
@@ -3398,46 +3410,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "HORSEHAIR",
+     "indicators": [
+      {
+       "text": "being broadcast",
+       "at": 28,
+       "note": "broadcast means put out on air, so the words are heard rather than read"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "HORSE",
-       "indicators": [
-        {
-         "text": "being broadcast",
-         "note": "something broadcast is heard rather than seen, so both words are taken by sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "husky",
-         "gives": "HOARSE",
-         "note": "a husky voice is hoarse"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "HAIR",
-       "parts": [
-        {
-         "words": "race",
-         "gives": "HARE",
-         "note": "to race is to hare along"
-        }
-       ]
+       "words": "husky, race",
+       "at": 16,
+       "gives": "HOARSEHARE",
+       "note": "a husky voice is hoarse, and to hare is to race, run fast"
       }
      ]
     },
     "explanation": {
-     "surface": "A sled dog's race is shown on television.",
-     "walkthrough": "'Husky' suggests a sled dog, but it means a rough voice. 'Race' is a verb here.",
-     "definitionFit": "Horsehair, the mane and tail hair of horses, was traditionally used as padding in upholstery and mattresses."
+     "surface": "A sled dog runs in a televised race.",
+     "walkthrough": "'husky' looks like the dog but means hoarse; 'race' is the verb hare.",
+     "definitionFit": "Horsehair was traditionally used as padding in furniture and mattresses."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "husky"
     }
    }

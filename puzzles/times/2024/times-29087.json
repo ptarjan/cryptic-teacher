@@ -925,25 +925,41 @@
      "parts": [
       {
        "words": "Paper",
+       "at": 0,
        "gives": "EXAM",
-       "note": "an exam paper"
+       "note": "an exam paper is a test"
       },
       {
-       "words": "plane out of an",
-       "gives": "PLE",
-       "note": "PLANE with AN removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 12,
+         "note": "out of means taken out, so these letters leave the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plane",
+         "at": 6
+        },
+        {
+         "words": "an",
+         "at": 19
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A paper plane folded from an old drawing.",
-     "walkthrough": "'Paper plane' reads as one toy; split it, and paper is an exam while plane is fodder for the deletion.",
-     "definitionFit": "A plain synonym: a case offered to show how a rule works illustrates it."
+     "surface": "A child folds a paper aeroplane out of a picture.",
+     "walkthrough": "'Paper plane' looks like one thing; it is EXAM plus PLANE with AN taken out.",
+     "definitionFit": "An example is an instance used to illustrate a point."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Paper"
+     "misdirectedWord": "plane"
     }
    }
   },

@@ -240,25 +240,37 @@
      "parts": [
       {
        "words": "inventor",
+       "at": 18,
        "gives": "WATT",
-       "note": "James Watt, Scottish engineer of the steam engine"
+       "note": "James Watt was the Scottish inventor of the improved steam engine"
       },
       {
-       "words": "left half abandoned",
-       "gives": "LE",
-       "note": "LEFT with its second half dropped"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half abandoned",
+         "at": 32,
+         "note": "half of the word is abandoned, so only its first half is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "left",
+         "at": 27
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An inventor quitting a half-finished building project.",
-     "walkthrough": "Wattle, woven sticks, is plastered with daub to make walls.",
-     "definitionFit": "Wattle is interwoven rods used in building walls and fences."
+     "surface": "A building material left half-used by its inventor.",
+     "walkthrough": "LEFT with half abandoned is LE.",
+     "definitionFit": "Wattle is woven twigs used with daub for walls in traditional construction."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "abandoned"
+     "misdirectedWord": "left"
     }
    }
   },
@@ -739,25 +751,38 @@
      "indicators": [
       {
        "text": "from the east",
-       "note": "in an across clue, read right to left"
-      },
-      {
-       "text": "almost all",
-       "note": "the last letter is dropped"
+       "at": 10,
+       "note": "read from the east in an across clue means read right to left, backwards"
       }
      ],
      "parts": [
       {
-       "words": "augmented",
-       "gives": "ADDE",
-       "note": "ADDED without its final D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost all",
+         "at": 25,
+         "note": "almost all of a word is the word without its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "augmented",
+         "at": 36,
+         "gives": "ADDED",
+         "note": "added means augmented, increased"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A collection of ancient eastern verse, expanded nearly throughout.",
-     "walkthrough": "'From the east' suggests Oriental poetry; it means read from the right, and the Edda is Norse.",
-     "definitionFit": "The Edda is a medieval Icelandic collection of Old Norse poems."
+     "surface": "Ancient verse from eastern lands, nearly all expanded by later hands.",
+     "walkthrough": "ADDED loses its last letter to give ADDE, which read backwards is EDDA.",
+     "definitionFit": "The Edda is a collection of medieval Old Norse poems and myths from Iceland."
     },
     "features": {
      "answerInScene": true,

@@ -893,15 +893,10 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "spinning",
-       "note": "a spinning thing turns right round"
-      }
-     ],
      "parts": [
       {
        "words": "gift",
+       "at": 18,
        "gives": "DONATE",
        "note": "to gift is to donate"
       },
@@ -909,28 +904,46 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "but not top",
-         "note": "the top letter of DOLL goes"
+         "text": "spinning",
+         "at": 25,
+         "note": "spinning means turned round, so the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "toy",
-         "gives": "OLL",
-         "note": "DOLL without its top letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not top",
+           "at": 43,
+           "note": "in a down clue the top of a word is its first letter, which goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "toy",
+           "at": 34,
+           "gives": "DOLL",
+           "note": "a doll is a toy"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Renaissance man is given a spinning top.",
-     "walkthrough": "'Spinning toy' suggests a top, and 'top' then turns up as the deletion instruction. Donatello was a Florentine sculptor of the early Renaissance.",
-     "definitionFit": "Donatello was a leading sculptor of the Italian Renaissance."
+     "surface": "A present for a Renaissance figure: a top that spins, or perhaps not a top.",
+     "walkthrough": "'spinning toy' suggests a top, and 'not top' seems to deny it; the toy is a different one, which loses its first letter and is turned round.",
+     "definitionFit": "Donatello was a Florentine sculptor of the Italian Renaissance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "top"
     }
    }

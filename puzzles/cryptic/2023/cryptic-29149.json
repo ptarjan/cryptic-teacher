@@ -245,61 +245,64 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "OVERSLEEPS",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "the first letter of the officer's title is taken and added to the rest"
-      }
-     ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "OVERSLEEPS",
        "indicators": [
         {
          "text": "Barking",
-         "note": "barking is slang for mad, and mad letters are jumbled out of order"
+         "at": 0,
+         "note": "barking means mad, so these letters go wild and are rearranged"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "OVERSLEEPS",
          "indicators": [
           {
            "text": "being cut twice",
-           "note": "cutting removes something, and doing it twice means each of the letters goes on two occasions"
+           "at": 29,
+           "note": "cut means taken out, and twice means this happens two times"
           }
          ],
          "parts": [
           {
            "words": "police service",
-           "note": "taken as written"
+           "at": 8
           },
           {
            "words": "I see",
-           "gives": "IC",
-           "note": "I as written, and 'see' sounds like the letter C; both are removed twice"
-          },
-          {
-           "words": "superintendent",
-           "gives": "S",
-           "note": "first letter of the senior officer's title"
+           "at": 23,
+           "gives": "ICIC",
+           "note": "I see sounds like the letters IC, and they are taken out twice"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 62,
+         "note": "initially means the first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "superintendent",
+         "at": 47,
+         "note": "first letter of superintendent"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A daft police force where the superintendent pays no attention to warnings.",
-     "walkthrough": "Strike I and C twice from POLICE SERVICE to leave POLESERVE, add S, and rearrange. The definition plays on alarm bells as warnings: someone who oversleeps literally ignores the alarm clock.",
-     "definitionFit": "Someone who oversleeps fails to wake when the alarm rings, so in a sense ignores it; the question mark flags the pun."
+     "surface": "A report on cuts to the police force in Barking, a town in east London, with a senior officer ignoring warnings.",
+     "walkthrough": "Remove IC from both POLICE and SERVICE to leave POLESERVE, rearrange it, then add S (superintendent initially). 'Barking' looks like the London place name but signals the rearranging.",
+     "definitionFit": "Someone who oversleeps sleeps through the morning alarm, ignoring the bells, a playful sense marked by the question mark."
     },
     "features": {
      "answerInScene": false,

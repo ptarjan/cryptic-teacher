@@ -300,23 +300,40 @@
      "parts": [
       {
        "words": "assemble",
+       "at": 15,
        "gives": "MASS",
-       "note": "to mass = to gather together"
+       "note": "to mass is to gather together, assemble"
       },
       {
-       "words": "bulk of money",
-       "gives": "EUR",
-       "note": "EURO without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bulk of",
+         "at": 24,
+         "note": "the bulk of a word is most of it, here all but its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "money",
+         "at": 32,
+         "gives": "EURO",
+         "note": "the euro is the currency of much of Europe"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worker who backs a scheme to gather a pile of cash.",
-     "walkthrough": "'Back worker' reads like a supporter or a behind-the-scenes employee; it is someone who works on people's backs.",
-     "definitionFit": "A masseur kneads muscles, often of the back."
+     "surface": "Asking whether a labourer is in it only for the cash.",
+     "walkthrough": "'Back worker' is not a returning employee but someone who works on backs.",
+     "definitionFit": "A masseur kneads muscles, often of the back, so is literally a worker on backs."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Back"
