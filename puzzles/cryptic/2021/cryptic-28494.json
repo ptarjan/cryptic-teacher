@@ -210,8 +210,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a piece of music",
-      "at": 33
+      "text": "piece of music",
+      "at": 35
      }
     ],
     "wordplay": {
@@ -222,32 +222,50 @@
        "indicators": [
         {
          "text": "framing",
-         "note": "a frame goes round a picture, so one piece surrounds the other"
+         "at": 10,
+         "note": "something framing another surrounds it, so these letters go around the doubled note"
         }
        ],
        "parts": [
         {
          "words": "Perfectly",
+         "at": 0,
          "gives": "TOAT",
-         "note": "'to a T' means perfectly, exactly"
+         "note": "'to a T' means perfectly, exactly right"
         },
         {
-         "words": "repeated note",
-         "gives": "CC",
-         "note": "C is a musical note, given twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "repeated",
+           "at": 18,
+           "note": "repeated says the note is given twice in a row"
+          }
+         ],
+         "parts": [
+          {
+           "words": "note",
+           "at": 27,
+           "gives": "C",
+           "note": "C is a musical note"
+          },
+          {
+           "gives": "C"
+          }
+         ]
         }
        ]
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 33
       }
      ]
     },
     "explanation": {
-     "surface": "A pianist plays a piece with one note hammered over and over, and gets it exactly right.",
-     "walkthrough": "TO A T is split so the two Cs sit between TO and A T; the final A follows.",
-     "definitionFit": "A toccata is a virtuoso keyboard composition, such as Bach's famous one for organ, so it is a musical work."
+     "surface": "A musician plays a repeated note flawlessly as part of a performance.",
+     "walkthrough": "TO A T (perfectly) frames CC, the note C 'repeated', giving TOCCAT; then A follows.",
+     "definitionFit": "A toccata is a virtuoso keyboard composition, so it is a specific musical work."
     },
     "features": {
      "answerInScene": true,
@@ -526,46 +544,63 @@
      "indicators": [
       {
        "text": "served in",
-       "note": "food served in a dish sits inside it, so one piece is placed within the other"
+       "at": 22,
+       "note": "served in places the made-up pieces inside the word for temporary homes"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "temporary homes",
+       "at": 32,
+       "gives": "TENTS",
+       "note": "tents are shelters put up for a short stay"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "whipped",
-         "note": "anything whipped has been beaten vigorously, so its letters are churned into a new order"
+         "text": "in",
+         "at": 5,
+         "note": "in puts the fish inside the rearranged dairy word"
         }
        ],
        "parts": [
         {
-         "words": "cream",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "whipped",
+           "at": 8,
+           "note": "cream that is whipped is beaten about, so its letters are churned into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cream",
+           "at": 16
+          }
+         ]
         },
         {
-         "words": "temporary homes",
-         "gives": "TENTS",
-         "note": "tents are short-term shelters"
+         "words": "Fish",
+         "at": 0,
+         "gives": "EEL",
+         "note": "an eel is a fish"
         }
        ]
-      },
-      {
-       "words": "Fish",
-       "gives": "EEL",
-       "note": "an eel is a fish"
       }
      ]
     },
     "explanation": {
-     "surface": "A camping menu: fish with whipped cream dished up in tents.",
-     "walkthrough": "The fish sits in the cream, and the whole lot is beaten together before going into the tents.",
-     "definitionFit": "Trace elements are chemical elements needed by living things only in tiny amounts, minor constituents of the body's chemistry."
+     "surface": "A dish of fish with whipped cream is served to campers in their tents.",
+     "walkthrough": "'whipped' rearranges the dairy word to RACEM, and 'in' sets the fish in its middle. The question mark flags a playful definition: these are building units for the body, not for houses.",
+     "definitionFit": "Trace elements are minerals needed in tiny amounts by the body, so they are minor building blocks of nutrition."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "building"
+     "joke": "pun",
+     "misdirectedWord": "whipped"
     }
    }
   },
