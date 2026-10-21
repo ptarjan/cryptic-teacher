@@ -46,45 +46,49 @@
      "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
-         "text": "not started",
-         "note": "something not started is missing its beginning, so the opening letter goes"
+         "text": "kick-off in",
+         "at": 27,
+         "note": "kick-off is the start of a match, so it points to the first letter of Tranmere"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "kick-off",
-           "note": "the kick-off is the start of a match, so only the opening letter of the place name counts"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Tranmere",
-           "note": "the first letter of the Merseyside place name"
-          }
-         ]
-        },
-        {
-         "gives": "RA"
+         "words": "Tranmere",
+         "at": 39,
+         "note": "Tranmere Rovers is a football club on Merseyside"
         }
        ]
       },
       {
-       "words": "pie",
-       "gives": "ASTY",
-       "note": "a pasty is a pastry pie; dropping its first letter leaves these four"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not started",
+         "at": 12,
+         "note": "not started means the pie word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pie",
+         "at": 8,
+         "gives": "PASTY",
+         "note": "a pasty is a pastry pie, usually filled with meat and vegetables"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football fan praises the pies sold before the match at Tranmere Rovers.",
-     "walkthrough": "Assembled the other way round from how the clue reads: the T from Tranmere comes first, then the beheaded pasty.",
-     "definitionFit": "Tasty food is flavoursome, and savoury describes food full of pleasing flavour."
+     "surface": "A savoury pie goes uneaten at the kick-off of a Tranmere match.",
+     "walkthrough": "PASTY loses its first letter and T, the first letter of 'Tranmere', goes in front.",
+     "definitionFit": "Tasty means full of flavour, especially of food that is salty or savoury rather than sweet."
     },
     "features": {
      "answerInScene": true,

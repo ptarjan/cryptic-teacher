@@ -1140,37 +1140,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "injured",
-       "note": "something injured is knocked out of shape, so these letters are rearranged"
-      },
-      {
-       "text": "at sea",
-       "note": "at sea means confused and all over the place, so these letters are jumbled too"
+       "text": "in",
+       "at": 12,
+       "note": "in means the second group of letters sits inside the first"
       }
      ],
      "parts": [
       {
-       "words": "Sid",
-       "note": "taken as written, as anagram fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at sea",
+         "at": 22,
+         "note": "at sea suggests confusion, so the letters of mishap are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mishap",
+         "at": 15
+        }
+       ]
       },
       {
-       "words": "mishap",
-       "note": "taken as written, as anagram fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "injured",
+         "at": 4,
+         "note": "injured means hurt out of shape, so the letters of Sid are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sid",
+         "at": 0
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sid got hurt in an accident on board a ship, perhaps in the middle of the vessel.",
-     "walkthrough": "The definition leans on the surface: where on a ship might Sid's accident happen? 'perhaps' marks it as one example of a location.",
-     "definitionFit": "Amidships means in the middle part of a vessel, which is one place on a ship where a sailor might be hurt."
+     "surface": "Sid got hurt in an accident on a ship, perhaps right here.",
+     "walkthrough": "'here, perhaps' is fair only because the surface sets the accident on a ship: the place where Sid got hurt.",
+     "definitionFit": "Amidships means in the middle of a ship, a likely place for a sailor's mishap to happen."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "injured"
+     "misdirectedWord": "sea"
     }
    }
   },

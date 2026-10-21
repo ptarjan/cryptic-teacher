@@ -187,58 +187,52 @@
      "parts": [
       {
        "words": "Business",
+       "at": 0,
        "gives": "CO",
-       "note": "Co. is the abbreviation for company, a business"
+       "note": "CO is short for company, a business"
       },
       {
        "words": "in",
-       "note": "taken as written"
+       "at": 9
       },
       {
-       "words": "Treasury",
-       "gives": "TREA",
-       "note": "the first four of its eight letters"
-      },
-      {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "only half done",
-         "note": "a job only half done stops midway, so the second half of Treasury is dropped"
+         "at": 21,
+         "note": "only half of the word Treasury is used, its first four of eight letters"
+        },
+        {
+         "text": "first in",
+         "at": 37,
+         "note": "first in points to the opening letter of the word uncorks"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first in",
-           "note": "first in a word is its opening letter, so just the start of uncorks is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "uncorks",
-           "note": "the first letter of uncorks"
-          }
-         ]
+         "words": "Treasury",
+         "at": 12,
+         "note": "the word Treasury, of which the front half is kept"
         },
         {
-         "gives": "N"
+         "words": "uncorks",
+         "at": 46,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Treasury work left half-finished while someone opens a bottle of drink.",
-     "walkthrough": "CO + IN + TREA + U spells COINTREAU; the bracketed part supplies both the last letter and the definition.",
-     "definitionFit": "Cointreau is a French orange liqueur, so it is one particular kind of alcoholic drink."
+     "surface": "A business at the Treasury is left half finished, and the first thing anyone does is open the drink.",
+     "walkthrough": "CO, then IN as written, then TREA (the first half of TREASURY), then U, the first letter of 'uncorks'.",
+     "definitionFit": "Cointreau is an orange-flavoured French liqueur, a kind of alcoholic drink."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Business"
+     "misdirectedWord": "Treasury"
     }
    }
   },

@@ -522,35 +522,36 @@
      "indicators": [
       {
        "text": "Wrong",
-       "note": "wrong means out of the proper order, so these letters must be set right again"
+       "at": 37,
+       "note": "something wrong is out of order, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "will overcome",
-       "note": "taken as written"
+       "words": "will",
+       "at": 10
       },
       {
-       "words": "Left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "words": "overcome",
+       "at": 15
       },
       {
-       "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
+       "words": "Left, right",
+       "at": 24,
+       "gives": "LR",
+       "note": "L and R are the usual abbreviations for left and right"
       }
      ]
     },
     "explanation": {
-     "surface": "A politician will defeat both left and right wings, or so he claims, wrongly.",
-     "walkthrough": "Oliver Cromwell led the Parliamentary side in the English Civil War and ruled as Lord Protector.",
-     "definitionFit": "Cromwell was a seventeenth-century English political and military leader, so he is an example of a statesman."
+     "surface": "A politician's slogan claims will can overcome the left, then asks whether that's right, and answers that it's wrong.",
+     "walkthrough": "'Left, right?' looks like a political question, but it only supplies two abbreviations; 'Wrong' then scrambles every letter before it.",
+     "definitionFit": "Oliver Cromwell was the 17th-century English soldier and politician who ruled as Lord Protector."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Wrong"
+     "misdirectedWord": "Left"
     }
    }
   },
@@ -805,34 +806,44 @@
        "indicators": [
         {
          "text": "awful",
-         "note": "awful means bad and garbled, so these letters are put into a new order"
-        },
-        {
-         "text": "spoiled",
-         "note": "spoiled means messed up, which extends the rearrangement to take in the last letter too"
+         "at": 4,
+         "note": "awful suggests something messed up, so the letters of His are rearranged"
         }
        ],
        "parts": [
         {
          "words": "His",
-         "note": "taken as written"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spoiled",
+         "at": 14,
+         "note": "spoiled suggests damaged out of shape, so the letters of din are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "din",
-         "note": "taken as written"
+         "at": 10
         }
        ]
       },
       {
        "words": "good",
-       "gives": "G",
-       "note": "G is the abbreviation for good"
+       "at": 22,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A man's dreadful racket ruined a good, lively party.",
-     "definitionFit": "A shindig is an informal word for a noisy, lively party or celebration."
+     "surface": "Someone's dreadful racket ruined a good party.",
+     "walkthrough": "Two separate anagrams: 'awful' turns HIS into SHI and 'spoiled' turns DIN into NDI, then G for good goes on the end.",
+     "definitionFit": "A shindig is an informal word for a noisy, lively celebration or gathering."
     },
     "features": {
      "answerInScene": true,
