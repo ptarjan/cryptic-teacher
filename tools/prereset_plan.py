@@ -36,6 +36,11 @@ each series' first puzzle (series.is_first_issue), then each series'
 OLDEST_PER_SERIES oldest puzzles, oldest first, then the puzzles with a notable
 tag (tools/puzzle_tags.py), then the indicator cover (tools/indicator_cover.py),
 then the rest round-robin across the series, newest first inside each one.
+Answered first (Paul 10-21: "Should we do the ones with solutions first"): one
+stable partition of all those pins, after the lockout cut-offs and hand
+requests, which stay at the very front. The puzzles with every answer keep
+their order; the cold solves and clues-only ones (cold solves fail about 86%)
+leave the head and go behind the whole queue, the round-robin rest included.
 
     tools/prereset_plan.py [--may-pause] --width [CURRENT]  # runs to keep in flight
     tools/prereset_plan.py --backlog "ANNOTATE_BLOCKED" "SOLVE_BLOCKED"  # the queue
@@ -1083,6 +1088,14 @@ def small_self_test():
     if pinned != want or stages[6] != 3:
         print(f"FAIL head_of_queue tails first pins {pinned} (want {want})", file=sys.stderr)
         bad += 1
+    # answered first (Paul 10-21): a cold solve in the pinned head drops behind
+    # the whole queue; the lockout pin and a hand request stay in front
+    arows = [dict(r, hasSolutions=r["id"] not in ("tls-6", "cryptic-1", "cryptic-2")) for r in rows]
+    ordered, pinned, _ = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7"], ["tls-6"],
+                                       arows, small=["tls", "book"], asked=["cryptic-1"])
+    if pinned[:2] != ["tls-6", "cryptic-1"] or "cryptic-2" in pinned or ordered[-1] != "cryptic-2":
+        print(f"FAIL head_of_queue answered first pins {pinned}, queue {ordered}", file=sys.stderr)
+        bad += 1
     return bad
 
 
@@ -1998,8 +2011,10 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     by_id = {r["id"]: r for r in rows}
     cryptic = [pid for pid in queue if pid not in straight
                and not (pid in relist and by_id.get(pid, {}).get("annotated"))]
+    front = list(pinned)
     pinned = requested_first(queue, list(pinned), list(asked))
     asked_n = len(pinned) - len(set(pinned) - set(asked)) if asked else 0
+    base = len(pinned)
     pinned, recent_new, recent_redo = recent_first(
         [pid for pid in queue if pid not in straight], pinned, rows)
     recent = recent_new + recent_redo
@@ -2011,19 +2026,31 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     pinned = partly_first(cryptic, pinned, rows)
     partly = len(pinned) - cut - tails
     pinned = small_first(cryptic, pinned, rows, small)
-    stages = [len(pinned)]
+    marks = [len(pinned)]
     pinned = promote(cryptic, pinned, wanted)
-    stages.append(len(pinned))
+    marks.append(len(pinned))
     pinned = first_issues(cryptic, pinned)
     pinned = oldest_per_series(cryptic, pinned, rows)
-    stages.append(len(pinned))
+    marks.append(len(pinned))
     pinned = promote(cryptic, pinned, tagged)
-    stages.append(len(pinned))
-    stages.append(partly)
-    stages.append(asked_n)
-    stages.append(tails)
-    stages.append(recent_new)
-    stages.append(recent_redo)
+    marks.append(len(pinned))
+    # Answered puzzles first (Paul 10-21: "Should we do the ones with
+    # solutions first"): one stable partition of the pins. Cold solves and
+    # clues-only ones (cold solves fail ~86%) leave the head for the back of
+    # the whole queue; lockout cut-offs and hand requests stay at the front.
+    keep = set(front) | set(asked)
+    cold = {pid for pid in pinned if pid not in keep and pid in by_id
+            and not by_id[pid].get("hasSolutions")}
+    kept = lambda n: sum(1 for pid in pinned[:n] if pid not in cold)
+    stages = [kept(m) for m in marks]
+    tails_k = kept(cut + tails) - kept(cut)
+    partly_k = kept(cut + tails + partly) - kept(cut + tails)
+    new_k = sum(1 for pid in pinned[base:base + recent_new] if pid not in cold)
+    redo_k = sum(1 for pid in pinned[base + recent_new:base + recent] if pid not in cold)
+    deferred = [pid for pid in pinned if pid in cold]
+    pinned = [pid for pid in pinned if pid not in cold]
+    queue = [pid for pid in queue if pid not in cold] + [pid for pid in deferred]
+    stages += [partly_k, asked_n, tails_k, new_k, redo_k]
     return queue, pinned, stages
 
 
