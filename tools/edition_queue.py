@@ -2347,7 +2347,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # Paul 10-21: "Read the remaining times puzzles before doing ft". While the CT_NEWEST_FIRST papers'
         # scans are pending, their reads wait on them (1,123 Times answer fills behind ~1,200 scans), so FT
         # reads, FT scans and the scan share took the slots: the scans those reads need take every slot
-        # the ready Times reads will not, and FT fills only what is left (no gpu_fill ahead of them).
+        # the ready Times reads will not, and FT fills only what is left, plus the few gpu_fill reads that
+        # keep an otherwise idle VLM fed.
         named_now = newest_first_papers()
         tf_pending = times_scans_pending(scan_keys[2], tried, busy, scanned) if named_now else []
         tf_ready = sum(1 for u, k in read_cands if u["paper"] in named_now and k not in tried and k not in busy
@@ -2408,10 +2409,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 scan_of_rel[:] = [scan_keys[2], {(s["paper"], s["rel"]): s for us in scan_keys[2] for s in us}]
             return scan_of_rel[1].get((u["paper"], u["rel"]))
         fill = gpu_fill(read_cands, tried, busy, waits, vlm_waits, len(queued), vlm_full or spool_cap_hit,
-                        sum(1 for _, (v, _) in units_running() if fills_gpu(v)), pools.get("read", 0),
+                        sum(1 for _, (v, _) in units_running() if fills_gpu(v)),
+                        # Paul 10-21: "you should also be letting things through which use gpu so it doesn't sit
+                        # idle". While Times work is pending, fills are capped at what keeps the VLM fed
+                        # (slots + PIPELINE running), so Times keeps every other slot.
+                        2 * (vlm_reader.slots() + vlm_reader.PIPELINE) if (tf_pending or tf_ready) else pools.get("read", 0),
                         fill_scan, scanning
-                        ) if (free.get("read", 0) > 0 and may_start() and not yielding and not starved
-                              and not tf_pending and not tf_ready) else []  # Times first: FT fills only what it leaves
+                        ) if (free.get("read", 0) > 0 and may_start() and not yielding and not starved) else []
         fill_keys = {key_of(u) for u in fill}
         if free.get("scan", 0) <= 0 and ceiling_left > 0 and any(u["kind"] == "scan" for u in fill):
             free["scan"] = 1  # the scan share held scans back for reads: a fill's scan is for a read that asks the VLM
