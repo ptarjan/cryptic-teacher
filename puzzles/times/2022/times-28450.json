@@ -307,42 +307,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TICKTOCK",
-     "indicators": [
-      {
-       "text": "never with",
-       "note": "never with means always without, so those letters are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "bond",
-       "gives": "STICK",
-       "note": "to stick is to bond or adhere"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "bond",
+         "at": 26,
+         "gives": "STICK",
+         "note": "to stick is to bond"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
-       "words": "family",
-       "gives": "STOCK",
-       "note": "stock is ancestry or family line"
-      },
-      {
-       "words": "sons",
-       "gives": "SS",
-       "note": "S is the abbreviation for son, here one for each word"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "never with",
+         "at": 44,
+         "note": "without, so the letter is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "family",
+         "at": 36,
+         "gives": "STOCK",
+         "note": "stock is family line or descent"
+        },
+        {
+         "words": "sons",
+         "at": 55,
+         "gives": "S",
+         "note": "S is the abbreviation for son; one from each word"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Grandad's noise is a sound bond with the family, never shared with his sons.",
-     "walkthrough": "'Grandfather' means a grandfather clock, the tall pendulum clock, not a relative.",
-     "definitionFit": "A grandfather clock's pendulum makes the classic two-beat clicking noise, so it is an example of the sound."
+     "surface": "A family bond, never with sons, like a grandfather clock ticking on.",
+     "walkthrough": "'never with sons' takes S from each word: STICK and STOCK lose their S.",
+     "definitionFit": "A grandfather clock's pendulum makes the regular sound of a clock ticking."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "grandfather's"
     }
    }
@@ -1392,42 +1406,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "could represent",
-       "note": "these letters could be rearranged to represent something else"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "originally",
-         "note": "originally points to the start, so only the opening letter of the next word is used"
+         "at": 13,
+         "note": "originally means at the start, so the first letter"
         }
        ],
        "parts": [
         {
          "words": "practically",
-         "note": "the first letter of this word"
+         "at": 24,
+         "note": "first letter P"
         }
        ]
       },
       {
-       "words": "any graphic",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "could represent",
+         "at": 48,
+         "note": "letters that could represent something are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "any",
+         "at": 36,
+         "note": "taken as written"
+        },
+        {
+         "words": "graphic",
+         "at": 40,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Almost any picture could be drawn to stand for an old-fashioned hat.",
-     "walkthrough": "The Phrygian cap, a soft conical cap from ancient Anatolia, became the liberty cap of the French Revolution.",
-     "definitionFit": "This soft pointed cap was worn in antiquity, so it is a historic hat, a piece of old headwear."
+     "surface": "An old hat that nearly any picture could show.",
+     "definitionFit": "The Phrygian cap is an ancient soft conical hat, later the cap of liberty in revolutionary France."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "graphic"
     }

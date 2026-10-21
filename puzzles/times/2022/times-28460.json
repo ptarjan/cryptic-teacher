@@ -1504,24 +1504,41 @@
      "op": "charade",
      "parts": [
       {
-       "words": "message, not the first",
-       "gives": "EXT",
-       "note": "a text is a phone message; without its first letter T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not the first",
+         "at": 17,
+         "note": "the opening letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "message",
+         "at": 8,
+         "gives": "TEXT",
+         "note": "a text is a message"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "engineers",
+       "at": 41,
        "gives": "REME",
-       "note": "REME is the Royal Electrical and Mechanical Engineers, a British Army corps"
+       "note": "REME is the Royal Electrical and Mechanical Engineers"
       }
      ]
     },
     "explanation": {
-     "surface": "A revolutionary manifesto being sent to the technical staff.",
-     "walkthrough": "REME is a British Army corps that setters use for engineers, alongside RE (Royal Engineers).",
-     "definitionFit": "Radical and extreme both describe views far from the political centre, favouring drastic change."
+     "surface": "A radical note sent off to the army engineers.",
+     "walkthrough": "REME is a corps of the British Army.",
+     "definitionFit": "Radical views are extreme ones, far from the mainstream."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "message"
     }
