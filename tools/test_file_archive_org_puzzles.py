@@ -2828,6 +2828,30 @@ f.held_dates = lambda series: {}
 asked.clear()
 f.read_puzzle(FakeDir(), None, None, None)
 check("a puzzle not held asks the VLM", [False, ["6-across"]], asked)
+def fake_count(weak):
+    def read(d, found, hit, sols, vlm_for=False, *a, **kw):
+        asked.append(vlm_for)
+        return ({"number": 7, "grid": "image", "imageDisagrees": "14-across: the enumeration reads as ['14'], the grid holds 4 letters",
+                 "_weak": set(weak)} if vlm_for is False else {"number": 7, "grid": "image"}), \
+            {"id": "x", "entries": [{"number": 14, "direction": "across", "clue": {"text": text14, "enumeration": enum14}}]}
+    return read
+text14, enum14 = "Stop a race", "4"
+f.read_page = fake_count(set())
+asked.clear()
+v, p = f.read_puzzle(FakeDir(), None, None, None)
+check("a count the grid settles on a light the readers confirm asks the VLM nothing", ([False], 0), (asked, v.get("vlmAsks")))
+f.read_page = fake_count({"6-across"})
+asked.clear()
+f.read_puzzle(FakeDir(), None, None, None)
+check("a count disagreement asks only the weak lights, not the light the grid settled", [False, ["6-across"]], asked)
+f.read_page = fake_count(set())
+for text14, enum14, what in (("Stop a race", None, "no enumeration"), ("Stop -a race", "4", "a stray mark"), ("", "4", "no text")):
+    asked.clear()
+    f.read_puzzle(FakeDir(), None, None, None)
+    check(f"a count-disagreeing light with {what} is still asked", [False, ["14-across"]], asked)
+text14, enum14 = "Stop a race", "4"
+check("a clue's own hyphen or ellipsis is no stray mark", [None, None],
+      [f.STRAY_MARK.search("Half-hearted - a stop"), f.STRAY_MARK.search("... and so on")])
 f.paper_of, f.held_dates, f.held_file = real_paper_of, real_held_dates, real_held_file
 # The queue's entrance: an edition whose titles the date checks refuse is not read.
 real_fn, real_fs = f.filed_number, f.filed_state
