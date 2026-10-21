@@ -20,7 +20,7 @@ import clues_only
 import nation_key  # the setters' printed notes for a Nation puzzle
 from fetch_puzzle import read_puzzle_view, resolve_puzzle
 from groups import entry_id
-from provenance import printed_answers
+from provenance import partial_lights, printed_answers
 
 
 def crossing_map(entries):
@@ -68,6 +68,12 @@ def packet(puzzle):
                   f"into your fill as given and work out only the rest. Change one only if no "
                   f"answer to an open light fits its crossings, since a changed answer loses "
                   f"its explanation.", ""]
+    open_lights = partial_lights(puzzle)
+    if open_lights:
+        lines += [f"{len(printed)} answers below come from a blog's write-up, which left "
+                  f"{len(open_lights)} light(s) out on purpose ({', '.join(open_lights)}). Every "
+                  f"given answer is right: copy each into your fill as given and work out only "
+                  f"the open lights, which must agree with every crossing.", ""]
     notes = nation_key.notes_for(puzzle)
     for e in sorted(puzzle["entries"],
                     key=lambda e: (e["direction"], e["number"])):

@@ -2007,8 +2007,10 @@ def tails_first(queue, pinned, rows):
 
 def cold_row(row, kept=False):
     """True when `row` is an index row lacking solutions (a cold solve or a
-    clues-only puzzle) and not `kept` at the front by a lockout or request."""
-    return bool(row) and not kept and not row.get("hasSolutions")
+    clues-only puzzle) and not `kept` at the front by a lockout or request.
+    A partial blog key (`partial`, provenance.partial_lights) is not cold: all
+    but a light or two are answered, and the solve fills only those."""
+    return bool(row) and not kept and not row.get("hasSolutions") and not row.get("partial")
 
 
 def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=()):
@@ -2059,7 +2061,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     # the whole queue; lockout cut-offs and hand requests stay at the front.
     keep = set(front) | set(asked)
     cold = {pid for pid in pinned if pid not in keep and pid in by_id
-            and not by_id[pid].get("hasSolutions")}
+            and not by_id[pid].get("hasSolutions") and not by_id[pid].get("partial")}
     kept = lambda n: sum(1 for pid in pinned[:n] if pid not in cold)
     stages = [kept(m) for m in marks]
     tails_k = kept(cut + tails) - kept(cut)

@@ -346,18 +346,29 @@ def settle(puzzle, fill, alts):
         fill[best[1]] = best[2]
 
 
-def judge(puzzle, rec):
-    """(fill, problems): the blog's answers and why they must not be written."""
+#: --partial writes a puzzle the post leaves at most this many lights out of
+#: (Times for the Times leaves out one or two on purpose).
+MAX_OMITTED = 3
+
+
+def judge(puzzle, rec, partial=False):
+    """(fill, problems): the blog's answers and why they must not be written.
+    With `partial`, a post that gives no line for a few lights is accepted:
+    the lights missing from the fill are the ones to mark as left out."""
     fill, problems = blog_fill(puzzle, rec)
-    if problems:
+    # The omitted lights are the ones whose line carries no answer of the
+    # right length (the blog blanks it) or that have no line at all.
+    if problems and not (partial and len(problems) <= MAX_OMITTED
+                         and len(fill) * 2 > len(puzzle["entries"])):
         return fill, ["unmatched " + problems[0].split(":", 1)[1].strip()
                       + f" ({len(problems)} lights)"]
     for entry in puzzle["entries"]:
         old = (entry.get("solution") or "").strip()
-        if old and old != fill[entry_id(entry)]:
+        if old and old != fill.get(entry_id(entry)):
             return fill, [f"disagrees with the file's {entry_id(entry)} "
-                          f"({old} vs {fill[entry_id(entry)]})"]
+                          f"({old} vs {fill.get(entry_id(entry))})"]
     _cells, crossings, bad = apply_solution.check_fill(puzzle, fill)
+    bad = [b for b in bad if not (b.endswith("no answer given") and b.split(":")[0] not in fill)]
     bad += apply_solution.check_off_grid(puzzle, fill)
     if bad:
         return fill, [f"{len(bad)} crossing/length problem(s), first: {bad[0]}"]
@@ -367,21 +378,31 @@ def judge(puzzle, rec):
 
 
 def write(path, puzzle, rec, fill):
+    omitted = [entry_id(e) for e in puzzle["entries"] if entry_id(e) not in fill]
     for entry in puzzle["entries"]:
-        entry["solution"] = fill[entry_id(entry)]
+        if entry_id(entry) in fill:
+            entry["solution"] = fill[entry_id(entry)]
     crossings = apply_solution.check_fill(puzzle, fill)[1]
+    given = len(puzzle["entries"]) - len(omitted)
     detail = {"blog": rec.get("blog", "timesforthetimes"), "url": rec["link"], "date": rec["date"],
-              "check": f"{len(puzzle['entries'])} entries, {crossings} crossings, 0 conflicts; "
+              "check": (f"{given} of {len(puzzle['entries'])} entries" if omitted
+                        else f"{len(puzzle['entries'])} entries")
+                       + f", {crossings} crossings, 0 conflicts; "
                        "answers matched to the grid by number, direction and length"}
+    if omitted:
+        # The lights the blog left out: a model may fill these and no others
+        # (provenance.partial_lights, apply_solution.check_writeup).
+        detail["partial"] = omitted
     puzzle = provenance.with_solution_detail(puzzle, detail)
     write_puzzle_file(path, puzzle)
 
 
-def process(series, year, only, check_only, log):
+def process(series, year, only, check_only, log, partial=False):
     """Counts of outcomes for one year."""
     out = Counter()
     todo = {path: puzzle for path, puzzle in held(series, year)
-            if not only or puzzle["id"] in only}
+            if (not only or puzzle["id"] in only)
+            and not (puzzle.get("solutions") or {}).get("partial")}
     if not todo:
         return out
     recs = {}
@@ -401,7 +422,7 @@ def process(series, year, only, check_only, log):
             out["no post"] += 1
             log(f"{pid}: REFUSED no post")
             continue
-        verdicts = [(judge(puzzle, rec), rec) for rec in options]
+        verdicts = [(judge(puzzle, rec, partial), rec) for rec in options]
         good = [(fill, rec) for (fill, problems), rec in verdicts if not problems]
         if not good:
             reason = verdicts[0][0][1][0]
@@ -436,6 +457,10 @@ def main():
     ap.add_argument("--from", dest="first", type=int, default=2006)
     ap.add_argument("--to", dest="last", type=int, default=2014)
     ap.add_argument("--check-only", action="store_true")
+    ap.add_argument("--partial", action="store_true",
+                    help=f"also write a puzzle the post leaves up to {MAX_OMITTED} lights out of "
+                         "(it gives no line for them): the checked answers plus solutions.partial "
+                         "naming the blanks, which a model may then fill and no other light")
     args = ap.parse_args()
 
     def log(line):
@@ -443,7 +468,7 @@ def main():
 
     total = Counter()
     for year in range(args.first, args.last + 1):
-        counts = process(args.series, year, set(args.ids), args.check_only, log)
+        counts = process(args.series, year, set(args.ids), args.check_only, log, args.partial)
         total += counts
         log(f"== {year}: {dict(counts)}")
     log(f"== total: {dict(total)}")
