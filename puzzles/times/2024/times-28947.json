@@ -421,61 +421,67 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "turned up",
-       "note": "in a down clue, flipping skyward makes the letters read in the opposite direction"
+       "text": "carrying",
+       "at": 28,
+       "note": "carrying means holding, so the reversed letters take the letter inside"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 18,
+         "note": "in a down answer turned up means read from the bottom, so the letters run backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Top",
-         "gives": "NOI",
-         "note": "number one, written NO I"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "carrying",
-           "note": "to carry is to hold, so one piece holds another inside it"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "professionals",
-           "gives": "PROS",
-           "note": "pros is short for professionals"
+           "words": "Top",
+           "at": 0,
+           "gives": "NOI",
+           "note": "number one, written No I, is the top"
           },
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "first",
-             "note": "first points to the opening letter of the word it follows"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Caesar's",
-             "note": "the initial of Caesar"
-            }
-           ]
+           "words": "professionals",
+           "at": 4,
+           "gives": "PROS",
+           "note": "pros are professionals"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 46,
+         "note": "first means only the opening letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Caesar's",
+         "at": 37,
+         "note": "the first letter of Caesar's"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Elite troops arrive with Julius Caesar's best siege engine.",
-     "walkthrough": "'Top' alone gives NO I, number one, which joins PROS before the whole string is reversed.",
-     "definitionFit": "The Roman scorpio or scorpion was a small torsion catapult firing bolts, a type of ballista used by legions."
+     "surface": "Elite professionals reversing Caesar's lead on a Roman siege engine.",
+     "walkthrough": "NO I PROS reversed gives SORPION; it carries C after the S.",
+     "definitionFit": "A scorpion was a Roman siege weapon, a small type of ballista that shot bolts."
     },
     "features": {
      "answerInScene": true,

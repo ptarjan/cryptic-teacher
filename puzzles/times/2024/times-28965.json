@@ -255,7 +255,7 @@
       {
        "text": "in",
        "at": 20,
-       "note": "in means placed inside the other letters"
+       "note": "in means the doubled temperature is placed inside the rest"
       }
      ],
      "parts": [
@@ -264,8 +264,7 @@
        "parts": [
         {
          "words": "a",
-         "at": 23,
-         "gives": "A"
+         "at": 23
         },
         {
          "op": "deletion",
@@ -273,7 +272,7 @@
           {
            "text": "almost",
            "at": 31,
-           "note": "almost means nearly all, so the last letter goes"
+           "note": "almost means not quite all, so the last letter is cut"
           }
          ],
          "parts": [
@@ -281,7 +280,7 @@
            "words": "drain",
            "at": 25,
            "gives": "EMPTY",
-           "note": "to empty is to drain"
+           "note": "to drain is to empty"
           },
           {
            "gives": "Y"
@@ -291,20 +290,35 @@
        ]
       },
       {
-       "words": "Temperature doubled",
-       "at": 0,
-       "gives": "TT",
-       "note": "T is the abbreviation for temperature, and doubled it is TT"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "doubled",
+         "at": 12,
+         "note": "doubled means the temperature letter appears twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Temperature",
+         "at": 0,
+         "gives": "T"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Twice the heat in a drain nearly makes it crack.",
-     "definitionFit": "A crack at something is an attempt, a try, as in 'have a crack'."
+     "surface": "Twice the heat in a nearly empty drain leads to a crack.",
+     "walkthrough": "'crack' looks like a fault in the drain, but it is the definition, as in having a crack at something.",
+     "definitionFit": "A crack is a try, as in having a crack at something."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "crack"
     }
    }

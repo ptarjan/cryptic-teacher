@@ -593,43 +593,49 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "after",
-       "note": "coming later in a sequence means placed second, so this word fixes the running order"
-      }
-     ],
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 8
       },
       {
        "words": "book",
-       "gives": "B",
-       "note": "B is the abbreviation for book"
+       "at": 10,
+       "gives": "B"
       },
       {
-       "words": "half one month or another",
-       "gives": "JU",
-       "note": "the first half of June, or equally of July"
-      },
-      {
-       "words": "half-read",
-       "gives": "RE",
-       "note": "the first two of the four letters of read"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 31,
+         "note": "half here means only the front half of each word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one month or another",
+         "at": 36,
+         "gives": "JUNE",
+         "note": "June or July: either month gives the same opening pair"
+        },
+        {
+         "words": "read",
+         "at": 20
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone gives up on a book halfway through, somewhere around the middle of the summer.",
-     "walkthrough": "'Or another' is fair because June and July both start the same way.",
-     "definitionFit": "To abjure a belief or claim is to renounce or forswear it formally, giving it up for good."
+     "surface": "Someone gives up on a book, half-read, after part of a month.",
+     "walkthrough": "Either June or July serves, as both begin with the same pair. The half of read comes after in the clue's words, so its letters close the answer.",
+     "definitionFit": "To abjure is to renounce or give up a belief or claim formally, which is to abandon it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "month"
+     "misdirectedWord": "read"
     }
    }
   },
@@ -1081,50 +1087,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "apart from",
+       "at": 17,
+       "note": "apart from means excluding, so a run of letters is left out"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "apart from four to nine",
-         "note": "'apart from' excludes, and 'four to nine' names the letter positions to drop"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Cleaner",
-         "note": "taken as written"
-        },
-        {
-         "gives": "ANER"
-        }
-       ]
+       "words": "Cleaner worked",
+       "at": 0
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "worked",
-         "note": "taken as written"
-        },
-        {
-         "gives": "WO"
-        }
-       ]
+       "words": "four to nine",
+       "at": 28,
+       "gives": "ANERWO",
+       "note": "the fourth to ninth letters of the words cleaner worked"
       }
      ]
     },
     "explanation": {
-     "surface": "A cleaner worked every hour except four till nine, as an office job.",
-     "walkthrough": "'Four to nine' looks like working hours, but it counts letter positions across both words.",
-     "definitionFit": "To clerk is to work as a clerk, doing office administration, so clerked means held such a post."
+     "surface": "A cleaner put in the hours, except between four and nine, on an office job.",
+     "walkthrough": "'four to nine' looks like office hours, but it counts letters: the fourth to ninth of CLEANERWORKED are removed.",
+     "definitionFit": "To clerk is to work as a clerk, an office worker who keeps records and accounts."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "nine"
+     "misdirectedWord": "four"
     }
    }
   },
