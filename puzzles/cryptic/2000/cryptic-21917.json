@@ -46,45 +46,41 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
+       "words": "a bit of preaching",
+       "at": 12,
+       "gives": "PR",
+       "note": "the opening two letters of preaching"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "a bit of",
-         "note": "a bit of a word is just a small piece of it, here its opening letter, taken from each of the next two words"
+         "text": "about",
+         "at": 37,
+         "note": "about here means turned round, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "preaching",
-         "note": "the opening letter of preaching"
-        }
-       ]
-      },
-      {
-       "words": "about",
-       "gives": "RE",
-       "note": "re means about or concerning"
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "be",
-         "note": "the opening letter of be"
+         "words": "to be",
+         "at": 31,
+         "gives": "BE",
+         "note": "to be gives BE"
         }
        ]
       },
       {
        "words": "death",
+       "at": 43,
        "gives": "END",
        "note": "death is the end"
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman's earnings depend on sermons about mortality.",
-     "walkthrough": "PREBEND assembles P, RE, B and END; 'a bit of' does duty for both preaching and be.",
-     "definitionFit": "A prebend is the stipend a cathedral canon draws from church revenues, so it is clerical income."
+     "surface": "A clergyman's earnings come from a sermon on mortality.",
+     "walkthrough": "A prebend is a cleric's stipend, so the sermon surface fits the answer neatly.",
+     "definitionFit": "A prebend is the stipend a cathedral canon draws from the cathedral's revenues."
     },
     "features": {
      "answerInScene": true,
@@ -478,40 +474,43 @@
        "indicators": [
         {
          "text": "deceptive",
-         "note": "something deceptive is not what it appears, so the letters are disguised in a new order"
+         "at": 9,
+         "note": "something deceptive is not as it seems, so the word charm is disguised"
         }
        ],
        "parts": [
         {
          "words": "charm",
-         "note": "taken as written"
-        },
-        {
-         "words": "of",
-         "note": "taken as written"
+         "at": 19
         }
        ]
       },
       {
-       "words": "public relations",
-       "gives": "PR",
-       "note": "PR abbreviates public relations"
+       "words": "of",
+       "at": 25
       },
       {
-       "words": "monstrous woman",
+       "words": "public relations",
+       "at": 28,
+       "gives": "PR"
+      },
+      {
+       "words": "the monstrous woman",
+       "at": 46,
        "gives": "OGRESS",
-       "note": "a female ogre"
+       "note": "an ogress is a female ogre, a monstrous woman"
       }
      ]
     },
     "explanation": {
-     "surface": "A frightful woman armed with slick PR spin proves impossible to resist.",
-     "definitionFit": "The phrase describes advancement as an unstoppable force that sweeps everything along."
+     "surface": "A spin doctor's false charm, with a monster of a woman, is impossible to resist.",
+     "walkthrough": "'deceptive' turns CHARM into MARCH; OF stays, then PR and OGRESS.",
+     "definitionFit": "The march of progress is the idea that advancement goes on and cannot be stopped."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "charm"
+     "aptDefinition": true,
+     "misdirectedWord": "monstrous"
     }
    }
   },
@@ -747,47 +746,45 @@
    "annotation": {
     "definitions": [
      {
-      "text": "in Kent",
-      "at": 22,
-      "note": "a location phrase standing for the town"
+      "text": "in Kent?",
+      "at": 22
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 16,
+       "note": "upset means overturned, so the saint is turned back to front"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "WHITSTABLE",
-       "indicators": [
-        {
-         "text": "upset",
-         "note": "upset in a down clue means turned upside down, so the saint's letters run the other way"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Cardboard",
-         "gives": "WHISTTABLE",
-         "note": "card is the game whist and board is a table, together a card table"
-        }
-       ]
+       "words": "Cardboard",
+       "at": 0,
+       "gives": "WHISTTABLE",
+       "note": "a board for cards: a whist table, where the card game whist is played"
       },
       {
-       "unchecked": true,
        "words": "saint",
-       "note": "the saint is the ST already sitting at the end of the card game, not extra letters"
+       "at": 10,
+       "gives": "ST"
+      },
+      {
+       "gives": "TS"
       }
      ]
     },
     "explanation": {
-     "surface": "A flimsy picture of a holy man knocked over somewhere in Kent.",
-     "walkthrough": "The saint gives no new letters: it identifies two letters already in the card table, and only they are turned round. Whitstable is a seaside town in Kent.",
-     "definitionFit": "Whitstable is a seaside town on the north Kent coast famous for oysters."
+     "surface": "A flimsy cardboard image of a saint knocked over somewhere in Kent.",
+     "walkthrough": "Read 'Cardboard' as card board, a whist table; inside it ST, saint, is upset to TS. Kent is a county in south-east England.",
+     "definitionFit": "Whitstable is a seaside town on the north Kent coast, famed for its oysters."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Cardboard"
     }
    }

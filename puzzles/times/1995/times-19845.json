@@ -1080,22 +1080,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PRISON",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "encircled by",
-       "note": "'encircled by' says the teacher sits inside the next pair of words"
+       "text": "reversing",
+       "at": 39,
+       "note": "reversing means the whole assembled string is read from right to left"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "reversing",
-         "note": "'reversing' means the whole combination is read back to front"
+         "text": "encircled by",
+         "at": 14,
+         "note": "encircled by says the schoolmaster sits inside the other letters"
         }
        ],
        "parts": [
@@ -1104,33 +1104,36 @@
          "parts": [
           {
            "words": "no",
-           "note": "taken as written"
-          },
-          {
-           "words": "Schoolmaster",
-           "gives": "SIR",
-           "note": "pupils address a schoolmaster as sir"
+           "at": 27,
+           "gives": "NO"
           },
           {
            "words": "parking",
+           "at": 30,
            "gives": "P",
            "note": "P is the road-sign abbreviation for parking"
           }
          ]
+        },
+        {
+         "words": "Schoolmaster",
+         "at": 0,
+         "gives": "SIR",
+         "note": "pupils address a schoolmaster as sir"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher, hemmed in where parking is banned, backs his car into a garage.",
-     "walkthrough": "The teacher sits between the two letters of 'no' and the P, and the whole string is then read backwards.",
-     "definitionFit": "A lock-up is a jail or cell where people are confined, the same thing as a prison."
+     "surface": "A teacher hemmed in by no-parking signs backs his car into a garage.",
+     "walkthrough": "'reversing' acts on the whole assembly, not just the schoolmaster, so build it first and then turn it round.",
+     "definitionFit": "A lock-up is a jail or cell where people are confined."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "reversing"
+     "misdirectedWord": "lock-up"
     }
    }
   },
