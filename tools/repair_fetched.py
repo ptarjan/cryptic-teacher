@@ -585,14 +585,15 @@ def git_out(*args):
 
 def spoiled_commits(since, ref="origin/master"):
     """{puzzle id: [parent-side shas, newest first]} for each puzzle an
-    "Update times-" commit on `ref` since `since` rewrote."""
+    "Update" commit on `ref` since `since` rewrote ("Update times-N", or a
+    batched "Update N puzzles" naming its files)."""
     touched = {}
-    log = git_out("log", f"--since={since}", "--format=@%H", "--name-only", "--grep=^Update times-", ref)
+    log = git_out("log", f"--since={since}", "--format=@%H", "--name-only", "--grep=^Update ", ref)
     sha = None
     for line in log.splitlines():
         if line.startswith("@"):
             sha = line[1:]
-        elif line.endswith(".json") and sha:
+        elif line.endswith(".json") and sha and Path(line).stem.startswith("times-"):
             touched.setdefault(Path(line).stem, []).append((sha, line))
     return touched
 

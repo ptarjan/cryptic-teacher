@@ -1,5 +1,6 @@
 #!/bin/bash
-# One commit per puzzle: commit each staged puzzle or clues-only file on its own.
+# One commit per new puzzle: commit each staged puzzle or clues-only file on its
+# own, except rereads, which go out together.
 #
 #     . tools/commit_puzzles.sh; ct_commit_puzzles "<job>"    # from a shell job
 #     tools/commit_puzzles.sh "<job>"                         # from anything else
@@ -13,6 +14,13 @@
 # files, generated pages) is left staged for the caller's own commit, except the
 # table rows a drop or rename carries, which go in that puzzle's commit.
 #
+# Rereads of puzzles already filed (an "M" line) are batched like the
+# annotators' commits (Paul 10-21: "If you can do git commits in reasonable
+# batches you can do that ... Look at the annotation ones"): one "Update N
+# puzzles" per call with the ids in the body, or "Update <id>" for one, so an
+# answers-linked sweep is not 150 commits an hour. A new puzzle, a drop and a
+# rename keep their own commit.
+#
 # Prints nothing; returns 1 if a commit fails.
 _cp_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -23,11 +31,19 @@ _cp_staged() {  # staged puzzle and clues-only files, each folder alone so a pro
 
 ct_commit_puzzles() {  # ct_commit_puzzles <job>
   local what="$1" trailer line subj p t gone now
+  local -a upd=() upd_ids=()
   git diff --cached --quiet && return 0
   trailer="$(python3 "$_cp_dir/provenance.py" trailer 2>/dev/null)"
   while IFS= read -r line; do
     [[ "$line" == *.json ]] || continue
     IFS=$'\t' read -r -a p <<<"$line"
+    if [[ "$line" == M* ]]; then
+      upd+=("${p[1]}")
+      t="${p[1]##*/}"
+      upd_ids+=("${t%.json}")
+      continue
+    fi
+    if [[ "$line" == [DR]* ]]; then _cp_commit_updates || return 1; fi
     subj="$(printf '%s\n' "$line" | python3 "$_cp_dir/commit_subject.py" "$what")"
     # A rename carries its row of tools/data/renamed_ids.json, the old id's redirect.
     if [[ "$line" == R* ]]; then
@@ -52,6 +68,17 @@ ct_commit_puzzles() {  # ct_commit_puzzles <job>
     git commit -q -m "$(printf '%s\n\n%s' "$subj" "$trailer")" -- "${p[@]:1}" || return 1
   done < <(_cp_staged | grep -v '^[DR]'
            _cp_staged | grep '^[DR]')
+  _cp_commit_updates
+}
+
+_cp_commit_updates() {  # the batched rereads (upd, upd_ids) in one commit, before any drop or rename
+  [ "${#upd[@]}" -gt 0 ] || return 0
+  local msg
+  if [ "${#upd[@]}" -eq 1 ]; then msg="$(printf 'Update %s\n\n%s' "${upd_ids[0]}" "$trailer")"
+  else msg="$(printf 'Update %s puzzles\n\n%s\n\n%s' "${#upd[@]}" "$(printf '%s' "${upd_ids[*]}" | fold -s -w 72)" "$trailer")"
+  fi
+  git commit -q -m "$msg" -- "${upd[@]}" || return 1
+  upd=() upd_ids=()
 }
 
 if [ "${BASH_SOURCE[0]}" = "$0" ]; then ct_commit_puzzles "$@"; fi
