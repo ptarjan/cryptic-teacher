@@ -126,6 +126,10 @@ check("the Times cryptic among 2006's crossword titles", [2, 1, None, 1, 1],
        gd.crossword("TTDA", ["The Listener Crossword 3890", "Crossword 67 Miscellany"]),
        gd.crossword("TTDA", ["Crossword", "Times Crossword"]),
        gd.crossword("TTDA", ["Crossword contest gives clue to staying young", "The Times Crossword Puzzle No 17,563"])])
+check("the Times cryptic under Gale's OCR misreadings of its title", [0, 0, 0, 0, 0, None],
+      [gd.crossword("TTDA", [t]) for t in (
+          "The Times Crossworld Puzzle No. 426", "The Times Crossmord Puzzle No. 714", "The Times Crosssword Puzzle No 19,888",
+          "The Times Crossw0rd 22,568", "The Times Crosswor", "Gross worth of Times Two")])
 check("a Times link an older matcher picked is stale unless the cryptic's", [True, True, False, False],
       [gd.stale("TTDA", {"doc": "x", "title": t, **m}) for t, m in [
           ("Crossword 95", {}), ("Crossword", {}), ("The Times Crossword 23,296", {}),

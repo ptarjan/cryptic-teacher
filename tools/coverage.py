@@ -398,7 +398,10 @@ def gale_rows(by_number):
 #: The Gale archives of the Alberta Research Portal by series: (first, last)
 #: print date held. A date archive.org lacks inside one is there by hand only.
 GALE_SPANS = {
-    "times": ("1785-01-01", "2019-12-31"),        # The Times Digital Archive
+    # The Times Digital Archive: the portal's issue lists hold nothing from
+    # 2015 on (all 533 lookups of 2015-2019 dates in gale_docs' cache say
+    # "Gale has no issue that day", read 2026-10-21), so gale_inbox.YEARS ends 2014.
+    "times": ("1785-01-01", "2014-12-31"),
     "ftcryptic": ("1888-01-02", "2010-12-31"),    # Financial Times Historical Archive
 }
 
