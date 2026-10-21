@@ -330,37 +330,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "rambling",
-       "note": "something rambling wanders without order, so the letters are rearranged"
-      },
-      {
-       "text": "helter-skelter",
-       "note": "helter-skelter means in disordered haste, another signal to rearrange letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "vine",
-       "note": "taken as written"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 22,
+         "note": "round means surrounding, so the first scrambled piece goes around the second"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "rambling",
+           "at": 8,
+           "note": "a rambling plant sprawls in all directions, so the letters spread into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vine",
+           "at": 17
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "helter-skelter",
+           "at": 32,
+           "note": "helter-skelter means in chaotic disorder, so the letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tower",
+           "at": 47
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "N is the abbreviation for new"
-      },
-      {
-       "words": "tower",
-       "note": "taken as written"
+       "at": 28,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A twisting vine climbs around a new fairground helter-skelter tower.",
-     "walkthrough": "'Helter-skelter' looks like a fairground slide but works as a second anagram signal; all the letters are mixed together.",
-     "definitionFit": "Interwoven strands are twisted together, so the adjective matches twisted."
+     "surface": "A climbing plant winds its way around a spiral fairground slide.",
+     "walkthrough": "A helter-skelter is a spiral fairground slide in the form of a tower, the picture the surface uses; here the word only signals disorder.",
+     "definitionFit": "Interwoven means twined together, so strands that are twisted around each other."
     },
     "features": {
      "answerInScene": true,

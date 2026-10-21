@@ -1598,42 +1598,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "move",
-       "note": "move tells you to shift the letters around into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Do",
-       "note": "taken as written"
+       "at": 0
       },
       {
-       "words": "or",
-       "note": "taken as written"
-      },
-      {
-       "words": "doctor",
-       "gives": "DR",
-       "note": "Dr is the abbreviation for doctor"
-      },
-      {
-       "words": "can",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "move",
+         "at": 3,
+         "note": "to move letters is to shift them about, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "or",
+         "at": 9
+        },
+        {
+         "words": "doctor",
+         "at": 12,
+         "gives": "DR"
+        },
+        {
+         "words": "can",
+         "at": 19
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plea to a doctor to get moving on a transplant, with consent to harvest organs.",
-     "walkthrough": "'Move' sits among the fodder words but is the signal to rearrange them.",
-     "definitionFit": "A donor card is carried to show that the holder consents to their organs being used for transplant after death."
+     "surface": "An instruction to get going, or to let a doctor sign permission for organ transplants.",
+     "walkthrough": "DO stays as it is; 'move' rearranges OR, DR and CAN into NORCARD. 'doctor' looks like the anagram signal but it gives DR.",
+     "definitionFit": "A donor card states that its holder consents to their organs being used for transplants after death."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "move"
+     "misdirectedWord": "doctor"
     }
    }
   }
