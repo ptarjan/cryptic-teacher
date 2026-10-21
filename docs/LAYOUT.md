@@ -885,9 +885,6 @@ tools/solve_packet.py                          the clues and the grid’s crossi
 tools/solve_prompt.md                          the method the model follows
 tools/apply_solution.py                        writes a blind solve in only if every crossing
                                                letter agrees
-tools/apply_blog_answers.py                    fills a held Times puzzle's blank answers from
-                                               its timesforthetimes write-up, only if every
-                                               crossing agrees
 tools/reopen_answers.py                        blanks the model answers an annotate run found
                                                no parse for, once each, so the burn solves them
                                                again instead of parking the puzzle
@@ -3159,5 +3156,9 @@ tools/test_ocr_retry.py                        does tools/ocr_retry.py settle a 
                                                clue's lines by number and direction, read each
                                                line once (cached per page), and append one
                                                corpus row a call?
+tools/apply_blog_answers.py                    fill a held puzzle's missing answers from the
+                                               blog that wrote it up
+tools/test_apply_blog_answers.py               apply_blog_answers reads an answer off a
+                                               write-up line however the era prints it
 ```
 <!-- LAYOUT-END -->
