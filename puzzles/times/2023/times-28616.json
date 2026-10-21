@@ -306,46 +306,39 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means going around, so one word wraps the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "disturbed",
-         "note": "something disturbed is knocked out of its order, so these letters are rearranged"
+         "text": "about",
+         "at": 31,
+         "note": "about says the bank workers go round the party letters"
         }
        ],
        "parts": [
+        {
+         "words": "Bank employees",
+         "at": 0,
+         "gives": "TELLERS",
+         "note": "tellers are bank clerks who serve customers"
+        },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "most of",
-           "note": "most of a word means all but its last letter"
+           "at": 37,
+           "note": "most of means all but the last letter of the party word"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Bank employees",
-             "gives": "TELLERS",
-             "note": "bank tellers serve customers at the counter"
-            },
-            {
-             "words": "party",
-             "gives": "RAVE",
-             "note": "a rave is a large dance party"
-            }
-           ]
+           "words": "party",
+           "at": 45,
+           "gives": "RAVE",
+           "note": "a rave is a large dance party"
           },
           {
            "gives": "E"
@@ -356,22 +349,29 @@
       },
       {
        "op": "anagram",
+       "indicators": [
+        {
+         "text": "disturbed",
+         "at": 21,
+         "note": "disturbed means stirred out of order, so these letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "least",
-         "note": "taken as written"
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bank staff are unbothered by the exaggerated stories told at a party.",
-     "walkthrough": "The possessive 's is really 'is', joining wordplay to definition; the party drops its last letter before going inside.",
-     "definitionFit": "Travellers' tales is an idiom for far-fetched stories, from the exaggerated accounts brought home by voyagers."
+     "surface": "Bank staff are rattled by the party's outlandish claims.",
+     "walkthrough": "'Bank employees' are tellers, not riverside workers, and the party is a rave.",
+     "definitionFit": "Travellers' tales are far-fetched accounts of foreign places, so the phrase means exaggerated stories."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "disturbed"
     }

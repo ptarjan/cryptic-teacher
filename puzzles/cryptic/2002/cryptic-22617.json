@@ -319,46 +319,62 @@
    "annotation": {
     "definitions": [
      {
-      "text": "shrub",
-      "at": 46
+      "text": "a shrub",
+      "at": 44
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "climbing",
-       "note": "in a down clue climbing means read upwards, so the tree's letters run backwards"
+       "text": "inside",
+       "at": 37,
+       "note": "the second reversed word goes inside the first"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "inside",
-         "note": "one piece is placed inside the other"
+         "text": "climbing",
+         "at": 5,
+         "note": "in a down answer, climbing means the letters read upwards"
         }
        ],
        "parts": [
         {
          "words": "Tree",
+         "at": 0,
          "gives": "ELM",
-         "note": "a common tree, read upwards"
-        },
+         "note": "an elm is a tree"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "Have a go",
+         "text": "climbing",
+         "at": 28,
+         "note": "again climbing turns the attempt word upwards in this down clue"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Have a go at",
+         "at": 15,
          "gives": "TRY",
-         "note": "to have a go is to try, read upwards"
+         "note": "to try is to have a go at something"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone shins up a tree and attempts to clamber into a bush.",
-     "walkthrough": "In a down clue, climbing means reading upwards, and the clue uses it twice, once for each piece.",
-     "definitionFit": "Myrtle is an evergreen shrub with fragrant white flowers, sacred to Venus."
+     "surface": "A tree is climbing, so someone has a go at climbing inside a bush.",
+     "walkthrough": "In a down answer both uses of 'climbing' mean the word reads upwards.",
+     "definitionFit": "Myrtle is an evergreen shrub with fragrant white flowers."
     },
     "features": {
      "answerInScene": true,
@@ -1464,51 +1480,55 @@
      "indicators": [
       {
        "text": "abandoned",
-       "note": "abandoned items are left behind, so these letters are dropped"
+       "at": 37,
+       "note": "abandoned means these letters are left out"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "Hairstyle",
-         "gives": "DREADLOCKS",
-         "note": "a style of matted, rope-like hair"
-        },
-        {
-         "words": "king",
-         "gives": "R",
-         "note": "R for rex, Latin for king; dropped"
-        }
-       ]
+       "words": "Hairstyle",
+       "at": 0,
+       "gives": "DREADLOCKS",
+       "note": "dreadlocks are a hairstyle of matted rope-like locks"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially asks for only the opening letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "subject",
-         "note": "the opening letter of subject; dropped"
+         "words": "king",
+         "at": 10,
+         "gives": "R",
+         "note": "R is the abbreviation for king, from Latin rex"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 27,
+           "note": "initially means the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "subject",
+           "at": 19
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A king and his subject reject a hairstyle, refusing outright.",
-     "walkthrough": "DREADLOCKS loses R and S to leave the answer.",
-     "definitionFit": "A deadlock is a standstill where neither side will give way, so no progress happens."
+     "surface": "A dreadlocked monarch and his subject are abandoned with no progress.",
+     "walkthrough": "Remove R and S (the first of 'subject') from DREADLOCKS.",
+     "definitionFit": "Deadlock is a stalemate in which neither side can move, so nothing gets done."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "subject"
+     "aptDefinition": false,
+     "misdirectedWord": "king"
     }
    }
   },

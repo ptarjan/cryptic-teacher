@@ -1093,14 +1093,16 @@
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 6,
+       "gives": "A"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "when",
-         "note": "the deer leaps into the hunter's heart at that moment, so it goes inside"
+         "text": "pounding",
+         "at": 44,
+         "note": "the deer pounds its way into the middle of the other letters, so it is placed inside them"
         }
        ],
        "parts": [
@@ -1109,28 +1111,30 @@
          "indicators": [
           {
            "text": "heart",
-           "note": "the heart of a word is its centre, so only the middle letters are kept"
+           "at": 35,
+           "note": "the heart of a word is its central part, here the middle two letters of hunter"
           }
          ],
          "parts": [
           {
-           "words": "hunter's",
-           "gives": "HUNTER",
-           "note": "the middle two letters of hunter"
+           "words": "hunter",
+           "at": 26
           }
          ]
         },
         {
-         "op": "anagram",
+         "op": "reversal",
          "indicators": [
           {
            "text": "leaping",
-           "note": "something leaping jumps about, so the deer's letters are jumbled"
+           "at": 8,
+           "note": "in a down answer, a word leaping goes upward, so it reads from bottom to top"
           }
          ],
          "parts": [
           {
            "words": "deer",
+           "at": 16,
            "gives": "ELK",
            "note": "an elk is a large deer"
           }
@@ -1141,14 +1145,14 @@
      ]
     },
     "explanation": {
-     "surface": "A hunter's heart pounds as a deer leaps past.",
-     "walkthrough": "The jumbled deer goes between the two middle letters of hunter, after the A.",
-     "definitionFit": "An anklet is a decorative chain or band worn around the ankle as jewellery."
+     "surface": "A hunter's heart races as a deer leaps past, tangled in a chain.",
+     "walkthrough": "In a down answer, 'leaping' means the deer reads upward; 'pounding' pictures it driving into the hunter's heart.",
+     "definitionFit": "An anklet is a decorative chain worn around the ankle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Chain"
+     "misdirectedWord": "pounding"
     }
    }
   },
@@ -1511,33 +1515,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PAYLIST",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "Dr Spooner swapped the opening sounds of words, so the next phrase has its first sounds exchanged"
+       "at": 39,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the first sounds of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "were still drunk",
-       "gives": "PAYLIST",
-       "soundsLike": "LAY PISSED",
-       "note": "lay means stayed still, and pissed is British slang for drunk; swap the opening sounds"
+       "words": "were still",
+       "at": 21,
+       "gives": "LAY",
+       "note": "to lay still, in loose use, is to have remained motionless"
+      },
+      {
+       "op": "homophone",
+       "spelt": "PIST",
+       "parts": [
+        {
+         "words": "drunk",
+         "at": 32,
+         "gives": "PISSED",
+         "note": "pissed is British slang for drunk, and it is pronounced like pist"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Workers on a payroll who stayed motionless and drunk.",
-     "walkthrough": "'Pissed' is everyday British slang for drunk, not angry.",
-     "definitionFit": "A payroll is the register of employees due wages, so earners of wages appear on it."
+     "surface": "A boozy confession: we lay there motionless, completely drunk.",
+     "walkthrough": "The phrase is 'lay pissed' (lay still, drunk); swapping the opening sounds gives PAY LIST. In British slang 'pissed' means drunk, not angry.",
+     "definitionFit": "A payroll or paylist names the employees who receive wages, so wage-earners appear on it."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "absurd",
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "still"
     }
    }
