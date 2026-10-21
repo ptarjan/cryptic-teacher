@@ -313,53 +313,51 @@
      "indicators": [
       {
        "text": "concealing",
-       "note": "the officer hides the mistake inside himself"
+       "at": 12,
+       "note": "the officer and court together hide the next piece between them, concealing it"
       }
      ],
      "parts": [
       {
-       "words": "court",
-       "gives": "CT",
-       "note": "Ct is the abbreviation for court"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Top soldier",
+         "at": 0,
+         "gives": "CO",
+         "note": "the CO, commanding officer, is the soldier at the top of a unit"
+        },
+        {
+         "words": "court",
+         "at": 41,
+         "gives": "CT"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "upheld",
-         "note": "in a down clue, held up means read bottom to top"
+         "at": 31,
+         "note": "in a down clue, something upheld is lifted so it reads from the bottom up, backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "that whole assembly goes inside the court"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Top soldier",
-           "gives": "CO",
-           "note": "CO is the commanding officer"
-          },
-          {
-           "words": "mistake",
-           "gives": "ERR",
-           "note": "to err is to make a mistake"
-          }
-         ]
+         "words": "mistake",
+         "at": 23,
+         "gives": "ERR",
+         "note": "to err is to make a mistake, giving ERR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A commanding officer covering up a blunder, with the verdict upheld in court.",
-     "walkthrough": "Upheld looks like a court endorsing a ruling; in a down clue it turns the officer and his mistake upside down.",
-     "definitionFit": "Correct is a plain synonym of right, and the question mark lets the clue end on a query."
+     "surface": "A senior officer quietly covering up a blunder, asking whether that is the right thing to do in court.",
+     "walkthrough": "In a down clue 'upheld' means read upwards; 'Top soldier' is the commanding officer, not a general.",
+     "definitionFit": "Correct and right are synonyms when describing an answer or a judgement that is accurate."
     },
     "features": {
      "answerInScene": false,
@@ -579,31 +577,48 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the friend comes after the run"
+       "at": 20,
+       "note": "the shortened friend comes after the letter for run"
       }
      ],
      "parts": [
       {
        "words": "run",
+       "at": 26,
        "gives": "R",
-       "note": "R is run in cricket scores"
+       "note": "R is the cricket abbreviation for run"
       },
       {
-       "words": "Friend, heading off",
-       "gives": "UDDY",
-       "note": "BUDDY without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 8,
+         "note": "with its heading off the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Friend",
+         "at": 0,
+         "gives": "BUDDY",
+         "note": "a buddy is a friend"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend setting off after a run, flushed and fit.",
-     "walkthrough": "Heading off looks like the friend leaving; it removes the first letter.",
-     "definitionFit": "A ruddy complexion is a healthy red glow; the question mark admits it could be something else."
+     "surface": "A pal who set off after a jog, looking flushed and healthy.",
+     "walkthrough": "The question mark admits that a red face only suggests good health.",
+     "definitionFit": "A ruddy complexion is a reddish, healthy-looking one, so it suggests someone glowing with good health."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "heading"
     }
    }
@@ -1387,26 +1402,45 @@
      "op": "charade",
      "parts": [
       {
-       "words": "insensitive to neglect new",
-       "gives": "UMB",
-       "note": "NUMB without N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to neglect",
+         "at": 18,
+         "note": "the word for insensitive is to neglect, that is leave out, the letter for new"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insensitive",
+         "at": 6,
+         "gives": "NUMB",
+         "note": "numb means without feeling, insensitive"
+        },
+        {
+         "words": "new",
+         "at": 29,
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "artist",
+       "at": 33,
        "gives": "RA",
-       "note": "RA, Royal Academician"
+       "note": "RA, a Royal Academician, is the crossword's stock artist"
       }
      ]
     },
     "explanation": {
-     "surface": "A jaded critic ignoring a new artist's shading.",
-     "walkthrough": "Insensitive is numb, and neglecting new drops its N.",
-     "definitionFit": "The umbra is the darkest part of a shadow, full shade."
+     "surface": "An instruction that an unfeeling shade should ignore a fresh painter.",
+     "walkthrough": "RA stands for Royal Academician, a member of Britain's Royal Academy of Arts.",
+     "definitionFit": "An umbra is the darkest part of a shadow, the full shade cast during an eclipse."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "neglect"
+     "misdirectedWord": "insensitive"
     }
    }
   },

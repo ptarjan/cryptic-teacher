@@ -417,44 +417,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "turned up",
-       "note": "turned up in a down entry means the word is read bottom to top"
-      },
-      {
-       "text": "elevated",
-       "note": "raised up in a down entry, so this word too is read upwards"
+       "text": "in",
+       "at": 22,
+       "note": "the name goes in the word for check"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one piece inside the other"
+         "text": "elevated",
+         "at": 25,
+         "note": "in a down clue the word for check is raised, so read from the bottom up"
         }
        ],
        "parts": [
         {
          "words": "check",
+         "at": 34,
          "gives": "REIN",
-         "note": "to rein in is to check or restrain"
-        },
+         "note": "to rein in is to check, giving REIN"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 12,
+         "note": "in a down clue the name is turned upwards, so it reads backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "girl",
+         "at": 7,
          "gives": "DEE",
-         "note": "Dee is a girl's name"
+         "note": "Dee is a girl's name, short for Deirdre or Denise"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A less well-off girl is caught out by a check from on high.",
-     "definitionFit": "Needier is the comparative of needy, so it means more in want, that is poorer."
+     "surface": "A girl's finances worsen as she appears inside a raised cheque.",
+     "walkthrough": "Both reversals work: 'turned up' gives EED and 'elevated' gives NIER, and EED sits in NIER after its N.",
+     "definitionFit": "Needier means in greater want, so a needier person is poorer."
     },
     "features": {
      "answerInScene": false,
@@ -615,45 +628,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "REDMEAT",
+     "indicators": [
+      {
+       "text": "as stated",
+       "at": 32,
+       "note": "the two words are as stated, said out loud"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "RED",
-       "indicators": [
-        {
-         "text": "as stated",
-         "note": "as stated means as spoken out loud, so the words are judged by their sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "understood",
-         "gives": "READ",
-         "note": "understood is read in the past tense, pronounced like the colour"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "MEAT",
-       "parts": [
-        {
-         "words": "encounter",
-         "gives": "MEET",
-         "note": "to encounter is to meet"
-        }
-       ]
+       "words": "understood encounter",
+       "at": 11,
+       "gives": "READMEET",
+       "note": "understood is read (said 'red'), and to encounter is to meet"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is told about meeting Lamb, perhaps a person, and has understood.",
-     "definitionFit": "Lamb is one example of red meat, along with beef and mutton, hence the 'say'."
+     "surface": "Someone who grasped a meeting was about lamb, as they put it.",
+     "walkthrough": "READ here is the past tense, said like 'red'.",
+     "definitionFit": "Lamb is an example of red meat, along with beef and mutton, so 'say' marks it as one instance."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Lamb"
     }
    }
@@ -930,42 +931,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "skipping",
-       "note": "skipping means leaving out, so that letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "skipping",
+         "at": 4,
+         "note": "the word for exclusive is skipping, so leaving out, the letter for son"
+        }
+       ],
        "parts": [
         {
-         "words": "Son",
-         "gives": "S",
-         "note": "S is the abbreviation for son"
-        },
-        {
          "words": "exclusive",
+         "at": 13,
          "gives": "SELECT",
-         "note": "a select club is an exclusive one"
+         "note": "select means exclusive, as in a select club"
         },
         {
-         "words": "exam",
-         "gives": "ORAL",
-         "note": "an oral is a spoken exam"
+         "words": "Son",
+         "at": 0,
+         "gives": "S",
+         "note": "S is the genealogical abbreviation for son"
         }
        ]
       },
       {
-       "gives": "SS"
+       "words": "exam",
+       "at": 23,
+       "gives": "ORAL",
+       "note": "an oral is a spoken exam"
       }
      ]
     },
     "explanation": {
-     "surface": "A son misses an elite exam.",
-     "definitionFit": "Electoral means relating to elections, which are the public's choices of representatives."
+     "surface": "A boy missing an elite school's test about public votes.",
+     "walkthrough": "'exclusive' is an adjective for something choice, not a news scoop.",
+     "definitionFit": "Electoral describes elections, the means by which the public chooses its representatives."
     },
     "features": {
      "answerInScene": false,

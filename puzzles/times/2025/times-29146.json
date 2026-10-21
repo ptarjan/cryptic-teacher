@@ -447,26 +447,42 @@
      "indicators": [
       {
        "text": "knocked back",
-       "note": "a drink knocked back is downed, and a word knocked back is turned round"
+       "at": 23,
+       "note": "a drink knocked back is downed, but here it means read backwards"
       }
      ],
      "parts": [
       {
-       "words": "double dose of alcohol",
-       "gives": "RUMRUM",
-       "note": "two lots of rum"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "double dose of",
+         "at": 36,
+         "note": "the spirit is taken twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alcohol",
+         "at": 51,
+         "gives": "RUM",
+         "note": "rum is an alcoholic spirit"
+        },
+        {
+         "gives": "RUM"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone slurring their words after knocking back two drinks.",
-     "walkthrough": "The surface is the drunk's slur; 'knocked back' is a drinking phrase doing a reversal's job.",
-     "definitionFit": "It means talking in a low, soft voice whose words are hard to make out."
+     "surface": "Slurring words after downing a double measure of spirits.",
+     "walkthrough": "RUMRUM read backwards gives the answer.",
+     "definitionFit": "To murmur is to speak softly and indistinctly, so it is unclear speech."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "knocked"
     }
    }
@@ -1308,41 +1324,45 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "HOTWATER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupts",
+       "at": 20,
+       "note": "the cycled number interrupts the hater, so sits inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "one who dislikes",
+       "at": 31,
+       "gives": "HATER",
+       "note": "a hater is one who dislikes"
+      },
+      {
+       "op": "cycling",
        "indicators": [
         {
          "text": "cycling around",
-         "note": "the first letter goes round to the back"
-        },
-        {
-         "text": "interrupts",
-         "note": "to interrupt is to break into the middle of something"
+         "at": 5,
+         "note": "cycling around moves the first letter of the word round to the end"
         }
        ],
        "parts": [
         {
-         "words": "one who dislikes",
-         "gives": "HATER",
-         "note": "a hater dislikes things"
-        },
-        {
          "words": "Pair",
-         "gives": "OTW",
-         "note": "TWO with T moved from front to back"
+         "at": 0,
+         "gives": "TWO",
+         "note": "a pair is two"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two cyclists interrupting a grumpy person who hates fuss.",
-     "walkthrough": "'Cycling' conjures bikes; here it rotates the letters of TWO so the T goes to the end.",
-     "definitionFit": "The idiom 'in hot water' means in a scrape or difficulty, facing blame or punishment."
+     "surface": "A couple out cycling get in the way of a grumpy person.",
+     "walkthrough": "'cycling around' moves a letter from the front of the word to its back.",
+     "definitionFit": "To be in hot water is to be in trouble, an idiom for a difficult situation."
     },
     "features": {
      "answerInScene": false,

@@ -1118,7 +1118,8 @@
      "indicators": [
       {
        "text": "is returned",
-       "note": "returned means sent back, so the whole string is read in the opposite direction"
+       "at": 29,
+       "note": "returned means the whole is sent back, read backwards"
       }
      ],
      "parts": [
@@ -1130,43 +1131,42 @@
          "indicators": [
           {
            "text": "taken by",
-           "note": "something taken by another is held within it"
+           "at": 5,
+           "note": "the ring is taken by, so held inside, the word for curious"
           }
          ],
          "parts": [
           {
            "words": "curious",
-           "gives": "NO",
-           "note": "nosy means curious; it opens here"
+           "at": 14,
+           "gives": "NOSY",
+           "note": "nosy means curious, prying"
           },
           {
            "words": "Ring",
+           "at": 0,
            "gives": "O",
            "note": "O is ring-shaped"
           }
          ]
         },
         {
-         "words": "curious",
-         "gives": "SY",
-         "note": "the rest of NOSY"
-        },
-        {
          "words": "cleric",
+         "at": 22,
          "gives": "REV",
-         "note": "Rev is short for Reverend, a cleric"
+         "note": "REV, short for reverend, is a cleric"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nosy vicar's wedding ring is soon to be given back.",
-     "walkthrough": "NO(O)SY + REV gives NOOSYREV, which read backwards is VERY SOON.",
-     "definitionFit": "Shortly and very soon both mean in a little while."
+     "surface": "A ring swiped by a prying vicar is soon given back.",
+     "walkthrough": "NOOSY plus REV, read backwards, gives VERY SOON.",
+     "definitionFit": "Very soon and shortly both mean in a little while."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Ring"
     }
