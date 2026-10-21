@@ -1211,25 +1211,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Party dumping leader",
-       "gives": "UP",
-       "note": "DUP, the Democratic Unionist Party of Northern Ireland, without its D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dumping leader",
+         "at": 6,
+         "note": "dumping its leader means the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Party",
+         "at": 0,
+         "gives": "DUP",
+         "note": "the DUP is Northern Ireland's Democratic Unionist Party"
+        },
+        {
+         "gives": "D",
+         "note": "the first letter of the party's initials"
+        }
+       ]
       },
       {
        "words": "charges",
+       "at": 21,
        "gives": "WARDS",
-       "note": "wards are people in someone's charge"
+       "note": "wards are people in someone's charge, such as children under a guardian"
       }
      ]
     },
     "explanation": {
-     "surface": "A political party gets rid of its leader and its fortunes rise.",
-     "walkthrough": "'Leader' suggests a party leader being ousted, but it is only the first letter of DUP. 'Charges' is people in your care, not fees.",
-     "definitionFit": "The question mark flags an adverb given as a phrase: upwards means towards greater heights."
+     "surface": "A political party sheds its leader and sends its charges upward.",
+     "walkthrough": "The DUP is the Democratic Unionist Party of Northern Ireland; without its D it leaves UP.",
+     "definitionFit": "Upwards means in an ascending direction, towards a higher position, and the question mark marks the loose phrasing."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "charges"
     }
    }

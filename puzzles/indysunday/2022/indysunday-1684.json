@@ -741,7 +741,8 @@
      "indicators": [
       {
        "text": "keeps",
-       "note": "to keep something is to hold it, so the turned word holds 'a role'"
+       "at": 20,
+       "note": "keeps means holds inside, so the reversed word contains the rest"
       }
      ],
      "parts": [
@@ -750,42 +751,45 @@
        "indicators": [
         {
          "text": "revolutionary",
-         "note": "a revolution turns something round, so 'still' is turned back to front"
+         "at": 6,
+         "note": "revolutionary means turning round, so the word for still is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Still",
-           "gives": "YET",
-           "note": "still and yet both mean even so, or up to now"
-          },
-          {
-           "words": "a",
-           "note": "the article as it stands"
-          }
-         ]
+         "words": "Still",
+         "at": 0,
+         "gives": "YET",
+         "note": "still means yet, as in 'not done yet'"
         }
        ]
       },
       {
-       "words": "role",
-       "gives": "PART",
-       "note": "an actor's role is a part"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 26
+        },
+        {
+         "words": "role",
+         "at": 28,
+         "gives": "PART",
+         "note": "a part is a role in a play"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A radical still has a job to do for America's conservative right.",
-     "walkthrough": "'Revolutionary' fits the surface nicely, since the Tea Party took its name from the Boston Tea Party of the American Revolution.",
-     "definitionFit": "The Tea Party is a populist conservative movement within American politics, broadly aligned with the Republican right."
+     "surface": "An unwavering revolutionary takes on a role for American conservatives.",
+     "walkthrough": "The Tea Party is a conservative movement within the US Republican Party, named after the 1773 Boston protest; 'revolutionary' nods to that history too.",
+     "definitionFit": "The Tea Party movement is a populist conservative faction of American politics, so its members are right-wing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Still"
+     "misdirectedWord": "revolutionary"
     }
    }
   },
@@ -1281,26 +1285,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Spider perhaps too short",
-       "gives": "RES",
-       "note": "in snooker a spider is a type of rest for the cue; REST without its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "too short",
+         "at": 15,
+         "note": "too short means the word is cut back by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spider perhaps",
+         "at": 0,
+         "gives": "REST",
+         "note": "a spider is a kind of rest, the support a snooker player uses to steady the cue; perhaps marks it as an example"
+        },
+        {
+         "gives": "T",
+         "note": "the final letter of the support"
+        }
+       ]
       },
       {
        "words": "snooker player",
+       "at": 27,
        "gives": "CUER",
-       "note": "one who plays with a cue"
+       "note": "a cuer is one who plays with a cue"
       }
      ]
     },
     "explanation": {
-     "surface": "A spider is too small; can the snooker player come to its rescue?",
-     "walkthrough": "'Spider' looks like the creature; in snooker it is a raised cue rest, one example of a rest, hence 'perhaps'.",
-     "definitionFit": "A rescuer is a person who saves someone from danger, so it is literally someone whose job is saving."
+     "surface": "A snooker player finds the spider rest too short to save the frame.",
+     "walkthrough": "'Spider' is not the creature but a raised snooker rest; without its last letter it gives RES.",
+     "definitionFit": "A rescuer is a person who saves someone from danger, so the answer is someone whose job is to save."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Spider"
     }
    }

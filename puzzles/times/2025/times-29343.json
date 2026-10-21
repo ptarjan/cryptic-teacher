@@ -1065,52 +1065,84 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "dismisses opener",
-       "note": "to dismiss is to send away, and the opener is the first letter"
-      },
-      {
-       "text": "it's reported"
+       "text": "before",
+       "at": 55,
+       "note": "in a down clue, before puts the earlier pieces above the next"
       }
      ],
      "parts": [
       {
-       "words": "fielder",
-       "gives": "INELEG",
-       "note": "FINE LEG minus its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dismisses opener",
+         "at": 25,
+         "note": "dismisses its opener means the first letter is sent away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fielder",
+         "at": 17,
+         "gives": "FINELEG",
+         "note": "fine leg is a fielding position in cricket, behind the batsman on the leg side"
+        },
+        {
+         "gives": "F",
+         "note": "the first letter of the fielder's position"
+        }
+       ]
       },
       {
-       "words": "and",
-       "gives": "AN",
-       "note": "AND shortened"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 47,
+         "note": "shortly means cut short, so the last letter of and goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "at": 43
+        },
+        {
+         "gives": "D",
+         "note": "last letter of and"
+        }
+       ]
       },
       {
        "op": "homophone",
        "spelt": "T",
        "indicators": [
         {
-         "text": "shortly",
-         "note": "said shortly, a word loses its end"
+         "text": "it's reported",
+         "at": 67,
+         "note": "it's reported means said aloud, so the word is heard as a letter"
         }
        ],
        "parts": [
         {
          "words": "tea",
+         "at": 62,
          "gives": "TEA",
-         "note": "the letter T is said like 'tea'"
+         "note": "tea sounds like the letter T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clumsy cricket fielder drops the opening batsman just before the tea interval.",
-     "walkthrough": "Fine leg is a cricket fielding position behind the batsman on the leg side. 'Dismisses opener' looks like getting the first batsman out; it drops the first letter.",
-     "definitionFit": "A plain synonym: finesse is refinement, and something without refinement is clumsy."
+     "surface": "A cricket report: a clumsy fielder gets the opening batsman out just before the tea interval.",
+     "walkthrough": "'Dismisses opener' sounds like a batsman getting out; it removes the F of fine leg, a fielding position behind the batsman. Tea said aloud is the letter T.",
+     "definitionFit": "Inelegant means clumsy or lacking grace and refinement, the opposite of having finesse."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "opener"
+     "misdirectedWord": "dismisses"
     }
    }
   },

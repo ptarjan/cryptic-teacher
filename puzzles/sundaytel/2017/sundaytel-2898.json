@@ -447,45 +447,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in tells us the vote mark sits inside the other letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "unusually",
-         "note": "unusually means not in the normal way, so the letters appear in an abnormal order"
+         "text": "in",
+         "at": 5,
+         "note": "in places the vote mark inside the rearranged letters"
         }
        ],
        "parts": [
         {
-         "words": "Vote",
-         "gives": "X",
-         "note": "a voter marks the ballot paper with a cross"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "unusually",
+           "at": 8,
+           "note": "unusually means in an unusual way, so the letters of polite take an unusual order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "polite",
+           "at": 18
+          }
+         ]
         },
         {
-         "words": "polite",
-         "note": "taken as written, to be rearranged"
+         "words": "Vote",
+         "at": 0,
+         "gives": "X",
+         "note": "X is the cross a voter marks on a ballot paper"
         }
        ]
       },
       {
        "words": "line",
-       "gives": "L",
-       "note": "L is the abbreviation for line"
+       "at": 25,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Cast your vote while queuing politely, then answer the pollster's questions afterwards.",
-     "walkthrough": "The definition is a cryptic hint: after voting you might be stopped and asked how you voted.",
-     "definitionFit": "An exit poll surveys voters as they leave the polling station, so one takes part after voting."
+     "surface": "A voter in a well-mannered queue is then asked to take part in a survey.",
+     "walkthrough": "The definition leans on the first half: after you have voted, a pollster outside may ask you to join this.",
+     "definitionFit": "An exit poll is a survey of voters leaving a polling station, so people who have just voted are asked to join it."
     },
     "features": {
      "answerInScene": true,

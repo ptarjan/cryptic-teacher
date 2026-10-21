@@ -94,44 +94,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "to bust",
-       "note": "to bust is to break apart, so the letters are smashed up and rebuilt"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "First of",
-         "note": "first of tells us to keep only the opening letter of the word that follows"
+         "at": 0,
+         "note": "the first of the word dudes is its opening letter only"
         }
        ],
        "parts": [
         {
          "words": "dudes",
-         "note": "opening letter of dudes"
+         "at": 9,
+         "note": "first letter of dudes"
         }
        ]
       },
       {
-       "words": "DEA hope",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bust",
+         "at": 27,
+         "note": "to bust something is to break it apart, so the letters of DEA and hope are broken up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "DEA",
+         "at": 15,
+         "note": "taken as written: the US Drug Enforcement Administration"
+        },
+        {
+         "words": "hope",
+         "at": 19
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "American drug agents hope to arrest the leading dude of some gang.",
-     "walkthrough": "The DEA is the US Drug Enforcement Administration; the whole clue doubles as the definition, since a drug user is exactly whom they would hope to bust.",
-     "definitionFit": "A habitual drug user is just the sort of person narcotics agents would aim to arrest, so the whole clue describes them."
+     "surface": "The American drug agency hopes to arrest some dude, presumably a user.",
+     "walkthrough": "The DEA is the US Drug Enforcement Administration, the very agency that hopes to bust a drug user, so the whole clue doubles as the definition.",
+     "definitionFit": "A drug user is the first of the dudes the narcotics agency would hope to arrest, so the whole clue describes one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "bust"
     }
    }
