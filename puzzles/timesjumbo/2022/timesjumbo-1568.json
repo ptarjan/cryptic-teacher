@@ -53,13 +53,14 @@
        "indicators": [
         {
          "text": "Onset of",
-         "note": "the onset of something is its very beginning, so only the opening letter is kept"
+         "at": 0,
+         "note": "the onset of tension is its first letter"
         }
        ],
        "parts": [
         {
          "words": "tension",
-         "note": "the first letter of tension"
+         "at": 9
         }
        ]
       },
@@ -68,17 +69,35 @@
        "indicators": [
         {
          "text": "in",
-         "note": "one item sitting in another means it is placed inside the other's letters"
+         "at": 30,
+         "note": "in places the pressure letter inside the pair of soldier letters"
         }
        ],
        "parts": [
         {
-         "words": "soldiers repeatedly",
-         "gives": "OROR",
-         "note": "OR (other ranks) is crossword shorthand for soldiers, here written twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 42,
+           "note": "repeatedly says the soldier letters appear twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "soldiers",
+           "at": 33,
+           "gives": "OR",
+           "note": "OR stands for other ranks, ordinary soldiers"
+          },
+          {
+           "gives": "OR"
+          }
+         ]
         },
         {
          "words": "pressure",
+         "at": 21,
          "gives": "P",
          "note": "P is the physics symbol for pressure"
         }
@@ -87,14 +106,13 @@
      ]
     },
     "explanation": {
-     "surface": "A tense, pressured spell in the army leaves the troops sluggish.",
-     "walkthrough": "The pressure sits between the two lots of soldiers, and the opening T goes in front: T + OR(P)OR.",
-     "definitionFit": "Torpor is a state of sluggish inactivity, a close synonym for listless lethargy."
+     "surface": "Constant tension and pressure on the troops lead to exhaustion.",
+     "walkthrough": "T, then P inside OR OR. OR, short for 'other ranks', means soldiers who are not officers.",
+     "definitionFit": "Torpor is a state of sluggishness and inactivity, the same as lethargy."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "repeatedly"
+     "aptDefinition": false
     }
    }
   },
@@ -1350,50 +1368,56 @@
    "annotation": {
     "definitions": [
      {
-      "text": "making fodder",
-      "at": 29
+      "text": "fodder",
+      "at": 36
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "off",
-       "note": "food gone off has spoiled, so these letters are spoiled into another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
-      {
-       "words": "Sealing",
-       "note": "taken as written"
-      },
       {
        "op": "middle",
        "indicators": [
         {
          "text": "centre of",
-         "note": "the centre of a word is its middle letter, the only one kept"
+         "at": 12,
+         "note": "the centre of field is its middle letter"
         }
        ],
        "parts": [
         {
          "words": "field",
-         "note": "the middle letter of field"
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 8,
+         "note": "off means gone wrong, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sealing",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer closes off the middle of a pasture to grow winter feed for cattle.",
-     "walkthrough": "'Fodder' tempts you to look for anagram material, yet it belongs to the definition: the process of making cattle feed.",
-     "definitionFit": "Ensilage is the process of storing green crops in a silo so they ferment into silage, a winter feed for livestock."
+     "surface": "A farmer seals off the middle of a field to make animal feed.",
+     "walkthrough": "E from fiEld, then SEALING rearranged by 'off' to NSILAGE.",
+     "definitionFit": "Ensilage is silage, green crops stored airtight to feed livestock through the winter."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "fodder"
+     "misdirectedWord": "off"
     }
    }
   },
@@ -1418,43 +1442,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "taken aback",
-       "note": "taken aback suggests moved backwards, so the letters run the other way"
-      },
-      {
-       "text": "turning",
-       "note": "turning something up, in this sense, flips it so it reads backwards"
+       "text": "about",
+       "at": 15,
+       "note": "about means surrounding, so the reversed so goes round the reversed up"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "to be about something is to surround it, so one piece goes round another"
+         "text": "taken aback",
+         "at": 3,
+         "note": "taken aback reads as taken backwards, so so is reversed"
         }
        ],
        "parts": [
         {
          "words": "So",
-         "note": "taken as written"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 21,
+         "note": "turning means turning round, so up is reversed"
+        }
+       ],
+       "parts": [
         {
          "words": "up",
-         "note": "taken as written"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone surprised to be showing up for their shift.",
-     "walkthrough": "Both short words are written backwards, and one sits inside the other.",
-     "definitionFit": "An opus is a musical or artistic work, often numbered in a composer's catalogue."
+     "surface": "Someone is surprised to see a colleague turning up for work.",
+     "walkthrough": "'taken aback' turns SO into OS, 'turning' turns UP into PU, and OS goes 'about' PU.",
+     "definitionFit": "An opus is a musical or literary composition, especially one numbered in a catalogue."
     },
     "features": {
      "answerInScene": false,

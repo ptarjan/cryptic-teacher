@@ -855,7 +855,8 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the scrambled word goes round the others"
+       "at": 10,
+       "note": "about means surrounding, so the rearranged letters go around the others"
       }
      ],
      "parts": [
@@ -864,42 +865,50 @@
        "indicators": [
         {
          "text": "nuts",
-         "note": "going nuts means going crazy, so the letters are scrambled"
+         "at": 5,
+         "note": "nuts means crazy, so the letters go crazy and are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Goes",
-         "note": "taken as written"
-        },
-        {
-         "words": "republican",
-         "gives": "R",
-         "note": "the standard abbreviation"
-        },
-        {
-         "words": "together with",
-         "gives": "AND",
-         "note": "a synonym"
+         "at": 0
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "the Roman numeral"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "republican",
+         "at": 16,
+         "gives": "R"
+        },
+        {
+         "words": "together with",
+         "at": 28,
+         "gives": "AND",
+         "note": "and means together with"
+        },
+        {
+         "words": "one",
+         "at": 42,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political figure loses it over a showy Republican colleague.",
-     "walkthrough": "G(R AND I)OSE.",
-     "definitionFit": "Grandiose describes something showy, imposing or trying too hard to impress."
+     "surface": "Someone goes crazy over a Republican and a pretentious companion.",
+     "walkthrough": "'nuts' rearranges GOES to GOSE, which goes 'about' R, AND and I.",
+     "definitionFit": "Grandiose describes something showy and pompous that tries too hard to impress, much like pretentious."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Goes"
+     "misdirectedWord": "nuts"
     }
    }
   },
@@ -1606,83 +1615,85 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "first half of",
-       "note": "only the opening half of the word is kept and the remainder dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "is amongst",
+         "at": 15,
+         "note": "is amongst means sits in the middle of the halved word"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "first",
          "indicators": [
           {
-           "text": "is amongst",
-           "note": "to be amongst something is to sit within it, so the group goes inside"
+           "text": "first half of",
+           "at": 26,
+           "note": "first half of keeps the opening three of the six letters of vulgar"
           }
          ],
          "parts": [
           {
            "words": "vulgar",
-           "gives": "VUL",
-           "note": "the first three of its six letters"
-          },
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Nothing",
-             "gives": "O",
-             "note": "zero, shaped like the letter O"
-            },
-            {
-             "words": "by",
-             "gives": "X",
-             "note": "by as in multiplication, the times sign"
-            },
-            {
-             "words": "dad",
-             "gives": "POP",
-             "note": "an informal word for father"
-            }
-           ]
+           "at": 40
           }
          ]
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so only the opening letter is used"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "insults",
-           "note": "the opening letter"
+           "words": "Nothing",
+           "at": 0,
+           "gives": "O",
+           "note": "O is the round figure zero, nothing"
+          },
+          {
+           "words": "by",
+           "at": 8,
+           "gives": "X",
+           "note": "X is the multiplication sign, read as by"
+          },
+          {
+           "words": "dad",
+           "at": 11,
+           "gives": "POP",
+           "note": "pop is a name for dad"
           }
          ]
         }
        ]
       },
       {
-       "gives": "N"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 56,
+         "note": "initially picks the first letter of insults"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insults",
+         "at": 47
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dad's coarse insults are dismissed as nothing more than common talk.",
-     "walkthrough": "V(O X POP)UL + I. 'By' standing for the multiplication sign X is a convention worth knowing.",
-     "definitionFit": "Vox populi is Latin for 'voice of the people', meaning popular opinion or street interviews."
+     "surface": "A father's silence among crude insults, at first, is what everyone is saying.",
+     "walkthrough": "OXPOP goes inside VUL, the first half of VULGAR, and I follows. Vox populi is Latin for 'voice of the people'.",
+     "definitionFit": "Vox populi means the voice of the people, public opinion as expressed in ordinary talk."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "by"
     }
    }

@@ -205,53 +205,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COLLAREDDOVES",
-     "indicators": [
-      {
-       "text": "odd",
-       "note": "odd means strange or out of the usual order, so the remaining letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "COLLAREDDOVES",
+       "words": "caught",
+       "at": 6,
+       "gives": "COLLARED",
+       "note": "collared means caught or arrested"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "released",
-         "note": "something released is let go, so that letter leaves the word it was in"
+         "text": "odd",
+         "at": 16,
+         "note": "odd means strange, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "caught",
-         "gives": "COLLARED",
-         "note": "to collar a suspect is to catch them"
-        },
-        {
-         "words": "videos",
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "note": "the letter removed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "released",
+           "at": 29,
+           "note": "released means let go, so the I is let out of videos"
+          }
+         ],
+         "parts": [
+          {
+           "words": "videos",
+           "at": 20
+          },
+          {
+           "words": "I",
+           "at": 27
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Birdwatchers catch sight of something on strange videos that were let out.",
-     "walkthrough": "Take the I out of VIDEOS, then rearrange the five letters left.",
-     "definitionFit": "Collared doves are common pigeon-like birds named for the black half-ring on the neck."
+     "surface": "Someone was caught on peculiar video footage that has now been published.",
+     "walkthrough": "VIDEOS minus I is VDEOS, which 'odd' rearranges into DOVES.",
+     "definitionFit": "Collared doves are pale grey-brown pigeons with a black neck ring, common across Europe."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "caught"
+     "misdirectedWord": "released"
     }
    }
   },
