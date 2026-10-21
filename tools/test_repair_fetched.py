@@ -531,5 +531,12 @@ check(slips["entries"][3]["clue"]["text"], "Plain clue about a thing", "a plain 
 check(str(rf.offsets("ab . cd", "ab cd")), "[0, 1, 2, 3, 3, 3, 4, 5]", "offsets: kept characters move with their block")
 check(str(rf.mend_clue_text(slips)), "{}", "a second run changes nothing")
 
+print("a reread's stray neighbouring words are what a spoiled clue's repair takes back")
+check(str(rf.grown("Fluid that comes with a plant", "Fluid that comes with a plant Wales. Midlands.")), "True", "two stray words after the clue are grown")
+check(str(rf.grown("Understand something in a tongue", "Understand I something in a tongue")), "True", "a stray letter inside is grown")
+check(str(rf.grown("Love a fellow", "Love a fellow and a friend too")), "False", "a run of real words is a clue the held copy cut short")
+check(str(rf.grown("Fellow in city shell", "Fellow in city's shell")), "False", "a changed word is no growth")
+check(str(rf.grown("Frontier cantonment", "Frontier cantonment")), "False", "the same words are no growth")
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)

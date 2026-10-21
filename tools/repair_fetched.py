@@ -111,9 +111,11 @@ import copy
 import re
 import json
 import re
+import subprocess
 import sys
 from collections import Counter
 from datetime import datetime, timedelta, timezone
+from difflib import SequenceMatcher
 from pathlib import Path
 
 import enumeration
@@ -121,6 +123,7 @@ import fetch_puzzle as fetcher  # the rules being applied live there
 import groups
 import lesson_checks
 import punctuation
+import puzzle_paths
 from groups import entry_id
 import series as series_meta
 
@@ -574,8 +577,86 @@ def repair(path, puzzle, apply_it, padding_only=False):
     return f"{path.stem}: " + "; ".join(notes)
 
 
+def git_out(*args):
+    """The stdout of a git command run in the repo, or "" when it fails."""
+    done = subprocess.run(["git", "-C", str(fetcher.ROOT), *args], capture_output=True, text=True)
+    return done.stdout if done.returncode == 0 else ""
+
+
+def spoiled_commits(since, ref="origin/master"):
+    """{puzzle id: [parent-side shas, newest first]} for each puzzle an
+    "Update times-" commit on `ref` since `since` rewrote."""
+    touched = {}
+    log = git_out("log", f"--since={since}", "--format=@%H", "--name-only", "--grep=^Update times-", ref)
+    sha = None
+    for line in log.splitlines():
+        if line.startswith("@"):
+            sha = line[1:]
+        elif line.endswith(".json") and sha:
+            touched.setdefault(Path(line).stem, []).append((sha, line))
+    return touched
+
+
+def repair_spoiled_clues(since="2026-10-20", apply_it=False, ref="origin/master"):
+    """[(id, light, was, now)] for each clue a reread of a times puzzle
+    spoiled with the neighbouring print's words and this restores. For each
+    puzzle an "Update times-" commit since `since` rewrote, each commit's
+    parent copy is the held file and the current file the reading:
+    file_archive_org_puzzles.keep_held_clues takes back each held clue the
+    new text does not corrects() (a restored "a" or "and" does, so stays).
+    Answers and all else stay the current file's. Only the touched puzzles
+    are loaded."""
+    import file_archive_org_puzzles as archive
+    restored = []
+    for pid, commits in sorted(spoiled_commits(since, ref).items()):
+        path = puzzle_paths.find(pid)
+        if path is None:
+            continue
+        puzzle = fetcher.read_puzzle_file(path)
+        done = set()
+        for sha, rel in commits:
+            try:
+                old = json.loads(git_out("show", f"{sha}^:{rel}"))
+            except ValueError:
+                continue
+            # keep_held_clues also takes back a held clue the reread fixed
+            # ("enter tained"), so only the lights the reread grew words in
+            # are taken from its copy.
+            kept = copy.deepcopy(puzzle)
+            lost = {entry_id(e): e for e in kept["entries"]}
+            for lid in archive.keep_held_clues(kept, old):
+                e = next(e for e in puzzle["entries"] if entry_id(e) == lid)
+                was, now = (e.get("clue") or {}).get("text") or "", lost[lid]["clue"]["text"]
+                if lid in done or not grown(now, was):
+                    continue
+                done.add(lid)
+                e["clue"] = lost[lid]["clue"]
+                if "annotation" in lost[lid]:
+                    e["annotation"] = lost[lid]["annotation"]
+                restored.append((pid, lid, was, now))
+        if done and apply_it:
+            fetcher.write_puzzle_file(path, puzzle)
+    return restored
+
+
+def grown(held, now):
+    """Whether the clue text `now` is the held `held` with a few words added
+    and none lost: a reread laying neighbouring print in a clue. A run of
+    four words or more is the rest of a clue the held copy cut short."""
+    words = lambda text: re.findall(r"\w+(?:'\w+)?", text.lower())
+    held_w, now_w = words(held), words(now)
+    it = iter(now_w)
+    if len(now_w) <= len(held_w) or not all(w in it for w in held_w):
+        return False
+    runs = SequenceMatcher(None, held_w, now_w, autojunk=False).get_opcodes()
+    return all(j2 - j1 < 4 for op, _i1, _i2, j1, j2 in runs if op == "insert")
+
+
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--spoiled-clues", nargs="?", const="2026-10-20", metavar="SINCE",
+                    help="only restore the held clue of each times puzzle an 'Update times-' commit since SINCE "
+                         "(default 2026-10-20) spoiled with a reread's neighbouring words; --apply writes")
     ap.add_argument("--apply", action="store_true",
                     help="write the repairs; without it nothing is written")
     ap.add_argument("--dry-run", action="store_true",
@@ -599,6 +680,13 @@ def main(argv):
         return 0
     if args.apply and args.dry_run:
         ap.error("--apply and --dry-run say opposite things; pass one")
+    if args.spoiled_clues:
+        restored = repair_spoiled_clues(args.spoiled_clues, args.apply)
+        for pid, lid, was, now in restored:
+            print(f"{pid} {lid}: {was!r} -> {now!r}")
+        print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} clue(s) "
+              f"{'restored' if args.apply else 'would be restored'}")
+        return 0
     if args.series and args.series not in series_meta.SERIES:
         ap.error(f"no series {args.series!r} — " + ", ".join(sorted(series_meta.SERIES)))
 
