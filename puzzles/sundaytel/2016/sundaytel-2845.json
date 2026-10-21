@@ -891,40 +891,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 11,
+       "note": "in says the Republican goes inside the group's letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "something placed in a group sits within its members"
-        }
-       ],
-       "parts": [
-        {
-         "words": "dissenting group",
-         "gives": "FA",
-         "note": "start of faction, a breakaway group within a party"
-        },
-        {
-         "words": "Republican",
-         "gives": "R",
-         "note": "standard abbreviation"
-        }
-       ]
+       "words": "dissenting group",
+       "at": 14,
+       "gives": "FACTION",
+       "note": "a faction is a breakaway group within a party"
       },
       {
-       "words": "dissenting group",
-       "gives": "CTION",
-       "note": "rest of faction"
+       "words": "Republican",
+       "at": 0,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A Republican in a rebel wing behaves crudely or badly.",
-     "walkthrough": "'Vulgar' and 'improper' sound like bad behaviour, but they are mathematical: a vulgar fraction is like 3/4, an improper one like 5/4.",
-     "definitionFit": "In arithmetic, vulgar (common) and improper fractions are two kinds of numerical ratio written as one number over another."
+     "surface": "A rebel Republican in a splinter group accused of bad behaviour.",
+     "walkthrough": "'Vulgar' and 'improper' look like moral judgements, but they are the two arithmetic kinds: 2/3 is vulgar, 5/3 improper.",
+     "definitionFit": "In arithmetic, vulgar and improper are types of common fraction, so the answer is something that can be either."
     },
     "features": {
      "answerInScene": false,
@@ -959,49 +951,46 @@
      "indicators": [
       {
        "text": "losing",
-       "note": "losing items means they are taken away from the phrase"
+       "at": 14,
+       "note": "losing means doing without, so these letters are removed"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "For instance",
-         "note": "taken as written"
-        },
-        {
-         "words": "ring",
-         "gives": "O",
-         "note": "a ring is round like the letter"
-        }
-       ]
+       "words": "For instance",
+       "at": 0
       },
       {
        "op": "charade",
        "parts": [
         {
+         "words": "ring",
+         "at": 21,
+         "gives": "O",
+         "note": "a ring is shaped like the letter O"
+        },
+        {
          "words": "in",
-         "note": "taken as written"
+         "at": 32
         },
         {
          "words": "street",
-         "gives": "ST",
-         "note": "abbreviation for street"
+         "at": 35,
+         "gives": "ST"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An example loses a ring, also on a street, somewhere in Europe.",
-     "walkthrough": "The ring, the word 'in' and the street abbreviation all come out of the opening phrase; 'and ... too' adds the last two to the list.",
-     "definitionFit": "France is a country in western Europe, so it is a region of the continent."
+     "surface": "An example of someone losing a ring in the road while travelling in Europe.",
+     "walkthrough": "From FORINSTANCE take out O, then IN and ST.",
+     "definitionFit": "France is a country of western Europe."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "instance"
+     "misdirectedWord": "ring"
     }
    }
   },

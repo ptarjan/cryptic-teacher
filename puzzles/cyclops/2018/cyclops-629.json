@@ -613,59 +613,62 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in says the support and right go inside"
+      }
+     ],
      "parts": [
       {
-       "words": "a",
-       "note": "taken as written"
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in places one thing within another, so a pair of pieces sits inside the rest"
-        }
-       ],
+       "op": "charade",
        "parts": [
+        {
+         "words": "a",
+         "at": 17
+        },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "forlorn",
-           "note": "forlorn means wretched and in a sorry state, so these letters are knocked out of order"
+           "at": 19,
+           "note": "forlorn means wretched, a state of disarray, so the letters are rearranged"
           }
          ],
          "parts": [
           {
            "words": "hope",
-           "note": "taken as written, then rearranged"
+           "at": 27
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Support",
+         "at": 0,
+         "gives": "POST",
+         "note": "a post is a support"
         },
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "Support",
-           "gives": "POST",
-           "note": "a post is an upright support"
-          },
-          {
-           "words": "right",
-           "gives": "R",
-           "note": "R is the standard abbreviation for right"
-          }
-         ]
+         "words": "right",
+         "at": 8,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Backing the right side in a lost cause, which might suggest someone lacking moral fibre.",
-     "walkthrough": "'character' looks like moral fibre, but it means a letter: the punctuation mark stands where letters are missing, as in don't.",
-     "definitionFit": "This punctuation mark indicates omitted letters in contractions, so it signals that a typographic character is absent."
+     "surface": "A desperate scheme propped up by the political right, a mark of no moral fibre.",
+     "walkthrough": "A forlorn hope is a doomed venture, but here 'forlorn' only scrambles the word after it. 'Character' means a written letter, not personality.",
+     "definitionFit": "An apostrophe marks where letters have been left out, as in don't, so it signals a missing character."
     },
     "features": {
      "answerInScene": false,
@@ -1319,7 +1322,7 @@
       {
        "text": "after",
        "at": 46,
-       "note": "after means the following parts come after the opening letter in the answer"
+       "note": "after says the Republican and eminent letters follow Trump's last letter"
       }
      ],
      "parts": [
@@ -1329,39 +1332,51 @@
         {
          "text": "last",
          "at": 60,
-         "note": "last means take the final letter of the name Trump"
+         "note": "last picks the final letter of Trump"
         }
        ],
        "parts": [
         {
-         "words": "Trump's",
-         "at": 52,
-         "gives": "TRUMP",
-         "note": "the name Trump, taken as written"
+         "words": "Trump",
+         "at": 52
         }
        ]
       },
       {
-       "words": "Republican and eminent leaders",
-       "at": 0,
-       "gives": "RE",
-       "note": "the leading letters of Republican and eminent, R and E"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leaders",
+         "at": 23,
+         "note": "leaders are the first letters of Republican and eminent"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Republican",
+         "at": 0
+        },
+        {
+         "words": "eminent",
+         "at": 15
+        }
+       ]
       },
       {
        "words": "speech",
        "at": 39,
        "gives": "DICTION",
-       "note": "diction is a manner of speech"
+       "note": "diction is manner of speech"
       }
      ]
     },
     "explanation": {
-     "surface": "A political forecast about Republican grandees needing Trump to speak.",
-     "walkthrough": "Trump's last means the final letter of the name, not of the possessive.",
-     "definitionFit": "A prediction is a statement of what will happen, which is what a prophecy foretells."
+     "surface": "A forecast about the Republican big shots needing a speech once Trump has gone.",
+     "walkthrough": "P from the end of 'Trump', then RE and DICTION.",
+     "definitionFit": "A prediction is a forecast of what will happen, the same as a prophecy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "speech"
     }
