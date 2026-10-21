@@ -66,7 +66,7 @@ BLOGS = downloads.ROOT
 FT_PDF = BLOGS / "ft-pdf"
 TROVE = downloads.TROVE
 ROOM = "cryptic-crosswords"
-WAKE_SH = os.environ.get("WAKE_SH", "/Users/pt/github/household/tools/wake.sh")
+WAKE_SH = os.environ.get("WAKE_SH") or __import__("local_config").path("household_dir") + "/tools/wake.sh"
 TOP = 3
 
 Cause = collections.namedtuple("Cause", "owner fix actionable unknown")

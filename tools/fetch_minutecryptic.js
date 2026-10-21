@@ -89,8 +89,7 @@ async function get(url, asJson) {
 // printed, never written to tools/data/. MC_EMAIL / MC_PASSWORD override it so
 // the script stays usable somewhere the memory file doesn't exist.
 // CLAUDE_CONFIG_DIR first: $HOME is not the config dir. In the container the
-// agent's home is /data/home and its memory is on a different volume at
-// /data/claude, so deriving this from $HOME reads a path that does not exist and
+// agent's home and its memory are on different volumes, so deriving this from $HOME reads a path that does not exist and
 // signs in anonymously without saying so.
 const CRED_FILE = path.join(
   process.env.CLAUDE_CONFIG_DIR || path.join(process.env.HOME, ".claude"),

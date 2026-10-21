@@ -6,7 +6,7 @@ loan). Every folder a fetcher fills is named here and nowhere else;
 tools/test_downloads.py fails on a path spelled anywhere else in tools/.
 Derived caches a tool can rebuild from these (crops, OCR and VLM readings,
 the integrity index) stay in ~/.cache. Gale's pages are the one exception:
-they stay on the Mac's media disk, /Volumes/Media/Gale crosswords
+they stay on the media disk, under its "Gale crosswords" folder
 (tools/gale_inbox.py).
 
     python3 tools/downloads.py      # print ROOT, for shell scripts
@@ -14,10 +14,13 @@ they stay on the Mac's media disk, /Volumes/Media/Gale crosswords
 import os
 from pathlib import Path
 
-# The Mac's media disk, at the same path on the Mac and in the bridge
-# container (a bind mount). On the boot disk the downloads filled the Mac.
+import local_config
+
+# The media disk (the local config's media_root), at the same path on the
+# host that owns it and in the bridge container (a bind mount). On the boot
+# disk the downloads filled the host.
 # CT_DOWNLOADS moves the whole root, for a test that must not touch the real one.
-ROOT = Path(os.environ.get("CT_DOWNLOADS") or "/Volumes/Media/cryptic-setter-data")
+ROOT = Path(os.environ.get("CT_DOWNLOADS") or local_config.path("media_root") + "/cryptic-setter-data")
 # Only the real disk holds this file: with Media unmounted the path is an empty
 # folder (Docker makes one for the mount), and filling it would fill the boot disk.
 # Where the path is absent (CI, the site build) nothing can be written there,

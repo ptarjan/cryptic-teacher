@@ -5,11 +5,8 @@ where    = "container"
 # Run from the corpus queue's worktree, which its hourly tick resets to
 # origin/master, so the script exists even when the main checkout is behind.
 # tools/nightly_worktree.sh then moves the run into a worktree of its own.
-run      = "/Users/pt/.cryptic-teacher/corpus_queue/tools/coverage.sh"
+run      = "~/.cryptic-teacher/corpus_queue/tools/coverage.sh"
 args     = ["daily"]
-log      = "/Users/pt/github/cryptic-teacher/.coverage.log"
+log      = "~/github/cryptic-teacher/.coverage.log"
 timeout  = 1800
 
-[env]
-XDG_CONFIG_HOME  = "/Users/pt/.config"
-CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"

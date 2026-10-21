@@ -254,7 +254,9 @@ rm -f /tmp/ct-prereset-*.resume
 # hourly plugin launch is not a track-job.sh --run, so it registers itself here,
 # past the lock: a fire that found a burn running never gets this far. A
 # re-exec is the same pid, already registered.
-TRACK_JOB="${TRACK_JOB:-/Users/pt/github/household/tools/track-job.sh}"
+TRACK_JOB="${TRACK_JOB:-$(python3 "$REPO/tools/local_config.py" household_dir)/tools/track-job.sh}"
+PRERESET_LOG="${PRERESET_LOG:-}"
+PRERESET_LOG="${PRERESET_LOG/#\~/$HOME}"  # the plugin's env is not ~-expanded
 if [ -n "${HOUSEHOLD_ROOM:-}" ] && [ -x "$TRACK_JOB" ]; then
   "$TRACK_JOB" ${PRERESET_LOG:+--log "$PRERESET_LOG"} "$HOUSEHOLD_ROOM" "$$" "Hint burn" \
     "grep -E '^(committed|rejected|--- pool)' '$RUN_LOG' | tail -1" >/dev/null 2>&1 \

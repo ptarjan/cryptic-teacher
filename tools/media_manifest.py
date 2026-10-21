@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """What the media disk holds, kept on the SSD so no scheduled job walks it.
 
-The media disk (downloads.ROOT, /Volumes/Media) spins: a job that globs,
+The media disk (downloads.ROOT) spins: a job that globs,
 lists or stats its folders on a schedule keeps it awake (Paul 2026-10-14:
 "I don't want anything regularly scanning the spinning disk"). So the code
 that writes a file there appends a row to that folder's manifest here, and

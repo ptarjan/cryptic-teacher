@@ -2810,11 +2810,18 @@ tools/reapply_annotation.py                    re-apply a commit's annotation on
                                                copy of its puzzle when push_puzzle_commit.sh's
                                                replay conflicts
 tools/desktop_hosts.py                         the desktop's LAN and tailnet addresses, read
-                                               once from desktop_hosts.json by python and shell
+                                               once from the local config by python and shell
                                                callers
-tools/desktop_hosts.json                       the desktop's addresses, LAN first, tailnet as
-                                               fallback: the one place to edit when its DHCP
-                                               lease changes
+tools/local_config.py                          this machine's own details (the GPU host's
+                                               addresses and user, the media host's login, the
+                                               media disk's mount, the sibling household
+                                               checkout) read from an untracked per-machine
+                                               JSON file or CT_* environment variables, so none
+                                               is committed to this public repo
+tools/test_local_config.py                     does tools/local_config.py read a machine's
+                                               details from the untracked file, let CT_*
+                                               variables win, and fall back to values naming no
+                                               real machine?
 tools/test_clue_repair.py                      does tools/clue_repair.py give a clue whose
                                                bracket its own reading lost the count another
                                                reading prints, in its parts, so the scan filers

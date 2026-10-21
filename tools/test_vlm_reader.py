@@ -9,6 +9,10 @@
 # The VLM is mocked: no network, no scan, nothing written outside a temp dir.
 import atexit
 import os
+
+# The desktop the code reaches is a fake one: the real addresses live in an untracked local config.
+os.environ.update(CT_LOCAL_CONFIG="/nonexistent", CT_DESKTOP_USER="tester", CT_VLM_PORT="8000",
+                  CT_DESKTOP_ADDRESSES="192.0.2.198 192.0.2.180 100.64.0.15", CT_DESKTOP_HOME="C:\\Users\\tester\\ocrw")
 import shutil
 import sys
 import tempfile
@@ -39,9 +43,9 @@ vlm.CACHE = T / "vlm"
 (T / "slot-tmp").mkdir(exist_ok=True)
 tempfile.tempdir = str(T / "slot-tmp")  # the host's real slot locks may be held by live askers
 # A fake desktop, never the real one: two LAN leases and a tailnet address
-# from the documentation ranges (RFC 5737), whatever tools/desktop_hosts.json
+# from the documentation ranges (RFC 5737), whatever the local config
 # lists, and no ssh to ask whether it is busy.
-vlm.URLS = ["http://192.0.2.198:8090", "http://192.0.2.180:8090", "http://198.51.100.15:8090"]
+vlm.URLS = ["http://192.0.2.198:8000", "http://192.0.2.180:8000", "http://198.51.100.15:8000"]
 vlm.desktop_busy.busy = lambda hosts: None
 
 # Nothing listening: not reachable, and asked once.
@@ -233,8 +237,8 @@ check("an override URL is not re-resolved", "http://127.0.0.1:9", vlm.URL)
 vlm.URL = lan
 # Tailnet first: of the others, the tailnet (100.64.0.0/10) URL is asked before a LAN one.
 kept_urls = vlm.URLS
-vlm.URLS = ["http://192.0.2.198:8090", "http://192.0.2.180:8090", "http://100.68.145.15:8090"]
-check("others after the URL: tailnet before LAN", ["http://100.68.145.15:8090", "http://192.0.2.180:8090"],
+vlm.URLS = ["http://192.0.2.198:8000", "http://192.0.2.180:8000", "http://100.64.0.15:8000"]
+check("others after the URL: tailnet before LAN", ["http://100.64.0.15:8000", "http://192.0.2.180:8000"],
       sorted([u for u in vlm._candidates() if u != vlm.URLS[0]], key=lambda u: not vlm._on_tailnet(u)))
 vlm.URLS = kept_urls
 urllib.request.urlopen = real

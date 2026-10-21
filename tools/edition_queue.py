@@ -75,7 +75,7 @@ imports at module level, transitively, the scripts it starts and its wrappers;
 a change elsewhere in tools/ logs "reload: ignoring N changed files" and
 waits for the next relevant one). CT_AUTO_RELOAD=0 opts out.
 
-With CT_YIELD_HOSTS set (space-separated ssh hosts, e.g. "micro@192.168.1.198";
+With CT_YIELD_HOSTS set (space-separated ssh hosts, e.g. "user@host.example";
 unset by default) the queue yields to those hosts too, even with OCR_REMOTE
 empty (scans and reads OCR here, on a machine Paul also games on): while
 desktop_busy.busy says one is busy, nothing but fetches starts, exactly as

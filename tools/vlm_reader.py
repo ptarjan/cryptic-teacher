@@ -48,11 +48,11 @@ import desktop_hosts
 from ocr_clues import unhyphen
 
 TOOLS = Path(__file__).resolve().parent
-#: The desktop's VLM addresses, tailnet first (tools/desktop_hosts.json); URL is
+#: The desktop's VLM addresses, tailnet first (tools/local_config.py); URL is
 #: the one in use: VLM_READER_URL if set (it alone, no fallback), else the
 #: first of URLS that answers (resolve()), the LAN one until then.
 URLS = sorted(desktop_hosts.VLM_URLS, key=lambda u: not desktop_hosts.tailnet(u.split("//")[1].rsplit(":", 1)[0]))
-URL = os.environ.get("VLM_READER_URL", URLS[0])
+URL = os.environ.get("VLM_READER_URL", URLS[0] if URLS else "")  # no local config: no VLM
 #: Seconds every URL has to answer, all asked at once (resolve): the tailnet
 #: path goes quiet for seconds in bursts.
 CONNECT_TIMEOUT = 3

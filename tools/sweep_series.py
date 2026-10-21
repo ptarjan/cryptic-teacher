@@ -60,7 +60,7 @@ def main():
     ledger = Path(
         sys.argv[4]
         if len(sys.argv) > 4
-        else f"/Users/pt/.cryptic-teacher/{series}_404.txt"
+        else os.path.expanduser(f"~/.cryptic-teacher/{series}_404.txt")
     )
     seen = set(ledger.read_text().split()) if ledger.exists() else set()
     filed = 0

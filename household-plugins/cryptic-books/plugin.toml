@@ -9,17 +9,9 @@ room     = "cryptic-crosswords"
 # next tick, beside any other read (.books.log has every loan and refusal).
 schedule = "*/10 * * * *"
 where    = "container"
-run      = "/Users/pt/github/cryptic-teacher/tools/acquire_books.sh"
+run      = "~/github/cryptic-teacher/tools/acquire_books.sh"
 # The transcript is how a run that went wrong is read back; the scheduler's
 # own stdout goes to `docker logs`, where nothing looks for it.
-log      = "/Users/pt/github/cryptic-teacher/.books.log"
+log      = "~/github/cryptic-teacher/.books.log"
 # The tick only plans; the units' limits are their own (tools/book_units.py).
 timeout  = 600
-
-# Both pin this job's state to the volume, agreeing with $HOME rather than
-# overriding it — spelled out because the job is also run by hand, and a shell
-# that inherited some other $HOME would put the archive.org loan ledger and a
-# half-finished worktree somewhere nothing looks for them again.
-[env]
-XDG_CONFIG_HOME  = "/Users/pt/.config"
-CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"

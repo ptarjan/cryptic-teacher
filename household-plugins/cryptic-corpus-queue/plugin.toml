@@ -8,11 +8,8 @@ where    = "container"
 # The job's own worktree, not the main checkout: that one fast-forwards only
 # when clean, so a script newer than its last clean moment is not in it.
 # tools/nightly_worktree.sh resets this tree to origin/master on every run.
-run      = "/Users/pt/.cryptic-teacher/corpus_queue/tools/corpus_queue.sh"
+run      = "~/.cryptic-teacher/corpus_queue/tools/corpus_queue.sh"
 args     = ["tick"]
-log      = "/Users/pt/github/cryptic-teacher/.corpus_queue.log"
+log      = "~/github/cryptic-teacher/.corpus_queue.log"
 timeout  = 600
 
-[env]
-XDG_CONFIG_HOME  = "/Users/pt/.config"
-CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"

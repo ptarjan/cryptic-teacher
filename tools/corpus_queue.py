@@ -87,7 +87,7 @@ LEDGERS = [downloads.ARCHIVE_ORG / "filed.jsonl", downloads.GALE_LEDGER, media_m
 #: or its clue zones (trove-zones) to, so a mark stats no media-disk folder.
 FETCHED = [media_manifest.path(media_manifest.ARCHIVE_EDITIONS), media_manifest.path(media_manifest.TROVE_TITLES),
            media_manifest.path(media_manifest.TROVE_ZONES)]
-WAKE_SH = os.environ.get("WAKE_SH", "/Users/pt/github/household/tools/wake.sh")
+WAKE_SH = os.environ.get("WAKE_SH") or __import__("local_config").path("household_dir") + "/tools/wake.sh"
 TRACK_JOB = os.environ.get("TRACK_JOB", str(Path(WAKE_SH).parent / "track-job.sh"))
 LABEL = "corpus OCR full pass"
 ROOM = "cryptic-crosswords"

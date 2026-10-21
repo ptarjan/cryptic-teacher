@@ -51,7 +51,7 @@ STATE = Path(tempfile.gettempdir())
 #: Every DESKTOPS address is the one desktop, its host key known by its
 #: tailnet address (this host's known_hosts is read-only).
 SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=5", "-o", "ServerAliveInterval=15",
-       "-o", "ServerAliveCountMax=4", "-o", "HostKeyAlias=100.68.145.15"]
+       "-o", "ServerAliveCountMax=4", "-o", f"HostKeyAlias={desktop_hosts.ADDRESSES[-1] if desktop_hosts.ADDRESSES else 'desktop'}"]
 clock = time.time
 
 
