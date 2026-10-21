@@ -5988,6 +5988,28 @@ def _text_linked(st, paper, d, rel, scan, day, held, deadline, fh):
     return linked
 
 
+#: The due reason of a verdict recorded while no VLM address was configured
+#: (vlm_reader.unconfigured): read OCR-only by accident, so incomplete or
+#: unfiled for want of the asks. Evidence (edition_queue.evidence_reason) and
+#: ranked like never-read work, not a blanket reread.
+UNCONFIGURED_READ = "read while the VLM was unconfigured"
+#: Spans (first, last readAt, UTC ISO text) of rows written before rows carried
+#: the "vlmUnset" mark, when no VLM address was configured: 10-21 06:59-07:34,
+#: the live queue (HOME=/data/home) had no ~/.config/cryptic-teacher/local.json
+#: after commit 763b3d76b2 moved the addresses there. Only rows with no "vlm" count.
+UNCONFIGURED_SPANS = (("2026-10-21T06:59:00+00:00", "2026-10-21T07:34:59+00:00"),)
+
+
+def read_unconfigured(row):
+    """Whether ledger `row` records a read made while the VLM URL was empty
+    by accident: marked "vlmUnset" when written (edition_commit.row), or, with
+    no VLM version, read within UNCONFIGURED_SPANS."""
+    if row.get("vlm"):
+        return False
+    at = row.get("readAt") or ""
+    return bool(row.get("vlmUnset")) or any(a <= at <= b for a, b in UNCONFIGURED_SPANS)
+
+
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
     """Why an edition's ledger `row` is read again, or None: never read, its
     files (input_hash) or the solutions it can see moved, a solution it read
@@ -6000,6 +6022,8 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
     model or prompt; the whole-corpus rank, behind everything else)."""
     if "inputs" not in row:
         return "never read"
+    if vlm_up and read_unconfigured(row):
+        return UNCONFIGURED_READ
     if row["inputs"] != inputs or row.get("solutionsSeen") != sol_seen:
         return "inputs changed"
     if any(v.get("solutionFrom") and v["solutionFrom"] not in (sol_from or {}).get(v["number"], {v["solutionFrom"]})
@@ -6114,7 +6138,7 @@ FRESH = 3600
 #: does a read by another VLM version (a model or prompt change).
 #: Within a rank, the reads likely() predicts to file the most puzzles
 #: whole go first. Every reason due_reason or plan gives is named here.
-RANKS = {"just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
+RANKS = {"just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,

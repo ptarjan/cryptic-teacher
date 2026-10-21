@@ -673,7 +673,8 @@ def _asked():
 #: listener's "version changed" flag no puzzle in particular, so they are not
 #: planned unless CT_BLANKET_REREADS=1 (the old behaviour).
 def evidence_reason(reason):
-    return (reason in ("never read", "never scanned", "never read (Gale fetch)", "just laid out", "annotation asked")
+    return (reason in ("never read", "never scanned", "never read (Gale fetch)", "just laid out", "annotation asked",
+                       fa.UNCONFIGURED_READ)  # read OCR-only by accident (the VLM URL empty): as good as unread
             or (reason.startswith("refused ") and reason.endswith(" before its fix"))
             or reason == "unfiled before its fix"  # a puzzle written with blank clues, a column-layout fix since
             or reason.endswith(" cured since"))  # trove: the fix for the cause a read was refused for landed
@@ -757,6 +758,9 @@ def _plan(papers, cache, reread, out, asked=None):
     asked = _asked() if asked is None else asked
     scans, reads = [], []
     blanket = blanket_rereads()
+    if vlm_reader.unconfigured() and out is not None:
+        out.append(f"VLM NOT CONFIGURED: {vlm_reader.UNCONFIGURED}; treated as VLM down, "
+                   "reads that need it wait (an explicitly empty VLM_READER_URL is the OCR-only opt-out)")
     began, took = time.monotonic(), {}
     for k, key in enumerate(papers):
         took[key] = time.monotonic()
@@ -1442,11 +1446,15 @@ def nap(seconds):
 
 
 def vlm_up():
-    """Whether the VLM answers: vlm_gate_reader(), else vlm_reader.up()
-    (True with no VLM URL set: then the reads are made without it)."""
+    """Whether the VLM answers: vlm_gate_reader(), else vlm_reader.up(). False
+    when no VLM address was ever configured (vlm_reader.unconfigured: it is
+    down, never OCR-only by accident); True under an explicitly empty
+    VLM_READER_URL (the opt-out: then the reads are made without it)."""
     if vlm_gate_reader is not None:
         return vlm_gate_reader()
     import vlm_reader
+    if vlm_reader.unconfigured():
+        return False
     return not vlm_reader.URL or vlm_reader.up()
 
 

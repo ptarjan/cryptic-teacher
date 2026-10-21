@@ -150,6 +150,10 @@ def row(rel, inputs_key, found, files_hash, scan_key, sol_seen, verdicts, vlm=No
            "readAt": scan_queue.now()}
     if vlm:
         out["vlm"] = vlm
+    else:
+        import vlm_reader
+        if vlm_reader.unconfigured():
+            out["vlmUnset"] = True  # read with no VLM address configured: due again (fa.UNCONFIGURED_READ)
     return out
 
 
