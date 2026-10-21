@@ -1090,6 +1090,18 @@ check("a fuller reading replaces this tool's file, never another tool's or an eq
                              f.improves(p3(["Top"]), pz / "theirs.json"),
                              f.improves(p3([""]), pz / "own.json")])
 
+# keep_held_clues(): a reading that improves() the file keeps the held clues it only spoils with
+# the neighbouring print's words (times-18379), and takes a held blank and a real correction.
+(pz / "held.json").write_text(json.dumps(p3(["Bow's used the wrong way by fiddler",
+                                             "Get cross, having seen some petrol spilt", "", "Fudqe the dish"])))
+spoiled = p3(["Bow's used the wrong way by For the fiddler", "Get cross, having seen some pet-code, rol spilt",
+              "Blanket it provides protection", "Fudge the dish"])
+check("a held clue the reread only spoils with stray words stays, a blank and a mend are taken",
+      [[1, 2], ["Bow's used the wrong way by fiddler", "Get cross, having seen some petrol spilt",
+                "Blanket it provides protection", "Fudge the dish"]],
+      [sorted(int(i.split("-")[0]) for i in f.keep_held_clues(spoiled, json.loads((pz / "held.json").read_text()))),
+       [e["clue"]["text"] for e in spoiled["entries"]]])
+
 # expected_number(): a misdated item is caught, a dated one passes.
 import datetime
 check("numbers the dates imply, either side of the shutdown",
