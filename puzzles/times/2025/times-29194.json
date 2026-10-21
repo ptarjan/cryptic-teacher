@@ -646,26 +646,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Fruit cut",
-       "gives": "LIM",
-       "note": "LIME without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 6,
+         "note": "the fruit is cut short, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fruit",
+         "at": 0,
+         "gives": "LIME",
+         "note": "a lime is a citrus fruit"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "the other",
+       "at": 15,
        "gives": "IT",
-       "note": "'the other' and 'it' are both euphemisms for sex"
+       "note": "'the other' is a coy British euphemism for sex, as is 'it'"
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen instruction: slice the fruit together with the other end.",
-     "walkthrough": "'The other end' reads as the far end of the fruit; 'the other', a coy word for sex, is IT, and 'end' stands alone as the definition.",
-     "definitionFit": "A plain synonym: a boundary is where a thing stops, the end of its reach."
+     "surface": "A fruit is sliced along with its far end.",
+     "walkthrough": "LIME cut short gives LIM; add IT. British slang treats 'a bit of the other' and 'it' as both meaning sex.",
+     "definitionFit": "A limit is a boundary or furthest point, the end beyond which something cannot go."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "other"
     }
    }
@@ -1265,25 +1281,42 @@
      "parts": [
       {
        "words": "Standard",
+       "at": 13,
        "gives": "PAR",
-       "note": "par = the standard, as in golf"
+       "note": "par is the standard or norm"
       },
       {
-       "words": "snubbed Evening Star",
-       "gives": "VENU",
-       "note": "VENUS, the evening star, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "snubbed",
+         "at": 22,
+         "note": "snubbed suggests a snub nose, short at the end, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Evening Star",
+         "at": 30,
+         "gives": "VENUS",
+         "note": "Venus is the Evening Star"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "London's Evening Standard snubbing the Evening Star newspaper as an upstart.",
-     "walkthrough": "The Evening Standard is a London newspaper, so the surface reads as press rivalry; here Standard is PAR and the Evening Star is Venus.",
-     "definitionFit": "A parvenu is a newcomer to wealth or rank, an upstart."
+     "surface": "A newcomer from one London newspaper cold-shoulders another paper.",
+     "walkthrough": "The Evening Standard is a London newspaper, which aids the misdirection. VENUS without its tail gives VENU.",
+     "definitionFit": "A parvenu is a social climber who has risen quickly to wealth but lacks acceptance."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Standard"
+     "misdirectedWord": "snubbed"
     }
    }
   },

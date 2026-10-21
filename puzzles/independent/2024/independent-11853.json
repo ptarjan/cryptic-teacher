@@ -1733,41 +1733,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABETMENT",
+     "op": "move",
      "indicators": [
       {
        "text": "giving priority to",
-       "note": "giving something priority puts it first, so that letter is taken from its place and set at the front"
+       "at": 19,
+       "note": "putting something first gives it priority, so this letter goes to the front"
       }
      ],
      "parts": [
       {
-       "words": "Gamble",
-       "gives": "BET",
-       "note": "a bet is a gamble or wager"
-      },
-      {
-       "words": "represented",
-       "gives": "MEANT",
-       "note": "to represent something is to mean or signify it"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Gamble",
+         "at": 0,
+         "gives": "BET",
+         "note": "a bet is a gamble"
+        },
+        {
+         "words": "represented",
+         "at": 7,
+         "gives": "MEANT",
+         "note": "meant, as in 'that sign meant danger', means represented"
+        }
+       ]
       },
       {
        "words": "adult",
+       "at": 38,
        "gives": "A",
-       "note": "standard abbreviation for adult, as in film ratings"
+       "note": "A is the film-rating abbreviation for adult"
       }
      ]
     },
     "explanation": {
-     "surface": "A wager stood for putting grown-ups first.",
-     "walkthrough": "BET followed by MEANT has its A, the adult, moved out of MEANT to the very front.",
-     "definitionFit": "Abetment is the act of helping or encouraging a crime, exactly what an accomplice does."
+     "surface": "A wager is cast as a matter of putting a grown-up's interests first.",
+     "walkthrough": "BET + MEANT gives BETMEANT; its A is brought to the front.",
+     "definitionFit": "Abetment is the legal term for helping or encouraging a crime, the part an accomplice plays."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "represented"
     }
    }
