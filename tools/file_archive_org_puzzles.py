@@ -4160,6 +4160,9 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     lie on them or nothing parses. A page they settle is filed with no ask."""
     if not ocr_first:
         return read_page_why("direct:no-ocr-first", d, found, hit, solutions, None)
+    cheap = answers_only(d, found, hit, solutions)
+    if cheap is not None:
+        return cheap
     verdict, puzzle = read_page(d, found, hit, solutions, False)
     weak = verdict.pop("_weak", None)
     window = verdict.pop("_alt", None)
@@ -4228,6 +4231,66 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     v, p = read_page_why("count:" + why_lights(off, blanks) + (";weak:" + why_lights(weak, blanks) if weak else ""),
                          d, found, hit, solutions, sorted(asked), **ask_with)
     return merged_read(verdict, puzzle, v, p, asked)
+
+
+def answers_only(d, found, hit, solutions):
+    """(verdict, puzzle) of a title whose clues are already filed whole and
+    whose solution grid is linked now, read from the solution grid alone, or
+    None (the full read): no clue is OCR'd again, as the held file's clues
+    are the ones a full read of the same page would file.
+
+    The held file is this tool's, from this page, every clue worded (complete,
+    none shared or strayed), and an answer short; the edition is not one asked
+    to be read again (_KEEP_VLM: a fix, an annotation, --reread). The puzzle
+    returned is the held file with its answers as the solution grid reads
+    them (solved, the full read's own reader), its verdict "answersOnly": decide()
+    merges them into the held file (merge_answers) and takes no whole reading
+    over it. None when a held answer differs from the grid's, two answers cross
+    on different letters, or the grid is not the Times's (cells classified)."""
+    if d is None or d.name in _KEEP_VLM["names"]:
+        return None
+    paper = paper_of(d)
+    if paper.key not in CELLS_CLASSIFIED:
+        return None
+    number, _, why = filed_number(d, found, hit)
+    sol = solutions.get(number) if number is not None and not why else None
+    if not sol:
+        return None
+    old = held_file(paper.series, number)
+    es = (old or {}).get("entries") or ()
+    if not es or (old.get("source") or {}).get("acquiredBy") != TOOL \
+            or (old["source"].get("url") != page_url(d, found, hit["leaf"])) or all(e.get("solution") for e in es):
+        return None
+    from fetch_puzzle import duplicated_clues
+    # Every clue whole: worded, counted, no stray mark (settled_light). A held clue short of its
+    # count was cut by an earlier read, and the full read may still mend it.
+    if not complete(old) or any(duplicated_clues(es)) or strayed(old, spaces=False) \
+            or not all(settled_light(old, entry_id(e)) for e in es):
+        return None
+    grid = trove_solution_ocr.puzzle_grid(old)
+    answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above)
+    puzzle = copy.deepcopy(old)
+    # Each answer must fill its light and agree with the held one it reads again.
+    letters = {}
+    for e in puzzle["entries"]:
+        a = answers.get(entry_id(e))
+        if not a:
+            continue
+        if len(a) != e["length"] or e.get("solution") and e["solution"] != a:
+            return None
+        x, y, across = e["position"]["x"], e["position"]["y"], e["direction"] == "across"
+        for i, ch in enumerate(a):
+            if letters.setdefault((x + i * across, y + i * (not across)), ch) != ch:
+                return None
+    for e in puzzle["entries"]:
+        e["solution"] = None
+    verdict = {"number": number, "leaf": hit["leaf"], "grid": "image" if (old["source"].get("gridOrigin") == "published") else "rebuilt",
+               "readings": ["held"], "clues": len(es), "complete": True, "lights": len(es), "agreed": len(es),
+               "vlmAsks": 0, "answersOnly": True, "solutionFrom": solution_source(sol), "solution": info}
+    if number != hit["number"]:
+        verdict["read_as"] = hit["number"]
+    verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
+    return verdict, puzzle
 
 
 #: A stray mark glued to a word's front in a clue ("source of -warmth", "from .late"): a reader's
@@ -6897,7 +6960,8 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
     if dest:  # not complete(): it files to --out, not the corpus; the log line says so
         verdict["unfiled"] = len(puzzle["entries"]) - filled(puzzle)[0]
     target = path(where, series, puzzles)
-    better = target.exists() and improves(puzzle, target)
+    # An answers-only reading (answers_only) is the held file's own clues: merged, never laid over it.
+    better = target.exists() and not verdict.get("answersOnly") and improves(puzzle, target)
     old = json.loads(target.read_text()) if target.exists() and not better else None
     answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict))
     if answered:

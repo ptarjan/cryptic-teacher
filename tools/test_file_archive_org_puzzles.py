@@ -1945,6 +1945,68 @@ check("a re-read of the solution grid drops each held answer it did not read aga
 check("another tool's filing takes no answers", {},
       f.merge_answers(answered([None] * 4, tool="other"), answered(["BAT", None, None, None])))
 
+# answers_only(): a title whose clues are filed whole and whose solution grid is
+# linked now is read from the solution grid alone (no clue OCR): the held file's
+# clues with the grid's answers, merged by decide() and never laid over by a
+# whole reading; the full read when the held file is short of a clue, another
+# tool's, from another page, answered already, or an answer differs from the grid's.
+def lights_held(sols, tool=f.TOOL, url="u"):
+    lights = [(1, "across", 0, 0, 3), (1, "down", 0, 0, 3), (2, "down", 2, 0, 3), (4, "across", 0, 2, 3)]
+    return {"id": "times-1", "number": 1, "source": {"acquiredBy": tool, "url": url, "gridOrigin": "published"},
+            "dimensions": {"cols": 3, "rows": 3},
+            "entries": [{"number": n, "direction": d, "position": {"x": x, "y": y}, "length": k,
+                         "clue": {"text": f"clue {n} {d} words", "enumeration": str(k)}, "solution": s}
+                        for (n, d, x, y, k), s in zip(lights, sols)]}
+import copy
+ao_held = [lights_held([None] * 4)]
+ao_read = [{"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "4-across": "DOE"}]
+ao_stubbed = {n: getattr(f, n) for n in ("paper_of", "filed_number", "held_file", "page_url", "complete", "solved", "solution_source")}
+f.paper_of = lambda d: f.TIMES
+f.filed_number = lambda d, found, hit: (hit["number"], None, None)
+f.held_file = lambda series, n: copy.deepcopy(ao_held[0])
+f.page_url = lambda d, found, leaf: "u"
+f.complete = lambda p: True
+f.solved = lambda sol, grid, above=False: (dict(ao_read[0]), {"accepted": len(ao_read[0]), "lights": 4})
+f.solution_source = lambda sol: "src"
+ao_args = (Path("NewsUK/1990-08-22_1"), {}, {"number": 1, "leaf": 3}, {1: {"dir": Path("NewsUK/1990-08-23_1")}})
+ao_kept = f._KEEP_VLM["names"]
+f._KEEP_VLM["names"] = set()
+verdict, puzzle = f.answers_only(*ao_args)
+check("an answers-linked title with its clues held is read off the solution grid alone: the held clues, each answer the grid read",
+      (True, 0, 4, ["clue 1 across words", "clue 1 down words", "clue 2 down words", "clue 4 across words"],
+       ["BAT", "BED", "TOE", "DOE"]),
+      (verdict["answersOnly"], verdict["vlmAsks"], verdict["answers"], [e["clue"]["text"] for e in puzzle["entries"]],
+       [e["solution"] for e in puzzle["entries"]]))
+ao_held[0] = lights_held(["BAT", None, None, None])
+check("a held answer the grid reads alike stands", ["BAT", "BED", "TOE", "DOE"],
+      [e["solution"] for e in f.answers_only(*ao_args)[1]["entries"]])
+ao_held[0] = lights_held(["BAD", None, None, None])
+check("a held answer the grid reads otherwise leaves it to the full read", None, f.answers_only(*ao_args))
+ao_held[0] = lights_held([None] * 4)
+ao_read[0] = {"1-across": "BAT", "1-down": "XED"}
+check("two answers crossing on different letters leave it to the full read", None, f.answers_only(*ao_args))
+ao_read[0] = {"1-across": "BAT", "2-down": "TOES"}
+check("an answer the light's length does not fit leaves it to the full read", None, f.answers_only(*ao_args))
+ao_read[0] = {"1-across": "BAT"}
+ao_held[0] = lights_held(["BAT", "BED", "TOE", "DOE"])
+check("a puzzle answered whole needs no read", None, f.answers_only(*ao_args))
+ao_held[0] = lights_held([None] * 4, tool="other")
+check("another tool's file is read in full", None, f.answers_only(*ao_args))
+ao_held[0] = lights_held([None] * 4, url="elsewhere")
+check("a file from another page is read in full", None, f.answers_only(*ao_args))
+ao_held[0] = lights_held([None] * 4)
+f._KEEP_VLM["names"] = {"1990-08-22_1"}
+check("an edition asked to be read again is read in full", None, f.answers_only(*ao_args))
+f._KEEP_VLM["names"] = set()
+ao_held[0]["entries"][1]["clue"].pop("enumeration")
+check("a held clue short of its count is read in full (the full read may mend it)", None, f.answers_only(*ao_args))
+ao_held[0] = lights_held([None] * 4)
+f.complete = lambda p: False
+check("a held file with an incomplete clue list is read in full", None, f.answers_only(*ao_args))
+f._KEEP_VLM["names"] = ao_kept
+for n, fn in ao_stubbed.items():
+    setattr(f, n, fn)
+
 # rules(): a printed solution grid's rules lie unevenly and its rows shear
 # against its columns (Gale's 1987-01-07, ~1px a cell, 8px over the grid);
 # straightened() squares them and rules() finds each one where it lies.
