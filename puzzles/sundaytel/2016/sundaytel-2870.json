@@ -700,38 +700,58 @@
      "parts": [
       {
        "words": "Stolen",
+       "at": 0,
        "gives": "HOT",
-       "note": "stolen goods are hot"
+       "note": "hot is slang for stolen goods"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "found in",
-         "note": "something found in another thing lies inside it"
+         "at": 12,
+         "note": "found in places the drug between the two check abbreviations"
         }
        ],
        "parts": [
         {
-         "words": "repeated check",
-         "gives": "CHCH",
-         "note": "CH is the chess abbreviation for check, given twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "repeated",
+           "at": 21,
+           "note": "repeated means the check letters appear a second time"
+          }
+         ],
+         "parts": [
+          {
+           "words": "check",
+           "at": 30,
+           "gives": "CH",
+           "note": "CH is the chess abbreviation for check"
+          },
+          {
+           "gives": "CH"
+          }
+         ]
         },
         {
          "words": "drug",
+         "at": 7,
          "gives": "POT",
-         "note": "pot is cannabis"
+         "note": "pot is slang for cannabis"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stolen narcotics discovered during a series of police checks.",
-     "definitionFit": "A hotchpotch is a jumbled mixture of different things."
+     "surface": "Stolen drugs turn up during a double inspection of a jumble of goods.",
+     "walkthrough": "'check' is the chess abbreviation, written twice because of 'repeated', and the drug sits between the two copies.",
+     "definitionFit": "A hotchpotch is a jumbled assortment, a confused mixture of things."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "check"
     }
@@ -961,61 +981,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaders having dropped out",
+       "at": 30,
+       "note": "the leaders of the three words are their initial letters, which leave"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "leaders having dropped out",
-         "note": "the leaders are the first letters, and dropping them out removes each word's opening letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "for",
-         "note": "taken as written"
-        },
-        {
-         "gives": "F"
-        }
-       ]
+       "words": "for big wins",
+       "at": 16,
+       "note": "taken as written, each word losing its first letter"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "big",
-         "note": "taken as written"
-        },
-        {
-         "gives": "B"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "wins",
-         "note": "taken as written"
-        },
-        {
-         "gives": "W"
-        }
-       ]
+       "gives": "FBW"
       }
      ]
     },
     "explanation": {
-     "surface": "Talk of where big sporting victories begin, after the frontrunners drop out of a race.",
-     "walkthrough": "'For' looks like a link joining definition to wordplay, but it is the first of three words to lose their initials.",
-     "definitionFit": "Origins are beginnings, the points from which things start."
+     "surface": "Where the big victories begin, with the frontrunners having quit the race.",
+     "walkthrough": "Removing the first letter of each of 'for', 'big' and 'wins' leaves OR, IG and INS.",
+     "definitionFit": "Origins are beginnings or sources, where something starts."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "for"
+     "misdirectedWord": "leaders"
     }
    }
   },

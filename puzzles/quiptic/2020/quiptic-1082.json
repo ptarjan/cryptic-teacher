@@ -1484,52 +1484,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "briefly means cut short, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "day",
-         "gives": "D",
-         "note": "D is the abbreviation for day"
-        },
-        {
-         "words": "eastern",
-         "gives": "E",
-         "note": "E is the abbreviation for east"
-        },
-        {
-         "words": "radiance",
-         "gives": "LIGHT",
-         "note": "radiance is light"
-        },
-        {
-         "words": "complete",
-         "gives": "FULL",
-         "note": "full means complete"
-        }
-       ]
+       "words": "day",
+       "at": 7,
+       "gives": "D"
       },
       {
-       "gives": "L"
+       "words": "eastern",
+       "at": 16,
+       "gives": "E"
+      },
+      {
+       "words": "radiance",
+       "at": 24,
+       "gives": "LIGHT",
+       "note": "light is radiance, brightness"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 33,
+         "note": "briefly means cut short, so the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "complete",
+         "at": 41,
+         "gives": "FULL",
+         "note": "full means complete"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lovely day, full of sunshine from the east.",
-     "definitionFit": "Delightful means highly pleasing or charming, close in sense to lovely."
+     "surface": "A beautiful day full of eastern sunshine, if only for a short while.",
+     "walkthrough": "'briefly' cuts the last L off FULL.",
+     "definitionFit": "Delightful means highly pleasing, close in sense to lovely."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "radiance"
+     "misdirectedWord": "complete"
     }
    }
   },

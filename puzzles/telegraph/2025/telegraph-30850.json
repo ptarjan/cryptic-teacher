@@ -679,21 +679,41 @@
      "op": "charade",
      "parts": [
       {
-       "words": "outspoken detective denied",
-       "gives": "RECT",
-       "note": "outspoken is DIRECT; the detective is DI, a Detective Inspector, removed from it"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "denied",
+         "at": 27,
+         "note": "denied means refused or deprived of, so the detective's letters are withheld from the plain-speaking word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "outspoken",
+         "at": 7,
+         "gives": "DIRECT",
+         "note": "an outspoken person is direct, saying plainly what they think"
+        },
+        {
+         "words": "detective",
+         "at": 17,
+         "gives": "DI",
+         "note": "DI is a Detective Inspector in the British police"
+        }
+       ]
       },
       {
        "words": "point of view",
+       "at": 41,
        "gives": "ANGLE",
-       "note": "the angle you take on a story"
+       "note": "an angle is a particular viewpoint on a subject"
       }
      ]
     },
     "explanation": {
-     "surface": "A blunt-talking police detective turned down for having an opinion of their own.",
-     "walkthrough": "DI is the usual crossword detective (Detective Inspector); taking it out of DIRECT leaves RECT.",
-     "definitionFit": "A rectangle is a four-sided geometric shape, and a figure in geometry is any such shape."
+     "surface": "A blunt police detective is refused the chance to give their own perspective.",
+     "walkthrough": "'denied' takes DI (Detective Inspector) away from DIRECT, leaving RECT; 'having' joins on ANGLE.",
+     "definitionFit": "A rectangle is a four-sided shape with right angles, so it is a geometric figure."
     },
     "features": {
      "answerInScene": false,
