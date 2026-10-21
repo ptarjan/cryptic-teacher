@@ -1154,58 +1154,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SHELTIE",
+     "op": "container",
      "indicators": [
       {
-       "text": "inadequate",
-       "note": "something inadequate falls short, so the word loses its final letter"
+       "text": "in",
+       "at": 29,
+       "note": "the first letter goes in among the letters of the cut-short word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "being in something means sitting inside it"
+         "text": "inadequate",
+         "at": 32,
+         "note": "inadequate says the word falls short, so its final letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "accommodation",
-         "gives": "SHELTE",
-         "note": "shelter, shortened by one letter"
+         "at": 43,
+         "gives": "SHELTER",
+         "note": "shelter is accommodation, a place to stay"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so only the first letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "incapacitated",
-           "note": "first letter"
-          }
-         ]
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 19,
+         "note": "initially picks out the opening letter of incapacitated"
+        }
+       ],
+       "parts": [
+        {
+         "words": "incapacitated",
+         "at": 5,
+         "note": "first letter I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lame pony has been kept in poor stabling.",
-     "walkthrough": "SHELTER loses its last letter and I goes inside. The question mark admits shelter is a loose sense of accommodation.",
-     "definitionFit": "A sheltie is a Shetland pony, the small hardy breed from the Scottish islands; also used of the sheepdog."
+     "surface": "A lame pony has been put in housing that is not good enough for it.",
+     "walkthrough": "SHELTER without its last letter gives SHELTE; the I from 'incapacitated initially' goes inside to give SHELT-I-E.",
+     "definitionFit": "A sheltie is a Shetland pony, a small hardy breed from the Shetland Islands."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "incapacitated"
+     "misdirectedWord": "inadequate"
     }
    }
   },

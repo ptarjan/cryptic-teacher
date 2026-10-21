@@ -1059,32 +1059,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "terrible",
-       "note": "terrible suggests something wrecked, so the letters of the following word are rearranged"
-      },
-      {
-       "text": "wicked",
-       "note": "wicked suggests something twisted out of true, so the next word's letters are rearranged too"
+       "text": "concealing",
+       "at": 33,
+       "note": "concealing means one set of letters is held inside the other"
       }
      ],
      "parts": [
       {
-       "words": "empire",
-       "note": "rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "at": 17,
+         "note": "terrible signals the letters of empire are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "empire",
+         "at": 26
+        }
+       ]
       },
       {
-       "words": "act",
-       "note": "rearranged, with wicked as the second shuffle signal"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wicked",
+         "at": 44,
+         "note": "wicked signals the letters of act are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "act",
+         "at": 51
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cursing a dreadful empire that covers up its crimes.",
-     "walkthrough": "Two separate shuffles: 'terrible' works on 'empire' and 'wicked' on 'act'.",
-     "definitionFit": "To imprecate is to utter a curse, calling down misfortune on someone."
+     "surface": "A curse is called down on a dreadful empire that covers up its crimes.",
+     "walkthrough": "'Wicked act' reads as a misdeed, but 'wicked' is a second scrambling signal working on 'act' alone.",
+     "definitionFit": "To imprecate is to utter a curse, calling down harm on someone."
     },
     "features": {
      "answerInScene": true,
