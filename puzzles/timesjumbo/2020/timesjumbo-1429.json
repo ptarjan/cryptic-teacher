@@ -1167,36 +1167,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Quirky",
-       "note": "quirky means odd and unconventional, so the letters that follow are arranged unusually"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Quirky",
+         "at": 0,
+         "note": "quirky means odd or eccentric, so the letters of the words that follow are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "odd",
+         "at": 7,
+         "note": "taken as written"
+        },
+        {
+         "words": "bureaucrat",
+         "at": 11,
+         "note": "taken as written"
+        },
+        {
+         "words": "is",
+         "at": 22,
+         "note": "taken as written"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "almost",
-         "note": "almost means not quite all, so the word for silent loses its last letter"
+         "at": 25,
+         "note": "almost says the word for silent stops one letter short of its end"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "odd bureaucrat is",
-           "note": "the fodder, taken as written"
-          },
-          {
-           "words": "silent",
-           "gives": "DUMB",
-           "note": "dumb means unable to speak"
-          }
-         ]
+         "words": "silent",
+         "at": 32,
+         "gives": "DUMB",
+         "note": "silent can mean dumb, unable to speak"
         },
         {
          "gives": "B"
@@ -1206,9 +1220,9 @@
      ]
     },
     "explanation": {
-     "surface": "An eccentric civil servant who barely speaks offers evidence of a lie.",
-     "walkthrough": "'Quirky odd' looks like doubled description, but 'odd' is fodder and only 'Quirky' signals the rearrangement.",
-     "definitionFit": "Reductio ad absurdum disproves a claim by showing it leads to an absurd conclusion, a classic logical refutation."
+     "surface": "A strange civil servant who barely speaks is presented as proof that something is false.",
+     "walkthrough": "'Quirky' rearranges ODD BUREAUCRAT IS into REDUCTIOADABSUR; 'almost' trims DUMB to DUM.",
+     "definitionFit": "Reductio ad absurdum is the method of disproving a claim by showing it leads to an absurd conclusion."
     },
     "features": {
      "answerInScene": false,

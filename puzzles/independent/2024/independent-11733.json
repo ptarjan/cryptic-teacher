@@ -1438,50 +1438,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "deletion",
+     "indicators": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "group appearing in",
-         "note": "only a run of letters appearing within the words is kept, the rest discarded"
-        }
-       ],
-       "parts": [
-        {
-         "words": "article",
-         "note": "the word taken as written"
-        },
-        {
-         "gives": "ARTI"
-        }
-       ]
+       "text": "group appearing in",
+       "at": 12,
+       "note": "a group of letters appearing in the doubled word gives the answer"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "more than once",
-         "gives": "ARTICLE",
-         "note": "the same word written a second time"
-        },
-        {
-         "gives": "TICLE"
-        }
-       ]
+       "text": "more than once",
+       "at": 39,
+       "note": "more than once says the word is written out again straight after itself before the search"
+      }
+     ],
+     "parts": [
+      {
+       "words": "article",
+       "at": 31,
+       "gives": "ARTICLEARTICLE",
+       "note": "the word article itself, set down two times in a row"
+      },
+      {
+       "gives": "ARTITICLE"
       }
      ]
     },
     "explanation": {
-     "surface": "A noticeable band keeps turning up in a news piece.",
-     "walkthrough": "'More than once' tells us to repeat the word, and the run of letters spans the join.",
-     "definitionFit": "Clear means plainly visible or obvious, a synonym of conspicuous."
+     "surface": "A notable group features in a newspaper piece repeatedly.",
+     "walkthrough": "Writing ARTICLEARTICLE shows CLEAR across the join; 'article' suggests a, an or the, but here it is the word itself.",
+     "definitionFit": "Something clear is plainly visible and obvious, so it stands out conspicuously."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "group"
+     "misdirectedWord": "article"
     }
    }
   },

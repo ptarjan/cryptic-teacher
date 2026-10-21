@@ -256,43 +256,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "for a change",
-       "note": "doing something for a change means doing it differently, so these letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
+       "at": 4,
        "gives": "I",
-       "note": "a means one, which is the Roman numeral I"
+       "note": "a means one, the Roman numeral I"
       },
       {
        "words": "politician",
+       "at": 6,
        "gives": "MP",
-       "note": "an MP is a Member of Parliament"
+       "note": "MP is a Member of Parliament"
       },
       {
-       "words": "to",
-       "note": "taken as written"
-      },
-      {
-       "words": "run",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "for a change",
+         "at": 36,
+         "note": "for a change says the letters of to run are altered into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to run",
+         "at": 17
+        }
+       ]
       },
       {
        "words": "energy",
+       "at": 29,
        "gives": "E",
        "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone pleads with an MP to stand for office with some vigour, just to shake things up.",
-     "walkthrough": "The surface suggests asking a politician to run for election, but every word after Beg is anagram fodder.",
-     "definitionFit": "To importune is to pester someone persistently with requests, which is to beg them repeatedly."
+     "surface": "A plea for a politician to stand for office energetically, for once.",
+     "walkthrough": "'for a change' rearranges TO RUN into ORTUN.",
+     "definitionFit": "To importune is to pester someone with persistent requests, to beg."
     },
     "features": {
      "answerInScene": true,
@@ -852,47 +857,49 @@
      "parts": [
       {
        "words": "old lover",
+       "at": 6,
        "gives": "EX",
        "note": "an ex is a former partner"
       },
       {
        "words": "house in Germany",
+       "at": 22,
        "gives": "HAUS",
        "note": "Haus is the German word for house"
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "cut",
-         "note": "to cut a word is to chop part of it off"
+         "at": 42,
+         "note": "cut with by half says tedium is shortened to its first half"
         },
         {
          "text": "by half",
-         "note": "by half says exactly how much is lost: three letters of the six go"
+         "at": 53,
+         "note": "by half says exactly half of the six letters of tedium are kept"
         }
        ],
        "parts": [
         {
          "words": "tedium",
-         "note": "taken as written, before trimming"
-        },
-        {
-         "gives": "IUM"
+         "at": 46,
+         "note": "taken as written, then cut to its first half"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tired former partner moves into a German home to relieve some of the boredom.",
-     "walkthrough": "EX + HAUS + TED, keeping the first half of tedium.",
-     "definitionFit": "Exhausted means completely drained of energy, a stronger synonym for weary."
+     "surface": "A tired former partner moves into a German home to relieve boredom.",
+     "walkthrough": "'cut by half' trims TEDIUM to TED.",
+     "definitionFit": "Exhausted means utterly tired, drained of energy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "lover"
+     "misdirectedWord": "takes"
     }
    }
   },
@@ -1310,46 +1317,55 @@
      "indicators": [
       {
        "text": "travel round",
-       "note": "to travel round something is to go all the way about it, enclosing it"
+       "at": 15,
+       "note": "travel round says the motoring club goes around the other letters"
       }
      ],
      "parts": [
       {
        "words": "Motorists club",
+       "at": 0,
        "gives": "AA",
        "note": "the AA is the Automobile Association, a British motoring organisation"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "rocky",
-         "note": "rocky means unsteady and shaken, so the following word's letters are jumbled"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "American",
+         "at": 34,
          "gives": "US",
-         "note": "US for United States"
+         "note": "US means American"
         },
         {
-         "words": "trail",
-         "note": "taken as written, then rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "rocky",
+           "at": 28,
+           "note": "rocky means unsteady, so the letters of trail are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "trail",
+           "at": 43
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A motoring club tours along a rough American trail on its way to a far-off land.",
-     "walkthrough": "The AA is Britain's Automobile Association, the breakdown-recovery club.",
-     "definitionFit": "Australia is a nation occupying a whole continent in the southern hemisphere, so it is an example of a country."
+     "surface": "A motoring club tours a rough American route, heading for a country.",
+     "walkthrough": "The motorists' club is Britain's Automobile Association, which offers breakdown cover; 'travel round' makes it the outside of the answer.",
+     "definitionFit": "Australia is a nation occupying an entire continent in the southern hemisphere."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "club"
+     "misdirectedWord": "rocky"
     }
    }
   },

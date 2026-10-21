@@ -452,43 +452,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "disturbed",
-       "note": "disturbed things are thrown out of order, so the letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
-      {
-       "words": "Rest's",
-       "note": "the word taken as written, without its apostrophe"
-      },
       {
        "op": "first",
        "indicators": [
         {
          "text": "start of",
-         "note": "the start of a word is its opening letter alone"
+         "at": 20,
+         "note": "start of picks the opening letter of severe"
         }
        ],
        "parts": [
         {
          "words": "severe",
-         "note": "its opening letter"
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disturbed",
+         "at": 7,
+         "note": "disturbed means thrown into disorder, so the letters of rest's are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rest's",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A person's sleep is broken by the first stirrings of serious worry.",
-     "definitionFit": "Mental strain and tension from pressure are close synonyms of worry and nervousness."
+     "surface": "Someone's sleep is broken by the onset of serious worry.",
+     "walkthrough": "'start of' gives S from severe; 'disturbed' rearranges REST'S into TRESS.",
+     "definitionFit": "Stress is mental strain or worry, a near synonym for anxiety."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Rest's"
+     "aptDefinition": false
     }
    }
   },

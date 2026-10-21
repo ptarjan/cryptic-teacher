@@ -1211,45 +1211,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TOUCHING",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "clothes",
+       "at": 31,
+       "note": "clothes is the verb here, so the reversed word dresses or encloses the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "back",
-         "note": "got back is got in return, so the word is returned back to front"
-        },
-        {
-         "text": "clothes",
-         "note": "dresses, so the word goes round the other"
-        },
-        {
-         "text": "having run away",
-         "note": "R for run leaves the word"
+         "at": 26,
+         "note": "back says the letters of got are read in the other direction"
         }
        ],
        "parts": [
         {
          "words": "got",
-         "gives": "TOG",
-         "note": "GOT reversed"
-        },
+         "at": 22,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "at": 56,
+         "note": "away says the run letter goes from the child word"
+        }
+       ],
+       "parts": [
         {
          "words": "ragged child",
-         "gives": "UCHIN",
-         "note": "URCHIN, a ragged child, without R (run)"
+         "at": 9,
+         "gives": "URCHIN",
+         "note": "an urchin is a scruffy, poorly dressed child"
+        },
+        {
+         "words": "run",
+         "at": 52,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for run"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pitiful waif who got some clothes back after running away from home.",
-     "walkthrough": "\"Clothes\" is a verb here, and TOG (as in togs) fits it well. R = run is the cricket abbreviation.",
-     "definitionFit": "Pathetic in its old sense is moving, stirring pity, which is what touching means."
+     "surface": "A scruffy child fetched their clothes after running off, a sad sight.",
+     "walkthrough": "'clothes' is a verb here, not the garments, and the 'run' is the cricket R.",
+     "definitionFit": "Touching means moving the emotions, arousing pity, which is what pathetic originally meant."
     },
     "features": {
      "answerInScene": true,
