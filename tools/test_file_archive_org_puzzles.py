@@ -3338,6 +3338,19 @@ check("a centred notice with no clue number near the gutter still spans it",
 check("a clue number far from the gutter does not cut a line across it",
       [(100, 0, 700, 20, "12 Poet shows the work returned again and again here")],
       f.split_across([(100, 0, 700, 20, "12 Poet shows the work returned again and again here")], [400]))
+check("a row's end spilled a little over a narrow gutter is cut there, not taken for a notice (FT 1981-10-19)",
+      [(154, 0, 504, 20, "(25 and part. back (4,3,4)"), (505, 0, 590, 20, ":+:up!")],
+      f.split_across([(154, 0, 590, 20, "(25 and part. back (4,3,4) :+:up!")], [505]))
+check("a clue number read with a dash before it still cuts a row across the gutter",
+      [(100, 0, 399, 20, "hole, but not in reverse (6). - -"), (400, 0, 700, 20, "3. Grotesque insect I caught")],
+      [w[:4] + (w[4].strip(),) for w in f.split_across([(100, 0, 700, 20, "hole, but not in reverse (6). - -3. Grotesque insect I caught")], [400])][:2])
+# FT 1981-10-19: the across clues no reader laid have no count, so the grid's gives it, and
+# the VLM's clean column reading is laid with no pick (14 of 16 picks were for these).
+check("a blank light no reader laid takes the grid's length as its count: the clean column reading is laid, no ask",
+      "Poet's study crowned with gold",
+      ocr_clues.vlm_pick({**WORN_OCR, "vlm": WORN_VLM}, {"18-across": ("", None, None)},
+                         {"18-across": "no reading laid a clue on it"}, f.parse, lambda lid, cands: 1 / 0,
+                         {"18-across": 5})[0]["18-across"][0])
 d16626 = parsed_of("times-16626", "djvu")
 check("\"Prize Crossword in\" between two clues is in neither (Times 16,626 3D, 4D)",
       ("Bones of little girl in centre of trail", "Of great significance to chaps in Missouri.all French"),

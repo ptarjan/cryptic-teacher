@@ -996,10 +996,13 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
 
 #: Where a clue starts inside a recogniser's line: its number ("12", "l4",
 #: "I6", "18:") and a capital.
-NEXT_CLUE = re.compile(r"(?<=\s)(?:\d{1,2}|[IlJ|!]\d|\d[IlsSoO])\W{0,2}\s*[A-Z\"'\u2018\u201c]")
+NEXT_CLUE = re.compile(r"(?<=[\s\-])(?:\d{1,2}|[IlJ|!]\d|\d[IlsSoO])\W{0,2}\s*[A-Z\"'\u2018\u201c]")
 #: How far, in pixels, from a gutter a clue's number in a line read across
 #: it may be placed by its share of the line's characters.
 SPLIT_SLACK = 80
+#: The most a row may lie over a gutter, as a share of its width left of it, to be a
+#: column's row spilled over it and not a notice across both columns (split_across).
+SPLIT_SPILL = 0.35
 
 
 def split_across(ws, gutters, height=None):
@@ -1024,6 +1027,17 @@ def split_across(ws, gutters, height=None):
             text, width = w[4], w[2] - w[0]
             at = [(abs(w[0] + width * m.start() / len(text) - x), m.start()) for m in NEXT_CLUE.finditer(text)]
             near = min((a for a in at if a[0] <= SPLIT_SLACK), default=None)
+            if near is None and w[0] < x - ACROSS_GUTTER and w[2] - x <= SPLIT_SPILL * (x - w[0]) and " " in text:
+                # A row's end that spilled over a narrow gutter ("(25 and part back (4,3,4) up!",
+                # the next column's "Shut up! (4,4)" ending), not a notice printed across both
+                # (which lies far into the next column): cut at the space nearest the gutter, so
+                # the row is not taken for a notice that ends the column (FT 1981).
+                spaces = [i for i, c in enumerate(text) if c == " "]
+                cut = min(spaces, key=lambda i: abs(w[0] + width * i / len(text) - x))
+                if abs(w[0] + width * cut / len(text) - x) <= SPLIT_SLACK and text[:cut].strip() and text[cut:].strip():
+                    out.append((w[0], tall[1], x - 1, tall[3], text[:cut].rstrip()))
+                    w = tall = (x, tall[1], w[2], tall[3], text[cut:].lstrip())
+                    continue
             if near is None:
                 if x - w[0] <= ACROSS_GUTTER and w[2] - x > x - w[0]:
                     # Starting just left of the gutter and lying mostly right
@@ -4756,7 +4770,7 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None):
         else:
             try:
                 with vlm.because("pick:" + why_lights(blank, blank)):
-                    laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
+                    laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank, lengths)
             except RuntimeError:
                 pass
     if vlm_on:
@@ -4867,11 +4881,11 @@ def unpickable(texts, blank, lights):
     return any(not ocr_clues.candidates(texts, lid, parse) for lid in blank)
 
 
-def vlm_pick(img, wins, readings, texts, laid, blank):
+def vlm_pick(img, wins, readings, texts, laid, blank, lengths=None):
     """ocr_clues.vlm_pick for a scan page: the VLM shown the clue columns
-    (`wins`, boxed by every reading's lines)."""
+    (`wins`, boxed by every reading's lines); `lengths`: each light's letters."""
     return ocr_clues.vlm_pick(texts, laid, blank, parse,
-                              lambda lid, cands: vlm.pick(img, wins, readings, lid, cands))
+                              lambda lid, cands: vlm.pick(img, wins, readings, lid, cands), lengths)
 
 
 def third_top(img, grid, width):
