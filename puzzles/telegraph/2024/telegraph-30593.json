@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,31 @@
      }
     ]
    },
-   "solution": "NONONSENSE"
+   "solution": "NONONSENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Direct",
+      "at": 0,
+      "meaning": "first meaning: blunt and businesslike, with no frills"
+     },
+     {
+      "text": "instruction Edward Lear disregarded",
+      "at": 7,
+      "meaning": "second meaning: a command to stop talking rubbish, which Lear, famous for his nonsense verse, plainly ignored"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read the second half as a command, 'No nonsense!', and Edward Lear, author of 'The Owl and the Pussy-cat' and other nonsense verse, is the man who never obeyed it.",
+     "definitionFit": "A no-nonsense manner is a straightforward, plain-speaking one, which is what direct describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Direct"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +77,29 @@
     "text": "Agreeable city on French Riviera",
     "enumeration": "4"
    },
-   "solution": "NICE"
+   "solution": "NICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Agreeable",
+      "at": 0,
+      "meaning": "first meaning: pleasant"
+     },
+     {
+      "text": "city on French Riviera",
+      "at": 10,
+      "meaning": "second meaning: the resort city on France's Mediterranean coast"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same spelling serves the English adjective and the French place name, though the two are pronounced differently.",
+     "definitionFit": "Something pleasant and likeable is nice; the Riviera city is Nice on the Côte d'Azur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +113,42 @@
     "text": "Munch for instance on grain we cultivated",
     "enumeration": "9"
    },
-   "solution": "NORWEGIAN"
+   "solution": "NORWEGIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Munch for instance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cultivated",
+       "at": 31,
+       "note": "cultivated ground is turned over, so these letters are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on grain we",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is chewing on grain that was grown for food.",
+     "walkthrough": "'Munch' looks like a verb about eating, beside 'grain'; it is Edvard Munch, painter of 'The Scream', who came from Norway.",
+     "definitionFit": "Edvard Munch was a painter from Norway, so he is one example of a person of that nationality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Munch"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +162,48 @@
     "text": "Rope and ring put through snout",
     "enumeration": "5"
    },
-   "solution": "NOOSE"
+   "solution": "NOOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rope",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put through",
+       "at": 14,
+       "note": "a ring put through a snout sits inside it, so one piece goes into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "snout",
+       "at": 26,
+       "gives": "NOSE",
+       "note": "a snout is a nose"
+      },
+      {
+       "words": "ring",
+       "at": 9,
+       "gives": "O",
+       "note": "O is ring-shaped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer threads a rope and a ring through a bull's snout.",
+     "definitionFit": "A noose is a loop of rope with a running knot, so a rope is a fair general term for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +217,65 @@
     "text": "Leaderless coppers seizing throne in Vatican City?",
     "enumeration": "7"
    },
-   "solution": "ENCLAVE"
+   "solution": "ENCLAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vatican City?",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seizing",
+       "at": 19,
+       "note": "seizing means holding another piece within its grasp"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Leaderless",
+         "at": 0,
+         "note": "without a leader, the word loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coppers",
+         "at": 11,
+         "gives": "PENCE",
+         "note": "coppers are copper coins, pence"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "words": "throne",
+       "at": 27,
+       "gives": "LAV",
+       "note": "the throne is slang for the toilet, and LAV is short for lavatory"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police officers without their chief arrest the papal throne in Rome.",
+     "walkthrough": "'Throne' sounds papal in a Vatican clue, but here it is the jokey name for the toilet; coppers are copper coins, not police.",
+     "definitionFit": "Vatican City is a small state entirely surrounded by Rome, the classic example of a territory enclosed within another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "throne"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +289,48 @@
     "text": "Conspicuous way to involve stranger",
     "enumeration": "7"
    },
-   "solution": "SALIENT"
+   "solution": "SALIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conspicuous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to involve",
+       "at": 16,
+       "note": "to involve something is to take it in, so one piece wraps around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "way",
+       "at": 12,
+       "gives": "ST",
+       "note": "ST is short for street, a way"
+      },
+      {
+       "words": "stranger",
+       "at": 27,
+       "gives": "ALIEN",
+       "note": "an alien is a stranger or foreigner"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conspicuous approach to draw in someone unfamiliar.",
+     "definitionFit": "A salient feature is one that stands out, prominent and noticeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +344,39 @@
     "text": "Land covered in Virginia creepers",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "covered in",
+       "at": 5,
+       "note": "the answer is covered within the run of letters of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Virginia creepers",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plot of ground overgrown with Virginia creeper vines.",
+     "definitionFit": "An acre is a unit of area used for measuring land, so it stands for a piece of land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +390,53 @@
     "text": "Leading side in cup round play away",
     "enumeration": "5"
    },
-   "solution": "CHEAT"
+   "solution": "CHEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "play away",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leading side in",
+         "at": 0,
+         "note": "the leading side of a word is its front edge, its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cup",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "round",
+       "at": 20,
+       "gives": "HEAT",
+       "note": "a heat is a qualifying round in a competition"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football team leading during a cup round is playing an away match.",
+     "walkthrough": "The surface is all football; 'play away' is the idiom for being unfaithful to a partner.",
+     "definitionFit": "To play away is an informal idiom for being unfaithful, which is to cheat on a partner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +450,30 @@
     "text": "The Starship Business?",
     "enumeration": "10"
    },
-   "solution": "ENTERPRISE"
+   "solution": "ENTERPRISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The Starship",
+      "at": 0,
+      "meaning": "first meaning: the Starship ... of Star Trek"
+     },
+     {
+      "text": "Business?",
+      "at": 13,
+      "meaning": "second meaning: a business firm or undertaking"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The capital on 'Starship' points to Star Trek's famous craft; the second word is the ordinary word for a company.",
+     "definitionFit": "Captain Kirk commanded the Starship Enterprise, and an enterprise is also a commercial company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Business"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +487,43 @@
     "text": "Surprise greatly — like Villa?",
     "enumeration": "8"
    },
-   "solution": "ASTONISH"
+   "solution": "ASTONISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surprise greatly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Villa",
+       "at": 24,
+       "gives": "ASTON",
+       "note": "Aston Villa is a football club in Birmingham, England"
+      },
+      {
+       "words": "like",
+       "at": 19,
+       "gives": "ISH",
+       "note": "the suffix -ish means like, somewhat resembling"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shock result, as if the football club Villa had pulled it off.",
+     "walkthrough": "Read 'like Villa' as 'Aston-ish': ASTON from the club's full name, then the suffix that means 'like'.",
+     "definitionFit": "To astonish is to amaze, to surprise someone very much."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Villa"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +537,67 @@
     "text": "Freight firm holding a case of Riesling",
     "enumeration": "5"
    },
-   "solution": "CARGO"
+   "solution": "CARGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Freight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 13,
+       "note": "holding means the outer piece keeps the others within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "firm",
+       "at": 8,
+       "gives": "CO",
+       "note": "CO is short for company, a firm"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "case of",
+           "at": 23,
+           "note": "the case of a word is its outside, the first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Riesling",
+           "at": 31
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A haulage company carrying a crate of German white wine.",
+     "definitionFit": "Cargo is the goods carried by a ship, aircraft or lorry, the same thing as freight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +617,59 @@
      }
     ]
    },
-   "solution": "COLDSWEAT"
+   "solution": "COLDSWEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nervous reaction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "heartless",
+       "at": 22,
+       "gives": "COLD",
+       "note": "heartless means cold, unfeeling"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 37,
+         "note": "the wife's letter goes in the seat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chair",
+         "at": 40,
+         "gives": "SEAT",
+         "note": "a chair is a seat"
+        },
+        {
+         "words": "wife",
+         "at": 32,
+         "gives": "W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel spouse sitting in a chair triggers a nervous reaction.",
+     "walkthrough": "'Heartless' tempts you to remove a middle letter from 'wife'; here it is a plain synonym for unfeeling.",
+     "definitionFit": "Sudden clammy sweating caused by fear or anxiety is a classic physical sign of nerves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +683,42 @@
     "text": "British-Australian Dame offering drink?",
     "enumeration": "8"
    },
-   "solution": "BEVERAGE"
+   "solution": "BEVERAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "at": 0,
+       "gives": "B"
+      },
+      {
+       "words": "Australian Dame",
+       "at": 8,
+       "gives": "EVERAGE",
+       "note": "Dame Edna Everage was the Australian stage persona of Barry Humphries"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British-Australian grande dame offers you a drink.",
+     "walkthrough": "The question mark marks the joke that the comedian's surname, with B in front, becomes the formal word for a drink.",
+     "definitionFit": "A beverage is any drink other than water, a formal word for something to drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dame"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +732,46 @@
     "text": "Rat not initially an aquatic creature",
     "enumeration": "5"
    },
-   "solution": "OTTER"
+   "solution": "OTTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an aquatic creature",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not initially",
+       "at": 4,
+       "note": "not initially means the word loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rat",
+       "at": 0,
+       "gives": "ROTTER",
+       "note": "a rat is a rotter, a contemptible person"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A water rat is not, at first glance, the aquatic animal it seems.",
+     "walkthrough": "'Rat' looks like the animal and invites a water-creature definition; here it is a scoundrel.",
+     "definitionFit": "The otter is a fish-eating mammal that lives in and around rivers, so it is an aquatic animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rat"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +791,41 @@
      }
     ]
    },
-   "solution": "ADRIANMOLE"
+   "solution": "ADRIANMOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "secret diarist",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "strange",
+       "at": 12,
+       "note": "a strange arrangement of letters is an unusual, reshuffled one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Normal idea",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conventional thought turns odd in the hands of a private diary keeper.",
+     "walkthrough": "Sue Townsend's novel 'The Secret Diary of Adrian Mole, Aged 13¾' made its teenage narrator famous.",
+     "definitionFit": "Sue Townsend's fictional teenager kept a private journal, published as his secret diary, so he is the famous diarist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "secret"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +839,30 @@
     "text": "Mazy run at Wembley making you drool?",
     "enumeration": "7"
    },
-   "solution": "DRIBBLE"
+   "solution": "DRIBBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mazy run at Wembley",
+      "at": 0,
+      "meaning": "first meaning: a footballer's weaving run with the ball; Wembley is England's national football stadium"
+     },
+     {
+      "text": "drool",
+      "at": 31,
+      "meaning": "second meaning: to let saliva trickle from the mouth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The football sense is a winding solo run with the ball at the feet; the other sense is letting saliva run.",
+     "definitionFit": "A footballer dribbles past defenders, and a person who drools lets saliva trickle from the mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +876,48 @@
     "text": "Hot meat rolls brought round for citizens",
     "enumeration": "8"
    },
-   "solution": "BURGHERS"
+   "solution": "BURGHERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "citizens",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought round",
+       "at": 15,
+       "note": "the outer piece is brought round the other so as to enclose it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meat rolls",
+       "at": 4,
+       "gives": "BURGERS",
+       "note": "burgers are meat patties served in rolls"
+      },
+      {
+       "words": "Hot",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hot burgers are carried round to feed the townsfolk.",
+     "definitionFit": "Burghers are the citizens of a town, particularly well-to-do freemen in historical boroughs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rolls"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +937,47 @@
      }
     ]
    },
-   "solution": "THINAIR"
+   "solution": "THINAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nothing",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Cockney",
+       "at": 5,
+       "note": "a Cockney famously drops the H at the start of words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trichologist may treat",
+       "at": 13,
+       "gives": "THINHAIR",
+       "note": "a trichologist is a hair and scalp specialist, who might treat thin hair"
+      },
+      {
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A London hair specialist offers to treat your scalp for free.",
+     "walkthrough": "In Cockney speech thin hair becomes thin 'air, the phrase for nothing at all; a Cockney is a working-class Londoner.",
+     "definitionFit": "Something that vanishes into thin air disappears completely, so the phrase stands for nothingness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "treat"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +997,45 @@
      }
     ]
    },
-   "solution": "ABOUTFACE"
+   "solution": "ABOUTFACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "change of attitude",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "fight",
+       "at": 2,
+       "gives": "BOUT",
+       "note": "a bout is a fight, as in boxing"
+      },
+      {
+       "words": "mug",
+       "at": 13,
+       "gives": "FACE",
+       "note": "mug is slang for face"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A punch-up leaves someone with a damaged face and a new outlook.",
+     "definitionFit": "An about-face is a complete reversal of opinion or policy, a turnaround in attitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1049,58 @@
     "text": "Revolutionary soldier — no communist — brushed aside",
     "enumeration": "7"
    },
-   "solution": "IGNORED"
+   "solution": "IGNORED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "brushed aside",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Revolutionary",
+         "at": 0,
+         "note": "revolutionary means turning round, so the soldier's letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soldier",
+         "at": 14,
+         "gives": "GI",
+         "note": "GI is an American soldier"
+        }
+       ]
+      },
+      {
+       "words": "no",
+       "at": 24
+      },
+      {
+       "words": "communist",
+       "at": 27,
+       "gives": "RED",
+       "note": "a Red is a communist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel fighter who is not a communist gets dismissed.",
+     "walkthrough": "'Revolutionary soldier' looks like one rebel; 'Revolutionary' turns GI round.",
+     "definitionFit": "To be ignored is to be disregarded, dismissed without attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1114,41 @@
     "text": "Anguish of the French couple?",
     "enumeration": "7"
    },
-   "solution": "DESPAIR"
+   "solution": "DESPAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Anguish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "of the French",
+       "at": 8,
+       "gives": "DES",
+       "note": "des is French for of the (plural)"
+      },
+      {
+       "words": "couple",
+       "at": 22,
+       "gives": "PAIR",
+       "note": "a couple is a pair"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The heartache of a French couple.",
+     "definitionFit": "Despair is the loss of all hope, a deep mental suffering like anguish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "couple"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1162,42 @@
     "text": "Collusion: accountant sounds warning",
     "enumeration": "7"
    },
-   "solution": "CAHOOTS"
+   "solution": "CAHOOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Collusion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "accountant",
+       "at": 11,
+       "gives": "CA",
+       "note": "CA is a chartered accountant"
+      },
+      {
+       "words": "sounds warning",
+       "at": 22,
+       "gives": "HOOTS",
+       "note": "a car horn hoots to give a warning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An auditor blows the whistle on secret dealings.",
+     "walkthrough": "'Sounds' is a verb meaning gives out a noise here, not a signal for something heard; CA stands for Chartered Accountant.",
+     "definitionFit": "To be in cahoots is to be in secret partnership with someone, which is collusion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sounds"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1211,50 @@
     "text": "Ex-president criminal entertaining bits of fluff",
     "enumeration": "7"
    },
-   "solution": "CLINTON"
+   "solution": "CLINTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ex-president",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 22,
+       "note": "to entertain a guest is to have them in, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "criminal",
+       "at": 13,
+       "gives": "CON",
+       "note": "a con is a convict, a criminal"
+      },
+      {
+       "words": "bits of fluff",
+       "at": 35,
+       "gives": "LINT",
+       "note": "lint is fluff, small fibres from cloth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former head of state was a crook with a weakness for attractive women.",
+     "walkthrough": "'Bits of fluff' reads as dated slang for attractive young women, an apt dig at this president; it is LINT.",
+     "definitionFit": "Bill Clinton was the 42nd US President, 1993 to 2001, so a former holder of the office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fluff"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1268,62 @@
     "text": "Card player swivelling on crutch occasionally",
     "enumeration": "5"
    },
-   "solution": "NORTH"
+   "solution": "NORTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Card player",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "swivelling",
+         "at": 12,
+         "note": "swivelling turns round, so the little word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "at": 33,
+         "note": "occasionally means only now and then, every other letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crutch",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A card player spinning round while propped on a crutch.",
+     "walkthrough": "In bridge the four players are named after compass points, and North partners South.",
+     "definitionFit": "Bridge seats its four players as North, South, East and West, so North is one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "swivelling"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1337,47 @@
     "text": "God having succeeded thanks Jamaican devotee",
     "enumeration": "5"
    },
-   "solution": "RASTA"
+   "solution": "RASTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jamaican devotee",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "God",
+       "at": 0,
+       "gives": "RA",
+       "note": "Ra is the Egyptian sun god"
+      },
+      {
+       "words": "succeeded",
+       "at": 11,
+       "gives": "S",
+       "note": "S is the abbreviation for succeeded, as in family trees"
+      },
+      {
+       "words": "thanks",
+       "at": 21,
+       "gives": "TA",
+       "note": "ta is British informal for thanks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Jamaican worshipper thanks God for success.",
+     "definitionFit": "A Rasta is a follower of Rastafarianism, the religious movement that arose in Jamaica."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "God"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1391,62 @@
     "text": "Hearty pie and mash prepared — time to tuck in",
     "enumeration": "8"
    },
-   "solution": "SHIPMATE"
+   "solution": "SHIPMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hearty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to tuck in",
+       "at": 36,
+       "note": "to tuck in is to place something inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "prepared",
+         "at": 20,
+         "note": "prepared food is worked into shape, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pie",
+         "at": 7
+        },
+        {
+         "words": "mash",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 31,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hearty plate of pie and mash, a traditional London dish, is ready and it's time to eat.",
+     "walkthrough": "'Hearty' looks like an adjective for the meal; it is a noun, the old address for a sailor.",
+     "definitionFit": "Hearties is an old term of address for sailors, so a hearty is a fellow seaman on board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hearty"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1460,48 @@
     "text": "1960s scooterist straddling exercise bike?",
     "enumeration": "5"
    },
-   "solution": "MOPED"
+   "solution": "MOPED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bike?",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "straddling",
+       "at": 17,
+       "note": "to straddle is to sit astride, with the other piece between"
+      }
+     ],
+     "parts": [
+      {
+       "words": "1960s scooterist",
+       "at": 0,
+       "gives": "MOD",
+       "note": "Mods were the 1960s British youth culture known for riding scooters"
+      },
+      {
+       "words": "exercise",
+       "at": 28,
+       "gives": "PE",
+       "note": "PE is physical education, exercise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sixties Mod sitting astride an exercise bike.",
+     "definitionFit": "A moped is a light motorised bicycle, so it is a kind of bike."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exercise"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1515,42 @@
     "text": "Great being where crisis was once mounting",
     "enumeration": "4"
    },
-   "solution": "ZEUS"
+   "solution": "ZEUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Great being",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "mounting",
+       "at": 34,
+       "note": "in a down clue mounting means rising, read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "where crisis was once",
+       "at": 12,
+       "gives": "SUEZ",
+       "note": "Suez was the site of the 1956 Suez Crisis"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mighty figure rising where a crisis once happened.",
+     "definitionFit": "Zeus was king of the Greek gods, a supreme deity and so a great being."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "crisis"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1564,59 @@
     "text": "Devout old man embracing bishop",
     "enumeration": "9"
    },
-   "solution": "OBSERVANT"
+   "solution": "OBSERVANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Devout",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "at": 15,
+       "note": "embracing means holding another piece within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 7,
+         "gives": "O"
+        },
+        {
+         "words": "man",
+         "at": 11,
+         "gives": "SERVANT",
+         "note": "a man is a manservant"
+        }
+       ]
+      },
+      {
+       "words": "bishop",
+       "at": 25,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pious elderly man hugging a bishop.",
+     "walkthrough": "'Old man' reads as a father figure; it is O plus a servant.",
+     "definitionFit": "An observant believer keeps religious rules strictly, which is what devout means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1630,30 @@
     "text": "Illustration in book helping",
     "enumeration": "5"
    },
-   "solution": "PLATE"
+   "solution": "PLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Illustration in book",
+      "at": 0,
+      "meaning": "first meaning: a full-page picture printed in a book"
+     },
+     {
+      "text": "helping",
+      "at": 21,
+      "meaning": "second meaning: a plateful, a serving of food"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One sense is a printed picture in a book; the other is a serving of food.",
+     "definitionFit": "A book's plates are its full-page pictures, and a plate is also a dish, so a plateful is a helping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 29,
@@ -480,7 +1667,48 @@
     "text": "Antelope leaving delta shows style and vigour",
     "enumeration": "4"
    },
-   "solution": "ELAN"
+   "solution": "ELAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "style and vigour",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "at": 9,
+       "note": "leaving means the named letter departs from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Antelope",
+       "at": 0,
+       "gives": "ELAND",
+       "note": "the eland is a large African antelope"
+      },
+      {
+       "words": "delta",
+       "at": 17,
+       "gives": "D",
+       "note": "D is delta in the NATO alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An antelope departing the river delta moves with flair.",
+     "definitionFit": "Elan is dash and flair, energetic stylishness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delta"
+    }
+   }
   },
   {
    "number": 30,
@@ -494,7 +1722,52 @@
     "text": "Soldiers reorganised somehow — nothing to lose!",
     "enumeration": "10"
    },
-   "solution": "GRENADIERS"
+   "solution": "GRENADIERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Soldiers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "somehow",
+       "at": 21,
+       "note": "somehow means in some unspecified way, so the letters are rearranged"
+      },
+      {
+       "text": "to lose",
+       "at": 39,
+       "note": "to lose means the named letter is taken out of the pool"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reorganised",
+       "at": 9
+      },
+      {
+       "words": "nothing",
+       "at": 31,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops are reorganised in some way, with nothing to lose.",
+     "walkthrough": "Remove O from the letters of 'reorganised' and rearrange the remaining ten.",
+     "definitionFit": "Grenadiers are soldiers, originally ones who threw grenades, now an elite regiment of foot guards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   }
  ]
 }
