@@ -821,12 +821,30 @@ CANARY_PROVEN = (
 )
 
 
+#: Refusal rereads that a canary or live reading showed still fail: held even for the
+#: CT_NEWEST_FIRST papers, until the cause is fixed. Same tuple shape as CANARY_PROVEN.
+CANARY_FAILED = (
+    # 10-21: 22 rereads of 1950-59 Gale today wrote 5; the rest again found "no ACROSS and DOWN
+    # lists under the grid" after ~7 VLM asks each (~38% of the hour's asks; 1960s wrote 77 of 83).
+    ("gale", "no-reading-parses", 1950, 1959, "10-21 live: 5 of 22 1950s rereads wrote"),
+)
+
+
+def canary_failed(unit):
+    """The CANARY_FAILED note of a refusal reread `unit`, or None."""
+    return canary_match(unit, CANARY_FAILED)
+
+
 def canary_proven(unit):
     """The CANARY_PROVEN note of a refusal reread `unit`, or None."""
+    return canary_match(unit, CANARY_PROVEN)
+
+
+def canary_match(unit, table):
     reason, year = unit.get("reason") or "", (unit.get("date") or "")[:4]
     if not year.isdigit():
         return None
-    for paper, cause, first, last, note in CANARY_PROVEN:
+    for paper, cause, first, last, note in table:
         want = "unfiled before its fix" if cause == "unfiled" else f"refused {cause} before its fix"
         if (unit.get("paper") == paper and reason == want
                 and first <= int(year) <= last):
@@ -854,7 +872,7 @@ def hold_refusal_rereads(scans, reads, out=None):
     # puzzles before doing ft" (their never-read pages ran out; ~1,200 rereads waited behind FT's).
     named = newest_first_papers()
     held = [t for t in reads if refusal_reread(t[3]["reason"]) and not canary_proven(t[3])
-            and t[3]["paper"] not in named]
+            and (t[3]["paper"] not in named or canary_failed(t[3]))]
     if not held:
         return scans, reads
     if refusal_rereads_wanted():
