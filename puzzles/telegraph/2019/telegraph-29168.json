@@ -411,42 +411,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "almost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Smell",
-         "gives": "SNIFF",
-         "note": "to sniff is to smell"
-        },
-        {
-         "words": "not as much",
-         "gives": "LESS",
-         "note": "less = not as much; almost, it loses its last S"
-        }
-       ]
+       "words": "Smell",
+       "at": 0,
+       "gives": "SNIFF",
+       "note": "to sniff is to smell"
       },
       {
-       "gives": "S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 6,
+         "note": "almost means the word for not as much stops short of its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not as much",
+         "at": 13,
+         "gives": "LESS",
+         "note": "less means not as much"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Having a cold means you can smell less than usual, which comes of a runny nose.",
-     "walkthrough": "'Smell' looks like the definition next to a runny nose, but it is SNIFF; the definition is the whole last phrase.",
-     "definitionFit": "The sniffles are a mild cold, and sniffling is what a runny nose makes you do."
+     "surface": "A cold sufferer can barely smell anything, a familiar side effect of a streaming nose.",
+     "definitionFit": "The sniffles are the repeated sniffing that goes with a head cold, a typical result of a nose that keeps running."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Smell"
+     "misdirectedWord": "almost"
     }
    }
   },
