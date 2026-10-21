@@ -1044,29 +1044,25 @@
     ],
     "wordplay": {
      "op": "container",
-     "indicators": [
-      {
-       "text": "beribboned",
-       "note": "something beribboned is wrapped in a ribbon, so one piece is bound inside another"
-      }
-     ],
      "parts": [
       {
        "words": "beribboned",
+       "at": 27,
        "gives": "SASH",
-       "note": "a sash is a broad ribbon worn across the body"
+       "note": "beribboned means wearing a sash, so it gives SASH and places the other piece in it"
       },
       {
        "words": "Columbo's employer perhaps",
+       "at": 0,
        "gives": "LAPD",
-       "note": "Columbo was a Los Angeles Police Department detective"
+       "note": "the TV detective Columbo works for the LAPD, the Los Angeles Police Department"
       }
      ]
     },
     "explanation": {
-     "surface": "The TV detective's force hurriedly decorated with ribbons.",
-     "walkthrough": "'Beribboned' does double work: it says the force is inside, and the ribbon itself is the sash.",
-     "definitionFit": "Done slapdash means done carelessly and in a hurry, so as an adverb it matches hastily."
+     "surface": "Columbo's boss pins ribbons on him in a hurry.",
+     "walkthrough": "'beribboned' does double work: it means wrapped in a sash, so LAPD goes inside SASH.",
+     "definitionFit": "Slapdash means done carelessly and too quickly, so it works as an adverb for hastily."
     },
     "features": {
      "answerInScene": false,
@@ -1281,42 +1277,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "winding",
-       "note": "something winding twists about, so its letters do not keep their order"
-      },
-      {
-       "text": "ploughed",
-       "note": "ploughing churns the soil, so these letters are churned into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "poetically over",
-       "gives": "OER",
-       "note": "o'er is the poetic contraction of over"
-      },
-      {
        "words": "a",
-       "note": "taken as written"
+       "at": 40
       },
       {
-       "words": "lea",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "winding",
+         "at": 16,
+         "note": "winding means twisting about, so the letters of the poetic word are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poetically over",
+         "at": 24,
+         "gives": "OER",
+         "note": "o'er is the poetic contraction of over"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ploughed",
+         "at": 42,
+         "note": "ploughed means turned over, so the letters of lea are churned into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lea",
+         "at": 51,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Coloured rings form as a stream winds poetically across a ploughed meadow.",
-     "walkthrough": "Two signals cover the same pool of letters: the poet's o'er, A, and the meadow word, all mixed together.",
-     "definitionFit": "Areolae are small circles of differently coloured skin or tissue, such as the ring around a nipple."
+     "surface": "A poem describing colourful circles curling over a ploughed meadow.",
+     "walkthrough": "A comes first, then O'ER twisted into REO, then LEA rearranged into LAE.",
+     "definitionFit": "Areolae are small circular zones of colour, such as the ring of pigmented skin around a nipple."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ploughed"
+     "misdirectedWord": "winding"
     }
    }
   },
