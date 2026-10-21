@@ -354,29 +354,43 @@
      "indicators": [
       {
        "text": "swallowing",
-       "note": "The doctor's letters swallow the others, taking them inside."
+       "at": 7,
+       "note": "swallowing means taking something inside"
       }
      ],
      "parts": [
       {
        "words": "Doctor",
-       "gives": "DR",
-       "note": "Dr = doctor"
+       "at": 0,
+       "gives": "DR"
       },
       {
-       "words": "peeled potato chips",
-       "gives": "RIE",
-       "note": "FRIES, potato chips, without the first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "peeled",
+         "at": 18,
+         "note": "peeled means the outer skin, the first and last letters, is stripped away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "potato chips",
+         "at": 25,
+         "gives": "FRIES",
+         "note": "fries are potato chips, as in French fries"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor wolfing down salty chips ends up wanting a drink.",
-     "walkthrough": "'Potato chips' here is the American name for fries, the long strips British people call chips.",
-     "definitionFit": "Drier means more dry, and dry is a common word for thirsty."
+     "surface": "A doctor eats salty chips and becomes thirstier.",
+     "walkthrough": "'potato chips' is the American sense, French fries, not British crisps; 'peeled' sounds culinary but strips the word's outer letters.",
+     "definitionFit": "Drier is the comparative of dry, and dry can mean thirsty."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "peeled"
     }
