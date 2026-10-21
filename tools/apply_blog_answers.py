@@ -637,7 +637,8 @@ def judge(puzzle, rec, partial=False):
                       + f" ({len(problems)} lights)"]
     for entry in puzzle["entries"]:
         old = (entry.get("solution") or "").strip()
-        if old and old != fill.get(entry_id(entry)):
+        # A light the post leaves out (blank in the fill) cannot disagree.
+        if old and fill.get(entry_id(entry)) and old != fill[entry_id(entry)]:
             return fill, [f"disagrees with the file's {entry_id(entry)} "
                           f"({old} vs {fill.get(entry_id(entry))})"]
     _cells, crossings, bad = apply_solution.check_fill(puzzle, fill)

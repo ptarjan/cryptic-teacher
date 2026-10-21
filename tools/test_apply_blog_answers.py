@@ -79,6 +79,23 @@ def main():
     assert "2-down" not in fill, fill
     print("ok   apply_blog_answers mends a misprinted answer only to a unique lexicon word")
 
+    # A light the post leaves out is no disagreement with the file's answer;
+    # a different answer for a light the post does give still is.
+    real = a.blog_fill
+    puz = {"entries": [
+        {"number": 1, "direction": "across", "length": 3, "solution": "ABC",
+         "position": {"x": 0, "y": 0}},
+        {"number": 2, "direction": "down", "length": 3, "solution": "XYZ",
+         "position": {"x": 2, "y": 0}}]}
+    try:
+        a.blog_fill = lambda p, r: ({"2-down": "XYZ"}, [])
+        assert not any("disagrees" in x for x in a.judge(puz, {}, True)[1])
+        a.blog_fill = lambda p, r: ({"1-across": "ABC", "2-down": "QQQ"}, [])
+        assert a.judge(puz, {}, True)[1][0].startswith("disagrees"), a.judge(puz, {}, True)
+    finally:
+        a.blog_fill = real
+    print("ok   apply_blog_answers: a left-out light does not clash with the file")
+
 
 if __name__ == "__main__":
     main()
