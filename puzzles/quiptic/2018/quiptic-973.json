@@ -1038,44 +1038,53 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the jumbled letters sit inside the word for skin"
+       "at": 22,
+       "note": "goes inside the following word"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "messy",
-         "note": "something messy is disordered, so those letters are jumbled"
-        }
-       ],
-       "parts": [
-        {
-         "words": "rip",
-         "note": "the rest of the fodder"
-        },
-        {
-         "words": "skin",
-         "gives": "FLAY",
-         "note": "to flay is to strip the skin off"
-        }
-       ]
+       "words": "skin",
+       "at": 25,
+       "gives": "FLAY",
+       "note": "to flay is to skin"
       },
       {
-       "words": "a",
-       "note": "used as it stands, part of the fodder"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 10
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "messy",
+           "at": 12,
+           "note": "a messy word has its letters jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rip",
+           "at": 18
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Shrugging off an untidy tear in the skin as merely a scratch.",
-     "walkthrough": "'Just' is not 'merely' but 'fair'; the definition is a whole sentence describing the answer.",
-     "definitionFit": "Fair play is conduct that is equitable and honest, so it is something just."
+     "surface": "A complaint that a tear in someone's skin is unpleasant but fair enough.",
+     "walkthrough": "'skin' looks like a noun, but it is the verb meaning to strip off the hide; 'It's just' is the definition.",
+     "definitionFit": "Honest, sporting conduct with rules followed is what is just or equitable."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "just"
     }
    }
@@ -1356,49 +1365,45 @@
      "parts": [
       {
        "words": "Quietly",
+       "at": 0,
        "gives": "P",
-       "note": "p is piano, quietly in music"
+       "note": "P is the musical abbreviation for piano, quietly"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "abandons",
-         "note": "whatever abandons a group leaves it, so the church letters come out of the VIPs"
+         "at": 16,
+         "note": "the church letters leave the word they abandon"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "church",
-           "gives": "CE",
-           "note": "CE is the Church of England"
-          },
-          {
-           "words": "VIPs",
-           "gives": "CELEBS",
-           "note": "celebrities are VIPs"
-          }
-         ]
+         "words": "VIPs",
+         "at": 25,
+         "gives": "CELEBS",
+         "note": "celebs, short for celebrities, are VIPs"
         },
         {
-         "gives": "CECE"
+         "words": "church",
+         "at": 9,
+         "gives": "CE",
+         "note": "CE is the Church of England"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The clergy quietly dropping celebrities to minister to ordinary folk.",
-     "walkthrough": "CE is the Church of England; 'for more' just leads into the definition, suggesting the church wants a larger ordinary flock.",
-     "definitionFit": "Plebs is informal British slang for ordinary people, from the plebeians of ancient Rome."
+     "surface": "A quiet church turning away its famous guests in favour of ordinary folk.",
+     "walkthrough": "Quietly is P for piano, the musical direction; church is CE, the Church of England.",
+     "definitionFit": "The ordinary citizens of ancient Rome were the plebeians, a term now used for the lower classes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Quietly"
+     "misdirectedWord": "church"
     }
    }
   },
@@ -1550,38 +1555,39 @@
    "annotation": {
     "definitions": [
      {
-      "text": "this city",
-      "at": 31
+      "text": "city",
+      "at": 36
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "first",
      "indicators": [
       {
        "text": "reduced by half",
        "at": 12,
-       "note": "reduced by half means each word keeps only its front half: two of have's four letters and three of noises' six"
+       "note": "each word keeps only its first half"
       }
      ],
      "parts": [
       {
-       "words": "Have noises",
+       "words": "Have",
        "at": 0
       },
       {
-       "gives": "VESES"
+       "words": "noises",
+       "at": 5
       }
      ]
     },
     "explanation": {
-     "surface": "A question asking whether the din in a certain city is reduced by half.",
-     "walkthrough": "Half of HAVE is HA and half of NOISES is NOI.",
-     "definitionFit": "Hanoi is the capital of Vietnam, famous for noisy motorbike traffic."
+     "surface": "A question about whether a place has quietened down its din.",
+     "walkthrough": "'reduced by half' looks like it means quieter noises, but it applies to both words, keeping the front half of each.",
+     "definitionFit": "This is the capital of Vietnam, on the Red River."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "noises"
+     "misdirectedWord": "reduced"
     }
    }
   },

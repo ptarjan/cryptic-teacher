@@ -155,32 +155,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "in trouble",
-       "note": "something in trouble is in disarray, so its letters are thrown out of order"
-      },
-      {
-       "text": "affected",
-       "note": "affected means acted upon and altered, so these letters change their arrangement too"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Pal",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in trouble",
+         "at": 4,
+         "note": "a word in trouble is in disorder, so its letters are thrown about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pal",
+         "at": 0
+        }
+       ]
       },
       {
-       "words": "mob",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "affected",
+         "at": 24,
+         "note": "affected here means acted upon or altered, so the following word's letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mob",
+         "at": 20
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend in trouble with a gang, who puts on a show of being calm.",
-     "walkthrough": "'Affected' reads as an adjective on calmness, but it works with 'in trouble' to stir all six letters.",
-     "definitionFit": "Aplomb is self-possession and composure under pressure, a steady poise."
+     "surface": "A friend caught up with an angry crowd puts on a show of cool composure.",
+     "walkthrough": "'in trouble' rearranges PAL to APL, and 'affected' rearranges MOB to OMB; 'affected' looks like it describes the calmness but it is the second anagram signal.",
+     "definitionFit": "The word means self-assured composure, especially under pressure, a close synonym of calmness."
     },
     "features": {
      "answerInScene": true,
@@ -466,54 +480,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "recollected",
-       "note": "re-collected means gathered up again, so the letters are reassembled in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "words": "old Italian",
+       "at": 8,
+       "gives": "ROMAN",
+       "note": "an ancient inhabitant of Rome is a Roman"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "briefly",
-         "note": "said briefly, a word is cut short and loses its last letter"
+         "text": "recollected",
+         "at": 39,
+         "note": "read as re-collected, gathered back the other way, so the letters run backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 31,
+           "note": "said briefly, the word is cut short by its final letter"
+          }
+         ],
          "parts": [
           {
-           "words": "old Italian",
-           "gives": "ROMAN",
-           "note": "an ancient Roman was an old Italian"
+           "words": "metropolis",
+           "at": 20,
+           "gives": "CITY",
+           "note": "a metropolis is a city"
           },
           {
-           "words": "metropolis",
-           "gives": "CITY",
-           "note": "a metropolis is a big city, cut short"
+           "gives": "Y"
           }
          ]
-        },
-        {
-         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fond memories of an idyllic old Italian city.",
-     "walkthrough": "'Recollected' reads as remembered, but splits as re-collected: gathered up again in a new order.",
-     "definitionFit": "Romantic describes something idealised and charming, much like a picture-perfect idyllic scene."
+     "surface": "Someone fondly remembering a perfect ancient Italian city, now only half recalled.",
+     "walkthrough": "'recollected' looks like memory, but split as re-collected it means gathered back the other way round.",
+     "definitionFit": "An idyllic setting is picturesque and idealised, the kind of scene called charming and sentimental in a love-story way."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "recollected"
     }
    }

@@ -1386,15 +1386,30 @@
       {
        "text": "taken from",
        "at": 5,
-       "note": "the line letter is removed from what is left"
+       "note": "the letter is removed from the word that follows"
       }
      ],
      "parts": [
       {
-       "words": "almost endless",
-       "at": 16,
-       "gives": "ALMOS",
-       "note": "the word almost without its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 23,
+         "note": "without its end, the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "almost",
+         "at": 16,
+         "gives": "ALMOST",
+         "note": "taken as written"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "Line",
@@ -1404,13 +1419,14 @@
      ]
     },
     "explanation": {
-     "surface": "A line lifted from a nearly unending book of prophecy.",
-     "definitionFit": "Amos is one of the minor prophets, and his Old Testament book bears his name."
+     "surface": "An instruction to remove a line from a nearly unending book of prophecy.",
+     "walkthrough": "'endless' cuts ALMOST to ALMOS, and 'taken from' removes the L for line.",
+     "definitionFit": "It names one of the minor prophets of the Old Testament and the scriptural text bearing his name."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Line"
+     "misdirectedWord": "almost"
     }
    }
   },

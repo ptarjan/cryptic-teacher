@@ -873,46 +873,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "both short of",
+       "at": 20,
+       "note": "each of the two words is left short, losing its final letter, so both get the same treatment"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "both short",
-         "note": "both short means each of the pair lacks its end, so every word loses its final letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Two bodies of water",
-         "gives": "TARN",
-         "note": "a tarn is a small mountain lake"
-        },
-        {
-         "gives": "N"
-        }
-       ]
+       "words": "Two bodies of water",
+       "at": 0,
+       "gives": "TARNPOND",
+       "note": "a tarn is a small mountain lake and a pond is a small still pool, two bodies of water side by side"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "Two bodies of water",
-         "gives": "POND",
-         "note": "a pond is a small still body of water"
-        },
-        {
-         "gives": "D"
-        }
-       ]
+       "gives": "N"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Two lakes that are both lacking in fish.",
-     "walkthrough": "'Both short' means each of the two waters is docked, not just one.",
-     "definitionFit": "The tarpon is a large silvery game fish of warm Atlantic waters, prized by anglers."
+     "surface": "A puzzle about a pair of lakes that, between them, have no fish left in them.",
+     "walkthrough": "'both short of' cuts the last letter from each body of water: TARN loses its N and POND loses its D, leaving TAR and PON side by side.",
+     "definitionFit": "This is a large silvery game species of the Atlantic, prized by sport anglers."
     },
     "features": {
      "answerInScene": true,
@@ -1494,41 +1481,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "heartlessly",
-       "note": "without a heart means the central letter is taken out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Catholic",
-         "gives": "C",
-         "note": "C is the abbreviation for Catholic"
-        },
-        {
-         "words": "girl",
-         "gives": "AGNES",
-         "note": "a girl's name, as so often in crosswords"
-        }
-       ]
+       "words": "Catholic",
+       "at": 10,
+       "gives": "C"
       },
       {
-       "gives": "N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartlessly",
+         "at": 24,
+         "note": "taking the heart out of the name means its central letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 19,
+         "gives": "AGNES",
+         "note": "Agnes is a girl's name"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Locking up a Catholic girl without mercy.",
-     "walkthrough": "'Heartlessly' reads as cruelly, but it removes the middle letter of the name.",
-     "definitionFit": "To cage someone is to confine them as though behind bars, which is imprisoning them."
+     "surface": "A report that a Catholic girl is being locked up without mercy.",
+     "walkthrough": "'heartlessly' reads like cruelty towards the girl, but it only means her name loses its central letter.",
+     "definitionFit": "To shut someone or something behind bars is to confine them, the verb sense matching 'imprisons'."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "heartlessly"
     }
