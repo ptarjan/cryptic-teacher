@@ -21,7 +21,15 @@
   "check": "32 entries, 60 crossings, 0 conflicts, agrees with the 1 answers the paper printed",
   "printed": {
    "27-across": "LOAFING"
-  }
+  },
+  "corrected": [
+   {
+    "entry": "6-down",
+    "was": "NAGS",
+    "now": "NIGH",
+    "date": "2026-10-21"
+   }
+  ]
  },
  "annotatedBy": [
   "claude-opus-5-5"
@@ -138,7 +146,7 @@
    },
    "length": 7,
    "clue": {
-    "text": "Fine point about a minion food shortages",
+    "text": "Fine point about a million food shortages",
     "enumeration": "7"
    },
    "solution": "FAMINES",
@@ -146,46 +154,39 @@
     "definitions": [
      {
       "text": "food shortages",
-      "at": 26
+      "at": 27
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "minion",
-       "note": "the clue as printed appears garbled here; this word seems to supply only its opening letter"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "about means going round something, so the first pair of words wraps around the next letters"
+         "at": 11,
+         "note": "the word fine goes around the next pieces, as something placed about another encloses it"
         }
        ],
        "parts": [
         {
          "words": "Fine",
-         "note": "taken as written"
+         "at": 0,
+         "gives": "FINE",
+         "note": "taken as the word itself"
         },
         {
          "op": "charade",
          "parts": [
           {
            "words": "a",
-           "note": "taken as written"
+           "at": 17
           },
           {
-           "op": "first",
-           "parts": [
-            {
-             "words": "minion",
-             "note": "its initial letter; the clue text looks corrupted at this point"
-            }
-           ]
+           "words": "million",
+           "at": 19,
+           "gives": "M"
           }
          ]
         }
@@ -193,19 +194,21 @@
       },
       {
        "words": "point",
+       "at": 5,
        "gives": "S",
-       "note": "S is south, a compass point"
+       "note": "S, south, is a point of the compass"
       }
      ]
     },
     "explanation": {
-     "surface": "A small fine is levied on a lowly underling during hard times.",
-     "walkthrough": "FINES holds AM after its first letter. The printed clue seems damaged (perhaps 'a.m.' was intended), so this parse is a best fit for the letters.",
-     "definitionFit": "Famines are periods when a region suffers severe scarcity of food, so they are food shortages."
+     "surface": "A small but precise detail is noted about a servant's lack of food.",
+     "walkthrough": "'Fine point' looks like one phrase meaning a subtlety, but FINE goes about A and M, and the compass point S follows.",
+     "definitionFit": "Famines are periods of extreme scarcity of food across a region, so the plural matches shortages."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "point"
     }
    }
   },
@@ -317,9 +320,38 @@
    },
    "length": 9,
    "clue": {
-    "missing": true
+    "text": "Act as voluntary organizer in church perhaps?"
    },
-   "solution": "IMPROVISE"
+   "solution": "IMPROVISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Act as voluntary organizer in church perhaps?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Act as voluntary organizer in church perhaps",
+       "at": 0,
+       "note": "a voluntary is an organ solo in a church service, often made up on the spot, so the organist playing one invents music as they go"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is asked to step in unpaid and run things at the parish church.",
+     "walkthrough": "'Voluntary organizer' reads as an unpaid helper, but a voluntary is a piece played by the church organist, often extemporised, and 'organizer' hints at the organist.",
+     "definitionFit": "To extemporise music without preparation is just what an organist does when playing a made-up voluntary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "voluntary"
+    }
+   }
   },
   {
    "number": 6,
@@ -330,9 +362,47 @@
    },
    "length": 4,
    "clue": {
-    "missing": true
+    "text": "They say Bevan's handy"
    },
-   "solution": "NAGS"
+   "solution": "NIGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "handy",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NIGH",
+     "indicators": [
+      {
+       "text": "They say",
+       "at": 0,
+       "note": "what people say out loud is how the word is heard rather than spelt, signalling a soundalike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bevan",
+       "at": 9,
+       "gives": "NYE",
+       "note": "Aneurin Bevan, the Labour minister who founded the NHS, was known as Nye"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip has it that a politician is good with his hands.",
+     "walkthrough": "Aneurin 'Nye' Bevan was the British Labour health minister; his nickname is pronounced exactly like the answer. The 's stands for 'is', joining wordplay to definition. The cold-solve guess NAGS fits the crossings but no parse gives it.",
+     "definitionFit": "Something handy is close at hand, near by, which is the old adjective meaning near."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "handy"
+    }
+   }
   },
   {
    "number": 7,
@@ -876,34 +946,28 @@
      "indicators": [
       {
        "text": "disguised",
-       "note": "something disguised has its appearance altered, so these letters are rearranged"
+       "at": 12,
+       "note": "letters that are disguised are dressed up in a changed form, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "At",
-       "note": "taken as written"
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
-      },
-      {
-       "words": "time",
-       "note": "taken as written"
+       "words": "At one time",
+       "at": 0,
+       "gives": "ATITIME",
+       "note": "AT as written, then the Roman numeral I for one, then TIME as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Once upon a time someone went in disguise as an impersonator.",
-     "walkthrough": "'At one time' reads as a single phrase meaning formerly, but it is three pieces of fodder with one turned into a numeral.",
-     "definitionFit": "To imitate is to copy someone's manner or speech, which is what mimicking means as a verb."
+     "surface": "Someone once went about in disguise pretending to be another person.",
+     "walkthrough": "'At one time' reads as a phrase meaning formerly; take 'one' as I, giving ATITIME, and rearrange all seven letters.",
+     "definitionFit": "To mimic someone is to copy their manner or speech, a straightforward synonym used as a verb."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "one"
+     "misdirectedWord": "time"
     }
    }
   },
