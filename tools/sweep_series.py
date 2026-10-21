@@ -12,6 +12,7 @@ retries it. Served pages go through tools/fetch_puzzle.py, and every 20 filed
 the new files are committed and pushed.
 """
 
+import os
 import subprocess
 import sys
 import time
