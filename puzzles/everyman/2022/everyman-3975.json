@@ -888,36 +888,58 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Cockney residence",
-       "gives": "OME",
-       "note": "home, with its H dropped as a Cockney (East London) speaker would say it"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cockney",
+         "at": 0,
+         "note": "a Cockney speaker drops the H at the start of words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "residence",
+         "at": 8,
+         "gives": "HOME",
+         "note": "a home is a residence"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
        "words": "rented out",
+       "at": 18,
        "gives": "LET",
-       "note": "property that is let is rented out"
+       "note": "to let is to rent out"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "at first",
-         "note": "what comes at first is the opening letter of each following word"
+         "at": 30,
+         "note": "at first takes the opening letters of tenant and eagerly"
         }
        ],
        "parts": [
         {
-         "words": "tenant eagerly",
-         "note": "opening letters of these two words"
+         "words": "tenant",
+         "at": 40
+        },
+        {
+         "words": "eagerly",
+         "at": 47
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An East End house is let, and the new tenant eagerly cooks breakfast.",
-     "walkthrough": "Cockney speech traditionally drops the initial H, so home becomes 'ome.",
-     "definitionFit": "An omelette is beaten eggs cooked in a pan and often folded around a filling, a common egg dish."
+     "surface": "A London landlord lets his house, and the first tenant cheerfully makes breakfast.",
+     "walkthrough": "Cockneys, working-class Londoners, drop their aitches, so home becomes 'OME.",
+     "definitionFit": "An omelette is beaten eggs cooked in a pan, a dish of eggs made ready to eat."
     },
     "features": {
      "answerInScene": true,
@@ -1496,30 +1518,31 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "move",
      "indicators": [
       {
        "text": "moves",
-       "note": "when something moves its position changes, so the letters take a new order"
+       "at": 4,
+       "note": "the son changes position within the clothing, going from second place to fifth"
       }
      ],
      "parts": [
       {
-       "words": "Son",
-       "gives": "S",
-       "note": "S is the abbreviation for son"
+       "words": "summer clothing",
+       "at": 13,
+       "gives": "TSHIRT",
+       "note": "a T-shirt is light clothing worn in summer"
       },
       {
-       "words": "summer clothing",
-       "gives": "THIRT",
-       "note": "a T-shirt without the S, which is the letter that moves"
+       "words": "Son",
+       "at": 0,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A boy moves around in his summer gear, building up a craving.",
-     "walkthrough": "Only one letter shifts: the S of the T-shirt slides along to the fifth place.",
-     "definitionFit": "Thirst is used figuratively for any strong craving or longing, as in a thirst for knowledge."
+     "surface": "A boy shifts about in his summer wear, longing for something.",
+     "definitionFit": "Thirst figuratively means a strong craving or longing, as in a thirst for knowledge."
     },
     "features": {
      "answerInScene": false,

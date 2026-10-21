@@ -166,14 +166,9 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "with",
-       "at": 15,
-       "note": "with ... missing frames the instruction: the word for not much hope comes with these letters gone"
-      },
-      {
-       "text": "missing",
-       "at": 31,
-       "note": "missing means lacking, so the two side letters are taken out of the word for not much hope"
+       "text": "both sides missing",
+       "at": 20,
+       "note": "the two sides are left and right, and with both missing their abbreviations are taken out"
       }
      ],
      "parts": [
@@ -181,20 +176,17 @@
        "words": "Not much hope",
        "at": 0,
        "gives": "GLIMMER",
-       "note": "a glimmer, as in a glimmer of hope, is only a faint trace of it"
+       "note": "a glimmer is a faint trace, as in a glimmer of hope"
       },
       {
-       "words": "both sides",
-       "at": 20,
-       "gives": "LR",
-       "note": "L and R, the abbreviations for left and right, the two sides"
+       "gives": "LR"
       }
      ]
     },
     "explanation": {
-     "surface": "A golfer with little hope misses on both sides of the hole when the putt was easy.",
-     "walkthrough": "'Both sides' looks like the two ends of a word, but it means left and right, L and R. In golf a gimme is a putt so short that opponents concede it.",
-     "definitionFit": "A gimme is a very short putt in golf, conceded because it is too easy to miss."
+     "surface": "Faint hope of success, with both teams fluffing an easy shot.",
+     "walkthrough": "'both sides' wants to mean the outer letters, but GLIMMER minus G and R gives nothing; it is L and R, left and right.",
+     "definitionFit": "In golf a gimme is a very short putt conceded as certain, so a stroke one ought never to miss."
     },
     "features": {
      "answerInScene": true,
@@ -581,38 +573,57 @@
        "op": "container",
        "indicators": [
         {
-         "text": "conveys"
+         "text": "conveys",
+         "at": 16,
+         "note": "conveys means carries, so these letters carry the others inside them"
         }
        ],
        "parts": [
         {
          "words": "Hey you",
+         "at": 1,
          "gives": "OI",
-         "note": "oi! is a call for attention"
+         "note": "oi is a shout of 'hey, you!'"
         },
         {
-         "words": "much of earnest",
-         "gives": "SOLEM",
-         "note": "SOLEMN without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "much of",
+           "at": 24,
+           "note": "much of means most but not all, so the final letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "earnest",
+           "at": 32,
+           "gives": "SOLEMN",
+           "note": "solemn means earnest, serious"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
       },
       {
        "words": "love",
+       "at": 10,
        "gives": "O",
-       "note": "love = nil = O"
+       "note": "love is zero, O, in tennis"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone calls to a loved one to get their attention while a heartfelt serenade plays.",
-     "walkthrough": "The surface asks for a quotation, which hides that 'Hey you' is the British shout 'Oi!'.",
-     "definitionFit": "Definition by example: the Neapolitan song is a classic serenade."
+     "surface": "A shouted greeting to a sweetheart carries most of a heartfelt love song.",
+     "definitionFit": "O Sole Mio is the Neapolitan song often sung as a romantic serenade."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "love"
+     "misdirectedWord": "conveys"
     }
    }
   },
@@ -1339,20 +1350,32 @@
      "parts": [
       {
        "words": "in",
+       "at": 19,
        "gives": "HIP",
-       "note": "hip = in, fashionable"
+       "note": "in meaning fashionable is hip"
       },
       {
-       "words": "pond — half in, half out",
-       "gives": "PO",
-       "note": "POND keeps PO and leaves ND out"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half in, half out",
+         "at": 29,
+         "note": "half of pond is kept in and half left out, so only its front half stays"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pond",
+         "at": 22
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hippo wallowing in a pond, half submerged and half exposed.",
-     "walkthrough": "The surface is exactly how a hippo sits in water, which makes 'in' hard to see as a word meaning fashionable.",
-     "definitionFit": "Descriptive: the hippopotamus spends its days in rivers and lakes and grazes on land at night."
+     "surface": "An animal lounging in a pond, half submerged and half exposed.",
+     "walkthrough": "The surface describes the animal wallowing, but the words also say keep half of pond, giving PO.",
+     "definitionFit": "The hippopotamus spends its days wallowing in rivers and lakes and grazes on land at night, so it lives partly in water."
     },
     "features": {
      "answerInScene": true,
@@ -1776,26 +1799,44 @@
      "indicators": [
       {
        "text": "introduced to",
-       "note": "something introduced to a group is brought into it"
+       "at": 21,
+       "note": "introduced to means put inside, so the daughter goes into the shortened word"
       }
      ],
      "parts": [
       {
-       "words": "stunted soldier killer",
-       "gives": "ANTEATE",
-       "note": "ANTEATER, which eats soldier ants, without its last letter; split ANTE…ATE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stunted",
+         "at": 35,
+         "note": "stunted means cut short, so the last letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soldier killer",
+         "at": 43,
+         "gives": "ANTEATER",
+         "note": "an anteater eats ants, including the soldier caste, so it is a killer of soldiers"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
-       "words": "daughter",
+       "words": "daughter's",
+       "at": 10,
        "gives": "D",
-       "note": "D = daughter"
+       "note": "D is the abbreviation for daughter"
       }
      ]
     },
     "explanation": {
-     "surface": "A daughter is introduced to a stunted soldier who is a killer.",
-     "walkthrough": "The 'soldier' is a soldier ant, and its killer is the anteater.",
-     "definitionFit": "Plain synonym from Latin ante, before: to precede in time."
+     "surface": "A daughter being presented to a dwarfish soldier who is a killer.",
+     "walkthrough": "A soldier is a kind of ant, so a 'soldier killer' is an anteater; the question mark warns of this.",
+     "definitionFit": "To antedate something is to precede it in time, coming earlier than it."
     },
     "features": {
      "answerInScene": false,
