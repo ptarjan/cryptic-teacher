@@ -977,10 +977,21 @@
      "op": "charade",
      "parts": [
       {
-       "words": "half-open",
-       "at": 6,
-       "gives": "EN",
-       "note": "the second half of the word open"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half-",
+         "at": 6,
+         "note": "half here asks for the second half of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "open",
+         "at": 11,
+         "note": "the word open, of which only its last two letters are kept"
+        }
+       ]
       },
       {
        "words": "rapture",
@@ -991,9 +1002,9 @@
      ]
     },
     "explanation": {
-     "surface": "A door left ajar, opened with delight.",
-     "walkthrough": "'Half-open' looks like a description of the door, but it asks for half the letters of 'open', the back two.",
-     "definitionFit": "An entrance is a way in, such as a door or gateway."
+     "surface": "A door left ajar invites you in with delight.",
+     "walkthrough": "'half-open' reads as a door left ajar, but 'half' is a separate instruction acting on the word open.",
+     "definitionFit": "An entrance is a way in, such as a doorway or gate."
     },
     "features": {
      "answerInScene": true,
