@@ -30,6 +30,7 @@ import json
 import re
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.request
 from collections import Counter
@@ -124,6 +125,31 @@ def held(series, year):
             yield path, puzzle
 
 
+AZED_API = "https://fifteensquared.net/wp-json/wp/v2/posts"
+
+
+def azed_records(number):
+    """The fifteensquared write-ups of Azed `number`, cached on disk. Its table
+    has No., Clue and Wordplay columns: the answer is read off the wordplay."""
+    import html
+    path = CACHE / f"azed-{number}.json"
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    posts, _ = get(f"{AZED_API}?search=Azed+{number}&per_page=10&_fields={FIELDS}")
+    found = []
+    for post in posts:
+        title = html.unescape(post["title"]["rendered"])
+        if not re.search(rf"\bAzed\s+{number}\b", title, re.I):
+            continue
+        rows = table_lines(post["content"]["rendered"], last_only=True)
+        if rows:
+            found.append({"number": number, "link": post["link"], "date": post["date"][:10],
+                          "rows": rows, "blog": "fifteensquared"})
+    CACHE.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(found), encoding="utf-8")
+    return found
+
+
 ROW = re.compile(r"<tr\b[^>]*>(.*?)</tr>", re.I | re.S)
 ROW_OR_HEADING = re.compile(
     r"(?P<row><tr\b[^>]*>.*?</tr>)|>\s*(?P<dir>across|down)\s*:?\s*<", re.I | re.S)
@@ -188,19 +214,21 @@ def candidates(text, length):
         out.append(got)
     # The answer alone before the first mark: "THISTLE, TH(anagram of LIST)E",
     # "Bali – I thought of party". Capitals, or one word capitalised.
-    head = re.split(r"[,;:=–—]|\s-\s|\.\s", text, 1)[0].strip()
+    plain = "".join(c for c in unicodedata.normalize("NFKD", text) if not unicodedata.combining(c))
+    head = re.split(r"[,;:=–—]|\s-\s|\.(?:\s|$)", plain, 1)[0].strip()
     # …or one word typed in mixed case to hide itself in the grid: "uNcOuPlE".
     if (head and len(head.split()) <= 3
             and head.lower() not in ptt.PROSE_WORDS | ptt.WORDPLAY_WORDS
             and (head.isupper() or re.fullmatch(r"[A-Z][a-z]+", head)
-                 or re.fullmatch(r"(?=.*[A-Z])(?=.*[a-z])[A-Za-z]+", head))):
+                 or re.fullmatch(r"(?=.*[A-Z])(?=.*[a-z])[A-Za-z]+", head)
+                 or re.fullmatch(r"[A-Z]{2}[A-Za-z()]*", head))):   # "HE(Ra)LD": an insertion
         letters = re.sub(r"[^A-Z]", "", head.upper())
         if len(letters) == length and letters not in out:
             out.append(letters)
     return list(dict.fromkeys(out))
 
 
-def table_lines(html_text):
+def table_lines(html_text, last_only=False):
     """[(direction, number, text)] from the post's Across/Down tables."""
     direction, rows = None, []
     for token in ROW_OR_HEADING.finditer(html_text):
@@ -218,7 +246,8 @@ def table_lines(html_text):
         if len(cells) >= 2 and direction:
             num = re.fullmatch(r"(\d{1,2})\s*(?:ac|dn|a|d|across|down)?\.?", cell_text(cells[0][1]), re.I)
             if num:
-                rows.append((direction, int(num.group(1)), cell_text(" ".join(c for _k, c in cells[1:]))))
+                used = cells[-1:] if last_only else cells[1:]
+                rows.append((direction, int(num.group(1)), cell_text(" ".join(c for _k, c in used))))
     return rows
 
 
@@ -341,7 +370,7 @@ def write(path, puzzle, rec, fill):
     for entry in puzzle["entries"]:
         entry["solution"] = fill[entry_id(entry)]
     crossings = apply_solution.check_fill(puzzle, fill)[1]
-    detail = {"blog": "timesforthetimes", "url": rec["link"], "date": rec["date"],
+    detail = {"blog": rec.get("blog", "timesforthetimes"), "url": rec["link"], "date": rec["date"],
               "check": f"{len(puzzle['entries'])} entries, {crossings} crossings, 0 conflicts; "
                        "answers matched to the grid by number, direction and length"}
     puzzle = provenance.with_solution_detail(puzzle, detail)
@@ -355,17 +384,19 @@ def process(series, year, only, check_only, log):
             if not only or puzzle["id"] in only}
     if not todo:
         return out
-    months = sorted({(date.year, date.month) for puzzle in todo.values()
-                     for date in [datetime.date.fromisoformat(puzzle["date"])]})
     recs = {}
-    for y, m in months:
-        # A write-up is posted the day of the puzzle or soon after.
-        for yy, mm in {(y, m), (y + (m == 12), m % 12 + 1)}:
-            for number, items in blog_records(series, yy, mm).items():
-                recs.setdefault(number, []).extend(items)
+    if series in CATEGORIES:
+        months = sorted({(date.year, date.month) for puzzle in todo.values()
+                         for date in [datetime.date.fromisoformat(puzzle["date"])]})
+        for y, m in months:
+            # A write-up is posted the day of the puzzle or soon after.
+            for yy, mm in {(y, m), (y + (m == 12), m % 12 + 1)}:
+                for number, items in blog_records(series, yy, mm).items():
+                    recs.setdefault(number, []).extend(items)
     for path, puzzle in todo.items():
         pid = puzzle["id"]
-        options = recs.get(puzzle["number"], [])
+        options = (recs.get(puzzle["number"], []) if series in CATEGORIES
+                   else azed_records(puzzle["number"]))
         if not options:
             out["no post"] += 1
             log(f"{pid}: REFUSED no post")
@@ -401,7 +432,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("ids", nargs="*", help="only these puzzle ids")
-    ap.add_argument("--series", default="times", choices=sorted(CATEGORIES))
+    ap.add_argument("--series", default="times", choices=sorted(CATEGORIES) + ["azed"])
     ap.add_argument("--from", dest="first", type=int, default=2006)
     ap.add_argument("--to", dest="last", type=int, default=2014)
     ap.add_argument("--check-only", action="store_true")
