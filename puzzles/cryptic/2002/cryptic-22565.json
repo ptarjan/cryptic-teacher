@@ -44,71 +44,83 @@
    },
    "solution": "POLICESERGEANT",
    "annotation": {
-    "definedByPreamble": true,
+    "definitions": [
+     {
+      "text": "*",
+      "at": 0
+     }
+    ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "POLICESERGEANT",
      "indicators": [
       {
        "text": "including",
-       "note": "including means the altered word wraps around the other piece and holds it inside"
+       "at": 17,
+       "note": "the first piece holds the second inside it, as something that includes another thing contains it"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "POLICESERGEANT",
        "indicators": [
         {
          "text": "for",
-         "note": "'O for A' asks the solver to put the O where an A stood, a straight swap of one letter"
+         "at": 3,
+         "note": "'O for a' tells us to put the letter O in place of an A, swapping one letter for another"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "POLICESERGEANT",
-         "indicators": [
-          {
-           "text": "from",
-           "note": "taking something from a word removes those letters from it, leaving the rest"
-          }
-         ],
-         "parts": [
-          {
-           "words": "pageant",
-           "note": "taken as written; its first A is swapped out"
-          },
-          {
-           "words": "O",
-           "note": "the letter O, taken as written"
-          },
-          {
-           "words": "alien",
-           "gives": "ET",
-           "note": "ET is the film alien"
-          },
-          {
-           "words": "Leicester",
-           "note": "the English city, taken as written"
-          }
-         ]
+         "words": "pageant",
+         "at": 9
+        },
+        {
+         "words": "a",
+         "at": 7,
+         "gives": "A",
+         "note": "the letter A, taken as written"
+        },
+        {
+         "words": "O",
+         "at": 1,
+         "gives": "O",
+         "note": "the letter O, taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "from",
+         "at": 36,
+         "note": "the alien is taken away from Leicester, so its letters are removed from that word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Leicester",
+         "at": 41
+        },
+        {
+         "words": "an alien",
+         "at": 27,
+         "gives": "ET",
+         "note": "ET, the extraterrestrial of the Spielberg film, is the crossword's standard alien"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An excited cry for a carnival procession featuring a visitor from another world, in the English Midlands.",
-     "walkthrough": "The alien's two letters are not together in the city's name: lift out the first E and the T separately. The punctuation is surface; the whole clue is wordplay, defined only by the asterisk.",
-     "definitionFit": "The asterisk marks a character in the preamble's opera: the Sergeant of Police leads the constables in The Pirates of Penzance."
+     "surface": "Someone longs for a grand civic pageant featuring a visitor from outer space, staged in Leicester.",
+     "walkthrough": "The asterisk is the definition: the preamble says asterisked clues are characters in one opera, here The Pirates of Penzance. The alien's two letters are scattered through the city's name, not side by side.",
+     "definitionFit": "The Sergeant of Police leads the cowardly constables in Gilbert and Sullivan's The Pirates of Penzance, the opera behind every asterisked clue."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "alien"
     }
    }
@@ -1203,7 +1215,8 @@
     "definitions": [
      {
       "text": "not tailed",
-      "at": 27
+      "at": 27,
+      "note": "having no tail; an adjective like the answer"
      }
     ],
     "wordplay": {
@@ -1211,50 +1224,50 @@
      "parts": [
       {
        "words": "Bill",
+       "at": 0,
        "gives": "AC",
-       "note": "AC is short for account, a bill"
+       "note": "AC is short for account, and an account is a bill"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "topped",
-         "note": "topped means the head is cut off, as when topping and tailing beans"
+         "at": 20,
+         "note": "a topped word has lost its top, so Maud and pal each lose their first letter"
         }
        ],
        "parts": [
         {
-         "words": "Maud",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Maud",
+           "at": 6
+          },
+          {
+           "words": "pal",
+           "at": 15
+          }
+         ]
         },
         {
-         "gives": "M"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "pal",
-         "note": "taken as written"
-        },
-        {
-         "gives": "P"
+         "gives": "MP"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Three friends going through vegetables: the ends topped but not the tails.",
-     "walkthrough": "Only Maud and pal lose their first letters; Bill is replaced by its abbreviation. The phrase echoes 'topped and tailed'.",
-     "definitionFit": "Acaudal is the zoological term for having no tail, from Latin cauda, tail."
+     "surface": "Three friends, Bill, Maud and their pal, have been given a haircut on top but left long behind.",
+     "walkthrough": "One 'topped' serves both names after it. 'not tailed' looks like a further cutting instruction, but it is the definition.",
+     "definitionFit": "Acaudal is the zoological term for an animal lacking a tail, from Latin cauda."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Bill"
+     "joke": "pun",
+     "misdirectedWord": "tailed"
     }
    }
   },
