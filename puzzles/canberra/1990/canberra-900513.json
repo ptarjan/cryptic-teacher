@@ -610,52 +610,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "Lost",
+       "at": 8,
+       "note": "losing nothing here means one O drops out, and the A takes its place"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Lost",
-           "note": "lost means gone missing, so the fool word is without the thing named next"
-          }
-         ],
-         "parts": [
-          {
-           "words": "fool",
-           "gives": "FOL",
-           "note": "fool missing one O"
-          },
-          {
-           "gives": "O"
-          }
-         ]
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "fool",
+       "at": 2,
+       "gives": "FOOL",
+       "note": "taken as written"
       },
       {
        "words": "nothing",
+       "at": 13,
        "gives": "O",
-       "note": "nothing is zero, which looks like the letter O"
+       "note": "O is the round shape of zero, nothing"
+      },
+      {
+       "words": "A",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "A punter who backed a losing horse is mocked as a fool, though he broke even.",
-     "walkthrough": "FOOL loses an O, and the A goes into the gap: the A takes the place of the lost nothing. There is no separate word signalling the insertion.",
-     "definitionFit": "A foal is a young horse, so the general word stands for it by example."
+     "surface": "A punter laments a foolish bet on a horse that ran badly.",
+     "walkthrough": "One O of FOOL gives way to the A at the start; 'on that' only leads to the definition.",
+     "definitionFit": "A foal is a young horse, still under a year old."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "nothing"
+     "joke": "pun",
+     "misdirectedWord": "Lost"
     }
    }
   },

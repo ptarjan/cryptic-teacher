@@ -704,47 +704,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "of the",
+       "at": 5,
+       "note": "of the says the answer is made of the letters running through the words that follow"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "of the fifth",
-         "note": "read here as taking away the letter standing fifth in the following word"
-        }
-       ],
-       "parts": [
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "fifth",
-           "note": "the closing letter of this word"
-          }
-         ]
-        },
-        {
-         "gives": "FT"
-        }
-       ]
-      },
-      {
-       "words": "order",
-       "gives": "ORDE",
-       "note": "the word with its fifth letter, an R, dropped"
+       "words": "fifth order",
+       "at": 12
       }
      ]
     },
     "explanation": {
-     "surface": "A dense gathering of the fifth rank in some hierarchy.",
-     "walkthrough": "This parse is tentative: the answer is sure from its definition and crossings, but the setter's exact route to the H is unclear.",
-     "definitionFit": "A horde is a great crowd or multitude, and a mass of people is the same thing."
+     "surface": "A grand Mass of a high liturgical rank.",
+     "walkthrough": "'Mass' looks like a church service, but it means a crowd; the answer runs from the end of 'fifth' into 'order'.",
+     "definitionFit": "A horde is a great crowd or throng, a large mass of people or animals."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "order"
+     "joke": "pun",
+     "misdirectedWord": "Mass"
     }
    }
   },
@@ -1125,36 +1109,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DUCHESS",
-     "indicators": [
-      {
-       "text": "losing point",
-       "note": "losing a point means a compass point, a single letter, is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 5,
+         "note": "losing something means it is taken away from the word"
+        }
+       ],
        "parts": [
         {
          "words": "due",
-         "gives": "DU",
-         "note": "the word without its E, east being a compass point"
+         "at": 18,
+         "gives": "DUE"
         },
         {
-         "words": "game",
-         "gives": "CHESS",
-         "note": "chess is a board game"
+         "words": "point",
+         "at": 12,
+         "gives": "E",
+         "note": "E is east, one of the points of the compass"
         }
        ]
+      },
+      {
+       "words": "game",
+       "at": 26,
+       "gives": "CHESS",
+       "note": "chess is a board game"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman who drops a point she was owed in a game.",
-     "definitionFit": "A duchess is a noblewoman, wife of a duke, and a titled lady."
+     "surface": "A noblewoman's debt is cancelled at the gaming table.",
+     "walkthrough": "'point' is a compass point, here E for East, taken from DUE to leave DU; 'for' is a link.",
+     "definitionFit": "A duchess is a woman of high rank, the wife of a duke, and so a titled lady."
     },
     "features": {
      "answerInScene": true,

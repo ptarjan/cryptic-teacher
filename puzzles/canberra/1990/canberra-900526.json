@@ -721,34 +721,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BATTLESCENE",
      "indicators": [
       {
        "text": "Spooner says",
-       "note": "Spooner famously swapped the opening sounds of words, so the phrase must be said with its initial sounds exchanged"
+       "at": 12,
+       "note": "the Reverend Spooner famously swapped the opening sounds of a pair of words, so these two are traded"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "cows, have been",
-       "gives": "BATTLESCENE",
-       "soundsLike": "CATTLE'S BEEN",
-       "note": "cows are cattle, and 'have been' becomes 's been; swap the opening B and C sounds"
+       "op": "homophone",
+       "spelt": "SCATTLE",
+       "parts": [
+        {
+         "words": "cows",
+         "at": 25,
+         "gives": "CATTLE",
+         "note": "cows are cattle, respelt here with the S sound the swap needs"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "BENE",
+       "parts": [
+        {
+         "words": "have been",
+         "at": 31,
+         "gives": "BEEN",
+         "note": "have been gives been, respelt as it is said"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer asks which meadow the herd has been grazing in.",
-     "walkthrough": "CATTLE'S BEEN spoken with the first sounds exchanged becomes BATTLE SCENE.",
-     "definitionFit": "A field in the military sense is a battleground, the scene where a battle is fought."
+     "surface": "Where, a famous muddler asks, have the cows got to?",
+     "walkthrough": "Swap the first sounds of CATTLE and BEEN to hear 'battle seen'; written as a phrase it is the answer.",
+     "definitionFit": "A battle scene is a field of combat, the place where fighting took place."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Field"
+     "misdirectedWord": "cows"
     }
    }
   },
