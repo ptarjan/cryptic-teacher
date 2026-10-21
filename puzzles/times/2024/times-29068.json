@@ -260,21 +260,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "capital city, ignoring Fifth",
-       "gives": "ACCR",
-       "note": "ACCRA, the capital of Ghana, without its fifth letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring Fifth",
+         "at": 23,
+         "note": "the fifth letter is ignored, dropping the end of the city name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capital city",
+         "at": 9,
+         "gives": "ACCRA",
+         "note": "Accra is the capital of Ghana"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "Amendment",
+       "at": 38,
        "gives": "EDIT",
        "note": "an edit is an amendment"
       }
      ]
     },
     "explanation": {
-     "surface": "A call to penalise a US city whose officials refuse to answer, pleading the Fifth Amendment.",
-     "walkthrough": "'Fifth Amendment' is a set phrase from the US Constitution (the right to silence), but the clue breaks it apart: 'Fifth' belongs with 'ignoring', and 'Amendment' is EDIT.",
-     "definitionFit": "Sanction in its approving sense, not the punishing one the surface suggests: to accredit is to authorise officially."
+     "surface": "A US court sanctions a capital city for ignoring the Fifth Amendment.",
+     "walkthrough": "The Fifth Amendment looks like the US Constitution, but 'Fifth' counts letters: the capital is Ghana's, and its fifth letter goes.",
+     "definitionFit": "To accredit is to officially authorise or approve, the same as giving official sanction."
     },
     "features": {
      "answerInScene": false,
@@ -548,24 +565,41 @@
      "parts": [
       {
        "words": "temperature",
-       "gives": "T",
-       "note": "T is the symbol for temperature"
+       "at": 8,
+       "gives": "T"
       },
       {
-       "words": "chilled, mostly",
-       "gives": "ONIC",
-       "note": "chilled = ON ICE, minus its final E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 31,
+         "note": "mostly means not quite all, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chilled",
+         "at": 22,
+         "gives": "ONICE",
+         "note": "on ice means chilled"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A note on how cold a drinks mixer should be served.",
-     "walkthrough": "Everything in the surface is about serving a gin and tonic cold, so the answer hides in plain sight.",
-     "definitionFit": "A mixer is a soft drink added to spirits, and tonic water, poured into gin, is the classic one."
+     "surface": "A cocktail mixer's temperature is mostly chilled.",
+     "walkthrough": "'Mostly' cuts ON ICE to ONIC, after T.",
+     "definitionFit": "Tonic water is a drink commonly used to dilute spirits, as in gin and tonic."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Mixer's"
     }
    }
   },
@@ -594,29 +628,44 @@
      "parts": [
       {
        "words": "doctor",
-       "gives": "DR",
-       "note": "the standard abbreviation"
+       "at": 8,
+       "gives": "DR"
       },
       {
        "words": "a",
-       "note": "used as is"
+       "at": 20
       },
       {
-       "words": "reduced staff",
-       "gives": "STIC",
-       "note": "staff = STICK, minus its final K"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 22,
+         "note": "reduced means cut short, losing the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "staff",
+         "at": 30,
+         "gives": "STICK",
+         "note": "a stick is a staff"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grave doctor running a practice short of employees.",
-     "walkthrough": "'Staff' reads as employees, which fits a doctor's practice; it is a walking stick.",
-     "definitionFit": "A loose synonym: drastic measures are severe, far-reaching ones, serious in their effect."
+     "surface": "A grave doctor with a shrunken staff of employees.",
+     "walkthrough": "'Staff' suggests employees, but it is the walking stick, cut by 'reduced' to STIC.",
+     "definitionFit": "Drastic means severe or extreme in effect, which makes it a near synonym of grave, serious measures."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "staff"
     }
    }

@@ -794,34 +794,40 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "half-",
-       "note": "read as an instruction, 'half' asks for half of the word it is attached to, here the last three letters of SISTER"
-      }
-     ],
      "parts": [
       {
        "words": "At home",
+       "at": 0,
        "gives": "IN",
-       "note": "in = at home"
+       "note": "in means at home"
       },
       {
-       "words": "half-sister",
-       "gives": "TER",
-       "note": "the back half of SISTER"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 13,
+         "note": "half of the six-letter word sister, here its last three letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sister",
+         "at": 18,
+         "note": "the word as written, of which the back half is kept"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lives at home with a half-sister in Bury, a town near Manchester.",
-     "walkthrough": "Bury is a town in Greater Manchester, and the capital letter hides that it is the verb. Half-sister looks like a relation but gives half of SISTER.",
-     "definitionFit": "A plain synonym for the verb: to inter is to place a body in the earth, from Latin terra."
+     "surface": "Someone is staying in with a half-sister in the Lancashire town of Bury.",
+     "walkthrough": "Bury looks like the Lancashire town but is the verb; 'half' keeps the back half of SISTER.",
+     "definitionFit": "To inter is to place a corpse in a grave, so it means the same as to bury."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Bury"
     }
    }
@@ -1197,26 +1203,42 @@
      "parts": [
       {
        "words": "Wife",
-       "gives": "W",
-       "note": "W = wife"
+       "at": 0,
+       "gives": "W"
       },
       {
-       "words": "heartlessly walloping",
-       "gives": "HITING",
-       "note": "HITTING with its central T removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartlessly",
+         "at": 5,
+         "note": "without its heart, one of the two middle letters is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "walloping",
+         "at": 17,
+         "gives": "HITTING",
+         "note": "hitting is walloping"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cruel wife is beating someone with a fish.",
-     "walkthrough": "'Heartlessly' seems to describe the wife's cruelty; it removes the middle T of HITTING.",
-     "definitionFit": "A whiting is a sea fish of the cod family."
+     "surface": "A wife cruelly beats someone with a fish.",
+     "walkthrough": "'Heartlessly' drops one T from the middle of HITTING, leaving HITING.",
+     "definitionFit": "The whiting is an edible sea fish of the cod family, common in European waters."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "heartlessly"
+     "misdirectedWord": "walloping"
     }
    }
   },

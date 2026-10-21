@@ -1405,26 +1405,45 @@
      "indicators": [
       {
        "text": "missed",
-       "note": "something missed is left out, so these letters drop"
+       "at": 32,
+       "note": "the letters are missed out, or removed, from the longer word"
       }
      ],
      "parts": [
       {
        "words": "Describing bald tyre",
+       "at": 0,
        "gives": "TREADLESS",
-       "note": "a bald tyre has worn away its grip pattern"
+       "note": "a bald tyre has no tread, so it is treadless"
       },
       {
-       "words": "son twice",
-       "gives": "SS",
-       "note": "S for son, two of them"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 26,
+         "note": "the son's letter is taken two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "son",
+         "at": 22,
+         "gives": "S"
+        },
+        {
+         "words": "son",
+         "at": 22,
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worn tyre makes a driver miss the pedal.",
-     "walkthrough": "The two S letters taken away come off the end.",
-     "definitionFit": "A treadle is a lever worked by the foot, as on an old sewing machine."
+     "surface": "Someone describes a bald tyre, and a son keeps missing the pedal.",
+     "walkthrough": "'Missed' removes S twice from TREADLESS.",
+     "definitionFit": "A treadle is a lever worked by the foot to drive a machine, such as an old sewing machine."
     },
     "features": {
      "answerInScene": true,
@@ -1725,49 +1744,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "turned about means facing the other way, read backwards"
-      },
-      {
-       "text": "around",
-       "note": "turned around means read the other way"
+       "text": "to carry",
+       "at": 16,
+       "note": "the first piece carries, or holds, the second inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to carry",
-         "note": "the outer word carries the other inside it"
+         "text": "about",
+         "at": 10,
+         "note": "turned about, so the word for pig is read backwards"
         }
        ],
        "parts": [
         {
          "words": "pig",
+         "at": 6,
          "gives": "HOG",
          "note": "a hog is a pig"
-        },
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 29,
+         "note": "turned around, so the word for dog is read backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "dog",
+         "at": 25,
          "gives": "TAIL",
-         "note": "to dog someone is to tail them"
+         "note": "to tail someone is to dog them, follow closely"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A huge pig turns to pick up a dog.",
-     "walkthrough": "'Dog' is a verb here, to follow someone.",
-     "definitionFit": "Goliath was the Philistine giant felled by David, now any huge person or thing."
+     "surface": "A huge pig is about to carry a dog around.",
+     "walkthrough": "'Dog' is the verb, to follow, and both 'about' and 'around' turn their own piece round before the pig holds the dog.",
+     "definitionFit": "Goliath was the Philistine giant killed by David, and the name now means any huge person."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "dog"
     }
    }
