@@ -1165,41 +1165,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "covers"
+       "text": "covers",
+       "at": 12,
+       "note": "the shirt covers the ribs, so it goes around them"
       }
      ],
      "parts": [
       {
        "words": "shirt",
+       "at": 6,
        "gives": "TEE",
-       "note": "a tee shirt; split TE...E"
+       "note": "a tee is a T-shirt"
       },
       {
        "op": "outer",
        "indicators": [
         {
-         "text": "but not guts",
-         "note": "The guts of a word are its insides, so without them 'ribs' is just R and S."
+         "text": "not guts",
+         "at": 29,
+         "note": "the guts are a word's inner letters; without them only the outer pair is left"
         }
        ],
        "parts": [
         {
-         "words": "ribs, but not guts",
-         "note": "the outside letters of ribs"
+         "words": "ribs",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cropped top that shows the ribcage but hides the belly.",
-     "walkthrough": "'Short shirt' reads as a crop top, but 'Short' stands alone as the definition.",
-     "definitionFit": "Manner sense: a terse reply is short, clipped to the bare minimum."
+     "surface": "A cropped shirt hides the ribcage but leaves the belly bare.",
+     "walkthrough": "The guts of a word are its middle letters, so taking them away leaves just the two ends.",
+     "definitionFit": "Terse describes speech that is brief to the point of curtness, a synonym for short."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "guts"
     }
    }
@@ -2469,26 +2472,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "go for post-inaugural",
-       "gives": "ELECT",
-       "note": "SELECT (go for) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "post-inaugural",
+         "at": 14,
+         "note": "post-inaugural means after the opening, so the word keeps everything except its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "go for",
+         "at": 7,
+         "gives": "SELECT",
+         "note": "to go for something is to select it"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
        "words": "address",
+       "at": 29,
        "gives": "ORATE",
-       "note": "to address a crowd is to orate"
+       "note": "to orate is to make a formal address"
       }
      ]
     },
     "explanation": {
-     "surface": "Voters pick the speech made after a president takes office.",
-     "walkthrough": "'Post-inaugural address' reads as a presidential speech; split the phrase, and 'post-inaugural' acts on the word before it.",
-     "definitionFit": "Collective noun: the electorate is the whole body of voters."
+     "surface": "The public opting for whatever is said after the new leader's inauguration speech.",
+     "definitionFit": "The electorate is the body of people entitled to vote in an election."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "post-inaugural"
+     "misdirectedWord": "inaugural"
     }
    }
   },

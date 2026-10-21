@@ -312,58 +312,79 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "the reversed letters are placed in the middle of the others"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "ground",
-         "note": "something ground is crushed and broken up, so the gathered letters are mixed"
-        }
-       ],
+       "op": "charade",
        "parts": [
-        {
-         "words": "Hearts",
-         "gives": "H",
-         "note": "H is the card abbreviation for hearts"
-        },
-        {
-         "words": "sit",
-         "note": "taken as written"
-        },
         {
          "op": "last",
          "indicators": [
           {
-           "text": "in",
-           "note": "in says the letter comes from inside the place name that follows"
+           "text": "ground",
+           "at": 29,
+           "note": "the ground is the bottom, the foot of the word, so its last letter"
           }
          ],
          "parts": [
           {
            "words": "Inverness",
-           "note": "the final letter of the Highland town"
+           "at": 19
           }
          ]
+        },
+        {
+         "words": "that's",
+         "at": 38,
+         "gives": "IE",
+         "note": "i.e. is the abbreviation for id est, that is"
         }
        ]
       },
       {
-       "words": "that's",
-       "gives": "IE",
-       "note": "i.e. stands for 'that is'"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 11,
+         "note": "back means the letters run in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Hearts",
+           "at": 0,
+           "gives": "H",
+           "note": "H is the card abbreviation for hearts"
+          },
+          {
+           "words": "sit",
+           "at": 7
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hearts fans sit back at an Inverness ground, and there is trouble in Edinburgh.",
-     "walkthrough": "Loose wordplay: the blog also reads it as the reversal of 'Hearts sit' inside S...IE. Hearts (Heart of Midlothian) is an Edinburgh football club, which is the surface's joke.",
-     "definitionFit": "Stishie (stushie) is a Scots word for a commotion or row, the kind of fuss heard in Scotland's capital."
+     "surface": "Fans of Hearts, the Edinburgh football club, sitting back at an Inverness ground and causing a commotion.",
+     "walkthrough": "Hearts (Heart of Midlothian) is an Edinburgh football club, which the surface leans on; in the wordplay it is just the card suit.",
+     "definitionFit": "Stishie is a Scots word for a commotion or fuss, so it is trouble in Scots usage."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Hearts"
     }
    }
