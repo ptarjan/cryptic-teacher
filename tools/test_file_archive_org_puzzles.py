@@ -2870,6 +2870,24 @@ check("the VLM's own reading beside an OCR slip of a letter is laid with no ask"
                          {"1-across": ("", "5", None)}, {"1-across": "readings differ"}, f.parse,
                          lambda lid, cands: 1 / 0)[0]["1-across"][0])
 
+# FT 1984-09-20: worn type, three readers each garbling every clue differently
+# (none within SETTLE_SIMILAR of another); the VLM's column reading was clean and
+# every pick asked came back as that very text. Laid with no ask when its count is
+# the light's and its words are known; asked when its count is not or a word is not.
+WORN_OCR = {"ch": "ACROSS\n18Poet'siudycruwnrdwlth\npold (5)\nDOWN\n3Stir up volnily-.cherr\nllerorvel151\n",
+            "en5": "ACROSS\n18 Poet's wludy crownrd with\nFold (5)\nDOWN\n3 Goree WiT\" wilh .1\ncomnon sl (9)\n"}
+WORN_VLM = "ACROSS\n18 Poet's study crowned with\ngold (5)\nDOWN\n3 Gorge a wife with a\ncommon salt (9)\n"
+check("the VLM's column reading beside three worn readers, its count the light's, is laid with no ask",
+      "Poet's study crowned with gold",
+      ocr_clues.vlm_pick({**WORN_OCR, "vlm": WORN_VLM}, {"18-across": ("", "5", None)},
+                         {"18-across": "no other reading has"}, f.parse, lambda lid, cands: 1 / 0)[0]["18-across"][0])
+check("the same reading for a light of another length is asked about, not laid", ["18-across"],
+      sorted(ocr_clues.vlm_pick({**WORN_OCR, "vlm": WORN_VLM}, {"18-across": ("", "6", None)},
+                                {"18-across": "no other reading has"}, f.parse, lambda lid, cands: None)[1]))
+check("a column reading with a word no lexicon knows and no reader prints is asked about", ["18-across"],
+      sorted(ocr_clues.vlm_pick({**WORN_OCR, "vlm": WORN_VLM.replace("study", "stuqdy")}, {"18-across": ("", "5", None)},
+                                {"18-across": "no other reading has"}, f.parse, lambda lid, cands: None)[1]))
+
 # Times 13,998 as an older reading filed it: the loose lay put 18 across's
 # clue on 15 across too, where a misread number laid it, and 15 across's own
 # clue ("An Athenian acted in any element", ANTIMONY) was lost.
