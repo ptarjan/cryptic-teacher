@@ -631,43 +631,45 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the result is placed behind the little word that follows"
+       "at": 36,
+       "note": "after says the following piece comes after the a"
       }
      ],
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 42,
+       "gives": "A"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "entry",
-         "note": "an entry is a going in, so one word goes inside another"
+         "at": 30,
+         "note": "an entry is a going-in, so one piece goes inside the other"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
+         "op": "first",
          "indicators": [
           {
            "text": "Half",
-           "note": "only half of the following word survives, the rest being cut away"
+           "at": 0,
+           "note": "half of the word cancelling, its front five letters, is kept"
           }
          ],
          "parts": [
           {
            "words": "cancelling",
-           "note": "taken as written, then its second half is dropped"
-          },
-          {
-           "gives": "LLING"
+           "at": 5
           }
          ]
         },
         {
          "words": "old-fashioned",
+         "at": 16,
          "gives": "QUAINT",
          "note": "quaint means charmingly old-fashioned"
         }
@@ -676,14 +678,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone partly scrapping an outdated diary note about a friend.",
-     "walkthrough": "The first five letters of the ten in 'cancelling' are CANCE; QUAINT goes inside after its C, and A goes on the front.",
-     "definitionFit": "An acquaintance is someone you know slightly, a person you have met but are not close to."
+     "surface": "Crossing out half an outdated record about someone you know.",
+     "walkthrough": "'Half cancelling' looks like an instruction to delete; it is the front half of the word cancelling, with the old-fashioned word making its 'entry' after its first letter.",
+     "definitionFit": "An acquaintance is someone known to you but not a close friend."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "entry"
+     "misdirectedWord": "cancelling"
     }
    }
   },
@@ -1496,52 +1498,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "botched",
-       "note": "something botched is spoilt, so these letters are scrambled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "only half",
-         "note": "keeping only half of a word means cutting off the other half"
+         "text": "botched",
+         "at": 28,
+         "note": "botched means bungled, so the letters of once are jumbled"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "once",
-           "note": "the letters of this word rearranged"
-          },
-          {
-           "words": "more",
-           "note": "taken as written, then its first half is dropped"
-          }
-         ]
-        },
+         "words": "once",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "gives": "OM"
+         "text": "only half",
+         "at": 18,
+         "note": "only the back half of the word more is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "more",
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A performer is asked to go again, after the first attempt went partly wrong.",
-     "walkthrough": "Keep the back half of 'more' after the scrambled 'once'.",
+     "surface": "A performance repeated, but only half of it messed up this time.",
+     "walkthrough": "ONCE jumbled gives ENCO, then RE, the back half of MORE.",
      "definitionFit": "An encore is a repeat performance demanded by the audience."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "botched"
+     "misdirectedWord": "Repeat"
     }
    }
   },
@@ -1570,51 +1571,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "says the fools go inside the trimmed word"
+       "at": 25,
+       "note": "in places the idiots within the trimmed press word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "middle",
        "indicators": [
         {
          "text": "getting rid of extremists",
-         "note": "the extremes of a word are its outer letters, and these are thrown out"
+         "at": 34,
+         "note": "losing its extremes means the first and last letters of press go"
         }
        ],
        "parts": [
         {
          "words": "press",
-         "note": "taken as written, then its end letters are dropped"
-        },
-        {
-         "gives": "P"
+         "at": 28
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "idiots",
-         "gives": "ASSES",
-         "note": "asses are fools"
-        },
-        {
-         "gives": "S"
-        }
-       ]
+       "words": "idiots",
+       "at": 18,
+       "gives": "ASSES",
+       "note": "asses are fools or idiots"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper reconsiders the fools in its pages once it has purged its radicals.",
-     "walkthrough": "'Extremists' sounds political, but means the extreme letters of 'press', leaving RES to hold ASSES.",
-     "definitionFit": "To reassess is to evaluate again, so to think again about something."
+     "surface": "A political column reconsidering fools in the media now the radicals have gone.",
+     "walkthrough": "'extremists' looks political; it means the end letters of press, which go before the idiots are put inside.",
+     "definitionFit": "To reassess something is to evaluate it afresh, which means reconsidering it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "extremists"
     }
    }

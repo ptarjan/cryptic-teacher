@@ -201,26 +201,42 @@
      "parts": [
       {
        "words": "closed",
+       "at": 16,
        "gives": "TO",
        "note": "a door pulled to is closed"
       },
       {
-       "words": "water source abruptly",
-       "gives": "WEL",
-       "note": "WELL without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abruptly",
+         "at": 36,
+         "note": "abruptly means cut short, so the last letter of the word is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "water source",
+         "at": 23,
+         "gives": "WELL",
+         "note": "a well is a source of water"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spring that was capped suddenly runs dry.",
-     "walkthrough": "'Dry up' reads as a water source failing, but it means wiping the dishes. TO for closed comes from 'push the door to'.",
-     "definitionFit": "A towel is used to dry up washed crockery."
+     "surface": "A spring that has been sealed off and suddenly runs dry.",
+     "walkthrough": "'closed' gives TO, as in a door pushed to.",
+     "definitionFit": "A towel is the cloth used for drying off the body or the washing-up."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "dry"
+     "misdirectedWord": "closed"
     }
    }
   },
@@ -586,26 +602,45 @@
      "op": "charade",
      "parts": [
       {
-       "words": "female to leave uncultivated",
-       "gives": "ALLOW",
-       "note": "FALLOW without F"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to leave",
+         "at": 17,
+         "note": "the female letter is made to leave, dropping out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "uncultivated",
+         "at": 26,
+         "gives": "FALLOW",
+         "note": "fallow land is left uncultivated"
+        },
+        {
+         "words": "female",
+         "at": 10,
+         "gives": "F"
+        }
+       ]
       },
       {
        "words": "expert",
+       "at": 39,
        "gives": "ABLE",
-       "note": "able = skilled, expert"
+       "note": "able means skilled or expert"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman is allowed to walk away from a field lying fallow.",
-     "walkthrough": "Fallow land is ploughed but left unsown, so 'uncultivated' gives FALLOW.",
-     "definitionFit": "A plain synonym: what is allowable is what the rules let through."
+     "surface": "A woman is allowed to quit her job as a skilled hand on untilled land.",
+     "walkthrough": "'uncultivated' looks like part of the picture of farm work, but it supplies the word the female letter leaves.",
+     "definitionFit": "Something allowable is acceptable under the rules, so it is permitted."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leave"
+     "misdirectedWord": "uncultivated"
     }
    }
   },
@@ -1332,31 +1367,29 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "out of",
-       "at": 26,
-       "note": "out of line, like out of order, says the remaining letters are not in their proper places and must be rearranged"
+       "text": "sacked",
+       "at": 46,
+       "note": "sacked means plundered and ransacked, so the letters are wrecked and reassembled"
       }
      ],
      "parts": [
       {
        "words": "labourers",
-       "at": 10,
-       "note": "taken as written, as anagram material"
+       "at": 10
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "sacked",
-         "at": 46,
-         "note": "sacked means this letter is dismissed from the pool of letters"
+         "text": "out of",
+         "at": 26,
+         "note": "out of means a letter is removed from being"
         }
        ],
        "parts": [
         {
          "words": "being",
-         "at": 20,
-         "note": "taken as written, as anagram material"
+         "at": 20
         },
         {
          "op": "last",
@@ -1364,14 +1397,13 @@
           {
            "text": "finally",
            "at": 38,
-           "note": "finally means the last letter of the word line"
+           "note": "finally picks the last letter of line"
           }
          ],
          "parts": [
           {
            "words": "line",
-           "at": 33,
-           "note": "taken as written, for its last letter"
+           "at": 33
           }
          ]
         }
@@ -1380,9 +1412,9 @@
      ]
     },
     "explanation": {
-     "surface": "Workers who stepped out of line being dismissed for their seditious behaviour.",
-     "walkthrough": "'sacked' removes E (the last letter of line) from BEING, leaving BING, and 'out of' rearranges the rest with LABOURERS. 'out of line' reads as one phrase, but line also supplies a letter.",
-     "definitionFit": "Rabble-rousing speech stirs up a mob against authority, which is what seditious language aims to do."
+     "surface": "Workers fired after stepping out of line are reported as dangerous agitators.",
+     "walkthrough": "'out of' takes E (line's last letter, via 'finally') from BEING, giving BING; 'sacked' then shuffles LABOURERS plus BING.",
+     "definitionFit": "Rabble-rousing speech stirs up a crowd against authority, so it is inflammatory and seditious."
     },
     "features": {
      "answerInScene": true,
@@ -1631,7 +1663,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "limiting"
+       "text": "limiting",
+       "at": 16,
+       "note": "limiting means enclosing, so half dead and the court abbreviation together go round the enjoyment"
       }
      ],
      "parts": [
@@ -1639,28 +1673,40 @@
        "op": "charade",
        "parts": [
         {
-         "words": "Half dead",
-         "gives": "DE",
-         "note": "first half of DEAD"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Half",
+           "at": 0,
+           "note": "half of the word dead is kept, its front half"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dead",
+           "at": 5
+          }
+         ]
         },
         {
          "words": "court",
-         "gives": "CT",
-         "note": "standard abbreviation"
+         "at": 10,
+         "gives": "CT"
         }
        ]
       },
       {
        "words": "enjoyment",
+       "at": 25,
        "gives": "FUN",
-       "note": "fun = enjoyment"
+       "note": "fun means enjoyment"
       }
      ]
     },
     "explanation": {
-     "surface": "A half-dead court that stifles pleasure has lost its authority.",
-     "walkthrough": "'Dead' sits beside 'no longer valid' and tempts as part of the definition; only its first half is used.",
-     "definitionFit": "Something defunct has ceased to exist or operate."
+     "surface": "A court curbing pleasure, half dead and no longer valid, like an obsolete ruling.",
+     "walkthrough": "'limiting' acts on both pieces before it: half of dead and the court abbreviation together enclose the enjoyment.",
+     "definitionFit": "A defunct law or body has ceased to exist or operate, so it no longer has any validity."
     },
     "features": {
      "answerInScene": true,

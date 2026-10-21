@@ -655,8 +655,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "disorganised",
-       "note": "the letters of 'tangled in' are put in a new order"
+       "text": "parts",
+       "at": 5,
+       "note": "the note parts the other letters, splitting them by sitting among them"
       }
      ],
      "parts": [
@@ -664,28 +665,29 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "parts",
-         "note": "the note splits the rearranged letters, sitting inside them"
+         "text": "disorganised",
+         "at": 22,
+         "note": "disorganised means put in disorder, so the letters are scrambled"
         }
        ],
        "parts": [
         {
          "words": "tangled in",
-         "note": "anagram fodder, 9 letters"
+         "at": 11
         }
        ]
       },
       {
        "words": "Note",
-       "gives": "N",
-       "note": "N = note, the dictionary abbreviation; it goes between LANDI and GNET"
+       "at": 0,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A fisherman's kit left tangled and disorganised.",
-     "walkthrough": "'Tangled' looks like the anagram indicator, but it is fodder; 'disorganised' does the rearranging.",
-     "definitionFit": "A landing net is the net an angler uses to lift a hooked fish from the water."
+     "surface": "A fisherman's kit is in a tangled mess.",
+     "walkthrough": "'tangled' looks like the anagram signal, but it is fodder; 'disorganised' scrambles TANGLED IN, and N goes inside.",
+     "definitionFit": "A landing net is the long-handled net an angler uses to lift a hooked fish out of the water."
     },
     "features": {
      "answerInScene": true,
@@ -1403,26 +1405,37 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Slipping lead",
-       "note": "the first letter of the fodder is lost"
-      },
-      {
        "text": "savaged",
-       "note": "savaged, torn about, so the letters are rearranged"
+       "at": 26,
+       "note": "savaged means mauled, so the remaining letters are torn apart and rearranged"
       }
      ],
      "parts": [
       {
-       "words": "police dog",
-       "gives": "OLICEDOG",
-       "note": "POLICE DOG without its first letter, P; anagram fodder, 8 letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Slipping lead",
+         "at": 0,
+         "note": "the lead of a word is its first letter, which slips away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "police dog",
+         "at": 15
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A police dog that slipped its lead and savaged a former president.",
-     "walkthrough": "The lead in the surface is a dog's leash; here it is the first letter of 'police'.",
-     "definitionFit": "A definition by example: Calvin Coolidge was the 30th US president, in office 1923 to 1929, so long enough ago to be old."
+     "surface": "A police dog breaks free of its leash and attacks an elderly former leader.",
+     "walkthrough": "'lead' looks like a dog's leash; it means the first letter, P, which goes, leaving OLICEDOG to be shuffled.",
+     "definitionFit": "Calvin Coolidge was US president in the 1920s, so a past holder of that office."
     },
     "features": {
      "answerInScene": true,

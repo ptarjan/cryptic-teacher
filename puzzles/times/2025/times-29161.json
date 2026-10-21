@@ -832,23 +832,39 @@
      "parts": [
       {
        "words": "Penny",
-       "gives": "P",
-       "note": "p = penny"
+       "at": 0,
+       "gives": "P"
       },
       {
-       "words": "most recently mentioned missing first",
-       "gives": "ATTER",
-       "note": "latter = the one most recently mentioned, without its L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing first",
+         "at": 30,
+         "note": "missing its first means the word loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "most recently mentioned",
+         "at": 6,
+         "gives": "LATTER",
+         "note": "the latter is the one mentioned last of two"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A salesman's pitch ignored because nobody remembers what Penny said last.",
-     "walkthrough": "'Penny' looks like a woman's name, but it is the coin, abbreviated to P.",
-     "definitionFit": "Patter is the smooth, rapid talk of a salesman or entertainer."
+     "surface": "A salesman's pitch recalling the coin mentioned most recently.",
+     "walkthrough": "The latter is the second of two things just named, so 'most recently mentioned' gives it.",
+     "definitionFit": "Patter is the smooth rapid talk of a salesman or comedian."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Penny"
     }
@@ -1761,42 +1777,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "SEAFARER",
+     "indicators": [
+      {
+       "text": "according to report",
+       "at": 39,
+       "note": "according to report means as it is spoken, so sound counts not spelling"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "SEA",
-       "indicators": [
-        {
-         "text": "according to report",
-         "note": "the pieces are as heard, not as written"
-        }
-       ],
-       "parts": [
-        {
-         "words": "view",
-         "gives": "SEE",
-         "note": "to view is to see"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "FARER",
-       "parts": [
-        {
-         "words": "more pleasing to the eye",
-         "gives": "FAIRER",
-         "note": "fairer = prettier"
-        }
-       ]
+       "words": "view more pleasing to the eye",
+       "at": 9,
+       "gives": "SEEFAIRER",
+       "note": "to see is to view; fairer means more attractive"
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor claiming that the view from the sea is prettier, or so people say.",
-     "walkthrough": "The 's is 'is', joining the definition to the wordplay.",
-     "definitionFit": "A seafarer is someone who travels by sea, a sailor."
+     "surface": "A sailor's opinion that some view is lovelier, as rumour has it.",
+     "walkthrough": "SEE FAIRER said aloud sounds like the answer.",
+     "definitionFit": "A seafarer is a person who travels by sea, a mariner."
     },
     "features": {
      "answerInScene": true,

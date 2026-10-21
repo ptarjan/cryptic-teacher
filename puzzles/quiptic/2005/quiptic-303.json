@@ -511,32 +511,43 @@
       {
        "text": "entertains",
        "at": 19,
-       "note": "to entertain a guest is to hold them within, so one piece is placed inside the other"
+       "note": "to entertain is to take in as a guest, so one part holds the other"
       }
      ],
      "parts": [
       {
-       "words": "Half of university",
-       "at": 0,
-       "gives": "UNIVE",
-       "note": "the first five of the word's ten letters"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "half of the word university, its front five letters, is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "university",
+         "at": 8
+        }
+       ]
       },
       {
        "words": "claim to be a journalist",
        "at": 30,
        "gives": "IMPRESS",
-       "note": "a journalist might say 'I'm press', the press being journalists"
+       "note": "claiming to be a journalist one might say I'm press"
       }
      ]
     },
     "explanation": {
-     "surface": "A student hack's boast of being a reporter fails to persuade anyone.",
-     "walkthrough": "The half-word splits after its second letter to take in the claim.",
-     "definitionFit": "Something unimpressive fails to make a strong effect, so is weak and hardly persuasive."
+     "surface": "A student blagging press credentials at the university fails to persuade anyone.",
+     "walkthrough": "Someone claiming to be a journalist would say I'M PRESS; 'Half of' takes the first five letters of university.",
+     "definitionFit": "Something unimpressive makes little impact and fails to win people over, so it is weak and unpersuasive."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "entertains"
     }
    }
@@ -788,39 +799,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "development",
-       "at": 8,
-       "note": "a development is a change, signalling the letters are rearranged"
-      },
-      {
-       "text": "changed",
-       "at": 25,
-       "note": "altered letters, reinforcing the instruction to reshuffle"
+       "text": "In",
+       "at": 0,
+       "note": "in places one group of letters inside the other"
       }
      ],
      "parts": [
       {
-       "words": "each",
-       "at": 3,
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "development",
+         "at": 8,
+         "note": "development means growth or change, so the letters of each are reshaped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "each",
+         "at": 3
+        }
+       ]
       },
       {
-       "words": "I've",
-       "at": 20,
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changed",
+         "at": 25,
+         "note": "changed means the letters of I've are put in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I've",
+         "at": 20
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A self-improver claims every change they made worked out well.",
-     "definitionFit": "To achieve is to accomplish or succeed in reaching a goal."
+     "surface": "A self-improver noting that every change they made has worked out well.",
+     "walkthrough": "Two separate scrambles: 'development' acts on each, 'changed' on I've, and 'In' sets the second inside the first.",
+     "definitionFit": "To achieve is to succeed in reaching a goal, which is the same as obtaining a positive result."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "development"
     }
    }
   },
