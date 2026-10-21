@@ -1791,38 +1791,50 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PRISONCELL",
      "indicators": [
       {
        "text": "have to leave",
-       "note": "leaving means departing, so those letters are removed"
+       "at": 56,
+       "note": "the letters named must leave the words, being taken out"
       }
      ],
      "parts": [
       {
-       "words": "Paris once",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Paris",
+         "at": 31,
+         "note": "used as written"
+        },
+        {
+         "words": "once",
+         "at": 37,
+         "note": "used as written"
+        },
+        {
+         "words": "all",
+         "at": 42,
+         "note": "used as written"
+        }
+       ]
       },
       {
-       "words": "all",
-       "note": "taken as written"
-      },
-      {
-       "words": "all Americans",
+       "words": "Americans",
+       "at": 46,
        "gives": "AA",
-       "note": "every A, the abbreviation for American"
+       "note": "A is the abbreviation for American, so Americans are the letter A wherever it occurs"
       }
      ]
     },
     "explanation": {
-     "surface": "Paris was once home to the Bastille, before American visitors went home.",
-     "walkthrough": "The word 'all' does double duty: it is part of the letter string and tells you to remove every A.",
-     "definitionFit": "The Bastille was a Paris fortress used as a state prison, so its rooms were jail cells."
+     "surface": "A history of the Paris fortress, once rid of every American visitor.",
+     "walkthrough": "From PARIS ONCE ALL, all the A's leave, giving PRIS ONCE LL. The Bastille was a Paris fortress used as a prison.",
+     "definitionFit": "The Bastille was a state prison, so a room there might be a cell where inmates were locked up."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Americans"
     }
    }

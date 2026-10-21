@@ -954,7 +954,7 @@
         {
          "text": "losing face",
          "at": 14,
-         "note": "the face is the front, so the first letter goes"
+         "note": "the face of a word is its front, so its first letter is lost"
         }
        ],
        "parts": [
@@ -962,7 +962,7 @@
          "words": "Fidel perhaps",
          "at": 0,
          "gives": "CASTRO",
-         "note": "Fidel Castro, the Cuban leader"
+         "note": "Fidel Castro was the Cuban leader; perhaps marks him as one example of a Castro"
         },
         {
          "gives": "C"
@@ -970,22 +970,17 @@
        ]
       },
       {
-       "words": "name",
-       "at": 44,
-       "gives": "N"
-      },
-      {
-       "op": "deletion",
+       "op": "move",
        "indicators": [
         {
          "text": "putting",
          "at": 36,
-         "note": "putting the letter for name somewhere new: it leaves the relative"
+         "note": "putting a letter somewhere new takes it from its place in the word"
         },
         {
          "text": "forward",
          "at": 49,
-         "note": "it goes to the front, standing before the rest of the relative"
+         "note": "one letter is taken from its place and set nearer the front of the word"
         }
        ],
        "parts": [
@@ -993,9 +988,11 @@
          "words": "relative",
          "at": 27,
          "gives": "AUNT",
-         "note": "an aunt is a relative"
+         "note": "an aunt is a family relative"
         },
         {
+         "words": "name",
+         "at": 44,
          "gives": "N"
         }
        ]
@@ -1003,9 +1000,9 @@
      ]
     },
     "explanation": {
-     "surface": "Castro, humiliated, has a relative push a name for someone who soars.",
-     "walkthrough": "'Losing face' sounds like humiliation; it means dropping the opening letter.",
-     "definitionFit": "An astronaut travels into space, literally flying higher than anyone else."
+     "surface": "A Cuban leader, embarrassed, watches a relative boast about a pilot.",
+     "walkthrough": "CASTRO loses its first letter to give ASTRO; in AUNT the N (name) is put forward to give NAUT.",
+     "definitionFit": "An astronaut travels into space, flying higher than any pilot, so is literally a high-flier."
     },
     "features": {
      "answerInScene": false,
@@ -1088,38 +1085,47 @@
       {
        "text": "replacing",
        "at": 23,
-       "note": "one piece is swapped in where the other stood"
+       "note": "one stretch of the word is swapped out for another"
       }
      ],
      "parts": [
       {
-       "words": "amuse",
-       "at": 16,
+       "words": "how to amuse",
+       "at": 9,
        "gives": "ENTERTAIN",
-       "note": "to entertain is to amuse"
+       "note": "to entertain is the way to amuse people"
       },
       {
-       "words": "one half of ascent",
-       "at": 33,
-       "gives": "ENT",
-       "note": "the back three of the six letters"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "one half of",
+         "at": 33,
+         "note": "half of a six-letter word is three letters, here the back half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ascent",
+         "at": 45,
+         "note": "the second half of ascent is used"
+        }
+       ]
       },
       {
-       "words": "the other",
-       "at": 57,
-       "gives": "ASC",
-       "note": "the front half of the same word"
+       "gives": "ASC"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for finding out how to be funny by rearranging a climb.",
-     "walkthrough": "The word ascent splits into two halves; the back half appears at the start of the word for amuse and the front half takes its place.",
-     "definitionFit": "To ascertain is to find out for certain, which is to discover a fact."
+     "surface": "An odd instruction for finding out how to keep people amused.",
+     "walkthrough": "ASCENT splits into ASC and ENT; ENTERTAIN has ENT at its start, and 'the other' half, ASC, replaces it.",
+     "definitionFit": "To ascertain is to find out something for certain, a synonym of discover."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "amuse"
     }
    }
   },

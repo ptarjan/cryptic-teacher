@@ -265,29 +265,37 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "repeatedly",
+       "at": 16,
+       "note": "the two-letter block appears twice"
+      }
+     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "Couple in",
-         "note": "a couple is two, so only the opening pair of letters of the coffee chain's name is taken"
+         "at": 0,
+         "note": "a couple is two, so the first two letters of the word are taken"
         }
        ],
        "parts": [
         {
          "words": "Costa",
-         "note": "the first two letters of the coffee chain's name"
+         "at": 10,
+         "note": "the first two letters of Costa are used"
         }
        ]
       },
       {
-       "words": "repeatedly",
-       "gives": "CO",
-       "note": "the same pair again, since it is repeated"
+       "gives": "CO"
       },
       {
        "words": "like",
+       "at": 27,
        "gives": "AS",
        "note": "as means like, in a comparison"
       }
@@ -295,13 +303,13 @@
     },
     "explanation": {
      "surface": "A pair in a Costa coffee shop keep ordering warm drinks.",
-     "walkthrough": "Costa is a British coffee-shop chain. The two-letter piece appears twice before the final word.",
-     "definitionFit": "Cocoa is a warm chocolate beverage made with milk, so several servings are warm beverages."
+     "walkthrough": "Costa is a British coffee-shop chain, which makes the hot-drinks picture; 'Couple' means two letters here, not two people.",
+     "definitionFit": "Cocoa is a warm drink made from powdered cacao beans and milk, served hot."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Couple"
+     "misdirectedWord": "Costa"
     }
    }
   },
@@ -1040,43 +1048,56 @@
        "indicators": [
         {
          "text": "backing",
-         "note": "the back of a word is its end, so only its closing letter is taken"
+         "at": 22,
+         "note": "a word's back is its end, so its last letter is taken"
         }
        ],
        "parts": [
         {
-         "words": "musician's",
-         "gives": "MUSICIAN",
-         "note": "the final letter of musician"
+         "words": "musician",
+         "at": 11,
+         "note": "the last letter of musician is used"
         }
        ]
       },
       {
-       "words": "playing",
-       "gives": "ON",
-       "note": "a record or show that is playing is on"
-      },
-      {
-       "words": "twice",
-       "gives": "ON",
-       "note": "the word for playing written a second time"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 38,
+         "note": "the block is written out two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "playing",
+         "at": 30,
+         "gives": "ON",
+         "note": "a show that is playing is on"
+        },
+        {
+         "gives": "ON"
+        }
+       ]
       },
       {
        "words": "feeling",
+       "at": 49,
        "gives": "SENSE",
-       "note": "a sense is a feeling, as in a sense of dread"
+       "note": "a sense is a feeling, as a sense of loss"
       }
      ]
     },
     "explanation": {
-     "surface": "Frank plays with a backing musician, performing twice with real emotion.",
-     "walkthrough": "'Frank' looks like a man's name; it is the adjective for blunt and direct. 'Backing' suggests a backing band but only takes the last letter.",
-     "definitionFit": "A frank person is straightforward and blunt, with no frills or fuss in how they speak or act."
+     "surface": "A frank musician plays the same piece twice with emotion.",
+     "walkthrough": "'backing' looks like musical accompaniment, but it asks for the musician's final letter; 'with' only joins the pieces.",
+     "definitionFit": "A no-nonsense person is frank and straightforward, with no time for fuss or evasion."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Frank"
+     "misdirectedWord": "backing"
     }
    }
   },

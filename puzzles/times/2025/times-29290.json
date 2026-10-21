@@ -483,25 +483,38 @@
      "indicators": [
       {
        "text": "mounting",
-       "note": "in a down clue, going up means the letters are read bottom to top"
-      },
-      {
-       "text": "incomplete",
-       "note": "the last letter of IMAX is lost"
+       "at": 13,
+       "note": "in a down clue, mounting reads the letters upwards"
       }
      ],
      "parts": [
       {
-       "words": "screening method",
-       "gives": "IMA",
-       "note": "IMAX, the giant-screen cinema format, without its X"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 22,
+         "note": "the word is incomplete, missing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "screening method",
+         "at": 33,
+         "gives": "IMAX",
+         "note": "IMAX is a large-format film screening system"
+        },
+        {
+         "gives": "X"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Anger mounts in China over a half-finished screening method.",
-     "walkthrough": "Angers is a city in France, so a China there is an AMI; china means mate in Cockney rhyming slang (china plate = mate).",
-     "definitionFit": "Ami is French for friend, which is what china means in rhyming slang."
+     "surface": "Fury in China over a botched way of showing films.",
+     "walkthrough": "IMAX loses X and IMA mounts to give AMI. Angers is a French city, and china (china plate, rhyming slang for mate) means a friend: in French, ami.",
+     "definitionFit": "A friend in the French city would be called ami, French for friend, which is what a mate is."
     },
     "features": {
      "answerInScene": false,
@@ -1595,46 +1608,50 @@
      "indicators": [
       {
        "text": "to remove",
-       "note": "take a part out of the word"
+       "at": 23,
+       "note": "the letters named are taken out of the magic word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "magic word",
+       "at": 12,
+       "gives": "ABRACADABRA",
+       "note": "abracadabra is the conjurer's magic word"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
          "text": "twice",
-         "note": "the magic word contains A BRA at both ends, and 'twice' says to take out both copies"
+         "at": 56,
+         "note": "the block is taken out a second time"
         }
        ],
        "parts": [
         {
-         "words": "magic word",
-         "gives": "ABRACADABRA",
-         "note": "the conjuror's word"
+         "words": "a piece of underwear",
+         "at": 33,
+         "gives": "ABRA",
+         "note": "a bra is an item of underwear, so a piece of underwear is a bra"
         },
         {
          "gives": "ABRA"
         }
        ]
-      },
-      {
-       "words": "a piece of underwear",
-       "gives": "ABRA",
-       "note": "A + BRA, removed from each end"
       }
      ]
     },
     "explanation": {
-     "surface": "A scoundrel's magic trick makes a bra disappear, twice.",
-     "walkthrough": "ABRACADABRA begins and ends with ABRA; lose both and CAD is left in the middle.",
-     "definitionFit": "A cad is a man who behaves dishonourably, a scoundrel."
+     "surface": "A rogue's spell for whisking off underwear, said twice for effect.",
+     "walkthrough": "ABRACADABRA loses ABRA (A + BRA) twice, once from each end, leaving CAD.",
+     "definitionFit": "A cad is a man who behaves dishonourably, especially towards women: a rotter or scoundrel."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "remove"
+     "misdirectedWord": "underwear"
     }
    }
   },

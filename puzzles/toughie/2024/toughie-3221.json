@@ -544,33 +544,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
-       "text": "about",
-       "note": "about means surrounding, so a piece is placed inside"
+       "text": "Repeatedly",
+       "at": 0,
+       "note": "the stripped block is written out twice in a row"
       }
      ],
      "parts": [
       {
-       "words": "Repeatedly unveiled ideas",
-       "gives": "DEADEA",
-       "note": "ideas without its outer letters, written twice"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unveiled",
+         "at": 11,
+         "note": "a word unveiled has its covering stripped, so the first and last letters go and the inside remains"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ideas",
+         "at": 20
+        }
+       ]
       },
       {
-       "words": "southern",
-       "gives": "S",
-       "note": "S is the abbreviation for southern"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 26,
+         "note": "the doubled block goes around another letter, holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "gives": "DEA"
+        },
+        {
+         "words": "southern",
+         "at": 32,
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fresh ideas keep surfacing for a holiday spot in the south.",
-     "walkthrough": "'Repeatedly' means the stripped word is written twice, and the southern letter goes inside the second copy rather than between them.",
-     "definitionFit": "The Dead Sea, between Israel and Jordan, draws visitors who float in its salty water."
+     "surface": "Someone keeps revealing ideas concerning a holiday spot in the south.",
+     "walkthrough": "'ideas' unveiled is DEA; 'Repeatedly' makes DEADEA, and that goes 'about' S, giving DEAD-S-EA.",
+     "definitionFit": "The salt lake between Israel and Jordan draws visitors who float in its buoyant water, making it a popular stop for travellers."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "unveiled"
     }
