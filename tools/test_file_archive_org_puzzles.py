@@ -2576,6 +2576,11 @@ check("a slip that is another real word is no slip", False,
       clue_repair.slip_of("Fish flourish in the sea", "Fish flourishes in the sea"))
 check("a word the clues print is no slip", False,
       clue_repair.slip_of("Seen in dance by Pyrrho", "Seen in dance by Pyrrhos"))
+check("a run-together pair of words with one more slip is a slip", True,
+      clue_repair.slip_of("and in the fire of Spring your garment of Repentance fling",
+                          "and in the fire of Springyour, garment of Repentance fing"))
+check("an accent a reading keeps is no disagreement for weak_lights", True,
+      f.words_of("Omar Khayyám") == f.words_of("Omar Khayyam"))
 # A "See N" tail is a clue of only a cross-reference: two readings printing it settle it, laid
 # as "See 1" as filed puzzles have it, so the VLM is not asked for it.
 seen = good.replace("7 Dog on a lead (5)", "7 See 1 across")
