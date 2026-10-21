@@ -74,7 +74,10 @@ def puzzle_block(pid, view):
     if flagged:  # each reason is "...tree (WHY): parse again..." boilerplate; keep WHY
         why = {c: r.split("tree (", 1)[-1].split("): parse", 1)[0] for c, r in flagged.items()}
         out.append("flagged (hint on file has a wrongly shaped wp tree; write a new wp that "
-                   "fixes the fault named): " + "; ".join(f"{c}: {r}" for c, r in why.items()))
+                   "fixes the fault named): " + "; ".join(f"{c}: {r}" for c, r in why.items())
+                   + ". Passing = a re-parsed tree with none of those faults (new prose on the "
+                   "same tree is refused), losing no clue word the old one explained; "
+                   "`check` runs this gate")
     keep = view.get("keepWords")
     if keep:  # the words the redo gate refuses to lose (annotate_check.keep_words)
         out.append("keep these words in the new tree unless wrong: "
@@ -116,6 +119,47 @@ def run_one(pid):
     last = next((l for l in reversed(text.splitlines()) if l.startswith("annotate_check ")), "")
     state = "clean" if last.endswith(DONE) else "advisory" if last.endswith(ADVISORY) else "failing"
     return rc, text, state
+
+
+def redo_gate(puzzle, part):
+    """The apply step's redo gate on one puzzle's annotations `part`: as error
+    strings, a listed clue whose new tree is still flagged (or the same tree),
+    and any redo that gives up what the annotation on file had."""
+    import shape_queue
+    from apply_annotations import landed
+    relisted = shape_queue.listed(puzzle)
+    errors = []
+    for entry in puzzle["entries"]:
+        eid = f"{entry['number']}-{entry['direction']}"
+        ann = part.get(eid)
+        if not ann or not entry.get("annotation"):
+            continue
+        bad = []
+        new = landed(ann, entry, puzzle["entries"], eid, bad)
+        if new is None:
+            continue  # annotate_check reports a tree that does not parse
+        detected = shape_queue.findings(entry, new) if eid in relisted else []
+        lost = shape_queue.regressions(entry, new)
+        if detected:
+            same = new.get("wordplay") == entry["annotation"].get("wordplay")
+            errors.append(f"redo gate {eid}: on the shape list ({relisted[eid]}) and this "
+                          f"{'is the same tree as on file' if same else 'tree is still flagged'}: "
+                          f"{'; '.join(detected + lost)}. Write the wordplay tree again so no step has "
+                          f"those faults (prose alone does not settle it), or null to keep the old hint.")
+        elif lost:
+            errors.append(f"redo gate {eid}: gives up what the annotation on file had: "
+                          f"{'; '.join(lost)}. Keep those clue words explained, or null to keep the old hint.")
+    return errors
+
+
+def bag_redo_gate(pid, part):
+    """redo_gate on puzzle pid's file; [] if it cannot be read (annotate_check says so)."""
+    try:
+        from annotate_check import read_puzzle_file
+        from fetch_puzzle import resolve_puzzle
+        return redo_gate(read_puzzle_file(resolve_puzzle(pid)), part)
+    except Exception:
+        return []
 
 
 LINE_CAP = 700
@@ -197,6 +241,9 @@ def check(path):
         (TOOLS / f"_ann_{pid}.json").write_text(json.dumps(part, ensure_ascii=False, indent=1) + "\n",
                                                 encoding="utf-8")
         rc, text, state = run_one(pid)
+        gate = bag_redo_gate(pid, part) if state != "failing" else []
+        if gate:
+            text, state, rc = "\n".join(gate), "failing", rc or 1
         if state == "failing":
             print(f"--- {pid}\n{compact(text)}\n")
             failing.append(pid)
