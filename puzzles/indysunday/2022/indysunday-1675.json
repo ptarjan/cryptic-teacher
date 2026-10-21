@@ -396,35 +396,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "foul",
-       "note": "something fouled up is messed about and disordered, so the letters are jumbled"
-      },
-      {
-       "text": "out",
-       "note": "out can mean wrong or awry, so these letters are put out of order too"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Juan",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "foul",
+         "at": 7,
+         "note": "foul in the sense of a messy, illegal play, so the letters of Juan are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Juan",
+         "at": 0
+        }
+       ]
       },
       {
-       "words": "Ray",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 17,
+         "note": "out as in out of order, so the letters of Ray are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ray",
+         "at": 13
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football report: Juan committed a foul, and Ray is now injured and out for a month.",
-     "walkthrough": "The surface sounds like a sports injury bulletin; both footballers' names are the raw letters, each with its own mixing word.",
-     "definitionFit": "January is the first of the twelve calendar months, so it is a straightforward example of a month."
+     "surface": "A football referee sees Juan commit a foul and sends Ray off.",
+     "walkthrough": "Two separate shuffles: Juan gives JANU and Ray gives ARY.",
+     "definitionFit": "January is the first month of the year in the Gregorian calendar."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "foul"
     }
@@ -1330,7 +1344,8 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around says one piece encircles the other"
+       "at": 18,
+       "note": "around means the first pair of letters wraps the rest"
       }
      ],
      "parts": [
@@ -1339,37 +1354,50 @@
        "parts": [
         {
          "words": "good",
-         "gives": "G",
-         "note": "G is the abbreviation for good"
+         "at": 9,
+         "gives": "G"
         },
         {
          "words": "one",
+         "at": 14,
          "gives": "I",
-         "note": "I is the Roman numeral for one"
+         "note": "I is the Roman numeral one"
         }
        ]
       },
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 36,
+         "note": "twice means the clubs letter is written two times"
+        }
+       ],
        "parts": [
         {
          "words": "posh",
+         "at": 25,
          "gives": "U",
-         "note": "U means upper class, as in U and non-U"
+         "note": "U means upper-class, posh"
         },
         {
-         "words": "clubs twice",
-         "gives": "CC",
-         "note": "C is the card abbreviation for clubs, used two times"
+         "words": "clubs",
+         "at": 30,
+         "gives": "C",
+         "note": "C is the abbreviation for clubs in card games"
+        },
+        {
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fashion designer who is a good sort, going around exclusive clubs night after night.",
-     "walkthrough": "Put the first two letters side by side, then open them up to take the other three.",
-     "definitionFit": "Gucci is the Italian fashion house, a classic name in luxury designer goods."
+     "surface": "A fashion designer is good at a posh club, going there twice.",
+     "walkthrough": "G and I surround U and CC.",
+     "definitionFit": "Gucci is an Italian luxury fashion house named after its founder, a designer label."
     },
     "features": {
      "answerInScene": true,

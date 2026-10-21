@@ -729,54 +729,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Remix",
-       "note": "a remix reworks a track into a new version, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
-      {
-       "words": "Elaine",
-       "note": "taken as written"
-      },
       {
        "op": "first",
        "indicators": [
         {
          "text": "number one",
-         "note": "number one in a list is its first item, so only the singer's initial counts"
+         "at": 24,
+         "note": "number one picks the first letter of Paige's"
         }
        ],
        "parts": [
         {
          "words": "Paige's",
-         "note": "the initial letter"
+         "at": 16
         }
        ]
       },
       {
-       "op": "outer",
+       "op": "container",
        "indicators": [
         {
          "text": "cover of",
-         "note": "a cover is the outer layer, so only the two outside letters of the next word count"
+         "at": 35,
+         "note": "the remixed letters make a cover, wrapped around the letters from pop"
         }
        ],
        "parts": [
         {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Remix of",
+           "at": 0,
+           "note": "a remix reworks a recording, so these letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Elaine",
+           "at": 9
+          }
+         ]
+        },
+        {
          "words": "pop",
-         "note": "the first and last letters"
+         "at": 44,
+         "gives": "PP",
+         "note": "the two outer letters of pop, its covering"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dance remix of Elaine Paige's chart-topping version of a pop hit.",
-     "walkthrough": "Elaine Paige is a British musical-theatre singer, and a banger is slang for a hit song; here it means something that goes bang.",
-     "definitionFit": "Pineapple is old military slang for a hand grenade, from its segmented casing, and a grenade is an explosive device."
+     "surface": "A dance remix of a Paige track and her cover version of a pop hit.",
+     "walkthrough": "Elaine Paige is a British musical-theatre singer, and a cover is a new recording of someone else's song. A banger here is a bomb, and pineapple is slang for a hand grenade.",
+     "definitionFit": "Pineapple is old military slang for a hand grenade, and a banger is an explosive."
     },
     "features": {
      "answerInScene": false,

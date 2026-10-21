@@ -658,61 +658,69 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means around, so one group of letters goes round another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "father",
+       "at": 2,
+       "gives": "DA",
+       "note": "da is an informal word for father"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "failing",
-         "note": "something failing is going wrong and falling apart, so these letters break into a new order"
+         "text": "about",
+         "at": 25,
+         "note": "about means the rearranged letters go around the others"
         }
        ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "failing",
+           "at": 9,
+           "note": "failing an exam suggests the letters collapse into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "O-level",
+           "at": 17
+          }
+         ]
         },
         {
-         "words": "father",
-         "gives": "DA",
-         "note": "an informal word for dad"
-        },
-        {
-         "words": "O-level",
-         "note": "taken as written, to be rearranged; an O-level was a British school exam taken around age 16"
-        }
-       ]
-      },
-      {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "Catholic",
-         "gives": "C",
-         "note": "C is the standard abbreviation for Catholic"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 31
+          },
+          {
+           "words": "Catholic",
+           "at": 33,
+           "gives": "C"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dad who flunked his school exam, writing about a Catholic who programs computers.",
-     "walkthrough": "A and DA come first; then the rearranged O-level wraps round A and C.",
-     "definitionFit": "The nineteenth-century mathematician wrote what is regarded as the first published algorithm for Babbage's Analytical Engine, making her the first programmer."
+     "surface": "A dad flunks his O-level exam on a Catholic subject.",
+     "walkthrough": "An O-level was the British school exam taken at sixteen. OLEVEL jumbles to LOVELE, which wraps A and C.",
+     "definitionFit": "Ada Lovelace wrote what is often called the first program, for Babbage's Analytical Engine."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "failing"
     }

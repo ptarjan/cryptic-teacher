@@ -301,17 +301,30 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 7,
+       "note": "in a down clue on means the book letter sits above what follows"
+      }
+     ],
      "parts": [
       {
        "words": "A",
-       "note": "taken as written"
+       "at": 0
+      },
+      {
+       "words": "book",
+       "at": 2,
+       "gives": "B"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "bastard",
-         "note": "a bastard form is corrupted or impure, so the letters appear in a debased order"
+         "at": 10,
+         "note": "bastard means corrupted, so the letters are scrambled"
         }
        ],
        "parts": [
@@ -319,27 +332,21 @@
          "op": "deletion",
          "indicators": [
           {
-           "text": "one must go",
-           "note": "one is the Roman numeral, and must go says to drop it"
+           "text": "must go",
+           "at": 30,
+           "note": "must go means the letter for one is removed"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "book",
-             "gives": "B",
-             "note": "B is the abbreviation for book"
-            },
-            {
-             "words": "Boris",
-             "note": "the name taken as written, before trimming"
-            }
-           ]
+           "words": "Boris",
+           "at": 18
           },
           {
-           "gives": "I"
+           "words": "one",
+           "at": 26,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
           }
          ]
         }
@@ -348,13 +355,13 @@
      ]
     },
     "explanation": {
-     "surface": "A book attacks Boris Johnson; one ought to leave, and toady to him.",
-     "walkthrough": "'Suck up' reads as grovel, but here it means soak in. One is I, removed from the name before the rest is jumbled.",
-     "definitionFit": "To absorb is to take in liquid, just as a sponge soaks or draws up water."
+     "surface": "A satirical swipe at Boris Johnson: a book about him, with an urging that he go.",
+     "walkthrough": "BORIS without I is BORS, rearranged as SORB.",
+     "definitionFit": "To absorb is to take in, as a sponge does when it sucks up liquid."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "suck"
     }

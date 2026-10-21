@@ -436,39 +436,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "picked up",
-       "note": "in a down answer, lifting a word turns it upside down"
-      },
-      {
        "text": "on",
-       "note": "in a down answer, the first piece sits on top of the second"
+       "at": 8,
+       "note": "in a down clue on means the first piece sits above the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "US cops",
+       "at": 0,
+       "gives": "LAPD",
+       "note": "the LAPD is the Los Angeles Police Department"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "picked up",
+         "at": 17,
+         "note": "picked up in a down clue means the word is read upwards"
+        }
+       ],
        "parts": [
         {
          "words": "leave",
+         "at": 11,
          "gives": "GO",
-         "note": "GO (leave) reversed"
-        },
-        {
-         "words": "US cops",
-         "gives": "DPAL",
-         "note": "the Los Angeles Police Department"
+         "note": "to go is to leave"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "American police officers on leave collect a fan.",
-     "walkthrough": "'Picked up' tempts a homophone reading; in a down clue it means lift the word so it reads upwards.",
-     "definitionFit": "A lapdog is a person slavishly devoted to someone."
+     "surface": "American police officers on leave are seen as somebody's adoring fans.",
+     "walkthrough": "GO read upwards gives OG under LAPD.",
+     "definitionFit": "A lapdog is a fawning follower, someone slavishly devoted to another person."
     },
     "features": {
      "answerInScene": false,
@@ -1019,26 +1025,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one piece goes inside the other"
+       "at": 33,
+       "note": "in places the shortened stroll inside the market"
       }
      ],
      "parts": [
       {
        "words": "souk",
+       "at": 36,
        "gives": "MART",
-       "note": "a souk is an Arab market, or mart"
+       "note": "a souk is an Arab market, a mart"
       },
       {
-       "words": "to stroll scratching tail",
-       "gives": "MOSE",
-       "note": "MOSEY without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "scratching tail",
+         "at": 17,
+         "note": "scratching means striking out, here the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to stroll",
+         "at": 7,
+         "gives": "MOSEY",
+         "note": "to mosey is to stroll along slowly"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A monkey wanders through a market, scratching its tail.",
-     "walkthrough": "The surface pictures a monkey scratching itself; 'scratching' means cutting off the end of MOSEY.",
-     "definitionFit": "A marmoset is a small South American monkey."
+     "surface": "A monkey wanders through a souk scratching its tail.",
+     "walkthrough": "A souk is a market in an Arab city; mosey is an informal American word for wandering along, and 'tail' is its final letter.",
+     "definitionFit": "A marmoset is a small South American monkey with a long tail."
     },
     "features": {
      "answerInScene": true,
@@ -1413,7 +1437,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Trifle",
+      "text": "Trifle endlessly, frolicking",
       "at": 0
      }
     ],
@@ -1421,30 +1445,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "the last letter is dropped"
-      },
-      {
        "text": "frolicking",
-       "note": "the letters play about into a new order"
+       "at": 18,
+       "note": "frolicking suggests playful movement, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Trifle",
-       "gives": "TRIFL",
-       "note": "TRIFLE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 7,
+         "note": "endlessly means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trifle",
+         "at": 0
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Someone fools around endlessly, playing.",
-     "walkthrough": "'Trifle' does double duty: it is the definition and, cut short, the letters to rearrange.",
-     "definitionFit": "To flirt is to trifle, to toy with someone's affections."
+     "surface": "Someone playing about with no end in sight.",
+     "walkthrough": "TRIFL (trifle without its end) is rearranged; the whole clue also describes what a flirt does.",
+     "definitionFit": "To flirt is to play at love, dallying lightheartedly without serious intent."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true
     }
    }
   },
