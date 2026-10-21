@@ -793,25 +793,26 @@
        "indicators": [
         {
          "text": "endlessly",
-         "note": "endlessly means without ends, so the next two words each lose their final letter"
+         "at": 21,
+         "note": "both words have their ends cut off, each losing its last letter"
         }
        ],
        "parts": [
         {
-         "words": "at",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "at",
+           "at": 31
+          },
+          {
+           "words": "risk",
+           "at": 34
+          }
+         ]
         },
         {
          "gives": "T"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "risk",
-         "note": "taken as written"
         },
         {
          "gives": "K"
@@ -820,29 +821,30 @@
       },
       {
        "words": "to",
-       "note": "taken as written"
+       "at": 39
       },
       {
        "words": "Conservative",
-       "gives": "C",
-       "note": "C is the abbreviation for Conservative"
+       "at": 42,
+       "gives": "C"
       },
       {
        "words": "informer",
+       "at": 55,
        "gives": "RAT",
-       "note": "a rat is slang for one who betrays others, an informer"
+       "note": "a rat is slang for an informer"
       }
      ]
     },
     "explanation": {
-     "surface": "A spy betrays the Conservatives, putting them in perpetual danger.",
-     "walkthrough": "'endlessly' cuts the last letter from both 'at' and 'risk', not just one word.",
-     "definitionFit": "In the French Revolution nobles were hunted down and guillotined, so an aristocrat was the classic target of revolutionaries."
+     "surface": "A rebel's target is put at risk by a Tory who informs on people.",
+     "walkthrough": "'endlessly' trims both 'at' and 'risk' to A and RIS; TO is kept as written. 'Revolutionary' is part of the definition: aristocrats were the French Revolution's targets.",
+     "definitionFit": "Nobles were the chief victims of the guillotine during the French Revolution."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "informer"
+     "misdirectedWord": "Revolutionary"
     }
    }
   },
@@ -2642,40 +2644,48 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ANYONE",
      "indicators": [
       {
-       "text": "that has banned",
-       "note": "having banned something means shutting it out, so those letters must go"
+       "text": "banned",
+       "at": 38,
+       "note": "barred, so the unknowns are excluded from the phrase"
       }
      ],
      "parts": [
       {
-       "words": "crazy",
-       "gives": "ZANY",
-       "note": "zany means wacky, crazy"
-      },
-      {
-       "words": "area",
-       "gives": "ZONE",
-       "note": "a zone is an area"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "crazy",
+         "at": 18,
+         "gives": "ZANY",
+         "note": "zany means crazy, wacky"
+        },
+        {
+         "words": "area",
+         "at": 24,
+         "gives": "ZONE",
+         "note": "a zone is an area"
+        }
+       ]
       },
       {
        "words": "unknowns",
+       "at": 45,
        "gives": "ZZ",
-       "note": "algebraic unknowns are x, y and z; here two of the last"
+       "note": "Z is a mathematical unknown, so two unknowns give two of that letter"
       }
      ]
     },
     "explanation": {
-     "surface": "A stranger turns up in a wild district that forbids outsiders.",
-     "walkthrough": "Both words for crazy and area begin with the algebra unknown Z, and banning it from each leaves the answer.",
-     "definitionFit": "Anyone refers to an unspecified person, someone whose identity is not known."
+     "surface": "Someone nameless lives in a mad district where nobody unidentified is allowed.",
+     "walkthrough": "In algebra x, y and z are unknowns; both Zs are taken from ZANY ZONE.",
+     "definitionFit": "Anyone means an unspecified person, whoever it might be."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "unknowns"
     }
    }

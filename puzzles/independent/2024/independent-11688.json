@@ -1472,55 +1472,55 @@
      "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "first",
        "indicators": [
         {
-         "text": "cooked",
-         "note": "cooking transforms ingredients, so the letters are mixed up"
+         "text": "Half",
+         "at": 0,
+         "note": "only the front half of the staring word is kept"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Half",
-           "note": "only half of the word is kept, so the rest is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "staring",
-           "gives": "GAZING",
-           "note": "gazing = staring"
-          },
-          {
-           "gives": "ING"
-          }
-         ]
-        },
+         "words": "staring",
+         "at": 5,
+         "gives": "GAZING",
+         "note": "gazing means staring"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 18,
+         "note": "cooked food is altered, so the letters of 'chap' are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "chap",
-         "note": "taken as written"
+         "at": 13
         }
        ]
       },
       {
        "words": "duck",
+       "at": 25,
        "gives": "O",
-       "note": "a duck is a score of nothing in cricket, shaped like O"
+       "note": "a duck in cricket is a score of nothing, O"
       }
      ]
     },
     "explanation": {
-     "surface": "A goggle-eyed fellow makes duck soup.",
-     "walkthrough": "Duck looks like an ingredient; it is the cricket zero.",
-     "definitionFit": "Gazpacho is a cold Spanish soup made from raw tomatoes and vegetables."
+     "surface": "A man stares in a dazed way after cooking a duck soup.",
+     "walkthrough": "Half of GAZING is GAZ, CHAP rearranges to PACH, and O is the zero score of a duck in cricket.",
+     "definitionFit": "Gazpacho is a cold Spanish soup of raw tomatoes and other vegetables."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "duck"
     }
    }

@@ -815,53 +815,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RELAXANT",
-     "indicators": [
-      {
-       "text": "unexpectedly",
-       "note": "unexpectedly suggests things turning out differently, so the remaining letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RELAXANT",
+       "words": "Relative",
+       "at": 0,
+       "gives": "REL"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "releasing",
-         "note": "to release something is to let it go, so that letter is dropped"
+         "text": "unexpectedly",
+         "at": 40,
+         "note": "the letters come out in an unexpected new order"
         }
        ],
        "parts": [
         {
-         "words": "Relative",
-         "gives": "REL",
-         "note": "rel. is the abbreviation for relative"
-        },
-        {
-         "words": "taxman",
-         "note": "taken as written"
-        },
-        {
-         "words": "money",
-         "gives": "M",
-         "note": "M is a common abbreviation for money"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "releasing",
+           "at": 24,
+           "note": "letting go of, so the money letter is dropped from 'taxman'"
+          }
+         ],
+         "parts": [
+          {
+           "words": "taxman",
+           "at": 17
+          },
+          {
+           "words": "money",
+           "at": 34,
+           "gives": "M",
+           "note": "M is short for money, as in M1 or M3 in economics"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A relative who gets an unexpected tax refund finds it very soothing.",
-     "definitionFit": "A relaxant is a drug or other agent that relieves tension, so it brings ease."
+     "surface": "A family member finds the tax official letting cash go when nobody expected it, which is a relief.",
+     "walkthrough": "'getting' only links; the whole phrase after the dash is the definition.",
+     "definitionFit": "A relaxant is a drug or other agent that relieves tension, as with a muscle relaxant."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "taxman"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "releasing"
     }
    }
   },
@@ -935,28 +940,34 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "twice",
+       "at": 56,
+       "note": "twice means the French word appears two times in a row"
+      }
+     ],
      "parts": [
       {
        "words": "second person in France",
+       "at": 21,
        "gives": "TU",
-       "note": "tu is the French familiar word for you"
+       "note": "tu is the French familiar word for 'you', the second person"
       },
       {
-       "words": "twice",
-       "gives": "TU",
-       "note": "the same piece repeated"
+       "gives": "TU"
       }
      ]
     },
     "explanation": {
-     "surface": "A Nobel laureate appears twice in French grammar lessons.",
-     "walkthrough": "Desmond Tutu, the South African archbishop, won the Nobel Peace Prize in 1984. 'Second person' is the grammatical you.",
-     "definitionFit": "Desmond Tutu received the Nobel Peace Prize for opposing apartheid, so he is an example of a laureate."
+     "surface": "A laureate is described as a French 'you' making a double appearance.",
+     "walkthrough": "TU is the French for 'you' (singular, familiar), and 'to feature twice' gives it two times.",
+     "definitionFit": "Archbishop Desmond Tutu won the Nobel Peace Prize in 1984 for opposing apartheid."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "second"
+     "misdirectedWord": "person"
     }
    }
   },

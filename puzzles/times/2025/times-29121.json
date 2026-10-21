@@ -46,39 +46,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Directed",
-       "note": "a director arranges actors on stage, so directed letters are arranged into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "opening of Cor",
-       "gives": "C",
-       "note": "the first letter of Cor"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening of",
+         "at": 9,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cor",
+         "at": 20
+        }
+       ]
       },
       {
-       "words": "Blimey",
-       "note": "taken as it stands"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Directed",
+         "at": 0,
+         "note": "directed as on stage: the letters are arranged in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Blimey",
+         "at": 24
+        }
+       ]
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "N = new"
+       "at": 34,
+       "gives": "N"
       },
       {
        "words": "English",
-       "gives": "E",
-       "note": "E = English"
+       "at": 38,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A startled director shouts a Cockney oath at the start of rehearsals for a new English play.",
-     "walkthrough": "Cor blimey is a Cockney exclamation of surprise; here it is split, with only its first word shortened to one letter.",
-     "definitionFit": "A definition by example: this is one of Shakespeare's late romances, so play stands for it."
+     "surface": "A director's shocked 'Cor blimey!' introduces a new English stage show.",
+     "walkthrough": "'Cor blimey' is a Cockney cry of surprise; 'Directed' reads as stage direction but asks for the exclamation's second word to be rearranged.",
+     "definitionFit": "Cymbeline is one of Shakespeare's late romances, a play set in ancient Britain."
     },
     "features": {
      "answerInScene": true,
@@ -112,23 +129,39 @@
      "parts": [
       {
        "words": "Clubs",
+       "at": 0,
        "gives": "C",
-       "note": "C = clubs, the card suit"
+       "note": "C is the card-suit abbreviation for clubs"
       },
       {
-       "words": "briefly entertain",
-       "gives": "AMUS",
-       "note": "AMUSE with its last letter cut off"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 6,
+         "note": "kept short, so the last letter of the word for entertain is cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entertain",
+         "at": 14,
+         "gives": "AMUSE",
+         "note": "to amuse is to entertain"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nightclubs host a writer and philosopher for a short turn.",
-     "walkthrough": "Clubs reads as nightclubs; in crosswords it is usually the card suit, abbreviated C.",
-     "definitionFit": "A definition by example: the author of The Outsider was both novelist and existentialist thinker."
+     "surface": "Golf or card clubs briefly host an author and thinker.",
+     "definitionFit": "Albert Camus was the French novelist of The Outsider and an essayist on absurdist philosophy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Clubs"
     }

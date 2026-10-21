@@ -162,28 +162,40 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "with"
-      }
-     ],
      "parts": [
       {
        "words": "Seafarer",
+       "at": 0,
        "gives": "TAR",
-       "note": "a tar is a sailor"
+       "note": "a tar is an old word for a sailor"
       },
       {
-       "words": "apostolic brief",
-       "gives": "PAULIN",
-       "note": "PAULINE (of the apostle Paul) minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 24,
+         "note": "kept brief, the word about the apostle loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "apostolic",
+         "at": 14,
+         "gives": "PAULINE",
+         "note": "Pauline means of St Paul the Apostle"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor carries a short Pauline text to see him through a storm, as if prayer were his shelter.",
-     "walkthrough": "The surface suggests prayer as protection; the practical protection is a waterproof sheet. Tarpaulin was also old slang for a sailor, so the seafarer is doubly apt.",
-     "definitionFit": "A tarpaulin is a waterproof sheet that keeps a sailor and his gear dry in a storm."
+     "surface": "A sailor carries a short letter from an apostle that might see him through a storm.",
+     "walkthrough": "'apostolic brief' looks like a papal brief, but it is PAULINE (of St Paul) cut short.",
+     "definitionFit": "A tarpaulin is a waterproof canvas sheet used on ships to keep out rain and spray."
     },
     "features": {
      "answerInScene": true,
@@ -1184,56 +1196,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "turning",
-       "note": "the tree's name is turned back to front"
+       "text": "leaves",
+       "at": 43,
+       "note": "leaves as a verb: the letter goes away from the reversed tree name"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "leaves",
-         "note": "leaves is the verb, to depart"
+         "text": "turning",
+         "at": 12,
+         "note": "turning round makes the tree name read backwards"
         }
        ],
        "parts": [
         {
          "words": "ornamental cherry tree",
+         "at": 20,
          "gives": "PRUNUS",
-         "note": "Prunus is the cherry genus"
-        },
+         "note": "Prunus is the genus of cherries, plums and their ornamental relatives"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "to begin with",
-           "note": "only the first letter of red is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "red to begin with",
-           "note": "first letter of red, taken away"
-          }
-         ]
+         "text": "to begin with",
+         "at": 54,
+         "note": "only the starting letter of 'red' is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "red",
+         "at": 50
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "At dawn the ornamental cherry turns and drops its first red leaves.",
-     "walkthrough": "'Leaves' looks like foliage on the tree; it is a verb, telling R to go.",
-     "definitionFit": "Plain synonym, mainly American: sunup is dawn, when the day's first light appears."
+     "surface": "At dawn a decorative cherry tree is changing colour, its foliage going red first.",
+     "walkthrough": "'leaves' looks like foliage in this autumnal picture, but it is a verb. PRUNUS reversed is SUNURP; R, the first letter of 'red', leaves it.",
+     "definitionFit": "Sunup is the moment of sunrise, when the day's first daylight appears."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "leaves"
     }
    }
@@ -1656,30 +1671,48 @@
      "op": "container",
      "indicators": [
       {
-       "text": "ingesting"
+       "text": "ingesting",
+       "at": 14,
+       "note": "taking in, so the junior abbreviation swallows the doubled letters"
       }
      ],
      "parts": [
       {
        "words": "junior",
-       "gives": "JR",
-       "note": "standard abbreviation"
+       "at": 7,
+       "gives": "JR"
       },
       {
-       "words": "double dose of ecstasy",
-       "gives": "EE",
-       "note": "E for ecstasy, twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "double dose of",
+         "at": 24,
+         "note": "a double dose means two helpings, so the ecstasy letter is given twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ecstasy",
+         "at": 39,
+         "gives": "E",
+         "note": "E is the slang abbreviation for the drug ecstasy"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone mocks a youngster who took two ecstasy pills.",
-     "walkthrough": "E is the standard drug-culture abbreviation for ecstasy.",
-     "definitionFit": "Plain synonym: to jeer is to mock someone loudly, a noisy way of deriding them."
+     "surface": "Someone mocks a youngster who has swallowed two lots of a party drug.",
+     "definitionFit": "To jeer is to mock or taunt someone with scornful shouts."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "dose"
     }
    }
   },
