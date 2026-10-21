@@ -26,6 +26,7 @@ in the repo.
 """
 import argparse
 import datetime
+import itertools
 import json
 import re
 import sys
@@ -150,6 +151,126 @@ def azed_records(number):
     return found
 
 
+BIGDAVE_API = "https://bigdave44.com/wp-json/wp/v2/posts"
+#: puzzle series -> the blog's post slugs for puzzle number `n`.
+BIGDAVE_SLUGS = {
+    "telegraph": ("dt-{n}", "dt-cryptic-no-{n}", "dt-{n}-full-review", "dt{n}"),
+    "toughie": ("toughie-{n}", "toughie-{n}-full-review", "toughie{n}"),
+    "sundaytel": ("st-{n}", "st-{n}-full-review", "st{n}"),
+}
+HEADING = re.compile(r"\b(across|down)\b", re.I)
+CLUE_HEAD = re.compile(r"^\s*(\d{1,2})\s*(?:ac|dn|a|d)?\b", re.I)
+#: the further lights of a linked clue head: "9a &amp; 21d", "28, 7".
+LINKED_HEAD = re.compile(r"(?:&|and|,|/)\s*(\d{1,2})\s*(ac|dn|a|d)?\b", re.I)
+LINKED_LEAD = re.compile(
+    r"^\s*\d{1,2}\s*(?:ac|dn|a|d)?\s*((?:(?:&|and|,|/)\s*\d{1,2}\s*(?:ac|dn|a|d)?\b\s*)+)", re.I)
+#: The answer between curly brackets, however many <span>s the blogger nested in it.
+HIDDEN_ANSWER = re.compile(r"\{(.*?)\}", re.S)
+#: A clue's printed enumeration, which ends the clue when no <br> does.
+ENUMERATION = re.compile(r"\(\s*\d[\d,\-–\s]*\)")
+#: A Sunday post prints the answer in capitals at the head of the line under the clue.
+LEAD_CAPS = re.compile(r"^([A-Z][A-Z' \-]*[A-Z])(?=\s*(?:[–—]|-\s|$))")
+
+
+def bigdave_rows(html_text):
+    """[(direction, number, answer)] from a bigdave44 review. A Daily Telegraph or
+    Toughie post hides each answer in {curly brackets} under its numbered clue; a
+    Sunday post opens the line under the clue with the answer in capitals. A line
+    that gives neither keeps an empty answer, so the light is reported unmatched."""
+    import html
+    direction, rows = None, []
+    for para in re.split(r"</p>", ptt.DELETED.sub("", html_text)):
+        heading = HEADING.search(para)
+        if heading and cell_text(para).lower().strip(": ") in ("across", "down"):
+            direction = heading.group(1).lower()
+            continue
+        if not direction:
+            continue
+        if "<br" in para:
+            head, rest = re.split(r"<br\s*/?>", para, 1)
+        else:       # clue and answer run on in one line: "1a Windbag (3-7) LAW ABIDING – ..."
+            plain = TAGS.sub("", para)
+            end = ENUMERATION.search(plain)
+            if not end:
+                continue
+            head, rest = plain[:end.end()], plain[end.end():]
+        m = CLUE_HEAD.match(cell_text(head))
+        if not m:
+            continue
+        lead = LINKED_LEAD.match(cell_text(head))
+        also = ",".join(f"{n}{w[:1].lower()}" for n, w in LINKED_HEAD.findall(lead.group(1))) if lead else ""
+        hidden = HIDDEN_ANSWER.search(rest)
+        if hidden:
+            answer = cell_text(hidden.group(1))
+        else:
+            lead = LEAD_CAPS.match(cell_text(rest))
+            answer = lead.group(1) if lead else ""
+        rows.append((direction, int(m.group(1)),
+                     f"{also}|{html.unescape(answer)}" if also and answer else html.unescape(answer),
+                     cell_text(rest)[:500]))
+    return rows
+
+
+def _by_slugs(api, slugs):
+    query = "&".join(f"slug[]={s}" for s in slugs)
+    return get(f"{api}?{query}&per_page=10&_fields={FIELDS}")[0]
+
+
+def bigdave_records(puzzle):
+    """The bigdave44 write-ups of a Telegraph, Toughie or Sunday Telegraph
+    puzzle, fetched by slug and cached on disk."""
+    series, number = puzzle["id"].rsplit("-", 1)[0], puzzle["number"]
+    path = CACHE / "bigdave-2" / f"{series}-{number}.json"
+    if path.exists():
+        posts = json.loads(path.read_text(encoding="utf-8"))
+    else:
+        posts = _by_slugs(BIGDAVE_API, [s.format(n=number) for s in BIGDAVE_SLUGS[series]])
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(posts), encoding="utf-8")
+    found = []
+    for post in posts:      # the raw posts are cached, so a parser fix needs no refetch
+        rows = bigdave_rows(post["content"]["rendered"])
+        if rows:
+            found.append({"number": number, "link": post["link"], "date": post["date"][:10],
+                          "rows": rows, "blog": "bigdave44"})
+    return found
+
+
+def ft_records(puzzle):
+    """The fifteensquared write-ups of a Financial Times cryptic, found by date
+    (its search does not match numbers) and read off the bold answers in order."""
+    import html
+    number = puzzle["number"]
+    path = CACHE / "ft" / f"ftcryptic-{number}.json"
+    if path.exists():
+        posts = json.loads(path.read_text(encoding="utf-8"))
+    else:
+        day = datetime.date.fromisoformat(puzzle["date"])
+        posts, _ = get(f"{AZED_API}?after={day - datetime.timedelta(days=1)}T00:00:00"
+                       f"&before={day + datetime.timedelta(days=5)}T00:00:00&per_page=100"
+                       f"&_fields={FIELDS}")
+        num = r"\s*,?\s*".join(re.escape(c) for c in f"{number:,}".split(",")) if number >= 1000 else str(number)
+        posts = [p for p in posts
+                 if re.search(rf"Financial\s+Times\s+{num}\b", html.unescape(p["title"]["rendered"]), re.I)]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(posts), encoding="utf-8")
+    found = []
+    for post in posts:
+        rows = [(d, n, text.split(" – ")[0] if text.count(" – ") else "")
+                for d, n, text in break_lines(post["content"]["rendered"], linked=True)]
+        if rows:
+            found.append({"number": number, "link": post["link"], "date": post["date"][:10],
+                          "rows": rows, "blog": "fifteensquared"})
+    return found
+
+
+#: series -> the function that finds a held puzzle's write-ups.
+SOURCES = {
+    "telegraph": bigdave_records, "toughie": bigdave_records, "sundaytel": bigdave_records,
+    "ftcryptic": ft_records,
+    "azed": lambda puzzle: azed_records(puzzle["number"]),
+}
+
 ROW = re.compile(r"<tr\b[^>]*>(.*?)</tr>", re.I | re.S)
 ROW_OR_HEADING = re.compile(
     r"(?P<row><tr\b[^>]*>.*?</tr>)|>\s*(?P<dir>across|down)\s*:?\s*<", re.I | re.S)
@@ -253,9 +374,12 @@ def table_lines(html_text, last_only=False):
 
 BOLD = re.compile(r"<(strong|b)\b[^>]*>(.*?)</\1>", re.I | re.S)
 NUMBERED_LINE = re.compile(r"^(\d{1,2})\s*(?:ac|dn|a|d|across|down)?\s*[.:)\-–]?\s+(.+)$", re.I)
+#: "28,7 FINGAL": one answer spread over the lights numbered 28 and 7.
+LINKED_LINE = re.compile(
+    r"^(\d{1,2})((?:\s*,\s*\d{1,2})+)\s*(?:ac|dn|a|d|across|down)?\s*[.:)\-–]?\s+(.+)$", re.I)
 
 
-def break_lines(html_text):
+def break_lines(html_text, linked=False):
     """[(direction, number, text)] from a post of <br>-separated lines:
     "1 <strong>MEALY BUG</strong> *(a blue gym)" under a bold ACROSS / DOWN.
     The bold word leads the text, as the answer."""
@@ -267,13 +391,19 @@ def break_lines(html_text):
             direction = head
             continue
         m = NUMBERED_LINE.match(plain)
+        others = ""
+        if not m and linked:
+            m = LINKED_LINE.match(plain)
+            if m:       # the other numbers lead the text: "7|FINGAL – ..."
+                others = re.sub(r"\s", "", m.group(2)).lstrip(",") + "|"
+                m = re.match(r"(\d+)(.*)", f"{m.group(1)} {m.group(3)}")
         if not (m and direction):
             continue
         bold = BOLD.search(piece)
         answer = cell_text(bold.group(2)) if bold else ""
-        rest = m.group(2)
+        rest = m.group(2).strip()
         rows.append((direction, int(m.group(1)),
-                     f"{answer} – {rest}" if answer and not answer[:1].isdigit() else rest))
+                     others + (f"{answer} – {rest}" if answer and not answer[:1].isdigit() else rest)))
     return rows
 
 
@@ -295,12 +425,139 @@ def cross_fill(puzzle, fill):
             fill[entry_id(e)] = "".join(cells[s] for s in spots)
 
 
+def entry_key(number, direction):
+    return f"{number}-{direction}"
+
+
+WORDS = re.compile(r"[A-Za-z][A-Za-z'’\-]*")
+
+
+def prose_fill(puzzle, fill, prose):
+    """Fill a light whose answer the post names only in its prose (a typo'd or
+    missing answer line, "...the elder which is a BUSH or shrub"). The word, or
+    run of up to three words, must have exactly the light's length and agree
+    with every letter its answered crossing lights already give, and be the only
+    such reading: capitalised words need two crossing letters, any other words
+    need at least half the light fixed."""
+    for _ in range(len(puzzle["entries"])):
+        cells = {}
+        for e in puzzle["entries"]:
+            if entry_id(e) in fill:
+                x, y = e["position"]["x"], e["position"]["y"]
+                for i, ch in enumerate(fill[entry_id(e)]):
+                    cells.setdefault((x + i, y) if e["direction"] == "across" else (x, y + i), ch)
+        progress = False
+        for e in puzzle["entries"]:
+            eid = entry_id(e)
+            text = prose.get(eid)
+            if eid in fill or not text:
+                continue
+            x, y = e["position"]["x"], e["position"]["y"]
+            spots = [(x + i, y) if e["direction"] == "across" else (x, y + i) for i in range(e["length"])]
+            known = [cells.get(s) for s in spots]
+            fixed = sum(k is not None for k in known)
+            words = WORDS.findall(text)
+            found = {True: set(), False: set()}      # by whether every word is capitalised
+            for i in range(len(words)):
+                for n in (1, 2, 3):
+                    run = words[i:i + n]
+                    letters = re.sub(r"[^A-Z]", "", "".join(run).upper())
+                    if len(run) == n and len(letters) == e["length"] and all(
+                            k is None or k == c for k, c in zip(known, letters)):
+                        found[all(w.isupper() and len(w) > 1 for w in run)].add(letters)
+            pick = None
+            if len(found[True]) == 1 and fixed >= 2:
+                pick = next(iter(found[True]))
+            elif not found[True] and len(found[False]) == 1 and fixed * 2 >= e["length"]:
+                pick = next(iter(found[False]))
+            if pick:
+                fill[eid] = pick
+                progress = True
+        if not progress:
+            return
+
+
+_LEXICON = []
+
+
+def lexicon():
+    """The British-cryptic word list as upper-case letter runs: what tells a
+    misprint's repair from a string of letters that is no word."""
+    if not _LEXICON:
+        path = Path(__file__).resolve().parent / "data" / "lexicon.tsv"
+        _LEXICON.append({re.sub(r"[^A-Z]", "", line.split("\t", 1)[0].upper())
+                         for line in path.open(encoding="utf-8") if not line.startswith("#")})
+    return _LEXICON[0]
+
+
+def repair_fill(puzzle, fill, typed):
+    """Mend a light whose printed answer is a letter or two off ("ARENA" for AREA,
+    "PUCK" for PUCKER, a letter dropped or added when the blogger typed it). The
+    mended word must be in the lexicon, agree with every crossing letter already
+    answered (letters it adds must be fixed by crossings), have at least half
+    its cells fixed, and be the only such mend."""
+    for _ in range(len(puzzle["entries"])):
+        cells = {}
+        for e in puzzle["entries"]:
+            if entry_id(e) in fill:
+                x, y = e["position"]["x"], e["position"]["y"]
+                for i, ch in enumerate(fill[entry_id(e)]):
+                    cells.setdefault((x + i, y) if e["direction"] == "across" else (x, y + i), ch)
+        progress = False
+        for e in puzzle["entries"]:
+            eid = entry_id(e)
+            if eid in fill or not typed.get(eid):
+                continue
+            x, y = e["position"]["x"], e["position"]["y"]
+            spots = [(x + i, y) if e["direction"] == "across" else (x, y + i) for i in range(e["length"])]
+            known = [cells.get(s) for s in spots]
+            word, size = typed[eid], e["length"]
+            if not 1 <= abs(len(word) - size) <= 2 or sum(k is not None for k in known) * 2 < size:
+                continue
+            made = set()
+            if len(word) > size:                      # letters dropped, anywhere
+                for cut in itertools.combinations(range(len(word)), len(word) - size):
+                    made.add("".join(c for i, c in enumerate(word) if i not in cut))
+            else:                                     # letters added where crossings give them
+                for put in itertools.combinations(range(size), size - len(word)):
+                    if all(known[i] for i in put):
+                        rest = iter(word)
+                        made.add("".join(known[i] if i in put else next(rest) for i in range(size)))
+            made = {m for m in made if all(k is None or k == c for k, c in zip(known, m))
+                    and m in lexicon()}
+            if len(made) == 1:
+                fill[eid] = made.pop()
+                progress = True
+        if not progress:
+            return
+
+
 def blog_fill(puzzle, rec):
     """(fill by entry id, reasons it cannot be) from one parsed post."""
-    by_key = {}
-    for direction, number, text in rec.get("rows", []):
+    by_key, prose = {}, {}
+    length = {(e["number"], e["direction"]): e["length"] for e in puzzle["entries"]}
+    for direction, number, text, *line in rec.get("rows", []):
+        if line:
+            prose[entry_key(number, direction)] = line[0]
+        linked = re.match(r"(\d+[ad]?(?:,\d+[ad]?)*)\|(.*)", text, re.S)
+        if linked:
+            # One answer over several lights ("28,7 FINGAL", "9a & 21d"): split in
+            # numbered order when its letters exactly fill them. A trailing a/d
+            # names the light's direction. Else the first light alone may take it.
+            keys = [(number, direction)]
+            for tok in linked.group(1).split(","):
+                way = {"a": "across", "d": "down"}.get(tok[-1], direction)
+                keys.append((int(tok.rstrip("ad")), way))
+            letters = re.sub(r"[^A-Z]", "", linked.group(2).split(" – ")[0])
+            if all(k in length for k in keys) and len(letters) == sum(length[k] for k in keys):
+                for key in keys:
+                    by_key.setdefault(key, []).append(letters[:length[key]])
+                    letters = letters[length[key]:]
+            elif keys[0] in length and len(letters) == length[keys[0]]:
+                by_key.setdefault(keys[0], []).append(letters)
+            continue
         by_key.setdefault((number, direction), []).append(text)
-    fill, why, alts = {}, [], {}
+    fill, why, alts, typed = {}, [], {}, {}
     for entry in puzzle["entries"]:
         texts = by_key.get((entry["number"], entry["direction"]), [])
         options = list(dict.fromkeys(c for t in texts for c in candidates(t, entry["length"])))
@@ -308,11 +565,27 @@ def blog_fill(puzzle, rec):
             fill[entry_id(entry)] = options[0]
             alts[entry_id(entry)] = options
         elif texts:
+            if rec.get("blog") in ("bigdave44", "fifteensquared"):    # the text is the printed answer
+                typed[entry_id(entry)] = re.sub(r"[^A-Z]", "", texts[0].split(" – ")[0])
             why.append(f"{entry_id(entry)}: no answer of {entry['length']} letters in the post's line")
         else:
             why.append(f"{entry_id(entry)}: the post gives no line")
     settle(puzzle, fill, alts)
-    cross_fill(puzzle, fill)
+    given = set(fill)
+    # What the post does not print outright is worked out, and kept only when it
+    # is a word: a crossing-derived string that is no word shows the grid or the
+    # post is wrong at that light ("DISORDERDD").
+    strict = rec.get("blog") in ("bigdave44", "fifteensquared")
+    for derive in (lambda: prose_fill(puzzle, fill, prose),
+                   lambda: repair_fill(puzzle, fill, typed),
+                   lambda: cross_fill(puzzle, fill)):
+        derive()
+        if strict:
+            for eid in [e for e in fill if e not in given and fill[e] not in lexicon()]:
+                word = fill.pop(eid)
+                note = f"{eid}: worked out {word}, which is no word"
+                if note not in why:
+                    why.append(note)
     return fill, [w for w in why if w.split(":")[0] not in fill]
 
 
@@ -417,7 +690,7 @@ def process(series, year, only, check_only, log, partial=False):
     for path, puzzle in todo.items():
         pid = puzzle["id"]
         options = (recs.get(puzzle["number"], []) if series in CATEGORIES
-                   else azed_records(puzzle["number"]))
+                   else SOURCES[series](puzzle))
         if not options:
             out["no post"] += 1
             log(f"{pid}: REFUSED no post")
@@ -453,8 +726,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("ids", nargs="*", help="only these puzzle ids")
-    ap.add_argument("--series", default="times", choices=sorted(CATEGORIES) + ["azed"])
-    ap.add_argument("--from", dest="first", type=int, default=2006)
+    ap.add_argument("--series", default="times", choices=sorted(set(CATEGORIES) | set(SOURCES)))
+    ap.add_argument("--from", dest="first", type=int, default=2006)  # the series have none earlier
     ap.add_argument("--to", dest="last", type=int, default=2014)
     ap.add_argument("--check-only", action="store_true")
     ap.add_argument("--partial", action="store_true",
