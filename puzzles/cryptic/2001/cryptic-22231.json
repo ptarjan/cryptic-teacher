@@ -45,45 +45,61 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BOUZOUKI",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "the book is wrapped about the other letters, so they sit inside it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "book",
-       "note": "taken as written"
-      },
-      {
-       "words": "Two universities",
-       "gives": "UU",
-       "note": "U is the abbreviation for university, twice over"
-      },
-      {
-       "gives": "Z",
-       "note": "the letter every clue's wordplay leaves out, as the preamble says"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 31,
+         "note": "about means the book's letters go round the universities, one on either side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "book",
+         "at": 26,
+         "gives": "BK",
+         "note": "BK is a standard abbreviation for book"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Two universities",
+           "at": 0,
+           "gives": "OU",
+           "note": "OU, the Open University, taken twice"
+          },
+          {
+           "gives": "Z",
+           "note": "the preamble has the wordplay ignore every Z, so the Z is put back in the grid"
+          },
+          {
+           "gives": "OU"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "one",
+       "at": 22,
        "gives": "I",
-       "note": "the Roman numeral for one"
+       "note": "one is I, the Roman numeral"
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe for building the instrument heard in the film Zorba the Greek, out of colleges and a book.",
-     "walkthrough": "One U goes after each O of BOOK, making BOUOUK, and I follows. The preamble's ignored Z then goes back in to give the grid entry.",
-     "definitionFit": "The bouzouki, a long-necked Greek lute, plays the famous dance tune in the film Zorba the Greek."
+     "surface": "A pair of colleges and a novel are linked to the musical instrument heard in the film Zorba the Greek.",
+     "walkthrough": "Per the preamble, wordplay ignores Z (the last letter, appropriate to the last clue's ZZ initials): BK around OUOU, then I, gives BOUOUKI, and the Z is restored.",
+     "definitionFit": "The film's famous theme is played on this long-necked Greek lute, so it is fairly Zorba's instrument."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "about"
+     "misdirectedWord": "universities"
     }
    }
   },
@@ -332,50 +348,57 @@
     "definitions": [
      {
       "text": "on pizza?",
-      "at": 33,
-      "note": "a phrase saying where the cheese goes, standing for the noun"
+      "at": 33
      }
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "MOZZARELLA",
      "indicators": [
       {
        "text": "turning up",
-       "note": "in a down clue, turning up means the letters are read from the bottom to the top"
+       "at": 20,
+       "note": "in a down clue, turning up means the pieces are read from the bottom upwards"
       }
      ],
      "parts": [
       {
-       "words": "All",
-       "note": "taken as written"
-      },
-      {
-       "words": "the time",
-       "gives": "ERA",
-       "note": "an era is a period of time"
-      },
-      {
-       "words": "order",
-       "gives": "OM",
-       "note": "OM is the Order of Merit, a British honour"
-      },
-      {
-       "gives": "ZZ",
-       "note": "the letters every clue's wordplay leaves out, as the preamble says"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "All",
+         "at": 0,
+         "gives": "ALL",
+         "note": "taken as written"
+        },
+        {
+         "words": "the time",
+         "at": 4,
+         "gives": "ERA",
+         "note": "an era is a period of time"
+        },
+        {
+         "gives": "ZZ",
+         "note": "the preamble has the wordplay ignore every Z, so the two Zs are put back in the grid"
+        },
+        {
+         "words": "order",
+         "at": 14,
+         "gives": "OM",
+         "note": "OM is the Order of Merit"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps sending back their order, all the time, with a hint of what topping they want.",
-     "walkthrough": "'All the time' looks like a single phrase meaning always, but it splits into two pieces. The ellipsis just carries the surface on.",
-     "definitionFit": "Mozzarella is the soft Italian cheese that tops a classic pizza, so the question mark marks a definition by example."
+     "surface": "Someone constantly orders food, and it shows up as a pizza.",
+     "walkthrough": "The wordplay ignores Z, as the preamble says: ALL + ERA + OM read upwards gives MOARELLA, and the two Zs are then restored.",
+     "definitionFit": "This soft Italian cheese is the classic topping melted over a pizza, hence the question mark."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "time"
+     "misdirectedWord": "order"
     }
    }
   },
@@ -807,65 +830,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "home for Jesus",
-      "at": 41
+      "text": "a home for Jesus",
+      "at": 39
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "wanting",
+       "at": 31,
+       "note": "wanting means each singer's first name comes up short, losing its final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "wanting a",
-         "note": "wanting means lacking, so the letter named is missing from the end"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Singers King Cole",
+         "at": 0,
          "gives": "NAT",
-         "note": "Nat King Cole was an American singer; 'Singers' covers him and Franklin"
+         "note": "Nat King Cole was an American singer"
         },
         {
-         "gives": "T"
+         "gives": "Z",
+         "note": "the preamble has the wordplay ignore every Z, so the Z is put back in the grid"
+        },
+        {
+         "words": "Franklin",
+         "at": 22,
+         "gives": "ARETHA",
+         "note": "Aretha Franklin was an American singer"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "gives": "Z",
-           "note": "the letter every clue's wordplay leaves out, as the preamble says"
-          },
-          {
-           "words": "Franklin",
-           "gives": "ARETHA",
-           "note": "Aretha Franklin was the American soul singer"
-          }
-         ]
-        },
-        {
-         "gives": "A"
-        }
-       ]
+       "gives": "TA"
       }
      ]
     },
     "explanation": {
-     "surface": "Two famous singers find themselves short of something as they look for the town where Jesus grew up.",
-     "walkthrough": "NAT and ARETHA, losing ARETHA's final A, give NATARETH, so the grid's Z stands where NAT's T would be rather than being simply added; the clue does not account for losing the T.",
-     "definitionFit": "Nazareth in Galilee is the town where Jesus was brought up, which is why he is called Jesus of Nazareth."
+     "surface": "Two famous singers are in need of a house for Jesus.",
+     "walkthrough": "Ignoring Z, as the preamble says, NA (Nat cut short) and ARETH (Aretha cut short) give NAARETH; the Z is then restored.",
+     "definitionFit": "Jesus grew up in this Galilean town, so it was his home."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Singers"
+     "misdirectedWord": "wanting"
     }
    }
   },
@@ -1261,31 +1274,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AZOLLA",
-     "indicators": [
-      {
-       "text": "uprooted",
-       "note": "in a down clue, something pulled up by the roots comes out upwards, so the word reads bottom to top"
-      }
-     ],
+     "op": "container",
      "parts": [
       {
-       "words": "Scottish town",
-       "gives": "ALLOA",
-       "note": "Alloa is a town in central Scotland, near Stirling"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "uprooted",
+         "at": 19,
+         "note": "in a down clue, uprooted means the town is pulled up and read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scottish town",
+         "at": 5,
+         "gives": "ALLOA",
+         "note": "Alloa is a town in central Scotland"
+        }
+       ]
       },
       {
        "gives": "Z",
-       "note": "the letter every clue's wordplay leaves out, as the preamble says"
+       "note": "the preamble has the wordplay ignore every Z, so the Z is put back in the grid"
       }
      ]
     },
     "explanation": {
-     "surface": "A fern is dug up from a Scottish town.",
-     "walkthrough": "'Uprooted' suits the fern, but it is the town that is pulled up.",
-     "definitionFit": "Azolla is a genus of tiny floating water ferns, often called mosquito fern or fairy moss."
+     "surface": "A fern growing in a Scottish town has been pulled out.",
+     "walkthrough": "Ignoring Z per the preamble, ALLOA read upwards gives AOLLA; the Z is then restored after the first letter.",
+     "definitionFit": "This small floating water plant is a genus of aquatic fern, often called mosquito fern."
     },
     "features": {
      "answerInScene": true,
