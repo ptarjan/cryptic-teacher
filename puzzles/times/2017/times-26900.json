@@ -270,43 +270,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BRIGHTEN",
+     "op": "container",
      "indicators": [
       {
-       "text": "half-heartedly",
-       "note": "the doubled middle loses half, so one of its two central letters goes"
+       "text": "about",
+       "at": 29,
+       "note": "about puts the shortened word around the just word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so one piece wraps another"
+         "text": "half-heartedly",
+         "at": 14,
+         "note": "half the heart of the word is removed: one of its two middle letters"
         }
        ],
        "parts": [
         {
          "words": "been",
-         "gives": "BEN",
-         "note": "with half its double-letter heart removed"
+         "at": 9,
+         "gives": "BEEN"
         },
         {
-         "words": "Just",
-         "gives": "RIGHT",
-         "note": "just and right both mean fair, correct"
+         "gives": "E",
+         "note": "one of the two middle letters"
         }
        ]
+      },
+      {
+       "words": "Just",
+       "at": 0,
+       "gives": "RIGHT",
+       "note": "right means just or fair"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone has only half-heartedly been about to cheer up.",
-     "walkthrough": "The heart of 'been' is its doubled E, and half of it goes. 'Has' is filler that keeps the surface grammatical.",
-     "definitionFit": "To brighten someone or something is to make them happier, livelier or more cheerful."
+     "surface": "Someone who has only half-heartedly been around tries to cheer up.",
+     "definitionFit": "To brighten is to cheer up or make happier."
     },
     "features": {
      "answerInScene": false,
@@ -959,41 +963,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OASES",
-     "indicators": [
-      {
-       "text": "initially lacking",
-       "note": "lacking at the start means the opening letter is missing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "initially lacking",
+         "at": 8,
+         "note": "the word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
+         "words": "HQs",
+         "at": 4,
+         "gives": "BASES",
+         "note": "headquarters are bases"
         },
         {
-         "words": "HQs",
-         "gives": "ASES",
-         "note": "bases are headquarters; its first letter goes"
+         "gives": "B",
+         "note": "the first letter of the bases word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Old headquarters lacked a proper water supply.",
-     "walkthrough": "BASES loses its B and follows O.",
-     "definitionFit": "Oases are fertile spots in deserts where springs or wells provide precious water."
+     "surface": "Old military headquarters had little water.",
+     "definitionFit": "Oases are fertile spots in a desert where water is found, so valued by travellers."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "HQs"
     }
    }

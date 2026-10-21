@@ -351,57 +351,68 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REPLICA",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "found in",
-         "note": "I is placed among the letters"
-        },
-        {
-         "text": "unexpected",
-         "note": "the letters of place are rearranged"
+         "text": "beginning of",
+         "at": 5,
+         "note": "beginning of takes the opening letter of record"
         }
        ],
        "parts": [
         {
-         "op": "first",
+         "words": "record",
+         "at": 18,
+         "gives": "R",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "found in",
+         "at": 27,
+         "note": "found in puts I inside the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "beginning of",
-           "note": "the beginning of a word is its first letter"
+           "text": "unexpected",
+           "at": 36,
+           "note": "an unexpected place has its letters set in a surprising order"
           }
          ],
          "parts": [
           {
-           "words": "record",
-           "gives": "RECORD",
-           "note": "first letter of record"
+           "words": "place",
+           "at": 47
           }
          ]
         },
         {
-         "words": "I found in unexpected place",
-         "gives": "EPLICA",
-         "note": "I goes in among the letters of PLACE, which are rearranged"
+         "words": "I",
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A copy of a record turns up somewhere it should not be.",
-     "walkthrough": "Unexpected place reads as a location, but unexpected is telling you to rearrange place.",
-     "definitionFit": "A plain synonym: a replica is an exact copy of an original."
+     "surface": "The start of a recording turns up somewhere surprising.",
+     "definitionFit": "A replica is an exact reproduction or duplicate of an original."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "place"
+     "misdirectedWord": "unexpected"
     }
    }
   },
@@ -482,36 +493,36 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "finally",
-       "note": "finally means at the end, so only the last letter of parents is used"
+       "text": "upset",
+       "at": 29,
+       "note": "in a down clue upset turns the whole run of letters upside down"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "upset",
-         "note": "in a down clue, set up means turned upside down"
-        }
-       ],
        "parts": [
         {
          "words": "left",
+         "at": 8,
          "gives": "PORT",
          "note": "port is the left side of a ship"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "S",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 21,
+           "note": "finally takes the last letter of parents"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
            "words": "parents",
+           "at": 13,
            "gives": "S",
-           "select": "last",
-           "note": "last letter of parents"
+           "note": "its last letter"
           }
          ]
         }
@@ -520,9 +531,8 @@
      ]
     },
     "explanation": {
-     "surface": "A child throws a tantrum and the parents end up upset.",
-     "walkthrough": "Left looks like the verb, but it is the nautical side of a ship.",
-     "definitionFit": "British slang: to be in a strop is to be in a bad-tempered sulk."
+     "surface": "A child's tantrum leaves the parents upset at last.",
+     "definitionFit": "A strop is a fit of bad temper, British slang for a sulk or tantrum."
     },
     "features": {
      "answerInScene": true,
@@ -835,26 +845,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Hanger-on heading off",
-       "gives": "IMPET",
-       "note": "LIMPET, a proverbial hanger-on, minus its first letter L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 10,
+         "note": "heading off removes the first letter of the hanger-on word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hanger-on",
+         "at": 0,
+         "gives": "LIMPET",
+         "note": "a limpet clings to a rock, so a person who sticks to another is a limpet"
+        },
+        {
+         "gives": "L",
+         "note": "the first letter of the limpet word"
+        }
+       ]
       },
       {
        "words": "American",
-       "gives": "US",
-       "note": "US for American"
+       "at": 27,
+       "gives": "US"
       }
      ]
     },
     "explanation": {
-     "surface": "A clinging follower leaves, joined by American might.",
-     "walkthrough": "A limpet clings to rocks, so a person who clings is called one.",
-     "definitionFit": "A plain synonym: impetus is the driving force or momentum behind something."
+     "surface": "A sycophant leaves with an American force.",
+     "definitionFit": "Impetus is the driving momentum or force behind motion or action."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heading"
+     "misdirectedWord": "Hanger-on"
     }
    }
   },
