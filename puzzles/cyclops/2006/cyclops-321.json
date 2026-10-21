@@ -966,42 +966,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "something endless has had its final letter cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "grand",
+       "at": 28,
+       "gives": "BIG",
+       "note": "grand means big"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 35,
+         "note": "endless means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "grand",
-         "gives": "BIG",
-         "note": "grand and big both mean large"
-        },
-        {
          "words": "knocking-shop",
+         "at": 43,
          "gives": "BROTHEL",
          "note": "knocking-shop is British slang for a brothel"
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "gives": "L"
         }
        ]
       },
       {
-       "gives": "L"
+       "words": "right",
+       "at": 58,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A sneering verdict that the reality show is basically a glorified brothel.",
-     "definitionFit": "Big Brother is the reality TV programme in which cameras watch housemates around the clock, so viewers are voyeurs."
+     "surface": "A reality show summed up as a vast bordello with a question tagged on.",
+     "walkthrough": "A knocking-shop is British slang for a brothel; 'endless' cuts only that word, and 'right?' is a question tag in the surface but a letter in the wordplay.",
+     "definitionFit": "Big Brother is a reality TV programme in which housemates are filmed round the clock for viewers to watch."
     },
     "features": {
      "answerInScene": true,
@@ -1431,63 +1435,69 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AIRBAG",
-     "indicators": [
-      {
-       "text": "Miserable",
-       "note": "something miserable is in a sorry state, so the remaining letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AIRBAG",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "is out",
-         "note": "a letter that is out has been removed from the name before it"
+         "text": "Miserable",
+         "at": 0,
+         "note": "miserable means wretched, so the letters are put in a sorry new state"
         }
        ],
        "parts": [
         {
-         "words": "Blair",
-         "note": "the Labour prime minister's surname taken as written"
-        },
-        {
-         "op": "first",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "leader",
-           "note": "a leader comes first, so only the opening letter of the party's name is meant"
+           "text": "is out",
+           "at": 33,
+           "note": "is out means the letter is removed"
           }
          ],
          "parts": [
           {
-           "words": "Labour",
-           "note": "the opening letter of the party's name, the one removed"
+           "words": "Blair",
+           "at": 10,
+           "note": "taken as written"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "leader",
+             "at": 26,
+             "note": "a leader is the first letter of the next word"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Labour's",
+             "at": 17,
+             "note": "first letter of Labour"
+            }
+           ]
           }
          ]
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "good",
-         "gives": "G",
-         "note": "G is the abbreviation for good"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 48
+      },
+      {
+       "words": "good",
+       "at": 50,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A gloomy Tony Blair, ousted as Labour leader, needs a decent lifeline.",
-     "walkthrough": "'Labour's leader is out' looks like Blair losing his job; it means the party's initial letter leaves his name.",
-     "definitionFit": "A car's inflating safety cushion protects occupants in a crash, so it may well prevent a death."
+     "surface": "Tony Blair glum after losing his party's top job.",
+     "walkthrough": "'leader' takes the first letter of Labour, not of Blair; that letter goes before the scramble, which works on what is left of the name.",
+     "definitionFit": "An airbag inflates in a car crash to cushion occupants, a device that may well save a life."
     },
     "features": {
      "answerInScene": false,

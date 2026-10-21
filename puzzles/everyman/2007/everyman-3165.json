@@ -548,7 +548,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "like some bandits",
+      "text": "like some bandits?",
       "at": 41
      }
     ],
@@ -557,6 +557,7 @@
      "parts": [
       {
        "words": "Girl",
+       "at": 0,
        "gives": "PENNY",
        "note": "Penny is a girl's name"
       },
@@ -565,33 +566,44 @@
        "indicators": [
         {
          "text": "awfully",
-         "note": "awfully suggests something done badly, so the letters of the word before it are jumbled"
-        },
-        {
-         "text": "surprisingly",
-         "note": "surprisingly suggests an unexpected outcome, so the letters of the word before it come out in a new order"
+         "at": 6,
+         "note": "awfully means badly, so these letters are put in a poor new order"
         }
        ],
        "parts": [
         {
          "words": "thin",
-         "note": "four letters to rearrange"
-        },
+         "at": 14,
+         "note": "taken as written as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "surprisingly",
+         "at": 27,
+         "note": "surprisingly means unexpectedly, so these letters come out in a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "stole",
-         "note": "five letters to rearrange"
+         "at": 20,
+         "note": "taken as written as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A painfully thin girl steals something, much to everyone's surprise, like an outlaw.",
-     "walkthrough": "'Bandits' suggests robbers, but these are one-armed bandits, the fruit machines worked by dropping in a coin.",
-     "definitionFit": "Coin-operated machines such as one-armed bandits are described as penny-in-the-slot devices."
+     "surface": "A skinny girl has nicked something, to everyone's surprise, like a robber.",
+     "walkthrough": "'awfully' turns THIN into INTH and 'surprisingly' turns STOLE into ESLOT. 'bandits' are one-armed bandits, slot machines, not robbers.",
+     "definitionFit": "Penny-in-the-slot describes a coin-operated machine, as one-armed bandit gambling machines are."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "bandits"

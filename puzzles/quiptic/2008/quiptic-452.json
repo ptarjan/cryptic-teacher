@@ -575,8 +575,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "the dancing",
-      "at": 20
+      "text": "dancing",
+      "at": 24
      }
     ],
     "wordplay": {
@@ -584,37 +584,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means turned round, so the concealed run is read backwards"
+       "at": 14,
+       "note": "about means turned round, so the letters are read backwards"
       }
      ],
      "parts": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "Tell",
-         "note": "to tell can mean to count off or disclose, revealing what lies within the following words"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Tell a bishop",
-         "gives": "TELLAB",
-         "note": "a run of letters across the words, ending at the b of bishop"
+         "words": "Tell",
+         "at": 0,
+         "note": "taken as written; the clue letters only look like a reversed hidden word by coincidence, since bishop must first become B"
+        },
+        {
+         "words": "a",
+         "at": 5
+        },
+        {
+         "words": "bishop",
+         "at": 7,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone reporting the dancing to a clergyman.",
-     "walkthrough": "The answer sits backwards inside the opening words, stopping at the first letter of bishop.",
-     "definitionFit": "Ballet is a classical, theatrical form of dancing."
+     "surface": "Someone instructed to inform a clergyman about the dance.",
+     "walkthrough": "'about' turns TELLAB round.",
+     "definitionFit": "Ballet is a classical theatrical form of dance performed to music."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "Tell"
     }
    }
   },
