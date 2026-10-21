@@ -162,42 +162,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "METTLESOME",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 49,
+       "note": "what we hear is spoken, so the words count by their sound"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "METTLE",
-       "indicators": [
-        {
-         "text": "we hear",
-         "note": "'we hear' says the pieces are to be taken by their sound, not their spelling"
-        }
-       ],
-       "parts": [
-        {
-         "words": "gold",
-         "gives": "METAL",
-         "note": "gold is a metal"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "SOME",
-       "parts": [
-        {
-         "words": "amount of money",
-         "gives": "SUM",
-         "note": "a sum is an amount of money"
-        }
-       ]
+       "words": "gold and amount of money",
+       "at": 23,
+       "gives": "METALSUM",
+       "note": "gold is a metal, and a sum is an amount of money"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks which game might pay out gold and a cash prize.",
-     "walkthrough": "'Game' looks like a noun for something you play; it is the adjective meaning plucky, willing to have a go.",
-     "definitionFit": "Mettlesome means spirited and courageous, just as game does."
+     "surface": "A question about some sport that might win a gold medal and a cash prize.",
+     "walkthrough": "'Game' here is the adjective meaning plucky, not a sport. Said aloud, METAL SUM gives METTLE SOME.",
+     "definitionFit": "A game person is plucky and willing; mettlesome means spirited and full of courage."
     },
     "features": {
      "answerInScene": false,
@@ -278,7 +264,8 @@
      "indicators": [
       {
        "text": "put in",
-       "note": "I is to be put inside the record"
+       "at": 2,
+       "note": "the I is put into the middle of the other letters"
       }
      ],
      "parts": [
@@ -287,29 +274,48 @@
        "parts": [
         {
          "words": "record",
+         "at": 9,
          "gives": "DISC",
-         "note": "a disc is a record"
+         "note": "a disc is a gramophone record"
         },
         {
-         "words": "request — a disregarded",
-         "gives": "PLE",
-         "note": "PLEA, a request, without its A"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "disregarded",
+           "at": 28,
+           "note": "the A is disregarded, so it is left out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "request",
+           "at": 16,
+           "gives": "PLEA",
+           "note": "a plea is a request"
+          },
+          {
+           "words": "a",
+           "at": 26,
+           "gives": "A"
+          }
+         ]
         }
        ]
       },
       {
        "words": "I",
-       "note": "used literally"
+       "at": 0,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone slips their own name into a record of requests from an overlooked follower.",
-     "walkthrough": "'Record' tempts towards LOG or EP; the disc is the one that can take I inside it. The 'a' is dropped from the request rather than added.",
-     "definitionFit": "A plain synonym, with the religious sense of one who follows a master."
+     "surface": "Someone takes a record request on the radio, but the fan is ignored.",
+     "definitionFit": "A disciple is a devoted adherent of a teacher, as the apostles were of Jesus."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "record"
     }

@@ -185,29 +185,46 @@
      "indicators": [
       {
        "text": "escaping",
-       "note": "whatever is escaping gets out and away, so those letters leave the word"
+       "at": 30,
+       "note": "letters escaping get away from the word, so they are removed"
       }
      ],
      "parts": [
       {
        "words": "animal",
+       "at": 8,
        "gives": "CRITTER",
-       "note": "critter is an informal word for a creature"
+       "note": "a critter is a colloquial word for any creature"
       },
       {
-       "words": "time and again",
-       "gives": "TT",
-       "note": "T for time, and again T, a second one"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "and again",
+         "at": 20,
+         "note": "the letter for time is taken a second time, so two of them go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time",
+         "at": 15,
+         "gives": "T"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A herald's animal keeps running off.",
-     "walkthrough": "Both Ts leave CRITTER, which is what the 'and again' asks for.",
-     "definitionFit": "A town crier was an official who announced news in public, a herald in the literal sense."
+     "surface": "A messenger announces that some beast keeps breaking free.",
+     "walkthrough": "'time and again' is two Ts, and 'escaping' takes both out of CRITTER.",
+     "definitionFit": "A town crier was the official who proclaimed public announcements, a herald of news."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "animal"
     }
@@ -1675,51 +1692,46 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Heads dropping",
+       "at": 0,
+       "note": "both words lose their heads, so the first letter of each is removed"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Heads dropping",
-         "note": "with heads dropped, each word loses its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "notice",
+         "at": 16,
          "gives": "SPOT",
-         "note": "to spot is to notice"
+         "note": "to spot something is to notice it"
         },
         {
-         "gives": "S"
+         "words": "trap",
+         "at": 23,
+         "gives": "GIN",
+         "note": "a gin is a snare or trap for game"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "trap",
-         "gives": "GIN",
-         "note": "a gin is a snare or trap"
-        },
-        {
-         "gives": "G"
-        }
-       ]
+       "gives": "SG"
       }
      ]
     },
     "explanation": {
-     "surface": "Drooping heads spot a trap made of metal.",
-     "walkthrough": "S goes from SPOT and G from GIN.",
-     "definitionFit": "Potin is an old alloy of copper, zinc, lead and tin, used for Celtic coins."
+     "surface": "Headlines tumble as reporters spot a trap set in some metal.",
+     "walkthrough": "'Heads dropping' takes the first letter from each word: SPOT loses S and GIN loses G, giving POT and IN.",
+     "definitionFit": "Potin is an old copper-based metal of the kind used for Celtic coins, a mixture of metals."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Heads"
+     "misdirectedWord": "notice"
     }
    }
   },
@@ -1858,44 +1870,44 @@
      "parts": [
       {
        "words": "male",
-       "gives": "M",
-       "note": "standard abbreviation"
+       "at": 10,
+       "gives": "M"
       },
       {
        "words": "American",
-       "gives": "A",
-       "note": "standard abbreviation"
+       "at": 15,
+       "gives": "A"
       },
       {
-       "op": "deletion",
+       "op": "middle",
        "indicators": [
         {
          "text": "endlessly",
-         "note": "with no end, the last letter of the word is cut off"
+         "at": 28,
+         "note": "with no ends at all, both the first and last letters are cut off"
         }
        ],
        "parts": [
         {
          "words": "hit",
-         "gives": "LAM",
-         "note": "to lam is to hit or thrash"
-        },
-        {
-         "gives": "M"
+         "at": 24,
+         "gives": "SLAM",
+         "note": "to slam is to hit hard"
         }
        ]
       },
       {
        "words": "abuse",
+       "at": 43,
        "gives": "MUD",
-       "note": "mud is slander or abuse, as in mud-slinging"
+       "note": "mud is abuse, as in mudslinging"
       }
      ]
     },
     "explanation": {
-     "surface": "A male American novelist is attacked with endless abuse.",
-     "walkthrough": "The surface invites reading 'hit' as a bestseller; it is the verb, cut short to LA.",
-     "definitionFit": "Bernard Malamud was an American novelist, author of The Natural and The Fixer."
+     "surface": "A writer describes a man from the US being lashed with insults.",
+     "walkthrough": "'endlessly' here strips both ends of SLAM, leaving LA.",
+     "definitionFit": "Bernard Malamud was an American author, the writer of The Natural and The Fixer."
     },
     "features": {
      "answerInScene": true,

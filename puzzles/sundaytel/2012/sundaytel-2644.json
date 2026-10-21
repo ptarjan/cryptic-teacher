@@ -537,35 +537,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "after",
-       "at": 8,
-       "note": "the evaluation comes after the director piece"
-      }
-     ],
      "parts": [
       {
-       "words": "director, say, cut short",
-       "at": 14,
-       "gives": "EXEC",
-       "note": "a company director is an example of an executive, shortened to exec"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 29,
+         "note": "the word is cut short, losing its latter part"
+        }
+       ],
+       "parts": [
+        {
+         "words": "director, say",
+         "at": 14,
+         "gives": "EXECUTIVE",
+         "note": "a company director is an example of an executive"
+        },
+        {
+         "gives": "UTIVE"
+        }
+       ]
       },
       {
        "words": "evaluation",
        "at": 39,
        "gives": "RATING",
-       "note": "a rating is an assessment or score"
+       "note": "a rating is an evaluation"
       }
      ]
     },
     "explanation": {
-     "surface": "Swearing after a manager gives a brief appraisal.",
-     "definitionFit": "To execrate is to curse or denounce someone, so execrating is the act of damning them."
+     "surface": "Swearing follows a board member's brief performance review.",
+     "walkthrough": "EXECUTIVE cut short gives EXEC, a common shortening.",
+     "definitionFit": "Execrating means uttering curses against someone or something, denouncing it in fury."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "director"
     }
    }
   },
@@ -1264,24 +1274,28 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "Repeatedly",
+       "at": 0,
+       "note": "the word is said again, so it appears twice"
+      }
+     ],
      "parts": [
       {
        "words": "show disapproval",
        "at": 11,
        "gives": "BOO",
-       "note": "boo is the jeer of a displeased crowd"
+       "note": "to boo is to jeer in disapproval"
       },
       {
-       "words": "Repeatedly",
-       "at": 0,
-       "gives": "BOO",
-       "note": "the jeer is given a second time"
+       "gives": "BOO"
       }
      ]
     },
     "explanation": {
-     "surface": "A crowd jeers again and again at a mistake.",
-     "definitionFit": "A booboo is a colloquial term for a silly mistake."
+     "surface": "An audience keeps jeering at a gaffe.",
+     "definitionFit": "A booboo is an informal word for a silly mistake or gaffe."
     },
     "features": {
      "answerInScene": true,

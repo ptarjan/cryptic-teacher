@@ -1589,64 +1589,51 @@
      "indicators": [
       {
        "text": "Docked",
-       "note": "a docked tail is cut short, so each word loses its last letter"
+       "at": 0,
+       "note": "a docked tail is cut short, so each word's very last letter is cut away"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 33,
+         "note": "ultimately points to the closing letters of each of the three words"
+        }
+       ],
        "parts": [
         {
-         "op": "nth",
-         "n": 6,
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "ultimately means at the very end, so the final letter of each shortened word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "minimum",
-           "note": "the last letter once the word is docked"
-          }
-         ]
+         "words": "minimum",
+         "at": 7,
+         "note": "its final pair of letters is taken"
         },
         {
-         "op": "nth",
-         "n": 3,
-         "parts": [
-          {
-           "words": "wage",
-           "note": "the last letter once the word is docked"
-          }
-         ]
+         "words": "wage",
+         "at": 15,
+         "note": "its final pair of letters is taken"
         },
         {
-         "op": "nth",
-         "n": 9,
-         "parts": [
-          {
-           "words": "newsworthy",
-           "note": "the last letter once the word is docked"
-          }
-         ]
+         "words": "newsworthy",
+         "at": 20,
+         "note": "its final pair of letters is taken"
         }
        ]
       },
       {
-       "gives": "E"
+       "gives": "MEY"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper reports that cutting the minimum wage is disgusting.",
-     "walkthrough": "Dock each of the three words, then take the last letter of what is left: in effect the penultimate letters.",
-     "definitionFit": "Ugh is the exclamation of revulsion, which is what someone says when something is disgusting."
+     "surface": "A news report that the minimum wage has been cut is met with revulsion.",
+     "walkthrough": "Docking each word leaves MINIMU, WAG and NEWSWORTH; what then stands last in each spells the answer.",
+     "definitionFit": "Ugh is the exclamation of revulsion people make at something they find gross."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "Docked"
     }
    }
