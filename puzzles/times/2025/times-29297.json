@@ -1775,44 +1775,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "set back",
-       "note": "something set back is moved backwards, so RUN is read in reverse"
-      },
-      {
-       "text": "failing to complete",
-       "note": "a word that fails to complete stops before its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set back",
+         "at": 7,
+         "note": "set back says the word is turned round to read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Career",
+         "at": 0,
+         "gives": "RUN",
+         "note": "to career is to run headlong"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "failing to complete",
+         "at": 24,
+         "note": "the word is left unfinished, missing its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "firm",
-         "gives": "ES",
-         "note": "set = firm, as a jelly sets; SET without its last letter"
+         "at": 19,
+         "gives": "SET",
+         "note": "firm, as jelly is when it has set, gives set"
         },
         {
-         "words": "Career",
-         "gives": "RUN",
-         "note": "to career is to run headlong; RUN reversed"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A career thrown off course by a company that could not finish a bid.",
-     "walkthrough": "'Career' and 'tender' both look like business terms; career is the verb to rush, and tender means one who tends.",
-     "definitionFit": "A noun sense: a tender is someone who tends, and a nurse is one who tends the sick."
+     "surface": "A career suffers a setback when a firm fails to complete a tender bid.",
+     "walkthrough": "'Tender' looks like a business bid; it is the verb, to look after.",
+     "definitionFit": "To nurse someone is to tend and care for them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "tender"
     }
    }

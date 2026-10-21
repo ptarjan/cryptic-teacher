@@ -399,22 +399,31 @@
        "note": "a latte is a milky coffee"
       },
       {
-       "words": "half-hourly",
-       "at": 7,
-       "gives": "RLY",
-       "note": "the second half of the word hourly"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 7,
+         "note": "half-hourly here keeps the back half of the word hourly"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hourly",
+         "at": 12
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Drinking coffee every thirty minutes has become a habit recently.",
-     "walkthrough": "'half-hourly' reads as every thirty minutes, but it asks for half of the word hourly.",
-     "definitionFit": "Latterly means recently, in the later part of a period, so not so long ago."
+     "surface": "Someone recalls drinking coffee every thirty minutes until recently.",
+     "walkthrough": "'Half-hourly' reads as one word meaning every thirty minutes; split it into the selector 'half' and the word 'hourly'.",
+     "definitionFit": "Latterly means recently, in the later part of a period of time."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "half-hourly"
     }
    }

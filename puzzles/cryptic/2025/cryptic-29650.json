@@ -401,43 +401,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "overlapping",
-       "note": "things that overlap share a shared stretch, so a letter common to both is counted only once"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "two",
-         "gives": "LIBRA",
-         "note": "Libra, the scales, is one zodiac sign"
-        },
-        {
-         "words": "signs",
-         "gives": "ARIES",
-         "note": "Aries, the ram, is another zodiac sign"
-        }
-       ]
+       "words": "two",
+       "at": 10,
+       "gives": "LIBRA",
+       "note": "the first of the two zodiac signs here is Libra, the scales"
       },
       {
-       "gives": "A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "overlapping",
+         "at": 14,
+         "note": "the two signs overlap, so the letter they share at the join is written only once"
+        }
+       ],
+       "parts": [
+        {
+         "words": "signs",
+         "at": 26,
+         "gives": "ARIES",
+         "note": "the second zodiac sign is Aries, the ram"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cryptic note that some institutions lend, signalled by a pair of overlapping signs.",
-     "walkthrough": "LIBRA ends with A and ARIES starts with it, so the two signs share that letter, giving LIBRARIES.",
-     "definitionFit": "Libraries are institutions whose job is lending books to members of the public."
+     "surface": "A cryptic puzzle about two star signs that run into each other.",
+     "walkthrough": "LIBRA ends in A and ARIES starts with A; 'overlapping' lets that A do duty for both.",
+     "definitionFit": "Libraries are institutions whose business is lending books to borrowers."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "signs"
+     "misdirectedWord": "lend"
     }
    }
   },

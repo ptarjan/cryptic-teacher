@@ -119,38 +119,39 @@
        "indicators": [
         {
          "text": "Start of",
-         "note": "the start of a word is its opening letter, so only the first letter of 'road' is kept"
+         "at": 0,
+         "note": "the start of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "Start of road",
-         "gives": "ROAD",
-         "note": "first letter of 'road'"
+         "words": "road",
+         "at": 9
         }
        ]
       },
       {
        "words": "rage",
+       "at": 14,
        "gives": "ANGER",
-       "note": "rage and anger are synonyms"
+       "note": "rage means anger"
       },
       {
        "words": "connected with",
+       "at": 19,
        "gives": "OVER",
-       "note": "over = concerning, connected with, as in 'a row over money'"
+       "note": "over means concerning, connected with"
       }
      ]
     },
     "explanation": {
-     "surface": "A driver loses their temper on the road, somehow tied up with a big off-roader.",
-     "walkthrough": "The surface welds 'road rage' into one phrase, but the two words do separate jobs. 'Connected with' is used in its sense of about or concerning, as in 'a row over money'.",
-     "definitionFit": "The Range Rover is a well-known British brand of four-wheel-drive vehicle, and 4x4 is the everyday label for such cars."
+     "surface": "Road rage linked to an aggressive four-wheel-drive car.",
+     "definitionFit": "A Range Rover is a British four-wheel-drive vehicle, a 4x4."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "connected"
+     "misdirectedWord": "rage"
     }
    }
   },
@@ -1296,36 +1297,52 @@
      "parts": [
       {
        "words": "cheers",
+       "at": 33,
        "gives": "HIPS",
-       "note": "hips as in 'hip, hip, hooray', the cheers of a crowd"
+       "note": "hips, as in 'hip, hip, hooray', are cheers"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "broadcast",
-         "note": "broadcasting scatters seed widely, so the letters of the shortened plant are scattered"
+         "at": 40,
+         "note": "broadcast means scattered, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "cut tree",
-         "gives": "TRE",
-         "note": "tree without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "cut",
+           "at": 53,
+           "note": "cut means the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tree",
+           "at": 57
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trendy man applauding news coverage of a felled tree.",
-     "walkthrough": "The surface nods to the theme: the Sycamore Gap felling was broadcast everywhere. 'Cheers' is not a toast here but the hip-hip of applause.",
-     "definitionFit": "A hipster is someone who keeps up with the latest fashions and fads, a devotee of what is currently cool."
+     "surface": "Cheering on a broadcast of a tree being felled.",
+     "walkthrough": "Cheers as HIPS comes from the cry 'hip, hip, hooray'; 'broadcast' means scattered, as seed is sown.",
+     "definitionFit": "A hipster is someone who follows the latest fashions and trends."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cheers"
+     "misdirectedWord": "broadcast"
     }
    }
   },
@@ -1598,26 +1615,44 @@
      "parts": [
       {
        "words": "Former mate",
+       "at": 0,
        "gives": "EX",
        "note": "an ex is a former partner"
       },
       {
-       "words": "brief wanting second",
-       "gives": "HORT",
-       "note": "short without S, the abbreviation for second"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wanting",
+         "at": 23,
+         "note": "wanting means lacking, so the letter is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brief",
+         "at": 17,
+         "gives": "SHORT",
+         "note": "brief means short"
+        },
+        {
+         "words": "second",
+         "at": 31,
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ex-partner, holding a legal brief, seeks a second barrister's opinion.",
-     "walkthrough": "'Brief' and 'counsel' both sound like lawyers, but brief is SHORT and counsel is a verb.",
-     "definitionFit": "To exhort is to urge or advise someone strongly, and to counsel is likewise to give advice or recommend a course."
+     "surface": "An ex-partner with a lawyer, lacking a second opinion.",
+     "walkthrough": "'Brief' and 'counsel' suggest lawyers; brief is the adjective here and counsel a verb.",
+     "definitionFit": "To exhort is to urge or advise earnestly, to counsel."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "counsel"
+     "misdirectedWord": "brief"
     }
    }
   },
