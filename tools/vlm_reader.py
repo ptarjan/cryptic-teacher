@@ -100,15 +100,35 @@ class Down(RuntimeError):
 
 def wanted():
     """reachable(), asked by a reader about to use the model. When it is not
-    (and a URL is set: an empty one turns the model off, and the read goes
-    on without it) the miss is noted, and under DEFER_ENV it raises Down."""
+    (and a URL is set, or none was ever configured, see unconfigured(): an
+    explicitly empty VLM_READER_URL turns the model off, and the read goes on
+    without it) the miss is noted, and under DEFER_ENV it raises Down."""
     if reachable():
         return True
-    if URL:
+    if unconfigured():
+        _MISSED[0] = True
+        _CAUSE[0] = UNCONFIGURED
+        if os.environ.get(DEFER_ENV):
+            raise Down(f"{UNCONFIGURED}; the read waits for it")
+    elif URL:
         _MISSED[0] = True
         if os.environ.get(DEFER_ENV):
             raise Down(f"VLM {MODEL} at {URL} is down ({_CAUSE[0] or 'unreachable'})")
     return False
+
+
+#: Why the VLM is not used when no address was ever given (cause()).
+UNCONFIGURED = "VLM URL not configured (no VLM_READER_URL, no VLM in ~/.config/cryptic-teacher/local.json)"
+
+
+def unconfigured():
+    """Whether there is no VLM address and nobody asked for none: VLM_READER_URL
+    unset and the host has no VLM in its local config (desktop_hosts.VLM_URLS).
+    That is a host that lost its config (10-21: a commit moved the addresses to
+    ~/.config/cryptic-teacher/local.json and the live queue had no such file, so every
+    read ran OCR-only for 30 minutes, unlogged), never a choice: the OCR-only
+    opt-out is an explicitly set, empty VLM_READER_URL."""
+    return not URL and "VLM_READER_URL" not in os.environ
 
 
 def missed():
@@ -125,6 +145,8 @@ def guard(what):
             raise Down(f"{len(spooled_by(os.getpid()))} VLM asks spooled for the drainer; {what} not written")
         if _CAUSE[0] == "spool full":
             raise Down(f"VLM spool full; {what} not written")
+        if _CAUSE[0] == UNCONFIGURED:
+            raise Down(f"{UNCONFIGURED}; {what} not written")
         raise Down(f"VLM {MODEL} at {URL} went down mid-read ({_CAUSE[0] or 'unknown'}); {what} not written")
 
 
@@ -397,7 +419,7 @@ REQUEST_TIMEOUT = 600
 
 def cause():
     """Why the last ask failed or yielded, "" if none has."""
-    return _CAUSE[0]
+    return UNCONFIGURED if unconfigured() else _CAUSE[0]
 
 
 def cause_of(e):

@@ -393,6 +393,78 @@ check("scan_queue.parallel lets Down through, not logged as one bad source", Tru
 del os.environ[vlm.DEFER_ENV]
 scan_queue.append(led, [{"edition": "e"}])
 check("mirror: outside a queue's read the same row is written", True, led.exists())
+
+# 10-21: a host whose config lost its VLM address ran every read OCR-only, unlogged. An empty URL
+# nobody asked for is "VLM down" (a queue's read defers, nothing recorded); an explicitly empty
+# VLM_READER_URL stays the OCR-only opt-out.
+saved_env = os.environ.pop("VLM_READER_URL", None)
+vlm.URL, vlm._MISSED[0], vlm._CAUSE[0] = "", False, ""
+vlm.reachable = lambda: False
+check("no URL and no VLM_READER_URL: unconfigured, its cause says so", (True, vlm.UNCONFIGURED), (vlm.unconfigured(), vlm.cause()))
+check("unconfigured, outside a queue's read: wanted() is False and the miss is noted", (False, True), (vlm.wanted(), vlm.missed()))
+vlm._MISSED[0] = False
+os.environ[vlm.DEFER_ENV] = "1"
+try:
+    vlm.wanted()
+    got = "read on"
+except vlm.Down as e:
+    got = ("deferred", "not configured" in str(e))
+check("unconfigured, in a queue's read: Down, like a VLM down", ("deferred", True), got)
+vlm._MISSED[0] = True
+vlm._CAUSE[0] = vlm.UNCONFIGURED
+try:
+    vlm.guard("x")
+    got = "written"
+except vlm.Down as e:
+    got = ("deferred", "not configured" in str(e))
+check("unconfigured: a write after the miss is guarded", ("deferred", True), got)
+import edition_queue as eq
+saved_gate, eq.vlm_gate_reader = eq.vlm_gate_reader, None
+check("the queue counts an unconfigured VLM as down", False, eq.vlm_up())
+notes = []
+eq._plan([], T / "cache", None, notes)
+check("each plan says so loudly", True, any("VLM NOT CONFIGURED" in n for n in notes))
+os.environ["VLM_READER_URL"] = ""
+vlm._MISSED[0] = False
+vlm._CAUSE[0] = ""
+check("an explicitly empty VLM_READER_URL is not unconfigured", (False, ""), (vlm.unconfigured(), vlm.cause()))
+check("... wanted() raises nothing and notes no miss, as before", (False, False), (vlm.wanted(), vlm.missed()))
+check("... the queue goes on without the VLM", True, eq.vlm_up())
+notes = []
+eq._plan([], T / "cache", None, notes)
+check("... and its plans say nothing", False, any("VLM NOT CONFIGURED" in n for n in notes))
+eq.vlm_gate_reader = saved_gate
+del os.environ["VLM_READER_URL"]
+if saved_env is not None:
+    os.environ["VLM_READER_URL"] = saved_env
+del os.environ[vlm.DEFER_ENV]
+vlm._MISSED[0] = False
+vlm._CAUSE[0] = ""
+
+# A row written with no VLM address carries the mark, and is due again once the VLM answers.
+import edition_commit
+os.environ.pop("VLM_READER_URL", None)
+vlm.URL = ""
+mark = edition_commit.row("i/e", "h", {"puzzles": []}, "h", "k", [], [], None)
+check("a row read with the VLM unconfigured is marked", True, mark.get("vlmUnset"))
+os.environ["VLM_READER_URL"] = ""
+check("a row read under the explicit opt-out is not", None, edition_commit.row("i/e", "h", {"puzzles": []}, "h", "k", [], [], None).get("vlmUnset"))
+del os.environ["VLM_READER_URL"]
+base_row = {"inputs": "h", "scan": {"puzzles": []}, "solutionsSeen": [], "verdicts": []}
+why = lambda row, up="v1": f.due_reason(row, "h", [], up)
+check("a marked row is due 'read while the VLM was unconfigured' once the VLM answers",
+      f.UNCONFIGURED_READ, why({**base_row, "vlmUnset": True, "readAt": "2026-11-01T00:00:00+00:00"}))
+check("... not while it is down", None, why({**base_row, "vlmUnset": True}, None))
+check("a row with no VLM version read within the 10-21 outage is due it", f.UNCONFIGURED_READ,
+      why({**base_row, "readAt": "2026-10-21T07:12:19+00:00"}))
+check("... one read with the VLM then is not", None, why({**base_row, "vlm": "v1", "readAt": "2026-10-21T07:12:19+00:00"}))
+check("... nor one read before it (not planned as a blanket reread, but 'read without the VLM')",
+      "read without the VLM", why({**base_row, "readAt": "2026-10-21T06:00:00+00:00"}))
+check("the reason is ranked with never-read work", f.RANKS["never read"], f.RANKS[f.UNCONFIGURED_READ])
+check("the queue plans it without CT_BLANKET_REREADS", True, eq.evidence_reason(f.UNCONFIGURED_READ))
+check("and it is no refusal reread, so hold_refusal_rereads keeps it", False, eq.refusal_reread(f.UNCONFIGURED_READ))
+kept = [(1, 0, 0, {"reason": f.UNCONFIGURED_READ, "paper": "ft"}), (0, 0, 1, {"reason": "never read", "paper": "ft"})]
+check("... even while never-read work waits", 2, len(eq.hold_refusal_rereads([], kept)[1]))
 # up(): asked afresh at most every UP_EVERY seconds.
 asked = []
 vlm.reachable = lambda: (asked.append(1), len(asked) > 1)[1]
