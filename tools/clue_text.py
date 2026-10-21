@@ -101,6 +101,10 @@ def heading_of(line):
 COUNT_BODY = r"[\dSIl,.\- ]"
 #: A closed count ending a line ("(8)", "(3,7)."), the bracket's body read badly.
 _COUNT_CLOSED_END = re.compile(rf"\(\s*{COUNT_BODY}{{1,9}}\)\W{{0,2}}$")
+#: A line that is only the tail of a count the line before opened ("3, 5)." under
+#: "took second innings (5, 2,": Gale 1952-10-03's 5 down): the clue ends there, so
+#: the next line with no number is a clue whose number was lost, as after "(7).".
+COUNT_TAIL_LINE = re.compile(r"^\d[\d,.\- ]{0,8}\)\W{0,2}$")
 #: A count closing a line, its bracket maybe torn: "(8)", "(8", "(3,7)".
 COUNT_END = re.compile(rf"\(\s*{COUNT_BODY}{{1,9}}\)?\W{{0,2}}$")
 #: A closed count with text after it: the next clue ran on.
@@ -860,14 +864,15 @@ def _column_pass(text, running_head, extra_headings, line_hook):
             out[-1] += " " + line
             prev = out[-1]
             continue
-        if is_count_end(prev) or heading_of(prev) or not out:
+        ended = is_count_end(prev) or bool(COUNT_TAIL_LINE.match(prev))
+        if ended or heading_of(prev) or not out:
             line = clue_number_opening(line)
         line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z]|[A-Z]\s)", r"\1 ", line)
         if line_hook:
             line = line_hook(line)
         line = _line_slips(line)
         line = count_closed(line)
-        if (is_count_end(prev) or heading_of(prev)) and re.match(r"[A-Z][a-z]", line):
+        if (ended or heading_of(prev)) and re.match(r"[A-Z][a-z]", line):
             line = "? " + line
         out.append(line)
         prev = line

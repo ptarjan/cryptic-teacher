@@ -473,6 +473,9 @@ def mend_text(text, enum=None, is_word=None, uses=None, words=True):
     import punctuation
     t = punctuation.mended(text or "")
     t = re.sub(r"^[0-9]{1,2}(?=[A-Z][a-z])", "", t)  # the clue's number glued on
+    # A blank the clue prints as a run of dashes, set against a word with no space
+    # ("in a——outworn", Gale 1955-11-22's 22 down): the dashes are the blank, not a mark in a word.
+    t = re.sub(r"(?<=[A-Za-z])(—{2,})(?=[A-Za-z])", r" \1 ", t)
     t = re.sub(r"\s{2,}", " ", t).strip()
     t = bled_count(t, enum)
     t = trailing_count(t, enum)
