@@ -7320,7 +7320,9 @@ def shape_warnings(tag, ann, clue=None, answer=None):
     if k := charade_in_charade(tree):
         out.append(f"{tag}: {k} {CHARADE_IN_CHARADE}: join the pieces in one charade")
     if k := unindicated_ops(tree):
-        out.append(f"{tag}: {k} {NO_INDICATOR}(s): name the indicator word on the op, "
+        bare = sorted({n.get("op") for n in _walk(tree) if n.get("op") in NEEDS_INDICATOR
+                       and not n.get("unchecked") and not n.get("indicators")})
+        out.append(f"{tag}: {k} {NO_INDICATOR}(s) ({', '.join(bare)}): name the indicator word on the op, "
                    f"or the op is not in the clue")
     if k := cdef_repeats(tree):
         out.append(f"{tag}: {k} extra leaf(s): {CDEF_REPEAT}; write wp as ONE leaf, "
@@ -8260,7 +8262,7 @@ def backlog_errors(stem, warnings, allowed=None):
                 f"{n} clue(s) missing {field}, and this puzzle is allowed {cap} — "
                 f"{field} is required on everything annotated since it was added. "
                 f"The warnings above name them and say what to write."
-                + (f" Missing: {'; '.join(named)}." if field == "blocks.note" else ""))
+                + (f" Missing: {'; '.join(named)}." if field in ("blocks.note", "wordplay.noIndicator") else ""))
     return errors
 
 
