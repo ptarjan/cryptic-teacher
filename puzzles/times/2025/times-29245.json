@@ -1059,15 +1059,22 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "loses",
+       "at": 9,
+       "note": "loses means something is taken away"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "charade",
        "indicators": [
         {
-         "text": "loses",
-         "at": 9,
-         "note": "loses means drops, so these letters are taken away"
+         "text": "twice",
+         "at": 20,
+         "note": "twice says the shortened name is given two times"
         }
        ],
        "parts": [
@@ -1075,32 +1082,44 @@
          "words": "Composer",
          "at": 0,
          "gives": "CHOPIN",
-         "note": "Chopin was a Polish composer"
+         "note": "Chopin was the Polish composer"
         },
+        {
+         "words": "Composer",
+         "at": 0,
+         "gives": "CHOPIN",
+         "note": "Chopin again, as twice asks"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "home",
          "at": 15,
          "gives": "IN",
          "note": "in means at home"
+        },
+        {
+         "words": "home",
+         "at": 15,
+         "gives": "IN",
+         "note": "in again, as the composer loses home in both copies"
         }
        ]
-      },
-      {
-       "words": "twice",
-       "at": 20,
-       "gives": "CHOP",
-       "note": "twice says the shortened name comes a second time, so it is written again"
       }
      ]
     },
     "explanation": {
-     "surface": "A composer loses his house twice, in quick succession.",
-     "walkthrough": "'twice' doubles the shortened composer; the grammar has no repeat step, so the second copy is shown as the piece 'twice' supplies.",
-     "definitionFit": "Chop-chop is an informal command meaning hurry up, at speed."
+     "surface": "A composer loses his house twice, very fast.",
+     "walkthrough": "CHOPIN without IN gives CHOP, repeated.",
+     "definitionFit": "Chop-chop is an informal command meaning hurry up, do it fast."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "home"
     }
    }
   },

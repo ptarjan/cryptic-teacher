@@ -1058,40 +1058,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "charade",
      "indicators": [
       {
-       "text": "repeatedly",
-       "at": 33,
-       "note": "repeatedly says the cutting happens to each copy of the word, not just one"
-      },
-      {
-       "text": "for cutting",
-       "at": 49,
-       "note": "for cutting means the letter for left is to be cut out"
+       "text": "Double",
+       "at": 21,
+       "note": "double says the trimmed piece appears twice"
       }
      ],
      "parts": [
       {
-       "words": "Double work",
-       "at": 21,
-       "gives": "TOILTOIL",
-       "note": "toil is hard work, and double asks for it twice; the parser has no repeat step, so the pair sits in one block"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "for cutting",
+         "at": 49,
+         "note": "the letter is chosen to be cut out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work",
+         "at": 28,
+         "gives": "TOIL",
+         "note": "toil is hard work"
+        },
+        {
+         "words": "left",
+         "at": 44,
+         "gives": "L"
+        }
+       ]
       },
       {
-       "words": "left",
-       "at": 44,
-       "gives": "L"
-      },
-      {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 33,
+         "note": "repeatedly says the cut is made each time the word appears"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work",
+         "at": 28,
+         "gives": "TOIL",
+         "note": "toil again, as double asks"
+        },
+        {
+         "words": "left",
+         "at": 44,
+         "gives": "L",
+         "note": "L for left again"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Seemingly an odd instruction: work twice as hard, leaving off cutting the grass.",
-     "walkthrough": "Canterbury is the New Zealand region, signalling an NZ word. Each copy of TOIL loses its L.",
-     "definitionFit": "Toitoi is a tall native New Zealand plant related to pampas grass, found in Canterbury."
+     "surface": "Twice as much work in the fields, with grass to cut again and again.",
+     "walkthrough": "TOIL without L is TOI, and it appears twice. Canterbury is the New Zealand province, not the English city.",
+     "definitionFit": "Toitoi is a tall native New Zealand grass, found in the Canterbury region of the South Island."
     },
     "features": {
      "answerInScene": true,

@@ -1190,46 +1190,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SAHARAN",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "capsized",
-         "note": "in a down clue HAS is turned upside down, reading backwards"
-        },
-        {
-         "text": "out of",
-         "note": "TRIM is taken out of the yacht's name"
+         "at": 30,
+         "note": "capsized means turned over, so the letters run the other way"
         }
        ],
        "parts": [
         {
          "words": "has",
-         "gives": "SAH",
-         "note": "HAS turned backwards"
+         "at": 26,
+         "gives": "HAS"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 39,
+         "note": "out of means taken away from what follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yacht",
+         "at": 51,
+         "gives": "TRIMARAN",
+         "note": "a trimaran is a three-hulled yacht"
         },
         {
-         "words": "trim yacht",
-         "gives": "ARAN",
-         "note": "TRIMARAN, a yacht, with TRIM taken out"
+         "words": "trim",
+         "at": 46,
+         "gives": "TRIM"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A landlubber from Africa has overturned a yacht with its sails badly set.",
-     "walkthrough": "'Out of trim' is sailing jargon for badly balanced; it splits as 'out of' plus 'trim', and 'trim yacht' hides TRIMARAN. Unused to water extends the definition: a desert dweller.",
-     "definitionFit": "Someone from the Sahara is African and, living in desert, unused to water."
+     "surface": "An African, no sailor, has overturned an ill-balanced yacht.",
+     "walkthrough": "'out of trim' looks like a description of the yacht, but trim is the word taken away from a three-hulled boat's name.",
+     "definitionFit": "A Saharan comes from the Sahara, a desert, hence someone not used to water."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "trim"
     }
    }
