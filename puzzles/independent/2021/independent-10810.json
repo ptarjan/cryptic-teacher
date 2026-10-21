@@ -1042,38 +1042,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUDDERS",
-     "indicators": [
-      {
-       "text": "but not",
-       "note": "but not means excluding, so these letters are taken away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Fish",
+       "at": 0,
        "gives": "RUDD",
        "note": "the rudd is a freshwater fish"
       },
       {
-       "words": "hearts",
-       "note": "taken as written"
-      },
-      {
-       "words": "hat",
-       "note": "taken as written, the letters to remove"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not",
+         "at": 13,
+         "note": "but not means the letters of hat are taken out of hearts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hearts",
+         "at": 5
+        },
+        {
+         "words": "hat",
+         "at": 21,
+         "gives": "HAT"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fish hearts, but no hat, might be things you'd find stored on board a boat.",
-     "walkthrough": "The letters of 'hat' need not be together in 'hearts': each is removed separately, and the rudd is a small European freshwater fish.",
-     "definitionFit": "A rudder is the hinged blade at a vessel's stern used for steering, a standard fitting on boats."
+     "surface": "A fish's heart, minus its hat, could be some sort of item found on boats.",
+     "walkthrough": "'but not' removes H, A and T from HEARTS, leaving ERS.",
+     "definitionFit": "A rudder is the hinged blade used to steer a vessel, so rudders are fittings on boats."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "hearts"

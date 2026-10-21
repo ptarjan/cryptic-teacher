@@ -1403,66 +1403,71 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "northbound",
-       "note": "in a down entry, heading north means reading upwards, so the letters run in the opposite order"
+       "text": "to enter",
+       "at": 38,
+       "note": "the first letter of the train goes inside the reversed pair of words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "northbound",
+         "at": 9,
+         "note": "in a down clue northbound means read upwards, so the letters are reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "Say",
-         "gives": "EG",
-         "note": "e.g. stands for for example, which is say"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "to enter",
-           "note": "entering means going inside, so this letter goes into another word"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "when",
-           "gives": "AS",
-           "note": "as in as I arrived, meaning when"
+           "words": "Say",
+           "at": 0,
+           "gives": "EG",
+           "note": "EG, short for exempli gratia, means for example, so 'say'"
           },
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "beginning",
-             "note": "the beginning of a word is its opening letter alone"
-            }
-           ],
-           "parts": [
-            {
-             "words": "train",
-             "note": "the opening letter"
-            }
-           ]
+           "words": "when",
+           "at": 4,
+           "gives": "AS",
+           "note": "as means when, as in 'as I left'"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 28,
+         "note": "beginning means the first letter of train's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "train's",
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Telling someone when the northbound train is about to pull into the platform.",
-     "walkthrough": "In a down answer, northbound means the finished string is read from the bottom up.",
-     "definitionFit": "A stage is a raised platform on which actors perform."
+     "surface": "An instruction to call out when a northbound train is starting to pull into the station platform.",
+     "walkthrough": "In a down clue 'northbound' means reading upwards. 'Platform' looks like part of the railway scene but is the definition.",
+     "definitionFit": "A stage is a raised platform on which performers stand, so the two are synonyms."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Say"
+     "misdirectedWord": "platform"
     }
    }
   },

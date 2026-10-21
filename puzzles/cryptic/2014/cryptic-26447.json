@@ -814,7 +814,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "loaded 10",
+      "text": "loaded",
       "at": 64
      }
     ],
@@ -822,72 +822,70 @@
      "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
-         "text": "be peeled",
-         "note": "peeling strips the skin, so the outer letters of each word are removed"
+         "text": "to stuff",
+         "at": 15,
+         "note": "the chef's first letter is used to stuff the French word, going inside it"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "little French",
+         "at": 24,
+         "gives": "PEU",
+         "note": "peu is French for little"
+        },
+        {
+         "op": "first",
          "indicators": [
           {
-           "text": "to stuff",
-           "note": "stuffing puts something inside, so one piece is packed into another"
+           "text": "beginning",
+           "at": 5,
+           "note": "beginning means the first letter of Chef"
           }
          ],
          "parts": [
           {
-           "words": "little French",
-           "gives": "PEU",
-           "note": "peu is French for little"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "beginning",
-             "note": "a beginning is the start, so only the opening letter is taken"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Chef",
-             "note": "the first letter"
-            }
-           ]
+           "words": "Chef",
+           "at": 0
           }
          ]
-        },
-        {
-         "gives": "HE"
         }
        ]
       },
       {
-       "words": "onion",
-       "gives": "NIO",
-       "note": "the word without its first and last letters"
-      },
-      {
-       "words": "must",
-       "gives": "US",
-       "note": "the word without its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "peeled",
+         "at": 53,
+         "note": "peeled means the outer letters of both onion and must are stripped away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "onion",
+         "at": 38
+        },
+        {
+         "words": "must",
+         "at": 45
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chef's recipe: start stuffing a small French onion, which must be peeled and loaded with filling.",
-     "walkthrough": "'be peeled' applies to both 'onion' and 'must'. 10 is PRESUMABLY: impecunious means penniless, so the presumed positive means rich.",
-     "definitionFit": "Loaded is slang for wealthy, and the imagined opposite of impecunious (having no money) would mean moneyed."
+     "surface": "A chef starts stuffing a small French onion, which has to be peeled first.",
+     "walkthrough": "'Little French' reads as describing the onion, but it gives the French word for little. Pecunious is the rare positive of impecunious.",
+     "definitionFit": "Pecunious is a rare word for having plenty of money, and loaded is slang for wealthy."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "loaded"
+     "aptDefinition": false,
+     "misdirectedWord": "stuff"
     }
    }
   },
@@ -1348,33 +1346,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Set up",
-       "note": "to set something up is to arrange it, so the letters are put into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "camp",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Set up",
+         "at": 0,
+         "note": "set up means the letters of camp are arranged anew"
+        }
+       ],
+       "parts": [
+        {
+         "words": "camp",
+         "at": 7
+        }
+       ]
       },
       {
        "words": "an",
-       "note": "taken as written"
+       "at": 15
       }
      ]
     },
     "explanation": {
-     "surface": "Campers pitch their tents beside an amusement arcade.",
-     "walkthrough": "'Set up camp' reads as pitching tents; 'Set up' alone is the signal and 'by' just adds the second piece.",
-     "definitionFit": "Pac-Man is the 1980 maze video game in which a yellow disc eats dots while ghosts chase it."
+     "surface": "A camp is pitched beside an amusement arcade game.",
+     "walkthrough": "'Set up' reads as pitching the camp, but it signals the rearrangement; 'by' only joins the pieces.",
+     "definitionFit": "Pac-Man is the classic 1980 video game played on coin-operated machines in amusement arcades."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Set"
+     "misdirectedWord": "camp"
     }
    }
   },

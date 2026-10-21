@@ -779,59 +779,41 @@
       {
        "text": "on return",
        "at": 20,
-       "note": "on return means read backwards"
+       "note": "on return means the kept letters are read backwards"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Losing first halves",
+         "at": 0,
+         "note": "each country name loses its first three letters, its first half, keeping the second half"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Losing first halves",
-           "at": 0,
-           "note": "losing first halves means each country's name drops its first three letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Sweden",
-           "at": 31,
-           "note": "Sweden without its first half"
-          },
-          {
-           "gives": "SWE"
-          }
-         ]
+         "words": "Sweden",
+         "at": 31
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Norway",
-           "at": 42,
-           "note": "Norway without its first half"
-          },
-          {
-           "gives": "NOR"
-          }
-         ]
+         "words": "Norway",
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two Scandinavian countries, beaten at home, looked tired.",
-     "walkthrough": "The second halves DEN and WAY, read backwards, become NED and YAW, which go together as YAW + NED.",
-     "definitionFit": "To yawn is the involuntary sign of tiredness."
+     "surface": "Two Scandinavian countries, having lost the first halves of their matches, looked tired on the way home.",
+     "walkthrough": "'Losing first halves' leaves DEN from Sweden and WAY from Norway; 'on return' reads DENWAY backwards.",
+     "definitionFit": "Yawning is the classic sign of tiredness, so someone who yawned showed they were weary."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "return"
+     "misdirectedWord": "halves"
     }
    }
   },
@@ -1156,48 +1138,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "IBEX",
+     "indicators": [
+      {
+       "text": "in audience",
+       "at": 19,
+       "note": "in the hearing of an audience, the words are taken as sounds"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "I",
-       "indicators": [
-        {
-         "text": "in audience",
-         "note": "an audience hears rather than reads, so the words are taken by their sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "See",
-         "gives": "EYE",
-         "note": "the eye is the organ you see with"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "BEX",
-       "parts": [
-        {
-         "words": "Posh's partner",
-         "gives": "BECKS",
-         "note": "Posh Spice, Victoria Beckham, is married to footballer David Beckham, nicknamed Becks"
-        }
-       ]
+       "words": "See Posh's partner",
+       "at": 0,
+       "gives": "EYEBECKS",
+       "note": "to see is to eye; Posh Spice, Victoria Beckham, is married to footballer David Beckham, nicknamed Becks"
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrity-spotting tip: catch Victoria Beckham's husband in the crowd, a bearded brute.",
-     "walkthrough": "Posh is Victoria Beckham's Spice Girls name, and her husband is the England footballer David Beckham, known as Becks.",
-     "definitionFit": "The ibex is a wild mountain goat whose males have long backward-curving horns and a beard."
+     "surface": "Spot Victoria Beckham's husband in the crowd, sporting a beard.",
+     "walkthrough": "EYE BECKS, said aloud, sounds like the answer. Posh was Victoria Beckham's Spice Girls name; her husband David is Becks.",
+     "definitionFit": "The ibex is a wild mountain goat whose males have long beards and curved horns."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "audience"
+     "misdirectedWord": "bearded"
     }
    }
   },

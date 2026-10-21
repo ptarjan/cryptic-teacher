@@ -559,43 +559,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite, so the phrase falls one letter short at the end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "graduates",
-         "gives": "BAS",
-         "note": "BAs are holders of Bachelor of Arts degrees"
-        },
-        {
-         "words": "entirely",
-         "gives": "INFULL",
-         "note": "'in full' means completely, entirely"
-        }
-       ]
+       "words": "graduates",
+       "at": 31,
+       "gives": "BAS",
+       "note": "BAs are Bachelors of Arts, university graduates"
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 41,
+         "note": "almost means the phrase for entirely is cut short by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entirely",
+         "at": 48,
+         "gives": "INFULL",
+         "note": "in full means entirely or completely"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Graduates supply nearly all of some amount of liquid.",
-     "walkthrough": "BAS + IN FUL(L), with the last letter cut. 'Almost entirely' reads as a single adverb but splits into signal and source.",
-     "definitionFit": "A basinful is the amount a basin holds, a measure of water or other liquid."
+     "surface": "Graduates supply nearly all of a given amount of drink.",
+     "walkthrough": "'almost' takes the last L off IN FULL to leave INFUL.",
+     "definitionFit": "A basinful is the amount a basin holds, a measure of liquid."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "almost"
+     "misdirectedWord": "graduates"
     }
    }
   },

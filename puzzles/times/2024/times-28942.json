@@ -357,26 +357,39 @@
      "indicators": [
       {
        "text": "missing",
-       "note": "something missing has gone, so these letters are taken away"
+       "at": 10,
+       "note": "missing means the opening letter of can is lost from the word for concealed"
       }
      ],
      "parts": [
       {
        "words": "Concealed",
+       "at": 0,
        "gives": "COVERT",
-       "note": "covert means hidden or concealed"
+       "note": "covert means concealed or secret"
       },
       {
-       "words": "can-opener",
-       "gives": "C",
-       "note": "the opening letter of 'can', the piece removed"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opener",
+         "at": 22,
+         "note": "the opener of can is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "at": 18
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hunting for a hidden tin-opener gives up and cries 'Open!'",
-     "walkthrough": "'Can-opener' is the first letter of 'can', not a kitchen tool; dropping it from the word for concealed leaves its opposite.",
-     "definitionFit": "Overt means done openly and plainly visible, not hidden, so it matches open as an adjective."
+     "surface": "Someone has hidden the can-opener and pleads for a tin to be opened.",
+     "walkthrough": "'can-opener' hides a split: the opener of 'can' is C, which goes 'missing' from COVERT.",
+     "definitionFit": "Overt means done openly, not hidden, the direct opposite of covert."
     },
     "features": {
      "answerInScene": false,
