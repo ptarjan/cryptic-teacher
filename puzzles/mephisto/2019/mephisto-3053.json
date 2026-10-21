@@ -906,50 +906,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without heads",
+       "at": 14,
+       "note": "without heads means both words lose their first letters"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "without heads",
-         "note": "lacking heads means each word loses its leading letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Spotted",
+         "at": 0,
          "gives": "SPIED",
          "note": "spotted means saw, spied"
         },
         {
-         "gives": "S"
+         "words": "swine",
+         "at": 8,
+         "gives": "HOG",
+         "note": "a hog is a swine"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "swine",
-         "gives": "HOG",
-         "note": "a hog is a pig"
-        },
-        {
-         "gives": "H"
-        }
-       ]
+       "gives": "S"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "A piebald pig with no head, and a stray dog nobody owns.",
-     "walkthrough": "'Spotted swine' reads as a piebald pig, but spotted is the verb meaning saw.",
-     "definitionFit": "A pi-dog or pye-dog is a stray, half-wild village dog of Asia that belongs to no one."
+     "surface": "A description of a spotted pig and a stray dog.",
+     "walkthrough": "SPIED and HOG each lose their first letter ('without heads'), giving PIED and OG. 'Spotted' looks like an adjective for the swine; it is the verb sense.",
+     "definitionFit": "A pie-dog is a half-wild stray dog of Asia, belonging to nobody."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Spotted"
     }
    }
@@ -1090,60 +1088,67 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "ascending",
-       "note": "in a down clue ascending means climbing upwards, so the letters read bottom to top"
+       "text": "outside",
+       "at": 34,
+       "note": "outside means the reversed letters go around the run"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "ascending",
+         "at": 24,
+         "note": "in a down clue, ascending means the words are read upwards, bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "Absolute",
-         "gives": "A",
-         "note": "A is the abbreviation for absolute, as in temperature"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "outside",
-           "note": "outside means surrounding, so one word goes around the next"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "tenacity",
-           "gives": "GUTS",
-           "note": "guts means grit or tenacity"
+           "words": "Absolute",
+           "at": 0,
+           "gives": "A",
+           "note": "A is the abbreviation for absolute (as in temperature)"
           },
           {
-           "words": "run",
-           "gives": "R",
-           "note": "R is the cricket abbreviation for run"
+           "words": "tenacity",
+           "at": 9,
+           "gives": "GUTS",
+           "note": "guts means courage and staying power"
+          },
+          {
+           "words": "while",
+           "at": 18,
+           "gives": "AS",
+           "note": "as means while, during the time that"
           }
          ]
-        },
-        {
-         "words": "while",
-         "gives": "AS",
-         "note": "as means while, as in as I spoke"
         }
        ]
+      },
+      {
+       "words": "run",
+       "at": 42,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
       }
      ]
     },
     "explanation": {
-     "surface": "A climber's determination while going up a run on an icy slope.",
-     "definitionFit": "A sastruga is one of the wave-like ridges of hard snow carved by the wind on polar plains."
+     "surface": "Climbing with total grit across a ridge of ice.",
+     "walkthrough": "A, GUTS and AS read upwards ('ascending') give SASTUGA; that goes 'outside' R to make the answer.",
+     "definitionFit": "Sastruga are wind-carved ridges of hard snow or ice on a polar surface."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "run"
+     "misdirectedWord": "ascending"
     }
    }
   },

@@ -1454,36 +1454,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "awful",
-       "note": "awful means badly done, so the letters are mangled into another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "No",
-       "note": "taken as written"
+       "at": 0,
+       "gives": "NO"
       },
       {
-       "words": "little",
-       "gives": "L",
-       "note": "L is the abbreviation for little"
-      },
-      {
-       "words": "puns",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awful",
+         "at": 3,
+         "note": "awful means these letters are mangled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "little",
+         "at": 9,
+         "gives": "L",
+         "note": "L is the abbreviation for little"
+        },
+        {
+         "words": "puns",
+         "at": 16
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A solver complains that this crossword contains no dreadful little wordplay jokes.",
-     "walkthrough": "Puzzle is the definition as a verb, not the noun the surface suggests.",
-     "definitionFit": "To nonplus someone is to baffle or perplex them, so it means to puzzle."
+     "surface": "A complaint that the puzzle has no terrible little puns.",
+     "walkthrough": "NO, then L and PUNS rearranged to give NPLUS.",
+     "definitionFit": "To nonplus is to bewilder or perplex someone completely."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "puzzle"
     }

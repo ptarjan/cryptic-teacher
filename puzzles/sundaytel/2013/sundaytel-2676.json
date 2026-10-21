@@ -506,21 +506,19 @@
         {
          "text": "Primarily",
          "at": 0,
-         "note": "takes just the opening letter of sandy"
+         "note": "primarily means in the first place, so the opening letter of sandy is taken, and the one-letter word a stays as it is"
         }
        ],
        "parts": [
         {
          "words": "sandy",
-         "at": 10,
-         "note": "only the first letter of this word is taken"
+         "at": 10
+        },
+        {
+         "words": "a",
+         "at": 17
         }
        ]
-      },
-      {
-       "words": "a",
-       "at": 17,
-       "note": "taken as written"
       },
       {
        "words": "hot",
@@ -528,22 +526,19 @@
        "gives": "H"
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "not half",
          "at": 27,
-         "note": "removing half of the word arid leaves its first two letters"
+         "note": "only half of arid is used, its front half"
         }
        ],
        "parts": [
         {
          "words": "arid",
          "at": 36,
-         "note": "half of this word is dropped"
-        },
-        {
-         "gives": "ID"
+         "gives": "ARID"
         }
        ]
       },
@@ -556,9 +551,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A description of a great desert: mostly sand, hot, and very dry.",
-     "walkthrough": "The whole clue both builds the answer and describes it: the world's largest hot desert.",
-     "definitionFit": "The Sahara is the vast hot desert of North Africa, mostly sand and extremely dry."
+     "surface": "A description of a place that is sandy, hot and very dry.",
+     "walkthrough": "The whole clue also describes the desert, so it is both wordplay and definition.",
+     "definitionFit": "The Sahara is the vast North African desert, largely sand, hot and dry."
     },
     "features": {
      "answerInScene": true,
@@ -911,49 +906,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "TAILPLANE",
+     "indicators": [
+      {
+       "text": "Articulated",
+       "at": 0,
+       "note": "articulated means spoken aloud, so the sound gives the answer"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "TAIL",
-       "indicators": [
-        {
-         "text": "Articulated",
-         "at": 0,
-         "note": "spoken out loud, so the words are taken by their sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "story",
-         "at": 12,
-         "gives": "TALE",
-         "note": "a tale is a story"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "PLANE",
-       "parts": [
-        {
-         "words": "without embellishment",
-         "at": 18,
-         "gives": "PLAIN",
-         "note": "plain means unadorned"
-        }
-       ]
+       "words": "story without embellishment",
+       "at": 12,
+       "gives": "TALEPLAIN",
+       "note": "a tale is a story; plain means unadorned"
       }
      ]
     },
     "explanation": {
-     "surface": "A tale told simply, as a piece of handiwork.",
-     "walkthrough": "'Craft' suggests skill or handiwork, but here it is an aircraft.",
-     "definitionFit": "The horizontal stabiliser at the rear of an aeroplane is a component of the aircraft."
+     "surface": "A story told simply, as part of a craft or skill.",
+     "walkthrough": "'Tale plain' said aloud sounds like 'tailplane'. 'Craft' suggests a skill; it is an aircraft.",
+     "definitionFit": "The tailplane is the horizontal stabiliser at the rear of an aircraft."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "craft"
     }
    }

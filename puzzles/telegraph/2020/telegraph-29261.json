@@ -304,29 +304,46 @@
      "indicators": [
       {
        "text": "served in",
-       "note": "The beer is served inside the two streets."
+       "at": 17,
+       "note": "served in means the beer goes inside the pair"
       }
      ],
      "parts": [
       {
-       "words": "street twice",
-       "gives": "STST",
-       "note": "ST is the abbreviation for street, taken twice."
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 34,
+         "note": "twice means the street abbreviation appears two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "street",
+         "at": 27,
+         "gives": "ST"
+        },
+        {
+         "gives": "ST"
+        }
+       ]
       },
       {
        "words": "beer",
+       "at": 12,
        "gives": "ALE",
-       "note": "Ale is a kind of beer."
+       "note": "ale is a type of beer"
       }
      ]
     },
     "explanation": {
-     "surface": "Flat beer being served out on the street, twice over.",
-     "walkthrough": "The ALE goes between the two STs.",
-     "definitionFit": "Stalest is the superlative of stale, meaning least fresh."
+     "surface": "A pub serving beer out on the street, apparently two streets.",
+     "walkthrough": "ALE sits between two STs.",
+     "definitionFit": "Stalest is the superlative of stale, meaning the least fresh or oldest."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "served"
     }
@@ -622,41 +639,56 @@
      "indicators": [
       {
        "text": "in",
-       "note": "The sailor and the half word go in the vessel."
+       "at": 40,
+       "note": "in means the sailor and his letters go inside the vessel"
       }
      ],
      "parts": [
       {
        "words": "vessel",
+       "at": 43,
        "gives": "PAN",
-       "note": "A pan is a cooking vessel."
+       "note": "a pan is a cooking vessel"
       },
       {
        "op": "charade",
        "parts": [
         {
          "words": "sailor",
+         "at": 12,
          "gives": "TAR",
-         "note": "Tar is an old word for a sailor."
+         "note": "tar is a common word for a sailor"
         },
         {
-         "words": "mighty not half",
-         "gives": "MIG",
-         "note": "The first half of MIGHTY."
+         "op": "first",
+         "indicators": [
+          {
+           "text": "not half",
+           "at": 28,
+           "note": "only half of the word is used, its first three letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mighty",
+           "at": 21,
+           "gives": "MIGHTY"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor catches a bird and bags it in a pot, with an exclaimed 'mighty not half!'.",
-     "walkthrough": "'Not half!' sounds like an exclamation of emphasis, but it tells you to cut MIGHTY in half.",
-     "definitionFit": "The ptarmigan is a grouse of mountain and Arctic regions."
+     "surface": "A bird caught by a mighty sailor on board a ship.",
+     "walkthrough": "'Vessel' suggests a ship for the sailor to sit in; it is a cooking utensil.",
+     "definitionFit": "The ptarmigan is a grouse of mountain and Arctic regions that turns white in winter."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "vessel"
     }
    }
   },

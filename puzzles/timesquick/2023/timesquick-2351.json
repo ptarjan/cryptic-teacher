@@ -626,18 +626,34 @@
      }
     ],
     "wordplay": {
-     "words": "repeated act",
-     "at": 12,
-     "gives": "DODO",
-     "note": "do is to act, and repeated means it appears twice"
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "repeated",
+       "at": 12,
+       "note": "repeated means the same word is written again"
+      }
+     ],
+     "parts": [
+      {
+       "words": "act",
+       "at": 21,
+       "gives": "DO",
+       "note": "to do is to act"
+      },
+      {
+       "gives": "DO"
+      }
+     ]
     },
     "explanation": {
-     "surface": "An extinct bird performs the same trick again.",
-     "definitionFit": "The dodo was a flightless bird of Mauritius, extinct since the seventeenth century."
+     "surface": "An old bird performing the same act over and over.",
+     "definitionFit": "The dodo is an extinct flightless bird of Mauritius, long gone."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "act"
     }
    }
   },
@@ -715,47 +731,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "FORESIGHT",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 45,
+       "note": "we hear means the words are spoken aloud and their sound gives the answer"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "FORE",
-       "parts": [
-        {
-         "words": "for",
-         "at": 14,
-         "note": "for sounds the same as fore, the front part"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "SIGHT",
-       "indicators": [
-        {
-         "text": "we hear",
-         "at": 45,
-         "note": "we hear signals that the words are judged by their sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "potential development area",
-         "at": 18,
-         "gives": "SITE",
-         "note": "a site is a plot of land that could be built on"
-        }
-       ]
+       "words": "for potential development area",
+       "at": 14,
+       "gives": "FORSITE",
+       "note": "the word for, taken as said; a site is a plot of land that could be built on"
       }
      ]
     },
     "explanation": {
-     "surface": "Planning ahead for an area that might be built upon.",
+     "surface": "Planning ahead for an area that could be developed.",
+     "walkthrough": "'For site' spoken aloud sounds like 'foresight'.",
      "definitionFit": "Foresight is the ability to anticipate and plan for the future."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "development"
     }
    }
   },

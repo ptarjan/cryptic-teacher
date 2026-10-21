@@ -137,30 +137,39 @@
      "indicators": [
       {
        "text": "missing",
-       "note": "missing means the named letters are absent from the word"
+       "at": 13,
+       "note": "missing means the compass point is removed"
+      },
+      {
+       "text": "at first",
+       "at": 31,
+       "note": "at first says the removed letters come from the start of the word"
       }
      ],
      "parts": [
       {
        "words": "Sweden",
-       "note": "the country, taken as written"
+       "at": 6,
+       "gives": "SWEDEN",
+       "note": "taken as written"
       },
       {
-       "words": "the point at first",
+       "words": "the point",
+       "at": 21,
        "gives": "SW",
-       "note": "south-west is a point of the compass, and here it sits at the start of the word"
+       "note": "SW, south-west, is a compass point"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the prime minister of a Scandinavian country.",
-     "walkthrough": "SW, south-west, is the point taken from the front of SWEDEN, leaving EDEN.",
-     "definitionFit": "Anthony Eden was the British Prime Minister from 1955 to 1957, so he is a former PM."
+     "surface": "The prime minister of Sweden failing to grasp something.",
+     "walkthrough": "SWEDEN loses SW (south-west, a compass point) from its start. The 'PM of Sweden' is a false lead: Eden was a British PM.",
+     "definitionFit": "Anthony Eden was British Prime Minister from 1955 to 1957."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Sweden"
+     "misdirectedWord": "point"
     }
    }
   },
@@ -1451,57 +1460,40 @@
      "parts": [
       {
        "words": "Shakespearean killer",
+       "at": 10,
        "gives": "ASP",
-       "note": "Cleopatra kills herself with a poisonous snake in Antony and Cleopatra"
+       "note": "the asp is the snake that kills Cleopatra in Shakespeare's play"
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "not half",
-         "note": "not half means only half of each word is kept and the rest discarded"
+         "at": 32,
+         "note": "only half of each of the three words is used, its front half"
         }
        ],
        "parts": [
         {
          "words": "Ides",
-         "note": "taken as written"
+         "at": 43
         },
-        {
-         "gives": "ES"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
         {
          "words": "isn't",
-         "note": "taken as written, ignoring the apostrophe"
+         "at": 48
         },
-        {
-         "gives": "NT"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
         {
          "words": "tragic",
-         "note": "taken as written"
-        },
-        {
-         "gives": "GIC"
+         "at": 54
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Shakespearean villain insists the Ides of March is not a tragedy.",
-     "walkthrough": "The Ides of March evokes Caesar's killers, but the killer is Cleopatra's snake; then the first half of each quoted word follows.",
-     "definitionFit": "This hardy leafy houseplant keeps its foliage all year round, so it is an evergreen."
+     "surface": "A theatrical quote about Shakespeare's Ides of March not being tragic.",
+     "walkthrough": "Halves of IDES, ISN'T and TRAGIC give ID, IS and TRA.",
+     "definitionFit": "The aspidistra is a hardy evergreen houseplant, a fixture of Victorian parlours."
     },
     "features": {
      "answerInScene": false,

@@ -1081,7 +1081,7 @@
       {
        "text": "is put in",
        "at": 36,
-       "note": "the other half takes the place of the first half of cake"
+       "note": "is put in means those letters replace the first half of the word"
       }
      ],
      "parts": [
@@ -1089,29 +1089,40 @@
        "words": "chat",
        "at": 7,
        "gives": "CATCHUP",
-       "note": "a catch-up is a chat"
+       "note": "a catch-up is a chat to exchange news"
       },
       {
        "gives": "CA"
       },
       {
-       "words": "the other half of cake",
-       "at": 13,
-       "gives": "KE",
-       "note": "the second half of cake is KE, replacing its first half CA"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "the other half of",
+         "at": 13,
+         "note": "the second half of the word is taken, not the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cake",
+         "at": 31,
+         "gives": "CAKE",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mid-gossip, the rest of the cake gets dunked in sauce.",
-     "walkthrough": "CATCH-UP starts with CA, the first half of CAKE; swap in the other half, KE.",
-     "definitionFit": "Ketchup is a thick tomato sauce served as a condiment."
+     "surface": "Someone putting half a cake into sauce during a chat.",
+     "walkthrough": "In CATCHUP, CA (one half of CAKE) is replaced by KE (the other half).",
+     "definitionFit": "Ketchup is a tomato-based table sauce."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "half"
+     "misdirectedWord": "chat"
     }
    }
   },

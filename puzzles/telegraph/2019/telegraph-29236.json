@@ -1688,26 +1688,44 @@
      "indicators": [
       {
        "text": "eaten by",
-       "note": "Something eaten goes inside the eater."
+       "at": 24,
+       "note": "eaten by means the shortened word goes inside"
       }
      ],
      "parts": [
       {
        "words": "poor",
+       "at": 33,
        "gives": "PANTS",
-       "note": "pants is British slang for rubbish, poor"
+       "note": "pants is British slang for poor quality"
       },
       {
-       "words": "Most of a piece of cake",
-       "gives": "EAS",
-       "note": "EASY (a piece of cake) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a piece of cake",
+         "at": 8,
+         "gives": "EASY",
+         "note": "a piece of cake means something easy"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hungry labourers eating most of a slice of cake.",
-     "walkthrough": "'A piece of cake' is an idiom for something easy, not a slice; 'pants' is British slang for bad.",
-     "definitionFit": "Peasants were the small farmers and labourers who worked the land, a historical description."
+     "surface": "Poor farm hands eating most of a slice of cake.",
+     "walkthrough": "In British slang 'pants' means rubbish or poor quality, and 'a piece of cake' is an idiom for something simple.",
+     "definitionFit": "Peasants are rural labourers who work the land."
     },
     "features": {
      "answerInScene": true,

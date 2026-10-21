@@ -993,52 +993,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "starts failing",
+       "at": 9,
+       "note": "the first letters of both words are lost"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "starts failing",
-         "note": "the starts of both words fail, so each loses its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Fat",
+         "at": 0,
          "gives": "FLAB",
-         "note": "flab = fat"
+         "note": "flab is excess body fat"
         },
         {
-         "gives": "F"
+         "words": "fool",
+         "at": 4,
+         "gives": "PRAT",
+         "note": "a prat is a fool"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "fool",
-         "gives": "PRAT",
-         "note": "prat = fool, mild British slang"
-        },
-        {
-         "gives": "P"
-        }
-       ]
+       "gives": "F"
+      },
+      {
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "An overweight idiot flunking an exam in some school subject.",
-     "walkthrough": "'Starts' is plural, so both FLAB and PRAT lose their first letters. 'Test subject' looks like an exam paper; it is an animal in an experiment.",
-     "definitionFit": "A lab rat is an animal, or jokingly a person, used as the subject of experiments."
+     "surface": "An overweight fool begins to fail a test.",
+     "walkthrough": "FLAB and PRAT drop their first letters to give LAB and RAT.",
+     "definitionFit": "A lab rat is an animal used in experiments, or anyone treated as a guinea pig."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "subject"
+     "misdirectedWord": "failing"
     }
    }
   },
