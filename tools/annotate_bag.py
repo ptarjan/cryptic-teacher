@@ -112,7 +112,7 @@ def run_one(pid):
     rc = 2
     with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
         try:
-            rc = annotate_check.main([pid])
+            rc = annotate_check.main([pid, "--partial"])
         except SystemExit as e:
             rc = e.code if isinstance(e.code, int) else 2
     text = buf.getvalue().rstrip()
@@ -242,6 +242,9 @@ def check(path):
                                                 encoding="utf-8")
         rc, text, state = run_one(pid)
         gate = bag_redo_gate(pid, part) if state != "failing" else []
+        # a clue the apply step already left out is reported above; the gate would
+        # only say the same again about the old annotation still on file
+        gate = [g for g in gate if not re.search(rf"^{re.escape(g.split()[2].rstrip(':'))}: ", text, re.M)]
         if gate:
             text, state, rc = "\n".join(gate), "failing", rc or 1
         if state == "failing":

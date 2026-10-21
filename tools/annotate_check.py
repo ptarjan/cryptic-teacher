@@ -1069,9 +1069,12 @@ def main(argv):
     if argv[1:2] == ["--withdraw"]:
         return withdraw(resolve_puzzle(argv[0]), " ".join(argv[2:]))
     by = []
+    if "--partial" in argv:   # a bag run: write the clues that pass, report the rest
+        argv.remove("--partial")
+        by = ["--partial"]
     if "--by" in argv:
         at = argv.index("--by")
-        by = argv[at:at + 2]
+        by += argv[at:at + 2]
         del argv[at:at + 2]
     path = resolve_puzzle(argv[0])
     stem = path.stem
