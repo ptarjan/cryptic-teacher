@@ -32,6 +32,7 @@ import collections
 import functools
 import gzip
 import itertools
+import json
 import math
 import os
 import re
@@ -271,12 +272,93 @@ def read_words(img, which):
     crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
     if too_thin(crop.width, crop.height, which):
         return []
-    words = ocr_remote.words(crop, which)
+    path = words_cache_path(crop, which)
+    words = words_cached(path)
     if words is None:
-        with ocr_remote.local_slot():
-            words = raw_words(crop, which)
+        words = ocr_remote.words(crop, which)
+        if words is None:
+            with ocr_remote.local_slot():
+                words = raw_words(crop, which)
+        words_cache_put(path, words)
     return [(int(x0 / UPSCALE), int(y0 / UPSCALE), int(x1 / UPSCALE), int(y1 / UPSCALE), t)
             for x0, y0, x1, y1, t in words]
+
+
+#: Where raw_words' readings are kept, by what they were read from (words_cache_path):
+#: a read that ends deferred (its VLM asks spooled) starts again when the answers
+#: arrive and reads the same crops, which cost the full-page OCR each time. CT_OCR_WORDS_CACHE
+#: moves it ("0" or "": none, for a test).
+WORDS_CACHE = Path(os.path.expanduser("~/.cache/ocr_words"))
+
+
+def words_cache_path(crop, which):
+    """Where the reading of the upscaled RGB image `crop` by reader `which` is kept: named for a hash of
+    its pixels (the page, the box and any blanking made one image), the reader (reader_key: a
+    Tesseract model's hash too; RapidOCR's package version and recogniser file) and the code that
+    reads (raw_words and what it calls), so a changed reader never reads another's file. None
+    when the cache is off."""
+    root = os.environ.get("CT_OCR_WORDS_CACHE")
+    root = WORDS_CACHE if root is None else Path(root) if root not in ("", "0") else None
+    if root is None:
+        return None
+    import hashlib
+    h = hashlib.sha256()
+    h.update(f"{crop.mode} {crop.width}x{crop.height}\n".encode())
+    h.update(crop.tobytes())
+    h.update(f"\n{reader_key(which)}\n{_reader_identity(which)}".encode())
+    return root / h.hexdigest()[:2] / f"{h.hexdigest()}.json"
+
+
+_IDENTITY = {}
+
+
+def _reader_identity(which):
+    """What `which` reads with, besides reader_key: the code of raw_words and what it calls
+    (the source of each, comments and all: a change only ever makes a miss), the RapidOCR
+    version and the recogniser file's size and time when READERS names one."""
+    if which not in _IDENTITY:
+        import hashlib
+        import inspect
+        parts = [inspect.getsource(f) for f in (raw_words, tesseract_words, too_thin, engine)]
+        parts += [repr((RAPID_MAX_SIDE, RAPID_MIN_SIDE))]
+        if which not in TESS_MODELS:
+            try:
+                from importlib.metadata import version
+                parts.append(version("rapidocr_onnxruntime"))
+            except Exception:  # not installed as a package: the code part stands
+                pass
+            model = READERS.get(which)
+            if model is not None and Path(model).exists():
+                st = Path(model).stat()
+                parts.append(f"{st.st_size}")
+                parts.append(hashlib.sha1(Path(model).read_bytes()).hexdigest())
+        _IDENTITY[which] = hashlib.sha256("\n".join(parts).encode()).hexdigest()
+    return _IDENTITY[which]
+
+
+def words_cached(path):
+    """The words kept at `path` as raw_words gave them, or None: missing or unreadable (empty, or
+    truncated by a killed read) is a miss."""
+    if path is None:
+        return None
+    try:
+        got = json.loads(path.read_text())
+        return [(x0, y0, x1, y1, t) for x0, y0, x1, y1, t in got["words"]]
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+
+
+def words_cache_put(path, words):
+    """`words` kept at `path`, whole or not at all (os.replace); a failure to write is no failure."""
+    if path is None:
+        return
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_name(f"{path.name}.{os.getpid()}.tmp")
+        tmp.write_text(json.dumps({"words": [list(w) for w in words]}))
+        os.replace(tmp, path)
+    except OSError:
+        pass
 
 
 #: A printed blank ("——", the word a quotation leaves out) is a thin rule
