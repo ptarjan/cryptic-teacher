@@ -1554,6 +1554,36 @@ def lead_column(title, grid, margin=40):
 TITLE_INDENT = 0.15
 
 
+#: How wide a gap (a share of the grid's width) the title's words may leave
+#: when title_left() walks its line leftward, and the ink share of a pixel
+#: column that makes it the line's.
+TITLE_GAP, TITLE_COL_INK = 0.07, 0.04
+
+
+def title_left(img, title, grid):
+    """`title` with its left edge moved out to where its printed line starts: a
+    title the readers read from its second word ("CROSSWORD PUZZLE NO. 10,136"
+    of "THE TIMES CROSSWORD ...", the 1962-11-02 Times) sits level with its grid,
+    so indented_column() found no column left of it and the clue column was
+    never cropped (every read there was refused "no reading parses")."""
+    from PIL import Image
+    x0, y0, x1, y1 = title
+    gap = int(TITLE_GAP * (grid[2] - grid[0]))
+    band = img.crop((0, y0, x0, y1)).convert("L").point(lambda v: 255 if v < 128 else 0)
+    if band.width < 1:
+        return title
+    ink = [v / 255 for v in band.resize((band.width, 1), Image.BOX).getdata()]
+    edge, blank = x0, 0
+    for x in range(x0 - 1, -1, -1):
+        if ink[x] >= TITLE_COL_INK:
+            edge, blank = x, 0
+        else:
+            blank += 1
+            if blank > gap:
+                break
+    return (edge, y0, x1, y1)
+
+
 def indented_column(title, grid, margin=40):
     """(x0, top) of the clue column left of a grid under its title, set in
     from the title's left edge by TITLE_INDENT or more (the Times to
@@ -4429,7 +4459,9 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None):
             if alts is not None:
                 alts.append(("plain", None))
     lead = lead_column(hit["box"], gbox, m) if side == "right" else \
-        indented_column(hit["box"], gbox, m) if side == "below" and top is None and not column and not right \
+        (indented_column(hit["box"], gbox, m) or (indented_column(title_left(img, hit["box"], gbox), gbox, m)
+                                                   if paper.key == "gale" and d.name[:4] < "1968" else None)) \
+        if side == "below" and top is None and not column and not right \
         and not over and not paper.four else None
     if lead:
         lead = trimmed_lead(img, gbox, lead)
