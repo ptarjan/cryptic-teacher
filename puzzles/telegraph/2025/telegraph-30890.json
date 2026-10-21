@@ -884,55 +884,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "cooked",
-       "note": "cooked means prepared or doctored, so the letters are mixed up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "A lot of",
-         "note": "a lot of means most but not all, so the word loses its final letter"
+         "text": "cooked",
+         "at": 20,
+         "note": "cooked suggests the letters are worked over and rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "A lot of",
+           "at": 0,
+           "note": "a lot of a word is most of it, so the last letter of rare is dropped"
+          }
+         ],
          "parts": [
           {
            "words": "rare",
-           "note": "taken as written, then cut short"
+           "at": 9,
+           "note": "loses its final E"
           },
           {
-           "words": "bacon",
-           "note": "taken as written"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
+           "gives": "E"
           }
          ]
         },
         {
-         "gives": "E"
+         "words": "bacon",
+         "at": 14,
+         "note": "taken as written into the mix"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 32
       }
      ]
     },
     "explanation": {
-     "surface": "A cooking note: lots of underdone bacon plus a sauce.",
-     "definitionFit": "Carbonara is an Italian pasta sauce of egg, cheese and cured pork."
+     "surface": "A recipe note: plenty of underdone bacon prepared with a sauce.",
+     "walkthrough": "RAR (most of 'rare') joins BACON and 'cooked' rearranges them as CARBONAR; then the clue's last 'a' is added.",
+     "definitionFit": "Carbonara is a pasta sauce of egg, cheese and cured pork."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cooked"
+     "misdirectedWord": "rare"
     }
    }
   },

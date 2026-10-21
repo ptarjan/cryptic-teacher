@@ -1181,31 +1181,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "Half and half",
-       "note": "half and half means keep half of each of the two following words and lose the rest"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "I'm well",
-       "note": "taken as written: the first half of the first word and the second half of the second are kept"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Half",
+         "at": 0,
+         "note": "half of the two-letter I'm is just its front letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'm",
+         "at": 15,
+         "note": "the first half of its letters is kept"
+        }
+       ]
       },
       {
-       "gives": "MWE"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 9,
+         "note": "the second half of the four-letter well is its back pair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "well",
+         "at": 19,
+         "note": "the last two of its four letters are kept"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone says they feel half fine and half poorly.",
-     "definitionFit": "Ill means sick or in poor health, the opposite of feeling fine."
+     "surface": "Someone torn between feeling fine and feeling poorly says they are half and half.",
+     "walkthrough": "The first half of I'M gives I and the back half of WELL gives LL.",
+     "definitionFit": "Ill is a plain synonym for sick or unwell."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "well"
     }
    }
@@ -1278,61 +1300,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Off with their heads",
+       "at": 29,
+       "note": "the Queen of Hearts' cry here means each name loses its first letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Off with their heads!",
-         "note": "the Queen of Hearts' cry means remove the first letter of each of the three names"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Phil",
-         "note": "taken as written"
+         "at": 8,
+         "note": "loses its first letter"
         },
-        {
-         "gives": "P"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
         {
          "words": "Mario",
-         "note": "taken as written"
+         "at": 14,
+         "note": "loses its first letter"
         },
         {
-         "gives": "M"
+         "words": "Gus",
+         "at": 24,
+         "note": "loses its first letter"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "Gus",
-         "note": "taken as written"
-        },
-        {
-         "gives": "G"
-        }
-       ]
+       "gives": "PMG"
       }
      ]
     },
     "explanation": {
-     "surface": "A murderous order to execute three men, in the manner of the Queen of Hearts.",
-     "walkthrough": "'Killing' looks like murder, matching the execution theme, but it is the informal adjective for extremely funny.",
-     "definitionFit": "Something killing is so funny it makes you helpless with laughter, just like something uproarious."
+     "surface": "A bloodthirsty plan to dispatch three men, ending in a royal order to behead them.",
+     "walkthrough": "Without their first letters the three names give HIL, ARIO and US; 'Killing' looks like part of the murder story but is the definition.",
+     "definitionFit": "Killing in the sense of extremely funny, as in 'that joke was killing', means hilarious."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "Killing"
     }
    }

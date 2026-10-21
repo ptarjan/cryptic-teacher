@@ -1151,30 +1151,40 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the first word goes inside the second"
-      },
-      {
-       "text": "when head and tail scratched off",
-       "note": "remove the first and last letters of 'penny'"
+       "at": 20,
+       "note": "in places one piece inside the other"
       }
      ],
      "parts": [
       {
-       "words": "penny",
-       "gives": "ENN",
-       "note": "PENNY without P and Y"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "head and tail scratched off",
+         "at": 35,
+         "note": "a coin's head and tail scraped away here means the word loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "penny",
+         "at": 23,
+         "note": "keeps only its inner letters"
+        }
+       ]
       },
       {
        "words": "as it happens",
+       "at": 6,
        "gives": "LIVE",
        "note": "a live broadcast goes out as it happens"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone scratching at a penny until it sparks, stripping its head and tail.",
-     "walkthrough": "Head and tail are the two faces of a coin, which is why the surface works; in the wordplay they are the penny's first and last letters.",
-     "definitionFit": "A plain synonym: to spark a party or a debate is to put life into it."
+     "surface": "Someone scratching the faces off a penny to make it shine.",
+     "walkthrough": "A coin has a head and a tail, so the surface reads as defacing a penny; cryptically the head and tail are the word's first and last letters.",
+     "definitionFit": "To spark a party or debate is to liven it up, to enliven it."
     },
     "features": {
      "answerInScene": false,
@@ -2528,29 +2538,47 @@
      "indicators": [
       {
        "text": "inside",
-       "note": "it then goes inside the wingers"
+       "at": 17,
+       "note": "inside places one piece within the other"
       }
      ],
      "parts": [
       {
        "words": "wingers",
+       "at": 24,
        "gives": "GEESE",
-       "note": "geese are winged birds"
+       "note": "geese are winged birds, wingers in crossword whimsy"
       },
       {
-       "words": "star cut",
-       "gives": "NOV",
-       "note": "NOVA, an exploding star, without its final A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 13,
+         "note": "cut means the last letter is chopped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "star",
+         "at": 8,
+         "gives": "NOVA",
+         "note": "a nova is a star that suddenly brightens"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football report: an Italian star player cut inside from the wing.",
-     "walkthrough": "The surface is football: wingers are wide players and to cut inside is to move off the wing. In the wordplay, wingers are birds.",
-     "definitionFit": "A definition by example: a native of Genoa, in its Italian form, is one kind of Italian."
+     "surface": "An Italian footballer, a star, is dropped and put among the wide players.",
+     "walkthrough": "'Wingers' looks like wide football players, but here it means birds with wings, and 'star cut' is a curtailed nova.",
+     "definitionFit": "Genovese means from Genoa, the Italian port city, or a person from there."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "wingers"

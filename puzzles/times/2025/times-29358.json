@@ -948,26 +948,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Chilean author failing to finish",
-       "gives": "ALLEND",
-       "note": "Isabel ALLENDE, Chilean novelist, without her final E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "failing to finish",
+         "at": 15,
+         "note": "not finishing means the last letter of the name is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chilean author",
+         "at": 0,
+         "gives": "ALLENDE",
+         "note": "Isabel Allende is a Chilean novelist"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "drink",
+       "at": 33,
        "gives": "SUP",
        "note": "to sup is to drink"
       }
      ]
     },
     "explanation": {
-     "surface": "A novelist who can't finish her drink.",
-     "walkthrough": "Isabel Allende is the Chilean author of The House of the Spirits.",
-     "definitionFit": "To beat someone all ends up is to beat them completely."
+     "surface": "A novelist from Chile couldn't quite finish her drink.",
+     "walkthrough": "Isabel Allende is the Chilean novelist meant, and 'drink' is a verb here rather than a noun.",
+     "definitionFit": "All ends up is an idiom meaning thoroughly, as in beaten all ends up."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "finish"
+     "misdirectedWord": "drink"
     }
    }
   },
@@ -1412,21 +1429,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Where large dam was built almost entirely",
-       "gives": "ASWA",
-       "note": "ASWAN, site of the Egyptian High Dam, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost entirely",
+         "at": 26,
+         "note": "almost all of the word is kept, its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Where large dam was built",
+         "at": 0,
+         "gives": "ASWAN",
+         "note": "the Aswan High Dam was built on the Nile in Egypt"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "spades",
+       "at": 47,
        "gives": "S",
-       "note": "S = spades, in card games"
+       "note": "S is the card-suit abbreviation for spades"
       }
      ]
     },
     "explanation": {
-     "surface": "A huge dam built almost entirely by hand with spades long ago.",
-     "walkthrough": "The Aswan High Dam is on the Nile in Egypt. 'Once' looks like it belongs with the spades; it is the definition.",
-     "definitionFit": "As was means formerly, as in 'Mrs Smith, Miss Jones as was'."
+     "surface": "The site of a great dam, mostly built long ago using spades.",
+     "walkthrough": "The Aswan High Dam is on the Nile in Egypt; 'once' is the definition, not part of the dam's history.",
+     "definitionFit": "As was is used after a former name to mean previously, as in 'Mrs Smith, Miss Jones as was'."
     },
     "features": {
      "answerInScene": false,
@@ -1515,39 +1549,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
      "indicators": [
       {
-       "text": "on",
-       "note": "in an across clue, one thing sitting on another comes straight after it, so 'also' follows the shortened shelf"
-      },
-      {
        "text": "going far right",
-       "note": "the front letter of LEDGE moves to the far right end"
+       "at": 33,
+       "note": "the front letter of shelf is sent to the very right-hand end of the answer"
       }
      ],
      "parts": [
       {
-       "words": "shelf",
-       "gives": "EDGE",
-       "note": "LEDGE, a shelf, without its front letter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "shelf",
+         "at": 22,
+         "gives": "LEDGE",
+         "note": "a ledge is a narrow shelf"
+        },
+        {
+         "words": "also",
+         "at": 28,
+         "gives": "TOO",
+         "note": "too means also"
+        }
+       ]
       },
       {
-       "words": "also",
-       "gives": "TOO",
-       "note": "too = also"
-      },
-      {
-       "words": "front of shelf",
-       "gives": "L",
-       "note": "the L of LEDGE, moved to the end"
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A chisel left on the front of a shelf, sliding off to the right.",
-     "walkthrough": "The shelf is a LEDGE; its first letter travels to the far right, and TOO slots in before it.",
-     "definitionFit": "Definition by example, flagged by 'Eg': chisels, planes and axes are all tools with a cutting edge."
+     "surface": "A chisel set at the front of a shelf, sliding far to the right.",
+     "walkthrough": "LEDGE and TOO give LEDGETOO; the L at the front of the shelf goes to the far right end.",
+     "definitionFit": "An edge tool is any cutting implement with a blade, such as a chisel or axe."
     },
     "features": {
      "answerInScene": true,

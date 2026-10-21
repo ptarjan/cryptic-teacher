@@ -43,30 +43,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "having rejected",
-       "note": "what is rejected is thrown out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "presided over trial",
-       "gives": "HEARDCASE",
-       "note": "a judge who presided over a trial heard the case"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having rejected",
+         "at": 29,
+         "note": "rejecting a letter means it is thrown out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "presided over",
+         "at": 8,
+         "gives": "HEARD",
+         "note": "a judge who presided over a hearing heard it"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "conclusion",
+           "at": 55,
+           "note": "a conclusion is the end, so the last letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "coroner's",
+           "at": 45,
+           "gives": "CORONER",
+           "note": "the coroner gives its final letter"
+          }
+         ]
+        }
+       ]
       },
       {
-       "words": "coroner's conclusion",
-       "gives": "R",
-       "note": "the last letter of coroneR, the letter removed"
+       "words": "trial",
+       "at": 22,
+       "gives": "CASE",
+       "note": "a case is a trial in court"
       }
      ]
     },
     "explanation": {
-     "surface": "A deranged judge sits on a case after overruling the coroner's verdict.",
-     "walkthrough": "'Presided over trial' is the courtroom phrase HEARD CASE; take out its R and the judge becomes the madman.",
-     "definitionFit": "A headcase is British slang for a crazy or unstable person."
+     "surface": "A judge sat over a trial, having thrown out the coroner's verdict as mad.",
+     "walkthrough": "A coroner's conclusion sounds like an inquest verdict, but it is only the word's last letter; a judge who presided over a case heard it.",
+     "definitionFit": "Headcase is British slang for a person who is crazy or wildly unpredictable."
     },
     "features": {
      "answerInScene": false,
