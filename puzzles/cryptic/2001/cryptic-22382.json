@@ -207,36 +207,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "become involved in",
-       "note": "things that become involved get entangled, so the letters are mixed together"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Pam",
-       "note": "taken as written"
-      },
-      {
-       "words": "is",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "become involved in",
+         "at": 29,
+         "note": "become involved means get tangled up, so the letters are mixed together"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pam",
+         "at": 19,
+         "note": "taken as written"
+        },
+        {
+         "words": "is",
+         "at": 23,
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "words": "to",
-       "note": "taken as written"
+       "at": 26
       }
      ]
     },
     "explanation": {
-     "surface": "Pam is going to take up a particular method of painting.",
-     "walkthrough": "'Pam is to' reads as a plan for Pam; all three words are the letters to rearrange.",
-     "definitionFit": "Impasto is the application of paint in thick layers so brushstrokes stand out."
+     "surface": "Pam is going to take up a painting method.",
+     "walkthrough": "'to' looks like part of 'is to become', but it is kept as written at the end while Pam and is are mixed.",
+     "definitionFit": "Impasto is the method of laying paint on thickly so brush or knife strokes stand out."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
     }
    }
   },
@@ -616,47 +625,49 @@
      "op": "charade",
      "parts": [
       {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "HER",
-       "n": 3,
+       "op": "deletion",
        "indicators": [
         {
          "text": "part",
-         "note": "only a portion of the following word is taken, here its opening three letters"
+         "at": 11,
+         "note": "part means only a portion of herald is kept, its opening letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "herald",
-         "gives": "HER",
-         "select": 3,
-         "note": "the first three letters of herald"
+         "at": 16
+        },
+        {
+         "gives": "ALD"
         }
        ]
       },
       {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "MES",
-       "n": 3,
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "part",
+         "at": 24,
+         "note": "part again means only the opening portion of messenger is kept"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "messenger",
-         "gives": "MES",
-         "select": 3,
-         "note": "the first three letters of messenger"
+         "at": 29
+        },
+        {
+         "gives": "SENGER"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek deity described as partly a herald and partly a messenger.",
-     "walkthrough": "The second 'part' does the same job for messenger. The surface is also true: Hermes was the herald and messenger of the gods.",
-     "definitionFit": "Hermes is the Olympian deity of travellers and thieves, messenger of Zeus."
+     "surface": "A Greek god who is partly herald and partly messenger.",
+     "walkthrough": "The surface is almost a description: the god was the gods' herald and messenger.",
+     "definitionFit": "Hermes was the Olympian god who carried messages for Zeus and the other gods."
     },
     "features": {
      "answerInScene": true,

@@ -414,13 +414,21 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "double",
+       "at": 18,
+       "note": "double means the whole word is written twice"
+      }
+     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "the article and horse are put inside the following pair of letters"
+         "at": 8,
+         "note": "in puts A and the horse inside with and a"
         }
        ],
        "parts": [
@@ -429,12 +437,12 @@
          "parts": [
           {
            "words": "with",
-           "gives": "W",
-           "note": "W is short for with"
+           "at": 11,
+           "gives": "W"
           },
           {
-           "words": "A",
-           "note": "taken as written"
+           "words": "a",
+           "at": 16
           }
          ]
         },
@@ -442,32 +450,40 @@
          "op": "charade",
          "parts": [
           {
-           "words": "a",
-           "note": "taken as written"
+           "words": "A",
+           "at": 0
           },
           {
            "words": "horse",
+           "at": 2,
            "gives": "GG",
-           "note": "gee-gee, a child's word for a horse"
+           "note": "gee-gee, GG, is a child's word for a horse"
           }
          ]
         }
        ]
       },
       {
-       "words": "double",
-       "gives": "WAGGA",
-       "note": "a double is a second copy, so the five letters just built are written again"
+       "gives": "W"
+      },
+      {
+       "gives": "A"
+      },
+      {
+       "gives": "GG"
+      },
+      {
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A racehorse in a double event at a New South Wales track.",
-     "walkthrough": "The Australian name repeats itself, so the clue builds one half and calls for a copy. NSW is New South Wales.",
-     "definitionFit": "Wagga Wagga is a large inland city in the Riverina region of the Australian state New South Wales."
+     "surface": "A horse with a double counts as a place in New South Wales.",
+     "walkthrough": "The horse is the nursery gee-gee, and 'double' asks for the whole town name twice over, as the real town is named. NSW is New South Wales in Australia.",
+     "definitionFit": "Wagga Wagga is an inland city in New South Wales, Australia."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "double"
     }
@@ -755,32 +771,31 @@
      "indicators": [
       {
        "text": "dancer",
-       "note": "a limbo dancer twists and contorts, so the letters before are contorted too"
+       "at": 25,
+       "note": "a dancer moves about, so these letters are moved into a new order"
       }
      ],
      "parts": [
       {
        "words": "aunt",
+       "at": 11,
        "note": "taken as written"
       },
       {
-       "words": "a",
-       "note": "taken as written"
-      },
-      {
-       "words": "limbo",
+       "words": "a limbo",
+       "at": 17,
        "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly relative does the limbo, which takes some legwork.",
-     "definitionFit": "Ambulation is the act of walking about, which is literally work done with the legs."
+     "surface": "An aunt's footwork as a limbo dancer.",
+     "walkthrough": "A starts it; AUNT and LIMBO rearranged give MBULATION.",
+     "definitionFit": "Ambulation is walking, moving about on foot, which is literally work for the legs."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "dancer"
     }
    }
@@ -1232,39 +1247,46 @@
    "annotation": {
     "definitions": [
      {
-      "text": "when flying",
-      "at": 28,
-      "note": "an adverbial phrase for an adjective meaning to do with flight"
+      "text": "flying",
+      "at": 33
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "abandoned",
-       "note": "abandoned also means wild and unrestrained, so the letters run riot"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "A",
-       "note": "taken as written"
+       "at": 0
       },
       {
        "words": "monarch",
+       "at": 2,
        "gives": "ER",
-       "note": "Elizabeth Regina, the Queen"
+       "note": "ER is Elizabeth Regina, the Queen"
       },
       {
-       "words": "caution",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "abandoned",
+         "at": 10,
+         "note": "abandoned means wild and unrestrained, so the letters are thrown about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "caution",
+         "at": 20,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A king or queen threw caution to the wind on taking to the air.",
-     "walkthrough": "'Abandoned caution' reads as reckless, but 'abandoned' is the signal to rearrange.",
-     "definitionFit": "Aeronautic means relating to the science and practice of air travel, the business of flight."
+     "surface": "A king or queen threw caution to the wind when taking a flight.",
+     "walkthrough": "A and ER come first; CAUTION rearranged gives ONAUTIC.",
+     "definitionFit": "Aeronautic means concerned with the science or practice of flight through the air."
     },
     "features": {
      "answerInScene": true,
@@ -1571,24 +1593,28 @@
      "parts": [
       {
        "words": "second",
-       "gives": "S",
-       "note": "the abbreviation for second"
+       "at": 7,
+       "gives": "S"
+      },
+      {
+       "words": "I'm",
+       "at": 15,
+       "gives": "IM",
+       "note": "I'm without its apostrophe"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "making",
-         "note": "making suggests forming something new, so the colour word is refashioned"
+         "at": 19,
+         "note": "making means forming something new, so these letters are recast"
         }
        ],
        "parts": [
         {
-         "words": "I'm",
-         "note": "taken as written"
-        },
-        {
          "words": "pink",
+         "at": 26,
          "note": "taken as written"
         }
        ]
@@ -1596,14 +1622,14 @@
      ]
     },
     "explanation": {
-     "surface": "A host, busy for a moment, mixes pink bubbly for the colonial set.",
-     "walkthrough": "'Making pink champagne' reads as one phrase, but 'making' works on the colour alone. The Raj was British rule in India, and this was its Anglo-Indian slang word.",
-     "definitionFit": "British India's servants and officers turned the French wine's name into this Anglo-Indian corruption."
+     "surface": "Someone asks for a moment while they mix pink champagne for British India.",
+     "walkthrough": "S and IM come first; PINK rearranged gives PKIN. The Raj was British rule in India.",
+     "definitionFit": "Simpkin was Anglo-Indian slang for champagne, a corruption of the word used in British India."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "pink"
+     "misdirectedWord": "making"
     }
    }
   }
