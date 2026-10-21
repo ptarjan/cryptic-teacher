@@ -88,6 +88,20 @@ try:
     A.apply(path, {a: redo, b: None, c: full[c]}, by="human")
     check("a kept annotation copied unchanged is accepted", True)
 
+    # A bag run (partial): one clue whose wordplay fails is left out and named, the
+    # clue that passes is still written; without partial the same input refuses.
+    bad = copy.deepcopy(full[a]); bad["wordplay"] = {"op": "no_such_op"}
+    good = copy.deepcopy(full[b]) if full[b] else None
+    was_a = json.dumps(next(e for e in F.read_puzzle_file(path)["entries"] if groups.entry_id(e) == a)["annotation"], sort_keys=True)
+    try:
+        A.apply(path, {a: bad, b: good}, by="human")
+        check("a failing clue refuses the file without partial", False)
+    except SystemExit as err:
+        check("a failing clue refuses the file without partial", str(err).startswith("apply_annotations") and f"{a}:" in str(err))
+    A.apply(path, {a: bad, b: good}, by="human", partial=True)
+    now_a = json.dumps(next(e for e in F.read_puzzle_file(path)["entries"] if groups.entry_id(e) == a)["annotation"], sort_keys=True)
+    check("partial leaves the failing clue as it was", now_a == was_a)
+
     # Another fix clears c mid-run: it joins the list rather than being frozen out.
     p = F.read_puzzle_file(path)
     del next(e for e in p["entries"] if groups.entry_id(e) == c)["annotation"]

@@ -420,7 +420,7 @@ def apply_also(puzzle, annotations, errors=None):
                 item["annotation"] = new
 
 
-def apply(path, annotations, by=None, only=None):
+def apply(path, annotations, by=None, only=None, partial=False):
     """Write `annotations` into the puzzle at `path`. `only` (entry ids) is the
     annotateOnly list a caller passes directly, in place of the run's view file
     (tools/prefill_hidden.py --write): the other entries keep their hints."""
@@ -595,7 +595,15 @@ def apply(path, annotations, by=None, only=None):
                 entry["annotation"] = new
                 move_alteration(entry)
     apply_also(puzzle, annotations, errors)
-    if errors:
+    if errors and partial:
+        # A bag run: each failing clue is already left as it was (its new tree is
+        # None above), so the clues that passed are written and these are reported
+        # one per line ("<id>: why", which annotate_audit parses).
+        print(f"apply_annotations: {path.name}: {len(errors)} clue(s) left out, "
+              f"the rest written; the left-out ones keep their old annotation:")
+        for e in errors:
+            print(e)
+    elif errors:
         raise SystemExit(
             f"apply_annotations: {path.name}: refused to write — fix these in the _ann "
             f"file:\n" + "\n".join(f"  {e}" for e in errors))
@@ -638,7 +646,8 @@ def main(argv):
         print(__doc__.strip())
         return 0
     validate = "--no-validate" not in argv
-    argv = [a for a in argv if a != "--no-validate"]
+    partial = "--partial" in argv
+    argv = [a for a in argv if a not in ("--no-validate", "--partial")]
     by = None
     if "--by" in argv:
         at = argv.index("--by")
@@ -649,7 +658,7 @@ def main(argv):
         del argv[at:at + 2]
     path = resolve_puzzle(argv[0])
     spec = argv[1] if len(argv) > 1 else default_input(path)
-    solved, total = apply(path, load_annotations(spec), by)
+    solved, total = apply(path, load_annotations(spec), by, partial=partial)
     unsolved = total - solved
     tail = f", {unsolved} left null" if unsolved else ""
     print(f"apply_annotations: {solved}/{total} annotations -> "
