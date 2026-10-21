@@ -217,52 +217,58 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly contributes",
-       "note": "contributing at regular intervals means slotting letters in between, one at every other position"
+       "text": "regularly",
+       "at": 45,
+       "note": "regularly means the second letter goes in at the same spacing as the first"
       }
      ],
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "contributes",
+         "at": 55,
+         "note": "contributes means the old letter is fed in among the central letters"
+        }
+       ],
        "parts": [
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "WLE",
          "indicators": [
           {
            "text": "core",
-           "note": "the core of a word is its middle, so only its central letters are kept"
+           "at": 20,
+           "note": "the core of a word is its central letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "knowledge",
-           "gives": "WLE",
-           "select": "middle",
-           "note": "the middle three of the nine letters"
+           "words": "knowledge's",
+           "at": 8,
+           "gives": "KNOWLEDGE",
+           "note": "the word whose central letters are used"
           }
          ]
         },
         {
          "words": "old",
-         "gives": "O",
-         "note": "O is the standard abbreviation for old"
+         "at": 34,
+         "gives": "O"
         }
        ]
       },
       {
        "words": "fellow",
-       "gives": "F",
-       "note": "F is the standard abbreviation for fellow"
+       "at": 38,
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "A quiz question about general knowledge to which an elderly man is a frequent contributor.",
-     "walkthrough": "O and F go in alternately between W, L and E, giving WOLFE. 'General knowledge' reads as one phrase, but 'General' alone is the definition.",
-     "definitionFit": "James Wolfe was the British army general who captured Quebec from the French in 1759."
+     "surface": "General knowledge at its heart, with an old chap chipping in now and then.",
+     "walkthrough": "WLE, the centre of knowledge, gets O and F slotted in one after each letter. James Wolfe was the British general who took Quebec in 1759.",
+     "definitionFit": "Wolfe was a British army general, famous for victory at Quebec."
     },
     "features": {
      "answerInScene": false,
@@ -1432,47 +1438,52 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STICKOUT",
      "indicators": [
       {
        "text": "housing",
-       "note": "a house holds things inside it, so one piece goes within another"
+       "at": 31,
+       "note": "housing means the first word holds the rest inside"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "STICKOUT",
-       "indicators": [
-        {
-         "text": "disheartened",
-         "note": "losing heart means losing the middle, so the central letters go"
-        }
-       ],
+       "words": "bold",
+       "at": 26,
+       "gives": "STOUT",
+       "note": "stout means brave, bold"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "bold",
-         "gives": "STOUT",
-         "note": "stout means brave or bold"
-        },
-        {
          "words": "I",
-         "note": "taken as written"
+         "at": 0
         },
         {
-         "words": "clerk",
-         "note": "taken as written, before its middle goes"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "disheartened",
+           "at": 2,
+           "note": "a word losing its heart keeps only its ends"
+          }
+         ],
+         "parts": [
+          {
+           "words": "clerk",
+           "at": 15,
+           "note": "the word whose outer letters remain"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worker complains that a dispirited clerk and a brash colleague are running a housing scheme.",
-     "walkthrough": "Clerk loses its middle three letters, leaving CK. Project is a verb, meaning jut, not a scheme.",
-     "definitionFit": "To project is to protrude beyond a surface, which is to stick out."
+     "surface": "A downcast office worker gets a bold housing scheme.",
+     "walkthrough": "Disheartened means the clerk loses its middle letters, keeping only its ends; 'with' is a link word.",
+     "definitionFit": "To stick out is to project, jutting beyond a surface."
     },
     "features": {
      "answerInScene": false,
