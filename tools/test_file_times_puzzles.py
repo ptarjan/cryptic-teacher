@@ -194,6 +194,14 @@ print("RETYPED", B.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5044, 
       B.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5045}),
       B.retyped({"number": 2019, "date": "2019-02-23"}, fits, set()))
 
+# WordPress turns a title's thousands comma into a hyphen in the slug, so the
+# slug's first number is the tail of the puzzle's.
+def numbered(slug, title):
+    return P.puzzle_number({"slug": slug, "id": 1, "title": {"rendered": title}})
+print("THOUSANDS", numbered("times-28-373-i-sukkot-solving", "Times 28,373: I Sukkot Solving"),
+      numbered("times-27-815-trumpowder", "Times 27, 815: Trumpowder"),
+      numbered("times-28445-x", "Times 28,445: X"))
+
 # A puzzle filed with no setter is given the title's; a name never is replaced.
 sp = puzzle_paths.find("sundaytimes-4321")
 for key, held in (("PLACEHOLDER", None), ("NAMED", "Someone")):
@@ -296,6 +304,10 @@ check("the filer's ledger records each row's cause as a key",
 check('a mistyped title is renumbered only onto one free slot that fits',
       '5045 None None',
       got('RETYPED'))
+
+check('a slug split at the thousands comma is read from the title',
+      '28373 27815 28445',
+      got('THOUSANDS'))
 
 check('the clue keeps its enumeration',
       'Two words (2,3)',

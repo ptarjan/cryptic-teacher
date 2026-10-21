@@ -745,6 +745,14 @@ def run(source, grids, parsed, write=True, newest=None):
         rec = json.loads(line)
         recs[rec["post_id"]] = rec
     rows = [json.loads(line) for line in grids.read_text(encoding="utf-8").splitlines()]
+    # A grid row keeps the number its post parsed to when the grid was built;
+    # a parser fix that reads the title better (Times 28,373, slugged
+    # times-28-373, was 373) changes the record, not the grid, so the record's
+    # number wins.
+    for row in rows:
+        now = (recs.get(row["post_id"]) or {}).get("number")
+        if now and now != row.get("number"):
+            row["number"] = now
 
     skipped = collections.Counter()
     ledger = {}

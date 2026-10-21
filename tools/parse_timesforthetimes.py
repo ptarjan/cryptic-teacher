@@ -310,9 +310,12 @@ def puzzle_number(post):
     """
     m = NUMBER_IN.search(MONTH_YEAR.sub("", post.get("slug", "")))
     title = html.unescape(post.get("title", {}).get("rendered", ""))
-    t = NUMBER_IN.search(MONTH_YEAR.sub("", re.sub(r"(?<=\d),(?=\d{3}\b)", "", title)))
+    t = NUMBER_IN.search(MONTH_YEAR.sub("", re.sub(r"(?<=\d),\s?(?=\d{3}\b)", "", title)))
     if (not m or int(m.group(1)) == post.get("id")
-            or (t and one_slip(m.group(1), t.group(1)))):
+            or (t and one_slip(m.group(1), t.group(1)))
+            or (t and len(t.group(1)) > len(m.group(1)) and t.group(1).endswith(m.group(1)))):
+        # The last test is WordPress's slug for a thousands comma:
+        # "Times 28,373" is times-28-373-..., whose first number is 373.
         m = t
     if not m:
         m = QUICK_NUMBER.search(title) or QUICK_NUMBER.search(post.get("slug", ""))
