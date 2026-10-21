@@ -43,45 +43,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "Extraordinarily",
-       "note": "what is done extraordinarily departs from the usual, so the remaining letters take an unusual order"
+       "at": 0,
+       "note": "something done extraordinarily is out of the ordinary, so the letters are rearranged"
+      },
+      {
+       "text": "omitted",
+       "at": 52,
+       "note": "omitted says some letters of malicious are left out before the rest are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "omitted",
-         "note": "omitted tells the solver to leave something out of the word before shuffling"
-        }
-       ],
-       "parts": [
-        {
-         "words": "malicious",
-         "note": "taken as written"
-        },
-        {
-         "words": "number of political chief",
-         "gives": "IO",
-         "note": "Number 10 Downing Street is the Prime Minister's address, and 10 written as letters looks like IO"
-        }
-       ]
+       "words": "malicious",
+       "at": 16
+      },
+      {
+       "words": "number of political chief",
+       "at": 26,
+       "gives": "IO",
+       "note": "the Prime Minister lives at Number 10, and 10 written as letters looks like IO"
       }
      ]
     },
     "explanation": {
-     "surface": "A spiteful tale of a party leader being left out of the Hamilton story.",
-     "walkthrough": "Take one I and one O (10, as in No 10) out of MALICIOUS; the seven letters left are shuffled.",
-     "definitionFit": "Hamilton is the hit Lin-Manuel Miranda stage show, an example of the genre, hence the question mark."
+     "surface": "A spiteful political leader's song is cut from the hit show about Alexander Hamilton.",
+     "walkthrough": "Take I and O (10, the Prime Minister's house number at Downing Street) out of MALICIOUS and rearrange what is left. 'Hamilton' is the definition by example, hence the question mark.",
+     "definitionFit": "Hamilton is a hit stage show by Lin-Manuel Miranda, an example of a musical."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Hamilton"
+     "joke": "pun",
+     "misdirectedWord": "number"
     }
    }
   },

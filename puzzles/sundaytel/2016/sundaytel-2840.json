@@ -826,8 +826,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "note",
-      "at": 23
+      "text": "note, reduced by 60%",
+      "at": 23,
+      "note": "a memorandum, ten letters, cut to its first four is the short form"
      }
     ],
     "wordplay": {
@@ -835,39 +836,28 @@
      "parts": [
       {
        "words": "The writer",
+       "at": 0,
        "gives": "ME",
-       "note": "the writer of the clue refers to themself as me"
+       "note": "the setter referring to themself gives ME"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "reduced by 60%",
-         "note": "cutting sixty percent of a six-letter word leaves only its first two letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "second",
-         "gives": "MOMENT",
-         "note": "a second is a moment"
-        },
-        {
-         "gives": "MENT"
-        }
-       ]
+       "words": "second",
+       "at": 16,
+       "gives": "MO",
+       "note": "a mo is a moment, a second"
       }
      ]
     },
     "explanation": {
-     "surface": "An author appends a brief note after cutting most of it.",
-     "walkthrough": "Four of the six letters of MOMENT go, leaving MO.",
-     "definitionFit": "A memo is a short written message or reminder, a kind of note."
+     "surface": "An author tacks on a second footnote and trims the text down by sixty per cent.",
+     "walkthrough": "'adds' joins ME and MO. The definition plays on a memo being the short form of 'memorandum': ten letters cut to four is a 60% reduction.",
+     "definitionFit": "A memo is an abbreviated memorandum, a written message circulated in an office."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "second"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reduced"
     }
    }
   },
@@ -1002,31 +992,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "change of",
-       "note": "a change of the letters means they are rearranged"
-      },
-      {
-       "text": "possibly",
-       "note": "possibly hints at one of several orders the letters might take"
+       "text": "in",
+       "at": 36,
+       "note": "the shuffled air is placed in the middle of the other letters"
       }
      ],
      "parts": [
       {
-       "words": "air",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 46,
+         "note": "possibly signals that Spain's letters may be arranged another way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spain",
+         "at": 39
+        }
+       ]
       },
       {
-       "words": "Spain",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "change of",
+         "at": 22,
+         "note": "a change of the word air means its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "air",
+         "at": 32
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Frenchman enjoys a change of climate by visiting Spain.",
-     "definitionFit": "A Parisian is a native or resident of Paris, so a French city dweller."
+     "surface": "A Frenchman moves to Spain for a change of air, perhaps for his health.",
+     "walkthrough": "'Spain, possibly' reads as if Spain were an example of somewhere; 'possibly' is really telling you to rearrange the country's name.",
+     "definitionFit": "A Parisian is a native or resident of Paris, so a citizen of France."
     },
     "features": {
      "answerInScene": true,
