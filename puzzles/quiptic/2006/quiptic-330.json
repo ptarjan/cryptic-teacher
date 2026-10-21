@@ -193,48 +193,53 @@
      "op": "charade",
      "parts": [
       {
-       "words": "due",
-       "gives": "EDU",
-       "note": "taken as written, then rearranged"
-      },
-      {
-       "op": "reversal",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down clue, going up means the word reads from bottom to top"
+         "text": "freely",
+         "at": 10,
+         "note": "freely means the letters of due are allowed to move"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "due",
+         "at": 6,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 36,
+         "note": "in puts the thanks word inside the church"
+        }
+       ],
+       "parts": [
+        {
+         "words": "church",
+         "at": 39,
+         "gives": "CE",
+         "note": "CE is the Church of England"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "in",
-           "note": "one word goes inside the other, as a person sits in a building"
+           "text": "offer up",
+           "at": 20,
+           "note": "offer up in a down clue means the thanks word is written upwards"
           }
          ],
          "parts": [
           {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "freely",
-             "note": "done freely means done loosely, without fixed order, so the letters are rearranged"
-            }
-           ],
-           "parts": [
-            {
-             "words": "church",
-             "gives": "CE",
-             "note": "Church of England"
-            }
-           ]
-          },
-          {
            "words": "thanks",
+           "at": 29,
            "gives": "TA",
-           "note": "ta is informal British for thank you"
+           "note": "ta is British informal for thanks"
           }
          ]
         }
@@ -243,13 +248,14 @@
      ]
     },
     "explanation": {
-     "surface": "A teacher willingly gives thanks during a church service.",
-     "definitionFit": "To tutor is to teach, so as a verb it is a synonym for educate."
+     "surface": "A teacher willingly gives thanks in church as is owed.",
+     "walkthrough": "Ta is British slang for thanks; 'offer up' reads it upwards in this down clue.",
+     "definitionFit": "To educate is to teach or instruct a pupil."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "due"
+     "misdirectedWord": "freely"
     }
    }
   },

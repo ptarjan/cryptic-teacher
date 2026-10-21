@@ -1145,64 +1145,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "Short",
-       "note": "short means lacking its end, so the final letter of that word is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means the pause word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "pause",
-         "gives": "INTERVA",
-         "note": "an interval is a pause, cut short by its last letter"
+         "at": 6,
+         "gives": "INTERVAL",
+         "note": "an interval is a pause"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "in places one word inside the other letters"
-          }
-         ],
-         "parts": [
-          {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "outskirts of",
-             "note": "the outskirts are the edges, so only the outer letters of the town are used"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Rugby",
-             "note": "the first and last letters of Rugby"
-            }
-           ]
-          },
-          {
-           "words": "rest",
-           "gives": "SIT",
-           "note": "to sit is to rest"
-          }
-         ]
+         "gives": "L"
         }
        ]
       },
       {
-       "gives": "UB"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 20,
+         "note": "in means the resting word goes inside the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "outskirts of",
+           "at": 23,
+           "note": "outskirts of means the outer letters of Rugby"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Rugby",
+           "at": 36
+          }
+         ]
+        },
+        {
+         "words": "to rest",
+         "at": 12,
+         "gives": "SIT",
+         "note": "to sit is to rest"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller breaks a journey at Rugby, a town between the universities of Warwick and Leicester.",
-     "walkthrough": "Rugby lies geographically between Warwick and Leicester, which is the surface trap; the question mark flags a definition by example.",
-     "definitionFit": "Intervarsity describes contests or events held between universities, such as a match between Warwick and Leicester."
+     "surface": "A short break for rest on the edge of Rugby, a town between two universities.",
+     "walkthrough": "Rugby is a town between Warwick and Leicester; the definition is cryptic, read as 'between universities'.",
+     "definitionFit": "An intervarsity contest is held between universities, such as a match between two colleges."
     },
     "features": {
      "answerInScene": true,

@@ -1379,25 +1379,41 @@
      "parts": [
       {
        "words": "Offence",
+       "at": 0,
        "gives": "SIN",
        "note": "a sin is an offence"
       },
       {
-       "words": "reduced financial support",
-       "gives": "AI",
-       "note": "AID loses its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 8,
+         "note": "reduced means the support word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "financial support",
+         "at": 16,
+         "gives": "AID",
+         "note": "aid is financial support"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cutting financial aid to part of Asia is an offence.",
-     "walkthrough": "Sinai is the peninsula of Egypt that lies east of the Suez Canal, so in Asia though Egypt is African.",
-     "definitionFit": "The Sinai peninsula is the part of Egypt that lies in Asia."
+     "surface": "A misdemeanour leads to cuts in funding for an Asian region.",
+     "definitionFit": "The Sinai peninsula of Egypt lies in Asia, east of the Suez Canal."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "support"
+     "misdirectedWord": "reduced"
     }
    }
   },

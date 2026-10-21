@@ -598,47 +598,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "BOXCAMERA",
+     "indicators": [
+      {
+       "text": "put in report",
+       "at": 45,
+       "note": "put in report means spoken aloud, so the words are matched by sound"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "BOX",
-       "indicators": [
-        {
-         "text": "put in report",
-         "note": "a report is a spoken account, so the words are to be heard, not spelt"
-        }
-       ],
-       "parts": [
-        {
-         "words": "German beers",
-         "gives": "BOCKS",
-         "note": "bock is a strong German lager"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "CAMERA",
-       "parts": [
-        {
-         "words": "UK ale lovers",
-         "gives": "CAMRA",
-         "note": "CAMRA is the Campaign for Real Ale, the British real-ale lobby"
-        }
-       ]
+       "words": "German beers UK ale lovers",
+       "at": 18,
+       "gives": "BOCKSCAMRA",
+       "note": "bock is a strong German beer; CAMRA, the Campaign for Real Ale, is a British group of beer enthusiasts"
       }
      ]
     },
     "explanation": {
-     "surface": "A report on British ale enthusiasts sampling German beer.",
-     "walkthrough": "'Still' looks like 'even so', but it is the noun: a still photograph. CAMRA is said 'camra', which is how many people say camera.",
-     "definitionFit": "A box camera is a simple early camera, and a still photo is what it produces."
+     "surface": "Real-ale enthusiasts in Britain record German brews in their write-up.",
+     "walkthrough": "'Still' is a noun here, a still photograph, which a box camera produces.",
+     "definitionFit": "A box camera is a simple early camera taking single photographs."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Still"
     }
    }
@@ -1710,30 +1695,49 @@
      "op": "charade",
      "parts": [
       {
-       "words": "one out of place",
-       "gives": "STE",
-       "note": "SITE, a place, without I (one)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 29,
+         "note": "out of means the one leaves the word for place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "place",
+         "at": 36,
+         "gives": "SITE",
+         "note": "a site is a place"
+        },
+        {
+         "words": "one",
+         "at": 25,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       },
       {
        "words": "in",
-       "note": "taken as written"
+       "at": 42
       },
       {
        "words": "stream",
+       "at": 45,
        "gives": "BECK",
        "note": "a beck is a northern English word for a stream"
       }
      ]
     },
     "explanation": {
-     "surface": "A pupil from a poor school, one who is out of place in the stream.",
-     "walkthrough": "'Student of poor classes' looks like a child at a bad school, and 'stream' like a school set. It means a writer who studied the poor.",
-     "definitionFit": "John Steinbeck wrote of the dispossessed poor, as in The Grapes of Wrath, so he was a student of the poor classes."
+     "surface": "A scholar of the poor is out of place in a river.",
+     "walkthrough": "SITE without its I is STE; then IN and BECK.",
+     "definitionFit": "John Steinbeck's novels, such as The Grapes of Wrath, studied migrant workers and the dispossessed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Student"
     }
    }

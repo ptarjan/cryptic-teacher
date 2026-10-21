@@ -101,51 +101,65 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 20,
+       "note": "in a down clue, on puts the first piece above what follows"
+      }
+     ],
      "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stoked",
+         "at": 8,
+         "note": "stoked means stirred up, so the letters of coal are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coal",
+         "at": 15,
+         "note": "taken as written"
+        }
+       ]
+      },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "turning",
-         "note": "turning round sends the letters back the other way"
+         "at": 39,
+         "note": "turning means the one and the shortened fire are read backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "stoked",
-           "note": "stoking a fire stirs it up, so the letters are stirred into a new order"
-          }
-         ],
+         "op": "charade",
          "parts": [
+          {
+           "words": "one",
+           "at": 23,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          },
           {
            "op": "deletion",
            "indicators": [
             {
              "text": "almost",
-             "note": "almost means not quite all, so the word loses its final letter"
+             "at": 32,
+             "note": "almost means fire stops one letter short"
             }
            ],
            "parts": [
             {
-             "op": "charade",
-             "parts": [
-              {
-               "words": "coal",
-               "note": "taken as written, ready to be stirred"
-              },
-              {
-               "words": "one",
-               "gives": "I",
-               "note": "the Roman numeral for one"
-              },
-              {
-               "words": "fire",
-               "note": "taken as written, then cut short"
-              }
-             ]
+             "words": "fire",
+             "at": 27,
+             "gives": "FIRE",
+             "note": "taken as written"
             },
             {
              "gives": "E"
@@ -158,20 +172,21 @@
       },
       {
        "words": "cold",
+       "at": 47,
        "gives": "C",
-       "note": "C is the abbreviation for cold, as on a tap"
+       "note": "C is the tap abbreviation for cold"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stokes a coal fire that is almost dying as the weather turns cold.",
-     "walkthrough": "In a down clue 'on' puts the stirred coal above the rest. One plus FIR (fire without its last letter) is turned round to give RIFI, and C ends it: CALORIFIC.",
-     "definitionFit": "Calorific means producing heat, so as an adjective it can stand for heating, as in heating power."
+     "surface": "Someone stokes the coal on a fire that has nearly gone cold.",
+     "walkthrough": "I and FIR read backwards give RIFI.",
+     "definitionFit": "Calorific means producing heat or energy, as food or fuel does."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "turning"
+     "misdirectedWord": "stoked"
     }
    }
   },
@@ -248,38 +263,51 @@
      "parts": [
       {
        "words": "Old",
+       "at": 0,
        "gives": "EX",
-       "note": "ex means former or old, as in ex-wife"
+       "note": "ex means former, old"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "bananas",
-         "note": "going bananas means going crazy, so the letters are thrown into disorder"
-        },
-        {
-         "text": "nuts",
-         "note": "nuts means mad, so these letters are scrambled too"
+         "at": 9,
+         "note": "bananas means crazy, so the letters of ripe go wild"
         }
        ],
        "parts": [
         {
          "words": "ripe",
-         "note": "taken as written, then rearranged"
-        },
+         "at": 4,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nuts",
+         "at": 37,
+         "note": "nuts means mad, so the shortened word's letters are jumbled"
+        }
+       ],
+       "parts": [
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "chopped",
-           "note": "something chopped has had a piece cut off its end"
+           "at": 29,
+           "note": "chopped means the end of decent is cut off"
           }
          ],
          "parts": [
           {
            "words": "decent",
-           "note": "taken as written, then cut and rearranged"
+           "at": 22,
+           "note": "taken as written"
           },
           {
            "gives": "T"
@@ -291,9 +319,9 @@
      ]
     },
     "explanation": {
-     "surface": "Old ripe bananas and some good chopped nuts are being sampled.",
-     "walkthrough": "The food words are all instructions: 'bananas' and 'nuts' both mean crazy, and 'chopped' removes the final T of decent.",
-     "definitionFit": "To have tasted something is to have experienced it, as in 'tasted defeat'; both are past participles."
+     "surface": "Old ripe bananas and chopped nuts are sampled in a recipe.",
+     "walkthrough": "RIPE gives PERI; DECENT loses T, and DECEN gives ENCED.",
+     "definitionFit": "To have experienced something is to have had a taste of it, to have known it first-hand."
     },
     "features": {
      "answerInScene": false,

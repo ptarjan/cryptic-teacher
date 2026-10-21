@@ -109,30 +109,48 @@
      "parts": [
       {
        "words": "Speak disparagingly of",
+       "at": 0,
        "gives": "ROAST",
-       "note": "to roast someone is to mock them harshly"
+       "note": "to roast someone is to criticise them harshly"
       },
       {
-       "words": "Danish outfit",
+       "words": "Danish outfit's",
+       "at": 23,
        "gives": "LEGO",
-       "note": "the toy-brick company is Danish"
+       "note": "Lego is the Danish toy company"
       },
       {
-       "words": "almost burning",
-       "gives": "FLAMB",
-       "note": "FLAMBÉ, set alight, missing its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 39,
+         "note": "almost means the word for burning stops one letter short of its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "burning",
+         "at": 46,
+         "gives": "FLAMBE",
+         "note": "flambé describes food set alight with brandy, so burning"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A critic sneers at a Danish company's dish that has nearly caught fire.",
-     "walkthrough": "The word breaks of the answer fall nowhere near the clue's pieces, which is what hides it. 'Outfit' means a company here, not clothing; the toy firm is Danish.",
-     "definitionFit": "A roasted joint from a young sheep's hind limb is a classic Sunday main course."
+     "surface": "Someone mocks a Danish company's nearly flaming dinner.",
+     "walkthrough": "LEGO is the Danish toy maker; FLAMBE, food set alight, loses its last letter to 'almost', leaving FLAMB.",
+     "definitionFit": "A roast leg of lamb is a traditional meat course served at a Sunday meal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "outfit"
+     "misdirectedWord": "outfit's"
     }
    }
   },
@@ -309,25 +327,29 @@
      "indicators": [
       {
        "text": "announced by Cockney",
-       "note": "something announced is spoken, and a Cockney speaker drops the opening H of the city"
+       "at": 30,
+       "note": "announced by Cockney means said aloud the Cockney way, dropping the H at the start, so the city's name sounds like the station"
       }
      ],
      "parts": [
       {
        "words": "Texas city",
-       "gives": "OUSTON",
-       "note": "Houston said with the H dropped"
+       "at": 19,
+       "gives": "HOUSTON",
+       "note": "Houston is the largest city in Texas"
       }
      ]
     },
     "explanation": {
-     "surface": "A London station name is heard in a Texan city, spoken with a Cockney accent.",
-     "walkthrough": "A Cockney is a working-class Londoner whose accent drops initial H, so Houston loses its first sound. Euston is a main-line terminus in London.",
-     "definitionFit": "Euston is a major London rail terminus serving routes to the Midlands and north-west."
+     "surface": "A London station is named in a Texan city's accent by a Londoner.",
+     "walkthrough": "A Cockney (a working-class Londoner) drops the H of Houston, giving 'Ooston', which sounds like EUSTON, a major London terminus.",
+     "definitionFit": "Euston is one of London's main line terminals, serving trains to the north-west."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "announced"
     }
    }
   },
