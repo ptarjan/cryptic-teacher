@@ -1764,6 +1764,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     full_wait = set()  # keys of the reads deferred for a full spool: not started until it is below its cap
     defer_runs = {}  # {key_of(read): times in a row it ended deferred for the VLM's asks}
     defer_until = {}  # {key_of(read): monotonic time before which it is not started again (DEFER_BACKOFF)}
+    defer_file = Path(f"{handoff or resume}.defer") if handoff or resume else None  # kept across re-execs
+    if defer_file:
+        defer_runs, defer_until = last_defers(defer_file)
     stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
     cpu_cap_bound = False  # logged once each time the CPU-only cap holds a start back
     reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
@@ -2080,6 +2083,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     n = defer_runs[key_of(unit)] = defer_runs.get(key_of(unit), 0) + 1
                     if n >= 2:
                         defer_until[key_of(unit)] = time.monotonic() + min(DEFER_BACKOFF_MAX, DEFER_BACKOFF * 2 ** (n - 2))
+                    if defer_file:
+                        keep_defers(defer_file, defer_runs, defer_until)
                 if spooled_by:
                     spool_wait[key_of(unit)] = set(spooled_by)  # started again once the drainer has answered them
                 elif not full_end:
@@ -2091,7 +2096,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     yield_held.add(key_of(unit))
             else:
                 finished[key_of(unit)] = time.monotonic()
-                defer_runs.pop(key_of(unit), None)
+                if defer_runs.pop(key_of(unit), None) is not None and defer_file:
+                    defer_until.pop(key_of(unit), None)
+                    keep_defers(defer_file, defer_runs, defer_until)
                 defer_until.pop(key_of(unit), None)
             if unit["kind"] == "scan" and rc == 0:
                 scanned.add((unit["paper"], unit["rel"]))
@@ -2787,6 +2794,34 @@ def last_plan(path, key):
     if kept.get("key") != json.loads(json.dumps(key)) or time.time() - kept.get("at", 0) > PLAN_KEPT:
         return None, None, 0.0
     return tuple(kept["plan"]), kept["at"], kept.get("took", 0.0)
+
+
+def keep_defers(path, runs, until):
+    """Save the deferral backoff (DEFER_BACKOFF) at `path`, beside the hand-over, so a
+    re-exec does not restart the backed-off reads at once: [key, runs, wall time until]."""
+    now_wall, now = time.time(), time.monotonic()
+    rows = [[list(k), n, now_wall + (until[k] - now) if k in until else 0] for k, n in runs.items()]
+    tmp = Path(f"{path}.tmp")
+    tmp.write_text(json.dumps(rows))
+    tmp.replace(path)
+
+
+def last_defers(path):
+    """(defer_runs, defer_until) the last run kept at `path`; a read whose wait ended
+    over DEFER_BACKOFF_MAX seconds ago is forgotten (its run count would restart too)."""
+    try:
+        rows = json.loads(Path(path).read_text())
+    except (FileNotFoundError, ValueError):
+        return {}, {}
+    now_wall, now = time.time(), time.monotonic()
+    runs, until = {}, {}
+    for k, n, at in rows:
+        if at < now_wall - DEFER_BACKOFF_MAX:
+            continue
+        runs[tuple(k)] = n
+        if at > now_wall:
+            until[tuple(k)] = now + (at - now_wall)
+    return runs, until
 
 
 def hand_over(path, units):
