@@ -38,6 +38,7 @@ from collections import Counter
 from pathlib import Path
 
 import apply_solution
+import bigdave_layout
 import blog_comment_rows
 import parse_timesforthetimes as ptt
 import provenance
@@ -189,7 +190,7 @@ def bigdave_rows(html_text):
     that gives neither keeps an empty answer, so the light is reported unmatched."""
     import html
     direction, rows = None, []
-    for para in re.split(r"</p>", ptt.DELETED.sub("", html_text)):
+    for para in re.split(r"</p>", bigdave_layout.join_split_clues(ptt.DELETED.sub("", html_text))):
         heading = HEADING.search(para)
         if heading and cell_text(para).lower().strip(": ") in ("across", "down"):
             direction = heading.group(1).lower()
@@ -209,7 +210,7 @@ def bigdave_rows(html_text):
             continue
         lead = LINKED_LEAD.match(cell_text(head))
         also = ",".join(f"{n}{w[:1].lower()}" for n, w in LINKED_HEAD.findall(lead.group(1))) if lead else ""
-        hidden = HIDDEN_ANSWER.search(rest)
+        hidden = HIDDEN_ANSWER.search(rest) or bigdave_layout.HIDDEN_SPAN.search(rest)
         if hidden:
             answer = cell_text(hidden.group(1))
         else:
@@ -237,6 +238,10 @@ def bigdave_records(puzzle):
         posts = _by_slugs(BIGDAVE_API, [s.format(n=number) for s in BIGDAVE_SLUGS[series]])
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(posts), encoding="utf-8")
+    if not any(bigdave_rows(p["content"]["rendered"]) for p in posts):
+        posts = bigdave_layout.search_posts(
+            BIGDAVE_API, FIELDS, series, number, get,
+            CACHE / "bigdave-search" / f"{series}-{number}.json")
     found = []
     for post in posts:      # the raw posts are cached, so a parser fix needs no refetch
         rows = bigdave_rows(post["content"]["rendered"])
