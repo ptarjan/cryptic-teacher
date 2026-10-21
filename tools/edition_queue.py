@@ -818,15 +818,13 @@ CANARY_PROVEN = (
     # cause "unfiled" is the reason "unfiled before its fix" (a page written with blank clues).
     ("gale", "unfiled", 2005, 2006, "10-20 canary: 8 of 10 Dec 2005 pages read complete, 0 uncached VLM asks"),
     ("ft", "unfiled", 1986, 1986, "10-20 canary: 4 of 5 pages read complete, 0 uncached VLM asks"),
+    ("gale", "no-reading-parses", 1950, 1959, "10-21 canary: 8 of 9 1950s pages parsed from OCR alone (was 0 of 6), 0 VLM asks"),
 )
 
 
 #: Refusal rereads that a canary or live reading showed still fail: held even for the
 #: CT_NEWEST_FIRST papers, until the cause is fixed. Same tuple shape as CANARY_PROVEN.
 CANARY_FAILED = (
-    # 10-21: 22 rereads of 1950-59 Gale today wrote 5; the rest again found "no ACROSS and DOWN
-    # lists under the grid" after ~7 VLM asks each (~38% of the hour's asks; 1960s wrote 77 of 83).
-    ("gale", "no-reading-parses", 1950, 1959, "10-21 live: 5 of 22 1950s rereads wrote"),
 )
 
 
