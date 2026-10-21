@@ -767,48 +767,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SCHRODINGER",
      "indicators": [
       {
        "text": "mad",
-       "note": "mad means crazed and disordered, so the remaining letters are scrambled"
+       "at": 32,
+       "note": "mad means crazed and disordered, so the letters of the pieces before it are jumbled"
       }
      ],
      "parts": [
       {
+       "words": "Horse",
+       "at": 0
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SCHRODINGER",
        "indicators": [
         {
          "text": "dumping",
-         "note": "dumping something means getting rid of it, so that letter is removed"
+         "at": 22,
+         "note": "dumping means throwing out, so the letter a is thrown out of racing"
         }
        ],
        "parts": [
         {
-         "words": "Horse-racing",
-         "note": "taken as written"
-        },
-        {
-         "words": "daughter",
-         "gives": "D",
-         "note": "D is the abbreviation for daughter"
+         "words": "racing",
+         "at": 6,
+         "note": "the word racing, which loses a letter"
         },
         {
          "words": "a",
-         "note": "taken as written, and thrown out"
+         "at": 30
         }
        ]
+      },
+      {
+       "words": "daughter",
+       "at": 13,
+       "gives": "D",
+       "note": "D is the genealogy abbreviation for daughter"
       }
      ]
     },
     "spelling": "SCHRÖDINGER",
     "explanation": {
-     "surface": "A girl obsessed with the turf rejects a crazed boffin.",
-     "walkthrough": "'mad scientist' looks like one phrase; 'mad' is the anagram signal and 'scientist' alone is the definition. One A goes from HORSERACING plus D before the shuffle.",
-     "definitionFit": "Erwin Schrödinger was an Austrian physicist, a founder of quantum mechanics."
+     "surface": "A daughter gives up on horse racing, and the result is a scientist who has gone mad.",
+     "walkthrough": "Taking A out of RACING leaves RCING; 'mad' then rearranges HORSE, RCING and D. Erwin Schrodinger was the Austrian physicist behind the famous cat thought experiment.",
+     "definitionFit": "Erwin Schrodinger was a Nobel-winning physicist who helped found quantum mechanics."
     },
     "features": {
      "answerInScene": false,
@@ -1063,7 +1067,8 @@
      "indicators": [
       {
        "text": "supports",
-       "note": "in a down clue, a supporting piece sits beneath the rest, so it goes at the end"
+       "at": 18,
+       "note": "in a down clue the piece that supports sits underneath, so the Yankee letter goes last"
       }
      ],
      "parts": [
@@ -1072,50 +1077,56 @@
        "indicators": [
         {
          "text": "expelling",
-         "note": "expelling something throws it out, so those letters are removed"
-        },
-        {
-         "text": "more than once",
-         "note": "this says the removal happens repeatedly, so every matching letter in the surname goes"
+         "at": 39,
+         "note": "expelling means driving out, so the English letters are pushed out of the Confederate's name"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Confederate",
-           "gives": "GENERALLEE",
-           "note": "General Lee, Robert E. Lee, led the Confederate army"
-          },
-          {
-           "words": "English",
-           "gives": "E",
-           "note": "E is the abbreviation for English, removed twice"
-          }
-         ]
+         "words": "Confederate",
+         "at": 27,
+         "gives": "GENERALLEE",
+         "note": "General Lee, Robert E. Lee, commanded the Confederate army in the American Civil War"
         },
         {
-         "gives": "EEE"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "more than once",
+           "at": 57,
+           "note": "more than once means the English letter is taken twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "English",
+           "at": 49,
+           "gives": "E"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       },
       {
        "words": "Yankee",
+       "at": 11,
        "gives": "Y",
        "note": "Y is Yankee in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A Union soldier props up a Southern rebel who has thrown out the English several times.",
-     "walkthrough": "'Yankee' and 'Confederate' evoke the US Civil War; Yankee is just Y. 'more than once' removes both Es from LEE.",
-     "definitionFit": "Generally means usually or in most cases, which is what 'as a rule' means."
+     "surface": "A Yankee soldier props up a Confederate general who keeps throwing out the English.",
+     "walkthrough": "Robert E. Lee was the Confederate commander. 'expelling' takes both Es out of GENERAL LEE, leaving GENERALL, and 'supports' puts Y underneath it.",
+     "definitionFit": "Generally means usually or in most cases, which is what as a rule means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Yankee"
+     "misdirectedWord": "supports"
     }
    }
   },

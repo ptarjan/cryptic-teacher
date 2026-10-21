@@ -1175,29 +1175,48 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Boss dropping a",
-       "gives": "LEDER",
-       "note": "LEADER without its A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 5,
+         "note": "dropping means letting go, so the letter a falls out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Boss",
+         "at": 0,
+         "gives": "LEADER",
+         "note": "a boss is a leader"
+        },
+        {
+         "words": "a",
+         "at": 14,
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "pipe",
+       "at": 16,
        "gives": "HOSE",
        "note": "a hose is a flexible pipe"
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "n = new"
+       "at": 24,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A boss putting down his pipe next to some new clothes from Bavaria.",
-     "walkthrough": "'Pipe' suggests tobacco, fitting a Bavarian scene, but it is a garden hose.",
-     "definitionFit": "Lederhosen are the leather shorts traditionally worn in Bavaria."
+     "surface": "A boss gives up a pipe for something new to wear in Bavaria.",
+     "walkthrough": "'dropping a' takes A out of LEADER, leaving LEDER.",
+     "definitionFit": "Lederhosen are leather shorts with braces, the traditional dress of Bavaria and the Alps."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "pipe"
     }

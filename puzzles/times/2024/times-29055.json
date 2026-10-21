@@ -986,25 +986,42 @@
      "parts": [
       {
        "words": "politician",
+       "at": 5,
        "gives": "CON",
-       "note": "Con is short for Conservative"
+       "note": "CON is short for Conservative, a politician"
       },
       {
-       "words": "clerical assistant briefly",
-       "gives": "VERGE",
-       "note": "a verger, who helps in a church, loses the R"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 39,
+         "note": "briefly means cut short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clerical assistant",
+         "at": 20,
+         "gives": "VERGER",
+         "note": "a verger is a church official who assists the clergy"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A meeting with a politician and an office assistant.",
-     "walkthrough": "'Clerical' means of the clergy, not office work: a verger looks after a church.",
-     "definitionFit": "Plain synonym: roads or lines coming together at a point meet there."
+     "surface": "A politician has a short meeting with a vicar's assistant.",
+     "walkthrough": "A verger is a church caretaker who assists the clergy at services.",
+     "definitionFit": "To converge is to come together from different directions, as roads or crowds meet."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "clerical"
+     "misdirectedWord": "briefly"
     }
    }
   },

@@ -2487,57 +2487,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AXIOMATIC",
-     "indicators": [
-      {
-       "text": "ruinous",
-       "note": "something ruinous wrecks things, so these letters are smashed into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AXIOMATIC",
+       "words": "a",
+       "at": 9
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "without limits",
-         "note": "without its limits means both outer letters are removed"
+         "text": "ruinous",
+         "at": 11,
+         "note": "something ruinous wrecks what it touches, so the letters of taxi plus the trimmed home are wrecked into a new order"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
          "words": "taxi",
-         "note": "taken as written for rearranging"
+         "at": 19
         },
         {
-         "words": "home",
-         "note": "taken as written"
-        },
-        {
-         "words": "in charge",
-         "gives": "IC",
-         "note": "IC is the abbreviation for in charge"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "without limits",
+           "at": 29,
+           "note": "a word without its limits has lost its first and last letters, so home keeps only its middle"
+          }
+         ],
+         "parts": [
+          {
+           "words": "home",
+           "at": 24,
+           "note": "the word home, which is trimmed here"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "in charge",
+       "at": 44,
+       "gives": "IC"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone takes a disastrous cab ride home, with no limits on the charge.",
-     "walkthrough": "HOME without its outer letters is OM, which joins TAXI in the rearrangement.",
-     "definitionFit": "Axiomatic means self-evidently true and taken for granted, so it describes something accepted without proof."
+     "surface": "A wrecked cab gets driven home by someone who has been put in charge.",
+     "walkthrough": "'home' is not where the taxi goes: trimmed of its ends, it joins the cab's letters in the anagram.",
+     "definitionFit": "Something axiomatic is self-evident and taken for granted, so it is generally accepted without needing proof."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "charge"
+     "misdirectedWord": "ruinous"
     }
    }
   },

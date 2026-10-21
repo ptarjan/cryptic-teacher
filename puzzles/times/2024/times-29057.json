@@ -701,49 +701,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "upending",
-       "note": "in a down clue, upending turns the word upside down, so it reads backwards"
-      },
-      {
        "text": "onto",
-       "note": "in a down clue, the first piece sits on top of what follows"
+       "at": 28,
+       "note": "in a down answer, putting one piece onto another sets it on top, so the dirt comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upending",
+         "at": 14,
+         "note": "in a down answer, upending turns a word over so it reads bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "scrap",
-         "gives": "KCUR",
-         "note": "a ruck is a scrap, a brawl"
-        },
-        {
-         "words": "fresh",
-         "gives": "TREP",
-         "note": "fresh = cheeky, pert"
-        },
-        {
          "words": "dirt",
+         "at": 23,
          "gives": "MUD",
-         "note": "MUD, upended"
+         "note": "dirt means mud"
         }
        ]
+      },
+      {
+       "words": "fresh",
+       "at": 33,
+       "gives": "PERT",
+       "note": "fresh, as in cheeky, means pert"
+      },
+      {
+       "words": "scrap",
+       "at": 39,
+       "gives": "RUCK",
+       "note": "a scrap is a fight, and a ruck is a brawl or scuffle"
       }
      ]
     },
     "explanation": {
-     "surface": "A lorry tipping soil onto a heap of fresh scrap metal.",
-     "walkthrough": "The surface is a working tipper lorry, 'upending dirt'. Fresh means cheeky here, and scrap is a fight, not waste metal.",
-     "definitionFit": "A loose description: the site vehicle that tips its load is big, but the definition only gives its size."
+     "surface": "A big lorry tips its load of dirt onto a pile of fresh scrap metal.",
+     "walkthrough": "'upending' turns MUD into DUM, and 'onto' puts it above PERT and RUCK in the down light. Fresh here means cheeky; a ruck is a scuffle.",
+     "definitionFit": "A dumper truck is a heavy vehicle with a tipping bin, used on building sites for moving loose material."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "scrap"
+     "misdirectedWord": "fresh"
     }
    }
   },
@@ -1487,36 +1494,34 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "first of",
-       "note": "the first of a word is its opening letter, here from money"
+       "text": "that's been raised",
+       "at": 24,
+       "note": "in a down answer, something raised is lifted so it reads bottom to top"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "that's been raised",
-         "note": "in a down clue, raising a word turns it upside down, so it reads backwards"
-        }
-       ],
        "parts": [
         {
          "words": "Withdraw",
+         "at": 0,
          "gives": "GO",
-         "note": "to go is to leave, withdraw"
+         "note": "to withdraw is to go away"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "M",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 9,
+           "note": "the first of a word is its opening letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "first of money",
-           "gives": "M",
-           "select": "first",
-           "note": "first letter of money"
+           "words": "money",
+           "at": 18
           }
          ]
         }
@@ -1525,9 +1530,9 @@
      ]
     },
     "explanation": {
-     "surface": "Taking cash back out of a raised pool of money.",
-     "walkthrough": "'Kitty' looks like a pool of money, fitting the surface, but it is a cat.",
-     "definitionFit": "A regional use: British slang for a cat, short for moggy."
+     "surface": "Someone takes out the money that a group has raised for its kitty.",
+     "walkthrough": "'kitty' suggests a shared fund of money, but here it is the cat.",
+     "definitionFit": "Mog is an informal British word for a cat, and kitty is a pet name for a cat too."
     },
     "features": {
      "answerInScene": false,

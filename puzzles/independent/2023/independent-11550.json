@@ -153,7 +153,8 @@
      "indicators": [
       {
        "text": "being cut by",
-       "note": "to be cut by something is to have it go into you, so one letter is inserted"
+       "at": 22,
+       "note": "being cut by means having something driven into the middle, so one piece goes inside the other"
       }
      ],
      "parts": [
@@ -162,14 +163,31 @@
        "indicators": [
         {
          "text": "about",
-         "note": "about can mean turned round, so the repeated denial is read backwards"
+         "at": 16,
+         "note": "about means turned around, so the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Repeated denial",
-         "gives": "NONO",
-         "note": "saying no twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "Repeated",
+           "at": 0,
+           "note": "repeated means the denial is given twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "denial",
+           "at": 9,
+           "gives": "NO",
+           "note": "no is a denial"
+          },
+          {
+           "gives": "NO"
+          }
+         ]
         }
        ]
       },
@@ -178,22 +196,23 @@
        "indicators": [
         {
          "text": "top of",
-         "note": "in a down clue the top is the start, so only the first letter is taken"
+         "at": 35,
+         "note": "the top of a word in a down clue is its first letter"
         }
        ],
        "parts": [
         {
          "words": "incandescent",
-         "note": "its first letter"
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A double refusal about cutting into a glowing light bulb.",
-     "walkthrough": "'Incandescent bulb' suggests a lamp; the bulb is the vegetable.",
-     "definitionFit": "An onion is the edible bulb of an allium plant, so bulb is a category it belongs to."
+     "surface": "Someone keeps denying that a light bulb was broken by the glowing filament.",
+     "walkthrough": "'Repeated' gives NONO and 'about' turns it into ONON; 'being cut by' puts I inside it. 'bulb' looks like the light, but it is the vegetable.",
+     "definitionFit": "An onion grows as a bulb, a swollen underground stem of tightly layered leaves."
     },
     "features": {
      "answerInScene": false,
@@ -733,54 +752,62 @@
      "op": "charade",
      "parts": [
       {
-       "words": "run",
-       "gives": "R",
-       "note": "R is the cricket abbreviation for a run"
-      },
-      {
-       "op": "deletion",
+       "op": "move",
        "indicators": [
         {
          "text": "to the front",
-         "note": "this letter leaves its place and is moved to the head of the word"
-        },
-        {
-         "text": "close to",
-         "note": "the close of a word is its end, so only its final letter is kept"
+         "at": 20,
+         "note": "going to the front means a letter moves to the start of the word"
         }
        ],
        "parts": [
         {
          "words": "People, not us",
+         "at": 0,
          "gives": "OTHERS",
-         "note": "other people, as opposed to ourselves"
+         "note": "people other than us are others"
         },
         {
-         "gives": "R"
+         "words": "run",
+         "at": 16,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for run"
         }
        ]
       },
       {
        "words": "are",
+       "at": 37,
        "gives": "A",
-       "note": "an are is a metric unit of area, abbreviated A"
+       "note": "an are is a unit of area, abbreviated A"
       },
       {
-       "words": "ecstasy",
-       "gives": "Y",
-       "note": "its last letter"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 41,
+         "note": "the close of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ecstasy",
+         "at": 50
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Holidaymakers rushing ahead to an ecstatic arrival at a Scottish beach town.",
-     "walkthrough": "The R inside the word for other people moves to the front, then A for are and the end of ecstasy follow.",
-     "definitionFit": "Rothesay is the chief town on the Isle of Bute, a traditional Clyde holiday resort."
+     "surface": "A holiday ad: other people go running to the beach and feel near to ecstasy at a Scottish resort.",
+     "walkthrough": "'to the front' moves the R of OTHERS to the start, giving ROTHES. An are is a metric unit of area, A. Rothesay is a resort on the Isle of Bute.",
+     "definitionFit": "Rothesay is a traditional holiday town on the Isle of Bute in the Firth of Clyde."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "are"
+     "misdirectedWord": "run"
     }
    }
   },
