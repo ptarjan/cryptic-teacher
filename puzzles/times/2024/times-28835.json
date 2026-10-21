@@ -983,53 +983,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "over",
-       "note": "in a down clue, turned over means read upwards, so 'bird run' goes backwards"
+       "text": "crossing",
+       "at": 14,
+       "note": "crossing means lying across, so the reversed letters hold the next piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 9,
+         "note": "over means turned over, so both words read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "crossing",
-           "note": "the reversed pieces cross over and so hold 'motorway'"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "Bird",
+           "at": 0,
            "gives": "GREBE",
-           "note": "a diving water bird"
+           "note": "a grebe is a diving water bird"
           },
           {
-           "words": "motorway",
-           "gives": "M",
-           "note": "M roads are British motorways, as in the M1"
+           "words": "run",
+           "at": 5,
+           "gives": "RUN",
+           "note": "taken as the word itself"
           }
          ]
-        },
-        {
-         "words": "run",
-         "note": "kept as it stands"
         }
        ]
+      },
+      {
+       "words": "motorway",
+       "at": 23,
+       "gives": "M",
+       "note": "M is the abbreviation for motorway, as in the M1"
       }
      ]
     },
     "explanation": {
-     "surface": "A bird is hit by a car where it strays across a motorway in town.",
-     "walkthrough": "'Run over' looks like roadkill, but 'over' turns 'bird run' round as one unit before the motorway goes in.",
-     "definitionFit": "Nuremberg is a large Bavarian city in Germany, known for its medieval castle and the postwar tribunals."
+     "surface": "A bird is run over while crossing a motorway in the city.",
+     "walkthrough": "'over' acts on the bird and run together, and 'crossing' then sends the motorway letter inside the turned letters.",
+     "definitionFit": "Nuremberg is a city in Bavaria in southern Germany, known for its post-war trials."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "run"
     }
@@ -1451,7 +1457,7 @@
       {
        "text": "in",
        "at": 21,
-       "note": "the two Ms are placed inside the rearranged letters"
+       "note": "in puts the two letters inside the mixed letters"
       }
      ],
      "parts": [
@@ -1461,28 +1467,39 @@
         {
          "text": "turbulent",
          "at": 24,
-         "note": "the river's name is churned up, its letters rearranged"
+         "note": "turbulent means churning, so these letters are mixed"
         }
        ],
        "parts": [
         {
          "words": "Seine",
-         "at": 34
+         "at": 34,
+         "note": "taken as written"
         }
        ]
       },
       {
-       "words": "mass seen twice",
-       "at": 5,
-       "gives": "MM",
-       "note": "M is the abbreviation for mass, here appearing twice"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "mass",
+         "at": 5,
+         "gives": "M",
+         "note": "M is the abbreviation for mass in physics"
+        },
+        {
+         "words": "twice",
+         "at": 15,
+         "gives": "M",
+         "note": "twice says the mass letter appears a second time"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vast mass seen twice over in the choppy waters of the Paris river.",
-     "walkthrough": "'Seen twice' tells you to use the abbreviation for mass two times over; the Seine is the river through Paris.",
-     "definitionFit": "Immense and huge are synonyms, both describing something of enormous size."
+     "surface": "A huge mass is seen twice in the churning waters of the River Seine in Paris.",
+     "definitionFit": "Immense means extremely large, vast."
     },
     "features": {
      "answerInScene": true,
