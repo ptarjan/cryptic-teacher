@@ -769,53 +769,57 @@
      "parts": [
       {
        "words": "One",
+       "at": 0,
        "gives": "I",
-       "note": "I is the Roman numeral one"
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "words": "MP",
+       "at": 4
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 8,
+         "note": "'extremely' keeps only the two end letters of antipathetical"
+        }
+       ],
+       "parts": [
+        {
+         "words": "antipathetical",
+         "at": 18
+        }
+       ]
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "unfortunately",
-         "note": "something gone unfortunately has gone wrong, so the letters fall into a different order"
+         "at": 44,
+         "note": "'unfortunately' says the letters of 'a pleb' come out in an unlucky jumble"
         }
        ],
        "parts": [
         {
-         "words": "MP",
-         "note": "taken as written"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "extremely points to the extremes, so only the first and last letters of the word are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "antipathetical",
-           "note": "the first and last letters of antipathetical"
-          }
-         ]
-        },
-        {
          "words": "a pleb",
-         "note": "taken as written"
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician hostile to ordinary people is, sadly, untouchable.",
-     "definitionFit": "Impalpable means not perceptible to touch, intangible."
+     "surface": "A snobbish MP, deeply hostile to a commoner, sadly finds him untouchable.",
+     "walkthrough": "A pleb is British slang for a commoner.",
+     "definitionFit": "Impalpable means imperceptible to touch, unable to be felt by the hand."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "MP"
+     "misdirectedWord": "unfortunately"
     }
    }
   },
@@ -1601,43 +1605,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "failing at first",
+       "at": 9,
+       "note": "'failing at first' says each word loses its opening letter, so the M and the F go"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "failing at first",
-         "note": "failing at the start means each word loses its opening letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "My",
-         "note": "taken as written"
-        },
-        {
-         "gives": "M"
-        }
-       ]
+       "words": "My field",
+       "at": 0,
+       "gives": "MYFIELD"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "field",
-         "note": "taken as written"
-        },
-        {
-         "gives": "F"
-        }
-       ]
+       "gives": "MF"
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer laments that a field is failing to grow its harvest.",
-     "definitionFit": "A yield is the amount of a crop harvested, so the nouns are synonyms."
+     "surface": "A farmer laments that a field failed early on to produce any crop.",
+     "definitionFit": "A yield is the amount of a crop a field gives, the harvest produced."
     },
     "features": {
      "answerInScene": true,

@@ -755,39 +755,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "reversal",
      "indicators": [
       {
        "text": "reviewed",
        "at": 32,
-       "note": "viewed again in a new order, so the letters are rearranged"
+       "note": "'reviewed' says the whole string is looked at again from the other end"
       }
      ],
      "parts": [
       {
-       "words": "Reginald",
-       "at": 0,
-       "gives": "REG",
-       "note": "Reg is the usual short form of Reginald"
-      },
-      {
-       "words": "and",
-       "at": 9,
-       "gives": "N",
-       "note": "N stands for and, as in rock 'n' roll"
-      },
-      {
-       "words": "Evangeline briefly",
-       "at": 13,
-       "gives": "EVA",
-       "note": "Eva is a shortened form of Evangeline"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Reginald",
+         "at": 0,
+         "gives": "REG",
+         "note": "Reg is the short form of the name Reginald"
+        },
+        {
+         "words": "and",
+         "at": 9,
+         "gives": "N",
+         "note": "n is short for and, as in rock 'n' roll"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 24,
+           "note": "'briefly' says Evangeline is cut down to its short opening"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Evangeline",
+           "at": 13
+          },
+          {
+           "gives": "NGELINE"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two critics, Reg and Evangeline, wrote short reviews of the superhero film Iron Man.",
-     "walkthrough": "'Briefly' trims both names to their pet forms; 'and' gives its usual crossword N.",
-     "definitionFit": "Iron Man is one of Marvel's superhero team the Avengers, so he is an example."
+     "surface": "A couple, Reginald and Evangeline, give a quick review of the Iron Man film.",
+     "definitionFit": "Iron Man is a member of the Avengers, the Marvel superhero team, so he is an example of one."
     },
     "features": {
      "answerInScene": true,
