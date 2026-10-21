@@ -977,36 +977,39 @@
      "op": "container",
      "indicators": [
       {
-       "text": "catching"
+       "text": "catching",
+       "at": 6,
+       "note": "catching means the first word holds the next piece inside it"
       }
      ],
      "parts": [
       {
        "words": "Match",
+       "at": 0,
        "gives": "SIMULATE",
-       "note": "to simulate is to match, imitate"
+       "note": "to simulate something is to imitate or match it"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "at last",
-         "note": "the final letter of 'alight'"
+         "at": 22,
+         "note": "at last points to the final letter of alight"
         }
        ],
        "parts": [
         {
-         "words": "alight at last",
-         "note": "last letter of alight"
+         "words": "alight",
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A match finally catches light and there is a fire.",
-     "walkthrough": "Match, alight and fire all point to a burning match; 'fire' is a verb meaning excite, and 'Match' means copy.",
-     "definitionFit": "A plain synonym: to fire someone up is to excite or rouse them."
+     "surface": "A match finally catches and someone shouts that there is fire.",
+     "definitionFit": "To fire someone up is to stimulate them, a figurative synonym for rouse or excite."
     },
     "features": {
      "answerInScene": false,
@@ -1742,31 +1745,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "into"
+       "text": "into",
+       "at": 18,
+       "note": "into means the piece for 'bit' goes inside the doubled pair"
       }
      ],
      "parts": [
       {
-       "words": "double servings of it",
-       "gives": "SASA",
-       "note": "it = SA, sex appeal; doubled"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "double servings of",
+         "at": 23,
+         "note": "two servings of the same thing, so the piece for 'it' appears twice in a row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 42,
+         "gives": "SA",
+         "note": "SA, short for sex appeal, is a crossword stand-in for 'it'"
+        },
+        {
+         "gives": "SA"
+        }
+       ]
       },
       {
        "words": "bit",
+       "at": 14,
        "gives": "MO",
-       "note": "a mo = a moment, a bit"
+       "note": "MO is short for moment, a bit of time"
       }
      ]
     },
     "explanation": {
-     "surface": "Taking a bite out of a snack before a second helping.",
-     "walkthrough": "'It' as sex appeal (SA) is a crossword convention; 'bit' reads as a bite but means a short time.",
-     "definitionFit": "A definition by description: a fried pastry filled with spiced vegetables or meat."
+     "surface": "Someone bites into a stuffed snack, asking for two helpings of it.",
+     "walkthrough": "SA (sex appeal, a crossword sense of 'it') is written twice, SASA, and MO (a moment) goes into the middle.",
+     "definitionFit": "A samosa is a fried pastry stuffed with spiced vegetables or meat, an example of a stuffed snack."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bit"
+     "misdirectedWord": "it"
     }
    }
   },
@@ -2526,40 +2548,58 @@
      "parts": [
       {
        "words": "An",
-       "note": "used as printed"
+       "at": 0
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "accommodated in",
-         "note": "an accommodated guest is housed inside"
+         "text": "accommodated",
+         "at": 35,
+         "note": "accommodated means housed within, so the piece for ten sits inside the shortened word"
         }
        ],
        "parts": [
         {
-         "words": "obligation unfulfilled",
-         "gives": "NEE",
-         "note": "NEED without its last letter D"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "unfulfilled",
+           "at": 14,
+           "note": "unfulfilled means the word is not complete, its final letter missing"
+          }
+         ],
+         "parts": [
+          {
+           "words": "obligation",
+           "at": 3,
+           "gives": "NEED",
+           "note": "a need is an obligation or necessity"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         },
         {
          "words": "ten",
+         "at": 31,
          "gives": "X",
-         "note": "X = ten in Roman numerals"
+         "note": "X is the Roman numeral for ten"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unfulfilled duty means ten people are housed in an overflow building.",
-     "walkthrough": "'Accommodated in extra building' reads as housing the ten; the definition is only the last two words.",
-     "definitionFit": "A plain synonym: an extension or outbuilding."
+     "surface": "An unmet obligation, with ten people put up in an additional building.",
+     "walkthrough": "'Unfulfilled' is the surface's idea of a broken promise, but here it only means the word is left unfinished.",
+     "definitionFit": "An annexe is a building joined to or added to a main one, a synonym for an extension."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "accommodated"
+     "misdirectedWord": "obligation"
     }
    }
   },

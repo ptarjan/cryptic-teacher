@@ -1669,41 +1669,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all of it, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "benefit payment",
-         "gives": "DOLE",
-         "note": "the dole is British state unemployment benefit"
-        },
-        {
-         "words": "complete",
-         "gives": "FULL",
-         "note": "full means complete"
-        }
-       ]
+       "words": "benefit payment",
+       "at": 10,
+       "gives": "DOLE",
+       "note": "the dole is British slang for unemployment benefit"
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 26,
+         "note": "almost means not quite all of the word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "complete",
+         "at": 33,
+         "gives": "FULL",
+         "note": "full means complete or entire"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is gloomy that their benefit cheque is nearly all spent.",
-     "definitionFit": "Doleful describes a sorrowful, mournful look or mood, a synonym of unhappy."
+     "surface": "A welfare payment that is nearly complete.",
+     "walkthrough": "The dole is British slang for state unemployment benefit.",
+     "definitionFit": "Doleful means sorrowful or gloomy, a synonym for unhappy."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complete"
     }
    }
   },

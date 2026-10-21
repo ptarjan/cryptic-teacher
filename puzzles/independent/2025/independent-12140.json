@@ -106,47 +106,66 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means surrounding, so the rearranged letters go around the single letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "reversal",
        "indicators": [
         {
          "text": "Upset",
-         "note": "upset means knocked over and disordered, so the letters are rearranged"
+         "at": 0,
+         "note": "upset in a down clue means turned upside down, so the two letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "South American",
-         "gives": "SA",
-         "note": "standard abbreviation for South American"
-        },
-        {
-         "words": "alliance",
-         "gives": "UNION",
-         "note": "a union is an alliance"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "South",
+           "at": 6,
+           "gives": "S"
+          },
+          {
+           "words": "American",
+           "at": 12,
+           "gives": "A"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "first",
+       "op": "container",
        "indicators": [
         {
-         "text": "capital of",
-         "note": "a capital is a head letter, so only the first letter of the following word is taken"
+         "text": "about",
+         "at": 30,
+         "note": "about means the alliance goes round the next piece"
         }
        ],
        "parts": [
         {
-         "words": "Colombia",
-         "note": "the initial letter of Colombia"
+         "words": "alliance",
+         "at": 21,
+         "gives": "UNION",
+         "note": "a union is an alliance"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "capital of",
+           "at": 36,
+           "note": "capital of means the first, capital letter of Colombia"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Colombia",
+           "at": 47
+          }
+         ]
         }
        ]
       }
@@ -154,14 +173,14 @@
     },
     "spelling": "ASUNCIÓN",
     "explanation": {
-     "surface": "A political bloc in South America falls apart over the Colombian capital.",
-     "walkthrough": "The definition is partly wordplay: 'capital of Colombia' gives C, while the whole phrase, with its 'or elsewhere?', points to a capital in another country.",
-     "definitionFit": "Asunción is the capital city of Paraguay, so it is a South American capital, just not Colombia's."
+     "surface": "A South American alliance is unsettled over Bogotá, or some other capital.",
+     "walkthrough": "The clue invites the reading that Asunción might be Colombia's capital; it is not, it is the capital elsewhere, of Paraguay.",
+     "definitionFit": "Asunción is the capital city of Paraguay, a South American capital other than Bogotá."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "capital"
+     "misdirectedWord": "Colombia"
     }
    }
   },

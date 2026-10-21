@@ -243,42 +243,69 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Playing",
-       "note": "playing about with something moves its parts, so the letters are mixed"
-      },
-      {
-       "text": "wild",
-       "note": "wild means out of control, so the letters run into a new order"
+       "text": "around",
+       "at": 19,
+       "note": "around means the rearranged chess letters go round the pieces that follow"
       }
      ],
      "parts": [
       {
-       "words": "nice chess",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Playing",
+         "at": 0,
+         "note": "playing means the letters of nice chess are moved about and put into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nice chess",
+         "at": 8
+        }
+       ]
       },
       {
-       "words": "hot",
-       "gives": "H",
-       "note": "H is the abbreviation for hot on taps"
-      },
-      {
-       "words": "creek",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hot",
+         "at": 26,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, on taps"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "wild",
+           "at": 37,
+           "note": "wild means the letters of creek run out of control into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "creek",
+           "at": 30
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friendly game of chess played somewhere beside a steamy creek in the wilderness.",
-     "walkthrough": "All fifteen letters are mixed together; 'around' just strings the surface along.",
-     "definitionFit": "Chinese chequers is a star-shaped board game played by moving marbles or pegs, an example of a board game."
+     "surface": "Someone plays a pleasant game of chess by a hot stream, wild with excitement.",
+     "walkthrough": "There are two separate anagrams here, 'Playing' for the chess letters and 'wild' for the creek, with the container between them.",
+     "definitionFit": "Chinese checkers is a star-shaped board game played with marbles or pegs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "chess"
+     "misdirectedWord": "Playing"
     }
    }
   },
@@ -1602,41 +1629,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "spliced with",
-       "note": "splicing joins two ends by overlapping them, so one shared letter is used only once"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "spliced with",
+         "at": 8,
+         "note": "spliced means joined by overlapping, so the shared letter appears once"
+        }
+       ],
        "parts": [
         {
          "words": "Orchid",
+         "at": 0,
          "gives": "DISA",
          "note": "disa is a genus of African orchids"
         },
         {
-         "words": "Michaelmas daisy",
-         "gives": "ASTER",
-         "note": "the Michaelmas daisy is a kind of aster"
+         "gives": "A"
         }
        ]
       },
       {
-       "gives": "A"
+       "words": "Michaelmas daisy",
+       "at": 21,
+       "gives": "ASTER",
+       "note": "a Michaelmas daisy is a kind of aster"
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener's attempt to cross two flowers ends in flop.",
-     "walkthrough": "The A that ends DISA is the same A that begins ASTER, so the two words overlap.",
-     "definitionFit": "A disaster is a complete fiasco, an emphatic synonym for a failure."
+     "surface": "A gardener's grafting of an orchid onto a daisy ends in failure.",
+     "walkthrough": "DISA ends with the A that ASTER begins with, and splicing overlaps them.",
+     "definitionFit": "A disaster is a calamity or total failure."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "spliced"
     }

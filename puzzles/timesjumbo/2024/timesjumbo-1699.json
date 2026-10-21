@@ -601,24 +601,61 @@
      "op": "charade",
      "parts": [
       {
-       "words": "rap artist spending second million",
-       "gives": "EMINE",
-       "note": "EMINEM without his second M (million)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "spending",
+         "at": 19,
+         "note": "spending means giving up, so the second M is taken out of the rapper's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rap artist",
+         "at": 8,
+         "gives": "EMINEM",
+         "note": "Eminem is a well-known American rapper"
+        },
+        {
+         "words": "second million",
+         "at": 28,
+         "gives": "M",
+         "note": "M is the abbreviation for million, here the second M in the name"
+        }
+       ]
       },
       {
-       "words": "as soon as losing love",
-       "gives": "NCE",
-       "note": "ONCE (as soon as) without O, love as zero"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 54,
+         "note": "losing means the letter for love drops out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "as soon as",
+         "at": 43,
+         "gives": "ONCE",
+         "note": "once can mean as soon as, as in 'once you arrive'"
+        },
+        {
+         "words": "love",
+         "at": 61,
+         "gives": "O",
+         "note": "love is zero in tennis, which looks like O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rapper spends his millions as fast as his love life falls apart.",
-     "walkthrough": "Eminem is the American rapper. Only the second of his two Ms goes.",
-     "definitionFit": "A plain synonym: eminence is high standing and distinction, which is fame."
+     "surface": "Fame for a rapper who spent a million the moment love was lost.",
+     "definitionFit": "Eminence is distinction or high standing, a synonym for renown."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "spending"
     }
@@ -2988,29 +3025,42 @@
      "indicators": [
       {
        "text": "under",
-       "note": "in a down clue, placed below the next piece"
+       "at": 4,
+       "note": "under means, in a down clue, the second piece comes below the first"
       }
      ],
      "parts": [
       {
-       "words": "half of shed",
-       "gives": "SH",
-       "note": "first half of SHED"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 10,
+         "note": "half of shed is its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shed",
+         "at": 18
+        }
+       ]
       },
       {
        "words": "Dug",
+       "at": 0,
        "gives": "UDDER",
-       "note": "a dug is an udder or teat, placed below SH"
+       "note": "a dug is a teat or udder of an animal"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone digs under a garden shed and feels the ground shake.",
-     "walkthrough": "'Dug' looks like the past tense of dig; it is the old noun for an udder.",
-     "definitionFit": "A plain synonym: a shudder is a sudden trembling of the body."
+     "surface": "Something dug in beneath half a garden shed causes the ground to shake.",
+     "walkthrough": "'Dug' looks like the past tense of dig but is the noun for an animal's teat.",
+     "definitionFit": "A shudder is a sudden shaking movement, a synonym for a quiver."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Dug"
     }
