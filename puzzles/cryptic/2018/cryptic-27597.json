@@ -602,7 +602,7 @@
       {
        "text": "wearing",
        "at": 27,
-       "note": "the spectacles are worn around the letters, so they enclose them"
+       "note": "the doubled letter is worn by the spectacles, so it sits inside them"
       }
      ],
      "parts": [
@@ -610,20 +610,35 @@
        "words": "spectacles",
        "at": 35,
        "gives": "OO",
-       "note": "a pair of spectacles looks like two rings, OO"
+       "note": "spectacles look like a pair of round letter Os"
       },
       {
-       "words": "Perkin twice",
-       "at": 14,
-       "gives": "PP",
-       "note": "Perkin is a crossword setter; by the preamble the setter's initial letter is used, and twice means two copies of it"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 21,
+         "note": "twice says the piece from the setter's name is written two times over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Perkin",
+         "at": 14,
+         "gives": "P",
+         "note": "Perkin is a crossword setter, the theme word in this clue; per the preamble only its initial letter is used"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A colleague and a man called Perkin both sport glasses.",
-     "walkthrough": "Perkin is a Guardian setter, so by the preamble only the name's initial counts; spectacles stand for two round lenses, a common crossword picture.",
-     "definitionFit": "Oppo is British informal slang for a colleague or partner, a counterpart at work."
+     "surface": "A colleague and someone called Perkin both turn up at work wearing glasses.",
+     "walkthrough": "The preamble says each non-theme clue holds a setter's name whose initial joins the wordplay: Perkin gives P, and 'twice' doubles it to PP, which goes inside the OO of the spectacles.",
+     "definitionFit": "Oppo is informal British slang for a colleague or close companion, a partner at work."
     },
     "features": {
      "answerInScene": true,
@@ -2401,57 +2416,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MOCKTRIAL",
-     "indicators": [
-      {
-       "text": "strange",
-       "note": "something strange is out of the ordinary, so the letters take an unusual order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MOCKTRIAL",
+       "words": "Manley",
+       "at": 26,
+       "gives": "M",
+       "note": "Manley is a crossword setter, the theme word in this clue; per the preamble only its initial letter is used"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
+         "text": "strange",
+         "at": 35,
+         "note": "strange signals that the letters of the phrase are jumbled into a new order"
+        },
+        {
          "text": "no",
-         "note": "having none of something means those letters are removed"
+         "at": 59,
+         "note": "no says the letters of what follows are taken out of the jumbled phrase first"
         }
        ],
        "parts": [
         {
-         "op": "first",
+         "words": "practical joke",
+         "at": 43
+        },
+        {
+         "op": "charade",
          "parts": [
           {
-           "words": "Manley",
-           "note": "Manley is a crossword setter, so only the initial letter counts"
+           "words": "clubs",
+           "at": 62,
+           "gives": "C",
+           "note": "C is the card-suit abbreviation for clubs"
+          },
+          {
+           "words": "jape",
+           "at": 69
           }
          ]
-        },
-        {
-         "words": "practical joke",
-         "note": "taken as written"
-        },
-        {
-         "words": "clubs' jape",
-         "gives": "CJAPE",
-         "note": "C is clubs in card games, plus the word as written; these letters are removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bizarre prank plays out in an illegal courtroom session, minus the hijinks.",
-     "walkthrough": "Take C and the letters of 'jape' from 'practical joke', then rearrange the eight that remain.",
-     "definitionFit": "A mock trial is staged for practice rather than by a real court, so it has no official legal authority."
+     "surface": "Someone called Manley pulls an odd prank on a court, staging a fake hearing without the clubs' jape.",
+     "walkthrough": "Setter Manley gives M. Strike the letters of JAPE and a C (clubs) from PRACTICAL JOKE and rearrange what is left, RTICALOK, as OCKTRIAL; 'strange' signals the rearrangement and 'no' the removal.",
+     "definitionFit": "A mock trial is a staged, unofficial courtroom proceeding, a pretend hearing with no legal authority."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "hearing"
     }
    }
