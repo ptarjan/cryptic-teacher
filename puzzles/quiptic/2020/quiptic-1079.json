@@ -737,31 +737,70 @@
      }
     ],
     "wordplay": {
-     "op": "composite",
+     "op": "anagram",
      "indicators": [
       {
        "text": "unfortunately",
        "at": 25,
-       "note": "things going unfortunately go wrong, so the letters of the band's name are jumbled"
+       "note": "unfortunately suggests things gone wrong, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Dire Straits",
-       "at": 11
-      },
-      {
-       "words": "twice missing start of song",
-       "at": 39,
-       "gives": "SS",
-       "note": "the start of song is S, and it goes missing twice, so two of that letter are taken out"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 45,
+         "note": "missing means the fodder lacks the following letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dire Straits",
+         "at": 11,
+         "note": "anagram fodder: the name of a British rock band"
+        },
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "twice",
+           "at": 39,
+           "note": "twice means that letter is lost two times"
+          }
+         ],
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "start of",
+             "at": 53,
+             "note": "the start of a word is its first letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "song",
+             "at": 62,
+             "note": "first letter S"
+            }
+           ]
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A listener is irked when the band Dire Straits fluff the opening of a song two times.",
-     "walkthrough": "Take two S's out of DIRE STRAITS to leave DIRETRAIT, and 'unfortunately' rearranges those nine letters. 'by' is just a link here.",
-     "definitionFit": "Irritated and annoyed are synonyms, both meaning made cross or vexed."
+     "surface": "A listener is irritated by a Dire Straits record that keeps skipping the start of songs.",
+     "walkthrough": "Take both Ss out of DIRESTRAITS to leave DIRETRAIT, then rearrange.",
+     "definitionFit": "Irritated means annoyed, provoked into impatience."
     },
     "features": {
      "answerInScene": true,
