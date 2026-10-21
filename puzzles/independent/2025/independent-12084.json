@@ -325,60 +325,78 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "around",
-       "at": 36,
-       "note": "around means enclosing, so the pieces go round the other word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "half of takes two of the four letters, here the end pair"
+        }
+       ],
        "parts": [
         {
-         "words": "Half of best",
-         "at": 0,
-         "gives": "ST",
-         "note": "the second half of the word best"
-        },
-        {
-         "words": "silver",
-         "at": 13,
-         "gives": "AG",
-         "note": "Ag is the chemical symbol for silver"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "at": 20,
-           "note": "ultimately means the final letter of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lost",
-           "at": 31
-          }
-         ]
+         "words": "best",
+         "at": 8,
+         "gives": "BEST",
+         "note": "best, whose second half is taken"
         }
        ]
       },
       {
-       "words": "grandma's",
-       "at": 43,
-       "gives": "NAN",
-       "note": "nan is grandma; the 's is just 'is'"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 36,
+         "note": "around means placed either side of the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "silver",
+           "at": 13,
+           "gives": "AG",
+           "note": "AG is the chemical symbol for silver"
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "ultimately",
+             "at": 20,
+             "note": "ultimately means the last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "lost",
+             "at": 31,
+             "note": "lost gives its last letter"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "grandma's",
+         "at": 43,
+         "gives": "NAN",
+         "note": "nan is a familiar name for a grandmother"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Granny's flat has lost half its best silver.",
-     "walkthrough": "'flat' looks like a home; it means still and dull.",
-     "definitionFit": "Stagnant water does not flow, and a stagnant market is flat or inactive."
+     "surface": "Half the family silver gone, lost around Granny's apartment.",
+     "walkthrough": "'flat' looks like a home in the surface, but it means still or sluggish.",
+     "definitionFit": "Stagnant water is still, without current, and stagnant trade is lacklustre and sluggish."
     },
     "features": {
      "answerInScene": false,

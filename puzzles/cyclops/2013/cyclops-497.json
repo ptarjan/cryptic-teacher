@@ -413,18 +413,25 @@
        "indicators": [
         {
          "text": "whammied",
-         "note": "something whammied has been knocked about, so its letters are thrown into disorder"
+         "at": 27,
+         "note": "whammied, hit hard, signals that the letters are knocked about"
         }
        ],
        "parts": [
         {
          "words": "Enter",
-         "note": "taken as written"
+         "at": 0
         },
         {
-         "words": "Conservative, double",
-         "gives": "CC",
-         "note": "C for Conservative, taken twice"
+         "words": "Conservative",
+         "at": 6,
+         "gives": "C"
+        },
+        {
+         "words": "double",
+         "at": 20,
+         "gives": "C",
+         "note": "double means a second copy of that same letter, so another C joins the pool"
         }
        ]
       },
@@ -433,27 +440,33 @@
        "indicators": [
         {
          "text": "heads",
-         "note": "heads are the leading parts, so only the opening letters are kept"
+         "at": 55,
+         "note": "heads means the first letter of each word"
         }
        ],
        "parts": [
         {
-         "words": "impotent Cameron",
-         "note": "the opening letters of the two words"
+         "words": "impotent",
+         "at": 38,
+         "note": "impotent gives its first letter"
+        },
+        {
+         "words": "Cameron",
+         "at": 47,
+         "note": "Cameron gives its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political cartoon: a Tory enters, takes a double blow, and a powerless David Cameron runs for the exit.",
-     "walkthrough": "'Way out' looks like an exit, but it is the slang for very unconventional.",
-     "definitionFit": "Way out is slang for bizarre or unconventional, which is what an eccentric person is."
+     "surface": "A satirical jab at David Cameron, a Conservative leader rendered powerless.",
+     "definitionFit": "Way out is slang for bizarre or unconventional, which describes an odd, unconventional person."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "way"
+     "misdirectedWord": "Enter"
     }
    }
   },
@@ -683,31 +696,48 @@
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "spelt": "COFFIN",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "sounded rough",
-       "note": "spoken roughly, with a dropped final letter, the word is heard rather than spelt"
+       "text": "rough",
+       "at": 28,
+       "note": "rough speech drops the final G of an -ing word"
       }
      ],
      "parts": [
       {
-       "words": "Reacting to a cold",
-       "gives": "COUGHIN",
-       "note": "someone with a cold is coughing, said with the G dropped"
+       "op": "homophone",
+       "spelt": "COFFING",
+       "indicators": [
+        {
+         "text": "sounded",
+         "at": 20,
+         "note": "sounded means said aloud, so the result is a soundalike"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Reacting to a cold",
+         "at": 0,
+         "gives": "COUGHING",
+         "note": "someone with a cold reacts by coughing, said aloud as coffing"
+        }
+       ]
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A grim joke that a bad cough means the patient is heading for the grave.",
-     "walkthrough": "The dropped G of a rough accent makes the cold symptom sound like a burial box.",
-     "definitionFit": "A coffin is the box a corpse goes in, the next step after a fatal illness."
+     "surface": "A grim joke: someone with a bad cough might be heading for the grave.",
+     "walkthrough": "'sounded' gives COUGHING as it is said, and 'rough' speech drops its final G.",
+     "definitionFit": "A wooden box for burial, the step after a fatal illness."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "step"
     }
    }

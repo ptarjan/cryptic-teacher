@@ -472,39 +472,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "unopened",
-       "note": "a thing unopened has not had its front breached, so WINE loses its opening letter"
-      },
-      {
-       "text": "after",
-       "note": "the second piece is written after the first"
-      }
-     ],
      "parts": [
       {
        "words": "heavy defeat",
+       "at": 33,
        "gives": "ROUT",
        "note": "a rout is a crushing defeat"
       },
       {
-       "words": "wine",
-       "gives": "INE",
-       "note": "WINE without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 18,
+         "note": "unopened means the first letter is missing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wine",
+         "at": 13,
+         "note": "wine, losing its first letter"
+        },
+        {
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beaten team, as usual, not even getting to open the wine.",
-     "walkthrough": "'Unopened' pictures a corked bottle; in the wordplay it removes the first letter.",
-     "definitionFit": "The adjective sense: a routine event is ordinary, just what you expected."
+     "surface": "A sour drink left sealed after a crushing loss, predictably.",
+     "definitionFit": "Something routine is ordinary and predictable, what one would anticipate."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "unopened"
+     "misdirectedWord": "heavy"
     }
    }
   },
@@ -524,7 +528,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a change for better",
+      "text": "a change for better?",
       "at": 43
      }
     ],
@@ -533,25 +537,42 @@
      "parts": [
       {
        "words": "The writer's",
+       "at": 0,
        "gives": "IM",
-       "note": "the writer is = I'm"
+       "note": "the writer is I, and the writer's here is I am, shortened"
       },
       {
        "words": "expert",
+       "at": 13,
        "gives": "PRO",
        "note": "a pro is an expert"
       },
       {
-       "words": "vehement, he leaves",
-       "gives": "VEMENT",
-       "note": "VEHEMENT without HE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "at": 34,
+         "note": "leaves means goes out of, so those letters are taken from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vehement",
+         "at": 21
+        },
+        {
+         "words": "he",
+         "at": 31,
+         "note": "he, taken out of vehement"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer asking whether an ardent expert's departure would be for the best.",
-     "walkthrough": "'The writer' is the setter, so 'the writer's' gives I'M.",
-     "definitionFit": "A descriptive paraphrase rather than a one-word synonym: making something better is exactly this."
+     "surface": "A writer claims expertise, vehemently, before a man walks off: progress?",
+     "definitionFit": "An improvement is a change that makes something better."
     },
     "features": {
      "answerInScene": false,
