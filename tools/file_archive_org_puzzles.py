@@ -4262,10 +4262,15 @@ def answers_only(d, found, hit, solutions):
             or (old["source"].get("url") != page_url(d, found, hit["leaf"])) or all(e.get("solution") for e in es):
         return None
     from fetch_puzzle import duplicated_clues
-    # Every clue whole: worded, counted, no stray mark (settled_light). A held clue short of its
-    # count was cut by an earlier read, and the full read may still mend it.
-    if not complete(old) or any(duplicated_clues(es)) or strayed(old, spaces=False) \
-            or not all(settled_light(old, entry_id(e)) for e in es):
+    # Every clue worded and counted, none shared or faulty. A blank, or a clue short of its count, was
+    # cut by an earlier read and the full read may still fill it. A clue the readers filed but did not
+    # settle (a stray mark, a word the readers disagreed on) is no reason: the answers add nothing to
+    # it, the full read would spend the VLM's asks (a Times 1984 page: 3-6 per reread) on clue text
+    # the "read without the VLM that now answers" rereads mend at their own turn, and the held clues
+    # are the ones this reread keeps.
+    if filled(old)[0] != len(es) or any(duplicated_clues(es)) or faults(old) \
+            or not all(((e.get("clue") or {}).get("enumeration")
+                        or re.fullmatch(r"See \d+.*", (e["clue"]["text"] or "").strip())) for e in es):
         return None
     grid = trove_solution_ocr.puzzle_grid(old)
     answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above)
