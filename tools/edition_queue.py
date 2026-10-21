@@ -1472,6 +1472,13 @@ vlm_gate_reader = None
 #: that need it, whatever the last answer: the queue does not restart them on
 #: an answer from before it went down.
 VLM_RECHECK = 60
+#: A read that has ended deferred for the VLM's asks (spooled, or the spool full) twice running
+#: in a row waits DEFER_BACKOFF * 2 ** (n - 2) seconds (at most DEFER_BACKOFF_MAX) before it
+#: starts again: each start redoes its OCR, and one that finds a few new asks per pass (the
+#: next stage's asks need the last's answers; a spool just below its cap) burned ~4 page
+#: OCR passes a restart, 20+ restarts a read (the 10-21 log).
+DEFER_BACKOFF = 120
+DEFER_BACKOFF_MAX = 1800
 #: At most this many seconds a pass that would walk the queue as the last
 #: idle one did skips it (dispatch's idle_key): the walk is the loop's CPU.
 IDLE_WALK = 5
@@ -1755,6 +1762,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     drainer_stop = threading.Event()
     spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
     full_wait = set()  # keys of the reads deferred for a full spool: not started until it is below its cap
+    defer_runs = {}  # {key_of(read): times in a row it ended deferred for the VLM's asks}
+    defer_until = {}  # {key_of(read): monotonic time before which it is not started again (DEFER_BACKOFF)}
     stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
     cpu_cap_bound = False  # logged once each time the CPU-only cap holds a start back
     reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
@@ -2067,6 +2076,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 if full_end:
                     vlm_reader.full_mark(pid).unlink(missing_ok=True)
                     full_wait.add(key_of(unit))  # started again once the spool is below its cap
+                if spooled_by or full_end:
+                    n = defer_runs[key_of(unit)] = defer_runs.get(key_of(unit), 0) + 1
+                    if n >= 2:
+                        defer_until[key_of(unit)] = time.monotonic() + min(DEFER_BACKOFF_MAX, DEFER_BACKOFF * 2 ** (n - 2))
                 if spooled_by:
                     spool_wait[key_of(unit)] = set(spooled_by)  # started again once the drainer has answered them
                 elif not full_end:
@@ -2078,6 +2091,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     yield_held.add(key_of(unit))
             else:
                 finished[key_of(unit)] = time.monotonic()
+                defer_runs.pop(key_of(unit), None)
+                defer_until.pop(key_of(unit), None)
             if unit["kind"] == "scan" and rc == 0:
                 scanned.add((unit["paper"], unit["rel"]))
             elif unit["kind"] == "scan" and rc != EXITS["deferred"]:
@@ -2315,6 +2330,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             or it ended deferred for it) and it is down."""
             if u["kind"] != "read" or not (key_of(u) in vlm_held or needs_vlm(u)):
                 return False
+            if defer_until.get(key_of(u), 0) > time.monotonic():
+                return True  # deferred again and again for its asks: backed off (DEFER_BACKOFF)
             if key_of(u) in full_wait:
                 if spool_cap_hit:
                     return True  # deferred for a full spool: not again until it is below its cap
@@ -2528,7 +2545,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                                          or (u["kind"] == "scan" and (not yield_opt_in or (game and live_scans >= game_scans()))))):
                 continue
             if vlm_waits(u):
-                vlm_deferred += ukey not in spool_wait and ukey not in full_wait  # a read for the drainer is no "VLM down"
+                vlm_deferred += ukey not in spool_wait and ukey not in full_wait and ukey not in defer_until  # a read for the drainer is no "VLM down"
                 continue
             if vlm_full and u["kind"] == "read":
                 continue
