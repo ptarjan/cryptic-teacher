@@ -967,6 +967,14 @@
     "enumeration": "5"
    },
    "solution": "AVAIL",
+   "alteration": {
+    "from": "VIL",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
    "annotation": {
     "definitions": [
      {
@@ -975,27 +983,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVAIL",
+     "op": "first",
      "indicators": [
       {
        "text": "Half",
-       "note": "taking half of a word means cutting away the other half of its letters"
+       "at": 0,
+       "note": "half signals that only the first half of the word for holiday homes is kept, its back three letters dropped"
       }
      ],
      "parts": [
       {
        "words": "holiday homes",
-       "gives": "VIL",
-       "note": "the first half of villas"
+       "at": 9,
+       "gives": "VILLAS",
+       "note": "villas are houses rented or owned for holidays"
       }
      ]
     },
     "explanation": {
-     "surface": "Only half of the holiday cottages are any good.",
-     "walkthrough": "Both As are the repeated letter the wordplay leaves out.",
-     "definitionFit": "As a verb, avail means to help or be useful, as in 'tears will not avail'."
+     "surface": "Half of the holiday homes on offer are fit to be used.",
+     "walkthrough": "Per the preamble the repeated A's are missing from the wordplay: halving VILLAS leaves VIL, and both A's are then added to make the entry.",
+     "definitionFit": "To avail is to be of benefit or service, so with a plural subject 'are of use' is a synonym."
     },
     "features": {
      "answerInScene": false,
@@ -2486,17 +2494,33 @@
      }
     ],
     "wordplay": {
-     "words": "Repeatedly state",
-     "gives": "RIRI",
-     "note": "RI is Rhode Island, a US state, given twice"
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Repeatedly",
+       "at": 0,
+       "note": "repeatedly says the abbreviation for the state is written down twice in a row"
+      }
+     ],
+     "parts": [
+      {
+       "words": "state",
+       "at": 11,
+       "gives": "RI",
+       "note": "RI is the postal abbreviation for Rhode Island, a US state"
+      },
+      {
+       "gives": "RI"
+      }
+     ]
     },
     "explanation": {
-     "surface": "Someone insists over and over that it is a lucky charm.",
-     "walkthrough": "Both Gs are the repeated letter the wordplay leaves out. 'State' looks like a verb but is a US state.",
-     "definitionFit": "A grigri, or gris-gris, is an African amulet or charm worn to ward off evil."
+     "surface": "Someone keeps insisting on the single word 'Talisman'.",
+     "walkthrough": "The wordplay gives RIRI; the preamble's unmentioned repeated letter, here G, is then added twice to make the entry.",
+     "definitionFit": "A grigri is an African charm or amulet, an object believed to bring luck or ward off evil."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "state"
     }
