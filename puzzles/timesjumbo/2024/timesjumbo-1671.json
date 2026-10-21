@@ -477,25 +477,41 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Halfwit forgetting ID",
-       "gives": "IOT",
-       "note": "IDIOT without ID"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "forgetting",
+         "at": 8,
+         "note": "forgetting means leaving out, so the letters of ID drop from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Halfwit",
+         "at": 0,
+         "gives": "IDIOT",
+         "note": "an idiot is a halfwit"
+        },
+        {
+         "words": "ID",
+         "at": 19
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "the word itself"
+       "at": 23
       }
      ]
     },
     "explanation": {
-     "surface": "A dimwit has forgotten his identity card, and he happens to be Greek.",
-     "walkthrough": "'Greek character' sounds like a person from Greece; it means a letter of the Greek alphabet.",
+     "surface": "A fool who has forgotten their ID is described as an odd Greek fellow.",
+     "walkthrough": "'Greek character' looks like a person from Greece, but it is a letter of the Greek alphabet.",
      "definitionFit": "Iota is the ninth letter of the Greek alphabet."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "character"
     }
    }
@@ -817,32 +833,36 @@
    "annotation": {
     "definitions": [
      {
-      "text": "being lower",
-      "at": 39
+      "text": "lower",
+      "at": 45,
+      "note": "lower here means one that lows, a cow; the answer is a breed of cattle"
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LIMOUSIN",
      "indicators": [
       {
        "text": "Undercarriage scratched",
-       "note": "the bottom of a down answer is its last letter, which is scratched off"
+       "at": 0,
+       "note": "the undercarriage is the bottom of this down entry, its last letter, and scratched means removed"
       }
      ],
      "parts": [
       {
        "words": "luxury car",
-       "gives": "LIMOUSIN",
-       "note": "LIMOUSINE without its last letter E"
+       "at": 27,
+       "gives": "LIMOUSINE",
+       "note": "a limousine is a luxury car"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A luxury car scrapes its underside by riding too low.",
-     "walkthrough": "'Lower' seems to mean closer to the ground; read it as 'one that lows', a cow. The Limousin is a French breed of beef cattle.",
-     "definitionFit": "A Limousin is a breed of cattle, and cattle low, so it is a 'lower'."
+     "surface": "A luxury car's underside got scratched because it rode too low.",
+     "walkthrough": "'lower' looks like 'more low' but means an animal that lows, or moos.",
+     "definitionFit": "Limousin is a French breed of beef cattle, and a cow is an animal that moos."
     },
     "features": {
      "answerInScene": false,
@@ -2124,36 +2144,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "reversing"
+       "text": "about",
+       "at": 45,
+       "note": "about means around, so the word for think goes round the other"
       }
      ],
      "parts": [
       {
        "words": "think",
+       "at": 39,
        "gives": "SUPPOSE",
-       "note": "suppose = think"
+       "note": "to suppose is to think"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "about"
+         "text": "reversing",
+         "at": 7,
+         "note": "reversing means the word is written backwards"
         }
        ],
        "parts": [
         {
          "words": "unpleasant situation",
+         "at": 17,
          "gives": "MIRE",
-         "note": "to be in the mire is to be in trouble"
+         "note": "a mire is a mess, a difficult situation"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plan to turn round a nasty state of affairs, and a request to ponder it.",
-     "walkthrough": "'Set on' looks like 'determined'; it means placed on top. 'That' points back to the reversed trouble, which the thinking word then surrounds.",
-     "definitionFit": "To superimpose is to set one thing on top of another."
+     "surface": "Advice to ponder a nasty predicament once it has been turned around.",
+     "definitionFit": "To superimpose is to place one thing on top of another, laying it over the first."
     },
     "features": {
      "answerInScene": false,
@@ -2305,8 +2330,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "lifting of",
-       "note": "in a down answer, lifting turns the word upside down, reversing it"
+       "text": "after",
+       "at": 31,
+       "note": "after places the game piece behind the reversed letters"
       }
      ],
      "parts": [
@@ -2314,34 +2340,51 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "short",
-         "note": "STAFF loses its last letter"
+         "text": "lifting of",
+         "at": 37,
+         "note": "in a down entry lifting turns the letters upwards, so they read backwards"
         }
        ],
        "parts": [
         {
-         "words": "stick",
-         "gives": "STAF",
-         "note": "STAFF without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 48,
+           "note": "short means cut short, so the last letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "stick",
+           "at": 54,
+           "gives": "STAFF",
+           "note": "a staff is a stick"
+          },
+          {
+           "gives": "F"
+          }
+         ]
         }
        ]
       },
       {
        "words": "piece to play",
+       "at": 17,
        "gives": "DOMINO",
-       "note": "a domino is a playing piece"
+       "note": "a domino is a piece played in the game of dominoes"
       }
      ]
     },
     "explanation": {
-     "surface": "A veteran musician shows off an instrument he plays with a stick.",
-     "walkthrough": "Fats Domino was an American rhythm and blues pianist of the 1950s.",
-     "definitionFit": "Fats Domino was a rock and roll pianist and singer, famous for 'Blueberry Hill'."
+     "surface": "A veteran musician has a game piece to play once a short stick is picked up.",
+     "definitionFit": "Fats Domino was a pioneering American rock and roll pianist and singer of the 1950s."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "piece"
+     "misdirectedWord": "lifting"
     }
    }
   },

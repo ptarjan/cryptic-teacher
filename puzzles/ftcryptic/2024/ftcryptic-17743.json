@@ -915,65 +915,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
+      {
+       "text": "Lose",
+       "at": 0,
+       "note": "lose tells the solver the letters of self are taken out of the longer word"
+      },
       {
        "text": "wrecked",
        "at": 25,
-       "note": "what is left is wrecked, broken up and rebuilt in another order"
+       "note": "wrecked means smashed up, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Lose self",
-         "at": 0,
-         "note": "losing self means the four letters of the word self are dropped from the long word, wherever each one sits"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "deletion",
-           "parts": [
-            {
-             "op": "deletion",
-             "parts": [
-              {
-               "words": "wonderfulness",
-               "at": 10,
-               "note": "taken as written"
-              },
-              {
-               "gives": "S"
-              }
-             ]
-            },
-            {
-             "gives": "E"
-            }
-           ]
-          },
-          {
-           "gives": "L"
-          }
-         ]
-        },
-        {
-         "gives": "F"
-        }
-       ]
+       "words": "wonderfulness",
+       "at": 10
+      },
+      {
+       "words": "self",
+       "at": 5
       }
      ]
     },
     "explanation": {
-     "surface": "A tale of giving up a big ego after being ruined by alcohol.",
-     "walkthrough": "The letters of self are scattered through wonderfulness, so they come out one at a time before the rest is rearranged.",
-     "definitionFit": "A sundowner is an alcoholic drink taken at sunset."
+     "surface": "Advice to drop one's vanity, from someone ruined by alcohol.",
+     "walkthrough": "Take the letters of SELF out of WONDERFULNESS and rearrange what remains.",
+     "definitionFit": "A sundowner is an alcoholic drink taken at sunset in the early evening."
     },
     "features": {
      "answerInScene": true,
