@@ -223,7 +223,12 @@ def ledger_summary(ledgers=None, path=None):
         end = data.rfind(b"\n") + 1
         for line in data[:end].split(b"\n"):
             if line.strip():
-                row = json.loads(line)
+                try:
+                    row = json.loads(line)
+                except ValueError:
+                    # A torn append (NULs then the next row) once stopped every tick.
+                    print(f"gale_inbox: skipped an unreadable line in {k}", file=sys.stderr)
+                    continue
                 acc[row["edition"]] = {"filesHash": row.get("filesHash"), **({"inputs": True} if "inputs" in row else {})}
         if end:
             done += end
