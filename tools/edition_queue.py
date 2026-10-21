@@ -1104,8 +1104,16 @@ def fills_gpu(unit):
 
 #: Reasons of rereads that finish on CPU alone (answers_only, no VLM ask): they never feed the GPU.
 CPU_ONLY = ("inputs changed: answers linked",)
-#: A fill that started less than this many seconds ago may still be about to ask the VLM.
-FEED_YOUNG_S = 150
+
+
+def vlm_feed_reads():
+    """The most gpu_fill reads running at once: CT_VLM_FEED_READS (default 8). A fill spends 100-500 s
+    on OCR before its first ask and then makes only a few, so keeping the VLM fed takes many reads in
+    the pipe, not just slots + PIPELINE; this cap is separate from the Times read pool."""
+    try:
+        return max(1, int(os.environ.get("CT_VLM_FEED_READS", "8")))
+    except ValueError:
+        return 8
 
 
 def vlm_feed_target():
@@ -1118,19 +1126,20 @@ def vlm_feed_target():
     return max(n, vlm_reader.slots() + vlm_reader.PIPELINE)
 
 
-def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_fills, read_pool,
+def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_fills, max_fills,
              scan_of=None, scanning=frozenset()):
     """The units to start ahead of the queue's order because the VLM stage is short of asks (spooled
     below vlm_reader.slots() + PIPELINE) while CT_NEWEST_FIRST papers' OCR-only work holds the read
     pool: the next never-read reads of other papers that ask the VLM, as many as keep running fills
-    under half the read pool (Times keeps the rest, so the CPU stays busy). A such read still waiting
+    (all of them, however old: each is asks still to come) under `max_fills` (the caller bounds it by
+    CT_VLM_FEED_READS and the free read slots, not by Times' share of the pool). A such read still waiting
     on its own scan (queued far back behind the Gale and Times scans) brings that scan forward
     (`scan_of(u)`: the scan unit or None; one running in `scanning` counts as a fill). Empty with no
     CT_NEWEST_FIRST, a fed VLM or a full spool."""
     target = vlm_feed_target()
     if full or spooled >= target:
         return []
-    left = min(max(1, read_pool // 2) - running_fills, target - spooled)
+    left = min(max_fills - running_fills, target - spooled)
     out = []
     for u, k in read_cands:
         if left <= 0:
@@ -2434,12 +2443,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if scan_of_rel[0] is not scan_keys[2]:
                 scan_of_rel[:] = [scan_keys[2], {(s["paper"], s["rel"]): s for us in scan_keys[2] for s in us}]
             return scan_of_rel[1].get((u["paper"], u["rel"]))
+        fills_running = sum(1 for _, (v, _at) in units_running() if fills_gpu(v))
         fill = gpu_fill(read_cands, tried, busy, waits, vlm_waits, len(queued), vlm_full or spool_cap_hit,
-                        sum(1 for _, (v, at) in units_running() if fills_gpu(v) and time.monotonic() - at < FEED_YOUNG_S),
+                        fills_running,
                         # Paul 10-21: "you should also be letting things through which use gpu so it doesn't sit
-                        # idle". While Times work is pending, fills are capped at what keeps the VLM fed
-                        # (slots + PIPELINE running), so Times keeps every other slot.
-                        2 * (vlm_reader.slots() + vlm_reader.PIPELINE) if (tf_pending or tf_ready) else pools.get("read", 0),
+                        # idle". Fills run up to CT_VLM_FEED_READS at once (each spends minutes on OCR before
+                        # its first ask), never past the free read slots; Times work still starts first.
+                        min(vlm_feed_reads(), fills_running + free.get("read", 0)),
                         fill_scan, scanning
                         ) if (free.get("read", 0) > 0 and may_start() and not yielding and not starved) else []
         fill_keys = {key_of(u) for u in fill}
