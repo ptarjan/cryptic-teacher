@@ -140,46 +140,55 @@
      "indicators": [
       {
        "text": "arresting",
-       "note": "the policeman holds the following letters inside him as if taking them into custody"
+       "at": 10,
+       "note": "arresting means seizing, holding the pieces within the policeman"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "criminal",
-         "note": "something criminal is crooked, so these letters are bent out of their order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Policeman",
-         "gives": "COPPER",
-         "note": "copper is slang for a police officer"
-        },
-        {
-         "words": "old",
-         "note": "the word old, rearranged"
-        }
-       ]
+       "words": "Policeman",
+       "at": 0,
+       "gives": "COPPER",
+       "note": "a copper is a police officer"
       },
       {
-       "words": "hard",
-       "gives": "H",
-       "note": "H is the pencil-grading abbreviation for hard"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "criminal",
+           "at": 24,
+           "note": "criminal means bent, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "old",
+           "at": 20
+          }
+         ]
+        },
+        {
+         "words": "hard",
+         "at": 34,
+         "gives": "H",
+         "note": "H is the pencil abbreviation for hard"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A policeman nabs a hardened old villain who is also a thug.",
-     "walkthrough": "The jumbled OLD plus H sits between the first letter and the rest of COPPER.",
-     "definitionFit": "A clodhopper is a clumsy, boorish person, close enough to an oafish lout."
+     "surface": "A policeman detains an elderly crook and a tough thug.",
+     "walkthrough": "A copper is British slang for a police officer; 'criminal' is an adjective here, signalling a bent version of old.",
+     "definitionFit": "A clodhopper is a clumsy, oafish person, a lout."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "criminal"
+     "misdirectedWord": "arresting"
     }
    }
   },
@@ -557,25 +566,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "cartwheeled",
+       "at": 19,
+       "note": "a cartwheel turns over, so the letters are turned round"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "cartwheeled",
-         "at": 19,
-         "note": "cartwheeled means turned head over heels, so the letters are reversed"
+         "text": "headless",
+         "at": 6,
+         "note": "headless means losing the first letter"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
+         "op": "charade",
          "indicators": [
           {
-           "text": "headless",
-           "at": 6,
-           "note": "headless means the first letter is lost"
+           "text": "twice",
+           "at": 31,
+           "note": "twice means the turned piece appears a second time"
           }
          ],
          "parts": [
@@ -583,31 +599,29 @@
            "words": "one",
            "at": 15,
            "gives": "TOY",
-           "note": "one refers back to the toy just named, the word itself"
+           "note": "one refers back to the toy named at the start"
           },
           {
-           "gives": "T"
+           "gives": "TOY"
           }
          ]
+        },
+        {
+         "gives": "TT"
         }
        ]
-      },
-      {
-       "words": "twice",
-       "at": 31,
-       "gives": "YO",
-       "note": "twice means the same two letters are repeated"
       }
      ]
     },
     "explanation": {
-     "surface": "A toy, missing its head, has been spun round twice.",
-     "walkthrough": "TOY without its head is OY; cartwheeling it gives YO, and 'twice' doubles it.",
-     "definitionFit": "A yo-yo is a spool toy that climbs and falls on a string."
+     "surface": "A toy figure without its head turns two cartwheels.",
+     "walkthrough": "'one' points back to the toy of the definition, so the toy word itself is the raw material, taken twice.",
+     "definitionFit": "A yo-yo is a spool toy that spins down and climbs back up its string."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "cartwheeled"
     }
    }

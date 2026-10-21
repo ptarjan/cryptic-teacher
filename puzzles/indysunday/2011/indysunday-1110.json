@@ -117,8 +117,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "on top of",
-       "note": "in a down entry, being on top of something means coming before it"
+       "text": "on",
+       "at": 26,
+       "note": "in a down clue, on places the earlier pieces above the next"
       }
      ],
      "parts": [
@@ -127,36 +128,44 @@
        "indicators": [
         {
          "text": "originally",
-         "note": "originally points to the opening letter of the word it follows"
+         "at": 4,
+         "note": "originally means at its origin, the first letter"
         }
        ],
        "parts": [
         {
          "words": "Ark",
-         "note": "first letter of Ark"
+         "at": 0
         }
        ]
       },
       {
        "words": "used to be",
+       "at": 15,
        "gives": "WAS",
-       "note": "past tense of to be"
+       "note": "was means used to be"
       },
       {
        "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "at": 29,
+         "note": "the top of a word is its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "hill",
-         "note": "first letter of hill, since only its top is wanted"
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Noah's ark comes to rest on a hilltop above a flood.",
-     "walkthrough": "'On top of hill' means sitting above the first letter of hill, which is also its top in a down entry.",
-     "definitionFit": "Awash describes ground flooded or swamped, which is being covered in water."
+     "surface": "Noah's Ark first rested on a hilltop that was under the flood.",
+     "definitionFit": "Awash means flooded, with water washing over it."
     },
     "features": {
      "answerInScene": true,
@@ -639,52 +648,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "dodgy",
-       "note": "something dodgy is unreliable and out of order, so the letters are scrambled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "knocking a couple off",
-         "note": "knocking off a couple removes two letters, here the tail end of the phrase"
+         "text": "dodgy",
+         "at": 9,
+         "note": "dodgy means unreliable or shaky, so the letters are shaken up"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "knocking a couple off",
+           "at": 16,
+           "note": "a couple means two, and knocking off removes the last two letters of the word"
+          }
+         ],
          "parts": [
           {
-           "words": "A",
-           "note": "taken as written"
+           "words": "little",
+           "at": 2
           },
           {
-           "words": "little",
-           "note": "taken as written, before the end is cut off"
+           "gives": "LE"
           }
          ]
-        },
-        {
-         "gives": "LE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something slightly suspect, knocking a couple back, is unsteady.",
-     "walkthrough": "A LITTLE drops its last two letters, LE, leaving A LITT to be rearranged.",
-     "definitionFit": "Atilt means tipped at an angle, so something sloping rather than perfectly horizontal."
+     "surface": "Something slightly suspect, knocking off a pair of items, isn't straight.",
+     "walkthrough": "'knocking a couple off' trims two letters from the end, and 'dodgy' then shakes up what is left.",
+     "definitionFit": "Something atilt is tipped or tilted, so not level."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "dodgy"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "level"
     }
    }
   },

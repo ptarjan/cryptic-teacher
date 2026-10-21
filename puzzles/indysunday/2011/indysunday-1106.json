@@ -1648,34 +1648,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Scramble",
-       "note": "to scramble is to mix up, so the letters are put in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "American",
-       "gives": "A",
-       "note": "A is the abbreviation for American"
+       "op": "container",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Scramble",
+           "at": 0,
+           "note": "scramble means mix up, so the letters are shuffled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wire",
+           "at": 29
+          }
+         ]
+        },
+        {
+         "words": "American",
+         "at": 9,
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "Government",
-       "gives": "G",
-       "note": "G is the abbreviation for government"
-      },
-      {
-       "words": "wire",
-       "note": "taken as written"
+       "at": 18,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "Rush to wiretap for the US government.",
-     "walkthrough": "'Wire tap' reads as one phrase; 'tap' alone is the definition.",
-     "definitionFit": "To earwig is to eavesdrop, and to tap a phone is likewise to listen in secretly."
+     "surface": "US authorities rush to bug a telephone line.",
+     "walkthrough": "'wire tap' looks like a single noun, but 'tap' alone is the definition.",
+     "definitionFit": "To earwig is to eavesdrop, to listen in secretly as a phone tap does."
     },
     "features": {
      "answerInScene": true,

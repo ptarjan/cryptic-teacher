@@ -442,50 +442,60 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RUBBISH",
      "indicators": [
       {
        "text": "snapped",
-       "note": "something snapped is broken, so the letters fall into a new order"
+       "at": 21,
+       "note": "snapped means broken, so the letters are broken up and rearranged"
       }
      ],
      "parts": [
       {
+       "words": "Bush",
+       "at": 8
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "RUBBISH",
        "indicators": [
         {
-         "text": "backed out",
-         "note": "someone who backed out withdrew, so those letters leave the fodder"
+         "text": "out",
+         "at": 40,
+         "note": "out means the letters are taken out of the name before it"
         }
        ],
        "parts": [
         {
-         "words": "Bush",
-         "note": "taken as written"
-        },
-        {
          "words": "Blair",
-         "note": "taken as written"
+         "at": 15
         },
         {
-         "words": "Al",
-         "note": "taken as written: Al Gore, perhaps"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "backed",
+           "at": 33,
+           "note": "backed means read backwards, so the name is turned round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Al",
+           "at": 30
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tony Blair snaps at a suggestion that he refuse George Bush, while Al Gore withdraws.",
-     "walkthrough": "'Refuse' looks like a verb (pronounced re-FUSE), but it is the noun meaning waste.",
-     "definitionFit": "Refuse as a noun means waste matter, which is rubbish."
+     "surface": "Tony Blair angrily dismisses George Bush, with Al Gore turned away.",
+     "walkthrough": "AL backed is LA, taken out of BLAIR to leave BIR; that and BUSH are scrambled.",
+     "definitionFit": "Rubbish is refuse in the noun sense, household waste or garbage."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Refuse"
     }

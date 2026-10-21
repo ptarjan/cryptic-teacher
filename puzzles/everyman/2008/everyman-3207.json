@@ -1384,7 +1384,7 @@
       {
        "text": "after",
        "at": 23,
-       "note": "after puts the church abbreviation in front of the rest"
+       "note": "after means the following pieces come behind the church abbreviation"
       }
      ],
      "parts": [
@@ -1395,24 +1395,53 @@
       },
       {
        "words": "A",
-       "at": 0,
-       "gives": "A"
+       "at": 0
       },
       {
-       "words": "fellow snubbed twice",
-       "at": 2,
-       "gives": "CHACHA",
-       "note": "a chap is a fellow; snubbed, like a snub nose, cuts off his last letter, and twice repeats the result"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "snubbed",
+         "at": 9,
+         "note": "a snub nose is short, so snubbed means the word loses its tip, its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "twice",
+           "at": 17,
+           "note": "twice means the shortened fellow appears a second time, end to end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fellow",
+           "at": 2,
+           "gives": "CHAP",
+           "note": "a chap is a fellow, a man"
+          },
+          {
+           "gives": "CHAP"
+          }
+         ]
+        },
+        {
+         "gives": "PP"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man at church being cut dead by a fellow worshipper.",
-     "walkthrough": "The shortened fellow, CHA, is used twice; with CH and A in front that gives the three repeated syllables.",
-     "definitionFit": "The cha-cha-cha is a lively Latin ballroom routine of Cuban origin."
+     "surface": "A man is cold-shouldered twice after a church service, then there's dancing.",
+     "walkthrough": "'snubbed' works through a snub nose being short: each fellow loses his tail, so both copies are cut.",
+     "definitionFit": "The cha-cha-cha is a lively Latin American ballroom dance of Cuban origin."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "snubbed"
     }
