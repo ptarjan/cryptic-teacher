@@ -176,6 +176,15 @@ check(a.stopped_names("apply_annotations: x.json: refused to write — fix these
                       "  3-down: wordplay 'a(b': expected ')' at column 5 (…'b')\n\nannotate_check x: STOPPED"),
       {"apply refused: redo gate: dropped_words", "apply refused: schema wordplay '…': expected '…' at column N (…'…')"},
       "the new-wording refusal (an em dash) is read, and redo-gate refusals are classed by their finding")
+check(a.stopped_names("--- cryptic-29412\n"
+                      "20-across: notes ['LOW'] name no span of the wordplay; key each note by its words "
+                      "(spans with no note yet: ['KEY'])\n"
+                      "  21-across: 'Four aliens' is not in the clue 'Four contrary aliens welcoming a "
+                      "conversation': each word is in the clue but not side by side\n"
+                      "  5-down GAMBIT names BIT, GAM, GAME\n\n"
+                      "annotate_check x: STOPPED — the annotations were not applied"),
+      {"apply refused: notes name no span", "apply refused: quote not in clue"},
+      "a bag refusal without its stripped header is itemised, walkthrough lines are not")
 solo = lambda cost, turns, clues, puzzles=1: {"cost": cost, "turns": turns, "clues": clues, "puzzles": puzzles}
 rows = [solo(1.0, 10, 20), solo(2.0, 30, 10, puzzles=10)]
 check(round(a.pooled(rows, "cost", "puzzles"), 4), round(3.0 / 11, 4), "cost per puzzle is pooled over puzzles")

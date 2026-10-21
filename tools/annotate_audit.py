@@ -186,6 +186,11 @@ def stopped_names(text):
         m = re.match(r"\s+(?:[A-Z]+ )?\d+-(?:across|down)\s*(.*)$", line)
         if m:
             found.add(refusal_class(m.group(1)))
+    if "STOPPED" in text:
+        # The bag's compact() strips the header, leaving "  <id>: finding" lines (the
+        # first unindented); the colon after the id tells them from walkthrough lines.
+        for m in re.finditer(r"^[ \t]*(?:[A-Z]+ )?\d+-(?:across|down):[ \t]*(.*)$", text, re.M):
+            found.add(refusal_class(m.group(1)))
     if found:
         return {f"apply refused: {f}" for f in found}
     m = re.search(r"STOPPED — (.{0,200})", text)
@@ -202,6 +207,12 @@ def refusal_class(rest):
         return "redo gate: " + (why.group(1) if why else re.sub(r"\(.*?\)", "", rest)[:40].strip())
     if rest.startswith("this redo gives up"):
         return "redo gate: gives up what the hint had"
+    named = (("name no span of the wordplay", "notes name no span"), ("unknown op", "unknown op"),
+             ("does not give", "wordplay does not give the answer"),
+             ("is not in the clue", "quote not in clue"))
+    for needle, name in named:
+        if needle in rest:
+            return name
     rest = re.sub(r"\$\.entries\[\d+\]\.?", "", rest.partition(" — ")[0])
     rest = re.sub(r"\[\d+\]", "[]", rest)
     if "missing required key" not in rest:    # the key named is the class; other quotes are the clue's
