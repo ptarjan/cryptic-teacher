@@ -561,9 +561,11 @@ def partial_lights(puzzle):
     The blog's other answers are in the grid and stay as printed."""
     blanks = {entry_id(e) for e in puzzle.get("entries") or [] if not (e.get("solution") or "").strip()}
     listed = (puzzle.get("solutions") or {}).get("partial")
-    if not isinstance(listed, list) or set(listed) != blanks:
+    # A listed light the file already answers is done, not open; every blank
+    # must be listed or the key is not a partial one.
+    if not isinstance(listed, list) or not blanks <= set(listed):
         return []
-    return list(listed)
+    return [i for i in listed if i in blanks]
 
 
 def printed_answers(puzzle):
@@ -871,9 +873,12 @@ def check(puzzle):
                         if not (e.get("solution") or "").strip())
         if "blog" not in detail:
             findings.append("solutions.partial is set but solutions names no blog whose write-up left the lights out")
-        if not isinstance(solutions["partial"], list) or sorted(solutions["partial"]) != blanks:
-            findings.append(f"solutions.partial is {solutions['partial']!r} but the blank lights are "
-                            f"{blanks}: it lists exactly the lights the blog left out")
+        ids = {entry_id(e) for e in puzzle.get("entries") or []}
+        listed = solutions["partial"]
+        if not isinstance(listed, list) or not set(blanks) <= set(listed) or not set(listed) <= ids:
+            findings.append(f"solutions.partial is {listed!r} but the blank lights are "
+                            f"{blanks}: it lists the lights the blog left out, "
+                            f"which includes every blank one")
     if writeup_keyed(puzzle) and origin == "model":
         findings.append(
             "solutions.origin is 'model' on a puzzle retrieved from a blog, whose "

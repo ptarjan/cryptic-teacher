@@ -64,6 +64,13 @@ try:
     check("and the plan does not treat it as cold", not prereset_plan.cold_row(row))
     check("while an unmarked blank still is", prereset_plan.cold_row({**row, "partial": None}))
 
+    # A listed light the file already answers is done, not open.
+    filled = copy.deepcopy(blank)
+    filled["entries"][0]["solution"] = p["entries"][0]["solution"]
+    filled["solutions"]["partial"] = [eid]
+    check("a listed light already answered is not open", provenance.partial_lights(filled) == [])
+    check("and the provenance check accepts it", not [f for f in provenance.check(filled) if "partial" in f])
+
     wrong = copy.deepcopy(partial)
     wrong["solutions"]["partial"] = []
     check("a marker that does not list the blank light does not unlock it", provenance.writeup_keyed(wrong))
