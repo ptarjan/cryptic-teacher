@@ -320,6 +320,14 @@ pg_entry = {"clue": {"text": "Unusual thing to have bloke close to union at?"}, 
 pg_new = AA.repair_pool_gap({"wordplay": pge}, pg_entry)
 check("repair_pool_gap returns a tree (mended or as given) without raising", isinstance(pg_new.get("wordplay"), dict))
 check("repair_pool_gap leaves a non-tree alone", AA.repair_pool_gap({"x": 1}, pg_entry) == {"x": 1})
+# ...and a bare op whose indicator the model hung on the charade is mended before the first check
+ub_wp = {"op": "charade", "indicators": [{"text": "guards", "at": 21}], "parts": [
+    {"words": "Detective", "gives": "DET", "at": 0},
+    {"op": "container", "parts": [{"words": "and", "gives": "PLUS", "at": 10}, {"words": "caught", "gives": "C", "at": 14}]}]}
+ub_new = AA.repair_pool_gap({"wordplay": ub_wp}, {"clue": {"text": "Detective and caught guards going to pieces"},
+                                              "solution": "DETPCLUS"})
+check("repair_pool_gap moves a charade's word to the bare container (no noIndicator failure)",
+      ub_new["wordplay"]["parts"][1]["indicators"][0]["text"] == "guards" and "indicators" not in ub_new["wordplay"])
 
 # tidy_wordplay_shapes.write_allowances: only the puzzles a run touched move, and only down
 import json
