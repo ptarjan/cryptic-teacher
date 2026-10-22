@@ -18,9 +18,13 @@ Grammar
                           fodder's pieces, stored as the anagram's parts)
     op<indicator>(...)    an operation; <indicator words> follow the op they
                           signal, one <...> per phrase; `+<under>` is an
-                          indicator on the charade
+                          indicator on the charade. Every op but + needs its
+                          indicator: no clue word signals it, the op is not there
     ana(x)                anagram of x's letters (the answer slice decides order);
-                          ana(x + y + z) shuffles several pieces as one pool
+                          ana(x + y + z) shuffles several pieces as one pool of
+                          the clue's own words. A single letter or a pick at the
+                          answer's start or end, an abbreviation or a synonym, is
+                          spelt beside it, ana(x) + N, never scrambled in
     rev(x)                x backwards; when its indicator names a stretch (last pair
                           of, turning tail, first three, half) only that stretch
                           of 2+ letters, at that end and that size, is turned:
@@ -46,10 +50,14 @@ Grammar
                           letters picked from x's words: first letter (or
                           each word's first), middle letter(s) or all but the
                           ends, first and last, alternate letters, every
-                          2nd/3rd, the nth; one indicator over a list is one op
-                          with a part per word, each giving its pick:
-                          outer<fringes of>([Argive], [Greece], [Anatolian])
-    cd([words])           cryptic definition: the words, no letters
+                          2nd/3rd, the nth; x is the words picked FROM, never
+                          the pick: alt<regularly>([most]) for MS, not
+                          ([most]MS); the pick needs no note; one indicator over
+                          a list is one op with a part per word, each giving its
+                          pick: outer<fringes of>([Argive], [Greece], [Anatolian])
+    cd([words])           cryptic definition: the words, no letters. A wp that
+                          is one leaf is refused; with no mechanism the clue is
+                          a cd or a double definition
     comp(x, y)            composite (subtractive) anagram: the letters of x are
                           the answer plus the letters of y, rearranged, so the
                           answer is an anagram of x with y taken out:
