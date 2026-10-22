@@ -287,7 +287,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._WORDS_CACHE_FIX[gt.key][:2],
                                                                       *f._SOLUTION_HEADINGS_FIX[gt.key][:2],
                                                                       *f._PRIZE_HEADINGS_FIX[gt.key][:2],
-                                                                      *f._BAND_WIDTH_FIX[gt.key][:2]},
+                                                                      *f._BAND_WIDTH_FIX[gt.key][:2],
+                                                                      *f._GRID_CAP_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -1276,7 +1277,25 @@ check("a Gale Times day of mid-2005 to mid-2006 scanned before the wider SOLUTIO
       [f.scan_current(_wide, "h"), f.scan_current({**_wide, "edition": "GaleTimes2004UKEnglish/2004-09-06"}, "h"),
        f.scan_current({**_wide, "edition": "GaleTimes2007UKEnglish/2007-09-05"}, "h"),
        f.scan_current({**_wide, "scanKey": f.scan_key(f.GALE)}, "h"),
-       all(f.CORPUS_KEYS[v[0]] == {p: v[2]} for p, v in f._BAND_WIDTH_FIX.items())])
+       all(f.CORPUS_KEYS[v[0]] == {p: v[2]} for p, v in f._GRID_CAP_FIX.items())])
+_gk2 = f._GRID_CAP_FIX["gale"]
+_wide2 = {"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _gk2[0], "filesHash": "h", "scan": {}}
+check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's cap grew with the page is due "
+      "again (the wider band's scan too); one of 2004 or 2007 and a scan by the new code stand",
+      [False, False, True, True, True],
+      [f.scan_current(_wide2, "h"), f.scan_current({**_wide2, "scanKey": f._BAND_WIDTH_FIX["gale"][0]}, "h"),
+       f.scan_current({**_wide2, "edition": "GaleTimes2004UKEnglish/2004-11-02"}, "h"),
+       f.scan_current({**_wide2, "edition": "GaleTimes2007UKEnglish/2007-03-16"}, "h"),
+       f.scan_current({**_wide2, "scanKey": f.scan_key(f.GALE)}, "h")])
+check("every paper's pinned scan key after the grid cap fix is its real scan key, and its old keys stand "
+      "under it", [True, True],
+      [all(v[2] == f.scan_key(next(p for p in f.FILERS.values() if p.key == k)) for k, v in f._GRID_CAP_FIX.items()),
+       all(f.CORPUS_KEYS[o] == {k: v[2]} for k, v in f._GRID_CAP_FIX.items() for o in v[:2])])
+_wp, _np = Image.new("L", (4664, 10), 255), Image.new("L", (f.SCAN_WIDTH, 10), 255)
+check("a solution grid 510 wide at SCAN_WIDTH is shaped on a 4664 px page (the cap grows with it), not on a "
+      "3296 px page, and a puzzle's 1070 on neither", [True, False, False, False],
+      [f.solution_shaped(_wp)((0, 0, 720, 720)), f.solution_shaped(_np)((0, 0, 510, 510)),
+       f.solution_shaped(_wp)((0, 0, 1510, 1490)), f.solution_shaped(_np)((0, 0, 1070, 1060))])
 
 # lay_loose(): each clue alone on its own light; a misread count is not laid.
 g = ["...", ".#.", "..."]
