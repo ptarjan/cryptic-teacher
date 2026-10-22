@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,48 @@
     "text": "Cured meat at the end of second game",
     "enumeration": "10"
    },
-   "solution": "BACKGAMMON"
+   "solution": "BACKGAMMON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at the end of",
+       "at": 11,
+       "note": "says the meat goes after the word for second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "second",
+       "at": 25,
+       "gives": "BACK",
+       "note": "to second a proposal is to back it"
+      },
+      {
+       "words": "Cured meat",
+       "at": 0,
+       "gives": "GAMMON",
+       "note": "gammon is cured ham"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper wants the cured ham at the far end of the second counter.",
+     "definitionFit": "Backgammon is a board game for two players, moving counters by dice throws."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +89,56 @@
     "text": "Gannet naturally raised is partly aerial",
     "enumeration": "7"
    },
-   "solution": "ANTENNA"
+   "solution": "ANTENNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "aerial",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "raised",
+       "at": 17,
+       "note": "raised says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "partly",
+         "at": 27,
+         "note": "partly says the answer is a run of letters hidden inside the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gannet naturally",
+         "at": 0,
+         "gives": "ANNETNA",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seabird lifts itself into the sky, becoming partly airborne.",
+     "walkthrough": "In a down clue 'raised' means read upwards, so the hidden ANNETNA is turned round.",
+     "definitionFit": "An aerial is the rod or wire that picks up radio signals, the same device as an antenna."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "aerial"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +152,60 @@
     "text": "Majority cycling around a capital in Asia",
     "enumeration": "5"
    },
-   "solution": "KABUL"
+   "solution": "KABUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "capital in Asia",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 17,
+       "note": "the cycled word goes around the letter A"
+      }
+     ],
+     "parts": [
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 9,
+         "note": "cycling sends the last letter of the word round to its front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Majority",
+         "at": 0,
+         "gives": "BULK",
+         "note": "the bulk of something is most of it"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 24,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most of a group are cycling round an Asian capital city.",
+     "walkthrough": "'cycling' moves the K of BULK to the front, giving KBUL, which goes 'around' A.",
+     "definitionFit": "Kabul is the capital city of Afghanistan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +219,60 @@
     "text": "Misfortune of child seen regularly in play",
     "enumeration": "8"
    },
-   "solution": "ACCIDENT"
+   "solution": "ACCIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Misfortune",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 35,
+       "note": "the picked letters go inside the word for play"
+      }
+     ],
+     "parts": [
+      {
+       "words": "play",
+       "at": 38,
+       "gives": "ACT",
+       "note": "an act is a part of a play, or to play a role"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 25,
+         "note": "regularly takes every other letter of the two words, starting from the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "child seen",
+         "at": 14,
+         "note": "its first, third, fifth, seventh and ninth letters are taken"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mishap befell a child who was regularly seen playing.",
+     "walkthrough": "'regularly' runs across both words, 'child' and 'seen', not just the first, so the picked letters cross the word break.",
+     "definitionFit": "An accident is an unlucky mishap, a piece of bad fortune."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +296,62 @@
      }
     ]
    },
-   "solution": "MIDDLEAGESPREAD"
+   "solution": "MIDDLEAGESPREAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "distribution in later life",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "New",
+         "at": 0,
+         "note": "new means these letters are made into a fresh arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "slide",
+         "at": 4
+        },
+        {
+         "words": "made",
+         "at": 10
+        },
+        {
+         "words": "GP",
+         "at": 15,
+         "note": "a general practitioner, the family doctor"
+        }
+       ]
+      },
+      {
+       "words": "study",
+       "at": 18,
+       "gives": "READ",
+       "note": "to study a subject at university is to read it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family doctor studies a new slide showing how something is spread among older people.",
+     "walkthrough": "At British universities you 'read' a subject, meaning study it; 'distribution' is spread in the sense of how weight is laid out.",
+     "definitionFit": "Middle-age spread is weight gained around the waist in midlife, a spreading of fat around the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "distribution"
+    }
+   }
   },
   {
    "number": 6,
@@ -111,7 +365,41 @@
     "text": "Replacement vessel gets you to US airport",
     "enumeration": "6"
    },
-   "solution": "NEWARK"
+   "solution": "NEWARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US airport",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Replacement",
+       "at": 0,
+       "gives": "NEW",
+       "note": "a replacement is a new one"
+      },
+      {
+       "words": "vessel",
+       "at": 12,
+       "gives": "ARK",
+       "note": "an ark is a boat, like Noah's"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new ship takes you to an American airport.",
+     "definitionFit": "Newark Liberty International serves the New York area from New Jersey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 7,
@@ -125,7 +413,58 @@
     "text": "Shade obscures tail of flying monster",
     "enumeration": "4"
    },
-   "solution": "HUGE"
+   "solution": "HUGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "monster",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "obscures",
+       "at": 6,
+       "note": "the colour word covers the letter, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shade",
+       "at": 0,
+       "gives": "HUE",
+       "note": "a shade of colour is a hue"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tail of",
+         "at": 15,
+         "note": "tail of means the last letter of flying"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flying",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dark shadow hides the tail of a flying monster.",
+     "definitionFit": "Monster used as an adjective means enormous, as in a monster hit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "monster"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +478,46 @@
     "text": "Hot place on Earth supported flowering plant",
     "enumeration": "9"
    },
-   "solution": "HELLEBORE"
+   "solution": "HELLEBORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flowering plant",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hot place",
+       "at": 0,
+       "gives": "HELL",
+       "note": "hell is traditionally fiery"
+      },
+      {
+       "words": "Earth",
+       "at": 13,
+       "gives": "E"
+      },
+      {
+       "words": "supported",
+       "at": 19,
+       "gives": "BORE",
+       "note": "to bear a weight; the past tense bore"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant flourishing somewhere hot on our planet.",
+     "definitionFit": "Hellebores are winter-blooming perennials such as the Christmas rose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hot"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +531,52 @@
     "text": "12 dozen gutted library in a horrid way",
     "enumeration": "7"
    },
-   "solution": "GROSSLY"
+   "solution": "GROSSLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in a horrid way",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "12 dozen",
+       "at": 0,
+       "gives": "GROSS",
+       "note": "a gross is 144, twelve dozen"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "gutted",
+         "at": 9,
+         "note": "a gutted word has its insides removed, leaving only the ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "library",
+         "at": 16,
+         "note": "its first and last letters are kept"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A library stripped of a hundred and forty-four books, done shockingly.",
+     "definitionFit": "Grossly means disgustingly or in an offensive manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +590,42 @@
     "text": "Attempt to bring mammals back",
     "enumeration": "4"
    },
-   "solution": "STAB"
+   "solution": "STAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attempt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 25,
+       "note": "back says the word is read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mammals",
+       "at": 17,
+       "gives": "BATS",
+       "note": "bats are flying mammals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conservation effort to bring mammals back.",
+     "definitionFit": "Having a stab at something is having a go or a try."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +639,72 @@
     "text": "Rubbish fish mostly gulp near edge of pond",
     "enumeration": "10"
    },
-   "solution": "CODSWALLOP"
+   "solution": "CODSWALLOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fish",
+       "at": 8,
+       "gives": "COD",
+       "note": "cod is a fish"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 13,
+         "note": "mostly means drop the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gulp",
+         "at": 20,
+         "gives": "SWALLOW",
+         "note": "to gulp is to swallow"
+        },
+        {
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "edge of",
+         "at": 30,
+         "note": "edge of means the first letter of pond"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pond",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish nearly gulps down something at the side of a pond.",
+     "definitionFit": "Codswallop is British slang for nonsense or drivel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +718,59 @@
     "text": "Relative leaving the French boy without clothes",
     "enumeration": "6"
    },
-   "solution": "UNCLAD"
+   "solution": "UNCLAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without clothes",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 9,
+         "note": "leaving means those letters depart from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Relative",
+         "at": 0,
+         "gives": "UNCLE",
+         "note": "an uncle is a relative"
+        },
+        {
+         "words": "the French",
+         "at": 17,
+         "gives": "LE",
+         "note": "le is French for the"
+        }
+       ]
+      },
+      {
+       "words": "boy",
+       "at": 28,
+       "gives": "LAD",
+       "note": "a lad is a boy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An uncle quits France with a boy who has no clothes on.",
+     "definitionFit": "Unclad means naked, not dressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +784,44 @@
     "text": "Letter of substance reported generosity of spirit",
     "enumeration": "8"
    },
-   "solution": "LARGESSE"
+   "solution": "LARGESSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "generosity of spirit",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LARGESSE",
+     "indicators": [
+      {
+       "text": "reported",
+       "at": 20,
+       "note": "reported means as heard when spoken aloud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Letter of substance",
+       "at": 0,
+       "gives": "LARGEESS",
+       "note": "a weighty letter is a large ess, ess being the spoken name of S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A substantial letter is said to show a generous spirit.",
+     "definitionFit": "Largesse is liberal giving, open-handed bounty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "substance"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +835,57 @@
     "text": "Island cheers beginning of sailing craze",
     "enumeration": "8"
    },
-   "solution": "TASMANIA"
+   "solution": "TASMANIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cheers",
+       "at": 7,
+       "gives": "TA",
+       "note": "ta and cheers are both British ways to say thanks"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning of",
+         "at": 14,
+         "note": "the opening letter of sailing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sailing",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "craze",
+       "at": 35,
+       "gives": "MANIA",
+       "note": "a mania is a craze"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An island toasts the start of a sailing fad.",
+     "definitionFit": "Tasmania is the large island state south of mainland Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +899,62 @@
     "text": "Wrongly inform of fog finally clearing on harbour",
     "enumeration": "9"
    },
-   "solution": "MISREPORT"
+   "solution": "MISREPORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wrongly inform",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finally clearing",
+         "at": 22,
+         "note": "the final letter of the word clears away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fog",
+         "at": 18,
+         "gives": "MIST",
+         "note": "mist is a light fog"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "on",
+       "at": 39,
+       "gives": "RE",
+       "note": "re means on or concerning"
+      },
+      {
+       "words": "harbour",
+       "at": 42,
+       "gives": "PORT",
+       "note": "a port is a harbour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mistaken news of fog lifting over a harbour.",
+     "definitionFit": "To misreport is to give a false or inaccurate account."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clearing"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +968,58 @@
     "text": "Steer to encircle extremely raggedy creature",
     "enumeration": "4"
    },
-   "solution": "ORYX"
+   "solution": "ORYX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "creature",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to encircle",
+       "at": 6,
+       "note": "the bovine word goes round the picked letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Steer",
+       "at": 0,
+       "gives": "OX",
+       "note": "a steer is a castrated bull, an ox"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 18,
+         "note": "extremely means the two extreme letters of raggedy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "raggedy",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bullock is driven round a scruffy animal.",
+     "definitionFit": "The oryx is a large straight-horned African antelope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Steer"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +1033,63 @@
     "text": "Wine area lit up after five",
     "enumeration": "8"
    },
-   "solution": "VARIETAL"
+   "solution": "VARIETAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 17,
+       "note": "the jumbled letters come after the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "words": "five",
+       "at": 23,
+       "gives": "V",
+       "note": "V is the Roman numeral five"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 14,
+         "note": "up as in mixed up or in turmoil, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "area",
+         "at": 5
+        },
+        {
+         "words": "lit",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinking area lights up after five o'clock.",
+     "walkthrough": "'up' jumbles AREA LIT into ARIETAL.",
+     "definitionFit": "A varietal is a wine made from and named after a single grape variety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "five"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +1103,43 @@
     "text": "God recalling the folly of Eden",
     "enumeration": "4"
    },
-   "solution": "ZEUS"
+   "solution": "ZEUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "recalling",
+       "at": 4,
+       "note": "recalling, calling back, signals reading the word backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the folly of Eden",
+       "at": 14,
+       "gives": "SUEZ",
+       "note": "Prime Minister Anthony Eden's disastrous 1956 Suez intervention"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deity recalls the foolishness in the Garden of Eden.",
+     "walkthrough": "Eden here is Anthony Eden, British Prime Minister brought down by the Suez Crisis of 1956, not the biblical garden.",
+     "definitionFit": "Zeus is king of the Olympian deities in Greek myth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Eden"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1159,53 @@
      }
     ]
    },
-   "solution": "ETHANOL"
+   "solution": "ETHANOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "compound",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Film",
+       "at": 0,
+       "gives": "ET",
+       "note": "E.T. is Spielberg's film"
+      },
+      {
+       "words": "Dynasty",
+       "at": 5,
+       "gives": "HAN",
+       "note": "the Han dynasty of China"
+      },
+      {
+       "words": "over",
+       "at": 13,
+       "gives": "O",
+       "note": "O is the cricket scorebook abbreviation for an over"
+      },
+      {
+       "words": "large",
+       "at": 21,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film about a ruling family set across a large estate.",
+     "definitionFit": "Ethanol is the chemical compound that is drinking alcohol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dynasty"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1219,54 @@
     "text": "Cocks perhaps on English church disappear",
     "enumeration": "8"
    },
-   "solution": "EVANESCE"
+   "solution": "EVANESCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "disappear",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 14,
+       "note": "in an across clue, placed after the letter for English"
+      }
+     ],
+     "parts": [
+      {
+       "words": "English",
+       "at": 17,
+       "gives": "E"
+      },
+      {
+       "words": "Cocks perhaps",
+       "at": 0,
+       "gives": "VANES",
+       "note": "weathercocks are weather vanes"
+      },
+      {
+       "words": "church",
+       "at": 25,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cockerels on an English church vanish.",
+     "walkthrough": "Weathercocks often sit on church spires, which is the picture; here 'Cocks perhaps' are vanes by example.",
+     "definitionFit": "To evanesce is to fade away and vanish like vapour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cocks"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1280,48 @@
     "text": "Animal shelter stuck with label 'house'",
     "enumeration": "7"
    },
-   "solution": "COTTAGE"
+   "solution": "COTTAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "house",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuck with",
+       "at": 15,
+       "note": "the label is stuck into the shelter word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Animal shelter",
+       "at": 0,
+       "gives": "COTE",
+       "note": "a cote houses doves or sheep"
+      },
+      {
+       "words": "label",
+       "at": 26,
+       "gives": "TAG",
+       "note": "a tag is a label"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet's kennel has a 'house' label stuck on it.",
+     "definitionFit": "A cottage is a small country dwelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuck"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1335,50 @@
     "text": "Part of speech raved about Britain",
     "enumeration": "6"
    },
-   "solution": "ADVERB"
+   "solution": "ADVERB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of speech",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 21,
+         "note": "about signals the letters are turned about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "raved",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "Britain",
+       "at": 27,
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ranting about Britain in a speech.",
+     "definitionFit": "An adverb is a word class modifying verbs, such as quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1398,31 @@
      }
     ]
    },
-   "solution": "SHEEPDIP"
+   "solution": "SHEEPDIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disinfectant",
+      "at": 0,
+      "meaning": "first meaning: a chemical wash in which sheep are plunged"
+     },
+     {
+      "text": "that will benefit you orally",
+      "at": 13,
+      "meaning": "second meaning: said aloud, you is ewe, so this is what does a female sheep good"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'orally' says to hear 'you' as EWE, a female sheep, and the dip is what benefits her.",
+     "definitionFit": "Sheep dip is an insecticidal liquid in which flocks are bathed to kill parasites."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "you"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1436,48 @@
     "text": "Note taken from very friendly prisoner",
     "enumeration": "6"
    },
-   "solution": "INMATE"
+   "solution": "INMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prisoner",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taken from",
+       "at": 5,
+       "note": "the note is removed from the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "very friendly",
+       "at": 16,
+       "gives": "INTIMATE",
+       "note": "intimate means very close and friendly"
+      },
+      {
+       "words": "Note",
+       "at": 0,
+       "gives": "TI",
+       "note": "ti is a note of the sol-fa scale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note smuggled out by a very friendly convict.",
+     "definitionFit": "An inmate is someone held in a prison or institution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1491,72 @@
     "text": "Cat maybe climbing over usual empty shed",
     "enumeration": "5"
    },
-   "solution": "MOULT"
+   "solution": "MOULT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shed",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 19,
+       "note": "the reversed cat word lies over, straddling, the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "climbing",
+         "at": 10,
+         "note": "in a down clue climbing means read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cat maybe",
+         "at": 0,
+         "gives": "TOM",
+         "note": "a tom is a male cat"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 30,
+         "note": "an emptied word loses all but its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "usual",
+         "at": 24,
+         "note": "first and last letters kept"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat climbing over an ordinary empty garden shed.",
+     "definitionFit": "To moult is to cast off fur or feathers seasonally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1570,63 @@
     "text": "Number in teen choir possibly lacking clarity",
     "enumeration": "10"
    },
-   "solution": "INCOHERENT"
+   "solution": "INCOHERENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lacking clarity",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "the letter goes inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 21,
+         "note": "possibly says the letters may be arranged another way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "teen",
+         "at": 10
+        },
+        {
+         "words": "choir",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "Number",
+       "at": 0,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A song by a teenage choir that is hard to make out.",
+     "walkthrough": "'in' looks like a link to the anagram, but it puts N inside the rearranged letters.",
+     "definitionFit": "Incoherent means unclear, confused or hard to understand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1640,41 @@
     "text": "Part of America periodically using just cash",
     "enumeration": "4"
    },
-   "solution": "UTAH"
+   "solution": "UTAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of America",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "periodically",
+       "at": 16,
+       "note": "periodically picks letters at regular intervals, here the second, fourth and so on"
+      }
+     ],
+     "parts": [
+      {
+       "words": "just cash",
+       "at": 35,
+       "note": "every other letter, starting with the second"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhere in the States where people pay only in cash now and then.",
+     "definitionFit": "Utah is a western US state, capital Salt Lake City."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "periodically"
+    }
+   }
   },
   {
    "number": 27,
@@ -431,7 +1688,30 @@
     "text": "Where one might stay depressed",
     "enumeration": "4"
    },
-   "solution": "FLAT"
+   "solution": "FLAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where one might stay",
+      "at": 0,
+      "meaning": "first meaning: an apartment, a place to live"
+     },
+     {
+      "text": "depressed",
+      "at": 21,
+      "meaning": "second meaning: pressed down level, or low in spirits"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two unrelated senses of one word: a home and a mood.",
+     "definitionFit": "A flat is a British apartment, and flat also means dull, lifeless or pressed level."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 28,
@@ -445,7 +1725,41 @@
     "text": "Self-absorbed clot hesitantly gathers linen",
     "enumeration": "10"
    },
-   "solution": "BEDCLOTHES"
+   "solution": "BEDCLOTHES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "linen",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "gathers",
+       "at": 30,
+       "note": "gathers says the words hold the answer inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Self-absorbed clot hesitantly",
+       "at": 0,
+       "note": "the answer runs across the end of the first word, all of the second and the start of the third"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vain fool fumbles while collecting bed linen.",
+     "definitionFit": "Linen is a collective term for sheets and pillowcases, the household bedding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "linen"
+    }
+   }
   }
  ]
 }
