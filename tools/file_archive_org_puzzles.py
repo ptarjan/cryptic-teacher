@@ -5384,6 +5384,25 @@ def read_solution(img, sol, grid, above=False, lean=False):
         crop = (max(0, x0 - 80), max(0, y0 - int(1.4 * w) - 60), min(img.width, x1 + 140), y0)
     window = img.crop(crop)
     box = ink_box(window, SOLUTION_CLOSE)
+    # A heading box that lost its first words ("terday's solution 25,266", Gale 2012: 137px of a
+    # 357px grid) leaves the grid's left and foot beyond the window: the window is grown left and
+    # down (up, with `above`) while the ink touches those edges, and kept so only where it brings
+    # the ink nearer a square.
+    for _ in range(3):
+        if box is None:
+            break
+        left = box[0] <= 2 and crop[0] > 0
+        far = box[1] <= 2 and crop[1] > 0 if above else box[3] >= window.height - 2 and crop[3] < img.height
+        if not (left or far):
+            break
+        grown = (max(0, crop[0] - 80) if left else crop[0],
+                 max(0, crop[1] - 80) if far and above else crop[1], crop[2],
+                 min(img.height, crop[3] + 80) if far and not above else crop[3])
+        more = ink_box(img.crop(grown), SOLUTION_CLOSE)
+        if more is None or abs((more[2] - more[0]) - (more[3] - more[1])) > abs((box[2] - box[0]) - (box[3] - box[1])):
+            break
+        crop, box = grown, more
+        window = img.crop(crop)
     if box is None:
         return {}, {"refused": "no ink under the heading"}
     bw, bh = box[2] - box[0], box[3] - box[1]
