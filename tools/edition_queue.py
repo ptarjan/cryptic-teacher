@@ -687,7 +687,7 @@ def blanket_rereads():
     return os.environ.get("CT_BLANKET_REREADS", "") not in ("", "0")
 
 
-def only_evidence(paper, scans, reads):
+def only_evidence(paper, scans, reads, out=None):
     """`scans`, `reads` (fa.plan's units of one paper) without the blanket
     rereads, each kept read carrying "detail" (the puzzle and what the
     annotation or the refusal said); a scan stays when it is a first scan or a
@@ -708,8 +708,21 @@ def only_evidence(paper, scans, reads):
             u["detail"] = ", ".join(f"{k} x{n}" for k, n in sorted((u.get("likely") or {}).items()))
         if u["reason"] == "annotation asked" and not u.get("detail"):
             u["detail"] = _ASKED_WHY.get((paper, u["rel"]), "")
-    needed = {rel for u in reads if not (times and u["reason"] in fa.STALE_SCAN) for rel in u.get("needs") or ()}
+    # Paul 10-22: the stale full scans of the editions in the week after a Times or Gale Times read
+    # (its "needs" beyond its own page) were ~1,340 of the queue's 2,647 scans. A read needs its own
+    # page scanned (prepare: SCAN_FIRST) and nothing else to file its puzzle; where the printed solution
+    # is, is a HOST_SCAN's business once the puzzle is filed with every clue and no answers.
+    if times:
+        needed = {u["rel"] for u in reads if u["reason"] not in fa.STALE_SCAN and u["rel"] in (u.get("needs") or ())}
+        week = {rel for u in reads if u["reason"] not in fa.STALE_SCAN for rel in u.get("needs") or ()} - needed
+    else:
+        needed = {rel for u in reads for rel in u.get("needs") or ()}
+        week = set()
+    gated = [u for u in scans if u["reason"] == "scan stale" and u["rel"] in week]
     scans = [u for u in scans if u["reason"] in ("never scanned", fa.HOST_SCAN) or u["rel"] in needed]
+    if gated and out is not None:
+        out.append(f"{paper}: left out {len(gated)} stale scans of editions only in the week after a kept read "
+                   f"(its own page's scan is kept; a solution host's is planned by fa.solution_hosts)")
     return scans, reads
 
 
@@ -796,7 +809,7 @@ def _plan(papers, cache, reread, out, asked=None):
             continue
         sc, rd = fa.plan(paper, cache, reread=reread, asked=asked.get(key, ()))
         if not blanket:
-            sc, rd = only_evidence(key, sc, rd)
+            sc, rd = only_evidence(key, sc, rd, out)
         scans += [(u["rank"], k, n, u) for n, u in enumerate(sc)]
         reads += [(u["rank"], k, n, u) for n, u in enumerate(rd)]
     scans, reads = hold_refusal_rereads(scans, reads, out)
