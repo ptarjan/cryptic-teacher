@@ -2094,10 +2094,10 @@ def cell_p(ch, p=0.9):
     v = [(1 - p) / 25] * 26
     v[tso.AZ.index(ch)] = p
     return v
-check("a name no lexicon lists stands when the classifier names each open cell's letter too (14021's IGRAINE); not when it does not",
-      ("IGRAINE", None),
-      (f.vlm_word("IGRAINE", "IGR?I?E", [7], [cell_p(c) for c in "IGRAINE"]),
-       f.vlm_word("IGRAINE", "IGR?I?E", [7], [cell_p(c) for c in "IGRBINE"])))
+check("a name no lexicon lists is not taken even where the classifier reads it alike (BALINITY for SALINITY)", None,
+      f.vlm_word("BALINITY", "?ALINITY", [8], [cell_p(c) for c in "BALINITY"]))
+check("a listed word the classifier finds possible is taken", "SALINITY",
+      f.vlm_word("SALINITY", "?ALINITY", [8], [cell_p(c) for c in "SALINITY"]))
 check("the VLM's word against the classifier's floor is not taken", None,
       f.vlm_word("PLAT", "?L?T", [4], [flat, cell_p("L"), cell_p("F"), cell_p("T")]))
 check("pieces of an enumeration: a phrase's words, else the light whole", ([4, 4, 3, 3], [12], [9], [4, 5]),
