@@ -2314,11 +2314,20 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     def may_reexec():
         return plan_done is not None or not os.environ.get(REEXEC_ENV)
 
+    # The unit ceiling follows the Windows host's free RAM and CPU (mem_gate.ceiling_controller; opt-in by
+    # env, hosts default from CT_YIELD_HOSTS and the VLM's /metrics); its probes run on a thread.
+    ceiling_ctl = mem_gate.ceiling_controller(f"{vlm_reader.URLS[0]}/metrics" if vlm_reader.URLS else None)
+    if ceiling_ctl:
+        log(f"ceiling controller on: host {ceiling_ctl.host}, metrics {ceiling_ctl.metrics}, every {ceiling_ctl.every} s")
+
     while True:
         reap()
         reap_adopted()
         overdue()
         reload_check()
+        if ceiling_ctl:
+            for line in ceiling_ctl.poll():
+                log(line)
         for b in beside:
             b.poll(may_start() and not game_now[0], None if seconds is None else seconds - (time.monotonic() - begun))
         # A plan stats every edition and article (minutes on the media

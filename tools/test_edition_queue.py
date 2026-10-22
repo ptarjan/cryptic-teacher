@@ -1212,6 +1212,11 @@ check("room: plenty available starts", True, mg.room(0, lambda: 16 * G))
 check("room: below floor plus a unit does not", False, mg.room(0, lambda: 3 * G))
 check("room: units begun this pass count against it", (True, True, False),
       tuple(mg.room(n * mg.UNIT, lambda: mg.FLOOR + int(2.5 * mg.UNIT)) for n in (0, 1, 2)))
+check("ceiling_step: low RAM or hot CPU steps down, roomy and cool up, else holds, clamped 8..24",
+      (18, 18, 20, 20, 20, 8, 24, 12),
+      (mg.ceiling_step(20, 1500, 50), mg.ceiling_step(20, 3000, 95), mg.ceiling_step(18, 5000, 50),
+       mg.ceiling_step(20, 3000, 85), mg.ceiling_step(20, None, 99), mg.ceiling_step(8, 1000, 99),
+       mg.ceiling_step(24, 9000, 10), mg.ceiling_step(12, 5000, None)))
 M = 1 << 20
 _ps = [(10, 1, 80 * 1024), (11, 10, 120 * 1024), (12, 11, 30 * 1024), (20, 1, 70 * 1024), (30, 1, 900 * 1024), (40, 1, 10 * 1024)]
 check("tree_rss: a unit is charged with its children and theirs", {10: 230 * M, 20: 70 * M},
