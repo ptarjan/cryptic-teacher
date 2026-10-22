@@ -538,5 +538,14 @@ check(str(rf.grown("Love a fellow", "Love a fellow and a friend too")), "False",
 check(str(rf.grown("Fellow in city shell", "Fellow in city's shell")), "False", "a changed word is no growth")
 check(str(rf.grown("Frontier cantonment", "Frontier cantonment")), "False", "the same words are no growth")
 
+print("only a count the grid gave is given its word breaks back; a bare count that was read stays")
+breaks = ({"SHEEPSHEARING": "5,8"}, frozenset())
+lights = {"entries": [
+    {"number": 1, "direction": "across", "solution": "SHEEPSHEARING", "clue": {"text": "Printed bare", "enumeration": "13"}},
+    {"number": 2, "direction": "across", "solution": "SHEEPSHEARING",
+     "clue": {"text": "Grid gave it", "enumeration": "13", "countFrom": "grid"}}]}
+same("lost_word_breaks names only the grid-counted light", rf.fetcher.lost_word_breaks(lights, breaks), {"2-across": "5,8"})
+rf.fetcher.answer_breaks.cache_clear()
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)

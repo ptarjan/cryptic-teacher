@@ -196,7 +196,9 @@ def restore_word_breaks(puzzle):
     (light, was, now) of the ones restored.
 
     An OCR'd count often loses its commas: a light printed "(8,5)" filed as
-    "(13)". The same letters are the same phrase in every puzzle that clues
+    "(13)". Only a count the grid gave (clue "countFrom": "grid": no reader's
+    enumeration survived) is restored; a bare count a reader read is the
+    print's own and stays. The same letters are the same phrase in every puzzle that clues
     them, so the breaks come from there (fetch_puzzle.settled_breaks), hyphens
     and all; a light the other puzzles print both ways is left for the print
     (flagged_word_breaks)."""
@@ -207,7 +209,7 @@ def restore_word_breaks(puzzle):
             continue
         e = by_id[eid]
         was = e["clue"]["enumeration"]
-        e["clue"] = {**e["clue"], "enumeration": now}
+        e["clue"] = {k: v for k, v in {**e["clue"], "enumeration": now}.items() if k != "countFrom"}
         # The restored break can make a known apostrophe answer ("WHAT'S THE BIG
         # IDEA", 5,3,3,4) count as said-but-unspelt on an annotated clue, which the
         # validator refuses (spelling.unsaid): write the spelling with the break.
