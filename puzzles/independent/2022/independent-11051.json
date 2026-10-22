@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,40 @@
     "text": "The most untreated and muddied waters",
     "enumeration": "6"
    },
-   "solution": "RAWEST"
+   "solution": "RAWEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The most untreated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "muddied",
+       "at": 23,
+       "note": "muddied water is stirred up, so the letters of the word waters are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "waters",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comment on polluted, unprocessed water being churned up.",
+     "definitionFit": "Raw means unprocessed, so the superlative form describes whatever is least processed of all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "muddied"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +81,53 @@
     "text": "Distract one who's down with a bit of tenderness",
     "enumeration": "6"
    },
-   "solution": "DIVERT"
+   "solution": "DIVERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Distract",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one who's down",
+       "at": 9,
+       "gives": "DIVER",
+       "note": "a diver is someone who goes down under the water"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a bit of",
+         "at": 29,
+         "note": "only a small piece of the word tenderness is used, its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tenderness",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seems to describe distracting someone who is feeling low by showing a little tenderness.",
+     "walkthrough": "'one who's down' reads as someone depressed, but it means a person who dives down under the water.",
+     "definitionFit": "To divert someone is to turn their attention aside, which is a synonym for distracting them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +141,84 @@
     "text": "In which horses race endlessly, then short burst and it's all over, having just one race",
     "enumeration": "8"
    },
-   "solution": "PUREBRED"
+   "solution": "PUREBRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having just one race",
+      "at": 68
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "it's all over",
+       "at": 53,
+       "note": "over signals turning over, so everything built so far is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endlessly",
+           "at": 21,
+           "note": "the word for the race loses its final letter here"
+          }
+         ],
+         "parts": [
+          {
+           "words": "In which horses race",
+           "at": 0,
+           "gives": "DERBY",
+           "note": "the Derby is a famous English flat race for horses"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 37,
+           "note": "the word for burst is cut short, losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "burst",
+           "at": 43,
+           "gives": "ERUPT",
+           "note": "to erupt is to burst out"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Commentary on a horse race that goes from a fast start to a sudden finish.",
+     "walkthrough": "'endlessly' cuts DERBY to DERB, 'short' cuts ERUPT to ERUP; 'it's all over' then reads DERBERUP backwards. The Derby is a classic English horse race run at Epsom.",
+     "definitionFit": "A purebred animal has pedigree ancestry from a single breed, unmixed with any other strain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +232,31 @@
     "text": "A pier that is black?",
     "enumeration": "5"
    },
-   "solution": "JETTY"
+   "solution": "JETTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A pier",
+      "at": 0,
+      "meaning": "a landing stage built out into the water"
+     },
+     {
+      "text": "that is black?",
+      "at": 7,
+      "meaning": "... can be an adjective meaning as black as jet"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks whether a certain pier is painted black.",
+     "walkthrough": "The second sense is a rare adjective from jet, the black mineral, hence the question mark.",
+     "definitionFit": "A jetty is a structure projecting into water for boats to moor at, much like a pier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +270,61 @@
     "text": "Scotsman on a curtailed hunt for monkeys",
     "enumeration": "8"
    },
-   "solution": "MACAQUES"
+   "solution": "MACAQUES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "monkeys",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scotsman",
+       "at": 0,
+       "gives": "MAC",
+       "note": "Mac is a common nickname for a Scotsman, from the surname prefix"
+      },
+      {
+       "words": "a",
+       "at": 12,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 14,
+         "note": "curtailed means having its tail cut off, so the final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hunt",
+         "at": 24,
+         "gives": "QUEST",
+         "note": "a quest is a search or hunt"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scot sets off on an abbreviated expedition to find monkeys.",
+     "definitionFit": "Macaques are a genus of Old World primates, including the rhesus and the Barbary ape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "curtailed"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +338,62 @@
     "text": "Maybe Cinderella at end of stage is mostly cold and deserted",
     "enumeration": "9"
    },
-   "solution": "STEPCHILD"
+   "solution": "STEPCHILD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe Cinderella",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "stage",
+       "at": 27,
+       "gives": "STEP",
+       "note": "a step is a stage in a process"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 36,
+         "note": "most of the word for cold is used, dropping its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cold",
+         "at": 43,
+         "gives": "CHILL",
+         "note": "a chill is coldness"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "deserted",
+       "at": 52,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pantomime Cinderella left cold and alone when the show ends.",
+     "walkthrough": "'at end of' reads as a positional phrase linking the definition to the wordplay; Cinderella was the stepdaughter of a cruel stepmother.",
+     "definitionFit": "Cinderella, raised by her stepmother alongside two stepsisters, is an example of a child from a parent's earlier marriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stage"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +407,29 @@
     "text": "Sear fish",
     "enumeration": "4"
    },
-   "solution": "CHAR"
+   "solution": "CHAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sear",
+      "at": 0,
+      "meaning": "to scorch the surface of something"
+     },
+     {
+      "text": "fish",
+      "at": 5,
+      "meaning": "a freshwater fish related to trout"
+     }
+    ],
+    "explanation": {
+     "surface": "A cooking instruction to scorch some fish.",
+     "definitionFit": "Both senses are standard: burning lightly, and a cold-water fish of the salmon family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +443,49 @@
     "text": "Padre's lain out a man",
     "enumeration": "4"
    },
-   "solution": "CHAP"
+   "solution": "CHAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a man",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 13,
+       "note": "out signals removing the word lain from the chaplain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Padre's",
+       "at": 0,
+       "gives": "CHAPLAIN",
+       "note": "a padre is a chaplain, especially a military one; the 's stands for has"
+      },
+      {
+       "words": "lain",
+       "at": 8,
+       "gives": "LAIN",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman has laid out a man's body.",
+     "walkthrough": "'Padre's lain out' looks like a priest laying out a corpse, but it means CHAPLAIN with LAIN taken out.",
+     "definitionFit": "Chap is an informal British word for a man or fellow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +499,45 @@
     "text": "Officer flustered until having eaten together",
     "enumeration": "10"
    },
-   "solution": "LIEUTENANT"
+   "solution": "LIEUTENANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "flustered",
+       "at": 8,
+       "note": "being flustered is being agitated and confused, so the combined letters of until and eaten are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "until",
+       "at": 18
+      },
+      {
+       "words": "eaten",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer is put out at being kept waiting until everyone had dined together.",
+     "walkthrough": "'having ... together' tells the solver to pool both words' letters before 'flustered' rearranges them; 'flustered' looks like the officer's mood.",
+     "definitionFit": "A lieutenant is a junior commissioned rank in the army or navy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flustered"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +551,75 @@
     "text": "Closed book, autobiography swapping one's beginning with one's end",
     "enumeration": "7"
    },
-   "solution": "MYSTERY"
+   "solution": "MYSTERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Closed book",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "swapping",
+       "at": 27,
+       "note": "swapping means one letter is exchanged for another in the word for autobiography"
+      }
+     ],
+     "parts": [
+      {
+       "words": "autobiography",
+       "at": 13,
+       "gives": "MYSTORY",
+       "note": "an autobiography is the writer's own life story, so my story"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "'s beginning",
+         "at": 39,
+         "note": "the beginning of the word one, its opening letter, is the letter swapped out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "'s end",
+         "at": 60,
+         "note": "the end of the word one, its final letter, is the letter swapped in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 57
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sounds like a literary puzzle about rearranging a memoir.",
+     "walkthrough": "'swapping one's beginning with one's end' replaces the O of MY STORY with E, the end of 'one'.",
+     "definitionFit": "A closed book is an idiom for something or someone that cannot be understood, an enigma."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Closed"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +633,60 @@
     "text": "Expert to start off in style with neon gas",
     "enumeration": "9"
    },
-   "solution": "ACETYLENE"
+   "solution": "ACETYLENE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gas",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Expert",
+       "at": 0,
+       "gives": "ACE",
+       "note": "an ace is an expert"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to start off",
+         "at": 7,
+         "note": "the word style has its starting letter taken off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "style",
+         "at": 23
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "neon",
+       "at": 34,
+       "gives": "NE",
+       "note": "Ne is the chemical symbol for neon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An expert begins stylishly with neon lighting.",
+     "definitionFit": "Acetylene is a flammable hydrocarbon gas used in welding torches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +700,53 @@
     "text": "Bit of trouble with sleeping policeman perhaps, one on the road",
     "enumeration": "5"
    },
-   "solution": "TRAMP"
+   "solution": "TRAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one on the road",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Bit of",
+         "at": 0,
+         "note": "only a small piece of the word trouble is taken, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trouble",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "sleeping policeman perhaps",
+       "at": 20,
+       "gives": "RAMP",
+       "note": "a sleeping policeman is British slang for a speed bump, a kind of ramp in the road"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A minor incident involving a dozing police officer and someone on the road.",
+     "walkthrough": "In Britain a sleeping policeman is a speed bump, a ramp across the road to slow traffic; 'perhaps' marks it as one example.",
+     "definitionFit": "A tramp is a homeless wanderer who travels from place to place on foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sleeping"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +760,57 @@
     "text": "'Docking' for monument (right-winger) supported by the law",
     "enumeration": "9"
    },
-   "solution": "STATUTORY"
+   "solution": "STATUTORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "supported by the law",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "'Docking' for",
+         "at": 0,
+         "note": "docking means cutting off the tail, so the last letter of the word for monument goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "monument",
+         "at": 14,
+         "gives": "STATUE",
+         "note": "a statue is a monument"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "right-winger",
+       "at": 24,
+       "gives": "TORY",
+       "note": "a Tory is a British Conservative, on the political right"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A right-wing politician defends a monument against removal, with legal backing.",
+     "walkthrough": "Tory is the everyday name for a member of Britain's Conservative Party.",
+     "definitionFit": "Something statutory is required or permitted by statute, that is, by an act of parliament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Docking"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +824,29 @@
     "text": "Marshy plant spread quickly",
     "enumeration": "4"
    },
-   "solution": "RUSH"
+   "solution": "RUSH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Marshy plant",
+      "at": 0,
+      "meaning": "a grasslike plant of wet ground"
+     },
+     {
+      "text": "spread quickly",
+      "at": 13,
+      "meaning": "to move or spread fast"
+     }
+    ],
+    "explanation": {
+     "surface": "A wetland weed that colonises ground quickly.",
+     "definitionFit": "Both senses are standard: a reed-like marsh plant and a verb for hurrying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +860,69 @@
     "text": "They hang around underwear dept after I left, with bras oddly ignored",
     "enumeration": "9"
    },
-   "solution": "LINGERERS"
+   "solution": "LINGERERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They hang around",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "at": 40,
+         "note": "left means gone away, so the letter I is removed from the department name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "underwear dept",
+         "at": 17,
+         "gives": "LINGERIE",
+         "note": "lingerie is the name of the women's underwear department in a store"
+        },
+        {
+         "words": "I",
+         "at": 38,
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly ignored",
+         "at": 56,
+         "note": "the odd-numbered letters of bras are ignored, leaving the even ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bras",
+         "at": 51
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shoppers loiter in the lingerie section once the narrator has gone, paying no attention to the bras.",
+     "walkthrough": "'oddly ignored' keeps the second and fourth letters of BRAS, giving RS.",
+     "definitionFit": "Lingerers are people who loiter or stay on, the agent noun from linger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +936,41 @@
     "text": "Slack relative's dispensed with",
     "enumeration": "7"
    },
-   "solution": "RELAXED"
+   "solution": "RELAXED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slack",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "relative's",
+       "at": 6,
+       "gives": "REL",
+       "note": "rel is an abbreviation for relative; the 's stands for is"
+      },
+      {
+       "words": "dispensed with",
+       "at": 17,
+       "gives": "AXED",
+       "note": "axed means got rid of or dispensed with"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative has been got rid of.",
+     "definitionFit": "Relaxed means loose or not taut, the same sense as slack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slack"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +984,47 @@
     "text": "Draw a big fire? That's a no-no",
     "enumeration": "5"
    },
-   "solution": "INFER"
+   "solution": "INFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Draw",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "That's a no-no",
+       "at": 17,
+       "note": "a no-no is something forbidden, so the letters no are not allowed in the word for fire"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a big fire",
+       "at": 5,
+       "gives": "INFERNO",
+       "note": "an inferno is a large blazing fire"
+      },
+      {
+       "gives": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks about sketching a large blaze and is told it's forbidden.",
+     "walkthrough": "'Draw' looks like a sketching verb or drawing a fire up the chimney, but it means deduce.",
+     "definitionFit": "To draw a conclusion is to infer it, so draw is a synonym for deduce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Draw"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1044,55 @@
      }
     ]
    },
-   "solution": "FULLBACK"
+   "solution": "FULLBACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "defender on the field",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fellow",
+       "at": 0,
+       "gives": "F"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 7,
+         "note": "the word for retreat loses its head, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "retreat",
+         "at": 22,
+         "gives": "PULLBACK",
+         "note": "a pullback is a withdrawal or retreat"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man running off in retreat while defending on the battlefield.",
+     "definitionFit": "A full back is a defensive position in football, rugby and hockey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1106,32 @@
     "text": "Josh is a child",
     "enumeration": "3"
    },
-   "solution": "KID"
+   "solution": "KID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Josh",
+      "at": 0,
+      "meaning": "to josh is to tease or ..."
+     },
+     {
+      "text": "a child",
+      "at": 8,
+      "meaning": "a child"
+     }
+    ],
+    "explanation": {
+     "surface": "Reads as a statement that someone named Josh is a child.",
+     "walkthrough": "Josh looks like a boy's name, but it is a verb meaning to tease.",
+     "definitionFit": "Both senses are everyday: kidding is joking, and a kid is a youngster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Josh"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1145,70 @@
     "text": "Made sir ponder about receiving good education",
     "enumeration": "8"
    },
-   "solution": "KNIGHTED"
+   "solution": "KNIGHTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Made sir",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "receiving",
+         "at": 22,
+         "note": "receiving means taking in another letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 16,
+           "note": "about signals turning around, so the word for ponder is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ponder",
+           "at": 9,
+           "gives": "THINK",
+           "note": "to think is to ponder"
+          }
+         ]
+        },
+        {
+         "words": "good",
+         "at": 32,
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "words": "education",
+       "at": 37,
+       "gives": "ED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reflects on being given a title along with a decent schooling.",
+     "walkthrough": "'about' turns THINK into KNIHT; 'receiving' then takes G between I and H.",
+     "definitionFit": "Being knighted confers the title Sir, so a knighted man has been dubbed sir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1222,51 @@
     "text": "Stand and move gently with a little latitude",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stand",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "move gently",
+       "at": 10,
+       "gives": "EASE",
+       "note": "to ease something is to move it carefully"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a little",
+         "at": 27,
+         "note": "only a small part of the word latitude is used, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "latitude",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to stand and shift slightly with some freedom.",
+     "definitionFit": "An easel is a frame that supports a painter's canvas, a kind of stand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stand"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1280,39 @@
     "text": "Top-notch German antique",
     "enumeration": "4"
    },
-   "solution": "GOLD"
+   "solution": "GOLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Top-notch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "German",
+       "at": 10,
+       "gives": "G"
+      },
+      {
+       "words": "antique",
+       "at": 17,
+       "gives": "OLD",
+       "note": "something antique is old"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a first-rate antique from Germany.",
+     "definitionFit": "Gold, as in a gold standard or gold medal, denotes the best quality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1326,47 @@
     "text": "Declines to acknowledge record on learner targets",
     "enumeration": "9"
    },
-   "solution": "DISCLAIMS"
+   "solution": "DISCLAIMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Declines to acknowledge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "record",
+       "at": 24,
+       "gives": "DISC",
+       "note": "a disc is a gramophone record"
+      },
+      {
+       "words": "learner",
+       "at": 34,
+       "gives": "L",
+       "note": "L is for learner, as on British learner driver plates"
+      },
+      {
+       "words": "targets",
+       "at": 42,
+       "gives": "AIMS",
+       "note": "aims are targets"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to own up to a record about a learner's goals.",
+     "definitionFit": "To disclaim something is to deny responsibility for it or refuse to acknowledge it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1380,48 @@
     "text": "Provides food from packing cases right nearer the bottom",
     "enumeration": "6"
    },
-   "solution": "CATERS"
+   "solution": "CATERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provides food",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "nearer the bottom",
+       "at": 39,
+       "note": "in a down entry, a letter put nearer the bottom moves later in the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "packing cases",
+       "at": 19,
+       "gives": "CRATES",
+       "note": "crates are packing cases"
+      },
+      {
+       "words": "right",
+       "at": 33,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone supplying meals out of packing boxes stored low down.",
+     "walkthrough": "'nearer the bottom' shifts the R of CRATES further down the column, giving CATERS.",
+     "definitionFit": "To cater is to supply food and drink, as for a party or event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1435,54 @@
     "text": "Current fashion runs over November",
     "enumeration": "6"
    },
-   "solution": "MODERN"
+   "solution": "MODERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 21,
+       "note": "in a down clue, one piece over another is placed above it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fashion",
+       "at": 8,
+       "gives": "MODE",
+       "note": "a mode is a fashion"
+      },
+      {
+       "words": "runs",
+       "at": 16,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      },
+      {
+       "words": "November",
+       "at": 26,
+       "gives": "N",
+       "note": "N is November in the radio alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion trend lasting beyond November.",
+     "definitionFit": "Current and modern both mean belonging to the present day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1502,40 @@
      }
     ]
    },
-   "solution": "TIMES"
+   "solution": "TIMES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Independent's rival",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spread about",
+       "at": 6,
+       "note": "spreading things about scatters them, so the letters of items are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Items",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "News items circulated by a competing newspaper.",
+     "walkthrough": "The clue appears in The Independent, so its rival is another British newspaper.",
+     "definitionFit": "The Times is a British national daily newspaper competing with The Independent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1549,44 @@
     "text": "Commercials broadcast for a cutting tool",
     "enumeration": "4"
    },
-   "solution": "ADZE"
+   "solution": "ADZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cutting tool",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ADZE",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 12,
+       "note": "broadcast means spoken out, so the word for commercials is heard rather than seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Commercials",
+       "at": 0,
+       "gives": "ADS",
+       "note": "ads are commercials"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Television advertisements screened for a woodworking tool.",
+     "walkthrough": "'broadcast' fits the advertising surface but signals that ADS is heard.",
+     "definitionFit": "An adze is an axe-like tool with an arched blade at right angles to the handle, for shaping wood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1600,46 @@
     "text": "Religious leader to witter on endlessly",
     "enumeration": "5"
    },
-   "solution": "RABBI"
+   "solution": "RABBI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Religious leader",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "at": 30,
+       "note": "the word loses its end, the last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "witter on",
+       "at": 20,
+       "gives": "RABBIT",
+       "note": "to rabbit on is British slang for talking at length, as is to witter on"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A minister who goes on talking without stopping.",
+     "walkthrough": "To rabbit on and to witter on are both British informal for chattering tediously.",
+     "definitionFit": "A rabbi is a Jewish scholar and teacher who leads a congregation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1659,30 @@
      }
     ]
    },
-   "solution": "HOTHEADED"
+   "solution": "HOTHEADED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps like a match",
+      "at": 0,
+      "meaning": "a match that has been struck has a hot head"
+     },
+     {
+      "text": "foolhardy",
+      "at": 28,
+      "meaning": "... means rash or impetuous"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks whether a reckless person is like a struck match.",
+     "definitionFit": "A hotheaded person acts rashly and impetuously, which is what foolhardy means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 28,
@@ -455,7 +1696,31 @@
     "text": "They provide protection — for tennis players?",
     "enumeration": "10"
    },
-   "solution": "RACKETEERS"
+   "solution": "RACKETEERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They provide protection",
+      "at": 0,
+      "meaning": "... run protection rackets, extorting money with menaces"
+     },
+     {
+      "text": "for tennis players?",
+      "at": 26,
+      "meaning": "playfully, people with rackets, as tennis players are"
+     }
+    ],
+    "explanation": {
+     "surface": "Wonders who protects tennis players.",
+     "definitionFit": "Racketeers are criminals who run illegal schemes such as the protection racket; the second sense whimsically reads racket plus -eer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "protection"
+    }
+   }
   },
   {
    "number": 29,
@@ -469,7 +1734,40 @@
     "text": "Absolute torture regularly observed",
     "enumeration": "4"
    },
-   "solution": "TRUE"
+   "solution": "TRUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Absolute",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly observed",
+       "at": 17,
+       "note": "only every other letter of torture is looked at, at regular intervals"
+      }
+     ],
+     "parts": [
+      {
+       "words": "torture",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that torture is routinely watched.",
+     "definitionFit": "True and absolute both mean complete or genuine, as in a true or absolute believer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "observed"
+    }
+   }
   }
  ]
 }
