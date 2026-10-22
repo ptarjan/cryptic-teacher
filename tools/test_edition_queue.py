@@ -905,8 +905,9 @@ os.kill(pid, signal.SIGTERM)
 t0 = time.monotonic()
 rc = os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1])
 check("a TERM ends the running units and exits 143, at once", (143, True, False),
-      (rc, time.monotonic() - t0 < 5, "end read slow" in log.read_text()))
-log.unlink()
+      (rc, time.monotonic() - t0 < 5, "end read slow" in (log.read_text() if log.exists() else "")))
+# A slow runner may TERM it before the unit logs its start: no log at all.
+log.unlink(missing_ok=True)
 # --beside: a batch filer runs beside the units, again while it leaves work.
 beside_n = T / "beside.n"
 script = T / "beside.sh"
