@@ -1201,6 +1201,8 @@ def fills_gpu(unit):
     reason = unit.get("reason") or ""
     if reason.startswith(CPU_ONLY):
         return False  # answers_only: links answers, asks the VLM nothing
+    if reason.startswith(LOW_ASK):
+        return False  # solution rereads: minutes of CPU for 1-3 asks; they do not keep the VLM fed
     # Never-read reads of any paper, fix-landed rereads and canary-proven rereads ask the VLM.
     return (unit["rank"] <= 1 or "before its fix" in reason or reason in FIX_LANDED
             or canary_proven(unit))
@@ -1208,6 +1210,14 @@ def fills_gpu(unit):
 
 #: Reasons of rereads that finish on CPU alone (answers_only, no VLM ask): they never feed the GPU.
 CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked")
+#: Reasons of rereads that ask the VLM only a little: a Times solution reread spends 30-250 s of CPU, spools
+#: 1-3 asks (solution strips are capped at vlm_reader STRIP_MAX) and defers. Paul 10-22: with all 18 slots
+#: on these the GPU sat ~27% busy (~160 asks/h of ~400) while 798 FT never-read reads waited. They keep
+#: their place in the plan (Times first) but are no fill: while spooled asks are under the feed target,
+#: gpu_fill's reserve holds slots for reads that do ask. Unlike CPU_ONLY they are not answers-linked
+#: (no batching) and not under the cpu-only cap (they would starve behind it).
+LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
+           "answers held back by a clue with no enumeration")
 
 
 def vlm_feed_reads():

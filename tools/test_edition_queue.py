@@ -1874,7 +1874,16 @@ check("fills_gpu: answers-linked rereads are CPU-only, never-read and fix-landed
       (eq.fills_gpu(_al), eq.fills_gpu(_fx), eq.fills_gpu(_ft[0]), eq.fills_gpu(_cp)))
 check("gpu_fill: answers-linked rereads ranked first do not fill, the never-read ones behind them do", ["t0", "fx"],
       [u["rel"] for u in eq.gpu_fill([(u, eq.key_of(u)) for u in [_al, _cp, _ft[0], _fx]], set(), set(), _none, _none, 2, False, 0, 2)])
-check("gpu_fill: a full spool, no fill", [], eq.gpu_fill(_cands, set(), set(), _none, _none, 0, True, 0, 2))
+# Paul 10-22: Times solution rereads (1-3 asks each) held all 18 slots, the GPU ~27% busy. They are no fill,
+# so the FT never-read reads behind them are, and the reserve holds slots for those; nor are they cpu-only
+# (no cpu-only cap on them) or answers-linked (no batching).
+_lo = [_mk("times", f"s{k}", 2, r) for k, r in enumerate(eq.LOW_ASK)]
+check("fills_gpu: low-ask solution rereads do not feed; neither cpu-only nor answers-linked", ([False] * 3, [False] * 3, [False] * 3),
+      ([eq.fills_gpu(u) for u in _lo], [eq.cpu_only_unit(u) for u in _lo],
+       [eq.answers_linked({**u, "paper": next(iter(eq.fa.FILERS))}) for u in _lo]))
+check("gpu_fill: low-ask solution rereads ranked first do not fill, the never-read ones behind them do", ["t0", "t1"],
+      [u["rel"] for u in eq.gpu_fill([(u, eq.key_of(u)) for u in _lo + _ft], set(), set(), _none, _none, 0, False, 0, 2)])
+check("gpu_fill: a full spool, no fill", [],eq.gpu_fill(_cands, set(), set(), _none, _none, 0, True, 0, 2))
 check("gpu_fill: fills running count against the half pool", ["t0"], [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 1, 2)])
 check("gpu_fill: tried, running and waiting reads are skipped", ["t2"],
       [u["rel"] for u in eq.gpu_fill(_cands, {eq.key_of(_ft[0])}, {eq.key_of(_ft[1])}, _none, _none, 2, False, 0, 2)])
