@@ -282,17 +282,14 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           the clue's own words. A single letter or a pick at the
                           answer's start or end, an abbreviation or a synonym, is
                           spelt beside it, ana(x) + N, never scrambled in
-    rev(x)                x backwards; when its indicator names a stretch (last pair
-                          of, turning tail, first three, half) only that stretch
-                          of 2+ letters, at that end and that size, is turned:
+    rev(x)                x backwards; an indicator naming a stretch (last pair
+                          of, turning tail, first three, half) turns only that
+                          stretch, 2+ letters, at that end and size:
                           rev<last pair of>([mini vehicles]KARTS) for KARST
-    rep(x)                x's letters twice, one after the other (twice, again,
-                          stuttering); the leaf gives ONE copy, never the doubled
-                          string: rep<twice>([boy]AL) for ALAL, rep<called twice>(
-                          [boy]ALF) for ALFALF. Not "[boy called twice]ALFALF"
+    rep(x)                x twice (leaf gives one copy): rep<twice>([boy]AL) for ALAL
     ins(outer, inner)     inner put inside outer (the answer decides where)
     del(from, removed)    removed taken out of from (the answer decides where):
-                          one run, or the letters scattered but in the same order
+                          one run, or scattered in the same order
                           (del([Equably], [by]BY) for EQUAL)
     hid(x)                letters hidden in x's words: hid([say no before]YNOBE),
                           or hid([say no before]) to let the answer pick them
@@ -309,9 +306,8 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           when the answer itself is all the wordplay
     first(x) last(x) middle(x) outer(x) alt(x) regular(x) nth(n)(x)
                           letters picked from x's words: first letter (or
-                          each word's first), middle letter(s) or all but the
-                          ends, first and last, alternate letters, every
-                          2nd/3rd, the nth; x is the words picked FROM, never
+                          each word's), middle letter(s) or all but the
+                          ends, first and last, alternate, every 2nd/3rd, the nth; x is the words picked FROM, never
                           the pick: alt<regularly>([most]) for MS, not
                           ([most]MS); the pick needs no note; one indicator over
                           a list is one op with a part per word, each giving its
@@ -319,9 +315,8 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
     cd([words])           cryptic definition: the words, no letters. A wp that
                           is one leaf is refused; with no mechanism the clue is
                           a cd or a double definition
-    comp(x, y)            composite (subtractive) anagram: the letters of x are
-                          the answer plus the letters of y, rearranged, so the
-                          answer is an anagram of x with y taken out:
+    comp(x, y)            composite (subtractive) anagram: x's letters are the
+                          answer plus y's, rearranged (an anagram of x less y):
                           comp<sadly>([thirsted], [it's]) for DERTH
     reverse([words], "reading")
                           a reverse clue: the words read as wordplay that would
