@@ -2291,7 +2291,11 @@ def grid_first_windows(img, paper):
     # "THE TIMES CROSSWORD 23,142", its top level with the grid's).
     wins += [(g[0], max(0, g[1] - GRID_FIRST_PAD), min(img.width, g[2] + 2 * (g[2] - g[0])),
               min(img.height, g[1] + TITLE_REACH)) for g in grids]
-    return wins + solution_bands(img, [])
+    # Across the whole page: printed_lines clusters rows by height over every
+    # word, so a title's row-mates left or right of its window (2012-09-17:
+    # "April 2011 Takes a four-stroke lead", a line left of "Times Crossword
+    # 25,270") change which words share its row, and so the box it is read at.
+    return [(0, w[1], img.width, w[3]) for w in wins + solution_bands(img, [])]
 
 
 def grid_first_words(img, band, which, cache_path):
