@@ -2289,7 +2289,7 @@ def grid_first_windows(img, paper):
     wins = [b for g in grids for b in title_bands(img, g, False, paper.title_heights)]
     # The title heading the clue column right of the grid (Gale 2005..2006-10:
     # "THE TIMES CROSSWORD 23,142", its top level with the grid's).
-    wins += [(g[2], max(0, g[1] - GRID_FIRST_PAD), min(img.width, g[2] + 2 * (g[2] - g[0])),
+    wins += [(g[0], max(0, g[1] - GRID_FIRST_PAD), min(img.width, g[2] + 2 * (g[2] - g[0])),
               min(img.height, g[1] + TITLE_REACH)) for g in grids]
     return wins + solution_bands(img, [])
 
