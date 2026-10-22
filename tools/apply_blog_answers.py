@@ -284,8 +284,34 @@ def ft_records(puzzle):
     return found
 
 
+def genius_records(puzzle):
+    """The fifteensquared write-ups of a Guardian Genius ("Guardian Genius 262 by
+    Enigmatist"), found by title search. The post is a table (clue no., answer,
+    clue and parsing) or, in some bloggers' hands, <br>-separated lines."""
+    import html
+    number = puzzle["number"]
+    path = CACHE / "genius" / f"genius-{number}.json"
+    if path.exists():
+        posts = json.loads(path.read_text(encoding="utf-8"))
+    else:
+        found, _ = get(f"{AZED_API}?search=Genius+{number}&per_page=20&_fields={FIELDS}")
+        posts = [p for p in found
+                 if re.search(rf"\bGenius\s+(?:No\.?\s*)?{number}\b", html.unescape(p["title"]["rendered"]), re.I)]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(posts), encoding="utf-8")
+    found = []
+    for post in posts:
+        body = post["content"]["rendered"]
+        for rows in (table_lines(body), break_lines(body)):
+            if rows:
+                found.append({"number": number, "link": post["link"], "date": post["date"][:10],
+                              "rows": rows, "blog": "fifteensquared"})
+    return found
+
+
 #: series -> the function that finds a held puzzle's write-ups.
 SOURCES = {
+    "genius": genius_records,
     "telegraph": bigdave_records, "toughie": bigdave_records, "sundaytel": bigdave_records,
     "ftcryptic": ft_records,
     "azed": lambda puzzle: azed_records(puzzle["number"]),
