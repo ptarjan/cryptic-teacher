@@ -1064,11 +1064,13 @@ def by_urgency(units):
         proven = [t for t in units if canary_proven(t[3])]
         newest = [t for t in newest if t not in proven]
         rest = [t for t in rest if t not in proven]
-        # Paul 10-21: "Read the remaining times puzzles before doing ft": every unit of the named papers
-        # (their proven and fix-landed rereads too) goes before any other paper's.
+        # Paul 10-21: "Read the remaining times puzzles before doing ft": the named papers' likely filers
+        # and proven rereads go before any other paper's. Their other rereads alternate one for one with
+        # other papers' never-read work: on 10-21 with only those rereads left, ~350 writes an hour made
+        # 5 new filings (most rewrote the same blanks) while 1,304 never-read FT pages waited.
         units = ([t for t in newest if files_likely_tier(t[0], t[3]) == 0] + [t for t in proven if t[3].get("paper") in named]
-                 + [t for t in newest if files_likely_tier(t[0], t[3]) > 0]
-                 + alternate([t for t in rest if t[0] <= 1], [t for t in proven if t[3].get("paper") not in named])
+                 + alternate([t for t in newest if files_likely_tier(t[0], t[3]) > 0],
+                             alternate([t for t in rest if t[0] <= 1], [t for t in proven if t[3].get("paper") not in named]))
                  + [t for t in rest if t[0] > 1])
     return [u for *_, u in units]
 
