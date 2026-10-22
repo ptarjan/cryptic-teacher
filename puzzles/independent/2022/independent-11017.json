@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Side of Paris lacking in sophistication",
     "enumeration": "6"
    },
-   "solution": "GAUCHE"
+   "solution": "GAUCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Side of Paris",
+      "at": 0,
+      "meaning": "French for left, one side of anything in Paris"
+     },
+     {
+      "text": "lacking in sophistication",
+      "at": 14,
+      "meaning": "... in English means socially awkward or unpolished"
+     }
+    ],
+    "explanation": {
+     "surface": "A district of Paris is said to lack sophistication.",
+     "definitionFit": "The French word for left is borrowed into English for clumsy, unpolished manners, the left hand being the awkward one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Side"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,59 @@
     "text": "Sailor transferred having dropped ecstasy and gone AWOL",
     "enumeration": "9"
    },
-   "solution": "ABSCONDED"
+   "solution": "ABSCONDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gone AWOL",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sailor",
+       "at": 0,
+       "gives": "AB",
+       "note": "AB, able-bodied seaman, is a sailor"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having dropped",
+         "at": 19,
+         "note": "dropping something means leaving it out, so a letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "transferred",
+         "at": 7,
+         "gives": "SECONDED",
+         "note": "an employee seconded is transferred temporarily to other work"
+        },
+        {
+         "words": "ecstasy",
+         "at": 34,
+         "gives": "E",
+         "note": "E is the slang abbreviation for the drug ecstasy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor posted elsewhere, having got rid of his drugs, deserts.",
+     "definitionFit": "To go AWOL, absent without leave, is to run away secretly, which is to abscond."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "transferred"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +137,68 @@
     "text": "Reduce the impact of Conservative Government leaving housing in a mess",
     "enumeration": "7"
    },
-   "solution": "CUSHION"
+   "solution": "CUSHION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reduce the impact of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "at": 21,
+       "gives": "C"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in a mess",
+         "at": 61,
+         "note": "in a mess means jumbled, so the remaining letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "leaving",
+           "at": 45,
+           "note": "something leaving a word goes out of it, so its letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "housing",
+           "at": 53
+          },
+          {
+           "words": "Government",
+           "at": 34,
+           "gives": "G"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory government walks away from a housing crisis, softening the blow.",
+     "walkthrough": "'leaving' removes G from housing, and 'in a mess' rearranges HOUSIN.",
+     "definitionFit": "To cushion a blow is to soften or lessen its force, as a pad would."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Government"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +212,39 @@
     "text": "Property in European country",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Property",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "at": 12,
+       "gives": "E"
+      },
+      {
+       "words": "country",
+       "at": 21,
+       "gives": "STATE",
+       "note": "a state is a country, a nation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone owns a property somewhere in Europe.",
+     "definitionFit": "An estate is land or property, or the whole of a person's possessions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +258,59 @@
     "text": "Secure position, for example, protects fleet regularly",
     "enumeration": "6"
    },
-   "solution": "SAFETY"
+   "solution": "SAFETY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Secure position",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protects",
+       "at": 30,
+       "note": "protecting something means surrounding it, so one piece wraps the other here"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for example",
+       "at": 17,
+       "gives": "SAY",
+       "note": "say is used to introduce an example, just like 'for example'"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 45,
+         "note": "regularly means taking every other letter of the word fleet, starting with the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fleet",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A navy keeps its ships safe, for example by escorting the fleet at regular intervals.",
+     "walkthrough": "'regularly' takes the first, third and fifth letters of fleet, which 'protects' wraps.",
+     "definitionFit": "Safety is a state or place of security, as in reaching safety or a safety position in a game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "protects"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +324,54 @@
     "text": "I'm annoyed about cartel playing a big role",
     "enumeration": "8"
    },
-   "solution": "STARRING"
+   "solution": "STARRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "playing a big role",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 12,
+         "note": "about means turned around, so the exclamation is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'm annoyed",
+         "at": 0,
+         "gives": "RATS",
+         "note": "'Rats!' is an exclamation of annoyance"
+        }
+       ]
+      },
+      {
+       "words": "cartel",
+       "at": 18,
+       "gives": "RING",
+       "note": "a ring is a group colluding to fix prices, a cartel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is irritated by a price-fixing group's scheming.",
+     "walkthrough": "'about' looks like 'concerning'; it turns RATS round.",
+     "definitionFit": "An actor starring in a film plays the lead or a major part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +385,63 @@
     "text": "Touching love scene finally unites divided cast",
     "enumeration": "7"
    },
-   "solution": "FEELING"
+   "solution": "FEELING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Touching",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "unites divided",
+       "at": 28,
+       "note": "the cast word is split apart and joined up again around the other letters, which sit within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cast",
+       "at": 43,
+       "gives": "FLING",
+       "note": "to fling is to throw, to cast"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 20,
+         "note": "finally picks out the last letter of each of the words love and scene"
+        }
+       ],
+       "parts": [
+        {
+         "words": "love",
+         "at": 9
+        },
+        {
+         "words": "scene",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A moving romantic scene brings a quarrelling cast back together.",
+     "walkthrough": "'finally' takes E and E from love and scene; 'unites divided' sets them inside FLING.",
+     "definitionFit": "Touching, in the sense of handling, is feeling with the fingers, so the noun senses match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +455,44 @@
     "text": "Characteristic means of conveying something to some of the audience",
     "enumeration": "5"
    },
-   "solution": "TRAIT"
+   "solution": "TRAIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Characteristic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TRAIT",
+     "indicators": [
+      {
+       "text": "to some of the audience",
+       "at": 44,
+       "note": "listeners hear the word, and only some of them, as many British speakers say the answer with a silent final T"
+      }
+     ],
+     "parts": [
+      {
+       "words": "means of conveying something",
+       "at": 15,
+       "gives": "TRAY",
+       "note": "a tray is used to carry things"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distinguishing quality is how one gets a message across to part of a crowd.",
+     "walkthrough": "The answer is often said without its final T in British English, so it can sound the same as the carrying platter; hence 'some of'.",
+     "definitionFit": "A trait is a distinguishing quality, a characteristic feature of someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conveying"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +512,41 @@
      }
     ]
    },
-   "solution": "ISIS"
+   "solution": "ISIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of River",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Island",
+       "at": 14,
+       "gives": "IS"
+      },
+      {
+       "words": "'s",
+       "at": 20,
+       "gives": "IS",
+       "note": "the 's stands for 'is', as in 'it's'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The clue opens a sentence about the high-street retailer River Island, continued in the next clue.",
+     "walkthrough": "River Island is a British fashion chain, which the surface leans on. The Isis is the name for the stretch of the Thames that flows through Oxford.",
+     "definitionFit": "The Isis is the local name for the River Thames as it passes through Oxford, so it is part of that river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "River"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +560,77 @@
     "text": "… publicity found in note on back of T-shirt's label",
     "enumeration": "9"
    },
-   "solution": "TRADEMARK"
+   "solution": "TRADEMARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "label",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 26,
+       "note": "in an across answer, one piece placed on another follows it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back of",
+         "at": 29,
+         "note": "the back of a word is its last letter, taken here from the clothing word in the clue"
+        }
+       ],
+       "parts": [
+        {
+         "words": "T-shirt",
+         "at": 37
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "found in",
+         "at": 12,
+         "note": "something found in another is sitting inside it, so one piece goes into the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "note",
+         "at": 21,
+         "gives": "REMARK",
+         "note": "a remark is a brief comment, a note"
+        },
+        {
+         "words": "publicity",
+         "at": 2,
+         "gives": "AD",
+         "note": "an ad is a piece of publicity"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: River Island's advertising shows up as a note on the back of a T-shirt's brand tag.",
+     "walkthrough": "Read with the previous clue, River Island being a British fashion chain whose trademark appears on its clothes; 'found in' gives RADEMARK.",
+     "definitionFit": "A trademark is a registered brand name or logo, which is what a clothing label carries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +644,36 @@
     "text": "Solid border on some flags?",
     "enumeration": "9"
    },
-   "solution": "KERBSTONE"
+   "solution": "KERBSTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Solid border on some flags?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Solid border on some flags?",
+       "at": 0,
+       "note": "the flags are flagstones of a pavement, and the solid stone edging them at the roadside is the answer, not a coloured edge on a banner"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about vexillology: which national flags have a solid coloured edge?",
+     "walkthrough": "'flags' suggests banners with borders; here they are paving flagstones, and the border is the line of stones at the edge of the road.",
+     "definitionFit": "Kerbstones form the raised edge of a pavement, which is made of paving slabs called flags."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flags"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +687,40 @@
     "text": "Rhetoric's upset member of vocal group",
     "enumeration": "9"
    },
-   "solution": "CHORISTER"
+   "solution": "CHORISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "member of vocal group",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 11,
+       "note": "upset means knocked over and disordered, so the letters of the fodder are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rhetoric's",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's fancy speech is disturbing a member of a choir.",
+     "definitionFit": "A chorister is a singer in a choir, especially a church choir, which is a vocal group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +734,70 @@
     "text": "Universal Studios finally accepts film features may be enhanced by them",
     "enumeration": "9"
    },
-   "solution": "COSMETICS"
+   "solution": "COSMETICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "features may be enhanced by them",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepts",
+         "at": 26,
+         "note": "accepting something means taking it in, so one piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Universal",
+         "at": 0,
+         "gives": "COSMIC",
+         "note": "cosmic means universal, of the whole cosmos"
+        },
+        {
+         "words": "film",
+         "at": 34,
+         "gives": "ET",
+         "note": "ET is the Spielberg film E.T. the Extra-Terrestrial"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 18,
+         "note": "finally takes the last letter of the word Studios"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Studios",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Universal Studios at last takes on a film, which make-up artists may improve.",
+     "walkthrough": "'Universal Studios' reads as the film company; it is COSMIC plus S, which 'accepts' ET.",
+     "definitionFit": "Cosmetics are make-up products used to improve the appearance of facial features."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Universal"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +811,45 @@
     "text": "Football players missing start of season",
     "enumeration": "5"
    },
-   "solution": "INTER"
+   "solution": "INTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Football players",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing start of",
+       "at": 17,
+       "note": "missing the start means the first letter of the season's name is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "season",
+       "at": 34,
+       "gives": "WINTER",
+       "note": "winter is one of the four seasons"
+      },
+      {
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Footballers are unavailable at the beginning of the season.",
+     "definitionFit": "Inter is the usual short name of Internazionale, the Milan football club, so it can stand for its team of players."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "season"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +863,71 @@
     "text": "Celebrate about One Direction's first track",
     "enumeration": "6"
    },
-   "solution": "SIDING"
+   "solution": "SIDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "track",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "about means going round, so one piece surrounds the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Celebrate",
+       "at": 0,
+       "gives": "SING",
+       "note": "to sing of something is to celebrate it in song"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "at": 16,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "at": 32,
+           "note": "the first of a word is its opening letter, here of Direction"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Direction's",
+           "at": 20
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fans celebrate the opening song of the boy band One Direction.",
+     "walkthrough": "One Direction is a boy band, so 'track' looks like a song; it is a railway line.",
+     "definitionFit": "A siding is a short railway track off the main line where trains can be parked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +941,45 @@
     "text": "Mixes up a horse and sheep",
     "enumeration": "8"
    },
-   "solution": "ANAGRAMS"
+   "solution": "ANAGRAMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mixes up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 9
+      },
+      {
+       "words": "horse",
+       "at": 11,
+       "gives": "NAG",
+       "note": "a nag is an old or poor horse"
+      },
+      {
+       "words": "sheep",
+       "at": 21,
+       "gives": "RAMS",
+       "note": "rams are male sheep"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muddles a horse with some sheep.",
+     "definitionFit": "To anagram a word is to jumble its letters, so the verb is a synonym for scrambles or mixes up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mixes"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +993,60 @@
     "text": "Moderate state briefly confused with Benin",
     "enumeration": "9"
    },
-   "solution": "ABSTINENT"
+   "solution": "ABSTINENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moderate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "confused",
+       "at": 23,
+       "note": "confused means mixed up, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 15,
+         "note": "briefly means cut short, so the word state loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "state",
+         "at": 9
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "Benin",
+       "at": 37
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A temperate nation is muddled up with Benin, a country in West Africa.",
+     "walkthrough": "'briefly' turns state into STAT, and 'confused' rearranges STAT with BENIN.",
+     "definitionFit": "Abstinent means practising restraint, especially with drink, so it is a sense of temperate or moderate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Moderate"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1060,40 @@
     "text": "Come back to harvest fruit",
     "enumeration": "8"
    },
-   "solution": "REAPPEAR"
+   "solution": "REAPPEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Come back",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "harvest",
+       "at": 13,
+       "gives": "REAP",
+       "note": "to reap a crop is to harvest it"
+      },
+      {
+       "words": "fruit",
+       "at": 21,
+       "gives": "PEAR",
+       "note": "a pear is a fruit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returns to the orchard to pick the crop.",
+     "definitionFit": "To reappear is to show up again, which is to return or come back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1113,53 @@
      }
     ]
    },
-   "solution": "ENDASHES"
+   "solution": "ENDASHES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rules connecting words?",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Object",
+       "at": 0,
+       "gives": "END",
+       "note": "an end is an aim or object, as in 'to that end'"
+      },
+      {
+       "words": "when",
+       "at": 7,
+       "gives": "AS",
+       "note": "as can mean when, as in 'as I left'"
+      },
+      {
+       "words": "he",
+       "at": 12
+      },
+      {
+       "words": "has",
+       "at": 15,
+       "gives": "S",
+       "note": "'s is the short form of has, as in 'he's gone'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone objects when a man lays down rules about joining words.",
+     "walkthrough": "'rules' suggests regulations; in printing a rule is a line, and en dashes are short lines that link words or numbers.",
+     "definitionFit": "An en dash is a printed line half the width of an em, used to join words or ranges, and printers call such lines rules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rules"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1173,50 @@
     "text": "Drove home point and moved quickly to capture attention",
     "enumeration": "7"
    },
-   "solution": "SPEARED"
+   "solution": "SPEARED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drove home point",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to capture",
+       "at": 35,
+       "note": "capturing means holding inside, so one piece surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "moved quickly",
+       "at": 21,
+       "gives": "SPED",
+       "note": "sped is the past tense of speed, moved fast"
+      },
+      {
+       "words": "attention",
+       "at": 46,
+       "gives": "EAR",
+       "note": "an ear is attention, as in 'lend me your ear'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker hammers home their argument and rushes to grab the audience's interest.",
+     "walkthrough": "'Drove home point' reads as winning an argument; literally it is thrusting a sharp point in.",
+     "definitionFit": "To spear something is to pierce it by driving a pointed weapon into it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1230,74 @@
     "text": "Uncertainty about terms of EFTA causes company's failure",
     "enumeration": "6"
    },
-   "solution": "FIASCO"
+   "solution": "FIASCO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "failure",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 12,
+         "note": "about can mean turned round, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Uncertainty",
+         "at": 0,
+         "gives": "IF",
+         "note": "an if is a doubt, as in 'no ifs or buts'"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "terms of",
+         "at": 18,
+         "note": "the terms here are the final letters of the two words EFTA and causes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "EFTA",
+         "at": 27
+        },
+        {
+         "words": "causes",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "words": "company's",
+       "at": 39,
+       "gives": "CO",
+       "note": "Co is the abbreviation for company, the 's linking to the definition"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doubt over trade terms with EFTA, the European Free Trade Association, makes a business go under.",
+     "walkthrough": "'terms of' here means the final letters of EFTA and causes, not both ends of each word.",
+     "definitionFit": "A fiasco is a complete and humiliating failure, a disastrous flop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terms"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1311,58 @@
     "text": "What may be biting and ironic satire's beginning to be broadcast",
     "enumeration": "7"
    },
-   "solution": "INCISOR"
+   "solution": "INCISOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What may be biting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to be broadcast",
+       "at": 49,
+       "note": "broadcast means scattered widely, so the letters are scattered and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ironic",
+       "at": 23
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 39,
+         "note": "the beginning of a word is its first letter, here of satire"
+        }
+       ],
+       "parts": [
+        {
+         "words": "satire's",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A biting piece of ironic satire is going out on air.",
+     "walkthrough": "'biting' sounds like sharp satire; literally it is what a front tooth does.",
+     "definitionFit": "An incisor is a front cutting tooth, used for biting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "biting"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1376,65 @@
     "text": "Remove what stops court action blocking incomplete legal document",
     "enumeration": "6"
    },
-   "solution": "DELETE"
+   "solution": "DELETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocking",
+       "at": 31,
+       "note": "a piece blocking another sits in its way, in the middle of it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 40,
+         "note": "incomplete means missing a part, so the final letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "legal document",
+         "at": 51,
+         "gives": "DEED",
+         "note": "a deed is a signed legal document"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "what stops court action",
+       "at": 7,
+       "gives": "LET",
+       "note": "in tennis a let is called to stop play on court and replay the point"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legal ruling halts a court case while a contract is unfinished.",
+     "walkthrough": "'court action' suggests a lawsuit; the court is a tennis court. 'incomplete' leaves DEE.",
+     "definitionFit": "To delete is to strike out or erase, to remove text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1448,40 @@
     "text": "Children announce supply problem",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Children",
+      "at": 0,
+      "meaning": "... means offspring, as in 'died without ...'"
+     },
+     {
+      "text": "announce",
+      "at": 9,
+      "meaning": "to ... a statement is to announce it"
+     },
+     {
+      "text": "supply",
+      "at": 18,
+      "meaning": "to ... kit to troops is to supply them with it"
+     },
+     {
+      "text": "problem",
+      "at": 25,
+      "meaning": "a point of difficulty or concern"
+     }
+    ],
+    "explanation": {
+     "surface": "Kids report a problem with deliveries.",
+     "definitionFit": "The one word has four senses: offspring, put out publicly, hand out, and a matter of concern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1495,42 @@
     "text": "Small fish flourish",
     "enumeration": "5"
    },
-   "solution": "SHAKE"
+   "solution": "SHAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flourish",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing sizes"
+      },
+      {
+       "words": "fish",
+       "at": 6,
+       "gives": "HAKE",
+       "note": "the hake is a sea fish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little fish thrives.",
+     "walkthrough": "'flourish' looks like thrive; here it means to wave something about.",
+     "definitionFit": "To flourish a sword or a fist is to brandish or shake it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flourish"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1544,47 @@
     "text": "Pressure on writer to specify rules",
     "enumeration": "9"
    },
-   "solution": "PRESCRIBE"
+   "solution": "PRESCRIBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "specify rules",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pressure",
+       "at": 0,
+       "gives": "P",
+       "note": "P is the symbol for pressure in physics"
+      },
+      {
+       "words": "on",
+       "at": 9,
+       "gives": "RE",
+       "note": "re means on or concerning, as in letters headed 're:'"
+      },
+      {
+       "words": "writer",
+       "at": 12,
+       "gives": "SCRIBE",
+       "note": "a scribe is a writer, especially a copyist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leans on an author to set out the rules.",
+     "definitionFit": "To prescribe is to lay down authoritatively what must be done, to set a rule or direction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pressure"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1604,42 @@
      }
     ]
    },
-   "solution": "SEABREEZE"
+   "solution": "SEABREEZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cocktail",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "drink",
+       "at": 9,
+       "gives": "SEA",
+       "note": "the drink is a familiar slang name for the sea"
+      },
+      {
+       "words": "piece of cake",
+       "at": 20,
+       "gives": "BREEZE",
+       "note": "a breeze is something easy, a piece of cake"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mixed drink is served with a slice of cake.",
+     "walkthrough": "'drink' looks like part of the cocktail; it is the sea, as in falling into the drink.",
+     "definitionFit": "A sea breeze is a cocktail of vodka with cranberry and grapefruit juice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1653,43 @@
     "text": "Witnesses reporter's arrest",
     "enumeration": "4"
    },
-   "solution": "SEES"
+   "solution": "SEES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Witnesses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SEES",
+     "indicators": [
+      {
+       "text": "reporter's",
+       "at": 10,
+       "note": "a reporter speaks the news, so the word is taken as heard rather than as spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "arrest",
+       "at": 21,
+       "gives": "SEIZE",
+       "note": "to seize someone is to arrest them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bystanders watch a journalist being taken into custody.",
+     "definitionFit": "To witness something is to see it happen, so sees matches witnesses as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reporter's"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1703,35 @@
     "text": "Sympathetic minister to make a proposal",
     "enumeration": "6"
    },
-   "solution": "TENDER"
+   "solution": "TENDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sympathetic",
+      "at": 0,
+      "meaning": "kind and gentle, caring"
+     },
+     {
+      "text": "minister",
+      "at": 12,
+      "meaning": "one who tends or looks after, a minister in the sense of a carer"
+     },
+     {
+      "text": "make a proposal",
+      "at": 24,
+      "meaning": "to ... is to offer formally, as in ... a bid"
+     }
+    ],
+    "explanation": {
+     "surface": "A kindly clergyman sets out to propose marriage.",
+     "definitionFit": "Three senses: gentle in feeling, a person who tends others, and to put forward a formal offer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minister"
+    }
+   }
   },
   {
    "number": 28,
@@ -455,7 +1745,50 @@
     "text": "Singer in time produces wrong notes",
     "enumeration": "6"
    },
-   "solution": "ERRATA"
+   "solution": "ERRATA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wrong notes",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "in means placed inside, so one word sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time",
+       "at": 10,
+       "gives": "ERA",
+       "note": "an era is a period of time"
+      },
+      {
+       "words": "Singer",
+       "at": 0,
+       "gives": "RAT",
+       "note": "a rat is an informer, and an informer 'sings' to the police"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist keeping the beat still hits some bum notes.",
+     "walkthrough": "'Singer' and 'wrong notes' paint music; the singer is a grass, and the notes are written corrections.",
+     "definitionFit": "Errata are listed errors in a printed book, written notes of mistakes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Singer"
+    }
+   }
   }
  ]
 }
