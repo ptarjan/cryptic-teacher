@@ -547,9 +547,15 @@ def repair(path, puzzle, apply_it, padding_only=False, learned=False):
         texts = mend_clue_text(fixed, learned_only=True)
         if not texts:
             return None
+        line = f"{path.stem}: {len(texts)} clue(s) with a learned mend: " + ", ".join(sorted(texts))
         if apply_it:
-            fetcher.write_puzzle_file(path, fixed)
-        return f"{path.stem}: {len(texts)} clue(s) with a learned mend: " + ", ".join(sorted(texts))
+            import puzzle_integrity
+            try:
+                fetcher.write_puzzle_file(path, fixed)
+            except puzzle_integrity.RefusedWrite as refused:
+                # A defect the mend did not make and cannot mend: the file stays as it is.
+                return f"{path.stem}: left alone, the write was refused: {refused}"
+        return line
     if padding_only:
         unpadded = [(entry_id(e), w) for e in fixed["entries"] for w in unpad_charades(e, fixed)]
         if not unpadded:
