@@ -3,7 +3,7 @@
 
     python3 tools/repair_fetched.py                          # say what is wrong, change nothing
     python3 tools/repair_fetched.py --apply                   # write the repairs
-    python3 tools/repair_fetched.py --clue-text-only          # only the clue-text mends (rules learned from rereads)
+    python3 tools/repair_fetched.py --learned                 # only the clue-text mends learned from rereads
     python3 tools/repair_fetched.py --series cryptic          # one series only
     python3 tools/repair_fetched.py --from 27600 --to 27900   # one stretch of numbers
     python3 tools/repair_fetched.py --series cryptic --from 27600 --apply
@@ -296,13 +296,15 @@ def offsets(old, new):
     return at
 
 
-def mend_clue_text(puzzle):
+def mend_clue_text(puzzle, learned_only=False):
     """Mend each clue's text by clue_repair.mend_text (the count left after
     its words, a neighbour's count and number run into it, a drop capital, a
     word broken by a space, a one-letter misread of a word nobody prints),
     in place, annotation and italics moved with the words. Returns {light:
     its clue now}. The lights fetch_puzzle.clue_leftovers names are mended
-    by the same function, so what it reports and what this repairs agree."""
+    by the same function, so what it reports and what this repairs agree.
+    `learned_only`: just clue_repair.learned_mends, the rules measured on the
+    rereads (tools/learn_postproc.py), none of the older ones."""
     import clue_repair
     is_word, uses = clue_repair.lexicon()
     done = {}
@@ -312,7 +314,10 @@ def mend_clue_text(puzzle):
         enum = clue.get("enumeration")
 
         def mapper(text, enum=enum):
-            new = clue_repair.mend_text(text, enum, is_word, uses, lights=lights)
+            if learned_only:
+                new = clue_repair.learned_mends(text, enum, is_word, lights)
+            else:
+                new = clue_repair.mend_text(text, enum, is_word, uses, lights=lights)
             return new, offsets(text, new)
 
         if enumeration.rewrite_entry(e, mapper):
@@ -527,26 +532,24 @@ def unpad_charades(entry, puzzle):
     return removed
 
 
-def repair(path, puzzle, apply_it, padding_only=False, clue_text_only=False):
+def repair(path, puzzle, apply_it, padding_only=False, learned=False):
     """Repair one file. Returns the one-line report, or None if it was clean."""
     before = json.dumps(puzzle, sort_keys=True, ensure_ascii=False)
     fixed = copy.deepcopy(puzzle)
 
     notes = []
-    if clue_text_only:
-        # Only the clue-text mends mechanical() makes (stray marks, spaces and
-        # clue_repair.mend_text's slips), on an archive.org filer's file: what a
-        # reread of the same file would otherwise do by hand.
+    if learned:
+        # Only the mends learned from the rereads (clue_repair.learned_mends), on
+        # an archive.org filer's file: what a reread of the same file would
+        # otherwise do by hand. No other repair, nor an older text rule.
         if not read_by_archive_filer(fixed):
             return None
-        marks, texts = mend_clue_marks(fixed), mend_clue_text(fixed)
-        if json.dumps(fixed, sort_keys=True, ensure_ascii=False) == before:
+        texts = mend_clue_text(fixed, learned_only=True)
+        if not texts:
             return None
         if apply_it:
             fetcher.write_puzzle_file(path, fixed)
-        return f"{path.stem}: " + "; ".join(
-            f"{len(d)} clue(s) {what}: " + ", ".join(sorted(d))
-            for d, what in ((marks, "with stray marks or spaces mended"), (texts, "with a scan's slips mended")) if d)
+        return f"{path.stem}: {len(texts)} clue(s) with a learned mend: " + ", ".join(sorted(texts))
     if padding_only:
         unpadded = [(entry_id(e), w) for e in fixed["entries"] for w in unpad_charades(e, fixed)]
         if not unpadded:
@@ -682,9 +685,10 @@ def main(argv):
                     help="report only, which is what happens anyway")
     ap.add_argument("--padding-only", action="store_true",
                     help="only take link words out of the wordplay; no other repair")
-    ap.add_argument("--clue-text-only", action="store_true",
-                    help="only the clue-text mends (stray marks and spaces, clue_repair.mend_text) of "
-                         "archive.org filers' files; no group, solution or padding repair")
+    ap.add_argument("--learned", action="store_true",
+                    help="only the clue-text mends learned from the rereads (clue_repair.learned_mends: "
+                         "stray underscore, figure speck, specked count, word stub) of archive.org "
+                         "filers' files; no group, solution, padding or older text repair")
     ap.add_argument("--series", help="one series key: cryptic, quiptic, everyman…")
     ap.add_argument("--from", dest="start", type=int,
                     help="lowest puzzle number to consider")
@@ -732,7 +736,7 @@ def main(argv):
         wanted.add(path.stem)
         if args.write_flags and read_by_archive_filer(puzzle):
             unsettled.extend(puzzle["id"] for _ in flagged_word_breaks(puzzle)[:1])
-        line = repair(path, puzzle, args.apply, args.padding_only, args.clue_text_only)
+        line = repair(path, puzzle, args.apply, args.padding_only, args.learned)
         if line:
             repaired += 1
             print(line)

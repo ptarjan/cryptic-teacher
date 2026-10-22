@@ -542,6 +542,17 @@ done = rf.mend_clue_text(barred)
 check(" ".join(sorted(done)), "3-across 5-down 6-down", "81, 17 (no light 17) and 141 are cut; 15 is a light, so a reference")
 check(barred["entries"][1]["clue"]["text"], "Mum not seen to follow 15", "a number a light has is kept")
 
+print("the learned mends alone leave the older text rules to their own repair")
+only = {"entries": [
+    {"number": 1, "direction": "across", "clue": {"text": "Decide to change denims, with lipstick 0on?", "enumeration": "7"}},
+    {"number": 2, "direction": "across", "clue": {"text": "Run up loose dress as a tem temporary measure", "enumeration": "9"}},
+    {"number": 3, "direction": "down", "clue": {"text": "Education initially by _the three Rs contains no fault", "enumeration": "9"}},
+    {"number": 4, "direction": "down", "clue": {"text": "I Long pair of shorts?", "enumeration": "6"}},
+    {"number": 5, "direction": "down", "clue": {"text": "Fodder for the right variety of grey . donkey", "enumeration": "6"}}]}
+done = rf.mend_clue_text(only, learned_only=True)
+check(" ".join(sorted(done)), "1-across 2-across 3-down", "a speck, a stub and a stroke are mended; a drop bar and a lone stop are not")
+check(only["entries"][3]["clue"]["text"], "I Long pair of shorts?", "the older bar rule is not run")
+
 print("a reread's stray neighbouring words are what a spoiled clue's repair takes back")
 check(str(rf.grown("Fluid that comes with a plant", "Fluid that comes with a plant Wales. Midlands.")), "True", "two stray words after the clue are grown")
 check(str(rf.grown("Understand something in a tongue", "Understand I something in a tongue")), "True", "a stray letter inside is grown")
