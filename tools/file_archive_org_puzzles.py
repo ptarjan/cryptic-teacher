@@ -5329,12 +5329,52 @@ CELLS_CLASSIFIED = ("times", "gale")
 SOLUTION_CLOSE = 3
 
 
+#: The width over height a solution grid's ink box may have (the grids are square; a print's
+#: slant and frame give a little).
+SQUARE_MIN, SQUARE_MAX = 0.85, 1.18
+#: A box this far from square (wide over tall) either way holds the grid and something joined
+#: to it; the grid is the square part of it (squares()).
+SQUARE_FAR = (0.6, 1.7)
+#: How far from square, in pixels, a box must be for squares() to cut it.
+SQUARE_SLACK = 8
+
+
+def squares(crop, box, above=False, at=None):
+    """The square cuts of `box` (the largest ink of `crop`, a solution grid's window) that may
+    be the grid when the ink holds it and something joined to it, as boxes of `crop`: a photo
+    or an ad under it (the box taller than wide: its top `width`, or with `above` its bottom),
+    a neighbouring column's text beside it (wider than tall: the `height`-wide window of the
+    most ink, a grid being the densest ink there, and the one centred on `at`, the heading's
+    middle). [] when the box is square already or beyond SQUARE_FAR of it."""
+    import numpy as np
+    x0, y0, x1, y1 = box
+    bw, bh = x1 - x0, y1 - y0
+    if abs(bw - bh) <= SQUARE_SLACK or not (SQUARE_FAR[0] <= bw / max(bh, 1) <= SQUARE_FAR[1]):
+        return []
+    if bw < bh:
+        return [(x0, y1 - bw, x1, y1) if above else (x0, y0, x1, y0 + bw)]
+    gray = np.asarray(crop.convert("L"), dtype=np.uint8)[y0:y1, x0:x1]
+    ink = (gray < trove_grid.otsu(gray)).sum(axis=0)
+    sums = np.concatenate([[0], np.cumsum(ink)])
+    dense = int(np.argmax(sums[bh:] - sums[:len(sums) - bh]))
+    out = [(x0 + dense, y0, x0 + dense + bh, y1)]
+    if at is not None:
+        mid = min(max(int(at - x0 - bh / 2), 0), bw - bh)
+        if abs(mid - dense) > SQUARE_SLACK:
+            out.append((x0 + mid, y0, x0 + mid + bh, y1))
+    return out
+
+
 def read_solution(img, sol, grid, above=False, lean=False):
     """({light: answer}, stats) read off the solution grid under a "Solution
     to Puzzle No N" heading on page `img`, or with `above`, over it (the
     Guardian's). Its code is solution_key()'s. With `lean` (answers_only, which
     checks every answer against its light and crossings) a grid is read on the
-    one lattice that accepts every light, not on all three (read_framed)."""
+    one lattice that accepts every light, not on all three (read_framed).
+    The largest ink under the heading is the grid when it is square; when it is not
+    (a photo under it, a neighbour column's text beside it: 1993's pages, 103 of
+    them refused as 344x426) or its blocks are not the puzzle's, the square cuts of it
+    (squares()) are read too, and the one whose blocks agree most is the grid."""
     d = sol["dir"]
     x0, y0, x1, y1 = sol["box"]
     from PIL import Image
@@ -5342,22 +5382,34 @@ def read_solution(img, sol, grid, above=False, lean=False):
     crop = (max(0, x0 - 80), y1, min(img.width, x1 + 140), min(img.height, y1 + int(1.4 * w) + 60))
     if above:
         crop = (max(0, x0 - 80), max(0, y0 - int(1.4 * w) - 60), min(img.width, x1 + 140), y0)
-    box = ink_box(img.crop(crop), SOLUTION_CLOSE)
+    window = img.crop(crop)
+    box = ink_box(window, SOLUTION_CLOSE)
     if box is None:
         return {}, {"refused": "no ink under the heading"}
     bw, bh = box[2] - box[0], box[3] - box[1]
-    if not (200 <= bw <= 800 and 0.85 <= bw / max(bh, 1) <= 1.18):
+    cuts = squares(window, box, above, (x0 + x1) / 2 - crop[0])
+    boxes = [box] if SQUARE_MIN <= bw / max(bh, 1) <= SQUARE_MAX else []
+    boxes += cuts
+    boxes = [b for b in boxes if 200 <= b[2] - b[0] <= 800 and SQUARE_MIN <= (b[2] - b[0]) / max(b[3] - b[1], 1) <= SQUARE_MAX]
+    if not boxes:
         return {}, {"refused": f"the ink under the heading is {bw}x{bh}"}
     path = CROPS / "solutions" / f"{d.name}_{sol['number']}.png"
     path.parent.mkdir(parents=True, exist_ok=True)
-    # Cut afresh on every read, so the crop is always this code's cut.
-    sol = img.crop((crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3]))
-    # The recogniser reads the ~23px cells far surer at three times the size.
-    sol.resize((sol.width * 3, sol.height * 3), Image.BICUBIC).save(path)
-    # The crop is the grid, frame to frame: read on its own rules; a Times
-    # print's cells by the cell classifier too, which was trained on them.
-    answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True,
-                                                     classify=paper_of(d).key in CELLS_CLASSIFIED, lean=lean)
+    best = None
+    for b in boxes:
+        # Cut afresh on every read, so the crop is always this code's cut.
+        cut = window.crop(b)
+        # The recogniser reads the ~23px cells far surer at three times the size.
+        cut.resize((cut.width * 3, cut.height * 3), Image.BICUBIC).save(path)
+        # The crop is the grid, frame to frame: read on its own rules; a Times
+        # print's cells by the cell classifier too, which was trained on them.
+        answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True,
+                                                         classify=paper_of(d).key in CELLS_CLASSIFIED, lean=lean)
+        if best is None or stats["blocks"] > best[1]["blocks"]:
+            best = (answers, stats)
+        if stats["blocks"] >= SOLUTION_BLOCKS:
+            break
+    answers, stats = best
     if stats["blocks"] < SOLUTION_BLOCKS:
         return {}, {**stats, "refused": "its blocks are not the puzzle's"}
     return {f"{n}-{d}": w for (n, d), w in answers.items()}, stats
