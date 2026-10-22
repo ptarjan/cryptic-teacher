@@ -6407,7 +6407,10 @@ FRESH = 3600
 #: does a read by another VLM version (a model or prompt change).
 #: Within a rank, the reads likely() predicts to file the most puzzles
 #: whole go first. Every reason due_reason or plan gives is named here.
-RANKS = {"just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
+#: The reason of the scan (OCR alone, no VLM ask) of the edition printing the solution of a Times puzzle
+#: filed with every clue and not every answer (solution_hosts); rank 1, ahead of the other scans.
+HOST_SCAN = "scan stale, solution host"
+RANKS = {HOST_SCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
@@ -6714,11 +6717,18 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
         for rel in u["needs"]:
             rank_of[rel] = min(rank_of.get(rel, 9), u["rank"])
             gain_of[rel] = max(gain_of.get(rel, 0), likely_gain(u))
+    hosts = solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs)
     scan_units = [{"kind": "scan", "paper": paper.key, "rel": rels[d], "rank": rank_of.get(rels[d], RANKS["scan stale"]),
                    "date": day_of(d), "reason": "scan stale" if "scan" in (known.get(rels[d]) or {}) else "never scanned",
                    **({"gain": gain_of[rels[d]]} if gain_of.get(rels[d]) else {})}
                   for d in sorted(sorted(stale, key=newest, reverse=True),
                                   key=lambda d: (rank_of.get(rels[d], RANKS["scan stale"]), -gain_of.get(rels[d], 0)))]
+    if hosts:
+        # The scans that link the answers of puzzles filed with every clue and not every answer go first.
+        for u in scan_units:
+            if u["rel"] in hosts and u["reason"] in ("scan stale", "never scanned"):
+                u.update(reason=HOST_SCAN, rank=RANKS[HOST_SCAN], gain=hosts[u["rel"]])
+        scan_units.sort(key=lambda u: u["reason"] != HOST_SCAN)  # stable: the order within each group stands
     # A scan no read waits on, of an edition whose last scan found only puzzles that will not file.
     scans_before = len(scan_units)
     kept = []
@@ -6735,6 +6745,53 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
         progress(f"plan {paper.key}: reads {reads_before} -> {len(read_units)}, scans {scans_before} -> {len(scan_units)}; "
                  "skipped " + ", ".join(f"{k} x{v}" for k, v in sorted(skipped.items())))
     return scan_units, read_units
+
+
+def answerless_puzzles(series, held, solutions=()):
+    """{number: date} of the puzzles of `series` filed with every clue and not every answer (filed_state), whose
+    solution no heading in `solutions` links yet."""
+    out = {}
+    for n, day in held.items():
+        if n in solutions:
+            continue
+        state = filed_state(series, n)
+        if state and state[1] and not state[0]:
+            out[n] = day
+    return out
+
+
+def host_day(day):
+    """The date of the issue printing the solution of the puzzle of `day`: the next day's, a Saturday's
+    prize a week on (hosted: the issue before each title, the Saturday before's prize)."""
+    return day + datetime.timedelta(days=7 if day.weekday() == 5 else 1)
+
+
+def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs):
+    """{rel: puzzles} of the editions of `paper` whose scan by current code is due because they print the
+    solution of puzzles filed with every clue and not every answer (answerless_puzzles): the issue
+    host_day names, scanned alone (no week after, not the puzzle's own edition). One not stale is left out
+    (its scan by this code links what it links), as is one whose archive.org text prints headings that link
+    none of its puzzles (_text_linked); one with no text or whose text is not read yet is kept."""
+    if paper.series != SERIES:
+        return {}
+    want = {}
+    for n, day in answerless_puzzles(paper.series, held, solutions).items():
+        want.setdefault(host_day(day), []).append(n)
+    if not want:
+        return {}
+    deadline = time.monotonic() + HEADING_UPDATE_SECONDS
+    out = {}
+    for d in dirs:
+        day = edition_date(d)
+        nums = want.get(day)
+        if not nums or d not in stale_set:
+            continue
+        rel = rels[d]
+        linked = _text_linked(st, paper, d, rel, scans[rel], scans[rel].get("date") or day_of(d), held, deadline, fhs.get(d))
+        if linked is not None and not linked & set(nums):
+            continue
+        out[rel] = len(nums)
+    return out
 
 
 #: Reasons an edition is read for a bug: never skipped (a reread is wanted).
