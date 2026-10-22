@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Reasonably OK, as a slow car may be?",
     "enumeration": "8"
    },
-   "solution": "PASSABLE"
+   "solution": "PASSABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reasonably OK",
+      "at": 0,
+      "meaning": "first meaning: adequate, fair enough"
+     },
+     {
+      "text": "as a slow car may be",
+      "at": 15,
+      "meaning": "second meaning: able to be overtaken, as a slow car can be passed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading splits the word as PASS + ABLE: a dawdling car is one other drivers are able to pass.",
+     "definitionFit": "Passable means adequate or tolerable, just about good enough."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "slow"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +72,41 @@
     "text": "Like hard wood",
     "enumeration": "3"
    },
-   "solution": "ASH"
+   "solution": "ASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wood",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Like",
+       "at": 0,
+       "gives": "AS",
+       "note": "'as' means like, in the sense 'just as'"
+      },
+      {
+       "words": "hard",
+       "at": 5,
+       "gives": "H",
+       "note": "H is the pencil-grading abbreviation for hard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of some timber as being hard like wood.",
+     "definitionFit": "Ash is a tree whose timber is a familiar hardwood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +120,41 @@
     "text": "Swallows singular fluids",
     "enumeration": "5"
    },
-   "solution": "SINKS"
+   "solution": "SINKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swallows",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "singular",
+       "at": 9,
+       "gives": "S",
+       "note": "S is the grammar abbreviation for singular"
+      },
+      {
+       "words": "fluids",
+       "at": 18,
+       "gives": "INKS",
+       "note": "inks are fluids used for writing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gulps down one particular liquid after another.",
+     "definitionFit": "To sink a drink is slang for swallowing or downing it quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fluids"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +174,35 @@
      }
     ]
    },
-   "solution": "BELLRINGER"
+   "solution": "BELLRINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One exerting a lot of pull in the church",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One exerting a lot of pull in the church",
+       "at": 0,
+       "note": "the phrase suggests someone influential in church affairs, but it is literal: a person tugging ropes in the belfry"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Having 'pull' usually means influence, but here the pulling is done on the ropes in a church tower.",
+     "definitionFit": "A bell-ringer hauls on bell ropes, so does a lot of physical pulling in church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pull"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +216,64 @@
     "text": "Having almost left, Charlie enters to stir things up",
     "enumeration": "6"
    },
-   "solution": "EXCITE"
+   "solution": "EXCITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stir things up",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enters",
+       "at": 28,
+       "note": "enters signals that the Charlie letter goes inside the shortened word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 7,
+         "note": "almost signals that the last letter is dropped from the word for having left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "left",
+         "at": 14,
+         "gives": "EXITED",
+         "note": "left means exited; with 'Having' in front, the past form exited fits"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "Charlie",
+       "at": 20,
+       "gives": "C",
+       "note": "C is Charlie in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Charlie arrives just as someone is leaving, causing a commotion.",
+     "walkthrough": "'almost' cuts EXITED to EXITE, and 'enters' puts C inside it.",
+     "definitionFit": "To excite is to rouse or agitate, which is to stir things up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +287,51 @@
     "text": "Judge hopes to reform this man",
     "enumeration": "6"
    },
-   "solution": "JOSEPH"
+   "solution": "JOSEPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this man",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Judge",
+       "at": 0,
+       "gives": "J"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to reform",
+         "at": 12,
+         "note": "to reform means to reshape, so the letters of hopes are put into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hopes",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge hopes a convicted man will mend his ways.",
+     "walkthrough": "'this man' is a vague pointer to a man's name, made fair by the wordplay pinning down the letters.",
+     "definitionFit": "The clue points to a man by name; Joseph is a man's first name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reform"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +345,32 @@
     "text": "Old invader that's employed in sacking",
     "enumeration": "4"
    },
-   "solution": "JUTE"
+   "solution": "JUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old invader",
+      "at": 0,
+      "meaning": "first meaning: a member of the Germanic people who invaded Britain in the 5th century"
+     },
+     {
+      "text": "employed in sacking",
+      "at": 19,
+      "meaning": "second meaning: the coarse plant fibre used to make sacks"
+     }
+    ],
+    "explanation": {
+     "surface": "An ancient raider who took part in the sacking of towns.",
+     "walkthrough": "'Sacking' suggests pillage by invaders, but it is the cloth that sacks are made of.",
+     "definitionFit": "The Jutes were an early Germanic tribe; jute is also a fibre woven into hessian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sacking"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +390,31 @@
      }
     ]
    },
-   "solution": "SHORTTERM"
+   "solution": "SHORTTERM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expedient",
+      "at": 0,
+      "meaning": "first meaning: aimed at the immediate rather than the long run"
+     },
+     {
+      "text": "appreciated by bored pupils",
+      "at": 10,
+      "meaning": "second meaning: a school term that is short, which bored pupils would welcome"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading takes the phrase literally: a brief school term.",
+     "definitionFit": "Short-term measures are stopgaps, convenient for now rather than lasting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Expedient"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +434,48 @@
      }
     ]
    },
-   "solution": "PICTURECARD"
+   "solution": "PICTURECARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "perhaps the Queen of Hearts",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Visualise",
+       "at": 0,
+       "gives": "PICTURE",
+       "note": "to picture something is to visualise it"
+      },
+      {
+       "words": "limousine",
+       "at": 10,
+       "gives": "CAR",
+       "note": "a limousine is a kind of car"
+      },
+      {
+       "words": "daughter",
+       "at": 25,
+       "gives": "D",
+       "note": "D is the genealogical abbreviation for daughter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Imagine the Queen of Hearts riding in a limousine with her daughter.",
+     "walkthrough": "'perhaps' marks the Queen of Hearts as one example of the definition.",
+     "definitionFit": "A playing card showing a king, queen or jack is a court card, also called a picture card."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +489,41 @@
     "text": "Disinfectant is no help in fever",
     "enumeration": "6"
    },
-   "solution": "PHENOL"
+   "solution": "PHENOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disinfectant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in fever",
+       "at": 24,
+       "note": "something in a fever is agitated and confused, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "no help",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that disinfectant does nothing for someone with a temperature.",
+     "walkthrough": "'in fever' looks like the medical setting, but it shuffles NO HELP.",
+     "definitionFit": "Phenol, or carbolic acid, was one of the first antiseptics used in surgery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fever"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +547,31 @@
      }
     ]
    },
-   "solution": "CUTNOICE"
+   "solution": "CUTNOICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leave freezing block entire",
+      "at": 0,
+      "meaning": "first meaning: literally, to not cut a block of ice"
+     },
+     {
+      "text": "make no difference",
+      "at": 40,
+      "meaning": "second meaning: the idiom for failing to impress or have any effect"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first reading takes the idiom word by word: no cutting of the ice.",
+     "definitionFit": "If an argument cuts no ice, it has no effect on anyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "freezing"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +585,42 @@
     "text": "Racing driver's speed on the ground, flat out",
     "enumeration": "9"
    },
-   "solution": "PROSTRATE"
+   "solution": "PROSTRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on the ground, flat out",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Racing driver's",
+       "at": 0,
+       "gives": "PROST",
+       "note": "Alain Prost is a French Formula One champion; the 's means has, joining him to what follows"
+      },
+      {
+       "words": "speed",
+       "at": 16,
+       "gives": "RATE",
+       "note": "rate means speed, as in a rate of knots"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Formula One driver going flat out on the track.",
+     "walkthrough": "'flat out' suggests top speed, but here it means lying flat.",
+     "definitionFit": "Prostrate describes lying face down, stretched out on the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +634,41 @@
     "text": "Giving notice eating irons must be replaced",
     "enumeration": "11"
    },
-   "solution": "RESIGNATION"
+   "solution": "RESIGNATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Giving notice",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "must be replaced",
+       "at": 27,
+       "note": "replaced here means put back in a different place, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eating irons",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notice says the cutlery must be renewed.",
+     "walkthrough": "'eating irons' is slang for cutlery, but here it is just the letters to rearrange.",
+     "definitionFit": "Resignation is the act of handing in notice to leave a job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "irons"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +682,41 @@
     "text": "Thick stone removed",
     "enumeration": "5"
    },
-   "solution": "STOUT"
+   "solution": "STOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thick",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "stone",
+       "at": 6,
+       "gives": "ST",
+       "note": "ST is the abbreviation for stone, the imperial weight of 14 pounds"
+      },
+      {
+       "words": "removed",
+       "at": 12,
+       "gives": "OUT",
+       "note": "out means removed, as in taken out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thick stone has been taken away.",
+     "definitionFit": "Stout means sturdy and broad, solidly built."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "removed"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +730,41 @@
     "text": "Alcoholic drink cures heart failure",
     "enumeration": "10"
    },
-   "solution": "CHARTREUSE"
+   "solution": "CHARTREUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Alcoholic drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "failure",
+       "at": 28,
+       "note": "a failure is a breakdown, so the letters break down into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cures heart",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that a liqueur is a remedy for heart failure.",
+     "walkthrough": "'heart failure' reads as the illness, but 'failure' breaks up CURES HEART.",
+     "definitionFit": "Chartreuse is a French herbal liqueur made by Carthusian monks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failure"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +778,30 @@
     "text": "Almost in the lead for a brief moment",
     "enumeration": "6"
    },
-   "solution": "SECOND"
+   "solution": "SECOND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Almost in the lead",
+      "at": 0,
+      "meaning": "first meaning: placed just behind the winner"
+     },
+     {
+      "text": "brief moment",
+      "at": 25,
+      "meaning": "... meaning: a very short time, as in 'wait a ...'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 'for' joins two separate meanings of one word.",
+     "definitionFit": "Coming second means finishing just behind first; a second is also a tiny unit of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +815,31 @@
     "text": "Custodian who does conscientious work?",
     "enumeration": "9"
    },
-   "solution": "CARETAKER"
+   "solution": "CARETAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Custodian",
+      "at": 0,
+      "meaning": "first meaning: a building's ... or janitor"
+     },
+     {
+      "text": "who does conscientious work",
+      "at": 10,
+      "meaning": "second meaning: one who takes care"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading splits the word into its parts: a person who takes care.",
+     "definitionFit": "A caretaker looks after a building, so is a custodian of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "conscientious"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +853,45 @@
     "text": "Goes, some say, for wily scheme",
     "enumeration": "6"
    },
-   "solution": "WHEEZE"
+   "solution": "WHEEZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wily scheme",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WHEEZE",
+     "indicators": [
+      {
+       "text": "some say",
+       "at": 6,
+       "note": "some say signals that the word is heard rather than read, giving a word that sounds alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Goes",
+       "at": 0,
+       "gives": "WEES",
+       "note": "goes, in the sense of urinates, is wees in British slang"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goes along with a cunning plan, or so people claim.",
+     "walkthrough": "'Goes' here is the British slang sense of relieving oneself; to wee is to urinate.",
+     "definitionFit": "A wheeze is British slang for a clever trick or cunning plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Goes"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +905,48 @@
     "text": "Supporting band's skill in German",
     "enumeration": "6"
    },
-   "solution": "GARTER"
+   "solution": "GARTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supporting band",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in says the skill word sits inside the German abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "German",
+       "at": 27,
+       "gives": "GER"
+      },
+      {
+       "words": "skill",
+       "at": 18,
+       "gives": "ART",
+       "note": "art means skill, as in the art of conversation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A support act has talent in Germany.",
+     "walkthrough": "'Supporting band' reads like a support act at a concert, but it is a strap that holds something up.",
+     "definitionFit": "A garter is an elastic strap worn round the leg to hold up a stocking or sock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +960,58 @@
     "text": "Edge into church at a war zone",
     "enumeration": "6"
    },
-   "solution": "CRIMEA"
+   "solution": "CRIMEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "war zone",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 5,
+         "note": "into tells us the edge word is placed inside the church letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "church",
+         "at": 10,
+         "gives": "CE",
+         "note": "CE stands for the Church of England"
+        },
+        {
+         "words": "Edge",
+         "at": 0,
+         "gives": "RIM",
+         "note": "a rim is an edge"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 20,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone creeps into a church at a site of fighting.",
+     "definitionFit": "The Crimea was the setting of the 1850s Crimean War and of more recent conflict."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Edge"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1031,45 @@
      }
     ]
    },
-   "solution": "INSYNC"
+   "solution": "INSYNC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Matching",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "INSYNC",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 37,
+       "note": "we hear tells us to take the sound of the phrase, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dishes may be here to wash",
+       "at": 9,
+       "gives": "INSINK",
+       "note": "dirty dishes wait in the sink to be washed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dirty dishes left in the sink, as a household complaint.",
+     "walkthrough": "Plates waiting for washing are IN SINK, which sounds like the answer.",
+     "definitionFit": "Things in sync happen together at the same time, so they match up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dishes"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1083,41 @@
     "text": "Disney and an unknown dance as a couple",
     "enumeration": "5"
    },
-   "solution": "WALTZ"
+   "solution": "WALTZ",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance as a couple",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Disney",
+       "at": 0,
+       "gives": "WALT",
+       "note": "Walt Disney, the animator and film producer"
+      },
+      {
+       "words": "an unknown",
+       "at": 11,
+       "gives": "Z",
+       "note": "in algebra x, y and z are unknowns; Z is one of them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Walt Disney and a mystery partner take to the floor together.",
+     "definitionFit": "The waltz is a ballroom dance in three-time, performed by partners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1131,41 @@
     "text": "Dead Roman transformed: Greek hero to her rescue",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek hero to her rescue",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "transformed",
+       "at": 11,
+       "note": "transformed means changed in form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dead Roman",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dead Roman is changed into someone else in a Greek myth.",
+     "walkthrough": "The definition describes the woman Perseus came to save, not the hero.",
+     "definitionFit": "In Greek myth Perseus rescued Andromeda, chained to a rock as prey for a sea monster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hero"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1179,40 @@
     "text": "Tom is horribly damp",
     "enumeration": "5"
    },
-   "solution": "MOIST"
+   "solution": "MOIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "damp",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "horribly",
+       "at": 7,
+       "note": "horribly suggests something mangled, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tom is",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tom is miserably wet.",
+     "definitionFit": "Moist means slightly wet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "horribly"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1226,30 @@
     "text": "Influence of rock?",
     "enumeration": "4"
    },
-   "solution": "SWAY"
+   "solution": "SWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Influence",
+      "at": 0,
+      "meaning": "first meaning: power or control"
+     },
+     {
+      "text": "rock",
+      "at": 13,
+      "meaning": "second meaning: to move gently from side to side"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'rock' looks like a stone, but it is the verb for swinging to and fro.",
+     "definitionFit": "Sway is both control over others and a swinging motion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1269,31 @@
      }
     ]
    },
-   "solution": "MILKYWAY"
+   "solution": "MILKYWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0,
+      "meaning": "first meaning: a well-known brand of chocolate bar"
+     },
+     {
+      "text": "the stars",
+      "at": 8,
+      "meaning": "second meaning: our galaxy, the band of stars across the night sky"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bar for the stars' sounds like a celebrity haunt; the two parts are separate meanings.",
+     "definitionFit": "Milky Way is a chocolate bar and the name of our galaxy, seen as a pale band of stars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1307,49 @@
     "text": "Full agreement boy must go to college",
     "enumeration": "6"
    },
-   "solution": "UNISON"
+   "solution": "UNISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Full agreement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "must go to",
+       "at": 19,
+       "note": "the boy going to college puts the college word first, with the boy following it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "college",
+       "at": 30,
+       "gives": "UNI",
+       "note": "uni is short for university, a college"
+      },
+      {
+       "words": "boy",
+       "at": 15,
+       "gives": "SON",
+       "note": "a son is a boy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone agrees that the lad should go off to college.",
+     "walkthrough": "'to' puts the college before the boy.",
+     "definitionFit": "In unison means all together, in complete accord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "college"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1363,49 @@
     "text": "How to start old aeroplane: rotate propeller",
     "enumeration": "3"
    },
-   "solution": "OAR"
+   "solution": "OAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "propeller",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "How to start",
+       "at": 0,
+       "note": "the start of each following word is taken, giving its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old",
+       "at": 13
+      },
+      {
+       "words": "aeroplane",
+       "at": 17
+      },
+      {
+       "words": "rotate",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for starting a vintage plane by swinging its propeller.",
+     "walkthrough": "'propeller' looks like the plane's, but it is the device pushing a rowing boat.",
+     "definitionFit": "An oar propels a boat through water, so it is a propeller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "propeller"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1425,55 @@
      }
     ]
    },
-   "solution": "INTRAY"
+   "solution": "INTRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Matters awaiting attention",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "at home",
+       "at": 27,
+       "gives": "IN",
+       "note": "in means at home, as in staying in"
+      },
+      {
+       "op": "homophone",
+       "spelt": "TRAY",
+       "indicators": [
+        {
+         "text": "sounding",
+         "at": 36,
+         "note": "sounding tells us to take the sound of the word, not its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "characteristic",
+         "at": 45,
+         "gives": "TRAIT",
+         "note": "a trait is a characteristic"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Work piling up at home while someone describes their habits.",
+     "walkthrough": "TRAIT is said here with a silent T, as many British speakers say it, so it sounds like TRAY.",
+     "definitionFit": "An in-tray holds papers still to be dealt with, so by extension the pending work itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "characteristic"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +1487,61 @@
     "text": "You are told to enter design for puppet",
     "enumeration": "8"
    },
-   "solution": "CREATURE"
+   "solution": "CREATURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "puppet",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to enter",
+       "at": 13,
+       "note": "to enter puts the sounded letters inside the design word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "design",
+       "at": 22,
+       "gives": "CREATE",
+       "note": "to create is to design"
+      },
+      {
+       "op": "homophone",
+       "spelt": "UR",
+       "indicators": [
+        {
+         "text": "told",
+         "at": 8,
+         "note": "told means spoken, so the letters are what the words sound like"
+        }
+       ],
+       "parts": [
+        {
+         "words": "You are",
+         "at": 0,
+         "gives": "YOUARE",
+         "note": "said aloud, the letters U and R sound like you are"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is invited to join in designing a puppet.",
+     "definitionFit": "A creature is a person controlled by another, a mere tool or puppet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "puppet"
+    }
+   }
   }
  ]
 }
