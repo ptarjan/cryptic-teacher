@@ -180,47 +180,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GLOBAL",
+     "op": "composite",
      "indicators": [
       {
        "text": "stupid",
-       "note": "something stupid is muddled or senseless, so the letters are jumbled"
+       "at": 10,
+       "note": "stupid suggests muddled, so the letters are shuffled"
+      },
+      {
+       "text": "Not",
+       "at": 18,
+       "note": "not an tells us those two letters are missing from the shuffled letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GLOBAL",
-       "indicators": [
-        {
-         "text": "Not",
-         "note": "'not' tells the solver these letters are absent from the mix"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Bang",
+         "at": 0,
          "note": "taken as written"
         },
         {
          "words": "Lola",
+         "at": 5,
          "note": "taken as written"
-        },
-        {
-         "words": "an",
-         "note": "the letters to be taken away from the mix"
         }
        ]
+      },
+      {
+       "words": "an",
+       "at": 22,
+       "note": "taken as written: the letters left out"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks if Lola is stupid and gets the slangy reply 'not an earthly', meaning not a chance.",
-     "walkthrough": "'Not an earthly' is a British idiom for 'no chance at all', which hides the definition at the very end.",
-     "definitionFit": "Global means relating to the whole world, so it can stand in for earthly as an adjective."
+     "surface": "A crude proposition about Lola, met with the retort that there is no chance.",
+     "walkthrough": "'Not an earthly' is slang for no chance at all, which hides the definition. Take A and N away from BANG LOLA and the rest, BGLOLA, rearranges.",
+     "definitionFit": "Global means relating to the whole world, the same idea as earthly in its worldwide sense."
     },
     "features": {
      "answerInScene": false,
@@ -1080,60 +1079,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "off",
-       "note": "sawn-off suggests something cut and disordered, so 'off' signals the letters going awry"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "half",
-         "note": "taking half of a word means losing the rest, here keeping the front portion"
+         "text": "off",
+         "at": 13,
+         "note": "sawn-off suggests something cut and altered, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "sawn",
-           "note": "taken as written, to be rearranged"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "initially",
-             "note": "initially means at the start, so only the opening letter is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "shotguns",
-             "note": "the opening letter of shotguns"
-            }
-           ]
-          },
-          {
-           "words": "each",
-           "note": "taken as written, then cut in half"
-          }
-         ]
+         "words": "sawn",
+         "at": 8,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 27,
+         "note": "initially means at the start, so the opening letter of shotguns is taken"
         },
         {
-         "gives": "CH"
+         "text": "half",
+         "at": 37,
+         "note": "half of the next word is kept: its first half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shotguns",
+         "at": 17,
+         "note": "first letter S"
+        },
+        {
+         "words": "each",
+         "at": 42,
+         "note": "first half EA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A city's gangsters each get half the sawn-off shotguns.",
+     "surface": "A city known for sawn-off shotguns, each one cut down by half.",
+     "walkthrough": "'off' makes SWAN from SAWN, 'initially' gives S and 'half' gives EA.",
      "definitionFit": "Swansea is a coastal city in south Wales."
     },
     "features": {
