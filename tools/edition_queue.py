@@ -107,6 +107,7 @@ import importlib
 import importlib.util
 import json
 import os
+import re
 import shlex
 import signal
 import subprocess
@@ -1119,6 +1120,13 @@ def fills_gpu(unit):
             or canary_proven(unit))
 
 
+def blank_ask(unit):
+    """Whether read `unit` is sure to ask the VLM: a page filed with blank clues
+    (its detail "puzzle N: K blank", K > 0), whose blanks are the asks. Started
+    while the spool is full it OCRs the page, spools nothing and ends deferred."""
+    return unit["kind"] == "read" and re.search(r"\b[1-9]\d* blank\b", unit.get("detail") or "") is not None
+
+
 #: Reasons of rereads that finish on CPU alone (answers_only, no VLM ask): they never feed the GPU.
 CPU_ONLY = ("inputs changed: answers linked",)
 
@@ -1779,6 +1787,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     drainer_stop = threading.Event()
     spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
     full_wait = set()  # keys of the reads deferred for a full spool: not started until it is below its cap
+    spool_held = [0]  # reads the last walk held for a full spool, logged when it changes
     defer_runs = {}  # {key_of(read): times in a row it ended deferred for the VLM's asks}
     defer_until = {}  # {key_of(read): monotonic time before which it is not started again (DEFER_BACKOFF)}
     defer_file = Path(f"{handoff or resume}.defer") if handoff or resume else None  # kept across re-execs
@@ -2310,8 +2319,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if spool_on and (vlm_reader._waiting_dir() / str(os.getpid())).exists():
             vlm_waiting -= 1
         if spool_on:
-            # A full spool does not stop reads: one that needs an uncached ask then ends deferred
-            # ("VLM spool full", vlm_reader.ask_png) and waits in full_wait; OCR-only reads go on.
+            # A full spool does not stop OCR-only reads. A read sure to ask (blank_ask) or that ended
+            # deferred "VLM spool full" (full_wait) is held in vlm_waits until it is below its cap: it
+            # would OCR its page, spool nothing and end deferred. Any other that needs an uncached ask
+            # still defers itself (vlm_reader.ask_png).
             vlm_full = vlm_waiting >= vlm_waiting_cap()
         else:
             vlm_waiting += len(queued) * vlm_waiting_cap() // vlm_spool_max()  # a full spool counts as a full cap
@@ -2349,17 +2360,22 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         desk_held = False
         vlm_now = []  # whether the VLM answers, asked once a pass and only when a read needs it
 
+        ask_held = set()  # reads this pass held for a full spool: they need asks
+
         def vlm_waits(u, vlm_now=vlm_now):
             """Whether read `u` waits for the VLM: it needs it (needs_vlm,
-            or it ended deferred for it) and it is down."""
-            if u["kind"] != "read" or not (key_of(u) in vlm_held or needs_vlm(u)):
+            or it ended deferred for it) and it is down, or it needs asks
+            and the spool is full."""
+            if u["kind"] != "read":
+                return False
+            if spool_cap_hit and (key_of(u) in full_wait or blank_ask(u)):
+                ask_held.add(key_of(u))
+                return True  # deferred for a full spool, or sure to be: its OCR is not redone for nothing
+            full_wait.discard(key_of(u))  # below the cap
+            if not (key_of(u) in vlm_held or needs_vlm(u)):
                 return False
             if defer_until.get(key_of(u), 0) > time.monotonic():
                 return True  # deferred again and again for its asks: backed off (DEFER_BACKOFF)
-            if key_of(u) in full_wait:
-                if spool_cap_hit:
-                    return True  # deferred for a full spool: not again until it is below its cap
-                full_wait.discard(key_of(u))
             if key_of(u) in spool_wait:
                 if any(vlm_reader.pending(k) for k in spool_wait[key_of(u)]):
                     return True
@@ -2569,7 +2585,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                                          or (u["kind"] == "scan" and (not yield_opt_in or (game and live_scans >= game_scans()))))):
                 continue
             if vlm_waits(u):
-                vlm_deferred += ukey not in spool_wait and ukey not in full_wait and ukey not in defer_until  # a read for the drainer is no "VLM down"
+                vlm_deferred += ukey not in spool_wait and ukey not in ask_held and ukey not in defer_until  # a read for the drainer is no "VLM down"
                 continue
             if vlm_full and u["kind"] == "read":
                 continue
@@ -2626,6 +2642,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 scanning.add((u["paper"], u["rel"]))
                 scanning_by.setdefault(u["paper"], set()).add(u["rel"])
         if not skip_walk:
+            if len(ask_held) != spool_held[0]:
+                spool_held[0] = len(ask_held)
+                if ask_held:
+                    log(f"spool full: held {len(ask_held)} reads that need asks ({len(queued)} asks spooled, "
+                        f"CT_VLM_SPOOL_MAX {vlm_spool_max()}); OCR-only reads go on")
             if reserve_hit and not reserve_bound:
                 log(f"slot reserve: {reserve} of {mem_gate.unit_ceiling()} unit slots held for VLM-asking reads "
                     f"({len(queued)} asks spooled, target {vlm_feed_target()}); other starts wait")

@@ -1756,8 +1756,11 @@ log.unlink(missing_ok=True)
 err = io.StringIO()
 with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
-check("spool on, spool full: reads still start (a read needing an ask defers itself)", (3, 0),
+check("spool on, spool full: reads without a predicted ask still start", (3, 0),
       (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("vlm-bound")))
+check("blank_ask: a page filed with K>0 blank clues is sure to ask, 0 blank or no detail is not", (True, False, False),
+      (eq.blank_ask({"kind": "read", "detail": "puzzle times-1: 1 blank"}), eq.blank_ask({"kind": "read", "detail": "puzzle times-1: 0 blank"}),
+       eq.blank_ask({"kind": "read"})))
 check("the queue's cap is the reader's", True, eq.vlm_spool_max() == vlm_reader.vlm_spool_max() == 10)
 # GPU fill: with the VLM stage short of asks, another paper's never-read read goes ahead of the
 # CT_NEWEST_FIRST paper's OCR-only rereads (Times first otherwise), and the queue says so.
