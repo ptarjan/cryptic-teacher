@@ -312,28 +312,44 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Drug",
-       "gives": "E",
-       "note": "E is ecstasy"
-      },
-      {
-       "words": "doctor",
-       "gives": "MB",
-       "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "taken by",
+         "at": 5,
+         "note": "taken by means the drug goes with the doctor, placed first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Drug",
+         "at": 0,
+         "gives": "E",
+         "note": "E is slang for the drug ecstasy"
+        },
+        {
+         "words": "doctor",
+         "at": 14,
+         "gives": "MB",
+         "note": "MB, Bachelor of Medicine, is a doctor's degree"
+        }
+       ]
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "almost",
-         "note": "almost means not quite all, so the last letter goes"
+         "at": 33,
+         "note": "almost means nearly whole, so the name loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "former PM",
+         "at": 23,
          "gives": "ATTLEE",
-         "note": "Clement Attlee was UK Prime Minister 1945 to 1951"
+         "note": "Clement Attlee was UK prime minister from 1945 to 1951"
         },
         {
          "gives": "E"
@@ -343,14 +359,13 @@
      ]
     },
     "explanation": {
-     "surface": "A doctor hands drugs to a one-time prime minister spoiling for a fight.",
-     "walkthrough": "Clement Attlee was the Labour prime minister after the Second World War; clipping his name leaves ATTLE.",
-     "definitionFit": "To embattle is to prepare troops or defences for battle, so 'ready for fight' works as a verb phrase."
+     "surface": "A drug is given by a doctor to an ex-premier, who is almost ready to fight.",
+     "walkthrough": "E (ecstasy) and MB (doctor) lead; ATTLE is Clement Attlee, Britain's post-war prime minister, minus his last letter.",
+     "definitionFit": "To embattle is to prepare troops or defences for battle, the verb behind embattled."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Drug"
+     "aptDefinition": false
     }
    }
   },

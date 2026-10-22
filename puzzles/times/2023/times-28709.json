@@ -442,55 +442,53 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PRIZEMONEY",
      "indicators": [
       {
        "text": "sadly",
-       "note": "sadly means badly or wretchedly, so the letters are knocked out of order"
+       "at": 33,
+       "note": "sadly suggests things gone wrong, so the letters are jumbled"
       }
      ],
      "parts": [
       {
+       "words": "zero",
+       "at": 17
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PRIZEMONEY",
        "indicators": [
         {
          "text": "no",
-         "note": "'no' says the following item is absent, so its letter is taken away"
+         "at": 39,
+         "note": "no means without, so the word for time is taken out"
         }
        ],
        "parts": [
         {
-         "words": "zero",
-         "note": "taken as written"
-        },
-        {
          "words": "empty",
-         "note": "taken as written"
+         "at": 24
         },
         {
          "words": "time",
-         "gives": "T",
-         "note": "T is time, the letter taken out of the previous word"
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
+         "at": 42,
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "in",
+       "at": 30
       }
      ]
     },
     "explanation": {
-     "surface": "An empty purse with nothing in it, and no time to fill it.",
-     "walkthrough": "The dash separates the definition from the fodder; 'time' is T, removed from EMPTY before the letters are rearranged.",
-     "definitionFit": "A purse is the sum offered to winners of a boxing match or race, a prize fund."
+     "surface": "A purse holding nothing is sadly emptied in no time.",
+     "walkthrough": "In boxing a purse is a fighter's fee. 'no time' takes T from EMPTY; 'sadly' rearranges ZERO, EMPY and IN.",
+     "definitionFit": "A purse is the sum paid to boxers or offered as a prize, which is winnings money."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Purse"
     }
    }

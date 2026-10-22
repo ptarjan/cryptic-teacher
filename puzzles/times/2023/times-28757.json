@@ -104,34 +104,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Wrongly",
-       "note": "doing something wrongly means doing it out of order, so the letters are to be set down in a different arrangement"
+       "text": "double",
+       "at": 17,
+       "note": "double means the parking letter is taken a second time"
       }
      ],
      "parts": [
       {
-       "words": "deem bus",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Wrongly",
+         "at": 0,
+         "note": "wrongly means in error, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deem",
+         "at": 8
+        },
+        {
+         "words": "bus",
+         "at": 13
+        },
+        {
+         "words": "parking",
+         "at": 24,
+         "gives": "P",
+         "note": "P is the road-sign symbol for parking"
+        }
+       ]
       },
       {
-       "words": "double parking",
-       "gives": "PP",
-       "note": "P is the parking symbol, doubled"
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone mistakenly thinks a double-parked bus is holding up the traffic.",
-     "walkthrough": "P is the symbol on parking signs, so 'double parking' is two of it, added to the letters of the two words before the anagram is done.",
-     "definitionFit": "A raised ridge laid across a street to slow cars is literally an obstacle placed on the road surface for drivers."
+     "surface": "Someone wrongly deems a double-parked bus to be an obstruction on the road.",
+     "walkthrough": "'Wrongly' rearranges DEEM, BUS and P (parking) to SPEEDBUM; 'double' adds a second P.",
+     "definitionFit": "A speed bump is a raised strip across a road that slows traffic, a deliberate obstacle."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "parking"
+     "aptDefinition": false,
+     "misdirectedWord": "double"
     }
    }
   },
