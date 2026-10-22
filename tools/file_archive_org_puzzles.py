@@ -3980,7 +3980,7 @@ def hosted_window(paper, found):
     count only within SOLUTION_DAYS of the edition's day, and its prior days
     lie at most a week before a day the edition's titles print on. Two helds
     alike between them link alike (solution_sources)."""
-    if paper not in (TIMES, GALE) or not found["solutions"]:
+    if paper not in (TIMES, GALE) or not found["solutions"] or not found.get("date"):
         return None
     day = datetime.date.fromisoformat(found["date"])
     own = [p["number"] for p in found["puzzles"] if "fromSolutions" not in p]
@@ -7169,7 +7169,9 @@ def scan_of(row, paper, fh=None):
     if scan and row.get("scanKey") in current_keys(paper) and (fh is None or row.get("filesHash") == fh):
         return scan
     if only_current(row, paper, fh):
-        return {**scan, "solutions": row["solOnly"]["scan"]["solutions"]} if scan else row["solOnly"]["scan"]
+        # a failed stale scan has no "date": take the solutions_only read's
+        return {**row["solOnly"]["scan"], **scan, "solutions": row["solOnly"]["scan"]["solutions"]} \
+            if scan else row["solOnly"]["scan"]
     return scan
 
 
