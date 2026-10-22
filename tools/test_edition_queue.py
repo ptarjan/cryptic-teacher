@@ -1790,14 +1790,9 @@ _sc = {("times", f"t{k}"): {"kind": "scan", "paper": "times", "rel": f"t{k}", "r
        for k in range(3)}
 _waiting = lambda u: u["kind"] == "read" and u["paper"] == "times"
 _scan_of = lambda u: _sc.get((u["paper"], u["rel"]))
-check("gpu_fill: reads waiting on their own scan bring those scans forward, scan_of None leaves them", ([], ["t0", "t1"]),
+check("gpu_fill: reads waiting on their own scan are not filled, nor are their scans (a scan never asks the VLM)", ([], []),
       ([u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 0, False, 0, 2)],
        [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 0, False, 0, 2, _scan_of)]))
-check("gpu_fill: the fill's scans are scans", {"scan"},
-      {u["kind"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 0, False, 0, 2, _scan_of)})
-check("gpu_fill: a running scan holds a fill slot, a tried one is passed over", (["t1"], ["t1"]),
-      ([u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 1, False, 0, 2, _scan_of, {("times", "t0")})],
-       [u["rel"] for u in eq.gpu_fill(_cands, {eq.key_of(_sc[("times", "t0")])}, set(), _waiting, _none, 2, False, 0, 2, _scan_of)]))
 # Times first (Paul 10-21): the named papers' pending scans take every slot their ready reads will not.
 _ms = lambda paper, rel: {"kind": "scan", "paper": paper, "rel": rel, "rank": 2, "reason": "scan stale"}
 _tsc = [_ms("gale", "a"), _ms("ft", "f"), _ms("gale", "b"), _ms("gale", "c"), _ms("gale", "d")]
