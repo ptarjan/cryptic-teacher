@@ -646,48 +646,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "concealed",
-       "note": "concealed in the sense of disguised, and disguised letters are rearranged out of recognition"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "deep",
-       "note": "taken as written"
-      },
-      {
-       "op": "middle",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inner",
-         "note": "inner asks for the inside of the word that follows, dropping its first and last letters"
+         "text": "concealed",
+         "at": 25,
+         "note": "concealed means disguised, so these letters are hidden in a new arrangement"
         }
        ],
        "parts": [
         {
-         "words": "grime",
-         "note": "the middle three of its five letters"
+         "words": "deep",
+         "at": 5
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "inner",
+           "at": 10,
+           "note": "inner keeps the letters inside the word, dropping its first and last"
+          }
+         ],
+         "parts": [
+          {
+           "words": "grime",
+           "at": 16,
+           "note": "taken as written before its ends are dropped"
+          }
+         ]
         }
        ]
       },
       {
        "words": "is",
-       "note": "taken as written"
+       "at": 22
       }
      ]
     },
     "explanation": {
-     "surface": "Dirt lies hidden just below the surface of the skin.",
-     "walkthrough": "'Skin deep' reads as one phrase, but the definition is Skin alone. 'Concealed' is an unusual anagram signal: read it as disguised.",
-     "definitionFit": "The epidermis is the outer layer of the body's covering, over the dermis, so it names skin."
+     "surface": "Dirt lodged deep under the surface stays out of sight.",
+     "walkthrough": "'inner' grime is RIM; 'concealed' rearranges DEEP and RIM into EPIDERM, and IS is added at the end as written.",
+     "definitionFit": "The epidermis is the outer layer of the skin, so the word names skin in the anatomical sense."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "deep"
+     "misdirectedWord": "concealed"
     }
    }
   },
@@ -1303,44 +1311,61 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the cut word inside the colour"
+       "at": 34,
+       "note": "in says the shortened half goes inside the colour"
       }
      ],
      "parts": [
       {
        "words": "colour",
+       "at": 37,
        "gives": "RED",
-       "note": "a primary colour"
+       "note": "red is a colour"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "nearly half",
-         "note": "nearly half keeps a little under half of the word, cutting the rest"
+         "text": "nearly",
+         "at": 12,
+         "note": "nearly drops the last letter of that half"
         }
        ],
        "parts": [
         {
-         "words": "disco",
-         "note": "taken as written"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "half the",
+           "at": 19,
+           "note": "half the keeps the front half of the word that follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "disco",
+           "at": 28,
+           "gives": "DISCO",
+           "note": "the word disco, a dance club"
+          }
+         ]
         },
         {
-         "gives": "SCO"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half the disco has nearly been repainted in a new colour.",
-     "walkthrough": "Two letters of five is nearly half.",
-     "definitionFit": "To redecorate a room is to have done it all over again, so the past tense matches."
+     "surface": "Someone repainted almost half the dance hall a single shade.",
+     "walkthrough": "'nearly half' is two steps: take the front half of the five-letter word, then lose one more letter from it.",
+     "definitionFit": "Redid means did over again, as when a room is decorated a second time."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "colour"
+     "misdirectedWord": "disco"
     }
    }
   },
