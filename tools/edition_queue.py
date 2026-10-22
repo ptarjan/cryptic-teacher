@@ -1113,7 +1113,7 @@ def by_urgency(units):
     if newest_first_papers():
         named = newest_first_papers()
         newest = [t for t in units if t[3].get("paper") in named]
-        newest.sort(key=lambda t: t[3].get("date", ""), reverse=True)
+        newest.sort(key=lambda t: "9" if unproven_first(t[3]) else t[3].get("date", ""), reverse=True)
         # stable: newest first in each group; the scans of the issues printing the answers of puzzles
         # filed without them (fa.HOST_SCAN) first of the Times work (Paul 10-21: printed answers first)
         # A read whose answers a stored heading links (fa.LIKELY[0]) goes ahead of the host scans: they ran
@@ -1150,6 +1150,14 @@ def by_urgency(units):
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN)
+
+
+def unproven_first(unit):
+    """Whether `unit` is a Gale 2000 "no title found" reread (or the scan one waits on): ordered ahead of
+    the newer year_evidence units so a first batch is read and judged (the 2007 third-column rereads had
+    10 of 10 filed complete on 10-22; 2000's had not run, newest-first put them after all 2007's 301)."""
+    return unit.get("paper") == "gale" and (unit.get("reason") == fa.NO_TITLE_RESCAN
+                                            or bool(unit.get("fix") and (unit.get("date") or "")[:4] == "2000"))
 
 
 def files_likely_tier(rank, unit):
