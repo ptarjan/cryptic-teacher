@@ -284,6 +284,77 @@ def read_words(img, which):
             for x0, y0, x1, y1, t in words]
 
 
+def windowed_words(img, which, windows, state):
+    """read_words(img, which) for RapidOCR reader `which`, kept to the lines
+    whose detected box meets one of `windows` ((x0, y0, x1, y1) in `img`'s
+    pixels), each as read_words gives it, to the pixel: the detector runs over
+    all of `img` as RapidOCR's own call does, its boxes the whole read's; only
+    the recogniser is spared the lines outside the windows. The recogniser
+    pads a batch of RapidOCR's sorted lines to its widest, so each batch is
+    padded to the widest of the whole page's batch it belongs to, and the
+    line reads as it does in the whole read. `state` (an object to hold
+    attributes: a threading.local) keeps the detector's boxes of the last
+    image for the next reader, whose detector is the same. Not cached: it is
+    only part of the whole read."""
+    import hashlib
+    import numpy as np
+    crop = img.convert("RGB")
+    if not crop.width or not crop.height:
+        return []
+    crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
+    if too_thin(crop.width, crop.height, which):
+        return []
+    det = engine("ch")
+    key = hashlib.sha1(crop.tobytes()).hexdigest()
+    seen = getattr(state, "detected", None)
+    if seen is None or seen[0] != key:
+        im = det.load_img(np.asarray(crop))
+        raw_h, raw_w = im.shape[:2]
+        im, ratio_h, ratio_w = det.preprocess(im)
+        op = {"preprocess": {"ratio_h": ratio_h, "ratio_w": ratio_w}}
+        im, op = det.maybe_add_letterbox(im, op)
+        boxes, _ = det.auto_text_det(im)
+        seen = state.detected = (key, im, boxes, None if boxes is None else det._get_origin_points(boxes, op, raw_h, raw_w))
+    _, im, boxes, origin = seen
+    if boxes is None:
+        return []
+    # Each line's crop size as get_crop_img_list cuts it (a tall one turned on its side).
+    sizes = []
+    for p in boxes:
+        w = int(max(np.linalg.norm(p[0] - p[1]), np.linalg.norm(p[2] - p[3])))
+        h = int(max(np.linalg.norm(p[0] - p[3]), np.linalg.norm(p[1] - p[2])))
+        sizes.append((h, w) if h * 1.0 / w >= 1.5 else (w, h))
+    ratios = [w / float(h) for w, h in sizes]
+    inside = {i for i, o in enumerate(origin)
+              if any(o[:, 0].min() / UPSCALE < w[2] and o[:, 0].max() / UPSCALE > w[0]
+                     and o[:, 1].min() / UPSCALE < w[3] and o[:, 1].max() / UPSCALE > w[1] for w in windows)}
+    eng = engine(which)
+    rec = eng.text_rec
+    order = np.argsort(np.array(ratios))
+    read = {}
+    for beg in range(0, len(boxes), rec.rec_batch_num):
+        batch = order[beg:beg + rec.rec_batch_num]
+        mine = [int(i) for i in batch if int(i) in inside]
+        if not mine:
+            continue
+        _, height, width = rec.rec_image_shape[:3]
+        widest = max([width / height] + [ratios[int(i)] for i in batch])
+        crops = eng.get_crop_img_list(im, [boxes[i] for i in mine])
+        norm = np.concatenate([rec.resize_norm_img(c, widest)[np.newaxis, :] for c in crops]).astype(np.float32)
+        preds = rec.session(norm)[0]
+        for i, res in zip(mine, rec.postprocess_op(preds, False, wh_ratio_list=[ratios[i] for i in mine],
+                                                   max_wh_ratio=widest)):
+            read[i] = res
+    words = []
+    for i in sorted(read):
+        text, score = read[i][0], read[i][1]
+        if float(score) >= eng.text_score:
+            xs, ys = origin[i][:, 0].tolist(), origin[i][:, 1].tolist()
+            words.append((int(min(xs) / UPSCALE), int(min(ys) / UPSCALE), int(max(xs) / UPSCALE),
+                          int(max(ys) / UPSCALE), text))
+    return words
+
+
 #: Where raw_words' readings are kept, by what they were read from (words_cache_path):
 #: a read that ends deferred (its VLM asks spooled) starts again when the answers
 #: arrive and reads the same crops, which cost the full-page OCR each time. CT_OCR_WORDS_CACHE

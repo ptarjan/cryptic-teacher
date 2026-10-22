@@ -2164,8 +2164,146 @@ def scan_anywhere(d):
     runs _scan there), else here. Not inside scan(): scan_key() hashes what
     scan() reaches, so an edit there re-scans every edition."""
     import ocr_remote
+    if os.environ.get("CT_GRID_FIRST") == "1":
+        return grid_first_scan(d)
     found = ocr_remote.scan(d)
     return scan(d) if found is None else found
+
+
+#: Thread-local state of grid_first_scan: the paper being scanned, the windows
+#: found on the page being read (page id, windows) and the detector's boxes of
+#: the page band last read (key, results), which both page readers share.
+_GRID_FIRST = threading.local()
+#: How far past a window a detected text line may lie and still be read, in
+#: pixels at the page's own scale.
+GRID_FIRST_PAD = 8
+
+
+def grid_first_scan(d):
+    """scan(d) found grid-first (opt-in: CT_GRID_FIRST=1, scan_anywhere): the
+    same scan, its whole-page RapidOCR read cut to the lines in the windows a
+    title or solution heading can stand in. The detector runs over the whole
+    page as the full read does, so every line's box is the full read's own to
+    the pixel; only the recogniser, the bulk of the cost, reads fewer lines
+    (grid_first_words). A page with no grid, or no window on it, is read whole.
+    Defined apart from scan() and what it reaches: scan_key() hashes those, and
+    this changes no scan's result but for a line outside every window, so no
+    key moves."""
+    import ocr_remote
+    _grid_first_install()
+    with ocr_remote.local_slot():
+        _GRID_FIRST.paper = paper_of(d)
+        try:
+            found = _scan(d)
+        finally:
+            _GRID_FIRST.paper = None
+            _GRID_FIRST.windows = _GRID_FIRST.detected = None
+    # Two grids' bands (a patch of ink round the real grid) can read one title:
+    # the title is one, its box twice a pixel apart.
+    kept = []
+    for p in found["puzzles"]:
+        if not any(q["number"] == p["number"] and q["leaf"] == p["leaf"] and boxes_overlap(q["box"], p["box"])
+                   for q in kept):
+            kept.append(p)
+    found["puzzles"] = kept
+    return found
+
+
+def boxes_overlap(a, b, share=0.5):
+    """Whether boxes `a` and `b` (x0, y0, x1, y1) overlap by at least `share`
+    of the smaller's area."""
+    w = min(a[2], b[2]) - max(a[0], b[0])
+    h = min(a[3], b[3]) - max(a[1], b[1])
+    if w <= 0 or h <= 0:
+        return False
+    return w * h >= share * min((a[2] - a[0]) * (a[3] - a[1]), (b[2] - b[0]) * (b[3] - b[1]), key=abs)
+
+
+#: The unpatched band_words and grids_on, kept by _grid_first_install.
+_PLAIN = {}
+#: The fewest vertical and the fewest horizontal rules (rule_runs) a grid's
+#: ink crosses: a 13x13 has 14 of each, a photograph or a column of type few
+#: or none (and a ruled table many more of one than the other).
+GRID_RULES = 8
+
+
+def grid_ruled(img, box):
+    """Whether the ink of `box` on `img` is ruled like a crossword grid:
+    GRID_RULES vertical and horizontal rules, neither twice the other's number."""
+    import numpy as np
+    gray = np.asarray(img.crop(box).convert("L"), dtype=np.uint8)
+    ink = gray < trove_grid.otsu(gray)
+    v, h = len(rule_runs(ink)), len(rule_runs(ink.T))
+    return v >= GRID_RULES and h >= GRID_RULES and 0.5 <= v / h <= 2
+
+
+def _grid_first_install():
+    """Put grid_first_band_words and grid_first_grids in band_words' and
+    grids_on's places, once: they read as the originals do for any thread not
+    inside grid_first_scan."""
+    global band_words, grids_on
+    if "band_words" in _PLAIN:
+        return
+    _PLAIN["band_words"], _PLAIN["grids_on"] = band_words, grids_on
+
+    def band_words(img, band, which, cache_path):
+        if getattr(_GRID_FIRST, "paper", None) is None or which not in PAGE_READERS:
+            return _PLAIN["band_words"](img, band, which, cache_path)
+        return grid_first_words(img, band, which, cache_path)
+
+    def grids_on(img, step=2, shaped=grid_shaped):
+        found = _PLAIN["grids_on"](img, step, shaped)
+        if getattr(_GRID_FIRST, "paper", None) is None:
+            return found
+        return [g for g in found if grid_ruled(img, g)] or found
+
+
+def grid_first_windows(img, paper):
+    """[(x0, y0, x1, y1)] of the page where a title or a solution heading can
+    stand: the bands round each ruled grid-shaped patch of ink that ocr_titles
+    reads titles in (title_bands), and the bands solution_bands reads headings
+    in over each ruled solution grid. None where the page has no ruled grid."""
+    plain = _PLAIN["grids_on"]
+    grids = [g for g in plain(img) if grid_ruled(img, g)]
+    if not grids:
+        return None
+    wins = [b for g in grids for b in title_bands(img, g, False, paper.title_heights)]
+    return wins + solution_bands(img, [])
+
+
+def grid_first_words(img, band, which, cache_path):
+    """band_words, RapidOCR's page readers' (PAGE_READERS) in grid_first_scan:
+    the words the whole read gives, to the pixel. The page band keeps those of
+    the lines the detector finds in a window of grid_first_windows (the whole
+    read, where the page has no ruled grid); a smaller band all, the detector's
+    boxes shared by both readers. Kept apart from the whole reads' cache (a
+    .gf suffix) with the windows it read."""
+    held = getattr(_GRID_FIRST, "windows", None)
+    if held is None or held[0] is not img:
+        _GRID_FIRST.windows = held = (img, grid_first_windows(img, _GRID_FIRST.paper))
+    wins = held[1]
+    if f"_page.{reader_key(which)}." in cache_path.name:
+        if wins is None:
+            return _PLAIN["band_words"](img, band, which, cache_path)
+    else:
+        wins = [band]
+    path = cache_path.with_name(cache_path.name.replace(".json", ".gf.json"))
+    try:
+        cached = json.loads(path.read_text())
+        if tuple(cached["box"]) == tuple(band) and [list(w) for w in cached["windows"]] == [list(w) for w in wins]:
+            return [tuple(w) for w in cached["words"]]
+    except (OSError, ValueError, KeyError, TypeError):
+        pass
+    words = [(x0 + band[0], y0 + band[1], x1 + band[0], y1 + band[1], t)
+             for x0, y0, x1, y1, t in ocr_clues.windowed_words(
+                 img.crop(band), which, [(w[0] - band[0] - GRID_FIRST_PAD, w[1] - band[1] - GRID_FIRST_PAD,
+                                          w[2] - band[0] + GRID_FIRST_PAD, w[3] - band[1] + GRID_FIRST_PAD)
+                                         for w in wins], _GRID_FIRST)]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(f"{path.name}.{os.getpid()}.tmp")
+    tmp.write_text(json.dumps({"box": list(band), "windows": [list(w) for w in wins], "words": words}))
+    os.replace(tmp, path)
+    return words
 
 
 def _scan(d):
