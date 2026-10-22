@@ -851,6 +851,8 @@ LAYOUT = [
     ("fetching", "tools/bigdave_layout.py", "helpers for apply_blog_answers' bigdave44 source: the two-paragraph clue layout"),
     ("fetching", "tools/blog_comment_rows.py", "answer rows read from the comments under a Times for the Times post"),
     ("fetching", "tools/test_push_batch.sh", "does tools/push_puzzle_commit.sh batch pushes that come inside its window, and does the batch always reach origin, with every commit kept as its own?"),
+    ("fetching", "tools/refusal_replay.py", "replay the wordplay refusals annotation runs hit, through today's evaluator"),
+    ("fetching", "tools/test_refusal_replay.py", "does the wake's refusal section replay, group, count retries and name a cause?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
