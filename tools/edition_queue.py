@@ -312,7 +312,8 @@ def run_unit(unit, cache, puzzles, reread):
         return m.read_unit(unit["rel"])
     paper = m.FILERS[unit["paper"]]
     if unit["kind"] == "scan":
-        return m.scan_unit(paper, unit["rel"], cache)
+        # A solution host is wanted for the solutions it prints: its solution bands alone are read.
+        return m.scan_unit(paper, unit["rel"], cache, host=unit.get("reason") == fa.HOST_SCAN)
     return m.read_unit(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"))
 
 
@@ -2439,7 +2440,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             paper = fa.FILERS[u["paper"]]
             if u["paper"] not in stands:
                 stands[u["paper"]] = fa.standing(paper, cache)
-            return fa.scan_stands(paper, u["rel"], cache_s, stands[u["paper"]], stand_keys)
+            return fa.scan_stands(paper, u["rel"], cache_s, stands[u["paper"]], stand_keys, u.get("reason") == fa.HOST_SCAN)
 
         scanning_by = rels_by_paper(scanning)  # kept in step as scans begin below
 
