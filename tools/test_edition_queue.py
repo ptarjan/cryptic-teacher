@@ -681,7 +681,10 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 starts = [e[2] for e in ev if e[0] == "start"]
 check("the dispatcher ends 0, every unit started once", (0, ["r1", "r2", "s1", "slow"]), (rc, sorted(starts)))
-check("a read starts only after the scan it needs ends", True, ev.index(["end", "scan", "s1"]) < ev.index(["start", "read", "r1", "v1"]))
+# A read waits only on a scan that is running (read_waits); reads go ahead of a scan not yet begun
+# (the queue's order, and the scan is held while a full read pool is ready), so r1 starts before s1 ends.
+check("a read whose needed scan has not begun starts without waiting for it, and the scan still runs", True,
+      ev.index(["start", "read", "r1", "v1"]) < ev.index(["end", "scan", "s1"]))
 check("a unit past its limit is killed, the others not held up", (False, True, True),
       (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, time.monotonic() - t0 < 15))
 log.unlink()
@@ -1770,8 +1773,8 @@ log.unlink(missing_ok=True)
 err = io.StringIO()
 with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
-check("spool on, spool full: reads still start (a read needing an ask defers itself)", (3, 0),
-      (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("vlm-bound")))
+check("spool on, spool full: fresh reads that may ask are held (bb548de531f); none starts, no vlm-bound line", (0, 0),
+      (sum(" start " in l for l in (log.read_text() if log.exists() else "").splitlines()), err.getvalue().count("vlm-bound")))
 check("the queue's cap is the reader's", True, eq.vlm_spool_max() == vlm_reader.vlm_spool_max() == 10)
 # GPU fill: with the VLM stage short of asks, another paper's never-read read goes ahead of the
 # CT_NEWEST_FIRST paper's OCR-only rereads (Times first otherwise), and the queue says so.
