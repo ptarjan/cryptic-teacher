@@ -187,6 +187,16 @@ _, lk = eq.only_evidence("times", [], [{"rel": "X/3", "reason": "scan stale, ans
                                         {"rel": "X/4", "reason": "scan stale", "needs": [], "likely": {}}])
 check("a read predicted to file whole (answers linked) stays, with its detail", [("X/3", "answers linked x2")],
       [(u["rel"], u["detail"]) for u in lk])
+_sc, _rd = eq.only_evidence("times", [{"rel": "G/1", "reason": "scan stale", "kind": "scan"},
+                                      {"rel": "G/2", "reason": "scan stale", "kind": "scan"}],
+                            [{"rel": "G/0", "reason": "scan stale, answers missing", "needs": ["G/1"]}])
+check("a Times read waiting on scans for its solution heading keeps the scans, not the read", ([ "G/1"], []),
+      ([u["rel"] for u in _sc], _rd))
+_, _rd = eq.only_evidence("ft", [], [{"rel": "G/0", "reason": "scan stale, answers missing", "needs": ["G/1"]}])
+check("another paper's is dropped", [], _rd)
+_ws = lambda s: [(0, 0, 9, 9, w) for w in s.split()]
+check("Solution to Crossword N and Yesterday's solution N are headings", [(22925, 3), (24378, 2)],
+      [f.solution_at(_ws("Solution to Crossword 22,925"), 0, {22925}), f.solution_at(_ws("Yesterday's solution 24,378"), 0, {24378})])
 # ---- a read that wrote an incomplete puzzle before the cause time is due once ("unfiled before its fix")
 _un = {"id": "times-1", "number": 1, "complete": False, "wrote": True, "unfiled": 3, "clues": 27, "lights": 30}
 _unrow = {"verdicts": [_un], "scan": {"item": "GaleTimes1947UKEnglish", "date": "1947-04-19"}}
