@@ -22,6 +22,9 @@
   "date": "2022-05-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,30 @@
     "text": "Get through? I don't know",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get through",
+      "at": 0,
+      "meaning": "first meaning: to ... an exam or test successfully"
+     },
+     {
+      "text": "I don't know",
+      "at": 13,
+      "meaning": "second meaning: what a quiz contestant says to decline a question"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark makes it read as one puzzled remark; it is two separate meanings of one word.",
+     "definitionFit": "Succeeding in an exam is passing it, and a quiz player who cannot answer declines with the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "through"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +75,41 @@
     "text": "A pleasantly appealing French accent",
     "enumeration": "5"
    },
-   "solution": "ACUTE"
+   "solution": "ACUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "French accent",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "pleasantly appealing",
+       "at": 2,
+       "gives": "CUTE",
+       "note": "cute means pleasantly attractive or endearing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds a French way of speaking charming.",
+     "walkthrough": "'French accent' looks like a way of speaking, but it means a diacritic mark used in written French.",
+     "definitionFit": "The acute is the rising diacritic mark found over the e in French words like café."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "accent"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +123,29 @@
     "text": "Conventional flag",
     "enumeration": "8"
    },
-   "solution": "STANDARD"
+   "solution": "STANDARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conventional",
+      "at": 0,
+      "meaning": "first meaning: normal, usual, the norm"
+     },
+     {
+      "text": "flag",
+      "at": 13,
+      "meaning": "second meaning: a banner, as carried by a regiment"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word is both an adjective for the usual or normal kind and a noun for a banner carried into battle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flag"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +159,61 @@
     "text": "Worker in branch to the north frequently repeated phrase",
     "enumeration": "6"
    },
-   "solution": "MANTRA"
+   "solution": "MANTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "frequently repeated phrase",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "the worker sits inside the reversed branch"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to the north",
+         "at": 17,
+         "note": "in a down clue, going north means the word branch's synonym is read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "branch",
+         "at": 10,
+         "gives": "ARM",
+         "note": "an arm is a branch, as of a river or organisation"
+        }
+       ]
+      },
+      {
+       "words": "Worker",
+       "at": 0,
+       "gives": "ANT",
+       "note": "a worker ant is the classic crossword worker"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An employee up a tree keeps saying the same thing over and over.",
+     "walkthrough": "ARM read upwards gives MRA, and ANT goes into it.",
+     "definitionFit": "A mantra is a word or slogan chanted repeatedly, originally in Hindu and Buddhist meditation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "branch"
+    }
+   }
   },
   {
    "number": 5,
@@ -91,7 +227,58 @@
     "text": "Motel wrong about right wine",
     "enumeration": "6"
    },
-   "solution": "MERLOT"
+   "solution": "MERLOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "the rearranged motel goes round the letter for right"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 6,
+         "note": "letters that are wrong are put into the wrong order, so the word motel is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Motel",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 18,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motel has served the wrong red instead of the right one.",
+     "walkthrough": "'wrong' rearranges MOTEL to MELOT, and 'about' puts R inside it.",
+     "definitionFit": "Merlot is a red grape variety and the wine made from it, widely grown in Bordeaux."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 6,
@@ -105,7 +292,45 @@
     "text": "Short promotional piece gives confused impression",
     "enumeration": "4"
    },
-   "solution": "BLUR"
+   "solution": "BLUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "confused impression",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Short",
+       "at": 0,
+       "note": "cut short means the last letter of the promotional word is chopped off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "promotional piece",
+       "at": 6,
+       "gives": "BLURB",
+       "note": "a blurb is the promotional text on a book jacket"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brief advert leaves its readers muddled.",
+     "definitionFit": "A blur is something seen or remembered indistinctly, without clear outlines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Short"
+    }
+   }
   },
   {
    "number": 7,
@@ -119,7 +344,64 @@
     "text": "Passenger, bank worker, embracing most of party",
     "enumeration": "9"
    },
-   "solution": "TRAVELLER"
+   "solution": "TRAVELLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Passenger",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "at": 24,
+       "note": "the bank worker hugs the shortened party inside itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bank worker",
+       "at": 11,
+       "gives": "TELLER",
+       "note": "a teller is a bank clerk at the counter"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 34,
+         "note": "all but the final letter of the party word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 42,
+         "gives": "RAVE",
+         "note": "a rave is a large dance party"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passenger turns out to be a bank clerk who is clutching a party invitation.",
+     "walkthrough": "'Passenger, bank worker' reads as a list of two people, but the bank worker is wordplay; only 'Passenger' defines.",
+     "definitionFit": "A traveller is someone on a journey, as a passenger is on a train or plane."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 8,
@@ -133,7 +415,43 @@
     "text": "Live on TV channel",
     "enumeration": "6"
    },
-   "solution": "RESIDE"
+   "solution": "RESIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "at": 5,
+       "gives": "RE",
+       "note": "re means on or concerning, as in business letters"
+      },
+      {
+       "words": "TV channel",
+       "at": 8,
+       "gives": "SIDE",
+       "note": "side is old British slang for a television channel, from 'switch over to the other side'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is being broadcast live on television.",
+     "walkthrough": "'Live' looks like an adjective about broadcasting, but it is the verb to dwell.",
+     "definitionFit": "To reside somewhere is to have your home there, to dwell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Live"
+    }
+   }
   },
   {
    "number": 9,
@@ -147,7 +465,40 @@
     "text": "Fish aunt cooked",
     "enumeration": "4"
    },
-   "solution": "TUNA"
+   "solution": "TUNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cooked",
+       "at": 10,
+       "note": "cooked means doctored or altered, so the letters of aunt are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aunt",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative has prepared some fish for dinner.",
+     "definitionFit": "Tuna is a large ocean fish of the mackerel family, widely eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 10,
@@ -167,7 +518,59 @@
      }
     ]
    },
-   "solution": "NETTLERASH"
+   "solution": "NETTLERASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skin condition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entertaining",
+         "at": 33,
+         "note": "to entertain is to take in a guest, so the artist goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "irritates",
+         "at": 15,
+         "gives": "NETTLES",
+         "note": "nettles means annoys or irritates"
+        },
+        {
+         "words": "artist",
+         "at": 46,
+         "gives": "RA",
+         "note": "RA is a Royal Academician, the usual crossword artist"
+        }
+       ]
+      },
+      {
+       "words": "husband",
+       "at": 25,
+       "gives": "H",
+       "note": "H is the abbreviation for husband in family trees"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rash irritates a husband who is hosting a painter.",
+     "definitionFit": "Nettle rash is urticaria, an itchy skin eruption like the sting of a nettle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 11,
@@ -181,7 +584,42 @@
     "text": "Show the way in battle — advance",
     "enumeration": "4"
    },
-   "solution": "LEAD"
+   "solution": "LEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Show the way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "in means the answer sits inside the words that follow, across the gap between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "battle — advance",
+       "at": 16,
+       "note": "second meaning: a margin ahead of rivals, as in having the advantage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commander must show the way when the army moves forward.",
+     "walkthrough": "It reads like a military command, but the answer straddles 'battle' and 'advance'.",
+     "definitionFit": "To lead is to guide others by going in front of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +639,40 @@
      }
     ]
    },
-   "solution": "AVANTGARDE"
+   "solution": "AVANTGARDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Radically new",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "if misused",
+       "at": 28,
+       "note": "misused letters are put to the wrong use, so vat, a and danger are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vat, a danger",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that a vat could be hazardous when handled wrongly.",
+     "definitionFit": "Avant-garde describes experimental art or ideas ahead of their time, a vanguard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "misused"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +686,40 @@
     "text": "Some in opposition, unlike sister",
     "enumeration": "3"
    },
-   "solution": "NUN"
+   "solution": "NUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sister",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "only some of the letters of the following words are used, a run inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in opposition, unlike",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some people in opposition are unlike a sister, by implication pugnacious.",
+     "definitionFit": "A nun is a female member of a religious order, addressed as Sister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unlike"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +733,40 @@
     "text": "Interesting story from one cadet at sea",
     "enumeration": "8"
    },
-   "solution": "ANECDOTE"
+   "solution": "ANECDOTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Interesting story",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "at sea",
+       "at": 33,
+       "note": "at sea means confused or disordered, so the letters of one cadet are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one cadet",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naval cadet brings back an interesting tale from a voyage.",
+     "definitionFit": "An anecdote is a short amusing or interesting account of a real incident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +780,48 @@
     "text": "Discipline press covering Northern Ireland",
     "enumeration": "6"
    },
-   "solution": "PUNISH"
+   "solution": "PUNISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discipline",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 17,
+       "note": "the press word wraps around the Northern Ireland abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "press",
+       "at": 11,
+       "gives": "PUSH",
+       "note": "to push is to press"
+      },
+      {
+       "words": "Northern Ireland",
+       "at": 26,
+       "gives": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The newspapers report on discipline in Northern Ireland.",
+     "walkthrough": "'press' looks like the newspapers but is the verb.",
+     "definitionFit": "To discipline someone, in the sense of penalising them, is to punish them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "press"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +835,60 @@
     "text": "Group of team members quarrel, losing heads in courtyard",
     "enumeration": "10"
    },
-   "solution": "QUADRANGLE"
+   "solution": "QUADRANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "courtyard",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing heads",
+       "at": 31,
+       "note": "each of the two words loses its first letter, its head"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Group of team members",
+         "at": 0,
+         "gives": "SQUAD",
+         "note": "a squad is a group of players in a team"
+        },
+        {
+         "words": "quarrel",
+         "at": 22,
+         "gives": "WRANGLE",
+         "note": "a wrangle is a long argument"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Players fall out in a courtyard and come to blows.",
+     "walkthrough": "'losing heads' beheads both words: SQUAD becomes QUAD and WRANGLE becomes RANGLE.",
+     "definitionFit": "A quadrangle is a four-sided courtyard enclosed by buildings, as in an Oxford college."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +902,40 @@
     "text": "A bad-tempered over",
     "enumeration": "6"
    },
-   "solution": "ACROSS"
+   "solution": "ACROSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "over",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "bad-tempered",
+       "at": 2,
+       "gives": "CROSS",
+       "note": "cross means irritable or annoyed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy cricket over, as if the bowling itself were in a mood.",
+     "walkthrough": "'over' suggests the six-ball cricket over, but it is the preposition.",
+     "definitionFit": "Over and across both mean from one side to the other, as in going over the bridge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +949,63 @@
     "text": "Cake consumed in Gaul, no end",
     "enumeration": "6"
    },
-   "solution": "GATEAU"
+   "solution": "GATEAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "the consumed word goes into the shortened Gaul"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no end",
+         "at": 23,
+         "note": "the final letter of Gaul is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gaul",
+         "at": 17
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "consumed",
+       "at": 5,
+       "gives": "ATE",
+       "note": "ate means consumed"
+      }
+     ]
+    },
+    "spelling": "GÂTEAU",
+    "explanation": {
+     "surface": "A cake eaten in ancient France, the story never quite finished.",
+     "walkthrough": "Gaul is the Roman name for ancient France, which fits a French cake.",
+     "definitionFit": "Gâteau is the French word for a rich layered cake, used in English for creamy ones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gaul"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1019,51 @@
     "text": "Tea tree initially causes talk",
     "enumeration": "4"
    },
-   "solution": "CHAT"
+   "solution": "CHAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "talk",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tea",
+       "at": 0,
+       "gives": "CHA",
+       "note": "cha is slang for tea, from Chinese"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 9,
+         "note": "initially means just the first letter of tree"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tree",
+         "at": 4
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some tea under a tree gets people talking.",
+     "definitionFit": "To chat is to talk informally and at ease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tea"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1077,38 @@
     "text": "Gather a crowd",
     "enumeration": "5"
    },
-   "solution": "AMASS"
+   "solution": "AMASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gather",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 7
+      },
+      {
+       "words": "crowd",
+       "at": 9,
+       "gives": "MASS",
+       "note": "a mass is a large crowd of people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to gather a crowd together.",
+     "definitionFit": "To amass is to collect or accumulate a large quantity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1122,48 @@
     "text": "Downcast, departed drinking brandy, perhaps",
     "enumeration": "10"
    },
-   "solution": "DISPIRITED"
+   "solution": "DISPIRITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Downcast",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drinking",
+       "at": 19,
+       "note": "the departed word takes the drink inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "departed",
+       "at": 10,
+       "gives": "DIED",
+       "note": "died means departed this life"
+      },
+      {
+       "words": "brandy, perhaps",
+       "at": 28,
+       "gives": "SPIRIT",
+       "note": "brandy is an example of a spirit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gloomy has left after drinking brandy.",
+     "definitionFit": "Dispirited means having lost enthusiasm, low in spirits and dejected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "departed"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1177,45 @@
     "text": "Architectural drawing of factory, incomplete",
     "enumeration": "4"
    },
-   "solution": "PLAN"
+   "solution": "PLAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Architectural drawing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "incomplete",
+       "at": 34,
+       "note": "the last letter of the factory word is missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "factory",
+       "at": 25,
+       "gives": "PLANT",
+       "note": "a plant is an industrial factory"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unfinished blueprint for a factory.",
+     "definitionFit": "A plan is a scale drawing of a building seen from above."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "factory"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1229,47 @@
     "text": "Said of country life all but past",
     "enumeration": "4"
    },
-   "solution": "ORAL"
+   "solution": "ORAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Said",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "all but",
+       "at": 21,
+       "note": "everything except the word past is kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of country life",
+       "at": 5,
+       "gives": "PASTORAL",
+       "note": "pastoral describes rural life and shepherds"
+      },
+      {
+       "words": "past",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark about country life being a thing of the past.",
+     "walkthrough": "'all but' here means except: the country word without PAST.",
+     "definitionFit": "Oral means spoken rather than written, so an oral statement is one said aloud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "all"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1289,68 @@
      }
     ]
    },
-   "solution": "HEADSTART"
+   "solution": "HEADSTART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "advantage",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 12,
+         "note": "the letters of He's go around a and the duke abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "He's",
+         "at": 0,
+         "gives": "HES",
+         "note": "taken as written without the apostrophe"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 18
+          },
+          {
+           "words": "duke",
+           "at": 20,
+           "gives": "D"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "bitter",
+       "at": 5,
+       "gives": "TART",
+       "note": "tart means sharp or bitter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sour man's remark about a duke getting a leg up.",
+     "walkthrough": "'about' puts A and D inside HES, giving HEADS.",
+     "definitionFit": "A head start is an early lead given to a competitor, an edge over rivals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bitter"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1364,51 @@
     "text": "Simple English, say, broadcast",
     "enumeration": "4"
    },
-   "solution": "EASY"
+   "solution": "EASY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Simple",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 7,
+       "gives": "E"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "at": 21,
+         "note": "broadcast means scattered, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "say",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to put out a programme in plain English.",
+     "walkthrough": "'say' looks like the usual signal for an example, but it is plain anagram fodder.",
+     "definitionFit": "Easy means not difficult, straightforward to do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   }
  ]
 }
