@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,65 @@
     "text": "Friend in capital daughter is visiting, Hannah perhaps?",
     "enumeration": "10"
    },
-   "solution": "PALINDROME"
+   "solution": "PALINDROME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hannah perhaps?",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is visiting",
+       "at": 27,
+       "note": "the daughter is visiting the friend-in-the-capital phrase, so her letter goes inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Friend",
+         "at": 0,
+         "gives": "PAL",
+         "note": "a pal is a friend"
+        },
+        {
+         "words": "in",
+         "at": 7,
+         "gives": "IN",
+         "note": "taken as written"
+        },
+        {
+         "words": "capital",
+         "at": 10,
+         "gives": "ROME",
+         "note": "Rome is the Italian capital"
+        }
+       ]
+      },
+      {
+       "words": "daughter",
+       "at": 18,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend's daughter is staying in the capital, and Hannah might be that friend.",
+     "walkthrough": "'Hannah perhaps?' looks like a name for the friend, but it is the definition by example; the daughter's letter visits the phrase just before the city.",
+     "definitionFit": "Hannah reads identically forwards and backwards, making it an example of such a word, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hannah"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +105,47 @@
     "text": "Advertisement includes each type of fruit",
     "enumeration": "4"
    },
-   "solution": "PEAR"
+   "solution": "PEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "type of fruit",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 14,
+       "note": "the advertising letters hold the other letters within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Advertisement",
+       "at": 0,
+       "gives": "PR",
+       "note": "PR is public relations, a form of advertising"
+      },
+      {
+       "words": "each",
+       "at": 23,
+       "gives": "EA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit advert that features every variety.",
+     "definitionFit": "The pear is a sweet tree fruit, a familiar kind of produce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Advertisement"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +165,40 @@
      }
     ]
    },
-   "solution": "LASTSTRAW"
+   "solution": "LASTSTRAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "final indignity",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "sacked",
+       "at": 11,
+       "note": "sacked as in plundered and wrecked, so the letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stalwart's",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loyal worker being dismissed is the ultimate humiliation.",
+     "definitionFit": "The last straw is the final burden that makes something unbearable, from the proverb about the camel's back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sacked"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +212,71 @@
     "text": "Country lifting control that restricts poaching ultimately",
     "enumeration": "5"
    },
-   "solution": "NIGER"
+   "solution": "NIGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "that restricts",
+       "at": 24,
+       "note": "the reversed word confines the letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "lifting",
+         "at": 8,
+         "note": "in a down clue, lifting turns the word upward, reading it backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "control",
+         "at": 16,
+         "gives": "REIN",
+         "note": "a rein is a means of control"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 48,
+         "note": "the last letter of poaching"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poaching",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation removing the controls that limit poaching.",
+     "walkthrough": "REIN read upwards is NIER; G, the end of poaching, goes inside.",
+     "definitionFit": "Niger is a landlocked nation in West Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifting"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +290,54 @@
     "text": "Refuses being inspired by breakfasts I served up",
     "enumeration": "7"
    },
-   "solution": "RESISTS"
+   "solution": "RESISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refuses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 46,
+       "note": "in a down clue, up means the hidden letters read from the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "being inspired by",
+         "at": 8,
+         "note": "inspired means breathed in, so the answer is held inside these words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "breakfasts I served",
+         "at": 26,
+         "gives": "STSISER"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declines the breakfasts I dished up.",
+     "walkthrough": "The letters sit across breakfaSTS I SERved, reading upwards.",
+     "definitionFit": "To resist is to refuse to accept or give way; third person singular verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspired"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +351,55 @@
     "text": "Gigantic male insect old lady found on top?",
     "enumeration": "7"
    },
-   "solution": "MAMMOTH"
+   "solution": "MAMMOTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gigantic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found on top",
+       "at": 30,
+       "note": "in a down clue, the mother goes above the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old lady",
+       "at": 21,
+       "gives": "MA",
+       "note": "an old lady is slang for one's mother, ma"
+      },
+      {
+       "words": "male",
+       "at": 9,
+       "gives": "M"
+      },
+      {
+       "words": "insect",
+       "at": 14,
+       "gives": "MOTH",
+       "note": "a moth is an insect"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge male insect is found sitting on top of an old woman.",
+     "walkthrough": "'Old lady' here is your mother, ma.",
+     "definitionFit": "A mammoth was a huge extinct elephant, so the word means enormous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "lady"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +413,52 @@
     "text": "Piece of meat, heart from butcher, gets bound",
     "enumeration": "4"
    },
-   "solution": "CHOP"
+   "solution": "CHOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Piece of meat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart from",
+         "at": 15,
+         "note": "the heart of a word is its central letter, taken here from the seven-letter word butcher"
+        }
+       ],
+       "parts": [
+        {
+         "words": "butcher",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "words": "gets bound",
+       "at": 35,
+       "gives": "HOP",
+       "note": "to bound is to leap, so a hop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cut of meat, the best from the butcher, is tied up with string.",
+     "walkthrough": "'Bound' looks like 'tied up' in the surface, but here it means leaping.",
+     "definitionFit": "A pork or lamb chop is a cut of meat, usually including a rib bone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +472,47 @@
     "text": "Theft, one attending church possibly removing lead",
     "enumeration": "5"
    },
-   "solution": "HEIST"
+   "solution": "HEIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Theft",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removing lead",
+       "at": 37,
+       "note": "the first letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one attending church possibly",
+       "at": 7,
+       "gives": "THEIST",
+       "note": "a theist believes in God and might go to church"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchgoer stealing the lead from a church roof.",
+     "walkthrough": "'Lead' suggests the metal stolen from church roofs, but it means the first letter.",
+     "definitionFit": "A heist is a robbery, especially a daring or large one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +526,58 @@
     "text": "Claim it's about time to cut state allowance",
     "enumeration": "10"
    },
-   "solution": "PRETENSION"
+   "solution": "PRETENSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Claim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to cut",
+       "at": 22,
+       "note": "the letters cut into the pension, going inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "state allowance",
+       "at": 29,
+       "gives": "PENSION",
+       "note": "the state pension is a government allowance"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "at": 11,
+         "gives": "RE",
+         "note": "re means about or concerning"
+        },
+        {
+         "words": "time",
+         "at": 17,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An assertion that the government is cutting state pensions.",
+     "definitionFit": "A pretension is a claim or aspiration to something, such as a title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +591,29 @@
     "text": "Be confused with swimmer",
     "enumeration": "8"
    },
-   "solution": "FLOUNDER"
+   "solution": "FLOUNDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Be confused",
+      "at": 0,
+      "meaning": "first meaning: to struggle or be at a loss"
+     },
+     {
+      "text": "swimmer",
+      "at": 17,
+      "meaning": "second meaning: a flatfish"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The verb means to struggle clumsily, and the noun is a flat-bodied sea fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +627,49 @@
     "text": "Appoints Charlie to defend Leo, for instance",
     "enumeration": "7"
    },
-   "solution": "ASSIGNS"
+   "solution": "ASSIGNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appoints",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to defend",
+       "at": 17,
+       "note": "the ass surrounds and so shields the sign, putting its letters around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Charlie",
+       "at": 9,
+       "gives": "ASS",
+       "note": "in British slang a charlie is a fool, an ass"
+      },
+      {
+       "words": "Leo, for instance",
+       "at": 27,
+       "gives": "SIGN",
+       "note": "Leo is one of the zodiac signs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Charlie is appointed to represent a man called Leo.",
+     "walkthrough": "'Charlie' and 'Leo' look like people's names; one is British slang for a fool, the other an astrological sign.",
+     "definitionFit": "To assign someone to a role is to appoint them to it, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +683,45 @@
     "text": "Discomfort of certain Asians, we hear",
     "enumeration": "7"
    },
-   "solution": "MALAISE"
+   "solution": "MALAISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discomfort",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MALAISE",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 30,
+       "note": "signals that the word is chosen for how it sounds when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "certain Asians",
+       "at": 14,
+       "gives": "MALAYS",
+       "note": "Malays are people from Malaysia and nearby lands"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reference to an unease felt by some Asian people, as reported.",
+     "walkthrough": "MALAYS said out loud sounds the same as the answer.",
+     "definitionFit": "Malaise is a general feeling of unease or illness, a form of discomfort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Asians"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +735,69 @@
     "text": "Without cups at first, processes ground coffee",
     "enumeration": "8"
    },
-   "solution": "ESPRESSO"
+   "solution": "ESPRESSO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "coffee",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ground",
+       "at": 33,
+       "note": "ground as in milled and broken up, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Without",
+         "at": 0,
+         "note": "tells us to leave a letter out of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "processes",
+         "at": 23
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 13,
+           "note": "only the opening letter of cups is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cups",
+           "at": 8
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coffee-making process that skips the cups and grinds the beans.",
+     "walkthrough": "Take C (first letter of cups) out of PROCESSES to leave PROESSES, then 'ground' rearranges those letters.",
+     "definitionFit": "Espresso is a strong Italian style of coffee made by forcing steam through grounds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +811,49 @@
     "text": "Release one out of place in trade union",
     "enumeration": "5"
    },
-   "solution": "UNTIE"
+   "solution": "UNTIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Release",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "out of place",
+       "at": 12,
+       "note": "the letter for one is shifted from its usual position to another in the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trade union",
+       "at": 28,
+       "gives": "UNITE",
+       "note": "Unite is a large British trade union"
+      },
+      {
+       "words": "one",
+       "at": 8,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a member released from a trade union because they don't fit.",
+     "walkthrough": "UNITE is the name of Britain's biggest trade union; move its I to after the T.",
+     "definitionFit": "To untie a knot or a captive is to free them, so a verb meaning set loose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +867,69 @@
     "text": "Quay owner, one moaning about American craft regularly",
     "enumeration": "10"
    },
-   "solution": "WHARFINGER"
+   "solution": "WHARFINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quay owner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 24,
+       "note": "the moaner goes about, around, the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one moaning",
+       "at": 12,
+       "gives": "WHINGER",
+       "note": "a whinger is a person who complains, British slang"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 30,
+         "gives": "A"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 45,
+           "note": "take every other letter of craft, the second and fourth"
+          }
+         ],
+         "parts": [
+          {
+           "words": "craft",
+           "at": 39
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dockside owner complains about American boats.",
+     "walkthrough": "A whinger is a British word for someone who complains; 'craft' looks like boats but only lends alternate letters.",
+     "definitionFit": "A wharfinger is the owner or keeper of a wharf, a landing place for ships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +943,59 @@
     "text": "Tackle from defender initially getting out of difficulty",
     "enumeration": "7"
    },
-   "solution": "HARNESS"
+   "solution": "HARNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tackle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "getting out of",
+       "at": 31,
+       "note": "the defender's letter leaves the word for difficulty"
+      }
+     ],
+     "parts": [
+      {
+       "words": "difficulty",
+       "at": 46,
+       "gives": "HARDNESS",
+       "note": "hardness can mean difficulty"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 21,
+         "note": "only the opening letter of defender is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "defender",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football defender makes a tackle and escapes a tricky situation.",
+     "walkthrough": "'Tackle' looks like football, but it is the gear on a horse.",
+     "definitionFit": "Tackle is equipment, and a harness is the set of straps and gear put on a horse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Tackle"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1009,49 @@
     "text": "Going out to purchase son present",
     "enumeration": "8"
    },
-   "solution": "EXISTING"
+   "solution": "EXISTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "present",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to purchase",
+       "at": 10,
+       "note": "purchase means a grip or hold, so the word grips the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Going out",
+       "at": 0,
+       "gives": "EXITING",
+       "note": "exiting is leaving"
+      },
+      {
+       "words": "son",
+       "at": 22,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Leaving the house to buy a gift for one's son.",
+     "walkthrough": "'Purchase' and 'present' suggest shopping; purchase is a firm hold, and present is an adjective meaning current.",
+     "definitionFit": "Something existing is present now, both meaning in being at this time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "purchase"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1065,45 @@
     "text": "Ghastly looking house I'd condemned",
     "enumeration": "7"
    },
-   "solution": "HIDEOUS"
+   "solution": "HIDEOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ghastly looking",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "condemned",
+       "at": 26,
+       "note": "a condemned house is to be torn down, so the letters are broken up and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "house",
+       "at": 16
+      },
+      {
+       "words": "I'd",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ugly house that I'd have declared unfit for living in.",
+     "walkthrough": "HOUSE plus ID make the anagram fodder.",
+     "definitionFit": "Something hideous is extremely ugly, so ghastly in appearance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "condemned"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1117,59 @@
     "text": "Love escaping Liverpool's unfortunately displaced population",
     "enumeration": "9"
    },
-   "solution": "OVERSPILL"
+   "solution": "OVERSPILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "displaced population",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unfortunately",
+       "at": 26,
+       "note": "signals the letters left are rearranged as by bad luck"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "escaping",
+         "at": 5,
+         "note": "the letter for love escapes, leaving the city name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Liverpool's",
+         "at": 14
+        },
+        {
+         "words": "Love",
+         "at": 0,
+         "gives": "O",
+         "note": "love is zero in tennis, which looks like O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Liverpool's people forced from their homes, having lost love.",
+     "walkthrough": "Take one O out of LIVERPOOLS and rearrange.",
+     "definitionFit": "Overspill is the surplus people rehoused from a crowded city into new towns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1183,60 @@
     "text": "Author having argument over novel's ending",
     "enumeration": "7"
    },
-   "solution": "ROWLING"
+   "solution": "ROWLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 23,
+       "note": "the argument goes over, covering, the letter so it sits within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "argument",
+       "at": 14,
+       "gives": "ROWING",
+       "note": "a rowing (rhymes with 'cowing') is a British word for a noisy quarrel"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending",
+         "at": 36,
+         "note": "a novel's ending is its final letter, so only the closing letter of that word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "novel's",
+         "at": 28,
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer is in a dispute about how their novel ends.",
+     "walkthrough": "ROWING here is a quarrel, from 'row' meaning argument; L, the end of novel, goes inside it.",
+     "definitionFit": "J. K. Rowling is the author of the Harry Potter novels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "argument"
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1250,61 @@
     "text": "Cast girl briefly performing in kind of band",
     "enumeration": "7"
    },
-   "solution": "GASTRIC"
+   "solution": "GASTRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "kind of band",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "performing",
+       "at": 18,
+       "note": "the letters act out a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cast",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 10,
+         "note": "cut short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 5
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cast performing alongside a girl in a music band.",
+     "walkthrough": "'Band' looks musical, but this is the weight-loss surgery. CAST plus GIR (girl briefly) are rearranged.",
+     "definitionFit": "A gastric band is placed around the stomach in weight-loss surgery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1318,59 @@
     "text": "Furore surrounds rapper oddly producing weapon",
     "enumeration": "7"
    },
-   "solution": "TORPEDO"
+   "solution": "TORPEDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounds",
+       "at": 7,
+       "note": "the fuss is placed around the picked letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Furore",
+       "at": 0,
+       "gives": "TODO",
+       "note": "a to-do is a fuss or commotion"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 24,
+         "note": "take the first, third and fifth letters of rapper"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rapper",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outcry about a rap artist leads to a weapon being produced.",
+     "walkthrough": "A to-do is British slang for a fuss, which fits 'Furore'.",
+     "definitionFit": "A torpedo is a self-propelled underwater missile fired from ships or submarines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rapper"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1384,35 @@
     "text": "Cover needed for sewer?",
     "enumeration": "7"
    },
-   "solution": "THIMBLE"
+   "solution": "THIMBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cover needed for sewer?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cover needed for sewer?",
+       "at": 0,
+       "note": "sewer here is one who sews, not a drain, and needs a fingertip protector"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Sewer' reads as a drain needing a manhole cover; it is someone sewing.",
+     "definitionFit": "A small metal cap worn on the finger to push a needle through cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sewer"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1426,52 @@
     "text": "Discovered tiny apartment is not suitable",
     "enumeration": "5"
    },
-   "solution": "INAPT"
+   "solution": "INAPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not suitable",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Discovered",
+         "at": 0,
+         "note": "dis-covered: the word loses its covering, its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tiny",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "apartment",
+       "at": 16,
+       "gives": "APT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Finding that a small flat is not fit for purpose.",
+     "walkthrough": "'Discovered' reads as 'found', but it means un-covered: tiny without its outside letters.",
+     "definitionFit": "Inapt means inappropriate or unfitting for the situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Discovered"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1485,48 @@
     "text": "Singer from Australian city rejecting help",
     "enumeration": "5"
    },
-   "solution": "ADELE"
+   "solution": "ADELE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "rejecting",
+       "at": 28,
+       "note": "the city throws out the word for help"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Australian city",
+       "at": 12,
+       "gives": "ADELAIDE",
+       "note": "Adelaide is the capital of South Australia"
+      },
+      {
+       "words": "help",
+       "at": 38,
+       "gives": "AID",
+       "note": "aid is help"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer from an Australian city turns down assistance.",
+     "definitionFit": "Adele is a British pop vocalist known for albums like 21 and 25."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejecting"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1540,50 @@
     "text": "Event following match that's packed?",
     "enumeration": "8"
    },
-   "solution": "SUITCASE"
+   "solution": "SUITCASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's packed?",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 6,
+       "note": "the event comes after the match"
+      }
+     ],
+     "parts": [
+      {
+       "words": "match",
+       "at": 16,
+       "gives": "SUIT",
+       "note": "to suit is to match, as colours suit one another"
+      },
+      {
+       "words": "Event",
+       "at": 0,
+       "gives": "CASE",
+       "note": "a case is an instance or occurrence"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something happening after a sports match, which leaves a crowd packed in.",
+     "walkthrough": "'Match' and 'Event' look sporting; they are verb and noun synonyms instead.",
+     "definitionFit": "Luggage is packed for travel, and this case is the item that gets filled with clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1597,46 @@
     "text": "Firm line over mark in text",
     "enumeration": "5"
    },
-   "solution": "COLON"
+   "solution": "COLON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mark in text",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Firm",
+       "at": 0,
+       "gives": "CO",
+       "note": "CO is company, a firm"
+      },
+      {
+       "words": "line",
+       "at": 5,
+       "gives": "L"
+      },
+      {
+       "words": "over",
+       "at": 10,
+       "gives": "ON",
+       "note": "on can mean over, as on top of"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company draws a firm line over a mark in written text.",
+     "definitionFit": "A colon is a punctuation sign of two dots used in writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1650,29 @@
     "text": "Just unique",
     "enumeration": "4"
    },
-   "solution": "ONLY"
+   "solution": "ONLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0,
+      "meaning": "first meaning: merely, as an adverb"
+     },
+     {
+      "text": "unique",
+      "at": 5,
+      "meaning": "second meaning: sole"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word works as an adverb meaning merely and an adjective meaning single or sole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1686,42 @@
     "text": "Some agree nervously to be more environmentally conscious",
     "enumeration": "7"
    },
-   "solution": "GREENER"
+   "solution": "GREENER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to be more environmentally conscious",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agree nervously",
+       "at": 5,
+       "gives": "GREENER",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some people anxiously agree to live in a more eco-friendly way.",
+     "definitionFit": "Green means ecologically minded, so the comparative describes something kinder to the environment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nervously"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1735,55 @@
     "text": "Large sum in gold university's transferred to Italy",
     "enumeration": "7"
    },
-   "solution": "BILLION"
+   "solution": "BILLION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Large sum",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "transferred to",
+       "at": 31,
+       "note": "the university letter is swapped for Italy's"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gold",
+       "at": 13,
+       "gives": "BULLION",
+       "note": "bullion is gold or silver in bars"
+      },
+      {
+       "words": "university's",
+       "at": 18,
+       "gives": "U",
+       "note": "U is the abbreviation for university"
+      },
+      {
+       "words": "Italy",
+       "at": 46,
+       "gives": "I",
+       "note": "I is the international vehicle code for Italy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university's gold reserve moved to Italy, a vast amount of money.",
+     "walkthrough": "In BULLION, replace U with I.",
+     "definitionFit": "A thousand million is a huge number, so a very large amount."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "transferred"
+    }
+   }
   },
   {
    "number": 29,
@@ -456,7 +1797,45 @@
     "text": "Regrets hoax that's broadcast",
     "enumeration": "4"
    },
-   "solution": "RUES"
+   "solution": "RUES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Regrets",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RUES",
+     "indicators": [
+      {
+       "text": "that's broadcast",
+       "at": 13,
+       "note": "something broadcast is spoken aloud, so the word is used for its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hoax",
+       "at": 8,
+       "gives": "RUSE",
+       "note": "a ruse is a trick or hoax"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regretting a hoax that went out on air.",
+     "walkthrough": "RUSE spoken sounds like the answer.",
+     "definitionFit": "To rue something is to regret it bitterly; third person singular verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 30,
@@ -470,7 +1849,45 @@
     "text": "Film script of Lean's Percy developed",
     "enumeration": "10"
    },
-   "solution": "SCREENPLAY"
+   "solution": "SCREENPLAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Film script",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "developed",
+       "at": 28,
+       "note": "film is developed, and here the letters are worked into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lean's",
+       "at": 15
+      },
+      {
+       "words": "Percy",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A screenplay by director David Lean about a character named Percy.",
+     "walkthrough": "David Lean was a film director, which makes the surface convincing; LEANS and PERCY are just letters.",
+     "definitionFit": "A screenplay is the written text of a film, with dialogue and directions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "developed"
+    }
+   }
   }
  ]
 }
