@@ -724,62 +724,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANDESITE",
      "indicators": [
       {
-       "text": "outside",
-       "note": "the turned mountain sits on the outside with the rest within"
+       "text": "inside",
+       "at": 39,
+       "note": "inside places the second piece within the first"
       }
      ],
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "ANDESITE",
        "indicators": [
         {
          "text": "around",
-         "note": "around means turned about, so the mountain's name is read from the end"
+         "at": 14,
+         "note": "around signals turning the volcano's name back to front"
         }
        ],
        "parts": [
         {
-         "op": "cycling",
-         "unchecked": true,
-         "gives": "ANDESITE",
-         "indicators": [
-          {
-           "text": "outside inside?",
-           "note": "inside turned outside suggests the halves of the word swap places"
-          }
-         ],
-         "parts": [
-          {
-           "words": "volcano",
-           "gives": "ETNA",
-           "note": "Etna is the volcano in Sicily"
-          },
-          {
-           "words": "inside",
-           "gives": "SIDE",
-           "note": "the word without its first two letters"
-          }
-         ]
+         "words": "volcano",
+         "at": 21,
+         "gives": "ETNA",
+         "note": "Etna is the active volcano in Sicily"
         }
        ]
+      },
+      {
+       "words": "outside",
+       "at": 31,
+       "gives": "DESI",
+       "note": "the word side, out of outside, turned inside out so its two halves swap places"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled geologist wondering whether a volcano's rock is on the outside or the inside.",
-     "walkthrough": "A playful device: the volcano is turned round, and the word side is turned inside out, its two halves swapping places, before going inside.",
-     "definitionFit": "Andesite is a fine-grained grey igneous rock erupted by volcanoes, named after the Andes."
+     "surface": "A geologist names the rock found around a volcano and asks whether it formed outside or inside.",
+     "walkthrough": "'around' here turns Sicily's volcano back to front rather than enclosing anything; the question mark flags the loose treatment of 'outside' as a turned-about side.",
+     "definitionFit": "Andesite is a fine-grained igneous rock named after the Andes, common in volcanic arcs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "inside"
+     "misdirectedWord": "outside"
     }
    }
   },

@@ -1653,48 +1653,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LORIKEET",
-     "indicators": [
-      {
-       "text": "destroyed",
-       "note": "destroyed means broken apart, so the letters are rebuilt in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LORIKEET",
+       "words": "Large",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the standard clothing-size abbreviation for large"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "dislodging",
-         "note": "dislodging means knocking something out of position, so it is removed"
+         "text": "destroyed",
+         "at": 17,
+         "note": "something destroyed is broken up, so the letters left are rebuilt in a new order"
         }
        ],
        "parts": [
         {
-         "words": "Large",
-         "gives": "L",
-         "note": "L is the abbreviation for large"
-        },
-        {
-         "words": "oak tree I",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "the letter to be removed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "dislodging",
+           "at": 28,
+           "note": "dislodging a means knocking that letter out of the phrase before it is rebuilt"
+          }
+         ],
+         "parts": [
+          {
+           "words": "oak tree I",
+           "at": 6,
+           "note": "taken as written"
+          },
+          {
+           "words": "a",
+           "at": 39,
+           "gives": "A"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A big oak is felled, knocking a little bird out of its perch.",
-     "walkthrough": "Remove an A from L plus OAK TREE I, then rearrange.",
-     "definitionFit": "A lorikeet is a small brightly coloured parrot of Australasia."
+     "surface": "A big oak has been felled, scaring off a little bird that was nesting in it.",
+     "walkthrough": "'Large' looks like a description of the oak, but it only supplies the opening letter; 'destroyed' works on the phrase only after 'dislodging a' has knocked out its A.",
+     "definitionFit": "A lorikeet is a small, brightly coloured Australasian parrot."
     },
     "features": {
      "answerInScene": true,
