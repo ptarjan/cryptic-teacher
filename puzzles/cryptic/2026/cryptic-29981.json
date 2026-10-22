@@ -326,34 +326,61 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 30,
+       "note": "after places the cold and bitter pieces behind everything else"
+      }
+     ],
      "parts": [
       {
-       "words": "cold",
-       "gives": "C",
-       "note": "the weather forecaster's one-letter shorthand"
-      },
-      {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "liquid",
-         "note": "Something liquid holds no shape of its own, so the letters it describes settle into any order they like."
+         "text": "in",
+         "at": 48,
+         "note": "in says the temperature letter goes inside the jumbled word"
         }
        ],
        "parts": [
         {
-         "words": "bitter",
-         "gives": "ALE",
-         "note": "bitter is a kind of ale in any British pub"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "liquid",
+           "at": 51,
+           "note": "liquid suggests something fluid, so the letters of decreasing flow into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "decreasing",
+           "at": 58
+          }
+         ]
         },
         {
          "words": "temperature",
-         "gives": "T",
-         "note": "the standard one-letter shorthand"
+         "at": 36,
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cold",
+         "at": 14,
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on taps"
         },
         {
-         "words": "decreasing",
-         "note": "ten letters of raw material, the bulk of the mixture"
+         "words": "bitter",
+         "at": 23,
+         "gives": "ALE",
+         "note": "bitter is a type of ale, the classic British pub beer"
         }
        ]
       }
@@ -361,9 +388,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A pint going cold and bitter as the temperature of the liquid keeps dropping.",
-     "walkthrough": "Read straight the sentence describes the thing itself, and read again the very same words hand over their letters, which is what &lit means. 'Bitter' is the pub sense, ale rather than a taste.",
-     "definitionFit": "The whole clue reads straight: this is the scale on which cold and bitter is where you end up as a liquid's temperature falls."
+     "surface": "A wry look at a thermometer: cold, bitter weather as the temperature drops.",
+     "walkthrough": "'liquid' rearranges DECREASING to CENIGRADES, and 'in' puts T inside it to give CENTIGRADES; 'after' sets C and ALE behind that. The whole clue describes a thermometer reading falling.",
+     "definitionFit": "The Celsius temperature measure starts with freezing at zero, so falling readings on it mean bitter cold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "liquid"
     }
    }
   },
@@ -770,8 +802,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "gripping",
-       "note": "Something gripped is held inside the grip, so the letter taken lands within the word doing the holding."
+       "text": "about",
+       "at": 50,
+       "note": "about means going around, so the overturned cat wraps the rest"
       }
      ],
      "parts": [
@@ -779,15 +812,17 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "tail of",
-         "note": "The tail of a word is the letter it drags behind it, the last one of all."
+         "text": "upset",
+         "at": 44,
+         "note": "upset in a down clue turns the word upside down, so it reads backwards"
         }
        ],
        "parts": [
         {
          "words": "another cat",
+         "at": 32,
          "gives": "MOG",
-         "note": "a mog is British slang for a cat — the second one in the clue, not the one being defined"
+         "note": "a mog or moggy is British slang for a cat"
         }
        ]
       },
@@ -795,28 +830,31 @@
        "op": "container",
        "indicators": [
         {
-         "text": "upset",
-         "note": "Going down the grid, an upset piece is tipped over so its letters run the other way up the column."
+         "text": "gripping",
+         "at": 10,
+         "note": "gripping means holding inside, so the word for still takes in the dog's last letter"
         }
        ],
        "parts": [
         {
          "words": "still",
+         "at": 4,
          "gives": "INERT",
-         "note": "a thing that is still is inert, going nowhere"
+         "note": "still means motionless, inert"
         },
         {
          "op": "last",
          "indicators": [
           {
-           "text": "about",
-           "note": "'About' means round the outside, so that piece wraps around what it is about rather than sitting beside it."
+           "text": "tail of",
+           "at": 19,
+           "note": "the tail of a word is its last letter, here of dog"
           }
          ],
          "parts": [
           {
            "words": "dog",
-           "note": "the last letter of 'dog'"
+           "at": 27
           }
          ]
         }
@@ -825,9 +863,14 @@
      ]
     },
     "explanation": {
-     "surface": "One cat clinging to a dog's tail while a second cat takes loud offence at the sight.",
-     "walkthrough": "'Still' is the adjective, not the copper apparatus that gives a setter GIN, which is the first thing most solvers try here. Two cats appear in the clue and neither of them is the one being defined.",
-     "definitionFit": "A ginger tom is a marmalade-coloured male cat, so 'Cat' names the category that the two words together pin down to one animal."
+     "surface": "One cat holds a dog's tail in its teeth while another cat, upset, looks on.",
+     "walkthrough": "INERT (still) grips G, the tail of dog, making INGERT; MOG, another cat, is upset to GOM and goes about that.",
+     "definitionFit": "A male cat with orange fur is commonly called this in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
     }
    }
   },
