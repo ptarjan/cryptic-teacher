@@ -838,9 +838,10 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
     return accepted, stats
 
 
-#: A grid read but for at most this many lights keeps each one's strip of cells
+#: A grid read but for at most this many lights (2: on 19 partial puzzles 5 cost 21 VLM asks
+#: for one completion) keeps each one's strip of cells
 #: (light_strip) in its stats, for the VLM to be asked the word of.
-STRIP_MAX = 5
+STRIP_MAX = 2
 #: The share of a cell kept in from its rule in a strip (CELL_MARGIN's 12% cuts the
 #: number's corner and the stroke of a letter the print crowds to the edge).
 STRIP_MARGIN = 0.04

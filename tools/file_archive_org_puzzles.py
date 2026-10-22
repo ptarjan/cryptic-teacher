@@ -5765,7 +5765,7 @@ _SOLUTION_KEY = []
 #: {solution key of newer code: the key it stands in for}, for a change that reads the same
 #: answers (read_framed's `lean` for answers_only, and listed_of built off the words' bytes):
 #: the rows read under the old key are not read again for it (fix_reason).
-_SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42"}
+_SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -6347,7 +6347,7 @@ SOLUTION_UNCLASSIFIED = frozenset({"49e26fb92ece9e33"})
 LIKELY = ("answers linked", "answers in the next issue's text", "solution grid read before read_framed",
           "blanks a vote fix mends", "solution grid read before the fitted and VLM reads")
 #: The lights a solution grid read by other code may lack and be read again for the fitted and VLM
-#: reads: 5 is trove_solution_ocr.STRIP_MAX, the most lights it keeps the cells of.
+#: reads (trove_solution_ocr.STRIP_MAX, 2, caps the lights the VLM is asked of).
 SHORT_GAP = 5
 #: The lights a solution grid read before read_framed may lack and still be
 #: predicted whole: read_framed read about two more a grid (84 Times crops,
