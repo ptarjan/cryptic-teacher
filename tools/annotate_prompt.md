@@ -2,90 +2,67 @@
 
 You are annotating one cryptic crossword for the Cryptic Teacher app in this
 repository. The caller names the puzzle and the file holding its clues and answers;
-annotate that one and no other. The ID is series plus number (`cryptic-30089`, `everyman-4165`), because every
-series numbers from 1 and the number alone names nothing.
+annotate that one and no other. The ID is series plus number (`cryptic-30089`,
+`everyman-4165`): every series numbers from 1, so the number alone names nothing.
 
 ## What to produce
 
-One file, `tools/_ann_<ID>.json`: a single object with a key for every entry id, and
-`null` for a clue not done yet. A linked answer is annotated once, on its leader (the
-entry with a `group`), with wordplay for the whole answer; every other light in the
-group ("See 21") is `null`.
+One file, `tools/_ann_<ID>.json`: one object with a key for every entry id, `null` for
+a clue not done yet. A linked answer is annotated once, on its leader (the entry with a
+`group`), with wordplay for the whole answer; every other light in the group ("See 21") is `null`.
 
 ```json
 {"1-across": { ...annotation... }, "5-across": { ...annotation... }, "12-across": null}
 ```
 
-If the puzzle file lists `annotateOnly`, key only those entries: every other entry's
-annotation is fixed (those in the same group as one you write are shown in
-`existingAnnotations`, in the same shape as yours; the rest are omitted), and
-the check refuses a change to it. An entry under `flagged` already has a hint, and
-the reason it is suspect: write a new annotation for it that fixes that (the old one
-stays until yours validates, so never answer it with null).
-
-An entry under `draftAnnotations` has a draft: a hidden word a program found and
-checked against the answer (`def`, `wp`, `notes`). Write that entry with the
-draft's `def`, `wp` and `notes` as they are, plus the `explanation` (`surface`,
-`definitionFit`) and `features` the draft lacks, which are yours alone. Change the
-draft only when you can show it is wrong (the definition is another part of the
-clue, the fodder or indicator is misread, a reversal is missed); then say why in
-`explanation.walkthrough`.
-
-Write annotations only; do not write a script to produce them. Each entry's
-`"solution"` is ground truth: your `wp` must produce exactly those letters, and if it
-does not, the parse is wrong, so rethink it rather than stretch it. The exception is
-a solution marked `(MODEL)`, a cold solve's guess: if no parse gives it and the clue
-plainly gives another word, set `"answer"` to that word. The check accepts it only if
-it agrees with every crossing and printed answer; correct a crossing `(MODEL)`
-answer the same way if its clue gives that letter. Never ship a hedged hint for a
-`(MODEL)` answer ("unconfirmed", "placeholder", "usually spelt" a near-twin): the
-check refuses it and the answer is solved again, so leave the clue null instead.
-
-The clue text is the source's, with one exception. When your copy's
-`source.retrievedFrom` is `newspaper` or `book`, its clues are OCR of a scan, and a
-letter can be misread ("judge" for "fudge"). When the answer and wordplay need a word
-a letter or two from the one shown, give that entry
-`"printedClue": ["<clue as printed, no count>", "OCR misread: <what the wordplay or answer needs>"]`;
-the check files it and refuses it if more than 3 letters change. A clue that is
-missing, or shown on two lights, is lost, not misread: make that entry `null`.
-
-A clue the source shows exactly as printed whose anagram still cannot give the
-answer is the setter's slip: give the entry
-`"setterError": ["<fodder words as printed>", "<letters the anagram should give>", "<evidence>"]`,
-write `wp` with the fodder as it should be, and say what is wrong in `explanation.walkthrough`.
-
-When the wordplay plainly builds a real word a letter or two from a printed answer
-that is not one (MINUSCULE where the grid prints MINISCULE), the key is misprinted:
-annotate the real word and give the entry
-`"answerTypo": ["<letters the wordplay builds>", "<evidence>"]`; the check puts it in
-the grid, and refuses it if a crossing answer disagrees.
-
-The check compares your definition, clue type and pieces (worked out from `wp`) with
-what the puzzle's blog marked. A disagreement is a prompt to look, not an order:
-bloggers slip too. Fix yours if the blog is right; if yours stands, give the entry
-`"blogDisagree": ["<definition|type|blocks>", "<one sentence: why yours is right>"]`.
-
-When your copy of the puzzle has a `scan`, that image is the printed page. Read it
-for any clue that looks cut short, garbled, blank or wrong for its answer, and give
-the entry `printedClue` as the page prints it, evidence `"Scan reads: <what the page shows>"`;
-a clue read off the scan may differ by any number of letters.
+- `annotateOnly` in the puzzle file: key only those entries (no `null` for the rest). Every other annotation is
+  fixed and the check refuses a change to it (those in a group you write are shown in
+  `existingAnnotations`, in your shape).
+- An entry under `flagged` has a hint and the reason it is suspect: write a new
+  annotation that fixes that (the old one stays until yours validates, so never answer
+  it with null).
+- An entry under `draftAnnotations` has a draft hidden word that a program checked
+  against the answer (`def`, `wp`, `notes`). Write it with those three as they are, plus
+  the `explanation` (`surface`, `definitionFit`) and `features` the draft lacks. Change
+  the draft only when you can show it is wrong (definition is another part of the clue,
+  fodder or indicator misread, a reversal missed), and say why in `explanation.walkthrough`.
+- Write annotations only; no script. Each `"solution"` is ground truth: `wp` must
+  produce exactly those letters, else rethink the parse rather than stretch it. A solution
+  marked `(MODEL)` is a cold solve's guess: if no parse gives it and the clue plainly
+  gives another word, set `"answer"` to that word (accepted only if it agrees with every
+  crossing and printed answer; correct a crossing `(MODEL)` answer the same way). Never
+  ship a hedged hint for one ("unconfirmed", "placeholder", "usually spelt" a near-twin):
+  it is refused and solved again, so leave the clue null.
+- When `source.retrievedFrom` is `newspaper` or `book`, clues are OCR and a letter can
+  be misread ("judge" for "fudge"). If the answer and wordplay need a word a letter or
+  two off, give `"printedClue": ["<clue as printed, no count>", "OCR misread: <what the wordplay needs>"]`
+  (refused beyond 3 letters changed). A clue missing, or shown on two lights, is lost: `null`.
+- A `scan` is the printed page. For a clue that looks cut short, garbled, blank or wrong
+  for its answer, give `printedClue` as the page prints it, evidence
+  `"Scan reads: <what the page shows>"`; any number of letters may differ.
+- A clue shown exactly as printed whose anagram still cannot give the answer is the
+  setter's slip: `"setterError": ["<fodder words as printed>", "<letters the anagram should give>", "<evidence>"]`,
+  `wp` with the fodder as it should be, and what is wrong in `explanation.walkthrough`.
+- When the wordplay plainly builds a real word a letter or two from a printed answer
+  that is not one (MINUSCULE where the grid prints MINISCULE), annotate the real word
+  and give `"answerTypo": ["<letters the wordplay builds>", "<evidence>"]` (refused if a crossing disagrees).
+- The check compares your definition, clue type and pieces (from `wp`) with the puzzle
+  blog's. A disagreement is a prompt to look, not an order: bloggers slip too. Fix yours
+  if the blog is right; if yours stands, give
+  `"blogDisagree": ["<definition|type|blocks>", "<one sentence: why yours is right>"]`.
 
 ## Order of work
 
-- **Write early.** Put clues into the file a handful at a time: only what is on disk
-  survives the run ending. Run the check (below) once every clue is in.
-- **Solve in the order the crossings unlock**, not clue order. Skip a clue that resists
-  and come back once its crossings are in: thinking longer without new letters does not
-  produce new letters.
-- **There is no word list.** `/usr/share/dict/words` is out of reach, and the other
-  puzzles in `puzzles/` are not a dictionary; do not search them for fills.
+Write a handful of clues at a time: only what is on disk survives the run ending. Run
+the check once every clue is in. Solve in the order crossings unlock; skip a clue that
+resists and return when its crossings are in (thinking longer adds no letters). There is
+no word list: `/usr/share/dict/words` is out of reach and other puzzles are not a dictionary.
 
 ## Schema
 
-Each clue is one object. `wp` is the parse as one line in the grammar of the
-Reference below; the check works out its letters at every step, and from it the clue
-type, the link words, which operation each indicator signals and the pieces the app
-shows, so you write none of those. Worked annotations close this file.
+Each clue is one object. `wp` is the parse as one line in the grammar of the Reference
+below; the check works out its letters at every step, and from it the clue type, link
+words, indicator operations and pieces, so you write none of those.
 
 ```json
 {
@@ -106,57 +83,58 @@ shows, so you write none of those. Worked annotations close this file.
 }
 ```
 
-- **Write a note for an abbreviation too** (`[with]W`, `[small road]RD`): a note that
-  only says it is an abbreviation is dropped for you when the dictionary table holds
-  the pair, but you cannot see the table and a pair it lacks (`[small road]RD`) fails
-  the first check without a note. So always write one; add the domain when it helps
-  (`C is the cricket abbreviation for caught`).
-- **Every clue word has one job**: in `def`, in a `[leaf]`, or in an `<indicator>`
-  placed right after the operation it signals. Words left over are link words, worked
-  out for you; an indicator you leave out of `wp` becomes a link word the check questions.
-  Copy clue words exactly; `[in#2]` is the clue's second "in".
-- A leaf's letters come before any operation (`rev([papers]ID)` makes DI), and a
-  charade is in answer order whatever the clue's order: "after", "under" are indicators on the `+`.
-- **Notes** are keyed by the words as written in `wp` or `def` (a repeat `#2`, a bare
-  piece by its letters). Every indicator and every leaf with letters gets one, in the
-  FIRST write: synonyms (`[depressed]SAD`: "depressed means sad"), abbreviations
-  (`[small road]RD`) and names too; a missing leaf note is the commonest
-  failure of the first check. Only a leaf that is its own letters (`[a]A`) goes without,
-  and a pick under first/last/alt/hid (`first<leader of>([the])`) needs a note on its indicator only: the pick's own is written for you. A
-  definition gets one only where it disagrees with the answer in number or part of
-  speech; in a double definition each definition's note says what that sense means.
-- A **double definition** is two `def`s and no `wp`. A **cryptic definition** is
-  `def` the whole clue and `wp` `cd([the clue's words])`: ONE leaf holding the clue
-  words once (never `cd([a], [b])`; the check flags every extra leaf), with a note, no
-  letters. Two readings in two stretches is a double definition instead. A **rebus**
-  (a picture of letters, no ordinary words: `HIJKLMNO`, `P?`) has no `def`; `wp` is
-  `rebus([whole clue], "reading")`, the reading naming what it shows (`"H to O"`). A
-  **composite anagram** (the fodder is the answer plus letters the clue names, "thirsted"
-  = DERTH + ITS) is `comp<indicator>([fodder], [named letters])`, never `ana(del(...))`: the
-  check is that the fodder's letters are the answer's plus the named ones. A **move**
-  (a letter leaves its place and goes back in elsewhere: "England dropping ball" = ALBION
-  with its O dropped, ALBINO) is `move<dropping>([England]ALBION, [ball]O)`, one step, never
-  the fodder plus the letter with its old copy deleted (`del((ALBION + O), O)`) or
-  `ins(del(...), ...)`: those spell the answer but say a letter was added. A **trimmed
-  synonym** ("jumps without limits" = BOUNCES less its ends, OUNCE) is a deletion,
-  `del<without limits>([jumps]BOUNCES, B, S)`, never `middle(...)`/`first(...)`/`last(...)`:
-  those say the letters are printed in the clue. A halving stays `first<half of>`. A **reverse
-  clue** (the clue words are what the answer's wordplay would produce: "What makes pets"
-  for OUT + STEP) keeps its `def` and its `wp` is `reverse([those clue words], "OUT + STEP")`,
-  the reading the answer's own pieces in capitals joined by spaces or `+`; say in the leaf's
-  note how those pieces make the clue words. An **&lit** has
-  `"andLit": true`, `def` the whole clue and the whole clue's wordplay.
+**Parsing.**
+- Every clue word has one job: in `def`, in a `[leaf]`, or in an `<indicator>` right
+  after the operation it signals. Leftover words are link words, worked out for you; an
+  indicator you leave out becomes a link word the check questions. Copy clue words
+  exactly; `[in#2]` is the second "in".
+- A leaf's letters come before any operation (`rev([papers]ID)` makes DI). A charade
+  is in answer order whatever the clue's order: "after", "under" are indicators on the `+`.
+- Every clue piece that gives letters is a term of the wordplay: leave none out, even a
+  short query phrase ("look up where?" supplying part of AUSTRIA). Pieces side by side
+  are a charade (`+`), not `ins`; `ins` only where one piece is cut open by another.
+- Selection ops (first, last, middle, outer, alt, hid...) take the words picked FROM,
+  never the pick. Over several words use a comma list, one indicator:
+  `first<heads of>([a], [b], [c])`, not `first([a] + [b] + [c])`.
 - `answer` only to correct a `(MODEL)` answer, or to spell one with an apostrophe or
-  accent (`"CAT-O'-NINE-TAILS"`); the display answer is otherwise worked out.
+  accent (`"CAT-O'-NINE-TAILS"`).
+
+**Notes** are keyed by the words as written in `wp` or `def` (a repeat `#2`, a bare
+piece by its letters). Every indicator and every leaf with letters gets one, in the
+FIRST write: synonyms (`[depressed]SAD`: "depressed means sad"), abbreviations
+(`[small road]RD`, even if the dictionary table holds the pair: you cannot see it; add the
+domain when it helps, `C is the cricket abbreviation for caught`), names. A missing leaf
+note is the commonest first-check failure. Only a leaf that is its own letters (`[a]A`)
+goes without, and a pick under first/last/alt/hid needs a note on its indicator only. A
+definition gets one only where it disagrees with the answer in number or part of speech;
+in a double definition each definition's note says what that sense means.
+
+**Special clue kinds.**
+- **Double definition**: two `def`s and no `wp`.
+- **Cryptic definition**: `def` the whole clue, `wp` `cd([the clue's words])`: ONE leaf
+  holding the clue words once (never `cd([a], [b])`), with a note, no letters. Two
+  readings in two stretches is a double definition instead.
+- **Rebus**, **composite anagram**, **move** and **reverse clue** have their own
+  forms in the grammar (`rebus`, `comp`, `move`, `reverse`): use them, never a
+  fodder-plus-deleted-letter or `ana(del(...))` stand-in, which says a letter was added.
+  A reverse clue keeps its `def`; its leaf's note says how the pieces make the clue words.
+- **Trimmed synonym** ("jumps without limits" = BOUNCES less its ends, OUNCE): a
+  deletion, `del<without limits>([jumps]BOUNCES, B, S)`, never `middle`/`first`/`last`
+  (those say the letters are printed in the clue). A halving stays `first<half of>`.
+- **&lit**: `"andLit": true`, `def` the whole clue and the whole clue's wordplay.
+- **Homophone** (`sound`): the first check fails ("no block says what is said aloud",
+  the commonest first failure) unless the word said aloud is on ONE leaf.
+- **Spoonerism**: `spoon`, never `sound()` round it; no one-leaf rule applies. Written
+  letters swapped: `spoon(a, b)`; swapped by sound: `spoon(a, b, SPELT)`.
 
 An entry with an `alteration` goes into the grid changed, as its puzzle's preamble says.
-Write `alteration` (`{"from": "...", "steps": [{"op": "reversal"}]}`) in its object here and
-apply moves it onto the puzzle's entry; never edit the puzzle file by hand. The clue's
-definition and wordplay give `alteration.from`, and its `steps` turn that word into
-the solution: `wp` builds `from`.
+Write `alteration` (`{"from": "...", "steps": [{"op": "reversal"}]}`) in its object; apply
+moves it onto the puzzle's entry (never edit the puzzle file by hand). The clue's
+definition and wordplay give `alteration.from`, `steps` turn that word into the
+solution, and `wp` builds `from`.
 
 Letters the puzzle's preamble supplies are a bare piece with no clue words: `[can]LOO + E`.
-A puzzle's `themeClue` names the clue that states its theme; treat that clue as its preamble.
+A puzzle's `themeClue` names the clue that states its theme; treat it as a preamble.
 
 When the preamble hides a letter per clue that spells a phrase, give each such clue
 `"hiddenLetter": {"kind": "extra", "letter": "L"}`. Kinds: `extra` (the wordplay gives it
@@ -165,14 +143,13 @@ beyond the answer: write that step `del(<the part>, L)` with no indicator), `omi
 `"at"`, its offset in the clue; `letter` is the correct one), `clue` (a letter of the
 clue itself, with `"at"`). Beside the entry ids, give the phrase: `"messages":
 [{"text": "SUM TO FINAL", "kind": "omitted", "direction": "across", "order": "clues",
-"placement": "belowGrid"}]`. `direction` only when one direction spells it, `placement`
-only when the preamble says where it is written.
+"placement": "belowGrid"}]` (`direction` only when one direction spells it, `placement`
+only when the preamble says where).
 
 ## Taste
 
-The check below enforces the mechanics and explains each rule when it is broken. These
-it cannot see. `STYLE.md` holds the product feedback behind them; where the two
-disagree, it wins.
+The check enforces the mechanics and explains each rule when broken. It cannot see
+these. `STYLE.md` holds the product feedback behind them and wins any disagreement.
 
 - The definition must substitute for the answer in a sentence: same part of speech,
   same inflection. Say the swap out loud. This is the most common mistake.
@@ -182,28 +159,20 @@ disagree, it wins.
 - `explanation.surface` is the picture, not a paraphrase and no mechanics: `Behaved antisocially
   and gave birth` is one person's bad week. A clue of four or more words has one unless
   it is a pure double or cryptic definition, even a clue that reads as bare mechanism.
-- `explanation.walkthrough` says only what the parse cannot: why the surface misleads, a convention
-  the solver may not know (`ER` = Queen), why a definition is fair. Naming a chunk is
-  fine when the sentence teaches (`OCT is the calendar abbreviation`); narrating
-  fragment to letters is not.
-- A walkthrough a solver must be able to follow step by step names every indicator by its
-  words and, where an anagram, reversal or deletion makes letters the parse does not
-  state, those letters: `'getting into' puts INAT (the anagram of ANTI, from 'Wildly')
-  inside DOME`. A walkthrough that skips an indicator or an intermediate result is a
-  fault, the same as a wrong note; the app lists the steps from the parse, so the prose
-  is the why, but it may not contradict or skip them.
-- Where there is one false path a competent solver really takes first, name it and what
-  kills it: `"Flowers" wants to be the definition; it is the river.` Most clues have
-  none, and an invented one is worse than none. Every "the X" must be an X the reader
-  can see in the clue.
+- `explanation.walkthrough` says only what the parse cannot: why the surface misleads, a
+  convention the solver may not know (`ER` = Queen), why a definition is fair; not
+  fragment-to-letters narration. It names every indicator by its words and any letters an
+  anagram, reversal or deletion makes that the parse does not state: `'getting into' puts
+  INAT (the anagram of ANTI, from 'Wildly') inside DOME`. Skipping one is a fault, like a wrong note; stay within the word cap by dropping everything else.
+- Where one false path is a competent solver's real first move, name it and what kills
+  it: `"Flowers" wants to be the definition; it is the river.` Most clues have none; an
+  invented one is worse than none. Every "the X" must be visible in the clue.
 - Many readers are not British. Where a clue turns on everyday British knowledge (a
-  county, a soap, a cricket position, an old coin, rhyming slang, a word like banger or
-  jumper), say what the thing is in one clause where it is needed: `THE OVAL is a London
-  cricket ground`, `a banger is a sausage`. Brevity never drops this clause. Not for
+  county, soap, cricket position, old coin, rhyming slang, banger, jumper), say what it is
+  in one clause, never dropped for brevity: `THE OVAL is a London cricket ground`. Not for
   crossword conventions, which the app teaches.
-- `features` is data for analysis, never shown to a solver. Honest nulls and falses are
-  a usable row; a guessed `joke` poisons it. `joke` asks whether a joke is present, not
-  whether it is funny.
+- `features` is data, never shown. Honest nulls and falses are a usable row; a guessed
+  `joke` poisons it. `joke` asks whether one is present, not whether it is funny.
 
 ## Check
 
@@ -211,47 +180,40 @@ disagree, it wins.
 python3 tools/annotate_check.py <ID>
 ```
 
-It translates and applies the file, validates it, audits it, and prints everything wrong
-in one report, each line saying what to do; a `wp` that does not give the answer names the
-part that breaks. Its messages name the stored fields your `wp` becomes (a `block` is a
-leaf). Fix everything it lists in one edit, run it again, and stop the moment it says
-`clean` or `done` (warns alone, with no ERROR, are advisory: never re-run to chase them): end with one short line, with no summary of your work and no further pass. What
-it prints under "worth knowing now" is advice, not a failure.
+It applies, validates and audits the file and prints everything wrong in one report, each
+line saying what to do (it names the part of a `wp` that breaks; a `block` is a leaf).
+Fix everything in one edit, run again, and stop the moment it says `clean` or `done`
+(warns alone are advisory: never re-run to chase them): end with one short line, no
+summary, no further pass. "Worth knowing now" is advice, not failure.
 
-Four first runs in ten fail, most often on these rules. Get them right first time:
+Four first runs in ten fail, mostly on these:
 
-- `definitionFit` needs 25+ characters and a content word that is in neither the
-  definition nor the answer. Name the relation (synonym, example, crossword-only
-  sense, idiom); don't read the definition back with the answer in it.
+- `definitionFit` needs 25+ characters and a content word in neither the definition nor
+  the answer. Name the relation (synonym, example, crossword-only sense, idiom); don't
+  read the definition back with the answer in it.
 - An indicator's note needs 25+ characters and words beyond the indicator's own: why
   these words signal that operation in this clue, not what the device does in general.
-  Its rung comes before the pieces, so it never names a piece's letters or the answer:
+  It comes before the pieces, so it never names a piece's letters or the answer:
   `"returning means the word rats is read backwards"`, not `"returning means RATS becomes STAR"`.
 - No note may contain the answer. Write about the clue words; the walkthrough spells it.
-- A cryptic definition's `cd()` has exactly one leaf (the clue words), no letters, and
-  no note that spells the answer.
+- A `cd()` has exactly one leaf, no letters, and no note that spells the answer.
 - `features.misdirectedWord` is one word, copied exactly as printed in the clue.
-- A homophone, or a Spoonerism that swaps by sound, names the word said aloud on ONE leaf, or the first check
-  fails ("no block says what is said aloud", the commonest first failure). `sound<ind>([clue
-  words]HEARD, SPELT)`: `sound` over a charade of side-by-side leaves (`[a]X + [b]Y`) is merged
-  into one leaf `[a b]XY` for you; over a step (`first`, `del`, `hid`) write the step's letters as
-  the leaf (inside `sound` only; everywhere else a step's leaf keeps its words). A Spoonerism that swaps the written letters is plain `spoon(a, b)`; one that swaps by
-  sound is `spoon<ind>(sound([word]HEARD, SPELT), b)` and `spoon(a, b, SPELT)` alone fails.
 
-- To change many clues, Write `{"8-down": {"field": value}}` to a file and add
-  `--patch <file>` to the check; a heredoc or fix script is refused. Each field is
-  replaced and null removes it, except `notes`, merged note by note.
-- Run it as a single command: no `&&`, `;`, pipes or `rm`. A compound command needs an
-  approval this run cannot give, and aborts having run nothing.
+Working here:
+
+- To change many clues, Write `{"8-down": {"field": value}}` under `tools/`
+  (`tools/_patch_<ID>.json`, never `/tmp`) and add `--patch <file>` to the check. Each
+  field is replaced and null removes it, except `notes`, merged note by note.
+- Run the check as a single command: no `&&`, `;`, pipes or `rm`; a compound command
+  needs an approval this run cannot give and runs nothing.
 - **Your tools are Read, Write, Edit, `python3` and `node`, nothing else.** `grep`,
-  `sed`, `cat`, `ls`, `awk`, `mkdir`, `rm`, `cd` and any `>` redirect are refused
-  and cost a turn: Read a file, Write a file under `tools/` (a patch is
-  `tools/_patch_<ID>.json`, never `/tmp`). The puzzle file's `entries` are strings
-  (`id | group | SOLUTION | clue`), not objects, so `e['id']` fails; Read it rather
-  than `python3 -c` it. Another puzzle's file in `puzzles/` is a different shape;
-  you do not need one. WebFetch is refused for theguardian.com: skip it.
+  `sed`, `cat`, `ls`, `awk`, `mkdir`, `rm`, `cd`, heredocs and any `>` redirect are
+  refused and cost a turn. The puzzle file's `entries` are strings
+  (`id | group | SOLUTION | clue`), not objects: Read it rather than `python3 -c` it.
+  Another puzzle's file is a different shape; you do not need one. WebFetch is refused
+  for theguardian.com.
 - To take back hints you would not stand by, run the check with `--withdraw "<why>"` and
-  stop: the puzzle file is put back for you and nothing you wrote ships. Never use git.
+  stop: the puzzle file is put back and nothing you wrote ships. Never use git.
 - Don't open `validate_annotations.py`. For a line you cannot act on,
   `python3 tools/validate_annotations.py --explain <check-name>` prints that check.
 
@@ -271,21 +233,21 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
     [in#2]                the second "in" in the clue; #n picks a repeat
     LETTERS               letters with no clue words (a preamble's piece, or
                           the letters a del/sub indicator names: del(x, H))
-    A + B                 a charade, in answer order (inside ana() it is the
-                          fodder's pieces, stored as the anagram's parts)
+    A + B                 a charade, in answer order, pieces side by side (ins
+                          only where one piece is cut open by another). Every
+                          clue piece that gives letters is a term: none is left
+                          out (inside ana() they are the fodder's parts)
     op<indicator>(...)    an operation; <indicator words> follow the op they
                           signal, one <...> per phrase; `+<under>` is an
                           indicator on the charade. Every op but + needs its
                           indicator: no clue word signals it, the op is not there
-    ana(x)                anagram of x's letters (the answer slice decides order);
-                          ana(x + y + z) shuffles several pieces as one pool of
-                          the clue's own words. A single letter or a pick at the
-                          answer's start or end, an abbreviation or a synonym, is
-                          spelt beside it, ana(x) + N, never scrambled in
+    ana(x)                anagram of x's letters; ana(x + y + z) shuffles several
+                          of the clue's own pieces as one pool. A single letter, a
+                          pick at the answer's end, an abbreviation or a synonym
+                          is spelt beside it, ana(x) + N, never scrambled in
     rev(x)                x backwards; an indicator naming a stretch (last pair
-                          of, turning tail, first three, half) turns only that
-                          stretch, 2+ letters, at that end and size:
-                          rev<last pair of>([mini vehicles]KARTS) for KARST
+                          of, first three, half) turns only that stretch, 2+
+                          letters: rev<last pair of>([mini vehicles]KARTS) for KARST
     rep(x)                x twice (leaf gives one copy): rep<twice>([boy]AL) for ALAL
     ins(outer, inner)     inner put inside outer (the answer decides where)
     del(from, removed)    removed taken out of from (the answer decides where):
@@ -293,9 +255,14 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           (del([Equably], [by]BY) for EQUAL)
     hid(x)                letters hidden in x's words: hid([say no before]YNOBE),
                           or hid([say no before]) to let the answer pick them
-    sound(x, SPELT)       x sounds like SPELT, the letters entered
-    spoon(a, b)           a and b with their first consonants swapped;
-                          spoon(a, b, SPELT) when the swap is by sound
+    sound(x, SPELT)       x sounds like SPELT, the letters entered. x is ONE leaf
+                          naming the word said aloud: sound<ind>([clue words]HEARD,
+                          SPELT). Side-by-side leaves are merged for you; over a
+                          step (first, del, hid) the leaf holds the step's letters
+    spoon(a, b)           a and b with their first consonants swapped (written
+                          letters); spoon(a, b, SPELT) when the swap is by sound,
+                          SPELT the letters entered. Never put sound() round a
+                          Spoonerism: spoon<Spooner's>([marry]MARRY, [fan]FAN, FERRYMAN)
     sub(x, OLD, NEW)      OLD in x replaced by NEW
     cyc(x)                x with letters moved from one end to the other
     move(x, MOVED)        MOVED, one run of x's letters, taken out and put back
@@ -307,30 +274,28 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
     first(x) last(x) middle(x) outer(x) alt(x) regular(x) nth(n)(x)
                           letters picked from x's words: first letter (or
                           each word's), middle letter(s) or all but the
-                          ends, first and last, alternate, every 2nd/3rd, the nth; x is the words picked FROM, never
-                          the pick: alt<regularly>([most]) for MS, not
-                          ([most]MS); the pick needs no note; one indicator over
-                          a list is one op with a part per word, each giving its
-                          pick: outer<fringes of>([Argive], [Greece], [Anatolian])
-    cd([words])           cryptic definition: the words, no letters. A wp that
-                          is one leaf is refused; with no mechanism the clue is
-                          a cd or a double definition
-    comp(x, y)            composite (subtractive) anagram: x's letters are the
-                          answer plus y's, rearranged (an anagram of x less y):
-                          comp<sadly>([thirsted], [it's]) for DERTH
+                          ends, first and last, alternate, every 2nd/3rd, the nth.
+                          x is the words picked FROM, never the pick:
+                          alt<regularly>([most]) for MS, not ([most]MS). Over
+                          several words it takes a comma list, never +:
+                          outer<fringes of>([Argive], [Greece], [Anatolian]).
+                          The indicator needs a note; the pick needs none
+    cd([words])           cryptic definition: the words, no letters (a wp that
+                          is one leaf is refused; no mechanism means a cd or a
+                          double definition)
+    comp(x, y)            composite anagram: x's letters are the answer plus y's
+                          (never ana(del(...))): comp<sadly>([thirsted], [it's])
+                          for DERTH
     reverse([words], "reading")
                           a reverse clue: the words read as wordplay that would
-                          produce a word of the answer, and "reading" spells the
-                          answer in the pieces they build, capitals joined by
-                          spaces or +: reverse([What makes pets], "OUT + STEP")
-                          for OUTSTEP (out signals an anagram of STEP: pets). It
-                          is the whole wordplay; the definition stays a `def`
+                          build the answer; "reading" spells it in the pieces,
+                          capitals joined by spaces or +: reverse([What makes
+                          pets], "OUT + STEP") for OUTSTEP. The whole wordplay;
+                          the definition stays a `def`
     rebus([words], "reading")
-                          a rebus: the words are a picture (letters,
-                          figures, layout) and "reading" says what it shows,
-                          naming the picture's own capitals or figures:
-                          rebus([HIJKLMNO], "H to O") for WATER. It is the whole
-                          wordplay; with no `def` it is the whole clue
+                          a picture of letters or figures, "reading" saying what
+                          it shows: rebus([HIJKLMNO], "H to O") for WATER. The
+                          whole wordplay; with no `def` it is the whole clue
 A double definition has no wordplay: two definitions and no expression.
 ```
 
@@ -347,17 +312,6 @@ quiptic-619 11-across, "Fake folio made by a conservative is libellous" (10), so
   "notes": {"Fake": "something fake is invented or concocted, so these letters are reworked into a new arrangement", "made": "taken as written", "a": "taken as written", "conservative": "a Tory is a member of the UK Conservative Party"},
   "explanation": {"surface": "A forged document produced by a Tory politician is defamatory.", "walkthrough": "'Fake' looks like an adjective describing the folio, but it is the anagram signal. Take F (folio) and MADE to get FMADE, and rearrange those letters to make DEFAM. Then add A, which the clue gives as it is, and TORY, the everyday name for a member of Britain's Conservative Party.", "definitionFit": "Libel is written defamation, so a libellous statement is one that damages a reputation falsely."},
   "features": {"answerInScene": true, "aptDefinition": false, "misdirectedWord": "Fake"}
-}}
-```
-
-quiptic-619 10-across, "Excellent penalty!" (4), solution FINE:
-
-```json
-{"10-across": {
-  "def": ["Excellent", "penalty"],
-  "notes": {"Excellent": "first meaning: very good, of high quality", "penalty": "second meaning: a sum of money paid as punishment"},
-  "explanation": {"walkthrough": "The exclamation mark makes it sound like cheering a penalty in a match; the two words are separate meanings of one short word.", "definitionFit": "The word works both as an adjective for high quality and as a noun for a monetary punishment imposed by a court."},
-  "features": {"answerInScene": false, "aptDefinition": false, "joke": "pun", "misdirectedWord": "penalty"}
 }}
 ```
 

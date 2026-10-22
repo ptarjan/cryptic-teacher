@@ -14,21 +14,21 @@ Grammar
     [in#2]                the second "in" in the clue; #n picks a repeat
     LETTERS               letters with no clue words (a preamble's piece, or
                           the letters a del/sub indicator names: del(x, H))
-    A + B                 a charade, in answer order (inside ana() it is the
-                          fodder's pieces, stored as the anagram's parts)
+    A + B                 a charade, in answer order, pieces side by side (ins
+                          only where one piece is cut open by another). Every
+                          clue piece that gives letters is a term: none is left
+                          out (inside ana() they are the fodder's parts)
     op<indicator>(...)    an operation; <indicator words> follow the op they
                           signal, one <...> per phrase; `+<under>` is an
                           indicator on the charade. Every op but + needs its
                           indicator: no clue word signals it, the op is not there
-    ana(x)                anagram of x's letters (the answer slice decides order);
-                          ana(x + y + z) shuffles several pieces as one pool of
-                          the clue's own words. A single letter or a pick at the
-                          answer's start or end, an abbreviation or a synonym, is
-                          spelt beside it, ana(x) + N, never scrambled in
+    ana(x)                anagram of x's letters; ana(x + y + z) shuffles several
+                          of the clue's own pieces as one pool. A single letter, a
+                          pick at the answer's end, an abbreviation or a synonym
+                          is spelt beside it, ana(x) + N, never scrambled in
     rev(x)                x backwards; an indicator naming a stretch (last pair
-                          of, turning tail, first three, half) turns only that
-                          stretch, 2+ letters, at that end and size:
-                          rev<last pair of>([mini vehicles]KARTS) for KARST
+                          of, first three, half) turns only that stretch, 2+
+                          letters: rev<last pair of>([mini vehicles]KARTS) for KARST
     rep(x)                x twice (leaf gives one copy): rep<twice>([boy]AL) for ALAL
     ins(outer, inner)     inner put inside outer (the answer decides where)
     del(from, removed)    removed taken out of from (the answer decides where):
@@ -36,9 +36,14 @@ Grammar
                           (del([Equably], [by]BY) for EQUAL)
     hid(x)                letters hidden in x's words: hid([say no before]YNOBE),
                           or hid([say no before]) to let the answer pick them
-    sound(x, SPELT)       x sounds like SPELT, the letters entered
-    spoon(a, b)           a and b with their first consonants swapped;
-                          spoon(a, b, SPELT) when the swap is by sound
+    sound(x, SPELT)       x sounds like SPELT, the letters entered. x is ONE leaf
+                          naming the word said aloud: sound<ind>([clue words]HEARD,
+                          SPELT). Side-by-side leaves are merged for you; over a
+                          step (first, del, hid) the leaf holds the step's letters
+    spoon(a, b)           a and b with their first consonants swapped (written
+                          letters); spoon(a, b, SPELT) when the swap is by sound,
+                          SPELT the letters entered. Never put sound() round a
+                          Spoonerism: spoon<Spooner's>([marry]MARRY, [fan]FAN, FERRYMAN)
     sub(x, OLD, NEW)      OLD in x replaced by NEW
     cyc(x)                x with letters moved from one end to the other
     move(x, MOVED)        MOVED, one run of x's letters, taken out and put back
@@ -50,30 +55,28 @@ Grammar
     first(x) last(x) middle(x) outer(x) alt(x) regular(x) nth(n)(x)
                           letters picked from x's words: first letter (or
                           each word's), middle letter(s) or all but the
-                          ends, first and last, alternate, every 2nd/3rd, the nth; x is the words picked FROM, never
-                          the pick: alt<regularly>([most]) for MS, not
-                          ([most]MS); the pick needs no note; one indicator over
-                          a list is one op with a part per word, each giving its
-                          pick: outer<fringes of>([Argive], [Greece], [Anatolian])
-    cd([words])           cryptic definition: the words, no letters. A wp that
-                          is one leaf is refused; with no mechanism the clue is
-                          a cd or a double definition
-    comp(x, y)            composite (subtractive) anagram: x's letters are the
-                          answer plus y's, rearranged (an anagram of x less y):
-                          comp<sadly>([thirsted], [it's]) for DERTH
+                          ends, first and last, alternate, every 2nd/3rd, the nth.
+                          x is the words picked FROM, never the pick:
+                          alt<regularly>([most]) for MS, not ([most]MS). Over
+                          several words it takes a comma list, never +:
+                          outer<fringes of>([Argive], [Greece], [Anatolian]).
+                          The indicator needs a note; the pick needs none
+    cd([words])           cryptic definition: the words, no letters (a wp that
+                          is one leaf is refused; no mechanism means a cd or a
+                          double definition)
+    comp(x, y)            composite anagram: x's letters are the answer plus y's
+                          (never ana(del(...))): comp<sadly>([thirsted], [it's])
+                          for DERTH
     reverse([words], "reading")
                           a reverse clue: the words read as wordplay that would
-                          produce a word of the answer, and "reading" spells the
-                          answer in the pieces they build, capitals joined by
-                          spaces or +: reverse([What makes pets], "OUT + STEP")
-                          for OUTSTEP (out signals an anagram of STEP: pets). It
-                          is the whole wordplay; the definition stays a `def`
+                          build the answer; "reading" spells it in the pieces,
+                          capitals joined by spaces or +: reverse([What makes
+                          pets], "OUT + STEP") for OUTSTEP. The whole wordplay;
+                          the definition stays a `def`
     rebus([words], "reading")
-                          a rebus: the words are a picture (letters,
-                          figures, layout) and "reading" says what it shows,
-                          naming the picture's own capitals or figures:
-                          rebus([HIJKLMNO], "H to O") for WATER. It is the whole
-                          wordplay; with no `def` it is the whole clue
+                          a picture of letters or figures, "reading" saying what
+                          it shows: rebus([HIJKLMNO], "H to O") for WATER. The
+                          whole wordplay; with no `def` it is the whole clue
 A double definition has no wordplay: two definitions and no expression.
 
 Unchecked nodes: a tree filed before trees were checked may hold an
@@ -98,7 +101,7 @@ join pieces in one charade, never a charade with no indicator inside a charade;
 give every op that needs one its indicator word (ana, rev, ins, del, hid, sound,
 first/last/...); a cryptic definition is one cd([clue words]); no clue word sits
 in two leaves or indicators, or in both the definition and the wordplay (unless
-&lit); a selection over several words is one op over one multi-word leaf; a
+&lit); a selection over several words is one op with a comma list of leaves; a
 leaf that gives a stretch of its own words is the selection, deletion or hidden
 word as an op; the wordplay is never one leaf; every charade piece has clue words
 (a bare-letters piece belongs in a leaf of the clue word that supplies it); an
