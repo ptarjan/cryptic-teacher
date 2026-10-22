@@ -317,13 +317,35 @@ def reachable():
     return _UP[MODEL]
 
 
+#: How long a read rides out a dropped link before calling the VLM down: the
+#: tailnet path re-handshakes for about a minute when the Mac's tailscaled
+#: resets (10-22: every 15-20 min), and a read deferred for that redoes its OCR.
+BLIP_SECONDS = float(os.environ.get("CT_VLM_BLIP_SECONDS", "90"))
+
+
+def _blip_waits():
+    """Pauses between tries while the link may be re-handshaking (BLIP_SECONDS in all)."""
+    left, wait = BLIP_SECONDS, 5.0
+    while left > 0:
+        yield min(wait, left)
+        left -= wait
+        wait = min(wait * 2, 30.0)
+
+
 def _models():
-    """The model ids URL lists, or None when it does not answer."""
-    try:
-        req = urllib.request.Request(f"{URL}/v1/models", headers={"User-Agent": "cryptic-teacher"})
-        return {m.get("id") for m in json.load(urllib.request.urlopen(req, timeout=3)).get("data", [])}
-    except (OSError, ValueError):
-        return None
+    """The model ids URL lists, or None when it does not answer (within BLIP_SECONDS)."""
+    waits = _blip_waits()
+    while True:
+        try:
+            req = urllib.request.Request(f"{URL}/v1/models", headers={"User-Agent": "cryptic-teacher"})
+            return {m.get("id") for m in json.load(urllib.request.urlopen(req, timeout=3)).get("data", [])}
+        except ValueError:
+            return None
+        except OSError:
+            pause = next(waits, None)
+            if pause is None:
+                return None
+            time.sleep(pause)
 
 
 def version():
@@ -929,6 +951,7 @@ def ask_png(data, prompt, max_tokens=1500, spool=None, held=False):
         return urllib.request.Request(f"{URL}/v1/chat/completions", data=json.dumps(body).encode(),
                                       headers={"Content-Type": "application/json", "User-Agent": "cryptic-teacher"})
     moved = False
+    blips = _blip_waits()
     while True:
         req = request()
         try:
@@ -949,6 +972,10 @@ def ask_png(data, prompt, max_tokens=1500, spool=None, held=False):
             if not moved and not isinstance(e, urllib.error.HTTPError) and cause_of(e) in ("timeout", "refused", "URLError", "OSError", "gaierror") \
                     and _moved_to_other():
                 moved = True  # the address found at startup went stale (DHCP lease flap): once more, there
+                continue
+            pause = None if isinstance(e, urllib.error.HTTPError) else next(blips, None)
+            if pause is not None and cause_of(e) in ("refused", "URLError", "OSError", "gaierror"):
+                time.sleep(pause)  # a link blip (BLIP_SECONDS): ask again before calling it down
                 continue
             # Down mid-run (the desktop rebooted): the rest of the run reads without it.
             _UP[MODEL] = False

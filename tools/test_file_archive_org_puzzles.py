@@ -11,6 +11,7 @@ import atexit
 import contextlib
 import io
 import os
+os.environ.setdefault("CT_VLM_BLIP_SECONDS", "0")  # no link-blip waits on a fake unreachable VLM
 import shutil
 import sys
 import tempfile
