@@ -22,6 +22,9 @@
   "date": "2021-11-04",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "Item for breakfast, baloney",
     "enumeration": "6"
    },
-   "solution": "WAFFLE"
+   "solution": "WAFFLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Item for breakfast",
+      "at": 0,
+      "meaning": "a crisp batter cake eaten at breakfast"
+     },
+     {
+      "text": "baloney",
+      "at": 20,
+      "meaning": "empty, long-winded talk, i.e. nonsense"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of breakfast foods ends with someone dismissing it all as rubbish.",
+     "definitionFit": "Waffle names both a griddled batter cake and verbose nonsense, matching each half of the clue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "baloney"
+    }
+   }
   },
   {
    "number": 1,
@@ -55,7 +82,32 @@
      }
     ]
    },
-   "solution": "WITHIT"
+   "solution": "WITHIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fashionable",
+      "at": 0,
+      "meaning": "an idiom for up to date and stylish"
+     },
+     {
+      "text": "how one might take one's gin?",
+      "at": 13,
+      "meaning": "gin and It is gin mixed with Italian vermouth"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about the trendy way to drink a gin.",
+     "walkthrough": "IT is old British bar shorthand for Italian (sweet) vermouth, as in the cocktail gin and It.",
+     "definitionFit": "Someone with it is modern and stylish; literally, gin is served alongside It, the Italian vermouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gin"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +121,48 @@
     "text": "Adequate swimmer gulping oxygen?",
     "enumeration": "7"
    },
-   "solution": "FAIRISH"
+   "solution": "FAIRISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Adequate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gulping",
+       "at": 17,
+       "note": "a fish gulping something takes it inside its mouth, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "swimmer",
+       "at": 9,
+       "gives": "FISH",
+       "note": "a fish is a creature that swims"
+      },
+      {
+       "words": "oxygen?",
+       "at": 25,
+       "gives": "AIR",
+       "note": "air contains oxygen; the query marks this as loose, by example"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer gasping for breath seems to be doing just about well enough.",
+     "definitionFit": "Fairish means moderately good, passable or reasonably satisfactory, so it matches adequate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +176,39 @@
     "text": "Country also in a mess",
     "enumeration": "4"
    },
-   "solution": "LAOS"
+   "solution": "LAOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a mess",
+       "at": 13,
+       "note": "letters in a mess are jumbled up, so the word also is rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "also",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation is also in disarray.",
+     "definitionFit": "Laos is a landlocked state in Southeast Asia, so it is an instance of a country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +222,63 @@
     "text": "A cute, unusual, pistol, originally — might it be filled with gunpowder?",
     "enumeration": "6"
    },
-   "solution": "TEACUP"
+   "solution": "TEACUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "might it be filled with gunpowder?",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusual",
+         "at": 8,
+         "note": "unusual signals that the letters of a cute appear in an unfamiliar order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A cute",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 25,
+         "note": "originally means only the opening letter of pistol is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pistol",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cute, quirky pistol is pictured as something packed with explosive powder.",
+     "walkthrough": "Gunpowder is a Chinese green tea rolled into pellets, so the explosive talk is misdirection.",
+     "definitionFit": "A cup for tea could be filled with gunpowder, the name of a tightly rolled green tea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gunpowder"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +292,40 @@
     "text": "Theorist in nineties, surprisingly",
     "enumeration": "8"
    },
-   "solution": "EINSTEIN"
+   "solution": "EINSTEIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Theorist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "surprisingly",
+       "at": 22,
+       "note": "surprisingly hints that the letters of nineties end up in an unexpected arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nineties",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker is unexpectedly still active in their nineties.",
+     "definitionFit": "Albert Einstein devised the theory of relativity, making him the archetypal scientific theorist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nineties"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +339,45 @@
     "text": "European payment taken on the phone?",
     "enumeration": "5"
    },
-   "solution": "CZECH"
+   "solution": "CZECH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CZECH",
+     "indicators": [
+      {
+       "text": "on the phone",
+       "at": 23,
+       "note": "heard over the phone, the word sounds the same as one spelt differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "payment",
+       "at": 9,
+       "gives": "CHEQUE",
+       "note": "a cheque is a written order to pay money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A continental traveller pays by cheque over the telephone.",
+     "walkthrough": "CHEQUE is the British spelling of check, the bank payment slip.",
+     "definitionFit": "A Czech is a person from the Czech Republic, a country in central Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "phone"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +391,30 @@
     "text": "Quite beautiful",
     "enumeration": "6"
    },
-   "solution": "PRETTY"
+   "solution": "PRETTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quite",
+      "at": 0,
+      "meaning": "... as an adverb means fairly or quite, as in ... good"
+     },
+     {
+      "text": "beautiful",
+      "at": 6,
+      "meaning": "... as an adjective means attractive or lovely"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is described as rather good-looking.",
+     "definitionFit": "Pretty works as an adverb meaning fairly and as an adjective meaning attractive, matching each clue word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Quite"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +434,31 @@
      }
     ]
    },
-   "solution": "RIGHTWINGER"
+   "solution": "RIGHTWINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tory",
+      "at": 0,
+      "meaning": "a Tory, a member of Britain's Conservative Party, is politically on the right wing"
+     },
+     {
+      "text": "footballer?",
+      "at": 5,
+      "meaning": "a football player on the right flank; the query flags the playful sense"
+     }
+    ],
+    "explanation": {
+     "surface": "A Conservative politician who also plays football.",
+     "definitionFit": "A right-winger is both a conservative in politics and a forward playing out on the right touchline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "footballer"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +472,68 @@
     "text": "River circled by pilot, I gathered, in capital city",
     "enumeration": "7"
    },
-   "solution": "TRIPOLI"
+   "solution": "TRIPOLI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "capital city",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "circled by",
+         "at": 6,
+         "note": "a thing circled by another sits within it, so the river's letter goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "gathered",
+           "at": 26,
+           "note": "gathered suggests letters collected up and reassembled, so pilot is rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pilot",
+           "at": 17
+          }
+         ]
+        },
+        {
+         "words": "River",
+         "at": 0,
+         "gives": "R",
+         "note": "R is the standard abbreviation for river on maps"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An airman circles over a river, as the narrator gathers, near a capital.",
+     "walkthrough": "'gathered' turns PILOT into TIPOL; 'circled by' puts R inside it, after the T.",
+     "definitionFit": "Tripoli is the capital of Libya, a seat of national government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gathered"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +547,44 @@
     "text": "Relative in European resort, by the sound of it?",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NIECE",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "at": 29,
+       "note": "by the sound of it says a word spoken aloud matches another spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "European resort",
+       "at": 12,
+       "gives": "NICE",
+       "note": "Nice is a resort city on the French Riviera"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family member is staying at a continental holiday town, it seems.",
+     "definitionFit": "A niece is a sibling's daughter, so she is a family member."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +598,39 @@
     "text": "Flower in Agadir, I see",
     "enumeration": "4"
    },
-   "solution": "IRIS"
+   "solution": "IRIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "in tells us the answer sits within the following words, spanning their letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Agadir, I see",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist spots a bloom in the Moroccan city of Agadir.",
+     "definitionFit": "The iris is a garden plant with showy blooms, so it is an example of a flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +644,49 @@
     "text": "Talk: problem in Persian, for example?",
     "enumeration": "8"
    },
-   "solution": "CHITCHAT"
+   "solution": "CHITCHAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Talk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in places the problem word within the cat word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Persian, for example",
+       "at": 17,
+       "gives": "CAT",
+       "note": "a Persian is a breed of cat"
+      },
+      {
+       "words": "problem",
+       "at": 6,
+       "gives": "HITCH",
+       "note": "a hitch is a snag or difficulty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conversation about a difficulty in Persian, perhaps the language.",
+     "walkthrough": "'Persian' suggests the language or person; here it is the long-haired cat breed.",
+     "definitionFit": "Chitchat is light conversation, an informal kind of talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Persian"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +700,69 @@
     "text": "Various roasted nuts, including last of peanuts",
     "enumeration": "8"
    },
-   "solution": "ASSORTED"
+   "solution": "ASSORTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Various",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 22,
+       "note": "including means the shuffled word takes another letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nuts",
+         "at": 16,
+         "note": "nuts means crazy, so the letters of roasted are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "roasted",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 32,
+         "note": "last of takes only the closing letter of peanuts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "peanuts",
+         "at": 40
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mixed bag of roasted nuts with peanuts in it.",
+     "walkthrough": "'nuts' turns ROASTED into ASORTED; 'including' puts S inside it, after the first S.",
+     "definitionFit": "Assorted means of several different sorts, mixed, a synonym of various."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +776,36 @@
     "text": "A spirited author?",
     "enumeration": "11"
    },
-   "solution": "GHOSTWRITER"
+   "solution": "GHOSTWRITER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A spirited author?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A spirited author?",
+       "at": 0,
+       "note": "spirited is read as made of spirit, a writer who is a phantom rather than lively"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lively, energetic writer.",
+     "walkthrough": "'spirited' normally means lively; here it suggests a writer who is a spectre, one who stays invisible behind another's name.",
+     "definitionFit": "A ghostwriter writes books credited to someone else, an unseen hand behind the named author."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spirited"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +819,41 @@
     "text": "Journalists in Dorset I fancy",
     "enumeration": "7"
    },
-   "solution": "EDITORS"
+   "solution": "EDITORS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Journalists",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "fancy",
+       "at": 24,
+       "note": "fancy as an adjective means elaborate or ornamental, so the letters of Dorset I are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dorset I",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone imagines newspaper people down in the county of Dorset.",
+     "walkthrough": "Dorset is a county on England's south coast. 'fancy' looks like the verb to imagine but signals the anagram.",
+     "definitionFit": "Editors are journalists who prepare and oversee content for newspapers and magazines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +867,58 @@
     "text": "Begin to accommodate first of undergraduates in royal house",
     "enumeration": "6"
    },
-   "solution": "STUART"
+   "solution": "STUART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "royal house",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to accommodate",
+       "at": 6,
+       "note": "to accommodate is to give room to, so a letter is housed within the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Begin",
+       "at": 0,
+       "gives": "START",
+       "note": "to start is to begin"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "at": 21,
+         "note": "first of takes only the opening letter of undergraduates"
+        }
+       ],
+       "parts": [
+        {
+         "words": "undergraduates",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal household starts taking in students.",
+     "definitionFit": "The Stuarts were a dynasty that ruled Scotland and later England, a royal family line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodate"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +932,58 @@
     "text": "Asian influence ultimately in holy text",
     "enumeration": "6"
    },
-   "solution": "KOREAN"
+   "solution": "KOREAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Asian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in places that letter within the scripture's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "holy text",
+       "at": 30,
+       "gives": "KORAN",
+       "note": "the Koran is the sacred scripture of Islam"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 16,
+         "note": "ultimately means in the end, so only the final letter of influence is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "influence",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scripture's sway over people in Asia.",
+     "definitionFit": "A Korean is a person from Korea, a country in East Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "influence"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +997,43 @@
     "text": "Bronzed skin fading on a trip in Argentina?",
     "enumeration": "8"
    },
-   "solution": "TANGOING"
+   "solution": "TANGOING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on a trip in Argentina?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bronzed skin",
+       "at": 0,
+       "gives": "TAN",
+       "note": "a tan is sun-darkened skin"
+      },
+      {
+       "words": "fading",
+       "at": 13,
+       "gives": "GOING",
+       "note": "going can mean fading away, as in the light is going"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaymaker's tan wears off while travelling in South America.",
+     "walkthrough": "'trip' is a dance step here, as in trip the light fantastic, not a journey; the tango is Argentina's famous dance.",
+     "definitionFit": "Tangoing is dancing the tango, the dance that originated in Buenos Aires, hence tripping Argentine-style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1047,49 @@
     "text": "Hot inside particular nook",
     "enumeration": "5"
    },
-   "solution": "NICHE"
+   "solution": "NICHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nook",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 4,
+       "note": "inside says the hot letter goes within the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "particular",
+       "at": 11,
+       "gives": "NICE",
+       "note": "nice can mean fussy or precise, as in a nice distinction"
+      },
+      {
+       "words": "Hot",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the usual abbreviation for hot, as on taps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warm spot inside a fussy person's corner.",
+     "walkthrough": "'particular' here means fussy or exact, the old sense of nice.",
+     "definitionFit": "A niche is a recess in a wall or a small sheltered corner, so a nook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "particular"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1103,52 @@
     "text": "Cap half on in swimming pool",
     "enumeration": "4"
    },
-   "solution": "LIDO"
+   "solution": "LIDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "swimming pool",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cap",
+       "at": 0,
+       "gives": "LID",
+       "note": "a cap is a lid or top"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 4,
+         "note": "half takes the first of the two letters of on"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer keeps a swimming cap half on at the public pool.",
+     "walkthrough": "A lido is the British name for a public open-air pool.",
+     "definitionFit": "A lido is a public open-air bathing pool, a kind of swimming pool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cap"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1162,41 @@
     "text": "Huge name, gargantuan to some extent",
     "enumeration": "4"
    },
-   "solution": "MEGA"
+   "solution": "MEGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Huge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to some extent",
+       "at": 22,
+       "note": "to some extent says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "name, gargantuan",
+       "at": 5,
+       "gives": "MEGA",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big name, with something of the gigantic about it.",
+     "definitionFit": "Mega is slang for enormous or great, a synonym of huge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1210,41 @@
     "text": "Version of Tosca somewhere in Berkshire",
     "enumeration": "5"
    },
-   "solution": "ASCOT"
+   "solution": "ASCOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "somewhere in Berkshire",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Version of",
+       "at": 0,
+       "note": "a version of something is a reworking, so the letters of Tosca are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tosca",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A production of Puccini's opera Tosca staged in an English county.",
+     "walkthrough": "Berkshire is a county west of London; Ascot is a town there famous for its racecourse.",
+     "definitionFit": "Ascot is a town in the county of Berkshire, so it is a place there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Version"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1258,44 @@
     "text": "Reportedly, I saw a sight!",
     "enumeration": "7"
    },
-   "solution": "EYESORE"
+   "solution": "EYESORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sight!",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EYESORE",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "at": 0,
+       "note": "reportedly means as is said, so the phrase spoken aloud gives a word spelt differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I saw",
+       "at": 12,
+       "note": "the words I saw, said aloud, run together into the sound of a single word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims that they witnessed a spectacle.",
+     "walkthrough": "'a sight' here is the dismissive sense: something ugly, as in you look a sight.",
+     "definitionFit": "An eyesore is something unpleasant to look at, which is what calling a thing a sight implies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sight"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1309,49 @@
     "text": "Attempt to keep tail cool",
     "enumeration": "6"
    },
-   "solution": "TRENDY"
+   "solution": "TRENDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cool",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 8,
+       "note": "to keep is to hold within, so one word goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Attempt",
+       "at": 0,
+       "gives": "TRY",
+       "note": "a try is an attempt"
+      },
+      {
+       "words": "tail",
+       "at": 16,
+       "gives": "END",
+       "note": "the tail of something is its end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to keep their tail cold.",
+     "walkthrough": "'cool' looks like a verb about chilling the tail; it is the definition, meaning fashionable.",
+     "definitionFit": "Trendy means fashionable, and cool is the informal word for stylish and fashionable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cool"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1365,47 @@
     "text": "Fruit boy found behind barrier",
     "enumeration": "6"
    },
-   "solution": "DAMSON"
+   "solution": "DAMSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found behind",
+       "at": 10,
+       "note": "found behind places the boy's word after the barrier's word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "barrier",
+       "at": 23,
+       "gives": "DAM",
+       "note": "a dam is a barrier holding back water"
+      },
+      {
+       "words": "boy",
+       "at": 6,
+       "gives": "SON",
+       "note": "a son is a boy child"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad discovered round the back of a wall, with some fruit.",
+     "definitionFit": "A damson is a small dark-purple plum, so it is a kind of fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
