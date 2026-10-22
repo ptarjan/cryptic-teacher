@@ -19,11 +19,15 @@ runs printed, and with no model call says:
   4. one line naming the likeliest cause class (cause_line below).
 
 Cause rule. Each still-failing wordplay is tried with the known rewrites
-(REWRITES: `+` to a comma list, a sound() wrapper dropped, both). Then:
+(REWRITES: `+` to a comma list, a sound() wrapper dropped, both, a hid over a
+leaf holding the answer backwards wrapped in rev, ins arguments swapped, ins
+inner argument reversed). Then:
   - 40% or more pass after a rewrite            -> "notation slip, so prompt or message"
   - else, 40% or more give the answer's letters in the wrong order (the first
     candidate in the message is an anagram of the answer) -> "evaluator gap"
-  - else                                         -> "model invention"
+  - else -> "model parse error (a piece left out or misread)". "Invention" is
+    not claimed: whether a letter no leaf or op could supply was written cannot
+    be told from the message alone.
 The share is of still-failing items, so a fix that already landed does not
 vote.
 """
@@ -45,10 +49,48 @@ SLIP_SHARE = 0.40
 ORDER_SHARE = 0.40
 EXAMPLES = 2
 
+def _ins_args(w):
+    """(head, outer, inner) for a top-level ins<..>(outer, inner), else None."""
+    m = re.match(r"^(ins(?:<[^>]*>)?)\((.*)\)$", w, re.S)
+    if not m:
+        return None
+    depth, cut = 0, None
+    for i, ch in enumerate(m.group(2)):
+        depth += ch in "([<"
+        depth -= ch in ")]>"
+        if ch == "," and depth == 0:
+            if cut is not None:
+                return None         # three arguments: not a plain swap
+            cut = i
+    if cut is None:
+        return None
+    return m.group(1), m.group(2)[:cut].strip(), m.group(2)[cut + 1:].strip()
+
+
+def _ins_swapped(w, ans):
+    a = _ins_args(w)
+    return f"{a[0]}({a[2]}, {a[1]})" if a else w
+
+
+def _ins_inner_reversed(w, ans):
+    a = _ins_args(w)
+    return f"{a[0]}({a[1]}, rev({a[2]}))" if a else w
+
+
+def _hid_reversed(w, ans):
+    """hid over a leaf whose letters hold the answer backwards: wrap it in rev."""
+    m = re.match(r"^hid(?:<[^>]*>)?\(\[[^\]]*\]([A-Z]+)\)$", w)
+    return f"rev({w})" if m and ans[::-1] in m.group(1) and ans not in m.group(1) else w
+
+
+# (name, f(wordplay, answer) -> wordplay); a rewrite that changes nothing is skipped
 REWRITES = (
-    ("+ to comma", lambda w: w.replace(" + ", ", ")),
-    ("sound() dropped", lambda w: re.sub(r"^sound(?:<[^>]*>)?\((.*)\)$", r"\1", w, flags=re.S)),
-    ("both", lambda w: re.sub(r"^sound(?:<[^>]*>)?\((.*)\)$", r"\1", w.replace(" + ", ", "), flags=re.S)),
+    ("+ to comma", lambda w, a: w.replace(" + ", ", ")),
+    ("sound() dropped", lambda w, a: re.sub(r"^sound(?:<[^>]*>)?\((.*)\)$", r"\1", w, flags=re.S)),
+    ("both", lambda w, a: re.sub(r"^sound(?:<[^>]*>)?\((.*)\)$", r"\1", w.replace(" + ", ", "), flags=re.S)),
+    ("hid over a reversed leaf, wrapped in rev", _hid_reversed),
+    ("ins arguments swapped", _ins_swapped),
+    ("ins inner argument reversed", _ins_inner_reversed),
 )
 
 
@@ -184,8 +226,8 @@ def replay(items, index=None):
             if clue is None:
                 continue
             msg = try_translate(it["wp"], clue, it["ans"])
-            fixed = next((n for n, f in REWRITES if msg and f(it["wp"]) != it["wp"]
-                          and try_translate(f(it["wp"]), clue, it["ans"]) is None), None)
+            fixed = next((n for n, f in REWRITES if msg and f(it["wp"], it["ans"]) != it["wp"]
+                          and try_translate(f(it["wp"], it["ans"]), clue, it["ans"]) is None), None)
             seen[k] = dict(it, clue=clue, now="fixed" if msg is None else "fails",
                            msg=msg or "", rewrite=fixed if msg else None)
             out.append(seen[k])
@@ -206,7 +248,7 @@ def cause(failing):
     elif order >= ORDER_SHARE:
         why = "evaluator gap"
     else:
-        why = "model invention"
+        why = "model parse error (a piece left out or misread)"
     return f"likeliest cause: {why} ({slip:.0%} fixed by a known rewrite, {order:.0%} right letters in the wrong order)", slip, order
 
 
