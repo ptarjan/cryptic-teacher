@@ -22,6 +22,9 @@
   "date": "2022-11-23",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,42 @@
     "text": "Store took a lot of booze back",
     "enumeration": "5"
    },
-   "solution": "DEPOT"
+   "solution": "DEPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Store",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 26,
+       "note": "back tells the solver to read the drinking word from its end to its start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "took a lot of booze",
+       "at": 6,
+       "gives": "TOPED",
+       "note": "to tope is to drink heavily, so 'took a lot of booze' is toped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone raided the shop's stock of drink and carried it off.",
+     "definitionFit": "A depot is a warehouse or storehouse where goods are kept, so it is a store."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Store"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +87,32 @@
     "text": "One down comes from nought",
     "enumeration": "4"
    },
-   "solution": "DUCK"
+   "solution": "DUCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One down comes from",
+      "at": 0,
+      "meaning": "down, the soft feathers, comes from waterfowl such as this bird"
+     },
+     {
+      "text": "nought",
+      "at": 20,
+      "meaning": "in cricket a batter out without scoring has made this, a score of zero"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzling statement that something counted as one fewer has arisen from zero.",
+     "walkthrough": "'One down' reads like a crossword clue number or a loss; here it is the feathers called down.",
+     "definitionFit": "The bird supplies eiderdown-style feathers, and the cricket term for a zero score is the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +126,45 @@
     "text": "IKEA reports wobbly reconstruction behind the curtain",
     "enumeration": "11"
    },
-   "solution": "PERESTROIKA"
+   "solution": "PERESTROIKA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reconstruction behind the curtain",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wobbly",
+       "at": 13,
+       "note": "something wobbly is unsteady and out of shape, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "IKEA",
+       "at": 0
+      },
+      {
+       "words": "reports",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "News that flat-pack furniture from the Swedish store keeps falling apart and needs rebuilding.",
+     "walkthrough": "'behind the curtain' means behind the Iron Curtain, the Soviet bloc.",
+     "definitionFit": "Perestroika was Gorbachev's programme of restructuring the Soviet economy and politics in the 1980s."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "IKEA"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +178,88 @@
     "text": "A western island NATO mostly protects? On the contrary",
     "enumeration": "6"
    },
-   "solution": "TAIWAN"
+   "solution": "TAIWAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A western island NATO mostly protects? On the contrary",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "On the contrary",
+       "at": 39,
+       "note": "here taken as an instruction to turn the whole construction the opposite way round, reading it backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "protects",
+         "at": 29,
+         "note": "one thing protecting another wraps around it, so the shortened alliance goes around the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 22,
+           "note": "mostly means nearly all of the word, so its final letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "NATO",
+           "at": 17
+          },
+          {
+           "gives": "O"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "A",
+           "at": 0
+          },
+          {
+           "words": "western",
+           "at": 2,
+           "gives": "W"
+          },
+          {
+           "words": "island",
+           "at": 10,
+           "gives": "I"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A question about whether the Atlantic alliance defends a certain island in the west.",
+     "walkthrough": "'mostly' cuts NATO to NAT; 'protects' wraps NAT round AWI, giving NAWIAT; 'On the contrary' reverses it. The question mark admits the island is in the east and not a NATO member.",
+     "definitionFit": "Taiwan is an island state off the Chinese coast whose security is a recurring geopolitical question."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +273,62 @@
     "text": "Short time, almost too short for bike racing",
     "enumeration": "9"
    },
-   "solution": "MOTOCROSS"
+   "solution": "MOTOCROSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bike racing",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Short time",
+       "at": 0,
+       "gives": "MO",
+       "note": "a mo is a short time, as in 'wait a mo'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 12,
+         "note": "almost means not quite the whole word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "too",
+         "at": 19,
+         "gives": "TOO"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "short",
+       "at": 23,
+       "gives": "CROSS",
+       "note": "short, as in short-tempered, means cross"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that the time allowed was nearly too brief for a cycle race.",
+     "walkthrough": "The second 'short' is not about length but temper.",
+     "definitionFit": "Motocross is cross-country racing on motorcycles over rough off-road tracks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +348,48 @@
      }
     ]
    },
-   "solution": "MARCOPOLO"
+   "solution": "MARCOPOLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "explorer",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Maiden",
+       "at": 0,
+       "gives": "M",
+       "note": "M is the cricket abbreviation for a maiden over"
+      },
+      {
+       "words": "bowed",
+       "at": 7,
+       "gives": "ARCO",
+       "note": "arco is the musical direction to play with the bow"
+      },
+      {
+       "words": "sweet",
+       "at": 20,
+       "gives": "POLO",
+       "note": "Polo is a brand of mint sweet sold in Britain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman curtsied before a sweet-natured traveller.",
+     "walkthrough": "Polo mints are British ring-shaped peppermints.",
+     "definitionFit": "Marco Polo was the Venetian traveller who journeyed to China and wrote of his travels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bowed"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +403,53 @@
     "text": "Unspoken magnetic attraction keeps returning",
     "enumeration": "5"
    },
-   "solution": "TACIT"
+   "solution": "TACIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unspoken",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "returning",
+       "at": 35,
+       "note": "returning means the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "keeps",
+         "at": 29,
+         "note": "the two words hold the answer's letters within them, keeping them in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "magnetic attraction",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wordless pull between two people that keeps coming back.",
+     "walkthrough": "'keeps' hides TICAT inside 'magnetic attraction'; 'returning' reverses it.",
+     "definitionFit": "Tacit means understood or implied without being stated, so it is unspoken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keeps"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +463,53 @@
     "text": "Name one work by English female that's inspiring",
     "enumeration": "8"
    },
-   "solution": "CALLIOPE"
+   "solution": "CALLIOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "female that's inspiring",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Name",
+       "at": 0,
+       "gives": "CALL",
+       "note": "to call someone something is to name them"
+      },
+      {
+       "words": "one",
+       "at": 5,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "work",
+       "at": 9,
+       "gives": "OP",
+       "note": "op, short for opus, is a work"
+      },
+      {
+       "words": "English",
+       "at": 17,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pick out a single work written by an inspiring Englishwoman.",
+     "walkthrough": "'female that's inspiring' means a Muse, a goddess of inspiration.",
+     "definitionFit": "Calliope is the Greek Muse of epic poetry, one of the goddesses who inspire artists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +523,47 @@
     "text": "Encouragement for Ballesteros, perhaps, if his target lacks aspiration?",
     "enumeration": "3"
    },
-   "solution": "OLE"
+   "solution": "OLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Encouragement for Ballesteros, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacks aspiration",
+       "at": 54,
+       "note": "aspiration is the breathy sound of H, so the word loses that letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "his target",
+       "at": 43,
+       "gives": "HOLE",
+       "note": "Seve Ballesteros was a golfer, whose target is the hole"
+      },
+      {
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish golfer is cheered on when his aim lacks ambition.",
+     "walkthrough": "Seve Ballesteros was a Spanish golfer, so a Spanish cheer suits him; 'aspiration' looks like ambition but means the H sound.",
+     "definitionFit": "Olé is the Spanish shout of approval and encouragement, fitting a Spaniard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "aspiration"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +577,51 @@
     "text": "Flight tires out relative",
     "enumeration": "10"
    },
-   "solution": "STEPSISTER"
+   "solution": "STEPSISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "relative",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Flight",
+       "at": 0,
+       "gives": "STEPS",
+       "note": "a flight of stairs is a set of steps"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 13,
+         "note": "out here means put out of order, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tires",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Climbing the stairs exhausts a family member.",
+     "definitionFit": "A stepsister is a sister by a parent's remarriage, a kind of relation by marriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flight"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +635,43 @@
     "text": "Horror of King and Queen being infected",
     "enumeration": "7"
    },
-   "solution": "CARRIER"
+   "solution": "CARRIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "being infected",
+      "at": 25,
+      "note": "read as a noun: a being who is infected"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Horror of King",
+       "at": 0,
+       "gives": "CARRIE",
+       "note": "Carrie is a horror novel by Stephen King"
+      },
+      {
+       "words": "Queen",
+       "at": 19,
+       "gives": "R",
+       "note": "R, for Regina, is the abbreviation for queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dread that the royal couple have caught some disease.",
+     "walkthrough": "'King and Queen' suggests royals; King is the novelist Stephen King.",
+     "definitionFit": "A carrier is a person or animal harbouring a disease germ, often without symptoms, and able to pass it on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +685,58 @@
     "text": "Maybe King's or Queen's saddle on horse's back",
     "enumeration": "7"
    },
-   "solution": "COLLEGE"
+   "solution": "COLLEGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe King's or Queen's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "saddle",
+       "at": 24,
+       "gives": "COL",
+       "note": "a col is a saddle, a low pass between mountain peaks"
+      },
+      {
+       "words": "on",
+       "at": 31,
+       "gives": "LEG",
+       "note": "in cricket the on side is also called the leg side"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 42,
+         "note": "the back of the word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "horse's",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider's saddle sits on the horse's back, with royalty perhaps riding.",
+     "walkthrough": "King's and Queen's are colleges at Cambridge (Queens' is spelt with the apostrophe after) and Oxford.",
+     "definitionFit": "King's College and Queen's College are examples of university colleges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "saddle"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +750,49 @@
     "text": "New air hostess jogged for fitness on transatlantic trip, perhaps",
     "enumeration": "13"
    },
-   "solution": "SEAWORTHINESS"
+   "solution": "SEAWORTHINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fitness on transatlantic trip, perhaps",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "jogged",
+       "at": 16,
+       "note": "jogged means shaken or jolted, so these letters are shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "New",
+       "at": 0
+      },
+      {
+       "words": "air",
+       "at": 4
+      },
+      {
+       "words": "hostess",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newly hired cabin attendant went running to keep fit during a long flight.",
+     "walkthrough": "The trip is by sea, not by air: the hostess is a red herring.",
+     "definitionFit": "Seaworthiness is a vessel's fitness to sail, as needed for an ocean crossing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +812,66 @@
      }
     ]
    },
-   "solution": "EVENINGSTAR"
+   "solution": "EVENINGSTAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Venus usually",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shot",
+         "at": 26,
+         "note": "shot here means ruined or wrecked, so these letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gave",
+         "at": 14
+        },
+        {
+         "words": "tennis",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a bit of",
+         "at": 31,
+         "note": "a bit of means just a small piece, the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rage",
+         "at": 40
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Venus Williams hits a tennis stroke in anger.",
+     "walkthrough": "Venus suggests the tennis player Venus Williams; here it is the planet.",
+     "definitionFit": "The planet Venus is most often seen bright in the western sky after sunset, hence its name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Venus"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +885,42 @@
     "text": "Length of a light tie attracts criticism",
     "enumeration": "10"
    },
-   "solution": "MATCHSTICK"
+   "solution": "MATCHSTICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Length of a light",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tie",
+       "at": 18,
+       "gives": "MATCH",
+       "note": "a tie is a game or fixture, a match"
+      },
+      {
+       "words": "criticism",
+       "at": 31,
+       "gives": "STICK",
+       "note": "stick is informal for criticism, as in 'taking stick'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cable's measured length on a lamp, and a neckwear choice that draws complaints.",
+     "walkthrough": "A match is a light for a fire, and this is its wooden length.",
+     "definitionFit": "A matchstick is the thin stem of wood forming a match, used to strike a light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +934,56 @@
     "text": "American sailors docked in Middle Eastern port",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Middle Eastern port",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "docked",
+         "at": 17,
+         "note": "docked means cut short, as a tail is docked, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sailors",
+         "at": 9,
+         "gives": "CREW",
+         "note": "a ship's sailors are its crew"
+        },
+        {
+         "gives": "W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "US Navy men have tied up in a harbour in the Levant.",
+     "walkthrough": "'docked' looks like mooring, which suits the surface, but means cut.",
+     "definitionFit": "Acre is an ancient harbour city on the coast of northern Israel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "docked"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +997,59 @@
     "text": "Residents come to mind being fed pudding with spades",
     "enumeration": "9"
    },
-   "solution": "OCCUPIERS"
+   "solution": "OCCUPIERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Residents",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "being fed",
+         "at": 23,
+         "note": "being fed means having something put into it, so the dessert goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "come to mind",
+         "at": 10,
+         "gives": "OCCUR",
+         "note": "an idea that comes to mind is said to occur"
+        },
+        {
+         "words": "pudding",
+         "at": 33,
+         "gives": "PIE",
+         "note": "a pie is a kind of pudding, sweet or savoury"
+        }
+       ]
+      },
+      {
+       "words": "spades",
+       "at": 46,
+       "gives": "S",
+       "note": "S is the card-suit abbreviation for spades"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Householders recall being served a dessert while gardening.",
+     "definitionFit": "Occupiers are people who live in or hold a property, so they are its residents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spades"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1063,60 @@
     "text": "Elaborate fraud attempted; Victor's taken in by it",
     "enumeration": "9"
    },
-   "solution": "CONTRIVED"
+   "solution": "CONTRIVED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elaborate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fraud",
+       "at": 10,
+       "gives": "CON",
+       "note": "a con is a fraud or swindle"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taken in by it",
+         "at": 36,
+         "note": "taken in by it means held inside the preceding word, so the letter goes within it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "attempted",
+         "at": 16,
+         "gives": "TRIED",
+         "note": "attempted means tried"
+        },
+        {
+         "words": "Victor",
+         "at": 27,
+         "gives": "V",
+         "note": "Victor is V in the NATO phonetic alphabet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Victor was duped by a swindle someone tried.",
+     "walkthrough": "'taken in' seems to mean conned, fitting the surface, but means placed inside.",
+     "definitionFit": "Contrived means artificially laboured or over-worked, much like elaborate as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1136,49 @@
      }
     ]
    },
-   "solution": "TAPEDECK"
+   "solution": "TAPEDECK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Audio equipment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to bug",
+       "at": 16,
+       "gives": "TAP",
+       "note": "to bug a phone is to tap it"
+      },
+      {
+       "words": "the fifth",
+       "at": 23,
+       "gives": "E",
+       "note": "E is the fifth letter of the alphabet"
+      },
+      {
+       "words": "floor",
+       "at": 33,
+       "gives": "DECK",
+       "note": "a ship's deck is a floor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plant a listening device on the fifth storey.",
+     "walkthrough": "Ships' decks are lettered A, B, C, so the fifth floor is E deck.",
+     "definitionFit": "A tape deck is a machine for playing and recording audio cassettes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1192,68 @@
     "text": "Quarter of London church during a mass contains women",
     "enumeration": "9"
    },
-   "solution": "CHINATOWN"
+   "solution": "CHINATOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quarter of London",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "church",
+       "at": 18,
+       "gives": "CH"
+      },
+      {
+       "words": "during",
+       "at": 25,
+       "gives": "IN",
+       "note": "in means during, as in 'in the night'"
+      },
+      {
+       "words": "a",
+       "at": 32
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "contains",
+         "at": 39,
+         "note": "contains means holding something inside, so the women go within the mass"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mass",
+         "at": 34,
+         "gives": "TON",
+         "note": "a ton is a large mass"
+        },
+        {
+         "words": "women",
+         "at": 48,
+         "gives": "W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a London church parish, a service is attended by women.",
+     "walkthrough": "'mass' looks like a church service but is a weight.",
+     "definitionFit": "London's Chinatown, around Gerrard Street in Soho, is a district or quarter of the city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mass"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1267,59 @@
     "text": "Fall road trip heading for red leaves",
     "enumeration": "4"
    },
-   "solution": "DIVE"
+   "solution": "DIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fall",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaves",
+       "at": 31,
+       "note": "leaves means goes away, so that letter is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "road trip",
+       "at": 5,
+       "gives": "DRIVE",
+       "note": "a drive is a trip by road"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "at": 15,
+         "note": "the heading of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "red",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An autumn drive to see the leaves turning red.",
+     "walkthrough": "'Fall' and 'leaves' suggest autumn; both are mechanisms here.",
+     "definitionFit": "To dive is to plunge or drop sharply, which is to fall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1333,43 @@
     "text": "Slight difficulty listening to bumpkin going on",
     "enumeration": "6"
    },
-   "solution": "HICCUP"
+   "solution": "HICCUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slight difficulty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HICCUP",
+     "indicators": [
+      {
+       "text": "listening to",
+       "at": 18,
+       "note": "listening to tells us the answer is heard, not seen, as these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bumpkin going on",
+       "at": 31,
+       "gives": "HICKUP",
+       "note": "a bumpkin is a hick, a country yokel; up means going on, as in 'what's up?'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A minor snag while hearing a country fellow ramble on.",
+     "definitionFit": "A hiccup is informal for a minor setback or snag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1383,66 @@
     "text": "Ray stole jewellery including diamonds for sport",
     "enumeration": "13"
    },
-   "solution": "SKATEBOARDING"
+   "solution": "SKATEBOARDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sport",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ray",
+       "at": 0,
+       "gives": "SKATE",
+       "note": "a skate is a kind of ray fish"
+      },
+      {
+       "words": "stole",
+       "at": 4,
+       "gives": "BOA",
+       "note": "a boa is a long scarf or stole"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "including",
+         "at": 20,
+         "note": "including means holding within, so the card letter goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jewellery",
+         "at": 10,
+         "gives": "RING",
+         "note": "a ring is an item of jewellery"
+        },
+        {
+         "words": "diamonds",
+         "at": 30,
+         "gives": "D",
+         "note": "D is the card-suit abbreviation for diamonds"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Ray stole gems, diamonds among them.",
+     "walkthrough": "'Ray' looks like a name and 'stole' like theft; they are a fish and a scarf.",
+     "definitionFit": "Skateboarding, riding a board on wheels, is a recognised sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stole"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1456,57 @@
     "text": "Class seconds from hometime tries addition very grudgingly",
     "enumeration": "5"
    },
-   "solution": "ORDER"
+   "solution": "ORDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Class",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "nth",
+     "n": 2,
+     "indicators": [
+      {
+       "text": "seconds from",
+       "at": 6,
+       "note": "seconds from means the second letter of each of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hometime",
+       "at": 19
+      },
+      {
+       "words": "tries",
+       "at": 28
+      },
+      {
+       "words": "addition",
+       "at": 34
+      },
+      {
+       "words": "very",
+       "at": 43
+      },
+      {
+       "words": "grudgingly",
+       "at": 48
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil at the end of the school day reluctantly attempts some sums.",
+     "definitionFit": "An order is a rank or category in biology and elsewhere, a class of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Class"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1520,40 @@
     "text": "An operating system's troubles",
     "enumeration": "4"
    },
-   "solution": "ADOS"
+   "solution": "ADOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "troubles",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "An",
+       "at": 0,
+       "gives": "A",
+       "note": "an gives the article A"
+      },
+      {
+       "words": "operating system",
+       "at": 3,
+       "gives": "DOS",
+       "note": "DOS, the disk operating system, is an early computer operating system"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer's software suffers glitches.",
+     "definitionFit": "Ado is fuss or bother, so its plural means troubles or fusses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1567,40 @@
     "text": "Rather ruins tea dunking sandwiches",
     "enumeration": "7"
    },
-   "solution": "INSTEAD"
+   "solution": "INSTEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rather",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "sandwiches",
+       "at": 25,
+       "note": "sandwiches means holds between, so the answer is held within these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ruins tea dunking",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dipping biscuits into a cuppa spoils it, as do soggy sandwiches.",
+     "definitionFit": "Instead means as an alternative, as 'rather' does in 'I'd rather walk'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1614,52 @@
     "text": "Spring ultimately comes every year",
     "enumeration": "3"
    },
-   "solution": "SPA"
+   "solution": "SPA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 7,
+         "note": "ultimately means at the end, so the word's final letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "comes",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "every year",
+       "at": 24,
+       "gives": "PA",
+       "note": "PA, for per annum, means every year"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Springtime arrives in the end, every year.",
+     "walkthrough": "'Spring' looks like the season but is a mineral spring.",
+     "definitionFit": "A spa is a mineral spring, or a resort built around one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spring"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1673,65 @@
     "text": "Virginia played without Charlie after Charlie left",
     "enumeration": "7"
    },
-   "solution": "VACATED"
+   "solution": "VACATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "left",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Virginia",
+       "at": 0,
+       "gives": "VA",
+       "note": "VA is the abbreviation for the US state of Virginia"
+      },
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 16,
+         "note": "without means the letter is first taken out of where it sat in the word"
+        },
+        {
+         "text": "after Charlie",
+         "at": 32,
+         "note": "after Charlie says the removed letter returns with the rest coming after it, so it now leads"
+        }
+       ],
+       "parts": [
+        {
+         "words": "played",
+         "at": 9,
+         "gives": "ACTED",
+         "note": "to have played a part is to have acted"
+        },
+        {
+         "words": "Charlie",
+         "at": 24,
+         "gives": "C",
+         "note": "Charlie is C in the NATO phonetic alphabet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Virginia performed without a man called Charlie after he walked out.",
+     "walkthrough": "'left' looks like part of the story of Charlie walking out, but it is the definition.",
+     "definitionFit": "To have vacated a place is to have moved out of it, that is, to have left."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1745,44 @@
     "text": "Foul dank creek completely drained",
     "enumeration": "9"
    },
-   "solution": "KNACKERED"
+   "solution": "KNACKERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "completely drained",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Foul",
+       "at": 0,
+       "note": "foul means fouled up or muddled, so these letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dank",
+       "at": 5
+      },
+      {
+       "words": "creek",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stinking, damp stream has been pumped dry.",
+     "definitionFit": "Knackered is British slang for exhausted, so totally drained of energy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drained"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +1796,49 @@
     "text": "Helen's second husband runs forward in doubles",
     "enumeration": "5"
    },
-   "solution": "PARIS"
+   "solution": "PARIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Helen's second husband",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "forward in",
+       "at": 28,
+       "note": "forward in means shifted nearer the front within the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doubles",
+       "at": 39,
+       "gives": "PAIRS",
+       "note": "doubles are pairs"
+      },
+      {
+       "words": "runs",
+       "at": 23,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player called Helen remarried; her new partner moves up at the net in doubles.",
+     "walkthrough": "Helen of Troy left Menelaus for the Trojan prince.",
+     "definitionFit": "Paris, prince of Troy, carried off Helen, wife of Menelaus, effectively becoming her second husband."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "doubles"
+    }
+   }
   }
  ]
 }
