@@ -479,6 +479,17 @@ def stub_before_word(text, is_word):
     return " ".join(out)
 
 
+def learned_mends(text, enum=None, is_word=None, lights=None):
+    """`text` with only the mends learned from the rereads (tools/learn_postproc.py)
+    made: a stray underscore, a figure speck before a small word, the count
+    with a bar glued on, a stub of the next word. The rules mend_text applies
+    among its others, alone, so tools/repair_fetched.py --learned can repair a
+    held file with exactly what was measured."""
+    t = clue_text.speck_figures(clue_text.stray_underscore(text or ""))
+    t = trailing_count(t, enum, lights)
+    return stub_before_word(t, is_word or lexicon()[0])
+
+
 def leaked_number(text, lid):
     """`text`, one reading's clue for light `lid` ("22-down"), without the
     figures of a number the reader ran into it: its own number misread or
