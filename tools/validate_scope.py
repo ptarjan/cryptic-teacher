@@ -16,6 +16,12 @@ syntax tree alone (a comment, a helper nothing reached calls, a script that is
 not imported) leaves the check incremental; so does any file no reached module
 names (tests, other workflows, the budgets table).
 
+A backlog allowance and an entry-table row each name one puzzle, so a change to
+either (raised or lowered) adds just that puzzle's file to the list, found in
+git's tree because the CI checkout is sparse; the workflow's "files" step adds
+each listed path's folder to the checkout and checks it. A puzzle with no file,
+or a backlog whose fields changed, is a full check.
+
 Conservative by construction: a name that merely appears in a comment of a
 reached module counts as read, an added or removed module that is reached is
 a full check, and anything that cannot be compared (a base file git cannot
@@ -125,17 +131,48 @@ def backlog_tightened(old_text, new_text):
         return None
 
 
-def decide(changes, base_text=None, head_text=None):
+def backlog_moved(old_text, new_text):
+    """The puzzle ids whose allowance the backlog changed (raised, lowered, added
+    or dropped), or None when a field was added or dropped or the text is not
+    the file's shape. An allowance is per puzzle, so a change can alter the
+    answer only for the puzzle it names."""
+    try:
+        old, new = json.loads(old_text), json.loads(new_text)
+        fields = {k for k in old if not k.startswith("_")}
+        if fields != {k for k in new if not k.startswith("_")}:
+            return None
+        return {pid for f in fields for pid in set(old[f]) | set(new[f])
+                if old[f].get(pid, 0) != new[f].get(pid, 0)}
+    except (ValueError, AttributeError, TypeError):
+        return None
+
+
+def git_puzzle_paths(stems):
+    """{stem: path} for each puzzle id in `stems` that has a puzzle file at HEAD,
+    from git's tree rather than the disk (the CI checkout is sparse)."""
+    out = subprocess.run(["git", "-C", str(ROOT), "ls-tree", "-r", "--name-only", "HEAD", "--", "puzzles/"],
+                         check=True, capture_output=True, text=True).stdout
+    found = {}
+    for line in out.splitlines():
+        if re.fullmatch(r"puzzles/[^/]+/[^/]+/[^/]+\.json", line) and Path(line).stem in stems:
+            found[Path(line).stem] = line
+    return found
+
+
+def decide(changes, base_text=None, head_text=None, resolve=None):
     """("full", reason) or ("files", [puzzle paths]) for `changes`, a list of
     (git status letter, path). base_text(path) is the file as at the base
     (None when git cannot show it); it is only called for a modified tools/
     module the check reaches, or the backlog. head_text(path) is the file as it
-    stands (default: read from the tree)."""
+    stands (default: read from the tree). resolve(stems) maps puzzle ids named
+    by a changed allowance or entry-table row, whose file the commit did not
+    touch, to their paths (default: git's tree at HEAD); those puzzles are
+    returned to check along with the edited ones."""
     head = reached()
     modules = {m for m, _ in head}
     names = None
     check, edited = [], {}
-    lowered = None
+    moved_ids = set()
     rows = set()
     for st, path in changes:
         if path.startswith(UNREAD) or path in QUEUE_STATE:
@@ -151,9 +188,10 @@ def decide(changes, base_text=None, head_text=None):
         if path == BACKLOG and st == "M" and base_text:
             old = base_text(path)
             new = head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8")
-            lowered = backlog_tightened(old, new) if old is not None else None
-            if lowered is None:
+            moved = backlog_moved(old, new) if old is not None else None
+            if moved is None:
                 return "full", f"{path} changed, a file the check reads"
+            moved_ids |= moved
             continue
         if re.fullmatch(r"puzzles/[^/]+/[^/]+/[^/]+\.json", path):
             if st in ("A", "M"):
@@ -185,16 +223,17 @@ def decide(changes, base_text=None, head_text=None):
             names = named_files(modules)
         if Path(path).name in names:
             return "full", f"{path} changed, a file the check reads"
-    if lowered:
-        # A lowered allowance binds only a puzzle the commit also changed;
-        # otherwise nothing has checked that puzzle against it.
-        stems = {Path(p).stem for p in check}
-        if lowered - stems:
-            return "full", f"{BACKLOG} lowered the allowance of an unchanged puzzle: " + ", ".join(sorted(lowered - stems)[:3])
-    if rows - {Path(p).stem for p in check}:
-        # A row for a puzzle this commit did not change: nothing has checked
-        # that puzzle against it.
-        return "full", "an entry table row names an unchanged puzzle: " + ", ".join(sorted(rows - {Path(p).stem for p in check})[:3])
+    # An allowance or an entry-table row speaks about one puzzle, so the puzzle
+    # it names is checked as if the commit had edited it. Its file is looked up
+    # in git (the CI checkout is sparse); one that cannot be found is a full check.
+    stems = {Path(p).stem for p in check}
+    unchanged = (moved_ids | rows) - stems
+    if unchanged:
+        found = (resolve or git_puzzle_paths)(unchanged)
+        gone = sorted(unchanged - set(found))
+        if gone:
+            return "full", "an allowance or entry table row names a puzzle with no file: " + ", ".join(gone[:3])
+        check.extend(found[s] for s in sorted(found))
     if edited:
         before = reached(edited)
         after = head
