@@ -1126,16 +1126,20 @@ publish_commits() {
 # path but those local edits up to date, so one in-flight puzzle origin also
 # changed never pins the tree (and the re-exec onto new code) behind. Prints
 # git's refusal and returns non-zero only when that fails too.
+# The target is origin/master plus the commits push_puzzle_commit.sh is holding
+# for its next batched push (--sync-target), so a puzzle published but not yet
+# pushed stays in the tree and is not picked up again.
 sync_tree() {
   shelve_code_edits || return 1
   local lock out
+  SYNC_ONTO=$(tools/push_puzzle_commit.sh --sync-target 2>/dev/null) || SYNC_ONTO=origin/master
   lock=$(git rev-parse --git-path ct-index.lock 2>/dev/null) || lock=""
   # Rewrites the index for seconds: in turn with the runs' stage and commit.
   if [ -z "$lock" ]; then
-    out=$(git reset -q --keep origin/master 2>&1) && return 0
+    out=$(git reset -q --keep "$SYNC_ONTO" 2>&1) && return 0
   else
     out=$( ( exec 7>"$lock" && flock -w 300 7 && {
-      git reset -q --keep origin/master 2>/dev/null || sync_tree_around_dirty
+      git reset -q --keep "$SYNC_ONTO" 2>/dev/null || sync_tree_around_dirty
     } ) 2>&1) && { [ -z "$out" ] || printf '%s\n' "$out"; return 0; }
   fi
   printf '%s\n' "$out"
@@ -1151,13 +1155,14 @@ sync_tree_around_dirty() {
   local tmp changed dirty hold gone keep
   tmp=$(mktemp -d) || return 1
   changed=$tmp/changed dirty=$tmp/dirty hold=$tmp/hold gone=$tmp/gone keep=$tmp/keep
-  git diff --name-only HEAD origin/master | sort >"$changed"
+  local onto=${SYNC_ONTO:-origin/master}
+  git diff --name-only HEAD "$onto" | sort >"$changed"
   { git diff --name-only HEAD; git ls-files --others --exclude-standard; } | sort -u >"$dirty"
   comm -12 "$changed" "$dirty" >"$hold"
-  git diff --name-only --diff-filter=D HEAD origin/master | sort | comm -23 - "$hold" >"$gone"
+  git diff --name-only --diff-filter=D HEAD "$onto" | sort | comm -23 - "$hold" >"$gone"
   comm -23 "$changed" "$hold" | comm -23 - "$gone" >"$keep"
-  if git reset -q --soft origin/master &&
-    { [ ! -s "$changed" ] || git reset -q origin/master --pathspec-from-file="$changed"; } &&
+  if git reset -q --soft "$onto" &&
+    { [ ! -s "$changed" ] || git reset -q "$onto" --pathspec-from-file="$changed"; } &&
     { [ ! -s "$keep" ] || git checkout-index -f -q --stdin <"$keep"; } &&
     { [ ! -s "$gone" ] || xargs rm -f -- <"$gone"; }; then
     echo "sync: moved to origin/master around $(wc -l <"$hold") in-flight path(s) origin also changed: $(head -3 "$hold" | tr '\n' ' ')" >&2

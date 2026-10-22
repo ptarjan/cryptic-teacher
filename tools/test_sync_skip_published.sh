@@ -5,6 +5,7 @@
 # and keeps a run's uncommitted edit, going around it (code still moves) when
 # origin changed the file that run is writing.
 set -u
+export PUSH_BATCH_SECS=0  # every push at once, not batched 5 min apart (tools/push_puzzle_commit.sh)
 here=$(cd "$(dirname "$0")" && pwd)
 eval "$(sed -n '/^sync_attempt() {/,/^}/p;/^publish_commits() {/,/^}/p;/^sync_tree() {/,/^}/p;/^shelve_code_edits() {/,/^}/p;/^sync_tree_around_dirty() {/,/^}/p' "$here/prereset_backfill.sh")"
 eval "$(sed -n '/^under_index_lock() {/,/^}/p' "$here/puzzle_worker.sh")"

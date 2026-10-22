@@ -9,6 +9,7 @@
 #
 #     bash tools/test_puzzle_rows.sh
 set -uo pipefail
+export PUSH_BATCH_SECS=0  # every push at once, not batched 5 min apart (tools/push_puzzle_commit.sh)
 # json_merge (dump_lines) is imported in the scratch repo, which has no .gitignore.
 export PYTHONDONTWRITEBYTECODE=1
 here="$(cd "$(dirname "$0")" && pwd)"
