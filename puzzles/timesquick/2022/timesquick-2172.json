@@ -22,6 +22,9 @@
   "date": "2022-07-06",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,42 @@
     "text": "Second bowler, Armstrong for example?",
     "enumeration": "8"
    },
-   "solution": "SPACEMAN"
+   "solution": "SPACEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Armstrong for example?",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "bowler",
+       "at": 7,
+       "gives": "PACEMAN",
+       "note": "in cricket a paceman is a fast bowler"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket team picks a second fast bowler and wonders whether a man called Armstrong might fit the bill.",
+     "walkthrough": "Armstrong reads like a cricketer's surname, but it is Neil Armstrong, first man on the Moon; the question mark flags the definition by example.",
+     "definitionFit": "Neil Armstrong was an astronaut, a traveller beyond Earth, which is what the answer means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Armstrong"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +87,48 @@
     "text": "Culinary skill shown by family filling container",
     "enumeration": "6"
    },
-   "solution": "BAKING"
+   "solution": "BAKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Culinary skill",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filling",
+       "at": 31,
+       "note": "the family word goes inside, filling up the container word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "container",
+       "at": 39,
+       "gives": "BAG",
+       "note": "a bag is a container"
+      },
+      {
+       "words": "family",
+       "at": 24,
+       "gives": "KIN",
+       "note": "kin means family, relatives"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cookery skill is demonstrated by a family stuffing a box.",
+     "definitionFit": "Baking is the cooking art of making bread and cakes in an oven, a kitchen skill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +142,57 @@
     "text": "Drink in local almost drunk",
     "enumeration": "4"
    },
-   "solution": "COLA"
+   "solution": "COLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drunk",
+       "at": 22,
+       "note": "drunk suggests staggering, so the remaining letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 15,
+         "note": "almost the whole word, so its final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "local",
+         "at": 9,
+         "note": "taken as written; a local is also British slang for one's nearby pub"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At the pub a drink has nearly been finished.",
+     "walkthrough": "'almost' trims LOCAL to LOCA, and 'drunk' rearranges those letters. A 'local' is a Briton's neighbourhood pub, which makes the surface convincing.",
+     "definitionFit": "Cola is a sweet fizzy soft drink flavoured originally with kola nut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +206,53 @@
     "text": "Wasted header in box leading to draw",
     "enumeration": "6"
    },
-   "solution": "BLOTTO"
+   "solution": "BLOTTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wasted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "header in",
+         "at": 7,
+         "note": "the header of a word is its top letter, here taken from the word box"
+        }
+       ],
+       "parts": [
+        {
+         "words": "box",
+         "at": 17,
+         "note": "taken as written for its first letter"
+        }
+       ]
+      },
+      {
+       "words": "draw",
+       "at": 32,
+       "gives": "LOTTO",
+       "note": "a lotto is a lottery, a prize draw"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer's header into the box sets up a drawn match.",
+     "walkthrough": "'header' and 'box' sound like football, but the header is just the leading letter B of 'box'.",
+     "definitionFit": "Both are British slang for extremely drunk, so one can replace the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "header"
+    }
+   }
   },
   {
    "number": 5,
@@ -91,7 +266,68 @@
     "text": "Visible, person initially adopted by a mum or dad",
     "enumeration": "8"
    },
-   "solution": "APPARENT"
+   "solution": "APPARENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Visible",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopted by",
+       "at": 26,
+       "note": "taken in by, so the letter goes inside the phrase that follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 37
+        },
+        {
+         "words": "mum or dad",
+         "at": 39,
+         "gives": "PARENT",
+         "note": "either of these is a parent"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 16,
+         "note": "the first letter of person"
+        }
+       ],
+       "parts": [
+        {
+         "words": "person",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person is visibly adopted by a single parent.",
+     "walkthrough": "'initially' gives P from 'person', which goes inside A PARENT, after the A.",
+     "definitionFit": "Apparent means plainly seen or evident, a near synonym of visible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "adopted"
+    }
+   }
   },
   {
    "number": 6,
@@ -105,7 +341,47 @@
     "text": "Lift charge, one penny",
     "enumeration": "6"
    },
-   "solution": "FILLIP"
+   "solution": "FILLIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lift",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "charge",
+       "at": 5,
+       "gives": "FILL",
+       "note": "to charge a glass is to fill it"
+      },
+      {
+       "words": "one",
+       "at": 13,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "penny",
+       "at": 17,
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ski lift costs one penny to ride.",
+     "walkthrough": "'Lift' and 'charge' read as a fare for a ride, but 'Lift' is the definition in its sense of a boost.",
+     "definitionFit": "A fillip is a boost or stimulus, something that raises spirits, as a lift does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 7,
@@ -119,7 +395,53 @@
     "text": "Prison sentence that is right, first of all",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prison",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "first of all",
+       "at": 31,
+       "note": "the first letter of each of the following four words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sentence",
+       "at": 7
+      },
+      {
+       "words": "that",
+       "at": 16
+      },
+      {
+       "words": "is",
+       "at": 21
+      },
+      {
+       "words": "right",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prison sentence is justified, above everything else.",
+     "walkthrough": "The opening letters of 'sentence that is right' spell the answer.",
+     "definitionFit": "Stir is British slang for jail, as in 'doing time in stir'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sentence"
+    }
+   }
   },
   {
    "number": 8,
@@ -133,7 +455,44 @@
     "text": "Bird, wolf and ape muddled",
     "enumeration": "7"
    },
-   "solution": "PEAFOWL"
+   "solution": "PEAFOWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "muddled",
+       "at": 19,
+       "note": "mixed up, so the letters of the two animals are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wolf",
+       "at": 6
+      },
+      {
+       "words": "ape",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird, a wolf and an ape are confused with each other.",
+     "definitionFit": "The peafowl is the pheasant family bird whose male is the peacock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 9,
@@ -147,7 +506,48 @@
     "text": "Place nothing in drink",
     "enumeration": "5"
    },
-   "solution": "POINT"
+   "solution": "POINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Place",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "the nothing letter goes in the drink word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "at": 17,
+       "gives": "PINT",
+       "note": "a pint is a drink of beer"
+      },
+      {
+       "words": "nothing",
+       "at": 6,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Putting nothing into a drink.",
+     "definitionFit": "A point is a particular spot or position, a location."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Place"
+    }
+   }
   },
   {
    "number": 10,
@@ -161,7 +561,39 @@
     "text": "Feature a country",
     "enumeration": "5"
    },
-   "solution": "CHINA"
+   "solution": "CHINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "country",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Feature",
+       "at": 0,
+       "gives": "CHIN",
+       "note": "the chin is a facial feature"
+      },
+      {
+       "words": "a",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Showcasing a particular nation.",
+     "definitionFit": "China is the large East Asian nation, the People's Republic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Feature"
+    }
+   }
   },
   {
    "number": 11,
@@ -175,7 +607,55 @@
     "text": "Vehicle connected, later I turned right",
     "enumeration": "7"
    },
-   "solution": "TRAILER"
+   "solution": "TRAILER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vehicle connected",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 27,
+         "note": "turned around in any order, so the letters are shuffled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "later",
+         "at": 19
+        },
+        {
+         "words": "I",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 34,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver hitched up a vehicle, then turned right.",
+     "walkthrough": "'connected' belongs to the definition: a trailer is the vehicle hitched behind another, and 'turned' works only on 'later I', not the whole phrase.",
+     "definitionFit": "A trailer is an unpowered wagon hitched to and towed behind a car or lorry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 12,
@@ -189,7 +669,44 @@
     "text": "Massive shop baffling most agree",
     "enumeration": "9"
    },
-   "solution": "MEGASTORE"
+   "solution": "MEGASTORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Massive shop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "baffling",
+       "at": 13,
+       "note": "puzzling or confusing, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "most",
+       "at": 22
+      },
+      {
+       "words": "agree",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An enormous store is a puzzle on which almost everyone concurs.",
+     "definitionFit": "A megastore is a very large retail outlet, a superstore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "baffling"
+    }
+   }
   },
   {
    "number": 13,
@@ -203,7 +720,58 @@
     "text": "Bird looking to eat lugworms, primarily",
     "enumeration": "8"
    },
-   "solution": "STARLING"
+   "solution": "STARLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to eat",
+       "at": 13,
+       "note": "one word swallows the other, putting the letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "looking",
+       "at": 5,
+       "gives": "STARING",
+       "note": "staring is looking fixedly"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 30,
+         "note": "primarily means first and foremost, so only the opening letter of lugworms is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lugworms",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird searching the shore to eat lugworms first and foremost.",
+     "definitionFit": "The starling is a common speckled songbird known for its huge flocks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "looking"
+    }
+   }
   },
   {
    "number": 14,
@@ -217,7 +785,51 @@
     "text": "Constant appetite, ultimately, for food",
     "enumeration": "3"
    },
-   "solution": "PIE"
+   "solution": "PIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "food",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Constant",
+       "at": 0,
+       "gives": "PI",
+       "note": "pi is the mathematical constant"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 19,
+         "note": "the last letter of appetite"
+        }
+       ],
+       "parts": [
+        {
+         "words": "appetite",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a never-ending hunger for food.",
+     "definitionFit": "A pie is a baked dish with a pastry crust and filling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Constant"
+    }
+   }
   },
   {
    "number": 15,
@@ -231,7 +843,45 @@
     "text": "Wind alert: yes, windy!",
     "enumeration": "8"
    },
-   "solution": "EASTERLY"
+   "solution": "EASTERLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "windy",
+       "at": 17,
+       "note": "blown about, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "alert",
+       "at": 5
+      },
+      {
+       "words": "yes",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weather warning about wind confirmed: it is gusty.",
+     "walkthrough": "'windy' looks like part of the forecast but signals the anagram.",
+     "definitionFit": "An easterly is a breeze blowing from the east."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "windy"
+    }
+   }
   },
   {
    "number": 16,
@@ -245,7 +895,41 @@
     "text": "Novel written in one week",
     "enumeration": "3"
    },
-   "solution": "NEW"
+   "solution": "NEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "written in",
+       "at": 6,
+       "note": "the answer is written inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one week",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book completed in seven days.",
+     "walkthrough": "'Novel' reads as a book, but it is the adjective; the answer sits across 'one week'.",
+     "definitionFit": "Novel as an adjective means original or fresh, never seen before."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 17,
@@ -259,7 +943,40 @@
     "text": "Plenty bending the law",
     "enumeration": "6"
    },
-   "solution": "WEALTH"
+   "solution": "WEALTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plenty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bending",
+       "at": 7,
+       "note": "bending twists things, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the law",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Abundance obtained by breaking the rules.",
+     "definitionFit": "Wealth means riches or abundance, a plentiful amount of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bending"
+    }
+   }
   },
   {
    "number": 18,
@@ -273,7 +990,44 @@
     "text": "Awful brats also curse",
     "enumeration": "9"
    },
-   "solution": "ALBATROSS"
+   "solution": "ALBATROSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "curse",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Awful",
+       "at": 0,
+       "note": "dreadfully done, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brats",
+       "at": 6
+      },
+      {
+       "words": "also",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dreadful children who swear as well.",
+     "definitionFit": "From the Ancient Mariner, an albatross around one's neck is a burden or jinx."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "curse"
+    }
+   }
   },
   {
    "number": 19,
@@ -287,7 +1041,60 @@
     "text": "Dance impressing his fancy man",
     "enumeration": "6"
    },
-   "solution": "BISHOP"
+   "solution": "BISHOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "man",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "impressing",
+       "at": 6,
+       "note": "pressing into, so the dance word takes the other letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dance",
+       "at": 0,
+       "gives": "BOP",
+       "note": "bop is to dance"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fancy",
+         "at": 21,
+         "note": "elaborate or rearranged, so the letters of his are shuffled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "his",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dance which impresses the boyfriend of a woman.",
+     "walkthrough": "'fancy man' looks like one phrase meaning a lover; split it, as 'fancy' is the anagram signal and 'man' is a chess piece.",
+     "definitionFit": "In chess the pieces are called men, and the bishop is one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 20,
@@ -301,7 +1108,53 @@
     "text": "A lot caught in tassel, door swinging up",
     "enumeration": "6"
    },
-   "solution": "OODLES"
+   "solution": "OODLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A lot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "swinging up",
+       "at": 29,
+       "note": "in a down clue, swinging upward reads the letters from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "caught in",
+         "at": 6,
+         "note": "the letters are caught inside the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tassel, door",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tassel hanging on a door swings upward.",
+     "walkthrough": "'caught in' finds SELDOO across 'tassel, door', and 'swinging up' turns it around.",
+     "definitionFit": "Oodles is informal for a great many, a large quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 21,
@@ -315,7 +1168,51 @@
     "text": "White church Basil built",
     "enumeration": "7"
    },
-   "solution": "CHABLIS"
+   "solution": "CHABLIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "White",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "church",
+       "at": 6,
+       "gives": "CH"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "built",
+         "at": 19,
+         "note": "built means constructed, so the letters are assembled anew"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Basil",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A white church constructed by a man named Basil.",
+     "walkthrough": "'White' reads as the church's colour but defines a wine.",
+     "definitionFit": "Chablis is a dry white wine from Burgundy in France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "White"
+    }
+   }
   },
   {
    "number": 21,
@@ -329,7 +1226,42 @@
     "text": "Head's carbon copy",
     "enumeration": "4"
    },
-   "solution": "CAPE"
+   "solution": "CAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "carbon",
+       "at": 7,
+       "gives": "C",
+       "note": "C is the chemical symbol for carbon"
+      },
+      {
+       "words": "copy",
+       "at": 14,
+       "gives": "APE",
+       "note": "to ape is to copy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The boss's carbon copy of a document.",
+     "walkthrough": "'carbon copy' reads as one phrase, but carbon gives C and copy gives APE separately.",
+     "definitionFit": "A head is a headland, a promontory jutting into the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 22,
@@ -343,7 +1275,54 @@
     "text": "Insect say with dark back",
     "enumeration": "5"
    },
-   "solution": "MIDGE"
+   "solution": "MIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 21,
+       "note": "going back means reading the letters in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "say",
+         "at": 7,
+         "gives": "EG",
+         "note": "EG, for example, is what say means"
+        },
+        {
+         "words": "dark",
+         "at": 16,
+         "gives": "DIM",
+         "note": "dim means dark"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect, for instance one with a dark-coloured back.",
+     "walkthrough": "'back' looks like the insect's body, but it reverses EG and DIM.",
+     "definitionFit": "A midge is a tiny biting fly, a gnat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1336,43 @@
     "text": "Read out letters for bloke",
     "enumeration": "4"
    },
-   "solution": "MALE"
+   "solution": "MALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bloke",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MALE",
+     "indicators": [
+      {
+       "text": "Read out",
+       "at": 0,
+       "note": "reading aloud gives a sound-alike of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "letters",
+       "at": 9,
+       "gives": "MAIL",
+       "note": "letters are mail, the post"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reading the post aloud for a man.",
+     "definitionFit": "Bloke is British slang for a man, someone of masculine sex."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1392,44 @@
      }
     ]
    },
-   "solution": "PUTON"
+   "solution": "PUTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "retired",
+       "at": 15,
+       "note": "retired means withdrawn, going back, so the letters are reversed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "down",
+       "at": 5,
+       "gives": "NOTUP",
+       "note": "down is the opposite of up, so not up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wearing a down coat on going to bed.",
+     "walkthrough": "'down' is the opposite of up, giving NOT UP, which 'retired' turns around.",
+     "definitionFit": "To put on clothes is to dress in them, to wear them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1449,43 @@
      }
     ]
    },
-   "solution": "OILWELL"
+   "solution": "OILWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Source of crude",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "painting",
+       "at": 16,
+       "gives": "OIL",
+       "note": "an oil is a painting in oils"
+      },
+      {
+       "words": "in all likelihood",
+       "at": 26,
+       "gives": "WELL",
+       "note": "well means probably, as in 'it may well rain'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rude picture is probably the source of it.",
+     "walkthrough": "'crude' suggests vulgarity, but it is crude oil.",
+     "definitionFit": "An oil well is a borehole that brings up petroleum, crude oil, from the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crude"
+    }
+   }
   }
  ]
 }
