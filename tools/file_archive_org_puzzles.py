@@ -2159,12 +2159,28 @@ def scan(d):
         return _scan(d)
 
 
+def grid_first_on():
+    """CT_GRID_FIRST=1, or the live switch file CT_GRID_FIRST_FILE (default
+    ~/.cache/corpus_queue/grid_first) holding 1, so the queue can turn it on
+    without a restart: units are fresh execs and read it each scan."""
+    flag = os.environ.get("CT_GRID_FIRST")
+    if flag is not None:
+        return flag == "1"
+    path = os.environ.get("CT_GRID_FIRST_FILE") or os.path.expanduser(
+        "~/.cache/corpus_queue/grid_first")
+    try:
+        with open(path) as f:
+            return f.read().strip() == "1"
+    except OSError:
+        return False
+
+
 def scan_anywhere(d):
     """scan(d), made whole on the desktop when it answers (ocr_remote.scan
     runs _scan there), else here. Not inside scan(): scan_key() hashes what
     scan() reaches, so an edit there re-scans every edition."""
     import ocr_remote
-    if os.environ.get("CT_GRID_FIRST") == "1":
+    if grid_first_on():
         return grid_first_scan(d)
     found = ocr_remote.scan(d)
     return scan(d) if found is None else found
