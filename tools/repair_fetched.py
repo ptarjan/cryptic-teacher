@@ -296,7 +296,17 @@ def offsets(old, new):
     return at
 
 
-def mend_clue_text(puzzle, learned_only=False):
+#: Rules of clue_repair.mend_steps that --mends leaves out, found by reading the
+#: dry run's diffs on held text. mend_words: of 69 changes about 10 were wrong
+#: ("de rigueur" -> "bede rigueur", "to le" -> "tole", "for th" -> "forth",
+#: "haled" -> "hated", "hes. tation" -> "hes. ration"). lead_speck: "D Day,
+#: camouflage?" lost its D, and "1 Down's poet?" its cross-reference.
+EXCLUDED_MENDS = frozenset({"mend_words", "lead_speck"})
+#: Per-rule changes the last --mends run made: [(puzzle id, light, rule, was, now)].
+MEND_LOG = []
+
+
+def mend_clue_text(puzzle, learned_only=False, skip=(), log=None):
     """Mend each clue's text by clue_repair.mend_text (the count left after
     its words, a neighbour's count and number run into it, a drop capital, a
     word broken by a space, a one-letter misread of a word nobody prints),
@@ -313,9 +323,15 @@ def mend_clue_text(puzzle, learned_only=False):
         clue = e.get("clue") if isinstance(e.get("clue"), dict) else {}
         enum = clue.get("enumeration")
 
-        def mapper(text, enum=enum):
+        def mapper(text, enum=enum, e=e):
             if learned_only:
                 new = clue_repair.learned_mends(text, enum, is_word, lights)
+            elif skip or log is not None:
+                new, last = text, text
+                for rule, new in clue_repair.mend_steps(text, enum, is_word, uses, lights=lights, skip=skip):
+                    if log is not None and new != last and text == clue.get("text"):
+                        log.append((puzzle.get("id"), entry_id(e), rule, last, new))
+                    last = new
             else:
                 new = clue_repair.mend_text(text, enum, is_word, uses, lights=lights)
             return new, offsets(text, new)
@@ -532,12 +548,41 @@ def unpad_charades(entry, puzzle):
     return removed
 
 
-def repair(path, puzzle, apply_it, padding_only=False, learned=False):
+def repair(path, puzzle, apply_it, padding_only=False, learned=False, mends=False):
     """Repair one file. Returns the one-line report, or None if it was clean."""
     before = json.dumps(puzzle, sort_keys=True, ensure_ascii=False)
     fixed = copy.deepcopy(puzzle)
 
     notes = []
+    if mends:
+        # The full clue_repair.mend_text (less EXCLUDED_MENDS) on clue text alone,
+        # on an archive.org filer's file: the rules written since the file was.
+        if not read_by_archive_filer(fixed):
+            return None
+        if any("number" not in e or "direction" not in e for e in fixed.get("entries") or ()):
+            return None
+        found = []
+        texts = mend_clue_text(fixed, skip=EXCLUDED_MENDS, log=found)
+        if not texts:
+            return None
+        # A clue with a hand annotation moves its quoted phrases with the words
+        # (enumeration.rewrite_entry); one whose phrase no longer sits in the new
+        # text would lose its hand-made link, so that file is left as it is.
+        for e in fixed["entries"]:
+            note = e.get("annotation")
+            if entry_id(e) in texts and isinstance(note, dict):
+                for holder, key in enumeration._quoted_strings(e):
+                    if holder[key] not in texts[entry_id(e)]:
+                        return f"{path.stem}: left alone, annotation of {entry_id(e)} would lose its phrase {holder[key]!r}"
+        MEND_LOG.extend(found)
+        line = f"{path.stem}: {len(texts)} clue(s) mended: " + ", ".join(sorted(texts))
+        if apply_it:
+            import puzzle_integrity
+            try:
+                fetcher.write_puzzle_file(path, fixed)
+            except puzzle_integrity.RefusedWrite as refused:
+                return f"{path.stem}: left alone, the write was refused: {refused}"
+        return line
     if learned:
         # Only the mends learned from the rereads (clue_repair.learned_mends), on
         # an archive.org filer's file: what a reread of the same file would
@@ -744,6 +789,12 @@ def main(argv):
                     help="only the clue-text mends learned from the rereads (clue_repair.learned_mends: "
                          "stray underscore, figure speck, specked count, word stub) of archive.org "
                          "filers' files; no group, solution, padding or older text repair")
+    ap.add_argument("--mends", action="store_true",
+                    help="the full clue_repair.mend_text (less EXCLUDED_MENDS) on the clue text of archive.org "
+                         "filers' files, for files written before its rules existed; no other repair. "
+                         "Prints the changes per rule. --samples N shows N random diffs")
+    ap.add_argument("--samples", type=int, default=0, metavar="N",
+                    help="with --mends, print N random before/after clue texts")
     ap.add_argument("--series", help="one series key: cryptic, quiptic, everyman…")
     ap.add_argument("--from", dest="start", type=int,
                     help="lowest puzzle number to consider")
@@ -798,10 +849,18 @@ def main(argv):
         wanted.add(path.stem)
         if args.write_flags and read_by_archive_filer(puzzle):
             unsettled.extend(puzzle["id"] for _ in flagged_word_breaks(puzzle)[:1])
-        line = repair(path, puzzle, args.apply, args.padding_only, args.learned)
+        line = repair(path, puzzle, args.apply, args.padding_only, args.learned, args.mends)
         if line:
             repaired += 1
             print(line)
+
+    if args.mends:
+        for rule, n in sorted(Counter(r for _p, _l, r, _w, _n in MEND_LOG).items()):
+            print(f"rule {rule}: {n} clue(s)")
+        import random
+        for pid, lid, rule, was, now in random.Random(1).sample(MEND_LOG, min(args.samples, len(MEND_LOG))):
+            print(f"SAMPLE {pid} {lid} [{rule}]\n   - {was}\n   + {now}")
+        by_series, wanted = {}, set()  # a mends run says nothing of dates
 
     misfiled = 0
     for series, dated in sorted(by_series.items()):

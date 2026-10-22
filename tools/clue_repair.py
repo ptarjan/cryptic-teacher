@@ -509,23 +509,41 @@ def mend_text(text, enum=None, is_word=None, uses=None, words=True, lights=None)
     not; `words`: also the lexicon's mends (mend_words, lead_speck);
     `lights`: the puzzle's clue numbers, without which a count with a bar
     glued to it ("robbing 81") is cut only when it is three figures."""
-    import punctuation
-    t = punctuation.mended(clue_text.stray_underscore(text or ""))
-    t = re.sub(r"^[0-9]{1,2}(?=[A-Z][a-z])", "", t)  # the clue's number glued on
-    t = clue_text.speck_figures(t)
-    # A blank the clue prints as a run of dashes, set against a word with no space
-    # ("in a——outworn", Gale 1955-11-22's 22 down): the dashes are the blank, not a mark in a word.
-    t = re.sub(r"(?<=[A-Za-z])(—{2,})(?=[A-Za-z])", r" \1 ", t)
-    t = re.sub(r"\s{2,}", " ", t).strip()
-    t = bled_count(t, enum)
-    t = trailing_count(t, enum, lights)
-    if words:
-        if is_word is None:
-            is_word, uses = lexicon()
-        t = lead_speck(t, is_word, uses)
-        t = stub_before_word(t, is_word)
-        t = mend_words(t, is_word, uses)
+    t = text or ""
+    for _name, t in mend_steps(t, enum, is_word, uses, words, lights):
+        pass
     return t
+
+
+def mend_steps(text, enum=None, is_word=None, uses=None, words=True, lights=None, skip=()):
+    """mend_text's rules one at a time: yields (rule name, text after it) for
+    each, in the order they run. `skip`: rule names to leave out."""
+    import punctuation
+    if words and is_word is None:
+        is_word, uses = lexicon()
+    rules = [
+        ("stray_underscore", lambda t: punctuation.mended(clue_text.stray_underscore(t))),
+        # the clue's number glued on
+        ("glued_number", lambda t: re.sub(r"^[0-9]{1,2}(?=[A-Z][a-z])", "", t)),
+        ("speck_figures", clue_text.speck_figures),
+        # A blank the clue prints as a run of dashes, set against a word with no space
+        # ("in a——outworn", Gale 1955-11-22's 22 down): the dashes are the blank, not a mark in a word.
+        ("dash_blank", lambda t: re.sub(r"(?<=[A-Za-z])(—{2,})(?=[A-Za-z])", r" \1 ", t)),
+        ("spaces", lambda t: re.sub(r"\s{2,}", " ", t).strip()),
+        ("bled_count", lambda t: bled_count(t, enum)),
+        ("trailing_count", lambda t: trailing_count(t, enum, lights)),
+    ]
+    if words:
+        rules += [
+            ("lead_speck", lambda t: lead_speck(t, is_word, uses)),
+            ("stub_before_word", lambda t: stub_before_word(t, is_word)),
+            ("mend_words", lambda t: mend_words(t, is_word, uses)),
+        ]
+    t = text or ""
+    for name, rule in rules:
+        if name not in skip:
+            t = rule(t)
+        yield name, t
 
 
 def split_run_on(parsed):
