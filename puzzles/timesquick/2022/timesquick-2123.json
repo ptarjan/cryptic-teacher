@@ -22,6 +22,9 @@
   "date": "2022-04-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,30 @@
     "text": "Repair plot of land",
     "enumeration": "5"
    },
-   "solution": "PATCH"
+   "solution": "PATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Repair",
+      "at": 0,
+      "meaning": "first meaning: to mend, as with a piece of fabric over a hole"
+     },
+     {
+      "text": "plot of land",
+      "at": 7,
+      "meaning": "second meaning: a small area of ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads like a gardener's job, but the two halves are separate meanings of one word.",
+     "definitionFit": "The word is both a verb for a quick fix to something torn and a noun for a small piece of ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Repair"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +75,30 @@
     "text": "Choose possession of miner, say",
     "enumeration": "4"
    },
-   "solution": "PICK"
+   "solution": "PICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Choose",
+      "at": 0,
+      "meaning": "first meaning: to select"
+     },
+     {
+      "text": "possession of miner, say",
+      "at": 7,
+      "meaning": "second meaning: the pointed tool a miner digs with"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Possession' looks abstract, but it is simply an item a miner owns: the tool.",
+     "definitionFit": "The word is both a verb for selecting and the noun for a digging tool with a pointed head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "possession"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +112,48 @@
     "text": "Pie begins with edges trimmed",
     "enumeration": "4"
    },
-   "solution": "TART"
+   "solution": "TART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pie",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with edges trimmed",
+       "at": 11,
+       "note": "with edges trimmed says the outer letters of the word are cut away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "begins",
+       "at": 4,
+       "gives": "STARTS",
+       "note": "begins means starts"
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker makes a pie, starting by trimming the pastry edges.",
+     "definitionFit": "A tart is a pastry case with a filling, a kind of open pie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "begins"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +167,42 @@
     "text": "Hit, glad he receives treatment for shiner",
     "enumeration": "9"
    },
-   "solution": "HEADLIGHT"
+   "solution": "HEADLIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shiner",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "receives treatment",
+       "at": 13,
+       "note": "receives treatment says these letters are worked on and come out reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hit, glad he",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man punched in the face is glad to get his black eye seen to.",
+     "walkthrough": "A shiner is slang for a black eye, which fits the punch picture; here it means something that shines.",
+     "definitionFit": "A headlight shines a beam ahead of a car, so it is literally a thing that shines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shiner"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +216,42 @@
     "text": "Something often repeated quietly — a hidden danger?",
     "enumeration": "7"
    },
-   "solution": "MANTRAP"
+   "solution": "MANTRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a hidden danger?",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Something often repeated",
+       "at": 0,
+       "gives": "MANTRA",
+       "note": "a mantra is a phrase or slogan said over and over"
+      },
+      {
+       "words": "quietly",
+       "at": 25,
+       "gives": "P",
+       "note": "P is piano, the musical marking for quietly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meditative chant murmured softly turns out to be a concealed peril.",
+     "walkthrough": "The question mark flags that the definition is a loose description: a trap set in hiding to catch a person.",
+     "definitionFit": "A mantrap is a concealed snare for catching trespassers, so it is literally a danger lying hidden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +265,51 @@
     "text": "Finally problem gone, fixed",
     "enumeration": "6"
    },
-   "solution": "MENDED"
+   "solution": "MENDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fixed",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Finally",
+         "at": 0,
+         "note": "finally picks the closing letter of the word problem"
+        }
+       ],
+       "parts": [
+        {
+         "words": "problem",
+         "at": 8,
+         "note": "last letter of problem"
+        }
+       ]
+      },
+      {
+       "words": "gone",
+       "at": 16,
+       "gives": "ENDED",
+       "note": "ended means over and gone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At last the problem is gone and things are fixed.",
+     "definitionFit": "Mended means repaired, put right again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +323,43 @@
     "text": "Nick has restriction lifted",
     "enumeration": "3"
    },
-   "solution": "NAB"
+   "solution": "NAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nick",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "lifted",
+       "at": 21,
+       "note": "lifted in a down clue means the word is turned upwards, read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "restriction",
+       "at": 9,
+       "gives": "BAN",
+       "note": "a ban is a restriction or prohibition"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nick celebrates after a ban against him is removed.",
+     "walkthrough": "'Lifted' looks like a ban being removed; in a down clue it turns the letters upwards.",
+     "definitionFit": "To nab and to nick are both slang verbs for steal or arrest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +373,40 @@
     "text": "Response to Racine mixed",
     "enumeration": "8"
    },
-   "solution": "REACTION"
+   "solution": "REACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Response",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mixed",
+       "at": 19,
+       "note": "mixed says the letters of to Racine are jumbled together"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to Racine",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Audiences gave mixed responses to plays by the French dramatist Racine.",
+     "definitionFit": "A reaction is how someone responds to something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Racine"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +420,70 @@
     "text": "Nicked, sweep finally going over discombobulated fielder",
     "enumeration": "8"
    },
-   "solution": "PILFERED"
+   "solution": "PILFERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nicked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "going over",
+       "at": 22,
+       "note": "going over in a down clue puts the letter above the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 14,
+         "note": "finally picks the closing letter of the word sweep"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sweep",
+         "at": 8,
+         "note": "last letter of sweep"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "discombobulated",
+         "at": 33,
+         "note": "discombobulated means confused, so the letters of fielder get muddled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fielder",
+         "at": 49
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket batter's sweep shot is edged over a bewildered fielder.",
+     "walkthrough": "A sweep is a cricket stroke. In a down clue, 'going over' puts the last letter of sweep on top of the confused fielder.",
+     "definitionFit": "Pilfered means stolen in small amounts, and nicked is British slang for stolen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nicked"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +497,40 @@
     "text": "Particular art nice, surprisingly",
     "enumeration": "7"
    },
-   "solution": "CERTAIN"
+   "solution": "CERTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Particular",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "surprisingly",
+       "at": 21,
+       "note": "surprisingly says the letters of art nice end up in an unexpected order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "art nice",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A picky critic finds some artwork unexpectedly pleasant.",
+     "definitionFit": "Particular and certain are synonyms when picking out a specific one, as in 'a certain person'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Particular"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +544,55 @@
     "text": "Fight in civil war brutal, looking back",
     "enumeration": "5"
    },
-   "solution": "BRAWL"
+   "solution": "BRAWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "looking back",
+       "at": 27,
+       "note": "looking back says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 6,
+         "note": "in says the answer sits inside the run of words civil war brutal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "civil war brutal",
+         "at": 9,
+         "gives": "LWARB",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historian reflects on a savage battle from a nation's civil war.",
+     "walkthrough": "The draft left out 'in', which is the signal that the letters are concealed within the words that follow.",
+     "definitionFit": "A brawl is a rough, disorderly scuffle, a kind of fight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +606,42 @@
     "text": "Fly down, daring",
     "enumeration": "10"
    },
-   "solution": "BLUEBOTTLE"
+   "solution": "BLUEBOTTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "down",
+       "at": 4,
+       "gives": "BLUE",
+       "note": "down means sad, which is blue"
+      },
+      {
+       "words": "daring",
+       "at": 10,
+       "gives": "BOTTLE",
+       "note": "bottle is British slang for courage or nerve"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect swoops down boldly.",
+     "walkthrough": "'Fly down' looks like an instruction to descend; Fly is the definition and down means low in spirits. Bottle is British slang for nerve.",
+     "definitionFit": "A bluebottle is a common large blowfly with a metallic blue body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +665,42 @@
      }
     ]
    },
-   "solution": "OUTANDOUT"
+   "solution": "OUTANDOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Total",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "inaccurate",
+       "at": 13,
+       "gives": "OUT",
+       "note": "a guess that is wrong is out, as in 'out by a mile'"
+      },
+      {
+       "words": "doubly",
+       "at": 6,
+       "gives": "ANDOUT",
+       "note": "doubly says the word comes twice, joined with and"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something wrong twice over is a complete failure.",
+     "walkthrough": "A guess that is off is 'out'; saying it doubly gives OUT AND OUT.",
+     "definitionFit": "Out-and-out means complete or utter, as in an out-and-out lie, so it is a synonym of total."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Total"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +714,42 @@
     "text": "Girl getting criticism, controller of game",
     "enumeration": "8"
    },
-   "solution": "JOYSTICK"
+   "solution": "JOYSTICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "controller of game",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "JOY",
+       "note": "Joy is a girl's name"
+      },
+      {
+       "words": "criticism",
+       "at": 13,
+       "gives": "STICK",
+       "note": "stick is informal British for criticism, as in giving someone stick"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl gets flak for hogging the games console.",
+     "walkthrough": "To 'give someone stick' in British English is to criticise or tease them.",
+     "definitionFit": "A joystick is the lever used to steer and control play in video games."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Girl"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +763,68 @@
     "text": "Biscuit: a cookie originally in dark colour",
     "enumeration": "8"
    },
-   "solution": "MACAROON"
+   "solution": "MACAROON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Biscuit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "in says the two letters go inside the colour"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dark colour",
+       "at": 32,
+       "gives": "MAROON",
+       "note": "maroon is a dark brownish-red colour"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 9
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 18,
+           "note": "originally picks the opening letter of the word cookie"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cookie",
+           "at": 11,
+           "note": "first letter of cookie"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A biscuit recipe: a cookie first baked in a deep brown shade.",
+     "definitionFit": "A macaroon is a small almond or coconut biscuit, a sweet baked treat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cookie"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +838,59 @@
     "text": "Colour spectrum beyond ordinary, originally",
     "enumeration": "6"
    },
-   "solution": "ORANGE"
+   "solution": "ORANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beyond",
+       "at": 16,
+       "note": "beyond says the range comes after the ordinary letter in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 33,
+         "note": "originally points to the opening letter of the word ordinary"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ordinary",
+         "at": 23,
+         "note": "first letter of ordinary"
+        }
+       ]
+      },
+      {
+       "words": "spectrum",
+       "at": 7,
+       "gives": "RANGE",
+       "note": "a spectrum is a range, as in a range of opinions"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter seeks a colour outside the usual spectrum.",
+     "definitionFit": "Orange is one of the hues of the rainbow, a colour between red and yellow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spectrum"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +910,69 @@
      }
     ]
    },
-   "solution": "ATHOME"
+   "solution": "ATHOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 3
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "penned",
+         "at": 29,
+         "note": "penned means enclosed, as an animal in a pen, so the letter goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "book",
+         "at": 5,
+         "gives": "TOME",
+         "note": "a tome is a large book"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 11,
+           "note": "end of picks the final letter of the word paragraph"
+          }
+         ],
+         "parts": [
+          {
+           "words": "paragraph",
+           "at": 18,
+           "note": "last letter of paragraph"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer finishes a paragraph in a book they have written.",
+     "walkthrough": "'Penned' looks like it means written; here it means shut in, putting H inside A TOME.",
+     "definitionFit": "To be at home is to be in, present in one's house rather than out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "penned"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +986,30 @@
     "text": "Earth pulverised",
     "enumeration": "6"
    },
-   "solution": "GROUND"
+   "solution": "GROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Earth",
+      "at": 0,
+      "meaning": "first meaning: soil, the land underfoot"
+     },
+     {
+      "text": "pulverised",
+      "at": 6,
+      "meaning": "second meaning: crushed to powder, as coffee is"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it sounds like soil being crushed; the words are two separate meanings.",
+     "definitionFit": "The word is both a noun for the soil beneath us and the past participle of grind, meaning crushed fine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Earth"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1023,52 @@
     "text": "A little secret initially significant",
     "enumeration": "10"
    },
-   "solution": "SMATTERING"
+   "solution": "SMATTERING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A little",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 16,
+         "note": "initially takes the opening letter of the word secret"
+        }
+       ],
+       "parts": [
+        {
+         "words": "secret",
+         "at": 9,
+         "note": "first letter of secret"
+        }
+       ]
+      },
+      {
+       "words": "significant",
+       "at": 26,
+       "gives": "MATTERING",
+       "note": "mattering means being important or significant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Only a small hint of a secret seems to matter much.",
+     "definitionFit": "A smattering is a small amount or slight knowledge of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "secret"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1082,30 @@
     "text": "Pristine sweet",
     "enumeration": "4"
    },
-   "solution": "MINT"
+   "solution": "MINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pristine",
+      "at": 0,
+      "meaning": "first meaning: in perfect, as-new condition"
+     },
+     {
+      "text": "sweet",
+      "at": 9,
+      "meaning": "second meaning: a peppermint sweet or candy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a description of a fresh candy; the two words are separate meanings.",
+     "definitionFit": "The word is both an adjective for brand-new condition and a noun for a peppermint confection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pristine"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1119,41 @@
     "text": "Article working soon",
     "enumeration": "4"
    },
-   "solution": "ANON"
+   "solution": "ANON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soon",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      },
+      {
+       "words": "working",
+       "at": 8,
+       "gives": "ON",
+       "note": "on means operating or working, as a switched-on machine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news article will be in production shortly.",
+     "definitionFit": "Anon is an old-fashioned word meaning shortly or in a little while."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1167,41 @@
     "text": "Heroes one defrauds",
     "enumeration": "5"
    },
-   "solution": "ICONS"
+   "solution": "ICONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Heroes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 7,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      },
+      {
+       "words": "defrauds",
+       "at": 11,
+       "gives": "CONS",
+       "note": "to con someone is to cheat them out of something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disillusioned fan finds that one of their idols is a swindler.",
+     "definitionFit": "Icons are celebrated figures who are idolised, much as heroes are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heroes"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1215,49 @@
     "text": "Teacher heads off spluttering in rage",
     "enumeration": "3"
    },
-   "solution": "SIR"
+   "solution": "SIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Teacher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "heads off",
+       "at": 8,
+       "note": "heads off here means the head letters taken off each of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spluttering",
+       "at": 18
+      },
+      {
+       "words": "in",
+       "at": 30
+      },
+      {
+       "words": "rage",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolteacher storms off, spluttering with fury.",
+     "walkthrough": "'Heads off' could suggest removing first letters; here it means taking them, one from each word.",
+     "definitionFit": "Sir is how British schoolchildren address a male teacher, so it stands for one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1271,58 @@
     "text": "Ideal pan out for cooking, one covered",
     "enumeration": "7"
    },
-   "solution": "UTOPIAN"
+   "solution": "UTOPIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ideal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered",
+       "at": 31,
+       "note": "covered says the one letter is enclosed by the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "for cooking",
+         "at": 14,
+         "note": "for cooking suggests the letters of pan out are worked over and changed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pan out",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 27,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe tip: get the pan out for cooking, with one item kept under a lid.",
+     "definitionFit": "Utopian describes a perfect, idealised state of affairs, as in Thomas More's imaginary island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covered"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1336,41 @@
     "text": "Warm colour with similar qualities",
     "enumeration": "7"
    },
-   "solution": "KINDRED"
+   "solution": "KINDRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with similar qualities",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Warm",
+       "at": 0,
+       "gives": "KIND",
+       "note": "warm, as in warm-hearted, means kind"
+      },
+      {
+       "words": "colour",
+       "at": 5,
+       "gives": "RED",
+       "note": "red is a colour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warm shade is matched with others of a similar tone.",
+     "definitionFit": "Kindred describes people or things that are alike or related in nature, as in kindred spirits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Warm"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1384,49 @@
     "text": "Giant bronze encapsulating sex appeal",
     "enumeration": "5"
    },
-   "solution": "TITAN"
+   "solution": "TITAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Giant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "encapsulating",
+       "at": 13,
+       "note": "encapsulating means enclosing, so one piece is held inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bronze",
+       "at": 6,
+       "gives": "TAN",
+       "note": "tan is a bronze, sun-darkened skin colour"
+      },
+      {
+       "words": "sex appeal",
+       "at": 27,
+       "gives": "IT",
+       "note": "it is an old slang word for sex appeal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge bronze statue that oozes allure.",
+     "walkthrough": "'It' for sex appeal comes from the 1927 film It starring Clara Bow, the 'It girl'.",
+     "definitionFit": "The Titans were the mighty giants of Greek myth, so a titan is any person or thing of great size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bronze"
+    }
+   }
   }
  ]
 }
