@@ -688,6 +688,12 @@ tools/fetch_lexicon.sh                         downloads the Lufz/Exet lexicon t
 annotating
 tools/annotate_prompt.md                       the prompt the daily Claude Code job follows to
                                                annotate
+
+fetching
+tools/vlm_solution_prompt.md                   the prompt the vision model gets to read one row
+                                               of a printed solution grid
+
+annotating
 tools/build_annotate_prompt.py                 regenerates that prompt’s wordplay grammar from
                                                tools/wordplay.py, and its worked examples from
                                                the corpus in the shape the run writes
@@ -1442,12 +1448,6 @@ tools/annotate_audit.py                        ranks what annotation runs spend 
                                                transcripts; daily, and wakes the room with one
                                                fix target, rotating past items woken in the
                                                last 7 days
-tools/refusal_replay.py                        the wake's section for a wordplay refusal: replays
-                                               refused wordplays through today's evaluator,
-                                               groups the still-failing by message, counts
-                                               retries, names the likeliest cause class
-tools/test_refusal_replay.py                   tests tools/refusal_replay.py: a fixture
-                                               transcript, grouping, cause rule, wake size cap
 tools/annotate_ledger.py                       the burn's own cost meter: each checkpoint
                                                appends a row (sessions, $/clue, turns/clue, top
                                                causes) to ~/.cache/annotate_cost_ledger.jsonl
@@ -3178,5 +3178,9 @@ tools/test_push_batch.sh                       does tools/push_puzzle_commit.sh 
                                                that come inside its window, and does the batch
                                                always reach origin, with every commit kept as
                                                its own?
+tools/refusal_replay.py                        replay the wordplay refusals annotation runs
+                                               hit, through today's evaluator
+tools/test_refusal_replay.py                   does the wake's refusal section replay, group,
+                                               count retries and name a cause?
 ```
 <!-- LAYOUT-END -->
