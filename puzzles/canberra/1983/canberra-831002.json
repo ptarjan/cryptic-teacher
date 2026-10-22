@@ -523,48 +523,78 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "about",
-       "note": "about means around, so one piece goes round another"
+       "text": "in retrospect",
+       "at": 12,
+       "note": "looking back over the whole construction means reading it from end to start"
       }
      ],
      "parts": [
       {
-       "words": "it returns twice",
-       "gives": "TITI",
-       "note": "the little word backwards, used twice"
-      },
-      {
-       "op": "reversal",
+       "op": "charade",
        "indicators": [
         {
-         "text": "returns",
-         "note": "something that returns goes back the way it came, so the word runs backwards"
-        },
-        {
-         "text": "in retrospect",
-         "note": "looking in retrospect is looking backwards, so the half laugh is read the other way"
+         "text": "twice",
+         "at": 38,
+         "note": "the word it is set down a second time beside itself"
         }
        ],
        "parts": [
         {
-         "words": "half laugh",
-         "gives": "HA",
-         "note": "a laugh is HA-HA; half of it is one HA"
+         "words": "it",
+         "at": 27,
+         "gives": "IT",
+         "note": "taken as written"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 44,
+           "note": "the doubled word goes round the half laugh, which sits inside it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "returns",
+           "at": 30,
+           "gives": "IT",
+           "note": "the same word comes back once more, a second copy of it"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "half",
+             "at": 50,
+             "note": "only half of the laugh's letters are taken"
+            }
+           ],
+           "parts": [
+            {
+             "words": "laugh",
+             "at": 55,
+             "gives": "HAHA",
+             "note": "a laugh is written as ha-ha"
+            }
+           ]
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A holiday island where, looking back, someone keeps half-laughing about it.",
-     "walkthrough": "Only the first copy of the reversed little word goes round the half laugh; the second simply follows it.",
+     "surface": "A puzzling description of an island where a laugh echoes back twice.",
+     "walkthrough": "A laugh is conventionally written ha-ha, so half of it is the two-letter exclamation; the whole construction is then read from end to start.",
      "definitionFit": "Tahiti is the largest island of French Polynesia in the South Pacific."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "retrospect"
     }
