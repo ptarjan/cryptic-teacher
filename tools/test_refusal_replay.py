@@ -60,7 +60,12 @@ check(r.cause([by["2-down"]])[0].split(" (")[0], "likeliest cause: notation slip
 check(r.cause([dict(rewrite=None, msg="x gives ACT", ans="CAT")])[0].split(" (")[0],
       "likeliest cause: evaluator gap", "right letters in the wrong order name an evaluator gap")
 check(r.cause([dict(rewrite=None, msg="x gives ZZZ", ans="CAT")])[0].split(" (")[0],
-      "likeliest cause: model invention", "neither names model invention")
+      "likeliest cause: model parse error", "neither names a parse error")
+check(r._hid_reversed("hid<held>([x]PASTERNAK)", "KANRETS"), "rev(hid<held>([x]PASTERNAK))", "hid over a reversed leaf is wrapped in rev")
+check(r._hid_reversed("hid<held>([x]PASTERNAK)", "STERN"), "hid<held>([x]PASTERNAK)", "a forward hit is left alone")
+check(r._ins_swapped("ins<in>(DIY, [x]RA)", ""), "ins<in>([x]RA, DIY)", "ins arguments are swapped")
+check(r._ins_inner_reversed("ins<in>([a]DIY, [b]RA)", ""), "ins<in>([a]DIY, rev([b]RA))", "ins inner argument is reversed")
+check(r._ins_swapped("ins<in>(a, b, c)", ""), "ins<in>(a, b, c)", "three arguments are not a swap")
 
 text = r.report(rep)
 check("2 distinct refused wordplays, 1 still fail, 1 already fixed" in text, True, "the replay counts lead the report")
