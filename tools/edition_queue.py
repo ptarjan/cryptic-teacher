@@ -692,23 +692,21 @@ def only_evidence(paper, scans, reads):
     # A read fa.likely() predicts to file a puzzle whole (e.g. "answers linked": a scan now links the
     # printed solution of a puzzle filed without answers) is evidence too. Paul 10-21: filling the
     # Times answers printed in the papers takes priority over the other papers.
-    all_reads = reads
     reads = [u for u in reads if evidence_reason(u["reason"]) or fa.likely_gain(u) > 0]
-    # Paul 10-21: "We need to figure out how to read the solutions." A Times puzzle read without
-    # answers whose solution heading no stored scan links ("scan stale, answers missing") waits on
-    # the scans of its edition and the week after it, by code that now reads more headings ("Solution
-    # to Crossword N", "Yesterday's solution N", a heading one reader finds). Those SCANS are kept
-    # (OCR, no VLM ask); the read itself is not: once the scans link the heading it is due as
-    # "inputs changed" with "answers linked" likely (answers_only, 0 asks), which is evidence above.
-    solution_scans = [u for u in all_reads if u["reason"] == fa.STALE_SCAN[0]
-                      and getattr(fa.FILERS.get(paper), "series", None) == fa.SERIES]
+    # Paul 10-21: "The goal is to get the solutions to the puzzles that have all their clues already in
+    # hand but no solutions." The Times scans kept for that are fa.HOST_SCAN's alone (planned by
+    # fa.solution_hosts: the one issue printing such a puzzle's solution, OCR with no VLM ask); once
+    # one links the heading the puzzle's read is due with "answers linked" likely (answers_only, 0
+    # asks), which is evidence above. No scan of a read's own edition or the week after it is kept for
+    # a Times read (it was cd3554e547d's, ~10,000 rescans).
+    times = getattr(fa.FILERS.get(paper), "series", None) == fa.SERIES
     for u in reads:
         if not evidence_reason(u["reason"]) and not u.get("detail"):
             u["detail"] = ", ".join(f"{k} x{n}" for k, n in sorted((u.get("likely") or {}).items()))
         if u["reason"] == "annotation asked" and not u.get("detail"):
             u["detail"] = _ASKED_WHY.get((paper, u["rel"]), "")
-    needed = {rel for u in [*reads, *solution_scans] for rel in u.get("needs") or ()}
-    scans = [u for u in scans if u["reason"] == "never scanned" or u["rel"] in needed]
+    needed = {rel for u in reads if not (times and u["reason"] in fa.STALE_SCAN) for rel in u.get("needs") or ()}
+    scans = [u for u in scans if u["reason"] in ("never scanned", fa.HOST_SCAN) or u["rel"] in needed]
     return scans, reads
 
 
@@ -1066,7 +1064,9 @@ def by_urgency(units):
         named = newest_first_papers()
         newest = [t for t in units if t[3].get("paper") in named]
         newest.sort(key=lambda t: t[3].get("date", ""), reverse=True)
-        newest.sort(key=lambda t: files_likely_tier(t[0], t[3]))  # stable: newest first in each group
+        # stable: newest first in each group; the scans of the issues printing the answers of puzzles
+        # filed without them (fa.HOST_SCAN) first of the Times work (Paul 10-21: printed answers first)
+        newest.sort(key=lambda t: (files_likely_tier(t[0], t[3]), t[3].get("reason") != fa.HOST_SCAN))
         rest = [t for t in units if t[3].get("paper") not in named]
         # Another paper's never read/scanned units go ahead of the named papers' rereads: once the named
         # papers' new pages are read, those rereads mostly end "already held" or an update (10-18: 34 new
@@ -1135,7 +1135,7 @@ def fills_gpu(unit):
 
 
 #: Reasons of rereads that finish on CPU alone (answers_only, no VLM ask): they never feed the GPU.
-CPU_ONLY = ("inputs changed: answers linked",)
+CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked")
 
 
 def vlm_feed_reads():
