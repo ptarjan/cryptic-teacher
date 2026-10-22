@@ -118,7 +118,13 @@ def held_paths(series, numbers):
     out = []
     for n in numbers:
         path = puzzle_paths.find_listed(series_meta.puzzle_id(series, n))
-        if path is not None and dir_cache.derived(path, acquired_by) == TOOL:
+        if path is None:
+            continue
+        try:
+            held = dir_cache.derived(path, acquired_by) == TOOL
+        except FileNotFoundError:
+            continue  # listed, then gone (the tree moved under us): not held
+        if held:
             out.append(path)
     return out
 
@@ -136,8 +142,14 @@ def inputs(files_hash, reprints, series, numbers):
     hash, its reprints' (reprint_key), and "+strayed" when a held file of
     its `numbers` holds a stray clue."""
     extra = reprints
-    if any(dir_cache.derived(path, any_strayed) for path in held_paths(series, numbers)):
-        extra = (extra or "") + "+strayed"
+    for path in held_paths(series, numbers):
+        try:
+            strayed_here = dir_cache.derived(path, any_strayed)
+        except FileNotFoundError:
+            continue
+        if strayed_here:
+            extra = (extra or "") + "+strayed"
+            break
     return f"{files_hash}+{extra}" if extra else files_hash
 
 
