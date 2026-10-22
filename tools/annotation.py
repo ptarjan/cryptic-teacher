@@ -91,7 +91,7 @@ OP_TYPE = {"charade": "charade", "anagram": "anagram", "reversal": "reversal",
            "substitution": "substitution", "cycling": "cycling", "move": "move",
            "cryptic": "cryptic_definition", "rebus": "rebus",
            "composite": "composite_anagram", "reverse": "reverse_clue",
-           "palindrome": "palindrome", "first": "letter_selection",
+           "palindrome": "palindrome", "repeat": "charade", "first": "letter_selection",
            "last": "letter_selection", "middle": "letter_selection",
            "outer": "letter_selection", "alternate": "letter_selection",
            "regular": "letter_selection", "nth": "letter_selection"}

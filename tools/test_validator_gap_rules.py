@@ -239,6 +239,12 @@ check("a nth pick a deletion cuts and re-adds is a move", 1, v.moved_letters({"o
     {"op": "deletion", "indicators": [{"text": "moving"}], "parts": [{"words": "Greek island", "gives": "CRETE"}, {"gives": "E"}]}]}))
 check("a leaf holding twice that gives a doubled string is counted", 1, v.repeat_in_leaf(
     {"op": "charade", "parts": [{"words": "Boy called twice", "gives": "ALFALF"}, {"words": "a", "gives": "A"}]}))
+check("the rep op is the form: one copy in the leaf, no repeat in a leaf", 0, v.repeat_in_leaf(
+    {"op": "repeat", "indicators": [{"text": "called twice"}], "parts": [{"words": "Boy", "gives": "ALF"}]}))
+check("a rep op with no indicator is an op with none", 1, v.unindicated_ops(
+    {"op": "repeat", "parts": [{"words": "Boy", "gives": "ALF"}]}))
+check("a rep op with its indicator is fine", 0, v.unindicated_ops(
+    {"op": "repeat", "indicators": [{"text": "twice"}], "parts": [{"words": "Boy", "gives": "ALF"}]}))
 check("a leaf holding half beside the word whose half it gives is counted", 1, v.half_in_leaf(
     {"op": "container", "parts": [{"words": "half-done taco", "gives": "TA"}, {"words": "A", "gives": "A"}]}))
 check("a letter-less selection leaf ending with the op's indicator is counted", 1, v.select_ind_ends_leaf(

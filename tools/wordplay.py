@@ -29,6 +29,10 @@ Grammar
                           of, turning tail, first three, half) only that stretch
                           of 2+ letters, at that end and that size, is turned:
                           rev<last pair of>([mini vehicles]KARTS) for KARST
+    rep(x)                x's letters twice, one after the other (twice, again,
+                          stuttering); the leaf gives ONE copy, never the doubled
+                          string: rep<twice>([boy]AL) for ALAL, rep<called twice>(
+                          [boy]ALF) for ALFALF. Not "[boy called twice]ALFALF"
     ins(outer, inner)     inner put inside outer (the answer decides where)
     del(from, removed)    removed taken out of from (the answer decides where):
                           one run, or the letters scattered but in the same order
@@ -121,7 +125,7 @@ OPS = {"ana": "anagram", "rev": "reversal", "ins": "container", "del": "deletion
        "sub": "substitution", "cyc": "cycling", "move": "move", "cd": "cryptic", "pal": "palindrome",
        "rebus": "rebus", "comp": "composite", "reverse": "reverse",
        "first": "first", "last": "last", "middle": "middle", "outer": "outer",
-       "alt": "alternate", "regular": "regular", "nth": "nth"}
+       "alt": "alternate", "regular": "regular", "nth": "nth", "rep": "repeat"}
 NAMES = {v: k for k, v in OPS.items()}
 # The fewest parts the written form takes where a stored tree may carry fewer: a spoonerism
 # filed as one leaf with `soundsLike` (HAD MATTER), a substitution of the centre (sub(x, NEW)).
@@ -132,7 +136,7 @@ SELECT = ("first", "last", "middle", "outer", "alternate", "regular", "nth")
 ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion": (2, 9),
          "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (1, 3),
          "substitution": (2, 3), "cycling": (1, 1), "move": (2, 2), "cryptic": (1, 9), "palindrome": (0, 1),
-         "rebus": (2, 2), "composite": (2, 2), "reverse": (2, 2),
+         "rebus": (2, 2), "composite": (2, 2), "reverse": (2, 2), "repeat": (1, 1),
          **{s: (1, 9) for s in SELECT}}  # a selection over a list: several parts, each giving its pick
 # A search that grows past this many candidate strings stops: no clue needs it.
 CAP = 20000
@@ -727,6 +731,8 @@ def values(node):
         return out
     if op == "cycling":
         return {v[k:] + v[:k] for v in values(parts[0]) for k in range(1, len(v))}
+    if op == "repeat":
+        return {v + v for v in values(parts[0]) if v}
     if op == "move":
         return {r for f in values(parts[0]) for m in values(parts[1]) for r in _moves(f, m)}
     if op == "palindrome":
@@ -805,6 +811,8 @@ def _bag(node):
             return _bag(fodder_pool(node))
         if op == "reversal":
             return _bag(parts_of(node)[0])
+        if op == "repeat":
+            return {"".join(sorted(b + b)) for b in _bag(parts_of(node)[0])}
         if op == "charade":
             out = {""}
             for p in parts_of(node):
@@ -846,6 +854,10 @@ def match(node, want, got=None):
                 whole = []
             if whole:
                 ok = match(parts_of(node)[0], whole[0], got) is not None
+    elif op == "repeat":
+        half = len(want) // 2
+        ok = bool(want) and len(want) % 2 == 0 and want[:half] == want[half:] \
+            and match(parts_of(node)[0], want[:half], got) is not None
     elif op == "anagram":
         child = fodder_pool(node)
         ok = False
@@ -1108,7 +1120,7 @@ def _count(s):
 #: The ops whose evaluation reads a fixed part by position, so the count must be
 #: exact. The rest take their shape from elsewhere (a charade has any number, a
 #: homophone may carry its spelling in `spelt`, ana() takes a charade's parts).
-COUNTED = ("reversal", "container", "deletion", "hidden", "substitution", "cycling", "move",
+COUNTED = ("reversal", "repeat", "container", "deletion", "hidden", "substitution", "cycling", "move",
            "spoonerism", *SELECT)
 
 

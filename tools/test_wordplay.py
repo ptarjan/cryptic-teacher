@@ -66,6 +66,11 @@ OK = [
     ("OUTSTEP", 'reverse([What makes pets], "OUT + STEP")'),
     ("NIP IN", "pal<works either way>([Ulster]NI + [fix]PIN)"),
     ("ABBA", "pal<Reversible>()"),
+    # A repeat: the leaf gives one copy, rep doubles it.
+    ("ALFALF", "rep<called twice>([boy]ALF)"),
+    ("DODO", "rep<twice>(first<originally>([died out]))"),
+    ("INDIANROPETRICK", "ana<fancy>([Prank] + [no credit] + rep<repeatedly>([I]I))"),
+    ("TUTUS", "rep<twice>([dancer]TU) + [plural]S"),
     ("SIEVE", "[special]S + [one]I + pal<reflective>([woman]EVE)"),
     ("BOAT", "sub<for>([coat], C, B)"),
     ("COTS", "sub<swaps>([cats], A, O)"),
@@ -118,6 +123,8 @@ BAD = [
     ("a reverse clue read as one piece", "OUTSTEP", 'reverse([What makes pets], "OUTSTEP")', "two or more"),
     ("a reverse clue whose pieces spell something else", "OUTSTEP", 'reverse([What makes pets], "OUT + PETS")', "not the answer"),
     ("a reverse clue inside a charade", "OUTSTEP", 'reverse([What makes], "OUT") + [pets]STEP', "whole wordplay"),
+    ("a repeat of a piece that is not the answer's half", "ALFALF", "rep<twice>([boy]AL)", "gives ALAL"),
+    ("a repeat of an odd-length answer", "ALFAL", "rep<twice>([boy]AL)", "needs ALFAL"),
     ("a reversal of a palindrome", "LEVEL", "rev<back>([level])", "reads the same backwards"),
     ("not hidden", "LEVER", "hid<in>([trap ever])", "needs LEVER"),
     ("hidden letters not in the words", "LEVER", "hid<in>([trap ever]LEVER)", "gives nothing"),
@@ -401,6 +408,13 @@ got = annotation.view({"definitions": [{"text": "camel-hair coat", "at": 11}],
 check("view: a palindrome op is the palindrome type and gives no block",
       got["type"] == ["palindrome"] and got["blocks"] == []
       and got["indicators"] == [{"text": "Reversible", "for": "palindrome"}], got)
+
+got = annotation.view({"definitions": [{"text": "bird", "at": 0}],
+                       "wordplay": op("repeat", leaf("it", "DO"), ind=["twice"])},
+                      entry(3, "across", "DODO", "bird, it twice"))
+check("view: a repeat op is a charade-type step, its indicator filed for it and its one copy the block",
+      got["type"] == ["charade"] and [b["gives"] for b in got["blocks"]] == ["DO"]
+      and got["indicators"] == [{"text": "twice", "for": "charade"}], got)
 
 check("view leaves its input unchanged", "at" not in CASES[0][1]["wordplay"]["parts"][1])
 
