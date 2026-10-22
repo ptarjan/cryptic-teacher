@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,64 @@
     "text": "State welcome includes a whiskey — first class!",
     "enumeration": "6"
    },
-   "solution": "HAWAII"
+   "solution": "HAWAII",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 14,
+       "note": "the welcome word holds the other pieces within it, so includes signals one piece sitting inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "welcome",
+       "at": 6,
+       "gives": "HI",
+       "note": "HI is a word of welcome, a greeting"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 23
+        },
+        {
+         "words": "whiskey",
+         "at": 25,
+         "gives": "W",
+         "note": "W is whiskey in the NATO phonetic alphabet"
+        },
+        {
+         "words": "first class",
+         "at": 35,
+         "gives": "AI",
+         "note": "A1 means first class, read here as the letters AI"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful toast to a state of the union, with a glass of whiskey, celebrated as top-notch.",
+     "walkthrough": "A1, the top grade, is read with the digit 1 as the letter I.",
+     "definitionFit": "Hawaii is one of the fifty United States, so it is an example of a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +105,32 @@
     "text": "Suspended sentence?",
     "enumeration": "7"
    },
-   "solution": "HANGING"
+   "solution": "HANGING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suspended",
+      "at": 0,
+      "meaning": "dangling, held up from above"
+     },
+     {
+      "text": "sentence?",
+      "at": 10,
+      "meaning": "once a death sentence passed by a court"
+     }
+    ],
+    "explanation": {
+     "surface": "A legal term for a sentence that is not served unless the offender reoffends.",
+     "walkthrough": "The surface reads as the familiar legal phrase 'suspended sentence'; split, each word is a separate definition, the second a grim pun on being suspended from a rope.",
+     "definitionFit": "Something dangling is hanging, and execution by rope was the sentence called hanging."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sentence?"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +144,47 @@
     "text": "Attendant spills first drink",
     "enumeration": "5"
    },
-   "solution": "WATER"
+   "solution": "WATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "spills first",
+       "at": 10,
+       "note": "spills first means the waiter loses the letter for one, I as Roman numeral for first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Attendant",
+       "at": 0,
+       "gives": "WAITER",
+       "note": "a waiter is an attendant at table"
+      },
+      {
+       "gives": "I",
+       "note": "I is the Roman numeral one, the first, named by the indicator words"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy server knocks over the opening drink of the evening.",
+     "walkthrough": "'first' gives I, the Roman one, removed from WAITER.",
+     "definitionFit": "Water is the most basic beverage, so it is a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spills"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +198,85 @@
     "text": "1 + 1000 + 1000 + (7- 5): roughly, that's huge",
     "enumeration": "7"
    },
-   "solution": "IMMENSE"
+   "solution": "IMMENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "huge",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "1",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "1000",
+       "at": 4,
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      },
+      {
+       "words": "1000",
+       "at": 11,
+       "gives": "M",
+       "note": "M again, the Roman thousand"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "roughly",
+         "at": 26,
+         "note": "roughly means approximately arranged, so the letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "-",
+           "at": 20,
+           "note": "the minus sign means subtract, so the five is taken away from the seven"
+          }
+         ],
+         "parts": [
+          {
+           "words": "7",
+           "at": 19,
+           "gives": "SEVEN",
+           "note": "the number seven, spelt out as a word"
+          },
+          {
+           "words": "5",
+           "at": 22,
+           "gives": "V",
+           "note": "V is the Roman numeral for five"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mock sum in figures that pretends to total up to something enormous.",
+     "walkthrough": "Taking V (five) from SEVEN leaves SEEN; 'roughly' rearranges SEEN into ENSE, completing I, M, M and ENSE.",
+     "definitionFit": "Immense and huge are synonyms, both meaning very large in size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "7-"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +290,70 @@
     "text": "Wife's at home, the husband's out and runs when it's cold",
     "enumeration": "6"
    },
-   "solution": "WINTER"
+   "solution": "WINTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "when it's cold",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wife's",
+       "at": 0,
+       "gives": "W",
+       "note": "W is the abbreviation for wife"
+      },
+      {
+       "words": "at home",
+       "at": 7,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 30,
+         "note": "out means removed, so this letter is taken from the word the"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 16
+        },
+        {
+         "words": "husband's",
+         "at": 20,
+         "gives": "H",
+         "note": "H is the abbreviation for husband"
+        }
+       ]
+      },
+      {
+       "words": "runs",
+       "at": 38,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A domestic scene: she stays in while he goes off running whenever the weather turns chilly.",
+     "walkthrough": "'out' takes H from THE to leave TE.",
+     "definitionFit": "Winter is the season of the year when the weather is coldest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +367,59 @@
     "text": "Cast iron contains note for use within the home",
     "enumeration": "6"
    },
-   "solution": "INDOOR"
+   "solution": "INDOOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for use within the home",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contains",
+       "at": 10,
+       "note": "contains signals that the mixed letters hold the note inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Cast",
+         "at": 0,
+         "note": "cast means shaped anew, so the letters of iron are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "iron",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "note",
+       "at": 19,
+       "gives": "DO",
+       "note": "DO is a note of the sol-fa scale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cast-iron cookware with a little note saying it is meant for the kitchen.",
+     "walkthrough": "'Cast' reads as part of 'cast iron' but is the anagram signal.",
+     "definitionFit": "Indoor describes things designed to be used inside a building rather than outside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +439,70 @@
      }
     ]
    },
-   "solution": "THROWDOWN"
+   "solution": "THROWDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Demolish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 15,
+       "note": "over means covering, so the place wraps around the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "place",
+       "at": 9,
+       "gives": "TOWN",
+       "note": "a town is a place"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hard",
+         "at": 20,
+         "gives": "H",
+         "note": "H is the abbreviation for hard, as on pencils"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "cross",
+           "at": 25,
+           "note": "cross means angry and upset, so the letters of word are disturbed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "word",
+           "at": 30
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Knocking a building down over a fiendishly difficult crossword.",
+     "walkthrough": "'crossword' splits in two: 'cross' is the anagram signal acting on 'word'.",
+     "definitionFit": "To throw down a building is to knock it to the ground, the same as demolishing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crossword"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +522,58 @@
      }
     ]
    },
-   "solution": "ROSERED"
+   "solution": "ROSERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "building",
+       "at": 19,
+       "note": "building means constructing anew, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "less",
+         "at": 33,
+         "note": "less means without, so the time letter is removed from restored"
+        }
+       ],
+       "parts": [
+        {
+         "words": "restored",
+         "at": 10
+        },
+        {
+         "words": "time",
+         "at": 29,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing the hue of an old building after restoration work.",
+     "walkthrough": "'timeless' splits into time and less: T comes out of RESTORED, and 'building' rearranges RESORED. Petra is the famous rose-red city.",
+     "definitionFit": "Rose-red is a shade, the deep pink of red roses, so it is a colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +597,75 @@
      }
     ]
    },
-   "solution": "ALLHALLOWSDAY"
+   "solution": "ALLHALLOWSDAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "1/11",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Everybody",
+       "at": 0,
+       "gives": "ALL",
+       "note": "all means everybody"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 31,
+         "note": "cut means sliced into, so the grass is split around the other pieces"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grass",
+         "at": 35,
+         "gives": "HAY",
+         "note": "hay is dried grass"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "let",
+           "at": 10,
+           "gives": "ALLOW",
+           "note": "to allow is to let"
+          },
+          {
+           "words": "son",
+           "at": 14,
+           "gives": "S"
+          },
+          {
+           "words": "daughter",
+           "at": 22,
+           "gives": "D"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family haymaking scene, the whole household mowing on the first of November.",
+     "walkthrough": "The definition is a date: 1/11 is 1 November in British day-month order.",
+     "definitionFit": "All Hallows' Day, or All Saints' Day, falls on 1 November."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +679,52 @@
     "text": "Speed is 1,000 and 100 in reverse",
     "enumeration": "4"
    },
-   "solution": "KNOT"
+   "solution": "KNOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Speed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "1,000",
+       "at": 9,
+       "gives": "K",
+       "note": "K stands for a thousand, as in kilo"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "in reverse",
+         "at": 23,
+         "note": "in reverse means read backwards, so the hundred word is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "100",
+         "at": 19,
+         "gives": "TON",
+         "note": "a ton is slang for a hundred"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speed reading given as figures run backwards.",
+     "definitionFit": "A knot is a unit of speed at sea, one nautical mile per hour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +738,48 @@
     "text": "Mother and boy tend to awkwardness",
     "enumeration": "10"
    },
-   "solution": "MALADDRESS"
+   "solution": "MALADDRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "awkwardness",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mother",
+       "at": 0,
+       "gives": "MA",
+       "note": "ma is a familiar word for mother"
+      },
+      {
+       "words": "boy",
+       "at": 11,
+       "gives": "LAD",
+       "note": "a lad is a boy"
+      },
+      {
+       "words": "tend to",
+       "at": 15,
+       "gives": "DRESS",
+       "note": "to dress a wound is to tend to it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother and her son are both inclined to be clumsy.",
+     "walkthrough": "'tend to' reads as 'are inclined to' but is DRESS, as in dressing a wound.",
+     "definitionFit": "Maladdress is a rare word for clumsiness or tactlessness in behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tend"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +793,58 @@
     "text": "Nice lemon in tonic, mixed right inside",
     "enumeration": "6"
    },
-   "solution": "CITRON"
+   "solution": "CITRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nice lemon",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 33,
+       "note": "inside means placed within the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixed",
+         "at": 21,
+         "note": "mixed means stirred up, so the letters of tonic are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tonic",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 27,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ordering a gin and tonic in Nice, with lemon stirred in.",
+     "walkthrough": "'Nice' is the French city, not the adjective: citron is French for lemon. 'mixed' turns TONIC into CITON, with R 'inside'.",
+     "definitionFit": "Citron is the French word for lemon, as spoken in Nice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +858,51 @@
     "text": "Stomach problem from avid reader's head going hard",
     "enumeration": "8"
    },
-   "solution": "HOOKWORM"
+   "solution": "HOOKWORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stomach problem",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "head going",
+       "at": 35,
+       "note": "the head, the first letter, goes and is replaced by the hard letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "avid reader",
+       "at": 21,
+       "gives": "BOOKWORM",
+       "note": "a bookworm is a keen reader"
+      },
+      {
+       "gives": "B"
+      },
+      {
+       "words": "hard",
+       "at": 46,
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A keen reader gets stomach trouble and a stern look.",
+     "walkthrough": "The first letter B of BOOKWORM gives way to H.",
+     "definitionFit": "A hookworm is a parasite living in the gut, a medical complaint of the intestines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +916,80 @@
     "text": "For example, woman will pack extremely ginormous cases",
     "enumeration": "9"
    },
-   "solution": "EGGSHELLS"
+   "solution": "EGGSHELLS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cases",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "For example",
+       "at": 0,
+       "gives": "EG"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "pack",
+         "at": 24,
+         "note": "pack means the woman-will pieces are packed into the end letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "extremely",
+           "at": 29,
+           "note": "extremely means at the extremes, so only the end letters are taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ginormous",
+           "at": 39
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "woman",
+           "at": 13,
+           "gives": "SHE",
+           "note": "she refers to a woman"
+          },
+          {
+           "words": "will",
+           "at": 19,
+           "gives": "LL",
+           "note": "'ll is the contracted form of will"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman preparing to pack enormous suitcases for a trip.",
+     "walkthrough": "SHE'LL sits between G and S, the outside letters of 'ginormous'.",
+     "definitionFit": "Eggshells are the hard outer cases of eggs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1009,76 @@
      }
     ]
    },
-   "solution": "STEVEBIKO"
+   "solution": "STEVEBIKO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "campaigner against apartheid",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good man",
+       "at": 0,
+       "gives": "ST",
+       "note": "ST, saint, is a crossword good man"
+      },
+      {
+       "words": "woman's",
+       "at": 13,
+       "gives": "EVE",
+       "note": "Eve was the first woman"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wins",
+         "at": 26,
+         "note": "wins means takes in, so the life word holds the letter inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "life",
+         "at": 21,
+         "gives": "BIO",
+         "note": "a bio is a short life story"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "heart of",
+           "at": 31,
+           "note": "the heart is the central letter of working"
+          }
+         ],
+         "parts": [
+          {
+           "words": "working",
+           "at": 40
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A biography of a good couple who win the hearts of workers.",
+     "walkthrough": "The K at the centre of WORKING goes inside BIO.",
+     "definitionFit": "Steve Biko was a South African activist who died in police custody in 1977 opposing racial segregation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "life"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1092,57 @@
     "text": "Old criminal carrying a burden",
     "enumeration": "4"
    },
-   "solution": "LOAD"
+   "solution": "LOAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "burden",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 13,
+       "note": "carrying means holding inside, so the letter sits within the rearranged ones"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "at": 4,
+         "note": "criminal means crooked, so the letters of old are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Old",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aged lawbreaker weighed down by something heavy.",
+     "walkthrough": "'criminal' turns OLD into LOD, 'carrying' A.",
+     "definitionFit": "A load is a heavy weight carried, which is what a burden is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1156,49 @@
     "text": "Recovering abstainer leaves drink",
     "enumeration": "4"
    },
-   "solution": "BEER"
+   "solution": "BEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaves",
+       "at": 21,
+       "note": "leaves means departs, so the abstainer letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Recovering",
+       "at": 0,
+       "gives": "BETTER",
+       "note": "someone recovering is getting better"
+      },
+      {
+       "words": "abstainer",
+       "at": 11,
+       "gives": "TT",
+       "note": "TT, teetotal, describes an abstainer from alcohol"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former teetotaller in recovery walks out and has a drink.",
+     "walkthrough": "TT is teetotal; removing it from BETTER leaves the drink.",
+     "definitionFit": "Beer is an alcoholic drink brewed from malt and hops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Recovering"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1212,36 @@
     "text": "One packaging 16 across, but not Courage?",
     "enumeration": "7"
    },
-   "solution": "BOTTLER"
+   "solution": "BOTTLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One packaging 16 across, but not Courage?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One packaging 16 across, but not Courage?",
+       "at": 0,
+       "note": "Courage is a British beer brand, and bottle is slang for courage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker filling bottles of ale, though not for the Courage brewery.",
+     "walkthrough": "Courage is a British brewery, but in British slang 'bottle' means nerve, so someone without courage is one who 'bottles it'.",
+     "definitionFit": "A bottler fills bottles with beer, and in slang is a coward who loses their nerve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Courage"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1255,66 @@
     "text": "Outstanding independent region houses 2,000 people altogether",
     "enumeration": "9"
    },
-   "solution": "COMMUNITY"
+   "solution": "COMMUNITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "people altogether",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "houses",
+       "at": 31,
+       "note": "houses means holds within, so the region takes in the thousands"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Outstanding",
+         "at": 0,
+         "note": "standing out within, so the independent letter is placed inside the region"
+        }
+       ],
+       "parts": [
+        {
+         "words": "region",
+         "at": 24,
+         "gives": "COUNTY",
+         "note": "a county is a region"
+        },
+        {
+         "words": "independent",
+         "at": 12,
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "words": "2,000",
+       "at": 38,
+       "gives": "MM",
+       "note": "MM is two thousand in Roman numerals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notable independent area that is home to two thousand residents.",
+     "walkthrough": "'Outstanding' works as 'standing out in', placing the independent letter within the region, while 'houses' puts the two thousand in a separate spot.",
+     "definitionFit": "A community is a group of people living together and sharing an area, taken as a whole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Outstanding"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1328,51 @@
     "text": "Sells millions on hot streak …",
     "enumeration": "7"
    },
-   "solution": "MARKETS"
+   "solution": "MARKETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sells",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "millions",
+       "at": 6,
+       "gives": "M"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "hot",
+         "at": 18,
+         "note": "hot means agitated or excited, so the letters of streak are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "streak",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trader shifting millions while on a winning run.",
+     "walkthrough": "'on' sets M before the rearranged STREAK.",
+     "definitionFit": "To market goods is to sell or promote them, so markets is a synonym of sells."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1386,68 @@
     "text": "… unlimited by 100 pound and English sentimentality",
     "enumeration": "7"
    },
-   "solution": "TREACLE"
+   "solution": "TREACLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sentimentality",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unlimited",
+         "at": 2,
+         "note": "unlimited means with its limits gone, so the word streak loses both ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "…",
+         "at": 0,
+         "gives": "STREAK",
+         "note": "the ellipsis carries on from the previous clue, whose last word is streak"
+        },
+        {
+         "gives": "SK"
+        }
+       ]
+      },
+      {
+       "words": "100",
+       "at": 15,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
+      },
+      {
+       "words": "pound",
+       "at": 19,
+       "gives": "L",
+       "note": "L is the abbreviation for pound, from libra"
+      },
+      {
+       "words": "English",
+       "at": 29,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the trader's story: a cheap, sentimental English tale.",
+     "walkthrough": "The ellipsis carries the last word of 18 down, STREAK, into this clue; 'unlimited' strips it to TREA.",
+     "definitionFit": "Treacle is used figuratively for cloying, excessive sweetness of feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1461,48 @@
     "text": "Each master eats pastry",
     "enumeration": "6"
    },
-   "solution": "APIECE"
+   "solution": "APIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Each",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eats",
+       "at": 12,
+       "note": "eats means takes in, so the master holds the pastry inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "master",
+       "at": 5,
+       "gives": "ACE",
+       "note": "an ace is a master of something"
+      },
+      {
+       "words": "pastry",
+       "at": 17,
+       "gives": "PIE",
+       "note": "a pie is a pastry dish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Every expert tucks into a pastry.",
+     "definitionFit": "Apiece is an adverb meaning for each one, as in a pound apiece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "master"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1516,82 @@
     "text": "Rejecting volunteers, politician's swamped by mock test essays",
     "enumeration": "8"
    },
-   "solution": "ATTEMPTS"
+   "solution": "ATTEMPTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "essays",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rejecting",
+         "at": 0,
+         "note": "rejecting means sending back, so the volunteers are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "volunteers",
+         "at": 10,
+         "gives": "TA",
+         "note": "TA is the Territorial Army, Britain's reserve force of volunteers"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "swamped by",
+         "at": 35,
+         "note": "swamped by means surrounded, so the politician goes inside the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "mock",
+           "at": 46,
+           "note": "mock means imitation, so the letters of test are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "test",
+           "at": 51
+          }
+         ]
+        },
+        {
+         "words": "politician's",
+         "at": 22,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament, a politician"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician turns down volunteers and is overwhelmed by practice exam papers.",
+     "walkthrough": "The volunteers are Britain's Territorial Army, its reserve force; 'essays' is the verb meaning tries.",
+     "definitionFit": "Essays as a verb means tries, so attempts is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "essays"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1605,50 @@
     "text": "Missile to stun borders of Egypt",
     "enumeration": "6"
    },
-   "solution": "ROCKET"
+   "solution": "ROCKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Missile",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to stun",
+       "at": 8,
+       "gives": "ROCK",
+       "note": "to rock someone is to shock or stun them"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "borders of",
+         "at": 16,
+         "note": "the borders of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Egypt",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A missile strike to shock the frontier regions of Egypt.",
+     "definitionFit": "A rocket is a self-propelled projectile, a kind of missile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1662,59 @@
     "text": "Snake about to bite Rob to bits",
     "enumeration": "5"
    },
-   "solution": "COBRA"
+   "solution": "COBRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Snake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to bite",
+       "at": 12,
+       "note": "to bite means to take in the jaws, so the about letters close around the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "about",
+       "at": 6,
+       "gives": "CA",
+       "note": "CA, circa, means about"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to bits",
+         "at": 24,
+         "note": "to bits means broken up, so the letters of Rob are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rob",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snake about to strike, tearing poor Rob to pieces.",
+     "walkthrough": "CA (circa) holds OBR, the letters of ROB rearranged.",
+     "definitionFit": "The cobra is a venomous hooded serpent of Africa and Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1728,54 @@
     "text": "Unable to write 49 + 51 three times a quarter?",
     "enumeration": "10"
    },
-   "solution": "ILLITERATE"
+   "solution": "ILLITERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unable to write",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "49",
+       "at": 16,
+       "gives": "IL",
+       "note": "IL is 49 in Roman numerals"
+      },
+      {
+       "words": "51",
+       "at": 21,
+       "gives": "LI",
+       "note": "LI is 51 in Roman numerals"
+      },
+      {
+       "words": "three times",
+       "at": 24,
+       "gives": "TERAT",
+       "note": "three words for time: T, ERA and T"
+      },
+      {
+       "words": "a quarter",
+       "at": 36,
+       "gives": "E",
+       "note": "E, east, is a quarter of the compass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sum and a fraction posed to someone who cannot write.",
+     "walkthrough": "'three times' is T, ERA and T, three different ways of saying time.",
+     "definitionFit": "An illiterate person has not learned to read or write."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "times"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1789,31 @@
     "text": "Second piece of bacon",
     "enumeration": "4"
    },
-   "solution": "BACK"
+   "solution": "BACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Second",
+      "at": 0,
+      "meaning": "to second a proposal"
+     },
+     {
+      "text": "piece of bacon",
+      "at": 7,
+      "meaning": "... bacon is a cut from the pig's ..."
+     }
+    ],
+    "explanation": {
+     "surface": "Another slice of bacon, please.",
+     "walkthrough": "'Second' looks like 'another'; it is the verb, to support.",
+     "definitionFit": "To back is to support, as a seconder does; back is a lean cut of bacon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1827,81 @@
     "text": "Thatcher's revolting for jailing opposition leader and the Queen",
     "enumeration": "6"
    },
-   "solution": "ROOFER"
+   "solution": "ROOFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thatcher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "jailing",
+         "at": 25,
+         "note": "jailing means locking up inside, so the leader letter goes within"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "revolting",
+           "at": 11,
+           "note": "revolting means rising up and overturning, so the letters of for are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "for",
+           "at": 21
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 44,
+           "note": "the leader of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "opposition",
+           "at": 33
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "the Queen",
+       "at": 55,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the Queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Margaret Thatcher is revolted at a plan to lock up the Labour leader and the monarch.",
+     "walkthrough": "The capital T disguises a thatcher, a roofer working in straw. 'revolting' rearranges FOR to ROF, and O goes inside.",
+     "definitionFit": "A thatcher roofs buildings with straw or reeds, a kind of roofer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Thatcher's"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1915,30 @@
     "text": "Get away with key?",
     "enumeration": "6"
    },
-   "solution": "ESCAPE"
+   "solution": "ESCAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get away",
+      "at": 0,
+      "meaning": "to get away"
+     },
+     {
+      "text": "key?",
+      "at": 14,
+      "meaning": "..., Esc, is a key on a computer keyboard"
+     }
+    ],
+    "explanation": {
+     "surface": "A getaway with the help of a key, as in a jailbreak.",
+     "definitionFit": "Escape means flee; Esc is the escape key on a keyboard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key?"
+    }
+   }
   }
  ]
 }
