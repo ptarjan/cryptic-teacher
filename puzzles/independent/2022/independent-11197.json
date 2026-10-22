@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,40 @@
     "text": "Who dared to change a dictionary entry?",
     "enumeration": "8"
    },
-   "solution": "HEADWORD"
+   "solution": "HEADWORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a dictionary entry",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to change",
+       "at": 10,
+       "note": "to change the letters of 'Who dared' is to rearrange them into a new word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Who dared",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled query about who had the nerve to alter something in the dictionary.",
+     "definitionFit": "A headword is the word printed in bold at the start of each dictionary article, under which the rest is listed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +87,60 @@
      }
     ]
    },
-   "solution": "HIRECAR"
+   "solution": "HIRECAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wheels taken briefly",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 15,
+       "note": "'after' puts the overturned bike behind the greeting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hail",
+       "at": 21,
+       "gives": "HI",
+       "note": "to hail is to greet, and 'hi' is a greeting"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturns",
+         "at": 5,
+         "note": "in a down entry, the bike overturning means its letters are turned upside down, bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bike",
+         "at": 0,
+         "gives": "RACER",
+         "note": "a racer is a racing bike"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bike flips over after a hailstorm, its wheels caught for a moment.",
+     "definitionFit": "A hire car is a vehicle rented for a short time; wheels is slang for a car."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hail"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +154,65 @@
     "text": "Before date, naked lady put on top",
     "enumeration": "3"
    },
-   "solution": "ADD"
+   "solution": "ADD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put on top",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Before",
+       "at": 0,
+       "note": "'Before date' puts the stripped lady ahead of the date letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "naked",
+         "at": 13,
+         "note": "naked means stripped of outer covering, so the outer letters of lady go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lady",
+         "at": 19,
+         "gives": "LADY",
+         "note": "the word lady itself"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "date",
+       "at": 7,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naked lady putting something on just before a date.",
+     "definitionFit": "To add is to put something extra on top of what is already there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +226,60 @@
     "text": "Annoying introspective music teacher spat when upset",
     "enumeration": "9"
    },
-   "solution": "WORRISOME"
+   "solution": "WORRISOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Annoying",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "when upset",
+       "at": 42,
+       "note": "in a down entry, upset means turned upside down, so the combined pieces are read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "introspective music",
+         "at": 9,
+         "gives": "EMO",
+         "note": "emo is a confessional, introspective style of rock music"
+        },
+        {
+         "words": "teacher",
+         "at": 29,
+         "gives": "SIR",
+         "note": "pupils address a male teacher as sir"
+        },
+        {
+         "words": "spat",
+         "at": 37,
+         "gives": "ROW",
+         "note": "a spat is a row, a quarrel"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An irritating, self-absorbed music teacher who spat in anger.",
+     "walkthrough": "'Introspective' seems to describe the teacher but belongs with 'music': emo. EMO + SIR + ROW, turned over, gives the answer.",
+     "definitionFit": "Worrisome means causing anxiety or bother, close to annoying or troubling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "introspective"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +293,64 @@
     "text": "Baker perhaps next to butcher's back at one-way system",
     "enumeration": "7"
    },
-   "solution": "RATCHET"
+   "solution": "RATCHET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one-way system",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "next to",
+       "at": 14,
+       "note": "'next to' sets Chet beside the earlier pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 32,
+         "note": "the back of the butcher's name is its final letter, the one at the end of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "butcher",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "at",
+       "at": 37
+      },
+      {
+       "words": "Baker perhaps",
+       "at": 0,
+       "gives": "CHET",
+       "note": "Chet Baker was an American jazz trumpeter, so Baker is an example surname for Chet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker's shop beside the butcher's, round the back on a one-way street.",
+     "walkthrough": "'Baker' looks like a trade beside 'butcher', but it is the jazz musician Chet Baker.",
+     "definitionFit": "A ratchet is a mechanism of a toothed wheel and pawl allowing motion in only one direction, a one-way system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Baker"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +364,42 @@
     "text": "Small island the very thing for recluse",
     "enumeration": "6"
    },
-   "solution": "HERMIT"
+   "solution": "HERMIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "recluse",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small island",
+       "at": 0,
+       "gives": "HERM",
+       "note": "Herm is one of the small Channel Islands, near Guernsey"
+      },
+      {
+       "words": "the very thing",
+       "at": 13,
+       "gives": "IT",
+       "note": "'it' means the very thing, as in 'that's it!'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small island is just the place for someone who wants to live alone.",
+     "walkthrough": "Herm is a tiny car-free island in the Channel Islands, between Britain and France.",
+     "definitionFit": "A hermit is a person who lives in seclusion, apart from society, which is what a recluse does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +413,61 @@
     "text": "No.1 lady with racket, no longer occupied as such",
     "enumeration": "5"
    },
-   "solution": "EVERT"
+   "solution": "EVERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No.1 lady with racket, no longer occupied as such",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 10,
+       "note": "'with' attaches the emptied racket to the first lady"
+      }
+     ],
+     "parts": [
+      {
+       "words": "No.1 lady",
+       "at": 0,
+       "gives": "EVE",
+       "note": "Eve was the first woman, the number one lady"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "no longer occupied",
+         "at": 23,
+         "note": "an unoccupied racket is emptied of its inside letters, leaving only its two ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "racket",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A former women's tennis number one who no longer holds that position.",
+     "walkthrough": "Chris Evert, the American tennis star, was world number one in the 1970s and 80s; the whole clue describes her as well as building her name.",
+     "definitionFit": "Chris Evert was the top-ranked woman in tennis, a racket sport, before retiring from the professional game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "racket"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +481,46 @@
     "text": "Jumble sale man jumping with lice",
     "enumeration": "11"
    },
-   "solution": "MISCELLANEA"
+   "solution": "MISCELLANEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jumble",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "jumping",
+       "at": 16,
+       "note": "jumping makes the letters of 'sale man' and 'lice' leap into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sale man",
+       "at": 7
+      },
+      {
+       "words": "lice",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man at a jumble sale hopping about because he has lice.",
+     "walkthrough": "'Jumble sale' reads as one phrase, but 'Jumble' alone is the definition and 'sale' joins the letters to be mixed.",
+     "definitionFit": "Miscellanea are assorted items of various kinds, a mixed collection or jumble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sale"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +534,48 @@
     "text": "Box left in driver's place",
     "enumeration": "4"
    },
-   "solution": "TELE"
+   "solution": "TELE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Box",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "'in' puts the left letter inside the driver's place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "driver's place",
+       "at": 12,
+       "gives": "TEE",
+       "note": "in golf, a driver is used from the tee"
+      },
+      {
+       "words": "left",
+       "at": 4,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A box left on the driver's seat of a car.",
+     "walkthrough": "The driver is a golf club, not a motorist; the tee is where it strikes the ball.",
+     "definitionFit": "Box and tele are both informal British words for a television set."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "driver's"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +589,53 @@
     "text": "Good day? How terrible getting up in the morning",
     "enumeration": "6"
    },
-   "solution": "SALAAM"
+   "solution": "SALAAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Good day?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "getting up",
+         "at": 23,
+         "note": "in a down entry, getting up means rising, so the letters are read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "How terrible",
+         "at": 10,
+         "gives": "ALAS",
+         "note": "'alas' is an exclamation meaning how terrible"
+        }
+       ]
+      },
+      {
+       "words": "in the morning",
+       "at": 34,
+       "gives": "AM",
+       "note": "AM means in the morning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is it a good day? Getting up in the morning is awful.",
+     "definitionFit": "Salaam is an Arabic and Muslim greeting meaning peace, used like hello or good day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Good"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +649,42 @@
     "text": "Grid erroneously contains 1up",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "1up",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "contains",
+       "at": 17,
+       "note": "the words 'Grid erroneously' contain the answer in their run of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Grid erroneously",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a bug report: the grid wrongly includes something called 1up.",
+     "walkthrough": "'1up' looks like gaming jargon or a cross-reference to another clue, but it is read as 'one up', a person sitting up on a horse or bike.",
+     "definitionFit": "A rider is someone mounted on a horse or bicycle: one person up in the saddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "1up"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +698,70 @@
     "text": "Crossing states after turning right before Alabama",
     "enumeration": "9"
    },
-   "solution": "TRAVERSAL"
+   "solution": "TRAVERSAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crossing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 16,
+       "note": "'after' places the states piece behind the turned right"
+      },
+      {
+       "text": "before",
+       "at": 36,
+       "note": "'before' places the turned right and states ahead of Alabama"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 22,
+         "note": "turning the abbreviation for right means reading its letters the other way round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "right",
+         "at": 30,
+         "gives": "RT"
+        }
+       ]
+      },
+      {
+       "words": "states",
+       "at": 9,
+       "gives": "AVERS",
+       "note": "to aver is to state firmly, so 'states' gives avers"
+      },
+      {
+       "words": "Alabama",
+       "at": 43,
+       "gives": "AL",
+       "note": "AL is the postal abbreviation for the US state of Alabama"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sounds like a road trip: crossing several states after taking a right turn, heading for Alabama.",
+     "definitionFit": "A traversal is the act of going across something, so it is a crossing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +781,41 @@
      }
     ]
    },
-   "solution": "CORNISHPASTIES"
+   "solution": "CORNISHPASTIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "savoury snacks in mine?",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Fresh",
+       "at": 0,
+       "note": "'fresh' suggests the letters of 'posset in his car' made anew in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "posset in his car",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has a fresh posset, a creamy curdled-milk drink, in his car.",
+     "walkthrough": "Cornish pasties are pastry turnovers filled with meat and vegetables, traditionally carried down the tin mines of Cornwall, the county in south-west England.",
+     "definitionFit": "The pasties were the classic packed lunch of Cornish tin miners, so they are savoury snacks eaten in a mine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +835,56 @@
      }
     ]
    },
-   "solution": "RIGHTWINGER"
+   "solution": "RIGHTWINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rees-Mogg, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "spoonerism",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "at": 19,
+       "note": "Spooner's swap means the first sounds of the two words change places"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "WIGHT",
+       "parts": [
+        {
+         "words": "anaemic",
+         "at": 29,
+         "gives": "WHITE",
+         "note": "anaemic means pale, white"
+        }
+       ]
+      },
+      {
+       "words": "twin",
+       "at": 37,
+       "gives": "RINGER",
+       "note": "a ringer, as in dead ringer, is an exact double, a twin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Likens the politician Jacob Rees-Mogg to a pale twin brother.",
+     "walkthrough": "Swapping the opening sounds of WHITE RINGER gives RIGHT WINGER; the swap works on sound, not spelling. Jacob Rees-Mogg is a Conservative MP known for hard-right views.",
+     "definitionFit": "Rees-Mogg is an example of a politician on the conservative right of his party; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "twin"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +898,56 @@
     "text": "Plant with scrap value finally scrapped",
     "enumeration": "7"
    },
-   "solution": "RAGWORT"
+   "solution": "RAGWORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "scrap",
+       "at": 11,
+       "gives": "RAG",
+       "note": "a rag is a scrap of cloth"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finally scrapped",
+         "at": 23,
+         "note": "the final letter of the word for value is scrapped, i.e. cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "value",
+         "at": 17,
+         "gives": "WORTH",
+         "note": "worth means value"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant with some scrap value that has finally been thrown away.",
+     "definitionFit": "Ragwort is a yellow-flowered weed of the daisy family, toxic to horses and cattle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scrap"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +961,58 @@
     "text": "Force cryptic clues on millions",
     "enumeration": "6"
    },
-   "solution": "MUSCLE"
+   "solution": "MUSCLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 20,
+       "note": "'on' joins millions to the jumbled clues"
+      }
+     ],
+     "parts": [
+      {
+       "words": "millions",
+       "at": 23,
+       "gives": "M",
+       "note": "M is the abbreviation for million(s)"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cryptic",
+         "at": 6,
+         "note": "'cryptic' says the word clues is disguised, its letters jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clues",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to impose cryptic clues on millions of people.",
+     "definitionFit": "Muscle means physical strength or power, as in using muscle or force to get one's way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cryptic"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1032,67 @@
      }
     ]
    },
-   "solution": "SEABREEZE"
+   "solution": "SEABREEZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Salty puffs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 40,
+       "note": "'on' puts the easy-task phrase after the trimmed name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "filling for",
+         "at": 12,
+         "note": "the filling of Sue is its middle letter"
+        },
+        {
+         "text": "having gone",
+         "at": 28,
+         "note": "the middle letter having gone means it is removed from the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sue",
+         "at": 24
+        },
+        {
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "words": "a picnic",
+       "at": 43,
+       "gives": "ABREEZE",
+       "note": "a picnic, i.e. something easy, is a breeze"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sue picks a sandwich filling for a picnic she has gone on.",
+     "definitionFit": "A sea breeze is a wind blowing in off the sea, which carries a salty tang, hence salty puffs of air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "puffs"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1106,49 @@
     "text": "Present-day capital equally accommodating at another time",
     "enumeration": "6"
    },
-   "solution": "ATHENS"
+   "solution": "ATHENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Present-day capital",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodating",
+       "at": 28,
+       "note": "accommodating means holding a guest inside, so one word goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "equally",
+       "at": 20,
+       "gives": "AS",
+       "note": "'as' means equally, as in 'as tall'"
+      },
+      {
+       "words": "at another time",
+       "at": 42,
+       "gives": "THEN",
+       "note": "'then' means at another time, not now"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modern capital city that is just as welcoming as it was in another era.",
+     "walkthrough": "'Present-day' marks it as a capital today, unlike capitals of ancient states.",
+     "definitionFit": "Athens is the capital city of modern Greece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodating"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1162,41 @@
     "text": "Drink, darling? Something with soda, perhaps",
     "enumeration": "6"
    },
-   "solution": "SIPHON"
+   "solution": "SIPHON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something with soda, perhaps",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drink",
+       "at": 0,
+       "gives": "SIP",
+       "note": "to sip is to drink"
+      },
+      {
+       "words": "darling",
+       "at": 7,
+       "gives": "HON",
+       "note": "hon, short for honey, means darling"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Offering a drink to a darling: something with soda, maybe?",
+     "definitionFit": "A soda siphon is the pressurised bottle for dispensing fizzy water, so a siphon may come with soda."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1210,59 @@
     "text": "One in education originally named after Rita in play",
     "enumeration": "7"
    },
-   "solution": "TRAINEE"
+   "solution": "TRAINEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One in education",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 34,
+       "note": "'after' puts the originally named piece behind the mixed-up Rita"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in play",
+         "at": 45,
+         "note": "'in play' sets the letters of Rita in motion, rearranging them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rita",
+         "at": 40
+        }
+       ]
+      },
+      {
+       "words": "originally named",
+       "at": 17,
+       "gives": "NEE",
+       "note": "née, used before a woman's maiden name, means originally named"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Alludes to Educating Rita, the play in which Rita is a learner given a new name.",
+     "walkthrough": "In Willy Russell's play Educating Rita, the heroine Susan renames herself Rita, so 'originally named' is a nod to the plot.",
+     "definitionFit": "A trainee is someone being taught a job, a learner in a course of education or training."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1276,43 @@
     "text": "What's most often found in stiletto heel? A foot",
     "enumeration": "7"
    },
-   "solution": "TROTTER"
+   "solution": "TROTTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A foot",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "What's most often found in stiletto",
+       "at": 0,
+       "gives": "T",
+       "note": "T appears three times in stiletto, more than any other letter"
+      },
+      {
+       "words": "heel",
+       "at": 36,
+       "gives": "ROTTER",
+       "note": "a heel is a cad, a rotter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what is usually inside a stiletto heel, answering: a foot.",
+     "walkthrough": "'Stiletto heel' reads as one shoe, but 'heel' is the cad and 'stiletto' only supplies its commonest letter.",
+     "definitionFit": "A trotter is a pig's foot, used as food, so it is a kind of foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heel"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1326,59 @@
     "text": "Mal de mer leaving maiden turning green",
     "enumeration": "7"
    },
-   "solution": "EMERALD"
+   "solution": "EMERALD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "green",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "turning",
+       "at": 26,
+       "note": "turning sets the remaining letters spinning into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 11,
+         "note": "the maiden leaving means it is taken out of the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mal de mer",
+         "at": 0
+        },
+        {
+         "words": "maiden",
+         "at": 19,
+         "gives": "M",
+         "note": "M is the cricket abbreviation for a maiden over"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seasickness makes a young woman go green.",
+     "walkthrough": "Mal de mer is French for seasickness, which famously turns people green, so the surface fits.",
+     "definitionFit": "Emerald is a bright green colour, named after the gemstone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1392,43 @@
     "text": "Nick, being married, behaves as he should",
     "enumeration": "14"
    },
-   "solution": "MISAPPROPRIATE"
+   "solution": "MISAPPROPRIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nick",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "married",
+       "at": 12,
+       "gives": "M",
+       "note": "M is the abbreviation for married, as in genealogies"
+      },
+      {
+       "words": "behaves as he should",
+       "at": 21,
+       "gives": "ISAPPROPRIATE",
+       "note": "someone who behaves as he should is appropriate, so 'is appropriate' covers it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a man called Nick who, now married, behaves properly.",
+     "walkthrough": "'Nick' looks like a man's name, but it is the verb meaning to steal.",
+     "definitionFit": "To nick is British slang for to steal, and to misappropriate is to take dishonestly for one's own use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1442,49 @@
     "text": "Obsessive stores new logs for a year",
     "enumeration": "5"
    },
-   "solution": "ANNAL"
+   "solution": "ANNAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "logs for a year",
+      "at": 21,
+      "note": "the plural logs describes one annal: a single year's record of events"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stores",
+       "at": 10,
+       "note": "stores means keeps inside, so the new letter is held within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Obsessive",
+       "at": 0,
+       "gives": "ANAL",
+       "note": "anal, short for anal-retentive, means obsessively fussy"
+      },
+      {
+       "words": "new",
+       "at": 17,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An obsessive person who hoards new logs to last a year.",
+     "walkthrough": "'Logs' seems to mean firewood; it means records.",
+     "definitionFit": "An annal is the record of events of a single year; annals are year-by-year chronicles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "logs"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1498,44 @@
     "text": "What a pigeon calls parking?",
     "enumeration": "4"
    },
-   "solution": "COOP"
+   "solution": "COOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What a pigeon calls parking?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "What a pigeon calls",
+       "at": 0,
+       "gives": "COO",
+       "note": "a pigeon's call is a coo"
+      },
+      {
+       "words": "parking",
+       "at": 20,
+       "gives": "P",
+       "note": "P is the abbreviation for parking, as on road signs"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A whimsical question about what a pigeon would call a parking space.",
+     "walkthrough": "The whole clue also reads as the place a pigeon parks itself for the night.",
+     "definitionFit": "A coop is the cage or hutch where pigeons or poultry are kept, their parking place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "calls"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1555,49 @@
      }
     ]
    },
-   "solution": "ORGANLOFT"
+   "solution": "ORGANLOFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "superior source of church music",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "'in' places the word for look inside the two newspapers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "two newspapers",
+       "at": 8,
+       "gives": "ORGANFT",
+       "note": "an organ is a newspaper (house organ), and FT is the Financial Times"
+      },
+      {
+       "words": "Look",
+       "at": 0,
+       "gives": "LO",
+       "note": "lo is an old word for look, as in 'lo and behold'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to look through two newspapers for the best source of church music.",
+     "definitionFit": "An organ loft is the raised gallery housing a church organ, so it is the source of music placed above, superior in height."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "superior"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1611,58 @@
     "text": "By jumping tear trousers more",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "more",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trousers",
+       "at": 16,
+       "note": "'trousers' as a verb means pockets, so the jumbled letters hold the other piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "jumping",
+         "at": 3,
+         "note": "jumping makes the letters of tear jump about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tear",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "By",
+       "at": 0,
+       "gives": "X",
+       "note": "X means by, as in measurements like 3 x 4"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone jumping tears their trousers even more.",
+     "definitionFit": "Extra means additional, beyond what is usual, so it is a synonym for more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1676,46 @@
     "text": "Break in play, if side is one short",
     "enumeration": "3"
    },
-   "solution": "TEA"
+   "solution": "TEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Break in play",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "is one short",
+       "at": 23,
+       "note": "being one short means one letter is lacking from the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "side",
+       "at": 18,
+       "gives": "TEAM",
+       "note": "a side is a team"
+      },
+      {
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pause in a game because one team is a player short.",
+     "walkthrough": "Cricket breaks for tea during a long day's play.",
+     "definitionFit": "Tea is the interval in a cricket match taken in the afternoon, a pause in the game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1729,41 @@
     "text": "Trial period in job as secretary",
     "enumeration": "6"
    },
-   "solution": "PAROLE"
+   "solution": "PAROLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trial period",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "secretary",
+       "at": 23,
+       "gives": "PA",
+       "note": "PA, a personal assistant, is a secretary"
+      },
+      {
+       "words": "job",
+       "at": 16,
+       "gives": "ROLE",
+       "note": "a role is a job or position"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A probationary spell in a new job working as a secretary.",
+     "definitionFit": "Parole is a period of conditional release from prison during which the offender's conduct is tested."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trial"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1777,41 @@
     "text": "Voluntary worker using only a pencil?",
     "enumeration": "8"
    },
-   "solution": "FREEHAND"
+   "solution": "FREEHAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "using only a pencil?",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Voluntary",
+       "at": 0,
+       "gives": "FREE",
+       "note": "voluntary work is free, unpaid"
+      },
+      {
+       "words": "worker",
+       "at": 10,
+       "gives": "HAND",
+       "note": "a hand is a worker, as in farmhand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unpaid volunteer whose only tool is a pencil.",
+     "definitionFit": "Freehand drawing is done without a ruler or other aids, just the pencil in the artist's hand; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Voluntary"
+    }
+   }
   }
  ]
 }
