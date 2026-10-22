@@ -998,6 +998,47 @@ def number_figures(text):
     return re.sub(r"[\s,.^'*`\u2019\-]", "", text)
 
 
+#: A figure read as a speck in front of a small word, glued to it ("0on", "2to",
+#: "3go"). Only a figure 0-3 (a bar or a stroke), only before a lower-case
+#: function word and not inside a longer figure, a unit ("3in") or a
+#: direction ("1down"): those are print.
+SPECK_FIGURE = re.compile(r"(?<![\w.,/\-])[0-3](?=(?:to|as|on|at|of|by|so|go|for|the)\b(?![\-'’\d]))")
+#: The same speck in front of the clue's first "I" ("1I work", "3I'm held back").
+SPECK_BEFORE_I = re.compile(r"^[0-3](?=I(?:\b|['’]))")
+#: One underscore against a word's edge ("_the", "top_", "an_ uneasy"): a stroke
+#: beside the print, never a blank (a blank is a run "____" or a lone " _ ").
+STRAY_UNDERSCORE = re.compile(r"(?<![_\w])_(?=[a-z]{2})|(?<=[a-z]{2})_(?![_\w'’])")
+
+
+def speck_figures(text):
+    """`text` without the figure an OCR read in front of a small word or the
+    clue's opening "I" ("0on the course" is "on the course")."""
+    return SPECK_FIGURE.sub("", SPECK_BEFORE_I.sub("", text))
+
+
+def stray_underscore(text):
+    """`text` without an underscore stuck to the edge of a word. A clue with
+    two underscores or more is a puzzle of missing letters ("C_A_C_?") and
+    is left as it is."""
+    return STRAY_UNDERSCORE.sub("", text) if text.count("_") == 1 else text
+
+
+def count_specked(figures, total):
+    """Whether `figures` (2-3 digits after a clue's words) are the light's
+    count `total` with a 1 glued on one or both ends, a bar the scan joined to
+    it: "14", "81" and "151" for 4, 8 and 5."""
+    if not (figures.isdigit() and len(figures) in (2, 3)):
+        return False
+    cut = []
+    if figures[0] == "1":
+        cut.append(figures[1:])
+    if figures[-1] == "1":
+        cut.append(figures[:-1])
+    if len(figures) == 3 and figures[0] == figures[-1] == "1":
+        cut.append(figures[1:-1])
+    return any(c and int(c) == total for c in cut)
+
+
 def mark_counts(text):
     """The punctuation marks in `text` as a Counter, to compare two readings
     of one clue: dashes made "-" and curly apostrophes "'" first, so a mark

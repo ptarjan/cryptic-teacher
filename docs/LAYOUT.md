@@ -3182,5 +3182,9 @@ tools/refusal_replay.py                        replay the wordplay refusals anno
                                                hit, through today's evaluator
 tools/test_refusal_replay.py                   does the wake's refusal section replay, group,
                                                count retries and name a cause?
+tools/learn_postproc.py                        mine the clue-text rewrites in "Update ..."
+                                               commits for post-processor rules
+tools/test_learn_postproc.py                   does learn_postproc class each clue rewrite and
+                                               score a rule's hits, worse and fixpoint breaks?
 ```
 <!-- LAYOUT-END -->

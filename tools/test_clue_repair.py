@@ -98,7 +98,35 @@ for what, text, enum, want in (
         ("a stop after a lone a", "Fighter thrown in jail for a. short stretch", "8",
          "Fighter thrown in jail for a short stretch"),
         ("a letter swapped in a word nobody prints", "Erect after firm stfoke", "5", "Erect after firm stroke"),
+        # Rules learned from the Update commits of 17-22 Oct 2026 (tools/learn_postproc.py).
+        ("a stroke stuck to a word's front", "Education initially by _the three Rs contains no fault", "9",
+         "Education initially by the three Rs contains no fault"),
+        ("a stroke stuck to a word's end", "Like an_ uneasy, lying head victim of a strike?", "8",
+         "Like an uneasy, lying head victim of a strike?"),
+        ("a figure for a speck before to", "On Naxos her song appears 2to end in reverse", "5",
+         "On Naxos her song appears to end in reverse"),
+        ("a figure for a speck before on", "Decide to change denims, with lipstick 0on?", "7",
+         "Decide to change denims, with lipstick on?"),
+        ("a figure for a speck before the opening I", "1I work in gallery to stimulate interest", "7",
+         "I work in gallery to stimulate interest"),
+        ("the count with a 1 glued on both sides", "That classical island language 151.", "5",
+         "That classical island language"),
+        ("the count with a 1 glued in front, three figures", "Each movement causes pain 141", "4",
+         "Each movement causes pain"),
+        ("a stub of the next word", "Run up loose dress as a tem temporary measure", "9",
+         "Run up loose dress as a temporary measure"),
+        ("a stub that is a word", "Go to town on the toothpaste", "9", "Go to town on the toothpaste"),
+        ("a stub that is foreign", "A pas de deux", "7", "A pas de deux"),
         # What is left alone.
+        ("blank letters", "C_A_C_?", "5", "C_A_C_?"),
+        ("a blank letter after a capital", "Look grumpy? P_ off!", "5", "Look grumpy? P_ off!"),
+        ("a run of underscores is a blank", "Craftiness that is ____ I rate as misrepresentation", "5",
+         "Craftiness that is ____ I rate as misrepresentation"),
+        ("a unit after a figure", "Moved tile 1mm — it fixed window", "5", "Moved tile 1mm — it fixed window"),
+        ("a direction after a figure", "Agricultural power and 1down", "5", "Agricultural power and 1down"),
+        ("a number the clue is about", "Painter, back, ran into 007", "7", "Painter, back, ran into 007"),
+        ("a two-figure count with a 1 and no light list", "Mum not seen to follow 15", "5",
+         "Mum not seen to follow 15"),
         ("a reference to a number", "Numbers will include zero and 5", "5", "Numbers will include zero and 5"),
         ("a count that is not the light's", "Sound lad with energy 7", "5", "Sound lad with energy 7"),
         ("a clue that is right", "Gratuitous flattering", "13", "Gratuitous flattering"),
@@ -111,6 +139,17 @@ for what, text, enum, want in (
         ("a trailer's two stops become an ellipsis", "Eccentric applies rum to testicle, ..", "5",
          "Eccentric applies rum to testicle, …")):
     check(f"mend_text: {what}", want, clue_repair.mend_text(text, enum))
+
+# A two-figure count with a 1 glued on ("robbing 81" for 8) is cut only when no
+# light of the puzzle has that number: "follow 15" may be a reference to 15 across.
+for what, text, enum, lights, want in (
+        ("a speck, no light of that number", "One caught in the actual act of robbing 81", "8", {1, 2, 3, 22},
+         "One caught in the actual act of robbing"),
+        ("a speck, a light of that number", "Mum not seen to follow 15", "5", {1, 2, 15, 22},
+         "Mum not seen to follow 15"),
+        ("a speck, no light list", "One caught in the actual act of robbing 81", "8", None,
+         "One caught in the actual act of robbing 81")):
+    check(f"mend_text lights: {what}", want, clue_repair.mend_text(text, enum, lights=lights))
 
 # A count left in the text is named by fetch_puzzle.clue_leftovers, and only then.
 import fetch_puzzle

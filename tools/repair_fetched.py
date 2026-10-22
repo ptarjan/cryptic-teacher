@@ -305,12 +305,13 @@ def mend_clue_text(puzzle):
     import clue_repair
     is_word, uses = clue_repair.lexicon()
     done = {}
+    lights = {e["number"] for e in puzzle.get("entries") or () if isinstance(e.get("number"), int)}
     for e in puzzle.get("entries") or ():
         clue = e.get("clue") if isinstance(e.get("clue"), dict) else {}
         enum = clue.get("enumeration")
 
         def mapper(text, enum=enum):
-            new = clue_repair.mend_text(text, enum, is_word, uses)
+            new = clue_repair.mend_text(text, enum, is_word, uses, lights=lights)
             return new, offsets(text, new)
 
         if enumeration.rewrite_entry(e, mapper):
