@@ -760,43 +760,63 @@
      "parts": [
       {
        "words": "points",
+       "at": 6,
        "gives": "NE",
-       "note": "two compass points, north and east"
+       "note": "N and E, north and east, are compass points"
       },
       {
        "words": "iron",
+       "at": 16,
        "gives": "FE",
        "note": "Fe is the chemical symbol for iron"
       },
       {
        "words": "King",
+       "at": 23,
        "gives": "R",
-       "note": "R for rex, Latin for king"
+       "note": "R is short for rex, Latin for king"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "returns",
-         "note": "something that returns goes back the way it came, so the word is read backwards"
+         "at": 28,
+         "note": "'returns' says the doubled word is turned back to front"
         }
        ],
        "parts": [
         {
-         "words": "it repeatedly",
-         "gives": "ITIT",
-         "note": "the word it, taken twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 39,
+           "note": "'repeatedly' calls for the word it to appear twice over"
+          }
+         ],
+         "parts": [
+          {
+           "words": "it",
+           "at": 36
+          },
+          {
+           "words": "it",
+           "at": 36
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A monarch directs her husband to the iron, and he keeps handing it back.",
-     "definitionFit": "Nefertiti was an ancient Egyptian queen, wife of the pharaoh Akhenaten."
+     "surface": "A queen directs a king to the iron, which he keeps sending back.",
+     "walkthrough": "IT twice is ITIT, which reversed is TITI.",
+     "definitionFit": "Nefertiti was an Egyptian queen, the wife of the pharaoh Akhenaten."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "points"
     }
