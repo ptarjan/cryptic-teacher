@@ -694,6 +694,9 @@ THREE_COLUMNS = fa.THREE_COLUMNS
 THREE_COLUMNS_YEARS = fa.THREE_COLUMNS_YEARS
 #: The Gale Times years whose "titles changed" rereads (a title no verdict covers) are planned.
 NEW_TITLE_YEARS = (2000, 2014)
+#: ...except these: Paul 10-22, of the ~86 2005-06 rereads started 08:23-09:30, every 2005 one (17) filed nothing and
+#: every 2006 one that wrote only rewrote a puzzle already filed (the old scan's titles were false).
+NEW_TITLE_SKIP_YEARS = (2005, 2006)
 
 
 def year_evidence(unit):
@@ -704,7 +707,8 @@ def year_evidence(unit):
         return False
     if unit["reason"] == THREE_COLUMNS:
         return THREE_COLUMNS_YEARS[0] <= int(year) <= THREE_COLUMNS_YEARS[1]
-    return unit["reason"] == "titles changed" and NEW_TITLE_YEARS[0] <= int(year) <= NEW_TITLE_YEARS[1]
+    return (unit["reason"] == "titles changed" and NEW_TITLE_YEARS[0] <= int(year) <= NEW_TITLE_YEARS[1]
+            and int(year) not in NEW_TITLE_SKIP_YEARS)
 
 
 def blanket_rereads():

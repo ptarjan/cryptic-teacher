@@ -243,6 +243,8 @@ _title = {**_third, "reason": "titles changed", "date": "2010-01-02"}
 _nt = {**_third, "reason": f.NO_TITLE_RESCAN, "date": "2000-03-14"}
 check("a Gale 2000-14 page with a title no read covered, or no title found by older scan code, is planned; a 1999 one is not",
       ["2010-01-02", "2000-03-14"], [u["date"] for u in eq.only_evidence("gale", [], [_title, _nt, {**_title, "date": "1999-01-02"}])[1]])
+check("a 2005-06 title no read covered is not planned (it files nothing or only rewrites a filed puzzle)", [],
+      eq.only_evidence("gale", [], [{**_title, "date": "2005-09-01"}, {**_title, "date": "2006-11-18"}])[1])
 check("both are fix-landed rereads (tier 1, asking the VLM)", (1, 1, True), (eq.files_likely_tier(2, _title), eq.files_likely_tier(2, _nt), eq.fills_gpu({**_nt, "needs": []})))
 os.environ["CT_BLANKET_REREADS"] = "1"
 _, rd_old =eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
