@@ -2608,10 +2608,14 @@ SOLUTION_GRID = (200, 480)
 def solution_shaped(img):
     """grids_on's `shaped` for a solution grid on page `img`."""
     k = SCAN_WIDTH / img.width
+    # A page wider than SCAN_WIDTH (the Gale Times's 4600 px pages of 2004-06) prints its
+    # grids larger on the page than a 3296 px one: its solution grid is 510 wide at
+    # SCAN_WIDTH, and its puzzle's 1070; the cap grows with the page's width.
+    most = SOLUTION_GRID[1] * max(1, img.width / SCAN_WIDTH)
 
     def shaped(box):
         w, h = (box[2] - box[0]) * k, (box[3] - box[1]) * k
-        return SOLUTION_GRID[0] <= w <= SOLUTION_GRID[1] and 0.85 <= w / max(h, 1) <= 1.18
+        return SOLUTION_GRID[0] <= w <= most and 0.85 <= w / max(h, 1) <= 1.18
     return shaped
 
 
@@ -5787,7 +5791,30 @@ for _paper, _pins in _BAND_WIDTH_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
-#: The Gale Times days (first, last) whose pages are 4664 px wide, scanned again for the wider band.
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before solution_shaped's cap on a solution
+#: grid's width grew with the page's (a 4664 px page's grid is 510 wide at SCAN_WIDTH, the cap was
+#: 480, so those pages found no solution heading at all): an edit that moves only the pages wider
+#: than SCAN_WIDTH (BAND_RESCAN), so every other paper's, and every other year's, scans stand.
+_GRID_CAP_FIX = {
+    "ft": ("7d90c2e969e56a3e", "d6ae6220db7a22f4", "a8b00443824ec045"),
+    "gale": ("a96808d5cf7321db", "8f1bbdca0d22cbaf", "ca46afbc28bc7691"),
+    "galeft": ("97fba7a8662935b9", "7d16a027df235a2b", "02c31abdb042191e"),
+    "galeindependent": ("cc18a3c765cea272", "c94a71a0f4d063e2", "0e7c077fe1b3301b"),
+    "galesundaytimes": ("b022b18869e67e6a", "08388ac36b8c7084", "9072b147a8ea77a7"),
+    "galetelegraph": ("ac23af44ca0b657e", "022767a6ea18d16d", "bda8c1b263bb6491"),
+    "galetls": ("3576aeefb5be4ac2", "d89487f9425f3a5d", "16fa4037d19595f8"),
+    "guardian": ("6de21c994894fdd0", "ececeb7447008dbc", "b35ed17631eaeb15"),
+    "telegraph": ("745aa185e086920e", "780fc6ff358d1a77", "839dc6737436fd27"),
+    "times": ("147f0d4168d00f9d", "c79e36c96055e1c7", "37544b124ba27f6a"),
+    "times1930": ("07bb383d98cafae3", "6abcdaccd5d602b9", "56eea6322c5e26e5"),
+}
+for _paper, _pins in _GRID_CAP_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: The Gale Times days (first, last) whose pages are 4600 px wide, scanned again for the wider
+#: band and grid cap.
 BAND_RESCAN = (datetime.date(2005, 5, 1), datetime.date(2006, 9, 30))
 
 
@@ -5795,12 +5822,12 @@ def prize_rescan(paper, key, rel):
     """Whether a scan of edition `rel` of `paper` under scan key `key` is due again for a heading
     reader fix: a Gale Times Monday (prize_monday) scanned before the prize headings
     (_PRIZE_HEADINGS_FIX), or a Gale Times day of BAND_RESCAN scanned before the wider
-    SOLUTION_BAND (_BAND_WIDTH_FIX)."""
+    SOLUTION_BAND (_BAND_WIDTH_FIX) and the grid cap grown with the page (_GRID_CAP_FIX)."""
     if paper is not GALE or not isinstance(rel, str) or (day := _date_in(rel)) is None:
         return False
     if key in _PRIZE_HEADINGS_FIX["gale"][:2] and prize_monday(day):
         return True
-    return key != _BAND_WIDTH_FIX["gale"][2] and BAND_RESCAN[0] <= day <= BAND_RESCAN[1]
+    return key != _GRID_CAP_FIX["gale"][2] and BAND_RESCAN[0] <= day <= BAND_RESCAN[1]
 
 
 def current_keys(paper):
