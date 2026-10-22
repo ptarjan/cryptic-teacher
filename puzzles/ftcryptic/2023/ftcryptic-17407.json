@@ -22,6 +22,9 @@
   "date": "2023-05-13",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "Second course perhaps that will revive you",
     "enumeration": "9"
    },
-   "solution": "REFRESHER"
+   "solution": "REFRESHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Second course perhaps",
+      "at": 0,
+      "meaning": "first meaning: a ... course, a further course of training taken to update skills"
+     },
+     {
+      "text": "that will revive you",
+      "at": 22,
+      "meaning": "second meaning: a refreshing drink or thing that perks you up"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 'course' looks like part of a meal, but it is a training course you take a second time.",
+     "definitionFit": "A refresher is both a follow-up training course and something, often a drink, that restores your energy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +76,41 @@
     "text": "Come round again about dog",
     "enumeration": "5"
    },
-   "solution": "RECUR"
+   "solution": "RECUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Come round again",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 17,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "words": "dog",
+       "at": 23,
+       "gives": "CUR",
+       "note": "a cur is a mongrel dog"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog keeps circling back around something.",
+     "definitionFit": "To recur is to happen again, to come back around as a repeated event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +124,56 @@
     "text": "Florence endlessly frenzied going to pieces",
     "enumeration": "7"
    },
-   "solution": "FIRENZE"
+   "solution": "FIRENZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Florence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "going to pieces",
+       "at": 28,
+       "note": "falling apart signals that the remaining letters are broken up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 9,
+         "note": "without its end, so the final letter of frenzied is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "frenzied",
+         "at": 19
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in Florence loses their composure in a frenzy.",
+     "walkthrough": "'endlessly' leaves FRENZIE, and 'going to pieces' rearranges it.",
+     "definitionFit": "Firenze is the Italian name for the city that English speakers call Florence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Florence"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +187,59 @@
     "text": "Poor Rex accepted payment for the funds",
     "enumeration": "9"
    },
-   "solution": "EXCHEQUER"
+   "solution": "EXCHEQUER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the funds",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepted",
+       "at": 9,
+       "note": "the rearranged letters take in, or accept, the payment within them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Poor",
+         "at": 0,
+         "note": "poor suggests a battered state, so the letters of Rex are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rex",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "payment",
+       "at": 18,
+       "gives": "CHEQUE",
+       "note": "a cheque is a written order of payment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Penniless Rex takes a cheque to pay into a fund.",
+     "walkthrough": "'Poor' looks like a description of Rex's finances, but it is the signal to rearrange his name.",
+     "definitionFit": "The Exchequer is the British government's treasury, and the word is also used for a person's or body's money supply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +259,78 @@
      }
     ]
    },
-   "solution": "HASTAMANANA"
+   "solution": "HASTAMANANA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "see you tomorrow",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Possesses",
+       "at": 0,
+       "gives": "HAS",
+       "note": "has means possesses"
+      },
+      {
+       "words": "hat",
+       "at": 10,
+       "gives": "TAM",
+       "note": "a tam, or tam-o'-shanter, is a Scottish woollen hat"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "held by",
+         "at": 19,
+         "note": "the single letter is held inside the name"
+        }
+       ],
+       "parts": [
+        {
+         "op": "palindrome",
+         "indicators": [
+          {
+           "text": "coming or going",
+           "at": 32,
+           "note": "the name reads the same whether you come at it forwards or go at it backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lady",
+           "at": 27,
+           "gives": "ANNA",
+           "note": "Anna is a woman's name"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "at": 15,
+         "gives": "A",
+         "note": "a means one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman with a hat bids someone farewell until the next day.",
+     "walkthrough": "'held by' puts A inside ANNA to give ANANA. The phrase is Spanish, literally 'until tomorrow', and is used in English as a casual goodbye.",
+     "definitionFit": "Hasta manana is a Spanish farewell meaning until tomorrow, so it is said as see you tomorrow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lady"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +344,29 @@
     "text": "Not altered from its natural state, this deal is harsh inequitable treatment",
     "enumeration": "3"
    },
-   "solution": "RAW"
+   "solution": "RAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not altered from its natural state",
+      "at": 0,
+      "meaning": "first meaning: uncooked or unprocessed"
+     },
+     {
+      "text": "this deal is harsh inequitable treatment",
+      "at": 36,
+      "meaning": "second meaning: the word that makes 'deal' into a ... deal, an unfair treatment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half asks for the word that, put before 'deal', gives the phrase for being treated unfairly.",
+     "definitionFit": "Raw describes food or material left unprocessed, and a raw deal is an idiom for unfair treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +380,41 @@
     "text": "Imitate operatic heroine Charlie",
     "enumeration": "5"
    },
-   "solution": "MIMIC"
+   "solution": "MIMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Imitate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "operatic heroine",
+       "at": 8,
+       "gives": "MIMI",
+       "note": "Mimi is the heroine of Puccini's opera La Boheme"
+      },
+      {
+       "words": "Charlie",
+       "at": 25,
+       "gives": "C",
+       "note": "Charlie is C in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer copies the role of an opera heroine for Charlie.",
+     "definitionFit": "To mimic someone is to copy their manner or voice, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +428,79 @@
     "text": "With no end of anger, endlessly complain about one of the fair sex",
     "enumeration": "5"
    },
-   "solution": "MOIRA"
+   "solution": "MOIRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one of the fair sex",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 41,
+       "note": "the shortened complaint goes around the shortened anger"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 22,
+         "note": "without its end, so the final letter of the complaint word goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "complain",
+         "at": 32,
+         "gives": "MOAN",
+         "note": "to moan is to complain"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no end of",
+         "at": 5,
+         "note": "the anger word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "anger",
+         "at": 15,
+         "gives": "IRE",
+         "note": "ire means anger"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman grumbles endlessly, though her anger has subsided.",
+     "walkthrough": "'one of the fair sex' only asks for any woman, so the answer is a woman's given name.",
+     "definitionFit": "Moira is a woman's given name, and the fair sex is an old phrase for women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "With"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +514,48 @@
     "text": "Composers coming from West Way, Rhode Island",
     "enumeration": "7"
    },
-   "solution": "MAESTRI"
+   "solution": "MAESTRI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Composers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "West",
+       "at": 22,
+       "gives": "MAE",
+       "note": "Mae West was the American film star"
+      },
+      {
+       "words": "Way",
+       "at": 27,
+       "gives": "ST",
+       "note": "St is the abbreviation for street, a way"
+      },
+      {
+       "words": "Rhode Island",
+       "at": 32,
+       "gives": "RI",
+       "note": "RI is the postal abbreviation for the US state of Rhode Island"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Composers live along a road called West Way in Rhode Island.",
+     "walkthrough": "'West' looks like a direction for the road; it is Mae West, the Hollywood actress.",
+     "definitionFit": "Maestri is the Italian plural of maestro, a master musician such as a great composer or conductor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +569,35 @@
     "text": "Forger attempts to do it and break it",
     "enumeration": "9"
    },
-   "solution": "COPYRIGHT"
+   "solution": "COPYRIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Forger attempts to do it and break it",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Forger attempts to do it and break it",
+       "at": 0,
+       "note": "a forger tries to reproduce a work exactly, and in doing so infringes the legal protection of the original"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Split it as two words: the forger tries to copy right, getting the copy accurate, and in doing so breaks the law protecting the original work.",
+     "definitionFit": "Copyright is the legal right protecting an author's work from being reproduced by others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +611,55 @@
     "text": "From Accra, travelled to a southern South American city",
     "enumeration": "7"
    },
-   "solution": "CARACAS"
+   "solution": "CARACAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "South American city",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "travelled",
+         "at": 12,
+         "note": "letters that have travelled have moved about, so the city name is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Accra",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 25
+      },
+      {
+       "words": "southern",
+       "at": 27,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flew from Accra in Ghana to a city in South America.",
+     "walkthrough": "Accra is the capital of Ghana, here only fodder.",
+     "definitionFit": "Caracas is the capital city of Venezuela, in South America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travelled"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +679,54 @@
      }
     ]
    },
-   "solution": "WRITEUP"
+   "solution": "WRITEUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Review",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "WRITE",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 7,
+         "note": "as reported in speech, the word for correct is said aloud and stands for a word sounding the same"
+        }
+       ],
+       "parts": [
+        {
+         "words": "correct",
+         "at": 18,
+         "gives": "RIGHT",
+         "note": "right means correct"
+        }
+       ]
+      },
+      {
+       "words": "at university",
+       "at": 26,
+       "gives": "UP",
+       "note": "up means in residence at university, as in up at Oxford"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper report says a student review was accurate.",
+     "definitionFit": "A write-up is a published account or critique of something, such as a play, so a review."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "correct"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +740,47 @@
     "text": "Get up about noon and wash",
     "enumeration": "5"
    },
-   "solution": "RINSE"
+   "solution": "RINSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wash",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 7,
+       "note": "the getting-up word goes around the letter for noon"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Get up",
+       "at": 0,
+       "gives": "RISE",
+       "note": "to rise is to get up"
+      },
+      {
+       "words": "noon",
+       "at": 13,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A late riser gets out of bed around midday and has a wash.",
+     "definitionFit": "To rinse is to wash with clean water, a close synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "noon"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +794,47 @@
     "text": "Rock, a workroom bloomer",
     "enumeration": "9"
    },
-   "solution": "ALABASTER"
+   "solution": "ALABASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 6
+      },
+      {
+       "words": "workroom",
+       "at": 8,
+       "gives": "LAB",
+       "note": "a lab, or laboratory, is a workroom for experiments"
+      },
+      {
+       "words": "bloomer",
+       "at": 17,
+       "gives": "ASTER",
+       "note": "an aster is a flower, something that blooms"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A workshop makes a blunder involving some rock.",
+     "walkthrough": "'bloomer' looks like a blunder, but here it is a flower, something that blooms.",
+     "definitionFit": "Alabaster is a fine-grained mineral, a type of gypsum or calcite stone used for carving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +848,35 @@
     "text": "Applicant for job must keep it to stand any chance of getting it",
     "enumeration": "11"
    },
-   "solution": "APPOINTMENT"
+   "solution": "APPOINTMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Applicant for job must keep it to stand any chance of getting it",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Applicant for job must keep it to stand any chance of getting it",
+       "at": 0,
+       "note": "the first 'it' is the interview slot the candidate must attend, the second the post itself"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The one word means both an arranged meeting such as an interview and the job given to someone, so 'it' refers to each sense in turn.",
+     "definitionFit": "An appointment is an arranged meeting and also a post or job to which someone is named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +890,35 @@
     "text": "Potter's Bar",
     "enumeration": "3"
    },
-   "solution": "CUE"
+   "solution": "CUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Potter's Bar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Potter's Bar",
+       "at": 0,
+       "note": "a potter here is a snooker or billiards player who pots balls, and his bar is the stick he uses"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Potters Bar is a town in Hertfordshire, just north of London; read literally, it is the rod belonging to someone who pots balls at snooker.",
+     "definitionFit": "A cue is the long tapered stick used to strike the ball in snooker, billiards and pool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Potter's"
+    }
+   }
   },
   {
    "number": 14,
@@ -277,7 +938,30 @@
      }
     ]
    },
-   "solution": "CLIPJOINT"
+   "solution": "CLIPJOINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Barber's shop",
+      "at": 0,
+      "meaning": "first meaning: jokingly, a place where hair is clipped"
+     },
+     {
+      "text": "where customers are overcharged",
+      "at": 14,
+      "meaning": "second meaning: a nightclub or bar that fleeces its customers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is a playful literal reading of the phrase, a joint where clipping happens.",
+     "definitionFit": "A clip joint is slang for an establishment, typically a nightclub, that swindles patrons with inflated prices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +975,45 @@
     "text": "From Penang, pilau that is not very attractive",
     "enumeration": "11"
    },
-   "solution": "UNAPPEALING"
+   "solution": "UNAPPEALING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not very attractive",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "From",
+       "at": 0,
+       "note": "the answer is made from these letters, so the two words are rearranged together"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Penang",
+       "at": 5
+      },
+      {
+       "words": "pilau",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rice dish bought in Penang turns out not to look very appetising.",
+     "walkthrough": "Penang is a Malaysian island state and pilau a spiced rice dish; together their eleven letters rearrange into the answer.",
+     "definitionFit": "Something unappealing lacks appeal, meaning it does not attract or please."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "From"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1033,33 @@
      }
     ]
    },
-   "solution": "ADNAUSEAM"
+   "solution": "ADNAUSEAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To a disgusting extent in a dead language",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "To a disgusting extent in a dead language",
+       "at": 0,
+       "note": "the Latin phrase meaning, literally, to the point of sickness"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The dead language is Latin; the phrase literally means to seasickness, and in English means to a tiresome or sickening degree.",
+     "definitionFit": "Ad nauseam is Latin for to the point of nausea, used to describe something repeated tediously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1073,31 @@
     "text": "It tells how aircraft sometimes fly",
     "enumeration": "11"
    },
-   "solution": "INFORMATION"
+   "solution": "INFORMATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It tells",
+      "at": 0,
+      "meaning": "first meaning: facts or knowledge that tell you something"
+     },
+     {
+      "text": "how aircraft sometimes fly",
+      "at": 9,
+      "meaning": "second meaning: split as two words, ..., flying in an arranged pattern"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense needs the answer split into two words, describing planes flying together in a set pattern.",
+     "definitionFit": "Information is knowledge conveyed, and in formation describes aircraft keeping a fixed group arrangement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tells"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1111,48 @@
     "text": "Was angry that legal scholar inside did not pick up cleanly",
     "enumeration": "7"
    },
-   "solution": "FUMBLED"
+   "solution": "FUMBLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "did not pick up cleanly",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 29,
+       "note": "the law graduate is placed inside the anger word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Was angry",
+       "at": 0,
+       "gives": "FUMED",
+       "note": "fumed means was angry"
+      },
+      {
+       "words": "legal scholar",
+       "at": 15,
+       "gives": "BL",
+       "note": "BL is the abbreviation for Bachelor of Law, a law graduate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A furious lawyer fails to catch something cleanly.",
+     "definitionFit": "To fumble a ball is to handle it clumsily and fail to gather it, as in cricket or rugby."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scholar"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1166,54 @@
     "text": "Non-drinker takes nothing in, not even this",
     "enumeration": "3"
    },
-   "solution": "TOT"
+   "solution": "TOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Non-drinker takes nothing in, not even this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "takes",
+       "at": 12,
+       "note": "the non-drinker takes the letter into itself"
+      },
+      {
+       "text": "in",
+       "at": 26,
+       "note": "the nothing letter goes inside the non-drinker"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Non-drinker",
+       "at": 0,
+       "gives": "TT",
+       "note": "TT stands for teetotal, a person who drinks no alcohol"
+      },
+      {
+       "words": "nothing",
+       "at": 18,
+       "gives": "O",
+       "note": "O, the figure zero, means nothing"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A teetotaller refuses alcohol entirely, not even the smallest drink.",
+     "walkthrough": "As a whole the clue describes the answer: a teetotaller will not have even a small measure of spirits.",
+     "definitionFit": "A tot is a small measure of spirits, the minimal drink a teetotaller still refuses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 19,
@@ -373,7 +1233,34 @@
      }
     ]
    },
-   "solution": "THINAIR"
+   "solution": "THINAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Area of nothing to disappear into?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Area of nothing to disappear into?",
+       "at": 0,
+       "note": "the idiom says that someone who vanishes completely has disappeared into an empty space"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The question mark signals a playful reading of the idiom 'vanish into ...' as a literal empty area.",
+     "definitionFit": "To vanish into thin air is an idiom for disappearing completely without trace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Area"
+    }
+   }
   },
   {
    "number": 20,
@@ -393,7 +1280,34 @@
      }
     ]
    },
-   "solution": "JUMPSTART"
+   "solution": "JUMPSTART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bumpy way to get engine going?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bumpy way to get engine going?",
+       "at": 0,
+       "note": "starting a car by pushing it and letting the clutch out with a lurch, or by jump leads from another battery"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Bumpy' points to the jerky start the vehicle makes when started this way.",
+     "definitionFit": "To jump-start a car is to start its engine using jump leads or by push-starting it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bumpy"
+    }
+   }
   },
   {
    "number": 21,
@@ -407,7 +1321,54 @@
     "text": "Tease you and me over sweetener",
     "enumeration": "5"
    },
-   "solution": "SUGAR"
+   "solution": "SUGAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sweetener",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 17,
+       "note": "over signals turning the combined letters backwards, as in a down clue read upward"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tease",
+         "at": 0,
+         "gives": "RAG",
+         "note": "to rag someone is to tease them"
+        },
+        {
+         "words": "you and me",
+         "at": 6,
+         "gives": "US",
+         "note": "us means you and me"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone teases a couple by sweetening a drink.",
+     "walkthrough": "RAG then US makes RAGUS, which 'over' turns backwards.",
+     "definitionFit": "Sugar is the commonest substance added to food or drink to make it sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tease"
+    }
+   }
   },
   {
    "number": 22,
@@ -421,7 +1382,66 @@
     "text": "After word of hesitation I take a kayak initially to be Inuit boat",
     "enumeration": "5"
    },
-   "solution": "UMIAK"
+   "solution": "UMIAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inuit boat",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "the hesitation word comes first, with what follows placed after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "word of hesitation",
+       "at": 6,
+       "gives": "UM",
+       "note": "um is a sound of hesitation"
+      },
+      {
+       "words": "I",
+       "at": 25
+      },
+      {
+       "words": "a",
+       "at": 32
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 40,
+         "note": "initially means take the first letter of kayak"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kayak",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitates, then decides to take a kayak to become an Inuit boater.",
+     "definitionFit": "An umiak is a large open skin boat used by Inuit peoples, unlike the one-person kayak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kayak"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1455,42 @@
     "text": "Sprinkle inner contents of bottle",
     "enumeration": "5"
    },
-   "solution": "KLEIN"
+   "solution": "KLEIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bottle",
+      "at": 27,
+      "note": "a noun standing for the name Klein, as in a Klein bottle"
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "contents",
+       "at": 15,
+       "note": "the contents of the two words are the letters held within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sprinkle inner",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to sprinkle the inner contents out of a bottle.",
+     "walkthrough": "A Klein bottle is a mathematical surface with no inside or outside, named after Felix Klein; the setter lets the name stand for the bottle.",
+     "definitionFit": "The Klein bottle is the famous one-sided surface in topology, so the surname suggests that bottle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Sprinkle"
+    }
+   }
   },
   {
    "number": 24,
@@ -449,7 +1504,40 @@
     "text": "Ale Gill brewed was not allowed",
     "enumeration": "7"
    },
-   "solution": "ILLEGAL"
+   "solution": "ILLEGAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not allowed",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "brewed",
+       "at": 9,
+       "note": "brewing mixes ingredients, so the letters are mixed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ale Gill",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brewer called Gill made ale that was banned.",
+     "definitionFit": "Illegal means forbidden by law, so prohibited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brewed"
+    }
+   }
   },
   {
    "number": 25,
@@ -463,7 +1551,44 @@
     "text": "Take off at the end, be without resin",
     "enumeration": "3"
    },
-   "solution": "LAC"
+   "solution": "LAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "resin",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Take off at the end",
+       "at": 0,
+       "note": "remove the final letter of the lacking word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "be without",
+       "at": 21,
+       "gives": "LACK",
+       "note": "to lack something is to be without it"
+      },
+      {
+       "gives": "K"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling instruction about doing without a resin.",
+     "definitionFit": "Lac is a resinous substance secreted by insects, the source of shellac."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -477,7 +1602,40 @@
     "text": "In hotel Eva tested lift",
     "enumeration": "7"
    },
-   "solution": "ELEVATE"
+   "solution": "ELEVATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lift",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the answer sits in the run of letters spanning the three words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hotel Eva tested",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eva checked out the lift in her hotel.",
+     "definitionFit": "To elevate is to raise or lift something up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 27,
@@ -491,7 +1649,30 @@
     "text": "Old royal family rose",
     "enumeration": "5"
    },
-   "solution": "TUDOR"
+   "solution": "TUDOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old royal family",
+      "at": 0,
+      "meaning": "first meaning: the dynasty that ruled England from 1485 to 1603"
+     },
+     {
+      "text": "rose",
+      "at": 17,
+      "meaning": "second meaning: the ... rose, the red and white heraldic flower"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'rose' reads like a verb, but it is the noun, the emblem of that dynasty.",
+     "definitionFit": "The Tudor dynasty included Henry VIII and Elizabeth I, and its emblem is the Tudor rose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 28,
@@ -505,7 +1686,59 @@
     "text": "American river crossed by container vessel",
     "enumeration": "9"
    },
-   "solution": "CATAMARAN"
+   "solution": "CATAMARAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossed by",
+       "at": 15,
+       "note": "the container spans across the other pieces, holding them within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "container",
+       "at": 26,
+       "gives": "CAN",
+       "note": "a can is a container"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "river",
+         "at": 9,
+         "gives": "TAMAR",
+         "note": "the Tamar is the river dividing Devon from Cornwall in England"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American river is crossed by a container ship.",
+     "walkthrough": "'vessel' seems to be the container ship in the scene, but the container is CAN and 'vessel' alone is the definition.",
+     "definitionFit": "A catamaran is a boat with two parallel hulls, a type of sailing vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   }
  ]
 }
