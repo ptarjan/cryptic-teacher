@@ -234,7 +234,7 @@ Four first runs in ten fail, most often on these rules. Get them right first tim
   fails ("no block says what is said aloud", the commonest first failure). `sound<ind>([clue
   words]HEARD, SPELT)`: `sound` over a charade of side-by-side leaves (`[a]X + [b]Y`) is merged
   into one leaf `[a b]XY` for you; over a step (`first`, `del`, `hid`) write the step's letters as
-  the leaf. A Spoonerism that swaps the written letters is plain `spoon(a, b)`; one that swaps by
+  the leaf (inside `sound` only; everywhere else a step's leaf keeps its words). A Spoonerism that swaps the written letters is plain `spoon(a, b)`; one that swaps by
   sound is `spoon<ind>(sound([word]HEARD, SPELT), b)` and `spoon(a, b, SPELT)` alone fails.
 
 - To change many clues, Write `{"8-down": {"field": value}}` to a file and add
@@ -302,7 +302,9 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           letters picked from x's words: first letter (or
                           each word's first), middle letter(s) or all but the
                           ends, first and last, alternate letters, every
-                          2nd/3rd, the nth; one indicator over a list is one op
+                          2nd/3rd, the nth; x is the words picked FROM, never
+                          the pick: alt<regularly>([most]) for MS, not
+                          ([most]MS); one indicator over a list is one op
                           with a part per word, each giving its pick:
                           outer<fringes of>([Argive], [Greece], [Anatolian])
     cd([words])           cryptic definition: the words, no letters
