@@ -1149,7 +1149,7 @@ def by_urgency(units):
 #: "titles changed", ...) are held behind them unless likely_gain > 0.
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
-              "titles changed", fa.NO_TITLE_RESCAN)
+              "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration")
 
 
 def unproven_first(unit):

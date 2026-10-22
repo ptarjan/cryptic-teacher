@@ -2049,7 +2049,33 @@ f._KEEP_VLM["names"] = {"1990-08-22_1"}
 check("an edition asked to be read again is read in full", None, f.answers_only(*ao_args))
 f._KEEP_VLM["names"] = set()
 ao_held[0]["entries"][1]["clue"].pop("enumeration")
-check("a held clue short of its count is read in full (the full read may mend it)", None, f.answers_only(*ao_args))
+verdict, puzzle = f.answers_only(*ao_args)
+check("a held clue filed with no enumeration is no reason for the full read: its answers merge, no VLM ask (times-24146 1-across)",
+      (True, 0, ["BAT", "BED", "TOE", "DOE"], "clue 1 down words"),
+      (verdict["answersOnly"], verdict["vlmAsks"], [e["solution"] for e in puzzle["entries"]], puzzle["entries"][1]["clue"]["text"]))
+check("... and the grid's reading is given no enumeration for it", None, ao_seen[-1][(1, "down")])
+# unenumerated_held(): a row read before REREAD_UNENUMERATED that linked a grid, whose held puzzle is short of
+# answers and has a clue with no enumeration, is read again once (fix_reason).
+import tempfile
+with tempfile.TemporaryDirectory() as ue_dir:
+    ue_path = Path(ue_dir) / "times-1.json"
+    ue_path.write_text(json.dumps(ao_held[0]))
+    ue_old = f._HELD_PATH.get((f.TIMES.series, 1))
+    f._HELD_PATH[f.TIMES.series, 1] = ue_path
+    ue_row = {"edition": "NewsUK1990UKEnglish/1990-08-22_1", "readAt": "2026-10-22T16:00:00+00:00",
+              "verdicts": [{"number": 1, "id": "times-1", "solutionFrom": "1990-08-23 leaf 0",
+                            "solution": {"lights": 4, "accepted": 4}}]}
+    check("a row read before the fix, its held puzzle short of answers with a clue bare of its count, is due",
+          True, f.unenumerated_held(ue_row))
+    check("... not once read after it", False, f.unenumerated_held({**ue_row, "readAt": "2026-10-22T16:31:00+00:00"}))
+    check("... nor one read by answers_only", False, f.unenumerated_held({**ue_row, "verdicts": [{**ue_row["verdicts"][0], "answersOnly": True}]}))
+    ue_held = lights_held([None] * 4)
+    ue_path.write_text(json.dumps(ue_held))
+    check("... nor with every clue counted", False, f.unenumerated_held(ue_row))
+    if ue_old is None:
+        del f._HELD_PATH[f.TIMES.series, 1]
+    else:
+        f._HELD_PATH[f.TIMES.series, 1] = ue_old
 ao_held[0] = lights_held([None] * 4)
 ao_held[0]["entries"][2]["clue"]["text"] = ""
 check("a held file with a blank clue is read in full", None, f.answers_only(*ao_args))

@@ -4539,9 +4539,12 @@ def answers_only(d, found, hit, solutions):
     # it, the full read would spend the VLM's asks (a Times 1984 page: 3-6 per reread) on clue text
     # the "read without the VLM that now answers" rereads mend at their own turn, and the held clues
     # are the ones this reread keeps.
-    if filled(old)[0] != len(es) or any(duplicated_clues(es)) or faults(old) \
-            or not all(((e.get("clue") or {}).get("enumeration")
-                        or re.fullmatch(r"See \d+.*", (e["clue"]["text"] or "").strip())) for e in es):
+    # A clue filed with no enumeration is no reason either (the Gale page's clue column left it
+    # off): the grid's light settles its count, the answers add nothing to the clue, and the full
+    # read of a puzzle already held whole in clues never merges its answers (decide(): its reading
+    # is not complete, it files to --out) - 650 linked grids (10-22: 79 of them 2000s Times for
+    # the Times write-ups left partial) stayed unanswered behind it.
+    if filled(old)[0] != len(es) or any(duplicated_clues(es)) or faults(old):
         return None
     grid = trove_solution_ocr.puzzle_grid(old)
     enums = {(e["number"], e["direction"]): (e["clue"] or {}).get("enumeration") for e in es}
@@ -6305,6 +6308,44 @@ def unfiled_blank(row):
     return out
 
 
+#: ISO time of answers_only's no longer refusing a held file with a clue filed without its enumeration:
+#: a Times edition whose solution grid is linked, read before it, whose held puzzle is still short of
+#: answers and has such a clue is read again once ("answers held back by a clue with no enumeration").
+REREAD_UNENUMERATED = "2026-10-22T16:30:00+00:00"
+#: {puzzle file: (its stat, whether it has a clue with no enumeration and a light with no answer)}.
+_UNENUMERATED = {}
+
+
+def unenumerated_held(row):
+    """Whether Times ledger `row`, read before REREAD_UNENUMERATED, linked a solution grid for a
+    puzzle whose held file lacks an answer and has a clue with no enumeration (not a "See 9" tail)."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_UNENUMERATED)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    for v in row.get("verdicts", ()):
+        if not v.get("solutionFrom") or v.get("answersOnly") or v.get("refused") or not v.get("id"):
+            continue
+        p = _HELD_PATH.get((paper.series, v.get("number")))
+        if p is None:
+            continue
+        try:
+            st = p.stat()
+        except OSError:
+            continue
+        stamp = (st.st_mtime_ns, st.st_size)
+        hit = _UNENUMERATED.get(p)
+        if hit is None or hit[0] != stamp:
+            es = json.loads(p.read_text()).get("entries") or ()
+            bare = any(not (e.get("clue") or {}).get("enumeration")
+                       and not re.fullmatch(r"See \d+.*", ((e.get("clue") or {}).get("text") or "").strip()) for e in es)
+            hit = _UNENUMERATED[p] = (stamp, bare and not all(e.get("solution") for e in es))
+        if hit[1]:
+            return True
+    return False
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -6330,6 +6371,8 @@ def fix_reason(row):
         return "short Times page, its third clue column read since"
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
+    if unenumerated_held(row):
+        return "answers held back by a clue with no enumeration"
     if row.get("solutionKey") != solution_key():
         paper = paper_of(row.get("edition", "")).key
         for v in row.get("verdicts", ()):
