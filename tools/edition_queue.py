@@ -313,7 +313,8 @@ def run_unit(unit, cache, puzzles, reread):
     paper = m.FILERS[unit["paper"]]
     if unit["kind"] == "scan":
         # A solution host is wanted for the solutions it prints: its solution bands alone are read.
-        return m.scan_unit(paper, unit["rel"], cache, host=unit.get("reason") == fa.HOST_SCAN)
+        # (A unit process never imports fa: it exits before the queue's own imports.)
+        return m.scan_unit(paper, unit["rel"], cache, host=unit.get("reason") == getattr(m, "HOST_SCAN", None))
     return m.read_unit(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"))
 
 
