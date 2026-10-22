@@ -2419,13 +2419,20 @@ for name, rect, want in (("tall", (110, 160, 460, 640), 1), ("wide", (110, 160, 
     seen.clear()
     got, info = f.read_solution(f.page(led, 3), {**sol, "dir": led}, ["..."])
     check(f"a {name} ink box (a grid and what is joined to it) is read as its square part",
-          ({"1-across": "ABC"}, (350 * 3, 350 * 3)), (got, seen[0][0]))
+          ({"1-across": "ABC"}, (352 * 3, 352 * 3)), (got, seen[0][0]))
     stats_blocks = 0.8
     seen.clear()
     got, info = f.read_solution(f.page(led, 3), {**sol, "dir": led}, ["..."])
     check(f"...and a {name} one no cut of which has the puzzle's blocks is refused", ({}, True, True),
           (got, "refused" in info, len(seen) >= 1))
     stats_blocks = 1.0
+# A heading box that lost its first words (Gale 2012: 137px of a 357px grid) cuts the grid's
+# left and foot off the window: the window grows while the ink touches its edges.
+stats_blocks = 1.0
+seen.clear()
+got, _ = f.read_solution(f.page(ed, 3), {**sol, "box": (300, 100, 440, 120)}, ["..."])
+check("a grid cut by the window of a short heading is read whole", ({"1-across": "ABC"}, (352 * 3, 352 * 3)),
+      (got, seen[0][0]))
 check("a box far from square (a speck under the heading) has no square cut", [],
       f.squares(Image.new("L", (400, 400), 255), (0, 0, 300, 20)))
 check("a square box has none", [], f.squares(Image.new("L", (400, 400), 255), (0, 0, 300, 296)))
