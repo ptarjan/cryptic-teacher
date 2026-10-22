@@ -24,6 +24,9 @@ puzzle held as its clues alone (tools/clues_only.py), whose solve derives its
 grid in tools/apply_solution.py as the nightly's does. Those rank by the same
 rules as an index row: clues_only_rows() gives them one. Its order
 is head_of_queue()'s: the puzzles a lockout cut off first, the hand requests,
+then the series to finish off (finish_off_series: under FINISH_OFF unhinted
+puzzles left, fewest left first; Paul 10-22: "Can we finish off series who has
+less than 200 unhinted puzzles first?"),
 then the recent tier (recent_first: dated within a year of today, never
 annotated first, then its redo work, newest first; Paul 10-20: "puzzles newer
 than a year should go first"), then the partly hinted ones (some clues hinted, some not; fewest clues missing
@@ -1058,6 +1061,24 @@ def small_self_test():
     if small_series({}) != []:
         print("FAIL small_series with no history is not empty", file=sys.stderr)
         bad += 1
+    # finish-off (Paul 10-22): under FINISH_OFF unhinted, fewest first; none
+    # left, LAST and the big ones stay out
+    want = ["timesclub", "tls", "metro", "dimmy", "nation", "quiptic", "everyman"]
+    if finish_off_series(_SMALL_DAYS) != want or finish_off_series({}) != []:
+        print(f"FAIL finish_off_series = {finish_off_series(_SMALL_DAYS)} (want {want})",
+              file=sys.stderr)
+        bad += 1
+    # those series lead the recent tier: after the lockout pin and a hand
+    # request, before a recent cryptic, and counted in stages[9]
+    frows = [_dated("cryptic-1", "2026-10-01"), _dated("tls-5", "2020-01-01"),
+             _dated("tls-6", "2021-01-01"), _dated("book-7", "1990-01-01")]
+    _, pinned, stages = head_of_queue(["cryptic-1", "tls-5", "tls-6", "book-7"], ["r"], frows,
+                                      asked=["book-7"], finish=["tls"])
+    want = ["r", "book-7", "tls-6", "tls-5", "cryptic-1"]
+    if pinned != want or stages[9] != 2:
+        print(f"FAIL head_of_queue finish off pins {pinned} at {stages} (want {want})",
+              file=sys.stderr)
+        bad += 1
     # the small series go right behind the cut-offs, ahead of showcase and the
     # 10 oldest, series by series, newest first inside each
     rows = [_dated("cryptic-1", "2026-01-01"), _dated("cryptic-2", "2026-01-02"),
@@ -1918,6 +1939,25 @@ def small_series(days=None):
     return [name for *_, name in sorted(ranked)]
 
 
+# A series with fewer unhinted puzzles than this (and at least one) is finished
+# off ahead of everything but the lockout cut-offs and hand requests (Paul
+# 10-22: "Can we finish off series who has less than 200 unhinted puzzles
+# first?").
+FINISH_OFF = 200
+
+
+def finish_off_series(days=None):
+    """The series with 0 < unhinted (filed - hinted) < FINISH_OFF on the newest
+    day of tools/data/progress.json (days, else read), fewest left first, name
+    breaking ties. LAST's lanes stay out, as in small_series."""
+    import progress
+    days = progress.load() if days is None else days
+    row = days[max(days)] if days else {}
+    ranked = sorted((counts[progress.FILED] - counts[progress.HINTED], name)
+                    for name, counts in row.items() if name not in LAST)
+    return [name for left, name in ranked if 0 < left < FINISH_OFF]
+
+
 def small_first(queue, pinned, rows, small):
     """pinned, then the queue's puzzles in the series of small (small_series),
     series by series in that order, queue order inside each."""
@@ -2013,9 +2053,12 @@ def cold_row(row, kept=False):
     return bool(row) and not kept and not row.get("hasSolutions") and not row.get("partial")
 
 
-def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=()):
+def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(), finish=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
-    (cut off by a lockout), then the hand requests (asked, requested()), then the bag-eligible tails incl. redo ones (tails_first), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
+    (cut off by a lockout), then the hand requests (asked, requested()), then
+    the series to finish off (finish, finish_off_series(); Paul 10-22: "Can we
+    finish off series who has less than 200 unhinted puzzles first?"), then the
+    recent tier (recent_first), then the bag-eligible tails incl. redo ones (tails_first), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
     (small_first), then
     /showcase/'s wanted, then each series' No 1,
     then each series' oldest few, then the notable-tagged; each set in queue
@@ -2035,6 +2078,8 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     front = list(pinned)
     pinned = requested_first(queue, list(pinned), list(asked))
     asked_n = len(pinned) - len(set(pinned) - set(asked)) if asked else 0
+    asked_end = len(pinned)
+    pinned = small_first(cryptic, pinned, rows, finish)
     base = len(pinned)
     pinned, recent_new, recent_redo = recent_first(
         [pid for pid in queue if pid not in straight], pinned, rows)
@@ -2068,6 +2113,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     partly_k = kept(cut + tails + partly) - kept(cut + tails)
     new_k = sum(1 for pid in pinned[base:base + recent_new] if pid not in cold)
     redo_k = sum(1 for pid in pinned[base + recent_new:base + recent] if pid not in cold)
+    finish_k = sum(1 for pid in pinned[asked_end:base] if pid not in cold)
     deferred = [pid for pid in pinned if pid in cold]
     pinned = [pid for pid in pinned if pid not in cold]
     # The round-robin rest gets the same partition: every cold or clues-only
@@ -2076,7 +2122,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     cold_rest = [pid for pid in queue if cold_row(by_id.get(pid), pid in keep) and pid not in cold]
     gone = cold | set(cold_rest)
     queue = [pid for pid in queue if pid not in gone] + deferred + cold_rest
-    stages += [partly_k, asked_n, tails_k, new_k, redo_k]
+    stages += [partly_k, asked_n, tails_k, new_k, redo_k, finish_k]
     return queue, pinned, stages
 
 
@@ -2144,17 +2190,19 @@ def cover_first(pinned):
     cover are best_effort(): each gets a share of the time to CT_DEADLINE.
     The summary goes to stderr, which is the burn's log."""
     import indicator_cover
-    small, cut = small_series(), len(pinned)
+    small, cut, finish = small_series(), len(pinned), finish_off_series()
     rows = index_rows()
     rows = rows + clues_only_rows({r["id"] for r in rows})
     wanted = best_effort("showcase", showcase_wanted, set(), 0.4)
     queue, pinned, n = head_of_queue(list(dict.fromkeys(sys.stdin.read().split())), pinned, rows,
-                                     wanted, tagged_puzzles(), small, requested(rows))
+                                     wanted, tagged_puzzles(), small, requested(rows), finish)
     print(f"requested: {n[5]} queued puzzles on tools/data/burn_requests.json go first"
           + (f" ({', '.join(pinned[cut:cut + n[5]])})" if n[5] else ""), file=sys.stderr)
+    print(f"finish off: {n[9]} queued puzzles of {', '.join(finish) or 'none'} (under {FINISH_OFF} "
+          f"unhinted each) go first", file=sys.stderr)
     print(f"recent: {n[7] + n[8]} queued puzzles dated in the last year go first "
           f"({n[7]} never annotated)", file=sys.stderr)
-    cut += n[7] + n[8]
+    cut += n[7] + n[8] + n[9]
     print(f"tails: {n[6]} queued puzzles with a few clues due go first (bagged)",
           file=sys.stderr)
     print(f"partly hinted: {n[4]} queued puzzles with some clues hinted go first",
