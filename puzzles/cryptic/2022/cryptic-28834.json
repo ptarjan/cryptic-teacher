@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,66 @@
     "text": "Monkeys with dirty child not right wearing hats",
     "enumeration": "9"
    },
-   "solution": "CAPUCHINS"
+   "solution": "CAPUCHINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Monkeys",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 35,
+       "note": "the hats are worn around the child, so the child's letters sit inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hats",
+       "at": 43,
+       "gives": "CAPS",
+       "note": "caps are hats"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 25,
+         "note": "not right means the R for right is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dirty child",
+         "at": 13,
+         "gives": "URCHIN",
+         "note": "an urchin is a grubby, scruffy child"
+        },
+        {
+         "words": "right",
+         "at": 29,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troop of monkeys accompanied by a grubby youngster in hats.",
+     "walkthrough": "'Not right' looks like a description of the child's behaviour, but it tells you to drop a letter.",
+     "definitionFit": "Capuchins are a genus of small South American primates named for their hooded look."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +107,48 @@
     "text": "Joe in US chasing my dog",
     "enumeration": "5"
    },
-   "solution": "CORGI"
+   "solution": "CORGI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "chasing",
+       "at": 10,
+       "note": "chasing means coming behind, so this piece follows the exclamation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "my",
+       "at": 18,
+       "gives": "COR",
+       "note": "cor is a British exclamation of surprise, like 'my!'"
+      },
+      {
+       "words": "Joe in US",
+       "at": 0,
+       "gives": "GI",
+       "note": "GI Joe is the American private soldier"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American soldier runs after somebody's dog.",
+     "definitionFit": "The corgi is a short-legged Welsh breed, so it is an example of a dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Joe"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +162,35 @@
     "text": "Smooth, like well-oiled locks",
     "enumeration": "7"
    },
-   "solution": "POMADED"
+   "solution": "POMADED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Smooth, like well-oiled locks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Smooth, like well-oiled locks",
+       "at": 0,
+       "note": "locks are hair here, not door fittings, slicked with a scented hair ointment"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Well-oiled locks suggest door locks that turn smoothly; the locks are hair dressed with oil.",
+     "definitionFit": "Pomade is a perfumed hair ointment, so hair dressed with it is sleek and glossy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "locks"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +204,31 @@
     "text": "Could it be grandfather, white-headed — I'm blown away!",
     "enumeration": "5"
    },
-   "solution": "CLOCK"
+   "solution": "CLOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Could it be grandfather",
+      "at": 0,
+      "meaning": "first meaning: a timepiece, a grandfather being a tall case one"
+     },
+     {
+      "text": "white-headed — I'm blown away!",
+      "at": 25,
+      "meaning": "second meaning: the fluffy white seed head of a dandelion, blown away in the children's game"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation reads like an amazed old man; children blow the white seed head of a dandelion to 'tell the time'.",
+     "definitionFit": "The word means both a timepiece, of which a grandfather is a type, and a dandelion's round seed head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grandfather"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +242,59 @@
     "text": "Religious doctor claims one should get injected",
     "enumeration": "7"
    },
-   "solution": "ISLAMIC"
+   "solution": "ISLAMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Religious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "should get injected",
+       "at": 28,
+       "note": "the one is pushed into the rearranged letters like a needle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "doctor",
+         "at": 10,
+         "note": "to doctor is to tamper with or alter, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "claims",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 24,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic insists a patient needs an injection.",
+     "walkthrough": "'Doctor' looks like the medic but is the anagram signal on CLAIMS, with I put in.",
+     "definitionFit": "Islamic describes things belonging to Islam, so it is a particular religious adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +308,67 @@
     "text": "Dropping the lot after club's last game",
     "enumeration": "9"
    },
-   "solution": "STOOLBALL"
+   "solution": "STOOLBALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 17,
+       "note": "this piece comes after the letter from club"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dropping",
+       "at": 0,
+       "gives": "STOOL",
+       "note": "a stool is a dropping, faeces"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 30,
+         "note": "the last of the club is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "club",
+         "at": 23,
+         "gives": "B",
+         "note": "last letter of club"
+        }
+       ]
+      },
+      {
+       "words": "the lot",
+       "at": 9,
+       "gives": "ALL",
+       "note": "all means the lot, everything"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Losing everything after the final stage of a club's match.",
+     "walkthrough": "Stoolball is an old English bat-and-ball game, a forerunner of cricket, still played in Sussex.",
+     "definitionFit": "Stoolball is a team bat-and-ball game, so it is an example of a game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dropping"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +382,46 @@
     "text": "Leader avoiding fresh hazard",
     "enumeration": "4"
    },
-   "solution": "RISK"
+   "solution": "RISK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hazard",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Leader avoiding",
+       "at": 0,
+       "note": "the word loses its leader, its first letter, which is avoided"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fresh",
+       "at": 16,
+       "gives": "BRISK",
+       "note": "a brisk wind is a fresh one"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chief who keeps clear of a new danger.",
+     "walkthrough": "BRISK without its first letter B.",
+     "definitionFit": "A risk is a danger or peril, so the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leader"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +435,67 @@
     "text": "Proves false and won't take son out for tea, we're told",
     "enumeration": "7"
    },
-   "solution": "REFUTES"
+   "solution": "REFUTES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Proves false",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "out for",
+       "at": 32,
+       "note": "the son goes out and the tea comes in his place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "won't take",
+       "at": 17,
+       "gives": "REFUSES",
+       "note": "refuses means won't take"
+      },
+      {
+       "words": "son",
+       "at": 28,
+       "gives": "S"
+      },
+      {
+       "op": "homophone",
+       "spelt": "T",
+       "indicators": [
+        {
+         "text": "we're told",
+         "at": 45,
+         "note": "we're told means heard, so the drink stands for the letter that sounds like it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tea",
+         "at": 40,
+         "gives": "TEA",
+         "note": "the drink tea, spoken, is the letter T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows a claim is untrue and declines to take a son out for tea.",
+     "walkthrough": "The second S of REFUSES is replaced by T, the letter that sounds like tea.",
+     "definitionFit": "To refute an argument is to show that it is wrong, so the verb means proves false."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +509,45 @@
     "text": "Startled schoolmaster forced to speak",
     "enumeration": "9"
    },
-   "solution": "SURPRISED"
+   "solution": "SURPRISED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Startled",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SURPRISED",
+     "indicators": [
+      {
+       "text": "to speak",
+       "at": 29,
+       "note": "spoken aloud, the two words run together into the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "schoolmaster forced",
+       "at": 9,
+       "gives": "SIRPRISED",
+       "note": "sir is a pupil's name for a schoolmaster and prised means forced open"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shocked teacher is made to say something.",
+     "walkthrough": "SIR PRISED, spoken, sounds like the answer.",
+     "definitionFit": "To be surprised is to be taken aback or shocked, which is what startled means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "forced"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +567,49 @@
      }
     ]
    },
-   "solution": "DRUMROLL"
+   "solution": "DRUMROLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Percussionist's effect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "full of",
+       "at": 37,
+       "note": "the amusing word is filled with the drink, so it goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "diverting",
+       "at": 26,
+       "gives": "DROLL",
+       "note": "droll means amusing, diverting"
+      },
+      {
+       "words": "spirit",
+       "at": 45,
+       "gives": "RUM",
+       "note": "rum is a spirit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drummer's flourish is amusing and lively.",
+     "walkthrough": "'Spirit' suggests liveliness in the surface, but it is the drink.",
+     "definitionFit": "A drum roll is the rapid continuous beating a percussionist produces for suspense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +623,52 @@
     "text": "Steer, following ring road to reach city",
     "enumeration": "6"
    },
-   "solution": "OXFORD"
+   "solution": "OXFORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "city",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Steer",
+       "at": 0,
+       "gives": "OX",
+       "note": "a steer is a bullock, an ox"
+      },
+      {
+       "words": "following",
+       "at": 7,
+       "gives": "F",
+       "note": "F is the abbreviation for following, as in page references"
+      },
+      {
+       "words": "ring",
+       "at": 17,
+       "gives": "O",
+       "note": "O is ring-shaped"
+      },
+      {
+       "words": "road",
+       "at": 22,
+       "gives": "RD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Driving by the ring road to get into town.",
+     "definitionFit": "Oxford is an English university city, so it is an example of a city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Steer"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +688,55 @@
      }
     ]
    },
-   "solution": "DIKDIK"
+   "solution": "DIKDIK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Small ruminant or two going west",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "going west",
+       "at": 22,
+       "note": "in an across answer west is leftwards, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Small ruminant",
+         "at": 0,
+         "gives": "KID",
+         "note": "a kid is a young goat, a small cud-chewer"
+        },
+        {
+         "words": "or two",
+         "at": 15,
+         "gives": "KID",
+         "note": "a second of them, so the young goat appears twice"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A little grazing animal, or a couple of them, heading off westwards.",
+     "walkthrough": "Two KIDs side by side, written backwards, give the antelope, itself a small ruminant, so the whole clue is both definition and wordplay.",
+     "definitionFit": "The dik-dik is a tiny African antelope, and antelopes chew the cud."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +750,66 @@
     "text": "Landed on island, in custody of Catholic queen's army",
     "enumeration": "8"
    },
-   "solution": "MILITARY"
+   "solution": "MILITARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "army",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in custody of",
+       "at": 18,
+       "note": "held by the queen, so these letters go inside her name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Catholic queen's",
+       "at": 32,
+       "gives": "MARY",
+       "note": "Mary I of England was the Catholic queen"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 7,
+         "note": "in an across answer, on means placed after, so landed comes after island"
+        }
+       ],
+       "parts": [
+        {
+         "words": "island",
+         "at": 10,
+         "gives": "I"
+        },
+        {
+         "words": "Landed",
+         "at": 0,
+         "gives": "LIT",
+         "note": "lit means landed or alighted, as a bird lit on a branch"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone came ashore on an island and was taken prisoner by a Catholic monarch's soldiers.",
+     "walkthrough": "The Catholic queen is Mary I of England, daughter of Henry VIII.",
+     "definitionFit": "The military as a noun means the armed forces collectively, the soldiery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Landed"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +829,51 @@
      }
     ]
    },
-   "solution": "USEDTO"
+   "solution": "USEDTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Familiar with",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "being dropped off",
+       "at": 28,
+       "note": "the international is let off and leaves the word outside"
+      },
+      {
+       "text": "ground",
+       "at": 54,
+       "note": "ground means crushed and broken up, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "outside",
+       "at": 46
+      },
+      {
+       "words": "international",
+       "at": 14,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreign player is left at the edge of a stadium.",
+     "walkthrough": "OUTSIDE without I leaves OUTSDE, which is rearranged. 'Ground' looks like a sports ground but is the anagram signal.",
+     "definitionFit": "To be used to something is to be accustomed to it, an idiom for familiarity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +893,59 @@
      }
     ]
    },
-   "solution": "SEABREEZE"
+   "solution": "SEABREEZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "blow for Brighton?",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Outsiders to",
+         "at": 0,
+         "note": "the outsiders of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stage",
+         "at": 13,
+         "gives": "SE",
+         "note": "first and last letters of stage"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 33
+      },
+      {
+       "words": "child's play",
+       "at": 19,
+       "gives": "BREEZE",
+       "note": "something easy is child's play, a breeze"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The edges of a stage, a simple show, and a gust on the south coast.",
+     "walkthrough": "Brighton is an English seaside resort; the blow is a wind, not a punch.",
+     "definitionFit": "A sea breeze is a wind off the sea, the sort expected at a seaside town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blow"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +959,54 @@
     "text": "Jesse's father forced niece's submission",
     "enumeration": "9"
    },
-   "solution": "OBEDIENCE"
+   "solution": "OBEDIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "submission",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Jesse's father",
+       "at": 0,
+       "gives": "OBED",
+       "note": "in the Bible Obed was the father of Jesse, King David's father"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "forced",
+         "at": 15,
+         "note": "forced means wrenched out of shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "niece's",
+         "at": 22,
+         "gives": "NIECE",
+         "note": "the word niece, with 's as a link meaning 'is'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patriarch bullies his niece into giving in.",
+     "walkthrough": "Obed, son of Ruth and Boaz, is a biblical figure; the 's after niece reads as 'is'.",
+     "definitionFit": "Obedience is compliance with orders, the act of yielding or submitting to authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forced"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1020,59 @@
     "text": "Most vulgar broadcast coverage of the Oscars",
     "enumeration": "8"
    },
-   "solution": "COARSEST"
+   "solution": "COARSEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most vulgar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 12,
+       "note": "broadcast as scattered, so the letters are spread about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "coverage of",
+         "at": 22,
+         "note": "the covering of a word is its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 34,
+         "gives": "TE",
+         "note": "first and last letters of the"
+        }
+       ]
+      },
+      {
+       "words": "Oscars",
+       "at": 38
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The crudest televised reporting of the Academy Awards.",
+     "walkthrough": "TE (the outside of 'the') joins OSCARS and the eight letters are rearranged.",
+     "definitionFit": "Coarse means crude or rude, so the superlative is a synonym for the most vulgar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1086,42 @@
     "text": "I'm going to manage in style",
     "enumeration": "8"
    },
-   "solution": "FAREWELL"
+   "solution": "FAREWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I'm going",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "manage",
+       "at": 13,
+       "gives": "FARE",
+       "note": "to fare is to get on, manage"
+      },
+      {
+       "words": "in style",
+       "at": 20,
+       "gives": "WELL",
+       "note": "well can mean in style or properly, as in living well"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone announcing they will cope with panache.",
+     "walkthrough": "The definition is the words a departing person says.",
+     "definitionFit": "Farewell is a parting word, said when leaving, so it stands for an announcement of departure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1135,72 @@
     "text": "Passes England's opener, run out close to stumps",
     "enumeration": "7"
    },
-   "solution": "ELAPSES"
+   "solution": "ELAPSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Passes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opener",
+         "at": 17,
+         "note": "a word's opener is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "England's",
+         "at": 7,
+         "gives": "E",
+         "note": "first letter of England's"
+        }
+       ]
+      },
+      {
+       "words": "run out",
+       "at": 25,
+       "gives": "LAPSE",
+       "note": "to lapse is to run out or expire"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 33,
+         "note": "the close of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stumps",
+         "at": 42,
+         "gives": "S",
+         "note": "last letter of stumps"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "England's opening batsman is run out just before the end of play.",
+     "walkthrough": "The cricket words are scenery: stumps is the close of a day's play.",
+     "definitionFit": "Time that elapses passes or goes by, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1214,43 @@
     "text": "Patchy skin condition spreading into leg",
     "enumeration": "7"
    },
-   "solution": "LENTIGO"
+   "solution": "LENTIGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Patchy skin condition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spreading",
+       "at": 22,
+       "note": "the letters spread out and reform in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "into",
+       "at": 32
+      },
+      {
+       "words": "leg",
+       "at": 37
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rash creeping into someone's leg.",
+     "definitionFit": "Lentigo is a medical term for a small brown spot on the skin, a freckle-like patch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1264,58 @@
     "text": "University in country area yielding capital in Africa",
     "enumeration": "6"
    },
-   "solution": "LUANDA"
+   "solution": "LUANDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "capital in Africa",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 11,
+         "note": "the university sits inside the country"
+        }
+       ],
+       "parts": [
+        {
+         "words": "country",
+         "at": 14,
+         "gives": "LAND",
+         "note": "a land is a country"
+        },
+        {
+         "words": "University",
+         "at": 0,
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "words": "area",
+       "at": 22,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college set in rural land produces an African capital city.",
+     "walkthrough": "U sits in LAND, then A follows.",
+     "definitionFit": "Luanda is the capital city of Angola, on Africa's Atlantic coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1329,67 @@
     "text": "Country fair Jack missed in song",
     "enumeration": "7"
    },
-   "solution": "AUSTRIA"
+   "solution": "AUSTRIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "these letters go inside the song"
+      }
+     ],
+     "parts": [
+      {
+       "words": "song",
+       "at": 28,
+       "gives": "ARIA",
+       "note": "an aria is a song in an opera"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missed",
+         "at": 18,
+         "note": "Jack is missing, so its letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fair",
+         "at": 8,
+         "gives": "JUST",
+         "note": "just means fair"
+        },
+        {
+         "words": "Jack",
+         "at": 13,
+         "gives": "J",
+         "note": "J is the abbreviation for jack, as in cards"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A national fair where Jack was absent from the singing.",
+     "walkthrough": "JUST without J leaves UST, which goes into ARIA.",
+     "definitionFit": "Austria is a nation in central Europe, so it is an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1403,49 @@
     "text": "Making response, Charlie moves to the front",
     "enumeration": "8"
    },
-   "solution": "CREATION"
+   "solution": "CREATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Making",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "moves to the front",
+       "at": 25,
+       "note": "the letter for Charlie is shifted from its place up to the start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "response",
+       "at": 7,
+       "gives": "REACTION",
+       "note": "a reaction is a response"
+      },
+      {
+       "words": "Charlie",
+       "at": 17,
+       "gives": "C",
+       "note": "C is Charlie in the radio alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reply in which someone called Charlie steps forward.",
+     "walkthrough": "The C in the middle of REACTION is lifted to the start.",
+     "definitionFit": "Creation is the act of making or producing something, as a noun synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1459,45 @@
     "text": "Post a second notice",
     "enumeration": "6"
    },
-   "solution": "ASSIGN"
+   "solution": "ASSIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Post",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 5
+      },
+      {
+       "words": "second",
+       "at": 7,
+       "gives": "S"
+      },
+      {
+       "words": "notice",
+       "at": 14,
+       "gives": "SIGN",
+       "note": "a sign is a notice put up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Put up one more notice.",
+     "walkthrough": "'Post' looks like putting up a notice, but it means appoint to a job.",
+     "definitionFit": "To post someone somewhere is to assign or appoint them to that station."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Post"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1511,54 @@
     "text": "Generous porter letting politician in",
     "enumeration": "5"
    },
-   "solution": "AMPLE"
+   "solution": "AMPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Generous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "letting",
+       "at": 16,
+       "note": "letting together with the closing in says the beer admits the politician"
+      },
+      {
+       "text": "in",
+       "at": 35,
+       "note": "with letting, says the politician is let inside the beer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "porter",
+       "at": 9,
+       "gives": "ALE",
+       "note": "porter is a dark beer, a kind of ale"
+      },
+      {
+       "words": "politician",
+       "at": 24,
+       "gives": "MP",
+       "note": "an MP is a Member of Parliament"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kindly doorman admits a politician.",
+     "walkthrough": "'Porter' looks like the doorman but is the drink.",
+     "definitionFit": "Ample means plentiful or more than enough, as a generous helping is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "porter"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1572,41 @@
     "text": "Grand people's prayer",
     "enumeration": "5"
    },
-   "solution": "GRACE"
+   "solution": "GRACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prayer",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Grand",
+       "at": 0,
+       "gives": "G",
+       "note": "G is the slang abbreviation for a grand, a thousand"
+      },
+      {
+       "words": "people",
+       "at": 6,
+       "gives": "RACE",
+       "note": "a race is a people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grand family's devotions.",
+     "definitionFit": "Grace is the short prayer of thanks said before a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grand"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1620,35 @@
     "text": "Famous disabled London columnist?",
     "enumeration": "6"
    },
-   "solution": "NELSON"
+   "solution": "NELSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Famous disabled London columnist?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Famous disabled London columnist?",
+       "at": 0,
+       "note": "the admiral lost an arm and an eye, and his statue stands on a column in Trafalgar Square"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Columnist' suggests a newspaper writer; here it is someone standing on top of a column.",
+     "definitionFit": "Horatio Nelson, the one-armed admiral, tops Nelson's Column in central London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "columnist"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1662,61 @@
     "text": "Army's initial breaches endanger sovereign",
     "enumeration": "8"
    },
-   "solution": "IMPERIAL"
+   "solution": "IMPERIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sovereign",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaches",
+       "at": 15,
+       "note": "the letter breaks into the word, so it goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "endanger",
+       "at": 24,
+       "gives": "IMPERIL",
+       "note": "to imperil is to endanger"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initial",
+         "at": 7,
+         "note": "the initial of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Army's",
+         "at": 0,
+         "gives": "A",
+         "note": "first letter of Army's"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An invading force's leading attack threatens a monarch.",
+     "walkthrough": "A goes inside IMPERIL.",
+     "definitionFit": "Imperial means relating to an emperor, and so having supreme royal authority, as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaches"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1730,42 @@
     "text": "Stephen Spender's caged birds",
     "enumeration": "4"
    },
-   "solution": "HENS"
+   "solution": "HENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "birds",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "caged",
+       "at": 18,
+       "note": "the answer is shut inside the poet's name, as birds in a cage"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stephen Spender's",
+       "at": 0,
+       "gives": "HENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The poet Stephen Spender kept birds in cages.",
+     "walkthrough": "Stephen Spender was an English poet; the letters run across his two names.",
+     "definitionFit": "Hens are female birds, especially domestic fowl, so they are an example of birds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caged"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1779,60 @@
     "text": "Clear Devon waters hosting unique rodent",
     "enumeration": "9"
    },
-   "solution": "EXONERATE"
+   "solution": "EXONERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hosting",
+       "at": 19,
+       "note": "the river plays host, holding the other letters within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Devon waters",
+       "at": 6,
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon, in south-west England"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "unique",
+         "at": 27,
+         "gives": "ONE",
+         "note": "one can mean unique, the only one"
+        },
+        {
+         "words": "rodent",
+         "at": 34,
+         "gives": "RAT",
+         "note": "a rat is a rodent"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Devon's rivers are free of a rare rodent.",
+     "walkthrough": "'Clear' looks like a description of clean water, but it is the definition, a verb.",
+     "definitionFit": "To exonerate is to clear someone of blame, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clear"
+    }
+   }
   }
  ]
 }
