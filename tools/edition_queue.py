@@ -705,9 +705,10 @@ def year_evidence(unit):
     year = (unit.get("date") or "")[:4]
     if unit.get("paper") != "gale" or not year.isdigit():
         return False
-    if unit["reason"] == THREE_COLUMNS:
+    reason = unit.get("reason")
+    if reason == THREE_COLUMNS:
         return THREE_COLUMNS_YEARS[0] <= int(year) <= THREE_COLUMNS_YEARS[1]
-    return (unit["reason"] == "titles changed" and NEW_TITLE_YEARS[0] <= int(year) <= NEW_TITLE_YEARS[1]
+    return (reason == "titles changed" and NEW_TITLE_YEARS[0] <= int(year) <= NEW_TITLE_YEARS[1]
             and int(year) not in NEW_TITLE_SKIP_YEARS)
 
 
