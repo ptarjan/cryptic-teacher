@@ -1158,6 +1158,13 @@ def files_likely_tier(rank, unit):
     reason = unit.get("reason") or ""
     if rank <= 1 or fa.likely_gain(unit) > 0:
         return 0
+    # Paul 10-22: 2007's 312 short third-column pages and 2000's ~208 "no title found" ones were planned but
+    # stood at reads 4,534+ of 6,222 (tier 1, alternated one for one with FT never-read work, behind ~4,500
+    # older "solution short" rereads): no 2007 read had started. Each is concrete evidence of a page that
+    # can file, so they (and the scans they wait on, "fix") go in the first tier with the likely filers,
+    # newest first among them.
+    if unit.get("fix") or year_evidence(unit) or reason == fa.NO_TITLE_RESCAN:
+        return 0
     if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
         return 1
     return 2
