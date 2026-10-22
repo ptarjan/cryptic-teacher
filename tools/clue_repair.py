@@ -360,20 +360,28 @@ def count_digits(enum):
     return [int(n) for n in re.findall(r"\d+", enum or "")]
 
 
-def trailing_count(text, enum):
+def trailing_count(text, enum, lights=None):
     """`text` without the figures of its own count left after its last
     words ("idle gossip 9.", "neat study 2-5."), when they are the clue's
     count as the light has it. Only figures equal to the enumeration's
     parts or its total, and not after a word a reference follows ("see 9",
     "zero and 5"), so a date or a number the clue is about is not cut."""
-    m = re.search(r"(?<=[A-Za-z?!,;])\s+(\d{1,2}(?:\s?[-,.]\s?\d{1,2})*)[\s.,;:]*$", text)
+    m = re.search(r"(?<=[A-Za-z?!,;])\s+(\d{1,3}(?:\s?[-,.]\s?\d{1,2})*)[\s.,;:]*$", text)
     if not m or not enum:
         return text
     got = count_digits(m.group(1))
     want = count_digits(enum)
     # A multi-part count may have a figure misread ("2-5" for 2-3).
     slipped = len(got) == len(want) > 1 and sum(a != b for a, b in zip(got, want)) == 1
-    if got != want and got != [sum(want)] and not slipped:
+    # The count with a bar glued to it ("robbing 81", "language 151."). Three
+    # figures are no clue number; two are one unless `lights` (the puzzle's
+    # clue numbers) says no light has that number ("about 18" is a reference).
+    figures = m.group(1)
+    specked = clue_text.count_specked(figures, sum(want)) and (
+        len(figures) == 3 or lights is not None and int(figures) not in lights)
+    if len(figures) == 3 and figures.isdigit() and not specked:
+        return text
+    if got != want and got != [sum(want)] and not slipped and not specked:
         return text
     before = re.findall(r"[A-Za-z]+", text[:m.start()])
     if before and before[-1].lower() in REFERS:
@@ -453,6 +461,24 @@ def mend_words(text, is_word=None, uses=None):
     return " ".join(out)
 
 
+def stub_before_word(text, is_word):
+    """`text` without a piece of a word the OCR left in front of the whole
+    word: a stub of two to four letters that is no word, then the lexicon word
+    it begins ("a tem temporary measure", "nov novice"). The stub must be a
+    lower-case run, the word at least three letters longer, and a French or
+    other foreign word the lexicon lacks ("de deux") is not a word to keep."""
+    words = text.split(" ")
+    out = []
+    for i, w in enumerate(words):
+        nxt = words[i + 1] if i + 1 < len(words) else ""
+        bare = nxt.rstrip(".,;:!?")
+        if 2 <= len(w) <= 4 and w.isalpha() and w.islower() and not is_word(w) \
+                and bare.isalpha() and bare.startswith(w) and len(bare) >= len(w) + 3 and is_word(bare):
+            continue
+        out.append(w)
+    return " ".join(out)
+
+
 def leaked_number(text, lid):
     """`text`, one reading's clue for light `lid` ("22-down"), without the
     figures of a number the reader ran into it: its own number misread or
@@ -465,24 +491,28 @@ def leaked_number(text, lid):
     return text[m.end():]
 
 
-def mend_text(text, enum=None, is_word=None, uses=None, words=True):
+def mend_text(text, enum=None, is_word=None, uses=None, words=True, lights=None):
     """One clue's text with the slips of its own reading mended, each from
     the clue alone (see the section above). `enum`: the light's printed
     count, which tells the figures that are the count from those that are
-    not; `words`: also the lexicon's mends (mend_words, lead_speck)."""
+    not; `words`: also the lexicon's mends (mend_words, lead_speck);
+    `lights`: the puzzle's clue numbers, without which a count with a bar
+    glued to it ("robbing 81") is cut only when it is three figures."""
     import punctuation
-    t = punctuation.mended(text or "")
+    t = punctuation.mended(clue_text.stray_underscore(text or ""))
     t = re.sub(r"^[0-9]{1,2}(?=[A-Z][a-z])", "", t)  # the clue's number glued on
+    t = clue_text.speck_figures(t)
     # A blank the clue prints as a run of dashes, set against a word with no space
     # ("in a——outworn", Gale 1955-11-22's 22 down): the dashes are the blank, not a mark in a word.
     t = re.sub(r"(?<=[A-Za-z])(—{2,})(?=[A-Za-z])", r" \1 ", t)
     t = re.sub(r"\s{2,}", " ", t).strip()
     t = bled_count(t, enum)
-    t = trailing_count(t, enum)
+    t = trailing_count(t, enum, lights)
     if words:
         if is_word is None:
             is_word, uses = lexicon()
         t = lead_speck(t, is_word, uses)
+        t = stub_before_word(t, is_word)
         t = mend_words(t, is_word, uses)
     return t
 

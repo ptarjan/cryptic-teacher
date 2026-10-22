@@ -853,6 +853,8 @@ LAYOUT = [
     ("fetching", "tools/test_push_batch.sh", "does tools/push_puzzle_commit.sh batch pushes that come inside its window, and does the batch always reach origin, with every commit kept as its own?"),
     ("fetching", "tools/refusal_replay.py", "replay the wordplay refusals annotation runs hit, through today's evaluator"),
     ("fetching", "tools/test_refusal_replay.py", "does the wake's refusal section replay, group, count retries and name a cause?"),
+    ("fetching", "tools/learn_postproc.py", "mine the clue-text rewrites in \"Update ...\" commits for post-processor rules"),
+    ("fetching", "tools/test_learn_postproc.py", "does learn_postproc class each clue rewrite and score a rule's hits, worse and fixpoint breaks?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
