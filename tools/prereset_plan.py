@@ -1079,6 +1079,16 @@ def small_self_test():
         print(f"FAIL head_of_queue finish off pins {pinned} at {stages} (want {want})",
               file=sys.stderr)
         bad += 1
+    # Paul 10-22: a finish-off puzzle on the failure ledger (tls-6) or without
+    # answers (tls-4) is not lifted; it stays where the normal ordering puts it
+    xf = frows + [_dated("tls-4", "2019-01-01")]
+    xf[-1]["hasSolutions"] = False
+    _, pinned, stages = head_of_queue(["cryptic-1", "tls-5", "tls-6", "book-7", "tls-4"], [], xf,
+                                      finish=["tls"], tried={"tls-6"})
+    if pinned[:1] != ["tls-5"] or stages[9] != 1 or "tls-4" in pinned[:1] or "tls-6" in pinned[:1]:
+        print(f"FAIL head_of_queue finish off lifts {pinned} at {stages} (want tls-5 only)",
+              file=sys.stderr)
+        bad += 1
     # the small series go right behind the cut-offs, ahead of showcase and the
     # 10 oldest, series by series, newest first inside each
     rows = [_dated("cryptic-1", "2026-01-01"), _dated("cryptic-2", "2026-01-02"),
@@ -1958,6 +1968,14 @@ def finish_off_series(days=None):
     return [name for left, name in ranked if 0 < left < FINISH_OFF]
 
 
+def tried_before():
+    """Ids the annotate or solve ledger (tools/failed_inputs.py, the one backlog()
+    is given) holds out on the puzzle as it is now."""
+    import failed_inputs
+    data = failed_inputs.load()
+    return set(failed_inputs.skipped(data, "annotate")) | set(failed_inputs.skipped(data, "solve"))
+
+
 def small_first(queue, pinned, rows, small):
     """pinned, then the queue's puzzles in the series of small (small_series),
     series by series in that order, queue order inside each."""
@@ -2053,7 +2071,7 @@ def cold_row(row, kept=False):
     return bool(row) and not kept and not row.get("hasSolutions") and not row.get("partial")
 
 
-def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(), finish=()):
+def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(), finish=(), tried=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
     (cut off by a lockout), then the hand requests (asked, requested()), then
     the series to finish off (finish, finish_off_series(); Paul 10-22: "Can we
@@ -2079,7 +2097,12 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(),
     pinned = requested_first(queue, list(pinned), list(asked))
     asked_n = len(pinned) - len(set(pinned) - set(asked)) if asked else 0
     asked_end = len(pinned)
-    pinned = small_first(cryptic, pinned, rows, finish)
+    # Paul 10-22: "don't add the ones that we tried before or see unlikely to
+    # work": only an answered puzzle with no annotate or solve failure on record
+    # is lifted; the rest stay where the ordering below puts them.
+    liftable = [pid for pid in cryptic if pid not in tried
+                and by_id.get(pid, {}).get("hasSolutions")]
+    pinned = small_first(liftable, pinned, rows, finish)
     base = len(pinned)
     pinned, recent_new, recent_redo = recent_first(
         [pid for pid in queue if pid not in straight], pinned, rows)
@@ -2195,7 +2218,8 @@ def cover_first(pinned):
     rows = rows + clues_only_rows({r["id"] for r in rows})
     wanted = best_effort("showcase", showcase_wanted, set(), 0.4)
     queue, pinned, n = head_of_queue(list(dict.fromkeys(sys.stdin.read().split())), pinned, rows,
-                                     wanted, tagged_puzzles(), small, requested(rows), finish)
+                                     wanted, tagged_puzzles(), small, requested(rows), finish,
+                                     tried_before())
     print(f"requested: {n[5]} queued puzzles on tools/data/burn_requests.json go first"
           + (f" ({', '.join(pinned[cut:cut + n[5]])})" if n[5] else ""), file=sys.stderr)
     print(f"finish off: {n[9]} queued puzzles of {', '.join(finish) or 'none'} (under {FINISH_OFF} "
