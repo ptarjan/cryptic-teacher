@@ -119,9 +119,10 @@ shows, so you write none of those. Worked annotations close this file.
   charade is in answer order whatever the clue's order: "after", "under" are indicators on the `+`.
 - **Notes** are keyed by the words as written in `wp` or `def` (a repeat `#2`, a bare
   piece by its letters). Every indicator and every leaf with letters gets one, in the
-  FIRST write: synonyms (`[depressed]SAD`: "depressed means sad"), letter picks
-  (`[the]T`: "first letter of the") and names too; a missing leaf note is the commonest
-  failure of the first check. Only a leaf that is its own letters (`[a]A`) goes without. A
+  FIRST write: synonyms (`[depressed]SAD`: "depressed means sad"), abbreviations
+  (`[small road]RD`) and names too; a missing leaf note is the commonest
+  failure of the first check. Only a leaf that is its own letters (`[a]A`) goes without,
+  and a pick under first/last/alt/hid (`first<leader of>([the])`) needs a note on its indicator only: the pick's own is written for you. A
   definition gets one only where it disagrees with the answer in number or part of
   speech; in a double definition each definition's note says what that sense means.
 - A **double definition** is two `def`s and no `wp`. A **cryptic definition** is
@@ -230,7 +231,7 @@ Four first runs in ten fail, most often on these rules. Get them right first tim
 - A cryptic definition's `cd()` has exactly one leaf (the clue words), no letters, and
   no note that spells the answer.
 - `features.misdirectedWord` is one word, copied exactly as printed in the clue.
-- A homophone or Spoonerism names the word said aloud on ONE leaf, or the first check
+- A homophone, or a Spoonerism that swaps by sound, names the word said aloud on ONE leaf, or the first check
   fails ("no block says what is said aloud", the commonest first failure). `sound<ind>([clue
   words]HEARD, SPELT)`: `sound` over a charade of side-by-side leaves (`[a]X + [b]Y`) is merged
   into one leaf `[a b]XY` for you; over a step (`first`, `del`, `hid`) write the step's letters as
@@ -274,9 +275,13 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           fodder's pieces, stored as the anagram's parts)
     op<indicator>(...)    an operation; <indicator words> follow the op they
                           signal, one <...> per phrase; `+<under>` is an
-                          indicator on the charade
+                          indicator on the charade. Every op but + needs its
+                          indicator: no clue word signals it, the op is not there
     ana(x)                anagram of x's letters (the answer slice decides order);
-                          ana(x + y + z) shuffles several pieces as one pool
+                          ana(x + y + z) shuffles several pieces as one pool of
+                          the clue's own words. A single letter or a pick at the
+                          answer's start or end, an abbreviation or a synonym, is
+                          spelt beside it, ana(x) + N, never scrambled in
     rev(x)                x backwards; when its indicator names a stretch (last pair
                           of, turning tail, first three, half) only that stretch
                           of 2+ letters, at that end and that size, is turned:
@@ -304,10 +309,12 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           ends, first and last, alternate letters, every
                           2nd/3rd, the nth; x is the words picked FROM, never
                           the pick: alt<regularly>([most]) for MS, not
-                          ([most]MS); one indicator over a list is one op
-                          with a part per word, each giving its pick:
-                          outer<fringes of>([Argive], [Greece], [Anatolian])
-    cd([words])           cryptic definition: the words, no letters
+                          ([most]MS); the pick needs no note; one indicator over
+                          a list is one op with a part per word, each giving its
+                          pick: outer<fringes of>([Argive], [Greece], [Anatolian])
+    cd([words])           cryptic definition: the words, no letters. A wp that
+                          is one leaf is refused; with no mechanism the clue is
+                          a cd or a double definition
     comp(x, y)            composite (subtractive) anagram: the letters of x are
                           the answer plus the letters of y, rearranged, so the
                           answer is an anagram of x with y taken out:
