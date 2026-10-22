@@ -22,6 +22,9 @@
   "date": "2022-04-04",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,32 @@
     "text": "Monument featured in newspaper article?",
     "enumeration": "6"
    },
-   "solution": "COLUMN"
+   "solution": "COLUMN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Monument",
+      "at": 0,
+      "meaning": "first meaning: a tall pillar raised as a memorial, like Nelson's"
+     },
+     {
+      "text": "newspaper article",
+      "at": 21,
+      "meaning": "second meaning: a regular piece written for a newspaper"
+     }
+    ],
+    "explanation": {
+     "surface": "A monument gets a write-up in the paper.",
+     "walkthrough": "The question mark flags that both halves are definitions of one word rather than a story about a monument in the news.",
+     "definitionFit": "The word names both a memorial pillar and a regular piece of journalism in a newspaper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "featured"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +77,49 @@
     "text": "Horse has groom removing marks",
     "enumeration": "3"
    },
-   "solution": "COB"
+   "solution": "COB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removing",
+       "at": 16,
+       "note": "removing says the following letter is taken out of the grooming word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "groom",
+       "at": 10,
+       "gives": "COMB",
+       "note": "to groom hair is to comb it"
+      },
+      {
+       "words": "marks",
+       "at": 25,
+       "gives": "M",
+       "note": "M is the abbreviation for marks, the old German currency"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse owner's stablehand grooms away the marks on its coat.",
+     "walkthrough": "'removing' takes M (marks) out of COMB.",
+     "definitionFit": "A cob is a sturdy, short-legged breed type of riding horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "marks"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +133,58 @@
     "text": "Fine material right for Queen to wear — it's glossy",
     "enumeration": "7"
    },
-   "solution": "LACQUER"
+   "solution": "LACQUER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's glossy",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to wear",
+         "at": 30,
+         "note": "to wear means the material and right put on, i.e. around, the Queen's letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fine material",
+         "at": 0,
+         "gives": "LACE",
+         "note": "lace is a fine open fabric"
+        },
+        {
+         "words": "Queen",
+         "at": 24,
+         "gives": "QU"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 14,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine fabric suitable for royalty is described as shiny.",
+     "walkthrough": "QU as a short form of Queen is less familiar than ER or R; 'for' is just a link here.",
+     "definitionFit": "Lacquer is a varnish that dries to a hard shiny finish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wear"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +198,45 @@
     "text": "Wicked deeds of some nursemaid being naughty",
     "enumeration": "13"
    },
-   "solution": "MISDEMEANOURS"
+   "solution": "MISDEMEANOURS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wicked deeds",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "being naughty",
+       "at": 31,
+       "note": "naughty behaviour is unruly, so the letters of the two words misbehave into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some",
+       "at": 16
+      },
+      {
+       "words": "nursemaid",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nanny's misbehaviour is listed as a catalogue of bad acts.",
+     "walkthrough": "The thirteen letters of SOME and NURSEMAID rearrange exactly.",
+     "definitionFit": "Misdemeanours are minor wrongdoings or offences, a mild sense of wicked acts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "naughty"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +250,46 @@
     "text": "Showing sign of injury, having lost heart, being frightened",
     "enumeration": "6"
    },
-   "solution": "SCARED"
+   "solution": "SCARED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "frightened",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having lost heart",
+       "at": 24,
+       "note": "heart is the central letter, so the middle letter of the seven-letter word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Showing sign of injury",
+       "at": 0,
+       "gives": "SCARRED",
+       "note": "skin marked by a healed wound is scarred"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wounded and dispirited is now afraid.",
+     "walkthrough": "'having lost heart' drops the middle R of SCARRED; 'being' is a link before the definition.",
+     "definitionFit": "Scared is a plain synonym for afraid or alarmed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +303,30 @@
     "text": "Thought to show respect for others?",
     "enumeration": "13"
    },
-   "solution": "CONSIDERATION"
+   "solution": "CONSIDERATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thought",
+      "at": 0,
+      "meaning": "first meaning: careful reflection on a matter"
+     },
+     {
+      "text": "respect for others",
+      "at": 16,
+      "meaning": "second meaning: thoughtfulness about other people's feelings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark hints that 'Thought' and 'respect for others' are two separate senses of one word.",
+     "definitionFit": "The word means both deliberation before deciding and kindly regard for the needs of other people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "show"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +340,31 @@
     "text": "Type associated with Catholic Church?",
     "enumeration": "5"
    },
-   "solution": "ROMAN"
+   "solution": "ROMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Type",
+      "at": 0,
+      "meaning": "first meaning: the ordinary upright style of printing type, as opposed to italic"
+     },
+     {
+      "text": "associated with Catholic Church",
+      "at": 5,
+      "meaning": "second meaning: the ... Catholic Church is centred on Rome"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Type' looks like 'sort', but it is printer's type.",
+     "definitionFit": "Roman names upright printed lettering and also describes the Church headed by the Pope in Rome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Type"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +378,45 @@
     "text": "Ado with eldest abused, made very unhappy",
     "enumeration": "9"
    },
-   "solution": "DESOLATED"
+   "solution": "DESOLATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "made very unhappy",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "abused",
+       "at": 16,
+       "note": "abused means mistreated, so the letters are knocked about into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ado",
+       "at": 0
+      },
+      {
+       "words": "eldest",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fuss in which the oldest child is mistreated leaves someone miserable.",
+     "walkthrough": "The letters of ADO and ELDEST together are rearranged.",
+     "definitionFit": "Desolated means overwhelmed with grief or misery, deeply wretched."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abused"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +430,32 @@
     "text": "County briefly in the money",
     "enumeration": "5"
    },
-   "solution": "BUCKS"
+   "solution": "BUCKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "County briefly",
+      "at": 0,
+      "meaning": "first meaning: the short form of Buckinghamshire, an English county north-west of London"
+     },
+     {
+      "text": "the money",
+      "at": 18,
+      "meaning": "second meaning: slang for dollars, money"
+     }
+    ],
+    "explanation": {
+     "surface": "A wealthy English shire is said to be rolling in cash.",
+     "walkthrough": "Buckinghamshire is a home county west of London, usually shortened to Bucks; 'in' is just a link.",
+     "definitionFit": "The word is the standard short name for an English shire and also slang for dollars or cash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "briefly"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +469,59 @@
     "text": "Mum's after awfully nice places of entertainment",
     "enumeration": "7"
    },
-   "solution": "CINEMAS"
+   "solution": "CINEMAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "places of entertainment",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 6,
+       "note": "after puts the mother's letters following the jumbled word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "at": 12,
+         "note": "awfully suggests something done badly, so the letters of nice are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nice",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "Mum's",
+       "at": 0,
+       "gives": "MAS",
+       "note": "Mum is MA, and the 's adds S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother follows on to some very pleasant venues.",
+     "walkthrough": "'awfully' reads as an intensifier for 'nice', but it signals the jumble.",
+     "definitionFit": "Cinemas are venues where people go to watch films for amusement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "awfully"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +535,46 @@
     "text": "Bird that's top, not bottom",
     "enumeration": "4"
    },
-   "solution": "CROW"
+   "solution": "CROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not bottom",
+       "at": 17,
+       "note": "in a down entry the last letter is the bottom one, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "top",
+       "at": 12,
+       "gives": "CROWN",
+       "note": "the crown is the top of the head or of a hill"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird that rules the roost, never the lowest.",
+     "walkthrough": "'not bottom' removes the last letter, N, from CROWN.",
+     "definitionFit": "The crow is a large black member of the corvid family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +588,42 @@
     "text": "Wild animal captured by Magnus",
     "enumeration": "3"
    },
-   "solution": "GNU"
+   "solution": "GNU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wild animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "captured by",
+       "at": 12,
+       "note": "captured by means the answer is held inside the name that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Magnus",
+       "at": 24,
+       "gives": "GNU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beast is caught by a man called Magnus.",
+     "walkthrough": "The animal sits inside the name: maGNUs.",
+     "definitionFit": "The gnu, or wildebeest, is an African antelope that lives wild on the plains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "captured"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +637,58 @@
     "text": "Soldier in terrible danger, one with little sign of hesitation",
     "enumeration": "9"
    },
-   "solution": "GRENADIER"
+   "solution": "GRENADIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Soldier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "at": 11,
+         "note": "terrible suggests something wrecked, so the letters of danger are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "danger",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 28,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "little sign of hesitation",
+       "at": 37,
+       "gives": "ER",
+       "note": "er is the little sound made when hesitating"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier, facing grave peril, barely hesitates.",
+     "walkthrough": "'in' and 'with' are just links joining the pieces.",
+     "definitionFit": "A grenadier is an infantryman, originally one who threw grenades, now a Guards regiment member."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terrible"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +702,51 @@
     "text": "Eastern movement has a learner aroused?",
     "enumeration": "9"
    },
-   "solution": "EMOTIONAL"
+   "solution": "EMOTIONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "aroused?",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Eastern",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "movement",
+       "at": 8,
+       "gives": "MOTION",
+       "note": "motion means movement"
+      },
+      {
+       "words": "a",
+       "at": 21
+      },
+      {
+       "words": "learner",
+       "at": 23,
+       "gives": "L",
+       "note": "L is for learner, as on a British learner driver's L-plate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Oriental exercise routine excites a student.",
+     "walkthrough": "The surface suggests a martial art like tai chi; 'aroused' is the definition, its question mark flagging a slightly loose fit.",
+     "definitionFit": "Someone emotional has their feelings stirred up, which is one way of being moved or excited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +760,49 @@
     "text": "The Queen entertaining a composer, a moneymaker",
     "enumeration": "6"
    },
-   "solution": "EARNER"
+   "solution": "EARNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "moneymaker",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 10,
+       "note": "to entertain a guest is to hold them, so the composer goes inside the Queen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The Queen",
+       "at": 0,
+       "gives": "ER",
+       "note": "ER is Elizabeth Regina, the late Queen's cipher"
+      },
+      {
+       "words": "composer",
+       "at": 25,
+       "gives": "ARNE",
+       "note": "Thomas Arne was the English composer of Rule, Britannia!"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Royalty plays host to a musician who brings in cash.",
+     "walkthrough": "ER = Elizabeth Regina; Thomas Arne, an 18th-century English composer, goes inside it.",
+     "definitionFit": "An earner is something, like a job or product, that brings in income."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +816,42 @@
     "text": "Some Parisian with big belly, a tyrant",
     "enumeration": "6"
    },
-   "solution": "DESPOT"
+   "solution": "DESPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tyrant",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Some Parisian",
+       "at": 0,
+       "gives": "DES",
+       "note": "des is French for some, as a Parisian would say it"
+      },
+      {
+       "words": "big belly",
+       "at": 19,
+       "gives": "POT",
+       "note": "a pot is a paunch or pot belly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paunchy Frenchman is an oppressor.",
+     "walkthrough": "'Some Parisian' points at French: des is the French word for 'some'.",
+     "definitionFit": "A despot is a ruler with absolute, often cruel, power."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +865,61 @@
     "text": "Joker gets better around end of performances",
     "enumeration": "7"
    },
-   "solution": "PUNSTER"
+   "solution": "PUNSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Joker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 18,
+       "note": "around puts the gambler's letters on either side of the picked letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "better",
+       "at": 11,
+       "gives": "PUNTER",
+       "note": "a better here is one who bets, a punter"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 25,
+         "note": "end of picks the final letter of performances"
+        }
+       ],
+       "parts": [
+        {
+         "words": "performances",
+         "at": 32,
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian improves over the run of shows.",
+     "walkthrough": "'better' reads as 'improves' but is someone who bets: PUNTER goes around S, the last letter of performances.",
+     "definitionFit": "A punster is someone given to wordplay jokes, a teller of puns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +933,44 @@
     "text": "Sort of school greeting being heard",
     "enumeration": "4"
    },
-   "solution": "HIGH"
+   "solution": "HIGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sort of school",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HIGH",
+     "indicators": [
+      {
+       "text": "being heard",
+       "at": 24,
+       "note": "being heard means the greeting is spoken, giving a word that sounds the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "greeting",
+       "at": 15,
+       "gives": "HI",
+       "note": "hi is a casual greeting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school is known for its spoken welcome.",
+     "walkthrough": "HI said aloud sounds like the answer.",
+     "definitionFit": "A high school is a secondary school, so the word describes a kind of school."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "greeting"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +984,53 @@
     "text": "A right fellow to have in a country",
     "enumeration": "9"
    },
-   "solution": "ARGENTINA"
+   "solution": "ARGENTINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "country",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "right",
+       "at": 2,
+       "gives": "R"
+      },
+      {
+       "words": "fellow",
+       "at": 8,
+       "gives": "GENT",
+       "note": "a gent is a gentleman, a fellow"
+      },
+      {
+       "words": "in",
+       "at": 23
+      },
+      {
+       "words": "a",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decent chap would be welcome in some nation.",
+     "walkthrough": "'in' looks like a container signal, but here the pieces simply follow one another.",
+     "definitionFit": "Argentina is a nation in South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1050,41 @@
      }
     ]
    },
-   "solution": "GETUP"
+   "solution": "GETUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a set of clothing",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Obtain",
+       "at": 0,
+       "gives": "GET",
+       "note": "to obtain is to get"
+      },
+      {
+       "words": "at university",
+       "at": 7,
+       "gives": "UP",
+       "note": "up means in residence at university, as in up at Oxford"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Buy a whole outfit while studying.",
+     "walkthrough": "In British usage, a student is 'up' at university when in residence.",
+     "definitionFit": "A get-up is an outfit, especially an unusual or elaborate one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1098,43 @@
     "text": "Refusal by daughter to give sign of agreement?",
     "enumeration": "3"
    },
-   "solution": "NOD"
+   "solution": "NOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sign of agreement?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Refusal",
+       "at": 0,
+       "gives": "NO",
+       "note": "no is a refusal"
+      },
+      {
+       "words": "daughter",
+       "at": 11,
+       "gives": "D",
+       "note": "D is the abbreviation for daughter, as in family trees"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's refusal is oddly taken as consent.",
+     "walkthrough": "The joke is that a 'no' becomes a sign of 'yes'; the question mark flags this.",
+     "definitionFit": "A nod of the head shows assent or approval."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Refusal"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1154,47 @@
      }
     ]
    },
-   "solution": "INTRUTH"
+   "solution": "INTRUTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "verily",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "part of the Bible",
+       "at": 4,
+       "gives": "NT",
+       "note": "NT is the New Testament"
+      },
+      {
+       "words": "biblical hero",
+       "at": 27,
+       "gives": "RUTH",
+       "note": "Ruth is the heroine of the Old Testament book named after her"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scripture and its heroes, delivered in solemn old language.",
+     "walkthrough": "Ruth is a woman, so 'hero' is used loosely for heroine.",
+     "definitionFit": "Verily is an archaic word for truly or indeed, the same as the phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1208,31 @@
     "text": "Bury's football team a long way from Bury!",
     "enumeration": "5"
    },
-   "solution": "INTER"
+   "solution": "INTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 0,
+      "meaning": "first meaning: to bury"
+     },
+     {
+      "text": "football team a long way from Bury",
+      "at": 7,
+      "meaning": "second meaning: ... Milan, an Italian football club far from Bury, a town near Manchester"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bury is a town in Greater Manchester with its own football club, so 'Bury's football team' looks like Bury FC; the exclamation mark points to a team far away.",
+     "definitionFit": "The word is a verb meaning to place in a grave, and the short name for Milan's Internazionale club."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1246,42 @@
     "text": "Painful conflict to the north",
     "enumeration": "3"
    },
-   "solution": "RAW"
+   "solution": "RAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Painful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to the north",
+       "at": 17,
+       "note": "in a down entry, going north means reading upwards, so the word is turned back"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conflict",
+       "at": 8,
+       "gives": "WAR",
+       "note": "war is conflict"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sore struggle up in the north.",
+     "definitionFit": "Raw describes skin that is sore and tender, stinging to touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1295,48 @@
     "text": "Break in which old man gets meal",
     "enumeration": "6"
    },
-   "solution": "REPAST"
+   "solution": "REPAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in which",
+       "at": 6,
+       "note": "in which says the father goes inside the break"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Break",
+       "at": 0,
+       "gives": "REST",
+       "note": "a rest is a break"
+      },
+      {
+       "words": "old man",
+       "at": 15,
+       "gives": "PA",
+       "note": "old man is slang for father, PA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "During a pause, Dad has something to eat.",
+     "definitionFit": "A repast is a formal or old-fashioned word for a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Break"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1350,46 @@
     "text": "A knight portrayed as a saint",
     "enumeration": "6"
    },
-   "solution": "ANDREW"
+   "solution": "ANDREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a saint",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "knight",
+       "at": 2,
+       "gives": "N",
+       "note": "N is knight in chess notation"
+      },
+      {
+       "words": "portrayed",
+       "at": 9,
+       "gives": "DREW",
+       "note": "to portray is to draw, past tense drew"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knight is depicted as a holy man.",
+     "walkthrough": "N is the chess abbreviation for knight, since K is the king.",
+     "definitionFit": "Andrew is one of the apostles and the patron saint of Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "portrayed"
+    }
+   }
   }
  ]
 }
