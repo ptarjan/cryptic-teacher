@@ -743,7 +743,7 @@ def framings(gray, grid):
     return tried
 
 
-def read_framed(image, grid, bounded=False, classify=False, lean=False):
+def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=None):
     """read_answers for an image that is the grid, read on each of its
     framings(). The lattice reading the most cells surely fits best (blocks
     read alike on a lattice half a cell off; letters do not): its accepted
@@ -810,7 +810,7 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False):
         seen = blocks_read(lat[0], lat[1:], len(grid))
         accepted = {key: w for key, w in accepted.items()
                     if bounded_light(lts[key], key[1], seen, w, [p.get(key, ()) for p in printeds])}
-    more = {}
+    more, probs = {}, None
     if classify and blocks >= SURE_BLOCKS:
         # The classifier reads the best-fitting lattice's cells: an accepted
         # light it surely reads otherwise is dropped, and the lights left are
@@ -822,7 +822,49 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False):
         more = classified_reads(lts, accepted, probs)
         accepted.update(more)
         stats = {**stats, "vetoed": len(dropped), "classified": len(more)}
-    return accepted, {**stats, "blocks": blocks, "accepted": len(accepted), "lattices": len(reads)}
+        if enums is not None:
+            fit = fitted_reads(lts, accepted, probs, enums)
+            accepted.update(fit)
+            stats["fitted"] = len(fit)
+    stats = {**stats, "blocks": blocks, "accepted": len(accepted), "lattices": len(reads)}
+    short = [key for key in lts if key not in accepted]
+    if enums is not None and classify and blocks >= SURE_BLOCKS and 0 < len(short) <= STRIP_MAX:
+        g, ys, xs = lat
+        strips = {k: light_strip(g, ys, xs, lts[k]) for k in short}
+        # With each cell's classifier probabilities: a word the VLM gives stands only where the
+        # classifier finds each of its letters possible (VLM_FLOOR).
+        stats["strips"] = {f"{k[0]}-{k[1]}": {"png": png, "p": [[round(float(x), 5) for x in probs[rc]] for rc in lts[k]]}
+                           for k, png in strips.items() if png}
+    return accepted, stats
+
+
+#: A grid read but for at most this many lights keeps each one's strip of cells
+#: (light_strip) in its stats, for the VLM to be asked the word of.
+STRIP_MAX = 5
+#: The share of a cell kept in from its rule in a strip (CELL_MARGIN's 12% cuts the
+#: number's corner and the stroke of a letter the print crowds to the edge).
+STRIP_MARGIN = 0.04
+#: The height of a strip's cells, pixels.
+STRIP_HIGH = 96
+
+
+def light_strip(gray, ys, xs, cells):
+    """The PNG (base64 text) of light `cells` on the rules (ys, xs) of `gray`: its cells in a
+    row, in order, each STRIP_HIGH pixels high, a gap between them."""
+    import base64
+    import io
+    parts = []
+    for r, c in cells:
+        a = between(gray, ys, xs, r, c, STRIP_MARGIN)
+        if a.size == 0:
+            return None
+        w = max(1, round(a.shape[1] * STRIP_HIGH / a.shape[0]))
+        parts.append(np.asarray(Image.fromarray(a).resize((w, STRIP_HIGH), Image.BICUBIC)))
+        parts.append(np.full((STRIP_HIGH, 12), 255, np.uint8))
+    row = np.pad(np.concatenate(parts[:-1], 1), ((12, 12), (12, 12)), constant_values=255)
+    buf = io.BytesIO()
+    Image.fromarray(row).save(buf, "PNG")
+    return base64.b64encode(buf.getvalue()).decode()
 
 
 #: A grid whose blocks read on some framing at this share of cells is the
@@ -1222,8 +1264,13 @@ def listed_of(n):
 #: A light is decoded as the listed() word its cells' probabilities make
 #: likeliest only by CLASS_MARGIN (log odds) over every other listed word
 #: the accepted crossings leave, each of its letters at least CLASS_FLOOR
-#: likely in its cell.
-CLASS_MARGIN, CLASS_FLOOR = np.log(1000), 0.01
+#: likely in its cell. The margin was 1000 to 1, which took none of the lights the recogniser
+#: left on 13 Times prints of 1974-81 whose answers Trove prints (EPSOM, OTTER, TATTOOED,
+#: FROTHING, STARCH...): at 50 to 1 the 9 it takes are all right, and with each accepted light
+#: removed in turn the classifier decodes 13 of the 14 it takes between 50 and 1000 to 1 as
+#: accepted (the other, CLOTHING, is a light Trove's answer and the print dispute); at under 7 to 1 it
+#: is wrong 5 times in 15.
+CLASS_MARGIN, CLASS_FLOOR = np.log(50), 0.01
 
 
 def decoded(cells, probs, held):
@@ -1273,6 +1320,91 @@ def classified_reads(lts, accepted, probs):
                 continue
             if best is None or margin > best[0]:
                 best = (margin, key, word)
+        if best is None:
+            return out
+        have[best[1]] = out[best[1]] = best[2]
+
+
+#: fitted_reads takes a light the crossings and the classifier leave one fit:
+#: each cell no accepted crossing holds is read by the classifier as one letter
+#: at least FIT_TOP likely, the pieces of the light's enumeration are listed
+#: words, and no other listed word of a piece's length agrees with the held
+#: letters while each of its other letters is at least FIT_RIVAL likely in its
+#: cell. (classified_reads wants a 1000-to-1 margin over every rival and no
+#: phrase: a light of "4,4,3,3" is no listed word, and a rival one letter
+#: off at 5% is a margin of 20 to 1 however sure the rest.)
+FIT_TOP, FIT_RIVAL = 0.6, 0.05
+
+
+def pieces_of(enum, n):
+    """The lengths of the words of enumeration `enum` ("4,4,3,3", "5-4", "3,2-4")
+    when they are two or more and add up to `n`, else [n]."""
+    parts = [int(x) for x in re.findall(r"\d+", enum or "")]
+    return parts if len(parts) > 1 and sum(parts) == n else [n]
+
+
+def piece_listed(word, multi):
+    """Whether `word`, a piece of a light, is a word: listed(), and for a short piece of a
+    phrase (the junk of cmudict: AW, EL) one of SHORT_WORDS or WordNet's three-letter lemmas."""
+    if not multi or len(word) > 3:
+        return listed(word)
+    w = word.lower()
+    return w in SHORT_WORDS or (len(w) == 3 and w in wordnet())
+
+
+def fit_rivals(word, cells, probs, held):
+    """The listed() words of `word`'s length other than it that agree with `held` and are at
+    least FIT_RIVAL likely in each cell held does not hold."""
+    ws, arr = listed_of(len(word))
+    ok = np.ones(len(ws), bool)
+    for i, rc in enumerate(cells):
+        if rc in held:
+            ok &= arr[:, i] == AZ.index(held[rc])
+        else:
+            ok &= probs[rc][arr[:, i]] >= FIT_RIVAL
+    return [ws[i] for i in np.nonzero(ok)[0] if ws[i] != word]
+
+
+def fitted(cells, probs, held, enum):
+    """(word, least top probability) of the light on `cells` as fitted_reads takes it, or None."""
+    if any(rc not in probs for rc in cells):
+        return None
+    if any(rc in held and probs[rc][AZ.index(held[rc])] < CLASS_FLOOR for rc in cells):
+        return None
+    unheld = [rc for rc in cells if rc not in held]
+    top = {rc: int(np.argmax(probs[rc])) for rc in unheld}
+    if any(probs[rc][top[rc]] < FIT_TOP for rc in unheld):
+        return None
+    if not unheld and any(probs[rc][AZ.index(held[rc])] < FIT_RIVAL for rc in cells):
+        return None
+    word = "".join(held[rc] if rc in held else AZ[top[rc]] for rc in cells)
+    sizes = pieces_of(enum, len(cells))
+    multi = len(sizes) > 1
+    at = 0
+    for size in sizes:
+        piece, span = word[at:at + size], cells[at:at + size]
+        at += size
+        if not piece_listed(piece, multi):
+            return None
+        if any(rc not in held for rc in span) and fit_rivals(piece, span, probs, held):
+            return None
+    return word, min([float(probs[rc][top[rc]]) for rc in unheld], default=1.0)
+
+
+def fitted_reads(lts, accepted, probs, enums=None):
+    """{key: word} for lights not `accepted` that fitted() takes, the surest first; its letters
+    hold for its crossings, until none is taken. `enums` is {key: enumeration text}."""
+    have, out = dict(accepted), {}
+    enums = enums or {}
+    while True:
+        held = {rc: ch for k, w in have.items() for rc, ch in zip(lts[k], w)}
+        best = None
+        for key, cells in lts.items():
+            if key in have:
+                continue
+            got = fitted(cells, probs, held, enums.get(key))
+            if got and (best is None or got[1] > best[0]):
+                best = (got[1], key, got[0])
         if best is None:
             return out
         have[best[1]] = out[best[1]] = best[2]
@@ -1330,7 +1462,7 @@ def vetoed(lts, accepted, probs):
     return out
 
 
-def read_answers(image, grid, tight=False, bounded=False, classify=False, lean=False):
+def read_answers(image, grid, tight=False, bounded=False, classify=False, lean=False, enums=None):
     """({(number, direction): answer} accepted, stats) for a solution image
     and the puzzle's grid (rows of "#" and ".").
 
@@ -1340,7 +1472,7 @@ def read_answers(image, grid, tight=False, bounded=False, classify=False, lean=F
     recogniser read the light itself as exactly that word, and the word is
     known()."""
     if tight:
-        return read_framed(image, grid, bounded, classify, lean)
+        return read_framed(image, grid, bounded, classify, lean, enums)
     gray = np.asarray(Image.open(image).convert("L"))
     lat = lattice(gray, len(grid), tight)
     lts = lights(grid)
