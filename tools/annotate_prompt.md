@@ -286,6 +286,10 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           of, turning tail, first three, half) only that stretch
                           of 2+ letters, at that end and that size, is turned:
                           rev<last pair of>([mini vehicles]KARTS) for KARST
+    rep(x)                x's letters twice, one after the other (twice, again,
+                          stuttering); the leaf gives ONE copy, never the doubled
+                          string: rep<twice>([boy]AL) for ALAL, rep<called twice>(
+                          [boy]ALF) for ALFALF. Not "[boy called twice]ALFALF"
     ins(outer, inner)     inner put inside outer (the answer decides where)
     del(from, removed)    removed taken out of from (the answer decides where):
                           one run, or the letters scattered but in the same order

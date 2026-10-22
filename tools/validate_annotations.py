@@ -6675,6 +6675,7 @@ def own_ind_in_leaf(tree):
 
 
 REPEAT_IN_LEAF = "leaf holds a doubling word (twice, double, again) and gives a doubled string"
+REPEAT_FORM = "write rep<twice>([boy]AL) for ALAL: the leaf gives one copy, rep() doubles it, the doubling word is rep's indicator"
 HALF_IN_LEAF = "leaf holds half and gives half of another of its words, a halving selection folded into the leaf"
 SELECT_IND_ENDS_LEAF = "selection op whose letter-less leaf ends with the op's own indicator words"
 BEHEAD_IN_LEAF = "leaf holds a losing-head/tail phrase and gives the letters that are left"
@@ -7551,7 +7552,7 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: ana_lone_edge(tree, answer), ANA_LONE_EDGE, "set the letter beside the anagram in a charade"),
             (lambda: ana_literal_edge(tree, answer), ANA_LITERAL_EDGE, "set the word beside the anagram in a charade"),
             (lambda: del_wraps_charade(tree, clue), DEL_WRAPS_CHARADE, "cut inside the one piece the word acts on"),
-            (lambda: repeat_in_leaf(tree), REPEAT_IN_LEAF, "the repeat is an op with its own indicator"),
+            (lambda: repeat_in_leaf(tree), REPEAT_IN_LEAF, REPEAT_FORM),
             (lambda: split_word_leaves(tree), SPLIT_WORD_LEAVES, "the word is the container's outer piece, one leaf"),
             (lambda: move_note_leaf(tree), MOVE_NOTE_LEAF, "write move<indicator>(fodder, MOVED)"),
             (lambda: first_sibling_leaves(tree), FIRST_SIBLING_LEAVES, "one first-letters indicator over the list is one multi-part op"),
