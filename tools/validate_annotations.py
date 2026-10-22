@@ -5360,7 +5360,7 @@ _DEL_END = re.compile(
     r"\b(endless(ly)?|unending|curtail\w*|docked|tailless|detailed|unfinished|incomplete|not finished|"
     r"cut short|shortly|shortened|short|abridged|truncated|clipped|almost|nearly|not quite|"
     r"(?:without|losing|dropping|missing|lacking|shedding|abandoning) (?:its |his |her |their |the |an? )?"
-    r"(?:end|tail|finish|ending|last))\b", re.I)
+    r"(?:end|tail|finish|finishing|ending|last))\b", re.I)
 _DEL_HEAD = re.compile(
     r"\b(headless(ly)?|beheaded|topless|decapitated|unopened|leaderless|not starting|"
     r"(?:without|losing|dropping|missing|lacking|shedding|abandoning) (?:its |his |her |their |the |an? )?"
@@ -5939,17 +5939,26 @@ def moved_letters(tree):
             if d.get("op") != "deletion" or d.get("unchecked") or len(ps) != 2 or "op" in ps[1]:
                 continue
             cut = wordplay.letters(ps[1].get("gives"))
-            n += bool(cut) and (any("op" not in k and k is not d and wordplay.letters(k.get("gives")) == cut
-                                    for k in kids) or bool(_sibling_gives(kids, d, ps[1])))
+            # A plain truncation beside a leaf of the same letter is a coincidence, as in
+            # _sibling_gives (cryptic-30087 11a: [Old]O + ... + del<without finishing>([too]ALSO, O)).
+            n += bool(cut) and ((not _plain_cut(d) and any(
+                "op" not in k and k is not d and wordplay.letters(k.get("gives")) == cut
+                for k in kids)) or bool(_sibling_gives(kids, d, ps[1])))
         n += _leaf_cut_put_back(kids)
     return n
+
+
+def _plain_cut(d):
+    """Whether the deletion `d`'s indicator is a plain truncation (endless, without finishing)."""
+    said = " ".join(str(i.get("text") or "") for i in d.get("indicators") or [] if isinstance(i, dict))
+    return bool(_DEL_END.search(said) or _DEL_HEAD.search(said)
+                or re.search(r"\b(?:losing|largely|mostly|made|less)\b", said, re.I))
 
 
 def _sibling_gives(kids, d, cut_part):
     """1 when a sibling first/last pick gives the letters the deletion `d` removes (r30 FN SHAH:
     del<advancing>(HASH, S) beside last<finally>(enemies)): the same move, one letter taken out and put back."""
-    said = " ".join(str(i.get("text") or "") for i in d.get("indicators") or [] if isinstance(i, dict))
-    if _DEL_END.search(said) or _DEL_HEAD.search(said) or re.search(r"\b(?:losing|largely|mostly|made|less)\b", said, re.I):
+    if _plain_cut(d):
         return 0  # r31 judged: a plain truncation indicator beside a pick of the same letter is a coincidence (9 of 40 fine)
     try:
         cut = wordplay.values(cut_part)
@@ -6537,6 +6546,45 @@ def halved_as_deletion(tree):
     return sum(1 for node in _walk(tree) if node.get("op") == "deletion" and not node.get("unchecked")
                and any(_HALVING.search(t) and not _NOT_A_HALVING.search(t)
                        for t in (str(i.get("text") or "") for i in node.get("indicators") or [] if isinstance(i, dict))))
+
+
+TRIM_AS_SELECTION = ("first/last/middle pick of 2+ letters from a synonym, not the clue's own words, "
+                     "written as a selection (a trim of a word the clue does not print is a deletion)")
+
+
+def trims_as_selection(tree, answer):
+    """Selections (first, last, middle) over one leaf whose letters are a synonym rather than the clue's
+    own words, keeping 2+ letters but not all (cryptic-30087 17a: middle<without limits>([jumps]BOUNCES)
+    for OUNCE). The family rung says a selection's letters sit in the clue, and these do not: the word is
+    trimmed, del<without limits>([jumps]BOUNCES, B, S), the way 35k other trims of a synonym are filed.
+    Not a halving (halved_as_deletion keeps those as selections), a single-letter pick (the first letter
+    of a synonym), nor a pick a deletion takes out (its letters are the cut, not a word kept)."""
+    if not tree or not answer:
+        return 0
+    try:
+        got = wordplay.evaluate(tree, answer)
+    except wordplay.WordplayError:
+        return 0
+    n = 0
+
+    def walk(node, cut):
+        nonlocal n
+        if not isinstance(node, dict):
+            return
+        parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if not cut and node.get("op") in ("first", "last", "middle") and not node.get("unchecked") \
+                and len(parts) == 1 and "op" not in parts[0] and parts[0].get("gives") \
+                and not parts[0].get("select") and not parts[0].get("unchecked"):
+            leaf, said = parts[0], [str(i.get("text") or "") for i in node.get("indicators") or [] if isinstance(i, dict)]
+            whole, words = wordplay.letters(leaf["gives"]), str(leaf.get("words") or "")
+            pick = got.get(id(node)) or ""
+            n += (whole not in (wordplay.letters(words), wordplay.letters(re.sub(r"['’]s\b", "", words)))
+                  and 2 <= len(pick) < len(whole)
+                  and not any(_HALVING.search(t) and not _NOT_A_HALVING.search(t) for t in said))
+        for k, p in enumerate(parts):
+            walk(p, cut or (k > 0 and node.get("op") in ("deletion", "substitution", "move")))
+    walk(tree, False)
+    return n
 
 
 def split_shared_indicators(tree):
@@ -7494,6 +7542,8 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: select_word_in_leaf(tree), SELECT_WORD_IN_LEAF, "the leaf holds only the words that give its letters"),
             (lambda: select_phrase_in_leaf(tree), SELECT_PHRASE_IN_LEAF, "the selection is an op with its own indicator"),
             (lambda: halved_as_deletion(tree), HALVED_AS_DELETION, "keep half the word with a halving selection"),
+            (lambda: trims_as_selection(tree, answer), TRIM_AS_SELECTION,
+             "cut the synonym with a deletion, del<without limits>([jumps]BOUNCES, B, S)"),
             (lambda: split_shared_indicators(tree), SPLIT_SHARED_INDICATOR, "one indicator, one multi-part op"),
             (lambda: trunc_in_leaf(tree), TRUNC_IN_LEAF, "the truncation word is a deletion's indicator"),
             (lambda: cut_note_leaf(tree), CUT_NOTE_LEAF, "give the real word and cut it with a deletion op"),
@@ -8107,6 +8157,7 @@ BACKLOG_MARKERS = {
     "wordplay.anaStandIn": (ANA_STAND_IN,),
     "wordplay.selectWordInLeaf": (SELECT_WORD_IN_LEAF,),
     "wordplay.halvedAsDeletion": (HALVED_AS_DELETION,),
+    "wordplay.trimAsSelection": (TRIM_AS_SELECTION,),
     "wordplay.splitSharedIndicator": (SPLIT_SHARED_INDICATOR,),
     "wordplay.truncInLeaf": (TRUNC_IN_LEAF,),
     "wordplay.cutNoteLeaf": (CUT_NOTE_LEAF,),
