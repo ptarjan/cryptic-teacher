@@ -316,6 +316,28 @@ HOLIDAY_LAGS = (4, 5)
 #: ". 15, 244");
 #: solution_number() decides.
 LOOSE_NUMBER = r"(?:[nm][^\s\d]{0,2}\s*)?(\S{1,7}(?:\s\S{1,5}){0,2})$"
+#: How many puzzles before a Monday's title the Saturday prize it prints the solution of is
+#: (2006-10-23's 23,427: "Solution to Prize Crossword 23,420"): the Gale Times of 2000-2012
+#: printed a Saturday's prize solution on the Monday week after, nine days on, headed "Solution
+#: to Prize Crossword N" (2006) or "Prize solution N" (2009).
+PRIZE_LAG = 7
+#: That heading: maybe "Solution to", then "Prize" and "Crossword" or "Solution", then the
+#: number (LOOSE_NUMBER); prize_words() judges the words.
+PRIZE_SOLUTION = re.compile(r"^\W*(?:(\S{4,11})\s+(\S{1,3})\s+)?(\S{4,7})\s+(\S{5,10})\W*\s+" + r"(?:[nm][^\s\d]{0,2}\s*)?"
+                            r"(\S{1,7}(?:\s\S{1,5}){0,2})$", re.IGNORECASE)
+
+
+def prize_words(m):
+    """Whether PRIZE_SOLUTION match `m`'s words read as "Solution to Prize Crossword" or "Prize
+    solution"."""
+    lead, _, prize, word = m.groups()[:4]
+    if not like(prize, "prize"):
+        return False
+    if lead:
+        return like(lead, "solution") and (like(word, "crossword") or like(word, "puzzle"))
+    return like(word, "solution")
+
+
 YESTERDAY_SOLUTION = re.compile(r"^\W*yesterday\W?s\s+s[o0]l\w{3,5}\s+" + LOOSE_NUMBER, re.IGNORECASE)
 LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})(?:\s+|(?-i:(?<=[a-z])(?=[A-Z])))(?:(\S{3,9})\s+)?" + LOOSE_NUMBER,
                             re.IGNORECASE)
@@ -384,11 +406,12 @@ def solution_headings(lines, titles):
         return headings(lines, SOLUTION)
     expected = {t - lag for t in titles for lag in SOLUTION_LAGS}
     clean = {t - lag for t in titles for lag in HOLIDAY_LAGS} - expected
+    prize = {t - PRIZE_LAG for t in titles}
     found = []
     for ws in lines:
         k = 0
         while k < len(ws):
-            end = solution_at(ws, k, expected, clean)
+            end = solution_at(ws, k, expected, clean, prize)
             if end is None:
                 k += 1
                 continue
@@ -400,15 +423,22 @@ def solution_headings(lines, titles):
     return found + solutions_over(lines, expected)
 
 
-def solution_at(ws, k, expected, clean=()):
+def solution_at(ws, k, expected, clean=(), prize=()):
     """(number, last word's index) of the shortest LOOSE_SOLUTION heading
     opening at word `k` of a line whose number is one of `expected`
-    (solution_number), or read digit for digit as one of `clean`, or None. A line may hold two ("Solution to Puzzle
+    (solution_number), or read digit for digit as one of `clean`, or a
+    PRIZE_SOLUTION heading numbered one of `prize`, or None. A line may hold two ("Solution to Puzzle
     No 19,243 Solution to Punk No 19.248"): solution_headings reads on past
     the first."""
     text = ""
     for j in range(k, len(ws)):
         text = (text + " " + ws[j][4]).strip()
+        if prize:
+            p = PRIZE_SOLUTION.match(text)
+            if p and prize_words(p) and not re.search(r"\d", "".join(g or "" for g in p.groups()[:4])):
+                n = solution_number(p[5], prize)
+                if n is not None:
+                    return n, j
         y = YESTERDAY_SOLUTION.match(text)
         if y:  # the 2009-10 Gale Times: "Yesterday's solution 24,378" over its grid
             n = solution_number(y[1], expected)
@@ -3969,9 +3999,20 @@ def hosted(found, held):
     on = set(days.values()) | {day}
     one = datetime.timedelta(days=1)
     prior = {h - one - one * ((h - one).weekday() == 6) for h in on} | \
-        {h - 7 * one for h in on if h.weekday() == 5}
+        {h - 7 * one for h in on if h.weekday() == 5} | {h - 9 * one for h in on if prize_monday(h)}
     return {t - 1 for t in days} | {t - 6 for t, d in days.items() if d.weekday() == 5} | \
+        {t - PRIZE_LAG for t, d in days.items() if prize_monday(d)} | \
         {m for d in prior for m in Held.of(held).on_day.get(d, ())}
+
+
+#: The first day a Monday prints the Saturday before's prize solution (PRIZE_LAG).
+PRIZE_MONDAYS = datetime.date(2000, 1, 1)
+
+
+def prize_monday(day):
+    """Whether `day` is a Monday that prints the solution of the prize of the Saturday nine days
+    before (PRIZE_LAG: the Gale Times from 2000)."""
+    return day.weekday() == 0 and day >= PRIZE_MONDAYS
 
 
 def hosted_window(paper, found):
@@ -3986,7 +4027,7 @@ def hosted_window(paper, found):
     own = [p["number"] for p in found["puzzles"] if "fromSolutions" not in p]
     on = {issue_day(day, t, own, found.get("item")) for t in own} | {day}
     span = datetime.timedelta(days=SOLUTION_DAYS)
-    return min(day - span, min(on) - datetime.timedelta(days=7)), max(day + span, max(on))
+    return min(day - span, *(h - datetime.timedelta(days=9 if prize_monday(h) else 7) for h in on)), max(day + span, max(on))
 
 
 def held_between(held, window):
@@ -5703,6 +5744,34 @@ for _paper, _pins in _SOLUTION_HEADINGS_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before PRIZE_SOLUTION headings (a Saturday
+#: prize's solution, printed on the Monday week after) were read: an edit that moves only the Gale
+#: Times's Mondays of 2000 on (prize_rescan) and the Times's scans, so every other scan stands under its
+#: old key. The Gale Times's other days print no such heading; its Mondays are scanned again.
+_PRIZE_HEADINGS_FIX = {
+    "ft": ("db66b411d68b6315", "9be2dfe9f810e4d5", "604efcc22e60dab4"),
+    "gale": ("1fd1f7be060ac3f9", "c257cea80704b3eb", "9a03612709722b4c"),
+    "galeft": ("4e9bd3af3ac0e35e", "e9d481128c481509", "39493020d8bde34a"),
+    "galeindependent": ("91aa916982ce2a89", "8e4dad8a3e9af3da", "a469fc46cf0886a4"),
+    "galesundaytimes": ("98239ec5a4bfa3f2", "f324bc6d512dc84b", "1e08d552cfc3d213"),
+    "galetelegraph": ("1b1dfd8b6e92ff89", "5972e3edbf2cd079", "8d387b0dc084706c"),
+    "galetls": ("2dcf3e24dcf440b8", "58313ebc0991967b", "0a6f00f16d61d22e"),
+    "guardian": ("aa76462452b63be8", "c72d5c8a1a8bffd9", "2800b3094dc4239d"),
+    "telegraph": ("a08343d90831fdcf", "92ef1f1314da72a2", "209b8be1c3754753"),
+    "times1930": ("5356ffb7ac6d88b0", "3d22e9da5ce57d51", "6af567f7553f1ad4"),
+}
+for _paper, _pins in _PRIZE_HEADINGS_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+
+
+def prize_rescan(paper, key, rel):
+    """Whether a scan of edition `rel` of `paper` under scan key `key` is due again for the prize
+    headings (_PRIZE_HEADINGS_FIX): a Gale Times Monday (prize_monday) scanned before them."""
+    return paper is GALE and key in _PRIZE_HEADINGS_FIX["gale"][:2] and isinstance(rel, str) \
+        and (day := _date_in(rel)) is not None and prize_monday(day)
 
 
 def current_keys(paper):
@@ -5736,7 +5805,8 @@ def rekey_scans(ledger):
         for k, r in enumerate(rows):
             paper = paper_of(r.get("edition", ""))
             new = scan_key(paper)
-            if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper):
+            if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
+                    and not prize_rescan(paper, r.get("scanKey"), r.get("edition")):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -6033,7 +6103,8 @@ def scan_stands(paper, rel, cache=CACHE, rows=None, keys=None, host=False):
         cur = current_keys(p)
         if keys is not None:
             keys[p.key] = cur
-    return row.get("scanKey") in cur and row.get("filesHash") == _stand_hash(cache, rel)
+    return row.get("scanKey") in cur and not prize_rescan(p, row.get("scanKey"), rel) \
+        and row.get("filesHash") == _stand_hash(cache, rel)
 
 
 #: {(cache, rel): (its edition dir, on_media of it, edition_rel of it)} for
@@ -6869,7 +6940,7 @@ def scan_current(row, fh, rel=None):
         paper = paper_of(rel)
         if isinstance(rel, str):
             _CURRENT_PAPER[rel] = paper
-    return row.get("scanKey") in current_keys(paper)
+    return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
@@ -7192,6 +7263,13 @@ def host_day(day):
     return day + datetime.timedelta(days=7 if day.weekday() == 5 else 1)
 
 
+def host_days(day):
+    """Every date that may print the solution of the puzzle of `day`: host_day, and for a Saturday
+    from PRIZE_MONDAYS also the Monday week after (nine days on: PRIZE_LAG)."""
+    more = [day + datetime.timedelta(days=9)] if day.weekday() == 5 and day >= PRIZE_MONDAYS else []
+    return [host_day(day), *more]
+
+
 def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs, known=None):
     """{rel: puzzles} of the editions of `paper` whose scan by current code is due because they print the
     solution of puzzles filed with every clue and not every answer (answerless_puzzles): the issue
@@ -7202,7 +7280,8 @@ def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs
         return {}
     want = {}
     for n, day in answerless_puzzles(paper.series, held, solutions).items():
-        want.setdefault(host_day(day), []).append(n)
+        for host in host_days(day):
+            want.setdefault(host, []).append(n)
     if not want:
         return {}
     deadline = time.monotonic() + HEADING_UPDATE_SECONDS
@@ -7332,6 +7411,7 @@ def only_current(row, paper, fh=None):
     scan code (of the files `fh`, when given)."""
     only = (row or {}).get("solOnly")
     return bool(only) and only.get("v") == SOLUTIONS_ONLY and only.get("scanKey") in current_keys(paper) \
+        and not prize_rescan(paper, only.get("scanKey"), row.get("edition")) \
         and (fh is None or only.get("filesHash") == fh)
 
 
@@ -7342,7 +7422,8 @@ def scan_of(row, paper, fh=None):
     (None: neither). Used for solutions only: a solutions_only read finds no
     puzzle and never stands as the edition's scan (scan_current)."""
     scan = (row or {}).get("scan")
-    if scan and row.get("scanKey") in current_keys(paper) and (fh is None or row.get("filesHash") == fh):
+    if scan and row.get("scanKey") in current_keys(paper) and (fh is None or row.get("filesHash") == fh) \
+            and not prize_rescan(paper, row.get("scanKey"), row.get("edition")):
         return scan
     if only_current(row, paper, fh):
         # a failed stale scan has no "date": take the solutions_only read's
