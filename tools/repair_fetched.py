@@ -667,6 +667,51 @@ def repair_spoiled_clues(since="2026-10-20", apply_it=False, ref="origin/master"
     return restored
 
 
+def repair_regressed_clues(since="5 days ago", apply_it=False, ref="origin/master"):
+    """[(id, light, was, now)] for each clue a reread of a times puzzle made
+    worse and this restores from git history. Each "Update" commit on `ref`
+    since `since` is compared clue by clue with its parent: where
+    file_archive_org_puzzles.regressed says the new words lost the held
+    ones' print (a lexicon word turned non-word, a word cut at its edge,
+    "1st Earl" to "st Earl") and the file still reads the commit's words,
+    the parent's clue (and annotation) comes back. Oldest commit first, so
+    a chain of rereads ends on the last good words. Nothing else in the
+    file changes; with `apply_it` False nothing is written."""
+    import file_archive_org_puzzles as archive
+    restored = []
+    for pid, commits in sorted(spoiled_commits(since, ref).items()):
+        path = puzzle_paths.find(pid)
+        if path is None:
+            continue
+        puzzle = fetcher.read_puzzle_file(path)
+        now_by = {entry_id(e): e for e in puzzle["entries"]}
+        changed = False
+        for sha, rel in reversed(commits):
+            try:
+                before = json.loads(git_out("show", f"{sha}^:{rel}"))
+                after = json.loads(git_out("show", f"{sha}:{rel}"))
+            except ValueError:
+                continue
+            was_by = {entry_id(e): e for e in before["entries"]}
+            for e in after["entries"]:
+                lid = entry_id(e)
+                h, cur = was_by.get(lid), now_by.get(lid)
+                held, new = ((h or {}).get("clue") or {}), (e.get("clue") or {})
+                if cur is None or not (held.get("text") or "").strip() or held.get("text") == new.get("text") \
+                        or (cur.get("clue") or {}).get("text") != new.get("text") \
+                        or held.get("enumeration") != new.get("enumeration") \
+                        or not archive.regressed(held["text"], new.get("text") or "", new.get("asPrinted") or ()):
+                    continue
+                restored.append((pid, lid, new.get("text"), held["text"]))
+                cur["clue"] = held
+                if h.get("annotation"):
+                    cur["annotation"] = h["annotation"]
+                changed = True
+        if changed and apply_it:
+            fetcher.write_puzzle_file(path, puzzle)
+    return restored
+
+
 def grown(held, now):
     """Whether the clue text `now` is the held `held` with a few words added
     and none lost: a reread laying neighbouring print in a clue. A run of
@@ -685,6 +730,10 @@ def main(argv):
     ap.add_argument("--spoiled-clues", nargs="?", const="2026-10-20", metavar="SINCE",
                     help="only restore the held clue of each times puzzle an 'Update times-' commit since SINCE "
                          "(default 2026-10-20) spoiled with a reread's neighbouring words; --apply writes")
+    ap.add_argument("--regressed-clues", nargs="?", const="5 days ago", metavar="SINCE",
+                    help="only restore, from git history, the held clue of each times puzzle an 'Update' commit "
+                         "since SINCE (default '5 days ago') made worse: a word cut or turned non-word "
+                         "(file_archive_org_puzzles.regressed); --apply writes")
     ap.add_argument("--apply", action="store_true",
                     help="write the repairs; without it nothing is written")
     ap.add_argument("--dry-run", action="store_true",
@@ -712,6 +761,13 @@ def main(argv):
         return 0
     if args.apply and args.dry_run:
         ap.error("--apply and --dry-run say opposite things; pass one")
+    if args.regressed_clues:
+        restored = repair_regressed_clues(args.regressed_clues, args.apply)
+        for pid, lid, was, now in restored:
+            print(f"{pid} {lid}: {was!r} -> {now!r}")
+        print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} clue(s) "
+              f"{'restored' if args.apply else 'would be restored'}")
+        return 0
     if args.spoiled_clues:
         restored = repair_spoiled_clues(args.spoiled_clues, args.apply)
         for pid, lid, was, now in restored:
