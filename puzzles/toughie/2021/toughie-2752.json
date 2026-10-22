@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,84 @@
      }
     ]
    },
-   "solution": "MINUTESTEAK"
+   "solution": "MINUTESTEAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fast food",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "staying",
+       "at": 10,
+       "note": "staying is read as a container signal: the following pieces stay within the rearranged word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 5,
+         "note": "out signals that the letters of the word make are put out of their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Make",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "at": 18
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 26,
+           "note": "finally picks the last letter of the word you"
+          }
+         ],
+         "parts": [
+          {
+           "words": "you",
+           "at": 22
+          }
+         ]
+        },
+        {
+         "words": "try",
+         "at": 34,
+         "gives": "TEST",
+         "note": "to try something is to test it"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slangy instruction: snog for a bit, stay home, and then grab a takeaway.",
+     "walkthrough": "'Make out' reads as snogging, but 'out' is the anagram signal on 'Make' alone, and 'staying' is the container signal holding the rest.",
+     "definitionFit": "A minute steak is a thin cut cooked in about a minute, so it counts as quick fare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +137,58 @@
      }
     ]
    },
-   "solution": "INON"
+   "solution": "INON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Party to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "walls",
+       "at": 28,
+       "note": "walls says the pub surrounds the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pub",
+       "at": 24,
+       "gives": "INN",
+       "note": "an inn is a pub"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start from",
+         "at": 9,
+         "note": "start from takes the opening letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "our",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party begins at the local, then spreads from its walls.",
+     "definitionFit": "To be in on something is to be party to it, sharing in a secret or plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +212,54 @@
      }
     ]
    },
-   "solution": "UMANDAH"
+   "solution": "UMANDAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shilly-shally",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Toff maybe",
+       "at": 0,
+       "gives": "UMAN",
+       "note": "U stands for upper-class, so a toff is a U man"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 17,
+         "note": "up reads the word upwards, backwards in a down clue"
+        }
+       ],
+       "parts": [
+        {
+         "words": "owned",
+         "at": 11,
+         "gives": "HAD",
+         "note": "owned means had"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A posh person finally confesses he was a ditherer.",
+     "walkthrough": "U and non-U were labels for upper-class and non-upper-class usage, so a toff is a U-man.",
+     "definitionFit": "To um and ah is to hesitate and dither, the same as to shilly-shally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "owned"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +273,52 @@
     "text": "Different term for the University of London",
     "enumeration": "4"
    },
-   "solution": "ELSE"
+   "solution": "ELSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Different",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "term for",
+         "at": 10,
+         "note": "term means end, so the last letter of the following word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "University of London",
+       "at": 23,
+       "gives": "LSE",
+       "note": "LSE is the London School of Economics, part of the University of London"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query about another name for the University of London.",
+     "walkthrough": "'term' looks like an academic term or a word; here it means the end of 'the'.",
+     "definitionFit": "Else means other or different, as in somewhere else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +332,60 @@
     "text": "Unerringly squashes bug that's buzzing around tower",
     "enumeration": "7"
    },
-   "solution": "TUGBOAT"
+   "solution": "TUGBOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tower",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "squashes",
+       "at": 11,
+       "note": "squashes says the outer phrase presses the other letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unerringly",
+       "at": 0,
+       "gives": "TOAT",
+       "note": "to a T means exactly, without error"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "that's buzzing around",
+         "at": 24,
+         "note": "buzzing around suggests the letters of bug fly about in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bug",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swatter flattens a buzzing insect circling a tower.",
+     "walkthrough": "'tower' is read as one who tows, not a tall building.",
+     "definitionFit": "A tugboat tows ships, so it is literally a tower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tower"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +399,48 @@
     "text": "Where one goes after a curry dish",
     "enumeration": "4"
    },
-   "solution": "ALOO"
+   "solution": "ALOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "curry dish",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 15,
+       "note": "after puts the toilet after the letter A"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 21
+      },
+      {
+       "words": "Where one goes",
+       "at": 0,
+       "gives": "LOO",
+       "note": "the loo is where one goes, a coy phrase for the toilet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where you end up heading after a hot curry.",
+     "walkthrough": "The surface jokes about a curry's aftermath.",
+     "definitionFit": "Aloo is potato in Indian cookery, as in aloo gobi, a curry dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +460,46 @@
      }
     ]
    },
-   "solution": "TOWERBRIDGE"
+   "solution": "TOWERBRIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "adjustable spanner",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Modify",
+       "at": 0,
+       "note": "Modify tells us to change the order of the letters of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "widget",
+       "at": 7
+      },
+      {
+       "words": "borer",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic tweaks a gadget using a drill and a wrench.",
+     "walkthrough": "'adjustable spanner' looks like a tool; it is a bridge that spans the Thames and opens.",
+     "definitionFit": "Tower Bridge spans the Thames and its bascules lift, so it is a spanner that adjusts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spanner"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +527,77 @@
      }
     ]
    },
-   "solution": "SOFARSOGOOD"
+   "solution": "SOFARSOGOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "OK, now",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 33,
+       "note": "with puts the furniture item beside the rest, here at the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "furniture item",
+       "at": 38,
+       "gives": "SOFA",
+       "note": "a sofa is an item of furniture"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "through",
+         "at": 13,
+         "note": "through says one piece passes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "tight",
+           "at": 21,
+           "note": "tight, as in drunk, signals that the letters of doors are scrambled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "doors",
+           "at": 27
+          }
+         ]
+        },
+        {
+         "words": "pass",
+         "at": 8,
+         "gives": "GO",
+         "note": "to pass is to go"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone manoeuvring a sofa through a narrow doorway reports progress so far.",
+     "walkthrough": "'tight' means drunk here, the anagram signal; 'through' is the container and 'with' sets the furniture first. The definition is the two words 'OK, now'.",
+     "definitionFit": "The phrase is said when things have gone well up to the present moment, an all-right-for-now verdict."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 8,
@@ -191,7 +617,58 @@
      }
     ]
    },
-   "solution": "SIMONEBILES"
+   "solution": "SIMONEBILES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "'balance beam world-beater' three times",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contains",
+       "at": 15,
+       "note": "contains says the other letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Resemblances",
+       "at": 1,
+       "gives": "SIMILES",
+       "note": "similes are figures of speech drawing resemblances"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "just once",
+         "at": 26,
+         "gives": "ONE",
+         "note": "just once is one time, giving one"
+        },
+        {
+         "words": "B",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wordplay puzzle about how often letters appear in a phrase.",
+     "walkthrough": "The definition rides on the quotes: the gymnast won the world title on the balance beam three times.",
+     "definitionFit": "The American gymnast won the world championship on the balance beam three times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Resemblances"
+    }
+   }
   },
   {
    "number": 9,
@@ -211,7 +688,43 @@
      }
     ]
    },
-   "solution": "DRAWINGROOM"
+   "solution": "DRAWINGROOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "where artist prepares sitter?",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Seduce",
+       "at": 0,
+       "gives": "DRAWIN",
+       "note": "to draw someone in is to lure or seduce them"
+      },
+      {
+       "words": "married man",
+       "at": 7,
+       "gives": "GROOM",
+       "note": "a groom is a man just married"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist lures in a married man to pose for a portrait.",
+     "walkthrough": "The definition is whimsical: a room for drawing, and a room for sitting.",
+     "definitionFit": "A drawing room is a formal sitting room, and read literally a room for drawing a model."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sitter"
+    }
+   }
   },
   {
    "number": 10,
@@ -231,7 +744,67 @@
      }
     ]
    },
-   "solution": "PARTYPOOPER"
+   "solution": "PARTYPOOPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spoiler",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protected by",
+       "at": 25,
+       "note": "protected by says the per wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 38,
+       "gives": "PER",
+       "note": "per means a, as in 'twice per day'"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 9,
+         "note": "on means about, so the info about the arty place is written with its subject first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "MoMA perhaps",
+         "at": 12,
+         "gives": "ARTY",
+         "note": "MoMA, New York's Museum of Modern Art, is an arty place"
+        },
+        {
+         "words": "Low-down",
+         "at": 0,
+         "gives": "POOP",
+         "note": "poop is slang for the low-down, inside information"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about a museum hidden inside a film spoiler.",
+     "walkthrough": "'arty poop' is whimsical inside information on an art museum.",
+     "definitionFit": "A party pooper spoils other people's fun, a killjoy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spoiler"
+    }
+   }
   },
   {
    "number": 11,
@@ -245,7 +818,54 @@
     "text": "Perform turns because of God",
     "enumeration": "4"
    },
-   "solution": "ODIN"
+   "solution": "ODIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "God",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turns",
+         "at": 8,
+         "note": "turns tells us the word for perform is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Perform",
+         "at": 0,
+         "gives": "DO",
+         "note": "to perform a task is to do it"
+        }
+       ]
+      },
+      {
+       "words": "because of",
+       "at": 14,
+       "gives": "IN",
+       "note": "in can mean because of, as in 'in that' or 'in view of'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor performs a turn on stage because a deity demands it.",
+     "walkthrough": "'turns' makes DO into OD.",
+     "definitionFit": "Odin is the chief god of Norse mythology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 12,
@@ -259,7 +879,42 @@
     "text": "In our array, there's nothing even or odd for Napier",
     "enumeration": "4"
    },
-   "solution": "ORRA"
+   "solution": "ORRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "odd for Napier",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "there's nothing even",
+       "at": 14,
+       "note": "nothing in the even positions is kept, so only the odd-placed letters of the phrase remain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "our array",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mathematician like John Napier sorts an array into odd and even entries.",
+     "walkthrough": "John Napier, inventor of logarithms, was a Scot, so 'for Napier' asks for a Scots word.",
+     "definitionFit": "Orra is a Scots word meaning odd or spare, as in an orra man doing odd jobs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Napier"
+    }
+   }
   },
   {
    "number": 13,
@@ -273,7 +928,42 @@
     "text": "Boy who's collared ain't one for caning",
     "enumeration": "7"
    },
-   "solution": "ETONIAN"
+   "solution": "ETONIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boy who's collared",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "for caning",
+       "at": 29,
+       "note": "caning means beating, so the letters are knocked about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ain't one",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolboy grabbed by the collar admits he deserves a beating.",
+     "walkthrough": "The Eton collar is a broad white collar worn by Eton College boys, so the collar is part of the definition.",
+     "definitionFit": "A pupil of Eton College traditionally wore the stiff Eton collar, so he is a boy known for a collar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "collared"
+    }
+   }
   },
   {
    "number": 14,
@@ -287,7 +977,42 @@
     "text": "Object of gazing a little upon a velarium",
     "enumeration": "5"
    },
-   "solution": "NAVEL"
+   "solution": "NAVEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Object of gazing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "a little",
+       "at": 17,
+       "note": "a little says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "upon a velarium",
+       "at": 26,
+       "gives": "NAVEL",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stares up at the awning over an ancient amphitheatre.",
+     "definitionFit": "Navel-gazing is self-absorbed contemplation, so the belly button is what is gazed at."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "gazing"
+    }
+   }
   },
   {
    "number": 15,
@@ -301,7 +1026,44 @@
     "text": "Wally and Alfred going for a cycle",
     "enumeration": "7"
    },
-   "solution": "HALFWIT"
+   "solution": "HALFWIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wally",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "going for a cycle",
+       "at": 17,
+       "note": "going for a cycle says some letters travel round from the front to the back"
+      }
+     ],
+     "parts": [
+      {
+       "words": "and Alfred",
+       "at": 6,
+       "gives": "WITHALF",
+       "note": "and Alfred is with Alf, Alf being the short form of Alfred"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two friends, Wally and Alfred, head out for a bike ride.",
+     "walkthrough": "Wally is British slang for a fool; moving WIT from the front of WITH ALF to the end gives the answer.",
+     "definitionFit": "In British slang a wally is a silly or foolish person, which is what a halfwit is too."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wally"
+    }
+   }
   },
   {
    "number": 15,
@@ -321,7 +1083,64 @@
      }
     ]
    },
-   "solution": "HIHAT"
+   "solution": "HIHAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clashing part of kit",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 29,
+       "note": "about says the word for struck goes round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "struck",
+       "at": 22,
+       "gives": "HIT",
+       "note": "struck means hit"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 12,
+         "note": "initially takes the opening letters of the designer's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hardy",
+         "at": 0
+        },
+        {
+         "words": "Amies",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion designer strikes out against a clashing outfit.",
+     "walkthrough": "Hardy Amies was a royal dressmaker; 'kit' is a drum kit.",
+     "definitionFit": "A hi-hat is the pair of cymbals clashed together by a pedal in a drum kit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kit"
+    }
+   }
   },
   {
    "number": 16,
@@ -335,7 +1154,42 @@
     "text": "Hotel with not much custom",
     "enumeration": "5"
    },
-   "solution": "HABIT"
+   "solution": "HABIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "custom",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hotel",
+       "at": 0,
+       "gives": "H",
+       "note": "H is Hotel in the NATO phonetic alphabet"
+      },
+      {
+       "words": "not much",
+       "at": 11,
+       "gives": "ABIT",
+       "note": "not much is a bit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hotel that does little trade with very few customers.",
+     "definitionFit": "A habit is a settled practice, the same as a custom or usual way of doing things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "custom"
+    }
+   }
   },
   {
    "number": 17,
@@ -349,7 +1203,43 @@
     "text": "Plot raising a section of 7 Down",
     "enumeration": "4"
    },
-   "solution": "BREW"
+   "solution": "BREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "raising",
+       "at": 5,
+       "note": "raising suggests lifting, as the bascules of the bridge go up, so the picked letters run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a section of 7 Down",
+       "at": 13,
+       "gives": "WERB",
+       "note": "a run of letters taken from inside the answer to 7 Down, the London landmark"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scheme to lift one part of a famous bridge.",
+     "walkthrough": "Inside TO(WERB)RIDGE sits WERB; 'raising' turns it round.",
+     "definitionFit": "To brew trouble is to plot it, as when a storm or a scheme is brewing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raising"
+    }
+   }
   },
   {
    "number": 18,
@@ -363,7 +1253,43 @@
     "text": "Review criticises game of little skill",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game of little skill",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Review",
+       "at": 0,
+       "note": "Review is read as re-view, looking back, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "criticises",
+       "at": 7,
+       "gives": "PANS",
+       "note": "to pan a show is to criticise it harshly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic dismisses a game as needing little skill.",
+     "walkthrough": "'Review' looks like a noun to do with critics; it turns PANS round.",
+     "definitionFit": "Snap is a children's card game won by quick reactions rather than thought or skill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Review"
+    }
+   }
   },
   {
    "number": 19,
@@ -377,7 +1303,31 @@
     "text": "Remove nitrous oxide, say, from impressionist",
     "enumeration": "5"
    },
-   "solution": "DEGAS"
+   "solution": "DEGAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remove nitrous oxide, say",
+      "at": 0,
+      "meaning": "to take gas out of something; nitrous oxide is one example of a gas"
+     },
+     {
+      "text": "impressionist",
+      "at": 32,
+      "meaning": "Edgar ... was a French Impressionist painter"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tries to strip laughing gas from a painter.",
+     "definitionFit": "Degassing removes gas from a substance; Degas painted ballet dancers in the Impressionist circle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "impressionist"
+    }
+   }
   },
   {
    "number": 19,
@@ -391,7 +1341,49 @@
     "text": "Sorcerer opens pop with leak in can?",
     "enumeration": "7"
    },
-   "solution": "DAMAGED"
+   "solution": "DAMAGED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with leak in can?",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "opens",
+       "at": 9,
+       "note": "opens says one piece breaks into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pop",
+       "at": 15,
+       "gives": "DAD",
+       "note": "pop is a familiar word for father, dad"
+      },
+      {
+       "words": "Sorcerer",
+       "at": 0,
+       "gives": "MAGE",
+       "note": "a mage is a wizard or sorcerer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wizard opens a fizzy drink and finds the can is leaking.",
+     "walkthrough": "'pop' looks like fizzy drink beside 'can', but it means father.",
+     "definitionFit": "A tin that leaks is an example of something harmed, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 20,
@@ -405,7 +1397,49 @@
     "text": "A little secretive about choice of openers for Headingley Test",
     "enumeration": "7"
    },
-   "solution": "SHORTLY"
+   "solution": "SHORTLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A little",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 19,
+       "note": "about says the secretive word wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "secretive",
+       "at": 9,
+       "gives": "SLY",
+       "note": "sly means secretive or cunning"
+      },
+      {
+       "words": "choice of openers for Headingley Test",
+       "at": 25,
+       "gives": "HORT",
+       "note": "the openers, or first letters, of Headingley and Test offered as alternatives: one or the other"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slightly cagey selection of opening batsmen for a cricket Test at Headingley.",
+     "walkthrough": "Headingley is a Leeds cricket ground. 'choice of openers' reads as H OR T, either initial, which 'about' places inside SLY.",
+     "definitionFit": "Shortly means in a little while, soon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "openers"
+    }
+   }
   },
   {
    "number": 21,
@@ -419,7 +1453,52 @@
     "text": "First enjoying success, it all evens out",
     "enumeration": "7"
    },
-   "solution": "INITIAL"
+   "solution": "INITIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "First",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "enjoying success",
+       "at": 6,
+       "gives": "INIT",
+       "note": "someone in it is in the money, doing well"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "evens out",
+         "at": 31,
+         "note": "evens out means the even-placed letters are taken out, leaving the odd ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it all",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An early win that everything later balances out.",
+     "walkthrough": "From I-T-A-L-L, 'evens out' drops T and L, leaving IAL.",
+     "definitionFit": "Initial means first, as in the initial stage of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "evens"
+    }
+   }
   },
   {
    "number": 22,
@@ -433,7 +1512,55 @@
     "text": "Nasty slur withdrawn from soul brother playing instrument",
     "enumeration": "7"
    },
-   "solution": "THEORBO"
+   "solution": "THEORBO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Nasty",
+       "at": 0,
+       "note": "Nasty signals the letters of slur are mixed up before being removed"
+      },
+      {
+       "text": "withdrawn from",
+       "at": 11,
+       "note": "withdrawn from says the slur's letters come out of the soul brother's"
+      },
+      {
+       "text": "playing",
+       "at": 39,
+       "note": "playing signals the letters of soul brother are set loose in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soul brother",
+       "at": 26
+      },
+      {
+       "words": "slur",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An offensive remark is taken back from a musician friend's performance.",
+     "walkthrough": "Take the letters of SLUR ('Nasty') out of the letters of SOUL BROTHER ('playing'), and the leftover letters rearrange into the answer; 'withdrawn from' signals the removal.",
+     "definitionFit": "A theorbo is a large bass lute with an extended neck, used in Baroque music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soul"
+    }
+   }
   },
   {
    "number": 23,
@@ -447,7 +1574,54 @@
     "text": "Welshwoman second of agents subverted",
     "enumeration": "4"
    },
-   "solution": "GWEN"
+   "solution": "GWEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Welshwoman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "second of",
+       "at": 11,
+       "note": "second of points at the second letter of the agents"
+      },
+      {
+       "text": "subverted",
+       "at": 28,
+       "note": "subverted is read as turned upside down, which flips one letter into another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agents",
+       "at": 21,
+       "gives": "GMEN",
+       "note": "G-men are FBI agents"
+      },
+      {
+       "gives": "M"
+      },
+      {
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh woman agent turns double against her colleagues.",
+     "walkthrough": "'second of' takes M in G-MEN and 'subverted' turns it upside down into W.",
+     "definitionFit": "Gwen is a Welsh female name, short for Gwendolen or Gwenllian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "subverted"
+    }
+   }
   },
   {
    "number": 24,
@@ -467,7 +1641,58 @@
      }
     ]
    },
-   "solution": "NONO"
+   "solution": "NONO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That's forbidden",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "From underside",
+       "at": 0,
+       "note": "From underside reads the word from its bottom upwards, backwards in a down clue"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cored",
+         "at": 16,
+         "note": "cored means the central letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shallot",
+         "at": 22,
+         "gives": "ONION",
+         "note": "a shallot is a kind of onion"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook is told off for coring a shallot from beneath.",
+     "walkthrough": "'cored' removes the middle I of ONION, and 'From underside' turns ONON round.",
+     "definitionFit": "A no-no is something not allowed, a thing that must not be done."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shallot"
+    }
+   }
   },
   {
    "number": 25,
@@ -481,7 +1706,36 @@
     "text": "… unlimited port?",
     "enumeration": "4"
    },
-   "solution": "OBAN"
+   "solution": "OBAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unlimited port?",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "unlimited port?",
+       "at": 2,
+       "note": "unlimited is read as nothing banned: a zero followed by a word for a prohibition, naming a Scottish west-coast harbour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Following 24 Down, a harbour where nothing is forbidden.",
+     "walkthrough": "The ellipsis links to 24 Down's forbidding: the name split as O BAN reads as zero ban.",
+     "definitionFit": "Oban is a ferry port on the west coast of Scotland, also known for its whisky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unlimited"
+    }
+   }
   },
   {
    "number": 26,
@@ -495,7 +1749,32 @@
     "text": "I think this work's very heavy",
     "enumeration": "4"
    },
-   "solution": "TOME"
+   "solution": "TOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I think",
+      "at": 0,
+      "meaning": "... can mean in my view, as in 'it seems ...'"
+     },
+     {
+      "text": "this work's very heavy",
+      "at": 8,
+      "meaning": "a large, heavy book"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone lifting a book gives an opinion on its weight.",
+     "walkthrough": "The first reading splits the answer as TO ME.",
+     "definitionFit": "A tome is a large weighty volume, and 'to me' is a phrase introducing an opinion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heavy"
+    }
+   }
   },
   {
    "number": 26,
@@ -509,7 +1788,54 @@
     "text": "Removing wrapper, put off frying this?",
     "enumeration": "4"
    },
-   "solution": "TOFU"
+   "solution": "TOFU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Removing wrapper, put off frying this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "frying",
+       "at": 26,
+       "note": "frying, like cooking, signals the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Removing wrapper",
+         "at": 0,
+         "note": "removing the wrapper strips the outer letters off the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "put off",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A cook unwraps a block of bean curd but cannot face frying it.",
+     "walkthrough": "'Removing wrapper' leaves UTOF from PUT OFF, and 'frying' rearranges it.",
+     "definitionFit": "Tofu is bean curd sold in a wrapper and often fried, so the whole clue describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wrapper"
+    }
+   }
   },
   {
    "number": 27,
@@ -529,7 +1855,67 @@
      }
     ]
    },
-   "solution": "SOGGYBOTTOM"
+   "solution": "SOGGYBOTTOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "negative for Mary",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Counter",
+       "at": 0,
+       "note": "Counter means running in the opposite direction, so the whole string is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "saw",
+         "at": 8,
+         "gives": "MOTTO",
+         "note": "a saw is a saying, a motto"
+        },
+        {
+         "words": "beside",
+         "at": 12,
+         "gives": "BY",
+         "note": "by means beside, as in 'stand by me'"
+        },
+        {
+         "words": "horse",
+         "at": 19,
+         "gives": "GG",
+         "note": "gee-gee, written GG, is a child's word for a horse"
+        },
+        {
+         "words": "sizable",
+         "at": 25,
+         "gives": "OS",
+         "note": "OS is the abbreviation for outsize"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wise saying beside a big horse sounds like a strange pronouncement.",
+     "walkthrough": "'Counter' reverses the lot. Mary Berry was a judge on The Great British Bake Off, where pastry with an undercooked, damp base is condemned.",
+     "definitionFit": "A soggy bottom is the classic baking fault Mary Berry criticised on television."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 28,
@@ -549,7 +1935,60 @@
      }
     ]
    },
-   "solution": "GOLDENSYRUP"
+   "solution": "GOLDENSYRUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sweetener for tart",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "presented in",
+       "at": 34,
+       "note": "presented in signals one piece set inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "grand",
+         "at": 47,
+         "gives": "G",
+         "note": "G is short for grand, a thousand pounds"
+        },
+        {
+         "words": "rug",
+         "at": 53,
+         "gives": "SYRUP",
+         "note": "syrup is rhyming slang for a wig, from syrup of figs, and rug is slang for a wig"
+        }
+       ]
+      },
+      {
+       "words": "in bygone days",
+       "at": 19,
+       "gives": "OLDEN",
+       "note": "olden means of bygone days"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Treacle tart sweetened in the old days with something served on a fine rug.",
+     "walkthrough": "Rhyming slang: syrup of figs = wig, and rug is also slang for a wig.",
+     "definitionFit": "Golden syrup is the pale sugar syrup that fills a treacle tart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rug"
+    }
+   }
   }
  ]
 }
