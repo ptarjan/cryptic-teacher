@@ -1795,6 +1795,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     scanned, scan_failed = set(), set()  # (paper, rel) of the scans that ended done, or failed, this run
     outcomes = {}
     losses = {}  # key_of(unit): times it ended lost (EXITS["lost"])
+    unbatched = set()  # keys of the editions of a batch that ended deferred: read alone from then on (batch_mates)
     # Paul 10-13: "If the vision model is down and you need it just go onto
     # the next scan and do it when it is back". The reads that ended deferred
     # for the VLM (EXITS["vlm"]), held with needs_vlm's while it is down.
@@ -2211,6 +2212,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]):
                 tried.discard(key_of(unit))  # started again once the desktop is idle, or the VLM answers
                 tried.difference_update(batch_mate_keys(unit))  # ... each batched edition on its own
+                if unit.get("batch"):
+                    unbatched.update(batch_mate_keys(unit))
+                    unbatched.add(key_of(unit))
                 if desktop_bound and unit["kind"] == "scan":
                     yield_held.add(key_of(unit))
             else:
@@ -2721,8 +2725,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     idle_held = True
                     continue
             # Answers-linked rereads of one item go in one process: the setup is ~all of their cost.
-            began = start(u, batch_mates(u, read_cands, tried, busy,
-                                         lambda v: not waits(v) and not vlm_waits(v) and key_of(v) not in firsts))
+            # (An edition of a batch that ended deferred is read alone from then on: one needing the VLM's
+            # asks would end its whole batch again, the other editions unread.)
+            began = start(u, [] if ukey in unbatched else batch_mates(
+                u, read_cands, tried, busy | unbatched,
+                lambda v: not waits(v) and not vlm_waits(v) and key_of(v) not in firsts))
             if not began and began is not PENDING:
                 unscanned.add((u["paper"], u["rel"]))
                 continue
