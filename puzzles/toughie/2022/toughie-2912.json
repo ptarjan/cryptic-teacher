@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,37 @@
     "text": "Will this make us up? I don't know",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I don't know",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "P AS S",
+     "parts": [
+      {
+       "words": "Will this make us up",
+       "at": 0,
+       "note": "write P where S stands, and the word us turns into up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether something will cheer a group up, then shrugs.",
+     "walkthrough": "Split the answer 1-2-1 to get an instruction: put P in place of S, which turns 'us' into 'up'.",
+     "definitionFit": "In a quiz, a contestant who has no idea of the response says 'pass' to move on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +78,73 @@
     "text": "You've got to resort island and villa, finally free of San Salvador",
     "enumeration": "4"
    },
-   "solution": "DALI"
+   "solution": "DALI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Salvador",
+      "at": 59
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "resort",
+       "at": 14,
+       "note": "to re-sort letters is to arrange them afresh, so the pooled letters are shuffled"
+      },
+      {
+       "text": "free of",
+       "at": 47,
+       "note": "free of signals that the letters of the next word are taken out of the pool before the shuffle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "island",
+         "at": 21
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 39,
+           "note": "finally picks the last letter of villa"
+          }
+         ],
+         "parts": [
+          {
+           "words": "villa",
+           "at": 32
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "San",
+       "at": 55,
+       "note": "taken as written, its three letters are removed"
+      }
+     ]
+    },
+    "spelling": "DALÍ",
+    "explanation": {
+     "surface": "A holiday tip: to unwind at an island villa you must get away from the city of San Salvador.",
+     "walkthrough": "Pool ISLAND and A (last of villa), strike out S, A, N, and rearrange the remaining L, D, A, I. 'San Salvador' looks like the capital of El Salvador; only 'Salvador' is the definition, the painter's first name.",
+     "definitionFit": "Salvador Dalí was the Spanish surrealist painter, so his first name stands for him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Salvador"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +158,31 @@
     "text": "Bottom of the American barrel",
     "enumeration": "4"
    },
-   "solution": "BUTT"
+   "solution": "BUTT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bottom of the American",
+      "at": 0,
+      "meaning": "first meaning: the American slang word for a person's bottom"
+     },
+     {
+      "text": "barrel",
+      "at": 23,
+      "meaning": "second meaning: a large cask for wine or beer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bottom is also the weaver in A Midsummer Night's Dream, the puzzle's theme.",
+     "definitionFit": "In US English the word is slang for buttocks, and separately it names a large cask holding wine or ale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bottom"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +202,31 @@
      }
     ]
    },
-   "solution": "OFFGRID"
+   "solution": "OFFGRID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps unconnected",
+      "at": 0,
+      "meaning": "first meaning: not linked to mains electricity or water, as a remote home may be"
+     },
+     {
+      "text": "wordplay etc solved here",
+      "at": 20,
+      "meaning": "second meaning: a solver works out wordplay in the margin, away from the crossword's squares"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading is a joke at the solver's expense: the scribbling space beside the puzzle is literally beside the squares.",
+     "definitionFit": "A house supplied by its own generator and well is said to live without links to the public utility networks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unconnected"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +240,76 @@
     "text": "Artisan food preserves a name in style",
     "enumeration": "10"
    },
-   "solution": "MECHANICAL"
+   "solution": "MECHANICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artisan",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "preserves",
+       "at": 13,
+       "note": "preserves means holds safe within, so meal wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "food",
+       "at": 8,
+       "gives": "MEAL",
+       "note": "a meal is food"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 30,
+         "note": "in places the next pieces inside the word for style"
+        }
+       ],
+       "parts": [
+        {
+         "words": "style",
+         "at": 33,
+         "gives": "CHIC",
+         "note": "chic means stylishness"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 23,
+           "gives": "A"
+          },
+          {
+           "words": "name",
+           "at": 25,
+           "gives": "N"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A craft food producer bottles something in a fashionable way.",
+     "walkthrough": "In A Midsummer Night's Dream the workmen who stage the play are the 'rude mechanicals', an old use meaning manual workers.",
+     "definitionFit": "In Shakespeare's day the word was a noun for a manual labourer or craftsman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "preserves"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +323,55 @@
     "text": "Starveling rejected jelly and cake",
     "enumeration": "10"
    },
-   "solution": "RAGAMUFFIN"
+   "solution": "RAGAMUFFIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Starveling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 11,
+         "note": "rejected means thrown back, so the jelly word is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jelly",
+         "at": 20,
+         "gives": "AGAR",
+         "note": "agar is a jelly made from seaweed"
+        }
+       ]
+      },
+      {
+       "words": "cake",
+       "at": 30,
+       "gives": "MUFFIN",
+       "note": "a muffin is a small cake"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hungry waif turns down jelly and cake, oddly.",
+     "walkthrough": "Starveling is the tailor among the mechanicals in A Midsummer Night's Dream.",
+     "definitionFit": "A starveling is a thin, ill-fed person; a ragged, scruffy child fits that picture as a near synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +385,62 @@
     "text": "Twist opening of canticle or its end once: not again",
     "enumeration": "9"
    },
-   "solution": "NATHEMORE"
+   "solution": "NATHEMORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not again",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "Twist opening of",
+         "at": 0,
+         "note": "only the first two letters of the canticle word are twisted round, swapping places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "canticle",
+         "at": 17,
+         "gives": "ANTHEM",
+         "note": "an anthem is a sacred song, like a canticle"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "or",
+       "at": 26,
+       "gives": "OR"
+      },
+      {
+       "words": "its end",
+       "at": 29,
+       "gives": "E",
+       "note": "its refers to the canticle, whose last letter is E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A choirmaster's direction about the beginning of a hymn, and then a refusal to repeat it.",
+     "walkthrough": "Swap the first two letters of ANTHEM to get NATHEM, then add OR and the E ending ANTHEM. 'once' marks the answer as archaic: Spenser's word for 'never again'.",
+     "definitionFit": "An archaic adverb, literally 'never the more', meaning never again or no further."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Twist"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +454,44 @@
     "text": "Broadcasting this way would be poor/average",
     "enumeration": "4"
    },
-   "solution": "MIEN"
+   "solution": "MIEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "way",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MIEN",
+     "indicators": [
+      {
+       "text": "Broadcasting",
+       "at": 0,
+       "note": "broadcasting means sending out over the air, so it is the spoken sound that counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poor/average",
+       "at": 31,
+       "gives": "MEAN",
+       "note": "mean can mean both poor (shabby) and average"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suggests that putting a programme out in this format would make it mediocre.",
+     "walkthrough": "'this' is the answer itself: say it aloud and it sounds like a word meaning both poor and average.",
+     "definitionFit": "Mien is a person's manner or bearing, the way they look and carry themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Broadcasting"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +505,50 @@
     "text": "Napoleon's ailing limb's dressed with quince preparation",
     "enumeration": "9"
    },
-   "solution": "MARMALADE"
+   "solution": "MARMALADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quince preparation",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dressed with",
+       "at": 25,
+       "note": "a limb dressed with the French word sits inside it, wrapped like a bandaged arm"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Napoleon's ailing",
+       "at": 0,
+       "gives": "MALADE",
+       "note": "malade is French for ill, Napoleon being a Frenchman"
+      },
+      {
+       "words": "limb's",
+       "at": 18,
+       "gives": "ARM",
+       "note": "an arm is a limb; the 's stands for is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The French emperor's sick arm is bandaged, with a poultice of quince.",
+     "walkthrough": "Quince is the carpenter who directs the play in A Midsummer Night's Dream.",
+     "definitionFit": "The preserve's name comes from Portuguese marmelo, quince, from which it was first made before oranges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +562,60 @@
     "text": "Snug Bar Tony's principal reasons not to get a round?",
     "enumeration": "9"
    },
-   "solution": "SKINTIGHT"
+   "solution": "SKINTIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Snug",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Bar",
+       "at": 5,
+       "note": "bar means except, so one letter is excluded"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reasons not to get a round",
+       "at": 26,
+       "gives": "SKINTTIGHT",
+       "note": "being skint (British slang for penniless) and being tight (stingy) both stop someone buying drinks for the group"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "principal",
+         "at": 16,
+         "note": "principal means first, so the opening letter of Tony's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tony's",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a pub's cosy back room Tony's main excuses for not buying drinks are aired.",
+     "walkthrough": "Join SKINT and TIGHT, then drop one T. A snug is a small private room in a British pub, and Snug is the joiner in A Midsummer Night's Dream.",
+     "definitionFit": "Clothing that fits tightly against the body is described as close-fitting, or cosily snug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Snug"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +629,39 @@
     "text": "Midway through June, Eva is born",
     "enumeration": "3"
    },
-   "solution": "NEE"
+   "solution": "NEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "born",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Midway through",
+       "at": 0,
+       "note": "the letters are taken from the middle of the run June Eva, straddling the two words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "June, Eva",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A birth announcement: Eva arrives in the middle of June.",
+     "definitionFit": "Placed before a maiden name, the French word indicates the family a woman was born into."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +675,50 @@
     "text": "Demon who delights I now see in Rugby",
     "enumeration": "4"
    },
-   "solution": "RAHU"
+   "solution": "RAHU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Demon who delights",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "in puts the exclamation inside the rugby abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rugby",
+       "at": 32,
+       "gives": "RU",
+       "note": "RU is the abbreviation for Rugby Union"
+      },
+      {
+       "words": "I now see",
+       "at": 19,
+       "gives": "AH",
+       "note": "ah is the exclamation of sudden understanding"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator at a rugby match realises who the joyful star is.",
+     "walkthrough": "'delights' is the twist: read it as de-lights, putting out the lights. In Hindu myth Rahu swallows the sun or moon, causing eclipses.",
+     "definitionFit": "Rahu is the severed head of a Hindu demon who devours the sun and moon, extinguishing their light in eclipses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delights"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +732,31 @@
     "text": "A sign of business that is open to question",
     "enumeration": "3"
    },
-   "solution": "HUM"
+   "solution": "HUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A sign of business",
+      "at": 0,
+      "meaning": "first meaning: a busy place gives off a low steady drone, read business as busyness"
+     },
+     {
+      "text": "that is open to question",
+      "at": 19,
+      "meaning": "second meaning: an interjection voicing doubt or hesitation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read 'business' as busy-ness: a busy office or hive drones.",
+     "definitionFit": "A low continuous drone signals activity, and the same sound uttered aloud expresses hesitant doubt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "business"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +770,58 @@
     "text": "I despise fragmenting walls with dig, incidentally",
     "enumeration": "9"
    },
-   "solution": "SIDESWIPE"
+   "solution": "SIDESWIPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dig, incidentally",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "walls",
+       "at": 22,
+       "note": "walls means encloses, so the rearranged letters surround the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fragmenting",
+         "at": 10,
+         "note": "fragmenting means breaking into pieces, so the letters of I despise are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I despise",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "with",
+       "at": 28,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who loathes crumbling masonry complains about walls while doing a bit of digging.",
+     "walkthrough": "The rearranged letters SIDESIPE wrap round W.",
+     "definitionFit": "A sideswipe is a passing critical remark made in the course of discussing something else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "walls"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +841,42 @@
      }
     ]
    },
-   "solution": "SWINGMUSIC"
+   "solution": "SWINGMUSIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "big band Jazz",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cradle",
+       "at": 0,
+       "gives": "SWING",
+       "note": "to cradle a baby is to swing it gently"
+      },
+      {
+       "words": "songs",
+       "at": 7,
+       "gives": "MUSIC",
+       "note": "songs are music"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether lullabies or big band jazz are meant.",
+     "walkthrough": "'Cradle-songs' reads as lullabies, but split it: cradle gives one part, songs the other.",
+     "definitionFit": "Swing was the style of jazz played by large dance orchestras of the 1930s and 1940s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cradle"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +896,34 @@
      }
     ]
    },
-   "solution": "DREAMTEAM"
+   "solution": "DREAMTEAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The 24 5s here? Yes and no",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The 24 5s here? Yes and no",
+       "at": 0,
+       "note": "the rude mechanicals form a troupe within Shakespeare's Dream, but as actors they are hopeless rather than ideal"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The 24 and 5 entries make RUDE MECHANICALS, the amateur actors in A Midsummer Night's Dream. They are a team in the Dream, so yes; but a perfect line-up they are not.",
+     "definitionFit": "The phrase means an ideal group of players, while literally reading as the company within the play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +943,76 @@
      }
     ]
    },
-   "solution": "SAMBROWNE"
+   "solution": "SAMBROWNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A belt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 22,
+       "note": "to keep means to hold, so the sane word holds the following pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "all there",
+       "at": 9,
+       "gives": "SANE",
+       "note": "someone all there is sane"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 45,
+         "note": "in a down clue on means placed above, so the miner's initial comes first"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 38,
+           "note": "leader picks the first letter of miner's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "miner's",
+           "at": 30
+          }
+         ]
+        },
+        {
+         "words": "pithead",
+         "at": 48,
+         "gives": "BROW",
+         "note": "in mining the brow is the top of a pit shaft"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Apparently a belt holds everything needed to keep the mine foreman at the shaft head.",
+     "definitionFit": "The Sam Browne is a military belt with a supporting strap over the right shoulder, named after a general."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pithead"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1026,49 @@
     "text": "How enjoyable to squeeze new spots",
     "enumeration": "4"
    },
-   "solution": "ACNE"
+   "solution": "ACNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spots",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to squeeze",
+       "at": 14,
+       "note": "to squeeze means to hold tightly, so the exclamation grips the next letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "How enjoyable",
+       "at": 0,
+       "gives": "ACE",
+       "note": "ace! is an exclamation of delight"
+      },
+      {
+       "words": "new",
+       "at": 25,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds squeezing fresh pimples satisfying.",
+     "walkthrough": "The surface makes 'squeeze' about pimples, but it is the containment signal.",
+     "definitionFit": "Acne is a skin condition producing pimples, so the word stands for a rash of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "squeeze"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1088,70 @@
      }
     ]
    },
-   "solution": "PIPEMMA"
+   "solution": "PIPEMMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "afternoon",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Monitor of suspect",
+       "at": 0,
+       "gives": "PI",
+       "note": "a PI, private investigator, keeps watch on a suspect"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 25,
+         "note": "around means the pulse word goes round the next letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pulse",
+         "at": 19,
+         "gives": "PEA",
+         "note": "a pea is a pulse, an edible seed"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "middle of",
+           "at": 32,
+           "note": "middle of picks the central pair of letters in summer"
+          }
+         ],
+         "parts": [
+          {
+           "words": "summer",
+           "at": 42
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something tracks a dubious heartbeat around midsummer.",
+     "walkthrough": "PEA opens to take MM, the middle of summer. PIP EMMA is old military phonetic slang for the letters PM.",
+     "definitionFit": "The phrase is the old signallers' pronunciation of PM, the abbreviation for post meridiem, the hours after noon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pulse"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1165,77 @@
     "text": "Overly protective of \"Bravo Bill\", copper's top snout",
     "enumeration": "7"
    },
-   "solution": "TOBACCO"
+   "solution": "TOBACCO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "snout",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protective of",
+       "at": 7,
+       "note": "protective of means shielding, so the first word wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Overly",
+       "at": 0,
+       "gives": "TOO",
+       "note": "too means overly"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bravo",
+         "at": 22,
+         "gives": "B",
+         "note": "B is Bravo in the NATO alphabet"
+        },
+        {
+         "words": "Bill",
+         "at": 28,
+         "gives": "AC",
+         "note": "AC is short for account, a bill"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "top",
+           "at": 44,
+           "note": "top picks the first letter of copper's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "copper's",
+           "at": 35
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer's main informant is too protective of someone called Bravo Bill.",
+     "walkthrough": "'snout' looks like the police informer the surface suggests; it is prison slang for tobacco, and Snout is the tinker in A Midsummer Night's Dream.",
+     "definitionFit": "In British prison slang snout is a word for cigarettes or rolling leaf for smoking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snout"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1249,63 @@
     "text": "Venetian madam cut short during it?",
     "enumeration": "7"
    },
-   "solution": "SIGNORA"
+   "solution": "SIGNORA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Venetian madam",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 25,
+       "note": "during means within, so the shortened word sits inside the sex appeal letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "it",
+       "at": 32,
+       "gives": "SA",
+       "note": "SA, sex appeal, is crosswordese for it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 19,
+         "note": "short means the last letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cut",
+         "at": 15,
+         "gives": "IGNORE",
+         "note": "to cut someone is to ignore them"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Venetian lady is snubbed in the middle of something.",
+     "definitionFit": "The Italian title for a married woman, equivalent to Mrs or madam, used in Venice as elsewhere in Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1319,64 @@
     "text": "Back in the past the origin of messages",
     "enumeration": "4"
    },
-   "solution": "OGAM"
+   "solution": "OGAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Back in the past the origin of messages",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Back",
+         "at": 0,
+         "note": "back means turned the other way, so the past word reads in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in the past",
+         "at": 5,
+         "gives": "AGO",
+         "note": "ago means in the past"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the origin of",
+         "at": 17,
+         "note": "the origin is the start, so the first letter of messages"
+        }
+       ],
+       "parts": [
+        {
+         "words": "messages",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A historian's remark that long ago lay the source of written communication.",
+     "definitionFit": "Ogam, or Ogham, is the ancient Irish alphabet of strokes carved on stones, an early form of writing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1396,43 @@
      }
     ]
    },
-   "solution": "RAISEHELL"
+   "solution": "RAISEHELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "make trouble",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RAISEHELL",
+     "indicators": [
+      {
+       "text": "I'm told",
+       "at": 0,
+       "note": "I'm told means heard by report, so the words are taken by their sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Raymond's the man who's going to",
+       "at": 9,
+       "gives": "RAYSHELL",
+       "note": "Ray's for Raymond's and he'll for the man who's going to, said together"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip that Raymond is the fellow about to cause a disturbance.",
+     "definitionFit": "The idiom means to create a loud disturbance or protest angrily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1446,47 @@
     "text": "Permitted to escape deadly sentient computer",
     "enumeration": "3"
    },
-   "solution": "HAL"
+   "solution": "HAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sentient computer",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to escape",
+       "at": 10,
+       "note": "to escape means getting out, so those letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deadly",
+       "at": 20,
+       "gives": "LETHAL",
+       "note": "lethal means deadly"
+      },
+      {
+       "words": "Permitted",
+       "at": 0,
+       "gives": "LET",
+       "note": "let means permitted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dangerous computer is allowed to break free.",
+     "definitionFit": "HAL 9000 is the self-aware machine in Kubrick's film 2001: A Space Odyssey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1500,42 @@
     "text": "Twins, very audibly!",
     "enumeration": "3"
    },
-   "solution": "TWO"
+   "solution": "TWO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Twins",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TWO",
+     "indicators": [
+      {
+       "text": "audibly",
+       "at": 12,
+       "note": "audibly means as heard, so the word is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "very",
+       "at": 7,
+       "gives": "TOO",
+       "note": "too means very"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loud exclamation about a pair of twins.",
+     "definitionFit": "Twins come as a pair, a number one more than one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1549,47 @@
     "text": "Was sorry for wiggling rear, showing more than a little cheek",
     "enumeration": "4"
    },
-   "solution": "RUDE"
+   "solution": "RUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "showing more than a little cheek",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "wiggling rear",
+       "at": 14,
+       "note": "wiggling the rear means only the final pair of letters is switched round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Was sorry",
+       "at": 0,
+       "gives": "RUED",
+       "note": "rued means regretted"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone apologises for shaking their bottom, which displayed quite a lot of buttock.",
+     "walkthrough": "'cheek' reads as a buttock in the surface; in the definition it is impudence.",
+     "definitionFit": "Rude behaviour is impolite, a good deal more than mere impudence or cheekiness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cheek"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1603,56 @@
     "text": "Like maiden pursuing favourable outcome of playing flute?",
     "enumeration": "9"
    },
-   "solution": "WINEGLASS"
+   "solution": "WINEGLASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flute?",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursuing",
+       "at": 12,
+       "note": "pursuing means following, so the like and maiden words come after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "favourable outcome of playing",
+       "at": 21,
+       "gives": "WIN",
+       "note": "a win is the best result of a game"
+      },
+      {
+       "words": "Like",
+       "at": 0,
+       "gives": "EG",
+       "note": "EG, for example, means like"
+      },
+      {
+       "words": "maiden",
+       "at": 5,
+       "gives": "LASS",
+       "note": "a lass is a maiden"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl chasing victory in a flute recital.",
+     "walkthrough": "A flute is a tall narrow glass for champagne, hence the question mark; Flute is also the bellows-mender in A Midsummer Night's Dream.",
+     "definitionFit": "A champagne flute is one type of stemmed drinking glass, so it is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flute"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1666,76 @@
     "text": "Gay son, Joshua, finally wriggling free of San Francisco?",
     "enumeration": "4"
    },
-   "solution": "GOYA"
+   "solution": "GOYA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Francisco?",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "wriggling",
+       "at": 25,
+       "note": "wriggling means twisting about, so the pooled letters are rearranged"
+      },
+      {
+       "text": "free of",
+       "at": 35,
+       "note": "free of signals that the letters of the next word are taken out of the pool first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Gay",
+         "at": 0
+        },
+        {
+         "words": "son",
+         "at": 4
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 17,
+           "note": "finally picks the last letter of Joshua"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Joshua",
+           "at": 9
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "San",
+       "at": 43,
+       "note": "taken as written, its three letters are removed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gay son named Joshua squirms out of San Francisco.",
+     "walkthrough": "Pool GAY, SON and A, strike out S, A, N, and rearrange the remaining G, Y, O, A. 'San Francisco' looks like the city; the question mark flags Francisco as the painter's first name.",
+     "definitionFit": "Francisco Goya was the Spanish painter, so his first name stands for him, as an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Francisco"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1749,47 @@
     "text": "Lead characters of thematic play, somewhere within",
     "enumeration": "4"
    },
-   "solution": "AMID"
+   "solution": "AMID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "somewhere within",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Lead characters of",
+       "at": 0,
+       "note": "lead characters are the leading letters, so only the title's opening run is kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thematic play",
+       "at": 19,
+       "gives": "AMIDSUMMERNIGHTSDREAM",
+       "note": "the play behind the puzzle's theme is A Midsummer Night's Dream"
+      },
+      {
+       "gives": "SUMMERNIGHTSDREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The leading roles of a play with a theme, somewhere in the cast.",
+     "walkthrough": "'Lead characters' looks like the star roles; it means the first letters of the title.",
+     "definitionFit": "Amid is a preposition meaning in the middle of, surrounded by."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1809,89 @@
      }
     ]
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I've seen the game",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "written all over it",
+         "at": 67,
+         "note": "the two noughts are scattered across the letters, one after each"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "second",
+           "at": 24,
+           "gives": "S"
+          },
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "dismissal of",
+             "at": 38,
+             "note": "dismissal means sending away, so Ramsey's first name leaves the word"
+            }
+           ],
+           "parts": [
+            {
+             "words": "half's",
+             "at": 31,
+             "gives": "HALF",
+             "note": "the word half, from which letters are taken"
+            },
+            {
+             "words": "Ramsey",
+             "at": 51,
+             "gives": "ALF",
+             "note": "Alf Ramsey managed England's 1966 World Cup winners"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "nil",
+         "at": 59,
+         "gives": "O",
+         "note": "O, a zero, is nil"
+        }
+       ]
+      },
+      {
+       "words": "nil",
+       "at": 63,
+       "gives": "O",
+       "note": "the second O of the goalless score"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan watched a match in which Ramsey's side failed in the second half, a goalless draw being the obvious outcome.",
+     "walkthrough": "HALF without ALF leaves H; S and H are then each followed by an O from nil-nil.",
+     "definitionFit": "So-ho was the huntsman's cry on sighting a hare, announcing that the quarry had been spotted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 29,
@@ -493,7 +1905,30 @@
     "text": "Concern with conviction",
     "enumeration": "4"
    },
-   "solution": "FIRM"
+   "solution": "FIRM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Concern",
+      "at": 0,
+      "meaning": "first meaning: a business, as in a going concern"
+     },
+     {
+      "text": "with conviction",
+      "at": 8,
+      "meaning": "second meaning: resolute, held steadfastly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as a single phrase, worry over a court verdict; split it after the first word.",
+     "definitionFit": "A company is called a firm, and a belief held resolutely is called firm, two separate senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Concern"
+    }
+   }
   },
   {
    "number": 30,
@@ -513,7 +1948,70 @@
      }
     ]
    },
-   "solution": "EARLYNIGHT"
+   "solution": "EARLYNIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "premature retirement",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "takes",
+       "at": 15,
+       "note": "takes means takes in, so the reworked letters surround the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Awful",
+         "at": 0,
+         "note": "awful means dreadful, signalling that lethargy's letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lethargy",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 21,
+         "note": "over means turned over, so the word in is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Terrible sluggishness sets in and someone stops work too soon.",
+     "walkthrough": "The rearranged EARLYGHT takes in NI, which is 'in' read backwards. 'retirement' suggests leaving work; here it is retiring to bed.",
+     "definitionFit": "Going to bed sooner than usual is a common idiom, retiring for the evening ahead of the normal hour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retirement"
+    }
+   }
   }
  ]
 }
