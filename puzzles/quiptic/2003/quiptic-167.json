@@ -893,14 +893,7 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "mixture",
-       "at": 41,
-       "note": "a mixture means the letters are blended together in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "we",
@@ -912,7 +905,7 @@
         {
          "text": "nearly",
          "at": 23,
-         "note": "nearly means all loses its last letter"
+         "note": "nearly means the word all is not quite complete, losing its final letter"
         }
        ],
        "parts": [
@@ -926,19 +919,32 @@
        ]
       },
       {
-       "words": "their",
-       "at": 35
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixture",
+         "at": 41,
+         "note": "a mixture is a mix, so the letters of their are put into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "their",
+         "at": 35
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Better off because everyone has a share in their blend.",
-     "walkthrough": "'nearly' cuts all to AL, and WE, AL and THEIR are mixed together.",
-     "definitionFit": "Wealthier means having more money, the comparative of wealthy."
+     "surface": "We are better off because we all nearly get a share of their blend.",
+     "walkthrough": "WE is taken as written, ALL loses its last letter to 'nearly', and THEIR is rearranged by 'mixture' into THIER.",
+     "definitionFit": "Wealthier is the comparative of wealthy, so having more money: richer."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mixture"
     }
    }
   },
@@ -967,7 +973,8 @@
      "indicators": [
       {
        "text": "first",
-       "note": "first says which piece goes at the front when the parts are joined"
+       "at": 28,
+       "note": "first means this piece goes at the front of the answer"
       }
      ],
      "parts": [
@@ -976,45 +983,41 @@
        "indicators": [
         {
          "text": "middle of",
-         "note": "the middle of a word means its outer letters are discarded and the centre kept"
+         "at": 11,
+         "note": "middle of means the inner letters of sample, all but its ends"
         }
        ],
        "parts": [
         {
          "words": "sample",
-         "note": "the word with its first and last letters removed"
+         "at": 21
         }
        ]
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "remix",
-         "note": "read as re-mix: the mix part tells us the letters before it, with the re prefix, are blended into a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "If I",
-         "note": "taken as written"
-        },
-        {
-         "words": "re",
-         "note": "the first two letters of the word remix, split off as fodder"
-        }
-       ]
+       "words": "If",
+       "at": 0
+      },
+      {
+       "words": "I",
+       "at": 3
+      },
+      {
+       "words": "remix",
+       "at": 5,
+       "gives": "ER",
+       "note": "read as re plus mix: the letters RE mixed up"
       }
      ]
     },
     "explanation": {
-     "surface": "A DJ describes reworking a sample to boost the sound level.",
-     "walkthrough": "'remix' is split as re-mix: RE joins the fodder and 'mix' is the anagram signal.",
-     "definitionFit": "An electronic device that boosts a signal so speakers play louder is the standard kit for making things louder."
+     "surface": "A music producer tries remixing the middle of a sample first.",
+     "walkthrough": "'remix' looks like the anagram signal for 'If I', but those two words go in unchanged; the word itself splits into RE plus a signal to mix it.",
+     "definitionFit": "An amplifier is the electronic unit that boosts an audio signal, making the sound louder."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "remix"
     }
    }
@@ -1424,34 +1427,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mixture",
-       "note": "a mixture stirs things together, so the gathered letters are jumbled"
+       "text": "over",
+       "at": 48,
+       "note": "over here means placed ahead of, so the mixed oil with its car comes before the bearings"
       }
      ],
      "parts": [
       {
-       "words": "Rolls-Royce",
-       "gives": "RR",
-       "note": "RR is the abbreviation for the car maker"
-      },
-      {
-       "words": "oil",
-       "note": "taken as written"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "with",
+         "at": 31,
+         "note": "with here means the oil letters hold the car abbreviation among them"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "mixture",
+           "at": 40,
+           "note": "a mixture is a mix, so the letters of oil are put into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "oil",
+           "at": 36
+          }
+         ]
+        },
+        {
+         "words": "Rolls-Royce",
+         "at": 19,
+         "gives": "RR"
+        }
+       ]
       },
       {
        "words": "bearings",
+       "at": 53,
        "gives": "ES",
-       "note": "compass bearings, east and south"
+       "note": "E and S are compass bearings, east and south"
       }
      ]
     },
     "explanation": {
-     "surface": "Heavy goods vehicles roll out of a luxury carmaker's plant, oiled and with greased bearings.",
-     "walkthrough": "Lorry is the British word for a truck.",
-     "definitionFit": "Lorry is the standard British term for a large goods vehicle, which Americans call a truck."
+     "surface": "Lorries roll out of the Rolls-Royce works with an oil mix on their bearings.",
+     "walkthrough": "'bearings' suggests machine parts in the oil surface, but here it means compass directions.",
+     "definitionFit": "Lorry is the British word for a large goods vehicle, what Americans call a truck."
     },
     "features": {
      "answerInScene": true,
