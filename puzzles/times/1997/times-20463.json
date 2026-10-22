@@ -821,29 +821,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "they're different",
-       "note": "different means changed, so the letters are put in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "If all men",
-       "note": "letters to rearrange"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "they're different",
+         "at": 28,
+         "note": "they're different says these words become different by rearranging their letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "If",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "all",
+         "at": 3,
+         "note": "taken as written"
+        },
+        {
+         "words": "men",
+         "at": 7,
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "start off",
-         "note": "start off picks out the opening letter of the next word"
+         "at": 11,
+         "note": "start off picks the first letter of the following word"
         }
        ],
        "parts": [
         {
          "words": "equal",
+         "at": 21,
          "note": "first letter of equal"
         }
        ]
@@ -851,13 +870,14 @@
      ]
     },
     "explanation": {
-     "surface": "A paradox about equality: everyone begins equal but differs in private life.",
-     "definitionFit": "En famille is a French phrase for being with one's family, informally and at home."
+     "surface": "A claim about equality: men who start out equal end up different at home.",
+     "walkthrough": "IF ALL MEN rearranged gives ENFAMILL, and the first letter of 'equal' completes it.",
+     "definitionFit": "The French phrase means among the family, informally, in one's own household."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "different"
+     "misdirectedWord": "equal"
     }
    }
   },
