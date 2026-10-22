@@ -1778,8 +1778,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     drainer = []  # the VLM stage's threads, started with the first spooled ask
     drainer_stop = threading.Event()
     spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
-    full_wait = set()  # keys of the reads deferred for a full spool: not started until it is below its cap
-    spool_held = [0]  # reads the last walk held for a full spool, logged when it changes
+    full_wait = {}  # {key_of(read): None} of the reads deferred for a full spool, oldest first: released as the spool has room
+    spool_held = [0, 0.0]  # reads the last log line said were held for a full spool, and when (once a minute, or per 10)
     defer_runs = {}  # {key_of(read): times in a row it ended deferred for the VLM's asks}
     defer_until = {}  # {key_of(read): monotonic time before which it is not started again (DEFER_BACKOFF)}
     defer_file = Path(f"{handoff or resume}.defer") if handoff or resume else None  # kept across re-execs
@@ -2096,7 +2096,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 full_end = vlm_reader.full_mark(pid).exists()
                 if full_end:
                     vlm_reader.full_mark(pid).unlink(missing_ok=True)
-                    full_wait.add(key_of(unit))  # started again once the spool is below its cap
+                    full_wait.pop(key_of(unit), None)
+                    full_wait[key_of(unit)] = None  # started again once the spool has room for it
                 if spooled_by or full_end:
                     n = defer_runs[key_of(unit)] = defer_runs.get(key_of(unit), 0) + 1
                     if n >= 2:
@@ -2105,7 +2106,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                         keep_defers(defer_file, defer_runs, defer_until)
                 if spooled_by:
                     spool_wait[key_of(unit)] = set(spooled_by)  # started again once the drainer has answered them
-                    full_wait.discard(key_of(unit))  # its asks are spooled: the answers, not the cap, release it
+                    full_wait.pop(key_of(unit), None)  # its asks are spooled: the answers, not the cap, release it
                 elif not full_end:
                     vlm_held.add(key_of(unit))
                     vlm_lost_at[0] = time.monotonic()
@@ -2324,6 +2325,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 log(f"vlm-bound: {vlm_waiting} reads wait for the VLM (CT_VLM_WAITING {vlm_waiting_cap()}), "
                     f"{len(queued)} asks spooled (CT_VLM_SPOOL_MAX {vlm_spool_max()}); no read starts until it drains")
         spool_cap_hit = len(queued) >= vlm_spool_max()
+        # Of the reads held for a full spool only as many as the spool has room for start this pass, oldest first:
+        # all at once they would OCR their pages and defer again as it fills.
+        full_free = list(full_wait)[:max(0, vlm_spool_max() - len(queued))]
         begun_now = charged = 0
         costs = None  # unit_costs, measured at this pass's first start
         held_back = cpu_held = idle_held = False
@@ -2358,10 +2362,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if u["kind"] == "read" and key_of(u) in full_wait and key_of(u) not in spool_wait:
                 # Ended deferred for a full spool with no ask spooled (any paper, needs_vlm or not): its
                 # OCR would be redone for nothing. A read with spooled asks is in spool_wait and never held here.
-                if spool_cap_hit:
+                if key_of(u) not in full_free:
                     full_held.add(key_of(u))
-                    return True  # not again until the spool is below its cap
-                full_wait.discard(key_of(u))
+                    return True  # not again until the spool has room for it
+                full_wait.pop(key_of(u), None)
             if u["kind"] != "read" or not (key_of(u) in vlm_held or needs_vlm(u)):
                 return False
             if defer_until.get(key_of(u), 0) > time.monotonic():
@@ -2632,8 +2636,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 scanning.add((u["paper"], u["rel"]))
                 scanning_by.setdefault(u["paper"], set()).add(u["rel"])
         if not skip_walk:
-            if len(full_held) != spool_held[0]:
-                spool_held[0] = len(full_held)
+            if len(full_held) != spool_held[0] and (time.monotonic() - spool_held[1] >= 60 or len(full_held) // 10 != spool_held[0] // 10):
+                spool_held[:] = [len(full_held), time.monotonic()]
                 if full_held:
                     log(f"spool full: {len(full_held)} reads that ended deferred for it held until it is below its cap "
                         f"({len(queued)} asks spooled, CT_VLM_SPOOL_MAX {vlm_spool_max()}); reads with spooled asks go on")
