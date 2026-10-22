@@ -199,6 +199,16 @@ _sc, _rd = eq.only_evidence("times", [{"rel": "G/1", "reason": f.HOST_SCAN, "kin
 check("mirror: a solution-host scan is kept", (["G/1"], []), ([u["rel"] for u in _sc], _rd))
 _, _rd = eq.only_evidence("ft", [], [{"rel": "G/0", "reason": "scan stale, answers missing", "needs": ["G/1"]}])
 check("another paper's is dropped", [], _rd)
+_note = []
+_refusal = {"rel": "G/0", "reason": "refused not-a-grid before its fix", "needs": ["G/0", "G/1", "G/2"]}
+_sc, _rd = eq.only_evidence("gale", [{"rel": r, "reason": "scan stale", "kind": "scan"} for r in ("G/0", "G/1", "G/2")],
+                            [_refusal], _note)
+check("a Times-series refusal reread keeps its own page's scan, not the week after it", (["G/0"], [_refusal]),
+      ([u["rel"] for u in _sc], _rd))
+check("and the plan says how many it left out", True, len(_note) == 1 and "left out 2 stale scans" in _note[0])
+_sc, _ = eq.only_evidence("ft", [{"rel": r, "reason": "scan stale", "kind": "scan"} for r in ("G/0", "G/1")],
+                          [{"rel": "G/0", "reason": "never read", "needs": ["G/0", "G/1"]}])
+check("another paper's read keeps every scan it waits on", ["G/0", "G/1"], [u["rel"] for u in _sc])
 _ws = lambda s: [(0, 0, 9, 9, w) for w in s.split()]
 check("Solution to Crossword N and Yesterday's solution N are headings", [(22925, 3), (24378, 2)],
       [f.solution_at(_ws("Solution to Crossword 22,925"), 0, {22925}), f.solution_at(_ws("Yesterday's solution 24,378"), 0, {24378})])
