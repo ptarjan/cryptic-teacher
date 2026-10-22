@@ -76,7 +76,10 @@ case "$scope" in
   "full the check's code changed"*|"full "*"a file the check reads"*)
     common=$(git rev-parse --path-format=absolute --git-common-dir)
     echo "push_checked: $scope; requeue of newly flagged puzzles running detached (log $common/requeue_drift.log)"
-    setsid nohup "$here/push_checked.sh" --requeue-job >> "$common/requeue_drift.log" 2>&1 < /dev/null &
+    # Callers run this under `flock push_puzzle_commit.lock`, whose open fd every child inherits:
+    # close the inherited fds, or the detached survey holds the push lock and every push waits on it.
+    ( for fd in /proc/$BASHPID/fd/*; do fd=${fd##*/}; [ "$fd" -gt 2 ] && eval "exec $fd>&-"; done 2>/dev/null
+      exec setsid nohup "$here/push_checked.sh" --requeue-job >> "$common/requeue_drift.log" 2>&1 < /dev/null ) &
     [ -x /app/tools/deprioritize.sh ] && /app/tools/deprioritize.sh -q 19 $! || true ;;
 esac
 exit 0
