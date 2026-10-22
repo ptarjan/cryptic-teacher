@@ -136,7 +136,10 @@ shows, so you write none of those. Worked annotations close this file.
   (a letter leaves its place and goes back in elsewhere: "England dropping ball" = ALBION
   with its O dropped, ALBINO) is `move<dropping>([England]ALBION, [ball]O)`, one step, never
   the fodder plus the letter with its old copy deleted (`del((ALBION + O), O)`) or
-  `ins(del(...), ...)`: those spell the answer but say a letter was added. A **reverse
+  `ins(del(...), ...)`: those spell the answer but say a letter was added. A **trimmed
+  synonym** ("jumps without limits" = BOUNCES less its ends, OUNCE) is a deletion,
+  `del<without limits>([jumps]BOUNCES, B, S)`, never `middle(...)`/`first(...)`/`last(...)`:
+  those say the letters are printed in the clue. A halving stays `first<half of>`. A **reverse
   clue** (the clue words are what the answer's wordplay would produce: "What makes pets"
   for OUT + STEP) keeps its `def` and its `wp` is `reverse([those clue words], "OUT + STEP")`,
   the reading the answer's own pieces in capitals joined by spaces or `+`; say in the leaf's
