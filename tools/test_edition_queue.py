@@ -227,6 +227,23 @@ check("one read after it (incomplete again) is not due again; nor a complete or 
 check("the reason is evidence, ranked with the fix-landed rereads and held behind never-read pages", (True, 2, True, True),
       (eq.evidence_reason("unfiled before its fix"), f.rank_of_reason("unfiled before its fix"),
        "unfiled before its fix" in eq.FIX_LANDED, eq.refusal_reread("unfiled before its fix")))
+# ---- Gale Times 2000-14 pages with evidence of a puzzle that can file are planned (10-22)
+_third = {"kind": "read", "paper": "gale", "rel": "GaleTimes2007UKEnglish/2007-03-15", "date": "2007-03-15",
+          "reason": eq.THREE_COLUMNS, "rank": 2, "needs": ["GaleTimes2007UKEnglish/2007-03-15", "GaleTimes2007UKEnglish/2007-03-16"]}
+_s15 = {"kind": "scan", "paper": "gale", "rel": "GaleTimes2007UKEnglish/2007-03-15", "reason": "scan stale", "rank": 2, "date": "2007-03-15"}
+_s16 = {**_s15, "rel": "GaleTimes2007UKEnglish/2007-03-16", "date": "2007-03-16"}
+_s99 = {**_s15, "rel": "GaleTimes2007UKEnglish/2007-06-01", "date": "2007-06-01"}
+_sc, _rd = eq.only_evidence("gale", [_s15, _s16, _s99], [_third, {**_third, "date": "2008-03-15"},
+                                                         {**_third, "paper": "times"}])
+check("a 2007 Gale short third-column read is planned, 2008's (not yet read) and another paper's are not",
+      ["2007-03-15"], [u["date"] for u in _rd])
+check("its scans (its own and the next day's) go with it at tier 1, another page's scan is tier 2", ([1, 1], 2),
+      ([eq.files_likely_tier(2, u) for u in _sc], eq.files_likely_tier(2, _s99)))
+_title = {**_third, "reason": "titles changed", "date": "2010-01-02"}
+_nt = {**_third, "reason": f.NO_TITLE_RESCAN, "date": "2000-03-14"}
+check("a Gale 2000-14 page with a title no read covered, or no title found by older scan code, is planned; a 1999 one is not",
+      ["2010-01-02", "2000-03-14"], [u["date"] for u in eq.only_evidence("gale", [], [_title, _nt, {**_title, "date": "1999-01-02"}])[1]])
+check("both are fix-landed rereads (tier 1, asking the VLM)", (1, 1, True), (eq.files_likely_tier(2, _title), eq.files_likely_tier(2, _nt), eq.fills_gpu({**_nt, "needs": []})))
 os.environ["CT_BLANKET_REREADS"] = "1"
 _, rd_old =eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
 check("CT_BLANKET_REREADS=1 restores every reread", True, len(rd_old) == 7)

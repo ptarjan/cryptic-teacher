@@ -778,6 +778,18 @@ check("a whole one, a refused one, another paper's, a 2014 page, or one read sin
        f.fix_reason({**held, "scan": {"item": "GaleTelegraph2007UKEnglish", "date": "2007-03-14"}}),
        f.fix_reason({**held, "scan": {"item": "GaleTimes2014UKEnglish", "date": "2014-09-17"}}),
        f.fix_reason({**held, "readAt": "2099-01-01T00:00:00+00:00"})])
+# A Gale Times 2000-14 page read with no title found, by other scan code, is scanned and read again.
+none = {"edition": "GaleTimes2000UKEnglish/2000-03-14", "inputs": "h", "scanKey": "old", "verdicts": [],
+        "scan": {"item": "GaleTimes2000UKEnglish", "date": "2000-03-14", "puzzles": [], "solutions": []},
+        "readAt": "2026-10-13T05:00:00+00:00"}
+check("a Gale 2000 page no title was found on by older scan code is due; by the current code, with a title, "
+      "read, failed to scan, of 1999 or another paper is not", [f.NO_TITLE_RESCAN] + [None] * 6,
+      [f.fix_reason(none), f.fix_reason({**none, "scanKey": f.scan_key(f.paper_of(f.Path("GaleTimes2000UKEnglish/2000-03-14")))}),
+       f.fix_reason({**none, "scan": {**none["scan"], "puzzles": [{"number": 21363}]}}),
+       f.fix_reason({**none, "verdicts": [{"number": 1, "complete": True}]}),
+       f.fix_reason({**none, "scan": {**none["scan"], "failed": "x"}}),
+       f.fix_reason({**none, "scan": {**none["scan"], "date": "1999-12-31", "item": "GaleTimes1999UKEnglish"}}),
+       f.fix_reason({**none, "scan": {**none["scan"], "item": "NewsUK2000UKEnglish"}})])
 check("the third-column reread time is not in the future", True,
       scan_queue.when(f.REREAD_THREE_COLUMNS[2]) <= scan_queue.when("now"))
 
