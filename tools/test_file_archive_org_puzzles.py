@@ -2407,6 +2407,28 @@ stats_blocks = 0.9
 got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
 check("...and a noisy print of the puzzle's grid gives its bounded lights", ({"1-across": "ABC"}, False),
       (got, "refused" in info))
+# A grid joined to a photo under it (1993: 344x426 ink, 103 refused for it) or to a
+# neighbour's text beside it is read as its square part, and refused only when no cut's
+# blocks are the puzzle's.
+stats_blocks = 1.0
+for name, rect, want in (("tall", (110, 160, 460, 640), 1), ("wide", (110, 160, 640, 510), 1)):
+    led = Path(os.environ["TMP"]) / ("ed_" + name); led.mkdir()
+    pg = Image.new("L", (1200, 1400), 255)
+    ImageDraw.Draw(pg).rectangle(rect, fill=0)
+    pg.save(led / "leaf_0003.jpg")
+    seen.clear()
+    got, info = f.read_solution(f.page(led, 3), {**sol, "dir": led}, ["..."])
+    check(f"a {name} ink box (a grid and what is joined to it) is read as its square part",
+          ({"1-across": "ABC"}, (350 * 3, 350 * 3)), (got, seen[0][0]))
+    stats_blocks = 0.8
+    seen.clear()
+    got, info = f.read_solution(f.page(led, 3), {**sol, "dir": led}, ["..."])
+    check(f"...and a {name} one no cut of which has the puzzle's blocks is refused", ({}, True, True),
+          (got, "refused" in info, len(seen) >= 1))
+    stats_blocks = 1.0
+check("a box far from square (a speck under the heading) has no square cut", [],
+      f.squares(Image.new("L", (400, 400), 255), (0, 0, 300, 20)))
+check("a square box has none", [], f.squares(Image.new("L", (400, 400), 255), (0, 0, 300, 296)))
 # solved(): read_solution kept by what it reads from, so a re-read for a
 # clue-vote change runs no solution OCR; another grid or heading reads again.
 stats_blocks = 1.0
