@@ -1985,7 +1985,7 @@ f.filed_number = lambda d, found, hit: (hit["number"], None, None)
 f.held_file = lambda series, n: copy.deepcopy(ao_held[0])
 f.page_url = lambda d, found, leaf: "u"
 f.complete = lambda p: True
-f.solved = lambda sol, grid, above=False: (dict(ao_read[0]), {"accepted": len(ao_read[0]), "lights": 4})
+f.solved = lambda sol, grid, above=False, lean=False: (dict(ao_read[0]), {"accepted": len(ao_read[0]), "lights": 4})
 f.solution_source = lambda sol: "src"
 ao_args = (Path("NewsUK/1990-08-22_1"), {}, {"number": 1, "leaf": 3}, {1: {"dir": Path("NewsUK/1990-08-23_1")}})
 ao_kept = f._KEEP_VLM["names"]
