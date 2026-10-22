@@ -1068,7 +1068,12 @@ def by_urgency(units):
         newest.sort(key=lambda t: t[3].get("date", ""), reverse=True)
         # stable: newest first in each group; the scans of the issues printing the answers of puzzles
         # filed without them (fa.HOST_SCAN) first of the Times work (Paul 10-21: printed answers first)
-        newest.sort(key=lambda t: (files_likely_tier(t[0], t[3]), t[3].get("reason") != fa.HOST_SCAN))
+        # A read whose answers a stored heading links (fa.LIKELY[0]) goes ahead of the host scans: they ran
+        # all first and 663 Gale 2001-05 solution headings were linked on 10-22 with no answer filed from
+        # them (each read files its puzzle's answers by OCR alone, ~110 s; a scan only links the next).
+        newest.sort(key=lambda t: (files_likely_tier(t[0], t[3]),
+                                   0 if t[3].get("kind") == "read" and fa.LIKELY[0] in (t[3].get("likely") or {})
+                                   else 1 if t[3].get("reason") == fa.HOST_SCAN else 2))
         rest = [t for t in units if t[3].get("paper") not in named]
         # Another paper's never read/scanned units go ahead of the named papers' rereads: once the named
         # papers' new pages are read, those rereads mostly end "already held" or an update (10-18: 34 new
