@@ -420,6 +420,23 @@ check("mirror: a blank no vote fix mends holds it", None,
 check("mirror: read after the fix, the same blank holds it", None,
       f.short_cause("times", {"readAt": "2099-01-01T00:00:00+00:00"}, v(90200, blank={"1-a": "'qx': not a word"},
                                                                         **part(0)), {}))
+# A Times grid read by other code (solution_key) that left at most SHORT_GAP lights, on a lattice the
+# classifier trusts (blocks), is read again for fitted_reads and the VLM's strips; read by the
+# current code, or with the blocks unsure, or more lights short, or another paper's, it is not.
+def classified_part(gap, blocks=1.0, **kw):
+    return {"solutionFrom": "x", "solution": {"lights": 30, "accepted": 30 - gap, "lattices": 3, "blocks": blocks, **kw}}
+old_read = {"edition": "NewsUK1980UKEnglish/1980-01-21_0", "solutionKey": "old"}
+check("a classified grid read by other code, three lights short: predicted for the fitted and VLM reads",
+      f.LIKELY[4], f.short_cause("times", old_read, v(90210, **classified_part(3)), {}))
+check("mirror: read by the current code, it is not", None,
+      f.short_cause("times", {**old_read, "solutionKey": f.solution_key()}, v(90210, **classified_part(3)), {}))
+check("mirror: more than SHORT_GAP lights short, blocks unsure, or refused", (None, None, None),
+      (f.short_cause("times", old_read, v(90210, **classified_part(f.SHORT_GAP + 1)), {}),
+       f.short_cause("times", old_read, v(90210, **classified_part(2, blocks=0.9)), {}),
+       f.short_cause("times", old_read, v(90210, **classified_part(2, refused="its blocks are not the puzzle's")), {})))
+check("mirror: another paper's grid (the classifier reads only the Times's) is not", None,
+      f.short_cause("times", {**old_read, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"},
+                    v(90210, **classified_part(3)), {}))
 f.edition_dirs, f.input_hash, f.linked_solutions, f.text_headings = real[:4]
 f._HELD_PATH.clear()
 f._HELD_PATH.update(real[4])

@@ -1998,7 +1998,10 @@ f.filed_number = lambda d, found, hit: (hit["number"], None, None)
 f.held_file = lambda series, n: copy.deepcopy(ao_held[0])
 f.page_url = lambda d, found, leaf: "u"
 f.complete = lambda p: True
-f.solved = lambda sol, grid, above=False, lean=False: (dict(ao_read[0]), {"accepted": len(ao_read[0]), "lights": 4})
+ao_seen = []
+f.solved = lambda sol, grid, above=False, lean=False, enums=None: (
+    ao_seen.append(enums) or (dict(ao_read[0]), {"accepted": len(ao_read[0]), "lights": 4, **ao_extra[0]}))
+ao_extra = [{}]
 f.solution_source = lambda sol: "src"
 ao_args = (Path("NewsUK/1990-08-22_1"), {}, {"number": 1, "leaf": 3}, {1: {"dir": Path("NewsUK/1990-08-23_1")}})
 ao_kept = f._KEEP_VLM["names"]
@@ -2042,6 +2045,63 @@ verdict, puzzle = f.answers_only(*ao_args)
 check("a held clue the readers left unsettled (a stray mark) is kept as filed: the answers merge, no VLM ask",
       (True, 0, "-clue 2 down words", "TOE"),
       (verdict["answersOnly"], verdict["vlmAsks"], puzzle["entries"][2]["clue"]["text"], puzzle["entries"][2]["solution"]))
+check("the held clues' enumerations go to the grid's reading", {(1, "across"): "3", (1, "down"): "3", (2, "down"): "3", (4, "across"): "3"},
+      ao_seen[-1])
+# A light the grid's reading left (at most STRIP_MAX of them) is asked of the VLM once, as its row of
+# squares with the letters its crossings hold: the word stands when it fits the light, agrees with
+# each crossing, is listed, and the classifier finds each letter possible (14047: PLAT for FLAT).
+import numpy as np
+import trove_solution_ocr as tso
+ao_held[0] = lights_held([None] * 4)
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE"}
+cells4 = np.full((30, 30), 255, np.uint8)
+png4 = tso.light_strip(cells4, [0, 10, 20, 30], [0, 10, 20, 30], [(2, 0), (2, 1), (2, 2)])
+check("a light's strip is a PNG", b"\x89PNG", __import__("base64").b64decode(png4)[1:5])
+flat = [1 / 26] * 26
+ruled_out = [1 / 26] * 26
+ruled_out[tso.AZ.index("I")] = 0.0
+ao_extra[0] = {"strips": {"4-across": {"png": png4, "p": [flat, flat, flat]}}}
+ao_asked = []
+real_vlm = (f.vlm.ask, f.vlm.wanted)
+f.vlm.wanted = lambda: True
+try:
+    for reply, probs4, want, why in (("DOE", [flat] * 3, "DOE", "the word the VLM names stands"),
+                                      ("DOE\n", [flat] * 3, "DOE", "a reply's first line is its word"),
+                                      ("DIE", [flat, ruled_out, flat], None, "a letter the classifier rules out is not taken"),
+                                      ("DOES", [flat] * 3, None, "a word of another length is not taken"),
+                                      ("BOE", [flat] * 3, None, "a word against a crossing letter is not taken"),
+                                      ("DXE", [flat] * 3, None, "a word that is not listed is not taken"),
+                                      ("", [flat] * 3, None, "no reply takes nothing")):
+        ao_extra[0] = {"strips": {"4-across": {"png": png4, "p": probs4}}}
+        f.vlm.ask = lambda img, prompt, max_tokens=1500, reply=reply: ao_asked.append(prompt) or reply
+        verdict, puzzle = f.answers_only(*ao_args)
+        check(f"VLM fallback: {why}", (want, "strips" in verdict["solution"]), (puzzle["entries"][3]["solution"], False))
+    check("it is asked once, with the crossings' letters in the prompt", (7, True),
+          (len(ao_asked), "D?E" in ao_asked[0] and "one word of 3 letters" in ao_asked[0]))
+    ao_extra[0] = {"strips": {"4-across": {"png": png4, "p": [flat] * 3}}}
+    f.vlm.ask = lambda *a, **k: (_ for _ in ()).throw(f.vlm.Spooled("spooled"))
+    verdict, puzzle = f.answers_only(*ao_args)
+    check("a spooled ask leaves the light unread (the read runs again once it is answered)", None, puzzle["entries"][3]["solution"])
+    check("the VLM's lights are named in the verdict, not their pictures", (None, None),
+          (verdict["solution"].get("strips"), verdict["solution"].get("vlmLights")))
+    f.vlm.ask = lambda *a, **k: "DOE"
+    verdict, puzzle = f.answers_only(*ao_args)
+    check("the VLM's light is named and counted", (["4-across"], 4), (verdict["solution"]["vlmLights"], verdict["solution"]["accepted"]))
+finally:
+    f.vlm.ask, f.vlm.wanted = real_vlm
+ao_extra[0] = {}
+def cell_p(ch, p=0.9):
+    v = [(1 - p) / 25] * 26
+    v[tso.AZ.index(ch)] = p
+    return v
+check("a name no lexicon lists stands when the classifier names each open cell's letter too (14021's IGRAINE); not when it does not",
+      ("IGRAINE", None),
+      (f.vlm_word("IGRAINE", "IGR?I?E", [7], [cell_p(c) for c in "IGRAINE"]),
+       f.vlm_word("IGRAINE", "IGR?I?E", [7], [cell_p(c) for c in "IGRBINE"])))
+check("the VLM's word against the classifier's floor is not taken", None,
+      f.vlm_word("PLAT", "?L?T", [4], [flat, cell_p("L"), cell_p("F"), cell_p("T")]))
+check("pieces of an enumeration: a phrase's words, else the light whole", ([4, 4, 3, 3], [12], [9], [4, 5]),
+      (tso.pieces_of("4,4,3,3", 14), tso.pieces_of("4,4,3,3", 12), tso.pieces_of(None, 9), tso.pieces_of("4-5", 9)))
 f._KEEP_VLM["names"] = ao_kept
 for n, fn in ao_stubbed.items():
     setattr(f, n, fn)
@@ -2192,6 +2252,40 @@ check("an accepted light the classifier reads otherwise is vetoed where a crossi
 check("a crossing the classifier reads otherwise pins no decoded light (14043: TIRINGS held, PREFERRER not taken)",
       {}, tso.classified_reads(cross, {(2, "down"): "CUE"}, {**sure_cells("?UE", at=(0, 2), across=False),
                                                               **sure_cells("RIDE")}))
+# fitted_reads(): a light the classifier's top letters make words of its enumeration's pieces,
+# with no other listed word that fits (24229: WENT OVER THE TOP, 4,4,3,3, no listed word as one).
+phrase = {(9, "down"): [(i, 0) for i in range(14)]}
+phrase_p = sure_cells("WENTOVERTHETOP", p=0.8, across=False)
+check("a phrase of listed words, each cell read surely, is taken by its enumeration", {(9, "down"): "WENTOVERTHETOP"},
+      tso.fitted_reads(phrase, {}, phrase_p, {(9, "down"): "4,4,3,3"}))
+check("the same cells with no enumeration are no listed word", {}, tso.fitted_reads(phrase, {}, phrase_p, {}))
+check("an enumeration that does not add up to the light is not used", {},
+      tso.fitted_reads(phrase, {}, phrase_p, {(9, "down"): "4,4,3,2"}))
+check("a piece that is no word leaves the light unread", {},
+      tso.fitted_reads(phrase, {}, sure_cells("WENTOVERTHETXP", p=0.8, across=False), {(9, "down"): "4,4,3,3"}))
+check("a cell read below FIT_TOP leaves the light unread", {},
+      tso.fitted_reads(phrase, {}, sure_cells("WENTOVERTHETOP", p=0.5, across=False), {(9, "down"): "4,4,3,3"}))
+rival_p = sure_cells("RIDE")
+rival_p[(0, 2)] = np.full(26, 0.001)
+rival_p[(0, 2)][tso.AZ.index("D")] = 0.9
+rival_p[(0, 2)][tso.AZ.index("C")] = 0.07
+check("a light with a rival word a letter off at 5% or more (RIDE, RICE) is not taken", {},
+      tso.fitted_reads({(1, "across"): [(0, i) for i in range(4)]}, {}, rival_p, {}))
+rival_p[(0, 2)][tso.AZ.index("C")] = 0.01
+check("a rival under 5% leaves the one word", {(1, "across"): "RIDE"},
+      tso.fitted_reads({(1, "across"): [(0, i) for i in range(4)]}, {}, rival_p, {}))
+def margin_p(rival):
+    out = sure_cells("RIDE")
+    out[(0, 2)] = np.full(26, 0.001)
+    out[(0, 2)][tso.AZ.index("D")] = 0.97
+    out[(0, 2)][tso.AZ.index("C")] = rival
+    return out
+check("a light decodes at 50 to 1 over its rival word (RIDE 0.97, RICE 0.015) and not at 20 to 1 (0.05)",
+      ({(1, "across"): "RIDE"}, {}),
+      (tso.classified_reads(row4 := {(1, "across"): [(0, i) for i in range(4)]}, {}, margin_p(0.015)),
+       tso.classified_reads(row4, {}, margin_p(0.05))))
+check("a crossing's letter the classifier rules out stops it", {},
+      tso.fitted_reads(cross, {(2, "down"): "CUE"}, {**sure_cells("?UE", at=(0, 2), across=False), **sure_cells("RIDE")}, {}))
 check("the cell model on disk is the one CELL_MODEL_SHA names", True,
       hashlib.sha256(tso.CELL_MODEL.read_bytes()).hexdigest() == tso.CELL_MODEL_SHA)
 glyphs = {(0, 0): np.zeros((tso.GLYPH + 2 * tso.GLYPH_SHIFT,) * 2, np.float32)}

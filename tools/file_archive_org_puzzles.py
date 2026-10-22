@@ -4433,6 +4433,86 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     return merged_read(verdict, puzzle, v, p, asked)
 
 
+#: The prompt of the VLM's one ask about a light the solution grid's cells left unread.
+SOLUTION_PROMPT = Path(__file__).resolve().parent / "vlm_solution_prompt.md"
+
+
+#: The least probability the cell classifier gives each letter of a word the VLM names. The VLM
+#: reads a strip of squares as a word it expects: PLAT for FLAT (the classifier gave P 0.0004),
+#: BISCUITS for BESOUGHT (0.0); the 17 it read right gave every letter 0.0078 or more.
+VLM_FLOOR = trove_solution_ocr.CLASS_FLOOR
+#: How likely the classifier must find each open cell's letter, as its likeliest, for a word that is
+#: no listed word to stand on the VLM's say.
+VLM_AGREE = 0.5
+
+
+def vlm_word(reply, pattern, sizes, probs):
+    """The word of the VLM's `reply` for a light whose crossings give `pattern` (a letter
+    where an accepted light holds it, else "?"), made of words of `sizes` letters, or None:
+    its letters are as many as the light's, agree with every crossing letter, each is at
+    least VLM_FLOOR likely in its cell by the classifier's `probs` (one list of 26 a cell),
+    and each piece is a listed word (trove_solution_ocr.piece_listed)."""
+    word = re.sub(r"[^A-Za-z?]", "", (reply or "").strip().splitlines()[0] if (reply or "").strip() else "").upper()
+    if len(word) != len(pattern) or "?" in word:
+        return None
+    if any(p != "?" and p != ch for p, ch in zip(pattern, word)):
+        return None
+    if any(p[trove_solution_ocr.AZ.index(ch)] < VLM_FLOOR for p, ch in zip(probs, word)):
+        return None
+    # A name or a coinage the lexicons lack (IGRAINE) stands when the classifier, a reader of
+    # other eyes, names each of its open cells' letter too, surely.
+    az = trove_solution_ocr.AZ
+    open_cells = [(p, ch) for q, p, ch in zip(pattern, probs, word) if q == "?"]
+    if open_cells and len(word) >= 4 and all(az[max(range(26), key=p.__getitem__)] == ch and p[az.index(ch)] >= VLM_AGREE
+                                              for p, ch in open_cells):
+        return word
+    at = 0
+    for size in sizes:
+        if not trove_solution_ocr.piece_listed(word[at:at + size], len(sizes) > 1):
+            return None
+        at += size
+    return word
+
+
+def vlm_lights(answers, strips, grid, enums):
+    """(answers with the VLM's words added, {light: word} it gave): each light of `strips` (the
+    cells of a light the grid's reading left, trove_solution_ocr.light_strip's PNGs) asked about
+    once, as its row of squares with the letters its accepted crossings hold; the word stands
+    by vlm_word(). An ask the spool or the server did not answer leaves its light as it was (the
+    read ends deferred, and runs again once the drainer has answered)."""
+    import base64
+    import io
+    from PIL import Image
+    lts = trove_solution_ocr.lights(grid)
+    held = {}
+    for lid, w in answers.items():
+        n, _, dr = lid.partition("-")
+        for rc, ch in zip(lts.get((int(n), dr), ()), w):
+            held[rc] = ch
+    prompt = SOLUTION_PROMPT.read_text()
+    got = {}
+    for lid, strip in sorted(strips.items()):
+        b64 = strip["png"]
+        n, _, dr = lid.partition("-")
+        cells = lts[(int(n), dr)]
+        sizes = trove_solution_ocr.pieces_of(enums.get((int(n), dr)), len(cells))
+        pattern = "".join(held.get(rc, "?") for rc in cells)
+        shape = (f"one word of {len(cells)} letters" if len(sizes) == 1 else
+                 "words of " + ", ".join(map(str, sizes[:-1])) + f" and {sizes[-1]} letters, run together")
+        known = f" The letters already known, ? for the others: {pattern}." if set(pattern) != {"?"} else ""
+        try:
+            with vlm.because("solution:" + lid):
+                reply = vlm.ask(Image.open(io.BytesIO(base64.b64decode(b64))),
+                                prompt.format(count=len(cells), shape=shape, known=known), max_tokens=40)
+        except RuntimeError:  # spooled, or the server is down: asked again when the read runs again
+            continue
+        word = vlm_word(reply, pattern, sizes, strip["p"])
+        if word:
+            got[lid] = word
+            held.update(zip(cells, word))
+    return {**answers, **got}, got
+
+
 def answers_only(d, found, hit, solutions):
     """(verdict, puzzle) of a title whose clues are already filed whole and
     whose solution grid is linked now, read from the solution grid alone, or
@@ -4473,7 +4553,14 @@ def answers_only(d, found, hit, solutions):
                         or re.fullmatch(r"See \d+.*", (e["clue"]["text"] or "").strip())) for e in es):
         return None
     grid = trove_solution_ocr.puzzle_grid(old)
-    answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above, lean=True)
+    enums = {(e["number"], e["direction"]): (e["clue"] or {}).get("enumeration") for e in es}
+    answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above, lean=True, enums=enums)
+    # The cells of the few lights the grid's reading left: the VLM is asked each one's word.
+    strips = info.pop("strips", None)
+    if strips and vlm.wanted():
+        answers, by_vlm = vlm_lights(answers, strips, grid, enums)
+        if by_vlm:
+            info = {**info, "vlmLights": sorted(by_vlm), "accepted": info.get("accepted", 0) + len(by_vlm)}
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
     letters = {}
@@ -5365,7 +5452,7 @@ def squares(crop, box, above=False, at=None):
     return out
 
 
-def read_solution(img, sol, grid, above=False, lean=False):
+def read_solution(img, sol, grid, above=False, lean=False, enums=None):
     """({light: answer}, stats) read off the solution grid under a "Solution
     to Puzzle No N" heading on page `img`, or with `above`, over it (the
     Guardian's). Its code is solution_key()'s. With `lean` (answers_only, which
@@ -5423,7 +5510,8 @@ def read_solution(img, sol, grid, above=False, lean=False):
         # The crop is the grid, frame to frame: read on its own rules; a Times
         # print's cells by the cell classifier too, which was trained on them.
         answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True,
-                                                         classify=paper_of(d).key in CELLS_CLASSIFIED, lean=lean)
+                                                         classify=paper_of(d).key in CELLS_CLASSIFIED, lean=lean,
+                                                         enums=enums)
         if best is None or stats["blocks"] > best[1]["blocks"]:
             best = (answers, stats)
         if stats["blocks"] >= SOLUTION_BLOCKS:
@@ -5689,7 +5777,7 @@ _SOLUTION_KEY = []
 _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42"}
 
 
-def solved(sol, grid, above=False, lean=False):
+def solved(sol, grid, above=False, lean=False, enums=None):
     """read_solution of `sol`'s page for `grid`, kept under
     CROPS/solution_reads by everything it reads from (its code and page()'s,
     the leaf's size, the heading's box, `above`, the grid), so a re-read for
@@ -5702,13 +5790,15 @@ def solved(sol, grid, above=False, lean=False):
     d, leaf = sol["dir"], sol["leaf"]
     key = hashlib.sha256(json.dumps([_SOLVED_CODE[0], os.stat(d / f"leaf_{leaf:04d}.jpg").st_size, leaf,
                                      list(sol["box"]), bool(above), list(grid)]
-                                    + ([True] if lean else [])).encode()).hexdigest()[:20]
+                                    + ([True] if lean else [])
+                                    + ([sorted([n, d, e] for (n, d), e in enums.items())] if enums is not None else [])
+                                    ).encode()).hexdigest()[:20]
     path = CROPS / "solution_reads" / f"{d.name}_{sol['number']}.json"
     if path.exists():
         kept = json.loads(path.read_text())
         if kept.get("key") == key:
             return kept["answers"], kept["stats"]
-    answers, stats = read_solution(page(d, leaf), sol, grid, above=above, lean=lean)
+    answers, stats = read_solution(page(d, leaf), sol, grid, above=above, lean=lean, enums=enums)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(f".{os.getpid()}.part")
     tmp.write_text(json.dumps({"key": key, "answers": answers, "stats": stats}))
@@ -6260,8 +6350,14 @@ SOLUTION_UNCLASSIFIED = frozenset({"49e26fb92ece9e33"})
 #: (text_headings); its solution grid, read before read_framed (no
 #: "lattices" in its stats), lacks at most PARTIAL_GAP lights; every clue
 #: it held blank is one a VOTE_MENDED change since its read mends.
+#: Also (LIKELY[4]) its solution grid, read by other code (solution_key), lacks at most
+#: SHORT_GAP lights: answers_only reads it again with fitted_reads and, for the lights left, the
+#: VLM's word for their cells (vlm_lights).
 LIKELY = ("answers linked", "answers in the next issue's text", "solution grid read before read_framed",
-          "blanks a vote fix mends")
+          "blanks a vote fix mends", "solution grid read before the fitted and VLM reads")
+#: The lights a solution grid read by other code may lack and be read again for the fitted and VLM
+#: reads: 5 is trove_solution_ocr.STRIP_MAX, the most lights it keeps the cells of.
+SHORT_GAP = 5
 #: The lights a solution grid read before read_framed may lack and still be
 #: predicted whole: read_framed read about two more a grid (84 Times crops,
 #: 1,443 lights accepted to 1,617).
@@ -6327,8 +6423,18 @@ def short_cause(series, row, v, solutions):
     if not v.get("solutionFrom"):
         return LIKELY[0] if v["number"] in solutions else None
     s = v.get("solution")
-    return (LIKELY[2] if isinstance(s, dict) and not s.get("refused") and "lattices" not in s
-            and s.get("lights", 0) - s.get("accepted", 0) <= PARTIAL_GAP else None)
+    if not isinstance(s, dict) or s.get("refused"):
+        return None
+    gap = s.get("lights", 0) - s.get("accepted", 0)
+    if "lattices" not in s and gap <= PARTIAL_GAP:
+        return LIKELY[2]
+    # A grid read by other code (answers_only reads it again: the classifier, fitted_reads, and
+    # for the lights still short the VLM's strips) that left at most SHORT_GAP lights.
+    if (row.get("solutionKey") != solution_key() and 0 < gap <= SHORT_GAP
+            and s.get("blocks", 0) >= trove_solution_ocr.SURE_BLOCKS
+            and paper_of(row.get("edition", "")).key in CELLS_CLASSIFIED):
+        return LIKELY[4]
+    return None
 
 
 #: {edition dir: (djvu.xml.gz's stat, [(number, leaf)])}: the solution
