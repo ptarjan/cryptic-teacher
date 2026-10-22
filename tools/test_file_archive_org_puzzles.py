@@ -1978,6 +1978,17 @@ held = answered(["BAY", "BAD", None, None])
 check("a re-read of the solution grid drops each held answer it did not read again",
       ({"1-across": None, "1-down": None, "4-across": "DOE"}, [None, None, None, "DOE"]),
       (f.merge_answers(held, answered([None, None, None, "DOE"]), reread=True), [e["solution"] for e in held["entries"]]))
+# A blog's answers stand: only a blank light is filled, solutions.partial shrinks to the blanks left.
+held = answered(["BAT", None, "TEA", None])
+held["solutions"] = {"origin": "writeup", "blog": "b", "partial": ["1-down", "4-across"]}
+got = f.merge_answers(held, answered(["BAY", "BAD", None, "DOX"]), reread=True)
+check("a blog-keyed file keeps its answers on a reread, fills a blank not crossing a held letter, and shrinks partial",
+      ({"1-down": "BAD"}, ["BAT", "BAD", "TEA", None], ["4-across"]),
+      (got, [e["solution"] for e in held["entries"]], held["solutions"].get("partial")))
+got = f.merge_answers(held, answered([None, None, None, "DOA"]), reread=True)
+check("the last blank filled drops solutions.partial, the origin stays",
+      ({"4-across": "DOA"}, False, "writeup"),
+      (got, "partial" in held["solutions"], held["solutions"]["origin"]))
 check("another tool's filing takes no answers", {},
       f.merge_answers(answered([None] * 4, tool="other"), answered(["BAT", None, None, None])))
 
