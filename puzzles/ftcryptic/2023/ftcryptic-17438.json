@@ -22,6 +22,9 @@
   "date": "2023-06-09",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,84 @@
     "text": "Starter of potato covered with cut meat served with a salad ingredient",
     "enumeration": "8"
    },
-   "solution": "CHICKPEA"
+   "solution": "CHICKPEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "salad ingredient",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covered with",
+         "at": 18,
+         "note": "the potato letter is covered, wrapped round, by the shortened meat"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "cut",
+           "at": 31,
+           "note": "cut means the word is docked of its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "meat",
+           "at": 35,
+           "gives": "CHICKEN",
+           "note": "chicken is a kind of meat"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Starter of",
+           "at": 0,
+           "note": "the starter of a word is its opening letter, here of potato"
+          }
+         ],
+         "parts": [
+          {
+           "words": "potato",
+           "at": 11
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 52,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A menu line: potato starter, sliced meat and a side salad.",
+     "walkthrough": "'Cut' trims CHICKEN to CHICKE; 'covered with' puts P ('Starter of potato') inside it, and 'served with' adds A.",
+     "definitionFit": "Chickpeas are pulses often tossed cold into salads, so the legume is a typical salad ingredient."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Starter"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +129,44 @@
     "text": "Close by, borders of Hungary?",
     "enumeration": "5"
    },
-   "solution": "HANDY"
+   "solution": "HANDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Close by",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "H AND Y",
+     "indicators": [
+      {
+       "text": "borders of",
+       "at": 10,
+       "note": "borders of points at the two edge letters of the country's name, the first and the last"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hungary",
+       "at": 21,
+       "note": "the word itself, whose first and last letters are the ones meant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what lies close by the frontiers of Hungary.",
+     "walkthrough": "The question mark flags that the answer, split as H AND Y, names the two letters bordering the word Hungary.",
+     "definitionFit": "Something handy is conveniently near, within easy reach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "borders"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +180,52 @@
     "text": "Mark, one on a register, settler",
     "enumeration": "11"
    },
-   "solution": "COLONIALIST"
+   "solution": "COLONIALIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "settler",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mark",
+       "at": 0,
+       "gives": "COLON",
+       "note": "a colon is a punctuation mark"
+      },
+      {
+       "words": "one",
+       "at": 6,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "a",
+       "at": 13,
+       "gives": "A"
+      },
+      {
+       "words": "register",
+       "at": 15,
+       "gives": "LIST",
+       "note": "a list is a register of names"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mark, the one whose name is on the register, is a settler.",
+     "definitionFit": "A colonialist is someone who settles in or supports settling a colony."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +239,31 @@
     "text": "Stir dish on Scottish table?",
     "enumeration": "8"
    },
-   "solution": "PORRIDGE"
+   "solution": "PORRIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stir",
+      "at": 0,
+      "meaning": "first meaning: stir is slang for prison"
+     },
+     {
+      "text": "dish on Scottish table?",
+      "at": 5,
+      "meaning": "second meaning: oat ..., a traditional Scottish breakfast dish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stir' looks like a cooking instruction for the dish, but it is prison slang; doing porridge means serving a prison sentence in Britain.",
+     "definitionFit": "Porridge is both the oatmeal dish and, in British slang, a prison term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stir"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +283,66 @@
      }
     ]
    },
-   "solution": "ALIMENTARYCANAL"
+   "solution": "ALIMENTARYCANAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "food processor",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "liquid",
+       "at": 32,
+       "note": "liquid means fluid, not fixed in form, so the letters flow into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "All",
+       "at": 0
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending in",
+         "at": 4,
+         "note": "ending in means the last letter of pot is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pot",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "any",
+       "at": 19
+      },
+      {
+       "words": "American",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kitchen talk: everything finished in a pot, any American liquid poured into a food processor.",
+     "walkthrough": "'Food processor' sounds like the kitchen gadget but is the gut. ALL, T ('ending in pot'), ANY and AMERICAN are rearranged, signalled by 'liquid'.",
+     "definitionFit": "The alimentary canal is the digestive tract, which literally processes the food we eat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "processor"
+    }
+   }
   },
   {
    "number": 6,
@@ -111,7 +356,66 @@
     "text": "Fireball and my bombs ending in inferno",
     "enumeration": "6"
    },
-   "solution": "DYNAMO"
+   "solution": "DYNAMO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fireball",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bombs",
+         "at": 16,
+         "note": "bombs as a verb means goes wildly wrong, so the letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "at": 9
+        },
+        {
+         "words": "my",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending in",
+         "at": 22,
+         "note": "ending in means the last letter of inferno is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "inferno",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Explosions: a fireball and my bombs end in an inferno.",
+     "walkthrough": "AND, MY and O ('ending in inferno') are rearranged, signalled by 'bombs'.",
+     "definitionFit": "Both words describe an energetic, forceful person full of vigour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fireball"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +429,28 @@
     "text": "Leave wasteland",
     "enumeration": "6"
    },
-   "solution": "DESERT"
+   "solution": "DESERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0,
+      "meaning": "first meaning: to abandon, a verb"
+     },
+     {
+      "text": "wasteland",
+      "at": 6,
+      "meaning": "second meaning: barren arid land, a noun"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The verb means to abandon and the noun means an arid barren region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +464,58 @@
     "text": "Nothing in short column written up",
     "enumeration": "3"
    },
-   "solution": "NIL"
+   "solution": "NIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nothing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "written up",
+       "at": 24,
+       "note": "written up in a down answer means read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 11,
+         "note": "short means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "column",
+         "at": 17,
+         "gives": "LINE",
+         "note": "a line, as of soldiers, is a column"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing appears in the short column that was written up for the paper.",
+     "walkthrough": "LINE loses its last letter ('short') to give LIN, which 'written up' turns round.",
+     "definitionFit": "Nil is a score of zero, meaning none at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "column"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +529,48 @@
     "text": "It's one man travelling somewhere in north–central US",
     "enumeration": "9"
    },
-   "solution": "MINNESOTA"
+   "solution": "MINNESOTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "somewhere in north–central US",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "travelling",
+       "at": 13,
+       "note": "travelling means moving about, so the letters move into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "It's",
+       "at": 0
+      },
+      {
+       "words": "one",
+       "at": 5
+      },
+      {
+       "words": "man",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone man on the road through the American Midwest.",
+     "walkthrough": "ITS, ONE and MAN are rearranged, signalled by 'travelling'.",
+     "definitionFit": "Minnesota is a state in the upper Midwest of the United States, bordering Canada."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +584,69 @@
     "text": "Branched structure later adapted to accommodate organisation, finally",
     "enumeration": "6"
    },
-   "solution": "ANTLER"
+   "solution": "ANTLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Branched structure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to accommodate",
+       "at": 33,
+       "note": "to accommodate means to take in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "adapted",
+         "at": 25,
+         "note": "adapted means altered, so the letters of later are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "later",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 62,
+         "note": "finally means the last letter of organisation is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "organisation",
+         "at": 48
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A design for a branched framework, revised later to fit a company's needs.",
+     "walkthrough": "'Adapted' rearranges LATER to ATLER, and 'to accommodate' takes in N ('organisation, finally').",
+     "definitionFit": "A deer's antler is a bony growth that forks into several tines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "organisation"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +660,40 @@
     "text": "Fresh in sea off southern England",
     "enumeration": "8"
    },
-   "solution": "INSOLENT"
+   "solution": "INSOLENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fresh",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 6
+      },
+      {
+       "words": "sea off southern England",
+       "at": 9,
+       "gives": "SOLENT",
+       "note": "the Solent is the strait between the Isle of Wight and the Hampshire coast"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swimming, invigorated, in the waters off England's south coast.",
+     "walkthrough": "'Fresh' looks like a description of sea air but means cheeky. The Solent is the stretch of sea between the Isle of Wight and mainland England.",
+     "definitionFit": "Fresh can mean cheeky or impudent, a synonym for rude and disrespectful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +707,40 @@
     "text": "Welcomed by democracy, any colour",
     "enumeration": "4"
    },
-   "solution": "CYAN"
+   "solution": "CYAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Welcomed by",
+       "at": 0,
+       "note": "welcomed by means taken in by, so the answer sits inside the words democracy any"
+      }
+     ],
+     "parts": [
+      {
+       "words": "democracy, any",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Any colour is welcome in a democracy.",
+     "definitionFit": "Cyan is a greenish-blue shade, one of the printing primaries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Welcomed"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +760,30 @@
      }
     ]
    },
-   "solution": "ICEBREAKER"
+   "solution": "ICEBREAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pick, for example",
+      "at": 0,
+      "meaning": "first meaning: an ice pick is a tool that breaks ice"
+     },
+     {
+      "text": "ship",
+      "at": 19,
+      "meaning": "second meaning: a vessel that cuts through frozen sea"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pick' looks like a verb, choose, but it is the ice pick.",
+     "definitionFit": "The term names both a tool for breaking ice and a vessel built to clear frozen channels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pick"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +797,29 @@
     "text": "Suitable lift",
     "enumeration": "11"
    },
-   "solution": "APPROPRIATE"
+   "solution": "APPROPRIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suitable",
+      "at": 0,
+      "meaning": "first meaning: fitting, an adjective"
+     },
+     {
+      "text": "lift",
+      "at": 9,
+      "meaning": "second meaning: to steal or take for oneself, a verb"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The adjective means fitting the occasion; the verb means to take something without permission, as lift does in slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +833,61 @@
     "text": "Neat skill recalled in faculty",
     "enumeration": "8"
    },
-   "solution": "STRAIGHT"
+   "solution": "STRAIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Neat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "faculty",
+       "at": 23,
+       "gives": "SIGHT",
+       "note": "sight is one of the faculties or senses"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 11,
+         "note": "recalled means called back, so the word is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "skill",
+         "at": 5,
+         "gives": "ART",
+         "note": "art is skill, as in the art of persuasion"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tidy skill remembered by a university department.",
+     "walkthrough": "'Faculty' suggests a university department, but here it means one of the senses.",
+     "definitionFit": "A neat drink is served straight, with no mixer or water added."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "faculty"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +901,64 @@
     "text": "Standard woollen fabric briefly put on loom",
     "enumeration": "9"
    },
-   "solution": "TRICOLOUR"
+   "solution": "TRICOLOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Standard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "at": 32,
+       "note": "in a down answer, one piece put on another sits above it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 24,
+         "note": "briefly means cut short, losing the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "woollen fabric",
+         "at": 9,
+         "gives": "TRICOT",
+         "note": "tricot is a knitted fabric, often wool"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "loom",
+       "at": 39,
+       "gives": "LOUR",
+       "note": "to lour is to look dark and threatening, as clouds loom"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weaving: an ordinary woollen fabric quickly set on the loom.",
+     "walkthrough": "'Loom' looks like the weaving frame but is the verb. TRICOT shortened ('briefly') gives TRICO, which is 'put on' LOUR.",
+     "definitionFit": "A standard is a flag, and a tricolour is a flag of three colours such as the French one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "loom"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +972,48 @@
     "text": "Copper left in shell",
     "enumeration": "4"
    },
-   "solution": "PLOD"
+   "solution": "PLOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Copper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "in puts the L inside the shell"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shell",
+       "at": 15,
+       "gives": "POD",
+       "note": "a pod is the shell of a pea or bean"
+      },
+      {
+       "words": "left",
+       "at": 7,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A copper coin left inside a shell.",
+     "walkthrough": "'Copper' suggests the metal but is a policeman: PLOD is British slang for the police, from PC Plod in the Noddy books.",
+     "definitionFit": "Plod is informal British slang for a police officer, as copper is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1027,48 @@
     "text": "Especially good thing, big hugs also",
     "enumeration": "8"
    },
-   "solution": "STANDOUT"
+   "solution": "STANDOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Especially good thing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hugs",
+       "at": 27,
+       "note": "hugs means holds close, so one word wraps around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "big",
+       "at": 23,
+       "gives": "STOUT",
+       "note": "stout means big or bulky"
+      },
+      {
+       "words": "also",
+       "at": 32,
+       "gives": "AND",
+       "note": "and means also, in addition"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something particularly good: big hugs too.",
+     "definitionFit": "A standout is something conspicuously excellent, better than the rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hugs"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1082,41 @@
     "text": "Skirt pinned by mum, initially",
     "enumeration": "4"
    },
-   "solution": "MINI"
+   "solution": "MINI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skirt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "pinned by",
+       "at": 6,
+       "note": "pinned by means held fast within, so the answer lies inside the words mum initially"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mum, initially",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skirt held with pins by Mum at first, as for a hem.",
+     "walkthrough": "'Initially' seems to ask for a first letter, but it is only fodder for the hidden word.",
+     "definitionFit": "A miniskirt, usually just called a mini, is a very short skirt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1130,69 @@
     "text": "Reasonable criminal on trial, arsonist initially defended",
     "enumeration": "8"
    },
-   "solution": "RATIONAL"
+   "solution": "RATIONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reasonable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "defended",
+       "at": 49,
+       "note": "defended means protected, enclosed by the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "at": 11,
+         "note": "criminal means bent or crooked, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on trial",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 39,
+         "note": "initially means the first letter of arsonist is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "arsonist",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal on trial for arson is defended, and reasonably so.",
+     "walkthrough": "'Criminal' rearranges ON TRIAL, and 'defended' closes those letters round A ('arsonist initially').",
+     "definitionFit": "Rational means sensible and based on reason or logic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1206,48 @@
     "text": "Sharp article found in sea",
     "enumeration": "6"
    },
-   "solution": "BRAINY"
+   "solution": "BRAINY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 14,
+       "note": "found in places the article inside the sea word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sea",
+       "at": 23,
+       "gives": "BRINY",
+       "note": "the briny is a colloquial name for the sea"
+      },
+      {
+       "words": "article",
+       "at": 6,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper item about something sharp discovered in the sea.",
+     "definitionFit": "Sharp in the sense of quick-witted and intelligent, which brainy means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sharp"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1267,58 @@
      }
     ]
    },
-   "solution": "COSTARICAN"
+   "solution": "COSTARICAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "native of Central America",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspires",
+       "at": 26,
+       "note": "inspires means breathes in, so the letters take in the A"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Distribution of",
+         "at": 0,
+         "note": "distribution means spreading things out, so the letters are scattered into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "narcotics",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 35,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drug dealing breathes life into a Central American.",
+     "walkthrough": "NARCOTICS rearranged ('Distribution of') takes in A, signalled by 'inspires'.",
+     "definitionFit": "Costa Rica is a Central American republic, so its citizens are natives of that region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspires"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1332,47 @@
     "text": "Coloured horse galloped around ring",
     "enumeration": "4"
    },
-   "solution": "ROAN"
+   "solution": "ROAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coloured horse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 24,
+       "note": "around means the RAN goes round the ring letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "galloped",
+       "at": 15,
+       "gives": "RAN",
+       "note": "galloped means ran"
+      },
+      {
+       "words": "ring",
+       "at": 31,
+       "gives": "O",
+       "note": "O is round like a ring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coloured horse racing round a ring.",
+     "definitionFit": "A roan horse has a coat of one base colour sprinkled with white hairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1386,29 @@
     "text": "Germanic invader's viewpoint",
     "enumeration": "5"
    },
-   "solution": "ANGLE"
+   "solution": "ANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Germanic invader's",
+      "at": 0,
+      "meaning": "first meaning: the ... were a Germanic people who invaded Britain; the 's stands for is"
+     },
+     {
+      "text": "viewpoint",
+      "at": 19,
+      "meaning": "second meaning: a standpoint or perspective"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's reads as is, joining the two meanings; it is not a possessive.",
+     "definitionFit": "One of the tribe that settled England, and a word for a particular perspective on an issue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1422,59 @@
     "text": "Lad touring African country, a person from Africa",
     "enumeration": "8"
    },
-   "solution": "SOMALIAN"
+   "solution": "SOMALIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "person from Africa",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "touring",
+       "at": 4,
+       "note": "touring means going around, so the lad's word surrounds the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lad",
+       "at": 0,
+       "gives": "SON",
+       "note": "a son is a lad"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "African country",
+         "at": 12,
+         "gives": "MALI",
+         "note": "Mali is a West African country"
+        },
+        {
+         "words": "a",
+         "at": 29,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young man tours an African country.",
+     "walkthrough": "'African country' tempts a solver to write in the country itself, but it is the smaller West African state inside the lad.",
+     "definitionFit": "A Somalian is a native or citizen of Somalia, in the Horn of Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1488,39 @@
     "text": "A newspaper towards the back",
     "enumeration": "3"
    },
-   "solution": "AFT"
+   "solution": "AFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "towards the back",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "newspaper",
+       "at": 2,
+       "gives": "FT",
+       "note": "FT is the Financial Times, the newspaper running this puzzle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper turned to its back pages.",
+     "definitionFit": "Aft is a nautical term meaning at or toward the stern of a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1534,52 @@
     "text": "Shade found by ape back in tree",
     "enumeration": "6"
    },
-   "solution": "ORANGE"
+   "solution": "ORANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shade",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ape",
+       "at": 15,
+       "gives": "ORANG",
+       "note": "orang is short for orangutan"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back in",
+         "at": 19,
+         "note": "back in means the last letter of tree is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tree",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shade found by an ape back in a tree.",
+     "walkthrough": "'Shade' looks like the shadow of the tree but is a colour.",
+     "definitionFit": "Orange is a colour, and a shade is a hue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shade"
+    }
+   }
   },
   {
    "number": 27,
@@ -431,7 +1593,58 @@
     "text": "Fairly trivial housing regulations, originally",
     "enumeration": "6"
    },
-   "solution": "PRETTY"
+   "solution": "PRETTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fairly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "housing",
+       "at": 15,
+       "note": "housing means holding inside, so one word contains the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trivial",
+       "at": 7,
+       "gives": "PETTY",
+       "note": "petty means trivial or minor"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 36,
+         "note": "originally means the first letter of regulations is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "regulations",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhat trivial rules on housing at first.",
+     "definitionFit": "As an adverb pretty means moderately or rather, as in pretty good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 28,
@@ -445,7 +1658,44 @@
     "text": "Note the colour, being washed with soap",
     "enumeration": "8"
    },
-   "solution": "LATHERED"
+   "solution": "LATHERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "washed with soap",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Note",
+       "at": 0,
+       "gives": "LA",
+       "note": "la is the sixth note of the sol-fa scale"
+      },
+      {
+       "words": "the",
+       "at": 5
+      },
+      {
+       "words": "colour",
+       "at": 9,
+       "gives": "RED",
+       "note": "red is a colour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A record of the colour of something being soaped.",
+     "definitionFit": "Lathered means covered in foam from soap, as when washing or shaving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
