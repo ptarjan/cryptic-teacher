@@ -2385,6 +2385,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 full_wait.pop(key_of(u), None)
             if u["kind"] != "read" or not (key_of(u) in vlm_held or needs_vlm(u)):
                 return False
+            if spool_cap_hit and key_of(u) not in spool_wait and key_of(u) not in full_wait:
+                # The spool is at its cap: a fresh read that may ask would OCR its pages (~25 CPU-s),
+                # be refused ("VLM spool full") and start again once held, churning while the drainer
+                # works. It waits here, free, until the spool is below its cap.
+                full_held.add(key_of(u))
+                return True
             if defer_until.get(key_of(u), 0) > time.monotonic():
                 return True  # deferred again and again for its asks: backed off (DEFER_BACKOFF)
             if key_of(u) in spool_wait:
