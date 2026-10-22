@@ -9,6 +9,7 @@
 # The VLM is mocked: no network, no scan, nothing written outside a temp dir.
 import atexit
 import os
+os.environ.setdefault("CT_VLM_BLIP_SECONDS", "0")  # no link-blip waits on a fake unreachable VLM
 
 # The desktop the code reaches is a fake one: the real addresses live in an untracked local config.
 os.environ.update(CT_LOCAL_CONFIG="/nonexistent", CT_DESKTOP_USER="tester", CT_VLM_PORT="8000",
