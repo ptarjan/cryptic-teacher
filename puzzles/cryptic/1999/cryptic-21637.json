@@ -799,41 +799,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SHELFLIFE",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in means one learner is placed inside the county's name"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Female",
+       "at": 0,
        "gives": "SHE",
        "note": "she is the female pronoun"
       },
       {
        "words": "students",
-       "gives": "LL",
-       "note": "L is a learner driver's plate, so two of them stand for students"
+       "at": 7,
+       "gives": "L",
+       "note": "students are learners, L and L; one of them stands here"
       },
       {
-       "words": "Scots county",
-       "gives": "FIFE",
-       "note": "Fife is a county in eastern Scotland"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 29,
+         "note": "in means placed inside, so the other learner goes within the county"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scots county",
+         "at": 32,
+         "gives": "FIFE",
+         "note": "Fife is a county in eastern Scotland"
+        },
+        {
+         "words": "one of them",
+         "at": 17,
+         "gives": "L",
+         "note": "one of the students, the other L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Women students, one staying in a Scottish county until a deadline.",
-     "walkthrough": "'Students' gives two learners: one stands alone, and 'one of them' is the other, which goes inside the county.",
-     "definitionFit": "The period a product may be kept on sale runs until its expiry, the date after which shops must remove it."
+     "surface": "Female students, one of them in Fife, are counting down to a deadline.",
+     "walkthrough": "'students' supplies two learners, and 'one of them' sends only the second into the county; Fife is a Scottish county.",
+     "definitionFit": "Shelf life is the period a product stays saleable, the time remaining until its sell-by date."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "students"
     }
    }
