@@ -50,17 +50,28 @@ OLD = '{"_why": "x", "indicators.note": {"times-21965": 3, "times-1": 2}}'
 B = "tools/annotation_backlog.json"
 
 
-def backlog(old, new, extra=()):
-    return v.decide([("M", B), *extra], lambda p: old, lambda p: new)
+PATHS = {"times-21965": P, "times-1": "puzzles/times/2001/times-1.json", "times-9": "puzzles/times/2001/times-9.json"}
+
+
+def where(stems):
+    return {s: PATHS[s] for s in stems if s in PATHS}
+
+
+def backlog(old, new, extra=(), resolve=where):
+    return v.decide([("M", B), *extra], lambda p: old, lambda p: new, resolve)
 
 
 tight = '{"_why": "y", "indicators.note": {"times-21965": 1, "times-1": 2}}'
 gone = '{"_why": "x", "indicators.note": {"times-1": 2}}'
 expect("a tightened backlog with its puzzle", backlog(OLD, tight, [("M", P)]), "files")
 expect("a dropped entry with its puzzle", backlog(OLD, gone, [("M", P)]), "files")
-expect("a tightened backlog, puzzle unchanged", backlog(OLD, tight), "full", "times-21965")
-expect("a raised allowance", backlog(OLD, OLD.replace('"times-1": 2', '"times-1": 5'), [("M", P)]), "full", "annotation_backlog.json")
-expect("a new entry", backlog(OLD, OLD.replace('"times-1": 2', '"times-1": 2, "times-9": 1'), [("M", P)]), "full", "annotation_backlog.json")
+expect("a tightened backlog, puzzle unchanged", backlog(OLD, tight), "files")
+assert backlog(OLD, tight)[1] == [P]
+raised = backlog(OLD, OLD.replace('"times-1": 2', '"times-1": 5'), [("M", P)])
+expect("a raised allowance", raised, "files")
+assert raised[1] == [P, PATHS["times-1"]], raised
+expect("a new entry", backlog(OLD, OLD.replace('"times-1": 2', '"times-1": 2, "times-9": 1')), "files")
+expect("an allowance for a puzzle with no file", backlog(OLD, tight, resolve=lambda s: {}), "full", "times-21965")
 expect("a new field", backlog(OLD, OLD[:-1] + ', "other": {}}', [("M", P)]), "full", "annotation_backlog.json")
 expect("a backlog that is not json", backlog(OLD, "{", [("M", P)]), "full", "annotation_backlog.json")
 T = "tools/data/blog_disagree.json"
@@ -68,12 +79,13 @@ ROWS = '{"times-21965/1-across": ["type", "a"], "times-1/2-down": ["type", "b"]}
 
 
 def rows(new, extra=()):
-    return v.decide([("M", T), *extra], lambda p: ROWS, lambda p: new)
+    return v.decide([("M", T), *extra], lambda p: ROWS, lambda p: new, where)
 
 
 more = ROWS[:-1] + ', "times-21965/3-down": ["definition", "c"]}'
 expect("an added row with its puzzle", rows(more, [("M", P)]), "files")
-expect("an added row, puzzle unchanged", rows(more), "full", "times-21965")
+expect("an added row, puzzle unchanged", rows(more), "files")
+assert rows(more)[1] == [P]
 expect("a row removed", rows('{"times-1/2-down": ["type", "b"]}', [("M", P)]), "full", "blog_disagree.json")
 expect("a table that is not json", rows("{", [("M", P)]), "full", "blog_disagree.json")
 expect("the authored clues",v.decide([("M", "tools/data/authored_A001_clues.json")]), "full", "authored_A001_clues.json")
