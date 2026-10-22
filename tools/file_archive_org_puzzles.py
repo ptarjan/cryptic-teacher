@@ -2600,7 +2600,7 @@ SOLUTION_WORD = re.compile(r"\bsolution\b", re.IGNORECASE)
 #: clue column left of it (a whole-page read runs the two together, or reads
 #: neither), the next column past it; two side by side (a Saturday's) are
 #: read apart, each from its own word or grid.
-SOLUTION_BAND = (30, 420, 25, 70)
+SOLUTION_BAND = (30, 560, 25, 70)
 #: The width of a solution grid at SCAN_WIDTH (the puzzle's own is 680-770).
 SOLUTION_GRID = (200, 480)
 
@@ -5765,13 +5765,42 @@ for _paper, _pins in _PRIZE_HEADINGS_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before SOLUTION_BAND widened 420 -> 560
+#: (a solution heading's "Solution to Crossword 23,xxx" was cut after "23" on the Gale Times's
+#: 4664 px pages of mid-2005 to mid-2006): an edit that moves only those pages' readings
+#: (BAND_RESCAN), so every other paper's, and every other year's, scans stand under their old keys.
+_BAND_WIDTH_FIX = {
+    "ft": ("604efcc22e60dab4", "fa7c29482db09656", "7d90c2e969e56a3e"),
+    "gale": ("9a03612709722b4c", "24ec9bfd50ad1727", "a96808d5cf7321db"),
+    "galeft": ("39493020d8bde34a", "e302fec8ca39c63d", "97fba7a8662935b9"),
+    "galeindependent": ("a469fc46cf0886a4", "f9354413a479d93e", "cc18a3c765cea272"),
+    "galesundaytimes": ("1e08d552cfc3d213", "94d82dc19efcce25", "b022b18869e67e6a"),
+    "galetelegraph": ("8d387b0dc084706c", "8cbe789f6e12b38f", "ac23af44ca0b657e"),
+    "galetls": ("0a6f00f16d61d22e", "e4b4f05f021de79f", "3576aeefb5be4ac2"),
+    "guardian": ("2800b3094dc4239d", "6c168b074df2f5e3", "6de21c994894fdd0"),
+    "telegraph": ("209b8be1c3754753", "92a2c4f29be0d52f", "745aa185e086920e"),
+    "times": ("7907f625fccc7220", "9b817267fc1c746e", "147f0d4168d00f9d"),
+    "times1930": ("6af567f7553f1ad4", "ac6cd9c7944a9a81", "07bb383d98cafae3"),
+}
+for _paper, _pins in _BAND_WIDTH_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: The Gale Times days (first, last) whose pages are 4664 px wide, scanned again for the wider band.
+BAND_RESCAN = (datetime.date(2005, 5, 1), datetime.date(2006, 9, 30))
 
 
 def prize_rescan(paper, key, rel):
-    """Whether a scan of edition `rel` of `paper` under scan key `key` is due again for the prize
-    headings (_PRIZE_HEADINGS_FIX): a Gale Times Monday (prize_monday) scanned before them."""
-    return paper is GALE and key in _PRIZE_HEADINGS_FIX["gale"][:2] and isinstance(rel, str) \
-        and (day := _date_in(rel)) is not None and prize_monday(day)
+    """Whether a scan of edition `rel` of `paper` under scan key `key` is due again for a heading
+    reader fix: a Gale Times Monday (prize_monday) scanned before the prize headings
+    (_PRIZE_HEADINGS_FIX), or a Gale Times day of BAND_RESCAN scanned before the wider
+    SOLUTION_BAND (_BAND_WIDTH_FIX)."""
+    if paper is not GALE or not isinstance(rel, str) or (day := _date_in(rel)) is None:
+        return False
+    if key in _PRIZE_HEADINGS_FIX["gale"][:2] and prize_monday(day):
+        return True
+    return key != _BAND_WIDTH_FIX["gale"][2] and BAND_RESCAN[0] <= day <= BAND_RESCAN[1]
 
 
 def current_keys(paper):
