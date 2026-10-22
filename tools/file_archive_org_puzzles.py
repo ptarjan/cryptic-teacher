@@ -4458,7 +4458,7 @@ def answers_only(d, found, hit, solutions):
                         or re.fullmatch(r"See \d+.*", (e["clue"]["text"] or "").strip())) for e in es):
         return None
     grid = trove_solution_ocr.puzzle_grid(old)
-    answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above)
+    answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above, lean=True)
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
     letters = {}
@@ -5314,10 +5314,12 @@ CELLS_CLASSIFIED = ("times", "gale")
 SOLUTION_CLOSE = 3
 
 
-def read_solution(img, sol, grid, above=False):
+def read_solution(img, sol, grid, above=False, lean=False):
     """({light: answer}, stats) read off the solution grid under a "Solution
     to Puzzle No N" heading on page `img`, or with `above`, over it (the
-    Guardian's). Its code is solution_key()'s."""
+    Guardian's). Its code is solution_key()'s. With `lean` (answers_only, which
+    checks every answer against its light and crossings) a grid is read on the
+    one lattice that accepts every light, not on all three (read_framed)."""
     d = sol["dir"]
     x0, y0, x1, y1 = sol["box"]
     from PIL import Image
@@ -5340,7 +5342,7 @@ def read_solution(img, sol, grid, above=False):
     # The crop is the grid, frame to frame: read on its own rules; a Times
     # print's cells by the cell classifier too, which was trained on them.
     answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True,
-                                                     classify=paper_of(d).key in CELLS_CLASSIFIED)
+                                                     classify=paper_of(d).key in CELLS_CLASSIFIED, lean=lean)
     if stats["blocks"] < SOLUTION_BLOCKS:
         return {}, {**stats, "refused": "its blocks are not the puzzle's"}
     return {f"{n}-{d}": w for (n, d), w in answers.items()}, stats
@@ -5591,13 +5593,17 @@ def solution_key():
         import code_reach
         _SOLUTION_KEY.append(code_reach.key("file_archive_org_puzzles", {"read_solution"},
                                             opaque=code_reach.TRANSPORT + code_reach.SIZING))
-    return _SOLUTION_KEY[0]
+    return _SOLUTION_PINS.get(_SOLUTION_KEY[0], _SOLUTION_KEY[0])
 
 
 _SOLUTION_KEY = []
+#: {solution key of newer code: the key it stands in for}, for a change that reads the same
+#: answers (read_framed's `lean` for answers_only, and listed_of built off the words' bytes):
+#: the rows read under the old key are not read again for it (fix_reason).
+_SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42"}
 
 
-def solved(sol, grid, above=False):
+def solved(sol, grid, above=False, lean=False):
     """read_solution of `sol`'s page for `grid`, kept under
     CROPS/solution_reads by everything it reads from (its code and page()'s,
     the leaf's size, the heading's box, `above`, the grid), so a re-read for
@@ -5609,13 +5615,14 @@ def solved(sol, grid, above=False):
                                            opaque=code_reach.TRANSPORT + code_reach.SIZING))
     d, leaf = sol["dir"], sol["leaf"]
     key = hashlib.sha256(json.dumps([_SOLVED_CODE[0], os.stat(d / f"leaf_{leaf:04d}.jpg").st_size, leaf,
-                                     list(sol["box"]), bool(above), list(grid)]).encode()).hexdigest()[:20]
+                                     list(sol["box"]), bool(above), list(grid)]
+                                    + ([True] if lean else [])).encode()).hexdigest()[:20]
     path = CROPS / "solution_reads" / f"{d.name}_{sol['number']}.json"
     if path.exists():
         kept = json.loads(path.read_text())
         if kept.get("key") == key:
             return kept["answers"], kept["stats"]
-    answers, stats = read_solution(page(d, leaf), sol, grid, above=above)
+    answers, stats = read_solution(page(d, leaf), sol, grid, above=above, lean=lean)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(f".{os.getpid()}.part")
     tmp.write_text(json.dumps({"key": key, "answers": answers, "stats": stats}))

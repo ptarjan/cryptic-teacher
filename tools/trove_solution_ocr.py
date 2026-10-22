@@ -743,7 +743,7 @@ def framings(gray, grid):
     return tried
 
 
-def read_framed(image, grid, bounded=False, classify=False):
+def read_framed(image, grid, bounded=False, classify=False, lean=False):
     """read_answers for an image that is the grid, read on each of its
     framings(). The lattice reading the most cells surely fits best (blocks
     read alike on a lattice half a cell off; letters do not): its accepted
@@ -758,9 +758,23 @@ def read_framed(image, grid, bounded=False, classify=False):
     decodes the rest (classified_reads())."""
     gray = np.asarray(Image.open(image).convert("L"))
     framed = framings(gray, grid)
-    reads = [read_lattice(g, ys, xs, grid) for g, ys, xs in framed]
-    best = max(range(len(reads)), key=lambda i: reads[i][1]["blocks"])
-    blocks, lat = reads[best][1]["blocks"], framed[best]
+    if lean:
+        # Each lattice read costs ~480 recogniser runs (~25 s of CPU). The lattice whose blocks
+        # fit best is read first, and when it accepts every light the others can add none (take()
+        # and the rules only fill lights not accepted): they are not read.
+        fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
+        done, nlights = {}, len(lights(grid))
+        for i in sorted(range(len(framed)), key=lambda i: -fits[i]):
+            done[i] = read_lattice(*framed[i], grid)
+            if len(done[i][0]) == nlights:
+                break
+        reads = [done[i] for i in sorted(done)]
+        best = max(range(len(framed)), key=lambda i: fits[i])
+        blocks, lat = fits[best], framed[best]
+    else:
+        reads = [read_lattice(g, ys, xs, grid) for g, ys, xs in framed]
+        best = max(range(len(reads)), key=lambda i: reads[i][1]["blocks"])
+        blocks, lat = reads[best][1]["blocks"], framed[best]
     reads.sort(key=lambda r: -r[1]["cellsSure"])
     lts = lights(grid)
     accepted, stats, every, _ = reads[0]
@@ -1199,7 +1213,9 @@ def listed_of(n):
                 by.setdefault(len(w), []).append(w)
         for k, ws in by.items():
             ws.sort()
-            _BY_LENGTH[k] = (ws, np.array([[AZ.index(c) for c in w] for w in ws], np.int8))
+            # A-Z as 0-25 off the words' bytes (a letter a str.index each took 11 s of CPU).
+            letters = np.frombuffer("".join(ws).upper().encode("ascii"), np.uint8).reshape(len(ws), k)
+            _BY_LENGTH[k] = (ws, (letters.astype(np.int16) - ord("A")).astype(np.int8))
     return _BY_LENGTH.get(n, ([], np.zeros((0, n), np.int8)))
 
 
@@ -1314,7 +1330,7 @@ def vetoed(lts, accepted, probs):
     return out
 
 
-def read_answers(image, grid, tight=False, bounded=False, classify=False):
+def read_answers(image, grid, tight=False, bounded=False, classify=False, lean=False):
     """({(number, direction): answer} accepted, stats) for a solution image
     and the puzzle's grid (rows of "#" and ".").
 
@@ -1324,7 +1340,7 @@ def read_answers(image, grid, tight=False, bounded=False, classify=False):
     recogniser read the light itself as exactly that word, and the word is
     known()."""
     if tight:
-        return read_framed(image, grid, bounded, classify)
+        return read_framed(image, grid, bounded, classify, lean)
     gray = np.asarray(Image.open(image).convert("L"))
     lat = lattice(gray, len(grid), tight)
     lts = lights(grid)
