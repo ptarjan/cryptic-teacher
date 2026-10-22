@@ -531,6 +531,17 @@ check(slips["entries"][3]["clue"]["text"], "Plain clue about a thing", "a plain 
 check(str(rf.offsets("ab . cd", "ab cd")), "[0, 1, 2, 3, 3, 3, 4, 5]", "offsets: kept characters move with their block")
 check(str(rf.mend_clue_text(slips)), "{}", "a second run changes nothing")
 
+print("a count with a bar glued on is cut unless a light of the puzzle has that number")
+barred = {"entries": [
+    {"number": 3, "direction": "across", "clue": {"text": "One caught in the actual act of robbing 81", "enumeration": "8"}},
+    {"number": 15, "direction": "across", "clue": {"text": "Mum not seen to follow 15", "enumeration": "5"}},
+    {"number": 4, "direction": "down", "clue": {"text": "Birds follow 15", "enumeration": "5"}},
+    {"number": 5, "direction": "down", "clue": {"text": "Girl getting dreadfully hot in boat 17", "enumeration": "7"}},
+    {"number": 6, "direction": "down", "clue": {"text": "Each movement causes pain 141", "enumeration": "4"}}]}
+done = rf.mend_clue_text(barred)
+check(" ".join(sorted(done)), "3-across 5-down 6-down", "81, 17 (no light 17) and 141 are cut; 15 is a light, so a reference")
+check(barred["entries"][1]["clue"]["text"], "Mum not seen to follow 15", "a number a light has is kept")
+
 print("a reread's stray neighbouring words are what a spoiled clue's repair takes back")
 check(str(rf.grown("Fluid that comes with a plant", "Fluid that comes with a plant Wales. Midlands.")), "True", "two stray words after the clue are grown")
 check(str(rf.grown("Understand something in a tongue", "Understand I something in a tongue")), "True", "a stray letter inside is grown")
