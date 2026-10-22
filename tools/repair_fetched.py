@@ -297,11 +297,11 @@ def offsets(old, new):
 
 
 #: Rules of clue_repair.mend_steps that --mends leaves out, found by reading the
-#: dry run's diffs on held text. mend_words: of 69 changes about 10 were wrong
-#: ("de rigueur" -> "bede rigueur", "to le" -> "tole", "for th" -> "forth",
-#: "haled" -> "hated", "hes. tation" -> "hes. ration"). lead_speck: "D Day,
-#: camouflage?" lost its D, and "1 Down's poet?" its cross-reference.
-EXCLUDED_MENDS = frozenset({"mend_words", "lead_speck"})
+#: dry run's diffs on held text. None now: mend_words (11 of 69 changes wrong:
+#: "de rigueur" -> "bede rigueur", "to le" -> "tole", "haled" -> "hated") and
+#: lead_speck (2 of 31: "D Day," lost its D, "1 Down's poet?" its reference)
+#: were tightened in clue_repair until none of those changes is made.
+EXCLUDED_MENDS = frozenset()
 #: Per-rule changes the last --mends run made: [(puzzle id, light, rule, was, now)].
 MEND_LOG = []
 

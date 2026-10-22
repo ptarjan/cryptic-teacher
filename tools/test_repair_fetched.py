@@ -563,10 +563,10 @@ full = {"entries": [
 trail = []
 done = rf.mend_clue_text(full, skip=rf.EXCLUDED_MENDS, log=trail)
 check(" ".join(sorted(done)), "1-across 4-down 5-down", "a stray stop, a bled neighbour and a glued number are mended; D Day is left")
-check(full["entries"][1]["clue"]["text"], "D Day, camouflage?", "lead_speck is excluded")
-check(full["entries"][2]["clue"]["text"], "Put in the slippers, de rigueur for travel", "mend_words is excluded")
+check(full["entries"][1]["clue"]["text"], "D Day, camouflage?", "lead_speck keeps D Day")
+check(full["entries"][2]["clue"]["text"], "Put in the slippers, de rigueur for travel", "mend_words keeps de rigueur")
 check(" ".join(sorted(r for _p, _l, r, _w, _n in trail)), "bled_count glued_number stray_underscore", "each change is logged under its rule")
-check("mend_words" in rf.EXCLUDED_MENDS and "lead_speck" in rf.EXCLUDED_MENDS, "True", "the two wrong rules are excluded")
+check(str(len(rf.EXCLUDED_MENDS)), "0", "the tightened rules are no longer excluded")
 
 print("a reread's stray neighbouring words are what a spoiled clue's repair takes back")
 check(str(rf.grown("Fluid that comes with a plant", "Fluid that comes with a plant Wales. Midlands.")), "True", "two stray words after the clue are grown")
