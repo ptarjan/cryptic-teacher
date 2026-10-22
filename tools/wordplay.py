@@ -1033,9 +1033,50 @@ def _gives(node):
     return vs[0] if len(vs) == 1 else " or ".join(vs[:4]) + (" …" if len(vs) > 4 else "")
 
 
+def _hint(node, want):
+    """A one-sentence correction for two common right-parse-written-wrong shapes, or None:
+    a selection or hidden word over a `+` run (the op applies to the run's letters, not
+    to each word), and a spoonerism whose words are wrapped in sound()."""
+    op, parts = node.get("op"), parts_of(node)
+    if op in SELECT + ("hidden",) and len(parts) == 1 and parts[0].get("op") == "charade":
+        pieces = parts_of(parts[0])
+        name = NAMES[op]
+        if op == "hidden":
+            if all("op" not in p and "words" in p and "gives" not in p for p in pieces):
+                merged = {"words": " ".join(p["words"] for p in pieces)}
+                new = {**node, "parts": [merged]}
+                try:
+                    ok = match(new, want) is not None
+                except (_NeedTarget, WordplayError):
+                    ok = False
+                if ok:
+                    return f"hid() takes one leaf, so a hidden word across words is {render(new)}"
+            return f"hid() takes one leaf, not a + list: put the words in one [bracket]"
+        new = {**node, "parts": pieces}
+        try:
+            ok = match(new, want) is not None
+        except (_NeedTarget, WordplayError):
+            ok = False
+        if ok:
+            return f"{name}() over a + list works on the joined letters; commas apply it to each word: {render(new)}"
+        return f"{name}() over a + list works on the joined letters; commas apply it to each word: {name}(a, b, c)"
+    if op == "spoonerism" and "spelt" not in node and any(p.get("op") == "homophone" for p in parts):
+        inner = [parts_of(p)[0] if p.get("op") == "homophone" else p for p in parts]
+        if (len(inner) == 2 and all("op" not in p and leaf_letters(p) != want for p in inner)
+                and _spoon_sound(" ".join(leaf_letters(p) for p in inner), want)):
+            return (f"spoon() swaps the starts of its two words itself, so give it the clue words "
+                    f"and the spelling heard, not sound(): {render({**node, 'parts': inner, 'spelt': want})}")
+        return ("spoon() swaps the starts of its two words itself, so give it the clue words "
+                "and the spelling heard, not sound(): spoon(a, b, SPELT)")
+    return None
+
+
 def diagnose(node, want):
     """The deepest node that fails to give its share of `want`, in words."""
     op = node.get("op")
+    hint = _hint(node, want)
+    if hint:
+        return hint
     ls = lengths(node)
     if op == "charade" and all(lengths(p) and len(lengths(p)) == 1 for p in parts_of(node)):
         sizes = [next(iter(lengths(p))) for p in parts_of(node)]
