@@ -212,6 +212,20 @@ check("another paper's read keeps every scan it waits on", ["G/0", "G/1"], [u["r
 _ws = lambda s: [(0, 0, 9, 9, w) for w in s.split()]
 check("Solution to Crossword N and Yesterday's solution N are headings", [(22925, 3), (24378, 2)],
       [f.solution_at(_ws("Solution to Crossword 22,925"), 0, {22925}), f.solution_at(_ws("Yesterday's solution 24,378"), 0, {24378})])
+check("a Saturday prize's solution heading (Gale Times 2006-09: \"Solution to Prize Crossword N\", \"Prize solution N\") "
+      "is read at PRIZE_LAG before the Monday's title only; the weekday heading's lags still read as before",
+      [(23420, 4), (24299, 2), None, None, (24305, 3)],
+      [f.solution_at(_ws("Solution to Prize Crossword 23,420"), 0, {23426}, (), {23420}),
+       f.solution_at(_ws("Prize solution 24,299"), 0, {24305}, (), {24299}),
+       f.solution_at(_ws("Prize solution 24,299"), 0, {24305}),
+       f.solution_at(_ws("Solution to Prize Crossword 23,421"), 0, {23426}, (), {23420}),
+       f.solution_at(_ws("Solution to Crossword 24,305"), 0, {24305}, (), {24299})])
+check("solution_headings takes the prize under a Monday's title and not a Prize heading lagging otherwise",
+      [[(23420, (1, 2, 5, 9))], []],
+      [f.solution_headings([[(1, 2, 3, 4, "Solution"), (3, 4, 4, 5, "to"), (4, 3, 5, 9, "Prize"), (5, 3, 5, 9, "Crossword"),
+                             (1, 2, 5, 9, "23,420")]], [23427]),
+       f.solution_headings([[(1, 2, 3, 4, "Solution"), (3, 4, 4, 5, "to"), (4, 3, 5, 9, "Prize"), (5, 3, 5, 9, "Crossword"),
+                             (1, 2, 5, 9, "23,420")]], [23500])])
 # ---- a read that wrote an incomplete puzzle before the cause time is due once ("unfiled before its fix")
 _un = {"id": "times-1", "number": 1, "complete": False, "wrote": True, "unfiled": 3, "clues": 27, "lights": 30}
 _unrow = {"verdicts": [_un], "scan": {"item": "GaleTimes1947UKEnglish", "date": "1947-04-19"}}

@@ -285,7 +285,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
       (True, "ZZ_CACHED", "ZZ_MOVED", True, {f.scan_key(gt), f.sized_scan_key(gt), *f._BAND_CACHE_FIX[gt.key][:2],
                                                                       *f._LINES_FIX[gt.key][:2],
                                                                       *f._WORDS_CACHE_FIX[gt.key][:2],
-                                                                      *f._SOLUTION_HEADINGS_FIX[gt.key][:2]},
+                                                                      *f._SOLUTION_HEADINGS_FIX[gt.key][:2],
+                                                                      *f._PRIZE_HEADINGS_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -1249,6 +1250,23 @@ check("an equal scan from another thread's rows reuses the link; a changed one r
 check("hosted_window spans SOLUTION_DAYS each side and a week before", (D("1993-01-11"), D("1993-01-25")),
       f.hosted_window(f.TIMES, found))
 check("an edition with no headings reads no held", None, f.hosted_window(f.TIMES, {**found, "solutions": []}))
+# A 2000s Gale Monday prints the Saturday prize nine days before it ("Solution to Prize Crossword
+# 23,420" under 2006-10-23's 23,427): hosted names it, hosted_window reaches it, host_days looks there.
+pz = {"date": "2006-10-23", "item": "GaleTimes2006UKEnglish", "puzzles": [{"number": 23427, "leaf": 0}],
+      "solutions": [{"number": 23420, "leaf": 0}]}
+prize_held = {23420: D("2006-10-14"), 23426: D("2006-10-21")}
+check("a Monday of the 2000s hosts the prize of the Saturday nine days before, a 1993 one does not; "
+      "hosted_window reaches it", ({23426, 23420}, {23426}, (D("2006-10-14"), D("2006-10-30")), [True, False]),
+      (f.hosted(pz, prize_held) & {23426, 23420}, f.hosted({**pz, "date": "1993-01-18"}, prize_held) & {23426, 23420},
+       f.hosted_window(f.GALE, pz), [f.prize_monday(D("2006-10-23")), f.prize_monday(D("2006-10-24"))]))
+check("a Saturday of 2000 on has the Monday week after as a second host; a weekday has one",
+      ([D("2006-10-21"), D("2006-10-23")], [D("2006-10-18")]), (f.host_days(D("2006-10-14")), f.host_days(D("2006-10-17"))))
+_gk = f._PRIZE_HEADINGS_FIX["gale"]
+_mon = {"edition": "GaleTimes2009UKEnglish/2009-08-17", "scanKey": _gk[0], "filesHash": "h", "scan": {}}
+_tue = {**_mon, "edition": "GaleTimes2009UKEnglish/2009-08-18"}
+check("a Gale Monday of the 2000s scanned before the prize headings is due again; its Tuesday, and a scan "
+      "by the new code, stand", [False, True, True],
+      [f.scan_current(_mon, "h"), f.scan_current(_tue, "h"), f.scan_current({**_mon, "scanKey": f.scan_key(f.GALE)}, "h")])
 
 # lay_loose(): each clue alone on its own light; a misread count is not laid.
 g = ["...", ".#.", "..."]
