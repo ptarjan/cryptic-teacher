@@ -7122,21 +7122,27 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None, host=False):
 
 
 def read_unit(paper, rel, cache=CACHE, ledger=None, puzzles=None, source=SOURCE, reread=None, force=False,
-              out=sys.stdout):
+              out=sys.stdout, also=()):
     """Read one edition (its own scan made first if it is stale) and file
     what it holds, adding its row to the ledger, unless another unit holds
     it or it is no longer due (`force`: read it anyway): "read", "busy" or
-    "held" (a run holds the ledger throughout)."""
+    "held" (a run holds the ledger throughout). `also`: more editions read
+    in the same process (the queue's batch of answers-linked rereads: the
+    ledger, held lists, solution index and OCR models are set up once, not
+    per edition); each is locked on its own and one another unit holds is
+    left out. Each edition keeps its own ledger row and read line."""
     ledger = ledger_of(cache, paper, ledger)
     if scan_queue.held(ledger, scan_queue.UNIT_HOLD_WAIT):
         return "held"
-    with scan_queue.source_lock(ledger, rel) as mine:
+    import contextlib
+    with contextlib.ExitStack() as stack:
+        mine = [r for r in dict.fromkeys([rel, *also]) if stack.enter_context(scan_queue.source_lock(ledger, r))]
         if not mine:
             return "busy"
         dirs = _PLANNED_DIRS.get((str(cache), paper.key))
-        if dirs is not None and Path(cache) / rel not in dirs:
-            dirs = [*dirs, Path(cache) / rel]
-        _run(cache, True, ledger, out, puzzles, None, source, paper, None, 1, reread, editions=[rel],
+        if dirs is not None:
+            dirs = [*dirs, *(Path(cache) / r for r in mine if Path(cache) / r not in dirs)]
+        _run(cache, True, ledger, out, puzzles, None, source, paper, None, 1, reread, editions=mine,
              unit={"force": force, "dirs": dirs})
         return "read"
 

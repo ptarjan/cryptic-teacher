@@ -315,7 +315,8 @@ def run_unit(unit, cache, puzzles, reread):
         # A solution host is wanted for the solutions it prints: its solution bands alone are read.
         # (A unit process never imports fa: it exits before the queue's own imports.)
         return m.scan_unit(paper, unit["rel"], cache, host=unit.get("reason") == getattr(m, "HOST_SCAN", None))
-    return m.read_unit(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"))
+    return m.read_unit(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"),
+                       also=unit.get("batch") or ())
 
 
 def unit_main(spec):
@@ -1199,6 +1200,59 @@ def cpu_only_unit(unit):
     return unit["kind"] == "read" and reason.startswith(CPU_ONLY)
 
 
+#: The most answers-linked rereads of one item read in one unit process (CT_ANSWERS_BATCH; 1 turns
+#: batching off). Each such read costs ~110 s wall / ~135 CPU-s, nearly all per-process setup (ledger and
+#: held lists, the solution-heading index, OCR model init); in one process the 2nd-6th puzzle cost ~0 s.
+ANSWERS_BATCH = max(1, int(os.environ.get("CT_ANSWERS_BATCH") or 8))
+#: Seconds a batch's read limit grows by for each edition past its first (up to the larger of the
+#: read limit and BATCH_LIMIT_MAX).
+BATCH_EXTRA_SECONDS = 120
+BATCH_LIMIT_MAX = 3600
+
+
+def batch_mates(unit, cands, tried, busy, ready, size=None):
+    """The reads that go with answers-linked read `unit` in its process: up to `size` - 1 (ANSWERS_BATCH) of
+    `cands` ((unit, key) pairs in the queue's order) of the same paper and item (the part of the edition's
+    name before the "/"), the same rank, due for the same cheap reason, not tried nor busy and for which
+    `ready(unit)` holds (not waiting on a scan or the VLM). Empty for any other unit."""
+    size = ANSWERS_BATCH if size is None else size
+    if size <= 1 or unit["kind"] != "read" or unit["paper"] not in fa.FILERS \
+            or not (unit.get("reason") or "").startswith(CPU_ONLY):
+        return []
+    item = unit["rel"].partition("/")[0]
+    out = []
+    for v, k in cands:
+        if len(out) >= size - 1:
+            break
+        if (v["paper"] != unit["paper"] or v["rel"] == unit["rel"] or v["rank"] != unit["rank"]
+                or v["rel"].partition("/")[0] != item or k in tried or k in busy
+                or not (v.get("reason") or "").startswith(CPU_ONLY)):
+            continue
+        if ready(v):
+            out.append(v)
+    return out
+
+
+def batch_mate_keys(unit):
+    """The keys of the other editions read in `unit`'s process (its "batch"): none for a unit read alone."""
+    return [("read", unit["paper"], r) for r in unit.get("batch") or ()]
+
+
+def batch_note(unit):
+    """What a log line says of the editions batched with `unit`: " (+N batched)" or nothing."""
+    return f" (+{len(unit['batch'])} batched)" if unit.get("batch") else ""
+
+
+def unit_limit(unit, base):
+    """Seconds `unit` may run before it is killed: `base` (its kind's limit), and for a read batching
+    several editions BATCH_EXTRA_SECONDS more for each past the first, never past the larger of `base`
+    and BATCH_LIMIT_MAX."""
+    extra = len(unit.get("batch") or ())
+    if not extra or unit["kind"] != "read":
+        return base
+    return min(base + BATCH_EXTRA_SECONDS * extra, max(base, BATCH_LIMIT_MAX))
+
+
 def newest_first(unit):
     """Whether `unit` is of a paper CT_NEWEST_FIRST names and not rank 0.
     Such a unit is never held back as a backlog's (queue's `fed`) nor as a
@@ -2041,15 +2095,21 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 if path and path is not SCAN_FIRST:
                     Path(path).unlink(missing_ok=True)
 
-    def start(unit):
+    def start(unit, mates=()):
         """Start `unit`; False when it is not started: a read whose own scan
         is stale or missing waits on a scan unit queued for it (first).
-        PENDING while its brief is being made."""
+        PENDING while its brief is being made. `mates` (batch_mates): more
+        answers-linked reads of its item read in the same process, whole
+        (answers_only needs no desktop), each logged and tracked as a unit."""
         sys.stdout.flush()
         sys.stderr.flush()
-        argv = unit_argv(unit)
         alone = losses.get(key_of(unit), 0) >= LOST_TRIES
-        if alone or unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
+        if mates and not alone:
+            unit = {**unit, "batch": [v["rel"] for v in mates]}
+        else:
+            mates = ()
+        argv = unit_argv(unit)
+        if alone or mates or unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
             made = None
         else:
             made = brief_of(unit)
@@ -2079,7 +2139,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         pid = os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
         running[pid] = (unit, time.monotonic())
         tried.add(key_of(unit))
-        log(f"start {unit['kind']} {unit['rel']} ({unit['reason']}{': ' + unit['detail'] if unit.get('detail') else ''})")
+        log(f"start {unit['kind']} {unit['rel']} ({unit['reason']}{': ' + unit['detail'] if unit.get('detail') else ''})"
+            + (f" in a batch of {len(mates) + 1}" if mates else ""))
+        for v in mates:
+            tried.add(key_of(v))
+            log(f"start {v['kind']} {v['rel']} ({v['reason']}) in the batch of {unit['rel']}")
         return True
 
     def ended(unit, t0):
@@ -2107,8 +2171,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             yield_termed.discard(pid)
             if parked:
                 tried.discard(key_of(unit))
+                tried.difference_update(batch_mate_keys(unit))
                 outcomes["deferred"] = outcomes.get("deferred", 0) + 1
-                log(f"end {unit['kind']} {unit['rel']}: deferred (stopped for a game) in {time.monotonic() - t0:.0f}s")
+                log(f"end {unit['kind']} {unit['rel']}{batch_note(unit)}: deferred (stopped for a game) in {time.monotonic() - t0:.0f}s")
                 continue
             if rc == EXITS["lost"]:
                 losses[key_of(unit)] = losses.get(key_of(unit), 0) + 1
@@ -2134,10 +2199,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     vlm_lost_at[0] = time.monotonic()
             if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]):
                 tried.discard(key_of(unit))  # started again once the desktop is idle, or the VLM answers
+                tried.difference_update(batch_mate_keys(unit))  # ... each batched edition on its own
                 if desktop_bound and unit["kind"] == "scan":
                     yield_held.add(key_of(unit))
             else:
                 finished[key_of(unit)] = time.monotonic()
+                for k in batch_mate_keys(unit):
+                    finished[k] = finished[key_of(unit)]
                 if defer_runs.pop(key_of(unit), None) is not None and defer_file:
                     defer_until.pop(key_of(unit), None)
                     keep_defers(defer_file, defer_runs, defer_until)
@@ -2164,6 +2232,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     log(f"{src}: no more fetches this run ({'disk full' if rc == 7 else f'{outages[src]} in a row found it down'})")
             outcomes[what.split(" ")[0]] = outcomes.get(what.split(" ")[0], 0) + 1
             log(f"end {unit['kind']} {unit['rel']}: {what} in {time.monotonic() - t0:.0f}s")
+            for r in unit.get("batch") or ():
+                log(f"end {unit['kind']} {r}: {what} in the batch of {unit['rel']}")
 
     def reap_adopted():
         for pid, (unit, t0) in list(adopted.items()):
@@ -2173,18 +2243,21 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 if pid in yield_termed:  # stopped for a game: left for the next run
                     yield_termed.discard(pid)
                     tried.discard(key_of(unit))
-                    log(f"end {unit['kind']} {unit['rel']}: deferred (stopped for a game, taken over) in {time.monotonic() - t0:.0f}s")
+                    tried.difference_update(batch_mate_keys(unit))
+                    log(f"end {unit['kind']} {unit['rel']}{batch_note(unit)}: deferred (stopped for a game, taken over) in {time.monotonic() - t0:.0f}s")
                     continue
                 finished[key_of(unit)] = time.monotonic()
+                for k in batch_mate_keys(unit):
+                    finished[k] = finished[key_of(unit)]
                 log(f"end {unit['kind']} {unit['rel']}: ended (taken over) in {time.monotonic() - t0:.0f}s")
 
     def overdue():
         for pid, (unit, t0) in units_running():
             limit = (FETCHERS[unit["paper"]]["seconds"] if unit["kind"] == "fetch" else
                      LISTENER_SECONDS if unit["paper"] == "listener" else
-                     read_seconds if unit["kind"] == "read" else scan_seconds)
+                     unit_limit(unit, read_seconds) if unit["kind"] == "read" else scan_seconds)
             if time.monotonic() - t0 > limit:
-                log(f"{unit['kind']} {unit['rel']} ran past {limit}s; killed, left for the next run")
+                log(f"{unit['kind']} {unit['rel']}{batch_note(unit)} ran past {limit}s; killed, left for the next run")
                 try:
                     os.killpg(pid, signal.SIGKILL)
                 except ProcessLookupError:
@@ -2636,7 +2709,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 if idle_held or not idle_read[local_now]:
                     idle_held = True
                     continue
-            began = start(u)
+            # Answers-linked rereads of one item go in one process: the setup is ~all of their cost.
+            began = start(u, batch_mates(u, read_cands, tried, busy,
+                                         lambda v: not waits(v) and not vlm_waits(v) and key_of(v) not in firsts))
             if not began and began is not PENDING:
                 unscanned.add((u["paper"], u["rel"]))
                 continue
