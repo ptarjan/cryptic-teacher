@@ -21,6 +21,9 @@
   "date": "2021-10-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,30 @@
     "text": "Wind, perhaps, in ski resort",
     "enumeration": "8"
    },
-   "solution": "WHISTLER"
+   "solution": "WHISTLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wind, perhaps",
+      "at": 0,
+      "meaning": "first meaning: something that whistles, as a high wind can"
+     },
+     {
+      "text": "ski resort",
+      "at": 18,
+      "meaning": "second meaning: a ski resort in British Columbia, Canada"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests weather at a resort; the two halves are separate meanings, a whistling thing and the Canadian ski town.",
+     "definitionFit": "A wind howling through gaps produces a whistle, so it can be called a whistler; the Canadian resort bears the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Wind"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +74,64 @@
     "text": "Specific word in song briefly captivating trekker?",
     "enumeration": "7"
    },
-   "solution": "HYPONYM"
+   "solution": "HYPONYM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Specific word",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captivating",
+       "at": 30,
+       "note": "captivating means holding something inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 22,
+         "note": "briefly means the song word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "song",
+         "at": 17,
+         "gives": "HYMN",
+         "note": "a hymn is a religious song"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "trekker",
+       "at": 42,
+       "gives": "PONY",
+       "note": "a pony is used for trekking, as in pony trekking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A song that contains a particular word about a hiker.",
+     "walkthrough": "'trekker' suggests a hiker, but pony trekking is a British holiday pursuit of riding across country on ponies.",
+     "definitionFit": "A hyponym is a word of narrower meaning within a broader class, as 'oak' is to 'tree'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trekker"
+    }
+   }
   },
   {
    "number": 3,
@@ -62,7 +145,49 @@
     "text": "As some rock relatively still, I'm breaking it",
     "enumeration": "11"
    },
-   "solution": "SEDIMENTARY"
+   "solution": "SEDIMENTARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "As some rock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaking",
+       "at": 35,
+       "note": "breaking means the letters break into the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "relatively still",
+       "at": 13,
+       "gives": "SEDENTARY",
+       "note": "sedentary means inactive, sitting a lot"
+      },
+      {
+       "words": "I'm",
+       "at": 31,
+       "gives": "IM",
+       "note": "taken as written, without the apostrophe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fairly inactive says they are disrupting things.",
+     "walkthrough": "'it' points back to the 'relatively still' word, which is the one broken into.",
+     "definitionFit": "Sedimentary rock, such as sandstone, is formed from deposits laid down in layers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 4,
@@ -76,7 +201,58 @@
     "text": "Plant essence of oils in resin",
     "enumeration": "5"
    },
-   "solution": "LILAC"
+   "solution": "LILAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "in means the core letters go inside the resin word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "resin",
+       "at": 25,
+       "gives": "LAC",
+       "note": "lac is a resin secreted by insects"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essence of",
+         "at": 6,
+         "note": "the essence is the core, so the middle letters of oils"
+        }
+       ],
+       "parts": [
+        {
+         "words": "oils",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant extract made from oils mixed into resin.",
+     "definitionFit": "Lilac is a flowering shrub prized for its scented blossoms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "essence"
+    }
+   }
   },
   {
    "number": 5,
@@ -90,7 +266,53 @@
     "text": "Parrot took off, everyone looking to the skies?",
     "enumeration": "7"
    },
-   "solution": "ROSELLA"
+   "solution": "ROSELLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Parrot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "took off",
+       "at": 7,
+       "gives": "ROSE",
+       "note": "rose means went up, took off into the air"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "looking to the skies",
+         "at": 26,
+         "note": "in a down clue, looking upwards reads the word from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everyone",
+         "at": 17,
+         "gives": "ALL",
+         "note": "all means everyone"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parrot flew off while everyone watched it rise.",
+     "walkthrough": "In a down entry, 'looking to the skies' makes ALL read upwards as LLA.",
+     "definitionFit": "The rosella is a brightly coloured Australian parrot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -104,7 +326,31 @@
     "text": "Flowery violet",
     "enumeration": "6"
    },
-   "solution": "PURPLE"
+   "solution": "PURPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flowery",
+      "at": 0,
+      "meaning": "first meaning: ornate"
+     },
+     {
+      "text": "violet",
+      "at": 8,
+      "meaning": "second meaning: the colour, a reddish-blue"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Violet looks like a flower to match 'Flowery', but it is the colour; 'Flowery' means over-elaborate, as purple prose is.",
+     "definitionFit": "Purple prose is overwritten and ornate, and violet is a shade of the same colour family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "violet"
+    }
+   }
   },
   {
    "number": 6,
@@ -118,7 +364,59 @@
     "text": "Chair occupier under roof of palazzo",
     "enumeration": "9"
    },
-   "solution": "PRESIDENT"
+   "solution": "PRESIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chair",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 15,
+       "note": "under means the occupier word comes below the roof letter in a down entry"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "roof of",
+         "at": 21,
+         "note": "in a down clue, the roof is the top, so the first letter of palazzo"
+        }
+       ],
+       "parts": [
+        {
+         "words": "palazzo",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "words": "occupier",
+       "at": 6,
+       "gives": "RESIDENT",
+       "note": "a resident occupies a place"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lives beneath the roof of an Italian palace.",
+     "walkthrough": "'Chair occupier' looks like one phrase; split it, as 'Chair' is the definition and 'occupier' gives RESIDENT under P.",
+     "definitionFit": "The person who chairs a committee or society is its president, its presiding officer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chair"
+    }
+   }
   },
   {
    "number": 7,
@@ -132,7 +430,31 @@
     "text": "Spooky spirit",
     "enumeration": "3"
    },
-   "solution": "RUM"
+   "solution": "RUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spooky",
+      "at": 0,
+      "meaning": "first meaning: old slang for strange or odd"
+     },
+     {
+      "text": "spirit",
+      "at": 7,
+      "meaning": "second meaning: the alcoholic drink"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Spooky spirit' suggests a ghost; it is two meanings, an odd feeling and a drink.",
+     "definitionFit": "In British slang rum means peculiar or eerie, and it is also a distilled drink made from sugar cane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 8,
@@ -146,7 +468,60 @@
     "text": "Case of youngster in 4 down pants, expressive",
     "enumeration": "7"
    },
-   "solution": "LYRICAL"
+   "solution": "LYRICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "expressive",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "pants",
+       "at": 28,
+       "note": "pants is British slang for rubbish or badly done, so these letters are mangled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Case of",
+         "at": 0,
+         "note": "the case is the outside, so the first and last letters of youngster"
+        }
+       ],
+       "parts": [
+        {
+         "words": "youngster",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "4 down",
+       "at": 21,
+       "gives": "LILAC",
+       "note": "the answer to 4 down, the plant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child wearing lilac trousers is showing off.",
+     "walkthrough": "YR from 'youngster' joins LILAC and 'pants' scrambles them; 'pants' looks like trousers but is slang for poor.",
+     "definitionFit": "Lyrical writing or speech pours out feeling, so it is emotionally expressive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 9,
@@ -166,7 +541,45 @@
      }
     ]
    },
-   "solution": "PADDLESTEAMER"
+   "solution": "PADDLESTEAMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "at sea",
+       "at": 21,
+       "note": "at sea means confused or all over the place, so the letters of departed and males are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "departed",
+       "at": 5
+      },
+      {
+       "words": "males",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat has left port and its male crew are out on the water.",
+     "walkthrough": "'at sea' fits the nautical picture but signals that DEPARTED and MALES are rearranged together.",
+     "definitionFit": "A paddle steamer is a vessel driven by steam-powered paddle wheels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 10,
@@ -180,7 +593,54 @@
     "text": "Puzzling piece of cryptic I'm on, generally read as Arabic?",
     "enumeration": "6"
    },
-   "solution": "GNOMIC"
+   "solution": "GNOMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Puzzling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "read as Arabic",
+       "at": 44,
+       "note": "Arabic script runs right to left, so these letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "piece of",
+         "at": 9,
+         "note": "a piece of the following words means some of their letters are lifted out unchanged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cryptic I'm on, generally",
+         "at": 18,
+         "gives": "CIMONG"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver finds a bit of this cryptic baffling, as if it were written in Arabic.",
+     "walkthrough": "'piece of' takes CIMONG from 'cryptic I'm on, generally', and 'read as Arabic', i.e. right to left, turns it round.",
+     "definitionFit": "Gnomic utterances are short and enigmatic, so they are puzzling or cryptic to the listener."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Arabic"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +660,37 @@
      }
     ]
    },
-   "solution": "LAIDBACK"
+   "solution": "LAIDBACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relaxed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "LAID BACK",
+     "parts": [
+      {
+       "words": "call",
+       "at": 8,
+       "note": "to call someone on the phone is to dial them; the answer, taken as an instruction, reverses its first word to produce that"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A casual phone call where the meaning is left to be inferred.",
+     "walkthrough": "The answer works as an instruction: take LAID and write it back to front, giving DIAL, which is what 'call' means; 'it's inferred' hints the clue only shows the result.",
+     "definitionFit": "Someone laid-back is easy-going and calm, which is to say relaxed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +704,59 @@
     "text": "One putting up notices, still arranged in row",
     "enumeration": "11"
    },
-   "solution": "BILLSTICKER"
+   "solution": "BILLSTICKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One putting up notices",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "in means the rearranged letters go inside the quarrel word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "row",
+       "at": 42,
+       "gives": "BICKER",
+       "note": "to row (rhymes with cow) is to quarrel, to bicker"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 30,
+         "note": "arranged means the letters of still are put in another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "still",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone posting notices calmly lines them up in a row.",
+     "walkthrough": "'row' looks like a line but means a quarrel, BICKER; LLSTI goes inside it.",
+     "definitionFit": "A bill sticker pastes posters, or bills, onto walls and hoardings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +770,61 @@
     "text": "Free issue featuring reversed image",
     "enumeration": "10"
    },
-   "solution": "EMANCIPATE"
+   "solution": "EMANCIPATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "featuring",
+       "at": 11,
+       "note": "featuring means the second part appears within the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "issue",
+       "at": 5,
+       "gives": "EMANATE",
+       "note": "to issue means to emanate, to flow out"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversed",
+         "at": 21,
+         "note": "reversed means the short word for an image is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "image",
+         "at": 30,
+         "gives": "PIC",
+         "note": "pic is short for picture, an image"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A free edition of a publication that includes a flipped picture.",
+     "walkthrough": "'Free' is a verb here, to set loose, not a giveaway issue.",
+     "definitionFit": "To emancipate someone is to release them from bondage, so to set them free."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +838,60 @@
     "text": "Present king keen on old fascist guards",
     "enumeration": "9"
    },
-   "solution": "INTRODUCE"
+   "solution": "INTRODUCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Present",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "guards",
+         "at": 33,
+         "note": "guards means the keen word holds the king letter inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "keen on",
+         "at": 13,
+         "gives": "INTO",
+         "note": "to be into something is to be keen on it"
+        },
+        {
+         "words": "king",
+         "at": 8,
+         "gives": "R",
+         "note": "R is the abbreviation for king, from Latin rex"
+        }
+       ]
+      },
+      {
+       "words": "old fascist",
+       "at": 21,
+       "gives": "DUCE",
+       "note": "Il Duce was Mussolini's title"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king who admires an old dictator protects him.",
+     "walkthrough": "Only the 'keen on' word does the guarding; the old fascist, Mussolini's title, simply follows.",
+     "definitionFit": "To introduce someone is to present them to others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keen"
+    }
+   }
   },
   {
    "number": 15,
@@ -256,7 +905,30 @@
     "text": "Opera that's something else",
     "enumeration": "4"
    },
-   "solution": "LULU"
+   "solution": "LULU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opera",
+      "at": 0,
+      "meaning": "first meaning: an opera by Alban Berg"
+     },
+     {
+      "text": "that's something else",
+      "at": 6,
+      "meaning": "second meaning: an outstanding or remarkable thing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as one remark about an opera, but it is two meanings: Berg's opera and the slang word for something remarkable.",
+     "definitionFit": "In American slang a lulu is a striking example of its kind, something truly else; Berg's unfinished opera has the same title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "else"
+    }
+   }
   },
   {
    "number": 16,
@@ -270,7 +942,39 @@
     "text": "Question a command when riding?",
     "enumeration": "4"
    },
-   "solution": "WHOA"
+   "solution": "WHOA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "command when riding?",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Question",
+       "at": 0,
+       "gives": "WHO",
+       "note": "who is a question word"
+      },
+      {
+       "words": "a",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether one may give orders while on horseback.",
+     "definitionFit": "Riders call out this word to make a horse stop or slow down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Question"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +988,53 @@
     "text": "English town I document under Henry",
     "enumeration": "7"
    },
-   "solution": "HALIFAX"
+   "solution": "HALIFAX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "English town",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 24,
+       "note": "under means these pieces come below Henry in a down entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Henry",
+       "at": 30,
+       "gives": "HAL",
+       "note": "Hal is a nickname for Henry, as with Shakespeare's Prince Hal"
+      },
+      {
+       "words": "I",
+       "at": 13
+      },
+      {
+       "words": "document",
+       "at": 15,
+       "gives": "FAX",
+       "note": "a fax is a transmitted document"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone files papers beneath a man called Henry.",
+     "walkthrough": "Halifax is a town in West Yorkshire.",
+     "definitionFit": "Halifax is a town in Yorkshire in the north of England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "document"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1054,58 @@
      }
     ]
    },
-   "solution": "TOMATOSOUP"
+   "solution": "TOMATOSOUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Can content",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cat",
+       "at": 12,
+       "gives": "TOM",
+       "note": "a tom is a male cat"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sort",
+         "at": 16,
+         "note": "to sort is to rearrange, so the letters of OAPs and out are put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "OAPs",
+         "at": 21,
+         "note": "taken as written"
+        },
+        {
+         "words": "out",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a happy cat could sort out some pensioners.",
+     "walkthrough": "'Can content' looks like 'able to be happy'; it is what is in a tin. OAPs are old-age pensioners, but here only their letters matter.",
+     "definitionFit": "Tomato soup is a classic tinned food, so it is a typical example of what a can holds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1125,49 @@
      }
     ]
    },
-   "solution": "MAEWEST"
+   "solution": "MAEWEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "life-saver",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabbing",
+       "at": 5,
+       "note": "grabbing means the pole word holds the ewe inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pole",
+       "at": 0,
+       "gives": "MAST",
+       "note": "a mast is a pole on a ship"
+      },
+      {
+       "words": "beastly female",
+       "at": 14,
+       "gives": "EWE",
+       "note": "a ewe is a female sheep, a female beast"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person clutches a wild woman and saves her life.",
+     "walkthrough": "'Pole' looks like a Polish person; it is a mast. A Mae West is a life jacket, nicknamed after the buxom film star.",
+     "definitionFit": "Second World War airmen called their inflatable life jackets Mae Wests, after the actress's figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1181,48 @@
     "text": "I'm not sure exercise even is for many",
     "enumeration": "7"
    },
-   "solution": "UMPTEEN"
+   "solution": "UMPTEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "many",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I'm not sure",
+       "at": 0,
+       "gives": "UM",
+       "note": "um is the noise of hesitation"
+      },
+      {
+       "words": "exercise",
+       "at": 13,
+       "gives": "PT",
+       "note": "PT is physical training"
+      },
+      {
+       "words": "even",
+       "at": 22,
+       "gives": "EEN",
+       "note": "e'en is the poetic contraction of even, evening"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unsure whether exercise is good for many people.",
+     "walkthrough": "'even' is the old word for evening, contracted in poetry to e'en.",
+     "definitionFit": "Umpteen is an informal word for an indefinitely large number, a great many."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1236,70 @@
     "text": "Old blade sat motionless initially having pierced heart",
     "enumeration": "8"
    },
-   "solution": "CLAYMORE"
+   "solution": "CLAYMORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old blade",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having pierced",
+       "at": 35,
+       "note": "having pierced means these letters have gone into the middle of the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heart",
+       "at": 50,
+       "gives": "CORE",
+       "note": "the core is the heart of something"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sat",
+         "at": 10,
+         "gives": "LAY",
+         "note": "lay can mean sat or rested in place, as a thing lay on a table"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 25,
+           "note": "initially means just the opening letter of motionless is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "motionless",
+           "at": 14
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old sword that sat still after being driven through someone's heart.",
+     "walkthrough": "'sat' and 'motionless' look like one phrase, but only 'sat' gives a word; 'initially' takes just the first letter of 'motionless'.",
+     "definitionFit": "A claymore is a large two-edged Scottish broadsword of former times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1313,49 @@
     "text": "Greasy sauce in sight",
     "enumeration": "6"
    },
-   "solution": "SLIPPY"
+   "solution": "SLIPPY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greasy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "in means the cheek word goes inside the sighting word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sight",
+       "at": 16,
+       "gives": "SPY",
+       "note": "to spy is to sight something"
+      },
+      {
+       "words": "sauce",
+       "at": 7,
+       "gives": "LIP",
+       "note": "lip and sauce both mean cheeky talk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A greasy sauce is in view.",
+     "walkthrough": "'sauce' looks culinary next to 'Greasy', but it means insolence, LIP.",
+     "definitionFit": "Slippy is a colloquial word for slippery, as a greasy surface is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sauce"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1369,43 @@
     "text": "Native American charge reported",
     "enumeration": "5"
    },
-   "solution": "SIOUX"
+   "solution": "SIOUX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Native American",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SIOUX",
+     "indicators": [
+      {
+       "text": "reported",
+       "at": 23,
+       "note": "reported means spoken aloud, so the answer sounds like the charge word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "charge",
+       "at": 16,
+       "gives": "SUE",
+       "note": "to sue is to charge someone in law"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report of an indigenous person being charged.",
+     "definitionFit": "The Sioux are a group of Plains peoples of North America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1425,67 @@
      }
     ]
    },
-   "solution": "FORTUNECOOKIE"
+   "solution": "FORTUNECOOKIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that has a lot in it?",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 8,
+       "note": "about means the warning word is wrapped round the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Warning",
+       "at": 0,
+       "gives": "FORE",
+       "note": "fore is the golfer's shouted warning"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "strain",
+         "at": 14,
+         "gives": "TUNE",
+         "note": "a strain is a tune or melody"
+        },
+        {
+         "words": "doctor",
+         "at": 24,
+         "gives": "COOK",
+         "note": "to doctor figures is to cook them"
+        },
+        {
+         "words": "one",
+         "at": 32,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor warns about a strain on a patient.",
+     "walkthrough": "'lot' here means one's fate, which a fortune cookie's slip of paper predicts.",
+     "definitionFit": "A fortune cookie holds a paper slip foretelling the eater's destiny, their lot in life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1499,45 @@
     "text": "Greek character in bank, by the sound of it?",
     "enumeration": "3"
    },
-   "solution": "RHO"
+   "solution": "RHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RHO",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "at": 25,
+       "note": "by the sound of it means the answer is heard as the bank word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bank",
+       "at": 19,
+       "gives": "ROW",
+       "note": "a bank of seats or switches is a row"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek person working in a bank, so it seems.",
+     "walkthrough": "'Greek character' looks like a person from Greece; it is a letter of the alphabet.",
+     "definitionFit": "Rho is the seventeenth letter of the Greek alphabet, written like a P."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1551,61 @@
     "text": "Bare soak doing the backstroke in river",
     "enumeration": "6"
    },
-   "solution": "EXPOSE"
+   "solution": "EXPOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bare",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 31,
+       "note": "in means the reversed soak word goes inside the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 34,
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon, England"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "doing the backstroke",
+         "at": 10,
+         "note": "swimming on one's back moves backwards here, so the word for soak is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soak",
+         "at": 5,
+         "gives": "SOP",
+         "note": "a sop is something soaked, and to sop is to soak"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a dip, doing the backstroke naked in a river.",
+     "walkthrough": "The Exe is a river in Devon, a staple of British crosswords.",
+     "definitionFit": "To expose something is to uncover it, laying it bare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backstroke"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1625,58 @@
      }
     ]
    },
-   "solution": "TAXIRANK"
+   "solution": "TAXIRANK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stand",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Place burden on",
+       "at": 0,
+       "gives": "TAX",
+       "note": "to tax is to burden someone"
+      },
+      {
+       "words": "country",
+       "at": 16,
+       "gives": "IRAN",
+       "note": "Iran is a country"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "'s last",
+         "at": 36,
+         "note": "the last letter of Denmark is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Denmark",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Imposing a load on a nation alongside Denmark's final position.",
+     "walkthrough": "'stand' looks like a verb but is a noun, a place where cabs wait.",
+     "definitionFit": "A taxi rank is a cab stand, where taxis queue for passengers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stand"
+    }
+   }
   }
  ]
 }
