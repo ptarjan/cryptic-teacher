@@ -251,7 +251,7 @@ _sc, _rd = eq.only_evidence("gale", [_s15, _s16, _s99], [_third, {**_third, "dat
                                                          {**_third, "paper": "times"}])
 check("a 2007 Gale short third-column read is planned, 2008's (not yet read) and another paper's are not",
       ["2007-03-15"], [u["date"] for u in _rd])
-check("its scans (its own and the next day's) go with it in the first tier (4633a959929), another page's scan is tier 2", ([0, 0], 2),
+check("its own page's scan goes with it in the first tier (4633a959929); the next day's is no longer kept for a Times-series read (5c8eb3523ce), another page's scan is tier 2", ([0], 2),
       ([eq.files_likely_tier(2, u) for u in _sc], eq.files_likely_tier(2, _s99)))
 _title = {**_third, "reason": "titles changed", "date": "2010-01-02"}
 _nt = {**_third, "reason": f.NO_TITLE_RESCAN, "date": "2000-03-14"}

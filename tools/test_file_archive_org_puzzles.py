@@ -2152,6 +2152,11 @@ ao_extra[0] = {"strips": {"4-across": {"png": png4, "p": [flat, flat, flat]}}}
 ao_asked = []
 real_vlm = (f.vlm.ask, f.vlm.wanted)
 f.vlm.wanted = lambda: True
+# The fixture's 3x3 grid (a centre block) numbers its last light 3-across, not the held file's 4; in the
+# queue a strip's light always comes from the same grid's lights() (read_framed), so the strip's light
+# is put on that grid here (a KeyError (4, 'across') in vlm_lights otherwise).
+real_lights = tso.lights
+tso.lights = lambda grid: {**real_lights(grid), (4, "across"): [(2, 0), (2, 1), (2, 2)]}
 try:
     for reply, probs4, want, why in (("DOE", [flat] * 3, "DOE", "the word the VLM names stands"),
                                       ("DOE\n", [flat] * 3, "DOE", "a reply's first line is its word"),
@@ -2177,6 +2182,7 @@ try:
     check("the VLM's light is named and counted", (["4-across"], 4), (verdict["solution"]["vlmLights"], verdict["solution"]["accepted"]))
 finally:
     f.vlm.ask, f.vlm.wanted = real_vlm
+    tso.lights = real_lights
 ao_extra[0] = {}
 def cell_p(ch, p=0.9):
     v = [(1 - p) / 25] * 26
