@@ -2369,7 +2369,7 @@ f.CROPS = Path(os.environ["TMP"]) / "crops"
 import trove_solution_ocr
 seen = []
 classify_seen = []
-def fake(path, grid, tight=False, bounded=False, classify=False):
+def fake(path, grid, tight=False, bounded=False, classify=False, lean=False):
     seen.append((Image.open(path).size, tight, bounded))
     classify_seen.append(classify)
     return {(1, "across"): "ABC"}, {"blocks": stats_blocks}
