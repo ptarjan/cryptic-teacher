@@ -1289,7 +1289,8 @@ check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's
        f.scan_current({**_wide2, "scanKey": f.scan_key(f.GALE)}, "h")])
 check("every paper's pinned scan key after the grid cap fix is its real scan key, and its old keys stand "
       "under it", [True, True],
-      [all(v[2] == f.scan_key(next(p for p in f.FILERS.values() if p.key == k)) for k, v in f._GRID_CAP_FIX.items()),
+      [all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
+           for k, v in f._GRID_CAP_FIX.items()),
        all(f.CORPUS_KEYS[o] == {k: v[2]} for k, v in f._GRID_CAP_FIX.items() for o in v[:2])])
 _wp, _np = Image.new("L", (4664, 10), 255), Image.new("L", (f.SCAN_WIDTH, 10), 255)
 check("a solution grid 510 wide at SCAN_WIDTH is shaped on a 4664 px page (the cap grows with it), not on a "
