@@ -2097,6 +2097,8 @@ f._KEEP_VLM["names"] = {"1990-08-22_1"}
 check("an edition asked to be read again is read in full", None, f.answers_only(*ao_args))
 f._KEEP_VLM["names"] = set()
 ao_held[0]["entries"][1]["clue"].pop("enumeration")
+# The grid reads every light (ao_read was left at {"1-across": "BAT"} by the checks above).
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "4-across": "DOE"}
 verdict, puzzle = f.answers_only(*ao_args)
 check("a held clue filed with no enumeration is no reason for the full read: its answers merge, no VLM ask (times-24146 1-across)",
       (True, 0, ["BAT", "BED", "TOE", "DOE"], "clue 1 down words"),
@@ -2145,7 +2147,7 @@ ao_held[0] = lights_held([None] * 4)
 ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE"}
 cells4 = np.full((30, 30), 255, np.uint8)
 png4 = tso.light_strip(cells4, [0, 10, 20, 30], [0, 10, 20, 30], [(2, 0), (2, 1), (2, 2)])
-check("a light's strip is a PNG", b"\x89PNG", __import__("base64").b64decode(png4)[1:5])
+check("a light's strip is a PNG", b"\x89PNG", __import__("base64").b64decode(png4)[:4])
 flat = [1 / 26] * 26
 ruled_out = [1 / 26] * 26
 ruled_out[tso.AZ.index("I")] = 0.0
@@ -2607,8 +2609,11 @@ for name, rect, want in (("tall", (110, 160, 460, 640), 1), ("wide", (110, 160, 
     pg.save(led / "leaf_0003.jpg")
     seen.clear()
     got, info = f.read_solution(f.page(led, 3), {**sol, "dir": led}, ["..."])
+    # The leaf is a JPEG: its ringing at the box's edges moves the Otsu cut a pixel or two
+    # (the tall box's square part is 350 wide, not 352), so the cut is square and 352 +- 3.
     check(f"a {name} ink box (a grid and what is joined to it) is read as its square part",
-          ({"1-across": "ABC"}, (352 * 3, 352 * 3)), (got, seen[0][0]))
+          ({"1-across": "ABC"}, True, True),
+          (got, seen[0][0][0] == seen[0][0][1], abs(seen[0][0][0] - 352 * 3) <= 3 * 3))
     stats_blocks = 0.8
     seen.clear()
     got, info = f.read_solution(f.page(led, 3), {**sol, "dir": led}, ["..."])
