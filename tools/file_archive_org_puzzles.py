@@ -8012,6 +8012,55 @@ def inside(text, at):
     return bool(text[:at].strip()) and text[:at].rstrip()[-1] not in ".?!"
 
 
+#: A figure with its ordinal ending ("1st", "22nd"): a word of the print, not a figure with a speck.
+ORDINAL = re.compile(r"\d+(?:st|nd|rd|th)$", re.I)
+
+
+def regressions(was, now, printed=()):
+    """[(kind, held token, new token)] where the clue text `now` reads worse
+    than the held `was`, a word the print gave and the reread loses:
+    "edge", a held word (or ordinal, "1st") whose new token is the same cut
+    at its start or end ("1st" to "st", "heart" to "hear", "highly" to
+    "ighly"); "nonword", a held lexicon word that becomes a token the
+    lexicon does not know ("Humpty" to "Humply", "to" to "0") while the
+    words around it stand. A token `printed` (its asPrinted) keeps is the
+    print's."""
+    seen = " ".join(printed or ()).lower()
+    old_t = [m.group() for m in CLUE_TOKEN.finditer(was or "")]
+    new_t = [m.group() for m in CLUE_TOKEN.finditer(now or "")]
+    found = []
+    for op, i1, i2, j1, j2 in SequenceMatcher(None, [w.lower() for w in old_t], [w.lower() for w in new_t],
+                                              autojunk=False).get_opcodes():
+        if op != "replace":
+            continue
+        gained = new_t[j1:j2]
+        for k, a in enumerate(old_t[i1:i2]):
+            la = a.lower()
+            if not (ocr_clues.is_word(la) or ORDINAL.match(a)):
+                continue
+            # A word split in two ("bath-room", "be come") is not cut: its rest follows.
+            # A word glued to its neighbour ("fora a" to "for a", "pre prehistoric" to "pre historic") is mended, not cut.
+            after = old_t[i1 + k + 1].lower() if i1 + k + 1 < len(old_t) else None
+            before = old_t[i1 + k - 1].lower() if i1 + k >= 1 else None
+            hit = next((("edge", a, b) for b in gained if 0 < len(b) < len(a)
+                        and (la.startswith(b.lower()) or la.endswith(b.lower()))
+                        and la[len(b):] != after and la[:len(la) - len(b)] != before
+                        and not any(ocr_clues.within_one(la, (b + c).lower()) or ocr_clues.within_one(la, (c + b).lower())
+                                    for c in gained if c is not b)), None)
+            if hit is None and len(gained) == i2 - i1 == 1 and not ocr_clues.is_word(gained[k].lower()) \
+                    and la not in gained[k].lower():  # "Windblow" to "Windblown", "ret" to "Surete" add letters
+                hit = ("nonword", a, gained[k])
+            if hit and not (seen and re.search(r"\b" + re.escape(hit[2].lower()) + r"\b", seen)):
+                found.append(hit)
+    return found
+
+
+def regressed(was, now, printed=()):
+    """Whether the reread `now` loses print the held `was` read right
+    (regressions): the held clue stays."""
+    return bool(regressions(was, now, printed))
+
+
 def corrects(was, now, printed=()):
     """Whether the clue text `now` may replace the held `was` as a better
     reading of the same print. `now` has words, none OCR made up
@@ -8036,8 +8085,12 @@ def corrects(was, now, printed=()):
     (punctuation.mended: "by.clever" to "by clever"); one that breaks a
     punctuation rule (punctuation.faults) does not. A reading that loses a real word, swaps one,
     reorders them, or changes other marks only (a held file's quotes are
-    straightened, its specks cleaned) does not."""
+    straightened, its specks cleaned) does not; nor does one that
+    regressed() a held word: a lexicon word turned to a non-word, or a word
+    cut at its edge ("1st" to "st", "heart" to "hear")."""
     if not (was or "").strip() or not ocr_clues.tokens(now or "") or now == was:
+        return False
+    if regressed(was, now, printed):
         return False
     if spaces_collapsed(was, now) or punctuation.mended(was) == now:
         return True

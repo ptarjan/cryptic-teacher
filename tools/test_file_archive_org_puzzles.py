@@ -3478,6 +3478,19 @@ check("a reading losing or swapping a real word, blank, unchanged, marks only or
                     f.corrects("Frontier cantonment.", ""),
                     f.corrects("A town", "A town"),
                     f.corrects("A town", "A town xqzvb")])
+check("a reread that cuts a word at its edge or turns a word to a non-word corrects nothing",
+      [False] * 6, [f.corrects("The servant behind the 1st Earl of Ypres", "The servant behind the st Earl of Ypres"),
+                    f.corrects("Scoundrel but good at heart", "Scoundrel but good at hear"),
+                    f.corrects("Just like Bill Brewer", "Just ike Bill Brewer"),
+                    f.corrects("Dickens family mad about Humpty Dumpty", "Dickens family mad about Humply Dumpty"),
+                    f.corrects("Department of State about to recognise", "Department of State about 10 recognise"),
+                    f.corrects("Waller receives a note from the Norms", "Waller receives a note from the Norns")])
+check("mirror: regressed() names those, and not a mend, a split word or a letter gained",
+      ([True] * 3, [False] * 3),
+      ([f.regressed("good at heart", "good at hear"), f.regressed("the 1st Earl", "the st Earl"),
+        f.regressed("Humpty Dumpty", "Humply Dumpty")],
+       [f.regressed("Fudqe the issue", "Fudge the issue"), f.regressed("fix the bathroom", "fix the bath-room"),
+        f.regressed("Windblow soil", "Windblown soil")]))
 held = held_13998(["A man's man", "Occasional raid cops turn out", "Sporadic"])
 path.write_text(json.dumps(held))
 mended, now = f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path)

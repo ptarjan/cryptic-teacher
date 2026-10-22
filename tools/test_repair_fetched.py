@@ -560,6 +560,31 @@ check(str(rf.grown("Love a fellow", "Love a fellow and a friend too")), "False",
 check(str(rf.grown("Fellow in city shell", "Fellow in city's shell")), "False", "a changed word is no growth")
 check(str(rf.grown("Frontier cantonment", "Frontier cantonment")), "False", "the same words are no growth")
 
+print("a reread that cut a word is taken back from the commit's parent")
+import copy
+def reading(*texts):
+    return {"entries": [{"number": n + 1, "direction": "across", "clue": {"text": t, "enumeration": "5"}}
+                        for n, t in enumerate(texts)]}
+parent, child = reading("Boy, good at heart", "Dog the 1st Earl"), reading("Boy, good at hear", "Dog the 1st Earl, now")
+current = copy.deepcopy(child)
+saved = {}
+real = (rf.spoiled_commits, rf.git_out, rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file)
+rf.spoiled_commits = lambda since, ref: {"times-1": [("abc", "puzzles/times/1/times-1.json")]}
+rf.git_out = lambda *a: json.dumps(parent if a[1] == "abc^:puzzles/times/1/times-1.json" else child)
+rf.puzzle_paths.find = lambda pid: Path("times-1.json")
+rf.fetcher.read_puzzle_file = lambda path: copy.deepcopy(current)
+rf.fetcher.write_puzzle_file = lambda path, p: saved.update(wrote=copy.deepcopy(p))
+try:
+    dry = rf.repair_regressed_clues()
+    wrote_dry = "wrote" in saved
+    done = rf.repair_regressed_clues(apply_it=True)
+finally:
+    rf.spoiled_commits, rf.git_out, rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file = real
+check(dry, [("times-1", "1-across", "Boy, good at hear", "Boy, good at heart")], "only the cut word is restored")
+check(wrote_dry, False, "a dry run writes nothing")
+check([saved["wrote"]["entries"][0]["clue"]["text"], saved["wrote"]["entries"][1]["clue"]["text"]],
+      ["Boy, good at heart", "Dog the 1st Earl, now"], "an applied repair writes the held words and leaves the other clue")
+
 print("only a count the grid gave is given its word breaks back; a bare count that was read stays")
 breaks = ({"SHEEPSHEARING": "5,8"}, frozenset())
 lights = {"entries": [
