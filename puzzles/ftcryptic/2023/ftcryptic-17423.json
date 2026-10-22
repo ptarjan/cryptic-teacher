@@ -22,6 +22,9 @@
   "date": "2023-05-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "Issue that could be seen as more dull?",
     "enumeration": "6"
    },
-   "solution": "MATTER"
+   "solution": "MATTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0,
+      "meaning": "first meaning: a subject or affair under discussion"
+     },
+     {
+      "text": "more dull",
+      "at": 28,
+      "meaning": "second meaning: comparative of matt, a flat, unshiny finish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense splits the answer as MATT plus the comparative ending, so 'more matt', which is to say duller in finish.",
+     "definitionFit": "A matter is a topic or question being dealt with, just as an issue is; a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dull"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +76,60 @@
     "text": "Dodgy hearing primarily impaired in strong wind",
     "enumeration": "8"
    },
-   "solution": "MISTRIAL"
+   "solution": "MISTRIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dodgy hearing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "the first letter is placed in the wind's name, inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "strong wind",
+       "at": 36,
+       "gives": "MISTRAL",
+       "note": "the mistral is a strong cold wind of southern France"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 14,
+         "note": "primarily means first of all, so take only the opening letter of impaired"
+        }
+       ],
+       "parts": [
+        {
+         "words": "impaired",
+         "at": 24,
+         "note": "its first letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courtroom hearing goes badly because a gale outside drowns everything out.",
+     "walkthrough": "'primarily' takes I from 'impaired', and 'in' puts that I inside MISTRAL.",
+     "definitionFit": "A mistrial is a trial invalidated by some error, so a hearing that is dodgy or flawed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +143,71 @@
     "text": "I'm sorry he's beginning to board cruise vessel",
     "enumeration": "9"
    },
-   "solution": "TROOPSHIP"
+   "solution": "TROOPSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to board",
+       "at": 25,
+       "note": "to board is to get on, so these letters go inside the trip"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cruise",
+       "at": 34,
+       "gives": "TRIP",
+       "note": "a cruise is a trip"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I'm sorry",
+         "at": 0,
+         "gives": "OOPS",
+         "note": "oops is said in apology after a slip"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning",
+           "at": 15,
+           "note": "beginning means just the opening letter of he's is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "he's",
+           "at": 10,
+           "note": "its first letter"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone apologises as he starts to get on a cruise ship.",
+     "walkthrough": "'cruise' looks like a kind of ship, which 'vessel' then seems to repeat; it is a noun meaning a trip.",
+     "definitionFit": "A troopship is a vessel built or used to carry soldiers; the answer is a kind of the defined thing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cruise"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +221,54 @@
     "text": "Quote author about sickening stuff",
     "enumeration": "6"
    },
-   "solution": "EMETIC"
+   "solution": "EMETIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sickening stuff",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about here means turned round, so the joined letters read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Quote",
+         "at": 0,
+         "gives": "CITE",
+         "note": "to quote is to cite"
+        },
+        {
+         "words": "author",
+         "at": 6,
+         "gives": "ME",
+         "note": "the setter, the author of the clue, refers to themself as me"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Citing a writer who is talking about something revolting.",
+     "walkthrough": "CITE + ME is read backwards because of 'about'.",
+     "definitionFit": "An emetic is a substance that makes you vomit, so it is literally sickening stuff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "author"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +288,49 @@
      }
     ]
    },
-   "solution": "OFCOURSE"
+   "solution": "OFCOURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Certainly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after losing",
+       "at": 30,
+       "note": "after losing means one letter is dropped from the phrase that came first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "going the wrong way",
+       "at": 10,
+       "gives": "OFFCOURSE",
+       "note": "off course means straying from the right route"
+      },
+      {
+       "words": "following",
+       "at": 43,
+       "gives": "F",
+       "note": "F is the standard abbreviation for following, as in page references"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sat-nav voice confidently confirming a driver's wrong turn.",
+     "walkthrough": "Drop one F (following) from OFF COURSE, as 'after losing' says.",
+     "definitionFit": "Of course is an emphatic yes, a phrase used just like certainly to agree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +344,43 @@
     "text": "Advance warning on account of on-line tagging?",
     "enumeration": "13"
    },
-   "solution": "FORESHADOWING"
+   "solution": "FORESHADOWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Advance warning",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on account of",
+       "at": 16,
+       "gives": "FOR",
+       "note": "for can mean because of, as in 'jailed for theft'"
+      },
+      {
+       "words": "on-line tagging",
+       "at": 30,
+       "gives": "ESHADOWING",
+       "note": "shadowing is tailing someone, so following them online is playfully e-shadowing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning issued because of being tracked on the internet.",
+     "walkthrough": "The question mark flags the invented word: E as in e-mail plus SHADOWING, following someone closely.",
+     "definitionFit": "Foreshadowing is a hint or sign of something to come, an advance indication of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tagging"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +394,35 @@
     "text": "Comply with state monitor",
     "enumeration": "7"
    },
-   "solution": "OBSERVE"
+   "solution": "OBSERVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comply with",
+      "at": 0,
+      "meaning": "first meaning: to obey or keep, as with a rule"
+     },
+     {
+      "text": "state",
+      "at": 12,
+      "meaning": "second meaning: to remark or say"
+     },
+     {
+      "text": "monitor",
+      "at": 18,
+      "meaning": "third meaning: to watch closely"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three separate senses of one verb are strung together; the surface reads like a regulator's job.",
+     "definitionFit": "You observe a law by following it, observe that it rains by remarking it, and observe a suspect by watching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +436,44 @@
     "text": "Amplify level during broadcast",
     "enumeration": "5"
    },
-   "solution": "RAISE"
+   "solution": "RAISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Amplify",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RAISE",
+     "indicators": [
+      {
+       "text": "during broadcast",
+       "at": 14,
+       "note": "broadcast means spoken aloud, so the word is heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "level",
+       "at": 8,
+       "gives": "RAZE",
+       "note": "to level a building is to raze it to the ground"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning the volume up partway through a radio transmission.",
+     "walkthrough": "RAZE, meaning to level, is pronounced exactly like the answer.",
+     "definitionFit": "To raise the volume or a voice is to increase it, so amplify fits as a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "level"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +487,49 @@
     "text": "Books incorporated in first woman's results",
     "enumeration": "6"
    },
-   "solution": "EVENTS"
+   "solution": "EVENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "results",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "incorporated in",
+       "at": 6,
+       "note": "incorporated in means placed inside, here inside the woman's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "first woman's",
+       "at": 22,
+       "gives": "EVES",
+       "note": "Eve was the first woman in Genesis, so first woman's is Eve's"
+      },
+      {
+       "words": "Books",
+       "at": 0,
+       "gives": "NT",
+       "note": "NT is the New Testament, a set of books of the Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company's accounts being included in its founder's annual figures.",
+     "walkthrough": "NT stands for the New Testament, the books of the Bible's second part; the apostrophe in 'woman's' is ignored, as crosswords allow.",
+     "definitionFit": "Events are outcomes or happenings, so they can stand for results, as in 'in the event'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Books"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +543,30 @@
     "text": "Record music for film?",
     "enumeration": "5"
    },
-   "solution": "SCORE"
+   "solution": "SCORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0,
+      "meaning": "first meaning: a tally of points"
+     },
+     {
+      "text": "music for film",
+      "at": 7,
+      "meaning": "second meaning: the soundtrack composed for a film"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests recording a soundtrack, but the two halves are separate senses.",
+     "definitionFit": "A score is both the running tally in a game and the written music composed for a movie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +580,35 @@
     "text": "Something one has to go through alone?",
     "enumeration": "9"
    },
-   "solution": "TURNSTILE"
+   "solution": "TURNSTILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something one has to go through alone?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Something one has to go through alone?",
+       "at": 0,
+       "note": "sounds like a painful ordeal faced solo, but it is a gate that admits one person at a time"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'go through alone' suggests an ordeal; it is meant literally, of a barrier passed by one person at a time.",
+     "definitionFit": "A turnstile is a rotating gate at stadiums and stations letting people through singly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "alone"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +622,45 @@
     "text": "Engineer registers vans going further than allowed",
     "enumeration": "13"
    },
-   "solution": "TRANSGRESSIVE"
+   "solution": "TRANSGRESSIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "going further than allowed",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Engineer",
+       "at": 0,
+       "note": "to engineer is to contrive or rework, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "registers",
+       "at": 9
+      },
+      {
+       "words": "vans",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic signs in vans that have exceeded their mileage limits.",
+     "walkthrough": "'Engineer' looks like a noun but is the verb signalling the rearrangement of REGISTERS VANS.",
+     "definitionFit": "Transgressive describes something that crosses accepted boundaries or rules, overstepping limits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Engineer"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +674,56 @@
     "text": "State disheartened American model",
     "enumeration": "7"
    },
-   "solution": "REPLICA"
+   "solution": "REPLICA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "model",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "at": 6,
+         "note": "disheartened means the heart, the middle letters, is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "State",
+         "at": 0,
+         "gives": "REPUBLIC",
+         "note": "a republic is a state"
+        },
+        {
+         "gives": "UB"
+        }
+       ]
+      },
+      {
+       "words": "American",
+       "at": 19,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government gloomily describing an American fashion model.",
+     "walkthrough": "'disheartened' reads as discouraged, but it means losing the heart, the central letters of the word.",
+     "definitionFit": "A replica is an exact copy or scale reproduction, which is one sense of model."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disheartened"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +737,41 @@
     "text": "Malicious person repents following conversion",
     "enumeration": "7"
    },
-   "solution": "SERPENT"
+   "solution": "SERPENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Malicious person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "following conversion",
+       "at": 25,
+       "note": "conversion means the letters are changed into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "repents",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked person who repents after a religious conversion.",
+     "walkthrough": "'conversion' reads as a religious change of heart, but it is the anagram signal on REPENTS.",
+     "definitionFit": "A serpent is a treacherous, spiteful person, from the snake in Eden; a figurative sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "conversion"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +785,54 @@
     "text": "What about returning desire?",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "desire",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "returning",
+       "at": 11,
+       "note": "returning means coming back, so the letters run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "What",
+         "at": 0,
+         "gives": "EH",
+         "note": "eh? is said when asking what was said"
+        },
+        {
+         "words": "about",
+         "at": 5,
+         "gives": "CA",
+         "note": "CA is circa, Latin for about"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what happened to a longing that has come back.",
+     "walkthrough": "EH + CA is read backwards because of 'returning'.",
+     "definitionFit": "To ache for something is to yearn for it, so the verb is a synonym of desire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +846,70 @@
     "text": "Fugitives in criminal case pressure witness performing volte-face",
     "enumeration": "8"
    },
-   "solution": "ESCAPEES"
+   "solution": "ESCAPEES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fugitives",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "at": 13,
+         "note": "criminal suggests wrongdoing, so the letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "case",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "pressure",
+       "at": 27,
+       "gives": "P",
+       "note": "P is the physics symbol for pressure"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "performing volte-face",
+         "at": 44,
+         "note": "a volte-face is an about-turn, so the word is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "witness",
+         "at": 36,
+         "gives": "SEE",
+         "note": "to witness is to see"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a criminal trial, a pressured witness changes their story.",
+     "walkthrough": "'criminal case' looks like one courtroom phrase; 'criminal' is the anagram signal working on the next word only. A volte-face is a complete about-turn.",
+     "definitionFit": "Escapees are people who have broken out of custody, so they are fugitives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +923,64 @@
     "text": "Firm captures New Age and Nationalist feeling",
     "enumeration": "9"
    },
-   "solution": "SENTIMENT"
+   "solution": "SENTIMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "feeling",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captures",
+       "at": 5,
+       "note": "captures means holds inside, so the other letters go within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Firm",
+       "at": 0,
+       "gives": "SET",
+       "note": "firm means set, as in set jelly"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "New",
+         "at": 14,
+         "gives": "N"
+        },
+        {
+         "words": "Age",
+         "at": 18,
+         "gives": "TIME",
+         "note": "an age is a time or period"
+        },
+        {
+         "words": "Nationalist",
+         "at": 26,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company takes over a New Age business and a nationalist one, in a mood piece.",
+     "walkthrough": "'New Age' looks like one phrase but splits into the abbreviation for new and a synonym for age.",
+     "definitionFit": "A sentiment is an attitude or emotion, so it is a synonym for feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +994,35 @@
     "text": "Protestor barely disrupting proceedings?",
     "enumeration": "8"
    },
-   "solution": "STREAKER"
+   "solution": "STREAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Protestor barely disrupting proceedings?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Protestor barely disrupting proceedings?",
+       "at": 0,
+       "note": "barely reads as only just, but means naked: someone running unclothed across a pitch or stage"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'barely' suggests scarcely; the pun is on bare, without clothes.",
+     "definitionFit": "A streaker runs naked through a public event, often a sports match, interrupting play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barely"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1036,45 @@
     "text": "Bringer of news announced salary for each navigation guide?",
     "enumeration": "8"
    },
-   "solution": "PAPERBOY"
+   "solution": "PAPERBOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bringer of news",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PAPERBOY",
+     "indicators": [
+      {
+       "text": "announced",
+       "at": 16,
+       "note": "announced means spoken aloud, so the sound matters rather than the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "salary for each navigation guide",
+       "at": 26,
+       "gives": "PAYPERBUOY",
+       "note": "pay is salary, per means for each, and a buoy is a floating marker guiding ships"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor asks about wages for each marker buoy placed in a channel.",
+     "walkthrough": "PAY PER BUOY, said aloud, sounds like the answer.",
+     "definitionFit": "A paperboy delivers newspapers to homes, so he literally brings the news."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "salary"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1088,53 @@
     "text": "Saw demonstrator start off brawl",
     "enumeration": "7"
    },
-   "solution": "PROVERB"
+   "solution": "PROVERB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "demonstrator",
+       "at": 4,
+       "gives": "PROVER",
+       "note": "a prover is one who proves, demonstrating that something is true"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start off",
+         "at": 17,
+         "note": "start off means the opening letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brawl",
+         "at": 27,
+         "note": "its first letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A protester at a march triggers a fight.",
+     "walkthrough": "'demonstrator' looks like a protester; here it is one who demonstrates proof. 'Saw' is the noun, an old saying, not the tool or past tense.",
+     "definitionFit": "A saw is an old maxim or saying, so a proverb is exactly that kind of saying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1148,30 @@
     "text": "Shore bird's speed over water",
     "enumeration": "4"
    },
-   "solution": "KNOT"
+   "solution": "KNOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shore bird's",
+      "at": 0,
+      "meaning": "first meaning: a wading shorebird; the 's is read as 'is', linking the two"
+     },
+     {
+      "text": "speed over water",
+      "at": 13,
+      "meaning": "second meaning: a nautical mile per hour, the unit of a ship's speed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive suggests the bird's own speed; read the 's as 'is' linking two senses.",
+     "definitionFit": "The knot is a sandpiper of coastal mudflats, and also the measure sailors use for velocity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "speed"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1185,49 @@
     "text": "Tiny gadget with a spinning top",
     "enumeration": "6"
    },
-   "solution": "MIDGET"
+   "solution": "MIDGET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tiny",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "with a spinning top",
+       "at": 12,
+       "note": "the top letter of the word is spun round, turning it upside down into a different letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gadget",
+       "at": 5,
+       "gives": "WIDGET",
+       "note": "a widget is a small gadget"
+      },
+      {
+       "gives": "W"
+      },
+      {
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny toy gadget fitted with a spinning top.",
+     "walkthrough": "In this down clue the top letter W of WIDGET is turned upside down, giving M.",
+     "definitionFit": "Midget as an adjective means very small, miniature, as in midget submarine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1241,45 @@
     "text": "Repeatedly express disapproval for stupid mistake",
     "enumeration": "6"
    },
-   "solution": "BOOBOO"
+   "solution": "BOOBOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stupid mistake",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Repeatedly",
+       "at": 0,
+       "note": "repeatedly says the jeer is given again, so the same word comes a second time"
+      }
+     ],
+     "parts": [
+      {
+       "words": "express disapproval",
+       "at": 11,
+       "gives": "BOO",
+       "note": "to boo is to jeer in disapproval"
+      },
+      {
+       "gives": "BOO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd jeers again and again at someone's blunder.",
+     "walkthrough": "'Repeatedly' supplies the second copy of the jeer, so the word appears twice in a row.",
+     "definitionFit": "A booboo is informal for a silly error or blunder, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1293,49 @@
     "text": "Irreverent rascals promise to pay charges",
     "enumeration": "7"
    },
-   "solution": "IMPIOUS"
+   "solution": "IMPIOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Irreverent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "charges",
+       "at": 34,
+       "note": "charges in the sense of loads or fills, so the first part is filled with the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rascals",
+       "at": 11,
+       "gives": "IMPS",
+       "note": "imps are mischievous rascals"
+      },
+      {
+       "words": "promise to pay",
+       "at": 19,
+       "gives": "IOU",
+       "note": "an IOU (I owe you) is a written promise to pay a debt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cheeky scoundrels hand over IOUs to cover their bills.",
+     "walkthrough": "'charges' looks like fees owed; it is a verb meaning loads or fills, so the promise goes inside the rascals.",
+     "definitionFit": "Impious means lacking respect for God or religion, hence irreverent; a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charges"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1349,40 @@
     "text": "Area outside building involved in occupation",
     "enumeration": "5"
    },
-   "solution": "PATIO"
+   "solution": "PATIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Area outside building",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "involved in",
+       "at": 22,
+       "note": "involved in means contained within, so the letters lie inside the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "occupation",
+       "at": 34,
+       "gives": "PATIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A builder's job involves the area outside a house.",
+     "definitionFit": "A patio is a paved outdoor space next to a house, used for sitting or dining."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1396,42 @@
     "text": "Plastic doilies put on pedestal",
     "enumeration": "7"
    },
-   "solution": "IDOLISE"
+   "solution": "IDOLISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put on pedestal",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Plastic",
+       "at": 0,
+       "note": "plastic means malleable, able to be reshaped, so the letters are remoulded"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doilies",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone adores plastic lace mats so much they display them on a stand.",
+     "walkthrough": "'Plastic' reads as the material of the doilies but is the anagram signal.",
+     "definitionFit": "To idolise someone is to worship them, which the idiom 'put on a pedestal' describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Plastic"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1445,40 @@
     "text": "Group of people not entirely marvelling at her ingenuity",
     "enumeration": "9"
    },
-   "solution": "GATHERING"
+   "solution": "GATHERING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Group of people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "not entirely",
+       "at": 16,
+       "note": "not entirely means only part of these words is used, the answer lies within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "marvelling at her ingenuity",
+       "at": 29,
+       "gives": "GATHERING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd only half impressed by a woman's cleverness.",
+     "definitionFit": "A gathering is an assembly or meeting of people, so it names a group of people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1492,35 @@
     "text": "Opportunity to improve on sequence of strokes in pool?",
     "enumeration": "5"
    },
-   "solution": "BREAK"
+   "solution": "BREAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opportunity",
+      "at": 0,
+      "meaning": "first meaning: a chance"
+     },
+     {
+      "text": "to improve on",
+      "at": 12,
+      "meaning": "second meaning: to beat"
+     },
+     {
+      "text": "sequence of strokes in pool?",
+      "at": 26,
+      "meaning": "third meaning: a run of successful shots in snooker or pool"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'pool' hints at swimming strokes, but it is the cue game. Three senses of one word are run together.",
+     "definitionFit": "A break is a chance, also the verb for beating a record, and a scoring run at the table in cue sports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pool"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1534,58 @@
     "text": "Complaints bolster mistreated university dons",
     "enumeration": "8"
    },
-   "solution": "TROUBLES"
+   "solution": "TROUBLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Complaints",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dons",
+       "at": 41,
+       "note": "to don is to put on, so the rearranged letters wrap around the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mistreated",
+         "at": 19,
+         "note": "mistreated means badly handled, so the letters are knocked about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bolster",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "university",
+       "at": 30,
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Academics' grievances strengthen a badly run university.",
+     "walkthrough": "'dons' looks like university lecturers but is the verb: TROBLES (BOLSTER rearranged, 'mistreated') puts on U.",
+     "definitionFit": "Troubles can mean ailments or disorders, as in back troubles, so they are complaints."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dons"
+    }
+   }
   },
   {
    "number": 28,
@@ -447,7 +1599,31 @@
     "text": "What may alert member of parliament?",
     "enumeration": "6"
    },
-   "solution": "HOOTER"
+   "solution": "HOOTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What may alert",
+      "at": 0,
+      "meaning": "first meaning: a horn or siren sounding a warning"
+     },
+     {
+      "text": "member of parliament?",
+      "at": 15,
+      "meaning": "second meaning: a parliament is the collective noun for owls"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'member of parliament' suggests an MP; a group of owls is a parliament, and owls hoot.",
+     "definitionFit": "A hooter is a car horn or factory siren that warns, and also slang for an owl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "parliament"
+    }
+   }
   }
  ]
 }
