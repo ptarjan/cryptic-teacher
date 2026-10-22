@@ -1442,6 +1442,12 @@ tools/annotate_audit.py                        ranks what annotation runs spend 
                                                transcripts; daily, and wakes the room with one
                                                fix target, rotating past items woken in the
                                                last 7 days
+tools/refusal_replay.py                        the wake's section for a wordplay refusal: replays
+                                               refused wordplays through today's evaluator,
+                                               groups the still-failing by message, counts
+                                               retries, names the likeliest cause class
+tools/test_refusal_replay.py                   tests tools/refusal_replay.py: a fixture
+                                               transcript, grouping, cause rule, wake size cap
 tools/annotate_ledger.py                       the burn's own cost meter: each checkpoint
                                                appends a row (sessions, $/clue, turns/clue, top
                                                causes) to ~/.cache/annotate_cost_ledger.jsonl

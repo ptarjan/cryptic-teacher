@@ -641,19 +641,35 @@ def report(cur, prev, ranked, trends, hours, n_prev_note):
     return "\n".join(lines)
 
 
-def wake_text(item, why, cur):
-    return "\n".join([
-        (f"annotate audit ({cur['n']} runs, median {cur['turns'] or 0:.0f} turns, "
-         f"{fmt_money(cur.get('cost_per_puzzle'))}/puzzle, first check fails {cur['first_fail'] or 0:.0%}). "
-         f"Today's fix target [{why}]:"),
-        f"{item['title']} ({share(item)}): {item['detail']}",
-        ("Spawn a fix worker to land a fix for this today and push it. Prefer a tool, "
+WAKE_CAP = 2500
+REFUSAL_KEY = "rule:apply refused: wordplay does not give"
+
+
+def refusal_section(item, hours, now):
+    """The mechanical replay for a wordplay-refusal target (tools/refusal_replay.py), else ''."""
+    if not item["key"].startswith(REFUSAL_KEY):
+        return ""
+    import refusal_replay
+    try:
+        return refusal_replay.audit_section(now - datetime.timedelta(hours=hours), 1500)
+    except Exception as e:      # the wake must still go out without its extra
+        return f"replay failed: {e}"
+
+
+def wake_text(item, why, cur, extra=""):
+    tail = ("Spawn a fix worker to land a fix for this today and push it. Prefer a tool, "
          "validator or check change (a message that says what to write, an auto-fix in "
          "annotate_check) over prose in annotate_prompt.md: if the prompt already states "
          "the rule, the prose is not working. If it cannot be fixed, say why in the room. "
          "`python3 tools/annotate_audit.py` reprints the ranking; full report in "
-         ".annotate_audit/latest.txt."),
-    ])[:1900]
+         ".annotate_audit/latest.txt.")
+    head = (f"annotate audit ({cur['n']} runs, median {cur['turns'] or 0:.0f} turns, "
+            f"{fmt_money(cur.get('cost_per_puzzle'))}/puzzle, first check fails {cur['first_fail'] or 0:.0%}). "
+            f"Today's fix target [{why}]:\n{item['title']} ({share(item)}): {item['detail']}")
+    room = max(WAKE_CAP - len(head) - len(tail) - 2, 0)
+    # the section is cut at a line end, so a half example never ships
+    extra = extra if len(extra) <= room else extra[:room].rsplit("\n", 1)[0] if room else ""
+    return "\n".join(p for p in (head, extra, tail) if p)[:WAKE_CAP]
 
 
 def causes(rows):
@@ -750,8 +766,9 @@ def main(argv=None):
     state_path = STATE_DIR / "state.json"
     state = json.loads(state_path.read_text()) if state_path.exists() else {}
     target = pick(ranked, trends, state, now) if cur["n"] >= MIN_SESSIONS else None
+    extra = refusal_section(target[0], args.hours, now) if target else ""
     if args.dry_run:
-        print("\n--- would wake ---\n" + wake_text(*target, cur) if target
+        print("\n--- would wake ---\n" + wake_text(*target, cur, extra) if target
               else "\n--- nothing to fix: would stay quiet ---")
         return 0
     (STATE_DIR / f"{now:%Y-%m-%d}.txt").write_text(text + "\n")
@@ -761,7 +778,7 @@ def main(argv=None):
     if cur["n"] >= MIN_SESSIONS:
         record(trends + ranked, state, now)
     if target:
-        msg = wake_text(*target, cur)
+        msg = wake_text(*target, cur, extra)
         rc = subprocess.run([WAKE_SH, "-c", ROOM, msg], check=False).returncode
         if rc:
             # Unrecorded, so tomorrow's run tries again; non-zero, so the
