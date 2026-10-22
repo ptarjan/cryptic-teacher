@@ -578,4 +578,41 @@ _last = {"op": "last", "parts": [{"words": "Durham's", "gives": "AM", "select": 
 check("a leaf that names its pick, possessive 's dropped (Durham's -> AM)",
       refused({"op": "container", "parts": [leaf("cricket match", "TEST"), _last]}, "TAMEST") == "evaluated")
 
+def wp_refused(expr, answer, *words):
+    """A written expression refused, with every one of `words` in the message."""
+    try:
+        w.evaluate(w.parse(expr), answer)
+        return "accepted"
+    except w.WordplayError as e:
+        return all(x in str(e) for x in words) or str(e)
+
+
+# A selection over a `+` list works on the joined letters; the refusal names the comma form
+# (ftcryptic-18509 KHAKI, ftcryptic-18319 FUEGO from the annotate audit).
+check("first over a + list names the comma form",
+      wp_refused("first<initially>([kept] + [here] + [as] + [knitting] + [is])", "KHAKI",
+              "first<initially>([kept], [here], [as], [knitting], [is])"))
+check("first over a + list with a gives leaf names the comma form",
+      wp_refused("first<leaders for>([frustrating] + [USA's] + [excessively] + [gung-ho] + [operation])", "FUEGO",
+              "first<leaders for>([frustrating], [USA's], [excessively], [gung-ho], [operation])"))
+check("comma form passes", gives("first<initially>([kept], [here], [as], [knitting], [is])", "KHAKI"))
+check("a + list that no comma form fixes still says commas apply to each word",
+      wp_refused("middle<Central parts of>([Slough] + [utterly])", "ABCD", "commas apply it to each word"))
+check("hid over a + list says one leaf", wp_refused("hid<in>([peril] + [I'll])", "LILLE", "hid() takes one leaf"))
+check("hid over a + list names the merged leaf",
+      wp_refused("hid<in>([peril] + [I'll])", "RILL", "hid<in>([peril I'll])"))
+
+# A spoonerism with sound() inside: spoon swaps the starts itself and takes the spelling heard.
+check("spoon of sound() pieces names spoon(a, b, SPELT)",
+      wp_refused("spoon<Spooner's>(sound([destiny]FATE, HATE), sound([coastal city]HULL, FUL))", "HATEFUL",
+              "spoon<Spooner's>([destiny]FATE, [coastal city]HULL, HATEFUL)"))
+check("spoon of sound() FERRYMAN",
+      wp_refused("spoon<Spooner's>(sound([happy]MERRY, FERRY), [supporter]FAN)", "FERRYMAN",
+              "spoon<Spooner's>([happy]MERRY, [supporter]FAN, FERRYMAN)"))
+check("spoon of sound() with the answer as a part gets the general form",
+      wp_refused("spoon<in Spooner's speech>(sound([body parts]HEADTEETH, TEDHEATH), TEDHEATH)", "TEDHEATH",
+              "spoon(a, b, SPELT)"))
+check("the suggested spoon form is accepted",
+      gives("spoon<Spooner's>([destiny]FATE, [coastal city]HULL, HATEFUL)", "HATEFUL"))
+
 raise SystemExit(fails > 0)
