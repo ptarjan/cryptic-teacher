@@ -677,6 +677,12 @@ def file_rows(path, pending, data=DATA):
             shown = held[0] if held else (by_id[eid]["clue"].get("text") or "")
             problems = validate_annotations.clue_row_problems(
                 "" if validate_annotations.is_blank_clue(shown) else shown, v[0], v[1])
+            # A fixed clue is the words the file holds: a stray digit still
+            # glued to a short word ("2as") is a scan speck left in.
+            glued = re.search(r"\b\d(?:as|so|in|on|to|of|or|an|at|is|it|be|by|he|me|we)\b", v[0])
+            if glued:
+                problems.append(f"still has the scan speck {glued.group(0)!r} glued to a word: "
+                                f"the fixed clue must read as the clue's own words")
             # The corpus check's rule, held at filing: an OCR'd clue's row
             # mends a misread, never rewords the clue, unless read off the scan.
             V = validate_annotations
