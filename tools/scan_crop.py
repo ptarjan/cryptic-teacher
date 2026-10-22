@@ -35,7 +35,7 @@ def verdict(pid, cache):
     found = None
     import scan_queue
     for row in (r for p in ledgers for r in scan_queue.jsonl_rows(p)):
-        for v in row.get("verdicts") or []:
+        for v in (row.get("verdicts") or []) if "edition" in row else []:  # skip a stray fragment row
             if v.get("id") == pid and (found is None or v.get("wrote") or not found[1].get("wrote")):
                 found = (cache / row["edition"], v)
     if found is None:
