@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Stern assertion from stag to his mate?",
     "enumeration": "6"
    },
-   "solution": "BEHIND"
+   "solution": "BEHIND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stern",
+      "at": 0,
+      "meaning": "the stern is the back of a ship"
+     },
+     {
+      "text": "assertion from stag to his mate?",
+      "at": 6,
+      "meaning": "split as ..., this is a male deer telling a female deer what she is: a hind is a female red deer"
+     }
+    ],
+    "explanation": {
+     "surface": "A wildlife-documentary question about what a stag might say firmly to his partner.",
+     "walkthrough": "Read the answer as two words, 'be hind', for the second definition.",
+     "definitionFit": "A ship's stern is its rear, and the behind is the rear part of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stern"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +73,55 @@
     "text": "Author's cake dipped in tea? Au contraire",
     "enumeration": "6"
    },
-   "solution": "BUCHAN"
+   "solution": "BUCHAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Author's",
+      "at": 0,
+      "note": "read as 'Author is', so the definition is the author himself"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dipped in",
+       "at": 14,
+       "note": "something dipped in a liquid ends up surrounded by it, so one piece goes inside another"
+      },
+      {
+       "text": "Au contraire",
+       "at": 29,
+       "note": "French for 'on the contrary': the containment works the other way, the tea going into the cake rather than the cake into the tea"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cake",
+       "at": 9,
+       "gives": "BUN",
+       "note": "a bun is a small round cake"
+      },
+      {
+       "words": "tea",
+       "at": 24,
+       "gives": "CHA",
+       "note": "cha (or char) is British slang for tea"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A picture of a famous writer dunking a cake in a cup of tea.",
+     "walkthrough": "'Au contraire' (on the contrary) flips the plain reading of 'dipped in': the tea goes into the cake. Cha is British slang for tea.",
+     "definitionFit": "John Buchan was a Scottish novelist, best known for The Thirty-Nine Steps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contraire"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +135,64 @@
     "text": "Ground zero's hit, pinning western guns",
     "enumeration": "9"
    },
-   "solution": "HOWITZERS"
+   "solution": "HOWITZERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "guns",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pinning",
+       "at": 19,
+       "note": "pinning holds something fast in the middle, so the anagrammed letters hold the western letter within them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Ground",
+         "at": 0,
+         "note": "ground is the past participle of grind, so these letters are crushed and remade"
+        }
+       ],
+       "parts": [
+        {
+         "words": "zero's",
+         "at": 7,
+         "gives": "ZEROS",
+         "note": "the apostrophe is ignored, giving the letters of zeros"
+        },
+        {
+         "words": "hit",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "western",
+       "at": 27,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime scene: artillery hitting ground zero while pinned down from the west.",
+     "walkthrough": "'Ground' is the anagram signal, not the ground of 'ground zero'; it gives HOITZERS, and 'pinning' holds W inside.",
+     "definitionFit": "Howitzers are short-barrelled artillery pieces firing shells on a high trajectory, a type of gun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ground"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +206,42 @@
     "text": "Tiny baby consumed by gas",
     "enumeration": "7"
    },
-   "solution": "NEONATE"
+   "solution": "NEONATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tiny baby",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gas",
+       "at": 22,
+       "gives": "NEON",
+       "note": "neon is a noble gas"
+      },
+      {
+       "words": "consumed",
+       "at": 10,
+       "gives": "ATE",
+       "note": "consumed food means ate it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worrying picture of a newborn overcome by gas fumes.",
+     "walkthrough": "'consumed by gas' reads as a passive, but it is two pieces side by side, with the gas first.",
+     "definitionFit": "A neonate is a newborn infant, in its first weeks of life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumed"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +261,52 @@
      }
     ]
    },
-   "solution": "ICECREAM"
+   "solution": "ICECREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dessert",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 14,
+         "note": "regularly means taking every other letter, here the second, fourth and sixth of kitchen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kitchen",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "pick",
+       "at": 28,
+       "gives": "CREAM",
+       "note": "the pick of something is its best part, the cream"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pop into the kitchen often and choose a pudding.",
+     "walkthrough": "'regularly' takes the even letters of 'kitchen', giving ICE; 'Visit' only dresses the surface.",
+     "definitionFit": "Ice cream is a frozen sweet served as a pudding at the end of a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +326,57 @@
      }
     ]
    },
-   "solution": "CHESSPIECES"
+   "solution": "CHESSPIECES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some men",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Free",
+       "at": 0,
+       "note": "free here means loosened or released, so the letters are let go into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "speech",
+       "at": 5
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "semi",
+         "at": 12,
+         "note": "semi means half, so only the second half of the following word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ostracises",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political line: free speech partly shuts out certain people.",
+     "walkthrough": "'semi' keeps CISES, half of 'ostracises'; 'Free' shuffles it with SPEECH.",
+     "definitionFit": "In chess the pieces are often called men, so chess pieces are some of those men."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "men"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +396,59 @@
      }
     ]
    },
-   "solution": "CARRYON"
+   "solution": "CARRYON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Continue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cutting",
+         "at": 32,
+         "note": "cutting a letter out of a word means removing it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with cliffs",
+         "at": 9,
+         "gives": "SCARRY",
+         "note": "a scar is a steep rocky cliff, so scarry describes ground full of them"
+        },
+        {
+         "words": "south",
+         "at": 40,
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "just after",
+       "at": 21,
+       "gives": "ON",
+       "note": "on can mean immediately after, as in 'on arrival'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Directions for a walker: keep going alongside the cliffs, turning south soon after.",
+     "walkthrough": "SCARRY ON with 'cutting' removing S for south leaves the answer; a scar is a crag.",
+     "definitionFit": "To carry on is to keep going, a phrasal-verb synonym for proceed or persist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cliffs"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +462,49 @@
     "text": "Possibly wide on the right, not top or bottom",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Possibly wide",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not top or bottom",
+       "at": 28,
+       "note": "in a down clue, the top and bottom of a word are its first and last letters, both dropped here"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on the right",
+       "at": 14,
+       "gives": "DEXTRAL",
+       "note": "dextral means on or of the right-hand side"
+      },
+      {
+       "gives": "D"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket or football commentary: maybe a wide player out on the right wing.",
+     "walkthrough": "In cricket a wide is a ball bowled out of the batsman's reach, which gives the batting side a run without being hit.",
+     "definitionFit": "A wide is one kind of extra, a run in cricket not scored off the bat, hence 'possibly'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wide"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +518,49 @@
     "text": "Steep promotion in naval affairs",
     "enumeration": "8"
    },
-   "solution": "MARINADE"
+   "solution": "MARINADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Steep",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in places the promotion inside the naval word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "naval affairs",
+       "at": 19,
+       "gives": "MARINE",
+       "note": "the marine means a nation's shipping and naval matters, as in the mercantile marine"
+      },
+      {
+       "words": "promotion",
+       "at": 6,
+       "gives": "AD",
+       "note": "an ad promotes a product"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp rise in rank within the navy.",
+     "walkthrough": "'Steep' is a verb meaning soak, not an adjective about the size of a promotion.",
+     "definitionFit": "Food steeped in a seasoned liquid is marinated; a marinade is both the liquid and the soaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Steep"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +574,77 @@
     "text": "Dodgy workman evasive about old bishop drinking whiskey",
     "enumeration": "6"
    },
-   "solution": "COWBOY"
+   "solution": "COWBOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dodgy workman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 22,
+       "note": "about means around, so the shy word goes around the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "evasive",
+       "at": 14,
+       "gives": "COY",
+       "note": "coy means reluctant to give details, evasive"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "drinking",
+         "at": 39,
+         "note": "drinking takes something in, so the old bishop letters hold the whiskey letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old",
+           "at": 28,
+           "gives": "O"
+          },
+          {
+           "words": "bishop",
+           "at": 32,
+           "gives": "B",
+           "note": "B is the chess abbreviation for bishop"
+          }
+         ]
+        },
+        {
+         "words": "whiskey",
+         "at": 48,
+         "gives": "W",
+         "note": "Whiskey is the NATO phonetic alphabet word for W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shifty tradesman avoiding questions about an elderly bishop who drinks.",
+     "walkthrough": "'drinking' puts W inside OB to make OWB, and 'about' has COY round that.",
+     "definitionFit": "A cowboy, in British usage, is an unscrupulous or incompetent tradesman who does shoddy work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +658,81 @@
     "text": "I hunt, following river around eastern French land after backtracking",
     "enumeration": "8"
    },
-   "solution": "FERRETER"
+   "solution": "FERRETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I hunt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 24,
+       "note": "around means the two outer letters enclose what follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "following",
+         "at": 8,
+         "gives": "F",
+         "note": "F is the abbreviation for following, as in page references"
+        },
+        {
+         "words": "river",
+         "at": 18,
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backtracking",
+         "at": 57,
+         "note": "backtracking means going back over a route, so these letters are read in reverse order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "eastern",
+           "at": 31,
+           "gives": "E"
+          },
+          {
+           "words": "French land",
+           "at": 39,
+           "gives": "TERRE",
+           "note": "terre is the French word for land"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter's account of tracking along a river and doubling back across French territory.",
+     "walkthrough": "'backtracking' turns E + TERRE into ERRETE, which F and R go 'around'.",
+     "definitionFit": "A ferreter is one who hunts with ferrets, so 'I hunt' is a self-description by such a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +746,36 @@
     "text": "For whom workers may make meals",
     "enumeration": "9"
    },
-   "solution": "ANTEATERS"
+   "solution": "ANTEATERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "For whom workers may make meals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "For whom workers may make meals",
+       "at": 0,
+       "note": "workers here are worker ants, which become food for those that feed on them, rather than cooks preparing food"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seems to describe diners whose meals are cooked by staff.",
+     "walkthrough": "'workers' is a crossword staple for ants, and they are the meal, not the cooks.",
+     "definitionFit": "Anteaters are mammals that feed on ants and termites with long sticky tongues."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "workers"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +795,61 @@
      }
     ]
    },
-   "solution": "ENTEREDINTO"
+   "solution": "ENTEREDINTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Was part of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "corrupted",
+       "at": 26,
+       "note": "corrupted data is scrambled, so these letters are rearranged"
+      },
+      {
+       "text": "when deleting",
+       "at": 36,
+       "note": "deleting signals that a letter is taken out of the scrambled pool"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "internet",
+         "at": 12
+        },
+        {
+         "words": "node",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "a name",
+       "at": 50,
+       "gives": "N",
+       "note": "N is the standard abbreviation for name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computing mishap: a network node corrupted when a name was deleted.",
+     "walkthrough": "'corrupted' shuffles INTERNET NODE, and 'when deleting' takes one N out of the pool first.",
+     "definitionFit": "To enter into something, such as an agreement, is to become a party to it, to take part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupted"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +863,42 @@
     "text": "Long time before November",
     "enumeration": "5"
    },
-   "solution": "YEARN"
+   "solution": "YEARN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Long",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "time",
+       "at": 5,
+       "gives": "YEAR",
+       "note": "a year is a period of time"
+      },
+      {
+       "words": "November",
+       "at": 17,
+       "gives": "N",
+       "note": "November is the NATO phonetic alphabet word for N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long stretch of time before the month of November.",
+     "walkthrough": "'Long' is a verb meaning to desire, not an adjective about time.",
+     "definitionFit": "To long for something is to yearn for it; both verbs mean to want something intensely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +912,71 @@
     "text": "Raced topless around Sinai Desert, otherwise walked",
     "enumeration": "14"
    },
-   "solution": "PEDESTRIANISED"
+   "solution": "PEDESTRIANISED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "walked",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 6,
+         "note": "topless means the first letter is taken off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Raced",
+         "at": 0,
+         "gives": "SPED",
+         "note": "sped means raced"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "otherwise",
+         "at": 35,
+         "note": "otherwise means in another way, so the letters are put in another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sinai",
+         "at": 21
+        },
+        {
+         "words": "Desert",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner dashing shirtless across the Sinai, or else just strolling.",
+     "walkthrough": "'around' is only a link here; 'otherwise' is the anagram signal and 'topless' drops the first letter.",
+     "definitionFit": "Pedestrianise can be intransitive, meaning to go about on foot, so pedestrianised is a rare word for walked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1000,48 @@
      }
     ]
    },
-   "solution": "SMELLARAT"
+   "solution": "SMELLARAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "think something's odd",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "slicing",
+       "at": 11,
+       "note": "slicing cuts into something, so the girl's name goes inside the fish"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fish",
+       "at": 19,
+       "gives": "SMELT",
+       "note": "a smelt is a small silvery fish"
+      },
+      {
+       "words": "Croft girl",
+       "at": 0,
+       "gives": "LARA",
+       "note": "Lara Croft is the heroine of the Tomb Raider video games"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lara Croft cutting up a fish, and something seeming not quite right.",
+     "definitionFit": "To smell a rat is an idiom for suspecting that something is wrong or underhand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Croft"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1055,48 @@
     "text": "Impressive understanding has moved husband",
     "enumeration": "8"
    },
-   "solution": "EMPHATIC"
+   "solution": "EMPHATIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Impressive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "has moved",
+       "at": 25,
+       "note": "the husband's letter is shifted to a new place within the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "understanding",
+       "at": 11,
+       "gives": "EMPATHIC",
+       "note": "empathic means understanding others' feelings"
+      },
+      {
+       "words": "husband",
+       "at": 35,
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sympathetic, understanding person has relocated her husband.",
+     "walkthrough": "'has moved' shifts the H of EMPATHIC two places earlier.",
+     "definitionFit": "Emphatic means forceful and striking, which is what something impressive is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1110,56 @@
     "text": "Was unaware of short girl having grown",
     "enumeration": "14"
    },
-   "solution": "MISAPPRECIATED"
+   "solution": "MISAPPRECIATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Was unaware of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 15,
+         "note": "short means the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 21,
+         "gives": "MISS",
+         "note": "Miss is the title for a girl or unmarried woman"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "grown",
+       "at": 33,
+       "gives": "APPRECIATED",
+       "note": "an asset that has appreciated has grown in value"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone failing to notice that a little girl has grown up.",
+     "definitionFit": "To misappreciate is to fail to grasp the true worth or nature of something, to be unaware of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grown"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1173,45 @@
     "text": "Composer by trade, you say?",
     "enumeration": "7"
    },
-   "solution": "PURCELL"
+   "solution": "PURCELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PURCELL",
+     "indicators": [
+      {
+       "text": "you say",
+       "at": 19,
+       "note": "you say means the letters follow how the words are spoken, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "by trade",
+       "at": 9,
+       "gives": "PERSELL",
+       "note": "per means by, as in 'per post'; to sell is to trade"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether someone is a composer by profession.",
+     "walkthrough": "'by trade' looks like a phrase about a job, but it is PER + SELL, spoken.",
+     "definitionFit": "Henry Purcell was a leading English Baroque composer, writer of Dido and Aeneas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trade"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1225,60 @@
     "text": "Wild in the past, entertaining rising French director",
     "enumeration": "7"
    },
-   "solution": "AGITATO"
+   "solution": "AGITATO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wild",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 18,
+       "note": "entertaining guests means taking them in, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in the past",
+       "at": 5,
+       "gives": "AGO",
+       "note": "ago means in the past"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 31,
+         "note": "in a down clue, rising means read upwards, so the name is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French director",
+         "at": 38,
+         "gives": "TATI",
+         "note": "Jacques Tati was a French film director, maker of Monsieur Hulot's Holiday"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy past spent hosting a French film-maker on the way up.",
+     "definitionFit": "Agitato is a musical direction meaning to play in an agitated, restless way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1292,48 @@
     "text": "Several monarchs embracing single European change",
     "enumeration": "6"
    },
-   "solution": "KRONER"
+   "solution": "KRONER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European change",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "at": 17,
+       "note": "embracing means holding in the arms, so the monarchs go around the single"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Several monarchs",
+       "at": 0,
+       "gives": "KRR",
+       "note": "K, R and R are three abbreviations for a king: K, R for rex, and R for roi"
+      },
+      {
+       "words": "single",
+       "at": 27,
+       "gives": "ONE",
+       "note": "single means one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kings and queens grasping one piece of European small change.",
+     "definitionFit": "The krone (plural kroner) is the currency of Denmark and Norway, so kroner are European money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1347,45 @@
     "text": "Hesitate? Barber doesn't begin",
     "enumeration": "5"
    },
-   "solution": "HAVER"
+   "solution": "HAVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hesitate?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "doesn't begin",
+       "at": 17,
+       "note": "doesn't begin means the first letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Barber",
+       "at": 10,
+       "gives": "SHAVER",
+       "note": "a barber is someone who shaves customers, a shaver"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barber's hesitation before the first cut.",
+     "definitionFit": "To haver, chiefly Scottish and northern English, is to dither or vacillate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Barber"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1399,52 @@
     "text": "Somebody regularly heard weasel",
     "enumeration": "5"
    },
-   "solution": "VIPER"
+   "solution": "VIPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "weasel",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Somebody",
+       "at": 0,
+       "gives": "VIP",
+       "note": "a somebody is an important person, a VIP"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 9,
+         "note": "regularly means taking every other letter, here the second and fourth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heard",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone often heard to sound like a sneaky little animal.",
+     "walkthrough": "'heard' is not a homophone here; 'regularly' takes its even letters, ER. 'Weasel' is a person, not the animal.",
+     "definitionFit": "A viper and a weasel are both used for a treacherous, untrustworthy person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1458,49 @@
     "text": "Maybe Macduff's princess yet to meet her mother-in-law",
     "enumeration": "9"
    },
-   "solution": "DISTILLER"
+   "solution": "DISTILLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe Macduff's",
+      "at": 0,
+      "note": "read as 'Maybe Macduff is'; Macduff is a Scottish whisky distillery"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "princess",
+       "at": 16,
+       "gives": "DI",
+       "note": "Di is Diana, Princess of Wales"
+      },
+      {
+       "words": "yet",
+       "at": 25,
+       "gives": "STILL",
+       "note": "still means yet, as in 'still to come'"
+      },
+      {
+       "words": "her mother-in-law",
+       "at": 37,
+       "gives": "ER",
+       "note": "Diana's mother-in-law was Queen Elizabeth II, ER (Elizabeth Regina)"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Shakespearean scene: Macduff's princess still to meet her husband's mother.",
+     "walkthrough": "Macduff suggests Macbeth, but it is a distillery town on the Moray coast.",
+     "definitionFit": "Macduff is the name of a Scotch whisky distillery, and a distillery is a distiller, hence 'Maybe'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Macduff's"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1514,53 @@
     "text": "Cheap deposit backed with very little money",
     "enumeration": "8"
    },
-   "solution": "TUPPENNY"
+   "solution": "TUPPENNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cheap",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "at": 14,
+         "note": "backed means turned back, so the word is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deposit",
+         "at": 6,
+         "gives": "PUT",
+         "note": "to put something down is to deposit it"
+        }
+       ]
+      },
+      {
+       "words": "very little money",
+       "at": 26,
+       "gives": "PENNY",
+       "note": "a penny is a very small sum"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small deposit paid with hardly any cash.",
+     "definitionFit": "Tuppenny, from twopenny, means worth very little: cheap or trifling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1574,74 @@
     "text": "Sister's pal picked up unbridled sarcasm",
     "enumeration": "6"
    },
-   "solution": "MATRON"
+   "solution": "MATRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sister's",
+      "at": 0,
+      "note": "read as 'Sister is'; a Sister is a senior nurse"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "MAT",
+       "indicators": [
+        {
+         "text": "picked up",
+         "at": 13,
+         "note": "picked up means heard, so the letters follow how the word sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pal",
+         "at": 9,
+         "gives": "MATE",
+         "note": "a mate is a pal"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unbridled",
+         "at": 23,
+         "note": "unbridled means with the restraints at each end taken off, so the first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sarcasm",
+         "at": 33,
+         "gives": "IRONY",
+         "note": "irony is mocking language close to sarcasm"
+        },
+        {
+         "gives": "I"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nun's friend catching a cutting remark.",
+     "walkthrough": "MATRON is said 'MAY-tron', so its MAT sounds like MATE.",
+     "definitionFit": "In British hospitals a matron was the senior nurse in charge, and nurses are called Sister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sister's"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1655,61 @@
     "text": "Bells of Ireland back in demand",
     "enumeration": "8"
    },
-   "solution": "CARILLON"
+   "solution": "CARILLON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bells",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "in places the reversed letters inside the demand word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "demand",
+       "at": 25,
+       "gives": "CALLON",
+       "note": "to call on someone is to demand something of them"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 17,
+         "note": "back means the letters are turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ireland",
+         "at": 9,
+         "gives": "IR",
+         "note": "Ir is an abbreviation for Ireland or Irish"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Irish bells coming back into demand.",
+     "walkthrough": "'Bells of Ireland' is a garden plant, but 'Bells' alone is the definition.",
+     "definitionFit": "A carillon is a set of tuned bells played from a keyboard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ireland"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1723,30 @@
     "text": "Tamper with bones",
     "enumeration": "6"
    },
-   "solution": "DOCTOR"
+   "solution": "DOCTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tamper with",
+      "at": 0,
+      "meaning": "to falsify or interfere with it"
+     },
+     {
+      "text": "bones",
+      "at": 12,
+      "meaning": "bones, short for sawbones, is slang for a ..., a surgeon"
+     }
+    ],
+    "explanation": {
+     "surface": "Interfering with a skeleton.",
+     "definitionFit": "Doctoring evidence is tampering with it; sawbones is old slang for a physician."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bones"
+    }
+   }
   }
  ]
 }
