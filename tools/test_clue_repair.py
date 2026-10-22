@@ -185,4 +185,18 @@ check("a next clue's number then this clue's lost count splits the two (times-58
       [("The talk of the town", {"5"}), ("Bury fat", {"9"})],
       [(c["text"], c["enums"]) for c in _got[1:3]])
 
+_is_word, _uses = clue_repair.lexicon()
+for _was, _now in [("to be de rigueur", "to be de rigueur"), ("Train to le a", "Train to le a"),
+                   ("ready for th summer", "ready for th summer"), ("known th in Scotland's", "known th in Scotland's"),
+                   ("used tu be returned", "used tu be returned"), ("living al fresco, with", "living al fresco, with"),
+                   ("Popular da ce -music", "Popular da ce -music"), ("motorist haled roughly", "motorist haled roughly"),
+                   ("hes. tation", "hes. tation"), ("contra… dicting man's", "contra… dicting man's"),
+                   ("cottage provid ing a", "cottage providing a"), ("fuel con tainers", "fuel containers"),
+                   ("abandon de pressed profession?", "abandon depressed profession?"),
+                   ("reluctant liarist", "reluctant diarist")]:
+    check("mend_words on %r" % _was, _now, clue_repair.mend_words(_was, _is_word, _uses))
+for _was, _now in [("D Day, camouflage?", "D Day, camouflage?"), ("1 Down's poet?", "1 Down's poet?"),
+                   ("S Sound judgment", "Sound judgment"), ("I Long pair of shorts?", "Long pair of shorts?")]:
+    check("lead_speck on %r" % _was, _now, clue_repair.lead_speck(_was, _is_word, _uses))
+
 sys.exit(1 if fails else 0)

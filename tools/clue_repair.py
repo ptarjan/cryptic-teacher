@@ -284,6 +284,18 @@ LEAD_USES = 10
 #: A bar or a one read as a letter in front of a clue's first word.
 LEAD_SPECKS = frozenset("I | ! 1 l".split())
 #: A count and a clue number printed inside a text: "(4) 101 Next clue".
+#: Words a clue's own first letter or number belongs to: "D Day", "1 Down's poet?"
+#: (a cross-reference), "X Factor". lead_speck leaves these alone.
+LEAD_KEEPS = frozenset("Day Hour Down Across Factor".split())
+#: Phrases written in two words that mend_words must not join ("al fresco").
+KEEP_APART = frozenset({"al fresco", "de rigueur"})
+#: A word-piece that common, joined to a non-word piece to a word this many
+#: times rarer, is two words ("to le", "for th", "be de"), not a broken one.
+JOIN_RATIO = 60
+#: Fewest uses a join of two pieces may have (rarer reads "dace" for "dance").
+JOIN_USES = 7
+#: Pieces that end a word on their own: a join with one is a split word.
+JOIN_ENDS = frozenset({"ing", "ed"})
 BLED_COUNT = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)\s*\)\W{0,2}\s*\d{1,3}\s+(?=[A-Z])")
 
 
@@ -412,6 +424,8 @@ def lead_speck(text, is_word, uses):
     if not m:
         return text
     lead, word = m.groups()
+    if word in LEAD_KEEPS:
+        return text
     if lead == word[0] or (lead in LEAD_SPECKS and is_word(word.lower()) and uses(word) >= LEAD_USES):
         return text[2:]
     return text
@@ -438,7 +452,23 @@ def mend_words(text, is_word=None, uses=None):
             return False
         # One piece is no word. (Both words, "in doors", "spy catcher", "noble
         # men": a setter's run-together or cut word is print, left alone.)
-        return not (is_word(x) and is_word(y)) and uses(x + y) >= 1
+        if is_word(x) and is_word(y):
+            return False
+        if x + " " + y in KEEP_APART:
+            return False
+        n = uses(x + y)
+        if n < 1:
+            return False
+        if y in JOIN_ENDS:
+            return True
+        # A piece that is a common word beside a rare join is two words ("to le").
+        word = x if is_word(x) else y
+        return n >= JOIN_USES and uses(word) < n * JOIN_RATIO
+
+    def inflected(w):
+        # "haled": a lexicon word with an ending, not a misreading of "hated"
+        return any(w.endswith(s) and is_word(w[:len(w) - len(s)] + e)
+                   for s, e in (("ed", "e"), ("ed", ""), ("s", ""), ("es", ""), ("ing", ""), ("ing", "e")))
 
     out, i = [], 0
     while i < len(words):
@@ -451,7 +481,8 @@ def mend_words(text, is_word=None, uses=None):
             continue
         around = (words[i - 1][-1:] if i else " ") + (words[i + 1][:1] if i + 1 < len(words) else " ")
         if len(bare) >= 5 and w == bare and bare.isalpha() and bare.islower() and i and "-" not in around \
-                and not is_word(bare) and uses(bare) == 0:
+                and not is_word(bare) and uses(bare) == 0 and not inflected(bare) \
+                and not (i and words[i - 1][-1:] in ".…"):
             alt = {bare[:k] + c + bare[k + 1:] for k, ch in enumerate(bare) for c in SWAPS.get(ch, ())}
             alt = {a for a in alt if is_word(a) and uses(a) >= SWAP_USES}
             out.append(alt.pop() if len(alt) == 1 else w)
