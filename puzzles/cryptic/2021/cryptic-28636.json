@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Pay attention to theme of this puzzle",
     "enumeration": "4"
    },
-   "solution": "MIND"
+   "solution": "MIND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pay attention to",
+      "at": 0,
+      "meaning": "to heed it or take care over it"
+     },
+     {
+      "text": "theme of this puzzle",
+      "at": 17,
+      "meaning": "the puzzle is built round French thinkers, so the thinking faculty itself is its theme"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to the solver to notice what the crossword is about.",
+     "walkthrough": "The theme entries are French thinkers (Pascal, Descartes) and the sculpture The Thinker by Rodin.",
+     "definitionFit": "Heeding something is minding it, and the intellect behind thought is the theme running through the grid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,49 @@
     "text": "Composer and artist traversing the way from Paris to Marseilles",
     "enumeration": "8"
    },
-   "solution": "MASSENET"
+   "solution": "MASSENET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "traversing",
+       "at": 20,
+       "note": "the painter's name stretches across the compass direction, so it holds those letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "artist",
+       "at": 13,
+       "gives": "MANET",
+       "note": "Edouard Manet, the French Impressionist painter"
+      },
+      {
+       "words": "the way from Paris to Marseilles",
+       "at": 31,
+       "gives": "SSE",
+       "note": "Marseilles lies roughly south-south-east of Paris, SSE on the compass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer and a painter are travelling together down France from the capital to the southern port.",
+     "walkthrough": "'The way' is a compass bearing, not a road: Marseilles is south-south-east (SSE) of Paris.",
+     "definitionFit": "Jules Massenet was a French composer of operas such as Manon and Werther."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +127,43 @@
     "text": "Centre half in home game is fab",
     "enumeration": "4"
    },
-   "solution": "MEGA"
+   "solution": "MEGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fab",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Centre half in",
+       "at": 0,
+       "note": "the central half of the letters of the two words, four out of eight, is what is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "home game",
+       "at": 15,
+       "gives": "MEGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer playing centre half in a home fixture is having a brilliant game.",
+     "walkthrough": "'Centre half' is a football position in the surface; here it means the middle four of the eight letters of HOMEGAME.",
+     "definitionFit": "Both are informal terms of enthusiasm meaning excellent or wonderful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Centre"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +177,75 @@
     "text": "Grave statements, perhaps wrong (not right) about it",
     "enumeration": "8"
    },
-   "solution": "EPITAPHS"
+   "solution": "EPITAPHS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grave statements",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 44,
+       "note": "the scrambled letters go around the little word that follows, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 26,
+         "note": "wrong signals that the remaining letters of perhaps are put in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 33,
+           "note": "not tells us to leave out the letter standing for right from perhaps"
+          }
+         ],
+         "parts": [
+          {
+           "words": "perhaps",
+           "at": 18
+          },
+          {
+           "words": "right",
+           "at": 37,
+           "gives": "R"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "it",
+       "at": 50
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Solemn pronouncements are perhaps mistaken, but not correct about something.",
+     "walkthrough": "'Grave' reads as serious; it is a tombstone. 'Wrong' rearranges PEHAPS, and 'about' puts that round the small word.",
+     "definitionFit": "An epitaph is the inscription on a tombstone, so it is literally a statement on a grave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grave"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +269,41 @@
    "group": [
     "5-down",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "justification for existence",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Reformulation of",
+       "at": 0,
+       "note": "reformulating something rewrites it in a new form, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "René's adroit",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "René has a clever way of rephrasing a reason for being alive.",
+     "walkthrough": "René is Descartes, 11 across, which makes the surface fit the theme.",
+     "definitionFit": "The French phrase is used in English for the purpose that gives a person or thing its reason to exist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reformulation"
+    }
+   }
   },
   {
    "number": 6,
@@ -111,7 +317,42 @@
     "text": "Blight on the plant? This needs fencing",
     "enumeration": "10"
    },
-   "solution": "PENTATHLON"
+   "solution": "PENTATHLON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This needs fencing",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Blight",
+       "at": 0,
+       "note": "a blight damages and distorts a plant, so the letters of on the plant are spoiled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on the plant",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant disease has struck, so the garden needs a fence to protect it.",
+     "walkthrough": "'This needs fencing' looks like a garden boundary, but fencing is the sword sport.",
+     "definitionFit": "The modern pentathlon is a five-event contest whose disciplines include fencing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fencing"
+    }
+   }
   },
   {
    "number": 7,
@@ -125,7 +366,41 @@
     "text": "Mathematician contributing to group as calculator",
     "enumeration": "6"
    },
-   "solution": "PASCAL"
+   "solution": "PASCAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mathematician",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "contributing to",
+       "at": 14,
+       "note": "contributing to says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "group as calculator",
+       "at": 30,
+       "gives": "PASCAL",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mathematician helps a group by acting as its calculator.",
+     "definitionFit": "Blaise Pascal was a French mathematician who also built an early mechanical calculator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +424,36 @@
    "group": [
     "8-down",
     "20-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How 7, 11 or 26 across might have announced his resignation?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "How 7, 11 or 26 across might have announced his resignation",
+       "at": 0,
+       "note": "Pascal, Descartes and Rodin were French, and resignation here means accepting fate, not quitting a job"
+      }
+     ]
+    },
+    "spelling": "C'EST LA VIE",
+    "explanation": {
+     "walkthrough": "'Resignation' suggests leaving a post; it means a shrug of acceptance, said in French.",
+     "definitionFit": "The French phrase means 'that's life', the sigh of someone accepting things as they are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "resignation"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +467,52 @@
     "text": "Statue, for example, friend of 26 across returned",
     "enumeration": "5"
    },
-   "solution": "IMAGE"
+   "solution": "IMAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Statue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "returned",
+       "at": 41,
+       "note": "returned means the pieces are read backwards, from end to start"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "for example",
+         "at": 8,
+         "gives": "EG",
+         "note": "EG is the abbreviation for exempli gratia, for example"
+        },
+        {
+         "words": "friend of 26 across",
+         "at": 21,
+         "gives": "AMI",
+         "note": "Rodin was French, and ami is French for friend"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A statue that serves as an example came back to a friend of the sculptor.",
+     "definitionFit": "A statue is a carved likeness, and image covers any such representation of a person or god."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +532,47 @@
      }
     ]
    },
-   "solution": "PLACENAME"
+   "solution": "PLACENAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tours in France, say",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "with parts around middle switched",
+       "at": 34,
+       "note": "the letters on either side of the central letter of the phrase trade places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plane came",
+       "at": 23
+      },
+      {
+       "gives": "NEC"
+      },
+      {
+       "gives": "CEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plane arrives in France carrying tourists, with some seats shuffled mid-flight.",
+     "walkthrough": "PLANECAME has E at its centre; swapping the N before it and the C after it gives PLACENAME. 'Tours' is the city on the Loire, not trips.",
+     "definitionFit": "Tours is the name of a French city, so it is an example of a name for a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Tours"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +586,42 @@
     "text": "Some travel guides in his language for philosopher",
     "enumeration": "9"
    },
-   "solution": "DESCARTES"
+   "solution": "DESCARTES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "philosopher",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Some",
+       "at": 0,
+       "gives": "DES",
+       "note": "des is French for some, and in his language applies to both words"
+      },
+      {
+       "words": "travel guides in his language",
+       "at": 5,
+       "gives": "CARTES",
+       "note": "cartes is French for maps, the guides a traveller uses"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A philosopher consults travel guides written in his own tongue.",
+     "walkthrough": "'In his language' means French for both words: des cartes is 'some maps'.",
+     "definitionFit": "René Descartes was the seventeenth-century French philosopher of 'I think, therefore I am'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +635,47 @@
     "text": "Savoir faire includes the writer being understood",
     "enumeration": "5"
    },
-   "solution": "TACIT"
+   "solution": "TACIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "understood",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 13,
+       "note": "includes means the first piece holds the second within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Savoir faire",
+       "at": 0,
+       "gives": "TACT",
+       "note": "savoir faire is social skill, which is tact"
+      },
+      {
+       "words": "the writer",
+       "at": 22,
+       "gives": "I",
+       "note": "the writer is the setter speaking of themself, so I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Social grace means the writer is taken in the right spirit.",
+     "definitionFit": "Something tacit is implied without being spoken, so it is understood rather than stated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +695,42 @@
      }
     ]
    },
-   "solution": "NONSTOP"
+   "solution": "NONSTOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Express",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "statements of resistance in French",
+       "at": 8,
+       "gives": "NON",
+       "note": "non is French for no, a statement of refusal"
+      },
+      {
+       "words": "English",
+       "at": 47,
+       "gives": "STOP",
+       "note": "stop is the English word of resistance, the second of the pair"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Protest slogans are being voiced in two languages.",
+     "walkthrough": "'Express' looks like a verb meaning to state; it is an adjective, as in an express train.",
+     "definitionFit": "An express service runs straight through without stopping at intermediate stations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Express"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +744,39 @@
     "text": "Uncovered figures like 14 in hundreds — every second",
     "enumeration": "5"
    },
-   "solution": "NUDES"
+   "solution": "NUDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uncovered figures like 14",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "every second",
+       "at": 40,
+       "note": "every second letter is taken, starting from the second letter of the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in hundreds",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Naked statues like Rodin's Thinker are found in their hundreds.",
+     "definitionFit": "The Thinker is an unclothed figure, and nudes are artworks showing bodies without clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +796,63 @@
      }
     ]
    },
-   "solution": "THETHINKER"
+   "solution": "THETHINKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sculpture",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "at": 19,
+       "note": "interrupting means one piece breaks into the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "man who repairs",
+       "at": 32,
+       "gives": "TINKER",
+       "note": "a tinker was a travelling mender of pots and pans"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Heartless",
+         "at": 0,
+         "note": "heartless means the central letter is cut out of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old Tory",
+         "at": 10,
+         "gives": "HEATH",
+         "note": "Edward Heath was Conservative prime minister in the 1970s"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former Conservative barges in on a repairman fixing a statue.",
+     "walkthrough": "Heath was the British prime minister in 1970-74; minus its heart it leaves HETH, which sits after the first letter of the mender.",
+     "definitionFit": "Rodin's famous bronze of a seated man deep in thought is a single sculpture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +866,48 @@
     "text": "Caught bringing in line put out",
     "enumeration": "7"
    },
-   "solution": "NETTLED"
+   "solution": "NETTLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put out",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bringing in",
+       "at": 7,
+       "note": "bringing in means the first piece takes the second inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Caught",
+       "at": 0,
+       "gives": "NETTED",
+       "note": "netted means caught, as a fish is"
+      },
+      {
+       "words": "line",
+       "at": 19,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman caught something by bringing in the line he had cast out.",
+     "walkthrough": "'Put out' looks like casting a line; it means annoyed.",
+     "definitionFit": "To be put out is to be irritated, and nettled means stung into annoyance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Caught"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +921,55 @@
     "text": "Drives without a third and second gear",
     "enumeration": "5"
    },
-   "solution": "DRESS"
+   "solution": "DRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gear",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without a third",
+         "at": 7,
+         "note": "a third of the six letters, the central two, are dropped from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Drives",
+         "at": 0
+        },
+        {
+         "gives": "IV"
+        }
+       ]
+      },
+      {
+       "words": "second",
+       "at": 27,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist drives without using third gear, only second.",
+     "walkthrough": "'Gear' looks like part of the car; it means clothing.",
+     "definitionFit": "Gear is informal for clothes, and dress is clothing of a particular kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1009,35 @@
     "text": "Graphic artist who often shows latitude at work?",
     "enumeration": "8"
    },
-   "solution": "MAPMAKER"
+   "solution": "MAPMAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Graphic artist who often shows latitude at work?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Graphic artist who often shows latitude at work",
+       "at": 0,
+       "note": "latitude seems to mean leeway, but this artist draws the parallel lines on a map"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Latitude' suggests freedom; it is the lines of latitude marked on charts.",
+     "definitionFit": "A cartographer draws maps, which commonly mark lines of latitude across them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "latitude"
+    }
+   }
   },
   {
    "number": 20,
@@ -366,7 +1070,49 @@
     "text": "Compete over parts in theatre — one gets them in shows",
     "enumeration": "8"
    },
-   "solution": "VIEWINGS"
+   "solution": "VIEWINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shows",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 8,
+       "note": "in a down answer, the first piece sits over the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Compete",
+       "at": 0,
+       "gives": "VIE",
+       "note": "to vie is to compete"
+      },
+      {
+       "words": "parts in theatre — one gets them in",
+       "at": 13,
+       "gives": "WINGS",
+       "note": "the wings are the side areas of a stage, where performers wait to go on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Actors compete for roles in the theatre and land them in productions.",
+     "walkthrough": "'Parts' looks like acting roles; they are parts of the building, the wings.",
+     "definitionFit": "Viewings are occasions when something is shown, such as an exhibition or a property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1126,72 @@
     "text": "Has turned over pages, one chapter relating to poetess",
     "enumeration": "7"
    },
-   "solution": "SAPPHIC"
+   "solution": "SAPPHIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "relating to poetess",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 11,
+         "note": "over means the letters lie across, and so around, the pages"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned",
+           "at": 4,
+           "note": "turned means the word Has is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Has",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "words": "pages",
+         "at": 16,
+         "gives": "PP"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 23,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      },
+      {
+       "words": "chapter",
+       "at": 27,
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has flicked through pages to a chapter about a woman poet.",
+     "definitionFit": "Sappho was the Greek lyric poet of Lesbos, and Sapphic describes her or her verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1205,68 @@
     "text": "Kind of speech I had given shortly after power drink",
     "enumeration": "6"
    },
-   "solution": "PIDGIN"
+   "solution": "PIDGIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kind of speech",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 35,
+       "note": "after places the contracted pronoun phrase next after the abbreviation for power"
+      }
+     ],
+     "parts": [
+      {
+       "words": "power",
+       "at": 41,
+       "gives": "P"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 27,
+         "note": "shortly means I had is cut down to its contracted form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I had",
+         "at": 15,
+         "gives": "IHAD"
+        },
+        {
+         "gives": "HA"
+        }
+       ]
+      },
+      {
+       "words": "drink",
+       "at": 47,
+       "gives": "GIN",
+       "note": "gin is a spirit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "I gave a talk soon after having a strong drink.",
+     "walkthrough": "'shortly' turns I HAD into I'D, a contraction, by dropping HA.",
+     "definitionFit": "A pidgin is a simplified language that grows up between speakers with no common tongue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1291,34 @@
     "24-down",
     "28-down",
     "18-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "5 17 for 11?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "5 17 for 11",
+       "at": 0,
+       "note": "the reason for being of Descartes, the thinker who rested existence on thought"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Descartes made thinking the proof of his existence, so his famous Latin dictum is literally his justification for existing.",
+     "definitionFit": "The Latin 'I think, therefore I am' is Descartes' founding argument that he exists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1332,42 @@
     "text": "Author understands what 7 had in 1",
     "enumeration": "7"
    },
-   "solution": "PENSEES"
+   "solution": "PENSEES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "what 7 had in 1",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Author",
+       "at": 0,
+       "gives": "PEN",
+       "note": "to author a text is to pen it"
+      },
+      {
+       "words": "understands",
+       "at": 7,
+       "gives": "SEES",
+       "note": "sees as in 'I see' means understands"
+      }
+     ]
+    },
+    "spelling": "PENSÉES",
+    "explanation": {
+     "surface": "A writer grasps what was in a mathematician's head.",
+     "walkthrough": "7 is PASCAL, 1 is MIND; his Pensées is the famous collection of his thoughts.",
+     "definitionFit": "Pensées is French for thoughts, which Pascal had in mind and which became his best-known book."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1381,49 @@
     "text": "Eg including this artist is superficially damaging",
     "enumeration": "5"
    },
-   "solution": "RODIN"
+   "solution": "RODIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this artist",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 3,
+       "note": "the abbreviation holds the artist inside it, so it is taken away from the outside of the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "superficially damaging",
+       "at": 28,
+       "gives": "ERODING",
+       "note": "eroding wears away a surface"
+      },
+      {
+       "words": "Eg",
+       "at": 0,
+       "gives": "EG",
+       "note": "taken as written, the two letters on the outside"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An example featuring this sculptor turns out to be harmful to his reputation.",
+     "walkthrough": "The clue reads backwards from the usual: put the artist inside 'Eg' and you get a word meaning superficially damaging.",
+     "definitionFit": "Auguste Rodin was the French sculptor, an artist in bronze and marble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "superficially"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1437,41 @@
     "text": "Part of friendship that meant nothing to 7, 11, or 26",
     "enumeration": "4"
    },
-   "solution": "RIEN"
+   "solution": "RIEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that meant nothing to 7, 11, or 26",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "at": 0,
+       "note": "part of means only a run of letters inside the word is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "friendship",
+       "at": 8,
+       "gives": "RIEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Friendship was of no importance to these Frenchmen.",
+     "definitionFit": "Rien is French for nothing, the word Pascal, Descartes or Rodin would use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 27,
@@ -475,7 +1485,28 @@
     "text": "Source of information that bears fruit",
     "enumeration": "9"
    },
-   "solution": "GRAPEVINE"
+   "solution": "GRAPEVINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Source of information",
+      "at": 0,
+      "meaning": "hearing something on the ... means getting it by rumour"
+     },
+     {
+      "text": "that bears fruit",
+      "at": 22,
+      "meaning": "the plant that yields grapes"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Rumours travel along an informal chain called the grapevine, and the vine plant itself produces grapes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 28,
@@ -508,7 +1539,48 @@
     "text": "Weapon European repeatedly used, seizing power",
     "enumeration": "4"
    },
-   "solution": "EPEE"
+   "solution": "EPEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Weapon",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seizing",
+       "at": 33,
+       "note": "seizing means the string of letters grips the next piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "European repeatedly used",
+       "at": 7,
+       "gives": "EEE",
+       "note": "E is the abbreviation for European, and repeatedly used gives it three times over"
+      },
+      {
+       "words": "power",
+       "at": 41,
+       "gives": "P"
+      }
+     ]
+    },
+    "spelling": "ÉPÉE",
+    "explanation": {
+     "surface": "A European weapon was used over and over to seize control.",
+     "walkthrough": "P goes in after the first of the three Es.",
+     "definitionFit": "An épée is a fencing sword, heavier than a foil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -522,7 +1594,40 @@
     "text": "One of those points of great danger heroic Frenchman's between",
     "enumeration": "9"
    },
-   "solution": "EPICENTRE"
+   "solution": "EPICENTRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of those points of great danger",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "heroic",
+       "at": 36,
+       "gives": "EPIC",
+       "note": "epic means heroic, on a grand scale"
+      },
+      {
+       "words": "Frenchman's between",
+       "at": 43,
+       "gives": "ENTRE",
+       "note": "entre is French for between"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brave Frenchman stands between perilous spots.",
+     "definitionFit": "The epicentre is the point above an earthquake's origin, where the shaking and danger are worst."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 31,
@@ -536,7 +1641,61 @@
     "text": "Dance club we left, returning after band's performance",
     "enumeration": "5"
    },
-   "solution": "GIGUE"
+   "solution": "GIGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 30,
+       "note": "after places the reversed club following the performance"
+      }
+     ],
+     "parts": [
+      {
+       "words": "band's performance",
+       "at": 36,
+       "gives": "GIG",
+       "note": "a gig is a band's concert"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 20,
+         "note": "returning means the club's letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "club we left",
+         "at": 6,
+         "gives": "EU",
+         "note": "the EU, the club of nations the UK left in 2020"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After the band played, we left the club and came back.",
+     "walkthrough": "'club we left' is the European Union, which Britain left; reversed it gives UE.",
+     "definitionFit": "A gigue is a lively Baroque dance, the French form of the jig."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   }
  ]
 }
