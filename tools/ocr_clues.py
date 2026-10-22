@@ -3420,6 +3420,17 @@ def family_rates(out, heard, whose, mine, order):
     return rates
 
 
+class GridCount(str):
+    """A bare count the grid gave a clue because no reader's enumeration
+    survived: the light's length, not the print's. It marks the clue
+    (build files it as "countFrom": "grid"), and only such a count may have
+    lost the word breaks the paper printed (repair_fetched.restore_word_breaks);
+    a count a reader read stays as printed, even when bare."""
+
+    def __new__(cls, length):
+        return super().__new__(cls, str(length))
+
+
 def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, names=None, mine=None,
               rates=None):
     """The laid clues with each clue's text put to every reading; returns
@@ -3480,7 +3491,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
             if kept and clue_text.count_total(kept.group(1)) == cells:
                 text = text[:kept.start()].rstrip()
                 enum = re.sub(r"\s+", "", kept.group(1)).replace(".", ",")
-            enum = enum or (str(lengths[lid]) if (lengths or {}).get(lid) else None)
+            enum = enum or (GridCount(lengths[lid]) if (lengths or {}).get(lid) else None)
             inside = None
         if inside:
             blank[lid] = "another clue's number inside it"
@@ -3505,7 +3516,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
                 text = text[:at] + text[at].upper() + text[at + 1:]
         if enum is None and (lengths or {}).get(lid):
             # The other readings vote on the words, so a cut-short end shows.
-            enum = str(lengths[lid])
+            enum = GridCount(lengths[lid])
         if enum is None and not uncounted:
             # The count lost with the clue's end: the words may be cut short.
             blank[lid] = "no count read"

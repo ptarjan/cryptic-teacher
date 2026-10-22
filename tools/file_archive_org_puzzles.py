@@ -2032,6 +2032,8 @@ def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None,
         entries.append(e)
         by_id[entry_id(e)] = e
     seps, groups = {}, {}
+    # The counts the grid gave (ocr_clues.GridCount): no reader's survived.
+    from_grid = {lid for lid, (_, enum, _) in laid.items() if isinstance(enum, ocr_clues.GridCount)}
     for lid, (text, enum, group) in list(laid.items()):
         # A ";" between counts that fill the light is a misread ",".
         enum = enumeration.comma_misread(enum, sum(by_id[i]["length"] for i in group or [lid] if i in by_id))
@@ -2065,6 +2067,8 @@ def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None,
         e["clue"] = enumeration.clue(line, separators=seps.get(lid), missing=not text.strip())
         if kept := [t for t in (printed or {}).get(lid, ()) if t in text.split()]:
             e["clue"]["asPrinted"] = kept
+        if enum and lid in from_grid and e["clue"].get("enumeration") == str(enum):
+            e["clue"]["countFrom"] = "grid"
         if lid in groups:
             e["group"] = groups[lid]
         e["solution"] = None

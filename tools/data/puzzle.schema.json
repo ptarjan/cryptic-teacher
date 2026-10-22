@@ -711,6 +711,10 @@
       "pattern": "^\\S+$"
      }
     },
+    "countFrom": {
+     "description": "Where an OCR-filed clue's `enumeration` came from when it is not the print's: \"grid\", no reading's enumeration survived and the filer wrote the light's length. Only such a bare count may have lost the word breaks the paper printed (tools/repair_fetched.restore_word_breaks acts on these alone); a count without it was read off the page and stays as printed.",
+     "const": "grid"
+    },
     "missing": {
      "description": "The paper printed no words for this clue (`text` is absent; `enumeration` may still be present). Kept, never filled in: a blank can be the setter's joke (cryptic-30098 12-across).",
      "const": true

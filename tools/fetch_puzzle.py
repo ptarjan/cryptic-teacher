@@ -583,12 +583,17 @@ def lost_word_breaks(puzzle, known=None):
     enumeration they settle on (a repair to make), None where they print it
     both ways and settle on neither (a read of the print). `known` is
     answer_breaks()'s pair. A light of a linked answer, or with no answer or a
-    count that is not its answer's length, is left out."""
+    count that is not its answer's length, is left out. So is a light whose
+    bare count was read off the print (no "countFrom": "grid"): the paper
+    does print a bare count over an answer others print broken (The Times
+    21,933's "(13)" for SHEEPSHEARING), and what it printed stands."""
     breaks, mixed = known or answer_breaks()
     out = {}
     for e in puzzle.get("entries") or ():
         clue, solution = e.get("clue") or {}, e.get("solution")
         if len(e.get("group") or ()) > 1 or not solution or clue.get("missing"):
+            continue
+        if clue.get("countFrom") != "grid":
             continue
         if not re.fullmatch(r"\d+", clue.get("enumeration") or "") or int(clue["enumeration"]) != len(solution):
             continue
