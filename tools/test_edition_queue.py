@@ -2350,11 +2350,12 @@ check("scan share: a tiny ceiling still leaves one scan", 1, eq.scan_share(2, Tr
 check("scan share: no read due leaves the scan pool whole", None, eq.scan_share(10, False))
 
 # Answers-linked rereads of one item go in one process (ANSWERS_BATCH), each edition keeping its own line.
-def _al_unit(rel, reason="inputs changed: answers linked x1", rank=3):
-    return {"kind": "read", "paper": "gale", "rel": rel, "rank": rank, "reason": reason, "needs": []}
+def _al_unit(rel, reason="inputs changed", rank=3, detail="answers linked x1"):
+    return {"kind": "read", "paper": "gale", "rel": rel, "rank": rank, "reason": reason, "detail": detail, "needs": []}
 _al = [_al_unit(f"GaleTimes2001UKEnglish/2001-04-{d:02d}") for d in range(1, 13)]
-_al += [_al_unit("GaleTimes2002UKEnglish/2002-01-01"), _al_unit("GaleTimes2001UKEnglish/2001-05-01", "never read", 1),
-        _al_unit("GaleTimes2001UKEnglish/2001-05-02", rank=4)]
+_al += [_al_unit("GaleTimes2002UKEnglish/2002-01-01"), _al_unit("GaleTimes2001UKEnglish/2001-05-01", "never read", 1, ""),
+        _al_unit("GaleTimes2001UKEnglish/2001-05-02", rank=4),
+        _al_unit("GaleTimes2001UKEnglish/2001-05-03", detail="answers linked x1, answers in the next issue's text x1")]
 _al_c = [(u, eq.key_of(u)) for u in _al]
 _mates = eq.batch_mates(_al[0], _al_c, {eq.key_of(_al[1])}, {eq.key_of(_al[2])}, lambda v: v["rel"] != _al[3]["rel"])
 check("batch: up to ANSWERS_BATCH - 1 same-item, same-rank answers-linked reads, none tried, running or waiting",

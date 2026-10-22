@@ -1210,14 +1210,26 @@ BATCH_EXTRA_SECONDS = 120
 BATCH_LIMIT_MAX = 3600
 
 
+def answers_linked(unit):
+    """Whether read `unit` is due only because a solution grid is linked now (its reread is answers_only):
+    its reason is one of CPU_ONLY, or its "likely" kinds (what fa.likely predicts the read files, shown
+    as its detail, "answers linked x1") are all "answers linked" (the reason itself is then "inputs
+    changed" or "scan stale, answers missing")."""
+    if unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
+        return False
+    if (unit.get("reason") or "").startswith(CPU_ONLY):
+        return True
+    kinds = set(unit.get("likely") or ()) or {k.rpartition(" x")[0] or k for k in (unit.get("detail") or "").split(", ") if k}
+    return kinds == {"answers linked"}
+
+
 def batch_mates(unit, cands, tried, busy, ready, size=None):
     """The reads that go with answers-linked read `unit` in its process: up to `size` - 1 (ANSWERS_BATCH) of
     `cands` ((unit, key) pairs in the queue's order) of the same paper and item (the part of the edition's
     name before the "/"), the same rank, due for the same cheap reason, not tried nor busy and for which
     `ready(unit)` holds (not waiting on a scan or the VLM). Empty for any other unit."""
     size = ANSWERS_BATCH if size is None else size
-    if size <= 1 or unit["kind"] != "read" or unit["paper"] not in fa.FILERS \
-            or not (unit.get("reason") or "").startswith(CPU_ONLY):
+    if size <= 1 or not answers_linked(unit):
         return []
     item = unit["rel"].partition("/")[0]
     out = []
@@ -1225,8 +1237,7 @@ def batch_mates(unit, cands, tried, busy, ready, size=None):
         if len(out) >= size - 1:
             break
         if (v["paper"] != unit["paper"] or v["rel"] == unit["rel"] or v["rank"] != unit["rank"]
-                or v["rel"].partition("/")[0] != item or k in tried or k in busy
-                or not (v.get("reason") or "").startswith(CPU_ONLY)):
+                or v["rel"].partition("/")[0] != item or k in tried or k in busy or not answers_linked(v)):
             continue
         if ready(v):
             out.append(v)
