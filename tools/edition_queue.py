@@ -2659,7 +2659,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         ready = []
         heads = {}  # rank: the scans the next full read pool at that rank needs, or None (not full)
 
-        def fed(u, ready=ready, reads=read_cands, busy=busy, waits=waits, heads=heads):
+        def ready_reads(reads=read_cands, busy=busy, waits=waits):
+            return [v for v, k in reads if k not in tried and k not in busy and not waits(v) and not vlm_waits(v)]
+
+        def fed(u, ready=ready, heads=heads):
             """Whether scan `u` only feeds a backlog: the next full read pool
             of ready reads ranked as it or more urgent, in the queue's order,
             are there and none needs it. Then its desktop CPU (scans run above
@@ -2668,8 +2671,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if vlm_full:
                 return False  # reads cannot start (vlm-bound), so no scan is held for their CPU
             if not ready:
-                ready.append([v for v, k in reads if k not in tried
-                              and k not in busy and not waits(v) and not vlm_waits(v)])
+                ready.append(ready_reads())
             if u["rank"] not in heads:
                 nxt = [v for v in ready[0] if v["rank"] <= u["rank"]][:pools["read"]]
                 heads[u["rank"]] = ({(v["paper"], r) for v in nxt for r in v["needs"]}
@@ -2696,6 +2698,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                         fill_scan, scanning
                         ) if (free.get("read", 0) > 0 and may_start() and not yielding and not starved) else []
         fill_keys = {key_of(u) for u in fill}
+        if fill and free.get("scan", 0) > 0 and not vlm_full:
+            # The fill reads start ahead of the queue: the pool fed() asks about is the one before they begin,
+            # else a scan no read waits on is "not fed" the moment they take the last read slot and starts
+            # ahead of them (the queue lists scans first).
+            ready.append(ready_reads())
         # Paul 10-21: CPU-only units (answers-linked rereads, scans) filled the whole unit ceiling and the
         # GPU sat idle. While fills are wanted, that many ceiling slots (at most a third) are kept for them.
         reserve = min(len(fill), max(1, mem_gate.unit_ceiling() // 3)) if fill else 0
