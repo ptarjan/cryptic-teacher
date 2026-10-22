@@ -195,6 +195,7 @@ LAYOUT = [
     ("fetching", "tools/fetch_lexicon.sh", "downloads the Lufz/Exet lexicon the grid filler needs"),
 
     ("annotating", "tools/annotate_prompt.md", "the prompt the daily Claude Code job follows to annotate"),
+    ("fetching", "tools/vlm_solution_prompt.md", "the prompt the vision model gets to read one row of a printed solution grid"),
     ("annotating", "tools/build_annotate_prompt.py", "regenerates that prompt’s wordplay grammar from tools/wordplay.py, and its worked examples from the corpus in the shape the run writes"),
     ("annotating", "STYLE.md", "the standing style rules, read whole by every annotating run"),
     ("annotating", "APP.md", "how the app presents an annotation and how it ships — separate from style"),
