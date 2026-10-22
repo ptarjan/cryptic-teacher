@@ -2280,10 +2280,17 @@ def grid_first_windows(img, paper):
     reads titles in (title_bands), and the bands solution_bands reads headings
     in over each ruled solution grid. None where the page has no ruled grid."""
     plain = _PLAIN["grids_on"]
-    grids = [g for g in plain(img) if grid_ruled(img, g)]
+    # Measured at the page's own scale (shaped_on): a page scanned wider than
+    # SCAN_WIDTH (Gale 2005-06, 4664px) has its puzzle grid too wide for the
+    # unscaled grid_shaped, and its solution grid alone passed for the puzzle's.
+    grids = [g for g in plain(img, 2, lambda b: shaped_on(img, b)) if grid_ruled(img, g)]
     if not grids:
         return None
     wins = [b for g in grids for b in title_bands(img, g, False, paper.title_heights)]
+    # The title heading the clue column right of the grid (Gale 2005..2006-10:
+    # "THE TIMES CROSSWORD 23,142", its top level with the grid's).
+    wins += [(g[2], max(0, g[1] - GRID_FIRST_PAD), min(img.width, g[2] + 2 * (g[2] - g[0])),
+              min(img.height, g[1] + TITLE_REACH)) for g in grids]
     return wins + solution_bands(img, [])
 
 
