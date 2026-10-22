@@ -553,6 +553,21 @@ done = rf.mend_clue_text(only, learned_only=True)
 check(" ".join(sorted(done)), "1-across 2-across 3-down", "a speck, a stub and a stroke are mended; a drop bar and a lone stop are not")
 check(only["entries"][3]["clue"]["text"], "I Long pair of shorts?", "the older bar rule is not run")
 
+print("--mends runs the full mend_text less the rules found wrong on held text, and names the rule of each change")
+full = {"entries": [
+    {"number": 1, "direction": "across", "clue": {"text": "Origin of . High Church music ?", "enumeration": "5"}},
+    {"number": 2, "direction": "across", "clue": {"text": "D Day, camouflage?", "enumeration": "5"}},
+    {"number": 3, "direction": "down", "clue": {"text": "Put in the slippers, de rigueur for travel", "enumeration": "5"}},
+    {"number": 4, "direction": "down", "clue": {"text": "Lose one's footing in an expedition (4) 271 Becoming hot", "enumeration": "4"}},
+    {"number": 5, "direction": "down", "clue": {"text": "4In a manner of speaking", "enumeration": "5"}}]}
+trail = []
+done = rf.mend_clue_text(full, skip=rf.EXCLUDED_MENDS, log=trail)
+check(" ".join(sorted(done)), "1-across 4-down 5-down", "a stray stop, a bled neighbour and a glued number are mended; D Day is left")
+check(full["entries"][1]["clue"]["text"], "D Day, camouflage?", "lead_speck is excluded")
+check(full["entries"][2]["clue"]["text"], "Put in the slippers, de rigueur for travel", "mend_words is excluded")
+check(" ".join(sorted(r for _p, _l, r, _w, _n in trail)), "bled_count glued_number stray_underscore", "each change is logged under its rule")
+check("mend_words" in rf.EXCLUDED_MENDS and "lead_speck" in rf.EXCLUDED_MENDS, "True", "the two wrong rules are excluded")
+
 print("a reread's stray neighbouring words are what a spoiled clue's repair takes back")
 check(str(rf.grown("Fluid that comes with a plant", "Fluid that comes with a plant Wales. Midlands.")), "True", "two stray words after the clue are grown")
 check(str(rf.grown("Understand something in a tongue", "Understand I something in a tongue")), "True", "a stray letter inside is grown")
