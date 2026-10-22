@@ -2349,6 +2349,22 @@ check("scan share: ceiling 10 with reads due holds scans to 3", 3, eq.scan_share
 check("scan share: a tiny ceiling still leaves one scan", 1, eq.scan_share(2, True))
 check("scan share: no read due leaves the scan pool whole", None, eq.scan_share(10, False))
 
+# Answers-linked rereads of one item go in one process (ANSWERS_BATCH), each edition keeping its own line.
+def _al_unit(rel, reason="inputs changed: answers linked x1", rank=3):
+    return {"kind": "read", "paper": "gale", "rel": rel, "rank": rank, "reason": reason, "needs": []}
+_al = [_al_unit(f"GaleTimes2001UKEnglish/2001-04-{d:02d}") for d in range(1, 13)]
+_al += [_al_unit("GaleTimes2002UKEnglish/2002-01-01"), _al_unit("GaleTimes2001UKEnglish/2001-05-01", "never read", 1),
+        _al_unit("GaleTimes2001UKEnglish/2001-05-02", rank=4)]
+_al_c = [(u, eq.key_of(u)) for u in _al]
+_mates = eq.batch_mates(_al[0], _al_c, {eq.key_of(_al[1])}, {eq.key_of(_al[2])}, lambda v: v["rel"] != _al[3]["rel"])
+check("batch: up to ANSWERS_BATCH - 1 same-item, same-rank answers-linked reads, none tried, running or waiting",
+      [f"GaleTimes2001UKEnglish/2001-04-{d:02d}" for d in (5, 6, 7, 8, 9, 10, 11)], [v["rel"] for v in _mates])
+check("batch: a unit of another reason batches nothing", [], eq.batch_mates(_al[13], _al_c, set(), set(), lambda v: True))
+check("batch: a batch of one is no batch", [], eq.batch_mates(_al[0], _al_c, set(), set(), lambda v: True, size=1))
+check("batch: the read limit grows per edition, within 3600", (1200, 2040, 3600, 3600),
+      (eq.unit_limit(_al[0], 1200), eq.unit_limit({**_al[0], "batch": ["a"] * 7}, 1200),
+       eq.unit_limit({**_al[0], "batch": ["a"] * 7}, 3600), eq.unit_limit({**_al[0], "batch": ["a"] * 30}, 1200)))
+
 print("FAILS", fails)
 
 print("test_edition_queue: all passed" if not fails else "test_edition_queue: FAILED")
