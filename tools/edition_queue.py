@@ -690,8 +690,8 @@ def evidence_reason(reason):
 #: the same fix reread (10-18) no longer leave that column blank. Also ~270 pages of 2006-11 whose rescan
 #: found a title the read never covered ("titles changed", no verdict: a puzzle never read). Each is concrete
 #: evidence of a page that can file, so planned, for the years named here (widen them as each is read).
-THREE_COLUMNS = "short Times page, its third clue column read since"
-THREE_COLUMNS_YEARS = (2006, 2007)
+THREE_COLUMNS = fa.THREE_COLUMNS
+THREE_COLUMNS_YEARS = fa.THREE_COLUMNS_YEARS
 #: The Gale Times years whose "titles changed" rereads (a title no verdict covers) are planned.
 NEW_TITLE_YEARS = (2000, 2014)
 
