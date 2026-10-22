@@ -157,58 +157,65 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drunk by",
+       "at": 10,
+       "note": "something drunk by a person goes inside them, so these letters are taken into the others"
+      }
+     ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "40% cut",
+           "at": 28,
+           "note": "cutting forty per cent of a five-letter name loses two letters, keeping the first three"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Simpson",
+           "at": 19,
+           "gives": "HOMER",
+           "note": "Homer Simpson, the cartoon father in The Simpsons"
+          }
+         ]
+        },
+        {
+         "words": "with",
+         "at": 36,
+         "gives": "W"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Duff",
-         "note": "duff means faulty or useless, so the following word is broken up and rearranged"
+         "at": 0,
+         "note": "duff means faulty or useless, so the letters of beer are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "40% cut",
-           "note": "cutting forty percent of a five-letter name trims two of its letters, here from the end"
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Simpson",
-             "gives": "HOMER",
-             "note": "Homer Simpson of the cartoon"
-            },
-            {
-             "words": "beer",
-             "note": "taken as written, then rearranged"
-            }
-           ]
-          },
-          {
-           "gives": "ER"
-          }
-         ]
+         "words": "beer",
+         "at": 5
         }
        ]
-      },
-      {
-       "words": "with",
-       "gives": "W",
-       "note": "W is the standard abbreviation for with"
       }
      ]
     },
     "explanation": {
-     "surface": "Duff is the beer Homer Simpson drinks in the cartoon, and the clue reads as a description of it.",
-     "walkthrough": "Duff is the fictional beer in The Simpsons, so 'Duff beer' reads as a brand; here 'Duff' is the anagram signal.",
-     "definitionFit": "Homebrew is beer or other liquor made at home, a concoction from a domestic setting."
+     "surface": "Homer Simpson knocks back his favourite Duff beer, a joke for fans of the cartoon.",
+     "walkthrough": "Duff is Homer Simpson's brand of beer in the show, but here 'Duff' says the letters of BEER are scrambled into EBRE. HOM (Homer losing 40%) plus W then holds EBRE.",
+     "definitionFit": "Homebrew is beer or wine made at home rather than in a brewery, a home-made concoction."
     },
     "features": {
      "answerInScene": true,
@@ -1248,33 +1255,42 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SPARKLER",
      "indicators": [
       {
        "text": "According to Spooner",
-       "note": "Dr Spooner famously swapped the opening sounds of words, so the initial sounds trade places"
+       "at": 0,
+       "note": "Rev Spooner was famous for swapping the opening sounds of words, so the starts of the two halves are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "delphinium",
-       "gives": "SPARKLER",
-       "soundsLike": "SPARK LUR",
-       "note": "the plant larkspur, split into lark and spur, with the opening sounds swapped"
+       "at": 22,
+       "gives": "LARK",
+       "note": "the larkspur is a kind of delphinium, and its name falls into two halves, lark and spur; spur is said the way the swap leaves it sounding"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SPER",
+       "parts": [
+        {
+         "words": "delphinium",
+         "at": 22,
+         "gives": "SPUR",
+         "note": "the second half of the delphinium's name, spur, spelt as it sounds once its opening is swapped"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner insists a delphinium is a small jewel.",
-     "walkthrough": "Larkspur is a common name for the delphinium.",
-     "definitionFit": "Sparkler is slang for a diamond or other glittering jewel, so a little gem."
+     "surface": "A gardener calls a delphinium bloom a little gem in Spooner's mangled words.",
+     "walkthrough": "Swap the openings of LARK and SPUR to get SPARK LUR, which sounds like the answer; the swap is by sound, so the spelling of the second half changes.",
+     "definitionFit": "Sparkler is slang for a diamond, a small precious stone that glitters."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "aptDefinition": false,
      "misdirectedWord": "gem"
     }
    }
@@ -1461,67 +1477,78 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MISSHAPEN",
-     "indicators": [
-      {
-       "text": "full of",
-       "note": "a thing full of something has it inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "nth",
+       "n": 5,
        "indicators": [
         {
-         "text": "messy",
-         "note": "a messy thing is disordered, so the letters fall out of order"
+         "text": "Fifth of",
+         "at": 0,
+         "note": "the fifth letter of the word November is the one picked"
         }
        ],
        "parts": [
         {
-         "op": "nth",
-         "n": 5,
-         "indicators": [
-          {
-           "text": "Fifth of",
-           "note": "the fifth of a word is its fifth letter"
-          }
-         ],
+         "words": "November",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "full of",
+         "at": 29,
+         "note": "full of means the letters that follow are held inside the others"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "words": "November",
-           "note": "the fifth letter"
+           "words": "is",
+           "at": 18
+          },
+          {
+           "words": "pigsty",
+           "at": 21,
+           "gives": "PEN",
+           "note": "a pen is an enclosure for animals, such as a pigsty"
           }
          ]
         },
         {
-         "words": "is",
-         "note": "taken as written"
-        },
-        {
-         "words": "pigsty",
-         "gives": "PEN",
-         "note": "a pen is an enclosure for animals"
-        },
-        {
-         "words": "ash",
-         "note": "the letters rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "messy",
+           "at": 37,
+           "note": "messy means in disorder, so the letters of ash are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ash",
+           "at": 43
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "On the fifth of November, Bonfire Night, a pigsty full of bonfire ash looks grotesque.",
-     "walkthrough": "'Fifth of November' reads as Bonfire Night, but it asks for the fifth letter of November.",
-     "definitionFit": "Misshapen means deformed or badly formed, which is what something grotesque is."
+     "surface": "A grim picture of a filthy pigsty after Bonfire Night, strewn with ash.",
+     "walkthrough": "The fifth of November is Guy Fawkes Night in Britain, but here it means letter five of NOVEMBER. IS and PEN together hold SHA, the shuffled ASH.",
+     "definitionFit": "Something misshapen is deformed or distorted in form, which is what a grotesque figure looks like."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Fifth"
     }
    }
