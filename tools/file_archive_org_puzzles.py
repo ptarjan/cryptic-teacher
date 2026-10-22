@@ -997,7 +997,11 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
 
 #: Where a clue starts inside a recogniser's line: its number ("12", "l4",
 #: "I6", "18:") and a capital.
-NEXT_CLUE = re.compile(r"(?<=[\s\-])(?:\d{1,2}|[IlJ|!]\d|\d[IlsSoO])\W{0,2}\s*[A-Z\"'\u2018\u201c]")
+#: A stop may close the line before it with no space ("out-. .23' Fires", Gale 1956-02-16's 23 down).
+NEXT_CLUE = re.compile(r"(?<=[\s\-.])(?:\d{1,2}|[IlJ|!]\d|\d[IlsSoO])\W{0,2}\s*[A-Z\"'\u2018\u201c]")
+#: The solution box's heading ("SOLUTION OF PUZZLE No. 7,091", read "SoLUTioN'orPuzzLB"), which the
+#: 1950s Times sets in the row of the clue beside it: a cut like a clue's number (Gale 1952-12-13's 8 down).
+SOLUTION_HEAD = re.compile(r"(?<=[\s.\-])s[o0]l[ui]t[il1]?[o0]n\W*[o0]\w?\W*p[uv]zz", re.IGNORECASE)
 #: How far, in pixels, from a gutter a clue's number in a line read across
 #: it may be placed by its share of the line's characters.
 SPLIT_SLACK = 80
@@ -1026,7 +1030,8 @@ def split_across(ws, gutters, height=None):
             if not (w[0] < x and w[2] > x + ACROSS_GUTTER):
                 continue
             text, width = w[4], w[2] - w[0]
-            at = [(abs(w[0] + width * m.start() / len(text) - x), m.start()) for m in NEXT_CLUE.finditer(text)]
+            at = [(abs(w[0] + width * m.start() / len(text) - x), m.start())
+                  for m in [*NEXT_CLUE.finditer(text), *SOLUTION_HEAD.finditer(text)] if m.start()]
             near = min((a for a in at if a[0] <= SPLIT_SLACK), default=None)
             if near is None and w[0] < x - ACROSS_GUTTER and w[2] - x <= SPLIT_SPILL * (x - w[0]) and " " in text:
                 # A row's end that spilled over a narrow gutter ("(25 and part back (4,3,4) up!",
@@ -1104,7 +1109,12 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
             heading = numbered_heading(line[4])
             if heading:
                 line = line[:4] + (heading,)
-            if not kept and not re.match(r"\W*(across|down)\b", line[4], re.I) and last is None:
+            # A heading read badly ("ACRUSS", Gale 1952-04-17's) is the heading, kept: dropped, the
+            # list is headless and file_trove_puzzles.heads() puts ACROSS back before the first
+            # plain clue number, losing a linked first clue ("1, 9 To give quarter") and with it
+            # the tail light, which then no reading lays (Gale 1952-04-17, 1952-09-18, 1954-08-10).
+            if not kept and not re.match(r"\W*(across|down)\b", line[4], re.I) and last is None \
+                    and not heading_of(line[4]):
                 # The column's first line is ACROSS, DOWN or a clue: a stray
                 # word the grid's numbers left is not. A column under the
                 # grid after the first may open on a clue whose number was
@@ -5876,7 +5886,11 @@ def short_three_columns(row):
 #: 10-21 23:42: suspect() keeps the print's own tokens ("l.-b.-w.", "tam-o'-shanter", "N—D—S",
 #: "20cwt", "Ven.", "s. d."), clue_repair.mend_text spaces a run of dashes, and clue_text marks a clue
 #: whose number was lost after a count wrapped onto its own line: 8 of 10 one-blank 1950s Gale pages.
-REREAD_UNFILED = "2026-10-21T23:42:00+00:00"
+#: 10-22 00:25: a misread ACROSS heading ("ACRUSS") no longer dropped from the column (its list lost a linked
+#: first clue, "1, 9 ...", and the tail light no reading laid), a stop-closed line cut at the next clue's
+#: number, the solution box's heading cut off the clue set in its row, a long count's spaces closed: 7 of 8
+#: sample 1950s Gale one-blank pages (no blank clue left), 4 of 4 filed pages unchanged.
+REREAD_UNFILED = "2026-10-22T00:25:00+00:00"
 
 
 def unfiled_blank(row):

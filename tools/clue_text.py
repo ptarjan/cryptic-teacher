@@ -345,6 +345,8 @@ def count_left(text, cells, lights):
     return text[:m.start()].rstrip(" ,;:")
 
 
+#: A closed count of four or more parts, digits and separators only: "(6, 5, 2, 3, 5)".
+_COUNT_LONG = re.compile(r"\((\s*\d{1,2}(?:\s*[,.]\s*\d{1,2}){3,}\s*)\)")
 #: A closed count with specks after it ("(8)'", "(5).·", "(5). _").
 _COUNT_SPECKS = re.compile(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?:[^\w(]|_){1,3}$")
 #: A count whose ")" was read as j or J, or whose "(" was lost, after a word
@@ -359,6 +361,9 @@ def count_closed(line):
     lost ("hair 8j" is "hair (8)"), and the specks after a whole count dropped
     ("(8)'" is "(8)")."""
     line = _COUNT_CLOSE_MISREAD.sub(r" (\1)", line)
+    # A linked clue's long count, its spaces closed ("(6, 5, 2, 3, 5)" is 13 characters, past the
+    # 12 file_trove_puzzles.BRACKET takes as a count, so the clue ran on into the next: Gale 1952-10-15's 1, 9).
+    line = _COUNT_LONG.sub(lambda m: "(" + re.sub(r"\s+", "", m.group(1)) + ")", line)
     return _COUNT_SPECKS.sub(r"\1", line)
 
 
