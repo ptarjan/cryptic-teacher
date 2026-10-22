@@ -826,6 +826,10 @@ CANARY_PROVEN = (
 #: Refusal rereads that a canary or live reading showed still fail: held even for the
 #: CT_NEWEST_FIRST papers, until the cause is fixed. Same tuple shape as CANARY_PROVEN.
 CANARY_FAILED = (
+    # Paul 10-21: "Why are we rereading times when all we want is their solutions": these reread the
+    # clue pages, and live they rewrote the same blanks (~350 writes an hour, 5 new filings).
+    ("times", "unfiled", 1785, 2100, "10-21 live: ~350 writes/h made 5 new filings"),
+    ("gale", "unfiled", 1785, 1949, "10-20 canary: 1 of 3 1945-49 pages with blanks improved"),
 )
 
 
