@@ -229,6 +229,10 @@ def ledger_summary(ledgers=None, path=None):
                     # A torn append (NULs then the next row) once stopped every tick.
                     print(f"gale_inbox: skipped an unreadable line in {k}", file=sys.stderr)
                     continue
+                if not isinstance(row, dict) or "edition" not in row:
+                    # A stray puzzle entry once landed as its own row (10-22).
+                    print(f"gale_inbox: skipped a row with no edition in {k}", file=sys.stderr)
+                    continue
                 acc[row["edition"]] = {"filesHash": row.get("filesHash"), **({"inputs": True} if "inputs" in row else {})}
         if end:
             done += end
