@@ -372,15 +372,20 @@ def repair_pool_gap(new, entry):
         import fix_shape_suspects as F
         import validate_annotations as V
         import wordplay
-        if not V.pool_gaps(wp, clue):
-            return new
-        fixed, used = F.repair_tree(wp, clue, entry.get("solution"), {"poolGap": F.RULE_REPAIRS["poolGap"]})
-        if not used:
-            return new
-        fixed = wordplay.normalize(fixed, clue, entry.get("solution", ""))[0]
-        if V.pool_gaps(fixed, clue):
-            return new
-        return {**new, "wordplay": fixed}
+        # poolGap, and unindicatedBare (the "missing wordplay.noIndicator" first-check failure,
+        # 100 sessions and $27 after the check in one day): a word filed on the wrong node moves
+        # to the bare op, or a spare clue word beside it becomes its indicator.
+        for rule, count in (("poolGap", V.pool_gaps), ("unindicatedBare", lambda t, c: V.unindicated_ops(t))):
+            if not count(wp, clue):
+                continue
+            fixed, used = F.repair_tree(wp, clue, entry.get("solution"), {rule: F.RULE_REPAIRS[rule]})
+            if not used:
+                continue
+            fixed = wordplay.normalize(fixed, clue, entry.get("solution", ""))[0]
+            better = count(fixed, clue) < count(wp, clue)
+            if better and (rule != "poolGap" or not count(fixed, clue)):
+                wp = fixed
+        return new if wp is new.get("wordplay") else {**new, "wordplay": wp}
     except Exception:
         return new
 
