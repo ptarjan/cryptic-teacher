@@ -15,11 +15,17 @@ wake rule. No model call anywhere: it is arithmetic over the CLI's transcripts.
 A window with fewer than MIN_SESSIONS sessions writes no row, and the next one
 reaches back to the same start (at most MAX_WINDOW_H), so thin runs accumulate.
 
+Paul 10-22: "Also analyze more often to fix cost per annotate". So the rule judges
+the newest row alone, so one bad hour (10-22 00:51: $0.157/clue, 2.0 turns/clue)
+is not averaged away. A row under MIN_CLUES clues is merged with the rows before
+it (up to ROLL) and, if still thin, is noise and never wakes.
+
 The wake rule (should_wake), in code, queued quietly (wake.sh -q) to the room:
-  (a) the last 3 rows' pooled $/clue is more than 10% above the best 3-row level
+  (a) the latest window's pooled $/clue is more than 10% above the best such level
       since the last commit touching annotate code; or
-  (b) the #1 cause is not the #1 cause of the previous wake;
-at most once per COOLDOWN_H hours, and never while at or under the target.
+  (b) the #1 cause is not the #1 cause of the previous wake; or
+  (c) AFTER_COMMIT_ROWS (2) rows after an annotate-code commit, still over target;
+at most once per COOLDOWN_H (1) hours, and never while at or under the target.
 """
 import argparse
 import datetime
@@ -41,9 +47,11 @@ WAKE_ROOM = os.environ.get("ANNOTATE_WAKE_ROOM", "-1003929432016:61")
 MIN_SESSIONS = 5
 MAX_WINDOW_H = 12
 FIRST_WINDOW_H = 2
-ROLL = 3
+ROLL = 3              # max rows merged to reach MIN_CLUES (was: always the last 3)
+MIN_CLUES = 50        # a window thinner than this is noise: never wakes
+AFTER_COMMIT_ROWS = 2  # re-judge this many rows after an annotate-code commit (was 3)
 REGRESS = 0.10
-COOLDOWN_H = 4
+COOLDOWN_H = 1        # was 4
 TARGET = 0.022
 # What "annotate code" means for the best-level baseline.
 CODE_PATHS = ["tools/annotate*", "tools/validate_annotations.py", "tools/puzzle_worker.sh",
@@ -77,6 +85,18 @@ def pooled(rows):
     return sum(r.get("cost") or 0 for r in rows) / clues if clues else None
 
 
+def window(rows):
+    """The newest row, merged back with earlier rows (at most ROLL) until it holds
+    MIN_CLUES clues; [] when even that is too thin to judge (so noise never wakes)."""
+    out, clues = [], 0
+    for r in reversed(rows[-ROLL:]):
+        out.insert(0, r)
+        clues += r.get("clues") or 0
+        if clues >= MIN_CLUES:
+            return out
+    return []
+
+
 def code_commit(repo=REPO):
     """(sha, ISO committer time, subject) of the last commit touching annotate code."""
     out = subprocess.run(["git", "log", "-1", "--format=%h%x09%cI%x09%s", "--"] + CODE_PATHS,
@@ -106,13 +126,15 @@ def should_wake(rows, since_commit, state, now):
     commit (None = all rows count); state: {woken, top} of the previous wake."""
     if since_commit:
         rows = [r for r in rows if parse(r["end"]) >= parse(since_commit)]
-    if len(rows) < ROLL:
+    need = AFTER_COMMIT_ROWS if since_commit else 1
+    if len(rows) < need:
         return None, f"only {len(rows)} rows since the last annotate-code commit"
-    cur = pooled(rows[-ROLL:])
-    rolls = [pooled(rows[i:i + ROLL]) for i in range(len(rows) - ROLL + 1)]
-    best = min(x for x in rolls if x is not None) if any(x is not None for x in rolls) else None
+    last = window(rows)
+    cur = pooled(last)
     if cur is None:
-        return None, "no clues in the last rows"
+        return None, f"under {MIN_CLUES} clues in the last {ROLL} rows - too thin to judge"
+    rolls = [pooled(window(rows[:i + 1])) for i in range(len(rows))]
+    best = min((x for x in rolls if x is not None), default=None)
     if cur <= TARGET:
         return None, f"${cur:.3f}/clue is at the ${TARGET} target"
     woken = state.get("woken")
@@ -120,7 +142,7 @@ def should_wake(rows, since_commit, state, now):
         return None, f"woken {woken}, inside the {COOLDOWN_H}h cooldown"
     top = (rows[-1].get("top_causes") or [{}])[0].get("key")
     if best and cur > best * (1 + REGRESS):
-        return (f"rolling ${cur:.3f}/clue is {cur / best - 1:+.0%} over the best 3-row level "
+        return (f"latest ${cur:.3f}/clue is {cur / best - 1:+.0%} over the best level "
                 f"${best:.3f} since the last annotate-code commit"), {"cur": cur, "best": best}
     if top and top != state.get("top"):
         return (f"cause #1 is now `{top}`, was `{state.get('top')}` at the previous wake"), \
@@ -128,7 +150,7 @@ def should_wake(rows, since_commit, state, now):
     if since_commit and state.get("commit") != since_commit:
         # Hill climb: each annotate-code change gets measured, and while the cost is
         # still over target the next cause is worked on, even with no regression.
-        return (f"${cur:.3f}/clue is still over the ${TARGET} target {ROLL} runs after the "
+        return (f"${cur:.3f}/clue is still over the ${TARGET} target {AFTER_COMMIT_ROWS} runs after the "
                 f"last annotate-code commit"), {"cur": cur, "best": best}
     return None, f"${cur:.3f}/clue within 10% of best ${best:.3f}; #1 cause unchanged"
 
