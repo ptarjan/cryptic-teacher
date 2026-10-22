@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,60 @@
     "text": "Military bases around both ends of enormous woodlands",
     "enumeration": "7"
    },
-   "solution": "FORESTS"
+   "solution": "FORESTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "woodlands",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 15,
+       "note": "around says the military bases enclose the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Military bases",
+       "at": 0,
+       "gives": "FORTS",
+       "note": "forts are fortified military bases"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "both ends of",
+         "at": 22,
+         "note": "both ends of picks out the first and last letters of the word enormous"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enormous",
+         "at": 35,
+         "gives": "ES",
+         "note": "its first and last letters"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Army camps encircle huge tracts of woodland.",
+     "definitionFit": "Forests are large areas covered with trees, the plural matching woodlands as a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enormous"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +100,41 @@
     "text": "Loud reprimand for lacking courage",
     "enumeration": "7"
    },
-   "solution": "FEARFUL"
+   "solution": "FEARFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lacking courage",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Loud",
+       "at": 0,
+       "gives": "F",
+       "note": "F is forte, the musical direction for loud"
+      },
+      {
+       "words": "reprimand",
+       "at": 5,
+       "gives": "EARFUL",
+       "note": "an earful is a scolding, a reprimand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy telling-off for being cowardly.",
+     "definitionFit": "Someone fearful is timid and afraid, so they lack the bravery that courage names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Loud"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +148,74 @@
     "text": "Soldier's gun almost left in seat",
     "enumeration": "7"
    },
-   "solution": "REGULAR"
+   "solution": "REGULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Soldier's",
+      "at": 0,
+      "note": "read as soldier is, so the answer names a soldier"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "in says these letters sit inside the word for seat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seat",
+       "at": 29,
+       "gives": "REAR",
+       "note": "the rear is the seat, one's bottom"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 14,
+           "note": "almost says the last letter of the word gun is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gun",
+           "at": 10,
+           "gives": "GUN",
+           "note": "the word itself, cut short"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        },
+        {
+         "words": "left",
+         "at": 21,
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier's weapon has nearly been left on a chair.",
+     "definitionFit": "A regular is a professional soldier in a standing army, as opposed to a reservist or volunteer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +229,63 @@
     "text": "What Rory McIlroy does primarily struggle with in golf?",
     "enumeration": "5"
    },
-   "solution": "SWING"
+   "solution": "SWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What Rory McIlroy does",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 23,
+         "note": "primarily says to take the first letter of the word struggle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "struggle",
+         "at": 33,
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "words": "with",
+       "at": 42,
+       "gives": "W"
+      },
+      {
+       "words": "in",
+       "at": 47,
+       "gives": "IN"
+      },
+      {
+       "words": "golf",
+       "at": 50,
+       "gives": "G",
+       "note": "G is golf in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question asking what the golfer struggles with most in his game.",
+     "walkthrough": "Rory McIlroy is a star golfer from Northern Ireland.",
+     "definitionFit": "A golfer's swing is the stroke motion of the club, so it is what the player performs at every shot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "struggle"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +299,31 @@
     "text": "Well I never did badly",
     "enumeration": "9"
    },
-   "solution": "SERIOUSLY"
+   "solution": "SERIOUSLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well I never did",
+      "at": 0,
+      "meaning": "first meaning: an exclamation of disbelief, like 'Really?'"
+     },
+     {
+      "text": "badly",
+      "at": 17,
+      "meaning": "second meaning: gravely"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Well I never did' is a whole exclamation of surprise, not a confession of doing badly.",
+     "definitionFit": "Seriously! expresses astonishment, and seriously as an adverb means gravely, as in badly hurt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "did"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +337,31 @@
     "text": "Bats — small fliers",
     "enumeration": "7"
    },
-   "solution": "CUCKOOS"
+   "solution": "CUCKOOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bats",
+      "at": 0,
+      "meaning": "first meaning: crazy people, ... being slang for those who are bats, mad"
+     },
+     {
+      "text": "small fliers",
+      "at": 7,
+      "meaning": "second meaning: smallish birds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bats look like the flying mammals, but here the word means crazy, and cuckoo is slang for crazy too.",
+     "definitionFit": "Cuckoo is slang for mad, as is bats, and cuckoos are also modest-sized birds that fly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bats"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +375,48 @@
     "text": "One who killed his brother outside bishop's little house",
     "enumeration": "5"
    },
-   "solution": "CABIN"
+   "solution": "CABIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "little house",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 27,
+       "note": "outside says Cain's letters go round the other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One who killed his brother",
+       "at": 0,
+       "gives": "CAIN",
+       "note": "in the Bible, Cain murdered his brother Abel"
+      },
+      {
+       "words": "bishop's",
+       "at": 35,
+       "gives": "B",
+       "note": "B is the chess notation abbreviation for bishop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fratricide lurks outside the bishop's cottage.",
+     "definitionFit": "A cabin is a small, simple dwelling such as a hut, which is a little house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bishop's"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +430,70 @@
     "text": "Wound up about odd clue formed without noun",
     "enumeration": "9"
    },
-   "solution": "CONCLUDED"
+   "solution": "CONCLUDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wound up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 9,
+       "gives": "C",
+       "note": "C is circa, Latin for about"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 31,
+         "note": "without here means outside, so those letters go round the next one"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "formed",
+           "at": 24,
+           "note": "formed says the letters of odd clue are shaped into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "odd clue",
+           "at": 15
+          }
+         ]
+        },
+        {
+         "words": "noun",
+         "at": 39,
+         "gives": "N",
+         "note": "N is the grammar abbreviation for noun"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter finished up with a strange clue that had no noun in it.",
+     "walkthrough": "'without' is used in its old sense of outside: OCLUDED, the rearranged odd clue, is placed round N.",
+     "definitionFit": "To wind up a meeting is to bring it to an end, so wound up means finished or ended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +507,56 @@
     "text": "Policeman perhaps unfriendly then more pleasant — though not at first",
     "enumeration": "7"
    },
-   "solution": "OFFICER"
+   "solution": "OFFICER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Policeman perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "unfriendly",
+       "at": 18,
+       "gives": "OFF",
+       "note": "off can mean cool or unfriendly in manner"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not at first",
+         "at": 57,
+         "note": "not at first says the first letter of the word for more pleasant is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "more pleasant",
+         "at": 34,
+         "gives": "NICER",
+         "note": "nicer means more pleasant"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer who is at first frosty, then turns friendlier.",
+     "definitionFit": "An officer is a member of a police force, and perhaps flags a policeman as just one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfriendly"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +570,48 @@
     "text": "Reaches agreement about former tennis player keeping dry",
     "enumeration": "7"
    },
-   "solution": "SETTLES"
+   "solution": "SETTLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reaches agreement about",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 45,
+       "note": "keeping says Seles holds the letters for dry inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "former tennis player",
+       "at": 24,
+       "gives": "SELES",
+       "note": "Monica Seles, the retired tennis champion"
+      },
+      {
+       "words": "dry",
+       "at": 53,
+       "gives": "TT",
+       "note": "TT is teetotal, someone who abstains from alcohol, so dry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired tennis star who stays off the drink comes to terms in a dispute.",
+     "definitionFit": "To settle a matter is to resolve it by mutual consent, so settles means comes to an accord on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +625,42 @@
     "text": "New earring American increasingly bent out of shape",
     "enumeration": "7"
    },
-   "solution": "ANGRIER"
+   "solution": "ANGRIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American increasingly bent out of shape",
+      "at": 12,
+      "note": "bent out of shape is American slang for annoyed, so increasingly so is a comparative"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "New",
+       "at": 0,
+       "note": "new says the letters of earring are made into a fresh arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "earring",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A novel piece of jewellery that has been increasingly twisted out of its form.",
+     "walkthrough": "'Bent out of shape' is US slang for upset, which is why 'American' sits in the definition.",
+     "definitionFit": "Being bent out of shape is US slang for being cross, so more so is a comparative of irate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bent"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +674,57 @@
     "text": "Reward complaint about new information technology",
     "enumeration": "7"
    },
-   "solution": "BENEFIT"
+   "solution": "BENEFIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reward",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 17,
+         "note": "about says the complaint goes round the letter for new"
+        }
+       ],
+       "parts": [
+        {
+         "words": "complaint",
+         "at": 7,
+         "gives": "BEEF",
+         "note": "a beef is slang for a grievance"
+        },
+        {
+         "words": "new",
+         "at": 23,
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "information technology",
+       "at": 27,
+       "gives": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is rewarded for griping about the latest computer systems.",
+     "definitionFit": "A benefit is an advantage or payment given, so it works as a reward, a near synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reward"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +744,45 @@
      }
     ]
    },
-   "solution": "FULLGROWN"
+   "solution": "FULLGROWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Adult",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FULLGROWN",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "at": 21,
+       "note": "by the sound of it says the words are heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stuffed grouse",
+       "at": 6,
+       "gives": "FULLGROAN",
+       "note": "stuffed means full, and to grouse is to groan, giving full groan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mature game bird stuffed for the table, so it seems.",
+     "walkthrough": "Grouse looks like the game bird, but here it is the verb meaning complain, which is to groan.",
+     "definitionFit": "Someone or something fully grown has reached maturity, which is what being an adult means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grouse"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +796,51 @@
     "text": "Pub's faithful having a change of heart",
     "enumeration": "5"
    },
-   "solution": "LOCAL"
+   "solution": "LOCAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pub's",
+      "at": 0,
+      "note": "read as pub is, so the answer names a pub"
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "having a change of heart",
+       "at": 15,
+       "note": "a change of heart says the middle letter of the word is swapped for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "faithful",
+       "at": 6,
+       "gives": "LOYAL",
+       "note": "loyal means faithful"
+      },
+      {
+       "gives": "Y"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The regulars at the pub have changed their minds.",
+     "walkthrough": "The heart of LOYAL is its middle Y, which is changed to C.",
+     "definitionFit": "A local is British slang for the pub nearest one's home, the one regularly drunk in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "faithful"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +854,32 @@
     "text": "Where one might have seen Botham and peers?",
     "enumeration": "5"
    },
-   "solution": "LORDS"
+   "solution": "LORDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where one might have seen Botham",
+      "at": 0,
+      "meaning": "first meaning: ..., the London cricket ground where England cricketer Ian Botham played"
+     },
+     {
+      "text": "peers",
+      "at": 37,
+      "meaning": "second meaning: peers of the realm"
+     }
+    ],
+    "spelling": "LORD'S",
+    "explanation": {
+     "walkthrough": "Lord's is the famous cricket ground in London, home of English cricket; Ian Botham was a star England all-rounder.",
+     "definitionFit": "Lord's is the cricket ground, and lords are members of the British peerage, the House of Lords."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "peers"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +893,31 @@
     "text": "What chemists may get from mixing answers",
     "enumeration": "9"
    },
-   "solution": "SOLUTIONS"
+   "solution": "SOLUTIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What chemists may get from mixing",
+      "at": 0,
+      "meaning": "first meaning: liquids with substances dissolved in them"
+     },
+     {
+      "text": "answers",
+      "at": 34,
+      "meaning": "second meaning: ... to problems or puzzles"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'mixing' looks like an anagram signal but belongs to the chemistry sense.",
+     "definitionFit": "In chemistry a solution is a homogeneous mixture of a solute dissolved in a solvent; it also means the answer to a problem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mixing"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +931,40 @@
     "text": "Dad's rants about principles",
     "enumeration": "9"
    },
-   "solution": "STANDARDS"
+   "solution": "STANDARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "principles",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "about here means in disorder, so the letters of the words are thrown around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dad's rants",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father goes on at length about his moral values.",
+     "definitionFit": "Standards are moral norms of behaviour, which is what principles are; a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +978,44 @@
     "text": "Spoke to a daughter then put clothes on",
     "enumeration": "9"
    },
-   "solution": "ADDRESSED"
+   "solution": "ADDRESSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spoke to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 9
+      },
+      {
+       "words": "daughter",
+       "at": 11,
+       "gives": "D"
+      },
+      {
+       "words": "put clothes on",
+       "at": 25,
+       "gives": "DRESSED",
+       "note": "to dress is to put clothes on, here past tense"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent talks to a girl, then she gets dressed.",
+     "definitionFit": "To address someone is to speak to them directly, so addressed means talked to them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spoke"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1029,45 @@
     "text": "Showed Democrat is engaged in fun activity",
     "enumeration": "9"
    },
-   "solution": "DISPLAYED"
+   "solution": "DISPLAYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Showed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Democrat",
+       "at": 7,
+       "gives": "D"
+      },
+      {
+       "words": "is",
+       "at": 16,
+       "gives": "IS"
+      },
+      {
+       "words": "engaged in fun activity",
+       "at": 19,
+       "gives": "PLAYED",
+       "note": "to play is to engage in fun activity, so in the past tense played"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician shows off by taking part in a game.",
+     "definitionFit": "To display something is to put it on show, so displayed is the past tense synonym of showed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1081,52 @@
     "text": "Upset editor notices plans",
     "enumeration": "7"
    },
-   "solution": "DESIGNS"
+   "solution": "DESIGNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plans",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Upset",
+         "at": 0,
+         "note": "upset in a down clue means turned upside down, so the letters are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "editor",
+         "at": 6,
+         "gives": "ED"
+        }
+       ]
+      },
+      {
+       "words": "notices",
+       "at": 13,
+       "gives": "SIGNS",
+       "note": "signs are notices put up for the public"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angry editor sees some plans.",
+     "definitionFit": "Designs are drawings or schemes for making something, so they are plans; a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1140,71 @@
     "text": "Learner in panic beginning to turn red",
     "enumeration": "7"
    },
-   "solution": "SCARLET"
+   "solution": "SCARLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "red",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 8,
+         "note": "in says the learner's letter goes inside the word for panic"
+        }
+       ],
+       "parts": [
+        {
+         "words": "panic",
+         "at": 11,
+         "gives": "SCARE",
+         "note": "a scare is a sudden panic"
+        },
+        {
+         "words": "Learner",
+         "at": 0,
+         "gives": "L",
+         "note": "L is a learner driver, from the L-plate"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 17,
+         "note": "beginning to says to take the first letter of the word turn"
+        }
+       ],
+       "parts": [
+        {
+         "words": "turn",
+         "at": 30,
+         "note": "its first letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A learner driver in a panic starts to blush.",
+     "walkthrough": "An L-plate marks a learner driver in Britain, so L stands for learner.",
+     "definitionFit": "Scarlet is a brilliant shade of red, so the colour word is an example of red."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1218,49 @@
     "text": "Deer trapping five birds",
     "enumeration": "5"
    },
-   "solution": "DOVES"
+   "solution": "DOVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "birds",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trapping",
+       "at": 5,
+       "note": "trapping says the deer enclose the next letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Deer",
+       "at": 0,
+       "gives": "DOES",
+       "note": "does are female deer"
+      },
+      {
+       "words": "five",
+       "at": 14,
+       "gives": "V",
+       "note": "V is the Roman numeral for five"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deer catching five birds, a strange piece of wildlife.",
+     "definitionFit": "Doves are birds of the pigeon family, so the answer is an example of the plural noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "trapping"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1274,55 @@
     "text": "Model in kimono is revealing back",
     "enumeration": "7"
    },
-   "solution": "VERSION"
+   "solution": "VERSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Model",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 29,
+       "note": "back says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 6,
+         "note": "in says the answer sits inside the run of words that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kimono is revealing",
+         "at": 9,
+         "gives": "NOISREV",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A model shows off her back in a kimono.",
+     "walkthrough": "The draft named no signal for the concealment; 'in' is that signal, pointing into the words after it.",
+     "definitionFit": "A version is a particular form or variant of something, as a car model is one variant of a range."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revealing"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1336,41 @@
     "text": "Resists naughty nurses",
     "enumeration": "7"
    },
-   "solution": "SISTERS"
+   "solution": "SISTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nurses",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "naughty",
+       "at": 8,
+       "note": "naughty says the letters of resists misbehave and take a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Resists",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mischievous nurses fight back against something.",
+     "walkthrough": "In Britain a sister is a senior nurse in charge of a ward.",
+     "definitionFit": "In British hospitals a sister is a senior nurse, so sisters are nurses of that rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nurses"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1384,42 @@
     "text": "Elegant transport going west",
     "enumeration": "5"
    },
-   "solution": "SMART"
+   "solution": "SMART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elegant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "going west",
+       "at": 18,
+       "note": "in an across clue, going west means read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "transport",
+       "at": 8,
+       "gives": "TRAMS",
+       "note": "trams are a form of public transport"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stylish vehicles heading in a westerly direction.",
+     "definitionFit": "Smart describes being neatly and stylishly dressed, which is what elegant means; a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "transport"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1433,58 @@
     "text": "Darlings certain to be in tears, unfortunately",
     "enumeration": "9"
    },
-   "solution": "TREASURES"
+   "solution": "TREASURES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Darlings",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be in",
+       "at": 17,
+       "note": "to be in says the word for certain goes inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unfortunately",
+         "at": 33,
+         "note": "unfortunately says the letters of tears are in a bad state, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tears",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "words": "certain",
+       "at": 9,
+       "gives": "SURE",
+       "note": "sure means certain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Loved ones are sure to be crying, sadly.",
+     "definitionFit": "Treasures is an affectionate term for much-loved people, used much like darlings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Darlings"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1498,57 @@
     "text": "Exam with Open University leaving you grumpy",
     "enumeration": "5"
    },
-   "solution": "TESTY"
+   "solution": "TESTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "grumpy",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Exam",
+       "at": 0,
+       "gives": "TEST",
+       "note": "a test is an exam"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 26,
+         "note": "leaving says those letters depart from the word you"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "at": 34
+        },
+        {
+         "words": "Open University",
+         "at": 10,
+         "gives": "OU",
+         "note": "OU is the abbreviation for the Open University, the UK distance-learning university"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exam set by the Open University leaves the student irritable.",
+     "definitionFit": "Testy means irritable and short-tempered, a synonym for grumpy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaving"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1562,49 @@
     "text": "Son caught farm animal on your bike!",
     "enumeration": "5"
    },
-   "solution": "SCRAM"
+   "solution": "SCRAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on your bike!",
+      "at": 23,
+      "note": "British slang for go away, an imperative like the answer"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Son",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "caught",
+       "at": 4,
+       "gives": "C",
+       "note": "C is the cricket abbreviation for caught"
+      },
+      {
+       "words": "farm animal",
+       "at": 11,
+       "gives": "RAM",
+       "note": "a ram is a male sheep"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A son caught a sheep and is told to clear off on his bike.",
+     "walkthrough": "'On your bike!' is British slang telling someone to go away.",
+     "definitionFit": "Scram is an informal command to leave at once, the same dismissal as the British phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "bike"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1618,54 @@
     "text": "A place for hanging painting only the last character permits",
     "enumeration": "7"
    },
-   "solution": "GALLOWS"
+   "solution": "GALLOWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A place for hanging",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "only the last character",
+         "at": 29,
+         "note": "only the last character says to take just the final letter of the word painting"
+        }
+       ],
+       "parts": [
+        {
+         "words": "painting",
+         "at": 20,
+         "note": "its last letter"
+        }
+       ]
+      },
+      {
+       "words": "permits",
+       "at": 53,
+       "gives": "ALLOWS",
+       "note": "allows means permits"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gallery wall that only accepts the very last brushstroke, so to speak.",
+     "walkthrough": "'A place for hanging painting' looks like a gallery; the definition stops at 'hanging'.",
+     "definitionFit": "The gallows is the frame on which criminals were executed by the rope, a place for hanging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hanging"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1679,58 @@
     "text": "Regularly stay by river and eat fish",
     "enumeration": "7"
    },
-   "solution": "SARDINE"
+   "solution": "SARDINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "Regularly",
+         "at": 0,
+         "note": "regularly says to take every other letter of the word stay"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stay",
+         "at": 10,
+         "note": "its first and third letters"
+        }
+       ]
+      },
+      {
+       "words": "river",
+       "at": 18,
+       "gives": "R",
+       "note": "R is the map abbreviation for river"
+      },
+      {
+       "words": "eat",
+       "at": 28,
+       "gives": "DINE",
+       "note": "to dine is to eat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone often stops by the river to eat fish for dinner.",
+     "definitionFit": "A sardine is a small oily fish of the herring family, an example of the general word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eat"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1744,59 @@
     "text": "Please remark about broken fist",
     "enumeration": "7"
    },
-   "solution": "SATISFY"
+   "solution": "SATISFY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Please",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 14,
+       "note": "about says the word for remark goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "remark",
+       "at": 7,
+       "gives": "SAY",
+       "note": "to say is to remark"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 20,
+         "note": "broken says the letters of fist are smashed into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fist",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request to comment on someone's injured hand.",
+     "walkthrough": "'Please' looks like a polite opener, but it is the verb meaning to gratify.",
+     "definitionFit": "To satisfy someone is to content or gratify them, which is what to please means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Please"
+    }
+   }
   },
   {
    "number": 28,
@@ -470,7 +1810,53 @@
     "text": "Called about Detective Sergeant's orders",
     "enumeration": "7"
    },
-   "solution": "DEMANDS"
+   "solution": "DEMANDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "orders",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 7,
+         "note": "about says the word for called is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Called",
+         "at": 0,
+         "gives": "NAMED",
+         "note": "named means called"
+        }
+       ]
+      },
+      {
+       "words": "Detective Sergeant",
+       "at": 13,
+       "gives": "DS",
+       "note": "DS is the police abbreviation for Detective Sergeant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer is rung up concerning a senior colleague's instructions.",
+     "definitionFit": "Demands are insistent requests or commands, so as nouns they match orders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Called"
+    }
+   }
   }
  ]
 }
