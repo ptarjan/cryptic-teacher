@@ -2214,7 +2214,9 @@ def cover_first(pinned):
     The summary goes to stderr, which is the burn's log."""
     import indicator_cover
     small, cut, finish = small_series(), len(pinned), finish_off_series()
-    rows = index_rows()
+    # fresh_rows, as --backlog's: off the run-start index a puzzle that gained
+    # answers since reads as cold and is deferred
+    rows = fresh_rows(index_rows())
     rows = rows + clues_only_rows({r["id"] for r in rows})
     wanted = best_effort("showcase", showcase_wanted, set(), 0.4)
     queue, pinned, n = head_of_queue(list(dict.fromkeys(sys.stdin.read().split())), pinned, rows,
