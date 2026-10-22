@@ -95,6 +95,113 @@ def unit_ceiling():
     return int(os.environ.get("CT_UNIT_CEILING") or UNIT_CEILING)
 
 
+#: The ceiling controller (Windows host RAM/CPU -> the CEILING_FILE number; was the desktop's
+#: ceiling_ctl.sh). Opt-in by env: CT_CEILING_HOST (ssh target; default the first of CT_YIELD_HOSTS;
+#: "0" turns it off), CT_CEILING_METRICS (default: the VLM host's /metrics, passed by the caller),
+#: CT_CEILING_LO/HI (8/24), CT_CEILING_CPU_HI/LO (90/80), CT_CEILING_EVERY (120 s); the page-cache
+#: drop is CT_GAME_DROP_CACHE. The VLM slows ~2x when Windows CPU is pegged (10-21 A/B: 6 scans
+#: paused -> CPU 97 -> 67%, asks 3.1 -> 5.8/min), so it steps down above CPU_HI, up only below CPU_LO.
+#: It writes the same file unit_ceiling() reads, so a manual pin holds until the next step moves it.
+CEILING_EVERY = 120
+
+
+def ceiling_step(ceiling, free_mb, cpu, lo=8, hi=24, cpu_hi=90, cpu_lo=80):
+    """The new ceiling: -2 when Windows has under 2000 MB free or CPU is over cpu_hi, +2 when over
+    4500 MB free and CPU (unknown counts as busy) under cpu_lo; clamped to lo..hi. No RAM figure: unchanged."""
+    if free_mb is None:
+        return ceiling
+    new = ceiling
+    if free_mb < 2000 or (cpu or 0) > cpu_hi:
+        new = ceiling - 2
+    elif free_mb > 4500 and (100 if cpu is None else cpu) < cpu_lo:
+        new = ceiling + 2
+    return max(lo, min(hi, new))
+
+
+def _win_free(host):
+    import re
+    try:
+        out = subprocess.run(["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=8", host,
+                              'powershell -NoProfile -c "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB)"'],
+                             capture_output=True, text=True, timeout=20).stdout
+        return int(re.sub(r"\D", "", out))
+    except (OSError, ValueError, subprocess.SubprocessError):
+        return None
+
+
+def _win_cpu(url):
+    import re
+    import urllib.request
+    try:
+        text = urllib.request.urlopen(url, timeout=10).read().decode()
+        vals = [float(x) for x in re.findall(r'cpu_util_percent\{core="\d+"\} ([\d.]+)', text)]
+        return int(sum(vals) / len(vals)) if vals else None
+    except (OSError, ValueError):
+        return None
+
+
+class CeilingController:
+    """poll() never blocks: each EVERY seconds it starts a thread that probes (ssh, http), drops the
+    page cache when Windows has under 3000 MB free, steps the ceiling file; poll() returns the log
+    lines the thread left (only on a change, or a drop)."""
+
+    def __init__(self, host, metrics, drop_cmd="", every=None):
+        self.host, self.metrics, self.drop_cmd = host, metrics, drop_cmd
+        self.every = every or int(os.environ.get("CT_CEILING_EVERY") or CEILING_EVERY)
+        self.last = None
+        self.thread = None
+        self.lines = []
+
+    def _run(self):
+        free = _win_free(self.host)
+        cpu = _win_cpu(self.metrics) if self.metrics else None
+        if free is not None and free < 3000 and self.drop_cmd:
+            try:
+                subprocess.run(["sh", "-c", self.drop_cmd], stdin=subprocess.DEVNULL, capture_output=True, timeout=40)
+            except (OSError, subprocess.SubprocessError):
+                pass
+            again = _win_free(self.host)
+            self.lines.append(f"ceiling: win free {free} MB -> dropped cache -> {again} MB")
+            free = again if again is not None else free
+        if free is None:
+            return
+        env = os.environ.get
+        cur = unit_ceiling()
+        new = ceiling_step(cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or 24),
+                           int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80))
+        if new != cur:
+            path = os.path.expanduser(env("CT_UNIT_CEILING_FILE") or CEILING_FILE)
+            try:
+                os.makedirs(os.path.dirname(path), exist_ok=True)
+                with open(path, "w") as f:
+                    f.write(f"{new}\n")
+            except OSError as e:
+                self.lines.append(f"ceiling: cannot write {path}: {e}")
+                return
+            self.lines.append(f"ceiling: win free {free} MB cpu {cpu}%: {cur} -> {new}")
+
+    def poll(self, now=None):
+        now = time.monotonic() if now is None else now
+        if (self.thread is None or not self.thread.is_alive()) and (self.last is None or now - self.last >= self.every):
+            import threading
+            self.last = now
+            self.thread = threading.Thread(target=self._run, daemon=True)
+            self.thread.start()
+        out, self.lines = self.lines, []
+        return out
+
+
+def ceiling_controller(metrics=None):
+    """A CeilingController from the env, or None (off: the Mac). `metrics` is the default URL."""
+    host = os.environ.get("CT_CEILING_HOST")
+    if host is None:
+        host = (os.environ.get("CT_YIELD_HOSTS", "").split() or [""])[0]
+    if host.strip() in ("", "0"):
+        return None
+    return CeilingController(host.strip(), os.environ.get("CT_CEILING_METRICS") or metrics,
+                             os.environ.get("CT_GAME_DROP_CACHE", "").strip())
+
+
 def pressure():
     """The memory PSI's full avg10, or None when it cannot be read (macOS)."""
     try:
