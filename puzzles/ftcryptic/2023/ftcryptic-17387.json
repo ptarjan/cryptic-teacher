@@ -22,6 +22,9 @@
   "date": "2023-04-14",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,59 @@
     "text": "Chatterbox is so rude interrupting Doctor",
     "enumeration": "6"
    },
-   "solution": "GOSSIP"
+   "solution": "GOSSIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chatterbox",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "at": 22,
+       "note": "the jumbled letters break into the middle of the doctor's abbreviation, so they sit inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Doctor",
+       "at": 35,
+       "gives": "GP",
+       "note": "a GP is a general practitioner, a family doctor"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rude",
+         "at": 17,
+         "note": "rude here suggests something rough and unformed, telling us to rework the letters of 'is so'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is so",
+         "at": 11
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a talkative person was impolite when cutting in on their physician.",
+     "walkthrough": "'rude' looks like a description of the chatterbox, but it is the anagram signal.",
+     "definitionFit": "A gossip is a person who talks idly about others, much like a chatterbox."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rude"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +104,41 @@
     "text": "Delight in organising US tour",
     "enumeration": "5"
    },
-   "solution": "GUSTO"
+   "solution": "GUSTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Delight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "the answer is found lying inside the run of letters across 'organising US tour'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "organising US tour",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes pleasure in planning a tour of America.",
+     "walkthrough": "The letters run from the end of 'organisinG' through 'US' into 'TOur'; 'organising' looks like an anagram signal but is not one.",
+     "definitionFit": "Gusto is keen enjoyment or relish, a close synonym for delight as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organising"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +152,76 @@
     "text": "Shocked by studies set up about shortage of fish",
     "enumeration": "7"
    },
-   "solution": "STUNNED"
+   "solution": "STUNNED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shocked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 26,
+       "note": "the reversed studies are placed around the shortened fish"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set up",
+         "at": 19,
+         "note": "in a down clue, set up means the word is written upwards, so read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "studies",
+         "at": 11,
+         "gives": "DENS",
+         "note": "dens are private studies or rooms for work"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortage of",
+         "at": 32,
+         "note": "a shortage means something is lacking, here the fish's last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 44,
+         "gives": "TUNA",
+         "note": "tuna is a fish"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is dismayed by research findings about dwindling fish stocks.",
+     "walkthrough": "'studies' here are rooms, not research.",
+     "definitionFit": "To be stunned is to be dazed or astonished, the same as being shocked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "studies"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +241,61 @@
      }
     ]
    },
-   "solution": "INGENERAL"
+   "solution": "INGENERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "For the most part",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "behind",
+       "at": 34,
+       "note": "the officer comes after, so behind, the reversed tax"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rise in",
+         "at": 41,
+         "note": "in a down clue, a rise means reading the tax upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tax",
+         "at": 49,
+         "gives": "NI",
+         "note": "NI is National Insurance, a UK payroll tax"
+        }
+       ]
+      },
+      {
+       "words": "army officer's",
+       "at": 19,
+       "gives": "GENERAL",
+       "note": "a general is a senior army officer; the 's is 'is'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior officer is said to be responsible for a tax increase.",
+     "walkthrough": "NI stands for National Insurance, the UK's social-security contribution; read upwards it gives IN.",
+     "definitionFit": "The phrase 'in general' is an idiom meaning usually or mostly, matching 'for the most part'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +309,58 @@
     "text": "Demolish lamb chop left by child with ease",
     "enumeration": "6"
    },
-   "solution": "APLOMB"
+   "solution": "APLOMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ease",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Demolish",
+       "at": 0,
+       "note": "to demolish is to knock down and rebuild, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left by",
+         "at": 19,
+         "note": "the child's abbreviation leaves the words, so it is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lamb chop",
+         "at": 9
+        },
+        {
+         "words": "child",
+         "at": 27,
+         "gives": "CH"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child eagerly polishes off a lamb chop without fuss.",
+     "walkthrough": "Removing CH from LAMBCHOP leaves LAMBOP, which 'Demolish' rearranges.",
+     "definitionFit": "Aplomb is self-assured composure, doing something with ease and poise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Demolish"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +374,28 @@
     "text": "Mark position",
     "enumeration": "5"
    },
-   "solution": "POINT"
+   "solution": "POINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0,
+      "meaning": "first meaning: a dot or ... made on a surface"
+     },
+     {
+      "text": "position",
+      "at": 5,
+      "meaning": "second meaning: a particular place or spot"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word covers both a small dot marked on something and a specific location or stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +415,70 @@
      }
     ]
    },
-   "solution": "OPENSEA"
+   "solution": "OPENSEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "far from land",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Work",
+       "at": 0,
+       "gives": "OP",
+       "note": "op is short for opus, a musical work"
+      },
+      {
+       "words": "in French",
+       "at": 5,
+       "gives": "EN",
+       "note": "the French word for in is en"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "at": 36,
+         "note": "in a down clue, turning up means the picked letters are read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "now and then",
+           "at": 22,
+           "note": "taking letters only now and then means every other letter of waters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "waters",
+           "at": 15
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working in French coastal waters occasionally surfaces far offshore.",
+     "walkthrough": "Every other letter of 'waters' gives AES, which turned upward gives SEA.",
+     "definitionFit": "The open sea is the expanse of ocean away from any coast, out of sight of land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +498,62 @@
      }
     ]
    },
-   "solution": "BYSTEALTH"
+   "solution": "BYSTEALTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unobtrusively",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "getting close to",
+       "at": 14,
+       "gives": "BY",
+       "note": "by can mean near or beside"
+      },
+      {
+       "words": "small",
+       "at": 31,
+       "gives": "S"
+      },
+      {
+       "words": "bird",
+       "at": 37,
+       "gives": "TEAL",
+       "note": "a teal is a small duck"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 45,
+         "note": "an empty word has had its inside taken out, leaving only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "towpath",
+         "at": 51
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone creeps up quietly on a little bird along a deserted towpath; a towpath is a path beside a canal or river.",
+     "definitionFit": "Doing something by stealth means doing it secretly and quietly so it goes unnoticed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +567,59 @@
     "text": "Calm since America's revolutionary period",
     "enumeration": "7"
    },
-   "solution": "ASSUAGE"
+   "solution": "ASSUAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Calm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "since",
+       "at": 5,
+       "gives": "AS",
+       "note": "as can mean since, as in 'as it was raining'"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 21,
+         "note": "something revolutionary turns round, so the letters are reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "America's",
+         "at": 11,
+         "gives": "US",
+         "note": "US is short for the United States of America"
+        }
+       ]
+      },
+      {
+       "words": "period",
+       "at": 35,
+       "gives": "AGE",
+       "note": "an age is a period of time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An era of tranquillity has supposedly reigned since the American Revolution.",
+     "definitionFit": "To assuage is to soothe or relieve, so it is a verb synonym for calm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +633,40 @@
     "text": "Revised broadcast engaging with all kinds of people",
     "enumeration": "7"
    },
-   "solution": "DIVERSE"
+   "solution": "DIVERSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "engaging with all kinds of people",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 8,
+       "note": "broadcast seed is scattered, so the letters of the word before it are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Revised",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rewritten programme goes out reaching a wide range of audiences.",
+     "definitionFit": "A diverse group or body includes people of many different backgrounds, a varied mix."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +686,78 @@
      }
     ]
    },
-   "solution": "JOEPUBLIC"
+   "solution": "JOEPUBLIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "People",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "judge",
+       "at": 7,
+       "gives": "J"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "arresting",
+         "at": 28,
+         "note": "the anagram holds, so arrests, the union and boy letters inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "violent",
+           "at": 20,
+           "note": "violent suggests wild disorder, so the letters of police are thrown about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "police",
+           "at": 13
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "union",
+           "at": 38,
+           "gives": "U"
+          },
+          {
+           "words": "boy",
+           "at": 44,
+           "gives": "B"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge sees aggressive officers detaining a young trade unionist.",
+     "walkthrough": "POLICE rearranged ('violent') becomes OEPLIC, with U and B inside after the P.",
+     "definitionFit": "Joe Public is a colloquial name for the general public or the ordinary person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arresting"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +781,67 @@
      }
     ]
    },
-   "solution": "DOWNANDOUT"
+   "solution": "DOWNANDOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "who's destitute",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drink",
+       "at": 0,
+       "gives": "DOWN",
+       "note": "to down is to drink quickly"
+      },
+      {
+       "words": "with",
+       "at": 6,
+       "gives": "AND",
+       "note": "and means together with"
+      },
+      {
+       "words": "old",
+       "at": 11,
+       "gives": "O"
+      },
+      {
+       "words": "university",
+       "at": 15,
+       "gives": "U"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 31,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "team",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former student who once captained a team and drinks heavily is now penniless.",
+     "definitionFit": "A down-and-out is a homeless, penniless person, someone who is destitute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +855,39 @@
     "text": "Look for son with cry of alarm",
     "enumeration": "4"
    },
-   "solution": "SEEK"
+   "solution": "SEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look for",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "son",
+       "at": 9,
+       "gives": "S"
+      },
+      {
+       "words": "cry of alarm",
+       "at": 18,
+       "gives": "EEK",
+       "note": "eek is a shriek of fright"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent searches for their son, shrieking in panic.",
+     "definitionFit": "To seek is to search or try to find, the same as to look for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +901,58 @@
     "text": "Kind of duck found in patchy reed round island",
     "enumeration": "5"
    },
-   "solution": "EIDER"
+   "solution": "EIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kind of duck",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 34,
+       "note": "the rearranged reed letters go round the island letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "patchy",
+         "at": 22,
+         "note": "patchy suggests something uneven and disordered, so the letters of reed are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reed",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "words": "island",
+       "at": 40,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A type of duck is spotted in a sparse reed bed around an island.",
+     "walkthrough": "REED rearranged ('patchy') gives EDER, with I inside.",
+     "definitionFit": "The eider is a large sea duck prized for its soft down feathers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "patchy"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +966,75 @@
     "text": "Fine words moved Queen taking look inside church",
     "enumeration": "9"
    },
-   "solution": "ELOQUENCE"
+   "solution": "ELOQUENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fine words",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 23,
+         "note": "the rearranged queen takes the look letters, so contains them"
+        },
+        {
+         "text": "inside",
+         "at": 35,
+         "note": "inside confirms the look letters sit within the rearranged queen"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "moved",
+           "at": 11,
+           "note": "moved means the letters of queen are shifted about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Queen",
+           "at": 17
+          }
+         ]
+        },
+        {
+         "words": "look",
+         "at": 30,
+         "gives": "LO",
+         "note": "lo is an old word meaning look or behold"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 42,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The monarch was touched by a fine speech at a church service.",
+     "walkthrough": "'moved' looks like the Queen being touched emotionally, but it signals the anagram.",
+     "definitionFit": "Eloquence is fluent, persuasive speaking, so a matter of fine words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +1048,76 @@
     "text": "OK, moral tale's not religious at first, but includes saints",
     "enumeration": "8"
    },
-   "solution": "PASSABLE"
+   "solution": "PASSABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "OK",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 45,
+       "note": "the shortened tale includes, so holds, the saints inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 17,
+         "note": "not means the letter that follows is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "moral tale's",
+         "at": 4,
+         "gives": "PARABLE",
+         "note": "a parable is a story with a moral"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 31,
+           "note": "only the first letter of religious is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "religious",
+           "at": 21
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "saints",
+       "at": 54,
+       "gives": "SS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone judges a secular moral story about saints acceptable enough.",
+     "walkthrough": "'OK' is the definition at the front; the rest of the clue builds the word.",
+     "definitionFit": "Passable means adequate or acceptable, just good enough, which is what OK means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "religious"
+    }
+   }
   },
   {
    "number": 15,
@@ -293,7 +1131,42 @@
     "text": "Little tip for group of preferred candidates",
     "enumeration": "9"
    },
-   "solution": "SHORTLIST"
+   "solution": "SHORTLIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "group of preferred candidates",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Little",
+       "at": 0,
+       "gives": "SHORT",
+       "note": "short means small or little"
+      },
+      {
+       "words": "tip",
+       "at": 7,
+       "gives": "LIST",
+       "note": "to list is to tip or lean over, as a ship does"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small hint is offered for a set of favoured applicants.",
+     "walkthrough": "'tip' looks like a hint, but it is the verb for leaning over.",
+     "definitionFit": "A shortlist is the final selection of applicants chosen from a larger field for interview."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1186,66 @@
      }
     ]
    },
-   "solution": "GOLFCLUB"
+   "solution": "GOLFCLUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe putter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "VW",
+       "at": 23,
+       "gives": "GOLF",
+       "note": "the Golf is a Volkswagen car model"
+      },
+      {
+       "words": "around",
+       "at": 13,
+       "gives": "C",
+       "note": "C is short for circa, Latin for around"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 32,
+         "note": "not half means only half of Lupo is kept, its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lupo",
+         "at": 26,
+         "note": "the Lupo is a small Volkswagen model; its first half is used"
+        }
+       ]
+      },
+      {
+       "words": "bad to start with",
+       "at": 41,
+       "gives": "B",
+       "note": "the first letter of bad, the word it starts with"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone potters about in a small Volkswagen, the drive not too bad at first.",
+     "walkthrough": "'putter' looks like a verb for pottering about, but it is the club for putting on the green; 'Maybe' marks it as one example.",
+     "definitionFit": "A putter is one example of a golf club, the one used on the green, hence 'Maybe'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "putter"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1265,89 @@
      }
     ]
    },
-   "solution": "FLAREUP"
+   "solution": "FLAREUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crisis",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supports",
+       "at": 8,
+       "note": "in a down clue the soft letter goes underneath, supporting the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "during",
+         "at": 33,
+         "note": "the artist sits during, so within, the jumbled fuel"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "terrible",
+           "at": 40,
+           "note": "terrible suggests a mess, so the letters of fuel are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fuel",
+           "at": 49
+          }
+         ]
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "upcoming",
+           "at": 17,
+           "note": "in a down clue, upcoming means the artist is written upwards, so backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "artist",
+           "at": 26,
+           "gives": "RA",
+           "note": "RA is a Royal Academician, an artist"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Quietly",
+       "at": 0,
+       "gives": "P",
+       "note": "p is the musical abbreviation for piano, quietly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quietly backs an emerging painter amid a dreadful fuel shortage.",
+     "walkthrough": "'supports' in a down clue means the quiet letter sits at the bottom, under the rest.",
+     "definitionFit": "A flare-up is a sudden outbreak of trouble, an eruption or crisis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supports"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1361,68 @@
     "text": "Love and money put into ordinary pub brings glamour",
     "enumeration": "5"
    },
-   "solution": "OOMPH"
+   "solution": "OOMPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "glamour",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put into",
+       "at": 15,
+       "note": "the love and money letters are put inside the ordinary pub"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ordinary",
+         "at": 24,
+         "gives": "O"
+        },
+        {
+         "words": "pub",
+         "at": 33,
+         "gives": "PH",
+         "note": "PH is the map abbreviation for public house"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Love",
+         "at": 0,
+         "gives": "O",
+         "note": "love is zero in tennis, which looks like O"
+        },
+        {
+         "words": "money",
+         "at": 9,
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spending on an everyday pub with affection gives it some sparkle.",
+     "definitionFit": "Oomph means energy or sex appeal, the attractive quality called glamour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1436,71 @@
     "text": "Staff numbers climb with one occupying huge house",
     "enumeration": "7"
    },
-   "solution": "MANSION"
+   "solution": "MANSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "huge house",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Staff",
+       "at": 0,
+       "gives": "MAN",
+       "note": "to man is to staff, as in man the desk"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "occupying",
+         "at": 29,
+         "note": "the one letter occupies the space inside the reversed numbers"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "climb",
+           "at": 14,
+           "note": "in a down clue, climbing means the letters go upwards, so read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "numbers",
+           "at": 6,
+           "gives": "NOS"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "at": 25,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Household staff numbers rise once someone moves into a vast home.",
+     "walkthrough": "NOS read upwards gives SON, with I inside to make SION.",
+     "definitionFit": "A mansion is a large, grand residence, a stately home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1514,59 @@
     "text": "I'm not sure hiding in parking area's way to find big cat",
     "enumeration": "4"
    },
-   "solution": "PUMA"
+   "solution": "PUMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "big cat",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hiding in",
+       "at": 13,
+       "note": "the hesitation is hidden inside the letters for parking area"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "parking",
+         "at": 23,
+         "gives": "P",
+         "note": "P is the road-sign abbreviation for parking"
+        },
+        {
+         "words": "area's",
+         "at": 31,
+         "gives": "A",
+         "note": "A is an abbreviation for area"
+        }
+       ]
+      },
+      {
+       "words": "I'm not sure",
+       "at": 0,
+       "gives": "UM",
+       "note": "um is a hesitant noise when unsure"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hesitant voice in a car park wonders how to track down a big cat.",
+     "definitionFit": "The puma, also called cougar or mountain lion, is a large wild feline of the Americas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parking"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1586,58 @@
      }
     ]
    },
-   "solution": "WRITTENOFF"
+   "solution": "WRITTENOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cancelled",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Legal document",
+       "at": 0,
+       "gives": "WRIT",
+       "note": "a writ is a written court order"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ordering",
+         "at": 24,
+         "note": "ordering means putting the letters of note into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "note",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "fines",
+       "at": 33,
+       "gives": "FF",
+       "note": "F stands for fine (as on pencils), so two of them give FF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court document with a note ordering penalties to be waived.",
+     "walkthrough": "NOTE rearranged ('ordering') gives TENO; 'fines' is not anagram fodder but two Fs, F being the pencil-grade abbreviation for fine.",
+     "definitionFit": "To write off a debt is to cancel it, so written off means cancelled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fines"
+    }
+   }
   },
   {
    "number": 21,
@@ -409,7 +1651,57 @@
     "text": "Briefly fancy luxury car's making vibrating noise",
     "enumeration": "5"
    },
-   "solution": "WHIRR"
+   "solution": "WHIRR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vibrating noise",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Briefly",
+         "at": 0,
+         "note": "said briefly, the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fancy",
+         "at": 8,
+         "gives": "WHIM",
+         "note": "a whim is a passing fancy"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "words": "luxury car's",
+       "at": 14,
+       "gives": "RR",
+       "note": "RR stands for Rolls-Royce, a luxury car"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An expensive car that someone fancied for a moment starts making a buzzing sound.",
+     "walkthrough": "WHIM cut short gives WHI; 'making' is a link word.",
+     "definitionFit": "A whirr is a steady humming or buzzing sound, like that of a spinning motor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 22,
@@ -423,7 +1715,51 @@
     "text": "Put in cold storage with zero Fahrenheit setting",
     "enumeration": "5"
    },
-   "solution": "FROZE"
+   "solution": "FROZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put in cold storage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fahrenheit",
+       "at": 30,
+       "gives": "F"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "setting",
+         "at": 41,
+         "note": "setting means arranging, so the letters of zero and the Fahrenheit abbreviation are put into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "zero",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something was chilled at a freezer setting of zero degrees Fahrenheit.",
+     "walkthrough": "'setting' reads as a thermostat setting, but it tells you to rearrange zero.",
+     "definitionFit": "To freeze food is to preserve it by chilling, storing it in a freezer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "setting"
+    }
+   }
   },
   {
    "number": 23,
@@ -437,7 +1773,59 @@
     "text": "Provisional time in training run's entered",
     "enumeration": "7"
    },
-   "solution": "INTERIM"
+   "solution": "INTERIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provisional",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entered",
+       "at": 35,
+       "note": "the run letter has entered the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "training",
+         "at": 20,
+         "note": "training a thing reshapes it, so the letters of time in are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time in",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "run's",
+       "at": 29,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner logs a short spell of training laps.",
+     "walkthrough": "'training' looks like exercise but is the anagram signal for 'time in'.",
+     "definitionFit": "Interim means temporary, serving for the meantime until something permanent is arranged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "training"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1839,57 @@
     "text": "Tourist has very little information about riots",
     "enumeration": "7"
    },
-   "solution": "VISITOR"
+   "solution": "VISITOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tourist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very",
+       "at": 12,
+       "gives": "V"
+      },
+      {
+       "words": "little information",
+       "at": 17,
+       "gives": "I",
+       "note": "a small i is the symbol for an information point"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 36,
+         "note": "about means around in disorder, so the letters of riots are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "riots",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller abroad knows almost nothing about civil unrest.",
+     "walkthrough": "RIOTS rearranged ('about') gives SITOR.",
+     "definitionFit": "A visitor is someone who comes to see a place, as a tourist does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1903,41 @@
     "text": "Former partner left to sell abroad",
     "enumeration": "6"
    },
-   "solution": "EXPORT"
+   "solution": "EXPORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sell abroad",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former partner",
+       "at": 0,
+       "gives": "EX",
+       "note": "an ex is a former spouse or partner"
+      },
+      {
+       "words": "left",
+       "at": 15,
+       "gives": "PORT",
+       "note": "port is the left side of a ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-partner has left to do business overseas.",
+     "definitionFit": "To export goods is to send them to another country for sale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 26,
@@ -485,7 +1957,50 @@
      }
     ]
    },
-   "solution": "ATONCE"
+   "solution": "ATONCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "right now",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boxing",
+       "at": 23,
+       "note": "boxing means enclosing, so the champion holds the weight inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "champion's",
+       "at": 12,
+       "gives": "ACE",
+       "note": "an ace is a champion or expert"
+      },
+      {
+       "words": "Heavyweight",
+       "at": 0,
+       "gives": "TON",
+       "note": "a ton is a heavy weight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heavyweight champion boxes immediately.",
+     "walkthrough": "'boxing' looks like the champion's sport, but it means putting one thing inside another.",
+     "definitionFit": "At once means immediately, without delay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boxing"
+    }
+   }
   }
  ]
 }
