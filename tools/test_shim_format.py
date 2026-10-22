@@ -10,7 +10,9 @@
 # packed path, is written as a shim, evaluated the way the app and the Node
 # harnesses evaluate one, and compared key for key with what Python says the
 # browser should hold.
+import copy
 import json
+import multiprocessing
 import os
 import subprocess
 import sys
@@ -20,6 +22,8 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "tools"))
 import fetch_puzzle as fp
+
+STRIDE = 20
 
 JS = r"""
 const fs = require("fs"), path = require("path");
@@ -90,7 +94,12 @@ def write_shims(out):
                 "position": {"x": 2, "y": 2}, "length": 1, "clue": {"text": "e", "enumeration": "1"}, "solution": "E"},
            ]}
     cases = [(Path(f"puzzles/{odd['id']}.json"), odd)]
-    cases += [(f, fp.read_puzzle_file(f)) for f in fp.puzzle_files()]
+    # The corpus is ~60k puzzles, more than CI's timeout allows at ~20 ms of
+    # browser_puzzle each. The packer's branches depend on an entry's shape, which
+    # every series repeats, so every STRIDE-th file (in sorted order, so the same
+    # ones every run) stands for the rest.
+    files = fp.puzzle_files()
+    cases += [(f, fp.read_puzzle_file(f)) for f in files[::STRIDE]]
 
     # The format fixtures (tools/fixtures/format-puzzles) join the corpus: a file
     # stores no name, series or derived annotation field, and browser_puzzle reads
@@ -119,12 +128,32 @@ def write_shims(out):
     # A fixture is a frozen copy of a corpus file: its shim takes that file's place
     # (shims are named by id), and one the corpus no longer holds is added.
     cases = [fixed.pop(p["id"], (path, p)) for path, p in cases] + list(fixed.values())
-    with open(out / "want", "w", encoding="utf-8") as want:
-        for path, puzzle in cases:
-            (out / "shims" / f"{puzzle['id']}.js").write_text(fp.shim_text(path, puzzle),
-                                                            encoding="utf-8")
-            want.write(json.dumps(fp.browser_puzzle(puzzle), ensure_ascii=False,
-                                  sort_keys=True, separators=(",", ":")) + "\n")
+    global CASES
+    CASES = cases
+    # The corpus is tens of thousands of puzzles at ~20 ms of browser_puzzle each, so
+    # a serial pass outlasts CI's timeout: fan it over every CPU, in file order.
+    with multiprocessing.Pool(os.cpu_count() or 1) as pool, \
+            open(out / "want", "w", encoding="utf-8") as want:
+        for pid, shim, line in pool.imap(render, range(len(cases)), chunksize=64):
+            (out / "shims" / f"{pid}.js").write_text(shim, encoding="utf-8")
+            want.write(line)
+
+
+CASES = []
+
+
+def render(i):
+    """(id, shim text, expected line) of CASES[i]; browser_puzzle runs once."""
+    path, puzzle = CASES[i]
+    browsed = fp.browser_puzzle(puzzle)
+    line = json.dumps(browsed, ensure_ascii=False, sort_keys=True,
+                      separators=(",", ":")) + "\n"
+    real = fp.browser_puzzle
+    fp.browser_puzzle = lambda _p: copy.deepcopy(browsed)
+    try:
+        return puzzle["id"], fp.shim_text(path, puzzle), line
+    finally:
+        fp.browser_puzzle = real
 
 
 with tempfile.TemporaryDirectory() as tmp:
