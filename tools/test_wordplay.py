@@ -194,6 +194,32 @@ try:
 except w.WordplayError as e:
     check("an unmatched note lists the free spans", "'a'" in str(e) and "'b'" in str(e), str(e))
 
+# A selection whose leaf holds the pick, not the words it picks from (a third of the
+# 'does not give' refusals in the annotate audit): translate drops the leaf's letters.
+tree = w.translate({"wp": "[German agreement]JA + alt<regularly ignored>([most]MS)"},
+                   "German agreement most regularly ignored", "JAMS")
+check("translate drops a leaf's letters that are already its selection's pick",
+      "gives" not in tree["parts"][1]["parts"][0], tree)
+tree = w.translate({"wp": "rev<picked up>(alt<on odd occasions>([Hotel niff]HTLIF))"},
+                   "Hotel niff on odd occasions picked up", "FILTH")
+check("a written pick under a reversal is dropped too", "HTLIF" not in str(tree), tree)
+tree = w.translate({"wp": "last<end of>([dog]CUR) + [eat]ATE"}, "End of dog eat", "RATE")
+check("a synonym the selection picks from keeps its letters", "CUR" in str(tree), tree)
+try:
+    w.translate({"wp": "alt<regularly>([most]MS)"}, "most regularly", "MO")
+    check("a written pick that still misses the answer stays refused", False, "accepted")
+except w.WordplayError as e:
+    check("a written pick that still misses the answer stays refused",
+          "does not give MO" in str(e) and "[most]MS" in str(e), str(e))
+
+# A possessive 's on bare words under a selection is the clue's, not the word's:
+# "Observer's last" is R (110 of 810 sampled refusals).
+check("last<>([Observer's]) is R", gives("last<last>([Observer's]) + [article]AN", "RAN") is True,
+      gives("last<last>([Observer's]) + [article]AN", "RAN"))
+check("outer<>([Calypso's]) is CO", gives("outer<exterior>([Calypso's])", "CO") is True,
+      gives("outer<exterior>([Calypso's])", "CO"))
+check("the 's still counts when the pick takes it", gives("last<last>([Observer's])", "S") is True)
+
 # ---------- annotation.view against stored annotations ----------
 # Real clues (nation-3289, as filed), each written as a tree; the fields the
 # tree implies must equal the stored ones. Notes are left out of the trees and

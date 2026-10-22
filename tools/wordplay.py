@@ -99,6 +99,7 @@ anagram's container is the outer step, ins(outer, ana(x)), not ana(ins(...)).
 """
 import argparse
 import collections
+import copy
 import functools
 import itertools
 import json
@@ -738,9 +739,10 @@ def values(node):
         return out
     if op in SELECT:
         leaf = parts[0]
-        if "op" not in leaf and leaf.get("select") and leaf.get("words"):
-            # a leaf that names its own pick (select: last, gives AM): the pick is made here
-            # from the clue words, with or without a possessive 's
+        if "op" not in leaf and leaf.get("words") and (leaf.get("select") or "gives" not in leaf):
+            # a leaf that names its own pick (select: last, gives AM), or the bare clue words
+            # (last<last>([Observer's]) is R): the pick is made here from the clue words, with
+            # or without a possessive 's
             raw = re.split(r"[\s\-–—/]+", leaf["words"])
             out = set()
             for drop in (False, True):
@@ -1313,8 +1315,55 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
                             f"note by its words as written in the expression"
                             + (f" (spans with no note yet: {keys})" if keys else
                                " (every span has a note already)"))
-    evaluate(tree, answer)
+    try:
+        evaluate(tree, answer)
+    except WordplayError as err:
+        tree = _with_picks_dropped(tree, answer)
+        if tree is None:
+            raise err
     return normalize(tree, clue, answer)[0]
+
+
+def _with_picks_dropped(tree, answer):
+    """A copy of `tree` with drop_written_picks() applied when that makes it give
+    `answer`, else None."""
+    repaired = copy.deepcopy(tree)
+    if not drop_written_picks(repaired):
+        return None
+    try:
+        evaluate(repaired, answer)
+    except WordplayError:
+        return None
+    return repaired
+
+
+def drop_written_picks(tree):
+    """Drop the letters of each leaf a selection op picks from that are already
+    the op's pick from the leaf's own words: alt<regularly>([most]MS) is
+    alt<regularly>([most]), since MS is the alternate letters of "most" and
+    alternating MS again would give M or S. The commonest refusal in the
+    annotate runs (a third of them): the run writes what the selection gives
+    where the op wants the clue words it picks from. A leaf whose letters are
+    no pick of its words ([dog]CUR under last) is a synonym the op picks
+    from, and stays. Returns how many leaves changed; translate() keeps the
+    change only when the tree then gives the answer."""
+    changed = 0
+    for node in _walk(tree):
+        if node.get("op") not in SELECT:
+            continue
+        for leaf in parts_of(node):
+            if ("op" in leaf or "gives" not in leaf or not leaf.get("words")
+                    or leaf.get("select") or leaf.get("unchecked")):
+                continue
+            bare = {k: v for k, v in leaf.items() if k != "gives"}
+            try:
+                picks = values({**node, "parts": [bare]})
+            except (WordplayError, _NeedTarget):
+                continue
+            if letters(leaf["gives"]) in picks:
+                del leaf["gives"]
+                changed += 1
+    return changed
 
 
 def normalize(tree, clue, answer):
