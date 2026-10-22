@@ -102,7 +102,8 @@ def main(argv):
         print("\n".join(files))
         return 3 if len(files) > MAX_FILES else 0
     print(f"since {base}: {len(changes)} path(s) changed", file=sys.stderr)
-    verdict, why = decide(changes, validate_scope.git_show(base))
+    # HEAD from git, not the disk: CI's sparse checkouts leave tools/data out.
+    verdict, why = decide(changes, validate_scope.git_show(base), validate_scope.git_show("HEAD"))
     print("fast" if verdict == "fast" else f"full {why}")
     return 0
 
