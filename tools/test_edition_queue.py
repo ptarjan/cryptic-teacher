@@ -401,6 +401,14 @@ check("eq.by_urgency: CT_NEWEST_FIRST, never read first, then rereads after a re
           rr("changed-old", "2000", "inputs changed"),
           rr("refused", "2015", "refused no-reading-parses before its fix"),
           (1, 0, 0, {"rel": "never", "date": "1990", "paper": "times", "rank": 1, "reason": "never read"})])])
+gr = lambda rel, date, reason, **k: (2, 0, 0, {"rel": rel, "date": date, "paper": "gale", "rank": 2, "reason": reason, **k})
+check("eq.by_urgency: CT_NEWEST_FIRST, a Gale 2007 short page and a 2000 no-title rescan go with the likely filers, not behind (Paul 10-22)",
+      ["short07", "notitle00", "likely80", "changed"],
+      [u["rel"] for u in eq.by_urgency([
+          gr("changed", "2020", "inputs changed"),
+          gr("likely80", "1980", "solution short, read by other code", likely={"x": 1}),
+          gr("notitle00", "2000", f.NO_TITLE_RESCAN),
+          gr("short07", "2007", "short Times page, its third clue column read since")])])
 check("eq.by_urgency: CT_NEWEST_FIRST, the named papers' rereads alternate one for one with another paper's never-read (Paul 10-21, 871ecef558f)",
       ["never", "short", "ft-never", "changed", "ft-stale"],
       [u["rel"] for u in eq.by_urgency([
