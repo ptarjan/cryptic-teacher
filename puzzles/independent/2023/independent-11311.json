@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,61 @@
     "text": "Bean variety gets carted initially in van that's horse-drawn",
     "enumeration": "7"
    },
-   "solution": "CHARIOT"
+   "solution": "CHARIOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's horse-drawn",
+      "at": 42,
+      "note": "a relative clause standing for a thing that horses pull, i.e. a horse-drawn vehicle"
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "in van",
+       "at": 35,
+       "note": "the van is the front of a column, so the letter is shifted to the very front of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bean variety",
+       "at": 0,
+       "gives": "HARICOT",
+       "note": "the haricot is a variety of bean"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 25,
+         "note": "initially picks out the opening letter of carted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "carted",
+         "at": 18,
+         "note": "first letter of carted"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of bean is being carted about in a horse-drawn van, as if on its way to market.",
+     "walkthrough": "HARICOT already contains a C; 'carted initially' names that C, and 'in van' moves it from the middle of the word to the front.",
+     "definitionFit": "A chariot is a two-wheeled vehicle pulled by horses, used in ancient warfare and racing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "van"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +102,45 @@
     "text": "Raucous-sounding raven, possibly, essential listening",
     "enumeration": "6"
    },
-   "solution": "CROAKY"
+   "solution": "CROAKY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Raucous-sounding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CROAKY",
+     "indicators": [
+      {
+       "text": "listening",
+       "at": 44,
+       "note": "what we hear when listening is a sound-alike of the words before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "raven, possibly, essential",
+       "at": 17,
+       "gives": "CROWKEY",
+       "note": "a raven is one kind of crow (possibly signals an example), and essential means key: CROW plus KEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The harsh call of a raven is presented as something you simply must hear.",
+     "walkthrough": "Say CROW KEY aloud and you hear the answer.",
+     "definitionFit": "A croaky voice is hoarse and harsh, which is what raucous-sounding describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "essential"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +154,66 @@
     "text": "Changed or added missing pages — a thousand inserted",
     "enumeration": "7"
    },
-   "solution": "AMENDED"
+   "solution": "AMENDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Changed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inserted",
+       "at": 44,
+       "note": "inserted tells us the thousand is put inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 17,
+         "note": "missing means the pages are left out of the word for added"
+        }
+       ],
+       "parts": [
+        {
+         "words": "added",
+         "at": 11,
+         "gives": "APPENDED",
+         "note": "appended means added on"
+        },
+        {
+         "words": "pages",
+         "at": 25,
+         "gives": "PP"
+        }
+       ]
+      },
+      {
+       "words": "a thousand",
+       "at": 33,
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes an edited document: altered, pages taken out, and a large number slipped in.",
+     "walkthrough": "'added' is not the definition here but a synonym to be shortened; PP is the standard abbreviation for pages.",
+     "definitionFit": "Amended means altered or revised, as a law or text is changed by amendment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pages"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +227,57 @@
     "text": "Increase in US money swamps rock group",
     "enumeration": "9"
    },
-   "solution": "INCREMENT"
+   "solution": "INCREMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Increase",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 9
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "swamps",
+         "at": 21,
+         "note": "to swamp is to engulf, so the money surrounds the band"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US money",
+         "at": 12,
+         "gives": "CENT",
+         "note": "a cent is a unit of US money"
+        },
+        {
+         "words": "rock group",
+         "at": 28,
+         "gives": "REM",
+         "note": "R.E.M. is an American rock band"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An increase in American money overwhelms a rock band, like a payday dwarfing the musicians.",
+     "definitionFit": "An increment is a step up or addition, such as a rise in salary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swamps"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +291,43 @@
     "text": "Move briskly after wrong turns",
     "enumeration": "4"
    },
-   "solution": "TROT"
+   "solution": "TROT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Move briskly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turns",
+       "at": 25,
+       "note": "turns means the word for wrong is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wrong",
+       "at": 19,
+       "gives": "TORT",
+       "note": "a tort is a civil wrong in law"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After taking a wrong turn, someone hurries along to make up time.",
+     "walkthrough": "TORT is the legal term for a civil wrong.",
+     "definitionFit": "To trot is to go at a pace faster than walking, as a horse or a hurrying person does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +341,35 @@
     "text": "Minor disturbance often seen at the seaside?",
     "enumeration": "7"
    },
-   "solution": "WAVELET"
+   "solution": "WAVELET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minor disturbance often seen at the seaside?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Minor disturbance often seen at the seaside",
+       "at": 0,
+       "note": "a small ripple in the water at the shore, not a little scuffle on the promenade"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Minor disturbance' suggests a small fracas, but the disturbance is on the surface of the sea.",
+     "definitionFit": "A wavelet is a small wave or ripple, a slight disturbance of water seen lapping on beaches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "disturbance"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +389,60 @@
      }
     ]
    },
-   "solution": "WRISTSTRAP"
+   "solution": "WRISTSTRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something round his forearm?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "off",
+       "at": 30,
+       "note": "off suggests the letters are disordered, in an anagram sense of not right"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "Using other hand",
+         "at": 0,
+         "note": "the other hand to left is right, so L (left) is swapped for R (right)"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Walt strips",
+         "at": 18,
+         "note": "taken as written as the anagram fodder, with its L changed"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Walt, switching hands, takes off something fastened round his arm.",
+     "walkthrough": "Swap the L of WALT STRIPS for an R, then rearrange the letters as 'off' signals.",
+     "definitionFit": "A wrist strap is a band worn round the lower forearm, as on a watch or a sports support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +456,47 @@
     "text": "Consumer taking only produce like 10 11 22, say, in van",
     "enumeration": "5"
    },
-   "solution": "VEGAN"
+   "solution": "VEGAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Consumer taking only produce like 10 11 22, say",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 49,
+       "note": "in places the abbreviation for say inside the word van"
+      }
+     ],
+     "parts": [
+      {
+       "words": "van",
+       "at": 52
+      },
+      {
+       "words": "say",
+       "at": 44,
+       "gives": "EG",
+       "note": "EG (for example) is the abbreviation meaning say"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eating red kidney beans in a van is described as a plant-only diner.",
+     "walkthrough": "Clues 10, 11 and 22 give RED KIDNEY BEANS, a plant food; 'say' does double duty in the surface but is the EG here.",
+     "definitionFit": "A vegan eats only plant foods, avoiding meat, dairy and eggs, so pulses are typical fare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +510,42 @@
     "text": "Old West town in a Mailer novel",
     "enumeration": "7"
    },
-   "solution": "LARAMIE"
+   "solution": "LARAMIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old West town",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "novel",
+       "at": 26,
+       "note": "novel as an adjective means new, so the letters come in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a Mailer",
+       "at": 17,
+       "note": "taken as written, the fodder; Norman Mailer was a US novelist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frontier town features in a book by Norman Mailer.",
+     "walkthrough": "'novel' looks like a book by Mailer but is the anagram signal.",
+     "definitionFit": "Laramie in Wyoming was a famous frontier settlement of the Wild West, subject of TV westerns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +559,48 @@
     "text": "Eats inside — it's an orderly quality",
     "enumeration": "8"
    },
-   "solution": "TIDINESS"
+   "solution": "TIDINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an orderly quality",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 5,
+       "note": "inside says the word for eats is placed within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "it's",
+       "at": 14,
+       "gives": "TIS",
+       "note": "'tis is an old contraction of it is"
+      },
+      {
+       "words": "Eats",
+       "at": 0,
+       "gives": "DINES",
+       "note": "dines means eats"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eating indoors is praised as a sign of a neat, well-kept home.",
+     "definitionFit": "Tidiness is the state of being neat and well arranged, a quality of order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Eats"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +614,49 @@
     "text": "Fiddling about comes before burning, maybe",
     "enumeration": "11"
    },
-   "solution": "OVERCOOKING"
+   "solution": "OVERCOOKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "burning, maybe",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "comes before",
+       "at": 15,
+       "note": "comes before says the word for about stands ahead of the word for fiddling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "about",
+       "at": 9,
+       "gives": "OVER",
+       "note": "over can mean about, as in fussing over something"
+      },
+      {
+       "words": "Fiddling",
+       "at": 0,
+       "gives": "COOKING",
+       "note": "cooking, as in cooking the books, means fiddling or falsifying"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Messing about in the kitchen is followed by something getting burnt.",
+     "walkthrough": "'Fiddling' looks musical or fidgety; in the sense of cooking the books it is COOKING.",
+     "definitionFit": "Burning food is an example of cooking it too long, hence 'maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fiddling"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +670,43 @@
     "text": "Knock back the German wine",
     "enumeration": "3"
    },
-   "solution": "RED"
+   "solution": "RED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Knock back",
+       "at": 0,
+       "note": "knocking back sends the German article the other way, reading it in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the German",
+       "at": 11,
+       "gives": "DER",
+       "note": "der is a German word for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone downs a glass of German wine.",
+     "walkthrough": "'Knock back' suggests drinking quickly, but it signals reversal.",
+     "definitionFit": "Red is the short name for red wine, ordered as 'a glass of red'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Knock"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +720,63 @@
     "text": "Child finally can have toy organ",
     "enumeration": "6"
    },
-   "solution": "KIDNEY"
+   "solution": "KIDNEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "organ",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Child",
+       "at": 0,
+       "gives": "KID",
+       "note": "a kid is a child"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 6,
+         "note": "finally picks the final letter of each of the three following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "at": 14,
+         "note": "last letter of can"
+        },
+        {
+         "words": "have",
+         "at": 18,
+         "note": "last letter of have"
+        },
+        {
+         "words": "toy",
+         "at": 23,
+         "note": "last letter of toy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child at last gets a toy organ to play.",
+     "walkthrough": "'organ' looks musical alongside 'toy', but it is the body part.",
+     "definitionFit": "The kidney is a bodily organ that filters blood, so it fits organ in the anatomical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +790,78 @@
     "text": "Stand-in crew at first crazy about trip's start",
     "enumeration": "8"
    },
-   "solution": "STUNTMAN"
+   "solution": "STUNTMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stand-in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at first",
+       "at": 14,
+       "note": "at first says the stretch after it comes first, ahead of the word for crew"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 29,
+         "note": "about here means turned round, so the word for crazy is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crazy",
+         "at": 23,
+         "gives": "NUTS",
+         "note": "nuts means crazy"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start",
+         "at": 42,
+         "note": "start picks the first letter of trip's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trip's",
+         "at": 35,
+         "note": "first letter of trip's"
+        }
+       ]
+      },
+      {
+       "words": "crew",
+       "at": 9,
+       "gives": "MAN",
+       "note": "to man a ship is to crew it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film crew's stand-in goes crazy at the start of a trip.",
+     "walkthrough": "The sense is 'crew, at first crazy about trip's start': STUN plus T leads, then MAN.",
+     "definitionFit": "A stuntman stands in for an actor to perform dangerous scenes, a body double."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crew"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +881,67 @@
      }
     ]
    },
-   "solution": "SACRECOEUR"
+   "solution": "SACRECOEUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "church",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "claims",
+       "at": 14,
+       "note": "claims means holds onto, so the sister wraps round the land and Catholic"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French sister",
+       "at": 0,
+       "gives": "SOEUR",
+       "note": "soeur is French for sister"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "adjoining",
+         "at": 31,
+         "note": "adjoining says the abbreviation sits right beside the land"
+        }
+       ],
+       "parts": [
+        {
+         "words": "some land",
+         "at": 21,
+         "gives": "ACRE",
+         "note": "an acre is a measure of land"
+        },
+        {
+         "words": "Catholic",
+         "at": 41,
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "SACRÉ COEUR",
+    "explanation": {
+     "surface": "A French nun lays claim to a plot of land next to a Catholic church.",
+     "walkthrough": "SOEUR is the French for sister, a nun or a sibling.",
+     "definitionFit": "The Sacré-Coeur is the white-domed basilica on Montmartre in Paris."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "claims"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +965,42 @@
      }
     ]
    },
-   "solution": "DIECASTMODELS"
+   "solution": "DIECASTMODELS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "metal toys",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to melt down",
+       "at": 15,
+       "note": "melting down reshapes the metal, as the letters are reshaped into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Almost decides",
+       "at": 0,
+       "note": "taken as written, the anagram fodder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nearly makes up their mind to melt down some metal toys.",
+     "walkthrough": "'Almost' looks like a shortening instruction, but it is part of the fodder: ALMOST plus DECIDES.",
+     "definitionFit": "Die-cast models are small replica vehicles made by forcing molten metal into moulds, collected as toys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Almost"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1014,50 @@
     "text": "Reorganise university course to allocate work elsewhere",
     "enumeration": "9"
    },
-   "solution": "OUTSOURCE"
+   "solution": "OUTSOURCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "allocate work elsewhere",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Reorganise",
+       "at": 0,
+       "note": "reorganise says the letters are put in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "university",
+       "at": 11,
+       "gives": "U"
+      },
+      {
+       "words": "course",
+       "at": 22,
+       "note": "taken as written"
+      },
+      {
+       "words": "to",
+       "at": 29,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university restructures a course so its teaching is contracted out.",
+     "definitionFit": "To outsource is to contract jobs out to an external supplier instead of doing them in-house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1071,61 @@
     "text": "Ex-boozers to drink 1.2 pints? Great — it's 6 cooking water!",
     "enumeration": "8"
    },
-   "solution": "AQUAFABA"
+   "solution": "AQUAFABA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "6 cooking water",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to drink",
+       "at": 11,
+       "note": "to drink is to take in, so the ex-boozers take the other letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ex-boozers",
+       "at": 0,
+       "gives": "AA",
+       "note": "AA is Alcoholics Anonymous, a group of former drinkers"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "1.2 pints",
+         "at": 20,
+         "gives": "QUA",
+         "note": "a quart is two pints, so 1.2 pints is three-fifths of a quart: the first three of the five letters of QUART"
+        },
+        {
+         "words": "Great",
+         "at": 31,
+         "gives": "FAB",
+         "note": "fab, short for fabulous, means great"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reformed drinkers are offered a pint-ish measure and cheerfully told it is just cooking water.",
+     "walkthrough": "6 refers to clue 6, VEGAN. Three-fifths of QUART is QUA, as 1.2 pints is three-fifths of a quart.",
+     "definitionFit": "Aquafaba is the liquid from cooked chickpeas, used by vegans as an egg-white substitute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "pints"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1139,41 @@
     "text": "Supplies officer with fourth kind of tape",
     "enumeration": "13"
    },
-   "solution": "QUARTERMASTER"
+   "solution": "QUARTERMASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supplies officer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fourth",
+       "at": 22,
+       "gives": "QUARTER",
+       "note": "a quarter is a fourth part"
+      },
+      {
+       "words": "kind of tape",
+       "at": 29,
+       "gives": "MASTER",
+       "note": "a master tape is the original recording from which copies are made"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army stores officer is equipped with a quarter and some special tape.",
+     "definitionFit": "A quartermaster is the military officer in charge of provisions, quarters and equipment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tape"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1187,57 @@
     "text": "Material that's elastic — Lycra, I see",
     "enumeration": "7"
    },
-   "solution": "ACRYLIC"
+   "solution": "ACRYLIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "elastic",
+         "at": 16,
+         "note": "elastic means stretchy and flexible, so the letters are bent into a new shape"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lycra",
+         "at": 26,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 33
+      },
+      {
+       "words": "see",
+       "at": 35,
+       "gives": "C",
+       "note": "the letter C sounds like see"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recognises a stretchy fabric as Lycra.",
+     "walkthrough": "'elastic' looks like a description of the material but signals the anagram.",
+     "definitionFit": "Acrylic is a synthetic fibre and fabric, a man-made textile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "elastic"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1257,48 @@
      }
     ]
    },
-   "solution": "RUNINTO"
+   "solution": "RUNINTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "encounter",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "joining",
+       "at": 17,
+       "note": "joining says the two words are attached one after the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Argument",
+       "at": 0,
+       "gives": "RUNIN",
+       "note": "a run-in is a quarrel or argument"
+      },
+      {
+       "words": "against",
+       "at": 9,
+       "gives": "TO",
+       "note": "to can mean against, as in face to face or set to the wall"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A case is made against bringing two things together.",
+     "definitionFit": "To run into someone is to meet them by chance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Argument"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1312,61 @@
     "text": "Get knight covering king, giving check",
     "enumeration": "6"
    },
-   "solution": "SCREEN"
+   "solution": "SCREEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "check",
+      "at": 33,
+      "note": "second meaning: to examine or test"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covering",
+         "at": 11,
+         "note": "covering means wrapping round, so the get-plus-knight letters enclose the king"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Get",
+         "at": 0,
+         "gives": "SEE",
+         "note": "to see is to get, in the sense of understand"
+        },
+        {
+         "words": "king",
+         "at": 20,
+         "gives": "CR",
+         "note": "CR, Carolus Rex, is the abbreviation for King Charles"
+        }
+       ]
+      },
+      {
+       "words": "knight",
+       "at": 4,
+       "gives": "N",
+       "note": "N is the chess notation for a knight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player blocks check by moving a knight in front of the king.",
+     "walkthrough": "The chess surface is a disguise: 'Get' is SEE, as in 'I get it', and CR (Latin Carolus Rex) is a king; 'giving' links wordplay to definition.",
+     "definitionFit": "To screen people is to check or vet them, as in screening for a disease."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Get"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1380,68 @@
     "text": "Exercises requiring introductions of an extensive range of pens",
     "enumeration": "8"
    },
-   "solution": "AEROBICS"
+   "solution": "AEROBICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exercises",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "introductions of",
+         "at": 20,
+         "note": "the introductions of words are their first letters, taken from the next four words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "an",
+         "at": 37,
+         "note": "first letter of an"
+        },
+        {
+         "words": "extensive",
+         "at": 40,
+         "note": "first letter of extensive"
+        },
+        {
+         "words": "range",
+         "at": 50,
+         "note": "first letter of range"
+        },
+        {
+         "words": "of",
+         "at": 56,
+         "note": "first letter of of"
+        }
+       ]
+      },
+      {
+       "words": "pens",
+       "at": 59,
+       "gives": "BICS",
+       "note": "Bics are ballpoint pens, from the Bic brand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A workout routine apparently calls for a wide selection of pens.",
+     "definitionFit": "Aerobics is a form of rhythmic exercise to raise heart rate, done in classes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pens"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1455,49 @@
     "text": "Energy-packing bars and maybe canned food",
     "enumeration": "5"
    },
-   "solution": "BEANS"
+   "solution": "BEANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "maybe canned food",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "packing",
+       "at": 7,
+       "note": "packing means holding inside, so the word for bars holds the energy symbol"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bars",
+       "at": 15,
+       "gives": "BANS",
+       "note": "to bar is to ban"
+      },
+      {
+       "words": "Energy",
+       "at": 0,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Energy bars and tinned food sound like a hiker's provisions.",
+     "walkthrough": "'Energy-packing bars' reads as snack bars, but bars are BANS.",
+     "definitionFit": "Beans are often bought in tins, as with baked beans, so canned food is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1511,64 @@
     "text": "Charlie may pop back for a drink",
     "enumeration": "6"
    },
-   "solution": "COGNAC"
+   "solution": "COGNAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a drink",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Charlie",
+       "at": 0,
+       "gives": "C",
+       "note": "Charlie is C in the NATO phonetic alphabet"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 16,
+         "note": "back means the following words are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "may",
+           "at": 8,
+           "gives": "CAN",
+           "note": "can, meaning be allowed to, is a synonym of may"
+          },
+          {
+           "words": "pop",
+           "at": 12,
+           "gives": "GO",
+           "note": "to pop, as in pop out, is to go"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Charlie may drop in again for a drink.",
+     "definitionFit": "Cognac is a brandy from western France, served as an after-dinner spirit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1582,46 @@
     "text": "Long throw striking opener",
     "enumeration": "4"
    },
-   "solution": "ITCH"
+   "solution": "ITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Long",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "striking opener",
+       "at": 11,
+       "note": "striking out the opener deletes the first letter of the word for throw"
+      }
+     ],
+     "parts": [
+      {
+       "words": "throw",
+       "at": 5,
+       "gives": "PITCH",
+       "note": "to pitch is to throw"
+      },
+      {
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long throw hits the batsman opening the innings.",
+     "walkthrough": "An opener is the batsman who starts the innings in cricket.",
+     "definitionFit": "To itch for something is to long for it, to want it restlessly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1635,53 @@
     "text": "All I ask in return is containing trouble",
     "enumeration": "3"
    },
-   "solution": "AIL"
+   "solution": "AIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trouble",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "in return",
+       "at": 10,
+       "note": "in return means the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "containing",
+         "at": 23,
+         "note": "the words are said to contain the answer, which sits within them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "All I ask",
+         "at": 0,
+         "gives": "LIA"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modest plea: all I want back is to keep a problem under control.",
+     "definitionFit": "To ail is to trouble or afflict, as in 'what ails you?'"
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1701,68 @@
      }
     ]
    },
-   "solution": "AGENTORANGE"
+   "solution": "AGENTORANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this defoliant",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coating",
+       "at": 19,
+       "note": "coating means covering round, so the A and E surround the man and ape"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "banned substance",
+         "at": 2,
+         "gives": "E",
+         "note": "E is short for ecstasy, an illegal drug"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "man",
+         "at": 27,
+         "gives": "GENT",
+         "note": "a gent is a man"
+        },
+        {
+         "words": "ape",
+         "at": 35,
+         "gives": "ORANG",
+         "note": "orang is short for orang-utan, an ape"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prohibited chemical covers a man and an ape, presented as a weedkiller.",
+     "definitionFit": "Agent Orange was the herbicide sprayed by the US in Vietnam to strip foliage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coating"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1776,57 @@
     "text": "One denouncing a druggie injecting small amount",
     "enumeration": "7"
    },
-   "solution": "ACCUSER"
+   "solution": "ACCUSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One denouncing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "injecting",
+       "at": 25,
+       "note": "injecting puts the small amount into the other letters, as a needle does"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15
+        },
+        {
+         "words": "druggie",
+         "at": 17,
+         "gives": "USER",
+         "note": "a user is a drug-taker"
+        }
+       ]
+      },
+      {
+       "words": "small amount",
+       "at": 35,
+       "gives": "CC",
+       "note": "cc, a cubic centimetre, is a small amount of liquid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drug addict is reported while injecting a small dose.",
+     "definitionFit": "An accuser is someone who charges or blames another, denouncing them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "injecting"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +1840,59 @@
     "text": "Dance with any number following garden party",
     "enumeration": "7"
    },
-   "solution": "HOEDOWN"
+   "solution": "HOEDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 22,
+       "note": "following says the pair after it comes later, after garden and party"
+      }
+     ],
+     "parts": [
+      {
+       "words": "garden",
+       "at": 32,
+       "gives": "HOE",
+       "note": "to hoe is to garden"
+      },
+      {
+       "words": "party",
+       "at": 39,
+       "gives": "DO",
+       "note": "a do is a party"
+      },
+      {
+       "words": "with",
+       "at": 6,
+       "gives": "W"
+      },
+      {
+       "words": "any number",
+       "at": 11,
+       "gives": "N",
+       "note": "N stands for any number in maths"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dance takes place after a garden party.",
+     "definitionFit": "A hoedown is a lively American folk dance or the social gathering where it happens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "garden"
+    }
+   }
   }
  ]
 }
