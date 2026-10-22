@@ -3168,5 +3168,9 @@ tools/bigdave_layout.py                        helpers for apply_blog_answers' b
                                                source: the two-paragraph clue layout
 tools/blog_comment_rows.py                     answer rows read from the comments under a Times
                                                for the Times post
+tools/test_push_batch.sh                       does tools/push_puzzle_commit.sh batch pushes
+                                               that come inside its window, and does the batch
+                                               always reach origin, with every commit kept as
+                                               its own?
 ```
 <!-- LAYOUT-END -->

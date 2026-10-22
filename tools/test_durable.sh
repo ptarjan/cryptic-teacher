@@ -14,6 +14,7 @@
 # the pass its TERM and time to commit before killing, and every scheduled job
 # that can run long to use the mechanism.
 set -euo pipefail
+export PUSH_BATCH_SECS=0  # every push at once, not batched 5 min apart (tools/push_puzzle_commit.sh)
 cd "$(dirname "$0")/.."
 REAL="$PWD"
 tmp=$(mktemp -d); [ -n "${KEEP:-}" ] && echo "tmp: $tmp"

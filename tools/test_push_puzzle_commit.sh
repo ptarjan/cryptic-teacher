@@ -13,6 +13,7 @@
 # never fail, must publish every puzzle, must leave HEAD and
 # the sibling's file alone, and must not revert what the other clone pushed.
 set -uo pipefail
+export PUSH_BATCH_SECS=0  # every push at once, not batched 5 min apart (tools/push_puzzle_commit.sh)
 here="$(cd "$(dirname "$0")" && pwd)"
 push="$here/push_puzzle_commit.sh"
 rounds="${ROUNDS:-25}"

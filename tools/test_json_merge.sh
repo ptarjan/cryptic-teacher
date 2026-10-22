@@ -9,6 +9,7 @@
 #
 #     bash tools/test_json_merge.sh
 set -uo pipefail
+export PUSH_BATCH_SECS=0  # every push at once, not batched 5 min apart (tools/push_puzzle_commit.sh)
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 fails=0
 check() { if [ "$2" = "$3" ]; then echo "ok   $1"; else

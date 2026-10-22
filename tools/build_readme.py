@@ -849,6 +849,7 @@ LAYOUT = [
     ("fetching", "tools/test_apply_blog_answers.py", "apply_blog_answers reads an answer off a write-up line however the era prints it"),
     ("fetching", "tools/bigdave_layout.py", "helpers for apply_blog_answers' bigdave44 source: the two-paragraph clue layout"),
     ("fetching", "tools/blog_comment_rows.py", "answer rows read from the comments under a Times for the Times post"),
+    ("fetching", "tools/test_push_batch.sh", "does tools/push_puzzle_commit.sh batch pushes that come inside its window, and does the batch always reach origin, with every commit kept as its own?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
