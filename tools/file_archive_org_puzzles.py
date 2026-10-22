@@ -5357,6 +5357,28 @@ for _paper, _pins in _WORDS_CACHE_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before LOOSE_SOLUTION took a
+#: nine-letter middle word, YESTERDAY_SOLUTION joined the solution patterns, a single
+#: reader's solution headings stood once the titles were voted, and the grid-size cap went
+#: 700 -> 800: edits that move only the Times's and the Gale Times's scans (the only
+#: papers whose headings they read), so every other paper's scans stand under their old
+#: keys. The Times (times) and the Gale Times (gale) are scanned again.
+_SOLUTION_HEADINGS_FIX = {
+    "ft": ("6f126cec76a9da34", "7cf1a456b14bf436", "db66b411d68b6315"),
+    "galeft": ("e56475066ddb1198", "a78424e2e7cb39df", "4e9bd3af3ac0e35e"),
+    "galeindependent": ("435c9cfc94ae8e79", "57557f9430b62de8", "91aa916982ce2a89"),
+    "galesundaytimes": ("ab29b4d8a0d49880", "0c45ee654e8a1eb1", "98239ec5a4bfa3f2"),
+    "galetelegraph": ("2710eb7f5728dfad", "0cd985fc79b727f9", "1b1dfd8b6e92ff89"),
+    "galetls": ("ef730323537ce941", "1699c866c2be4a6a", "2dcf3e24dcf440b8"),
+    "guardian": ("3e8d1907b65b2142", "50a3f494a6f34248", "aa76462452b63be8"),
+    "telegraph": ("3e84c20d8749529a", "c794daa7354d3395", "a08343d90831fdcf"),
+    "times1930": ("37c08a1d050a7f0d", "e9488468f838b696", "5356ffb7ac6d88b0"),
+}
+for _paper, _pins in _SOLUTION_HEADINGS_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 
 
 def current_keys(paper):
