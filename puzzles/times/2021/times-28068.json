@@ -21,6 +21,9 @@
   "date": "2021-09-04",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,48 @@
     "text": "Some blood not English: a simple mistake?",
     "enumeration": "4"
    },
-   "solution": "TYPO"
+   "solution": "TYPO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a simple mistake?",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 11,
+       "note": "not says the following letter is left out of the blood group"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Some blood",
+       "at": 0,
+       "gives": "TYPEO",
+       "note": "type O is one group of blood, so some blood is TYPE O"
+      },
+      {
+       "words": "English",
+       "at": 15,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical-sounding question about a sample of non-English blood being nothing more than an error.",
+     "walkthrough": "Blood group TYPE O loses its E (English, after 'not') to leave the answer.",
+     "definitionFit": "A typo is a small slip made when typing or printing, the commonest kind of simple error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blood"
+    }
+   }
   },
   {
    "number": 1,
@@ -48,7 +92,57 @@
     "text": "Male, warlike type, holding a chopper",
     "enumeration": "8"
    },
-   "solution": "TOMAHAWK"
+   "solution": "TOMAHAWK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chopper",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 20,
+       "note": "holding says the two pieces enclose the letter A"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Male",
+         "at": 0,
+         "gives": "TOM",
+         "note": "a tom is a male cat"
+        },
+        {
+         "words": "warlike type",
+         "at": 6,
+         "gives": "HAWK",
+         "note": "a hawk is a person favouring military action"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aggressive man gripping an axe.",
+     "definitionFit": "A tomahawk is a light axe used by Native Americans, a chopping tool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chopper"
+    }
+   }
   },
   {
    "number": 2,
@@ -62,7 +156,49 @@
     "text": "Painter has left it around?",
     "enumeration": "8"
    },
-   "solution": "PORTRAIT"
+   "solution": "PORTRAIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Painter has left it around?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 12,
+       "gives": "PORT",
+       "note": "port is the left side of a ship"
+      },
+      {
+       "words": "Painter",
+       "at": 0,
+       "gives": "RA",
+       "note": "RA, Royal Academician, is a painter"
+      },
+      {
+       "words": "it",
+       "at": 17,
+       "gives": "IT"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Has an artist left something lying about?",
+     "walkthrough": "'Has' and 'around' only link here. A painter leaves behind a likeness of the sitter, so the whole clue also defines the answer.",
+     "definitionFit": "A portrait is a painted likeness, the kind of work a painter might leave for posterity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 3,
@@ -76,7 +212,67 @@
     "text": "Sanction naughty boy, lip given a brief curl",
     "enumeration": "10"
    },
-   "solution": "IMPRIMATUR"
+   "solution": "IMPRIMATUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sanction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "naughty boy",
+       "at": 9,
+       "gives": "IMP",
+       "note": "an imp is a mischievous child"
+      },
+      {
+       "words": "lip",
+       "at": 22,
+       "gives": "RIM",
+       "note": "the lip of a cup is its rim"
+      },
+      {
+       "words": "a",
+       "at": 32
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 34,
+         "note": "brief means cut short, so the word for curl loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "curl",
+         "at": 40,
+         "gives": "TURN",
+         "note": "a curl is a turn or twist"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to approve of a naughty boy whose lip gives a quick sneer.",
+     "walkthrough": "'Sanction' reads as a verb applied to the boy, but it is a noun meaning approval.",
+     "definitionFit": "An imprimatur is an official licence or approval, originally permission from the Church to print a book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sanction"
+    }
+   }
   },
   {
    "number": 4,
@@ -90,7 +286,48 @@
     "text": "People eating very tiny thing",
     "enumeration": "5"
    },
-   "solution": "MESON"
+   "solution": "MESON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tiny thing",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 7,
+       "note": "eating says the people swallow the word for very"
+      }
+     ],
+     "parts": [
+      {
+       "words": "People",
+       "at": 0,
+       "gives": "MEN",
+       "note": "men means people"
+      },
+      {
+       "words": "very",
+       "at": 14,
+       "gives": "SO",
+       "note": "so means very, as in so good"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Diners are consuming something extremely small.",
+     "definitionFit": "A meson is a subatomic particle, about as tiny an object as physics deals with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 5,
@@ -104,7 +341,41 @@
     "text": "One selling farmland that can be brought back into use",
     "enumeration": "9"
    },
-   "solution": "REPARABLE"
+   "solution": "REPARABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that can be brought back into use",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One selling",
+       "at": 0,
+       "gives": "REP",
+       "note": "a rep, sales representative, sells"
+      },
+      {
+       "words": "farmland",
+       "at": 12,
+       "gives": "ARABLE",
+       "note": "arable land is farmland used for crops"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An agent selling fields that can be farmed again.",
+     "definitionFit": "Reparable means able to be repaired, so restored to working order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "selling"
+    }
+   }
   },
   {
    "number": 6,
@@ -124,7 +395,42 @@
      }
     ]
    },
-   "solution": "MADAMETUSSAUD"
+   "solution": "MADAMETUSSAUD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "For a change, dad's at a museum: whose?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "For a change",
+       "at": 0,
+       "note": "for a change says the letters of the following words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dad's at a museum",
+       "at": 14
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Dad has gone to a museum for once, and we ask whose museum it is.",
+     "walkthrough": "The answer is the founder of the famous London waxworks museum, which answers 'whose?'.",
+     "definitionFit": "Madame Tussaud founded the wax museum in London that still bears her name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 7,
@@ -138,7 +444,48 @@
     "text": "Appreciated it's hot inside military vehicles",
     "enumeration": "6"
    },
-   "solution": "THANKS"
+   "solution": "THANKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appreciated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 21,
+       "note": "inside says the hot goes within the vehicles"
+      }
+     ],
+     "parts": [
+      {
+       "words": "military vehicles",
+       "at": 28,
+       "gives": "TANKS",
+       "note": "tanks are armoured military vehicles"
+      },
+      {
+       "words": "hot",
+       "at": 17,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on taps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers welcome the heat inside their tanks.",
+     "definitionFit": "Saying thanks is the spoken way of showing gratitude, as when someone says the favour was appreciated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Appreciated"
+    }
+   }
   },
   {
    "number": 8,
@@ -152,7 +499,31 @@
     "text": "Doing a turn in club",
     "enumeration": "6"
    },
-   "solution": "ROTARY"
+   "solution": "ROTARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Doing a turn",
+      "at": 0,
+      "meaning": "first meaning: rotating, turning round"
+     },
+     {
+      "text": "club",
+      "at": 16,
+      "meaning": "second meaning: the ... Club, a service organisation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Doing a turn in club' suggests a cabaret act, but the two halves are separate meanings.",
+     "definitionFit": "Rotary describes circular motion, and Rotary is also the international service club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 9,
@@ -166,7 +537,65 @@
     "text": "Heading away from capital on motorway, they get the shakes",
     "enumeration": "7"
    },
-   "solution": "MARACAS"
+   "solution": "MARACAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they get the shakes",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 26,
+       "note": "in an across clue, one piece on another comes after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "motorway",
+       "at": 29,
+       "gives": "M",
+       "note": "M is the abbreviation for motorway, as in the M1"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Heading away from",
+         "at": 0,
+         "note": "the heading of the capital, its first letter, goes away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capital",
+         "at": 18,
+         "gives": "CARACAS",
+         "note": "Caracas is the capital of Venezuela"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaving a capital city along a motorway gets the jitters.",
+     "walkthrough": "Caracas is the capital of Venezuela; in an across clue 'on' places a piece after another.",
+     "definitionFit": "Maracas are percussion rattles that make their sound only when they are shaken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shakes"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +615,30 @@
      }
     ]
    },
-   "solution": "CLOSEQUARTERS"
+   "solution": "CLOSEQUARTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hand-to-hand fighting at these",
+      "at": 0,
+      "meaning": "first meaning: fighting at close range is fighting at these"
+     },
+     {
+      "text": "crowded lodgings",
+      "at": 31,
+      "meaning": "second meaning: cramped living space"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Close quarters is both the short range of hand-to-hand combat and literally cramped accommodation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lodgings"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +652,59 @@
     "text": "Nothing current in old transmission",
     "enumeration": "7"
    },
-   "solution": "PODCAST"
+   "solution": "PODCAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "transmission",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in says the nothing and the current go inside the word for old"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old",
+       "at": 19,
+       "gives": "PAST",
+       "note": "past means old or former"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Nothing",
+         "at": 0,
+         "gives": "O",
+         "note": "O, the zero, means nothing"
+        },
+        {
+         "words": "current",
+         "at": 8,
+         "gives": "DC",
+         "note": "DC is direct current"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull old broadcast with no current interest.",
+     "definitionFit": "A podcast is a recorded audio programme distributed online, a kind of broadcast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +718,49 @@
     "text": "Marx discussing royalty, the main killer",
     "enumeration": "9"
    },
-   "solution": "HARPOONER"
+   "solution": "HARPOONER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the main killer",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Marx",
+       "at": 0,
+       "gives": "HARPO",
+       "note": "Harpo was one of the Marx Brothers"
+      },
+      {
+       "words": "discussing",
+       "at": 5,
+       "gives": "ON",
+       "note": "on means about or discussing"
+      },
+      {
+       "words": "royalty",
+       "at": 16,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, stands for the Queen and so royalty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Marx brother talking about the royal family, the chief murderer.",
+     "walkthrough": "The main is the sea, so its killer hunts whales with a harpoon.",
+     "definitionFit": "A harpooner kills whales at sea, and 'the main' is a poetic name for the ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +774,50 @@
     "text": "Former scorer missing a run",
     "enumeration": "5"
    },
-   "solution": "MAKER"
+   "solution": "MAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Former",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "at": 14,
+       "note": "missing says the run is taken out of the scorer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scorer",
+       "at": 7,
+       "gives": "MARKER",
+       "note": "a marker keeps the score in a game"
+      },
+      {
+       "words": "a run",
+       "at": 22,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for a run"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time scorer who failed to score a single run.",
+     "walkthrough": "'Former' looks like 'one-time', but it means one who forms.",
+     "definitionFit": "A former is someone who forms or shapes something, which is exactly what a maker does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Former"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +837,72 @@
      }
     ]
    },
-   "solution": "WHITERABBITS"
+   "solution": "WHITERABBITS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "said to bring luck",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 24,
+       "note": "covering says the two pieces enclose the reversed word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A tiny piece",
+         "at": 0,
+         "gives": "WHIT",
+         "note": "a whit is a tiny amount"
+        },
+        {
+         "words": "others",
+         "at": 17,
+         "gives": "BITS",
+         "note": "bits are further tiny pieces, so the others"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 39,
+         "note": "back says the word for naked is read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "naked",
+         "at": 33,
+         "gives": "BARE",
+         "note": "naked means bare"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny scrap and other bits covering an exposed back, a superstitious charm.",
+     "walkthrough": "BARE reversed by 'back' gives ERAB, which WHIT and BITS cover. Saying 'white rabbits' on the first day of a month is a British folk superstition.",
+     "definitionFit": "The phrase is a traditional spoken charm, uttered on the first of a month for good fortune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +916,75 @@
     "text": "Agreeing article can fit at the back, held together with string",
     "enumeration": "9"
    },
-   "solution": "ACCORDANT"
+   "solution": "ACCORDANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Agreeing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "article",
+       "at": 9,
+       "gives": "A",
+       "note": "A is the indefinite article"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "held together with",
+         "at": 38,
+         "note": "the can holds the string within it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "at": 17,
+         "gives": "CAN",
+         "note": "taken as written"
+        },
+        {
+         "words": "string",
+         "at": 57,
+         "gives": "CORD",
+         "note": "a cord is a string"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at the back",
+         "at": 25,
+         "note": "at the back picks the final letter of the word fit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fit",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An article saying a can fits at the rear when tied with string.",
+     "definitionFit": "Accordant means in accord, harmonious or in agreement with something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +998,40 @@
     "text": "Will exercise, moving to violin",
     "enumeration": "8"
    },
-   "solution": "VOLITION"
+   "solution": "VOLITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Will exercise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "moving",
+       "at": 15,
+       "note": "moving shifts the letters of the words around into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to violin",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A will-power exercise in switching to the violin.",
+     "definitionFit": "Volition is the act of using one's will to make a choice or decision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercise"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1051,59 @@
      }
     ]
    },
-   "solution": "SKINDEEP"
+   "solution": "SKINDEEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Superficial",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 30,
+       "note": "into says the jumbled word goes inside the bin"
+      }
+     ],
+     "parts": [
+      {
+       "words": "large bin",
+       "at": 35,
+       "gives": "SKIP",
+       "note": "a skip is a large open waste container used in Britain on building sites"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to be thrown",
+         "at": 17,
+         "note": "thrown says the letters of the word are scattered into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "need",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shallow need for something to be chucked in the skip.",
+     "walkthrough": "A skip is a British large builder's rubbish container.",
+     "definitionFit": "Something skin-deep goes no further than the surface, so it is shallow or superficial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1123,51 @@
      }
     ]
    },
-   "solution": "BUTCHERSHOOK"
+   "solution": "BUTCHERSHOOK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gander",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "facing",
+       "at": 17,
+       "note": "facing says the trembling word sits opposite, alongside, the killer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "his killer",
+       "at": 24,
+       "gives": "BUTCHER",
+       "note": "a butcher slaughters a goose, the gander of the surface"
+      },
+      {
+       "words": "trembled",
+       "at": 7,
+       "gives": "SHOOK",
+       "note": "shook means trembled"
+      }
+     ]
+    },
+    "spelling": "BUTCHER'S HOOK",
+    "explanation": {
+     "surface": "A goose quakes as it faces the man who will kill it.",
+     "walkthrough": "Butcher's hook is Cockney rhyming slang for look, and a gander is a look too.",
+     "definitionFit": "In rhyming slang a butcher's hook rhymes with look, and to have a gander is to take a look."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gander"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1181,54 @@
     "text": "Left rival to support kind of light actor?",
     "enumeration": "6"
    },
-   "solution": "LUVVIE"
+   "solution": "LUVVIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "actor?",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to support",
+       "at": 11,
+       "note": "in a down clue the rival sits under, supporting, the pieces above"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Left",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "words": "kind of light",
+       "at": 22,
+       "gives": "UV",
+       "note": "UV is ultraviolet light"
+      },
+      {
+       "words": "rival",
+       "at": 5,
+       "gives": "VIE",
+       "note": "to vie is to compete as a rival"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A left-wing rival backing a lightweight actor.",
+     "walkthrough": "A luvvie is British slang for a gushing, theatrical actor.",
+     "definitionFit": "Luvvie is a British informal term for an effusive actor, so it is a kind of actor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1248,45 @@
      }
     ]
    },
-   "solution": "STIRUP"
+   "solution": "STIRUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get excited",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "centrally defective",
+       "at": 22,
+       "note": "it lacks a letter at its centre, so one middle letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "foothold",
+       "at": 13,
+       "gives": "STIRRUP",
+       "note": "a stirrup holds a rider's foot"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting worked up because a stirrup is faulty in the middle.",
+     "definitionFit": "To stir up is to rouse or agitate, making people excited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defective"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1300,47 @@
     "text": "Complete eccentric forgetting name",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "forgetting",
+       "at": 19,
+       "note": "forgetting says the name is dropped from the word for eccentric"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eccentric",
+       "at": 9,
+       "gives": "NUTTER",
+       "note": "a nutter is a crazy or eccentric person"
+      },
+      {
+       "words": "name",
+       "at": 30,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A total oddball who can't remember names.",
+     "definitionFit": "Utter as an adjective means complete or absolute, as in utter nonsense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Complete"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1354,48 @@
     "text": "Spending more francs in account",
     "enumeration": "9"
    },
-   "solution": "REFLATION"
+   "solution": "REFLATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spending more",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in says the francs go inside the account"
+      }
+     ],
+     "parts": [
+      {
+       "words": "account",
+       "at": 24,
+       "gives": "RELATION",
+       "note": "a relation is an account or narrative"
+      },
+      {
+       "words": "francs",
+       "at": 14,
+       "gives": "F",
+       "note": "F is the abbreviation for francs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Extra outlay of francs is recorded in the accounts.",
+     "definitionFit": "Reflation is an economic policy of increasing spending and money supply to stimulate the economy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1409,50 @@
     "text": "A number eating large meal",
     "enumeration": "5"
    },
-   "solution": "FLOUR"
+   "solution": "FLOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 9,
+       "note": "eating says the number swallows the large"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A number",
+       "at": 0,
+       "gives": "FOUR",
+       "note": "four is a number"
+      },
+      {
+       "words": "large",
+       "at": 16,
+       "gives": "L",
+       "note": "L is the abbreviation for large, as in clothing sizes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Several people sitting down to a big dinner.",
+     "walkthrough": "'Meal' looks like a dinner but means ground grain.",
+     "definitionFit": "Meal is coarsely ground grain, and flour is finely ground meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meal"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1466,44 @@
     "text": "One in bed having some lover be naked",
     "enumeration": "7"
    },
-   "solution": "VERBENA"
+   "solution": "VERBENA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One in bed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 18,
+       "note": "some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lover be naked",
+       "at": 23,
+       "gives": "VERBENA",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bedfellow with a naked lover.",
+     "walkthrough": "The draft took 'having' into the definition; it is the link joining 'One in bed' to the hidden word. The bed is a flower bed.",
+     "definitionFit": "Verbena is a garden plant, so it is one of the flowers grown in a bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 25,
@@ -426,7 +1523,54 @@
      }
     ]
    },
-   "solution": "OLDTIME"
+   "solution": "OLDTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sort of dancing",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Getting on",
+       "at": 0,
+       "gives": "OLD",
+       "note": "getting on means old, ageing"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 26,
+         "note": "about says the word for broadcast is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broadcast",
+         "at": 16,
+         "gives": "EMIT",
+         "note": "to emit is to send out or broadcast"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ageing person on air talking about a kind of dance.",
+     "walkthrough": "EMIT turned by 'about' gives TIME.",
+     "definitionFit": "Old-time dancing is the traditional ballroom style, such as waltzes and quicksteps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1584,40 @@
     "text": "They explain poor sex: it's shattering",
     "enumeration": "10"
    },
-   "solution": "EXPOSITORS"
+   "solution": "EXPOSITORS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They explain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "shattering",
+       "at": 28,
+       "note": "shattering breaks the letters of the words into pieces to be put back in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poor sex: it's",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sex therapists explain that bad sex is devastating.",
+     "definitionFit": "An expositor is someone who sets out and interprets ideas or texts, an explainer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shattering"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1631,43 @@
     "text": "Trim nails back",
     "enumeration": "4"
    },
-   "solution": "SNIP"
+   "solution": "SNIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 11,
+       "note": "back says the word for nails is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nails",
+       "at": 5,
+       "gives": "PINS",
+       "note": "pins are slim nails"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to cut your fingernails short again.",
+     "walkthrough": "'Nails' suggests fingernails, but here it means pins.",
+     "definitionFit": "To snip is to cut with small quick strokes of scissors, a synonym of trim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nails"
+    }
+   }
   }
  ]
 }
