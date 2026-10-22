@@ -286,7 +286,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._LINES_FIX[gt.key][:2],
                                                                       *f._WORDS_CACHE_FIX[gt.key][:2],
                                                                       *f._SOLUTION_HEADINGS_FIX[gt.key][:2],
-                                                                      *f._PRIZE_HEADINGS_FIX[gt.key][:2]},
+                                                                      *f._PRIZE_HEADINGS_FIX[gt.key][:2],
+                                                                      *f._BAND_WIDTH_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -1267,6 +1268,15 @@ _tue = {**_mon, "edition": "GaleTimes2009UKEnglish/2009-08-18"}
 check("a Gale Monday of the 2000s scanned before the prize headings is due again; its Tuesday, and a scan "
       "by the new code, stand", [False, True, True],
       [f.scan_current(_mon, "h"), f.scan_current(_tue, "h"), f.scan_current({**_mon, "scanKey": f.scan_key(f.GALE)}, "h")])
+_bk = f._BAND_WIDTH_FIX["gale"]
+_wide = {"edition": "GaleTimes2005UKEnglish/2005-09-05", "scanKey": _bk[0], "filesHash": "h", "scan": {}}
+check("a Gale Times day of mid-2005 to mid-2006 scanned before the wider SOLUTION_BAND is due again, "
+      "one of 2004 or 2007 and a scan by the new code stand; every pinned paper keeps its old scans",
+      [False, True, True, True, True],
+      [f.scan_current(_wide, "h"), f.scan_current({**_wide, "edition": "GaleTimes2004UKEnglish/2004-09-06"}, "h"),
+       f.scan_current({**_wide, "edition": "GaleTimes2007UKEnglish/2007-09-05"}, "h"),
+       f.scan_current({**_wide, "scanKey": f.scan_key(f.GALE)}, "h"),
+       all(f.CORPUS_KEYS[v[0]] == {p: v[2]} for p, v in f._BAND_WIDTH_FIX.items())])
 
 # lay_loose(): each clue alone on its own light; a misread count is not laid.
 g = ["...", ".#.", "..."]
