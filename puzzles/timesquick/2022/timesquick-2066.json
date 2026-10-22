@@ -22,6 +22,9 @@
   "date": "2022-02-08",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,44 @@
     "text": "A mistake, whichever way you look at it",
     "enumeration": "4"
    },
-   "solution": "BOOB"
+   "solution": "BOOB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A mistake, whichever way you look at it",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "palindrome",
+     "indicators": [
+      {
+       "text": "whichever way you look at it",
+       "at": 11,
+       "note": "reading the word forwards or backwards gives the same letters, so the answer is a palindrome"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A mistake",
+       "at": 0,
+       "gives": "BOOB",
+       "note": "a slang word for a blunder, which reads the same from either end"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone insists an error is an error from every angle.",
+     "walkthrough": "The answer reads the same in both directions, which is all the wordplay there is.",
+     "definitionFit": "A boob is informal British slang for a silly blunder or gaffe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "look"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +89,41 @@
     "text": "Impossible job in remote settlement",
     "enumeration": "7"
    },
-   "solution": "OUTPOST"
+   "solution": "OUTPOST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "remote settlement",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Impossible",
+       "at": 0,
+       "gives": "OUT",
+       "note": "out means not possible, as in 'that option is out'"
+      },
+      {
+       "words": "job",
+       "at": 11,
+       "gives": "POST",
+       "note": "a post is a position of employment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Working at a far-flung colony is a hopeless posting.",
+     "definitionFit": "An outpost is a small, isolated settlement or station far from the centre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Impossible"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +137,51 @@
     "text": "Explosion half buried a good man",
     "enumeration": "5"
    },
-   "solution": "BURST"
+   "solution": "BURST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Explosion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 10,
+         "note": "half means only the first three of the six letters of buried are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "buried",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "a good man",
+       "at": 22,
+       "gives": "ST",
+       "note": "a saint is a good man, abbreviated ST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blast partly entombed a virtuous fellow.",
+     "definitionFit": "A burst is a sudden explosion or breaking open, as of a shell or pipe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +195,31 @@
     "text": "Horses that might feature on the menu?",
     "enumeration": "8"
    },
-   "solution": "TROTTERS"
+   "solution": "TROTTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Horses",
+      "at": 0,
+      "meaning": "first meaning: horses bred for harness racing at a trot"
+     },
+     {
+      "text": "might feature on the menu",
+      "at": 12,
+      "meaning": "second meaning: pigs' feet, served as a dish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the horses are not what gets eaten; the second sense is pigs' trotters, a traditional British dish.",
+     "definitionFit": "Harness-racing horses are called trotters, and cooked pigs' feet are also trotters on a menu."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Horses"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +233,46 @@
     "text": "Couple row endlessly",
     "enumeration": "3"
    },
-   "solution": "TIE"
+   "solution": "TIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Couple",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "at": 11,
+       "note": "endlessly means the last letter of the synonym for row is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "row",
+       "at": 7,
+       "gives": "TIER",
+       "note": "a tier is a row of seats, one above another"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of people quarrel without stopping.",
+     "walkthrough": "'row' suggests an argument, fitting the couple, but it is a row of seats.",
+     "definitionFit": "To tie is to join or link, and couple as a verb means to connect two things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +286,60 @@
     "text": "Pig-headed botanist stupidly taking an E",
     "enumeration": "9"
    },
-   "solution": "OBSTINATE"
+   "solution": "OBSTINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pig-headed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 29,
+       "note": "taking means the botanist's jumbled letters take on the vowel named next, which joins them at the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stupidly",
+         "at": 20,
+         "note": "stupidly says the letters are thrown together in a foolish new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "botanist",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "an E",
+       "at": 36,
+       "gives": "E",
+       "note": "the letter E itself"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stubborn plant scientist foolishly takes an ecstasy pill.",
+     "walkthrough": "'taking' adds the E to the botanist's letters before they are rearranged; an E is also slang for an ecstasy tablet.",
+     "definitionFit": "Obstinate means stubbornly refusing to change one's mind, which is what pig-headed describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "E"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +353,49 @@
     "text": "Suspicion surrounding monarch's houses",
     "enumeration": "7"
    },
-   "solution": "TERRACE"
+   "solution": "TERRACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "houses",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounding",
+       "at": 10,
+       "note": "the hint of suspicion goes around the monarch's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Suspicion",
+       "at": 0,
+       "gives": "TRACE",
+       "note": "a trace or suspicion is a very small amount, as in a trace of garlic"
+      },
+      {
+       "words": "monarch's",
+       "at": 22,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the monarch's royal cipher"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doubts swirl around the royal family's homes.",
+     "walkthrough": "A terrace is a British term for a row of joined houses.",
+     "definitionFit": "A terrace in Britain is a continuous row of identical attached homes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suspicion"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +409,47 @@
     "text": "Get up around noon and wash",
     "enumeration": "5"
    },
-   "solution": "RINSE"
+   "solution": "RINSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wash",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 7,
+       "note": "the letters for getting up go around the letter for noon"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Get up",
+       "at": 0,
+       "gives": "RISE",
+       "note": "to rise is to get up"
+      },
+      {
+       "words": "noon",
+       "at": 14,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A late riser gets out of bed at midday and showers.",
+     "definitionFit": "To rinse is to clean something with water, a quick form of washing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "noon"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +463,48 @@
     "text": "Nude king among those gawping",
     "enumeration": "8"
    },
-   "solution": "STARKERS"
+   "solution": "STARKERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nude",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 10,
+       "note": "the king's letter is placed among the letters of the gawpers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "those gawping",
+       "at": 16,
+       "gives": "STARERS",
+       "note": "people gawping are starers"
+      },
+      {
+       "words": "king",
+       "at": 5,
+       "gives": "K",
+       "note": "K is the chess and card abbreviation for king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naked monarch walks through a crowd of onlookers, like the emperor with no clothes.",
+     "definitionFit": "Starkers is British slang for completely naked, without any clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "king"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +518,59 @@
     "text": "Rushed to meet head of KGB in station",
     "enumeration": "4"
    },
-   "solution": "RANK"
+   "solution": "RANK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "station",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to meet",
+       "at": 7,
+       "note": "the second piece comes up against the first, joining it at the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rushed",
+       "at": 0,
+       "gives": "RAN",
+       "note": "rushed means ran"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 15,
+         "note": "head of means the first letter of KGB is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "KGB",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries to a rendezvous with a Soviet spy chief at a railway station.",
+     "walkthrough": "'station' looks like a railway stop but means social standing.",
+     "definitionFit": "One's station in life is one's social position or standing in a hierarchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "station"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +584,31 @@
     "text": "Attack a milk producer",
     "enumeration": "4"
    },
-   "solution": "GOAT"
+   "solution": "GOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attack",
+      "at": 0,
+      "meaning": "first meaning: to attack them, read as two words"
+     },
+     {
+      "text": "a milk producer",
+      "at": 7,
+      "meaning": "second meaning: a nanny animal kept for its milk"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense splits the answer into two words, GO AT.",
+     "definitionFit": "Going at someone means assaulting them, and the farm animal is a common dairy source for cheese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Attack"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +622,42 @@
     "text": "Copied limit at Edinburgh to an extent",
     "enumeration": "8"
    },
-   "solution": "IMITATED"
+   "solution": "IMITATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Copied",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to an extent",
+       "at": 26,
+       "note": "to an extent says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "limit at Edinburgh",
+       "at": 7,
+       "gives": "IMITATED",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reproduces a boundary set in the Scottish capital, more or less.",
+     "definitionFit": "To imitate is to mimic or reproduce, so imitated means mimicked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Edinburgh"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +671,40 @@
     "text": "Policeman crept in so awkwardly",
     "enumeration": "9"
    },
-   "solution": "INSPECTOR"
+   "solution": "INSPECTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Policeman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "awkwardly",
+       "at": 22,
+       "note": "awkwardly says the letters are arranged clumsily into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crept in so",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective sneaks in clumsily.",
+     "definitionFit": "An inspector is a police officer ranking above sergeant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crept"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +718,45 @@
     "text": "Importance of statues English carted off",
     "enumeration": "6"
    },
-   "solution": "STATUS"
+   "solution": "STATUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Importance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "carted off",
+       "at": 30,
+       "note": "carted off means taken away, so the letter for English is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "statues",
+       "at": 14
+      },
+      {
+       "words": "English",
+       "at": 22,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Statues of English figures are hauled away, a question of their significance.",
+     "definitionFit": "Status is standing or prestige, the importance a thing or person holds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carted"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +770,56 @@
     "text": "Tease troops getting married in tent",
     "enumeration": "7"
    },
-   "solution": "TORMENT"
+   "solution": "TORMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tease",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "the troops and married letters go in the tent"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tent",
+       "at": 32
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "troops",
+         "at": 6,
+         "gives": "OR",
+         "note": "OR, other ranks, are troops who are not officers"
+        },
+        {
+         "words": "married",
+         "at": 21,
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers marrying inside a tent get teased by their comrades.",
+     "definitionFit": "To torment someone is to annoy or taunt them persistently."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tease"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +833,40 @@
     "text": "Corsica gendarme clutching to-do list",
     "enumeration": "6"
    },
-   "solution": "AGENDA"
+   "solution": "AGENDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to-do list",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "clutching",
+       "at": 17,
+       "note": "the words hold the answer tightly inside them, across the gap"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Corsica gendarme",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French policeman on Corsica grips his list of jobs.",
+     "definitionFit": "An agenda is a list of items to be dealt with, such as at a meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clutching"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +880,35 @@
     "text": "Ready for a holiday in the States?",
     "enumeration": "7"
    },
-   "solution": "DOLLARS"
+   "solution": "DOLLARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ready for a holiday in the States?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Ready for a holiday in the States?",
+       "at": 0,
+       "note": "ready is British slang for cash, so this asks for the cash you would take on a trip to America"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Ready' looks like prepared, but 'the ready' is British slang for money; the money spent on an American trip is US currency.",
+     "definitionFit": "American currency is the unit of cash a traveller would need in the USA."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ready"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +922,36 @@
     "text": "Behind in French coursework?",
     "enumeration": "8"
    },
-   "solution": "DERRIERE"
+   "solution": "DERRIERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Behind in French coursework?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Behind in French coursework?",
+       "at": 0,
+       "note": "the French word for behind, which a pupil would meet in a French lesson; it also means the backside in English"
+      }
+     ]
+    },
+    "spelling": "DERRIÈRE",
+    "explanation": {
+     "walkthrough": "The clue hints at a student lagging in French class; really it asks for the French for 'behind', borrowed into English as a word for one's bottom.",
+     "definitionFit": "The French preposition for behind is also English slang for the buttocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Behind"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +965,53 @@
     "text": "Run off with east European, heading north",
     "enumeration": "5"
    },
-   "solution": "ELOPE"
+   "solution": "ELOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Run off",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "heading north",
+       "at": 28,
+       "note": "in a down clue, heading north means the letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "east",
+         "at": 13,
+         "gives": "E",
+         "note": "E is the compass abbreviation for east"
+        },
+        {
+         "words": "European",
+         "at": 18,
+         "gives": "POLE",
+         "note": "a Pole is a European from Poland"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone runs away with a man from Eastern Europe, travelling northwards.",
+     "definitionFit": "To elope is to run away secretly in order to get married."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1025,43 @@
     "text": "Reportedly get rid of nun's accommodation",
     "enumeration": "4"
    },
-   "solution": "CELL"
+   "solution": "CELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nun's accommodation",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CELL",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "at": 0,
+       "note": "reportedly says the word is to be taken as it is heard, not as spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "get rid of",
+       "at": 11,
+       "gives": "SELL",
+       "note": "to get rid of goods is to sell them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Word has it a nun's lodging is being disposed of.",
+     "definitionFit": "Nuns traditionally live in small private rooms in a convent called cells."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Reportedly"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1075,41 @@
     "text": "Ascent of Conservative member",
     "enumeration": "5"
    },
-   "solution": "CLIMB"
+   "solution": "CLIMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ascent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "at": 10,
+       "gives": "C"
+      },
+      {
+       "words": "member",
+       "at": 23,
+       "gives": "LIMB",
+       "note": "a limb, such as an arm or leg, is a member of the body"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory MP rises through the ranks.",
+     "walkthrough": "'member' suggests a member of the party, but it is a body part.",
+     "definitionFit": "A climb is an upward ascent, as up a hill or mountain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1123,31 @@
     "text": "A weighty book, in my opinion",
     "enumeration": "4"
    },
-   "solution": "TOME"
+   "solution": "TOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A weighty book",
+      "at": 0,
+      "meaning": "first meaning: a large, heavy volume"
+     },
+     {
+      "text": "in my opinion",
+      "at": 16,
+      "meaning": "second meaning: read as two words, a phrase for 'as I see it' or 'in my view'"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone declares that a volume feels heavy, by their own judgement.",
+     "walkthrough": "The second sense splits the answer into two short words, a phrase meaning 'as far as I am concerned'.",
+     "definitionFit": "A tome is a large, heavy volume, especially a scholarly one, and the split phrase expresses personal view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opinion"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1161,40 @@
     "text": "Tramline surprisingly ending here",
     "enumeration": "8"
    },
-   "solution": "TERMINAL"
+   "solution": "TERMINAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ending here",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "surprisingly",
+       "at": 9,
+       "note": "surprisingly says the letters of the word fall out in an unexpected new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tramline",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tram route unexpectedly stops at this point.",
+     "definitionFit": "A terminal or terminus is the station where a transport route finishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "surprisingly"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1208,42 @@
     "text": "Fighting back is natural",
     "enumeration": "3"
    },
-   "solution": "RAW"
+   "solution": "RAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "natural",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 9,
+       "note": "back says the word for fighting is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fighting",
+       "at": 0,
+       "gives": "WAR",
+       "note": "war means fighting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fighting back is an instinctive reaction.",
+     "definitionFit": "Raw means in a natural, unprocessed state, like raw materials."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fighting"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1257,42 @@
     "text": "Prime Minister once having argument in airport",
     "enumeration": "8"
    },
-   "solution": "HEATHROW"
+   "solution": "HEATHROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "airport",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prime Minister once",
+       "at": 0,
+       "gives": "HEATH",
+       "note": "Edward Heath was UK Prime Minister from 1970 to 1974"
+      },
+      {
+       "words": "argument",
+       "at": 27,
+       "gives": "ROW",
+       "note": "a row is a quarrel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former Prime Minister gets into a dispute at the airport.",
+     "walkthrough": "Edward Heath was a Conservative British Prime Minister of the 1970s.",
+     "definitionFit": "Heathrow is London's largest airport, in the west of the city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "having"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1306,41 @@
     "text": "Top bishop is in Paris",
     "enumeration": "4"
    },
-   "solution": "BEST"
+   "solution": "BEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bishop",
+       "at": 4,
+       "gives": "B",
+       "note": "B is the chess notation for bishop"
+      },
+      {
+       "words": "is in Paris",
+       "at": 11,
+       "gives": "EST",
+       "note": "est is French for is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior bishop is visiting Paris.",
+     "definitionFit": "Top and best both mean finest or supreme, as in the top student."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   }
  ]
 }
