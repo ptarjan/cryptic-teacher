@@ -22,6 +22,9 @@
   "date": "2023-05-04",
   "check": "grid rebuilt from the blog's light list (unique, linked answer split by the grid); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "Take too long to find mythical creature",
     "enumeration": "6"
    },
-   "solution": "DRAGON"
+   "solution": "DRAGON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take too long",
+      "at": 0,
+      "meaning": "first meaning: to ..., to go on tediously"
+     },
+     {
+      "text": "mythical creature",
+      "at": 22,
+      "meaning": "second meaning: the fire-breathing beast of legend"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split as DRAG ON, the answer means to take too long; read as one word, it is the legendary beast.",
+     "definitionFit": "To drag on is to last tediously; a dragon is a winged, fire-breathing monster from folklore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "find"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +76,44 @@
     "text": "Harangue aloud awful extended family",
     "enumeration": "8"
    },
-   "solution": "DIATRIBE"
+   "solution": "DIATRIBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Harangue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DIATRIBE",
+     "indicators": [
+      {
+       "text": "aloud",
+       "at": 9,
+       "note": "aloud says the words are to be heard rather than read, giving a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "awful extended family",
+       "at": 15,
+       "gives": "DIRETRIBE",
+       "note": "awful means dire, and an extended family is a tribe: DIRE TRIBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loudly berates a dreadful set of relatives.",
+     "definitionFit": "A diatribe is a bitter verbal attack, the same thing as a harangue or tirade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "aloud"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +133,34 @@
      }
     ]
    },
-   "solution": "ABANDONSHIP"
+   "solution": "ABANDONSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "As 11 musicians didn't?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "As 11 musicians didn't?",
+       "at": 0,
+       "note": "the band on the sinking liner famously kept playing; read differently"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "11 is the famous liner that sank in 1912; its musicians played on rather than leaving. The answer also splits as A BAND ON SHIP, which is just what they were.",
+     "definitionFit": "The phrase is the captain's order for everyone to leave a sinking vessel, which the musicians did not obey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +174,41 @@
     "text": "Providence protects the poet",
     "enumeration": "4"
    },
-   "solution": "OVID"
+   "solution": "OVID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the poet",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "protects",
+       "at": 11,
+       "note": "protects pictures the word Providence holding something within it, so the answer sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Providence",
+       "at": 0,
+       "gives": "OVID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Divine guidance watches over a poet.",
+     "definitionFit": "Ovid was the Roman poet who wrote the Metamorphoses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Providence"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +222,65 @@
     "text": "Forrest in which extreme characters hide journalist deprived of home",
     "enumeration": "8"
    },
-   "solution": "GAZUMPED"
+   "solution": "GAZUMPED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "deprived of home",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in which",
+         "at": 8,
+         "note": "in which, with hide, says the next letters go inside the surname just named"
+        },
+        {
+         "text": "hide",
+         "at": 36,
+         "note": "hide, with in which, says the letters are concealed within the surname"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Forrest",
+         "at": 0,
+         "gives": "GUMP",
+         "note": "Forrest Gump, the title character of the film"
+        },
+        {
+         "words": "extreme characters",
+         "at": 17,
+         "gives": "AZ",
+         "note": "A and Z are the letters at the two extremes of the alphabet"
+        }
+       ]
+      },
+      {
+       "words": "journalist",
+       "at": 41,
+       "gives": "ED",
+       "note": "ED is short for editor, a journalist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film character shelters a reporter who has lost their home.",
+     "walkthrough": "'Forrest' is not a misspelt forest but Forrest Gump, the film hero; 'extreme characters' are the two ends of the alphabet.",
+     "definitionFit": "To be gazumped in Britain is to lose a house purchase when the seller accepts a higher late offer, so you are left without the home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Forrest"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +294,52 @@
     "text": "Lawyer with yet another fiasco he weaseled out of",
     "enumeration": "8"
    },
-   "solution": "ATTORNEY"
+   "solution": "ATTORNEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lawyer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "fiasco",
+       "at": 24,
+       "note": "a fiasco is a mess, so the letters of yet another are jumbled"
+      },
+      {
+       "text": "weaseled out of",
+       "at": 34,
+       "note": "weaseled out of says he slips away from the jumble, leaving its letters behind"
+      }
+     ],
+     "parts": [
+      {
+       "words": "yet another",
+       "at": 12,
+       "note": "the anagram fodder, taken as written"
+      },
+      {
+       "words": "he",
+       "at": 31,
+       "note": "the letters removed from the fodder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slippery lawyer wriggles out of one more disaster.",
+     "walkthrough": "Take H and E out of YETANOTHER, leaving YETANOTR, and rearrange those eight letters.",
+     "definitionFit": "An attorney is a lawyer, the usual American term for one acting for a client."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fiasco"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +353,47 @@
     "text": "Setting straight nitwit fooling around with guns",
     "enumeration": "10"
    },
-   "solution": "UNTWISTING"
+   "solution": "UNTWISTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Setting straight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "fooling around",
+       "at": 24,
+       "note": "fooling around suggests messing about, so the letters of nitwit and guns are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nitwit",
+       "at": 17,
+       "note": "taken as written"
+      },
+      {
+       "words": "guns",
+       "at": 44,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An idiot playing about with firearms is straightening things out.",
+     "definitionFit": "Untwisting something, removing its twists, is making it straight again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "nitwit"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +411,49 @@
    "group": [
     "7-down",
     "28-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a basket",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "in says the letters for born go inside the boat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "something that floats",
+       "at": 8,
+       "gives": "PUNT",
+       "note": "a punt is a flat-bottomed boat, which floats"
+      },
+      {
+       "words": "Born",
+       "at": 0,
+       "gives": "NE",
+       "note": "NE is from nee, born, used before a woman's maiden name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Like baby Moses, someone is born into a floating basket.",
+     "walkthrough": "A punt is a flat boat poled along a river, popular in Oxford and Cambridge.",
+     "definitionFit": "A punnet is a small container, often a little basket, for soft fruit such as strawberries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Born"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +467,46 @@
     "text": "Lures used to get cod? Yes, in a way",
     "enumeration": "6"
    },
-   "solution": "DECOYS"
+   "solution": "DECOYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lures",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a way",
+       "at": 28,
+       "note": "in a way here means in some other arrangement, so the letters of cod and yes are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cod",
+       "at": 18,
+       "note": "taken as written"
+      },
+      {
+       "words": "Yes",
+       "at": 23,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler asks if lures are what you use for catching cod, and is told sort of.",
+     "definitionFit": "Decoys are things used to lure prey or an enemy into a trap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cod"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +530,72 @@
    "group": [
     "9-down",
     "18-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He created contraptions",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to make hot",
+       "at": 24,
+       "gives": "HEAT",
+       "note": "to heat is to make hot"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to tuck into",
+         "at": 57,
+         "note": "to tuck into puts the bird inside the jumbled letters of nosh"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "cooked",
+           "at": 36,
+           "note": "cooked means altered, so the letters of nosh are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nosh",
+           "at": 43,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "bird",
+         "at": 52,
+         "gives": "ROBIN",
+         "note": "the robin is a garden bird"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone designs devices to cook hot food for a bird to eat.",
+     "walkthrough": "'cooked' gives the anagram HSON, which takes ROBIN inside after its first letter. The definition looks like the start of the surface sentence, not a separate part.",
+     "definitionFit": "W. Heath Robinson was a British cartoonist famous for drawing absurdly elaborate machines; his name now describes any such gadget."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +609,43 @@
     "text": "Gardner seed? Inordinately wanting more",
     "enumeration": "7"
    },
-   "solution": "AVARICE"
+   "solution": "AVARICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inordinately wanting more",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gardner",
+       "at": 0,
+       "gives": "AVA",
+       "note": "Ava Gardner, the Hollywood actress"
+      },
+      {
+       "words": "seed",
+       "at": 8,
+       "gives": "RICE",
+       "note": "rice is a grain, the seed of a cereal grass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It reads like a gardening query about seed, followed by a comment on greed.",
+     "walkthrough": "'Gardner' looks like a misspelt gardener, which suits seed; it is the actress Ava Gardner.",
+     "definitionFit": "Avarice is greed, an excessive desire for more wealth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gardner"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +659,62 @@
     "text": "Crudely put, it ain't captain's top liner",
     "enumeration": "7"
    },
-   "solution": "TITANIC"
+   "solution": "TITANIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "liner",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Crudely put",
+         "at": 0,
+         "note": "crudely put means expressed roughly, so the letters of it ain't are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it ain't",
+         "at": 13,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "at": 32,
+         "note": "top means the first letter of captain's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "captain's",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speaking roughly, someone denies this is the captain's finest ship.",
+     "definitionFit": "The Titanic was the famous ocean liner that sank on its maiden voyage in 1912."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "liner"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +728,43 @@
     "text": "Regretted sounding discourteous",
     "enumeration": "4"
    },
-   "solution": "RUDE"
+   "solution": "RUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "discourteous",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RUDE",
+     "indicators": [
+      {
+       "text": "sounding",
+       "at": 10,
+       "note": "sounding says the word is heard, not seen, so a sound-alike is wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Regretted",
+       "at": 0,
+       "gives": "RUED",
+       "note": "rued means regretted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regretted sounding impolite.",
+     "definitionFit": "Rude means impolite, lacking good manners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sounding"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +784,48 @@
      }
     ]
    },
-   "solution": "STARLITSKY"
+   "solution": "STARLITSKY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "seen on a clear night",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protecting",
+       "at": 13,
+       "note": "protecting pictures one word guarding another inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hutch friend",
+       "at": 0,
+       "gives": "STARSKY",
+       "note": "Starsky was Hutch's partner in the 1970s TV detective series Starsky and Hutch"
+      },
+      {
+       "words": "drunk",
+       "at": 24,
+       "gives": "LIT",
+       "note": "lit is slang for drunk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A TV cop shields an inebriated man spotted on a cloudless evening.",
+     "definitionFit": "On a cloudless night the heavens are full of visible stars, a starry firmament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hutch"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +839,47 @@
     "text": "Foul previous sin or oversight",
     "enumeration": "11"
    },
-   "solution": "SUPERVISION"
+   "solution": "SUPERVISION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "oversight",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Foul",
+       "at": 0,
+       "note": "foul means fouled up, so the letters of previous and sin are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "previous",
+       "at": 5,
+       "note": "taken as written"
+      },
+      {
+       "words": "sin",
+       "at": 14,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty earlier wrongdoing or a careless mistake.",
+     "walkthrough": "'oversight' looks like it means an error, but here it means watching over.",
+     "definitionFit": "Oversight in the sense of management or monitoring is supervision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "oversight"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +899,37 @@
      }
     ]
    },
-   "solution": "POORRESULT"
+   "solution": "POORRESULT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not what one desired",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "POOR RESULT",
+     "parts": [
+      {
+       "words": "Ulster",
+       "at": 8,
+       "note": "Ulster is an anagram of RESULT, a poor version of it, with POOR acting as an anagram signal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It reads as a jab that the province of Ulster is a let-down.",
+     "walkthrough": "Ulster is Northern Ireland's province; its letters are RESULT jumbled, and POOR is a standard signal for that.",
+     "definitionFit": "A poor result is a disappointing outcome, one that falls short of hopes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ulster"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +943,63 @@
     "text": "Britain's first organ transplant taking place in Wales",
     "enumeration": "6"
    },
-   "solution": "BANGOR"
+   "solution": "BANGOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place in Wales",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 10,
+         "note": "first means take the opening letter of Britain's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Britain's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "transplant",
+         "at": 22,
+         "note": "transplant means move around, so the letters of organ are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "organ",
+         "at": 16,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The UK's first organ transplant happening in Wales.",
+     "walkthrough": "Bangor is a cathedral city in north Wales.",
+     "definitionFit": "Bangor is a small city in Gwynedd, north-west Wales, so it is a Welsh place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "transplant"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1013,46 @@
     "text": "Police tapes go astray",
     "enumeration": "7"
    },
-   "solution": "GESTAPO"
+   "solution": "GESTAPO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Police",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "astray",
+       "at": 16,
+       "note": "astray means off course, so the letters of tapes and go are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tapes",
+       "at": 7,
+       "note": "taken as written"
+      },
+      {
+       "words": "go",
+       "at": 13,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police recordings are going missing.",
+     "definitionFit": "The Gestapo was the secret state force of Nazi Germany."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1079,56 @@
     "text": "Their lives are short, having kept theme to get rid of extremists a long time",
     "enumeration": "8"
    },
-   "solution": "EPHEMERA"
+   "solution": "EPHEMERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Their lives are short",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "to get rid of extremists",
+         "at": 41,
+         "note": "to get rid of extremists means drop the outer letters of kept and theme"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kept",
+         "at": 30
+        },
+        {
+         "words": "theme",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "words": "a long time",
+       "at": 66,
+       "gives": "ERA",
+       "note": "an era is a long period of time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Short-lived things hold to a theme for ages after purging radicals.",
+     "walkthrough": "'extremists' looks political; it means the end letters, so kept loses K and T and theme loses T and E.",
+     "definitionFit": "Ephemera are things lasting a very short time, originally insects such as mayflies that live for only a day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "extremists"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1142,31 @@
     "text": "Carriage that could describe Boston uprising?",
     "enumeration": "7"
    },
-   "solution": "CHARIOT"
+   "solution": "CHARIOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carriage",
+      "at": 0,
+      "meaning": "first meaning: a horse-drawn vehicle"
+     },
+     {
+      "text": "that could describe Boston uprising?",
+      "at": 9,
+      "meaning": "second meaning: a tea revolt, as the Boston Tea Party was; cha is slang for tea"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Boston Tea Party of 1773 was a protest against British taxes on tea, so it was in a sense a CHA RIOT.",
+     "definitionFit": "A chariot is a two-wheeled horse-drawn vehicle, a carriage of the ancient world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boston"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1180,58 @@
     "text": "Catch mate briefly going west",
     "enumeration": "6"
    },
-   "solution": "ENTRAP"
+   "solution": "ENTRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "going west",
+       "at": 19,
+       "note": "going west in an across clue means read from right to left, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 11,
+         "note": "briefly means cut short, so the last letter of the word for mate is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mate",
+         "at": 6,
+         "gives": "PARTNER",
+         "note": "a mate is a partner"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to capture a friend heading off westward.",
+     "walkthrough": "'briefly' cuts PARTNER to PARTNE; 'going west' turns that backwards.",
+     "definitionFit": "To entrap is to snare or trap, to catch by deceit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mate"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1245,35 @@
     "text": "Tropical disease?",
     "enumeration": "6"
    },
-   "solution": "CANCER"
+   "solution": "CANCER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tropical disease?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Tropical disease?",
+       "at": 0,
+       "note": "the answer names a serious illness and also the Tropic named after a star sign"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "It looks like a fever of hot climates; it is the disease that shares its name with the Tropic of Cancer.",
+     "definitionFit": "The word is an illness and also gives its name to the northern line of latitude, the Tropic of Cancer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tropical"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1287,52 @@
     "text": "Ermine Street's beginning perfectly",
     "enumeration": "5"
    },
-   "solution": "STOAT"
+   "solution": "STOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ermine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 16,
+         "note": "beginning means take the opening letter of Street's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Street's",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "perfectly",
+       "at": 26,
+       "gives": "TOAT",
+       "note": "to a T means perfectly, exactly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ermine Street was a Roman road; the clue claims its start is perfect.",
+     "walkthrough": "'Ermine Street' looks like the Roman road from London to York, but Ermine is the definition.",
+     "definitionFit": "Ermine is the name for the stoat in its white winter coat, and for its fur."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Street's"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1346,30 @@
     "text": "Go up in value",
     "enumeration": "10"
    },
-   "solution": "APPRECIATE"
+   "solution": "APPRECIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go up",
+      "at": 0,
+      "meaning": "first meaning: to rise in worth, as property does"
+     },
+     {
+      "text": "value",
+      "at": 9,
+      "meaning": "second meaning: to prize or be grateful for something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one idea, increasing in worth, but splits into two meanings with 'in' as a link.",
+     "definitionFit": "Assets that rise in price appreciate; to appreciate a friend is to value them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1383,29 @@
     "text": "Deputy's iniquity",
     "enumeration": "4"
    },
-   "solution": "VICE"
+   "solution": "VICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deputy",
+      "at": 0,
+      "meaning": "first meaning: as a prefix, ... means deputy, as in ...-president"
+     },
+     {
+      "text": "iniquity",
+      "at": 9,
+      "meaning": "second meaning: wickedness, immoral behaviour"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a deputy's sin, but the two nouns are separate meanings.",
+     "definitionFit": "Vice serves as a word for a second-in-command and also for wickedness or a moral failing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1432,66 @@
     "text": "Cause injury and use profane language after cutting one's nails to begin with",
     "enumeration": "7"
    },
-   "solution": "CONCUSS"
+   "solution": "CONCUSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cause injury",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 38,
+       "note": "after says the swearing word comes behind the initials"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "at": 64,
+         "note": "to begin with means take the first letter of each of cutting, one's and nails"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cutting",
+         "at": 44
+        },
+        {
+         "words": "one's",
+         "at": 52
+        },
+        {
+         "words": "nails",
+         "at": 58
+        }
+       ]
+      },
+      {
+       "words": "use profane language",
+       "at": 17,
+       "gives": "CUSS",
+       "note": "to cuss is to swear"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurts themselves and swears after clipping their nails.",
+     "definitionFit": "To concuss is to injure by a blow, especially to the head, causing temporary unconsciousness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nails"
+    }
+   }
   },
   {
    "number": 28,
@@ -470,7 +1518,45 @@
     "text": "Sounds like you could win this brief",
     "enumeration": "7"
    },
-   "solution": "APPRISE"
+   "solution": "APPRISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "brief",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "APPRISE",
+     "indicators": [
+      {
+       "text": "Sounds like",
+       "at": 0,
+       "note": "sounds like says the answer is heard as another phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "you could win this",
+       "at": 12,
+       "gives": "APRIZE",
+       "note": "a prize is something you could win"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short note says you might win something.",
+     "walkthrough": "'brief' looks like an adjective, short; here it is the verb to inform.",
+     "definitionFit": "To brief someone is to inform them, which is what apprise means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 30,
@@ -494,7 +1580,37 @@
    "group": [
     "30-across",
     "26-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for cooking meat",
+      "at": 5
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "ROTATING SPIT",
+     "parts": [
+      {
+       "words": "Tips",
+       "at": 0,
+       "note": "the word tips, read from its end to its start, gives the second word of the answer, so the clue is that word turned around"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It reads as asking for advice on preparing meat.",
+     "walkthrough": "'Tips' looks like advice; it is the word SPIT turned round.",
+     "definitionFit": "A rotating spit is a turning rod on which meat roasts over a fire, so it is a device used in cookery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tips"
+    }
+   }
   },
   {
    "number": 31,
@@ -508,7 +1624,60 @@
     "text": "Lines sailing to Auckland, New Zealand are primarily taken",
     "enumeration": "6"
    },
-   "solution": "STANZA"
+   "solution": "STANZA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lines",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "primarily",
+       "at": 43,
+       "note": "primarily means take the first letter of each word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sailing",
+       "at": 6
+      },
+      {
+       "words": "to",
+       "at": 14
+      },
+      {
+       "words": "Auckland",
+       "at": 17
+      },
+      {
+       "words": "New",
+       "at": 27
+      },
+      {
+       "words": "Zealand",
+       "at": 31
+      },
+      {
+       "words": "are",
+       "at": 39
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shipping routes to Auckland are mostly used.",
+     "definitionFit": "A stanza is a group of lines forming a verse of a poem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lines"
+    }
+   }
   }
  ]
 }
