@@ -600,33 +600,45 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "NIHIL",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "Prime positions",
-       "note": "prime positions are places numbered by prime numbers, second, third, fifth and so on, and only those letters are kept"
+       "text": "Prime positions for",
+       "at": 0,
+       "note": "prime positions means keeping only the letters at prime-numbered places in knight I'll"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "knight I'll",
-       "gives": "NIHIL",
-       "select": "prime",
-       "note": "the second, third, fifth, seventh and ninth letters of the run knightill; nine is not actually prime, a slip the solving blog points out"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "knight",
+         "at": 20,
+         "note": "taken as written"
+        },
+        {
+         "words": "I'll",
+         "at": 27,
+         "gives": "ILL",
+         "note": "taken as written without the apostrophe"
+        }
+       ]
+      },
+      {
+       "gives": "KGTL"
       }
      ]
     },
     "explanation": {
-     "surface": "A knight swears devotion to his lady in the best places.",
-     "definitionFit": "Nihil is Latin for nothing, and love means nothing or nil in tennis scoring."
+     "surface": "A knight vowing love from the best positions.",
+     "walkthrough": "In KNIGHTILL the letters at 2, 3, 5 and 7 are N, I, H, I; the final L is ninth, and nine is not prime, a slip the blog also noted.",
+     "definitionFit": "Nihil is Latin for nothing, and love is the tennis score of zero."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Prime"
+     "aptDefinition": true,
+     "misdirectedWord": "love"
     }
    }
   },
