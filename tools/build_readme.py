@@ -847,6 +847,8 @@ LAYOUT = [
     ("fetching", "tools/fill_checked_lights.py", "fill a blog-keyed puzzle's blank lights that the crossings or the write-up's own word settle"),
     ("fetching", "tools/test_fill_checked_lights.py", "fill_checked_lights fills only what the grid or the write-up settles"),
     ("fetching", "tools/test_apply_blog_answers.py", "apply_blog_answers reads an answer off a write-up line however the era prints it"),
+    ("fetching", "tools/bigdave_layout.py", "helpers for apply_blog_answers' bigdave44 source: the two-paragraph clue layout"),
+    ("fetching", "tools/blog_comment_rows.py", "answer rows read from the comments under a Times for the Times post"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
