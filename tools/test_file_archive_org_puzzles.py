@@ -283,7 +283,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
       "shared by every ask; an edition named by string read as paper_of's (asked twice, by rel and by row)",
       (True, "ZZ_CACHED", "ZZ_MOVED", True, {f.scan_key(gt), f.sized_scan_key(gt), *f._BAND_CACHE_FIX[gt.key][:2],
                                                                       *f._LINES_FIX[gt.key][:2],
-                                                                      *f._WORDS_CACHE_FIX[gt.key][:2]},
+                                                                      *f._WORDS_CACHE_FIX[gt.key][:2],
+                                                                      *f._SOLUTION_HEADINGS_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -1636,7 +1637,11 @@ f.ROOT = real_root
 # a moved ledger row each make an edition due again; a fresh dir is not kept.
 import scan_queue, time
 f.vlm.reachable = lambda *a, **k: False
-pc = Path(os.environ["TMP"]) / "plancache"
+# The real corpus holds Times puzzles of these 1981 days filed without every
+# answer, which would make the fixture's editions solution hosts (HOST_SCAN):
+# the plan below is of the fixture alone.
+real_answerless, f.answerless_puzzles = f.answerless_puzzles, lambda *a, **k: {}
+pc =Path(os.environ["TMP"]) / "plancache"
 def settle(*ds):
     for d in ds:
         os.utime(d, (time.time() - 600, time.time() - 600))
@@ -1756,6 +1761,7 @@ due()
 check("a ledger row landing works its own edition out again, no other", ["1981-02-03_1"],
       sorted(rel.split("/")[1] for rel, hit in kept_plan.reasons.items() if before.get(rel) is not hit))
 check("each plan brought up to date row by row equals the paper planned whole", [], plan_diffs)
+f.answerless_puzzles = real_answerless
 # A read start links every sister edition's headings (sister_solutions):
 # kept until the sister ledger or the series' filed puzzles move.
 linked, real_linked, real_held_dates = [], f.linked_solutions, f.held_dates
