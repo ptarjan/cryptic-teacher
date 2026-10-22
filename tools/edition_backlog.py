@@ -108,7 +108,7 @@ def archive_counts(cache=downloads.ARCHIVE_ORG):
     copies; {series: by_day()} of them, the puzzles)."""
     read = set()
     for key in {fa.ledger_of(cache, p) for p in fa.FILERS.values()}:
-        read.update(r["edition"] for r in scan_queue.jsonl_rows(key) if "inputs" in r)
+        read.update(r["edition"] for r in scan_queue.jsonl_rows(key) if "inputs" in r and "edition" in r)
     out, rows = {}, []
     for key, item, ed in _editions(cache):
         unread = f"{item}/{ed}" not in read
@@ -256,7 +256,7 @@ def dated(cache=downloads.ARCHIVE_ORG, inbox=gale_listener.SAVED, store=gale_lis
         out.append((series, n, min(landed, read) if read else landed, read))
     reads = {}
     for key in {fa.ledger_of(cache, p) for p in fa.FILERS.values()}:
-        for ed, d in _first_reads((r for r in scan_queue.jsonl_rows(key) if "inputs" in r),
+        for ed, d in _first_reads((r for r in scan_queue.jsonl_rows(key) if "inputs" in r and "edition" in r),
                                   "edition", "readAt").items():
             reads[ed] = min(reads.get(ed, d), d)
     # One scan per series and print date (by_day): landed with its first

@@ -62,7 +62,9 @@ def harvest(out, origins, min_date="", start=0, step=1, limit=None):
     try:
         for paper in (fa.TIMES, fa.GALE):
             for r in fa.scan_queue.jsonl_rows(fa.ledger_of(fa.CACHE, paper)):
-                name = r.get("edition", "").split("/")[-1]
+                if "edition" not in r:  # a stray fragment row
+                    continue
+                name = r["edition"].split("/")[-1]
                 for h in (r.get("scan") or {}).get("solutions") or ():
                     heads[(name, h["leaf"], h["number"])] = (r["edition"], h)
                 for v in r.get("verdicts") or ():
