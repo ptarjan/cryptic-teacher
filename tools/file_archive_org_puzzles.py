@@ -5680,7 +5680,7 @@ def _standing(ledger):
     return dir_cache.appended(ledger, dict, _fold_standing)
 
 
-def scan_stands(paper, rel, cache=CACHE, rows=None, keys=None):
+def scan_stands(paper, rel, cache=CACHE, rows=None, keys=None, host=False):
     """Whether edition `rel`'s ledger row holds a current scan (scan_current)
     now: the queue asks before it starts a scan unit from a plan made
     earlier. Its own fold of the ledger (dir_cache.appended, only lines
@@ -5690,6 +5690,8 @@ def scan_stands(paper, rel, cache=CACHE, rows=None, keys=None):
     asking for them. The row's cheap facts (a scan, a current key) are
     tested before the files' hash: most queued scans have neither."""
     row = (standing(paper, cache) if rows is None else rows).get(rel)
+    if host and row and "solOnly" in row and only_current(row, paper, _stand_hash(cache, rel)):
+        return True  # a HOST_SCAN unit's solutions-only read is done; the edition's own scan is not asked
     if not row or "scan" not in row:
         return False
     p = _CURRENT_PAPER.get(rel)
@@ -5750,7 +5752,7 @@ def sister_solutions(cache, paper):
                 if m is None or m[0] is not row or m[1] is not held:
                     d = _sister_dir(cache, rel)
                     m = memo[rel] = (row, held, [(s["number"], {**s, "dir": d})
-                                                 for s in _linked(d, row.get("scan") or _NO_SCAN, held, p)])
+                                                 for s in _linked(d, scan_of(row, p) or _NO_SCAN, held, p)])
                 links += m[2]
             hit = _SISTER_LINKS[path] = (stamp, held, links)
         for n, s in hit[2]:
@@ -6639,7 +6641,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
     fhs = {d: input_hash(d) for d in dirs}
     stale = [d for d in dirs if not scan_current(known.get(rels[d]), fhs[d], rels[d])]
     stale_set = set(stale)
-    scans = {rels[d]: (known.get(rels[d]) or {}).get("scan") or {"puzzles": [], "solutions": []} for d in every}
+    scans = {rels[d]: scan_of(known.get(rels[d]), paper, fhs.get(d)) or {"puzzles": [], "solutions": []} for d in every}
     held = held_dates(paper.series)
     solutions, sources = solution_sources(every, scans, rels, held, sister_solutions(cache, paper))
     asked = set(asked)
@@ -6717,7 +6719,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
         for rel in u["needs"]:
             rank_of[rel] = min(rank_of.get(rel, 9), u["rank"])
             gain_of[rel] = max(gain_of.get(rel, 0), likely_gain(u))
-    hosts = solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs)
+    hosts = solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs, known)
     scan_units = [{"kind": "scan", "paper": paper.key, "rel": rels[d], "rank": rank_of.get(rels[d], RANKS["scan stale"]),
                    "date": day_of(d), "reason": "scan stale" if "scan" in (known.get(rels[d]) or {}) else "never scanned",
                    **({"gain": gain_of[rels[d]]} if gain_of.get(rels[d]) else {})}
@@ -6766,7 +6768,7 @@ def host_day(day):
     return day + datetime.timedelta(days=7 if day.weekday() == 5 else 1)
 
 
-def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs):
+def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs, known=None):
     """{rel: puzzles} of the editions of `paper` whose scan by current code is due because they print the
     solution of puzzles filed with every clue and not every answer (answerless_puzzles): the issue
     host_day names, scanned alone (no week after, not the puzzle's own edition). One not stale is left out
@@ -6787,6 +6789,8 @@ def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs
         if not nums or d not in stale_set:
             continue
         rel = rels[d]
+        if only_current((known or {}).get(rel), paper, fhs.get(d)):
+            continue  # its solution bands are read (solutions_only): linked, or there are none for these puzzles
         linked = _text_linked(st, paper, d, rel, scans[rel], scans[rel].get("date") or day_of(d), held, deadline, fhs.get(d))
         if linked is not None and not linked & set(nums):
             continue
@@ -6856,10 +6860,78 @@ def likely_gain(unit):
 _PLANNED_DIRS = {}
 
 
-def scan_unit(paper, rel, cache=CACHE, ledger=None):
+#: The rule version of solutions_only's reads: a "solOnly" ledger field made by
+#: another stands for nothing (only_current). Not part of scan_key(): scan()
+#: reaches none of this, and the edition's own scan is never taken for it.
+SOLUTIONS_ONLY = 1
+
+
+def solutions_only(d):
+    """The scan-shaped {"date", "item", "puzzles": [], "solutions": [...]} of
+    Gale edition `d` read in its solution bands alone (a solution grid's
+    shape, solution_bands, each band read by every reader), 20-60 CPU-s a page
+    where _scan's whole-page read is 150-200: the solution headings it prints,
+    judged against the titles the date implies (expected +- slack, one reader
+    standing) since no title is read. None when a leaf has archive.org text
+    (its scan is cheap and whole). Never reaches scan(): it is no scan of the
+    edition (no puzzle is found), and a row of it never stands for one."""
+    pages = json.loads((d / "pages.json").read_text())
+    leaves = sorted(p["leaf"] for p in pages.get("crossword_pages", ()) if (d / f"leaf_{p['leaf']:04d}.jpg").exists())
+    if leaf_lines(d / "djvu.xml.gz", set(leaves)):
+        return None
+    day = datetime.date.fromisoformat(pages["date"])
+    paper = paper_of(d)
+    expected = paper.expected(day)
+    voted = list(range(expected - paper.slack, expected + paper.slack + 1))
+    found = {"date": pages["date"], "item": pages["item"], "puzzles": [], "solutions": []}
+    import ocr_remote
+    with ocr_remote.local_slot():
+        for leaf in leaves:
+            img = page(d, leaf)
+            key = f"{d.parent.name}_{d.name}_{leaf}"
+            sols = {}
+            for band in solution_bands(img, []):
+                for which in READERS:
+                    path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
+                    words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]
+                    lines = row_lines(words)
+                    lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
+                    for n, b in {n: b for n, b in reversed(paper.headings(lines, voted)[1])}.items():
+                        sols.setdefault(n, b)
+            found["solutions"] += [{"number": n, "leaf": leaf, "box": box} for n, box in sols.items()
+                                   if n not in {s["number"] for s in found["solutions"]}]
+    return found
+
+
+def only_current(row, paper, fh=None):
+    """Whether ledger `row` holds a solutions_only read by this rule and
+    scan code (of the files `fh`, when given)."""
+    only = (row or {}).get("solOnly")
+    return bool(only) and only.get("v") == SOLUTIONS_ONLY and only.get("scanKey") in current_keys(paper) \
+        and (fh is None or only.get("filesHash") == fh)
+
+
+def scan_of(row, paper, fh=None):
+    """The scan of ledger `row` the solution reads take: its own when it
+    stands (scan code current, files `fh` when given); else its solutions_only
+    read's solutions, over a stale scan's other fields; else the stale scan
+    (None: neither). Used for solutions only: a solutions_only read finds no
+    puzzle and never stands as the edition's scan (scan_current)."""
+    scan = (row or {}).get("scan")
+    if scan and row.get("scanKey") in current_keys(paper) and (fh is None or row.get("filesHash") == fh):
+        return scan
+    if only_current(row, paper, fh):
+        return {**scan, "solutions": row["solOnly"]["scan"]["solutions"]} if scan else row["solOnly"]["scan"]
+    return scan
+
+
+def scan_unit(paper, rel, cache=CACHE, ledger=None, host=False):
     """Scan one edition and add its row to the ledger (scan_queue.append),
     unless another unit holds it or its scan stands: "scanned", "busy",
-    "current" or "held" (a run holds the ledger throughout)."""
+    "current" or "held" (a run holds the ledger throughout). With `host` (a
+    HOST_SCAN unit, wanted for the solutions it prints) a Gale page is read in
+    its solution bands alone (solutions_only) and kept in the row's "solOnly",
+    its "scan" left as it was: the edition's own scan, if due, still runs."""
     ledger = ledger_of(cache, paper, ledger)
     if scan_queue.held(ledger, scan_queue.UNIT_HOLD_WAIT):
         return "held"
@@ -6871,6 +6943,19 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None):
         row = load_known(ledger).get(rel) or {}
         if scan_current(row, fh, rel):
             return "current"
+        if host:
+            if only_current(row, paper, fh):
+                return "current"
+            try:
+                found = solutions_only(d)
+            except Exception as e:  # as below: the whole scan then runs and stands as one that raises
+                progress(f"solutions-only read of {rel} failed, scanning whole: {scan_queue.failure((rel,), e)}")
+                found = None
+            if found is not None:
+                progress(f"scanned {rel} for its solutions: {len(found['solutions'])} solution heading(s)")
+                scan_queue.append(ledger, [{**row, "edition": rel, "solOnly": {
+                    "v": SOLUTIONS_ONLY, "scanKey": scan_key(paper_of(d)), "filesHash": fh, "scan": found}}])
+                return "scanned"
         try:
             found = scan_anywhere(d)
         except Exception as e:  # any raise, as _run: a scan that raises stands as one with no headings
@@ -6970,7 +7055,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     for d in dirs:
         row = known.get(rels[d])
         if near is not None and d not in near:
-            scans[rels[d]] = (row or {}).get("scan") or {"puzzles": [], "solutions": []}
+            scans[rels[d]] = scan_of(row, paper) or {"puzzles": [], "solutions": []}
             continue
         fh = input_hash(d)
         if scan_current(row, fh, rels[d]):
@@ -6985,7 +7070,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     if not scan_new:
         held_back = unsettled(dirs, unscanned)
         for d in unscanned:
-            scans[rels[d]] = (known.get(rels[d]) or {}).get("scan") or {"puzzles": [], "solutions": []}
+            scans[rels[d]] = scan_of(known.get(rels[d]), paper) or {"puzzles": [], "solutions": []}
         unscanned = {}
     # A scan that raises stands as one with no headings, kept under this
     # scan_key, so it is not made again until the scan code changes.
