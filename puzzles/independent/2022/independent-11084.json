@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Underwear malfunction",
     "enumeration": "4"
    },
-   "solution": "SLIP"
+   "solution": "SLIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Underwear",
+      "at": 0,
+      "meaning": "a woman's undergarment worn beneath a dress"
+     },
+     {
+      "text": "malfunction",
+      "at": 10,
+      "meaning": "a small error or failure, a lapse such as one of the tongue"
+     }
+    ],
+    "explanation": {
+     "surface": "A wardrobe malfunction involving lingerie.",
+     "definitionFit": "Slip names both a petticoat-like garment and a minor mistake or lapse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,41 @@
     "text": "Team having shots at goal? Supporters will appear",
     "enumeration": "9"
    },
-   "solution": "SIDEKICKS"
+   "solution": "SIDEKICKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supporters",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Team",
+       "at": 0,
+       "gives": "SIDE",
+       "note": "a side is a sports team"
+      },
+      {
+       "words": "shots at goal",
+       "at": 12,
+       "gives": "KICKS",
+       "note": "in football, shots at goal are kicks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football team taking shots draws its fans out to watch.",
+     "definitionFit": "Sidekicks are loyal assistants or companions, those who back up a hero."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Supporters"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +125,72 @@
      }
     ]
    },
-   "solution": "INVITRO"
+   "solution": "INVITRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "regarding some fertility treatments?",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 8,
+         "note": "with no ending, the final letter of the invitation word is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ask for",
+         "at": 0,
+         "gives": "INVITE",
+         "note": "to ask for someone's company is to invite them"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 21,
+         "note": "repeated, so the word for a row also loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "row",
+         "at": 16,
+         "gives": "ROW",
+         "note": "a row is a line, here taken as written"
+        },
+        {
+         "gives": "W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled plea about an endless queue at a fertility clinic.",
+     "walkthrough": "Both 'endless' indicators lop a last letter: INVITE becomes INVIT and ROW becomes RO.",
+     "definitionFit": "In vitro fertilisation is a common fertility treatment, so the Latin phrase describes such procedures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +204,69 @@
     "text": "Qualification Oxford, say, mostly backed, following protocols?",
     "enumeration": "10"
    },
-   "solution": "DIPLOMATIC"
+   "solution": "DIPLOMATIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "following protocols?",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Qualification",
+       "at": 0,
+       "gives": "DIPLOMA",
+       "note": "a diploma is an academic qualification"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "at": 34,
+         "note": "backed means the shortened word runs in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 27,
+           "note": "most of the word is kept, so its final letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Oxford, say",
+           "at": 14,
+           "gives": "CITY",
+           "note": "Oxford is an example of a city"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Oxford qualification sought by someone going by the book.",
+     "walkthrough": "Oxford is a city given by example ('say'); 'mostly' shortens it and 'backed' turns it round.",
+     "definitionFit": "Protocol is diplomatic etiquette, so acting according to it is behaving in a diplomatic way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Oxford"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +280,32 @@
     "text": "My status is no longer single — but it's not good",
     "enumeration": "8"
    },
-   "solution": "IMPAIRED"
+   "solution": "IMPAIRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "My status is no longer single",
+      "at": 0,
+      "meaning": "I am now part of a couple"
+     },
+     {
+      "text": "not good",
+      "at": 41,
+      "meaning": "damaged or weakened, so in poor condition"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone announcing they are in a relationship, with a gloomy twist.",
+     "walkthrough": "The first definition is read as two words, I'M PAIRED; the second as the single word IMPAIRED.",
+     "definitionFit": "Something impaired has been damaged or diminished, so it is in a bad state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +319,41 @@
     "text": "Sucker expecting shelter to be offered by church",
     "enumeration": "5"
    },
-   "solution": "LEECH"
+   "solution": "LEECH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sucker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "shelter",
+       "at": 17,
+       "gives": "LEE",
+       "note": "the lee is the sheltered side, away from the wind"
+      },
+      {
+       "words": "church",
+       "at": 42,
+       "gives": "CH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gullible person hoping a church will give them a roof.",
+     "definitionFit": "A leech is a bloodsucking worm, literally an animal that sucks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sucker"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +367,47 @@
     "text": "Suburbia: a term on departing London, possibly",
     "enumeration": "9"
    },
-   "solution": "METROLAND"
+   "solution": "METROLAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suburbia",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 38,
+       "note": "possibly signals these letters could be arranged another way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a term on",
+       "at": 10
+      },
+      {
+       "words": "departing London",
+       "at": 20,
+       "gives": "DL",
+       "note": "D is the timetable abbreviation for departs, and L the usual one for London"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commuter's season ticket out of the capital leads into the suburbs.",
+     "walkthrough": "'possibly' shuffles A TERM ON together with D and L.",
+     "definitionFit": "Metroland was the suburban belt north-west of London served by the Metropolitan Railway, so it stands for suburbia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +421,50 @@
     "text": "Computer pioneer penning note forcing a change of direction",
     "enumeration": "7"
    },
-   "solution": "TURNING"
+   "solution": "TURNING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "forcing a change of direction",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penning",
+       "at": 17,
+       "note": "penning means enclosing, as animals are shut in a pen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Computer pioneer",
+       "at": 0,
+       "gives": "TURING",
+       "note": "Alan Turing was a founding figure of computer science"
+      },
+      {
+       "words": "note",
+       "at": 25,
+       "gives": "N",
+       "note": "N, short for note"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computing pioneer writing a memo that redirects things.",
+     "walkthrough": "'penning' encloses N inside TURING.",
+     "definitionFit": "Turning is the act of changing course, rotating to a new heading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "penning"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +478,59 @@
     "text": "Aeroplane, perhaps, caught offloading contents to accommodate airmen",
     "enumeration": "5"
    },
-   "solution": "CRAFT"
+   "solution": "CRAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aeroplane, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to accommodate",
+       "at": 47,
+       "note": "to accommodate is to house, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "offloading contents",
+         "at": 27,
+         "note": "emptying the word of its interior leaves only its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "caught",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "airmen",
+       "at": 62,
+       "gives": "RAF",
+       "note": "the RAF is Britain's Royal Air Force"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plane is caught emptying its cargo to make room for crew.",
+     "walkthrough": "'offloading contents' keeps only the ends of caught; 'to accommodate' houses the airmen between them.",
+     "definitionFit": "An aircraft is a craft, a general word for any vessel or vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +544,59 @@
     "text": "Good Tory, concealing black binder",
     "enumeration": "4"
    },
-   "solution": "GLUE"
+   "solution": "GLUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "binder",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "at": 0,
+       "gives": "G"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "concealing",
+         "at": 11,
+         "note": "hiding a letter means it disappears from view, so it is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tory",
+         "at": 5,
+         "gives": "BLUE",
+         "note": "blue is the Conservatives' colour, so a Tory is a blue"
+        },
+        {
+         "words": "black",
+         "at": 22,
+         "gives": "B",
+         "note": "B is the pencil-grade abbreviation for black"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decent Conservative hiding a black folder.",
+     "walkthrough": "Blue is the Conservative party colour; 'concealing' hides black's letter from it.",
+     "definitionFit": "Glue binds things together, so it acts as an adhesive binder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "binder"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +616,40 @@
      }
     ]
    },
-   "solution": "DEVELOPMENTAREA"
+   "solution": "DEVELOPMENTAREA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Region classed as impoverished?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 51,
+       "note": "upset letters are knocked over and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Alderman to peeve",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A council official is annoyed that a district is officially labelled poor.",
+     "definitionFit": "A development area was a British designation for a depressed region given state help for growth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +663,64 @@
     "text": "Elderly friends accepting sport half-heartedly — inclined to play?",
     "enumeration": "9"
    },
-   "solution": "KITTENISH"
+   "solution": "KITTENISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inclined to play?",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepting",
+       "at": 16,
+       "note": "accepting means taking in, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Elderly friends",
+       "at": 0,
+       "gives": "KITH",
+       "note": "kith is an archaic word for friends, as in kith and kin"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-heartedly",
+         "at": 32,
+         "note": "half the heart is lost: one of the two central letters goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sport",
+         "at": 26,
+         "gives": "TENNIS",
+         "note": "tennis is a sport"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Old friends taking up a game without much enthusiasm, though they fancy a bit of fun.",
+     "walkthrough": "'half-heartedly' loses one of the sport's two central letters; 'accepting' puts the rest inside the archaic word for friends.",
+     "definitionFit": "Kittenish means playful and frisky, like a young cat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sport"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +734,70 @@
     "text": "Poet rejected party with Society in it",
     "enumeration": "5"
    },
-   "solution": "ODIST"
+   "solution": "ODIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 5,
+         "note": "rejected means sent back, so the word reads in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 14,
+         "gives": "DO",
+         "note": "a do is a party"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 33,
+         "note": "in signals one piece placed inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 36,
+         "gives": "IT"
+        },
+        {
+         "words": "Society",
+         "at": 25,
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet turned away from a society party.",
+     "walkthrough": "'rejected' turns DO into OD; then 'in' puts S into IT for IST.",
+     "definitionFit": "An odist is a writer of odes, hence a poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +811,57 @@
     "text": "A lot of childhood disease linked to seaside location? I'd keep an eye on the games played",
     "enumeration": "8"
    },
-   "solution": "CROUPIER"
+   "solution": "CROUPIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I'd keep an eye on the games played",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of means most but not all, so the final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "childhood disease",
+         "at": 9,
+         "gives": "CROUP",
+         "note": "croup is a respiratory illness of young children"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "words": "seaside location",
+       "at": 37,
+       "gives": "PIER",
+       "note": "a pier is a seaside landmark"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sick child at the seaside, watched over by someone minding the games.",
+     "walkthrough": "'A lot of' drops the disease's last letter. 'linked to' just joins the pieces.",
+     "definitionFit": "A croupier runs a gambling table, overseeing roulette or card games in a casino."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "games"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +875,74 @@
     "text": "I toil desperately in support of reduced power: doing the right thing?",
     "enumeration": "9"
    },
-   "solution": "PUNCTILIO"
+   "solution": "PUNCTILIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "doing the right thing?",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in support of",
+       "at": 19,
+       "note": "in a down answer, one piece supporting another sits underneath it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 33,
+         "note": "reduced means cut short, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "power",
+         "at": 41,
+         "gives": "PUNCH",
+         "note": "punch means power or force"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "desperately",
+         "at": 7,
+         "note": "desperately suggests wild disorder, so the letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I toil",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Toiling desperately while low on power, wondering if it is the right thing.",
+     "walkthrough": "'reduced' cuts PUNCH to PUNC; 'desperately' rearranges I TOIL as TILIO, which 'in support of' places below.",
+     "definitionFit": "Punctilio is a fine point of correct conduct, careful observance of etiquette."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +956,57 @@
     "text": "Rumour about new Government confusion",
     "enumeration": "6"
    },
-   "solution": "TANGLE"
+   "solution": "TANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "confusion",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 7,
+       "note": "about means surrounding, so one piece goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rumour",
+       "at": 0,
+       "gives": "TALE",
+       "note": "a tale is a rumour or piece of gossip"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 13,
+         "gives": "N"
+        },
+        {
+         "words": "Government",
+         "at": 17,
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about a new administration causes confusion.",
+     "walkthrough": "'about' puts NG inside TALE.",
+     "definitionFit": "A tangle is a muddled, twisted state, a mess or state of confusion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1020,60 @@
     "text": "Likely to engage former car marque involved in type of motor racing",
     "enumeration": "9"
    },
-   "solution": "EXTROVERT"
+   "solution": "EXTROVERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Likely to engage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "former",
+       "at": 17,
+       "gives": "EX",
+       "note": "ex means former"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involved in",
+         "at": 35,
+         "note": "involved in means wrapped up inside something"
+        }
+       ],
+       "parts": [
+        {
+         "words": "type of motor racing",
+         "at": 47,
+         "gives": "TT",
+         "note": "the TT, Tourist Trophy, is motorcycle racing on the Isle of Man"
+        },
+        {
+         "words": "car marque",
+         "at": 24,
+         "gives": "ROVER",
+         "note": "Rover is a British car brand"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old car brand is likely to take part in a race.",
+     "walkthrough": "'involved in' places the car marque inside the Isle of Man race initials; 'former' stands apart.",
+     "definitionFit": "An extrovert is outgoing and sociable, keen to interact with others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "engage"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1087,67 @@
     "text": "Actors keeping record but disregarding a large source of influence",
     "enumeration": "8"
    },
-   "solution": "CATALYST"
+   "solution": "CATALYST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "source of influence",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 7,
+       "note": "keeping means holding within, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Actors",
+       "at": 0,
+       "gives": "CAST",
+       "note": "the cast is the set of actors in a show"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disregarding",
+         "at": 26,
+         "note": "disregarding means ignoring, so the letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "record",
+         "at": 15,
+         "gives": "TALLY",
+         "note": "a tally is a running record or count"
+        },
+        {
+         "words": "a large",
+         "at": 39,
+         "gives": "L",
+         "note": "L is the abbreviation for large; a means just one of them"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Actors keep a record of the main influences on them.",
+     "walkthrough": "'disregarding' drops one L ('a large') from the record; 'keeping' places what remains inside the actors.",
+     "definitionFit": "A catalyst is something that triggers change, an agent causing an effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1161,48 @@
     "text": "Gazing without seeing a lot of horses",
     "enumeration": "6"
    },
-   "solution": "STRING"
+   "solution": "STRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lot of horses",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without seeing",
+       "at": 7,
+       "note": "without seeing means the named letter does not appear"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gazing",
+       "at": 0,
+       "gives": "STARING",
+       "note": "staring means gazing fixedly"
+      },
+      {
+       "words": "a",
+       "at": 22,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gazing blindly at a herd of horses.",
+     "walkthrough": "'without seeing' removes A from STARING. 'Gazing' looks the definition, but 'a lot of horses' is.",
+     "definitionFit": "A string is the set of racehorses kept by one trainer or stable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seeing"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1222,60 @@
      }
     ]
    },
-   "solution": "RAINMAN"
+   "solution": "RAINMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 14,
+       "note": "involving means taking in, so pieces go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "screened",
+       "at": 5,
+       "gives": "RAN",
+       "note": "a film that ran was screened"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "popular",
+         "at": 24,
+         "gives": "IN",
+         "note": "in means popular or fashionable"
+        },
+        {
+         "words": "old woman",
+         "at": 32,
+         "gives": "MA",
+         "note": "ma is mother, informally the old woman"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A screened film involves a well-liked old lady.",
+     "walkthrough": "'involving' wraps 'screened' around the popular old woman.",
+     "definitionFit": "Rain Man is the 1988 film starring Dustin Hoffman and Tom Cruise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "screened"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1299,63 @@
      }
     ]
    },
-   "solution": "HARDATIT"
+   "solution": "HARDATIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "keeping on and on",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "circling",
+         "at": 19,
+         "note": "circling means going around, enclosing another piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Experienced",
+         "at": 0,
+         "gives": "HAD",
+         "note": "to have had something is to have experienced it"
+        },
+        {
+         "words": "river",
+         "at": 28,
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 12
+      },
+      {
+       "words": "bird",
+       "at": 14,
+       "gives": "TIT",
+       "note": "a tit is a small bird"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird keeps circling a river.",
+     "walkthrough": "'circling' has the word for experienced go round the river, before A and the bird.",
+     "definitionFit": "Hard at it is an idiom for working persistently without stopping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Experienced"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1369,59 @@
     "text": "Wreck business with introduction of hopeless rep",
     "enumeration": "7"
    },
-   "solution": "TORPEDO"
+   "solution": "TORPEDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wreck",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "with introduction of",
+       "at": 15,
+       "note": "introduction here means putting something into the middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "business",
+       "at": 6,
+       "gives": "TODO",
+       "note": "a to-do is a fuss or business"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "hopeless",
+         "at": 36,
+         "note": "hopeless suggests a mess, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rep",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A useless salesman ruins the company.",
+     "walkthrough": "'hopeless' turns REP into RPE, and 'with introduction of' inserts it into TODO.",
+     "definitionFit": "To torpedo something is to sink it, figuratively to wreck it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "business"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1435,49 @@
     "text": "Publican cornering one in lift",
     "enumeration": "5"
    },
-   "solution": "HOIST"
+   "solution": "HOIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lift",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cornering",
+       "at": 9,
+       "note": "cornering means trapping, so one piece is hemmed in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Publican",
+       "at": 0,
+       "gives": "HOST",
+       "note": "a publican is the host of a pub"
+      },
+      {
+       "words": "one",
+       "at": 19,
+       "gives": "I",
+       "note": "I is the roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord traps someone in an elevator.",
+     "walkthrough": "'cornering' puts I inside HOST.",
+     "definitionFit": "To hoist is to raise up, especially with a pulley."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1491,40 @@
     "text": "Pick up time, getting encouragement",
     "enumeration": "5"
    },
-   "solution": "HEART"
+   "solution": "HEART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "encouragement",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pick up",
+       "at": 0,
+       "gives": "HEAR",
+       "note": "to pick up a sound is to hear it"
+      },
+      {
+       "words": "time",
+       "at": 8,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speeding up the pace brings encouragement.",
+     "definitionFit": "To take heart is to be encouraged; heart here means courage or spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pick"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1544,70 @@
      }
     ]
    },
-   "solution": "QUARTERTO"
+   "solution": "QUARTERTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fifteen minutes short",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting",
+         "at": 14,
+         "note": "accepting means taking in, so one piece goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chamber group",
+         "at": 0,
+         "gives": "QUARTET",
+         "note": "a quartet is a chamber music ensemble"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 24,
+           "note": "a bit of the name is only its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Ravel's",
+           "at": 31
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "over",
+       "at": 39,
+       "gives": "O",
+       "note": "O is the cricket abbreviation for over"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A string quartet takes a Ravel piece lasting over fifteen minutes.",
+     "walkthrough": "'accepting' places R inside QUARTET before its T.",
+     "definitionFit": "A quarter to an hour is fifteen minutes before it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1621,70 @@
     "text": "Charlatan putting out constant source of error, making you tremble",
     "enumeration": "5"
    },
-   "solution": "QUAKE"
+   "solution": "QUAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tremble",
+      "at": 59
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "putting out",
+         "at": 10,
+         "note": "putting out means ejecting, so the letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Charlatan",
+         "at": 0,
+         "gives": "QUACK",
+         "note": "a quack is a fake doctor"
+        },
+        {
+         "words": "constant",
+         "at": 22,
+         "gives": "C",
+         "note": "C is the scientific symbol for constant, as the speed of light"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "source of",
+         "at": 31,
+         "note": "the source of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "error",
+         "at": 41
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fraud's mistakes make you shake.",
+     "walkthrough": "'putting out' takes C out of QUACK, leaving QUAK.",
+     "definitionFit": "To quake is to shake or shudder with fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "constant"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1698,61 @@
     "text": "Rising worry about piano recording",
     "enumeration": "4"
    },
-   "solution": "TAPE"
+   "solution": "TAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "recording",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Rising",
+       "at": 0,
+       "note": "in a down answer, rising means reading upwards, in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 13,
+         "note": "about means surrounding, so one piece goes around the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "worry",
+         "at": 7,
+         "gives": "EAT",
+         "note": "to eat someone is to worry them, as in what's eating you"
+        },
+        {
+         "words": "piano",
+         "at": 19,
+         "gives": "P",
+         "note": "P is the musical abbreviation for piano, meaning soft"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Growing anxiety over a piano recording.",
+     "walkthrough": "'about' puts P inside EAT as EPAT, and 'Rising' reverses it.",
+     "definitionFit": "Tape is magnetic recording media, and also a recording itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1772,40 @@
      }
     ]
    },
-   "solution": "ARMILLARYSPHERE"
+   "solution": "ARMILLARYSPHERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "astronomical device",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "working",
+       "at": 19,
+       "note": "working means the letters are worked over into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Here's all primary",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everything basic gets built into an astronomical instrument.",
+     "definitionFit": "An armillary sphere is a model of the celestial globe made of rings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1819,70 @@
     "text": "Painter and potter uncovered nonsense fool put about",
     "enumeration": "10"
    },
-   "solution": "TINTORETTO"
+   "solution": "TINTORETTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "put about",
+       "at": 43,
+       "note": "put about means turned round, so the sequence reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "uncovered",
+           "at": 19,
+           "note": "uncovered means stripped of its outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "potter",
+           "at": 12
+          }
+         ]
+        },
+        {
+         "words": "nonsense",
+         "at": 29,
+         "gives": "ROT",
+         "note": "rot means nonsense"
+        },
+        {
+         "words": "fool",
+         "at": 38,
+         "gives": "NIT",
+         "note": "a nit is a fool"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter and potter trade nonsense about a fool.",
+     "walkthrough": "'uncovered' leaves OTTE from potter; OTTEROTNIT is then reversed by 'put about'.",
+     "definitionFit": "Tintoretto was a Venetian Renaissance artist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "potter"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1896,60 @@
     "text": "Pay for newspaper with nothing in it more than once",
     "enumeration": "4"
    },
-   "solution": "FOOT"
+   "solution": "FOOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pay for",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 31,
+       "note": "in signals one piece placed inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "newspaper",
+       "at": 8,
+       "gives": "FT",
+       "note": "the FT is the Financial Times"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "nothing",
+         "at": 23,
+         "gives": "O",
+         "note": "O looks like zero, nothing"
+        },
+        {
+         "words": "more than once",
+         "at": 37,
+         "gives": "O",
+         "note": "more than once means the nothing appears again, a second round letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paying for a newspaper that keeps carrying nothing.",
+     "walkthrough": "The FT is the Financial Times, a British daily printed on pink paper.",
+     "definitionFit": "To foot the bill is to pay for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pay"
+    }
+   }
   }
  ]
 }
