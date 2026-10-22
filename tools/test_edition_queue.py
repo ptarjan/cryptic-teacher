@@ -1134,15 +1134,17 @@ check("a slice's first image re-execs on a change to itself while its first plan
 # ---- --handoff: a slice's end hands its running units to the next run,
 # which counts them in its pools and does not start them again.
 log.unlink()
-fake(sleep={"long": 4})
+fake(sleep={"long": 10})
 eq.plan = units([], [("long", []), ("r1", [])])
 ho = T / "handoff.json"
 out = io.StringIO()
 t0 = time.monotonic()
+# The slice is long enough for "long"'s brief (prepare, on a pool thread) to be made and the unit begun on
+# a slow CI runner: at 0.5 s the slice could end with it still PENDING, nothing running to hand over.
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(out):
-    rc = eq.dispatch(["times"], cache, workers=1, seconds=0.5, handoff=ho)
+    rc = eq.dispatch(["times"], cache, workers=1, seconds=3, handoff=ho)
 check("a slice ends at once, handing over its running unit, and says it left work", (0, True, ["long"], True),
-      (rc, time.monotonic() - t0 < 3, [r["unit"]["rel"] for r in json.loads(ho.read_text())],
+      (rc, time.monotonic() - t0 < 7, [r["unit"]["rel"] for r in json.loads(ho.read_text())],
        "left for the next run" in out.getvalue()))
 err = io.StringIO()
 with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):

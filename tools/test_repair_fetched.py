@@ -595,10 +595,11 @@ try:
     done = rf.repair_regressed_clues(apply_it=True)
 finally:
     rf.spoiled_commits, rf.git_out, rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file = real
-check(dry, [("times-1", "1-across", "Boy, good at hear", "Boy, good at heart")], "only the cut word is restored")
-check(wrote_dry, False, "a dry run writes nothing")
-check([saved["wrote"]["entries"][0]["clue"]["text"], saved["wrote"]["entries"][1]["clue"]["text"]],
-      ["Boy, good at heart", "Dog the 1st Earl, now"], "an applied repair writes the held words and leaves the other clue")
+same("only the cut word is restored", dry, [("times-1", "1-across", "Boy, good at hear", "Boy, good at heart")])
+same("a dry run writes nothing", wrote_dry, False)
+same("an applied repair writes the held words and leaves the other clue",
+     [saved["wrote"]["entries"][0]["clue"]["text"], saved["wrote"]["entries"][1]["clue"]["text"]],
+     ["Boy, good at heart", "Dog the 1st Earl, now"])
 
 print("only a count the grid gave is given its word breaks back; a bare count that was read stays")
 breaks = ({"SHEEPSHEARING": "5,8"}, frozenset())

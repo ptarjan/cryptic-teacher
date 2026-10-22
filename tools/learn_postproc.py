@@ -33,11 +33,14 @@ import os
 import re
 import subprocess
 import sys
+from pathlib import Path
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
-DEFAULT_OUT = "/data/home/.cache/postproc_learn/classes.tsv"
+# Rebuilt from git history on every run: a derived cache, so ~/.cache.
+DEFAULT_OUT = os.environ.get("POSTPROC_LEARN_OUT") or str(
+    Path.home() / ".cache" / "postproc_learn" / "classes.tsv")
 
 
 def git(*args, check=True):
