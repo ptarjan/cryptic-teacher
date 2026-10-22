@@ -47,6 +47,12 @@ UNREAD = ("clues_only/", "docs/")
 #: input of any puzzle's check. Without this line the name match below made
 #: every push that touched it a full check (~4 minutes the deploy waited on).
 QUEUE_STATE = ("tools/data/shape_reannotate.json",)
+#: The annotator's prompts. Reached modules name them only in a docstring
+#: (validate_annotations.py) and a hint message (annotation.py), never open
+#: them (build_annotate_prompt, which does, is not reached), so they are no
+#: input of any puzzle's check. Not in QUEUE_STATE: that tuple is pinned to
+#: the smoke cache's INERT list (tools/ci_cache.js).
+PROMPTS = ("tools/annotate_prompt.md", "tools/annotate_bag_prompt.md")
 WORKFLOW = ".github/workflows/pages.yml"
 _HEAD = []
 
@@ -175,7 +181,7 @@ def decide(changes, base_text=None, head_text=None, resolve=None):
     moved_ids = set()
     rows = set()
     for st, path in changes:
-        if path.startswith(UNREAD) or path in QUEUE_STATE:
+        if path.startswith(UNREAD) or path in QUEUE_STATE or path in PROMPTS:
             continue
         if path in ENTRY_TABLES and st == "M" and base_text:
             old = base_text(path)
