@@ -3966,7 +3966,7 @@ def letter_put_back(text):
 PRINT_OWN = re.compile(r"(?:[A-Za-z]{1,3}\.?-)+[A-Za-z]{1,3}\.|[A-Za-z]+-o['’]-[A-Za-z]+(?:-[A-Za-z]+)*"
                        r"|[A-Z]+(?:[—–]{1,2}[A-Z]+)+|\d+(?:cwt|lbs?|oz|yds?|mph|kg|mm|cm|km)\.?")
 #: Abbreviations the lexicon lacks that a clue prints ("Mer. of Ven.", "Ven. Bede", "jnr.").
-ABBREVIATED = {"ven", "jnr", "snr"}
+UNLEXICONED_ABBREVS = {"ven", "jnr", "snr"}
 
 
 def suspect(text, vouched=(), printed=()):
@@ -4016,7 +4016,7 @@ def suspect(text, vouched=(), printed=()):
             if known(flat) or formed(plain(p).lower()) or any(
                     known(f) for f in {flat.translate(LIGATURES), flat.translate(LIGATURE_E)} - {flat}):
                 continue  # a ligature is its word's ("mediæval")
-            if flat.isupper() and len(flat) <= 4 or flat.lower() in ABBREVIATED:
+            if flat.isupper() and len(flat) <= 4 or flat.lower() in UNLEXICONED_ABBREVS:
                 continue  # an abbreviation: "RN", "TUC", "Ven."
             if flat[0].islower():
                 out.append((raw, "not a word"))
