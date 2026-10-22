@@ -190,8 +190,12 @@ check("a read predicted to file whole (answers linked) stays, with its detail", 
 _sc, _rd = eq.only_evidence("times", [{"rel": "G/1", "reason": "scan stale", "kind": "scan"},
                                       {"rel": "G/2", "reason": "scan stale", "kind": "scan"}],
                             [{"rel": "G/0", "reason": "scan stale, answers missing", "needs": ["G/1"]}])
-check("a Times read waiting on scans for its solution heading keeps the scans, not the read", ([ "G/1"], []),
-      ([u["rel"] for u in _sc], _rd))
+check("a Times read waiting on scans for its solution heading keeps neither (only the solution-host scans are kept, 5c8eb3523ce)",
+      ([], []), ([u["rel"] for u in _sc], _rd))
+_sc, _rd = eq.only_evidence("times", [{"rel": "G/1", "reason": f.HOST_SCAN, "kind": "scan"},
+                                      {"rel": "G/2", "reason": "scan stale", "kind": "scan"}],
+                            [{"rel": "G/0", "reason": "scan stale, answers missing", "needs": ["G/1"]}])
+check("mirror: a solution-host scan is kept", (["G/1"], []), ([u["rel"] for u in _sc], _rd))
 _, _rd = eq.only_evidence("ft", [], [{"rel": "G/0", "reason": "scan stale, answers missing", "needs": ["G/1"]}])
 check("another paper's is dropped", [], _rd)
 _ws = lambda s: [(0, 0, 9, 9, w) for w in s.split()]
@@ -357,8 +361,8 @@ check("eq.by_urgency: CT_NEWEST_FIRST unset leaves the order alone",
       ["gale-hand", "other", "gale-old-gain", "gale-new", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
 os.environ["CT_NEWEST_FIRST"] = "gale, times"
-check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' likely filers first, then their rereads, then other papers (Paul 10-21)",
-      ["gale-old-gain", "gale-hand", "gale-new", "times-mid", "other"],
+check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' likely filers first, then their rereads alternating with other papers' work (Paul 10-21, 871ecef558f)",
+      ["gale-old-gain", "gale-hand", "gale-new", "other", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
 rr = lambda rel, date, reason, **k: (2, 0, 0, {"rel": rel, "date": date, "paper": "times", "rank": 2, "reason": reason, **k})
 check("eq.by_urgency: CT_NEWEST_FIRST, never read first, then rereads after a refusal or short read, then ones whose page holds the puzzle",
@@ -369,8 +373,8 @@ check("eq.by_urgency: CT_NEWEST_FIRST, never read first, then rereads after a re
           rr("changed-old", "2000", "inputs changed"),
           rr("refused", "2015", "refused no-reading-parses before its fix"),
           (1, 0, 0, {"rel": "never", "date": "1990", "paper": "times", "rank": 1, "reason": "never read"})])])
-check("eq.by_urgency: CT_NEWEST_FIRST, the named papers' rereads before another paper's never-read (Paul 10-21)",
-      ["never", "short", "changed", "ft-never", "ft-stale"],
+check("eq.by_urgency: CT_NEWEST_FIRST, the named papers' rereads alternate one for one with another paper's never-read (Paul 10-21, 871ecef558f)",
+      ["never", "short", "ft-never", "changed", "ft-stale"],
       [u["rel"] for u in eq.by_urgency([
           rr("changed", "2020", "inputs changed"),
           rr("short", "2010", "solution short, read by other code"),
