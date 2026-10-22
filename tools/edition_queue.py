@@ -692,13 +692,22 @@ def only_evidence(paper, scans, reads):
     # A read fa.likely() predicts to file a puzzle whole (e.g. "answers linked": a scan now links the
     # printed solution of a puzzle filed without answers) is evidence too. Paul 10-21: filling the
     # Times answers printed in the papers takes priority over the other papers.
+    all_reads = reads
     reads = [u for u in reads if evidence_reason(u["reason"]) or fa.likely_gain(u) > 0]
+    # Paul 10-21: "We need to figure out how to read the solutions." A Times puzzle read without
+    # answers whose solution heading no stored scan links ("scan stale, answers missing") waits on
+    # the scans of its edition and the week after it, by code that now reads more headings ("Solution
+    # to Crossword N", "Yesterday's solution N", a heading one reader finds). Those SCANS are kept
+    # (OCR, no VLM ask); the read itself is not: once the scans link the heading it is due as
+    # "inputs changed" with "answers linked" likely (answers_only, 0 asks), which is evidence above.
+    solution_scans = [u for u in all_reads if u["reason"] == fa.STALE_SCAN[0]
+                      and getattr(fa.FILERS.get(paper), "series", None) == fa.SERIES]
     for u in reads:
         if not evidence_reason(u["reason"]) and not u.get("detail"):
             u["detail"] = ", ".join(f"{k} x{n}" for k, n in sorted((u.get("likely") or {}).items()))
         if u["reason"] == "annotation asked" and not u.get("detail"):
             u["detail"] = _ASKED_WHY.get((paper, u["rel"]), "")
-    needed = {rel for u in reads for rel in u.get("needs") or ()}
+    needed = {rel for u in [*reads, *solution_scans] for rel in u.get("needs") or ()}
     scans = [u for u in scans if u["reason"] == "never scanned" or u["rel"] in needed]
     return scans, reads
 

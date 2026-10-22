@@ -316,7 +316,8 @@ HOLIDAY_LAGS = (4, 5)
 #: ". 15, 244");
 #: solution_number() decides.
 LOOSE_NUMBER = r"(?:[nm][^\s\d]{0,2}\s*)?(\S{1,7}(?:\s\S{1,5}){0,2})$"
-LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})(?:\s+|(?-i:(?<=[a-z])(?=[A-Z])))(?:(\S{3,8})\s+)?" + LOOSE_NUMBER,
+YESTERDAY_SOLUTION = re.compile(r"^\W*yesterday\W?s\s+s[o0]l\w{3,5}\s+" + LOOSE_NUMBER, re.IGNORECASE)
+LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})(?:\s+|(?-i:(?<=[a-z])(?=[A-Z])))(?:(\S{3,9})\s+)?" + LOOSE_NUMBER,
                             re.IGNORECASE)
 #: The 1980s-90s heading: "The Solution" over "No 16,219".
 SOLUTION_OVER = re.compile(r"^\W*(?:the\s+)?(\S{6,10})\W*$", re.IGNORECASE)
@@ -408,6 +409,12 @@ def solution_at(ws, k, expected, clean=()):
     text = ""
     for j in range(k, len(ws)):
         text = (text + " " + ws[j][4]).strip()
+        y = YESTERDAY_SOLUTION.match(text)
+        if y:  # the 2009-10 Gale Times: "Yesterday's solution 24,378" over its grid
+            n = solution_number(y[1], expected)
+            if n is not None:
+                return n, j
+            continue
         m = LOOSE_SOLUTION.match(text) or LOOSE_SOLUTION.match(unspecked(text))
         if not m or not (like(m[1], "solution") or m[3] and like(m[3], "puzzle")) \
                 or re.search(r"\d", m[1] + (m[3] or "")):
@@ -2544,7 +2551,11 @@ def ocr_headings(img, paper, key, day=None):
             for n, b in {n: b for n, b in reversed(paper.headings(lines, voted)[1])}.items():
                 if which not in (r[0] for r in sols.get(n, ())):
                     sols.setdefault(n, []).append((which, b))
-    sols = {n: reads for n, reads in sols.items() if len(reads) >= least}
+    # With titles voted, solution_headings reads only a number SOLUTION_LAGS before one, so one
+    # reader's read of it stands (the thin band RapidOCR drops the number from, Tesseract keeps:
+    # 1971-09-09's "Solution of Puzzle No 12,869"): read_solution checks the grid against the
+    # puzzle's (blocks, lengths, crossings) before any answer files.
+    sols = {n: reads for n, reads in sols.items() if len(reads) >= (1 if voted else least)}
     found = [(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items()
              if len(reads) >= least or n - 1 in sols] or near
     return gale_headings(img, paper, key, day, found, [(n, reads[0][1]) for n, reads in sols.items()])
@@ -5164,7 +5175,7 @@ def read_solution(img, sol, grid, above=False):
     if box is None:
         return {}, {"refused": "no ink under the heading"}
     bw, bh = box[2] - box[0], box[3] - box[1]
-    if not (200 <= bw <= 700 and 0.85 <= bw / max(bh, 1) <= 1.18):
+    if not (200 <= bw <= 800 and 0.85 <= bw / max(bh, 1) <= 1.18):
         return {}, {"refused": f"the ink under the heading is {bw}x{bh}"}
     path = CROPS / "solutions" / f"{d.name}_{sol['number']}.png"
     path.parent.mkdir(parents=True, exist_ok=True)
