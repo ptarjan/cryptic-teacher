@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -40,7 +43,31 @@
      }
     ]
    },
-   "solution": "FORTHEBIRDS"
+   "solution": "FORTHEBIRDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Why keep stale bread?",
+      "at": 0,
+      "meaning": "first meaning: old bread is kept to be thrown out as food for garden birds"
+     },
+     {
+      "text": "It's of little value",
+      "at": 22,
+      "meaning": "second meaning: the idiom for something worthless or trivial"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half reads literally (stale bread is kept to feed birds); the second is the idiom's figurative sense.",
+     "definitionFit": "The idiom 'for the birds' means worthless, not worth bothering about, which matches something of little value."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 1,
@@ -54,7 +81,42 @@
     "text": "Sack employee, old member of train crew",
     "enumeration": "7"
    },
-   "solution": "FIREMAN"
+   "solution": "FIREMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old member of train crew",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sack",
+       "at": 0,
+       "gives": "FIRE",
+       "note": "to sack someone is to fire them"
+      },
+      {
+       "words": "employee",
+       "at": 5,
+       "gives": "MAN",
+       "note": "a man can mean a worker, as in 'management and men'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A railway worker of the past is dismissed from their job.",
+     "walkthrough": "On a steam locomotive the fireman stoked the boiler, a job that vanished with steam, hence 'old'.",
+     "definitionFit": "A fireman was the stoker on a steam engine, part of the footplate crew alongside the driver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sack"
+    }
+   }
   },
   {
    "number": 2,
@@ -68,7 +130,71 @@
     "text": "Final score left United going over amongst support",
     "enumeration": "6"
    },
-   "solution": "RESULT"
+   "solution": "RESULT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Final score",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amongst",
+       "at": 35,
+       "note": "amongst says the flipped pair sits among the letters of the word for support"
+      }
+     ],
+     "parts": [
+      {
+       "words": "support",
+       "at": 43,
+       "gives": "REST",
+       "note": "a rest is a support, such as an armrest or a cue rest"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going over",
+         "at": 24,
+         "note": "going over signals that the pair of letters is flipped round, read in the opposite order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "left",
+           "at": 12,
+           "gives": "L"
+          },
+          {
+           "words": "United",
+           "at": 17,
+           "gives": "U",
+           "note": "U is the abbreviation for United in team names"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football report: the final score after a team called United is left over the support of fans.",
+     "walkthrough": "'going over' turns LU into UL, and 'amongst' places it inside REST.",
+     "definitionFit": "A result is the outcome of a match, the final score recorded at the whistle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 3,
@@ -82,7 +208,67 @@
     "text": "Delay ambassador appearing on TV channel outside Italy",
     "enumeration": "10"
    },
-   "solution": "HESITATION"
+   "solution": "HESITATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Delay",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "appearing on",
+       "at": 17,
+       "note": "in a down clue, appearing on means placed on top of, so this piece comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ambassador",
+       "at": 6,
+       "gives": "HE",
+       "note": "HE is His Excellency, the title of an ambassador"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 41,
+         "note": "outside says the channel word goes round the letter for Italy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "TV channel",
+         "at": 30,
+         "gives": "STATION",
+         "note": "a station is a broadcasting channel"
+        },
+        {
+         "words": "Italy",
+         "at": 49,
+         "gives": "I",
+         "note": "I is the international vehicle code for Italy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An envoy's TV appearance is held up while they are away from Italy.",
+     "walkthrough": "HE stands for His Excellency, the formal title of an ambassador. In a down entry, 'appearing on' means sitting on top, so that piece comes first.",
+     "definitionFit": "Hesitation is a pause before acting, a brief delay caused by uncertainty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +282,61 @@
     "text": "Forest player on the bench, upset, attracting Hearts?",
     "enumeration": "4"
    },
-   "solution": "BUSH"
+   "solution": "BUSH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Forest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "attracting",
+       "at": 35,
+       "note": "attracting means drawing another piece to its side, so the card letter is added on"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 28,
+         "note": "upset in a down clue means turned upside down, so the word is read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "player on the bench",
+         "at": 7,
+         "gives": "SUB",
+         "note": "a sub (substitute) waits on the bench"
+        }
+       ]
+      },
+      {
+       "words": "Hearts",
+       "at": 46,
+       "gives": "H",
+       "note": "H is the abbreviation for hearts in card games"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Nottingham Forest substitute, sulking on the bench, catches the eye of Hearts, the Edinburgh football club.",
+     "walkthrough": "'Forest' looks like the football club Nottingham Forest, but it is the definition; 'upset' turns SUB into BUS.",
+     "definitionFit": "The bush is wild uncultivated country covered with scrub or woodland, as in the Australian bush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Forest"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +350,48 @@
     "text": "Style differently flag British vessel flies, removing name",
     "enumeration": "8"
    },
-   "solution": "REDESIGN"
+   "solution": "REDESIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Style differently",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removing",
+       "at": 45,
+       "note": "removing says that letter is taken out of the flag's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flag British vessel flies",
+       "at": 18,
+       "gives": "REDENSIGN",
+       "note": "the Red Ensign is the flag flown by British merchant ships"
+      },
+      {
+       "words": "name",
+       "at": 54,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Restyling the flag a British ship flies, minus its name.",
+     "walkthrough": "The Red Ensign, the 'Red Duster', is the flag of the British merchant navy; dropping one N leaves the answer.",
+     "definitionFit": "To redesign is to give something a new design, changing how it is styled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flies"
+    }
+   }
   },
   {
    "number": 6,
@@ -124,7 +405,59 @@
     "text": "Hide from view regularly car seat's splits",
     "enumeration": "7"
    },
-   "solution": "SECRETE"
+   "solution": "SECRETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "splits",
+       "at": 36,
+       "note": "splits says these letters break the word for view apart, sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "view",
+       "at": 10,
+       "gives": "SEE",
+       "note": "to view is to see"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 15,
+         "note": "regularly means taking every other letter, at a regular interval"
+        }
+       ],
+       "parts": [
+        {
+         "words": "car seat's",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hides a car seat whose upholstery has split.",
+     "walkthrough": "'Hide from view' looks like the whole definition, but 'view' belongs to the wordplay and 'from' is only a link.",
+     "definitionFit": "To secrete something is to conceal it or stash it away out of sight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "splits"
+    }
+   }
   },
   {
    "number": 7,
@@ -138,7 +471,60 @@
     "text": "Checks parts of chair moggy originally scratched",
     "enumeration": "7"
    },
-   "solution": "ARRESTS"
+   "solution": "ARRESTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Checks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "scratched",
+       "at": 39,
+       "note": "scratched means struck out, so that letter is deleted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "parts of chair",
+       "at": 7,
+       "gives": "ARMRESTS",
+       "note": "armrests are parts of an armchair"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 28,
+         "note": "originally points to the opening letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "moggy",
+         "at": 22,
+         "note": "first letter of moggy; a moggy is British slang for a cat"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat has clawed the arms of a chair.",
+     "walkthrough": "Moggy is British slang for an ordinary cat, which fits 'scratched' in the surface; here it supplies M to remove.",
+     "definitionFit": "Arrests is a verb form meaning halts or stops, the same as checks progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scratched"
+    }
+   }
   },
   {
    "number": 7,
@@ -152,7 +538,48 @@
     "text": "Numbers turning up taking part in several discos?",
     "enumeration": "11"
    },
-   "solution": "ATTENDANCES"
+   "solution": "ATTENDANCES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Numbers turning up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "taking part in",
+       "at": 19,
+       "gives": "AT",
+       "note": "to be at an event is to be present, taking part in it"
+      },
+      {
+       "words": "several",
+       "at": 34,
+       "gives": "TEN",
+       "note": "ten is used loosely as one of several numbers"
+      },
+      {
+       "words": "discos",
+       "at": 42,
+       "gives": "DANCES",
+       "note": "discos are dances"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How many people come along when someone goes to several discos.",
+     "walkthrough": "The question mark admits the loose wordplay: 'at ten dances' describes taking part in several discos.",
+     "definitionFit": "Attendances are counts of people who come to events, the numbers present on each occasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discos"
+    }
+   }
   },
   {
    "number": 8,
@@ -166,7 +593,55 @@
     "text": "Retired soccer ace disinclined to accept cocktail",
     "enumeration": "7"
    },
-   "solution": "SIDECAR"
+   "solution": "SIDECAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cocktail",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Retired",
+       "at": 0,
+       "note": "Retired says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "to accept",
+         "at": 31,
+         "note": "to accept says the words hold the answer inside them, accepting it within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soccer ace disinclined",
+         "at": 8,
+         "gives": "RACEDIS",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired football star is reluctant to accept a drink.",
+     "walkthrough": "The draft took 'to accept cocktail' as the definition, but 'to accept' is the containment signal: the words accept RACEDIS, which 'Retired' turns backwards.",
+     "definitionFit": "A sidecar is a classic mixed drink of brandy, orange liqueur and lemon juice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +655,49 @@
     "text": "Nostalgic of late describing archetypal 1960s cars",
     "enumeration": "11"
    },
-   "solution": "REMINISCENT"
+   "solution": "REMINISCENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nostalgic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "describing",
+       "at": 18,
+       "note": "describing in its sense of drawing round, as a circle is described, so one word goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of late",
+       "at": 10,
+       "gives": "RECENT",
+       "note": "something of late is recent"
+      },
+      {
+       "words": "archetypal 1960s cars",
+       "at": 29,
+       "gives": "MINIS",
+       "note": "the Mini was the iconic small British car of the sixties"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nostalgic recent piece describing the classic cars of the sixties.",
+     "walkthrough": "'describing' is used in the geometric sense of drawing a line round something, as you describe a circle, so it signals one piece enclosing another.",
+     "definitionFit": "Reminiscent means evoking memories of the past, which is what nostalgic feeling does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +711,41 @@
     "text": "Model, one on short-term contract possibly, departed",
     "enumeration": "8"
    },
-   "solution": "TEMPLATE"
+   "solution": "TEMPLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Model",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one on short-term contract possibly",
+       "at": 7,
+       "gives": "TEMP",
+       "note": "a temp is a temporary worker, often on a short contract"
+      },
+      {
+       "words": "departed",
+       "at": 44,
+       "gives": "LATE",
+       "note": "the late person is one who has died, departed this life"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model on a short-term deal has walked out.",
+     "definitionFit": "A template is a pattern or exemplar from which copies are made, so a model."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +759,53 @@
     "text": "Comes across European about to get honour",
     "enumeration": "6"
    },
-   "solution": "ESTEEM"
+   "solution": "ESTEEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "honour",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 22,
+       "note": "about signals turning the combined letters round to run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Comes across",
+         "at": 0,
+         "gives": "MEETS",
+         "note": "to come across someone is to meet them"
+        },
+        {
+         "words": "European",
+         "at": 13,
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European comes across someone about to receive an honour.",
+     "walkthrough": "'about' looks like 'about to get', but it reverses MEETS + E.",
+     "definitionFit": "To esteem someone is to hold them in high regard, to honour or respect them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +819,50 @@
     "text": "Ahead of Cup winger shows class",
     "enumeration": "10"
    },
-   "solution": "PIGEONHOLE"
+   "solution": "PIGEONHOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "class",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Ahead of",
+       "at": 0,
+       "note": "Ahead of says the bird comes before the golf term"
+      }
+     ],
+     "parts": [
+      {
+       "words": "winger",
+       "at": 13,
+       "gives": "PIGEON",
+       "note": "a winger is something with wings, here a bird such as a pigeon"
+      },
+      {
+       "words": "Cup",
+       "at": 9,
+       "gives": "HOLE",
+       "note": "in golf the hole is also called the cup"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football winger shows real class in the run-up to a cup tie.",
+     "walkthrough": "'winger' suggests a footballer, but it is a bird; 'class' is a verb, to categorise.",
+     "definitionFit": "To pigeonhole something is to assign it to a category, to classify it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "winger"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +876,48 @@
     "text": "Visiting Northumberland area, working for nothing",
     "enumeration": "4"
    },
-   "solution": "NONE"
+   "solution": "NONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nothing",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Visiting",
+       "at": 0,
+       "note": "Visiting means going into a place, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Northumberland area",
+       "at": 9,
+       "gives": "NE",
+       "note": "NE, the north-east of England, where Northumberland is"
+      },
+      {
+       "words": "working",
+       "at": 30,
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone visiting Northumberland works for no pay.",
+     "definitionFit": "None means not any, so it can stand for nothing at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Visiting"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +937,42 @@
      }
     ]
    },
-   "solution": "STRINGBEAN"
+   "solution": "STRINGBEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cooked",
+       "at": 23,
+       "note": "cooked suggests letters prepared into a new form, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "banger isn't",
+       "at": 10,
+       "note": "the fodder letters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation that this sausage isn't cooked.",
+     "walkthrough": "A banger is British slang for a sausage, which suits 'cooked'.",
+     "definitionFit": "A string bean is a green bean, a vegetable eaten pod and all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "banger"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +986,31 @@
     "text": "Sign of maybe permanently closed restaurant for celebrities",
     "enumeration": "8"
    },
-   "solution": "NOTABLES"
+   "solution": "NOTABLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sign of maybe permanently closed restaurant",
+      "at": 0,
+      "meaning": "first meaning, read as two words: a notice saying the place has ..., perhaps because it has shut"
+     },
+     {
+      "text": "celebrities",
+      "at": 48,
+      "meaning": "second meaning: famous, important people"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half splits the answer as 'no tables', a sign either of a full or of a shut restaurant.",
+     "definitionFit": "Notables are people of distinction or fame, which is what celebrities are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +1024,58 @@
     "text": "One predicting exciting future perhaps, right after great solo plays",
     "enumeration": "10"
    },
-   "solution": "ASTROLOGER"
+   "solution": "ASTROLOGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One predicting exciting future perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 46,
+       "note": "after says this letter follows the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "plays",
+         "at": 63,
+         "note": "plays suggests letters moving about freely, so these are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "great solo",
+         "at": 52,
+         "note": "the fodder letters"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 40,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soloist plays brilliantly, which may foretell an exciting future.",
+     "definitionFit": "An astrologer forecasts what lies ahead from the stars, perhaps promising good things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1089,64 @@
     "text": "Got on with extremely top-notch diver at sea",
     "enumeration": "7"
    },
-   "solution": "THRIVED"
+   "solution": "THRIVED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Got on",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 12,
+         "note": "extremely points to the extremes, the outermost letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "top-notch",
+         "at": 22,
+         "gives": "TH",
+         "note": "the first and last letters of top-notch"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at sea",
+         "at": 38,
+         "note": "at sea means confused or all over the place, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diver",
+         "at": 32,
+         "note": "the fodder letters"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first-class diver who got on well in the sea.",
+     "definitionFit": "To thrive is to do well or prosper, so thrived means got on, made progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1160,43 @@
     "text": "Contends movie star is inspiring",
     "enumeration": "4"
    },
-   "solution": "VIES"
+   "solution": "VIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contends",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "is inspiring",
+       "at": 20,
+       "note": "is inspiring says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "movie star",
+       "at": 9,
+       "gives": "VIES",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film star competes and inspires others.",
+     "walkthrough": "'inspiring' is used literally as breathing in, so the words take the answer inside them.",
+     "definitionFit": "To vie is to compete, so vies means contends or struggles for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1210,59 @@
     "text": "This writer's indeed including German figures of speech",
     "enumeration": "7"
    },
-   "solution": "IMAGERY"
+   "solution": "IMAGERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "figures of speech",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "This writer's",
+       "at": 0,
+       "gives": "IM",
+       "note": "the setter speaking: this writer is = I'm"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "including",
+         "at": 21,
+         "note": "including says the word for indeed holds the abbreviation inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "indeed",
+         "at": 14,
+         "gives": "AY",
+         "note": "ay is an old or dialect yes, indeed"
+        },
+        {
+         "words": "German",
+         "at": 31,
+         "gives": "GER"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer says they really do include German expressions.",
+     "walkthrough": "The 's of 'This writer's' is 'is', so the setter is saying I'M.",
+     "definitionFit": "Imagery is the collective term for metaphors and other vivid figurative language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1276,57 @@
     "text": "Almost fail to get strong fish out of water",
     "enumeration": "6"
    },
-   "solution": "MISFIT"
+   "solution": "MISFIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish out of water",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "Almost says the word is cut short, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fail",
+         "at": 7,
+         "gives": "MISS",
+         "note": "to miss is to fail to hit"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "strong",
+       "at": 19,
+       "gives": "FIT",
+       "note": "fit means healthy and strong"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strong fish nearly fails to survive out of the water.",
+     "walkthrough": "'fish out of water' reads literally in the surface, but it is the idiom for someone who does not belong.",
+     "definitionFit": "A misfit is a person who does not fit in, like someone uncomfortable in unfamiliar surroundings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1340,44 @@
     "text": "Popular breakfast TV programme broadcast",
     "enumeration": "6"
    },
-   "solution": "CEREAL"
+   "solution": "CEREAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Popular breakfast",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CEREAL",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 31,
+       "note": "broadcast means spoken out over the air, so the word heard is a different one spelt otherwise"
+      }
+     ],
+     "parts": [
+      {
+       "words": "TV programme",
+       "at": 18,
+       "gives": "SERIAL",
+       "note": "a serial is a TV drama shown in episodes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A popular breakfast television programme goes out on air.",
+     "definitionFit": "Cereal, such as cornflakes, is the commonest morning meal in a bowl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "breakfast"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1391,48 @@
     "text": "Friend of bully I'd avoided",
     "enumeration": "8"
    },
-   "solution": "INTIMATE"
+   "solution": "INTIMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Friend",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "avoided",
+       "at": 20,
+       "note": "avoided says those letters are kept out, removed from the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bully",
+       "at": 10,
+       "gives": "INTIMIDATE",
+       "note": "to bully is to intimidate"
+      },
+      {
+       "words": "I'd",
+       "at": 16,
+       "gives": "ID",
+       "note": "I'd without its apostrophe gives these two letters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone avoided a friend of a bully.",
+     "definitionFit": "An intimate is a close confidant, a very familiar companion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Friend"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1446,44 @@
     "text": "Key error admitted by party-pooper",
     "enumeration": "4"
    },
-   "solution": "TYPO"
+   "solution": "TYPO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Key error",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "admitted by",
+       "at": 10,
+       "note": "admitted by says the answer is let in, held inside the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "party-pooper",
+       "at": 22,
+       "gives": "TYPO",
+       "note": "the letters run across the hyphen from one part into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A killjoy confesses to a crucial mistake.",
+     "walkthrough": "'Key error' looks like a crucial mistake, but means a slip on a keyboard.",
+     "definitionFit": "A typo is a typing mistake, hitting the wrong key."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1497,60 @@
     "text": "Sausage made from veal, liberally dipped in sauce",
     "enumeration": "7"
    },
-   "solution": "SAVELOY"
+   "solution": "SAVELOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sausage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dipped in",
+       "at": 34,
+       "note": "dipped in says the rearranged letters go inside the sauce"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sauce",
+       "at": 44,
+       "gives": "SOY",
+       "note": "soy is a sauce"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "liberally",
+         "at": 24,
+         "note": "liberally means freely, so the letters are moved about freely"
+        }
+       ],
+       "parts": [
+        {
+         "words": "veal",
+         "at": 18,
+         "note": "the fodder letters"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sausage of veal generously dunked in sauce.",
+     "walkthrough": "A saveloy is a seasoned red sausage sold in British chip shops.",
+     "definitionFit": "A saveloy is a highly seasoned smoked pork sausage, a British chip-shop staple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "liberally"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1564,30 @@
     "text": "Not keeping time musically? That's unusual",
     "enumeration": "7"
    },
-   "solution": "OFFBEAT"
+   "solution": "OFFBEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not keeping time musically?",
+      "at": 0,
+      "meaning": "first meaning, read as off the beat: out of time with the music"
+     },
+     {
+      "text": "unusual",
+      "at": 35,
+      "meaning": "second meaning: unconventional, quirky"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense splits the word as 'off beat'; strictly the offbeat is the unstressed beat, hence the question mark.",
+     "definitionFit": "Offbeat describes something unconventional or eccentric, which is to say unusual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1601,72 @@
     "text": "Attractive sort, just acquiring oddly vacant bedsit using deceit",
     "enumeration": "11"
    },
-   "solution": "DISHONESTLY"
+   "solution": "DISHONESTLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "using deceit",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Attractive sort",
+       "at": 0,
+       "gives": "DISH",
+       "note": "a dish is slang for a good-looking person"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "acquiring",
+         "at": 22,
+         "note": "acquiring says the word for just takes the letters inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "just",
+         "at": 17,
+         "gives": "ONLY",
+         "note": "just means only"
+        },
+        {
+         "op": "regular",
+         "indicators": [
+          {
+           "text": "oddly vacant",
+           "at": 32,
+           "note": "oddly vacant says the odd-placed letters are emptied out, leaving the even ones"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bedsit",
+           "at": 45,
+           "gives": "EST",
+           "note": "the second, fourth and sixth letters of bedsit"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A good-looking person just takes over an empty bedsit by trickery.",
+     "walkthrough": "A bedsit is a British one-room flat. 'oddly vacant' empties it of B, D, I, leaving EST.",
+     "definitionFit": "Dishonestly means in a lying or fraudulent way, by deceit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Attractive"
+    }
+   }
   }
  ]
 }
