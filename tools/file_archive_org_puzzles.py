@@ -6244,6 +6244,21 @@ def untitled_rescan(row):
     return row.get("scanKey") != scan_key(paper_of(Path(row["edition"])))
 
 
+THREE_COLUMNS = "short Times page, its third clue column read since"
+#: The years whose short third-column pages are read first (tools/edition_queue.year_evidence): a stale one
+#: was "scan stale, answers missing" (the answers-missing test came first), a blanket reason no plan keeps,
+#: so 2007's 312 pages (every read once, ~10 down clues blank) were never reread (10-22).
+THREE_COLUMNS_YEARS = (2006, 2007)
+
+
+def third_column_first(row):
+    """Whether `row` is a short Gale Times page of THREE_COLUMNS_YEARS read before the third column was."""
+    scan = row.get("scan") or {}
+    year = str(scan.get("date", ""))[:4]
+    return year.isdigit() and THREE_COLUMNS_YEARS[0] <= int(year) <= THREE_COLUMNS_YEARS[1] \
+        and short_three_columns(row) and scan_queue.read_before(row, scan_queue.when(REREAD_THREE_COLUMNS[2]))
+
+
 def short_three_columns(row):
     """Whether `row` is a Gale Times edition of REREAD_THREE_COLUMNS' days with
     a puzzle held short of clues (fewer than lights, none refused)."""
@@ -6970,6 +6985,7 @@ def _edition_reason(st, paper, d, rel, row, fh, stale, scan, solutions, sources,
         # edition at once, a whole-corpus re-read.
         why = ("never read" if "inputs" not in row else
                "inputs changed" if row.get("filesHash") != fh else
+               THREE_COLUMNS if third_column_first(row) else
                STALE_SCAN[0] if any(n in answerless or n in answerless_own and has_host(d) for n in nums) else
                fix_reason(row) or STALE_SCAN[1])
     else:

@@ -778,6 +778,10 @@ check("a whole one, a refused one, another paper's, a 2014 page, or one read sin
        f.fix_reason({**held, "scan": {"item": "GaleTelegraph2007UKEnglish", "date": "2007-03-14"}}),
        f.fix_reason({**held, "scan": {"item": "GaleTimes2014UKEnglish", "date": "2014-09-17"}}),
        f.fix_reason({**held, "readAt": "2099-01-01T00:00:00+00:00"})])
+check("a short 2007 page read before the third column leads the stale-scan reasons; a 2009 or a whole one does not",
+      [True, False, False],
+      [f.third_column_first(held), f.third_column_first({**held, "scan": {**held["scan"], "date": "2009-03-14"}}),
+       f.third_column_first({**held, "verdicts": [{"clues": 28, "lights": 28, "complete": True}]})])
 # A Gale Times 2000-14 page read with no title found, by other scan code, is scanned and read again.
 none = {"edition": "GaleTimes2000UKEnglish/2000-03-14", "inputs": "h", "scanKey": "old", "verdicts": [],
         "scan": {"item": "GaleTimes2000UKEnglish", "date": "2000-03-14", "puzzles": [], "solutions": []},
