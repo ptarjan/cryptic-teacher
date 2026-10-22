@@ -4441,10 +4441,6 @@ SOLUTION_PROMPT = Path(__file__).resolve().parent / "vlm_solution_prompt.md"
 #: reads a strip of squares as a word it expects: PLAT for FLAT (the classifier gave P 0.0004),
 #: BISCUITS for BESOUGHT (0.0); the 17 it read right gave every letter 0.0078 or more.
 VLM_FLOOR = trove_solution_ocr.CLASS_FLOOR
-#: How likely the classifier must find each open cell's letter, as its likeliest, for a word that is
-#: no listed word to stand on the VLM's say.
-VLM_AGREE = 0.5
-
 
 def vlm_word(reply, pattern, sizes, probs):
     """The word of the VLM's `reply` for a light whose crossings give `pattern` (a letter
@@ -4459,13 +4455,8 @@ def vlm_word(reply, pattern, sizes, probs):
         return None
     if any(p[trove_solution_ocr.AZ.index(ch)] < VLM_FLOOR for p, ch in zip(probs, word)):
         return None
-    # A name or a coinage the lexicons lack (IGRAINE) stands when the classifier, a reader of
-    # other eyes, names each of its open cells' letter too, surely.
-    az = trove_solution_ocr.AZ
-    open_cells = [(p, ch) for q, p, ch in zip(pattern, probs, word) if q == "?"]
-    if open_cells and len(word) >= 4 and all(az[max(range(26), key=p.__getitem__)] == ch and p[az.index(ch)] >= VLM_AGREE
-                                              for p, ch in open_cells):
-        return word
+    # Only a listed word: a name the lexicons lack that the classifier agrees with (IGRAINE) is
+    # also what both misread together (BALINITY for SALINITY, 1973 print), so it stands on no say.
     at = 0
     for size in sizes:
         if not trove_solution_ocr.piece_listed(word[at:at + size], len(sizes) > 1):
