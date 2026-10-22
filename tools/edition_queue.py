@@ -679,8 +679,32 @@ def evidence_reason(reason):
     return (reason in ("never read", "never scanned", "never read (Gale fetch)", "just laid out", "annotation asked",
                        fa.UNCONFIGURED_READ)  # read OCR-only by accident (the VLM URL empty): as good as unread
             or (reason.startswith("refused ") and reason.endswith(" before its fix"))
+            or reason == fa.NO_TITLE_RESCAN  # a Gale 2000-14 page no title was found on, scan code since
             or reason == "unfiled before its fix"  # a puzzle written with blank clues, a column-layout fix since
             or reason.endswith(" cured since"))  # trove: the fix for the cause a read was refused for landed
+
+
+#: Paul 10-22: ~1,500 Gale Times 2000-14 editions had no puzzle filed. 2007's 312 (each read once on 10-12,
+#: ~10 down clues blank: the third clue column under the grid) were never reread: their reason is the blanket
+#: "short Times page, its third clue column read since", which only_evidence dropped, and the 2008-13 pages
+#: the same fix reread (10-18) no longer leave that column blank. Also ~270 pages of 2006-11 whose rescan
+#: found a title the read never covered ("titles changed", no verdict: a puzzle never read). Each is concrete
+#: evidence of a page that can file, so planned, for the years named here (widen them as each is read).
+THREE_COLUMNS = "short Times page, its third clue column read since"
+THREE_COLUMNS_YEARS = (2006, 2007)
+#: The Gale Times years whose "titles changed" rereads (a title no verdict covers) are planned.
+NEW_TITLE_YEARS = (2000, 2014)
+
+
+def year_evidence(unit):
+    """Whether `unit` is a Gale Times reread planned for the page's own evidence (see THREE_COLUMNS):
+    a short third-column page of THREE_COLUMNS_YEARS, or a "titles changed" one of NEW_TITLE_YEARS."""
+    year = (unit.get("date") or "")[:4]
+    if unit.get("paper") != "gale" or not year.isdigit():
+        return False
+    if unit["reason"] == THREE_COLUMNS:
+        return THREE_COLUMNS_YEARS[0] <= int(year) <= THREE_COLUMNS_YEARS[1]
+    return unit["reason"] == "titles changed" and NEW_TITLE_YEARS[0] <= int(year) <= NEW_TITLE_YEARS[1]
 
 
 def blanket_rereads():
@@ -695,7 +719,7 @@ def only_evidence(paper, scans, reads, out=None):
     # A read fa.likely() predicts to file a puzzle whole (e.g. "answers linked": a scan now links the
     # printed solution of a puzzle filed without answers) is evidence too. Paul 10-21: filling the
     # Times answers printed in the papers takes priority over the other papers.
-    reads = [u for u in reads if evidence_reason(u["reason"]) or fa.likely_gain(u) > 0]
+    reads = [u for u in reads if evidence_reason(u["reason"]) or year_evidence(u) or fa.likely_gain(u) > 0]
     # Paul 10-21: "The goal is to get the solutions to the puzzles that have all their clues already in
     # hand but no solutions." The Times scans kept for that are fa.HOST_SCAN's alone (planned by
     # fa.solution_hosts: the one issue printing such a puzzle's solution, OCR with no VLM ask); once
@@ -704,6 +728,8 @@ def only_evidence(paper, scans, reads, out=None):
     # a Times read (it was cd3554e547d's, ~10,000 rescans).
     times = getattr(fa.FILERS.get(paper), "series", None) == fa.SERIES
     for u in reads:
+        if year_evidence(u) and not u.get("detail"):
+            u["detail"] = "a title no read covered" if u["reason"] == "titles changed" else "clues short of lights"
         if not evidence_reason(u["reason"]) and not u.get("detail"):
             u["detail"] = ", ".join(f"{k} x{n}" for k, n in sorted((u.get("likely") or {}).items()))
         if u["reason"] == "annotation asked" and not u.get("detail"):
@@ -720,6 +746,10 @@ def only_evidence(paper, scans, reads, out=None):
         week = set()
     gated = [u for u in scans if u["reason"] == "scan stale" and u["rel"] in week]
     scans = [u for u in scans if u["reason"] in ("never scanned", fa.HOST_SCAN) or u["rel"] in needed]
+    # The scans a year_evidence read waits on go with it (a "scan stale" scan is tier 2, so those reads, tier 1,
+    # waited behind every other unit for the scan they need: 2007's 312 pages stood unread for that).
+    fixed = {rel for u in reads if year_evidence(u) or u["reason"] == fa.NO_TITLE_RESCAN for rel in u.get("needs") or ()}
+    scans = [{**u, "fix": True} if u["rel"] in fixed and u["reason"] == "scan stale" else u for u in scans]
     if gated and out is not None:
         out.append(f"{paper}: left out {len(gated)} stale scans of editions only in the week after a kept read "
                    f"(its own page's scan is kept; a solution host's is planned by fa.solution_hosts)")
@@ -1114,7 +1144,8 @@ def by_urgency(units):
 #: they are the rereads that can file. Other rank 2 reasons ("inputs changed",
 #: "titles changed", ...) are held behind them unless likely_gain > 0.
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
-              "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix")
+              "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
+              "titles changed", fa.NO_TITLE_RESCAN)
 
 
 def files_likely_tier(rank, unit):
@@ -1127,7 +1158,7 @@ def files_likely_tier(rank, unit):
     reason = unit.get("reason") or ""
     if rank <= 1 or fa.likely_gain(unit) > 0:
         return 0
-    if reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
+    if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
         return 1
     return 2
 

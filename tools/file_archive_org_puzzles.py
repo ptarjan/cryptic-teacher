@@ -6075,6 +6075,23 @@ def unparsed_fixed(row):
         v.get("unparsed") and not v.get("refused") and not v.get("complete") for v in row.get("verdicts", ()))
 
 
+#: The reason of a Gale Times page of 2000-2014 whose scan found no crossword title and whose scan code
+#: has changed since: 208 pages of 2000 read 10-13 found none, and the current scan finds the title
+#: ("THE TIMES CROSSWORD / NO 21,363" under the Sport page's grid, 2000-03-14: no change was needed).
+NO_TITLE_RESCAN = "no title found before its scan fix"
+
+
+def untitled_rescan(row):
+    """Whether `row` is a Gale Times edition of 2000-2014 read with no title found (no puzzle in its
+    scan, no verdict) by scan code other than the current one: scanned again, it may find one."""
+    scan = row.get("scan") or {}
+    year = str(scan.get("date", ""))[:4]
+    if not str(scan.get("item", "")).startswith("GaleTimes") or not "2000" <= year <= "2014" \
+            or "inputs" not in row or scan.get("puzzles") or row.get("verdicts") or scan.get("failed"):
+        return False
+    return row.get("scanKey") != scan_key(paper_of(Path(row["edition"])))
+
+
 def short_three_columns(row):
     """Whether `row` is a Gale Times edition of REREAD_THREE_COLUMNS' days with
     a puzzle held short of clues (fewer than lights, none refused)."""
@@ -6140,6 +6157,8 @@ def fix_reason(row):
             return "refused writeFailed before its fix"
     if unparsed_fixed(row):
         return "refused unparsed before its fix"
+    if untitled_rescan(row):
+        return NO_TITLE_RESCAN
     if short_three_columns(row) and scan_queue.read_before(row, scan_queue.when(REREAD_THREE_COLUMNS[2])):
         return "short Times page, its third clue column read since"
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
@@ -6592,7 +6611,8 @@ RANKS = {HOST_SCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, "scan stale": 3, "--reread": 3,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
+         NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          "read by another VLM": 3}
 #: The reasons of a read whose scan is by older scan code: "answers missing"
 #: when a stored title is a puzzle read without answers that no page links a
