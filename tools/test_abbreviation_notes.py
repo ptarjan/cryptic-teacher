@@ -148,7 +148,16 @@ three = {"op": "spoonerism", "spelt": "BEARHUGS", "parts": [{"op": "homophone", 
 A.drop_vacuous_sound(three)
 check("spoon(.., SPELT) keeps its sound", three["parts"][0].get("op") == "homophone")
 check("a plain spoonerism needs no soundsLike", V.plain_spoonerism({"type": ["spoonerism"], "wordplay": {"op": "spoonerism", "parts": []}}))
-check("a spoonerism with SPELT does", not V.plain_spoonerism({"type": ["spoonerism"], "wordplay": three}))
+taught = {"op": "spoonerism", "spelt": "FERRYMAN", "parts": [
+    {"words": "Tipsy", "at": 0, "gives": "MERRY"}, {"words": "supporter", "at": 6, "gives": "FAN"}]}
+check("spoon(a, b, SPELT) over bare leaves needs no soundsLike either",
+      V.plain_spoonerism({"type": ["spoonerism"], "wordplay": taught}))
+check("a spoon over a sound() (homophone type) is still held to the sound rule",
+      not V.plain_spoonerism({"type": ["spoonerism", "homophone"], "wordplay": three}))
+errs, warns = [], []
+V.check_sound_names_its_source("11A", {"type": ["spoonerism"], "answer": "FERRYMAN", "wordplay": taught,
+                                       "blocks": [{"clueFragment": "supporter", "gives": "FAN"}]}, errs, warns)
+check("the taught 3-argument spoon passes the sound check", errs == [], errs)
 errs, warns = [], []
 V.check_sound_names_its_source("1A", {"type": ["spoonerism"], "answer": "FORECAST", "wordplay": vac["parts"][0] and {"op": "spoonerism", "parts": []},
                                       "blocks": [{"clueFragment": "heart", "gives": "CORE"}]}, errs, warns)

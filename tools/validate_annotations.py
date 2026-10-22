@@ -1422,12 +1422,15 @@ def _sound_over_step(tree):
 
 
 def plain_spoonerism(ann):
-    """True when the only sound in the clue is spoon(a, b): the onsets swap in
-    the letters the two blocks give (CORE FAST -> FORE CAST), so no word is
-    heard that differs from a word spelt and there is nothing for `soundsLike`
-    to carry. Demanding one trapped runs into sound([x]W, W), which fails the
-    'nothing was heard' rule instead. spoon(a, b, SPELT) swaps by sound, and
-    still names the word heard."""
+    """True when the only sound in the clue is a spoon: spoon(a, b) swaps the
+    onsets in the letters the two blocks give (CORE FAST -> FORE CAST), and
+    spoon(a, b, SPELT) swaps them by sound, the blocks giving the words said
+    ([marry]MARRY, [fan]FAN) and SPELT the answer's spelling (FERRYMAN). Either
+    way the heard words are the blocks' own `gives`, so there is nothing for
+    `soundsLike` to carry; demanding one trapped runs into sound([x]W, W),
+    which fails the 'nothing was heard' rule instead. A spoon filed over a
+    sound() (the older form) has a homophone type, so it is not plain and is
+    still held to the sound rule."""
     if "homophone" in types_of(ann):
         return False
     nodes, found = [ann.get("wordplay")], []
@@ -1437,7 +1440,7 @@ def plain_spoonerism(ann):
             if n.get("op") == "spoonerism":
                 found.append(n)
             nodes.extend(n.get("parts") or [])
-    return bool(found) and not any("spelt" in n for n in found)
+    return bool(found)
 
 
 def check_sound_names_its_source(tag, ann, errors, warnings):
@@ -1504,9 +1507,10 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
             f"earlier block. In `wp` that block is `sound<indicator>(x, SPELT)` "
             f"where x is ONE leaf, [the clue words you say]LETTERS HEARD (merge a "
             f"charade of leaves into a single leaf, or put the charade outside the "
-            f"sound), and SPELT is the letters it comes out as. A Spoonerism needs "
-            f"the same on the word it respells: `spoon<indicator>(sound([word]HEARD, "
-            f"SPELT), b)`; `spoon(a, b, SPELT)` alone names no sound")
+            f"sound), and SPELT is the letters it comes out as. A Spoonerism is "
+            f"not written with sound(): swap written letters with `spoon(a, b)`, or "
+            f"swap by sound with `spoon<indicator>([marry]MARRY, [fan]FAN, FERRYMAN)`, "
+            f"the leaves giving the words said and the third argument the answer")
 
 
 def check_sound_is_not_a_letter_swap(tag, ann, errors, warnings):
@@ -3894,10 +3898,11 @@ def _substituting_containers(tree):
 def unindicated_ops(tree):
     """How many checked ops that need an indicator word have none.
 
-    Not the sound a Spoonerism is built on: the prompt's own form is
-    spoon<Spooner's>(sound([word]HEARD, SPELT), b), and a clue's one indicator
-    ("Spooner's ...") is the Spoonerism's, so the sound under it has no word of
-    its own to name. Counting it made indysunday-1910 16A and cryptic-30133 17A
+    Not a sound under a Spoonerism: an older tree may still file
+    spoon<Spooner's>(sound([word]HEARD, SPELT), b) (the prompt now teaches
+    spoon<Spooner's>([marry]MARRY, [fan]FAN, FERRYMAN)), and a clue's one
+    indicator ("Spooner's ...") is the Spoonerism's, so a sound under it has no
+    word of its own to name. Counting it made indysunday-1910 16A and cryptic-30133 17A
     (both Spoonerisms with a flagged hint) impossible to clear: no tree passed
     both this rule and the one that wants the sound written (10-17)."""
     spoken = {id(p) for s in _walk(tree) if s.get("op") == "spoonerism"

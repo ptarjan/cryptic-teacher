@@ -909,8 +909,9 @@ def drop_vacuous_sound(tree):
     """spoon(sound([head]HAIR, HAIR), b) swaps onsets in written letters, so
     the sound() beside it hears nothing (HEARD equals SPELT): the run added it
     to satisfy the sound check, which then failed it as 'nothing was heard'.
-    Replaced by its leaf, in place, when the spoon names no SPELT of its own
-    (spoon(a, b, SPELT) swaps by sound and needs the word heard)."""
+    Replaced by its leaf, in place, when the spoon names no SPELT of its own.
+    The taught forms are spoon(a, b) and spoon(a, b, SPELT), neither with a
+    sound() round a leaf; a spoon that names its SPELT keeps its sound()."""
     if not isinstance(tree, dict):
         return
     parts = tree.get("parts") or []
