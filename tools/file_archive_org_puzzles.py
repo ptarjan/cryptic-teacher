@@ -8023,6 +8023,8 @@ def merge_answers(old, puzzle, tool=TOOL, reread=False):
         return [(x + i * across, y + i * (not across)) for i in range(e["length"])]
     new = {entry_id(e): e["solution"] for e in puzzle["entries"] if e.get("solution")}
     letters = {rc: ch for e in puzzle["entries"] if e.get("solution") for rc, ch in zip(cells(e), e["solution"])}
+    if "blog" in (old.get("solutions") or {}):
+        return _fill_writeup_blanks(old, new, cells)
     changed = {}
     for e in old["entries"]:
         lid, was = entry_id(e), e.get("solution")
@@ -8033,6 +8035,37 @@ def merge_answers(old, puzzle, tool=TOOL, reread=False):
             e["solution"] = now
             e.pop("annotation", None)
             changed[lid] = now
+    return changed
+
+
+def _fill_writeup_blanks(old, new, cells):
+    """merge_answers for a file a blog's write-up keyed (solutions.blog): the
+    blog's answers stand as printed, never dropped or changed by a reading
+    of the paper's grid; only a blank light takes the grid's answer, unless
+    it crosses a held letter on another one. solutions.partial then lists
+    only the lights still blank (the key goes when none is)."""
+    held = {}
+    for e in old["entries"]:
+        if e.get("solution"):
+            held.update(zip(cells(e), e["solution"]))
+    changed = {}
+    for e in old["entries"]:
+        lid, a = entry_id(e), new.get(entry_id(e))
+        if e.get("solution") or not a or len(a) != e["length"] \
+                or any(held.get(rc, ch) != ch for rc, ch in zip(cells(e), a)):
+            continue
+        e["solution"] = a
+        held.update(zip(cells(e), a))
+        e.pop("annotation", None)
+        changed[lid] = a
+    solutions = old["solutions"]
+    if changed and isinstance(solutions.get("partial"), list):
+        blank = {entry_id(e) for e in old["entries"] if not (e.get("solution") or "").strip()}
+        left = [i for i in solutions["partial"] if i in blank]
+        if left:
+            solutions["partial"] = left
+        else:
+            del solutions["partial"]
     return changed
 
 
