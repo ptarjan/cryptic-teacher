@@ -21,6 +21,8 @@
 # Reloading it onto new code: kill -HUP the python3 child (never this wrapper).
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_GENERATED=none
+# Lowest priority: it runs for days on the shared host beside the bridge (10-23 CPU starvation).
+renice -n 19 $$ >/dev/null 2>&1
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 export PYTHONUNBUFFERED=1
