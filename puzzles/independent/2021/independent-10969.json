@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,41 @@
     "text": "His age is dodgy for entertaining girl",
     "enumeration": "6"
    },
-   "solution": "GEISHA"
+   "solution": "GEISHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "entertaining girl",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "is dodgy",
+       "at": 8,
+       "note": "something dodgy is unreliable or out of order, so these letters are set in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "His age",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man of doubtful years is suspected of entertaining a young woman.",
+     "walkthrough": "'entertaining' looks like a verb acting on 'girl', but it is part of the definition, describing what she does for a living.",
+     "definitionFit": "A geisha is a Japanese hostess trained to entertain guests with music, dance and conversation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +82,79 @@
     "text": "14 might be stingy or poor since losing last of fortune in collapse",
     "enumeration": "8"
    },
-   "solution": "SCORPION"
+   "solution": "SCORPION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "14 might be stingy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in collapse",
+       "at": 56,
+       "note": "a collapse leaves things in a jumbled heap, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 33,
+         "note": "losing says a letter is dropped from the words just given"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "poor",
+           "at": 22
+          },
+          {
+           "words": "since",
+           "at": 27
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 40,
+           "note": "last of means the final letter of the word fortune is the one taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fortune",
+           "at": 48
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A miserly person turns out poor after their fortune collapses.",
+     "walkthrough": "'losing last of fortune' removes E from POOR SINCE, and 'in collapse' shuffles the eight letters left. 'Stingy' is a pun: not mean, but equipped with a sting.",
+     "definitionFit": "Scorpius, the scorpion, is a constellation, and the creature carries a sting in its tail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stingy"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +168,35 @@
     "text": "14 parts of fish, minor ones perhaps",
     "enumeration": "6"
    },
-   "solution": "SCALES"
+   "solution": "SCALES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "14",
+      "at": 0,
+      "meaning": "Libra, the ..., is one of the constellations"
+     },
+     {
+      "text": "parts of fish",
+      "at": 3,
+      "meaning": "fish skin is covered in small overlapping plates"
+     },
+     {
+      "text": "minor ones perhaps",
+      "at": 18,
+      "meaning": "in music, minor ... are one kind of scale, alongside major ones"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three definitions: the constellation Libra, the plates on a fish, and musical scales such as C minor.",
+     "definitionFit": "The word covers a balance (Libra), the protective plates of a fish, and runs of musical notes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minor"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +210,60 @@
     "text": "Death parts old soldier and army volunteers in feud",
     "enumeration": "8"
    },
-   "solution": "VENDETTA"
+   "solution": "VENDETTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "feud",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "parts",
+         "at": 6,
+         "note": "death parts the soldier and volunteers by coming between them, so one piece sits inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old soldier",
+         "at": 12,
+         "gives": "VET",
+         "note": "a vet is a veteran, an old soldier"
+        },
+        {
+         "words": "Death",
+         "at": 0,
+         "gives": "END",
+         "note": "death is the end"
+        }
+       ]
+      },
+      {
+       "words": "army volunteers",
+       "at": 28,
+       "gives": "TA",
+       "note": "the TA is the Territorial Army, Britain's reserve of volunteer soldiers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A death separates an old soldier from his comrades in a bitter quarrel.",
+     "walkthrough": "The TA (Territorial Army) is Britain's part-time volunteer reserve.",
+     "definitionFit": "A vendetta is a long-running blood feud between families or factions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +277,49 @@
     "text": "A sharp bend, — by the grace of god, look into it",
     "enumeration": "6"
    },
-   "solution": "DOGLEG"
+   "solution": "DOGLEG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A sharp bend",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into it",
+       "at": 42,
+       "note": "into it tells us to put the look inside the abbreviation that precedes it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "by the grace of god",
+       "at": 16,
+       "gives": "DG",
+       "note": "DG stands for Dei gratia, Latin for by the grace of God, as printed on British coins"
+      },
+      {
+       "words": "look",
+       "at": 37,
+       "gives": "OGLE",
+       "note": "to ogle is to look at someone lecherously"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp bend appears, and only by God's grace do you look into it in time.",
+     "walkthrough": "DG (Dei gratia, 'by the grace of God') is printed on British coins.",
+     "definitionFit": "A dogleg is a sharp angle in a road or on a golf hole, like the bend of a dog's hind leg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "look"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +333,72 @@
     "text": "This 14 tends to stock the lady's samples of skimmed milk and nuts",
     "enumeration": "8"
    },
-   "solution": "HERDSMAN"
+   "solution": "HERDSMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This 14 tends to stock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the lady's",
+       "at": 23,
+       "gives": "HER",
+       "note": "her is the possessive for a lady"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nuts",
+         "at": 62,
+         "note": "nuts means crazy, so these letters go wild and are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "samples of",
+           "at": 34,
+           "note": "samples of takes just a taste of each word, its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "skimmed",
+           "at": 45
+          },
+          {
+           "words": "milk",
+           "at": 53
+          }
+         ]
+        },
+        {
+         "words": "and",
+         "at": 58
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer's wife supplies samples of skimmed milk and nuts.",
+     "walkthrough": "'samples of' gives S and M; 'nuts' rearranges SM with AND to make DSMAN. Boötes, the Herdsman, is a constellation.",
+     "definitionFit": "A herdsman looks after livestock, and Boötes is the constellation known as the Herdsman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +412,75 @@
     "text": "14 bird's mostly quiet in order to keep cold",
     "enumeration": "7"
    },
-   "solution": "PEACOCK"
+   "solution": "PEACOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "14 bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 10,
+         "note": "mostly says the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "quiet",
+         "at": 17,
+         "gives": "PEACE",
+         "note": "peace is quiet"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to keep",
+         "at": 32,
+         "note": "to keep means one piece holds another inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in order",
+         "at": 23,
+         "gives": "OK",
+         "note": "if all is in order, it is OK"
+        },
+        {
+         "words": "cold",
+         "at": 40,
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on taps"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird keeps mostly quiet to stay out of the cold.",
+     "walkthrough": "'mostly' cuts PEACE to PEAC, and OK 'to keep' C gives OCK. Pavo, the Peacock, is a southern constellation.",
+     "definitionFit": "The peacock is a showy bird, and Pavo is the southern constellation named after it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +494,48 @@
     "text": "A letter about election addict",
     "enumeration": "7"
    },
-   "solution": "DEVOTEE"
+   "solution": "DEVOTEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "addict",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 9,
+       "note": "about means one piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A letter",
+       "at": 0,
+       "gives": "DEE",
+       "note": "dee is the spelt-out name of the letter D"
+      },
+      {
+       "words": "election",
+       "at": 15,
+       "gives": "VOTE",
+       "note": "a vote is an election"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter about an election comes from a fanatical supporter.",
+     "definitionFit": "A devotee is an ardent enthusiast, someone hooked on a pursuit, so an addict in the loose sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +549,73 @@
     "text": "Bloomers made by stupid sheep trapped by the tide on the rise",
     "enumeration": "11"
    },
-   "solution": "AMARYLLISES"
+   "solution": "AMARYLLISES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bloomers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on the rise",
+       "at": 50,
+       "note": "in a down entry, being on the rise means reading upward, from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "trapped by",
+         "at": 30,
+         "note": "trapped by means the sheep piece is held inside the sea piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the tide",
+         "at": 41,
+         "gives": "SEA",
+         "note": "the tide stands for the sea"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "stupid",
+           "at": 17,
+           "gives": "SILLY",
+           "note": "silly means stupid"
+          },
+          {
+           "words": "sheep",
+           "at": 24,
+           "gives": "RAM",
+           "note": "a ram is a male sheep"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daft sheep caught by the incoming tide puts on a pair of bloomers.",
+     "walkthrough": "'trapped by' puts SILLYRAM between SE and A of SEA, and 'on the rise' turns the whole lot upside down. 'Bloomers' looks like underwear but means flowers.",
+     "definitionFit": "Amaryllises are bulbous plants with big trumpet-shaped flowers, so things that bloom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bloomers"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +629,42 @@
     "text": "Fly away from fast rally of 14s?",
     "enumeration": "6"
    },
-   "solution": "ASTRAL"
+   "solution": "ASTRAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of 14s?",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Fly away from",
+       "at": 0,
+       "note": "the letters of the word fly, F at the front and LY at the back, take off from the phrase fast rally, leaving what lies between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fast rally",
+       "at": 14,
+       "note": "the setter hides the answer here, between the F at the start and the LY at the end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fly is swatted away during a fast rally of tennis.",
+     "walkthrough": "'Fly away from' strips F, L and Y from FASTRALLY; what stays is the run of letters hidden inside.",
+     "definitionFit": "Astral means relating to the stars, as constellations are groups of stars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fly"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +684,35 @@
      }
     ]
    },
-   "solution": "MUDSLIDE"
+   "solution": "MUDSLIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "James Taylor's slim dude?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "James Taylor's slim dude?",
+       "at": 0,
+       "note": "points to the 1971 James Taylor album whose title names a thin character, and the question mark hints the last two words can be reshuffled"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "James Taylor's 1971 album is Mud Slide Slim and the Blue Horizon, so his 'slim dude' is Mud Slide Slim; the question mark also hints the letters of SLIM DUDE make the answer.",
+     "definitionFit": "Mud Slide is the name given to the slim figure in the title of James Taylor's album."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dude"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +726,40 @@
     "text": "They're wise to use some imagination",
     "enumeration": "4"
    },
-   "solution": "MAGI"
+   "solution": "MAGI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They're wise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 20,
+       "note": "some means only part of the next word is used, so the answer sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "imagination",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wise people make use of a little imagination.",
+     "definitionFit": "The Magi were the wise men from the East who brought gifts to the infant Jesus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +773,41 @@
     "text": "Schemes regarding stones in rock layers?",
     "enumeration": "10"
    },
-   "solution": "STRATAGEMS"
+   "solution": "STRATAGEMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Schemes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rock layers",
+       "at": 28,
+       "gives": "STRATA",
+       "note": "strata are layers of rock"
+      },
+      {
+       "words": "stones",
+       "at": 18,
+       "gives": "GEMS",
+       "note": "gems are precious stones"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plans for finding precious stones among layers of rock.",
+     "definitionFit": "Stratagems are cunning plans or tricks devised to outwit someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stones"
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +821,75 @@
     "text": "Celebrity's foremost lot on an islet, cavorting group of stars",
     "enumeration": "13"
    },
-   "solution": "CONSTELLATION"
+   "solution": "CONSTELLATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "group of stars",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "foremost",
+         "at": 12,
+         "note": "foremost means the front letter of the word Celebrity is the one wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Celebrity's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cavorting",
+         "at": 38,
+         "note": "cavorting means prancing about, so these letters dance into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lot",
+         "at": 21
+        },
+        {
+         "words": "on",
+         "at": 25
+        },
+        {
+         "words": "an",
+         "at": 28
+        },
+        {
+         "words": "islet",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity leads a crowd of famous people frolicking on a small island.",
+     "walkthrough": "'group of stars' pretends to be a pack of celebrities on a reality-show islet, but these are stars in the sky.",
+     "definitionFit": "A constellation is a recognised pattern of stars in the night sky, such as Orion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +903,59 @@
     "text": "Maybe a ruby from curmudgeon sorry after Georgia's left",
     "enumeration": "8"
    },
-   "solution": "CORUNDUM"
+   "solution": "CORUNDUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe a ruby",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "sorry",
+       "at": 29,
+       "note": "sorry here means in a sorry state, so the letters are messed about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "at": 51,
+         "note": "after something has left it is no longer there, so those letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "curmudgeon",
+         "at": 18
+        },
+        {
+         "words": "Georgia's",
+         "at": 41,
+         "gives": "GE",
+         "note": "GE is the abbreviation for the US state of Georgia"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy old man gets a ruby from Georgia's sorry ex.",
+     "walkthrough": "'left' removes G and E from CURMUDGEON, and 'sorry' rearranges CURMUDON.",
+     "definitionFit": "Corundum is aluminium oxide; its red gem form is ruby and its blue form sapphire, so a ruby is one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sorry"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +969,41 @@
     "text": "14 altering faulty percussion instrument",
     "enumeration": "8"
    },
-   "solution": "TRIANGLE"
+   "solution": "TRIANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "percussion instrument",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "faulty",
+       "at": 12,
+       "note": "faulty means the letters are wrong as they stand and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "altering",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broken percussion instrument needs altering.",
+     "walkthrough": "'14' adds a second definition: Triangulum, the Triangle, is a constellation.",
+     "definitionFit": "A triangle is a steel bar bent into three sides and struck with a rod in an orchestra."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "altering"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1017,31 @@
     "text": "Fuming burnt gums and resins",
     "enumeration": "8"
    },
-   "solution": "INCENSED"
+   "solution": "INCENSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fuming",
+      "at": 0,
+      "meaning": "means furious, seething with anger"
+     },
+     {
+      "text": "burnt gums and resins",
+      "at": 7,
+      "meaning": "aromatic gums and resins are burnt for their scent, and something filled with that smoke is perfumed by it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fuming' looks like smoke from the incense, but it means angry.",
+     "definitionFit": "Incensed means enraged, and also perfumed with burning incense, a mix of gums and resins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fuming"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1055,47 @@
     "text": "Most common page's revised poorly",
     "enumeration": "10"
    },
-   "solution": "PREVAILING"
+   "solution": "PREVAILING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most common",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "page",
+       "at": 12,
+       "gives": "P"
+      },
+      {
+       "words": "revised",
+       "at": 19,
+       "gives": "REV",
+       "note": "rev is the abbreviation for revised"
+      },
+      {
+       "words": "poorly",
+       "at": 27,
+       "gives": "AILING",
+       "note": "poorly means ill, ailing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The most common page has been badly revised.",
+     "walkthrough": "'poorly' looks like an adverb on 'revised', but it is an adjective meaning sick.",
+     "definitionFit": "Prevailing means widespread or predominant, the most usual at the time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1109,42 @@
     "text": "Victoria's spirit that's pure 14",
     "enumeration": "6"
    },
-   "solution": "VIRGIN"
+   "solution": "VIRGIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pure 14",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Victoria's",
+       "at": 0,
+       "gives": "VIR",
+       "note": "VIR stands for Victoria Imperatrix Regina, Queen Victoria's royal cipher"
+      },
+      {
+       "words": "spirit",
+       "at": 11,
+       "gives": "GIN",
+       "note": "gin is a spirit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Queen Victoria's drink of choice is pure gin.",
+     "walkthrough": "VIR is Victoria Imperatrix Regina, Victoria as Empress and Queen. Virgo, the Virgin, is a constellation.",
+     "definitionFit": "Virgo is known as the Virgin, a figure of purity among the constellations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1158,48 @@
     "text": "14 jewel within unit, two of a kind",
     "enumeration": "6"
    },
-   "solution": "GEMINI"
+   "solution": "GEMINI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "14",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "jewel",
+       "at": 3,
+       "gives": "GEM",
+       "note": "a gem is a jewel"
+      },
+      {
+       "words": "within",
+       "at": 9,
+       "gives": "IN",
+       "note": "within means in"
+      },
+      {
+       "words": "unit",
+       "at": 16,
+       "gives": "I",
+       "note": "I is the Roman numeral one, a single unit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jewel inside a unit forms a matching pair.",
+     "walkthrough": "'two of a kind' adds to the definition: Gemini is the constellation of the Twins.",
+     "definitionFit": "Gemini, Latin for twins, is the constellation of Castor and Pollux."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unit"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1213,61 @@
     "text": "14 that might be caught on sandbank if flipped",
     "enumeration": "4"
    },
-   "solution": "CRAB"
+   "solution": "CRAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "14",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "if flipped",
+       "at": 36,
+       "note": "if flipped means the letters are turned round and read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 24,
+         "note": "on means the caught letter follows the sandbank"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sandbank",
+         "at": 27,
+         "gives": "BAR",
+         "note": "a bar is a sandbank at a river mouth or harbour"
+        },
+        {
+         "words": "caught",
+         "at": 17,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crab might be caught on a sandbank if it gets turned over.",
+     "walkthrough": "C (caught) placed on BAR is BARC; 'if flipped' reverses it. Cancer, the Crab, is a constellation.",
+     "definitionFit": "Cancer is the zodiac constellation named after the crab."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1281,36 @@
     "text": "14's bestselling writer or more of a rogue?",
     "enumeration": "6"
    },
-   "solution": "ARCHER"
+   "solution": "ARCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "14",
+      "at": 0,
+      "meaning": "Sagittarius, the ..., is a constellation"
+     },
+     {
+      "text": "bestselling writer",
+      "at": 5,
+      "meaning": "Jeffrey ... is a bestselling British novelist"
+     },
+     {
+      "text": "more of a rogue?",
+      "at": 27,
+      "meaning": "arch can mean roguish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three definitions: Sagittarius, the novelist Jeffrey Archer, and 'more arch'; the question mark marks the playful comparative, with a nod to Archer's own jail term.",
+     "definitionFit": "Archer fits a bowman constellation, a famous novelist, and the comparative of arch meaning mischievous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rogue"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1324,30 @@
     "text": "Access for transport",
     "enumeration": "8"
    },
-   "solution": "ENTRANCE"
+   "solution": "ENTRANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Access",
+      "at": 0,
+      "meaning": "a way in, access"
+     },
+     {
+      "text": "transport",
+      "at": 11,
+      "meaning": "to transport with delight"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'transport' looks like vehicles, but it is a verb meaning to enrapture, said with the stress on the second syllable.",
+     "definitionFit": "An entrance is a door or way in; to entrance is to enchant, carrying someone away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "transport"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1361,42 @@
     "text": "Such as Federer and Nadal serve well and intimidate",
     "enumeration": "6"
    },
-   "solution": "MENACE"
+   "solution": "MENACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "intimidate",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Such as Federer and Nadal",
+       "at": 0,
+       "gives": "MEN",
+       "note": "Roger Federer and Rafael Nadal are examples of men"
+      },
+      {
+       "words": "serve well",
+       "at": 26,
+       "gives": "ACE",
+       "note": "an ace is a tennis serve the receiver cannot touch"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Federer and Nadal serve well and scare their opponents.",
+     "walkthrough": "'Such as Federer and Nadal' asks for players, but it is just MEN.",
+     "definitionFit": "To menace is to threaten someone, to frighten them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nadal"
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1410,59 @@
     "text": "One hundred and fifty die outside changing room",
     "enumeration": "7"
    },
-   "solution": "CUBICLE"
+   "solution": "CUBICLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "changing room",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 26,
+       "note": "outside means the die goes round the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "die",
+       "at": 22,
+       "gives": "CUBE",
+       "note": "a die is a cube"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "hundred and fifty",
+         "at": 4,
+         "gives": "CL",
+         "note": "CL is 150 in Roman numerals"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One hundred and fifty people die outside a changing room.",
+     "definitionFit": "A cubicle is a small partitioned space, such as one used to change clothes at a pool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "die"
+    }
+   }
   },
   {
    "number": 25,
@@ -387,7 +1476,49 @@
     "text": "Bury around maybe 6 or 7 say",
     "enumeration": "7"
    },
-   "solution": "INTEGER"
+   "solution": "INTEGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "maybe 6 or 7",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 5,
+       "note": "around means bury goes round the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bury",
+       "at": 0,
+       "gives": "INTER",
+       "note": "to inter is to bury"
+      },
+      {
+       "words": "say",
+       "at": 25,
+       "gives": "EG",
+       "note": "e.g., for example, is what say means"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burial for someone aged six or seven, perhaps.",
+     "walkthrough": "'6 or 7' looks like a cross-reference to other clues but just means numbers.",
+     "definitionFit": "An integer is a whole number, and 6 and 7 are examples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
+    }
+   }
   }
  ]
 }
