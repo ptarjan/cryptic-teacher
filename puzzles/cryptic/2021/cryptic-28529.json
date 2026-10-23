@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Fancy 22",
     "enumeration": "6"
    },
-   "solution": "RELISH"
+   "solution": "RELISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0,
+      "meaning": "to fancy something is to ... it, to take pleasure in it"
+     },
+     {
+      "text": "22",
+      "at": 6,
+      "meaning": "22 is PICKLE, a sharp condiment of the sort called a ..."
+     }
+    ],
+    "explanation": {
+     "surface": "Bare cross-reference: a two-word clue that hardly paints a picture beyond something fancy to go with the pickle.",
+     "definitionFit": "As a verb it means enjoy or like; as a noun it is a tangy chutney-style condiment, which a pickle is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,75 @@
     "text": "Animal caught, enclosure not closing, bolted cages",
     "enumeration": "7"
    },
-   "solution": "RACCOON"
+   "solution": "RACCOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cages",
+       "at": 45,
+       "note": "cages means holds inside, so the bolted word surrounds the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bolted",
+       "at": 38,
+       "gives": "RAN",
+       "note": "bolted means ran off"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "caught",
+         "at": 7,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not closing",
+           "at": 25,
+           "note": "not closing means the final letter of the word is missing"
+          }
+         ],
+         "parts": [
+          {
+           "words": "enclosure",
+           "at": 15,
+           "gives": "COOP",
+           "note": "a coop is an enclosure for hens"
+          },
+          {
+           "gives": "P"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal caught after escaping a pen whose gate wouldn't close.",
+     "walkthrough": "'Bolted' reads as locked shut in the surface but means fled; 'cages' is the containment signal, and 'not closing' trims the enclosure's final letter.",
+     "definitionFit": "The raccoon is a ringtailed North American mammal with a black mask, an example of an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bolted"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +153,30 @@
     "text": "Yellow loser",
     "enumeration": "5"
    },
-   "solution": "LEMON"
+   "solution": "LEMON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Yellow",
+      "at": 0,
+      "meaning": "a pale yellow colour"
+     },
+     {
+      "text": "loser",
+      "at": 7,
+      "meaning": "a dud, a failure or loser"
+     }
+    ],
+    "explanation": {
+     "surface": "Calling someone a coward and a loser.",
+     "definitionFit": "One sense is the fruit's pale colour; the other is slang for a dud or failure, something hopeless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yellow"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +190,61 @@
     "text": "Children holding minister upside down, separated",
     "enumeration": "7"
    },
-   "solution": "SEVERED"
+   "solution": "SEVERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "separated",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 9,
+       "note": "holding means containing, with one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Children",
+       "at": 0,
+       "gives": "SEED",
+       "note": "seed means offspring, children"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upside down",
+         "at": 26,
+         "note": "in a down clue upside down means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "minister",
+         "at": 17,
+         "gives": "REV",
+         "note": "Rev is short for Reverend, a minister"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Children holding a vicar upside down until they are pulled apart.",
+     "definitionFit": "Severed means cut off or divided, so parted from the rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Children"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +258,42 @@
     "text": "Lost in forest, one desperate to be out of it",
     "enumeration": "6"
    },
-   "solution": "STONED"
+   "solution": "STONED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out of it",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Lost in",
+       "at": 0,
+       "note": "something lost in a forest is buried among the trees, so the letters sit concealed within the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "forest, one desperate",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lost in the woods, desperate to find their way out.",
+     "walkthrough": "'Lost in' signals the letters are concealed in 'foreST ONE Desperate'. 'Out of it' looks like the desperate wish to escape, but is the definition.",
+     "definitionFit": "Being out of it is slang for being intoxicated on drugs, which is what stoned means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lost"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +307,46 @@
     "text": "Person fixing pot, could be smelly thing with lid lifted",
     "enumeration": "6"
    },
-   "solution": "TINKER"
+   "solution": "TINKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Person fixing pot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with lid lifted",
+       "at": 41,
+       "note": "in a down clue the lid is the top letter, and lifting it off removes it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "smelly thing",
+       "at": 28,
+       "gives": "STINKER",
+       "note": "a stinker is something that smells bad"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A repairman at a smelly cooking pot, lifting the lid.",
+     "walkthrough": "'could be' is a link; the top letter of STINKER comes off.",
+     "definitionFit": "A tinker was a travelling mender of pots, pans and kettles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +366,31 @@
      }
     ]
    },
-   "solution": "NUMBERTWO"
+   "solution": "NUMBERTWO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Second",
+      "at": 0,
+      "meaning": "a second-in-command, a deputy"
+     },
+     {
+      "text": "movement",
+      "at": 7,
+      "meaning": "a childish euphemism for a bowel movement"
+     }
+    ],
+    "explanation": {
+     "surface": "A musical term: the second movement of a symphony.",
+     "definitionFit": "One sense is a deputy ranked next to the boss; the other is nursery slang for defecation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +404,60 @@
     "text": "Deny diva, so distraught over wife",
     "enumeration": "7"
    },
-   "solution": "DISAVOW"
+   "solution": "DISAVOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 25,
+       "note": "in a down clue over means placed above, so the jumble comes before the letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "distraught",
+         "at": 14,
+         "note": "distraught means upset and agitated, so the letters are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diva",
+         "at": 5
+        },
+        {
+         "words": "so",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "wife",
+       "at": 30,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diva so upset about a wife that she denies everything.",
+     "definitionFit": "To disavow something is to disown or refuse to acknowledge it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +471,58 @@
     "text": "Second arrivals: gather each in skips",
     "enumeration": "13"
    },
-   "solution": "REAPPEARANCES"
+   "solution": "REAPPEARANCES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Second arrivals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gather",
+       "at": 17,
+       "gives": "REAP",
+       "note": "to gather a harvest is to reap it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 29,
+         "note": "in means one piece is placed inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "skips",
+         "at": 32,
+         "gives": "PRANCES",
+         "note": "skips means prances, moves with bounding steps"
+        },
+        {
+         "words": "each",
+         "at": 24,
+         "gives": "EA"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Late-comers gathering, each skipping in.",
+     "definitionFit": "Coming back on the scene a second time is a return or comeback, an arrival again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "skips"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +536,45 @@
     "text": "Dodge 22, briefly",
     "enumeration": "4"
    },
-   "solution": "SCAM"
+   "solution": "SCAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dodge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "briefly",
+       "at": 10,
+       "note": "said briefly, the word is cut short and loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "22",
+       "at": 6,
+       "gives": "SCAMP",
+       "note": "22 is PICKLE, which can mean a mischievous child, a scamp"
+      },
+      {
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bare cross-reference: dodging the pickle, briefly.",
+     "walkthrough": "PICKLE here is the affectionate word for a naughty child, a SCAMP; 'briefly' drops its last letter.",
+     "definitionFit": "A dodge is a swindle or trick, and a scam is the same kind of con."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +588,60 @@
     "text": "Asian film titles in battle",
     "enumeration": "10"
    },
-   "solution": "VIETNAMESE"
+   "solution": "VIETNAMESE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Asian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "one set of letters is placed inside another, the film and titles going in the battle word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "battle",
+       "at": 21,
+       "gives": "VIE",
+       "note": "to battle is to vie, to compete"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "film",
+         "at": 6,
+         "gives": "ET",
+         "note": "E.T. is the Spielberg film about an alien"
+        },
+        {
+         "words": "titles",
+         "at": 11,
+         "gives": "NAMES",
+         "note": "titles are names"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Asian movie whose titles are shown during a battle scene.",
+     "walkthrough": "The surface tempts you towards the Vietnam War, but 'battle' is a verb meaning compete, and 'in' puts the film and titles inside it.",
+     "definitionFit": "Someone or something from Vietnam is Asian, the country lying in South-East Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "battle"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +655,29 @@
     "text": "Trap 22",
     "enumeration": "6"
    },
-   "solution": "CORNER"
+   "solution": "CORNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trap",
+      "at": 0,
+      "meaning": "to trap someone"
+     },
+     {
+      "text": "22",
+      "at": 5,
+      "meaning": "22 is PICKLE, a predicament"
+     }
+    ],
+    "explanation": {
+     "surface": "Bare cross-reference: a trap set for the pickle.",
+     "definitionFit": "As a verb it means hem in with no escape; as a noun it is an awkward predicament, a tricky situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +691,51 @@
     "text": "22: shop's last supply",
     "enumeration": "8"
    },
-   "solution": "PRESERVE"
+   "solution": "PRESERVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "22",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "'s last",
+         "at": 8,
+         "note": "the possessive points to the final letter belonging to the word shop"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shop",
+         "at": 4
+        }
+       ]
+      },
+      {
+       "words": "supply",
+       "at": 16,
+       "gives": "RESERVE",
+       "note": "a supply or stock held back is a reserve"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grocer's final supply of pickle on the shelf.",
+     "definitionFit": "A pickle is a preserve: food kept in vinegar or brine so it lasts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +749,81 @@
     "text": "Natural extrovert, you said, ultimately seen in nude, is playful",
     "enumeration": "9"
    },
-   "solution": "UNSTUDIED"
+   "solution": "UNSTUDIED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Natural",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 40,
+       "note": "the picked letters are seen inside the jumbled ones"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playful",
+         "at": 57,
+         "note": "playful letters frolic about and rearrange themselves"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nude",
+         "at": 48
+        },
+        {
+         "words": "is",
+         "at": 54
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 29,
+         "note": "ultimately takes the final letter of each of the three words before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extrovert",
+         "at": 8
+        },
+        {
+         "words": "you",
+         "at": 19
+        },
+        {
+         "words": "said",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An extrovert seen naked, playfully, as you'd say, quite naturally.",
+     "walkthrough": "'you said' is not a homophone here: 'ultimately' takes the last letters of extrovert, you and said; 'playful' gives UNSIED from the nude letters, and 'seen in' slots the picks inside.",
+     "definitionFit": "Unstudied manners are natural and unaffected, not practised or contrived."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nude"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +843,31 @@
      }
     ]
    },
-   "solution": "TIGHTSPOT"
+   "solution": "TIGHTSPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "22",
+      "at": 0,
+      "meaning": "22 is PICKLE, a predicament"
+     },
+     {
+      "text": "in 11",
+      "at": 3,
+      "meaning": "11 is CORNER; literally a place squeezed in a corner"
+     }
+    ],
+    "explanation": {
+     "surface": "Bare cross-reference: the pickle stuck in a corner.",
+     "walkthrough": "The second definition is half literal: a corner is a cramped place, so a spot in one is tight.",
+     "definitionFit": "A difficult situation hard to get out of is idiomatically a tight spot, and so is a cramped nook."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +881,29 @@
     "text": "Cook 22",
     "enumeration": "4"
    },
-   "solution": "STEW"
+   "solution": "STEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cook",
+      "at": 0,
+      "meaning": "to cook slowly in liquid"
+     },
+     {
+      "text": "22",
+      "at": 5,
+      "meaning": "22 is PICKLE, a state of anxiety or trouble"
+     }
+    ],
+    "explanation": {
+     "surface": "Bare cross-reference: an instruction to cook the pickle.",
+     "definitionFit": "As a verb it means simmer gently; as a noun, being in one is being in an agitated, troubled state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +917,51 @@
     "text": "Stone tossed back by a giant",
     "enumeration": "4"
    },
-   "solution": "MEGA"
+   "solution": "MEGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "giant",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "tossed back",
+         "at": 6,
+         "note": "something tossed back goes in the opposite direction, so the word is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stone",
+         "at": 0,
+         "gives": "GEM",
+         "note": "a stone in jewellery is a gem"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A giant hurling a stone back, like Goliath in reverse.",
+     "definitionFit": "Mega is a slangy adjective for huge, from the Greek prefix for great size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "giant"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +975,49 @@
     "text": "22 provided, filling baby feeder?",
     "enumeration": "7"
    },
-   "solution": "MUMMIFY"
+   "solution": "MUMMIFY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "22",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filling",
+       "at": 13,
+       "note": "filling means going inside, so one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "baby feeder?",
+       "at": 21,
+       "gives": "MUMMY",
+       "note": "a mummy feeds a baby; the question mark admits the fanciful description"
+      },
+      {
+       "words": "provided",
+       "at": 3,
+       "gives": "IF",
+       "note": "provided means if, on condition that"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pickle, provided it fills a baby's feeding bottle.",
+     "definitionFit": "To pickle is to preserve, and to mummify is to preserve a body by embalming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "feeder"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1031,42 @@
     "text": "Bums of leaders in a 22",
     "enumeration": "9"
    },
-   "solution": "FREELOADS"
+   "solution": "FREELOADS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bums",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a 22",
+       "at": 16,
+       "note": "22 is PICKLE, and letters in a pickle are in a muddle, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of leaders",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some sneering remark about the backsides of leaders in a fix.",
+     "walkthrough": "'in a 22' reads as 'in a pickle', the cross-reference serving as the anagram signal for OF LEADERS.",
+     "definitionFit": "To bum, as a verb, is to cadge or sponge off others, which is what someone who freeloads does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bums"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1080,62 @@
     "text": "Clearly show way out: ask shortly to come in",
     "enumeration": "7"
    },
-   "solution": "EXPOSIT"
+   "solution": "EXPOSIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clearly show",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to come in",
+       "at": 34,
+       "note": "to come in means the shortened word enters the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "way out",
+       "at": 13,
+       "gives": "EXIT",
+       "note": "an exit is a way out"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 26,
+         "note": "shortly means cut short, losing the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ask",
+         "at": 22,
+         "gives": "POSE",
+         "note": "to pose a question is to ask it"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Signs that clearly show the way out, with a question to come.",
+     "definitionFit": "To exposit is to set out or explain in detail, making something plain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1149,54 @@
     "text": "Top up, girl in 22",
     "enumeration": "7"
    },
-   "solution": "DILEMMA"
+   "solution": "DILEMMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "22",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 4,
+         "note": "in a down clue up means the word is read from the bottom upward, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Top",
+         "at": 0,
+         "gives": "LID",
+         "note": "a lid is a top"
+        }
+       ]
+      },
+      {
+       "words": "girl",
+       "at": 8,
+       "gives": "EMMA",
+       "note": "Emma is a girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl in a pickle being told to top up.",
+     "walkthrough": "'in' is a link word, not an insertion.",
+     "definitionFit": "A pickle is a predicament, and a dilemma is a difficult situation requiring a hard choice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1210,29 @@
     "text": "Grate 22",
     "enumeration": "6"
    },
-   "solution": "SCRAPE"
+   "solution": "SCRAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grate",
+      "at": 0,
+      "meaning": "to grate is to ... something against a rough surface"
+     },
+     {
+      "text": "22",
+      "at": 6,
+      "meaning": "22 is PICKLE, a predicament"
+     }
+    ],
+    "explanation": {
+     "surface": "Bare cross-reference: grating some pickle.",
+     "definitionFit": "As a verb it means rub harshly; as a noun it is an awkward fix one gets into."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1246,59 @@
     "text": "Notice rogue secreting second heart, say",
     "enumeration": "8"
    },
-   "solution": "EMOTICON"
+   "solution": "EMOTICON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "heart, say",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secreting",
+       "at": 13,
+       "note": "secreting means hiding something within, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rogue",
+         "at": 7,
+         "note": "rogue as an adjective means wayward, sending the letters astray"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Notice",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "second",
+       "at": 23,
+       "gives": "MO",
+       "note": "a mo is a moment, a second"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spotting a rogue who has hidden a second heart.",
+     "walkthrough": "'rogue' turns NOTICE into ETICON, and 'secreting' hides MO inside it after E. 'Heart, say' means one example: the <3 symbol.",
+     "definitionFit": "The <3 heart typed in messages is a well-known example of a small face or symbol made of characters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1312,30 @@
     "text": "Dip in hole",
     "enumeration": "6"
    },
-   "solution": "PICKLE"
+   "solution": "PICKLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dip",
+      "at": 0,
+      "meaning": "a sharp sauce, something to dip into"
+     },
+     {
+      "text": "hole",
+      "at": 7,
+      "meaning": "a hole is a predicament, a mess"
+     }
+    ],
+    "explanation": {
+     "surface": "Taking a dip in a hole in the ground.",
+     "definitionFit": "One sense is a vinegary condiment or sauce; the other is a fix or awkward situation, as in being in a hole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dip"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1349,69 @@
     "text": "Greek character with endless salt served up type of American cuisine",
     "enumeration": "5"
    },
-   "solution": "CAJUN"
+   "solution": "CAJUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "type of American cuisine",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "served up",
+       "at": 34,
+       "note": "in a down clue served up means the letters read upwards, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Greek character",
+         "at": 0,
+         "gives": "NU",
+         "note": "nu is a letter of the Greek alphabet"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 21,
+           "note": "endless means without its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "salt",
+           "at": 29,
+           "gives": "JACK",
+           "note": "a salt is a sailor, as is a jack (jack tar)"
+          },
+          {
+           "gives": "K"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek with a salt shaker serving up an American dish.",
+     "walkthrough": "'salt' is the sailor, JACK, losing its end to give JAC; NU + JAC goes upward.",
+     "definitionFit": "Cajun cooking is the spicy cuisine of Louisiana's French-descended community."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1431,70 @@
      }
     ]
    },
-   "solution": "BITPLAYERS"
+   "solution": "BITPLAYERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Those with few lines",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 41,
+       "note": "the jumbled letters cover the single one, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spoiled",
+         "at": 21,
+         "note": "spoiled letters are damaged and reassembled in another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "by a stripe",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 5,
+       "indicators": [
+        {
+         "text": "fifth of",
+         "at": 50,
+         "note": "fifth of picks the fifth letter of the word circle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "circle",
+         "at": 59
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something ruined by a stripe drawn round part of a circle.",
+     "walkthrough": "'spoiled' turns BY A STRIPE into BITPAYERS, and 'covering' holds L, the fifth letter of circle, inside it.",
+     "definitionFit": "Actors with small parts, speaking only a handful of lines, are known as bit players."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1508,44 @@
     "text": "Post 22, we hear?",
     "enumeration": "4"
    },
-   "solution": "JAMB"
+   "solution": "JAMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Post",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "JAMB",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 9,
+       "note": "we hear signals that the answer sounds the same as the word given"
+      }
+     ],
+     "parts": [
+      {
+       "words": "22",
+       "at": 5,
+       "gives": "JAM",
+       "note": "22 is PICKLE, a predicament, which is a jam"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bare cross-reference: someone wondering whether they have heard of a pickle being posted.",
+     "definitionFit": "A jamb is the upright post at the side of a door or window frame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Post"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1559,52 @@
     "text": "Talk ending in sympathy with maker of 'omburgs?",
     "enumeration": "6"
    },
-   "solution": "YATTER"
+   "solution": "YATTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Talk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending in",
+         "at": 5,
+         "note": "ending in takes the closing letter of the word sympathy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sympathy",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "maker of 'omburgs",
+       "at": 29,
+       "gives": "ATTER",
+       "note": "a homburg hat is made by a hatter; with the h dropped, as the apostrophe shows, he is an 'atter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chatter ending in fellow feeling with a hat maker, said with a dropped h.",
+     "walkthrough": "The dropped H of 'omburgs tells you to drop the H of HATTER too; a homburg is a felt hat with a dented crown.",
+     "definitionFit": "To yatter is to chatter on at length, an informal word for idle talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1618,56 @@
     "text": "Verse in South African country reduced by 3/8ths",
     "enumeration": "6"
    },
-   "solution": "STANZA"
+   "solution": "STANZA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Verse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "South",
+       "at": 9,
+       "gives": "S"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced by 3/8ths",
+         "at": 31,
+         "note": "of the eight letters naming the country, three are cut off the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "African country",
+         "at": 15,
+         "gives": "TANZANIA",
+         "note": "Tanzania is an East African country"
+        },
+        {
+         "gives": "NIA"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A verse within the country, South African, shortened by a fraction.",
+     "walkthrough": "'South African' looks like one phrase but splits: S for South, and the African country of eight letters losing three.",
+     "definitionFit": "A stanza is a group of lines forming one verse of a poem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "African"
+    }
+   }
   }
  ]
 }
