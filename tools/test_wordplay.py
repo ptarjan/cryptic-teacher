@@ -165,9 +165,15 @@ for name, expr, words, clue in [
     ("words not in the clue", "ana<crazy>([delusions])", ["'delusions' is not in the clue"],
      "Immaculate? That's a crazy delusion"),
     ("a repeat that isn't there", "[in#2]IN", ["no copy #2"], "Tea in cup"),
+    ("gapped words name the clue's own run", "rev<swaps for>([x]X)",
+     ["'swaps daughter for'", "'swaps', 'for'"], "Country fellow swaps daughter for piano!"),
+    ("#n mid-quote", "[ugly#2 this]X", ["`#n` goes once"], "This is ugly, terribly ugly this around"),
 ]:
     r = perr(expr, *words, clue=clue)
     check(f"parse refuses: {name}", r is True, r)
+
+t = w.parse("[Trump's sidekick]X", "Force on Trump’s sidekick")
+check("a curly apostrophe in the clue matches a straight one", t["words"] == "Trump’s sidekick", t)
 
 # `at` from the clue: whole words first, #n for a repeat, clear of definitions.
 clue = "Tea in cup in a hurry"
