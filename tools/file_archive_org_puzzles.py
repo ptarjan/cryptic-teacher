@@ -8099,6 +8099,10 @@ def corrects(was, now, printed=()):
         return False
     if set(now) & SPECK_SYMBOLS - set(was):
         return False
+    # A lone "&" the held clue lacks is a scan's "a" or a speck, never a re-read's gain
+    # ("Lone wolf unimpeded by a weapon" to "... by & a weapon", times-12467).
+    if now.split().count("&") > was.split().count("&"):
+        return False
     old_t, new_t = list(CLUE_TOKEN.finditer(was)), list(CLUE_TOKEN.finditer(now))
     old, new = [m.group().lower() for m in old_t], [m.group().lower() for m in new_t]
     if old == new:

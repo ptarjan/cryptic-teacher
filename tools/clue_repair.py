@@ -566,6 +566,8 @@ def mend_steps(text, enum=None, is_word=None, uses=None, words=True, lights=None
     ]
     if words:
         rules += [
+            # a scan's "a" read as "&" ("by & a weapon", "is & mile up")
+            ("stray_ampersand", lambda t: clue_text.stray_ampersand(t, uses)),
             ("lead_speck", lambda t: lead_speck(t, is_word, uses)),
             ("stub_before_word", lambda t: stub_before_word(t, is_word)),
             ("mend_words", lambda t: mend_words(t, is_word, uses)),

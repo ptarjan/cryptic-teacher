@@ -198,5 +198,27 @@ for _was, _now in [("to be de rigueur", "to be de rigueur"), ("Train to le a", "
 for _was, _now in [("D Day, camouflage?", "D Day, camouflage?"), ("1 Down's poet?", "1 Down's poet?"),
                    ("S Sound judgment", "Sound judgment"), ("I Long pair of shorts?", "Long pair of shorts?")]:
     check("lead_speck on %r" % _was, _now, clue_repair.lead_speck(_was, _is_word, _uses))
+# A scan's "a" read as "&" (times-12467 FREELANCE: "by & weapon", reread "by & a weapon");
+# a name's or a list's "&" is print.
+for _was, _now in [("Lone wolf unimpeded by & a weapon", "Lone wolf unimpeded by a weapon"),
+                   ("Israelite encampment is & mile up", "Israelite encampment is a mile up"),
+                   ("For tendency to get worked up, & a moist lemon concoction-about one",
+                    "For tendency to get worked up, a moist lemon concoction-about one"),
+                   ("Something B & B could be?", "Something B & B could be?"),
+                   ("Severe wound identified in A & E", "Severe wound identified in A & E"),
+                   ("Mirage of old distracted Lilliputians & co", "Mirage of old distracted Lilliputians & co"),
+                   ("Boatman & crew: visionaries", "Boatman & crew: visionaries"),
+                   ("Agreed book & play need first half discarded", "Agreed book & play need first half discarded"),
+                   ("I stick around & look the other way", "I stick around & look the other way"),
+                   ("Destroyed padre's name almost & character", "Destroyed padre's name almost & character"),
+                   ("in Calvin Klein briefs & a Rolex?!", "in Calvin Klein briefs & a Rolex?!"),
+                   ("Giant comic used in a fish & chip shop", "Giant comic used in a fish & chip shop"),
+                   ("He was an & one in the. 27, 3", "He was an & one in the. 27, 3"),
+                   ("& & & & & &", "& & & & & &")]:
+    check("stray_ampersand on %r" % _was, _now, clue_text.stray_ampersand(_was, _uses))
+check("stray_ampersand without a corpus is a no-op", "Lone wolf unimpeded by & a weapon",
+      clue_text.stray_ampersand("Lone wolf unimpeded by & a weapon"))
+check("mend_text drops the & before a", "Lone wolf unimpeded by a weapon",
+      clue_repair.mend_text("Lone wolf unimpeded by & a weapon", "9"))
 
 sys.exit(1 if fails else 0)

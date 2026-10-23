@@ -3490,6 +3490,9 @@ check("a reread that cuts a word at its edge or turns a word to a non-word corre
                     f.corrects("Dickens family mad about Humpty Dumpty", "Dickens family mad about Humply Dumpty"),
                     f.corrects("Department of State about to recognise", "Department of State about 10 recognise"),
                     f.corrects("Waller receives a note from the Norms", "Waller receives a note from the Norns")])
+check("a reread that gains a lone & corrects nothing (times-12467)",
+      [False, False], [f.corrects("Lone wolf unimpeded by a weapon", "Lone wolf unimpeded by & a weapon"),
+                       f.corrects("Lone wolf unimpeded by weapon", "Lone wolf unimpeded by & weapon")])
 check("mirror: regressed() names those, and not a mend, a split word or a letter gained",
       ([True] * 3, [False] * 3),
       ([f.regressed("good at heart", "good at hear"), f.regressed("the 1st Earl", "the st Earl"),
