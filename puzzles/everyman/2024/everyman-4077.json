@@ -805,64 +805,71 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "welcomed by",
        "at": 9,
-       "note": "the American is welcomed by, so follows behind, the British letter"
+       "note": "welcomed by means taken in, so the American letters go inside the British-and-quaffed string"
       }
      ],
      "parts": [
       {
-       "words": "British",
-       "at": 21,
-       "gives": "B"
-      },
-      {
-       "words": "American",
-       "at": 0,
-       "gives": "AM"
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "taking",
-         "at": 38,
-         "note": "taking means holding something within"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "quaffed",
-         "at": 29,
-         "gives": "BOOZED",
-         "note": "boozed means drank heavily, quaffed"
+         "words": "British",
+         "at": 21,
+         "gives": "B",
+         "note": "B is British"
         },
         {
-         "op": "first",
+         "op": "container",
          "indicators": [
           {
-           "text": "drop of",
-           "at": 45,
-           "note": "a drop of a word is its first letter"
+           "text": "taking",
+           "at": 38,
+           "note": "taking means taking in, so the quaffed word holds the lager letter"
           }
          ],
          "parts": [
           {
-           "words": "lager",
-           "at": 53
+           "words": "quaffed",
+           "at": 29,
+           "gives": "BOOZED",
+           "note": "boozed means drank heavily, quaffed"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "drop of",
+             "at": 45,
+             "note": "drop of means just the first letter of lager"
+            }
+           ],
+           "parts": [
+            {
+             "words": "lager",
+             "at": 53
+            }
+           ]
           }
          ]
         }
        ]
+      },
+      {
+       "words": "American",
+       "at": 0,
+       "gives": "AM",
+       "note": "AM is American"
       }
      ]
     },
     "explanation": {
-     "surface": "A visiting American is greeted by Brits who drink, have some lager and end up dazed.",
-     "definitionFit": "Bamboozled means confused or mystified, so bewildered and dazed."
+     "surface": "A visiting American drinking with the Brits ends up dazed on lager.",
+     "definitionFit": "Bamboozled means thoroughly confused or mystified, as if dazed."
     },
     "features": {
      "answerInScene": true,

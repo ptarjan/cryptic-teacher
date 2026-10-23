@@ -1631,61 +1631,69 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "developed",
-       "note": "worked into a new form, so the letters of 'perhaps' are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "adopting",
-         "note": "the anagram takes in the extra letters"
+         "at": 42,
+         "note": "adopting means taking in, so the rearranged letters take in the unknown"
         }
        ],
        "parts": [
         {
-         "words": "perhaps",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "y, one of the algebra unknowns"
-        },
-        {
-         "op": "outer",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "tips",
-           "note": "the two ends of 'colleague'"
+           "text": "developed",
+           "at": 32,
+           "note": "developed means worked into a new form, so the letters of perhaps are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "colleague's",
-           "gives": "COLLEAGUE",
-           "note": "ColleaguE: its first and last letters"
+           "words": "perhaps",
+           "at": 24
           }
          ]
+        },
+        {
+         "words": "unknown",
+         "at": 51,
+         "gives": "Y",
+         "note": "Y is an algebraic unknown"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "tips",
+         "at": 71,
+         "note": "tips are the two ends of the word colleague, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "colleague",
+         "at": 59
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A science fiction idea, maybe, worked up with help from an unnamed co-worker's suggestions.",
-     "walkthrough": "'Perhaps' seems to hedge the definition, as setters often do; here it is the anagram fodder. 'Tips' are ends, not advice.",
-     "definitionFit": "Hyperspace is the sci-fi dimension through which ships travel faster than light."
+     "surface": "A writer's idea, perhaps worked up with a colleague's tips on the unknown.",
+     "walkthrough": "'developed' rearranges PERHAPS into HPERSPA; 'adopting' takes Y in after the H; 'tips' gives C and E.",
+     "definitionFit": "Hyperspace is an imagined extra dimension that starships cross to travel faster than light in science fiction."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "perhaps"
+     "misdirectedWord": "developed"
     }
    }
   },

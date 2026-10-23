@@ -691,49 +691,64 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "at the outset",
-       "note": "the outset is the start, so this piece comes first"
-      },
-      {
-       "text": "on",
-       "note": "in a down clue, one piece sits on top of the next"
-      }
-     ],
      "parts": [
       {
        "words": "Clear",
+       "at": 0,
        "gives": "OVERT",
-       "note": "overt = clear, plain to see"
+       "note": "overt means open, clear"
       },
       {
-       "words": "Everyman",
-       "gives": "HE",
-       "note": "every man is a 'he'"
-      },
-      {
-       "words": "rugby pitch",
-       "gives": "H",
-       "note": "the goalposts on a rugby pitch are H-shaped"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 32,
+         "note": "on here means placed on the pitch, between its two sets of goalposts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rugby pitch",
+         "at": 35,
+         "gives": "HH",
+         "note": "a rugby pitch has H-shaped goalposts at each end, so two Hs"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at the outset",
+           "at": 6,
+           "note": "at the outset asks for the opening letter of Everyman's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Everyman's",
+           "at": 21
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "unwell",
+       "at": 48,
        "gives": "ILL",
-       "note": "unwell = ill"
+       "note": "ill means unwell"
       }
      ]
     },
     "explanation": {
-     "surface": "The setter, out on the rugby field, admits feeling poorly and past it.",
-     "walkthrough": "Everyman is also the setter's name, so the clue sounds like a self-portrait; here it just gives HE. The 's is 'is', letting HE sit on top of H in the down entry.",
-     "definitionFit": "An idiom: past one's prime, like someone who has climbed to the top and is on the way down."
+     "surface": "The setter feeling his age out on the rugby field.",
+     "walkthrough": "Rugby goalposts are H-shaped, one at each end, giving HH; 'on' puts E, the first letter picked by 'at the outset', between them.",
+     "definitionFit": "Someone over the hill is past their prime, considered too old."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Everyman"
+     "misdirectedWord": "pitch"
     }
    }
   },
