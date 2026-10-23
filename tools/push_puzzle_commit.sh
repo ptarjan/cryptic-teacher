@@ -120,7 +120,7 @@ publish() {
     schedule_flush
     return 0
   fi
-  if out=$(git push -q --no-verify origin "$sha:refs/heads/master" 2>&1); then
+  if out=$(net_git push -q --no-verify origin "$sha:refs/heads/master" 2>&1); then
     date +%s >"$stamp"
     git update-ref -d "$BATCH_REF" 2>/dev/null
     return 0
@@ -131,10 +131,17 @@ publish() {
   return 2
 }
 
+# net_git <args...>: git, cut off after CT_NET_TIMEOUT seconds (120): a stalled ssh to
+# github.com (10-23) would hold the checkpoint, and the job's move to master, for good.
+# Cut off is failed (124), and the commit goes with the next checkpoint.
+net_git() {
+  if command -v timeout >/dev/null 2>&1; then timeout "${CT_NET_TIMEOUT:-120}" git "$@"; else git "$@"; fi
+}
+
 # fetch_base: fetch origin/master into $base; 0 ok, 2 lost a ref race, 1 failed.
 fetch_base() {
   local out
-  if ! out=$(git fetch -q origin master 2>&1); then
+  if ! out=$(net_git fetch -q origin master 2>&1); then
     printf '%s\n' "$out" >&2
     printf '%s' "$out" | grep "cannot lock ref" >/dev/null && return 2
     return 1

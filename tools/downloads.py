@@ -11,6 +11,7 @@ they stay on the media disk, under its "Gale crosswords" folder
 
     python3 tools/downloads.py      # print ROOT, for shell scripts
 """
+import errno
 import os
 from pathlib import Path
 
@@ -21,11 +22,58 @@ import local_config
 # disk the downloads filled the host.
 # CT_DOWNLOADS moves the whole root, for a test that must not touch the real one.
 ROOT = Path(os.environ.get("CT_DOWNLOADS") or local_config.path("media_root") + "/cryptic-setter-data")
+#: The whole media disk (Gale's "Gale crosswords" folder is on it, beside ROOT); ROOT itself under CT_DOWNLOADS.
+MEDIA_ROOT = (ROOT if os.environ.get("CT_DOWNLOADS") or not local_config.path("media_root").strip()
+              else Path(local_config.path("media_root")))
+#: What an outage of the media share raises on a path under it (the Mac's SMB server refusing the
+#: session for a minute, 10-20 and 10-23: EHOSTDOWN; a dropped or stale mount: ENOTCONN, ESTALE,
+#: EIO; a session the server restricts: EACCES, EPERM). media_down.
+MEDIA_DOWN_ERRNOS = frozenset({errno.EHOSTDOWN, errno.ENOTCONN, errno.ESTALE, errno.EIO, errno.EACCES, errno.EPERM})
+
+
+def on_media(path):
+    """Whether `path` (a str, bytes or Path) is under ROOT or MEDIA_ROOT. Spelled, not
+    resolved: resolving would ask the share that is down."""
+    if path is None:
+        return False
+    p = os.path.abspath(os.fsdecode(path))
+    for root in {os.path.abspath(ROOT), os.path.abspath(MEDIA_ROOT)}:
+        if root != os.sep and (p == root or p.startswith(root.rstrip(os.sep) + os.sep)):
+            return True
+    return False
+
+
+def media_down(e):
+    """Whether exception `e` (or what it was raised from, its __cause__) is the media share
+    not answering: an OSError of MEDIA_DOWN_ERRNOS on a path under the media root. Such a
+    unit is deferred and the edition queue waits for the share (edition_queue.MediaGate);
+    any other error, or one of these errnos elsewhere, stays the bug it is."""
+    seen = set()
+    while e is not None and id(e) not in seen:
+        seen.add(id(e))
+        if (isinstance(e, OSError) and e.errno in MEDIA_DOWN_ERRNOS
+                and (on_media(e.filename) or on_media(e.filename2))):
+            return True
+        e = e.__cause__
+    return False
+
+
+def _unmounted():
+    """Whether ROOT is the empty folder an unmounted disk leaves. A share that does not answer
+    (media_down's errnos) is no boot-disk folder: nothing can be written there either."""
+    try:
+        return ROOT.exists() and not (ROOT / ".on-media-disk").exists()
+    except OSError as e:
+        if e.errno in MEDIA_DOWN_ERRNOS:
+            return False
+        raise
+
+
 # Only the real disk holds this file: with Media unmounted the path is an empty
 # folder (Docker makes one for the mount), and filling it would fill the boot disk.
 # Where the path is absent (CI, the site build) nothing can be written there,
 # so importing stays harmless.
-if not os.environ.get("CT_DOWNLOADS") and ROOT.exists() and not (ROOT / ".on-media-disk").exists():
+if not os.environ.get("CT_DOWNLOADS") and _unmounted():
     raise SystemExit(f"{ROOT}/.on-media-disk is missing: the media disk is not mounted")
 
 # archive.org newspaper scans, <item>/<date>_<issue>/, and the filer's ledger

@@ -72,6 +72,12 @@ if [ "${CT_IN_WORKTREE:-0}" = 1 ]; then export -n CT_JOB CT_LEASE_BUSY_RC; fi
 # Written only when the value differs: git takes .git/config.lock for every
 # write, and two jobs starting together collide on it ("could not lock config
 # file") although the value is already right.
+# A network git call (fetch, push) cut off after CT_NET_TIMEOUT seconds (120): after a network
+# blip the ssh to github.com can stall with no end (10-23 12:46: a relaunch's fetch hung 4.5 min).
+# A timeout is that call failing (status 124), and each caller carries on as from a failed one.
+_ct_net() {  # _ct_net <command...>
+  if command -v timeout >/dev/null 2>&1; then timeout "${CT_NET_TIMEOUT:-120}" "$@"; else "$@"; fi
+}
 _ct_cfg() {  # _ct_cfg <key> <value>
   local d; d="$(dirname "${BASH_SOURCE[0]}")"
   [ "$(git -C "$d" config --get "$1")" = "$2" ] || git -C "$d" config "$1" "$2"
@@ -295,8 +301,8 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   if [ -n "$_ct_tree" ]; then
     # Objects come through the main checkout because that is where the remote
     # is configured; the worktree shares the store, so the fetch is one fetch.
-    git -C "$_ct_main" fetch -q origin master || {
-      echo "WORKTREE: fetch failed — working from whatever origin/master was last known" >&2
+    _ct_net git -C "$_ct_main" fetch -q origin master || {
+      echo "WORKTREE: fetch failed or timed out — working from whatever origin/master was last known" >&2
     }
     _ct_follow_origin
     # A run the reset below would rob of its edits, stopped by a restart or its

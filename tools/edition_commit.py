@@ -35,7 +35,9 @@ TOOL = "tools/file_archive_org_puzzles.py"
 #: its read needed the VLM and it was down or went down (vlm_reader.Down):
 #: nothing written, the read waits for the VLM.
 EXITS = {"read": 0, "scanned": 0, "current": 0, "fetched": 0, "busy": 3, "held": 4, "outage": 5,
-         "throttled": 6, "disk": 7, "deferred": 8, "lost": 9, "vlm": 10}
+         "throttled": 6, "disk": 7, "deferred": 8, "lost": 9, "vlm": 10,
+         # The media share did not answer (downloads.media_down): deferred, the queue waits for it.
+         "media": 11}
 #: The tools modules main() runs, loaded as the unit starts (under the
 #: queue's code lock, edition_queue.snapshot): none of them is loaded later
 #: from a tree that moved meanwhile (test_edition_commit.py checks a commit

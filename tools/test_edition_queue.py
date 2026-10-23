@@ -989,6 +989,204 @@ check("a unit's ps command line is its kind, paper and edition",
       {"GaleTimes1988UKEnglish/1988-08-30": "edition_queue.py unit read times GaleTimes1988UKEnglish/1988-08-30",
        "article/120905968": "edition_queue.py unit fetch src article/120905968"}, seen)
 
+# ---- the media share down (the Mac's SMB server refused the session for a minute, 10-20 and 10-23,
+# and the whole pass died): a unit ends deferred, the dispatcher waits for the share, a bug stays a bug
+import errno
+import downloads
+on_share = str(downloads.ROOT / "archive_org_editions")
+def host_down(path=on_share, code=errno.EHOSTDOWN):
+    return OSError(code, os.strerror(code), path)
+for code in (errno.EHOSTDOWN, errno.ENOTCONN, errno.ESTALE, errno.EIO, errno.EACCES, errno.EPERM):
+    check(f"media_down: {errno.errorcode[code]} on a path under the media root", True,
+          downloads.media_down(host_down(on_share + "/filed.jsonl", code)))
+check("media_down: the media root's own folder (pathlib's mkdir stat, 10-23)", True, downloads.media_down(host_down()))
+check("mirror: the same errno on a path off the share is no outage", False,
+      downloads.media_down(host_down(str(T / "filed.jsonl"))))
+check("mirror: a missing file on the share is no outage", False,
+      downloads.media_down(host_down(on_share + "/x.jsonl", errno.ENOENT)))
+check("mirror: an error with no path, or no OSError, is no outage", (False, False),
+      (downloads.media_down(OSError(errno.EHOSTDOWN, "Host is down")), downloads.media_down(ValueError(on_share))))
+try:
+    try:
+        raise host_down()
+    except OSError as cause:
+        raise RuntimeError("wrapped") from cause
+except RuntimeError as wrapped:
+    check("an error raised from a media outage (its __cause__) is one", True, downloads.media_down(wrapped))
+try:
+    try:
+        raise host_down()
+    except OSError:
+        raise KeyError("a bug in the handler")  # only __context__: the bug is what is raised
+except KeyError as bug:
+    check("mirror: a bug raised while handling one is not", False, downloads.media_down(bug))
+
+# A unit's own process: an outage of the share is EXITS["media"], deferred, no failure logged;
+# the same errno off the share is a failure, as ever.
+failed = []
+real_failure, q.failure = q.failure, lambda *a, **k: failed.append(a)
+err = io.StringIO()
+with contextlib.redirect_stderr(err):
+    got = eq.unit_status({"kind": "read", "paper": "times", "rel": "m"}, lambda: (_ for _ in ()).throw(host_down()))
+check("a unit whose ledger mkdir meets the share down ends deferred for it, nothing failed",
+      (eq.EXITS["media"], [], True), (got, failed, "deferred, the media share is down" in err.getvalue()))
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.unit_status({"kind": "read", "paper": "times", "rel": "m"},
+                         lambda: (_ for _ in ()).throw(host_down(str(T / "x"), errno.EACCES)))
+check("mirror: EACCES off the share fails the unit", (1, 1), (got, len(failed)))
+q.failure = real_failure
+
+# A scan whose page the share did not serve keeps no "failed" row: it is scanned again once it answers.
+m1, m2 = edition("NewsUK1980UKEnglish", "1980-04-05_6", 10), edition("NewsUK1980UKEnglish", "1980-04-12_7", 10)
+real_scan_anywhere = f.scan_anywhere
+f.scan_anywhere = lambda d: (_ for _ in ()).throw(host_down(on_share + f"/{d.parent.name}/{d.name}/leaf_0021.jpg"))
+lines_before = len(tl.read_text().splitlines())
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.unit_status({"kind": "scan", "paper": "times", "rel": "NewsUK1980UKEnglish/1980-04-05_6"},
+                         lambda: f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-04-05_6", cache))
+check("a scan meeting the share down ends deferred and appends no row", (eq.EXITS["media"], lines_before),
+      (got, len(tl.read_text().splitlines())))
+f.scan_anywhere = lambda d: (_ for _ in ()).throw(host_down(str(d / "leaf_0021.jpg"), errno.EIO))
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.unit_status({"kind": "scan", "paper": "times", "rel": "NewsUK1980UKEnglish/1980-04-12_7"},
+                         lambda: f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-04-12_7", cache))
+check("mirror: an EIO off the share stands as a failed scan, as ever", (0, lines_before + 1, True),
+      (got, len(tl.read_text().splitlines()),
+       "failed" in q.ledger_rows(tl, "edition")["NewsUK1980UKEnglish/1980-04-12_7"]["scan"]))
+f.scan_anywhere = real_scan_anywhere
+
+# MediaGate on a clock the test moves: one "waiting" line, a probe every `every`, "back" once.
+now = [0.0]
+answers = []
+said = []
+gate = eq.MediaGate(probe=lambda: answers.pop(0), every=20, limit=1800, clock=lambda: now[0], say=said.append)
+check("no outage noted: nothing held, nothing probed", (False, []), (gate.hold(), said))
+check("a non-outage error is not noted", (False, False), (gate.down(ValueError("x")), gate.held()))
+answers[:] = [False, False, True]
+gate.down()
+held = [gate.hold()]
+now[0] = 5.0
+held.append(gate.hold())  # between probes: held, not probed
+now[0] = 20.0
+held.append(gate.hold())
+now[0] = 40.0
+held.append(gate.hold())
+check("down: held until a probe answers, probed every 20s, one waiting line, one back line",
+      ([True, True, True, False], [], 2, True, True),
+      (held, answers, len(said), said[0].startswith("media down: waiting"), said[1].startswith("media back after 40s")))
+said.clear()
+answers[:] = [True]
+gate.down()
+check("a unit's note the first probe finds answered is let go without a line", (False, []), (gate.hold(), said))
+answers[:] = [False] * 200
+gate.down(host_down())
+gone = None
+try:
+    while gate.hold():
+        now[0] += 20
+except eq.MediaGone as e:
+    gone = str(e)
+check("down past the limit: MediaGone", True, gone is not None and "CT_MEDIA_WAIT 1800" in gone)
+# The loop's own error on one path, the share answering each time: raised once it repeats (a bug, not an outage).
+gate = eq.MediaGate(probe=lambda: True, every=20, limit=1800, clock=lambda: now[0], say=said.append)
+raised = None
+try:
+    for _ in range(eq.MEDIA_BLIPS):
+        gate.down(host_down(on_share + "/filed.jsonl", errno.EACCES))
+        gate.hold()
+        now[0] += 1
+except OSError as e:
+    raised = e.errno
+check("the loop's media error on a share that answers is raised once it repeats", errno.EACCES, raised)
+
+# main's fallback: the share back after an outage, the run re-execs; answering at once, the error is raised.
+execs = []
+gate = eq.MediaGate(probe=iter([False, True]).__next__, every=0, limit=1800, say=said.append)
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.media_restart(host_down(), gate=gate, execv=lambda *a: execs.append(a))
+check("media_restart: waits for the share, then re-execs", (0, 1), (got, len(execs)))
+gate = eq.MediaGate(probe=lambda: True, every=0, limit=1800, say=said.append)
+raised = None
+try:
+    eq.media_restart(host_down(), gate=gate, execv=lambda *a: execs.append(a))
+except OSError as e:
+    raised = e.errno
+check("mirror: a share that answers at once: the error is raised, no re-exec", (errno.EHOSTDOWN, 1), (raised, len(execs)))
+gate = eq.MediaGate(probe=lambda: False, every=0, limit=0.001, clock=iter(range(0, 10 ** 6, 10)).__next__, say=said.append)
+with contextlib.redirect_stderr(io.StringIO()):
+    check("media_restart: down past the limit ends 1", 1, eq.media_restart(host_down(), gate=gate, execv=lambda *a: execs.append(a)))
+check("the probe: a folder that lists answers, a missing one does not", (True, False),
+      (eq.media_reachable(T), eq.media_reachable(T / "nowhere")))
+
+# The dispatcher: a read ends deferred for the share; no unit starts until a probe finds it back,
+# then the queue goes on. m1 always meets it: past MEDIA_TRIES it fails, the run ends 0.
+real_reachable, real_nap = eq.media_reachable, eq.MEDIA_NAP
+eq.MEDIA_PROBE_EVERY, eq.MEDIA_NAP = 0, 0.05
+probes = []
+def probe():
+    starts = sum(" start " in line for line in log.read_text().splitlines()) if log.exists() else 0
+    probes.append(starts)
+    return len(probes) >= 3
+eq.media_reachable = probe
+log.unlink(missing_ok=True)
+fake(default=0.1, outcome={"m1": "media"})
+eq.plan = units([], [("m1", []), ("m2", [])])
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+starts = [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("the share down: no unit starts while the probes find it down", (True, probes[0]), (len(probes) >= 3, probes[1]))
+check("the run goes on once it answers: m2 read, m1 tried MEDIA_TRIES + 1 times, rc 0",
+      (0, eq.MEDIA_TRIES + 1, 1), (rc, starts.count("m1"), starts.count("m2")))
+check("one waiting line, one back line; m1 deferred, then failed", (1, 1, True, True),
+      (err.getvalue().count("media down: waiting"), err.getvalue().count("media back after"),
+       "end read m1: deferred (the media share is down)" in err.getvalue(),
+       f"end read m1: failed (the media share's error {eq.MEDIA_TRIES + 1} times this run)" in err.getvalue()))
+
+# Down past CT_MEDIA_WAIT: nothing more starts and the run ends 1.
+eq.media_reachable = lambda: False
+os.environ["CT_MEDIA_WAIT"] = "0.3"
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+starts = [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("down past CT_MEDIA_WAIT: m2 never starts, the run gives up and ends 1", (1, ["m1"], True),
+      (rc, starts, "media down: giving up" in err.getvalue()))
+del os.environ["CT_MEDIA_WAIT"]
+
+# The dispatcher's own plan meets the share down (10-23: the loop's ledger stat): it waits and plans again.
+probes.clear()
+eq.media_reachable = probe
+plans = []
+def plan_once_down(papers, cache=None, reread=None, out=None):
+    plans.append(1)
+    if len(plans) == 1:
+        raise host_down(on_share + "/filed.jsonl")
+    return units([], [("p1", [])])(papers)
+eq.plan = plan_once_down
+log.unlink(missing_ok=True)
+fake(default=0.1)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+check("a plan meeting the share down waits for it, plans again and reads", (0, True, True, True),
+      (rc, len(plans) >= 2, "start read p1" in log.read_text(), "media back after" in err.getvalue()))
+# Mirror: EACCES off the share is a bug: the dispatcher raises it.
+def plan_denied(papers, cache=None, reread=None, out=None):
+    raise host_down(str(T / "filed.jsonl"), errno.EACCES)
+eq.plan = plan_denied
+raised = None
+try:
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+        eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+except PermissionError as e:
+    raised = e.errno
+check("mirror: the plan's EACCES off the share is raised, not waited out", errno.EACCES, raised)
+eq.media_reachable, eq.MEDIA_NAP, eq.MEDIA_PROBE_EVERY = real_reachable, real_nap, 20
+log.unlink(missing_ok=True)
+fake()
+
 # ---- fresh code: a unit started after a code change runs the new code.
 # The first unit changes the unit script as it runs (master moved under
 # the tree); every unit started after it runs the changed script.
