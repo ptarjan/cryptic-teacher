@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Love Japanese fighter",
     "enumeration": "4"
    },
-   "solution": "ZERO"
+   "solution": "ZERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Love",
+      "at": 0,
+      "meaning": "love is a score of nothing in tennis, i.e. nil"
+     },
+     {
+      "text": "Japanese fighter",
+      "at": 5,
+      "meaning": "the Mitsubishi A6M, the Second World War Japanese fighter plane"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone declares their passion for a Japanese warrior.",
+     "definitionFit": "Love is nil in tennis scoring, and the Zero was Japan's best-known wartime fighter aircraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,61 @@
     "text": "Gunners among amphibious creatures mounting low attack",
     "enumeration": "6"
    },
-   "solution": "STRAFE"
+   "solution": "STRAFE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "low attack",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 8,
+       "note": "among places the gunners in the middle of the creatures"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "mounting",
+         "at": 35,
+         "note": "in a down clue, mounting means the word is read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "amphibious creatures",
+         "at": 14,
+         "gives": "EFTS",
+         "note": "efts are newts, small amphibians"
+        }
+       ]
+      },
+      {
+       "words": "Gunners",
+       "at": 0,
+       "gives": "RA",
+       "note": "RA is the Royal Artillery, the gunners of the British Army"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Artillerymen in the middle of a swarm of newts, climbing over each other, as an aircraft sweeps in low.",
+     "walkthrough": "In a down clue 'mounting' gives STFE, read from the bottom up; 'among' then splits it after ST.",
+     "definitionFit": "To strafe is to attack ground targets with gunfire from low-flying aircraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mounting"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +139,43 @@
     "text": "Rising aroma brings little irritation",
     "enumeration": "4"
    },
-   "solution": "GNAT"
+   "solution": "GNAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "little irritation",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Rising",
+       "at": 0,
+       "note": "in a down clue, rising means the word reads from the bottom up, so backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aroma",
+       "at": 7,
+       "gives": "TANG",
+       "note": "a tang is a sharp smell or taste"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smell wafting up becomes a minor annoyance.",
+     "walkthrough": "'Rising' turns TANG upwards.",
+     "definitionFit": "A gnat is a tiny biting fly, a small source of annoyance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rising"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +189,52 @@
     "text": "Might millions crack clues?",
     "enumeration": "6"
    },
-   "solution": "MUSCLE"
+   "solution": "MUSCLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Might",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "millions",
+       "at": 6,
+       "gives": "M",
+       "note": "M is the abbreviation for million(s)"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crack",
+         "at": 15,
+         "note": "to crack something is to break it apart, so the letters of clues are broken up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clues",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Could millions of people solve the clues?",
+     "walkthrough": "'crack' gives the scrambled letters USCLE. 'Might' looks like a verb opening a question but is the noun meaning strength.",
+     "definitionFit": "Muscle is physical power or strength, the noun sense of might."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Might"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +248,40 @@
     "text": "Great admirer shows marriage promise subsequently",
     "enumeration": "8"
    },
-   "solution": "IDOLATER"
+   "solution": "IDOLATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Great admirer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "marriage promise",
+       "at": 20,
+       "gives": "IDO",
+       "note": "I do is the vow spoken at a wedding"
+      },
+      {
+       "words": "subsequently",
+       "at": 37,
+       "gives": "LATER",
+       "note": "subsequently means later"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A devoted fan proves it by proposing marriage afterwards.",
+     "definitionFit": "An idolater worships idols, so figuratively someone with excessive admiration for a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +301,59 @@
      }
     ]
    },
-   "solution": "TEASERVICE"
+   "solution": "TEASERVICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "set in China?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "in places the abbreviation inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "novel",
+         "at": 22,
+         "note": "novel means new, so the letters of secretive are made into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "secretive",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "American",
+       "at": 0,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US agent appears in a secretive book whose story is set in China.",
+     "walkthrough": "'novel' rearranges SECRETIVE into TESERVICE, and 'in' puts A inside. 'China' is capitalised to suggest the country; it means porcelain.",
+     "definitionFit": "A tea service is a matching set of cups, saucers and pot, often made of china."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +367,60 @@
     "text": "Discard black metal boxes thus",
     "enumeration": "8"
    },
-   "solution": "JETTISON"
+   "solution": "JETTISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "black",
+       "at": 8,
+       "gives": "JET",
+       "note": "jet is a deep glossy black"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "boxes",
+         "at": 20,
+         "note": "boxes means encloses, so the metal word goes round the word for thus"
+        }
+       ],
+       "parts": [
+        {
+         "words": "metal",
+         "at": 14,
+         "gives": "TIN",
+         "note": "tin is a metal"
+        },
+        {
+         "words": "thus",
+         "at": 26,
+         "gives": "SO",
+         "note": "so means thus, in this way"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to throw out black metal containers like this.",
+     "walkthrough": "'boxes' makes TISON; 'boxes' reads as a noun in the surface but is a verb meaning encloses.",
+     "definitionFit": "To jettison is to throw away or abandon something no longer wanted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boxes"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +434,60 @@
     "text": "Can occupant eat at bottom of stairs occasionally?",
     "enumeration": "7"
    },
-   "solution": "SARDINE"
+   "solution": "SARDINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Can occupant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at bottom of",
+       "at": 17,
+       "note": "in a down clue, being at the bottom means coming after, so the eating word follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "at": 37,
+         "note": "occasionally means only now and then, so every other letter of stairs is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stairs",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "words": "eat",
+       "at": 13,
+       "gives": "DINE",
+       "note": "to dine is to eat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is someone in the loo having a meal at the foot of the stairs now and then?",
+     "walkthrough": "'occasionally' takes SAR from the odd letters of stairs; 'at bottom of' puts DINE below it. 'Can' suggests a toilet but means a tin.",
+     "definitionFit": "Sardines are the classic tinned fish, packed into cans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Can"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +501,31 @@
     "text": "Clothing becomes a zombie?",
     "enumeration": "6"
    },
-   "solution": "UNDIES"
+   "solution": "UNDIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clothing",
+      "at": 0,
+      "meaning": "... are underclothes"
+     },
+     {
+      "text": "becomes a zombie?",
+      "at": 9,
+      "meaning": "someone who comes back from the dead has their death undone, as a zombie does"
+     }
+    ],
+    "explanation": {
+     "surface": "A garment that turns its wearer into one of the living dead.",
+     "definitionFit": "Undies is informal for underwear; the playful second reading splits it as the reverse of dying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "zombie"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +539,69 @@
     "text": "Fabric, cut in back, put on view",
     "enumeration": "6"
    },
-   "solution": "MOHAIR"
+   "solution": "MOHAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fabric",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 15,
+         "note": "back means the shortened word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "cut",
+           "at": 8,
+           "note": "cut means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "in",
+           "at": 12,
+           "gives": "HOME",
+           "note": "being in is being at home"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "put on view",
+       "at": 21,
+       "gives": "AIR",
+       "note": "to air something is to display or show it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A material is trimmed at the back and then displayed.",
+     "walkthrough": "'cut' drops the last letter of HOME, and 'back' turns HOM into MOH.",
+     "definitionFit": "Mohair is the yarn or cloth woven from the hair of the Angora goat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +615,40 @@
     "text": "Awkward time to make fewer stage appearances?",
     "enumeration": "8"
    },
-   "solution": "TACTLESS"
+   "solution": "TACTLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Awkward",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "time",
+       "at": 8,
+       "gives": "T"
+      },
+      {
+       "words": "make fewer stage appearances?",
+       "at": 16,
+       "gives": "ACTLESS",
+       "note": "to act less is to perform less often on stage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy actor decides it is time to cut down on performing.",
+     "definitionFit": "Tactless behaviour lacks diplomacy, so it is socially clumsy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +668,59 @@
      }
     ]
    },
-   "solution": "CHIEFINSPECTOR"
+   "solution": "CHIEFINSPECTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Morse being one",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bringing in",
+       "at": 43,
+       "note": "bringing in means the drug letter is placed inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "at": 34,
+         "note": "criminal suggests something wrong or crooked, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cop, is it French",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "ecstasy",
+       "at": 55,
+       "gives": "E",
+       "note": "E is the common abbreviation for the drug ecstasy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a crooked French policeman is smuggling drugs, with Inspector Morse in the frame.",
+     "walkthrough": "'criminal' rearranges COPISITFRENCH, and 'bringing in' adds E. Morse is the Oxford detective of Colin Dexter's novels and the TV series.",
+     "definitionFit": "Endeavour Morse is a fictional detective, eventually promoted to this senior police rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +740,41 @@
      }
     ]
    },
-   "solution": "HARDCHEESE"
+   "solution": "HARDCHEESE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Better luck next time",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cruel",
+       "at": 0,
+       "gives": "HARD",
+       "note": "hard means harsh or cruel"
+      },
+      {
+       "words": "boss",
+       "at": 6,
+       "gives": "CHEESE",
+       "note": "a big cheese is an important person, the boss"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh employer offers commiseration after a failure.",
+     "definitionFit": "Hard cheese is British slang for bad luck, said in mock sympathy, much like better luck next time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +788,53 @@
     "text": "Dullard ignoring odds in form checks up",
     "enumeration": "5"
    },
-   "solution": "SCHMO"
+   "solution": "SCHMO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dullard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 37,
+       "note": "in a down clue, up means the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "ignoring odds in",
+         "at": 8,
+         "note": "ignoring the odd letters leaves only the even-numbered letters of the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "form checks",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An idiot skips the odd items while checking a form.",
+     "walkthrough": "'ignoring odds in' keeps OMHCS, and 'up' turns it round.",
+     "definitionFit": "Schmo is American slang, from Yiddish, for a stupid or contemptible person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +848,49 @@
     "text": "Runs into club causing terror",
     "enumeration": "4"
    },
-   "solution": "BRAT"
+   "solution": "BRAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "terror",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 5,
+       "note": "into puts the runs letter inside the club word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "club",
+       "at": 10,
+       "gives": "BAT",
+       "note": "a bat is a club for striking a ball"
+      },
+      {
+       "words": "Runs",
+       "at": 0,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone charges at a nightclub, frightening everyone.",
+     "walkthrough": "'into' puts R inside BAT. 'terror' is a naughty child, not fear.",
+     "definitionFit": "A little terror is a badly behaved child, which is what a brat is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "terror"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +904,45 @@
     "text": "Passing port to be drunk with meal",
     "enumeration": "8"
    },
-   "solution": "TEMPORAL"
+   "solution": "TEMPORAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Passing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to be drunk",
+       "at": 13,
+       "note": "drunk suggests something reeling and disordered, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "port",
+       "at": 8
+      },
+      {
+       "words": "meal",
+       "at": 30
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Handing round the port to accompany dinner.",
+     "walkthrough": "'to be drunk' rearranges PORT and MEAL together.",
+     "definitionFit": "Temporal means relating to worldly time, hence transient or fleeting, as opposed to eternal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Passing"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +956,41 @@
     "text": "Spirit shown by ancient character — mariner?",
     "enumeration": "5"
    },
-   "solution": "ETHOS"
+   "solution": "ETHOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ancient character",
+       "at": 16,
+       "gives": "ETH",
+       "note": "eth is an Old English letter"
+      },
+      {
+       "words": "mariner",
+       "at": 36,
+       "gives": "OS",
+       "note": "OS is an ordinary seaman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The character of an old sea-dog, perhaps the Ancient Mariner.",
+     "definitionFit": "Ethos is the characteristic spirit or guiding beliefs of a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +1004,43 @@
     "text": "Seen, but referred to as heard",
     "enumeration": "7"
    },
-   "solution": "SIGHTED"
+   "solution": "SIGHTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Seen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SIGHTED",
+     "indicators": [
+      {
+       "text": "as heard",
+       "at": 22,
+       "note": "as heard says the word for referred to is to be spoken, giving another spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "referred to",
+       "at": 10,
+       "gives": "CITED",
+       "note": "cited means referred to or quoted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something was spotted, but only reported by hearsay.",
+     "walkthrough": "'as heard' turns CITED into its spoken twin.",
+     "definitionFit": "Sighted means observed or spotted, as in a ship sighted on the horizon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -301,7 +1054,42 @@
     "text": "Bird seen near water having rook trouble",
     "enumeration": "4"
    },
-   "solution": "RAIL"
+   "solution": "RAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird seen near water",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rook",
+       "at": 28,
+       "gives": "R",
+       "note": "R is the chess abbreviation for rook"
+      },
+      {
+       "words": "trouble",
+       "at": 33,
+       "gives": "AIL",
+       "note": "to ail is to trouble or afflict"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A waterside bird is pestered by a rook.",
+     "walkthrough": "'rook' looks like a second bird but is the chess piece.",
+     "definitionFit": "Rails are a family of marsh birds, including the water rail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1113,29 @@
      }
     ]
    },
-   "solution": "COMMONORGARDEN"
+   "solution": "COMMONORGARDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Familiar",
+      "at": 0,
+      "meaning": "ordinary, everyday"
+     },
+     {
+      "text": "words associated with market?",
+      "at": 9,
+      "meaning": "both words go before market: the Common Market and a market garden"
+     }
+    ],
+    "explanation": {
+     "surface": "A query about everyday terms linked to a market.",
+     "definitionFit": "Common-or-garden is a British idiom for ordinary or run-of-the-mill, just as familiar things are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1149,40 @@
     "text": "Riding maturer wild ass?",
     "enumeration": "6"
    },
-   "solution": "ONAGER"
+   "solution": "ONAGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wild ass",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Riding",
+       "at": 0,
+       "gives": "ON",
+       "note": "on means riding, as on horseback"
+      },
+      {
+       "words": "maturer",
+       "at": 7,
+       "gives": "AGER",
+       "note": "an ager is one who matures something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is that a wild donkey carrying an older rider?",
+     "definitionFit": "The onager is a species of wild ass found in Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1196,42 @@
     "text": "Was 12 bad?",
     "enumeration": "6"
    },
-   "solution": "RANCID"
+   "solution": "RANCID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bad",
+      "at": 7
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Was",
+       "at": 0,
+       "gives": "RAN",
+       "note": "with 12 read as its holder's job, was 12 means ran the department, so was gives RAN"
+      },
+      {
+       "words": "12",
+       "at": 4,
+       "gives": "CID",
+       "note": "12 is the answer to 12 across, a senior detective, who works in and heads the CID, the Criminal Investigation Department"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Was the chief inspector corrupt?",
+     "walkthrough": "To be a chief inspector (12 across) is to run CID, the British police's detective branch.",
+     "definitionFit": "Rancid describes food gone off, especially fats with a sour stale smell, so bad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1245,59 @@
     "text": "Working inside, the French produced some drink",
     "enumeration": "8"
    },
-   "solution": "LEMONADE"
+   "solution": "LEMONADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some drink",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the French",
+       "at": 16,
+       "gives": "LE",
+       "note": "le is French for the"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside",
+         "at": 8,
+         "note": "inside places the working word within the produced word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "produced",
+         "at": 27,
+         "gives": "MADE",
+         "note": "made means produced"
+        },
+        {
+         "words": "Working",
+         "at": 0,
+         "gives": "ON",
+         "note": "on means working, as of a machine"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "French workers made some kind of drink indoors.",
+     "walkthrough": "'inside' gives MONADE, which follows the French article.",
+     "definitionFit": "Lemonade is a soft drink flavoured with lemon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1311,42 @@
     "text": "Some poem, Masefield's classic work",
     "enumeration": "4"
    },
-   "solution": "EMMA"
+   "solution": "EMMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "classic work",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poem, Masefield's",
+       "at": 5,
+       "gives": "EMMA",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poem by John Masefield, the former Poet Laureate, is called a classic.",
+     "walkthrough": "'Some' takes the letters from poEM MAsefield.",
+     "definitionFit": "Emma is Jane Austen's 1815 novel, a classic of English literature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1360,54 @@
     "text": "Slip catch turned game",
     "enumeration": "6"
    },
-   "solution": "TENNIS"
+   "solution": "TENNIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turned",
+       "at": 11,
+       "note": "turned means the joined words are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Slip",
+         "at": 0,
+         "gives": "SIN",
+         "note": "a sin is a slip or lapse"
+        },
+        {
+         "words": "catch",
+         "at": 5,
+         "gives": "NET",
+         "note": "to net is to catch"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket catch in the slips that changed the match.",
+     "walkthrough": "'turned' reverses SINNET. Slip and catch look like cricket terms.",
+     "definitionFit": "Tennis is a racket sport played over a net."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slip"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1421,40 @@
     "text": "Country in which one did marathon?",
     "enumeration": "4"
    },
-   "solution": "IRAN"
+   "solution": "IRAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 17,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "did marathon",
+       "at": 21,
+       "gives": "RAN",
+       "note": "to have done a marathon is to have run, so ran"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Which country did one run a marathon in?",
+     "definitionFit": "Iran is a nation in western Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -423,7 +1468,30 @@
     "text": "Get out with this key",
     "enumeration": "6"
    },
-   "solution": "ESCAPE"
+   "solution": "ESCAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get out",
+      "at": 0,
+      "meaning": "to get out or break free"
+     },
+     {
+      "text": "this key",
+      "at": 13,
+      "meaning": "... (Esc) is a key on a computer keyboard"
+     }
+    ],
+    "explanation": {
+     "surface": "A command to leave using this key.",
+     "definitionFit": "Escape means flee or break free, and also names the keyboard's Esc key."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 28,
@@ -437,7 +1505,55 @@
     "text": "Song ardent student discovered round capital",
     "enumeration": "8"
    },
-   "solution": "MADRIGAL"
+   "solution": "MADRIGAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "discovered round",
+       "at": 20,
+       "note": "discovered round means the student is found next to the capital, placed after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ardent",
+       "at": 5,
+       "gives": "MAD",
+       "note": "mad about something is ardent or passionate about it"
+      },
+      {
+       "words": "capital",
+       "at": 37,
+       "gives": "RIGA",
+       "note": "Riga is the capital of Latvia"
+      },
+      {
+       "words": "student",
+       "at": 12,
+       "gives": "L",
+       "note": "L is a learner, as on a learner driver's L-plate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A keen student is found singing a song around a capital city.",
+     "walkthrough": "'discovered round' puts L after RIGA.",
+     "definitionFit": "A madrigal is a part-song for several voices, popular in the Renaissance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   }
  ]
 }
