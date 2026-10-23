@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,61 @@
     "text": "Recalled Mexican food consumed in the Spanish place",
     "enumeration": "6"
    },
-   "solution": "LOCATE"
+   "solution": "LOCATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Recalled",
+       "at": 0,
+       "note": "called back, so the whole assembled piece is read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "consumed in",
+         "at": 22,
+         "note": "something consumed is taken inside, so the food goes within the Spanish article"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Spanish",
+         "at": 34,
+         "gives": "EL",
+         "note": "el is the Spanish for 'the'"
+        },
+        {
+         "words": "Mexican food",
+         "at": 9,
+         "gives": "TACO",
+         "note": "a taco is a Mexican filled tortilla"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remembers Mexican food eaten in a Spanish restaurant.",
+     "walkthrough": "'consumed in' gives ETACOL before 'Recalled' turns it round; LE would be French, so the article must be the Spanish EL.",
+     "definitionFit": "To locate something is to put it in position, so the verb works as a synonym of place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Recalled"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +107,47 @@
      }
     ]
    },
-   "solution": "LOGOFF"
+   "solution": "LOGOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stop using computer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "design",
+       "at": 20,
+       "gives": "LOGO",
+       "note": "a logo is a graphic design or emblem"
+      },
+      {
+       "words": "fine",
+       "at": 32,
+       "gives": "F",
+       "note": "F is the abbreviation for fine, as on pencil leads"
+      },
+      {
+       "words": "following",
+       "at": 37,
+       "gives": "F",
+       "note": "F (as in 'p. 5f') is the abbreviation for following"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to quit the computer drawing program, adding a penalty afterwards.",
+     "definitionFit": "To log off is to end a session on a computer system, ceasing to use it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +161,63 @@
     "text": "I'm unsure after bungling count in sequence",
     "enumeration": "9"
    },
-   "solution": "CONTINUUM"
+   "solution": "CONTINUUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sequence",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 11,
+       "note": "the hesitation comes after the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bungling",
+         "at": 17,
+         "note": "bungling means making a mess of, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "count",
+         "at": 26
+        },
+        {
+         "words": "in",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "words": "I'm unsure",
+       "at": 0,
+       "gives": "UM",
+       "note": "um is the noise of someone hesitating or unsure"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitates after making a mistake counting things in order.",
+     "walkthrough": "'bungling' rearranges the two words to CONTIN; 'after' places the hesitation at the end.",
+     "definitionFit": "A continuum is an unbroken series or progression, much like a sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "count"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +231,59 @@
     "text": "Property contains needless empty passage",
     "enumeration": "7"
    },
-   "solution": "TRANSIT"
+   "solution": "TRANSIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "passage",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contains",
+       "at": 9,
+       "note": "contains means holds inside, so one piece goes into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Property",
+       "at": 0,
+       "gives": "TRAIT",
+       "note": "a trait is a property or characteristic"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 27,
+         "note": "an empty word has lost its inside, leaving only the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "needless",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A building has a corridor that serves no purpose.",
+     "walkthrough": "'empty' keeps only the first and last letters of 'needless'; 'contains' sets them inside the property word.",
+     "definitionFit": "Transit is the act of passing across or through, a synonym of passage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Property"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +297,43 @@
     "text": "German scientist's chum, bold type to some extent",
     "enumeration": "8"
    },
-   "solution": "HUMBOLDT"
+   "solution": "HUMBOLDT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German scientist's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to some extent",
+       "at": 35,
+       "note": "to some extent says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chum, bold type",
+       "at": 19,
+       "gives": "HUMBOLDT",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German scientist's friend appears in heavy print.",
+     "walkthrough": "The 's stands for 'is', linking definition to wordplay.",
+     "definitionFit": "Alexander von Humboldt was a celebrated German naturalist and explorer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bold"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +347,70 @@
     "text": "Dubious novice nun shaken, caught inside with diamonds",
     "enumeration": "11"
    },
-   "solution": "UNCONVINCED"
+   "solution": "UNCONVINCED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dubious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside",
+         "at": 34,
+         "note": "the letter goes inside the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "shaken",
+           "at": 19,
+           "note": "shaken things are jumbled up, so these letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "novice nun",
+           "at": 8
+          }
+         ]
+        },
+        {
+         "words": "caught",
+         "at": 27,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
+        }
+       ]
+      },
+      {
+       "words": "diamonds",
+       "at": 46,
+       "gives": "D",
+       "note": "D is the card-suit abbreviation for diamonds"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new nun, rattled after being caught wearing diamonds, looks doubtful.",
+     "walkthrough": "'shaken' rearranges NOVICE NUN; 'inside' puts C among those letters, then D follows.",
+     "definitionFit": "Someone dubious about a claim is doubtful, not persuaded of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +424,49 @@
     "text": "Drinking spirit after vocal disapproval",
     "enumeration": "7"
    },
-   "solution": "BOOZING"
+   "solution": "BOOZING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drinking",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 16,
+       "note": "the spirit comes after the disapproval in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vocal disapproval",
+       "at": 22,
+       "gives": "BOO",
+       "note": "boo is the noise a jeering crowd makes"
+      },
+      {
+       "words": "spirit",
+       "at": 9,
+       "gives": "ZING",
+       "note": "zing means energy, liveliness or spirit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes to drink after being jeered.",
+     "definitionFit": "Boozing is informal for drinking alcohol heavily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +480,45 @@
     "text": "Pruned parts of plants drop",
     "enumeration": "5"
    },
-   "solution": "LEAVE"
+   "solution": "LEAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drop",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Pruned",
+       "at": 0,
+       "note": "pruned means cut back, so the word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "parts of plants",
+       "at": 7,
+       "gives": "LEAVES",
+       "note": "leaves are parts of plants"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cut-back bits of plants fall.",
+     "definitionFit": "To leave a subject or a habit is to drop it, abandon it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +532,42 @@
     "text": "Supports team in industrial area",
     "enumeration": "8"
    },
-   "solution": "TEESSIDE"
+   "solution": "TEESSIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "industrial area",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Supports",
+       "at": 0,
+       "gives": "TEES",
+       "note": "tees support golf balls"
+      },
+      {
+       "words": "team",
+       "at": 9,
+       "gives": "SIDE",
+       "note": "a side is a team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backs a sports team in a factory district.",
+     "walkthrough": "TEESSIDE is an industrial region of north-east England around Middlesbrough.",
+     "definitionFit": "Teesside is known for steelmaking and chemical works, a classic industrial region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Supports"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +581,41 @@
     "text": "Agreeable redevelopment of Ealing",
     "enumeration": "6"
    },
-   "solution": "GENIAL"
+   "solution": "GENIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Agreeable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "redevelopment of",
+       "at": 10,
+       "note": "redeveloping a place rebuilds it differently, so its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ealing",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant regeneration of a London suburb.",
+     "walkthrough": "Ealing is a district of west London.",
+     "definitionFit": "A genial person is friendly and pleasant, which is agreeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "redevelopment"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +629,59 @@
     "text": "Praise one keeping company with boy",
     "enumeration": "8"
    },
-   "solution": "ACCOLADE"
+   "solution": "ACCOLADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 11,
+       "note": "keeping means holding inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 7,
+       "gives": "ACE",
+       "note": "an ace is a one in cards"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "company",
+         "at": 19,
+         "gives": "CO"
+        },
+        {
+         "words": "boy",
+         "at": 32,
+         "gives": "LAD",
+         "note": "a lad is a boy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is commended for keeping a youngster company.",
+     "walkthrough": "'keeping' puts COLAD inside ACE.",
+     "definitionFit": "An accolade is an award or expression of praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +701,30 @@
      }
     ]
    },
-   "solution": "FLIESOPEN"
+   "solution": "FLIESOPEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suddenly becomes free",
+      "at": 0,
+      "meaning": "a door or gate that ... swings free all at once"
+     },
+     {
+      "text": "thereby displaying underwear?",
+      "at": 23,
+      "meaning": "flies are the fastening on trousers; if they are open the underwear shows"
+     }
+    ],
+    "explanation": {
+     "surface": "Something bursts loose and embarrassingly exposes someone's undergarments.",
+     "definitionFit": "To fly open is to burst apart suddenly; trouser flies left undone reveal what is beneath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +738,47 @@
     "text": "Exit hospital ward with Scandinavian giving details",
     "enumeration": "11"
    },
-   "solution": "PARTICULARS"
+   "solution": "PARTICULARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "details",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Exit",
+       "at": 0,
+       "gives": "PART",
+       "note": "to part is to depart or exit"
+      },
+      {
+       "words": "hospital ward",
+       "at": 5,
+       "gives": "ICU",
+       "note": "ICU is the intensive care unit of a hospital"
+      },
+      {
+       "words": "Scandinavian",
+       "at": 24,
+       "gives": "LARS",
+       "note": "Lars is a common Scandinavian man's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Nordic patient leaves intensive care and supplies information.",
+     "definitionFit": "Particulars are specific facts or items of information, that is details."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exit"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +792,45 @@
     "text": "Fancies cider cask, just all the contents",
     "enumeration": "5"
    },
-   "solution": "IDEAS"
+   "solution": "IDEAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fancies",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "all the contents",
+       "at": 25,
+       "note": "the contents of a word are its insides, all bar the first and last letters, taken from both words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cider",
+       "at": 8
+      },
+      {
+       "words": "cask",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone imagines what is in a barrel of cider.",
+     "walkthrough": "'all the contents' takes IDE from cider and AS from cask.",
+     "definitionFit": "Fancies in the sense of notions or thoughts are ideas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancies"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +844,42 @@
     "text": "Having trouble catching goat, say, identified as culprit",
     "enumeration": "14"
    },
-   "solution": "BUTTERFINGERED"
+   "solution": "BUTTERFINGERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Having trouble catching",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "goat, say",
+       "at": 24,
+       "gives": "BUTTER",
+       "note": "a goat is an example of something that butts, a butter"
+      },
+      {
+       "words": "identified as culprit",
+       "at": 35,
+       "gives": "FINGERED",
+       "note": "to finger someone is to inform on them as guilty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goat is singled out as the guilty party.",
+     "definitionFit": "A butterfingered person is clumsy and keeps dropping things, poor at catching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "goat"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +893,61 @@
     "text": "Diverts walker from south around city",
     "enumeration": "9"
    },
-   "solution": "REDIRECTS"
+   "solution": "REDIRECTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diverts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 26,
+       "note": "the reversed walker goes around the city letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "from south",
+         "at": 15,
+         "note": "in a down clue, reading from the south means going upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "walker",
+         "at": 8,
+         "gives": "STRIDER",
+         "note": "a strider is someone walking with long steps"
+        }
+       ]
+      },
+      {
+       "words": "city",
+       "at": 33,
+       "gives": "EC",
+       "note": "EC is the postcode area of the City of London"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hiker coming up from the south takes a detour round a town.",
+     "walkthrough": "In a down clue 'from south' means read upwards, giving REDIRTS; 'around' wraps that round the City of London postcode.",
+     "definitionFit": "To redirect is to send something on another route, so it diverts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "walker"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +961,60 @@
     "text": "King in section of Observer article is island native",
     "enumeration": "8"
    },
-   "solution": "IRISHMAN"
+   "solution": "IRISHMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "island native",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "the king is placed in between the other two pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "section of Observer",
+         "at": 8,
+         "gives": "IRIS",
+         "note": "the iris is part of the eye, an observer's organ"
+        },
+        {
+         "words": "article",
+         "at": 28,
+         "gives": "AN",
+         "note": "an is the indefinite article"
+        }
+       ]
+      },
+      {
+       "words": "King",
+       "at": 0,
+       "gives": "HM",
+       "note": "HM stands for His Majesty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch appears in part of a newspaper article about an islander.",
+     "walkthrough": "'Observer' looks like the Sunday newspaper, but it is the eye; 'in' splits the eye part and the article to seat the king.",
+     "definitionFit": "An Irishman is a native of Ireland, an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Observer"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1034,59 @@
      }
     ]
    },
-   "solution": "ROMANTICCOMEDY"
+   "solution": "ROMANTICCOMEDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Richard Curtis film, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 62,
+       "note": "the rearranged letters go about the zero"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "troubled",
+         "at": 53,
+         "note": "troubled means disturbed, so these letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "city commander",
+         "at": 38
+        }
+       ]
+      },
+      {
+       "words": "love",
+       "at": 68,
+       "gives": "O",
+       "note": "love is zero in tennis, the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film by Richard Curtis shows a city's leader worried about romance.",
+     "walkthrough": "'troubled' rearranges CITY COMMANDER; 'about' puts those letters round O. Richard Curtis wrote Four Weddings and a Funeral and Notting Hill.",
+     "definitionFit": "Curtis's films are light-hearted love stories, examples of the romcom genre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "commander"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1100,58 @@
     "text": "Generated renown penning book for young child",
     "enumeration": "7"
    },
-   "solution": "NEWBORN"
+   "solution": "NEWBORN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "young child",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penning",
+       "at": 17,
+       "note": "penning means enclosing, so the letter goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Generated",
+         "at": 0,
+         "note": "generated means produced, so the letters are reformed in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "renown",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "book",
+       "at": 25,
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fame produced by writing a children's book.",
+     "walkthrough": "'Generated' rearranges RENOWN; 'penning' puts B inside it.",
+     "definitionFit": "A newborn is a baby just delivered, the youngest kind of child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Generated"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1165,58 @@
     "text": "One senior blocking obstinate person's bad government",
     "enumeration": "7"
    },
-   "solution": "MISRULE"
+   "solution": "MISRULE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bad government",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocking",
+       "at": 11,
+       "note": "blocking means obstructing from within, so these letters sit inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "obstinate person's",
+       "at": 20,
+       "gives": "MULE",
+       "note": "a mule is a stubborn person; the 's stands for is"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "senior",
+         "at": 4,
+         "gives": "SR"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly official obstructs a stubborn person's poor administration.",
+     "walkthrough": "'blocking' puts ISR inside MULE.",
+     "definitionFit": "Misrule is incompetent or unjust governing of a state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1230,31 @@
     "text": "Calculating people being slippery beasts",
     "enumeration": "6"
    },
-   "solution": "ADDERS"
+   "solution": "ADDERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Calculating people",
+      "at": 0,
+      "meaning": "people who add up figures"
+     },
+     {
+      "text": "slippery beasts",
+      "at": 25,
+      "meaning": "vipers, snakes"
+     }
+    ],
+    "explanation": {
+     "surface": "Scheming people are snakes.",
+     "definitionFit": "The noun names both those who sum numbers and venomous European snakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Calculating"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1268,49 @@
     "text": "Use needle on covers at home connecting material",
     "enumeration": "5"
    },
-   "solution": "SINEW"
+   "solution": "SINEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "connecting material",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covers",
+       "at": 14,
+       "note": "covers means encloses, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Use needle",
+       "at": 0,
+       "gives": "SEW",
+       "note": "to sew is to use a needle and thread"
+      },
+      {
+       "words": "at home",
+       "at": 21,
+       "gives": "IN",
+       "note": "in means at home"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone does needlework on cushion covers at home.",
+     "walkthrough": "'covers' is a verb here: the stitching word encloses the home word.",
+     "definitionFit": "A sinew is a tendon, tissue joining muscle to bone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1324,49 @@
     "text": "Bugs from opposing directions constricting chest",
     "enumeration": "5"
    },
-   "solution": "NARKS"
+   "solution": "NARKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bugs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "constricting",
+       "at": 30,
+       "note": "constricting means squeezing around, so the chest sits inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "opposing directions",
+       "at": 10,
+       "gives": "NS",
+       "note": "N and S, north and south, are opposite compass points"
+      },
+      {
+       "words": "chest",
+       "at": 43,
+       "gives": "ARK",
+       "note": "an ark is a chest or box"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Insects coming from both sides tighten round someone's ribcage.",
+     "walkthrough": "'constricting' puts ARK between N and S.",
+     "definitionFit": "To nark someone is British slang to annoy or irritate them, as bugs does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bugs"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1380,62 @@
     "text": "Ill-favoured outskirts of Dundee abandoned by father and daughter",
     "enumeration": "9"
    },
-   "solution": "UNDESIRED"
+   "solution": "UNDESIRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ill-favoured",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "outskirts of",
+         "at": 13,
+         "note": "the outskirts are the outer letters of the word, which go"
+        },
+        {
+         "text": "abandoned",
+         "at": 33,
+         "note": "abandoned says those outer letters are dropped, keeping the inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dundee",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "words": "father",
+       "at": 46,
+       "gives": "SIRE",
+       "note": "a sire is a father"
+      },
+      {
+       "words": "daughter",
+       "at": 57,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unattractive town's edges are deserted by a parent and child.",
+     "walkthrough": "'outskirts of … abandoned' strips D and E from Dundee, a Scottish city, to leave UNDE.",
+     "definitionFit": "Ill-favoured means unwanted or not in favour, someone no one desires."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ill-favoured"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1449,60 @@
     "text": "Spoil preserve adding in yellow herb",
     "enumeration": "8"
    },
-   "solution": "MARJORAM"
+   "solution": "MARJORAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "herb",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Spoil",
+       "at": 0,
+       "gives": "MAR",
+       "note": "to mar is to spoil"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "adding in",
+         "at": 15,
+         "note": "adding in means putting something into the middle of another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "preserve",
+         "at": 6,
+         "gives": "JAM",
+         "note": "jam is a fruit preserve"
+        },
+        {
+         "words": "yellow",
+         "at": 25,
+         "gives": "OR",
+         "note": "or is the heraldic gold or yellow"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ruining a jar of jam by stirring in a yellow herb.",
+     "walkthrough": "'adding in' places the heraldic colour inside the preserve, after the spoiling word.",
+     "definitionFit": "Marjoram is an aromatic plant of the mint family used in cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "yellow"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1516,63 @@
     "text": "Ending fast early, that man gets pastry product",
     "enumeration": "6"
    },
-   "solution": "QUICHE"
+   "solution": "QUICHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pastry product",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Ending",
+         "at": 0,
+         "note": "with 'early', the word's ending is cut short"
+        },
+        {
+         "text": "early",
+         "at": 12,
+         "note": "ending early means stopping before the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fast",
+         "at": 7,
+         "gives": "QUICK",
+         "note": "quick means fast"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "words": "that man",
+       "at": 19,
+       "gives": "HE",
+       "note": "he is that man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man breaks his fast early and gets a savoury tart.",
+     "walkthrough": "'Ending … early' drops the last letter of QUICK.",
+     "definitionFit": "A quiche is a savoury open tart with an egg filling in a pastry case."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1586,47 @@
     "text": "Sins circulated with one's tendency to pry",
     "enumeration": "8"
    },
-   "solution": "NOSINESS"
+   "solution": "NOSINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tendency to pry",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "circulated",
+       "at": 5,
+       "note": "circulated means sent round, so the letters are moved about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sins",
+       "at": 0
+      },
+      {
+       "words": "one's",
+       "at": 21,
+       "gives": "ONES",
+       "note": "the apostrophe is ignored, leaving the letters ONES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip spreads about someone's misdeeds.",
+     "walkthrough": "'circulated' mixes SINS and ONES together.",
+     "definitionFit": "Nosiness is an inquisitive interest in other people's business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circulated"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1640,59 @@
     "text": "Against South American cleric returning",
     "enumeration": "6"
    },
-   "solution": "VERSUS"
+   "solution": "VERSUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Against",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "returning",
+       "at": 30,
+       "note": "returning means going back, so the pieces are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "South",
+         "at": 8,
+         "gives": "S"
+        },
+        {
+         "words": "American",
+         "at": 14,
+         "gives": "US",
+         "note": "US means American"
+        },
+        {
+         "words": "cleric",
+         "at": 23,
+         "gives": "REV",
+         "note": "Rev, Reverend, is a cleric's title"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A South American priest comes home in opposition.",
+     "walkthrough": "'returning' reverses SUSREV.",
+     "definitionFit": "Versus means in opposition to, as in a match between two teams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   }
  ]
 }
