@@ -1104,3 +1104,148 @@ def mark_counts(text):
     straight = re.sub("[\u2018\u2019]", "'", re.sub("[\u2010-\u2014]", "-", text))
     return collections.Counter(straight) - collections.Counter(
         ch for ch in text if ch.isalnum() or ch.isspace())
+
+
+# ------------------------------------------- glitches a reread brings into a clue
+#
+# tools/audit_updates.py counts these in a clue's text before and after each
+# reread ("Update ..." commits) and calls a class introduced when the new text
+# has more of it, fixed when fewer. Seeded by the 7-day audit of 10-16..23
+# (#cryptic-crosswords). Each is a shape the print never has, or has so seldom
+# that a reread adding one is a slip: counted, not mended (see pound_sign and
+# count_in_text for the two that are).
+
+#: A space before "?" or "!" ("bone ?"). The old Times set it so (punctuation.py),
+#: so it is a churn class to watch, not a rule.
+SPACE_BEFORE_MARK = re.compile(r"(?<=[\w'\"\u2019\u201d)]) +[?!]")
+#: The page's furniture inside a clue: a running head's "times," ("look times,
+#: up", times-19892; not "At times," or "hard times,"), "crossword", a puzzle
+#: number, a page number.
+FURNITURE = re.compile(r"(?i)(?<![\w'])(?<!at )(?<!some )(?<!many )(?<!hard )(?<!good )(?<!bad )(?<!old )"
+                       r"(?<!other )(?<!modern )times,(?=\s)|\bcrossword\b|\bno\.\s?\d{4,5}\b|\bpage\s?\d{1,3}\b")
+#: A word's line-end hyphen left in, with the page or column number the line
+#: break let in ("look- 2119. ing", "sea- Wart seaside"). A "pre- and post-"
+#: hyphen is print.
+HYPHEN_LEAK = re.compile(r"(?<=[A-Za-z])-\s+\d{2,5}\b\.?|(?<=[a-z]{2})- [·.]?(?!(?:and|or|to|nor|cum)\b)(?=[A-Za-z])")
+#: "\u00a3" read as "E" before a sum ("E25"; POUND_SUM below, which leaves the London
+#: postcodes E1-E20 alone), and figures glued to a word ("2A former emperor",
+#: "America25"): an ordinal, a decade, a unit or "4x4" is print.
+GLUED_FIGURES = re.compile(
+    r"(?<![\w\u00a3$\u20ac.,/:'\-])\d+(?!(?:st|nd|rd|th|s|am|pm|m|k|p|d|cc|ft|in|lb|oz|mph|kg|km|cm|mm|ml|mg|hp|bc|ad|v|x\d+)\b)"
+    r"[A-Za-z]+\b|\b[A-Za-z]{2,}\d+\b")
+#: A figure standing alone in running text, no reference word before it nor a
+#: unit after it ("for 9 securing prisoners"). A lone 0 or 1 before a word is ZERO_ONE's.
+LONE_FIGURE = re.compile(
+    r"(?<![\w\u00a3$\u20ac.,:/'(\-])(?<!see )(?<!See )(?<!and )(?<!nos )(?<!No\. )(?![01] [a-z])\d{1,4}"
+    r"(?![\w%.,:/')\-])(?! ?(?:across|down|ac|dn|per|and|or|to|x|in|pm|am)\b)")
+#: Marks no clue prints: a symbol, an "&" inside a word ("champ&tre"), a lone
+#: stop or middle dot between words, a run of mixed marks ("33 -.(Tennyson)").
+SYMBOL_JUNK = re.compile(r"[*~^|<>{}\[\]\\@#=+\u2022\u00ac\u00a7\u00a6]|(?<=[A-Za-z])&(?=[A-Za-z])|(?<=\S) [.\u00b7,;:](?= \S)"
+                         r"|\s-\.|\.\(|[,;:]{2,}|\u00b7")
+#: The figure "0" or "1" for the letter "O" or "I" ("1 would", "0 command",
+#: "c0mmand", "1ike").
+ZERO_ONE = re.compile(
+    r"(?<![\w\u00a3$\u20ac.,:/'\-])[01](?= [a-z]{2,})(?! (?:across|down|ac|dn|and|or|to|of|per|in|by|at|for|from|up|out|over)\b)"
+    r"|(?<=[A-Za-z])[01](?=[A-Za-z])|(?<![\w\u00a3$\u20ac.,:/'\-])0(?=[a-z]{2,})|(?<![\w\u00a3$\u20ac.,:/'\-])1(?=[a-z]{2,}\b)(?!(?:st|th)\b)")
+#: A count left inside a clue's text ("contest (7) guest?"): the text never holds one.
+COUNT_IN_TEXT = re.compile(r"\(\s*\d{1,2}(?:\s*[,\-\u2013.]\s*\d{1,2})*\s*\)")
+#: A double quote opening the clue that nothing closes.
+LEADING_QUOTE = re.compile(r'^\s*["\u201c](?![^"\u201d]*["\u201d])')
+#: A spaced hyphen where a dash stood ("risk - part").
+SPACED_HYPHEN = re.compile(r"(?<=\w) - (?=\w)")
+#: A word printed twice ("the the").
+DOUBLED_WORD = re.compile(r"(?i)\b([a-z]{2,})\s+\1\b")
+
+
+def unbalanced(text):
+    """How many brackets and double quotes in `text` have no partner."""
+    n = abs(text.count("(") - text.count(")")) + abs(text.count("[") - text.count("]"))
+    n += text.count('"') % 2 + abs(text.count("\u201c") - text.count("\u201d"))
+    return n
+
+
+#: class -> function(text) -> how many of that glitch `text` holds.
+GLITCHES = {
+    "a:space-before-mark": lambda t: len(SPACE_BEFORE_MARK.findall(t)),
+    "b:furniture": lambda t: len(FURNITURE.findall(t)),
+    "c:hyphen-leak": lambda t: len(HYPHEN_LEAK.findall(t)),
+    "d:pound-as-E": lambda t: len(POUND_SUM.findall(t)),
+    "d:glued-figures": lambda t: len(GLUED_FIGURES.findall(t)),
+    "d:lone-figure": lambda t: len(LONE_FIGURE.findall(t)),
+    "e:unbalanced": unbalanced,
+    "e:symbol-junk": lambda t: len(SYMBOL_JUNK.findall(t)),
+    "h:zero-one": lambda t: len(ZERO_ONE.findall(t)),
+    "i:count-in-text": lambda t: len(COUNT_IN_TEXT.findall(t)),
+    "i:leading-quote": lambda t: len(LEADING_QUOTE.findall(t)),
+    "i:spaced-hyphen": lambda t: len(SPACED_HYPHEN.findall(t)),
+    "i:doubled-word": lambda t: len(DOUBLED_WORD.findall(t)),
+    "i:ampersand": lambda t: len(STRAY_AMPERSAND.findall(t)),
+}
+
+
+def glitch_counts(text):
+    """{class: count} of each GLITCHES class `text` holds (none: absent)."""
+    text = text or ""
+    return {c: n for c, f in GLITCHES.items() if (n := f(text))}
+
+
+#: The classes a reading may not gain over a held clue (file_archive_org_puzzles.corrects):
+#: each is a reader's, never the print's, in the 10-16..23 rereads.
+REFUSED_GLITCHES = ("b:furniture", "c:hyphen-leak", "d:pound-as-E", "d:glued-figures", "e:unbalanced",
+                    "h:zero-one", "i:count-in-text")
+
+
+def gains_glitch(was, now, classes=REFUSED_GLITCHES):
+    """The first of `classes` the text `now` holds more of than `was`, or None."""
+    a, b = glitch_counts(was), glitch_counts(now)
+    return next((c for c in classes if b.get(c, 0) > a.get(c, 0)), None)
+
+
+def likeness(a, b):
+    """How alike two clue texts read, 0..1: their characters' match ratio,
+    case and marks aside. Under 0.5 they are two clues' words, not one's."""
+    import difflib
+
+    def norm(t):
+        return " ".join(re.sub(r"[^\w\s]", " ", (t or "").lower()).split())
+    return difflib.SequenceMatcher(None, norm(a), norm(b), autojunk=False).ratio()
+
+
+#: "E" for "£" before a sum: two figures over 20, three or four, or a sum with
+#: pence or thousands ("E25", "E500", "E1.000"). E1 to E20 are London postcodes
+#: ("Lives in E8 back street"), print, and stand.
+POUND_SUM = re.compile(r"(?<![\w£$€])E(?=(?:[2-9]\d|\d{3,4}|\d{1,4}[.,]\d{2,3})(?![\d\w]))")
+
+
+def pound_sign(text):
+    """`text` with the "E" a reader made of a "£" before a sum read back
+    ("with E25 left" is "with £25 left"; POUND_SUM)."""
+    return POUND_SUM.sub("£", text)
+
+
+#: The clue's own count left in its text with a neighbour's scraps after it:
+#: "experience (5). code.", "Sounds good (5,4) first".
+COUNT_TAIL = re.compile(r"\s*\(\s*(\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)\s*\)(?P<rest>[^()]*)$")
+#: Most words the scraps after it may hold.
+COUNT_TAIL_WORDS = 4
+
+
+def count_in_text(text, enum):
+    """`text` cut at its own count (COUNT_TAIL): the figures the light's
+    enumeration `enum` prints, part for part, with at most COUNT_TAIL_WORDS
+    words of a neighbour's after it and two words or more before. Another
+    count is the clue's words ("(1917)") and stands, and so do words after
+    it that end as a clue does, on "?" or "!" ("it (5,3) madly protected?"),
+    unless a stop or a clue number leads them ("(8) 171 Hollywood's top
+    twelve?")."""
+    m = COUNT_TAIL.search(text or "")
+    if not m or not enum:
+        return text
+    if re.findall(r"\d+", m.group(1)) != re.findall(r"\d+", enum):
+        return text
+    rest = m.group("rest").strip()
+    if len(re.findall(r"[A-Za-z]+", rest)) > COUNT_TAIL_WORDS or len(text[:m.start()].split()) < 2:
+        return text
+    if rest and rest[-1] in "?!" and not re.match(r"[.,;:\d]", rest):
+        return text
+    return text[:m.start()].rstrip()

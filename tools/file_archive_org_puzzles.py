@@ -7886,10 +7886,18 @@ def keep_held_clues(puzzle, old):
     for e in puzzle["entries"]:
         lid, h = entry_id(e), was.get(entry_id(e))
         held, now = (h or {}).get("clue") or {}, e.get("clue") or {}
-        if h is None or lid in lost or not (held.get("text") or "").strip() or ocr_clues.bled(held["text"]) \
-                or held.get("enumeration") != now.get("enumeration") or held.get("text") == now.get("text"):
+        if h is None or lid in lost or not (held.get("text") or "").strip() or ocr_clues.bled(held["text"]):
             continue
-        if (now.get("text") or "").strip() and corrects(held["text"], now["text"], now.get("asPrinted") or ()):
+        # A count that loses word breaks the answer bears out ("5-8" to "13"), or
+        # another clue's words over a whole held one ("See 25" to "Cambridge Park,
+        # E 11 01-989"), is the reread's slip: the held clue stands
+        # (tools/audit_updates.py's g:enum-structure and f:rewrite).
+        slipped = breaks_lost(held.get("enumeration"), now.get("enumeration"), h.get("solution") or e.get("solution")) \
+            or rewritten(held["text"], now.get("text"))
+        if not slipped and (held.get("enumeration") != now.get("enumeration") or held.get("text") == now.get("text")):
+            continue
+        if not slipped and (now.get("text") or "").strip() \
+                and corrects(held["text"], now["text"], now.get("asPrinted") or ()):
             continue
         e["clue"] = held
         if h.get("annotation"):
@@ -8055,6 +8063,25 @@ def regressions(was, now, printed=()):
     return found
 
 
+#: Below this likeness (clue_text.likeness) a reading of a held clue is another clue's words.
+REWRITE_LIKENESS = 0.5
+
+
+def rewritten(was, now):
+    """Whether the reading `now` of the held clue `was` is other words
+    altogether (clue_text.likeness under REWRITE_LIKENESS): a reread laid
+    another clue's or the page's text on the light ("Bill's relations" to
+    "Virtue"). Neither blank."""
+    return bool((was or "").strip() and (now or "").strip()) and clue_text.likeness(was, now) < REWRITE_LIKENESS
+
+
+def breaks_lost(was, now, answer):
+    """Whether the enumeration `now` drops word breaks of the held `was`
+    (enumeration.structure_lost) that the light's `answer` bears out
+    (enumeration.answer_breaks): the reread misread the count's marks."""
+    return enumeration.structure_lost(was, now) and enumeration.answer_breaks(was, answer, ocr_clues.is_word)
+
+
 def regressed(was, now, printed=()):
     """Whether the reread `now` loses print the held `was` read right
     (regressions): the held clue stays."""
@@ -8091,6 +8118,11 @@ def corrects(was, now, printed=()):
     if not (was or "").strip() or not ocr_clues.tokens(now or "") or now == was:
         return False
     if regressed(was, now, printed):
+        return False
+    # A glitch only a reader makes that the held clue lacks: page furniture, a
+    # line-end hyphen with a page number, "E25", "2A", an unpaired quote, "1 would",
+    # the count left in the text (clue_text.REFUSED_GLITCHES; tools/audit_updates.py).
+    if clue_text.gains_glitch(was, now):
         return False
     if spaces_collapsed(was, now) or punctuation.mended(was) == now:
         return True
@@ -8185,7 +8217,9 @@ def corrected_clues(puzzle, old, skip=()):
                                          lights, now[lid].get("asPrinted") or ())):
             continue
         clue = {**now[lid]}
-        if "enumeration" in was and "enumeration" not in clue:
+        # A count that lost word breaks the answer bears out ("5-8" to "13") keeps the held one's.
+        if "enumeration" in was and ("enumeration" not in clue
+                                     or breaks_lost(was["enumeration"], clue["enumeration"], e.get("solution"))):
             clue["enumeration"] = was["enumeration"]
         e["clue"] = clue
         if any(lid in ids for ids in duplicated_clues(old["entries"], one_list=True)):

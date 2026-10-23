@@ -257,4 +257,41 @@ import quotes
 assert quotes.unligature("stu\ufb00 \u2019") == "stuff \u2019"
 assert ct.number_figures("15,683 *") == "15683" and ct.FIGURE_SLIPS["3"] == "8"
 assert ct.mark_counts("Ann\u2019s \u2014 clue, a") == ct.mark_counts("Ann's - clue, a") == {"'": 1, "-": 1, ",": 1}
+# glitches a reread brings in (tools/audit_updates.py), each seen in the 10-16..23 rereads
+for cls, text in [("a:space-before-mark", "Hold it, Mister !"),
+                  ("b:furniture", "About to entertain lavishly, look times, up place to eat"),
+                  ("c:hyphen-leak", "Knocks about Minehead look- 2119. ing for swindles"),
+                  ("c:hyphen-leak", "Everyone's right at the sea- Wart seaside"),
+                  ("d:pound-as-E", "Locks secured, in the end, with E25 left"),
+                  ("d:glued-figures", "2A former emperor rebuffed the follower of another"),
+                  ("d:lone-figure", "Sounds like a city's devices for 9 securing prisoners"),
+                  ("e:unbalanced", 'Oriental girl stars in "The Special Agents'),
+                  ("e:symbol-junk", "Best fete champ&tre?"),
+                  ("h:zero-one", "Featured in the newspaper. 1 live for danger"),
+                  ("h:zero-one", "Name held by fifth-rate foreign 0 nobleman"),
+                  ("i:count-in-text", "Bomb is not half an unpleasant experience (5). code."),
+                  ("i:leading-quote", '" Where drivers stand'),
+                  ("i:spaced-hyphen", "Took a risk - part of church"),
+                  ("i:doubled-word", "Gone with the the wind")]:
+    assert cls in ct.glitch_counts(text), (cls, text)
+# mirror: the print's own shapes are no glitch
+for text in ["Locks secured, in the end, with \u00a325 left", "Lives in E8 back street", "Pass the 1st XV in the 1960s",
+             "At times, I could weep", "A pre- and post-war tale", "See 1 across", "Gone with the wind",
+             "Oriental girl stars in \"The Special Agents\"", "O come, all ye faithful", "30 per cent off"]:
+    assert not ct.glitch_counts(text), (text, ct.glitch_counts(text))
+assert ct.gains_glitch("Locks with \u00a325 left", "Locks with E25 left") == "d:pound-as-E"
+assert ct.gains_glitch("Hold it, Mister!", "Hold it, Mister !") is None  # the old Times's own setting
+assert ct.likeness("Bill's relations", "Virtue") < 0.5 < ct.likeness("Dry places ruined", "Dry places, ruined")
+# pound_sign: "E" for "\u00a3" before a sum, never before a London postcode (E1-E20)
+assert ct.pound_sign("with E25 left") == "with \u00a325 left" and ct.pound_sign("gets E1.000 for") == "gets \u00a31.000 for"
+assert ct.pound_sign("Lives in E8 back street") == "Lives in E8 back street" and ct.pound_sign("Room E1?") == "Room E1?"
+# count_in_text: the light's own count with a neighbour's scraps after it is cut
+assert ct.count_in_text("Bomb is not half an unpleasant experience (5). code.", "5") == \
+    "Bomb is not half an unpleasant experience"
+assert ct.count_in_text("Surround streets in Dover and Calais? Sounds good (5,4) first", "5,4") == \
+    "Surround streets in Dover and Calais? Sounds good"
+# mirror: another count, a clue's own ending after it, or no enumeration stands
+for text, enum in [("Event of 1917 (4)", "5"), ("Man's surrounded by it (5,3) madly protected?", "5,3"),
+                   ("Bomb (5). code.", None)]:
+    assert ct.count_in_text(text, enum) == text, text
 print("clue_text ok")
