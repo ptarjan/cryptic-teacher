@@ -36,9 +36,9 @@ from pathlib import Path
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
-import clue_text  # noqa: E402
-import enumeration  # noqa: E402
-import learn_postproc  # noqa: E402
+import clue_text
+import enumeration
+import learn_postproc
 
 CACHE = Path(os.environ.get("POSTPROC_LEARN_DIR") or Path.home() / ".cache" / "postproc_learn")
 DEFAULT_CURSOR = os.environ.get("AUDIT_CURSOR") or str(CACHE / "audit_cursor")

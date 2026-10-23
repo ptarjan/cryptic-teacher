@@ -779,10 +779,24 @@ ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("a scan no read waits on holds while a full read pool of reads is ready", True,
       ev.index(["start", "read", "r2", "v1"]) < ev.index(["start", "scan", "s9", "v1"]))
 log.unlink()
-fake(sleep={"r1": 2.5, "r2": 2.5})  # long enough for a loaded host to start the scan's process while r1 runs
+import threading
+def release_on(marker, path, limit=60):
+    """Touch `path` once units.log holds `marker`, or after `limit` s: a held unit's end is an event
+    of the test's, not a guessed time (on a loaded CI runner a unit's brief and process take seconds)."""
+    def watch():
+        until = time.monotonic() + limit
+        while time.monotonic() < until and not (log.exists() and marker in log.read_text()):
+            time.sleep(0.05)
+        path.touch()
+    threading.Thread(target=watch, daemon=True).start()
+# The reads run until the scan has started (or 60 s): a scan held behind them starts only after r1 ends.
+released = T / "release-s9"
+fake(hold={"r1": str(released), "r2": str(released)})
 eq.plan = units(["s9"], [("r1", []), ("r2", [])])
+release_on("start scan s9 ", released)
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.2)
+released.touch()
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("with fewer ready reads than read slots the scans start at once", True,
       ev.index(["start", "scan", "s9", "v1"]) < ev.index(["end", "read", "r1"]))
@@ -871,11 +885,26 @@ check("the next run starts the kept plan's units before its own plan is made", (
 log.unlink()
 # A slice boundary: the next slice fills its free slots with what the last
 # one had not started, at once, its ledger upkeep on the planner thread.
-fake(sleep={"k2": 4, "k3": 4})
+# Driven by events, not wall time (a 2 s slice on a loaded CI runner ended before any unit logged its
+# start): k2 and k3 run until released, so both slots are busy and k4, k5 cannot start in this slice,
+# and the slice's clock runs out only once k3 (begun when k1 ends) has logged its start.
+released = T / "release-k"
+fake(hold={"k2": str(released), "k3": str(released)})
 kept_ho = Path(os.environ["TMP"]) / "kept-handoff2.json"
 eq.plan = units([], [(f"k{k}", []) for k in range(1, 6)])
-with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
-    eq.dispatch(["times"], cache, workers=2, replan=60, seconds=2, handoff=kept_ho)
+class KSliceClock:
+    def __getattr__(self, name):
+        return getattr(time, name)
+    def monotonic(self):
+        begun = log.exists() and "start read k3 " in log.read_text()
+        return time.monotonic() + (600 if begun else 0)
+eq.time = KSliceClock()
+try:
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+        eq.dispatch(["times"], cache, workers=2, replan=60, seconds=600, handoff=kept_ho)
+finally:
+    eq.time = time
+released.touch()  # the next slice, taking k2 and k3 over, sees them end
 ran = {line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"}
 log.unlink()
 eq.plan = stalled
