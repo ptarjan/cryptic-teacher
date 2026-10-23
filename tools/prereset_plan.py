@@ -82,6 +82,21 @@ WINDOW_HOURS = {"weekly": 7 * 24.0, "session": 5.0}
 # The level the paced meter's need aims at, the same in either mode:
 # prereset_backfill.sh stops at it on the weekly meter, and exports its own value.
 EXHAUSTED = float(os.environ.get("EXHAUSTED") or 99)
+# The five-hour window aims lower than the weekly one (Paul 2026-10-23: "You
+# missed the usage. You used up too much 15 mins early"): on 10-23 the pacer
+# aimed at 99%, the meter ran 95 -> 98 -> 100 in 10 minutes with 0.4h to the
+# reset (runs already started kept spending after the pacer decided, the
+# per-run rate lagged, and the rooms' own use had no room), and the session
+# limit locked every chat room out until the reset. Five points of slack, and
+# paced_need stops starting runs once the headroom is under what the runs in
+# flight and the bridge will still spend (RUN_TAIL_H, RECENT_LINES).
+SESSION_CEILING = float(os.environ.get("SESSION_CEILING") or 95)
+# Hours a run started (or in flight) is still expected to spend after the pacer
+# last looked: an annotate run lasts minutes, and a bag more.
+RUN_TAIL_H = 0.25
+# The rate also counts the newest meter lines alone, taking the larger: the
+# 60-line average lagged a burst (95 -> 98 in 5 min at width 2).
+RECENT_LINES = 3
 # The need aims at the reset itself (Paul 2026-10-01: "finish much closer to
 # the hour in case I need some"; 10-16: "the burn should aim for being done
 # right at the time not so early"). A margin before the reset (86720b59a5, 10-14,
@@ -162,12 +177,17 @@ RATE_LINES = 60
 RATE_MIN_LINES = 10
 
 
-def per_run_rate(lines):
-    """Five-hour points per run-hour over the last RATE_LINES meter lines logged.
-    An interval whose meter fell crossed a reset and says nothing, so it is
-    skipped."""
+def ceiling(meter):
+    """The level the meter's need aims at and must stay under."""
+    return SESSION_CEILING if meter == "session" else EXHAUSTED
+
+
+def per_run_rate(lines, last=RATE_LINES, least=RATE_MIN_LINES):
+    """Five-hour points per run-hour over the last `last` meter lines logged,
+    PER_RUN_RATE under `least` usable ones. An interval whose meter fell crossed
+    a reset and says nothing, so it is skipped."""
     points = run_hours = 0.0
-    meters = [m for m in map(METER_LINE.search, lines) if m][-RATE_LINES:]
+    meters = [m for m in map(METER_LINE.search, lines) if m][-last:]
     used = 0
     for m in meters:
         before, after, hours, width = int(m[1]), int(m[2]), float(m[3]), float(m[4])
@@ -176,20 +196,23 @@ def per_run_rate(lines):
         points += after - before
         run_hours += hours * width
         used += 1
-    if used < RATE_MIN_LINES or points <= 0:
+    if used < least or points <= 0:
         return PER_RUN_RATE
     return points / run_hours
 
 
-def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio):
+def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio, inflight=0):
     """Runs that would spend, by the meter's reset, what it has left up to
-    EXHAUSTED after the bridge's projected spend, 0 when the bridge alone spends
+    ceiling(meter) after the bridge's projected spend, 0 when the bridge alone spends
     it. meter is "weekly" or "session" (the five-hour window); pct and
     hours_left are its; rate (per run-hour) and bridge_rate (an hour) are
     five-hour points, ratio five-hour points per point of the meter (1 for the
     five-hour one). A reset already passed is a fresh window, all of it left.
     The spend is due at the reset (aim_hours), and the bridge's is projected
-    to then; a need over the machine's caps is returned as is, width_for caps it. None when any input is missing or unusable."""
+    to then; a need over the machine's caps is returned as is, width_for caps it.
+    On the five-hour meter, 0 (nothing new starts) when the headroom under the
+    ceiling is less than what the `inflight` runs still spend (RUN_TAIL_H each)
+    plus the bridge to the reset. None when any input is missing or unusable."""
     try:
         if pct is not None and hours_left <= 0:
             pct, hours_left = 0, WINDOW_HOURS[meter]
@@ -197,7 +220,10 @@ def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio):
             return None
         hours = aim_hours(meter, hours_left)
         bridge = max(0.0, bridge_rate or 0.0) * hours
-        left = (EXHAUSTED - pct) * ratio - bridge
+        top = ceiling(meter)
+        if meter == "session" and inflight and top - pct < inflight * rate * RUN_TAIL_H + bridge:
+            return 0
+        left = (top - pct) * ratio - bridge
         need = max(0, round(left / (hours * rate)))
         if meter == "session" and need < FLOOR_RUNS and pct + FLOOR_RUNS * hours * rate / ratio < HEADROOM_PCT:
             return FLOOR_RUNS
@@ -554,11 +580,14 @@ def width(arg=None, floor=1):
                      now + weekly_usage.resets_in_hours("weekly")[0] * 3600)
         bridge, rate = bridge_spend()
         rate = rate or per_run_rate(lines)
+        if meter == "session":
+            rate = max(rate, per_run_rate(lines, RECENT_LINES, 2))
         ratio = (1.0 if meter == "session" else
                  five_per_weekly(_read(weekly_usage.SAMPLE_CSV_PATH), now - RATIO_SPAN_S, now))
         pct = weekly_usage.usage_pct(meter)
         hours_left, _ = weekly_usage.resets_in_hours(meter)
-        runs_needed = paced_need(meter, pct, hours_left, rate, bridge or 0.0, ratio)
+        runs_needed = paced_need(meter, pct, hours_left, rate, bridge or 0.0, ratio,
+                                 len(burn_rss_kb()))
     except weekly_usage.READ_ERRORS as exc:  # an unread meter leaves the need unknown
         print(f"width: meter unread: {type(exc).__name__}: {exc}", file=sys.stderr)
     rss = burn_rss_kb()
@@ -578,7 +607,7 @@ def width(arg=None, floor=1):
           if pct is not None and hours_left is not None else "meter unread")
     aim = (f", aiming {aim_hours(meter, hours_left):.2f}h out"
            if hours_left is not None and hours_left > 0 else "")
-    print(f"width {w}: need {runs_needed} for {name} {EXHAUSTED:g}% before its reset ({at}{aim}; "
+    print(f"width {w}: need {runs_needed} for {name} {ceiling(meter):g}% before its reset ({at}{aim}; "
           f"bridge {shown}{per}), memory cap {mem}, "
           f"cpu cap {cpu} ({cores}), current {current}", file=sys.stderr)
     return w
@@ -670,17 +699,23 @@ NEED_CASES = [(("weekly",) + a, w) for a, w in [
     ((88, 1.0, 2.0, 0, 6.0), 33),
     ((88, 0.05, 2.0, 0, 6.0), 660),   # the floor: the last checkpoint is finite
 ]] + [(("session",) + a, w) for a, w in [
-    # five-hour mode: 71 points left by the reset 4h out, bridge 10 an hour, 2 a run-hour
-    ((28, 4.0, 2.0, 10, 1.0), 4),
-    ((28, 4.0, 2.0, 0, 1.0), 9),      # a quiet bridge leaves the burn more
+    # five-hour mode: 67 points left under SESSION_CEILING by the reset 4h out,
+    # bridge 10 an hour, 2 a run-hour
+    ((28, 4.0, 2.0, 10, 1.0), 3),
+    ((28, 4.0, 2.0, 0, 1.0), 8),      # a quiet bridge leaves the burn more
     ((28, 4.0, 2.0, 24, 1.0), 2),     # the rooms alone would spend it, but headroom keeps the floor
     # 2026-10-17: 36% with 3.6h left, bridge 17.7 an hour from a spike: floor, not 0
     ((36, 3.6, 2.0, 17.7, 1.0), 2),
     ((85, 3.0, 2.0, 30, 1.0), 0),     # 85 + 12 is over 95: ramp-down wins, no floor
     ((94, 1.0, 2.0, 30, 1.0), 0),
-    # 9 points due at the reset, 0.25h out: 4.5 run-hours
-    ((90, 0.25, 2.0, 0, 1.0), 18),
-    ((99, 0.25, 2.0, 0, 1.0), 0),     # at EXHAUSTED: none, never on into a lockout
+    # 5 points due at the reset, 0.25h out: 2.5 run-hours
+    ((90, 0.25, 2.0, 0, 1.0), 10),
+    ((95, 0.25, 2.0, 0, 1.0), 0),     # at SESSION_CEILING: none, never on into a lockout
+    ((99, 0.25, 2.0, 0, 1.0), 0),
+    # 10-23: 93% with 0.5h left, 3 runs in flight: they and the bridge still
+    # spend 3 x 6 x 0.25 + 2 = 6.5 points of the 2 left: nothing new starts
+    ((93, 0.5, 6.0, 4, 1.0, 3), 0),
+    ((80, 2.0, 2.0, 4, 1.0, 3), 2),   # room for them (9.5 of 15): the gate is not in the way
     # reset passed: a fresh 5h window, 99 over 5h at 2 a run-hour
     ((97, -0.05, 2.0, 0, 1.0), 10),
 ]]
@@ -791,8 +826,8 @@ def width_self_test():
             print(f"FAIL {fn.__name__}{args} = {fn(*args)} (want {want})", file=sys.stderr)
             bad += 1
     for args in REPLAY_CASES:
-        if replay(*args) < EXHAUSTED - REPLAY_SLACK:
-            print(f"FAIL replay{args}: short of {EXHAUSTED:g}% at the reset", file=sys.stderr)
+        if replay(*args) < ceiling(args[0]) - REPLAY_SLACK:
+            print(f"FAIL replay{args}: short of {ceiling(args[0]):g}% at the reset", file=sys.stderr)
             bad += 1
     line = "  weekly 1% -> 1%, five-hour {}% -> {}% in 0.1h at width 14"
     logged = [line.format(i, i + 3) for i in range(12)] + [line.format(90, 2)]
