@@ -22,6 +22,9 @@
   "date": "2022-07-15",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,63 @@
     "text": "Spat out German, losing nothing in translation",
     "enumeration": "8"
    },
-   "solution": "ARGUMENT"
+   "solution": "ARGUMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in translation",
+       "at": 32,
+       "note": "a text put into another language has its words rearranged, so the letters here are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 17,
+         "note": "losing says a letter is dropped from the word out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "out",
+         "at": 5
+        },
+        {
+         "words": "nothing",
+         "at": 24,
+         "gives": "O",
+         "note": "nothing is zero, the letter O"
+        }
+       ]
+      },
+      {
+       "words": "German",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spits out a German phrase, and nothing gets lost when it is translated.",
+     "walkthrough": "'losing nothing' takes O out of OUT to leave UT; 'in translation' then rearranges UT with GERMAN. 'Spat' looks like a verb but is the noun: a quarrel.",
+     "definitionFit": "A spat is a petty quarrel, a small-scale row or dispute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spat"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +108,42 @@
     "text": "Untroubled by ethics exam taking place before 12?",
     "enumeration": "6"
    },
-   "solution": "AMORAL"
+   "solution": "AMORAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Untroubled by ethics",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "before 12",
+       "at": 39,
+       "gives": "AM",
+       "note": "AM, ante meridiem, is the morning before noon"
+      },
+      {
+       "words": "exam",
+       "at": 21,
+       "gives": "ORAL",
+       "note": "an oral is a spoken examination"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unprincipled student sits a test held in the morning.",
+     "walkthrough": "The 12 is noon, not a cross-reference to another clue, and 'exam' here is a spoken test, not a written one.",
+     "definitionFit": "Someone amoral lacks any moral sense, so is not bothered by questions of right and wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "12"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +163,36 @@
      }
     ]
    },
-   "solution": "GREENREVOLUTION"
+   "solution": "GREENREVOLUTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Energy supply ultimately depends on implementing this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "GREEN + REVOLUTION",
+     "parts": [
+      {
+       "words": "Energy supply ultimately depends on implementing this",
+       "at": 0,
+       "note": "read as wordplay, the answer turns the first word of it round into a new order, which with the last letter of supply makes the word energy"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Future power supplies hinge on adopting a major environmental change.",
+     "walkthrough": "A reverse clue: take the answer as an instruction. REVOLUTION is an anagram signal on GREEN, and adding Y (supplY 'ultimately') spells ENERGY; the whole clue also describes the answer.",
+     "definitionFit": "A sweeping shift to renewable, environmentally friendly power is what an eco-friendly upheaval in energy would mean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +206,65 @@
     "text": "Former head of MI5 backed copper?",
     "enumeration": "5"
    },
-   "solution": "METAL"
+   "solution": "METAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "copper?",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "backed",
+       "at": 19,
+       "note": "backed means turned back, so the pieces are read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Former",
+         "at": 0,
+         "gives": "LATE",
+         "note": "late means former, as in 'the late chairman'"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "at": 7,
+           "note": "the head of a word is its first letter, here taken from the name of the security service"
+          }
+         ],
+         "parts": [
+          {
+           "words": "MI5",
+           "at": 15
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-chief of the security service supported a police officer.",
+     "walkthrough": "'backed' reverses LATE plus M; the copper is not a policeman but the element.",
+     "definitionFit": "Copper is an example of a metal, which the question mark signals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +278,64 @@
     "text": "Revolutionary soldiers barely resist retribution",
     "enumeration": "7"
    },
-   "solution": "NEMESIS"
+   "solution": "NEMESIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "retribution",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Revolutionary",
+         "at": 0,
+         "note": "revolutionary means turning round, so the word for soldiers is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soldiers",
+         "at": 14,
+         "gives": "MEN",
+         "note": "men are soldiers, as in officers and men"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "barely",
+         "at": 23,
+         "note": "barely means stripped bare, so the outer letters of resist are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "resist",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rebel troops hardly fight back against punishment.",
+     "walkthrough": "'Revolutionary' gives NEM from MEN; 'barely' strips RESIST to ESIS.",
+     "definitionFit": "Nemesis was the Greek goddess of vengeance, so the word means just punishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +349,49 @@
     "text": "Republican blocking settler's petition",
     "enumeration": "6"
    },
-   "solution": "PRAYER"
+   "solution": "PRAYER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "petition",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocking",
+       "at": 11,
+       "note": "blocking means sitting in the way inside something, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "settler's",
+       "at": 20,
+       "gives": "PAYER",
+       "note": "one who settles a bill is a payer"
+      },
+      {
+       "words": "Republican",
+       "at": 0,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican politician obstructs a settler's formal request.",
+     "walkthrough": "'settler' is not a colonist but someone who settles up, a PAYER.",
+     "definitionFit": "A prayer is a humble request or entreaty, so a petition, especially to God."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "settler's"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +405,57 @@
     "text": "Facilitator of rally always contracted member of mob?",
     "enumeration": "9"
    },
-   "solution": "RACKETEER"
+   "solution": "RACKETEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "member of mob?",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Facilitator of rally",
+       "at": 0,
+       "gives": "RACKET",
+       "note": "a tennis rally is played with a racket"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "contracted",
+         "at": 28,
+         "note": "contracted means shortened, as in the poetic form with an apostrophe for the dropped letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "always",
+         "at": 21,
+         "gives": "EVER",
+         "note": "ever means always"
+        },
+        {
+         "gives": "V"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who always organised protest rallies, a shortened gang member.",
+     "walkthrough": "'contracted' turns EVER into the poetic E'ER. The rally is a tennis exchange.",
+     "definitionFit": "A racketeer runs illegal money-making schemes, typically as part of organised crime, the mob."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rally"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +475,43 @@
      }
     ]
    },
-   "solution": "YELLOWSUBMARINE"
+   "solution": "YELLOWSUBMARINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "chicken",
+       "at": 11,
+       "gives": "YELLOW",
+       "note": "chicken means cowardly, as yellow does"
+      },
+      {
+       "words": "sandwich",
+       "at": 19,
+       "gives": "SUBMARINE",
+       "note": "a submarine is a long American sandwich roll, a sub"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something found in a chicken sandwich.",
+     "walkthrough": "'Feature' means a feature film: the 1968 Beatles animation. 'chicken' looks like the filling but is the adjective for cowardly.",
+     "definitionFit": "Yellow Submarine is the 1968 animated Beatles movie, a full-length feature film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chicken"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +525,60 @@
     "text": "Kick-off again, stifling United's right winger",
     "enumeration": "8"
    },
-   "solution": "REDSTART"
+   "solution": "REDSTART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "winger",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stifling",
+       "at": 16,
+       "note": "stifling means smothering, so the other piece is held inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Kick-off again",
+       "at": 0,
+       "gives": "RESTART",
+       "note": "a restart in football is a kick-off again"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "right",
+         "at": 34,
+         "note": "the right side of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "United's",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football restart smothers United's right winger.",
+     "walkthrough": "'right' picks D, the right-hand end of United. The 'winger' is a bird, not a footballer.",
+     "definitionFit": "The redstart is a small songbird, and crosswords call any bird a winger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "winger"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +592,59 @@
     "text": "Suspect motive surrounding head of state's supplementary pay",
     "enumeration": "8"
    },
-   "solution": "OVERTIME"
+   "solution": "OVERTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "supplementary pay",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounding",
+       "at": 15,
+       "note": "surrounding means the reworked word is placed around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Suspect",
+         "at": 0,
+         "note": "suspect as an adjective means dubious, so the following word is treated as unreliable and reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motive",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "head of state's",
+       "at": 27,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, was the British head of state"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dubious motive lies behind extra money paid to a head of state.",
+     "walkthrough": "'Suspect' gives OVTIME from the anagram; ER, Elizabeth Regina, is the crossword's usual head of state.",
+     "definitionFit": "Overtime is extra hours worked beyond the usual, and also the extra wages earned for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Suspect"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +658,30 @@
     "text": "Climbed like a snake?",
     "enumeration": "6"
    },
-   "solution": "SCALED"
+   "solution": "SCALED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Climbed",
+      "at": 0,
+      "meaning": "to scale a wall or mountain is to climb it"
+     },
+     {
+      "text": "like a snake?",
+      "at": 8,
+      "meaning": "a snake's skin is covered in scales, so it is the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A climber moved upward the way a snake might.",
+     "definitionFit": "Scaled is both the past tense of a verb meaning ascend and an adjective for skin covered in horny plates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +695,48 @@
     "text": "Factory worker obtained new parts",
     "enumeration": "4"
    },
-   "solution": "HAND"
+   "solution": "HAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Factory worker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "parts",
+       "at": 28,
+       "note": "parts means separates, so the word is opened and the other piece goes between"
+      }
+     ],
+     "parts": [
+      {
+       "words": "obtained",
+       "at": 15,
+       "gives": "HAD",
+       "note": "had means obtained or got"
+      },
+      {
+       "words": "new",
+       "at": 24,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A factory worker got some new components.",
+     "walkthrough": "'parts' looks like a noun for components but is the verb: N splits HAD.",
+     "definitionFit": "A hand is a manual labourer, as in factory hand or farmhand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +750,49 @@
     "text": "Cancel periodical when latest article's censored",
     "enumeration": "5"
    },
-   "solution": "ANNUL"
+   "solution": "ANNUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cancel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "censored",
+       "at": 40,
+       "note": "censored means cut out, so a piece is removed from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "periodical",
+       "at": 7,
+       "gives": "ANNUAL",
+       "note": "an annual is a periodical publication that comes out once a year"
+      },
+      {
+       "words": "latest article's",
+       "at": 23,
+       "gives": "A",
+       "note": "the latest, or most recent, article placed in the word is the second A; A is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine is cancelled after its newest article is suppressed by the censor.",
+     "walkthrough": "'censored' removes the later of the two A's in ANNUAL.",
+     "definitionFit": "To annul a marriage or contract is to declare it void, effectively cancelling it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "periodical"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +806,69 @@
     "text": "Stupid page putting on wrong coat's to blame",
     "enumeration": "9"
    },
-   "solution": "SCAPEGOAT"
+   "solution": "SCAPEGOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to blame",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "putting on",
+       "at": 12,
+       "note": "someone putting on a coat is inside it, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 23,
+         "note": "wrong signals that the letters of coat's are put in a mistaken order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coat's",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Stupid",
+         "at": 0,
+         "note": "stupid means muddled, so the letters of page are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "page",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish pageboy is at fault for putting on the wrong coat.",
+     "walkthrough": "Two anagrams: 'Stupid' gives APEG and 'wrong' gives SCOAT; 'putting on' means wearing, so APEG sits inside SCOAT. The answer works as a verb meaning to blame.",
+     "definitionFit": "To scapegoat someone is to blame them for the faults of others, so the verb fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "putting"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +882,58 @@
     "text": "Answers about when court intervenes",
     "enumeration": "6"
    },
-   "solution": "REACTS"
+   "solution": "REACTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Answers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 8,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "intervenes",
+         "at": 25,
+         "note": "intervenes means comes between, so a piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "when",
+         "at": 14,
+         "gives": "AS",
+         "note": "as can mean when, as in 'as he left'"
+        },
+        {
+         "words": "court",
+         "at": 19,
+         "gives": "CT"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone answers questions about the moment a court steps in.",
+     "walkthrough": "'Answers' is a verb here, not a plural noun, and 'when' supplies a word rather than linking.",
+     "definitionFit": "Answering in the sense of responding to something is reacting to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +947,59 @@
     "text": "Detective's last cold case somehow came together",
     "enumeration": "9"
    },
-   "solution": "COALESCED"
+   "solution": "COALESCED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "came together",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "somehow",
+       "at": 27,
+       "note": "somehow suggests an unspecified way of arranging, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 12,
+         "note": "last means the final letter of the word detective"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Detective's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "cold",
+       "at": 17
+      },
+      {
+       "words": "case",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective's latest cold case unexpectedly fitted together.",
+     "definitionFit": "To coalesce is to merge into one mass or whole, so to come together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1013,43 @@
     "text": "Person who prepares cast to treat casualty in New York",
     "enumeration": "7"
    },
-   "solution": "DRESSER"
+   "solution": "DRESSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Person who prepares cast",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to treat",
+       "at": 25,
+       "gives": "DRESS",
+       "note": "to dress a wound is to treat it with a bandage"
+      },
+      {
+       "words": "casualty in New York",
+       "at": 34,
+       "gives": "ER",
+       "note": "the American ER, emergency room, is the British casualty department"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic sets a plaster cast to treat a casualty in a New York hospital.",
+     "walkthrough": "The medical surface misleads: the cast is a theatre company, not plaster; Casualty is the British name for a hospital's emergency department.",
+     "definitionFit": "A theatre dresser helps actors into their costumes, preparing the cast for the stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1063,56 @@
     "text": "US singer reportedly misspent time in prison",
     "enumeration": "8"
    },
-   "solution": "BLUEBIRD"
+   "solution": "BLUEBIRD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US singer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "BLUE",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 10,
+         "note": "reportedly means as heard, signalling a word that sounds like another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "misspent",
+         "at": 21,
+         "gives": "BLEW",
+         "note": "to blow money is to misspend it, so blew"
+        }
+       ]
+      },
+      {
+       "words": "time in prison",
+       "at": 30,
+       "gives": "BIRD",
+       "note": "bird is British slang for a prison sentence, from rhyming slang 'birdlime' for time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American singer is said to have wasted years behind bars.",
+     "walkthrough": "'reportedly' turns BLEW into the sound-alike BLUE. The singer is a songbird, not a pop star.",
+     "definitionFit": "The bluebird is a North American songbird of the thrush family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1126,61 @@
     "text": "US writer turned into fat cat",
     "enumeration": "7"
    },
-   "solution": "LEOPARD"
+   "solution": "LEOPARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cat",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 17,
+       "note": "into means one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fat",
+       "at": 22,
+       "gives": "LARD",
+       "note": "lard is pig fat"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 10,
+         "note": "turned means turned round, so the writer's name is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US writer",
+         "at": 0,
+         "gives": "POE",
+         "note": "Edgar Allan Poe was an American writer"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American author became a fat cat, a rich and complacent figure.",
+     "walkthrough": "'turned' gives EOP from POE, which goes into LARD.",
+     "definitionFit": "The leopard is one of the big cats of Africa and Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fat"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1194,30 @@
     "text": "Lottery winner is never identified by this",
     "enumeration": "4"
    },
-   "solution": "DRAW"
+   "solution": "DRAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lottery",
+      "at": 0,
+      "meaning": "a lottery or raffle where winners are picked"
+     },
+     {
+      "text": "winner is never identified by this",
+      "at": 8,
+      "meaning": "a ... game ends level, with no winner"
+     }
+    ],
+    "explanation": {
+     "surface": "A lottery winner who stays anonymous.",
+     "definitionFit": "Draw names both a prize drawing and a tied contest that finishes with neither side ahead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1231,65 @@
     "text": "Most of class is bored by copy writer",
     "enumeration": "6"
    },
-   "solution": "SCRIBE"
+   "solution": "SCRIBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is bored by",
+       "at": 14,
+       "note": "bored by means pierced by, so one piece goes into the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of means all but the last letter of the word for class"
+        }
+       ],
+       "parts": [
+        {
+         "words": "class",
+         "at": 8,
+         "gives": "SET",
+         "note": "a set is a class of pupils grouped by ability"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "copy",
+       "at": 26,
+       "gives": "CRIB",
+       "note": "to crib is to copy someone else's work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most of the class find a copywriter tedious.",
+     "walkthrough": "'Most of' cuts SET to SE, and CRIB bores into it. 'bored' looks like weariness but means drilled.",
+     "definitionFit": "A scribe was a professional writer who copied documents by hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bored"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1303,55 @@
     "text": "Diabolical fanatics routed after losing leader",
     "enumeration": "7"
    },
-   "solution": "SATANIC"
+   "solution": "SATANIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diabolical",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "routed",
+       "at": 20,
+       "note": "routed means put to disorderly flight, so the letters are scattered and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after losing leader",
+         "at": 27,
+         "note": "losing its leader means the word drops its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fanatics",
+         "at": 11
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wicked extremists were defeated once their leader was gone.",
+     "walkthrough": "'after losing leader' removes F from FANATICS; 'routed' rearranges ANATICS.",
+     "definitionFit": "Satanic means of Satan, the Devil, so devilishly wicked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1365,49 @@
     "text": "Drink reserved bottles in addition",
     "enumeration": "6"
    },
-   "solution": "SHANDY"
+   "solution": "SHANDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bottles",
+       "at": 15,
+       "note": "bottles means holds inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reserved",
+       "at": 6,
+       "gives": "SHY",
+       "note": "shy means reserved or retiring"
+      },
+      {
+       "words": "in addition",
+       "at": 23,
+       "gives": "AND",
+       "note": "and means in addition"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shy drinker keeps extra bottles back.",
+     "walkthrough": "'bottles' is a verb: SHY holds AND. Shandy is a British drink of beer mixed with lemonade.",
+     "definitionFit": "Shandy is a drink of beer mixed with lemonade or ginger beer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1421,61 @@
     "text": "Former social worker catching taxi in high spirits",
     "enumeration": "9"
    },
-   "solution": "EXUBERANT"
+   "solution": "EXUBERANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in high spirits",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catching",
+       "at": 21,
+       "note": "catching means holding something inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Former",
+         "at": 0,
+         "gives": "EX",
+         "note": "ex means former, as in ex-wife"
+        },
+        {
+         "words": "social worker",
+         "at": 7,
+         "gives": "ANT",
+         "note": "an ant is a social insect and the worker ant does the labour"
+        }
+       ]
+      },
+      {
+       "words": "taxi",
+       "at": 30,
+       "gives": "UBER",
+       "note": "Uber is a ride-hailing taxi service"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-social worker hails a taxi in a cheerful mood.",
+     "walkthrough": "'social worker' is the insect, not a caseworker: the worker caste of a social colony.",
+     "definitionFit": "Someone exuberant is full of energy and cheerfulness, which is being in high spirits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "social"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1489,49 @@
     "text": "Cat perhaps welcomes English setter's restraint",
     "enumeration": "5"
    },
-   "solution": "LEASH"
+   "solution": "LEASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "setter's restraint",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomes",
+       "at": 12,
+       "note": "welcomes means takes in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cat perhaps",
+       "at": 0,
+       "gives": "LASH",
+       "note": "the cat-o'-nine-tails is a whip, so a cat is an example of a lash"
+      },
+      {
+       "words": "English",
+       "at": 21,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat welcomes an English setter on a lead.",
+     "walkthrough": "The setter is the dog breed, not the puzzle setter; the cat is the whip.",
+     "definitionFit": "A leash is a lead used to restrain a dog such as a setter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cat"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1545,30 @@
     "text": "Bar suitable for weight-loss programme",
     "enumeration": "5"
    },
-   "solution": "LOCAL"
+   "solution": "LOCAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0,
+      "meaning": "the ... is one's neighbourhood pub"
+     },
+     {
+      "text": "suitable for weight-loss programme",
+      "at": 4,
+      "meaning": "..., short for low-calorie, suits a diet"
+     }
+    ],
+    "explanation": {
+     "surface": "A diet-friendly bar.",
+     "definitionFit": "A British local is the nearby pub, and lo-cal labels low-calorie food for dieters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1582,67 @@
     "text": "First person to gatecrash party in distant folly",
     "enumeration": "6"
    },
-   "solution": "IDIOCY"
+   "solution": "IDIOCY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "folly",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "in means the built piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "distant",
+       "at": 35,
+       "gives": "ICY",
+       "note": "icy can mean distant in manner, cold and unfriendly"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to gatecrash",
+         "at": 13,
+         "note": "to gatecrash is to get into a party uninvited, so one piece goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 26,
+         "gives": "DO",
+         "note": "a do is a party"
+        },
+        {
+         "words": "First person",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the first person singular pronoun"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is first to crash a party, a foolish act given his aloofness.",
+     "walkthrough": "Two containers: 'to gatecrash' makes DIO, and 'in' places it within the word for distant.",
+     "definitionFit": "Idiocy is extreme foolishness, so folly in the sense of stupid behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distant"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1656,43 @@
     "text": "Lack of productivity due to popular strike?",
     "enumeration": "8"
    },
-   "solution": "INACTION"
+   "solution": "INACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lack of productivity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "popular",
+       "at": 28,
+       "gives": "IN",
+       "note": "in means fashionable or popular"
+      },
+      {
+       "words": "strike",
+       "at": 36,
+       "gives": "ACTION",
+       "note": "industrial action is a strike"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Output falls because of a widely supported strike.",
+     "walkthrough": "The question mark flags the paradox: industrial action brings inaction.",
+     "definitionFit": "Inaction is doing nothing, so it naturally means producing nothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1706,41 @@
     "text": "New version of Dundee's strip",
     "enumeration": "6"
    },
-   "solution": "DENUDE"
+   "solution": "DENUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "strip",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "New version of",
+       "at": 0,
+       "note": "a new version rearranges the word, so the letters of the city are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dundee",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new version of Dundee's comic strip.",
+     "walkthrough": "Dundee is a Scottish city, home of the publisher of the Beano and Dandy comics; 'strip' fits the comics but is a verb.",
+     "definitionFit": "To denude is to lay bare, stripping off a covering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strip"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1754,43 @@
     "text": "Room similar to one found in small boat?",
     "enumeration": "8"
    },
-   "solution": "SCULLERY"
+   "solution": "SCULLERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Room",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one found in small boat",
+       "at": 16,
+       "gives": "SCULLER",
+       "note": "a sculler rows a scull, a small racing boat"
+      },
+      {
+       "words": "similar to",
+       "at": 5,
+       "gives": "Y",
+       "note": "the suffix -y means like or similar to, as in 'silky'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen-type room resembles a boat's cramped cabin.",
+     "walkthrough": "The suffix -Y makes adjectives meaning 'like', so SCULLER-Y would be 'like a sculler'.",
+     "definitionFit": "A scullery is a small back room off a kitchen used for washing dishes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "similar"
+    }
+   }
   }
  ]
 }
