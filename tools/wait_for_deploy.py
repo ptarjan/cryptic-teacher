@@ -38,6 +38,9 @@ URL = "https://cryptic.paultarjan.com/"
 REPO = "ptarjan/cryptic-teacher"
 WORKFLOW = ".github/workflows/pages.yml"
 ASSETS = ["app.js", "style.css", "puzzles/index.js"]
+# One round of gh/API calls per minute at most: the host is shared and CI-watch
+# polls showed up among its top CPU users when this ran every 10s.
+POLL_SECONDS = 60
 STAMP = re.compile(r'(app\.js|style\.css|puzzles/index\.js)\?v=([a-f0-9]+)')
 
 
@@ -188,6 +191,12 @@ def deploy_status(sha):
 
 
 def main():
+    # The host is shared and its swap is full: a CI watch is never urgent, so it
+    # runs at the lowest priority (the gh and git children inherit it).
+    try:
+        os.nice(19)
+    except OSError:
+        pass
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="one look, do not wait")
     ap.add_argument("--timeout", type=int, default=300)
@@ -233,14 +242,14 @@ def main():
             if state in ("queued", "pending", "waiting", "in_progress") and time.time() < ceiling:
                 deadline = min(ceiling, time.time() + args.timeout)
                 print(f"still {state} for {head[:8]}, waiting on ({note})", flush=True)
-                time.sleep(10)
+                time.sleep(POLL_SECONDS)
                 continue
             if state:
                 note += f"; the Pages build for {head[:8]} is {state}"
             print(f"NOT DEPLOYED: {note}", file=sys.stderr)
             return 1
         print(f"waiting for deploy ({note})", flush=True)
-        time.sleep(10)
+        time.sleep(POLL_SECONDS)
 
 
 if __name__ == "__main__":
