@@ -22,6 +22,9 @@
   "date": "2021-06-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,40 @@
     "text": "Saint has garment, something flashy",
     "enumeration": "6"
    },
-   "solution": "STROBE"
+   "solution": "STROBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something flashy",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Saint",
+       "at": 0,
+       "gives": "ST"
+      },
+      {
+       "words": "garment",
+       "at": 10,
+       "gives": "ROBE",
+       "note": "a robe is a long loose garment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A saint owns a piece of clothing that turns out to be eye-catching.",
+     "definitionFit": "A strobe is a light that flashes rapidly, as at a disco or in photography."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flashy"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +85,42 @@
     "text": "Dad's knocked over fluid",
     "enumeration": "3"
    },
-   "solution": "SAP"
+   "solution": "SAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fluid",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "knocked over",
+       "at": 6,
+       "note": "something knocked over is turned upside down, so in a down clue the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dad's",
+       "at": 0,
+       "gives": "PAS",
+       "note": "Pa is Dad, and with the 's it gives PAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father has spilled some liquid.",
+     "definitionFit": "Sap is the fluid that circulates in plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dad's"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +134,47 @@
     "text": "Chatterbox, not quiet — noisy type",
     "enumeration": "7"
    },
-   "solution": "RATTLER"
+   "solution": "RATTLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "noisy type",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 12,
+       "note": "not means the quiet letter is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chatterbox",
+       "at": 0,
+       "gives": "PRATTLER",
+       "note": "a prattler is someone who chatters on"
+      },
+      {
+       "words": "quiet",
+       "at": 16,
+       "gives": "P",
+       "note": "P is the musical abbreviation for piano, meaning quiet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A talker who will not stay quiet is a loud sort.",
+     "definitionFit": "A rattler is something that rattles, a noisy object or person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +198,30 @@
      }
     ]
    },
-   "solution": "BEHARDPRESSED"
+   "solution": "BEHARDPRESSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suffer in difficult situation",
+      "at": 0,
+      "meaning": "to struggle under difficulty"
+     },
+     {
+      "text": "feel the squeeze?",
+      "at": 34,
+      "meaning": "read literally, being pressed hard is being squeezed"
+     }
+    ],
+    "explanation": {
+     "surface": "Struggling in a tough spot and feeling the pinch.",
+     "definitionFit": "Being hard pressed is idiomatic for struggling, and literally means being firmly squeezed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +235,61 @@
     "text": "Race with some not quite finishing, all collapsing",
     "enumeration": "6"
    },
-   "solution": "SLALOM"
+   "solution": "SLALOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Race",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "collapsing",
+       "at": 40,
+       "note": "letters that collapse fall into disorder, so these are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite finishing",
+         "at": 15,
+         "note": "the word some stops short of its final letter, so it is cut before its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "some",
+         "at": 10,
+         "note": "the word some, trimmed of its last letter"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "all",
+       "at": 36
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A race in which several runners fail to finish while everyone falls over.",
+     "walkthrough": "'not quite finishing' trims SOME to SOM; 'collapsing' then rearranges SOM with ALL.",
+     "definitionFit": "A slalom is a downhill ski race weaving between gates, so it is one kind of race."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collapsing"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +309,40 @@
      }
     ]
    },
-   "solution": "LAUNDRYBASKET"
+   "solution": "LAUNDRYBASKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Domestic container",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "all over the place",
+       "at": 34,
+       "note": "letters scattered all over the place are disordered, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "absurdly taken",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A household container ridiculously carried everywhere.",
+     "definitionFit": "A laundry basket is the household hamper for clothes waiting to be washed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "absurdly"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +356,41 @@
     "text": "Water underground comes from toilet here",
     "enumeration": "5"
    },
-   "solution": "LETHE"
+   "solution": "LETHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Water underground",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "comes from",
+       "at": 18,
+       "note": "the answer is drawn out from within the run of letters toilet here"
+      }
+     ],
+     "parts": [
+      {
+       "words": "toilet here",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Water beneath the floor seeps out of the toilet here.",
+     "walkthrough": "'Water underground' is a river of the underworld, not a drain.",
+     "definitionFit": "Lethe is the river of forgetfulness in Hades, the Greek underworld."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "underground"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +404,44 @@
     "text": "Star with money rebuilt religious community",
     "enumeration": "9"
    },
-   "solution": "MONASTERY"
+   "solution": "MONASTERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "religious community",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rebuilt",
+       "at": 16,
+       "note": "something rebuilt is put together again in a new form, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Star",
+       "at": 0
+      },
+      {
+       "words": "money",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy celebrity paid to rebuild a religious house.",
+     "definitionFit": "A monastery houses a community of monks living under religious vows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rebuilt"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +455,30 @@
     "text": "Resinous substance in part of cricket field",
     "enumeration": "5"
    },
-   "solution": "PITCH"
+   "solution": "PITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Resinous substance",
+      "at": 0,
+      "meaning": "the black sticky resin made from tar"
+     },
+     {
+      "text": "part of cricket field",
+      "at": 22,
+      "meaning": "the strip in the middle of the ground where the ball is bowled"
+     }
+    ],
+    "explanation": {
+     "surface": "Tar-like goo turns up on the cricket ground.",
+     "walkthrough": "In cricket the pitch is the 22-yard strip between the wickets, not the whole field.",
+     "definitionFit": "Pitch names both a tarry resin and the central batting strip of a cricket ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +492,58 @@
     "text": "Time in good Beds town for one who indulges",
     "enumeration": "7"
    },
-   "solution": "GLUTTON"
+   "solution": "GLUTTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one who indulges",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "at": 8,
+       "gives": "G"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 5,
+         "note": "one piece sits in another, so the time letter goes inside the town"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Beds town",
+         "at": 13,
+         "gives": "LUTON",
+         "note": "Luton is a town in Bedfordshire, shortened to Beds"
+        },
+        {
+         "words": "Time",
+         "at": 0,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spending a pleasant spell in a Bedfordshire town makes you a person of indulgence.",
+     "walkthrough": "LUTON is a town in Bedfordshire, an English county north of London; 'Beds' is its usual abbreviation, not furniture.",
+     "definitionFit": "A glutton overindulges in food or drink, so is someone given to excess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beds"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +557,48 @@
     "text": "Girl secures ring in the end",
     "enumeration": "4"
    },
-   "solution": "GOAL"
+   "solution": "GOAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "end",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secures",
+       "at": 5,
+       "note": "the girl word holds the ring letter securely inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "GAL",
+       "note": "gal is informal for a girl"
+      },
+      {
+       "words": "ring",
+       "at": 13,
+       "gives": "O",
+       "note": "O is ring-shaped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl finally gets an engagement ring.",
+     "definitionFit": "A goal is an aim or end that one strives for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +612,40 @@
     "text": "Only first three characters in college getting pass",
     "enumeration": "3"
    },
-   "solution": "COL"
+   "solution": "COL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pass",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Only first three characters in",
+       "at": 0,
+       "note": "only the opening trio of letters of the word college is kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "college",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student only gets through the first few letters of college yet still passes.",
+     "definitionFit": "A col is a mountain pass, the low point of a ridge between two peaks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 10,
@@ -219,7 +659,34 @@
     "text": "Russian who is out of this world",
     "enumeration": "9"
    },
-   "solution": "COSMONAUT"
+   "solution": "COSMONAUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Russian who is out of this world",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Russian who is out of this world",
+       "at": 0,
+       "note": "out of this world usually means superb; here it means literally in space"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A cosmonaut is a Russian or Soviet astronaut, who travels beyond the Earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "world"
+    }
+   }
   },
   {
    "number": 11,
@@ -233,7 +700,48 @@
     "text": "Once again look at ornament at back of study",
     "enumeration": "9"
    },
-   "solution": "READDRESS"
+   "solution": "READDRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Once again look at",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at back of",
+       "at": 28,
+       "note": "one piece comes at the back of the other, so the study word leads"
+      }
+     ],
+     "parts": [
+      {
+       "words": "study",
+       "at": 39,
+       "gives": "READ",
+       "note": "to read a subject is to study it at university"
+      },
+      {
+       "words": "ornament",
+       "at": 19,
+       "gives": "DRESS",
+       "note": "to dress something is to decorate or ornament it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Revisiting the decoration at the rear of a study room.",
+     "definitionFit": "To readdress an issue is to tackle or consider it a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +755,41 @@
     "text": "Band in street slightly indecent?",
     "enumeration": "6"
    },
-   "solution": "STRIPE"
+   "solution": "STRIPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "street",
+       "at": 8,
+       "gives": "ST"
+      },
+      {
+       "words": "slightly indecent",
+       "at": 15,
+       "gives": "RIPE",
+       "note": "ripe language is coarse or risqué"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical group playing in a street might be a bit risqué.",
+     "definitionFit": "A stripe is a band of colour, a long narrow strip on a surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Band"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +803,41 @@
     "text": "Exclamation of surprise coming to distressed Indian City",
     "enumeration": "6"
    },
-   "solution": "MYSORE"
+   "solution": "MYSORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Indian City",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Exclamation of surprise",
+       "at": 0,
+       "gives": "MY",
+       "note": "My! is an exclamation of surprise"
+      },
+      {
+       "words": "distressed",
+       "at": 34,
+       "gives": "SORE",
+       "note": "sore means upset or aggrieved"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gasps in surprise on arriving, upset, in a city in India.",
+     "definitionFit": "Mysore, now Mysuru, is a city in the southern Indian state of Karnataka."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distressed"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +851,35 @@
     "text": "Like a revolution in space travel",
     "enumeration": "7"
    },
-   "solution": "ORBITAL"
+   "solution": "ORBITAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like a revolution in space travel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Like a revolution in space travel",
+       "at": 0,
+       "note": "revolution here means circling a planet, not a political uprising"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a sudden breakthrough in spaceflight.",
+     "definitionFit": "Orbital describes the path of a body circling a planet, one revolution after another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +893,42 @@
     "text": "Crazy upset brings shock",
     "enumeration": "4"
    },
-   "solution": "STUN"
+   "solution": "STUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shock",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 6,
+       "note": "in a down clue upset turns the word upside down, so it reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crazy",
+       "at": 0,
+       "gives": "NUTS",
+       "note": "nuts means crazy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mad, disturbed person causes a jolt.",
+     "definitionFit": "To stun is to shock or stupefy someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +942,40 @@
     "text": "Her co-star played in a musical group",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a musical group",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "played",
+       "at": 12,
+       "note": "letters that are played with are moved around, so these are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Her co-star",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress's co-star performed in a band.",
+     "definitionFit": "An orchestra is a large ensemble of instrumental musicians."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +989,40 @@
     "text": "Provide food and drink in broken crate",
     "enumeration": "5"
    },
-   "solution": "CATER"
+   "solution": "CATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provide food and drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broken",
+       "at": 26,
+       "note": "something broken is in pieces, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crate",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supplying refreshments from a smashed packing case.",
+     "definitionFit": "To cater is to supply food and drink, as for a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1036,49 @@
     "text": "Nothing in Times for young man",
     "enumeration": "3"
    },
-   "solution": "BOY"
+   "solution": "BOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "young man",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "the zero goes in the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Times",
+       "at": 11,
+       "gives": "BY",
+       "note": "by means times in multiplication, as in four by three"
+      },
+      {
+       "words": "Nothing",
+       "at": 0,
+       "gives": "O",
+       "note": "O is the figure zero, meaning nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "No coverage in The Times newspaper for a youth.",
+     "walkthrough": "'Times' looks like the newspaper, but it is the multiplication sign read as BY.",
+     "definitionFit": "A boy is a male child or youth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1092,51 @@
     "text": "Skilled worker with visual representations is a knight",
     "enumeration": "7"
    },
-   "solution": "ARTISAN"
+   "solution": "ARTISAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skilled worker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "visual representations",
+       "at": 20,
+       "gives": "ART",
+       "note": "art is paintings, drawings and other visual works"
+      },
+      {
+       "words": "is",
+       "at": 43,
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 46,
+       "note": "taken as written"
+      },
+      {
+       "words": "knight",
+       "at": 48,
+       "gives": "N",
+       "note": "N is the chess notation for a knight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A craftsman who works on pictures turns out to be a knight.",
+     "definitionFit": "An artisan is a craftsperson skilled in a manual trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knight"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1150,31 @@
     "text": "Cat in pool",
     "enumeration": "5"
    },
-   "solution": "KITTY"
+   "solution": "KITTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cat",
+      "at": 0,
+      "meaning": "a pet name for a cat"
+     },
+     {
+      "text": "pool",
+      "at": 7,
+      "meaning": "a shared fund of money that people contribute to"
+     }
+    ],
+    "explanation": {
+     "surface": "A cat is found in a swimming pool.",
+     "definitionFit": "Kitty is both a pet word for a cat and a shared fund of pooled money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pool"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1188,50 @@
     "text": "Son's taken after you for sure!",
     "enumeration": "3"
    },
-   "solution": "YES"
+   "solution": "YES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for sure!",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "taken after",
+       "at": 6,
+       "note": "one piece is taken after the other, so the son letter follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "you",
+       "at": 18,
+       "gives": "YE",
+       "note": "ye is an old form of you"
+      },
+      {
+       "words": "Son's",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the abbreviation for son; the 's is read as has"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A son has grown up just like you, certainly!",
+     "walkthrough": "'taken after' looks like family resemblance but places S after YE.",
+     "definitionFit": "Yes is an emphatic affirmation, equivalent to certainly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1245,48 @@
     "text": "Traffic around India produces angry outburst",
     "enumeration": "6"
    },
-   "solution": "TIRADE"
+   "solution": "TIRADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "angry outburst",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 8,
+       "note": "the trade word wraps around the India letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Traffic",
+       "at": 0,
+       "gives": "TRADE",
+       "note": "to traffic is to trade, often illicitly"
+      },
+      {
+       "words": "India",
+       "at": 15,
+       "gives": "I",
+       "note": "I is India in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Traffic congestion around India leads to an outburst of road rage.",
+     "definitionFit": "A tirade is a long angry speech of criticism or denunciation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Traffic"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1300,46 @@
     "text": "Stands tall when entering ship",
     "enumeration": "6"
    },
-   "solution": "STALLS"
+   "solution": "STALLS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stands",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "when entering",
+       "at": 12,
+       "note": "one word goes into the other, so tall goes inside the ship letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ship",
+       "at": 26,
+       "gives": "SS",
+       "note": "SS stands for steamship"
+      },
+      {
+       "words": "tall",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stands upright on boarding a ship.",
+     "definitionFit": "Stalls are stands or booths at a market selling goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stands"
+    }
+   }
   }
  ]
 }
