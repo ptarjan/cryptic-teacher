@@ -8435,9 +8435,12 @@ def check_all(paths, corpus, allowed):
     """check_one for each path, in the order of `paths`: spread across the
     cores when there are many (the full check, ~1,000s of puzzles, and every
     puzzle is independent), serial otherwise. The reports are identical either
-    way, and so is the order they come back in. VALIDATE_JOBS=1 forces serial."""
+    way, and so is the order they come back in. VALIDATE_JOBS=1 forces serial.
+    Two workers by default, not cpu_count(): this runs on a shared host beside the
+    burn and the bridge, and a full fan-out starved them (10-22). VALIDATE_JOBS
+    overrides."""
     global _POOL_JOB
-    jobs = int(os.environ.get("VALIDATE_JOBS") or os.cpu_count() or 1)
+    jobs = int(os.environ.get("VALIDATE_JOBS") or 2)
     if jobs < 2 or len(paths) < POOL_MIN or "fork" not in multiprocessing.get_all_start_methods():
         for path in paths:
             yield check_one(path, corpus, allowed)
