@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Perfect voice",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0,
+      "meaning": "... as an adjective means complete or absolute, as in an ... fool"
+     },
+     {
+      "text": "voice",
+      "at": 8,
+      "meaning": "to say or express aloud, to voice"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Utter works both as an adjective for total or complete and as a verb for speaking words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Perfect"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +75,59 @@
      }
     ]
    },
-   "solution": "UNHEARDOF"
+   "solution": "UNHEARDOF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without precedent",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "sadly",
+       "at": 13,
+       "note": "sadly suggests the letters are in a sorry, disordered state and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "banning",
+         "at": 19,
+         "note": "banning means the student letters are excluded, taken out of the mix"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hold funeral",
+         "at": 0
+        },
+        {
+         "words": "students",
+         "at": 27,
+         "gives": "LL",
+         "note": "L is the learner-driver plate; two students give two Ls"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim instruction to hold a funeral without any students attending, called unprecedented.",
+     "walkthrough": "'banning' takes the two Ls, the students, out of HOLD FUNERAL, and 'sadly' rearranges the remaining HODFUNERA into UNHEARD OF.",
+     "definitionFit": "Something never known before has no earlier example, so nobody has ever heard of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "funeral"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +141,30 @@
     "text": "Anxious future, maybe",
     "enumeration": "5"
    },
-   "solution": "TENSE"
+   "solution": "TENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Anxious",
+      "at": 0,
+      "meaning": "nervous and on edge"
+     },
+     {
+      "text": "future, maybe",
+      "at": 8,
+      "meaning": "the future is one example of a grammatical ..., hence 'maybe'"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Tense is both a word for nervous strain and the grammar term for verb time, of which future is one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "future"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +178,48 @@
     "text": "Resume painting following break",
     "enumeration": "7"
    },
-   "solution": "RESTART"
+   "solution": "RESTART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Resume",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 16,
+       "note": "following places the painting word after the break word in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "break",
+       "at": 26,
+       "gives": "REST",
+       "note": "a rest is a break from work"
+      },
+      {
+       "words": "painting",
+       "at": 7,
+       "gives": "ART",
+       "note": "painting is a form of art"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist goes back to their painting after taking a breather.",
+     "definitionFit": "To resume something is to start it again after stopping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +233,70 @@
     "text": "City defence is breached by East Fife regularly",
     "enumeration": "9"
    },
-   "solution": "SHEFFIELD"
+   "solution": "SHEFFIELD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is breached by",
+       "at": 13,
+       "note": "a breached defence has something forced into it, so the other letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "defence",
+       "at": 5,
+       "gives": "SHIELD",
+       "note": "a shield is a defence"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "East",
+         "at": 28,
+         "gives": "E",
+         "note": "E is the compass abbreviation for east"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 38,
+           "note": "regularly takes every other letter of the word Fife, starting with the first"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Fife",
+           "at": 33
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football report: the defence is breached by East Fife, a Scottish club.",
+     "walkthrough": "East Fife is a Scottish football club, which sells the sporting surface; here 'East' is just E and 'regularly' picks the two Fs of Fife.",
+     "definitionFit": "Sheffield is a large city in South Yorkshire, England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defence"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +310,44 @@
     "text": "Remained sober, we hear",
     "enumeration": "6"
    },
-   "solution": "STAYED"
+   "solution": "STAYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remained",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "STAYED",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 16,
+       "note": "we hear signals the answer sounds like another word spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sober",
+       "at": 9,
+       "gives": "STAID",
+       "note": "staid means sober, sedate and serious"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reports they kept off the drink.",
+     "definitionFit": "Stayed is the past tense of stay, meaning remained in place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sober"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +361,65 @@
     "text": "Very small space boy occupies say, in church service",
     "enumeration": "8"
    },
-   "solution": "EVENSONG"
+   "solution": "EVENSONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "church service",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "occupies",
+       "at": 21,
+       "note": "occupies means the following letters move into and fill the space inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "say",
+       "at": 30,
+       "gives": "EG",
+       "note": "e.g. means for example, which is what 'say' means"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Very",
+         "at": 0,
+         "gives": "V"
+        },
+        {
+         "words": "small space",
+         "at": 5,
+         "gives": "EN",
+         "note": "an en is a printer's small unit of space"
+        },
+        {
+         "words": "boy",
+         "at": 17,
+         "gives": "SON",
+         "note": "a son is a boy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny boy fills a little gap in a church service.",
+     "walkthrough": "Strictly the boy and the space go into 'say' together: E(V EN SON)G.",
+     "definitionFit": "Evensong is the Anglican service of evening prayer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +433,90 @@
     "text": "Leaves Pisa occasionally in new Golf heading for Empoli",
     "enumeration": "7"
    },
-   "solution": "FOLIAGE"
+   "solution": "FOLIAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leaves",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 25,
+         "note": "in places the picked letters within the rearranged word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "new",
+           "at": 28,
+           "note": "new indicates the letters of Golf are made into a fresh arrangement"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Golf",
+           "at": 32
+          }
+         ]
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "occasionally",
+           "at": 12,
+           "note": "occasionally takes only some letters of Pisa, here the second and fourth"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Pisa",
+           "at": 7
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "at": 37,
+         "note": "heading for takes the first letter of Empoli"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Empoli",
+         "at": 49
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trip in a new Volkswagen Golf from Pisa towards Empoli, two Tuscan towns.",
+     "walkthrough": "'Leaves' looks like a verb, as if the driver departs Pisa, but it is the noun. 'new' makes FOLG, 'in' places the 'occasionally' letters inside it, and 'heading for' adds the first of Empoli.",
+     "definitionFit": "Foliage is the collective word for a plant's leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +530,57 @@
     "text": "Having time to oust Conservative, inspire followers",
     "enumeration": "9"
    },
-   "solution": "ENTOURAGE"
+   "solution": "ENTOURAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "followers",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "Having",
+       "at": 0,
+       "note": "having the time letter is the first half of the instruction to swap one letter for another"
+      },
+      {
+       "text": "to oust",
+       "at": 12,
+       "note": "to oust means to drive out and take the place of, so one letter replaces the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "inspire",
+       "at": 34,
+       "gives": "ENCOURAGE",
+       "note": "to encourage someone is to inspire them"
+      },
+      {
+       "words": "Conservative",
+       "at": 20,
+       "gives": "C"
+      },
+      {
+       "words": "time",
+       "at": 7,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political sense: inspire your supporters by ousting the Conservative.",
+     "definitionFit": "An entourage is the group of attendants or hangers-on following an important person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +594,50 @@
     "text": "Banker describes partners as extremely stupid",
     "enumeration": "5"
    },
-   "solution": "DENSE"
+   "solution": "DENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "extremely stupid",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "describes",
+       "at": 7,
+       "note": "describes in the sense of drawing a line around, so the outer word encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Banker",
+       "at": 0,
+       "gives": "DEE",
+       "note": "a banker in crosswords is a river, something with banks; the Dee is a river"
+      },
+      {
+       "words": "partners",
+       "at": 17,
+       "gives": "NS",
+       "note": "North and South are partners at bridge, N and S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bank employee calls their business partners really thick.",
+     "walkthrough": "'Banker' looks like a financier but is a river, here the Dee.",
+     "definitionFit": "Dense, said of a person, means very slow-witted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Banker"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +651,41 @@
     "text": "Delivers fish, something avoided during social distancing?",
     "enumeration": "9"
    },
-   "solution": "HANDSHAKE"
+   "solution": "HANDSHAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something avoided during social distancing?",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Delivers",
+       "at": 0,
+       "gives": "HANDS",
+       "note": "hands as a verb means passes over or delivers"
+      },
+      {
+       "words": "fish",
+       "at": 9,
+       "gives": "HAKE",
+       "note": "hake is a sea fish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fishmonger delivers fish while keeping their distance from customers.",
+     "definitionFit": "During the Covid pandemic people stopped greeting each other by clasping hands to keep apart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Delivers"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +699,54 @@
     "text": "School subject Pakistani talks a little about",
     "enumeration": "5"
    },
-   "solution": "LATIN"
+   "solution": "LATIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "School subject",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 40,
+       "note": "about tells us those letters are turned round and read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "a little",
+         "at": 31,
+         "note": "a little means only a small run of letters from inside these words is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pakistani talks",
+         "at": 15,
+         "gives": "NITAL"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Pakistani pupil chats briefly about a lesson.",
+     "walkthrough": "'a little' picks NITAL out of 'PakistaNI TALks', and 'about' turns it round.",
+     "definitionFit": "Latin is the classical language still taught as a subject in some schools."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pakistani"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +760,42 @@
     "text": "In London's East End, get angry and mean",
     "enumeration": "7"
    },
-   "solution": "AVERAGE"
+   "solution": "AVERAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mean",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In London's East End, get",
+       "at": 0,
+       "gives": "AVE",
+       "note": "get means have, and Cockney speech in London's East End drops the H, giving 'ave"
+      },
+      {
+       "words": "angry",
+       "at": 26,
+       "gives": "RAGE",
+       "note": "taken loosely: to rage is to be furious, to get angry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cockney temper: in the East End people get angry and nasty.",
+     "walkthrough": "Cockneys of East London traditionally drop their Hs, so have is 'ave.",
+     "definitionFit": "The mean of a set of numbers is their arithmetic average."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +809,48 @@
     "text": "Prestige of queen visiting monument",
     "enumeration": "7"
    },
-   "solution": "STATURE"
+   "solution": "STATURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prestige",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "visiting",
+       "at": 18,
+       "note": "visiting means going into, so the queen letter is placed inside the monument"
+      }
+     ],
+     "parts": [
+      {
+       "words": "monument",
+       "at": 27,
+       "gives": "STATUE",
+       "note": "a statue is a monument"
+      },
+      {
+       "words": "queen",
+       "at": 12,
+       "gives": "R",
+       "note": "R stands for regina, Latin for queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal visit to a memorial lends it prestige.",
+     "definitionFit": "Stature means standing or reputation, the esteem someone has earned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visiting"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +864,42 @@
     "text": "What pupils may do in detail when working",
     "enumeration": "6"
    },
-   "solution": "DILATE"
+   "solution": "DILATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What pupils may do",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "when working",
+       "at": 29,
+       "note": "working suggests the letters are put to work in a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "detail",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "School pupils work on details.",
+     "walkthrough": "'pupils' seems to be schoolchildren but means the pupils of the eyes.",
+     "definitionFit": "The pupils of the eyes widen in dim light, which is the verb for widening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pupils"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +913,87 @@
     "text": "Rich universities right to hold vote, beset by large debts",
     "enumeration": "9"
    },
-   "solution": "LUXURIOUS"
+   "solution": "LUXURIOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rich",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "beset by",
+       "at": 38,
+       "note": "beset by means surrounded on both sides, so the other letters go between"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 47,
+         "gives": "L"
+        },
+        {
+         "words": "debts",
+         "at": 53,
+         "gives": "IOUS",
+         "note": "IOUs are notes acknowledging debts"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "to hold",
+           "at": 24,
+           "note": "to hold means to contain, so the vote letter goes inside"
+          }
+         ],
+         "parts": [
+          {
+           "words": "universities",
+           "at": 5,
+           "gives": "UU",
+           "note": "U is the abbreviation for university; two of them"
+          },
+          {
+           "words": "vote",
+           "at": 32,
+           "gives": "X",
+           "note": "a cross, X, is the mark made on a ballot paper"
+          }
+         ]
+        },
+        {
+         "words": "right",
+         "at": 18,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wealthy universities are being asked to vote while swamped by huge debts.",
+     "walkthrough": "The vote X sits between the two Us, then R follows: UXUR, which goes between L and IOUS.",
+     "definitionFit": "Luxurious describes something sumptuous and opulent, showing great wealth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rich"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +1013,65 @@
      }
     ]
    },
-   "solution": "ONDEMAND"
+   "solution": "ONDEMAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Whenever required",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "at": 43,
+         "note": "carrying means the outer pieces bear the diamonds letter within them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "individual",
+         "at": 19,
+         "gives": "ONE",
+         "note": "one means a single individual"
+        },
+        {
+         "words": "diamonds",
+         "at": 52,
+         "gives": "D",
+         "note": "D is the abbreviation for diamonds, a card suit"
+        }
+       ]
+      },
+      {
+       "words": "chap",
+       "at": 30,
+       "gives": "MAN",
+       "note": "a man is a chap"
+      },
+      {
+       "words": "departs",
+       "at": 35,
+       "gives": "D",
+       "note": "D is the abbreviation for departs on timetables"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man leaves with diamonds in his pocket.",
+     "definitionFit": "On demand means available whenever someone asks for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diamonds"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +1085,42 @@
     "text": "Driven apart, criticise Ferguson's old lot?",
     "enumeration": "9"
    },
-   "solution": "DISUNITED"
+   "solution": "DISUNITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Driven apart",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "criticise",
+       "at": 14,
+       "gives": "DIS",
+       "note": "to dis someone is slang for to criticise or disrespect them"
+      },
+      {
+       "words": "Ferguson's old lot?",
+       "at": 24,
+       "gives": "UNITED",
+       "note": "Sir Alex Ferguson managed Manchester United football club for 26 years"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan bashes Alex Ferguson's former team for falling apart.",
+     "walkthrough": "Manchester United is the English football club Sir Alex Ferguson managed until 2013.",
+     "definitionFit": "Disunited means split into factions, no longer joined together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ferguson's"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1134,46 @@
     "text": "Regular business costs endlessly being raised",
     "enumeration": "8"
    },
-   "solution": "OVERHEAD"
+   "solution": "OVERHEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "being raised",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "at": 23,
+       "note": "endlessly means the last letter of the word for those costs is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Regular business costs",
+       "at": 0,
+       "gives": "OVERHEADS",
+       "note": "overheads are the regular running costs of a business, such as rent and heating"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A business complains its running costs keep going up.",
+     "walkthrough": "The definition is at the end: 'Regular business costs' looks like the definition but is OVERHEADS, trimmed by 'endlessly'.",
+     "definitionFit": "Overhead as an adjective describes something up above, lifted high in the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1187,67 @@
     "text": "Doug's ultimate delight in succeeding US broadcaster making bloomer",
     "enumeration": "8"
    },
-   "solution": "FOXGLOVE"
+   "solution": "FOXGLOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bloomer",
+      "at": 60
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "succeeding",
+       "at": 27,
+       "note": "succeeding means coming after, so these letters follow the broadcaster"
+      }
+     ],
+     "parts": [
+      {
+       "words": "US broadcaster",
+       "at": 38,
+       "gives": "FOX",
+       "note": "Fox is a US television network"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimate",
+         "at": 7,
+         "note": "ultimate takes the last letter of Doug"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Doug's",
+         "at": 0,
+         "gives": "DOUG"
+        }
+       ]
+      },
+      {
+       "words": "delight",
+       "at": 16,
+       "gives": "LOVE",
+       "note": "love, as in a darling, is a source of delight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doug is thrilled to follow an American TV channel that has made a gaffe.",
+     "walkthrough": "'bloomer' suggests a blunder but means a flowering plant, as often in crosswords.",
+     "definitionFit": "A foxglove is a tall flowering garden plant, the source of digitalis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1267,61 @@
      }
     ]
    },
-   "solution": "LOOKSEE"
+   "solution": "LOOKSEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quick inspection",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 33,
+       "note": "entering means going inside, so the river letters sit within the town"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cornish town",
+       "at": 42,
+       "gives": "LOOE",
+       "note": "Looe is a fishing town in Cornwall"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 20,
+         "note": "rising, in a down clue, means the word is read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river",
+         "at": 27,
+         "gives": "ESK",
+         "note": "the Esk is a river in northern England and Scotland"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river in flood flows into a Cornish town, prompting a quick check.",
+     "walkthrough": "LOOE is a small seaside town in Cornwall, in south-west England.",
+     "definitionFit": "A look-see is an informal word for a brief glance or survey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1335,29 @@
     "text": "Gives information to solicitors",
     "enumeration": "6"
    },
-   "solution": "BRIEFS"
+   "solution": "BRIEFS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gives information to",
+      "at": 0,
+      "meaning": "to brief someone is to give them instructions or information"
+     },
+     {
+      "text": "solicitors",
+      "at": 21,
+      "meaning": "brief is slang for a lawyer"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Brief is a verb for informing someone and British slang for a lawyer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "solicitors"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1371,43 @@
     "text": "Despised strike that's over",
     "enumeration": "7"
    },
-   "solution": "REVILED"
+   "solution": "REVILED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Despised",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "that's over",
+       "at": 16,
+       "note": "over suggests the word is turned over, read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "strike",
+       "at": 9,
+       "gives": "DELIVER",
+       "note": "to deliver a blow is to strike"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walkout that has ended is looked down on.",
+     "walkthrough": "'strike' looks like industrial action but is the verb, as in deliver a punch.",
+     "definitionFit": "Reviled means abused and scorned, treated with contempt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1427,46 @@
      }
     ]
    },
-   "solution": "INFORM"
+   "solution": "INFORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "playing well",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not quite",
+       "at": 0,
+       "note": "not quite means the word is cut short by its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "20",
+       "at": 10,
+       "gives": "INFORMS",
+       "note": "the answer to 20 Across, BRIEFS, in its sense of gives information, means informs"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report: almost twenty years old and in good form.",
+     "walkthrough": "'20' points to 20 Across, BRIEFS, used as a verb: informs.",
+     "definitionFit": "A player in form is performing at their best."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "20"
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1480,41 @@
     "text": "Room having usual gloomy appearance",
     "enumeration": "7"
    },
-   "solution": "PARLOUR"
+   "solution": "PARLOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Room",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "usual",
+       "at": 12,
+       "gives": "PAR",
+       "note": "par means the normal or usual standard"
+      },
+      {
+       "words": "gloomy appearance",
+       "at": 18,
+       "gives": "LOUR",
+       "note": "a lour is a frown or a dark, threatening look"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull, dreary room.",
+     "definitionFit": "A parlour is a sitting room in a house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "usual"
+    }
+   }
   },
   {
    "number": 23,
@@ -404,7 +1528,41 @@
     "text": "Old man's expression of gratitude for food",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "food",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old man's",
+       "at": 0,
+       "gives": "PAS",
+       "note": "pa is a father, an old man; with the possessive, pa's"
+      },
+      {
+       "words": "expression of gratitude",
+       "at": 10,
+       "gives": "TA",
+       "note": "ta is informal British for thank you"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dad says thanks for the meal.",
+     "definitionFit": "Pasta is Italian food made from dough, such as spaghetti."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gratitude"
+    }
+   }
   },
   {
    "number": 24,
@@ -418,7 +1576,48 @@
     "text": "Periodically unnerve and daunt Las Vegas resident perhaps",
     "enumeration": "7"
    },
-   "solution": "NEVADAN"
+   "solution": "NEVADAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Las Vegas resident perhaps",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Periodically",
+       "at": 0,
+       "note": "periodically takes letters at regular intervals, here every second one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unnerve",
+       "at": 13
+      },
+      {
+       "words": "and",
+       "at": 21
+      },
+      {
+       "words": "daunt",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in Las Vegas now and then rattles and intimidates people.",
+     "definitionFit": "Las Vegas is a city in Nevada, so a resident of it is one example of someone from that state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Periodically"
+    }
+   }
   },
   {
    "number": 25,
@@ -432,7 +1631,48 @@
     "text": "Pressure to throw out posh clothing",
     "enumeration": "5"
    },
-   "solution": "DRESS"
+   "solution": "DRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clothing",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to throw out",
+       "at": 9,
+       "note": "to throw out means one letter is removed from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pressure",
+       "at": 0,
+       "gives": "DURESS",
+       "note": "duress is pressure or coercion"
+      },
+      {
+       "words": "posh",
+       "at": 22,
+       "gives": "U",
+       "note": "U stands for upper class, so posh"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A posh dresser is pushed to discard some clothes.",
+     "definitionFit": "Dress means clothing collectively, as in formal dress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "throw"
+    }
+   }
   },
   {
    "number": 26,
@@ -446,7 +1686,29 @@
     "text": "Rains slightly in places",
     "enumeration": "5"
    },
-   "solution": "SPOTS"
+   "solution": "SPOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rains slightly",
+      "at": 0,
+      "meaning": "a few light drops of rain fall"
+     },
+     {
+      "text": "places",
+      "at": 18,
+      "meaning": "places, as in a nice spot for a picnic"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Spots is a verb for light drizzle and a plural noun for particular locations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rains"
+    }
+   }
   },
   {
    "number": 27,
@@ -460,7 +1722,41 @@
     "text": "Doctor met Lionel, providing skin cream?",
     "enumeration": "9"
    },
-   "solution": "EMOLLIENT"
+   "solution": "EMOLLIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "skin cream?",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Doctor",
+       "at": 0,
+       "note": "to doctor something is to tamper with it, so the letters are altered in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "met Lionel",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A GP saw Lionel and gave him some moisturiser.",
+     "walkthrough": "'Doctor' reads as a physician, matching the cream, but is the verb.",
+     "definitionFit": "An emollient is a softening preparation for the skin; the query marks it as one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 28,
@@ -474,7 +1770,75 @@
     "text": "First person welcoming Mike back briefly in capital",
     "enumeration": "9"
    },
-   "solution": "AMSTERDAM"
+   "solution": "AMSTERDAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcoming",
+       "at": 13,
+       "note": "welcoming means taking in, so the other letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "First person",
+       "at": 0,
+       "gives": "ADAM",
+       "note": "in the Bible Adam was the first man"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mike",
+         "at": 23,
+         "gives": "M",
+         "note": "Mike is the radio code word for M"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 33,
+           "note": "briefly means the word is cut short, losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "back",
+           "at": 28,
+           "gives": "STERN",
+           "note": "the stern is the back of a ship"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Adam lets Mike back in, briefly, in the city.",
+     "walkthrough": "'First person' looks like grammar's I but is Adam, the first man.",
+     "definitionFit": "Amsterdam is the capital city of the Netherlands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "person"
+    }
+   }
   },
   {
    "number": 29,
@@ -488,7 +1852,41 @@
     "text": "Given medication weirdo seduced nurses",
     "enumeration": "5"
    },
-   "solution": "DOSED"
+   "solution": "DOSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Given medication",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "nurses",
+       "at": 32,
+       "note": "nurses means holds closely within, so the answer is held inside these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "weirdo seduced",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sinister tale of a creep who drugged and seduced the nurses.",
+     "walkthrough": "'nurses' reads as hospital staff but is the verb, holding the answer in weirDO SEDuced.",
+     "definitionFit": "Dosed means given a measured quantity of a drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nurses"
+    }
+   }
   }
  ]
 }
