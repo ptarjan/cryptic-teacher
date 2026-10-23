@@ -22,6 +22,9 @@
   "date": "2022-05-05",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,32 @@
     "text": "Open golf course that's open for lunch?",
     "enumeration": "8"
    },
-   "solution": "SANDWICH"
+   "solution": "SANDWICH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Open golf course",
+      "at": 0,
+      "meaning": "Royal St George's at ... in Kent is a links course that hosts the Open Championship"
+     },
+     {
+      "text": "open for lunch?",
+      "at": 24,
+      "meaning": "an open ... is a slice of bread with a topping and no lid, eaten at lunchtime"
+     }
+    ],
+    "explanation": {
+     "surface": "A golf club hosting the big tournament also welcomes visitors to its restaurant at midday.",
+     "walkthrough": "The second 'open' is lower-case and means a sandwich with no top slice; the question mark flags that pun.",
+     "definitionFit": "The Kent town names both a championship links course and the familiar bread-based lunch item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +77,56 @@
     "text": "Meet company initially making programme",
     "enumeration": "6"
    },
-   "solution": "SITCOM"
+   "solution": "SITCOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "programme",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Meet",
+       "at": 0,
+       "gives": "SIT",
+       "note": "a court or committee sits, i.e. meets in session"
+      },
+      {
+       "words": "company",
+       "at": 5,
+       "gives": "CO"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 13,
+         "note": "initially says take only the opening letter of the word making"
+        }
+       ],
+       "parts": [
+        {
+         "words": "making",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcaster gathering its firm together to plan a new show.",
+     "definitionFit": "A situation comedy is a type of television programme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Meet"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +140,70 @@
     "text": "Northern crews dropping first of two Arab big noises?",
     "enumeration": "6"
    },
-   "solution": "NEIGHS"
+   "solution": "NEIGHS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arab big noises?",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Northern",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 15,
+         "note": "dropping says a letter is shed from the crews word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crews",
+         "at": 9,
+         "gives": "EIGHTS",
+         "note": "rowing eights are crews of eight oarsmen"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 24,
+           "note": "first of says take the opening letter of the word two"
+          }
+         ],
+         "parts": [
+          {
+           "words": "two",
+           "at": 33
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Boat crews from the north losing a member, with talk of Arabian notables.",
+     "walkthrough": "'dropping' removes the T (from 'first of two') from EIGHTS. 'Arab big noises' is cryptic: an Arab is a horse, and its loud noises are whinnies.",
+     "definitionFit": "An Arab is a breed of horse, and the sounds a horse makes loudly are its whinnies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Arab"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +223,57 @@
      }
     ]
    },
-   "solution": "WHITEHEAT"
+   "solution": "WHITEHEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Intense activity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 22,
+         "note": "new tells us the letters of with are formed afresh in another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 26,
+       "gives": "E"
+      },
+      {
+       "words": "part of competition",
+       "at": 34,
+       "gives": "HEAT",
+       "note": "a heat is one preliminary round of a race or contest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frantic new English round of a contest.",
+     "walkthrough": "'new' rearranges WITH into WHIT, which takes E and then HEAT.",
+     "definitionFit": "The phrase is an idiom for a state of intense passion or furious activity, as of metal heated past red."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +293,60 @@
      }
     ]
    },
-   "solution": "CONJUGALRIGHTS"
+   "solution": "CONJUGALRIGHTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No hope of exercising these privately!",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "flooding",
+       "at": 23,
+       "note": "flooding means the shuffled letters surround and engulf the word for jail"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Various",
+         "at": 0,
+         "note": "various suggests the letters of arc lights on in a different, assorted order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "arc lights on",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "jail",
+       "at": 32,
+       "gives": "JUG",
+       "note": "jug is slang for prison"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arc lights pour over a prison, so inmates have no chance of private intimacy.",
+     "walkthrough": "'Various' rearranges ARC LIGHTS ON, which 'flooding' wraps round JUG. The definition is cryptic: prisoners under floodlights cannot enjoy these privately.",
+     "definitionFit": "Married couples' entitlement to sexual relations is something prisoners lack the opportunity to exercise in private."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flooding"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +360,53 @@
     "text": "Channel Islands left back's parallel",
     "enumeration": "6"
    },
-   "solution": "TROPIC"
+   "solution": "TROPIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "parallel",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 21,
+       "note": "back signals that the joined pieces are read from end to start"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Channel Islands",
+         "at": 0,
+         "gives": "CI"
+        },
+        {
+         "words": "left",
+         "at": 16,
+         "gives": "PORT",
+         "note": "port is the left side of a ship"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A left-back footballer from Jersey or Guernsey is compared to another player.",
+     "walkthrough": "'back' reverses CI + PORT, giving the answer.",
+     "definitionFit": "The tropics of Cancer and Capricorn are lines of latitude, i.e. parallels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +420,32 @@
     "text": "Message received: \"See him after jolly on brigantine, say\"",
     "enumeration": "5"
    },
-   "solution": "ROGER"
+   "solution": "ROGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Message received",
+      "at": 0,
+      "meaning": "radio operators say this word to confirm a message has been heard"
+     },
+     {
+      "text": "See him after jolly on brigantine, say",
+      "at": 19,
+      "meaning": "the Jolly ... is a pirate flag, so this name follows jolly on a pirate ship"
+     }
+    ],
+    "explanation": {
+     "surface": "A sailor confirms a message: he'll see a crewmate after some fun aboard ship.",
+     "walkthrough": "A brigantine is a two-masted sailing ship, the kind a pirate might fly the skull and crossbones from.",
+     "definitionFit": "In radio voice procedure this word means the message has been received and understood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jolly"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +459,48 @@
     "text": "Concert books top female backer",
     "enumeration": "8"
    },
-   "solution": "PROMOTER"
+   "solution": "PROMOTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "backer",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Concert",
+       "at": 0,
+       "gives": "PROM",
+       "note": "a prom is a promenade concert, as at London's BBC Proms"
+      },
+      {
+       "words": "books",
+       "at": 8,
+       "gives": "OT",
+       "note": "OT is the Old Testament, a collection of books"
+      },
+      {
+       "words": "top female",
+       "at": 14,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, the Queen, is the top woman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A concert reserves the leading lady as its financial supporter.",
+     "walkthrough": "The Proms are a famous summer series of BBC concerts in London.",
+     "definitionFit": "A promoter supports and finances an event or cause, so is a backer of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +514,51 @@
     "text": "College needs no changes to contract",
     "enumeration": "8"
    },
-   "solution": "CONDENSE"
+   "solution": "CONDENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "contract",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "College",
+       "at": 0,
+       "gives": "C"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "at": 17,
+         "note": "changes signals that the letters of needs no are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "needs no",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college insists its agreement must not be altered.",
+     "walkthrough": "'changes' rearranges NEEDS NO into ONDENSE, which follows C. 'contract' looks like a noun; it is the verb.",
+     "definitionFit": "To condense something is to shrink or compress it, i.e. make it contract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +578,31 @@
      }
     ]
    },
-   "solution": "WINDOWDRESSING"
+   "solution": "WINDOWDRESSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cosmetic display",
+      "at": 0,
+      "meaning": "a superficial show put on to create a favourable impression"
+     },
+     {
+      "text": "display of cosmetics?",
+      "at": 20,
+      "meaning": "arranging goods, such as make-up, in a shop window for passers-by"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two halves swap 'cosmetic' between its figurative sense, merely superficial, and its literal one, make-up.",
+     "definitionFit": "The phrase means both arranging a shop's window and putting a misleadingly attractive face on something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cosmetic"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +616,48 @@
     "text": "Instinct lacking in teacher's work",
     "enumeration": "7"
    },
-   "solution": "TUITION"
+   "solution": "TUITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "teacher's work",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacking",
+       "at": 9,
+       "note": "lacking says the following word is taken away from the instinct word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Instinct",
+       "at": 0,
+       "gives": "INTUITION",
+       "note": "intuition is instinctive knowing"
+      },
+      {
+       "words": "in",
+       "at": 17,
+       "gives": "IN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone without natural instinct is not suited to a teacher's job.",
+     "walkthrough": "'lacking' removes IN from the start of INTUITION.",
+     "definitionFit": "Teaching or instruction is the work a tutor or teacher does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +671,41 @@
     "text": "Like some nails? Ring now — put in order",
     "enumeration": "7"
    },
-   "solution": "INGROWN"
+   "solution": "INGROWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like some nails?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "put in order",
+       "at": 28,
+       "note": "put in order tells us to rearrange the letters of ring now properly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ring now",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A command to phone a salon now to book a manicure.",
+     "walkthrough": "'put in order' rearranges RING NOW.",
+     "definitionFit": "Toenails can grow into the flesh at their edges, a painful condition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +719,54 @@
     "text": "Sandy's routine task moving round to the front",
     "enumeration": "5"
    },
-   "solution": "OCHRE"
+   "solution": "OCHRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sandy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "moving",
+       "at": 21,
+       "note": "moving says the round letter is shifted from its place in the chore word"
+      },
+      {
+       "text": "to the front",
+       "at": 34,
+       "note": "to the front says where that shifted letter ends up: at the very start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "routine task",
+       "at": 8,
+       "gives": "CHORE",
+       "note": "a chore is a dull, routine task"
+      },
+      {
+       "words": "round",
+       "at": 28,
+       "gives": "O",
+       "note": "O is a round letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sandy's daily job involves going round to the front of the house.",
+     "walkthrough": "'moving ... to the front' takes the O of CHORE to the start. 'Sandy' looks like a name; it is the colour.",
+     "definitionFit": "Ochre is a yellowish-brown earth pigment, the colour of sand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sandy"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +780,58 @@
     "text": "Rare pair of foreign articles prof examined first",
     "enumeration": "9"
    },
-   "solution": "UNDERDONE"
+   "solution": "UNDERDONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rare",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pair of foreign articles",
+       "at": 5,
+       "gives": "UNDER",
+       "note": "un is French for a and der is German for the"
+      },
+      {
+       "words": "prof",
+       "at": 30,
+       "gives": "DON",
+       "note": "a don is a university teacher"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 44,
+         "note": "first says take the opening letter of the word examined"
+        }
+       ],
+       "parts": [
+        {
+         "words": "examined",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual pair of articles from abroad, which a professor examined before anyone else.",
+     "walkthrough": "'Rare' is used in its cooking sense.",
+     "definitionFit": "Rare meat is lightly cooked, i.e. not cooked through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rare"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +845,42 @@
     "text": "They could be trained as trowel- makers maybe",
     "enumeration": "12"
    },
-   "solution": "METALWORKERS"
+   "solution": "METALWORKERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They could be trained as trowel- makers maybe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could be trained as",
+       "at": 5,
+       "note": "being trained into a new form suggests the letters of trowel makers are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trowel- makers",
+       "at": 25
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Apprentices could learn to produce garden tools.",
+     "walkthrough": "'could be trained as' rearranges TROWEL MAKERS; the whole clue also describes the answer, since trowels are made of metal.",
+     "definitionFit": "Craftspeople who shape metal could plausibly be taught to manufacture trowels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "trained"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +894,42 @@
     "text": "Check army's put more beef in",
     "enumeration": "9"
    },
-   "solution": "REINFORCE"
+   "solution": "REINFORCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put more beef in",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Check",
+       "at": 0,
+       "gives": "REIN",
+       "note": "to rein in is to check or restrain"
+      },
+      {
+       "words": "army",
+       "at": 6,
+       "gives": "FORCE",
+       "note": "a force is an army or body of troops"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inspection finds the army has bulked up with extra meat.",
+     "walkthrough": "'beef' means strength, not meat.",
+     "definitionFit": "To strengthen something is to add muscle or beef to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "beef"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +943,58 @@
     "text": "A nation defends popular element",
     "enumeration": "8"
    },
-   "solution": "ASTATINE"
+   "solution": "ASTATINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "element",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "defends",
+         "at": 9,
+         "note": "defends means the nation word surrounds and protects the popular word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nation",
+         "at": 2,
+         "gives": "STATE",
+         "note": "a state is a nation"
+        },
+        {
+         "words": "popular",
+         "at": 17,
+         "gives": "IN",
+         "note": "in means popular or fashionable"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country protects a well-liked part of itself.",
+     "walkthrough": "'defends' means the nation surrounds the popular word, rather than the usual sense of guarding something.",
+     "definitionFit": "Astatine is a radioactive chemical element, number 85."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1008,61 @@
     "text": "Plucky players, rare characters abroad wearing headgear",
     "enumeration": "8"
    },
-   "solution": "HARPISTS"
+   "solution": "HARPISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plucky players",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 39,
+       "note": "wearing means the other pieces are covered by the headgear word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "headgear",
+       "at": 47,
+       "gives": "HATS",
+       "note": "hats are headgear"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rare",
+         "at": 16,
+         "gives": "R",
+         "note": "R is an abbreviation for rare, used for example in coin catalogues"
+        },
+        {
+         "words": "characters abroad",
+         "at": 21,
+         "gives": "PIS",
+         "note": "pi is a Greek letter, so pis are characters from abroad"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Brave musicians, unusual figures from overseas, in hats.",
+     "walkthrough": "'Plucky' means they pluck strings, not that they are brave. R for rare is a coin-collectors' abbreviation; Greek letters are 'characters abroad'.",
+     "definitionFit": "Players of the harp pluck its strings, making them plucky in a punning sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plucky"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1076,59 @@
     "text": "Dope spread product from mill across island",
     "enumeration": "12"
    },
-   "solution": "SCATTERBRAIN"
+   "solution": "SCATTERBRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dope",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "spread",
+       "at": 5,
+       "gives": "SCATTER",
+       "note": "to scatter is to spread about"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "across",
+         "at": 30,
+         "note": "across means the mill product stretches over and around the island letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "product from mill",
+         "at": 12,
+         "gives": "BRAN",
+         "note": "bran is a by-product of milling grain"
+        },
+        {
+         "words": "island",
+         "at": 37,
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drugs being spread around an island along with milled grain.",
+     "walkthrough": "'across' puts I inside BRAN. 'Dope' looks like a drug; it means a fool.",
+     "definitionFit": "A dope is a stupid or foolish person, much like a forgetful, disorganised one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dope"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1142,69 @@
     "text": "Oscar's successor crosses first of many small plains",
     "enumeration": "6"
    },
-   "solution": "PAMPAS"
+   "solution": "PAMPAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plains",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "crosses",
+         "at": 18,
+         "note": "crosses means the successor word straddles the following letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Oscar's successor",
+         "at": 0,
+         "gives": "PAPA",
+         "note": "in the NATO alphabet Oscar, for O, is followed by Papa, for P"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 26,
+           "note": "first of says take the opening letter of the word many"
+          }
+         ],
+         "parts": [
+          {
+           "words": "many",
+           "at": 35
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "small",
+       "at": 40,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Oscar winner's successor passes over many small plains.",
+     "walkthrough": "'crosses' puts M inside PAPA, and S follows.",
+     "definitionFit": "The pampas are the vast grassy plains of South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar's"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1218,44 @@
     "text": "Count is aware of being caught",
     "enumeration": "6"
    },
-   "solution": "CENSUS"
+   "solution": "CENSUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Count",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CENSUS",
+     "indicators": [
+      {
+       "text": "being caught",
+       "at": 18,
+       "note": "being caught by the ear means this word is heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is aware of",
+       "at": 6,
+       "gives": "SENSES",
+       "note": "to sense something is to be aware of it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman knows he is about to be arrested.",
+     "walkthrough": "'being caught' means heard: SENSES sounds like the answer. 'Count' looks like a nobleman; it is a tally.",
+     "definitionFit": "A census is an official tally of a population."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Count"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1269,59 @@
     "text": "After a bath TV lord returns plant",
     "enumeration": "9"
    },
-   "solution": "ASPARAGUS"
+   "solution": "ASPARAGUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 6,
+       "gives": "A"
+      },
+      {
+       "words": "bath",
+       "at": 8,
+       "gives": "SPA",
+       "note": "Bath is a spa town, and a spa is a place to bathe"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "at": 21,
+         "note": "returns indicates the lord's name is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "TV lord",
+         "at": 13,
+         "gives": "SUGAR",
+         "note": "Lord Sugar is the businessman who presents the UK version of The Apprentice"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A television peer comes back after a soak in the tub.",
+     "walkthrough": "'returns' reverses SUGAR to give RAGUS; Alan Sugar is a British businessman and peer known from TV's The Apprentice.",
+     "definitionFit": "Asparagus is a plant grown for its edible shoots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bath"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1335,71 @@
     "text": "Man of many words, I set up in arts centre",
     "enumeration": "5"
    },
-   "solution": "ROGET"
+   "solution": "ROGET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Man of many words",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "in places the reversed self word within the middle of arts"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre",
+         "at": 36,
+         "note": "centre says take the middle letters of the word arts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "arts",
+         "at": 31
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set up",
+         "at": 21,
+         "note": "set up in a down clue means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "at": 19,
+         "gives": "EGO",
+         "note": "ego is Latin for I, the self"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wordy man installs himself in an arts centre.",
+     "walkthrough": "'set up' reverses EGO to OGE, placed 'in' RT, the centre of 'arts'.",
+     "definitionFit": "Peter Mark Roget compiled the famous thesaurus, a book full of words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1413,41 @@
     "text": "Foxtrot with limping lover",
     "enumeration": "5"
    },
-   "solution": "FLAME"
+   "solution": "FLAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lover",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Foxtrot",
+       "at": 0,
+       "gives": "F",
+       "note": "Foxtrot is the NATO alphabet word for F"
+      },
+      {
+       "words": "limping",
+       "at": 13,
+       "gives": "LAME",
+       "note": "lame means limping"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dancing a foxtrot with a partner who is hobbling.",
+     "definitionFit": "An old flame is a former sweetheart, so the word means a lover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Foxtrot"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1461,30 @@
     "text": "Understanding's close to being achieved",
     "enumeration": "7"
    },
-   "solution": "INSIGHT"
+   "solution": "INSIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Understanding",
+      "at": 0,
+      "meaning": "deep understanding"
+     },
+     {
+      "text": "close to being achieved",
+      "at": 16,
+      "meaning": "a goal that is ... is near"
+     }
+    ],
+    "explanation": {
+     "surface": "Comprehension is almost reached.",
+     "definitionFit": "As one word it means perception; as two words it means visible and nearly attained."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1498,63 @@
     "text": "Bursts in Irish game puts United off",
     "enumeration": "7"
    },
-   "solution": "IRRUPTS"
+   "solution": "IRRUPTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bursts in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Irish",
+       "at": 10,
+       "gives": "IR"
+      },
+      {
+       "words": "game",
+       "at": 16,
+       "gives": "RU",
+       "note": "RU is rugby union"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 33,
+         "note": "off says the United letter is removed from puts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "puts",
+         "at": 21
+        },
+        {
+         "words": "United",
+         "at": 26,
+         "gives": "U",
+         "note": "U is the abbreviation for United, as in football team names"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Irish match sends Manchester United packing.",
+     "walkthrough": "'off' removes U from PUTS to leave PTS.",
+     "definitionFit": "To irrupt is to enter forcibly or suddenly, i.e. burst in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1568,41 @@
     "text": "Inferior bunch of skiers at Zermatt",
     "enumeration": "6"
    },
-   "solution": "ERSATZ"
+   "solution": "ERSATZ",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inferior",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "bunch of",
+       "at": 9,
+       "note": "bunch of says a group of consecutive letters is taken from the phrase skiers at Zermatt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "skiers at Zermatt",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneer at a poor group of skiers at the Swiss resort.",
+     "walkthrough": "'bunch of' picks the run of letters across skiERS AT Zermatt.",
+     "definitionFit": "Ersatz describes a substitute product, usually inferior to the real thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bunch"
+    }
+   }
   },
   {
    "number": 27,
@@ -431,7 +1616,54 @@
     "text": "Frenchman recalled his local escape routes",
     "enumeration": "8"
    },
-   "solution": "EGRESSES"
+   "solution": "EGRESSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "escape routes",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 10,
+         "note": "recalled means called back, so the name is written in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Frenchman",
+         "at": 0,
+         "gives": "SERGE",
+         "note": "Serge is a French man's name"
+        }
+       ]
+      },
+      {
+       "words": "his local",
+       "at": 19,
+       "gives": "SES",
+       "note": "ses is the French for his, local in the sense of the language used there"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman remembers the way out of his local bar.",
+     "walkthrough": "'recalled' reverses SERGE to EGRES. 'local' looks like a pub; here it means in the local language.",
+     "definitionFit": "An egress is a way out, so the plural means exits or escape routes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "local"
+    }
+   }
   }
  ]
 }
