@@ -287,20 +287,40 @@
      "parts": [
       {
        "words": "Greek character",
+       "at": 0,
        "gives": "NU",
        "note": "nu is the thirteenth letter of the Greek alphabet"
       },
       {
-       "words": "danced topless",
-       "gives": "ANCED",
-       "note": "danced without the letter at its top"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 23,
+         "note": "without its top the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "danced",
+         "at": 16
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek dances bare-chested, and does it delicately.",
-     "walkthrough": "'Greek character' looks like a person from Athens and asks for a letter of that alphabet instead — nu, mu, eta, phi and the rest are worth memorising, because setters return to them constantly.",
-     "definitionFit": "NUANCED describes something full of fine shades and small distinctions, which is what doing a thing with subtlety produces."
+     "surface": "A Greek person dancing without a top on, delicately.",
+     "walkthrough": "'topless' takes D off DANCED to leave ANCED.",
+     "definitionFit": "Something nuanced shows fine shades of meaning, which is exactly what subtlety is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "topless"
     }
    }
   },
@@ -1130,50 +1150,47 @@
    "annotation": {
     "definitions": [
      {
-      "text": "here",
-      "at": 45,
-      "note": "'Here' is a pointing word rather than a synonym, so an adverb ends up defining a country: it stands in for the place the clue has just named a river in."
+      "text": "Foremost of peaks enveloping River Ucayali — here!",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Foremost of",
+       "at": 0,
+       "note": "the leading letter of each of the following words is taken"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "Foremost of",
-         "note": "'Foremost of' asks for whatever stands at the front of each word that follows, which is the letter it begins with"
-        }
-       ],
-       "parts": [
-        {
-         "words": "peaks",
-         "note": "the first letter of peaks"
-        }
-       ]
+       "words": "peaks",
+       "at": 12
       },
       {
        "words": "enveloping",
-       "gives": "E",
-       "note": "the first letter of enveloping — the word looks like an instruction to tuck something inside, and is not one"
+       "at": 18
       },
       {
        "words": "River",
-       "gives": "R",
-       "note": "the first letter of River, which is not the same as the usual r standing for river"
+       "at": 29
       },
       {
        "words": "Ucayali",
-       "gives": "U",
-       "note": "the first letter of the river's name"
+       "at": 35
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Mountains closing in around a South American river.",
-     "walkthrough": "Two of the four words are booby traps: 'enveloping' looks like a container instruction and 'River' like the standard R, and both are only donating initials. The Ucayali is a Peruvian headwater of the Amazon.",
-     "definitionFit": "The Ucayali rises and runs in PERU, so 'here' points at the country the clue has just been describing."
+     "surface": "Mountains rising around the Ucayali river in this country.",
+     "walkthrough": "The whole clue is the definition too: the Ucayali flows through the Andes of this South American country.",
+     "definitionFit": "The Ucayali is a major Amazon tributary that runs through the Andean country, ringed by high mountains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
     }
    }
   },
