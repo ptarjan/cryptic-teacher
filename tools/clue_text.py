@@ -1016,6 +1016,63 @@ def speck_figures(text):
     return SPECK_FIGURE.sub("", SPECK_BEFORE_I.sub("", text))
 
 
+#: A lone "&" between two words of running text: `prev` the word before it (the
+#: clue's first word, or one not capitalised), `next` a lower-case word. An old
+#: scan's "a" reads as "&" ("unimpeded by & weapon"), and a reread that also reads
+#: the "a" keeps the "&" in front of it ("by & a weapon"). A name's "&" ("Stalky &
+#: Co", "B & B", "A & E") has a capital or figure on a side, so it is never one.
+STRAY_AMPERSAND = re.compile(r"(?:^|(?<=\s))(?P<prev>[^\s&\d]+) & (?P<next>[a-z][^\s&]*)")
+#: Least times the corpus prints "prev a" (and "a next") for "&" to read as "a".
+AMPERSAND_A_USES = 3
+#: Least product of the shares of `prev`'s uses the corpus prints before "a" and
+#: of `next`'s it prints after "a", for "&" before a word to read as "a": "is &
+#: mile" (5.8% x 36%), "for & current" (7.4% x 1.4%) are; "around & look" (2.8%
+#: x 2.4%), "book & play", "almost & character" (under 0.07%) are print.
+AMPERSAND_A_SHARE = 0.001
+
+
+def stray_ampersand(text, uses=None):
+    """`text` with a lone "&" in running text that is a scan's "a" mended
+    (STRAY_AMPERSAND). Before "a"/"an" the "&" is dropped ("by & a weapon" is
+    "by a weapon") when the corpus prints `prev` before "a" at least half as
+    often as before "and" ("briefs & a Rolex", "rock & a hard place" are
+    print); before another word it is the "a" ("is & mile up" is "is a mile
+    up") when `prev` and `next` both go with "a" often (AMPERSAND_A_SHARE) and
+    more than with "and" ("fish & chips", "I stick around & look" are print).
+    `uses(w, nxt=None)` is the corpus's count of a word or a word pair
+    (clue_repair.lexicon); without it nothing is mended. A clue with two
+    "&"s or more, "&" after an article ("an & one") and "& co" are left as
+    they are, and so is one no reading fits ("Contradiction & in law",
+    "he didn't & fit in": a dropped "&" a word pair cannot tell from
+    print)."""
+    if uses is None or (text or "").count("&") != 1:
+        return text
+    m = STRAY_AMPERSAND.search(text)
+    if not m:
+        return text
+    prev, nxt = m.group("prev"), m.group("next")
+    first = not text[:m.start()].strip()
+    bare_prev = re.sub(r"^\W+|\W+$", "", prev)
+    bare_next = re.sub(r"\W+$", "", nxt)
+    if not bare_prev or not bare_next or (prev[0].isupper() and not first) \
+            or bare_prev.lower() in ("a", "an", "the") or bare_next.lower() == "co":
+        return text
+    amp = m.start("next") - 2
+    before_a, before_and = uses(bare_prev, "a"), uses(bare_prev, "and")
+    if bare_next in ("a", "an"):
+        # the "&" a reread kept before the "a" it also read
+        if before_a >= AMPERSAND_A_USES and 2 * before_a >= before_and:
+            return text[:amp] + text[m.start("next"):]
+        return text
+    a_after, after_and = uses("a", bare_next), uses("and", bare_next)
+    share = before_a / max(uses(bare_prev), 1) * a_after / max(uses(bare_next), 1)
+    if min(before_a, a_after) >= AMPERSAND_A_USES and share >= AMPERSAND_A_SHARE \
+            and min(before_a, a_after) > uses(bare_prev, bare_next) \
+            and before_a > before_and and a_after > after_and:
+        return text[:amp] + "a " + text[m.start("next"):]
+    return text
+
+
 def stray_underscore(text):
     """`text` without an underscore stuck to the edge of a word. A clue with
     two underscores or more is a puzzle of missing letters ("C_A_C_?") and

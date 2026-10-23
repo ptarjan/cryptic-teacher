@@ -302,6 +302,8 @@ def offsets(old, new):
 #: lead_speck (2 of 31: "D Day," lost its D, "1 Down's poet?" its reference)
 #: were tightened in clue_repair until none of those changes is made.
 EXCLUDED_MENDS = frozenset()
+#: With --only: the mend_steps rules --mends leaves out so that only the named ones run.
+ONLY_SKIP = frozenset()
 #: Per-rule changes the last --mends run made: [(puzzle id, light, rule, was, now)].
 MEND_LOG = []
 
@@ -562,7 +564,7 @@ def repair(path, puzzle, apply_it, padding_only=False, learned=False, mends=Fals
         if any("number" not in e or "direction" not in e for e in fixed.get("entries") or ()):
             return None
         found = []
-        texts = mend_clue_text(fixed, skip=EXCLUDED_MENDS, log=found)
+        texts = mend_clue_text(fixed, skip=EXCLUDED_MENDS | ONLY_SKIP, log=found)
         if not texts:
             return None
         # A clue with a hand annotation moves its quoted phrases with the words
@@ -793,6 +795,9 @@ def main(argv):
                     help="the full clue_repair.mend_text (less EXCLUDED_MENDS) on the clue text of archive.org "
                          "filers' files, for files written before its rules existed; no other repair. "
                          "Prints the changes per rule. --samples N shows N random diffs")
+    ap.add_argument("--only", nargs="+", metavar="RULE",
+                    help="with --mends, run only these clue_repair.mend_steps rules (e.g. stray_ampersand), "
+                         "so a new rule's sweep makes no other rule's changes")
     ap.add_argument("--samples", type=int, default=0, metavar="N",
                     help="with --mends, print N random before/after clue texts")
     ap.add_argument("--series", help="one series key: cryptic, quiptic, everyman…")
@@ -826,6 +831,14 @@ def main(argv):
         print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} clue(s) "
               f"{'restored' if args.apply else 'would be restored'}")
         return 0
+    if args.only:
+        import clue_repair
+        is_word, uses = clue_repair.lexicon()
+        names = [n for n, _t in clue_repair.mend_steps("", is_word=is_word, uses=uses)]
+        if not args.mends or set(args.only) - set(names):
+            ap.error("--only takes --mends and rules of " + ", ".join(names))
+        global ONLY_SKIP
+        ONLY_SKIP = frozenset(names) - set(args.only)
     if args.series and args.series not in series_meta.SERIES:
         ap.error(f"no series {args.series!r} — " + ", ".join(sorted(series_meta.SERIES)))
 
