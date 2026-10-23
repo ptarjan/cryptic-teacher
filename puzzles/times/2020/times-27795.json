@@ -21,6 +21,9 @@
   "date": "2020-10-14",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,32 @@
     "text": "One not that famous in a painful spot",
     "enumeration": "7"
    },
-   "solution": "BLISTER"
+   "solution": "BLISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One not that famous",
+      "at": 0,
+      "meaning": "a ... is a second-rank celebrity"
+     },
+     {
+      "text": "painful spot",
+      "at": 25,
+      "meaning": "a sore bubble on the skin"
+     }
+    ],
+    "explanation": {
+     "surface": "A minor celebrity finds themselves in an awkward situation.",
+     "walkthrough": "Read the first sense as B-LISTER, someone on the B-list of celebrities; 'in' is just a link.",
+     "definitionFit": "A blister is a sore raised pocket of fluid on the skin, exactly a small tender spot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 1,
@@ -48,7 +76,40 @@
     "text": "Sickly newborn Welsh girl",
     "enumeration": "7"
    },
-   "solution": "BRONWEN"
+   "solution": "BRONWEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Welsh girl",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Sickly",
+       "at": 0,
+       "note": "something sickly is out of shape, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "newborn",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frail baby girl is born in Wales.",
+     "definitionFit": "Bronwen is a traditional Welsh female given name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sickly"
+    }
+   }
   },
   {
    "number": 2,
@@ -62,7 +123,49 @@
     "text": "Absurd, getting no credit? Not to be stomached",
     "enumeration": "8"
    },
-   "solution": "INEDIBLE"
+   "solution": "INEDIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not to be stomached",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "getting no",
+       "at": 8,
+       "note": "the absurd word gets none of the credit letters, so they are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Absurd",
+       "at": 0,
+       "gives": "INCREDIBLE",
+       "note": "something incredible is unbelievable, absurd"
+      },
+      {
+       "words": "credit",
+       "at": 19,
+       "gives": "CR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An absurd claim gets no credit and simply cannot be swallowed.",
+     "walkthrough": "'getting no' removes CR from INCREDIBLE.",
+     "definitionFit": "Food that is inedible is unfit to eat, so the stomach cannot take it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stomached"
+    }
+   }
   },
   {
    "number": 3,
@@ -76,7 +179,49 @@
     "text": "In Dynasty, women's nasal speech",
     "enumeration": "5"
    },
-   "solution": "TWANG"
+   "solution": "TWANG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nasal speech",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the women letter goes in the dynasty name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dynasty",
+       "at": 3,
+       "gives": "TANG",
+       "note": "the Tang was a Chinese dynasty"
+      },
+      {
+       "words": "women's",
+       "at": 12,
+       "gives": "W",
+       "note": "W is the abbreviation for women"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In the TV soap Dynasty, the women speak through their noses.",
+     "walkthrough": "Dynasty looks like the American soap; it is the Tang dynasty of China.",
+     "definitionFit": "A twang is a distinctive nasal quality in someone's accent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dynasty"
+    }
+   }
   },
   {
    "number": 4,
@@ -90,7 +235,64 @@
     "text": "Lying boss almost in late",
     "enumeration": "9"
    },
-   "solution": "RECUMBENT"
+   "solution": "RECUMBENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lying",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "the shortened boss word goes in the word for late"
+      }
+     ],
+     "parts": [
+      {
+       "words": "late",
+       "at": 21,
+       "gives": "RECENT",
+       "note": "late in the sense of recent"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 11,
+         "note": "almost drops the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boss",
+         "at": 6,
+         "gives": "UMBO",
+         "note": "an umbo is the boss at the centre of a shield"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dishonest employer is nearly always late.",
+     "walkthrough": "'almost' cuts UMBO to UMB, set 'in' RECENT. 'Lying' means lying down, not telling lies.",
+     "definitionFit": "Recumbent means reclining or lying down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lying"
+    }
+   }
   },
   {
    "number": 5,
@@ -104,7 +306,67 @@
     "text": "No thanks for festival including loud military instruments",
     "enumeration": "5"
    },
-   "solution": "FIFES"
+   "solution": "FIFES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "military instruments",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 23,
+       "note": "the shortened festival word holds the loud letter within it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "No",
+         "at": 0,
+         "note": "No tells us the thanks word is dropped from the festival word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "festival",
+         "at": 14,
+         "gives": "FIESTA",
+         "note": "a fiesta is a festival"
+        },
+        {
+         "words": "thanks",
+         "at": 3,
+         "gives": "TA",
+         "note": "TA is British informal for thanks"
+        }
+       ]
+      },
+      {
+       "words": "loud",
+       "at": 33,
+       "gives": "F",
+       "note": "F stands for forte, loud in music"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declines gratitude for a festival that features noisy army bands.",
+     "walkthrough": "'No' removes the thanks word from the festival, and 'including' places the loud letter within what remains. Here 'No thanks' is not a polite refusal.",
+     "definitionFit": "Fifes are small shrill flutes traditionally played with drums in military bands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 5,
@@ -118,7 +380,49 @@
     "text": "Anger about look, being covered in powder",
     "enumeration": "6"
    },
-   "solution": "FLOURY"
+   "solution": "FLOURY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "covered in powder",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 6,
+       "note": "the anger word goes about the look word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Anger",
+       "at": 0,
+       "gives": "FURY",
+       "note": "fury is great anger"
+      },
+      {
+       "words": "look",
+       "at": 12,
+       "gives": "LO",
+       "note": "LO is an old word meaning look"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rages at their appearance after being dusted in powder.",
+     "walkthrough": "'about' wraps the anger word around the archaic exclamation meaning behold.",
+     "definitionFit": "Floury means dusted with flour, a fine powder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "look"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +436,49 @@
     "text": "Criminal seizing top-quality pottery",
     "enumeration": "7"
    },
-   "solution": "FAIENCE"
+   "solution": "FAIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pottery",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seizing",
+       "at": 9,
+       "note": "the criminal word seizes the top-quality letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Criminal",
+       "at": 0,
+       "gives": "FENCE",
+       "note": "a fence is a criminal who handles stolen goods"
+      },
+      {
+       "words": "top-quality",
+       "at": 17,
+       "gives": "AI",
+       "note": "A1 means first-rate, written AI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook grabs some of the finest ceramics.",
+     "walkthrough": "'seizing' sets FENCE around top-quality A1, written with the digit as the letter I; a fence handles stolen goods.",
+     "definitionFit": "Faience is glazed earthenware, a fine type of ceramic ware."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +492,40 @@
     "text": "Small display showing promise",
     "enumeration": "5"
    },
-   "solution": "SWEAR"
+   "solution": "SWEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "promise",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "display",
+       "at": 6,
+       "gives": "WEAR",
+       "note": "to wear an expression is to display it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modest show reveals someone's potential.",
+     "definitionFit": "To swear is to vow or give a solemn undertaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "promise"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +539,72 @@
     "text": "Degree information captivates youngster coming up, here?",
     "enumeration": "8"
    },
-   "solution": "MAGDALEN"
+   "solution": "MAGDALEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "here?",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Degree",
+       "at": 0,
+       "gives": "MA",
+       "note": "MA is a Master of Arts degree"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "captivates",
+         "at": 19,
+         "note": "the information word captures the turned youngster inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "information",
+         "at": 7,
+         "gives": "GEN",
+         "note": "gen is British slang for information"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "coming up",
+           "at": 40,
+           "note": "in a down clue, coming up means the youngster word reads upwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "youngster",
+           "at": 30,
+           "gives": "LAD",
+           "note": "a lad is a youngster"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A degree course attracts a young person, perhaps to this place.",
+     "walkthrough": "'coming up' turns the youngster upward, which 'captivates' encloses in the information word, giving DAL inside. Students 'come up' to Oxford colleges, so 'here?' points to one.",
+     "definitionFit": "Magdalen is an Oxford college, a place where a degree might be taken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "captivates"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +618,59 @@
     "text": "Person seen in ambulance, just outside, gets home",
     "enumeration": "5"
    },
-   "solution": "ABODE"
+   "solution": "ABODE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "home",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 7,
+       "note": "the person is seen inside the outer letters taken from ambulance"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "just outside",
+         "at": 26,
+         "note": "only the outside letters of the word ambulance are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ambulance",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "Person",
+       "at": 0,
+       "gives": "BOD",
+       "note": "BOD is British slang for a person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient spotted near an ambulance finally makes it back home.",
+     "walkthrough": "'just outside' takes A and E from ambulance; BOD is 'seen in' them.",
+     "definitionFit": "An abode is a dwelling, the place where someone lives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +684,43 @@
     "text": "Her action criminal, she's in solitary",
     "enumeration": "9"
    },
-   "solution": "ANCHORITE"
+   "solution": "ANCHORITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "she's in solitary",
+      "at": 21,
+      "note": "the definition is a phrase describing a person, matching a noun for a recluse"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "criminal",
+       "at": 11,
+       "note": "a criminal action is a crooked one, so these letters are bent into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Her action",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's crime has landed her in solitary confinement.",
+     "walkthrough": "'Solitary' suggests prison, but an anchorite chose seclusion for religious reasons.",
+     "definitionFit": "An anchorite is a religious recluse who lives walled away from the world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solitary"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +734,41 @@
     "text": "Duke holding place at Cmbridge",
     "enumeration": "7"
    },
-   "solution": "DOWNING"
+   "solution": "DOWNING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place at Cmbridge",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Duke",
+       "at": 0,
+       "gives": "D"
+      },
+      {
+       "words": "holding",
+       "at": 5,
+       "gives": "OWNING",
+       "note": "holding property is owning it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A duke possesses some property at Cambridge.",
+     "walkthrough": "The clue's 'Cmbridge' is a misprint for Cambridge.",
+     "definitionFit": "Downing is one of the colleges of Cambridge University."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +782,59 @@
     "text": "Tar: spoil ship with lack of litre?",
     "enumeration": "7"
    },
-   "solution": "MARINER"
+   "solution": "MARINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "spoil",
+       "at": 5,
+       "gives": "MAR",
+       "note": "to mar something is to spoil it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with lack of",
+         "at": 16,
+         "note": "the ship word lacks the litre letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ship",
+         "at": 11,
+         "gives": "LINER",
+         "note": "a liner is an ocean ship"
+        },
+        {
+         "words": "litre",
+         "at": 29,
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tar on deck ruins a ship short of fuel.",
+     "walkthrough": "'Tar' is the old slang word for a sailor, not the black substance.",
+     "definitionFit": "Tar is a traditional slang term for a sailor, as is mariner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tar"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +854,60 @@
      }
     ]
    },
-   "solution": "LONGLEGGED"
+   "solution": "LONGLEGGED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "like a certain daddy!",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One in field",
+       "at": 0,
+       "gives": "LONGLEG",
+       "note": "long leg is a cricket fielding position, so a fielder there"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 17,
+         "note": "returning means the abbreviation for say is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "say",
+         "at": 13,
+         "gives": "EG",
+         "note": "EG (for example) is what 'say' means"
+        }
+       ]
+      },
+      {
+       "words": "daughter",
+       "at": 32,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket fielder with his daughter resembles a particular father.",
+     "walkthrough": "LONG LEG is a cricket fielding position deep behind the batsman on the leg side.",
+     "definitionFit": "The daddy-long-legs, a crane fly, is named for its long thin legs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "daddy"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +921,59 @@
     "text": "In art houses, bad reactions have gone at first right to the top",
     "enumeration": "9"
    },
-   "solution": "GALLERIES"
+   "solution": "GALLERIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "art houses",
+      "at": 3
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "right to the top",
+       "at": 48,
+       "note": "in a down clue, the letter moves right up to the top of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bad reactions",
+       "at": 15,
+       "gives": "ALLERGIES",
+       "note": "allergies are bad reactions of the body"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 39,
+         "note": "at first takes the opening letter of gone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gone",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In art galleries, unpleasant responses have soared.",
+     "walkthrough": "Take the G (first of 'gone') in ALLERGIES and move it 'right to the top'.",
+     "definitionFit": "Galleries are buildings where art is exhibited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reactions"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +987,42 @@
     "text": "Woman's British: Rosemary?",
     "enumeration": "4"
    },
-   "solution": "HERB"
+   "solution": "HERB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rosemary?",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Woman's",
+       "at": 0,
+       "gives": "HER",
+       "note": "HER is the possessive for a woman"
+      },
+      {
+       "words": "British",
+       "at": 8,
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British woman named Rosemary asks after herself.",
+     "walkthrough": "Rosemary looks like a woman's name, but it is an example of a herb, hence the question mark.",
+     "definitionFit": "Rosemary is an aromatic plant used in cooking, an example of a herb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rosemary"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +1036,49 @@
     "text": "Like some rocks, since covered by the sea",
     "enumeration": "8"
    },
-   "solution": "BASALTIC"
+   "solution": "BASALTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like some rocks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered by",
+       "at": 23,
+       "note": "the since word is covered by the sea word around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the sea",
+       "at": 34,
+       "gives": "BALTIC",
+       "note": "the Baltic is a sea in northern Europe"
+      },
+      {
+       "words": "since",
+       "at": 17,
+       "gives": "AS",
+       "note": "as means since, as in as it was late"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some rocks have lain under the sea for ages.",
+     "walkthrough": "'covered by' wraps the sea's name around the word for since; 'the sea' looks generic but names one particular sea.",
+     "definitionFit": "Basaltic describes rocks made of basalt, a dark volcanic stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "since"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1092,49 @@
     "text": "Income from farming, could one say, avoiding English perennial",
     "enumeration": "8"
    },
-   "solution": "AGRIMONY"
+   "solution": "AGRIMONY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "perennial",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "avoiding",
+       "at": 36,
+       "note": "the farm-income phrase avoids the English letter, which is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Income from farming, could one say",
+       "at": 0,
+       "gives": "AGRIMONEY",
+       "note": "farm income might jokingly be called agri-money"
+      },
+      {
+       "words": "English",
+       "at": 45,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Farm income might be called something that leaves out an English perennial.",
+     "walkthrough": "'avoiding' drops E from the made-up AGRI-MONEY.",
+     "definitionFit": "Agrimony is a herbaceous plant with yellow flowers that lives for many years."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "perennial"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1148,40 @@
     "text": "Violently destroy new instrument",
     "enumeration": "4"
    },
-   "solution": "NUKE"
+   "solution": "NUKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Violently destroy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "new",
+       "at": 18,
+       "gives": "N"
+      },
+      {
+       "words": "instrument",
+       "at": 22,
+       "gives": "UKE",
+       "note": "a uke is a ukulele"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smashes a brand-new musical instrument in a rage.",
+     "definitionFit": "To nuke is to attack with nuclear weapons, hence to obliterate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "instrument"
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1195,43 @@
     "text": "Very important and difficult situation in this surgery?",
     "enumeration": "7"
    },
-   "solution": "KEYHOLE"
+   "solution": "KEYHOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in this surgery?",
+      "at": 39,
+      "note": "the definition names a kind of surgery, matching the adjectival answer"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very important",
+       "at": 0,
+       "gives": "KEY",
+       "note": "key means crucial, very important"
+      },
+      {
+       "words": "difficult situation",
+       "at": 19,
+       "gives": "HOLE",
+       "note": "to be in a hole is to be in trouble"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crucial and tricky problem arises in a particular operation.",
+     "walkthrough": "Keyhole surgery is the minimally invasive kind done through tiny incisions.",
+     "definitionFit": "Keyhole surgery is performed through very small cuts using instruments and a camera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "situation"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1251,35 @@
      }
     ]
    },
-   "solution": "PLATEGLASS"
+   "solution": "PLATEGLASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Items for dinner in such a university",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Items for dinner in such a university",
+       "at": 0,
+       "note": "plates and glasses are dinner items, and the name is a class of British university"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "PLATE and GLASS are both things on a dinner table; together they name the 1960s British universities built in modern style.",
+     "definitionFit": "Plate glass universities are the British universities founded in the 1960s, named for their modern architecture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dinner"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1293,45 @@
     "text": "A northern playing area",
     "enumeration": "7"
    },
-   "solution": "ANFIELD"
+   "solution": "ANFIELD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A northern playing area",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "northern",
+       "at": 2,
+       "gives": "N"
+      },
+      {
+       "words": "playing area",
+       "at": 11,
+       "gives": "FIELD",
+       "note": "a field is an area for playing sport"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A sports ground in the north of England.",
+     "walkthrough": "Anfield is Liverpool FC's football stadium, in northern England.",
+     "definitionFit": "Anfield is the home ground of Liverpool Football Club, a famous northern sports venue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1345,52 @@
     "text": "Train regularly plain blue",
     "enumeration": "6"
    },
-   "solution": "RIBALD"
+   "solution": "RIBALD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "blue",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 6,
+         "note": "regularly takes every other letter of the word train"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Train",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "plain",
+       "at": 16,
+       "gives": "BALD",
+       "note": "a bald statement is a plain one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A train is regularly painted in a plain blue livery.",
+     "walkthrough": "'regularly' takes R and I from Train. 'Blue' means indecent here, not a colour.",
+     "definitionFit": "Blue means risqué or smutty, and ribald humour is coarse and vulgar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1404,42 @@
     "text": "Base, your source of wealth",
     "enumeration": "7"
    },
-   "solution": "THYMINE"
+   "solution": "THYMINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Base",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "your",
+       "at": 6,
+       "gives": "THY",
+       "note": "THY is old English for your"
+      },
+      {
+       "words": "source of wealth",
+       "at": 11,
+       "gives": "MINE",
+       "note": "a mine is a rich source, as in a gold mine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told their wealth rests on a base.",
+     "walkthrough": "'Base' here is a chemical base in DNA.",
+     "definitionFit": "Thymine is one of the four nucleotide bases found in DNA."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Base"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1453,60 @@
     "text": "Simultaneous arrivals come first in empty trains",
     "enumeration": "5"
    },
-   "solution": "TWINS"
+   "solution": "TWINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Simultaneous arrivals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "the come-first word goes in the emptied trains"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 36,
+         "note": "emptying a word leaves just its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trains",
+         "at": 42
+        }
+       ]
+      },
+      {
+       "words": "come first",
+       "at": 22,
+       "gives": "WIN",
+       "note": "to win is to come first"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arrivals at the same time come first on empty trains.",
+     "walkthrough": "'empty' reduces trains to TS, and WIN goes 'in'.",
+     "definitionFit": "Twins are born at the same time, so they arrive together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "arrivals"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1520,60 @@
     "text": "Bucketful of perverse fun, thus for the masochist?",
     "enumeration": "7"
    },
-   "solution": "PAINFUL"
+   "solution": "PAINFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for the masochist?",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "of",
+       "at": 10,
+       "note": "a bucket full of something holds it, so the bucket word contains the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bucketful",
+       "at": 0,
+       "gives": "PAIL",
+       "note": "a pail is a bucket"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perverse",
+         "at": 13,
+         "note": "perverse means twisted, so these letters are bent into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fun",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of twisted enjoyment is exactly what a masochist wants.",
+     "walkthrough": "'perverse' makes NFU, and 'Bucketful of' wraps the bucket around it. The question mark marks the joke: pain is a masochist's pleasure.",
+     "definitionFit": "A masochist delights in suffering, so for them pleasure is whatever hurts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Bucketful"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1587,40 @@
     "text": "Piece of glass left in compartment",
     "enumeration": "5"
    },
-   "solution": "PANEL"
+   "solution": "PANEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "compartment",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Piece of glass",
+       "at": 0,
+       "gives": "PANE",
+       "note": "a pane is a sheet of window glass"
+      },
+      {
+       "words": "left",
+       "at": 15,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fragment of glass was left inside a section.",
+     "definitionFit": "A panel is a distinct section or compartment, as of a door or dashboard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "compartment"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1634,66 @@
     "text": "One very old language covers nothing by itself, in this",
     "enumeration": "9"
    },
-   "solution": "ISOLATION"
+   "solution": "ISOLATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "by itself, in this",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "very",
+       "at": 4,
+       "gives": "SO",
+       "note": "SO means very, as in so good"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covers",
+         "at": 22,
+         "note": "the language word goes around the nothing letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old language",
+         "at": 9,
+         "gives": "LATIN",
+         "note": "Latin is an old language"
+        },
+        {
+         "words": "nothing",
+         "at": 29,
+         "gives": "O",
+         "note": "O is nothing, zero"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single archaic language stands alone, covering nothing at all.",
+     "walkthrough": "'covers' puts O inside LATIN, giving LATION.",
+     "definitionFit": "Something considered in isolation is treated by itself, apart from everything else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 26,
@@ -452,7 +1707,64 @@
     "text": "Book marks, one found after prize-giver's heading off",
     "enumeration": "5"
    },
-   "solution": "OBELI"
+   "solution": "OBELI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Book marks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found after",
+       "at": 16,
+       "note": "the one letter comes after the shortened name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 42,
+         "note": "the first letter of the prize-giver's name is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prize-giver's",
+         "at": 28,
+         "gives": "NOBEL",
+         "note": "Alfred Nobel founded the Nobel prizes"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 12,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bookmarks are found after a prize-giver leaves.",
+     "walkthrough": "'heading off' cuts NOBEL's first letter and 'found after' adds I. 'Book marks' are printing marks, not bookmarks.",
+     "definitionFit": "Obeli are dagger-shaped symbols used in texts to mark doubtful passages or references."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prize-giver's"
+    }
+   }
   },
   {
    "number": 27,
@@ -466,7 +1778,49 @@
     "text": "Children swallowing soft drug",
     "enumeration": "5"
    },
-   "solution": "SPEED"
+   "solution": "SPEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "swallowing",
+       "at": 9,
+       "note": "the children word swallows the soft letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Children",
+       "at": 0,
+       "gives": "SEED",
+       "note": "seed is an old word for offspring"
+      },
+      {
+       "words": "soft",
+       "at": 20,
+       "gives": "P",
+       "note": "P stands for piano, soft in music"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kids are taking a mild drug.",
+     "walkthrough": "'swallowing' puts P inside SEED.",
+     "definitionFit": "Speed is slang for amphetamine, a stimulant drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallowing"
+    }
+   }
   },
   {
    "number": 28,
@@ -480,7 +1834,40 @@
     "text": "Son had fun with toys spread out",
     "enumeration": "7"
    },
-   "solution": "SPLAYED"
+   "solution": "SPLAYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spread out",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Son",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "had fun with toys",
+       "at": 4,
+       "gives": "PLAYED",
+       "note": "children who had fun with toys played"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy enjoyed his toys, which are now scattered everywhere.",
+     "definitionFit": "Splayed means spread apart or extended outward, like splayed fingers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "toys"
+    }
+   }
   }
  ]
 }
