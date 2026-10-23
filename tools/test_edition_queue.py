@@ -1140,12 +1140,22 @@ eq.plan = units([], [("long", []), ("r1", [])])
 ho = T / "handoff.json"
 out = io.StringIO()
 t0 = time.monotonic()
-# The slice is long enough for "long"'s brief (prepare, on a pool thread) to be made and the unit begun on
-# a slow CI runner: at 0.5 s the slice could end with it still PENDING, nothing running to hand over.
-with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(out):
-    rc = eq.dispatch(["times"], cache, workers=1, seconds=3, handoff=ho)
+# The slice's clock runs out only once "long" has logged its start: a wall-clock slice could end on a
+# slow CI runner with its brief still PENDING (made on a pool thread), nothing running to hand over.
+class SliceClock:
+    def __getattr__(self, name):
+        return getattr(time, name)
+    def monotonic(self):
+        begun = log.exists() and "start read long" in log.read_text()
+        return time.monotonic() + (120 if begun else 0)
+eq.time = SliceClock()
+try:
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(out):
+        rc = eq.dispatch(["times"], cache, workers=1, seconds=120, handoff=ho)
+finally:
+    eq.time = time
 check("a slice ends at once, handing over its running unit, and says it left work", (0, True, ["long"], True),
-      (rc, time.monotonic() - t0 < 7, [r["unit"]["rel"] for r in json.loads(ho.read_text())],
+      (rc, time.monotonic() - t0 < 9, [r["unit"]["rel"] for r in json.loads(ho.read_text())],
        "left for the next run" in out.getvalue()))
 err = io.StringIO()
 with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
