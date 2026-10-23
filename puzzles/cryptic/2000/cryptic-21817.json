@@ -591,8 +591,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "weight",
-      "at": 27
+      "text": "overweight",
+      "at": 23
      }
     ],
     "wordplay": {
@@ -600,39 +600,27 @@
      "parts": [
       {
        "words": "Tall and slender",
+       "at": 0,
        "gives": "LONG",
-       "note": "long describes something tall and thin in shape"
+       "note": "long describes someone tall and lanky"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "over",
-         "note": "over can mean turned over, so the word not flips end to end"
-        }
-       ],
-       "parts": [
-        {
-         "words": "not",
-         "note": "taken as written, then turned over"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "overweight",
-       "note": "the printed word is split into the turning signal and the definition"
+       "words": "not",
+       "at": 19,
+       "gives": "TON",
+       "note": "not turned over (the over of overweight) reads ton"
       }
      ]
     },
     "explanation": {
-     "surface": "A tall, thin person insists they are not overweight.",
-     "walkthrough": "'overweight' must be split: 'over' turns the word before it and 'weight' is the definition.",
-     "definitionFit": "A long ton is the imperial unit of 2,240 pounds, a measure of weight used in Britain."
+     "surface": "A description of a lanky person who is far from heavy.",
+     "walkthrough": "'overweight' splits: 'over' turns NOT round to TON, and the whole word is a joking definition, since the long ton is the heavier of the two imperial tons.",
+     "definitionFit": "A long ton is 2,240 pounds, a weight greater than the 2,000-pound short ton."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "overweight"
     }
    }
@@ -1435,44 +1423,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "overlooking",
+       "at": 15,
+       "note": "overlooking means leaving out, so the letter for nothing is dropped"
+      }
+     ],
      "parts": [
       {
-       "words": "fuss",
-       "gives": "ADO",
-       "note": "ado is fuss or bother"
-      },
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "overlooking",
-         "note": "to overlook something is to leave it out, so a letter is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "pot",
-         "note": "taken as written"
-        },
-        {
-         "words": "nothing",
-         "gives": "O",
-         "note": "nothing is zero, the round letter, to be removed"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
        "words": "fusspot",
-       "note": "the printed word is read as its two halves"
+       "at": 7,
+       "gives": "ADOPOT",
+       "note": "split as fuss plus pot: fuss is ado and pot stays as written"
+      },
+      {
+       "words": "nothing",
+       "at": 27,
+       "gives": "O",
+       "note": "nothing is zero, the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone takes on the role of a fusspot who ignores nothing.",
-     "walkthrough": "'fusspot' must be split into its two halves, and the O removed from the second.",
-     "definitionFit": "To adopt a manner or attitude is to take it on, to assume it."
+     "surface": "Taking on a pernickety person while paying no attention to trifles.",
+     "walkthrough": "'fusspot' is split into ADO (fuss) and POT; 'overlooking' drops O (nothing) from POT, leaving PT.",
+     "definitionFit": "To adopt a manner or name is to take it on, which is to assume it."
     },
     "features": {
      "answerInScene": false,
