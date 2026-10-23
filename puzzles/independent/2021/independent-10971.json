@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Hold out something that looks like a foot",
     "enumeration": "4"
    },
-   "solution": "LAST"
+   "solution": "LAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hold out",
+      "at": 0,
+      "meaning": "to hold out is to endure or keep going"
+     },
+     {
+      "text": "something that looks like a foot",
+      "at": 9,
+      "meaning": "a cobbler's ... is a foot-shaped block on which shoes are made or repaired"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone resisting while clutching a curious foot-shaped object.",
+     "definitionFit": "Both senses are standard: the verb for enduring and the shoemaker's wooden model of a foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,49 @@
     "text": "Island native, flightless bird, going between both sides",
     "enumeration": "5"
    },
-   "solution": "LEMUR"
+   "solution": "LEMUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Island native",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going between",
+       "at": 32,
+       "note": "the bird goes between the two side letters, which flank it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "both sides",
+       "at": 46,
+       "gives": "LR",
+       "note": "L and R stand for left and right, the two sides"
+      },
+      {
+       "words": "flightless bird",
+       "at": 15,
+       "gives": "EMU",
+       "note": "the emu is a large Australian bird that cannot fly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An island's native bird, unable to fly, caught between two shores.",
+     "walkthrough": "'going between' puts EMU between L and R.",
+     "definitionFit": "Lemurs are primates found naturally only on the island of Madagascar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "native"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +127,64 @@
     "text": "Soprano, working with contralto, engaged in hard work and lyrical expertise",
     "enumeration": "9"
    },
-   "solution": "SONGCRAFT"
+   "solution": "SONGCRAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lyrical expertise",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soprano",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "working",
+       "at": 9,
+       "gives": "ON",
+       "note": "on means working, as with a machine switched on"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "engaged in",
+         "at": 33,
+         "note": "the contralto is engaged in, so placed inside, the word for toil"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hard work",
+         "at": 44,
+         "gives": "GRAFT",
+         "note": "graft is British slang for hard work"
+        },
+        {
+         "words": "contralto",
+         "at": 22,
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Singers toiling side by side, showing their lyrical skill.",
+     "walkthrough": "'engaged in' puts C inside GRAFT. GRAFT is everyday British slang for hard work.",
+     "definitionFit": "Songcraft is the skill of writing songs, expertise in words set to music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +204,46 @@
      }
     ]
    },
-   "solution": "BIRNAMWOOD"
+   "solution": "BIRNAMWOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shifting trees",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "working",
+       "at": 8,
+       "note": "something working is in motion, so the letters of these words are set going into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I'm now",
+       "at": 0
+      },
+      {
+       "words": "board",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter getting busy with a plank cut from trees.",
+     "walkthrough": "'working' rearranges I'M NOW plus BOARD. In Shakespeare's Macbeth, the witches promise Macbeth safety until Birnam Wood comes to Dunsinane, and the soldiers' cut boughs make the wood seem to move.",
+     "definitionFit": "In Macbeth the forest appears to march on Dunsinane, so it is literally a wood that moves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shifting"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +257,88 @@
     "text": "Head of college in university repeatedly found in pubs? That's not suspicious",
     "enumeration": "9"
    },
-   "solution": "INNOCUOUS"
+   "solution": "INNOCUOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That's not suspicious",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 41,
+       "note": "the inner group is found inside the word for pubs"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pubs",
+       "at": 50,
+       "gives": "INNS",
+       "note": "inns are pubs"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "in",
+           "at": 16,
+           "note": "the head letter is placed inside the university abbreviation"
+          }
+         ],
+         "parts": [
+          {
+           "words": "university",
+           "at": 19,
+           "gives": "OU",
+           "note": "OU is the Open University"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "Head of",
+             "at": 0,
+             "note": "the head of a word is its first letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "college",
+             "at": 8
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "repeatedly",
+         "at": 30,
+         "gives": "OU",
+         "note": "repeatedly means the university abbreviation is given a second time"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college head drinking in pubs around campus again and again seems harmless.",
+     "walkthrough": "'in' sets the college's first letter inside the first OU, 'repeatedly' adds the abbreviation again, and 'found in' puts the lot inside the pubs. The Open University is Britain's distance-learning university.",
+     "definitionFit": "Innocuous means harmless and inoffensive, so arousing no suspicion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +352,54 @@
     "text": "Relative a German upset over church",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 18,
+         "note": "in a down clue upset turns the word upside down, so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a German",
+         "at": 9,
+         "gives": "EIN",
+         "note": "ein is German for a"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 29,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German relative is upset about church matters.",
+     "walkthrough": "'upset' turns EIN to NIE.",
+     "definitionFit": "A niece is a sibling's daughter, a family relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +413,42 @@
     "text": "Cryptic behaviour? I cite Nimrod's puzzling",
     "enumeration": "12"
    },
-   "solution": "MISDIRECTION"
+   "solution": "MISDIRECTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cryptic behaviour?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "puzzling",
+       "at": 35,
+       "note": "puzzling suggests the letters are muddled into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I cite Nimrod's",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic citing Nimrod, from Elgar's Enigma Variations, as baffling.",
+     "walkthrough": "'puzzling' rearranges I CITE NIMRODS. Nimrod is a famous movement of Elgar's Enigma Variations, which fits the puzzle theme.",
+     "definitionFit": "Misleading the solver is the core trick of cryptic clues, so cryptic behaviour, with the question mark marking the pun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nimrod's"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +468,39 @@
      }
     ]
    },
-   "solution": "OFUSE"
+   "solution": "OFUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "valuable",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "words": "safety mechanism",
+       "at": 4,
+       "gives": "FUSE",
+       "note": "a fuse cuts an electric circuit to keep it safe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An antique circuit breaker is worth something.",
+     "definitionFit": "Something of use is helpful or worthwhile, close to valuable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +520,47 @@
      }
     ]
    },
-   "solution": "DRYCLEAN"
+   "solution": "DRYCLEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Apply solvent to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "uninteresting",
+       "at": 17,
+       "gives": "DRY",
+       "note": "dry means dull or uninteresting, as in a dry lecture"
+      },
+      {
+       "words": "carbon",
+       "at": 31,
+       "gives": "C",
+       "note": "C is the chemical symbol for carbon"
+      },
+      {
+       "words": "prop",
+       "at": 38,
+       "gives": "LEAN",
+       "note": "to lean is to prop, as in leaning a ladder against a wall"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist stacking boring carbon supports with a solvent.",
+     "definitionFit": "Dry-cleaning washes clothes with a chemical solvent rather than water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prop"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +574,48 @@
     "text": "Son leaving European capital in expensive coat",
     "enumeration": "4"
    },
-   "solution": "MINK"
+   "solution": "MINK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "expensive coat",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "at": 4,
+       "note": "a son leaving the city means his letter departs from its name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "European capital",
+       "at": 12,
+       "gives": "MINSK",
+       "note": "Minsk is the capital of Belarus"
+      },
+      {
+       "words": "Son",
+       "at": 0,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young man departs a city in a pricey coat.",
+     "walkthrough": "'leaving' takes the S out of MINSK.",
+     "definitionFit": "Mink fur makes a famously costly coat, and a fur coat itself is often just called a mink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +629,42 @@
     "text": "Minor member of cast often subject to examination",
     "enumeration": "10"
    },
-   "solution": "UNDERSTUDY"
+   "solution": "UNDERSTUDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minor member of cast",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "subject to",
+       "at": 27,
+       "gives": "UNDER",
+       "note": "under means subject to, as in 'under orders'"
+      },
+      {
+       "words": "examination",
+       "at": 38,
+       "gives": "STUDY",
+       "note": "a study is a close examination of something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bit-part actor who keeps being scrutinised.",
+     "walkthrough": "Something 'under study' is being examined, and the theatre's stand-in is always studying a lead role.",
+     "definitionFit": "An understudy is a performer who learns a principal's part to stand in, usually holding a small role meanwhile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +684,60 @@
      }
     ]
    },
-   "solution": "TEMPTINGFATE"
+   "solution": "TEMPTINGFATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "taking a chance",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Agency worker",
+       "at": 0,
+       "gives": "TEMP",
+       "note": "a temp is a temporary worker from an agency"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 25,
+         "note": "the word for a hint wraps about the other piece, which goes inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hint",
+         "at": 20,
+         "gives": "TINGE",
+         "note": "a tinge is a slight hint, as of colour"
+        },
+        {
+         "words": "richness",
+         "at": 31,
+         "gives": "FAT",
+         "note": "fat gives food its richness"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A temp with a hint of luxury takes a gamble.",
+     "walkthrough": "'about' wraps the hint round the richness; 'Agency worker' looks like the subject of a sentence but simply starts the charade.",
+     "definitionFit": "Tempting fate is an idiom for taking a needless risk, inviting bad luck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "richness"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +751,64 @@
     "text": "Somewhat obscure regarding US singer and curtailed repeat appearance",
     "enumeration": "9"
    },
-   "solution": "RECHERCHE"
+   "solution": "RECHERCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Somewhat obscure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "regarding",
+       "at": 17,
+       "gives": "RE",
+       "note": "re means regarding, as in a letter's subject line"
+      },
+      {
+       "words": "US singer",
+       "at": 27,
+       "gives": "CHER",
+       "note": "Cher is the American singer and actress"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 41,
+         "note": "cut short at the tail, so the last letter of the name goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "repeat appearance",
+         "at": 51,
+         "gives": "CHER",
+         "note": "a repeat appearance of the singer just named gives her name a second time"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "RECHERCHÉ",
+    "explanation": {
+     "surface": "An obscure remark about Cher and a truncated encore.",
+     "walkthrough": "The singer appears twice; 'curtailed' docks the second CHER to CHE.",
+     "definitionFit": "Recherché describes something rare, exotic or deliberately esoteric, hence somewhat obscure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repeat"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +822,57 @@
     "text": "Best fish, entirely presented without tail",
     "enumeration": "5"
    },
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fish",
+       "at": 5,
+       "gives": "IDE",
+       "note": "the ide is a freshwater fish, a crossword favourite"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without tail",
+         "at": 30,
+         "note": "losing its tail means the word drops its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entirely",
+         "at": 11,
+         "gives": "ALL",
+         "note": "all means entirely, as in 'all alone'"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish served whole but missing its tail is the finest.",
+     "walkthrough": "'without tail' docks ALL to AL.",
+     "definitionFit": "The ideal option is the perfect one, the best possible choice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Best"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +886,48 @@
     "text": "Power supplied by energy source in sudden intake",
     "enumeration": "4"
    },
-   "solution": "GASP"
+   "solution": "GASP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sudden intake",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supplied by",
+       "at": 6,
+       "note": "the power letter is supplied by the fuel, placed next to it as an add-on after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "energy source",
+       "at": 18,
+       "gives": "GAS",
+       "note": "gas is a fuel that supplies energy"
+      },
+      {
+       "words": "Power",
+       "at": 0,
+       "gives": "P",
+       "note": "P is the physics abbreviation for power"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Electricity from a power station feeding a sudden surge.",
+     "definitionFit": "A gasp is a sharp, sudden breath drawn in from shock or effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "intake"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +941,72 @@
     "text": "Band entrances without piano skill, on reflection",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 15,
+         "note": "the porches are left without the piano letter, so it is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entrances",
+         "at": 5,
+         "gives": "PORCHES",
+         "note": "porches are covered entrances to buildings"
+        },
+        {
+         "words": "piano",
+         "at": 23,
+         "gives": "P",
+         "note": "P is the musical abbreviation for piano, soft"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on reflection",
+         "at": 36,
+         "note": "a reflection shows things mirrored, so the word for skill is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "skill",
+         "at": 29,
+         "gives": "ART",
+         "note": "art means skill, as in 'the art of persuasion'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band thinking back on entering with no piano player.",
+     "walkthrough": "'without' drops P from PORCHES; 'on reflection' turns ART into TRA.",
+     "definitionFit": "An orchestra is a large band of musicians playing together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entrances"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1020,63 @@
     "text": "Church in Spain covered in material that's black and red",
     "enumeration": "9"
    },
-   "solution": "COCHINEAL"
+   "solution": "COCHINEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "red",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered in",
+       "at": 16,
+       "note": "the pieces are covered in the black material, so they sit inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "material that's black",
+       "at": 27,
+       "gives": "COAL",
+       "note": "coal is the black mineral fuel"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Church",
+         "at": 0,
+         "gives": "CH"
+        },
+        {
+         "words": "in",
+         "at": 7
+        },
+        {
+         "words": "Spain",
+         "at": 10,
+         "gives": "E",
+         "note": "E is the international vehicle code for Spain"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish church coated in black and red stuff.",
+     "walkthrough": "'covered in' sets the church, the word in and Spain inside the black material. 'black and red' reads as one colour scheme, but only 'red' defines.",
+     "definitionFit": "Cochineal is a crimson dye made from insects, so a red colouring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1090,58 @@
     "text": "Vileness, putrid, spreading in a day",
     "enumeration": "9"
    },
-   "solution": "TURPITUDE"
+   "solution": "TURPITUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vileness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "the jumbled letters sit in the abbreviation for the day"
+      }
+     ],
+     "parts": [
+      {
+       "words": "day",
+       "at": 33,
+       "gives": "TUE",
+       "note": "TUE is short for Tuesday"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spreading",
+         "at": 18,
+         "note": "spreading means the letters are spread out into a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "putrid",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vile, rotting smell spreading within a single day.",
+     "walkthrough": "'spreading' jumbles the six letters and 'in' places them within the day; 'putrid' looks like part of the definition beside 'Vileness' but is pure fodder.",
+     "definitionFit": "Turpitude means wickedness or depravity, as in moral turpitude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1155,32 @@
     "text": "Possible target for repairing telephone problem",
     "enumeration": "8"
    },
-   "solution": "DEADLINE"
+   "solution": "DEADLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Possible target",
+      "at": 0,
+      "meaning": "a time limit one aims to meet, a possible target"
+     },
+     {
+      "text": "telephone problem",
+      "at": 30,
+      "meaning": "a ... is a phone line with no dial tone"
+     }
+    ],
+    "explanation": {
+     "surface": "An engineer's goal when fixing a faulty phone.",
+     "walkthrough": "'for repairing' links the two senses: a line that needs repairing is dead.",
+     "definitionFit": "One sense is a time limit to aim for; the other is a phone line that has stopped working."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "target"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1194,59 @@
     "text": "Somehow it's nicer to receive kiss from a foreign party?",
     "enumeration": "9"
    },
-   "solution": "EXTRINSIC"
+   "solution": "EXTRINSIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from a foreign party?",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to receive",
+       "at": 19,
+       "note": "the scrambled letters take in the kiss, which sits inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Somehow",
+         "at": 0,
+         "note": "somehow suggests the letters are put together in some other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it's nicer",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "kiss",
+       "at": 30,
+       "gives": "X",
+       "note": "X is the kiss at the end of a letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a kiss from someone at a foreign party feels oddly nicer.",
+     "walkthrough": "The first word is the anagram signal for IT'S NICER, and 'to receive' takes the kiss in; the definition's question mark admits it is a loose gloss.",
+     "definitionFit": "Extrinsic means coming from outside, so originating with an outside, foreign party; the question mark flags the loose phrasing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1260,40 @@
     "text": "Petty restrictions placed around car accessory",
     "enumeration": "4"
    },
-   "solution": "TYRE"
+   "solution": "TYRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "car accessory",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "placed around",
+       "at": 19,
+       "note": "the words sit around the answer, which lies in them across the word break"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Petty restrictions",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fussy rules imposed on fitting a car add-on.",
+     "walkthrough": "The letters run across 'peTTY REstrictions'.",
+     "definitionFit": "A tyre is a rubber part fitted to a car's wheel, loosely called an accessory here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1307,61 @@
     "text": "Was keen about retaining revolutionary live work on program",
     "enumeration": "5"
    },
-   "solution": "DEBUG"
+   "solution": "DEBUG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "work on program",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "retaining",
+       "at": 15,
+       "note": "the word for liked keeps the other piece held inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Was keen about",
+       "at": 0,
+       "gives": "DUG",
+       "note": "dug, slang past tense of dig, means liked or was keen about"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 25,
+         "note": "turning right round means the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "live",
+         "at": 39,
+         "gives": "BE",
+         "note": "to be is to live or exist"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A programmer who loved revolutionary living now patches code.",
+     "walkthrough": "'revolutionary' turns the verb round and 'retaining' holds it inside the slang past tense of dig, to like.",
+     "definitionFit": "To debug is to find and remove the errors from software, a type of work on a program."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1375,30 @@
     "text": "Advertising expenditure?",
     "enumeration": "5"
    },
-   "solution": "BILLS"
+   "solution": "BILLS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Advertising",
+      "at": 0,
+      "meaning": "... are posters advertising something, as in 'stick no ...'"
+     },
+     {
+      "text": "expenditure",
+      "at": 12,
+      "meaning": "what one must pay out, the costs one spends money on"
+     }
+    ],
+    "explanation": {
+     "surface": "A query about the cost of ad campaigns.",
+     "definitionFit": "Bills are both printed posters that advertise and invoices for spending."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1412,50 @@
     "text": "Councillor in type of work involving old, old fashion item",
     "enumeration": "9"
    },
-   "solution": "CRINOLINE"
+   "solution": "CRINOLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old fashion item",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Councillor",
+       "at": 0,
+       "gives": "CR"
+      },
+      {
+       "words": "in",
+       "at": 11
+      },
+      {
+       "words": "old",
+       "at": 37,
+       "gives": "O"
+      },
+      {
+       "words": "type of work",
+       "at": 14,
+       "gives": "LINE",
+       "note": "a line is a type of work, as in 'what line are you in?'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A councillor in some trade dealing with antique clothes.",
+     "walkthrough": "The pieces sit in order; 'involving' simply joins them.",
+     "definitionFit": "A crinoline was a stiff hooped petticoat of Victorian dress, now an outdated garment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Councillor"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1469,42 @@
     "text": "Ill-bred fellow caught having fling",
     "enumeration": "5"
    },
-   "solution": "CHURL"
+   "solution": "CHURL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ill-bred fellow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "caught",
+       "at": 16,
+       "gives": "C",
+       "note": "C is the cricket abbreviation for caught"
+      },
+      {
+       "words": "fling",
+       "at": 30,
+       "gives": "HURL",
+       "note": "to hurl is to fling or throw"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boorish man caught in a romantic fling.",
+     "definitionFit": "A churl is a rude, boorish person, originally a low-born peasant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fling"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1518,78 @@
     "text": "Vacuous compassion I expressed after the writer tumbled over",
     "enumeration": "5"
    },
-   "solution": "EMPTY"
+   "solution": "EMPTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vacuous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 31,
+       "note": "the second piece comes after the first in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "tumbled over",
+         "at": 48,
+         "note": "having tumbled over, the word is upside down, read backwards in this down clue"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the writer",
+         "at": 37,
+         "gives": "ME",
+         "note": "the writer means the setter, me"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "expressed",
+         "at": 21,
+         "note": "read as ex-pressed, pressed out, so the letter is squeezed from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "compassion",
+         "at": 8,
+         "gives": "PITY",
+         "note": "pity is compassion"
+        },
+        {
+         "words": "I",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An empty-headed show of sympathy after the author fell over.",
+     "walkthrough": "'tumbled over' turns ME to EM; 'expressed' squeezes I out of PITY to leave PTY.",
+     "definitionFit": "Empty means lacking content or thought, so vacuous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "expressed"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1609,59 @@
      }
     ]
    },
-   "solution": "ILLNATURED"
+   "solution": "ILLNATURED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perverse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "swamping",
+       "at": 25,
+       "note": "the tide's letters swamp the loch, closing over it so it sits inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "high",
+         "at": 9,
+         "note": "high means intoxicated, so the letters are put into a giddy new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lunar tide",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "loch",
+       "at": 34,
+       "gives": "L",
+       "note": "L is the map abbreviation for loch, a Scottish lake"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spring tide flooding over a Scottish lake, perversely.",
+     "walkthrough": "'high' rearranges LUNAR TIDE; 'swamping' puts L inside.",
+     "definitionFit": "Ill-natured means surly and contrary, a temper close to perverse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1675,59 @@
     "text": "Supply side finally failing — it's a joke",
     "enumeration": "4"
    },
-   "solution": "QUIP"
+   "solution": "QUIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a joke",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "failing",
+       "at": 20,
+       "note": "failing means that letter goes missing from the word for supply"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Supply",
+       "at": 0,
+       "gives": "EQUIP",
+       "note": "to equip is to supply with what is needed"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 12,
+         "note": "finally points to the end of the word side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "side",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A supply chain collapsing on one front is no laughing matter.",
+     "walkthrough": "'finally' picks E from side; 'failing' drops it from EQUIP.",
+     "definitionFit": "A quip is a witty remark, a short clever joke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Supply"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1747,59 @@
      }
     ]
    },
-   "solution": "EASTERLILY"
+   "solution": "EASTERLILY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "the two letters are placed within the word for the wind"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wind",
+       "at": 20,
+       "gives": "EASTERLY",
+       "note": "an easterly is a wind blowing from the east"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 8,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "left",
+         "at": 12,
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One bloom left out in the breeze.",
+     "walkthrough": "'in' puts IL inside EASTERLY, after its first L.",
+     "definitionFit": "The Easter lily is a white trumpet-shaped lily associated with Easter, a type of flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1813,49 @@
     "text": "Tax: it's absent from laughing matter, perhaps",
     "enumeration": "4"
    },
-   "solution": "LEVY"
+   "solution": "LEVY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tax",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "absent from",
+       "at": 10,
+       "note": "the word goes missing from the next piece, so its letters are dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "laughing matter, perhaps",
+       "at": 22,
+       "gives": "LEVITY",
+       "note": "levity, light-hearted humour, is the stuff of a laughing matter"
+      },
+      {
+       "words": "it's",
+       "at": 5,
+       "gives": "IT",
+       "note": "it's, read as 'it is', supplies the word it, with is acting as the verb"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taxes are certainly no laughing matter.",
+     "walkthrough": "'absent from' takes IT out of LEVITY.",
+     "definitionFit": "A levy is a tax or charge imposed by authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "laughing"
+    }
+   }
   }
  ]
 }
