@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,65 @@
     "text": "British cut (not horse), cured meat and game",
     "enumeration": "10"
    },
-   "solution": "BACKGAMMON"
+   "solution": "BACKGAMMON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "at": 0,
+       "gives": "B"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 13,
+         "note": "the bracketed 'not horse' tells us to drop that letter from the word for cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cut",
+         "at": 8,
+         "gives": "HACK",
+         "note": "to hack is to cut roughly"
+        },
+        {
+         "words": "horse",
+         "at": 17,
+         "gives": "H",
+         "note": "horse is slang for heroin, abbreviated H"
+        }
+       ]
+      },
+      {
+       "words": "cured meat",
+       "at": 25,
+       "gives": "GAMMON",
+       "note": "gammon is cured ham from a pig's hind leg"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher's order: a British cut of meat (no horsemeat, please), some gammon, and some game birds.",
+     "walkthrough": "'(not horse)' removes H from HACK, leaving ACK. 'Game' looks like more butcher's produce but is the definition.",
+     "definitionFit": "Backgammon is a board game for two players moving counters by dice throws."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +106,58 @@
     "text": "I'm bored travelling round new resort abroad",
     "enumeration": "8"
    },
-   "solution": "BENIDORM"
+   "solution": "BENIDORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "resort abroad",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 21,
+       "note": "the rearranged letters go round the letter for new, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "travelling",
+         "at": 10,
+         "note": "letters that are travelling are moving about, so the words I'm bored get rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'm bored",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "new",
+       "at": 27,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bored holidaymaker complains while travelling round a new resort abroad.",
+     "walkthrough": "'travelling' rearranges I'M BORED; 'round' wraps those letters around N.",
+     "definitionFit": "Benidorm is a Spanish seaside town on the Costa Blanca, a famous package-holiday destination for Britons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +171,69 @@
     "text": "Dude with a diary you put at No. 2 in best-seller list",
     "enumeration": "9"
    },
-   "solution": "CATALOGUE"
+   "solution": "CATALOGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "list",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dude",
+       "at": 0,
+       "gives": "CAT",
+       "note": "cat is old slang for a man or dude"
+      },
+      {
+       "words": "a",
+       "at": 10
+      },
+      {
+       "words": "diary",
+       "at": 12,
+       "gives": "LOG",
+       "note": "a log is a diary-style record"
+      },
+      {
+       "words": "you",
+       "at": 18,
+       "gives": "U",
+       "note": "U is text-speak for you"
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "at No. 2 in",
+         "at": 26,
+         "note": "the letter standing second in the word best-seller is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "best-seller",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a diary hopes to reach number two in the best-seller list.",
+     "walkthrough": "'at No. 2 in' picks the second letter of 'best-seller', E. 'No. 2' sounds like a chart position but counts letters.",
+     "definitionFit": "A catalogue is an itemised list of goods, books or works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "No."
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +247,41 @@
     "text": "An organised unit and salt get the worse for wear",
     "enumeration": "7"
    },
-   "solution": "GESTALT"
+   "solution": "GESTALT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An organised unit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "the worse for wear",
+       "at": 31,
+       "note": "something worse for wear is battered out of shape, so these letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "salt get",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tidy unit and its salt supply both deteriorate with use.",
+     "walkthrough": "'the worse for wear' rearranges SALT GET.",
+     "definitionFit": "In psychology a gestalt is an organised whole perceived as more than the sum of its parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +295,50 @@
     "text": "Bar? Come with me to get smashed in town!",
     "enumeration": "9"
    },
-   "solution": "MORECAMBE"
+   "solution": "MORECAMBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "town",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to get smashed",
+       "at": 18,
+       "note": "smashed things are broken up, so the letters of these three words are shuffled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bar",
+       "at": 0
+      },
+      {
+       "words": "Come",
+       "at": 5
+      },
+      {
+       "words": "me",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to the bar to get drunk in town.",
+     "walkthrough": "'to get smashed' rearranges BAR, COME and ME together. 'Smashed' reads as drunk but is the anagram signal.",
+     "definitionFit": "Morecambe is a seaside town in Lancashire, in north-west England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smashed"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +352,49 @@
     "text": "Runner in Europe punched by Queen? Do behave!",
     "enumeration": "5"
    },
-   "solution": "ORDER"
+   "solution": "ORDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Do behave!",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "punched by",
+       "at": 17,
+       "note": "the river name is struck through by the letter for Queen, which ends up inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Runner in Europe",
+       "at": 0,
+       "gives": "ODER",
+       "note": "the Oder is a river (a runner) flowing between Germany and Poland"
+      },
+      {
+       "words": "Queen",
+       "at": 28,
+       "gives": "R",
+       "note": "R stands for Regina, Latin for queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European athlete is punched by a queen, who then demands better behaviour.",
+     "walkthrough": "'Runner' suggests an athlete but is a river; 'punched by' puts R inside ODER.",
+     "definitionFit": "'Order!' is what a chair or speaker calls out to demand proper conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Runner"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +408,44 @@
     "text": "Well-informed questions put to an audience",
     "enumeration": "4"
    },
-   "solution": "WISE"
+   "solution": "WISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well-informed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WISE",
+     "indicators": [
+      {
+       "text": "put to an audience",
+       "at": 24,
+       "note": "something put to an audience is heard by listeners rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "questions",
+       "at": 14,
+       "gives": "WHYS",
+       "note": "whys are questions asking for reasons"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker asks informed questions of the people listening.",
+     "walkthrough": "'put to an audience' signals that WHYS is heard, giving a word that sounds the same.",
+     "definitionFit": "A wise person is knowledgeable and judicious, like someone well-informed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +459,41 @@
     "text": "In Australia, go away aboard Trondheim ship",
     "enumeration": "5"
    },
-   "solution": "IMSHI"
+   "solution": "IMSHI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In Australia, go away",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "aboard",
+       "at": 22,
+       "note": "the answer is on board, carried inside the words Trondheim ship"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trondheim ship",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian tells someone on a Norwegian ship to leave.",
+     "walkthrough": "'aboard' points to letters inside TrondheIM SHIp.",
+     "definitionFit": "Imshi is Australian slang, borrowed from Arabic by soldiers, for 'clear off'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aboard"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +507,56 @@
     "text": "Want to remove cap by yard? That's crude!",
     "enumeration": "6"
    },
-   "solution": "EARTHY"
+   "solution": "EARTHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crude",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to remove cap",
+         "at": 5,
+         "note": "taking the cap off a down entry removes its top letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Want",
+         "at": 0,
+         "gives": "DEARTH",
+         "note": "a dearth is a want or lack"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "yard",
+       "at": 22,
+       "gives": "Y"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants to take off their cap in a yard, and is told that's rude.",
+     "walkthrough": "'to remove cap' drops D from DEARTH; 'Want' is a noun here, not a verb.",
+     "definitionFit": "Earthy humour is coarse and down-to-earth, so crude in the vulgar sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Want"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +570,69 @@
     "text": "Endlessly market revolutionary pen like Sappho",
     "enumeration": "6"
    },
-   "solution": "LESBIC"
+   "solution": "LESBIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "like Sappho",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 17,
+         "note": "revolutionary means turning round, so the shortened word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Endlessly",
+           "at": 0,
+           "note": "without its end, the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "market",
+           "at": 10,
+           "gives": "SELL",
+           "note": "to sell is to market goods"
+          },
+          {
+           "gives": "L"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "pen",
+       "at": 31,
+       "gives": "BIC",
+       "note": "a Bic is a well-known brand of ballpoint pen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political radical markets a pen inspired by the poet Sappho.",
+     "walkthrough": "'Endlessly' drops the final L; 'revolutionary' turns the result round. Bic is a ballpoint brand.",
+     "definitionFit": "Sappho was the poet of Lesbos, so lesbic means relating to her island or to lesbian love."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +646,55 @@
     "text": "Group performing in comeback to make these?",
     "enumeration": "5"
    },
-   "solution": "NOTES"
+   "solution": "NOTES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Group performing in comeback to make these?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "in comeback",
+       "at": 17,
+       "note": "a comeback returns, so the words are read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Group",
+         "at": 0,
+         "gives": "SET",
+         "note": "a set is a group"
+        },
+        {
+         "words": "performing",
+         "at": 6,
+         "gives": "ON",
+         "note": "on means performing, as an act on stage"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A band performing on its comeback tour produces music.",
+     "walkthrough": "'in comeback' reverses SET ON. The whole clue also defines: a performing group makes musical notes.",
+     "definitionFit": "Musical notes are the sounds a band produces when it plays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +714,50 @@
      }
     ]
    },
-   "solution": "REDRESSER"
+   "solution": "REDRESSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The Equaliser",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "going on",
+       "at": 13,
+       "note": "the theatrical word comes after, going on to the end of the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "about",
+       "at": 22,
+       "gives": "RE",
+       "note": "re means about, concerning"
+      },
+      {
+       "words": "Wardrobe man",
+       "at": 0,
+       "gives": "DRESSER",
+       "note": "a dresser looks after actors' costumes in a theatre wardrobe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A costume assistant chatters about the TV thriller The Equalizer.",
+     "walkthrough": "'The Equaliser' looks like the TV show title but is simply one who equalises.",
+     "definitionFit": "A redresser sets things right, restoring balance, as an equaliser would."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Equaliser"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +771,40 @@
     "text": "Greek character in charge of a river mouth?",
     "enumeration": "7"
    },
-   "solution": "DELTAIC"
+   "solution": "DELTAIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of a river mouth?",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greek character",
+       "at": 0,
+       "gives": "DELTA",
+       "note": "delta is the fourth letter of the Greek alphabet"
+      },
+      {
+       "words": "in charge",
+       "at": 16,
+       "gives": "IC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek is put in charge of a river estuary.",
+     "definitionFit": "A delta is the fan of land at a river's mouth, so deltaic describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +818,66 @@
     "text": "Massage one's husband, squeezing black pants",
     "enumeration": "7"
    },
-   "solution": "RUBBISH"
+   "solution": "RUBBISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pants",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "squeezing",
+       "at": 23,
+       "note": "the outer letters squeeze the inner one between them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Massage",
+         "at": 0,
+         "gives": "RUB",
+         "note": "to rub is to massage"
+        },
+        {
+         "words": "one's",
+         "at": 8,
+         "gives": "IS",
+         "note": "one's means one is, I'S, giving IS"
+        },
+        {
+         "words": "husband",
+         "at": 14,
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "black",
+       "at": 33,
+       "gives": "B",
+       "note": "B is the abbreviation for black, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone massages their husband while squeezing his black trousers.",
+     "walkthrough": "'squeezing' puts B inside the rest. 'pants' is British slang for nonsense, not trousers.",
+     "definitionFit": "In British slang 'pants' means worthless nonsense, just like rubbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +891,46 @@
     "text": "Intelligent to get out of head for sure",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for sure",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to get out of head",
+       "at": 12,
+       "note": "the word loses its head, its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Intelligent",
+       "at": 0,
+       "gives": "BRIGHT",
+       "note": "bright means intelligent"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever person wants to clear their head, definitely.",
+     "walkthrough": "'to get out of head' drops the B of BRIGHT.",
+     "definitionFit": "'Right!' is an interjection of agreement, much like saying 'sure' or 'certainly'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +944,35 @@
     "text": "Do you have to get up mornings if you're a punk?",
     "enumeration": "7"
    },
-   "solution": "MOHICAN"
+   "solution": "MOHICAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Do you have to get up mornings if you're a punk?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Do you have to get up mornings if you're a punk?",
+       "at": 0,
+       "note": "'Do' is a hairdo, and the punk's hair has to be got up (spiked upright) every morning"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "It reads as a question about punks' sleeping habits, but 'Do' is a hairstyle and 'get up' means styling the hair upright.",
+     "definitionFit": "A Mohican is the punk hairstyle with a single upright strip of hair along the scalp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Do"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +992,41 @@
      }
     ]
    },
-   "solution": "HALFRIGHT"
+   "solution": "HALFRIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not entirely accurate",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Little drink",
+       "at": 0,
+       "gives": "HALF",
+       "note": "a half is a half-pint of beer, a small drink in British pubs"
+      },
+      {
+       "words": "good",
+       "at": 13,
+       "gives": "RIGHT",
+       "note": "right means good, correct"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims a small drink is good for you, and is told that's dubious.",
+     "definitionFit": "Something half right is only partly correct, hence not wholly accurate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1046,35 @@
      }
     ]
    },
-   "solution": "NEAROFFER"
+   "solution": "NEAROFFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What the latest two pieces from Ono mean to purchasers?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What the latest two pieces from Ono mean to purchasers?",
+       "at": 0,
+       "note": "its last two letters stand for the last two words"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Ono' looks like Yoko Ono, but it is the small-ads abbreviation o.n.o.",
+     "definitionFit": "A seller's 'or near offer' tells buyers the asking price is negotiable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ono"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1088,57 @@
     "text": "Tory figure at polls finally gets in line with others",
     "enumeration": "8"
    },
-   "solution": "CONFORMS"
+   "solution": "CONFORMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gets in line with others",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tory",
+       "at": 0,
+       "gives": "CON",
+       "note": "Con is short for Conservative, the Tory party"
+      },
+      {
+       "words": "figure",
+       "at": 5,
+       "gives": "FORM",
+       "note": "a form is a figure or shape"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 21,
+         "note": "finally picks the closing letter of polls"
+        }
+       ],
+       "parts": [
+        {
+         "words": "polls",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative candidate at the elections eventually toes the party line.",
+     "definitionFit": "To conform is to comply with the rules or behaviour of the group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1152,47 @@
     "text": "In the past, go around with nurse and Welsh cad",
     "enumeration": "7"
    },
-   "solution": "ENWHEEL"
+   "solution": "ENWHEEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In the past, go around",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nurse",
+       "at": 28,
+       "gives": "EN",
+       "note": "EN is an enrolled nurse"
+      },
+      {
+       "words": "Welsh",
+       "at": 38,
+       "gives": "W"
+      },
+      {
+       "words": "cad",
+       "at": 44,
+       "gives": "HEEL",
+       "note": "a heel is a cad, a dishonourable man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In days gone by, someone went about with a nurse and a Welsh scoundrel.",
+     "walkthrough": "'In the past' marks the definition as archaic.",
+     "definitionFit": "Enwheel is an obsolete verb meaning to encircle or surround."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cad"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1206,51 @@
     "text": "Author is more corny, making lead go west",
     "enumeration": "6"
    },
-   "solution": "WRITER"
+   "solution": "WRITER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "making lead go",
+       "at": 22,
+       "note": "the first letter of the word is replaced, going over to a different letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more corny",
+       "at": 10,
+       "gives": "TRITER",
+       "note": "triter means more hackneyed or corny"
+      },
+      {
+       "gives": "T"
+      },
+      {
+       "words": "west",
+       "at": 37,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author grows more clichéd, sending the protagonist west.",
+     "walkthrough": "'making lead go west' swaps the leading T of TRITER for W. 'go west' also means to die, a decoy.",
+     "definitionFit": "An author is a writer of books or articles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1264,70 @@
     "text": "Music producer with leg over a head of Orion",
     "enumeration": "5"
    },
-   "solution": "PIANO"
+   "solution": "PIANO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Music producer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 24,
+         "note": "the leg goes over the letter, lying around it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leg",
+         "at": 20,
+         "gives": "PIN",
+         "note": "pins is slang for legs, so a pin is a leg"
+        },
+        {
+         "words": "a",
+         "at": 29,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 31,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Orion",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music producer puts a leg over a head, as if in an odd yoga pose involving Orion.",
+     "walkthrough": "'over' puts PIN around A; then O, the head of Orion.",
+     "definitionFit": "A piano is an instrument, something that produces music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "producer"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1341,65 @@
     "text": "Trailer engineers look at after prang at the front",
     "enumeration": "7"
    },
-   "solution": "PREVIEW"
+   "solution": "PREVIEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trailer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 26,
+       "note": "the engineers and look come after the first piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at the front",
+         "at": 38,
+         "note": "only the front letter of prang is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prang",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "words": "engineers",
+       "at": 8,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers"
+      },
+      {
+       "words": "look at",
+       "at": 18,
+       "gives": "VIEW",
+       "note": "to view is to look at"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Engineers inspect a trailer after a minor car crash.",
+     "walkthrough": "'prang' is British slang for a minor crash; only its P is used.",
+     "definitionFit": "A film trailer is a short preview shown to advertise the movie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Trailer"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1413,71 @@
     "text": "You might see me with Her Maj around Windsor primarily",
     "enumeration": "6"
    },
-   "solution": "ANDREW"
+   "solution": "ANDREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "You might see me with Her Maj around Windsor primarily",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with",
+       "at": 17,
+       "gives": "AND",
+       "note": "and means with, together"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 30,
+         "note": "around turns the royal letters about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Her Maj",
+         "at": 22,
+         "gives": "ER",
+         "note": "ER, Elizabeth Regina, is the Queen"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 45,
+         "note": "primarily takes only the first letter of Windsor"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Windsor",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A royal speaks: you may see me with the Queen around Windsor.",
+     "walkthrough": "The whole clue also describes Prince Andrew, seen with his mother the Queen at Windsor; 'around' turns the royal cipher about.",
+     "definitionFit": "Prince Andrew, a son of Queen Elizabeth II of the House of Windsor, would be seen with her."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1491,57 @@
     "text": "Recent naughtiness ultimately needing reporting",
     "enumeration": "7"
    },
-   "solution": "NEWSING"
+   "solution": "NEWSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reporting",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Recent",
+       "at": 0,
+       "gives": "NEW",
+       "note": "new means recent"
+      },
+      {
+       "words": "naughtiness",
+       "at": 7,
+       "gives": "SIN",
+       "note": "a sin is a piece of wrongdoing or naughtiness"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 19,
+         "note": "ultimately takes the last letter of needing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "needing",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Recent misbehaviour eventually needs reporting.",
+     "definitionFit": "Newsing is an obsolete word for reporting or telling news."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "naughtiness"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1555,58 @@
     "text": "Wife men sent up? No good and immoral!",
     "enumeration": "5"
    },
-   "solution": "WRONG"
+   "solution": "WRONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "immoral",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wife",
+       "at": 0,
+       "gives": "W"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "sent up",
+         "at": 9,
+         "note": "in a down entry, sent up means read from bottom to top, so reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men",
+         "at": 5,
+         "gives": "OR",
+         "note": "OR, other ranks, are soldiers who are not officers"
+        }
+       ]
+      },
+      {
+       "words": "No good",
+       "at": 18,
+       "gives": "NG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife's men were mocked; that's no good and wicked!",
+     "walkthrough": "'sent up' reverses OR to RO.",
+     "definitionFit": "Wrong means morally bad, unethical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sent"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1620,71 @@
     "text": "Sorrow after female's left? Head to great barman!",
     "enumeration": "5"
    },
-   "solution": "GRIEG"
+   "solution": "GRIEG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "barman",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "at": 22,
+         "note": "the female has left, so her letter is gone from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sorrow",
+         "at": 0,
+         "gives": "GRIEF",
+         "note": "grief is sorrow"
+        },
+        {
+         "words": "female's",
+         "at": 13,
+         "gives": "F",
+         "note": "F is the abbreviation for female"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head to",
+         "at": 28,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "great",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grieving after a woman walks out, someone heads to a great bartender.",
+     "walkthrough": "'left' drops F from GRIEF. 'barman' is not a bartender: a composer works in musical bars.",
+     "definitionFit": "Edvard Grieg, the Norwegian composer, wrote music in bars, so is a playful 'bar man'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barman"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1704,69 @@
      }
     ]
    },
-   "solution": "REELOFF"
+   "solution": "REELOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quickly list",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 19,
+         "note": "the first letter of rules is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rules",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 40,
+         "note": "the word is missing the abbreviation for priest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "strip",
+         "at": 34,
+         "gives": "PEELOFF",
+         "note": "to peel off is to strip clothes off"
+        },
+        {
+         "words": "priest",
+         "at": 48,
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rules first, then a striptease without the clergyman.",
+     "walkthrough": "'lacking' drops P from PEEL OFF.",
+     "definitionFit": "To reel off is to recite a series of things rapidly and fluently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strip"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1780,46 @@
     "text": "Preening old fools soon to be trading again?",
     "enumeration": "9"
    },
-   "solution": "REOPENING"
+   "solution": "REOPENING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soon to be trading again?",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "fools",
+       "at": 13,
+       "note": "to fool with something is to play about, so these letters are messed around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Preening",
+       "at": 0
+      },
+      {
+       "words": "old",
+       "at": 9,
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Vain old fools preen themselves, soon to be back in business.",
+     "walkthrough": "'fools' is a verb here, rearranging PREENING plus O.",
+     "definitionFit": "A shop that is reopening is about to start doing business again after closing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fools"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1839,62 @@
      }
     ]
    },
-   "solution": "INFOR"
+   "solution": "INFOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Certain to have",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hot",
+       "at": 16,
+       "gives": "IN",
+       "note": "in means fashionable, hot"
+      },
+      {
+       "words": "fellow",
+       "at": 20,
+       "gives": "F"
+      },
+      {
+       "words": "over",
+       "at": 27,
+       "gives": "O",
+       "note": "O is the cricket abbreviation for over"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 32,
+         "note": "the end of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chair",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sure to get a handsome man seated over the back of a chair.",
+     "definitionFit": "To be in for something is to be bound to experience it, as in 'in for a shock'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 29,
@@ -481,7 +1908,47 @@
     "text": "Having taken top off, heartily drinks syrups",
     "enumeration": "4"
    },
-   "solution": "WIGS"
+   "solution": "WIGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "syrups",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Having taken top off",
+       "at": 0,
+       "note": "the top of a word is its first letter, which is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heartily drinks",
+       "at": 22,
+       "gives": "SWIGS",
+       "note": "swigs means takes big hearty drinks"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes their top off and gulps down syrups.",
+     "walkthrough": "'syrups' is rhyming slang: syrup of figs = wigs. 'Having taken top off' drops S.",
+     "definitionFit": "In Cockney rhyming slang a syrup (of figs) is a wig."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "syrups"
+    }
+   }
   },
   {
    "number": 30,
@@ -495,7 +1962,54 @@
     "text": "A crowd with a reservation to see some pottery",
     "enumeration": "10"
    },
-   "solution": "AGATEWARES"
+   "solution": "AGATEWARES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some pottery",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "crowd",
+       "at": 2,
+       "gives": "GATE",
+       "note": "a gate is the crowd attending a sports match"
+      },
+      {
+       "words": "with",
+       "at": 8,
+       "gives": "W"
+      },
+      {
+       "words": "a",
+       "at": 13
+      },
+      {
+       "words": "reservation",
+       "at": 15,
+       "gives": "RES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd with booked seats comes to see a ceramics exhibition.",
+     "walkthrough": "'gate' is the size of a sports crowd.",
+     "definitionFit": "Agateware is pottery with veined colours imitating agate stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crowd"
+    }
+   }
   }
  ]
 }
