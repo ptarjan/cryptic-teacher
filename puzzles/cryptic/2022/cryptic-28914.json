@@ -792,80 +792,87 @@
      }
     ],
     "wordplay": {
-     "op": "composite",
+     "op": "container",
      "indicators": [
       {
-       "text": "recycled",
-       "at": 12,
-       "note": "recycled means the letters of plutonium are reprocessed into a new order"
-      },
-      {
-       "text": "leaving",
-       "at": 51,
-       "note": "leaving means the letters from depleted uranium are taken away from that pool"
+       "text": "guards",
+       "at": 33,
+       "note": "guards means surrounds, so one piece goes inside another"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "guards",
-         "at": 33,
-         "note": "plutonium guards, or keeps with it, the reversed word for look, adding it to the pool"
+         "text": "recycled",
+         "at": 12,
+         "note": "recycled means made into something new, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "plutonium",
-         "at": 21
-        },
-        {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "back",
-           "at": 45,
-           "note": "back means the word for look is read in reverse"
+           "text": "leaving",
+           "at": 51,
+           "note": "leaving means going away from, so those letters are taken out"
           }
          ],
          "parts": [
           {
-           "words": "look",
-           "at": 40,
-           "gives": "LO",
-           "note": "lo is an old word meaning look, as in lo and behold"
+           "words": "plutonium",
+           "at": 21
+          },
+          {
+           "op": "outer",
+           "indicators": [
+            {
+             "text": "depleted",
+             "at": 59,
+             "note": "depleted means emptied of its contents, so only the outer letters remain"
+            }
+           ],
+           "parts": [
+            {
+             "words": "uranium",
+             "at": 68
+            }
+           ]
           }
          ]
         }
        ]
       },
       {
-       "op": "outer",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "depleted",
-         "at": 59,
-         "note": "depleted is taken as emptied of its middle, leaving only the first and last letters of uranium"
+         "text": "back",
+         "at": 45,
+         "note": "back means the word is read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "uranium",
-         "at": 68
+         "words": "look",
+         "at": 40,
+         "gives": "LO",
+         "note": "lo is an old word for look"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Reprocessed plutonium is guarded, and depleted uranium is the waste left behind.",
-     "walkthrough": "9 is ENVIRONMENTAL, so the definition is the second word of environmental pollution. 'depleted' empties uranium of its middle, and the letters that remain leave the pool.",
-     "definitionFit": "Environmental pollution is the harmful contamination of air, water and land with waste."
+     "surface": "Nuclear waste from recycled plutonium is under watch, with depleted uranium removed.",
+     "walkthrough": "'depleted' leaves the outer letters of uranium, which 'leaving' removes from plutonium; 'recycled' shuffles what remains, and 'guards' wraps it round 'look back' just after the P.",
+     "definitionFit": "Radioactive waste is a form of contamination of the environment, which is what pollution means."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "recycled"
     }
    }

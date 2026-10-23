@@ -46,42 +46,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CONTINUOUS",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "company",
+       "at": 9,
+       "gives": "CO"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "retreating",
-         "note": "troops retreating move backwards, so the word they stand for is read backwards"
+         "text": "in",
+         "at": 39,
+         "note": "in says one piece goes inside another"
         }
        ],
        "parts": [
         {
-         "words": "company",
-         "gives": "CO",
-         "note": "CO is the abbreviation for company"
+         "words": "common sense",
+         "at": 42,
+         "gives": "NOUS",
+         "note": "nous is British slang for common sense"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "in",
-           "note": "'in' places one piece physically inside another"
+           "text": "retreating",
+           "at": 28,
+           "note": "retreating means going backwards, so the word is reversed"
           }
          ],
          "parts": [
           {
-           "words": "common sense",
-           "gives": "NOUS",
-           "note": "nous is British slang for practical good sense"
-          },
-          {
            "words": "detachment",
-           "gives": "TINU",
-           "note": "a detachment is a military UNIT, turned round"
+           "at": 17,
+           "gives": "UNIT",
+           "note": "a unit is a detachment of troops"
           }
          ]
         }
@@ -90,14 +92,14 @@
      ]
     },
     "explanation": {
-     "surface": "A company of soldiers retreats in an unbroken line, showing plain common sense.",
-     "walkthrough": "The military flavour of company, detachment and retreating makes the surface read as one scene, but only 'Unbroken' at the start is the definition.",
-     "definitionFit": "A plain synonym: something continuous runs on without a gap."
+     "surface": "A military company's detachment withdraws, having the sense to do so.",
+     "walkthrough": "NOUS is British slang for common sense; the reversed unit goes inside it just after the N.",
+     "definitionFit": "Continuous means without a break or interruption."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "detachment"
+     "misdirectedWord": "company"
     }
    }
   },
@@ -818,66 +820,83 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TRATTORIA",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 44,
+       "note": "after says this piece follows the one before"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "most but not all of the word is used, so TRIAL loses its last letter"
-        },
-        {
-         "text": "after",
-         "note": "the prosecution piece comes after the dessert piece in the answer"
+         "text": "returned",
+         "at": 58,
+         "note": "returned means sent back, so the word is reversed"
         }
        ],
        "parts": [
         {
          "words": "dessert",
-         "gives": "TRAT",
-         "note": "a TART, turned round"
-        },
+         "at": 50,
+         "gives": "TART",
+         "note": "a tart is a dessert"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
         {
-         "op": "container",
+         "text": "about",
+         "at": 30,
+         "note": "about means around, so one piece goes round another"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "about",
-           "note": "'about' means surrounding"
-          },
-          {
-           "text": "returned",
-           "note": "something returned goes back, so TART is read backwards"
+           "text": "mostly",
+           "at": 23,
+           "note": "mostly means most of the word, so its last letter goes"
           }
          ],
          "parts": [
           {
            "words": "prosecution",
-           "gives": "TRIA",
-           "note": "a TRIAL, mostly"
+           "at": 11,
+           "gives": "TRIAL",
+           "note": "a trial is a prosecution in court"
           },
           {
-           "words": "nothing",
-           "gives": "O",
-           "note": "O = zero, nothing"
+           "gives": "L"
           }
          ]
+        },
+        {
+         "words": "nothing",
+         "at": 36,
+         "gives": "O",
+         "note": "O looks like zero, nothing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A restaurant faces prosecution after a dessert is sent back.",
-     "walkthrough": "'Returned' looks like a diner sending food back, which suits the restaurant; it is only the signal to reverse.",
-     "definitionFit": "A definition by example: a trattoria is a simple Italian restaurant."
+     "surface": "A prosecutor's case largely collapses over nothing after a pudding is sent back.",
+     "walkthrough": "'returned' makes TRAT; 'mostly' cuts TRIAL to TRIA, which goes 'about' O.",
+     "definitionFit": "A trattoria is an informal Italian restaurant."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "returned"
+     "misdirectedWord": "prosecution"
     }
    }
   },
