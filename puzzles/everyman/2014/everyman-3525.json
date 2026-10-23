@@ -275,28 +275,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Ornate",
-       "note": "something ornate is elaborately worked over, suggesting letters rearranged into fancy patterns"
-      },
-      {
-       "text": "misrepresented",
-       "note": "a thing misrepresented is shown in a false form, so its letters are not in their true order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "orb connoisseur",
-       "note": "fourteen letters taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Ornate",
+         "at": 0,
+         "note": "ornate means elaborately worked, so the letters of orb are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "orb",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misrepresented",
+         "at": 23,
+         "note": "misrepresented means shown wrongly, so the letters of connoisseur appear in the wrong order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "connoisseur",
+         "at": 11
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An art expert's view of a decorated globe is misreported in print.",
-     "walkthrough": "Ornate looks like part of the picture, describing the orb, but it reinforces the instruction to rearrange.",
-     "definitionFit": "Robinson Crusoe is Daniel Defoe's 1719 novel of a castaway, so it is an example of a book."
+     "surface": "An expert misdescribes a decorated sphere in a publication.",
+     "walkthrough": "'Ornate' turns ORB into ROB and 'misrepresented' turns CONNOISSEUR into INSONCRUSOE.",
+     "definitionFit": "Robinson Crusoe is Daniel Defoe's 1719 novel, a classic book."
     },
     "features": {
      "answerInScene": false,
