@@ -3375,6 +3375,13 @@
   // and nothing about how the rest is made: that is the blocks rung's to tell.
   const ANAGRAM_PART = "Letters handed to you in the clue get shuffled, but here they make only part of the answer: " +
     "they come up short of the number in brackets, and the rest arrives another way.";
+  // The charade family's blurb says "read the wordplay left to right", which is
+  // false when the outermost step is a container or a reversal (INHUMAN: HUM + A
+  // inside INN), and a solver who believes it joins HUM, A and INN and gets
+  // nonsense. So there the rung says the pieces are not simply end to end.
+  const CHARADE_MOVED = "The answer is built from pieces each clued separately, but here they do not simply sit " +
+    "end to end in the order the clue reads: the clue also turns something round or puts one piece inside another.";
+  const movedCharade = (ann) => ["container", "reversal"].includes((ann.wordplay || {}).op);
   const letterCount = (s) => String(s || "").replace(/[^A-Za-z]/g, "").length;
   function partAnagram(ann) {
     const made = ((ann.assembly || {}).anagrams || []).map((a) => letterCount(a.gives));
@@ -4566,7 +4573,8 @@
       key: "type",
       label: LABELS.type,
       html: [familyOf(t)].map((f) => `<p><strong>${esc(maskAnswer(f.label, ann.answer))}</strong>. ` +
-        `${esc(maskAnswer(f.name === "anagram" && partAnagram(ann) ? ANAGRAM_PART : f.blurb, ann.answer))}</p>`).join(""),
+        `${esc(maskAnswer(f.name === "anagram" && partAnagram(ann) ? ANAGRAM_PART
+          : f.name === "charade" && movedCharade(ann) ? CHARADE_MOVED : f.blurb, ann.answer))}</p>`).join(""),
       rule: familyRuleHTML(familyOf(t), clue, ann)
     });
 
