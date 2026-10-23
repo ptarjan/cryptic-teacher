@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Feature in how to turn a cat into a man",
     "enumeration": "6"
    },
-   "solution": "DETAIL"
+   "solution": "DETAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feature",
+      "at": 0,
+      "meaning": "a particular feature or item"
+     },
+     {
+      "text": "how to turn a cat into a man",
+      "at": 11,
+      "meaning": "cut the tail off MANX, a Manx cat, and you are left with MAN"
+     }
+    ],
+    "explanation": {
+     "surface": "A quirky how-to article promising to transform a cat into a man.",
+     "walkthrough": "The second reading splits the answer as DE-TAIL: remove the last letter of MANX (the tailless Isle of Man cat breed) and it becomes MAN.",
+     "definitionFit": "A detail is one particular element or aspect of something, which is a feature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cat"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +73,59 @@
     "text": "He's about to reform Slade without leader",
     "enumeration": "8"
    },
-   "solution": "HEADLESS"
+   "solution": "HEADLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without leader",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 5,
+       "note": "the outer letters sit around the rest, so they come about it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "He's",
+       "at": 0,
+       "gives": "HES",
+       "note": "taken as the letters H, E, S"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to reform",
+         "at": 11,
+         "note": "Slade is to be reformed, its letters put back together in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Slade",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer plans to reunite the glam rock band Slade but without their frontman.",
+     "walkthrough": "Slade are a 1970s British glam rock band. 'He's' gives its three letters, not a pronoun, and the answer nods to the theme, the Headless Horseman of Sleepy Hollow.",
+     "definitionFit": "Something headless lacks a head, and a head is a leader, so it is without one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reform"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +139,41 @@
     "text": "Principal's lines are sparkling",
     "enumeration": "6"
    },
-   "solution": "STARRY"
+   "solution": "STARRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sparkling",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Principal's",
+       "at": 0,
+       "gives": "STAR",
+       "note": "the principal performer is the star; the 's joins it to what follows"
+      },
+      {
+       "words": "lines",
+       "at": 12,
+       "gives": "RY",
+       "note": "RY, short for railway, the lines a train runs on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lead dancer's moves are dazzling.",
+     "definitionFit": "A starry sky is full of twinkling points of light, so starry means glittering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +187,59 @@
     "text": "Erratic motion around Lagrange point as revealed by satellite",
     "enumeration": "7"
    },
-   "solution": "MOONLIT"
+   "solution": "MOONLIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "revealed by satellite",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 15,
+       "note": "the rearranged letters go around the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Erratic",
+         "at": 0,
+         "note": "erratic means wandering unpredictably, so the word motion is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motion",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "Lagrange point",
+       "at": 22,
+       "gives": "L",
+       "note": "the five Lagrange points in orbital mechanics are labelled L1 to L5, so L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An astronomer describes an object wobbling around a Lagrange point, as seen from orbit.",
+     "walkthrough": "'Erratic' turns MOTION into MOONIT, and 'around' puts L inside it. The satellite is the Moon, not a spacecraft.",
+     "definitionFit": "A moonlit scene is lit by the Moon, Earth's natural satellite, so it is shown up by it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "satellite"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +253,57 @@
     "text": "Romantic grasped style, doffing cap",
     "enumeration": "6"
    },
-   "solution": "GOTHIC"
+   "solution": "GOTHIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Romantic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "grasped",
+       "at": 9,
+       "gives": "GOT",
+       "note": "to have got something is to have grasped or understood it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "doffing cap",
+         "at": 24,
+         "note": "doffing a cap is taking off a hat, so the word loses its top letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "style",
+         "at": 17,
+         "gives": "CHIC",
+         "note": "chic means stylishness"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic figure seized a stylish look while politely raising a hat.",
+     "walkthrough": "'doffing cap' removes the first letter of CHIC to leave HIC.",
+     "definitionFit": "Gothic fiction, with its gloomy castles and heightened emotion, is part of the Romantic movement in literature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +317,61 @@
     "text": "Experienced uplifting drugs like 1 down?",
     "enumeration": "8"
    },
-   "solution": "SEASONED"
+   "solution": "SEASONED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Experienced",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "uplifting",
+         "at": 12,
+         "note": "in a down clue uplifting means the letters read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drugs",
+         "at": 22,
+         "gives": "ES",
+         "note": "Es, ecstasy tablets"
+        }
+       ]
+      },
+      {
+       "words": "like",
+       "at": 28,
+       "gives": "AS",
+       "note": "as means like, in the way of"
+      },
+      {
+       "words": "1 down",
+       "at": 33,
+       "gives": "ONED",
+       "note": "written out as ONE D, D for down"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone experienced with mood-raising drugs asks whether they are like a detail.",
+     "walkthrough": "'uplifting' turns ES into SE. The reference to 1 down is not to its answer but to its label, read as ONE plus D.",
+     "definitionFit": "A seasoned campaigner has been toughened by long practice, so is experienced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +385,52 @@
     "text": "US party political switch in social trick",
     "enumeration": "9"
    },
-   "solution": "DECEPTION"
+   "solution": "DECEPTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trick",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "political switch in",
+       "at": 9,
+       "note": "a voter switching parties swaps Republican for Democrat inside the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "social",
+       "at": 29,
+       "gives": "RECEPTION",
+       "note": "a social is a party or gathering, as is a reception"
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "words": "US party",
+       "at": 0,
+       "gives": "D",
+       "note": "D for Democrat, one of the two big American parties"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US politician changing sides is denounced as a cheap trick at a social event.",
+     "walkthrough": "The switch is from R (Republican) to D (Democrat), so the R of RECEPTION becomes D.",
+     "definitionFit": "A deception is a ruse that misleads someone, just as a trick does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "social"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +444,41 @@
     "text": "Doctor has odd brown beds",
     "enumeration": "5"
    },
-   "solution": "BONES"
+   "solution": "BONES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Doctor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "odd",
+       "at": 11,
+       "note": "the odd letters, first, third, fifth and so on, are picked out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brown beds",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor owns some strange brown beds.",
+     "walkthrough": "'odd' looks like an adjective about the beds; it picks letters 1, 3, 5, 7 and 9 of BROWN BEDS.",
+     "definitionFit": "Bones is slang for a doctor (from sawbones), and the nickname of the Star Trek ship's doctor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +492,34 @@
     "text": "Fruity bureaucrats?",
     "enumeration": "9"
    },
-   "solution": "MANDARINS"
+   "solution": "MANDARINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruity bureaucrats?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Fruity bureaucrats",
+       "at": 0,
+       "note": "names both a small citrus fruit and senior civil servants, which share one word"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Mandarins are small oranges and also powerful officials, originally in imperial China, now senior British civil servants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fruity"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +533,29 @@
     "text": "Film in shadow",
     "enumeration": "5"
    },
-   "solution": "GHOST"
+   "solution": "GHOST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0,
+      "meaning": "A 1990 film starring Patrick Swayze and Demi Moore"
+     },
+     {
+      "text": "shadow",
+      "at": 8,
+      "meaning": "to follow them like a shadow; a faint shadow of something"
+     }
+    ],
+    "explanation": {
+     "surface": "A movie set in darkness.",
+     "definitionFit": "A ghost is a shadowy, faint presence, and to ghost is to trail silently, as a shadow does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +569,41 @@
     "text": "Contents of tin can once found in South America",
     "enumeration": "4"
    },
-   "solution": "INCA"
+   "solution": "INCA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "once found in South America",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Contents of",
+       "at": 0,
+       "note": "the contents are what lies inside the words, so the answer sits within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tin can",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What was inside a tin can was once discovered in South America.",
+     "walkthrough": "'once' belongs to the definition: the Inca empire is gone.",
+     "definitionFit": "The Incas were a people whose empire ruled the Andes until the Spanish conquest, so they were once there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Contents"
+    }
+   }
   },
   {
    "number": 12,
@@ -185,7 +617,64 @@
     "text": "Former prime minister's upset, ultimately very tired",
     "enumeration": "6"
    },
-   "solution": "SLEEPY"
+   "solution": "SLEEPY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tired",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 24,
+         "note": "upset means overturned, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Former prime minister's",
+         "at": 0,
+         "gives": "PEELS",
+         "note": "Robert Peel, British Prime Minister in the 1830s and 1840s, with the 's"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 31,
+         "note": "ultimately means at the end, so the last letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "very",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-PM is distressed and, in the end, utterly exhausted.",
+     "walkthrough": "'upset' turns PEELS into SLEEP. Sleepy Hollow is the theme.",
+     "definitionFit": "Someone sleepy is drowsy and ready for bed, as a tired person is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 13,
@@ -199,7 +688,49 @@
     "text": "Pub requires no money for a sort of smoothie?",
     "enumeration": "8"
    },
-   "solution": "INNOCENT"
+   "solution": "INNOCENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sort of smoothie?",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pub",
+       "at": 0,
+       "gives": "INN",
+       "note": "an inn is a pub"
+      },
+      {
+       "words": "no",
+       "at": 13,
+       "gives": "O",
+       "note": "O, a zero, means none"
+      },
+      {
+       "words": "money",
+       "at": 16,
+       "gives": "CENT",
+       "note": "a cent is a coin, a unit of money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub needs no cash to serve smoothies.",
+     "walkthrough": "Innocent is a well-known UK brand of fruit smoothies, which the question mark flags.",
+     "definitionFit": "Innocent is a smoothie brand, and a guileless innocent is also the opposite of a smooth talker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smoothie"
+    }
+   }
   },
   {
    "number": 14,
@@ -213,7 +744,42 @@
     "text": "Cloth manufactured by a German and a Scotsman",
     "enumeration": "7"
    },
-   "solution": "HESSIAN"
+   "solution": "HESSIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cloth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "German",
+       "at": 24,
+       "gives": "HESS",
+       "note": "Rudolf Hess, the Nazi deputy leader"
+      },
+      {
+       "words": "Scotsman",
+       "at": 37,
+       "gives": "IAN",
+       "note": "Ian is a typical Scottish man's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fabric is made by a German and a Scot working together.",
+     "walkthrough": "Hessian is also the word for someone from Hesse, a red herring here.",
+     "definitionFit": "Hessian is a coarse woven fabric of jute or hemp, used for sacking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manufactured"
+    }
+   }
   },
   {
    "number": 15,
@@ -227,7 +793,70 @@
     "text": "Always move different sappers to protect the Queen",
     "enumeration": "8"
    },
-   "solution": "EVERMORE"
+   "solution": "EVERMORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Always",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to protect",
+       "at": 30,
+       "note": "the outer letters surround and so guard the inner ones"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "different",
+           "at": 12,
+           "note": "made different, the letters of move are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "move",
+           "at": 7
+          }
+         ]
+        },
+        {
+         "words": "sappers",
+         "at": 22,
+         "gives": "RE",
+         "note": "RE, the Royal Engineers, whose soldiers are called sappers"
+        }
+       ]
+      },
+      {
+       "words": "the Queen",
+       "at": 41,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers are endlessly redeployed to guard the monarch.",
+     "walkthrough": "'different' scrambles only 'move'; the sappers' letters follow it unchanged, and the Queen's letters are tucked in after the second letter.",
+     "definitionFit": "Evermore means for all time, forever, which is always."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "different"
+    }
+   }
   },
   {
    "number": 16,
@@ -241,7 +870,40 @@
     "text": "A cyclist's greeting, in the main",
     "enumeration": "4"
    },
-   "solution": "AHOY"
+   "solution": "AHOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "greeting, in the main",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "cyclist's",
+       "at": 2,
+       "gives": "HOY",
+       "note": "Chris Hoy, the Scottish Olympic track cycling champion; the 's joins him to the definition"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist calls out hello, mostly.",
+     "walkthrough": "'in the main' looks like 'mostly' but means at sea, the main being the ocean.",
+     "definitionFit": "Ahoy is the call sailors use to hail another ship, a greeting at sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 17,
@@ -255,7 +917,68 @@
     "text": "Terminal at Heathrow initially breaks rules",
     "enumeration": "7"
    },
-   "solution": "CATHODE"
+   "solution": "CATHODE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Terminal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaks",
+       "at": 31,
+       "note": "the inserted letters break into the word, splitting it open"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rules",
+       "at": 38,
+       "gives": "CODE",
+       "note": "a code is a set of rules"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at",
+         "at": 9
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 21,
+           "note": "initially means at the start, so the first letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Heathrow",
+           "at": 12
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At an airport terminal, a passenger flouts regulations.",
+     "walkthrough": "'Terminal' suggests an airport building, matching Heathrow; it is the electrode.",
+     "definitionFit": "A cathode is the negative electrode of a cell or battery, one of its terminals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Terminal"
+    }
+   }
   },
   {
    "number": 18,
@@ -269,7 +992,57 @@
     "text": "Hard Viking decapitated rider",
     "enumeration": "8"
    },
-   "solution": "HORSEMAN"
+   "solution": "HORSEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rider",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hard",
+       "at": 0,
+       "gives": "H",
+       "note": "H, as on pencils"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "decapitated",
+         "at": 12,
+         "note": "with its head cut off, the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Viking",
+         "at": 5,
+         "gives": "NORSEMAN",
+         "note": "a Norseman is a Viking"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tough Viking had his head cut off by a rider.",
+     "walkthrough": "'decapitated' removes the N of NORSEMAN, a nod to the theme's Headless Horseman.",
+     "definitionFit": "A horseman is one who rides a horse, a rider."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Viking"
+    }
+   }
   },
   {
    "number": 19,
@@ -283,7 +1056,47 @@
     "text": "Sunday? That's right, man",
     "enumeration": "7"
    },
-   "solution": "SOLDIER"
+   "solution": "SOLDIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "man",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sunday",
+       "at": 0,
+       "gives": "SOLD",
+       "note": "Sol, the sun, plus D for day"
+      },
+      {
+       "words": "That's",
+       "at": 8,
+       "gives": "IE",
+       "note": "ie, id est, means that is"
+      },
+      {
+       "words": "right",
+       "at": 15,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks if it is Sunday and is told yes, mate.",
+     "walkthrough": "'Sunday' splits into SUN (SOL) and DAY (D).",
+     "definitionFit": "Soldiers are the men of an army, as in officers and men; a man is a private soldier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sunday"
+    }
+   }
   },
   {
    "number": 20,
@@ -307,7 +1120,67 @@
      }
     ]
    },
-   "solution": "WELLTODO"
+   "solution": "WELLTODO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rich",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 27,
+       "note": "the next piece is placed after the one before"
+      }
+     ],
+     "parts": [
+      {
+       "words": "springtime",
+       "at": 33,
+       "gives": "WELLT",
+       "note": "a well is a spring, and T stands for time"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wears",
+         "at": 10,
+         "note": "the clue word that signals this step"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spectacles",
+         "at": 16,
+         "gives": "OO",
+         "note": "OO, two round lenses"
+        },
+        {
+         "words": "duke",
+         "at": 5,
+         "gives": "D",
+         "note": "D, the abbreviation for duke"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy duke puts on his glasses once spring arrives.",
+     "walkthrough": "'wears' is the sign that OO goes round D, as glasses sit on a face.",
+     "definitionFit": "Someone well-to-do is prosperous and comfortably off, which is rich."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "springtime"
+    }
+   }
   },
   {
    "number": 21,
@@ -321,7 +1194,54 @@
     "text": "Star setter's raised to finish",
     "enumeration": "6"
    },
-   "solution": "LEGEND"
+   "solution": "LEGEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Star",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 14,
+         "note": "in a down clue, raised means the letters read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "setter's",
+         "at": 5,
+         "gives": "GEL",
+         "note": "hair gel is a setter, it sets the hair; the 's stands for is"
+        }
+       ]
+      },
+      {
+       "words": "finish",
+       "at": 24,
+       "gives": "END",
+       "note": "end means finish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star crossword compiler has been lifted to the end.",
+     "walkthrough": "'raised' turns GEL into LEG.",
+     "definitionFit": "A legend is a celebrated, famous figure, a star in their field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "setter's"
+    }
+   }
   },
   {
    "number": 22,
@@ -335,7 +1255,60 @@
     "text": "'Preach to choir!' minister to roar, ultimately in shock",
     "enumeration": "6"
    },
-   "solution": "HORROR"
+   "solution": "HORROR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shock",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "at": 37,
+       "note": "ultimately means at the end, so each word gives its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Preach",
+       "at": 1
+      },
+      {
+       "words": "to",
+       "at": 8
+      },
+      {
+       "words": "choir",
+       "at": 11
+      },
+      {
+       "words": "minister",
+       "at": 19
+      },
+      {
+       "words": "to",
+       "at": 28
+      },
+      {
+       "words": "roar",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A minister urged to roar a sermon to the faithful ends up in shock.",
+     "definitionFit": "Horror is intense fear or dismay, a strong shock to the feelings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "minister"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1322,42 @@
     "text": "75% of prison is empty",
     "enumeration": "6"
    },
-   "solution": "HOLLOW"
+   "solution": "HOLLOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "empty",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "75% of",
+       "at": 0,
+       "note": "three quarters of the word are kept, six letters of the eight, from the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prison",
+       "at": 7,
+       "gives": "HOLLOWAY",
+       "note": "Holloway was a women's prison in north London"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most of a prison stands empty.",
+     "walkthrough": "HOLLOWAY is a former London women's prison; 75% drops its last two letters.",
+     "definitionFit": "Something hollow has nothing inside it, so it is empty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -363,7 +1371,58 @@
     "text": "Fabulous story involves English travel card?",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "travel card",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involves",
+       "at": 15,
+       "note": "the rearranged letters wrap around the inserted one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Fabulous",
+         "at": 0,
+         "note": "fabulous suggests something made up, so the word story is reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 24,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tall tale features an English ticket.",
+     "walkthrough": "'Fabulous' turns STORY into OYSTR, which 'involves' puts round E. The Oyster card is London's smart travel pass.",
+     "definitionFit": "Oyster is the name of London's contactless smart card for buses and the Underground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fabulous"
+    }
+   }
   },
   {
    "number": 24,
@@ -377,7 +1436,52 @@
     "text": "Love playing game to the end",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the end",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Love",
+       "at": 0,
+       "gives": "O",
+       "note": "love is zero in tennis, O"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 5,
+         "note": "playing about with the word game rearranges its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "game",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lover keeps playing a game right up to the end.",
+     "walkthrough": "'playing' turns GAME into MEGA.",
+     "definitionFit": "Omega is the last letter of the Greek alphabet, so it stands for the end, as in alpha and omega."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 25,
@@ -391,7 +1495,41 @@
     "text": "'e led Wise's production of a song",
     "enumeration": "9"
    },
-   "solution": "EDELWEISS"
+   "solution": "EDELWEISS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a song",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "production of",
+       "at": 14,
+       "note": "a production makes something new out of the letters given"
+      }
+     ],
+     "parts": [
+      {
+       "words": "'e led Wise's",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man, in Cockney speech, directed a production of a song by Wise.",
+     "walkthrough": "Wise may suggest Ernie Wise of the comedy duo Morecambe and Wise.",
+     "definitionFit": "Edelweiss is a song from The Sound of Music, named after the Alpine flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "production"
+    }
+   }
   },
   {
    "number": 26,
@@ -405,7 +1543,31 @@
     "text": "Derrick's bird",
     "enumeration": "5"
    },
-   "solution": "CRANE"
+   "solution": "CRANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Derrick's",
+      "at": 0,
+      "meaning": "a derrick is a lifting ...; the 's stands for is"
+     },
+     {
+      "text": "bird",
+      "at": 10,
+      "meaning": "a long-legged wading bird"
+     }
+    ],
+    "explanation": {
+     "surface": "A man named Derrick owns a bird.",
+     "definitionFit": "A derrick is a kind of hoist used on ships and oil rigs, and a crane is also a tall wading bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Derrick's"
+    }
+   }
   },
   {
    "number": 27,
@@ -419,7 +1581,71 @@
     "text": "Moved judge jails old king over daughter",
     "enumeration": "9"
    },
-   "solution": "RELOCATED"
+   "solution": "RELOCATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moved",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "jails",
+         "at": 12,
+         "note": "the outer word locks the other inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "judge",
+         "at": 6,
+         "gives": "RATE",
+         "note": "to rate something is to judge it"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "over",
+           "at": 27,
+           "note": "over means turned over, so the word reads backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "old king",
+           "at": 18,
+           "gives": "COLE",
+           "note": "Old King Cole, the merry old soul of the nursery rhyme"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "daughter",
+       "at": 32,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge imprisons an aged monarch for the sake of his daughter, and has moved.",
+     "walkthrough": "The old king is the nursery rhyme's merry Old King Cole; 'over' turns his name round before 'jails' locks it inside the judge's word.",
+     "definitionFit": "Something relocated has been shifted to a new place, so it has moved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jails"
+    }
+   }
   }
  ]
 }
