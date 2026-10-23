@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,31 @@
      }
     ]
    },
-   "solution": "NOTCRICKET"
+   "solution": "NOTCRICKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like only this clue today?",
+      "at": 0,
+      "meaning": "every other clue in this puzzle is about cricket"
+     },
+     {
+      "text": "That's hardly fair",
+      "at": 27,
+      "meaning": "the idiom for unsporting, unfair behaviour"
+     }
+    ],
+    "explanation": {
+     "surface": "A solver notices one clue stands apart from the day's theme and complains it is unfair.",
+     "walkthrough": "The joke is self-referential: in a cricket-themed puzzle, this is the one clue with no cricket in it.",
+     "definitionFit": "Saying something is 'not cricket' is an old British idiom meaning it breaks the rules of sportsmanship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +84,32 @@
      }
     ]
    },
-   "solution": "NUMBERTWO"
+   "solution": "NUMBERTWO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dropping",
+      "at": 0,
+      "meaning": "a childish euphemism for a dropping, excrement"
+     },
+     {
+      "text": "one place down in the batting order",
+      "at": 9,
+      "meaning": "the batter at ... comes in just after the first opener"
+     }
+    ],
+    "explanation": {
+     "surface": "A batter is demoted one slot in the team's line-up.",
+     "walkthrough": "'Dropping' reads as demotion, but it is a noun: a dropping, which nursery slang calls a number two.",
+     "definitionFit": "Batting orders are numbered, so the second position is literally number two; separately the phrase is toilet slang for faeces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dropping"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +123,41 @@
     "text": "Concealed by whites, Tudor combined protective equipment",
     "enumeration": "7"
    },
-   "solution": "TESTUDO"
+   "solution": "TESTUDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "combined protective equipment",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Concealed by",
+       "at": 0,
+       "note": "the answer is concealed by the run of letters spanning the two words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "whites, Tudor",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some Tudor-era cricket gear is hidden under the players' white clothing.",
+     "walkthrough": "The letters sit across 'whiTES TUDOr'.",
+     "definitionFit": "A testudo was the Roman tortoise formation in which soldiers locked shields together overhead, a collective form of armour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "whites"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +171,29 @@
     "text": "Tail-end stand",
     "enumeration": "4"
    },
-   "solution": "REAR"
+   "solution": "REAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tail-end",
+      "at": 0,
+      "meaning": "the back or tail end of something"
+     },
+     {
+      "text": "stand",
+      "at": 9,
+      "meaning": "to stand up on the hind legs, as a horse does"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Rear as a noun is the hindmost part; as a verb, a horse rears when it rises onto its back legs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stand"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +207,60 @@
     "text": "Indians not using e.g. leg trap",
     "enumeration": "5"
    },
-   "solution": "CREEL"
+   "solution": "CREEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trap",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Indians",
+       "at": 0,
+       "gives": "CREE",
+       "note": "the Cree are a Native American people"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not using",
+         "at": 8,
+         "note": "not using means the letters of the abbreviation that follows are left out of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leg",
+         "at": 23,
+         "gives": "LEG",
+         "note": "taken as written"
+        },
+        {
+         "words": "e.g.",
+         "at": 18,
+         "gives": "EG",
+         "note": "the letters of the abbreviation e.g. as printed"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Indian cricket team avoids setting a leg-side field trap.",
+     "walkthrough": "'Indians' looks like the cricket team but is the Cree people; 'not using e.g.' strips EG from LEG to leave L.",
+     "definitionFit": "A creel is a wicker basket used as a lobster or fish trap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Indians"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +274,73 @@
     "text": "Bishop's place is running around rope, just inside",
     "enumeration": "9"
    },
-   "solution": "EPISCOPAL"
+   "solution": "EPISCOPAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bishop's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 26,
+       "note": "around means the scrambled letters go round the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "running",
+         "at": 18,
+         "note": "running suggests the letters of place and is moving about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "place",
+         "at": 9
+        },
+        {
+         "words": "is",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "just inside",
+         "at": 39,
+         "note": "just inside means only the inner letters of rope are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rope",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The bishop's residence is being run past a boundary rope.",
+     "walkthrough": "'is running' reads as a verb phrase, but 'is' belongs to the scrambled fodder with 'place'; 'just inside' takes the core of 'rope', and 'around' wraps the jumble round it.",
+     "definitionFit": "Episcopal is the adjective for things relating to bishops, so it matches a possessive like bishop's."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +354,41 @@
     "text": "In downpour, Duckworth-Lewis is common parlance for Imran Khan, etc.",
     "enumeration": "4"
    },
-   "solution": "URDU"
+   "solution": "URDU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "common parlance for Imran Khan, etc.",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "in means the answer sits inside the letters of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "downpour, Duckworth",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "During a rain-affected match, the Duckworth-Lewis method is something Imran Khan talks about all the time.",
+     "walkthrough": "The letters run across 'downpoUR DUckworth'. Duckworth-Lewis is cricket's formula for resetting targets after rain.",
+     "definitionFit": "Urdu is the national language of Pakistan, spoken by Imran Khan and his fellow Pakistani cricketers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "parlance"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +402,68 @@
     "text": "For this fast stuff guard's middle and off",
     "enumeration": "7"
    },
-   "solution": "RAMADAN"
+   "solution": "RAMADAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this fast",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "stuff",
+       "at": 14,
+       "gives": "RAM",
+       "note": "to stuff is to ram or cram"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle",
+         "at": 28,
+         "note": "middle means the centre letter of the word guard is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guard's",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 39,
+         "note": "off suggests the letters of and are disturbed and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batter asks the umpire for a middle-and-off guard against fast bowling.",
+     "walkthrough": "'middle and off' is a real batting guard, which hides that 'middle' picks A from GUARD and 'off' scrambles AND to DAN.",
+     "definitionFit": "Ramadan is the Muslim month of daytime fasting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +477,46 @@
     "text": "Giving us new spin, the opposite of seam?",
     "enumeration": "5"
    },
-   "solution": "UNSEW"
+   "solution": "UNSEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the opposite of seam?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spin",
+       "at": 14,
+       "note": "spin means the letters of us and new are turned about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "us",
+       "at": 7
+      },
+      {
+       "words": "new",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spin bowling gives the team something new, as opposed to seam bowling.",
+     "walkthrough": "Seam and spin are cricket's two bowling types, but here seam is a verb: to join with stitches.",
+     "definitionFit": "To seam is to sew pieces together, so to unpick the stitching is its opposite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seam"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +530,69 @@
     "text": "Michael Holding pirouetting at second slip",
     "enumeration": "7"
    },
-   "solution": "MISTAKE"
+   "solution": "MISTAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slip",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Holding",
+       "at": 8,
+       "note": "holding means the first word's letters enclose the pieces that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Michael",
+       "at": 0,
+       "gives": "MIKE",
+       "note": "Mike is short for Michael"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "second",
+         "at": 31,
+         "gives": "S"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "pirouetting",
+           "at": 16,
+           "note": "pirouetting, spinning round, means the word at is turned back to front"
+          }
+         ],
+         "parts": [
+          {
+           "words": "at",
+           "at": 28
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fast bowler Michael Holding spins round while fielding at second slip.",
+     "walkthrough": "Michael Holding was a West Indian fast bowler, and 'second slip' a fielding position, but 'Holding' is the enclosure signal and 'pirouetting' turns 'at' round; the S for second comes before it.",
+     "definitionFit": "A slip is an error or blunder, so it is a synonym of mistake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Holding"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +606,70 @@
     "text": "Narrow strip remains like that, needing a bit of mowing to widen it?",
     "enumeration": "7"
    },
-   "solution": "ISTHMUS"
+   "solution": "ISTHMUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Narrow strip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "remains",
+       "at": 13,
+       "gives": "IS",
+       "note": "something that remains still is"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to widen it",
+         "at": 56,
+         "note": "to widen it means a letter is pushed into the middle of the phrase, making it longer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "like that",
+         "at": 21,
+         "gives": "THUS",
+         "note": "thus means like that, in that way"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a bit of",
+           "at": 40,
+           "note": "a bit of means only the first letter of mowing is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mowing",
+           "at": 49
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A narrow cricket strip stays as it is, needing only a little mowing to make it wider.",
+     "walkthrough": "'Narrow strip' suggests a pitch, but it is a strip of land.",
+     "definitionFit": "An isthmus is a narrow neck of land joining two larger landmasses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "strip"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +683,36 @@
     "text": "Poor side in South Africa?",
     "enumeration": "8"
    },
-   "solution": "TOWNSHIP"
+   "solution": "TOWNSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poor side in South Africa?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Poor side in South Africa?",
+       "at": 0,
+       "note": "reads like a weak South African cricket team, but means an impoverished district of a city there"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weak South African cricket eleven.",
+     "walkthrough": "'Side' means a team in cricket, but here it is a side of town.",
+     "definitionFit": "Under apartheid, townships were the deprived residential areas set aside for non-white South Africans on the edges of cities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +726,57 @@
     "text": "Aussies unable to leave the ground, English have to shortly",
     "enumeration": "4"
    },
-   "solution": "EMUS"
+   "solution": "EMUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aussies unable to leave the ground",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 36,
+       "gives": "E"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 52,
+         "note": "shortly means the word is cut short, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "have to",
+         "at": 44,
+         "gives": "MUST",
+         "note": "must means have to"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Australian batters stuck on the ground while the English must keep going.",
+     "walkthrough": "'Aussies' suggests the cricket team; it is Australian birds that cannot fly.",
+     "definitionFit": "The emu is a large flightless bird native to Australia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Aussies"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +796,60 @@
      }
     ]
    },
-   "solution": "BLACKWIDOW"
+   "solution": "BLACKWIDOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Australian spinner",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boycott",
+       "at": 0,
+       "gives": "BLACK",
+       "note": "to black something is to boycott it, as unions black goods"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "at": 16,
+         "note": "leaves means the abbreviation for new departs from the word window"
+        }
+       ],
+       "parts": [
+        {
+         "words": "opening",
+         "at": 8,
+         "gives": "WINDOW",
+         "note": "a window is an opening"
+        },
+        {
+         "words": "new",
+         "at": 23,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "England's Geoffrey Boycott, opening the batting, leaves to a debutant Australian spin bowler.",
+     "walkthrough": "Geoffrey Boycott was a famous England opener, but here 'Boycott' means to black.",
+     "definitionFit": "The black widow is a venomous spider, a web spinner, and its relative the redback is found across Australia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boycott"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +863,65 @@
     "text": "Pad out centrally, fell leg before wicket",
     "enumeration": "8"
    },
-   "solution": "ELONGATE"
+   "solution": "ELONGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pad out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 28,
+       "note": "before means the pieces come in order, one ahead of the next"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centrally",
+         "at": 8,
+         "note": "centrally means only the middle letters of the word fell are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fell",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "leg",
+       "at": 24,
+       "gives": "ON",
+       "note": "the leg side is also called the on side in cricket"
+      },
+      {
+       "words": "wicket",
+       "at": 35,
+       "gives": "GATE",
+       "note": "a wicket is a small gate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batter is given out leg before wicket, the ball striking the pad.",
+     "walkthrough": "'Pad' and 'leg before wicket' evoke an lbw dismissal, but 'Pad out' is the definition.",
+     "definitionFit": "To pad something out is to make it longer by adding material, which is to lengthen or stretch it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pad"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +941,53 @@
      }
     ]
    },
-   "solution": "TOODLEPIP"
+   "solution": "TOODLEPIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bye",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Rather",
+       "at": 0,
+       "gives": "TOO",
+       "note": "too means rather, more than is wanted"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tight",
+         "at": 7,
+         "note": "tight means drunk, so the letters of lipped are reeling into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lipped",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tight-lipped about conceding a bye in cricket.",
+     "walkthrough": "'bye' looks like a cricket extra but is short for goodbye; 'tight-lipped' must be split, 'tight' (drunk) jumbling LIPPED.",
+     "definitionFit": "Toodle-pip is an old-fashioned, jaunty British way of saying goodbye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bye"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1001,72 @@
     "text": "Gower perhaps in cryptic XI — Paul's excited about that",
     "enumeration": "9"
    },
-   "solution": "PENINSULA"
+   "solution": "PENINSULA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gower perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 45,
+       "note": "about means the scrambled letters go round the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "excited",
+         "at": 37,
+         "note": "excited means the letters of Paul's are stirred up into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Paul's",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "cryptic",
+         "at": 17,
+         "note": "cryptic hints that the numeral XI must be read in a hidden way, right to left, so the word nine comes backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "XI",
+         "at": 25,
+         "gives": "NINE",
+         "note": "XI is eleven, but IX is the Roman numeral for nine"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "David Gower might be picked for a fantasy cricket eleven that Paul is thrilled about.",
+     "walkthrough": "Gower suggests the England batsman David Gower, but it is the Gower Peninsula in south Wales. XI read backwards is IX, nine, so 'cryptic' gives ENIN, nine reversed.",
+     "definitionFit": "The Gower is a peninsula of land jutting into the sea west of Swansea in Wales, an example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gower"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1080,44 @@
     "text": "Perhaps Botham's over going for 16",
     "enumeration": "5"
    },
-   "solution": "SINAI"
+   "solution": "SINAI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "going for 16",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 17,
+       "note": "over means turned over, so the letters are read from the end back to the start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Botham's",
+       "at": 8,
+       "gives": "IANIS",
+       "note": "Ian Botham was a great England all-rounder; Botham's here is read as Ian is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ian Botham's over goes for sixteen runs.",
+     "walkthrough": "'over' and '16' suggest a costly over, but 16 points to the answer at 16-down, PENINSULA.",
+     "definitionFit": "Sinai is a triangular peninsula in Egypt between the Mediterranean and the Red Sea, so it would serve as an example of the 16-down answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1131,79 @@
     "text": "Officer run out is upset, with superior quietly stopping cricket?",
     "enumeration": "9"
    },
-   "solution": "INSPECTOR"
+   "solution": "INSPECTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "with superior",
+       "at": 26,
+       "note": "with superior means the other piece is placed above this one in the down entry"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stopping",
+         "at": 48,
+         "note": "stopping means the letter plugs a gap inside the word for cricket"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cricket?",
+         "at": 57,
+         "gives": "INSECT",
+         "note": "a cricket is an insect, the question mark flagging the example"
+        },
+        {
+         "words": "quietly",
+         "at": 40,
+         "gives": "P",
+         "note": "P stands for piano, quietly in music"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "is upset",
+         "at": 16,
+         "note": "is upset means turned upside down, which in a down entry reads the letters bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "run out",
+         "at": 8,
+         "gives": "RO",
+         "note": "RO is the scorecard abbreviation for run out"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer gives a batter run out and is upset, while a senior quietly halts the match.",
+     "walkthrough": "'cricket' is not the game but the insect; 'stopping' puts P into INSECT, and 'is upset' turns RO to OR, with 'with superior' setting INSPECT above it.",
+     "definitionFit": "An inspector is a rank of police officer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1217,41 @@
     "text": "Much to do with number of wickets to take",
     "enumeration": "5"
    },
-   "solution": "OFTEN"
+   "solution": "OFTEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Much",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to do with",
+       "at": 5,
+       "gives": "OF",
+       "note": "of means concerning, to do with"
+      },
+      {
+       "words": "number of wickets to take",
+       "at": 16,
+       "gives": "TEN",
+       "note": "a bowling side must take ten wickets to dismiss a team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lot depends on how many wickets the bowlers need to take.",
+     "definitionFit": "Used as an adverb, much can mean frequently, as in 'do you go there much?'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Much"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1271,58 @@
      }
     ]
    },
-   "solution": "TINHATS"
+   "solution": "TINHATS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "helmets",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "collects",
+         "at": 10,
+         "note": "collects means the outer pieces gather the next one inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Which",
+         "at": 0,
+         "gives": "THAT",
+         "note": "that can mean which, as a relative pronoun"
+        },
+        {
+         "words": "batting",
+         "at": 19,
+         "gives": "IN",
+         "note": "a batting side is in"
+        }
+       ]
+      },
+      {
+       "words": "son",
+       "at": 6,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking which son gathers up the batting helmets.",
+     "definitionFit": "Tin hats is slang for steel military helmets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "batting"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1336,79 @@
     "text": "If wrong'un turns then Wales' last pair makes nought",
     "enumeration": "9"
    },
-   "solution": "NULLIFIES"
+   "solution": "NULLIFIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "makes nought",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turns",
+         "at": 12,
+         "note": "turns means the run of letters is read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "If",
+           "at": 0
+          },
+          {
+           "words": "wrong",
+           "at": 3,
+           "gives": "ILL",
+           "note": "ill means wrong or bad"
+          },
+          {
+           "words": "'un",
+           "at": 8,
+           "gives": "UN",
+           "note": "'un is a colloquial one, written UN"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last pair",
+         "at": 30,
+         "note": "last pair means the final two letters of Wales are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wales'",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A googly spins, and then the last two Welsh batters are out for a duck.",
+     "walkthrough": "A wrong'un is a googly in cricket, but here the word splits in two, 'wrong' and 'un; 'turns' reverses everything from 'If' to 'un, giving NULLIFI.",
+     "definitionFit": "To nullify something is to cancel it out or reduce it to nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wrong'un"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1422,55 @@
     "text": "Reserve bowled on long grass in field, showing craft",
     "enumeration": "7"
    },
-   "solution": "ICEBOAT"
+   "solution": "ICEBOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "craft",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 15,
+       "note": "on means the pieces follow one another in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reserve",
+       "at": 0,
+       "gives": "ICE",
+       "note": "ice means reserve, cold aloofness"
+      },
+      {
+       "words": "bowled",
+       "at": 8,
+       "gives": "B",
+       "note": "B is the scorecard abbreviation for bowled"
+      },
+      {
+       "words": "long grass in field",
+       "at": 18,
+       "gives": "OAT",
+       "note": "oats are tall cereal grasses grown in fields"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reserve player bowls on a pitch overgrown with long grass and shows real skill.",
+     "walkthrough": "'craft' looks like skill but means a vessel.",
+     "definitionFit": "An iceboat is a sailing vessel on runners that races across frozen water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1484,52 @@
     "text": "Boxes, for instance, saving fellow's nuts",
     "enumeration": "10"
    },
-   "solution": "CONTAINERS"
+   "solution": "CONTAINERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boxes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "saving",
+       "at": 21,
+       "note": "saving means except, so the abbreviation for fellow is left out"
+      },
+      {
+       "text": "nuts",
+       "at": 37,
+       "note": "nuts means mad, so the remaining letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for instance",
+       "at": 7
+      },
+      {
+       "words": "fellow",
+       "at": 28,
+       "gives": "F"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket box, for example, protects a man's private parts.",
+     "walkthrough": "The surface is a cricketer's protective box, but the wordplay is FOR INSTANCE without F, jumbled.",
+     "definitionFit": "Boxes are containers, things that hold other things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1543,60 @@
     "text": "Garner caught one, grabbing hard",
     "enumeration": "5"
    },
-   "solution": "CACHE"
+   "solution": "CACHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Garner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "caught",
+       "at": 7,
+       "gives": "C",
+       "note": "C is the cricket abbreviation for caught"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "grabbing",
+         "at": 19,
+         "note": "grabbing means the word for one closes around the next letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 14,
+         "gives": "ACE",
+         "note": "an ace is a one in cards and dice"
+        },
+        {
+         "words": "hard",
+         "at": 28,
+         "gives": "H",
+         "note": "H is the abbreviation for hard, as on pencils"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "West Indies fast bowler Joel Garner takes a tough catch.",
+     "walkthrough": "Joel Garner was a towering West Indian fast bowler, but 'Garner' is a verb: to store up.",
+     "definitionFit": "To garner is to gather and store, and to cache is to hide away a store of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Garner"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1610,32 @@
     "text": "Comic bat's 1D puttin' wig and gown on?",
     "enumeration": "5"
    },
-   "solution": "ROBIN"
+   "solution": "ROBIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comic bat's 1D",
+      "at": 0,
+      "meaning": "The comic-book Batman's sidekick, his number two (the answer at 1-down)"
+     },
+     {
+      "text": "puttin' wig and gown on?",
+      "at": 15,
+      "meaning": "robing, with the final g dropped as in puttin', is dressing in a judge's wig and gown"
+     }
+    ],
+    "explanation": {
+     "surface": "A funny batter, number two in the order, is dressing up in barrister's wig and gown.",
+     "walkthrough": "'bat' is not a cricket bat but Batman; the dropped g in 'puttin'' tells you to drop it from robing too.",
+     "definitionFit": "Batman's junior partner in the comics is Robin; robing means donning ceremonial robes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bat's"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1649,42 @@
     "text": "Celebrate fine season for French cricket?",
     "enumeration": "4"
    },
-   "solution": "FETE"
+   "solution": "FETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Celebrate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fine",
+       "at": 10,
+       "gives": "F",
+       "note": "F is the abbreviation for fine, as on pencils"
+      },
+      {
+       "words": "season for French cricket?",
+       "at": 15,
+       "gives": "ETE",
+       "note": "été is French for summer, the cricket season"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Throw a party for a good summer of French cricket.",
+     "walkthrough": "French cricket is a children's garden game, but here 'French' gives the French word for summer.",
+     "definitionFit": "To fete someone is to honour or celebrate them lavishly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1698,42 @@
     "text": "One of the Players parking item used during play",
     "enumeration": "4"
    },
-   "solution": "PROP"
+   "solution": "PROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "item used during play",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One of the Players",
+       "at": 0,
+       "gives": "PRO",
+       "note": "in old English cricket the Players were the professionals, as against the amateur Gentlemen"
+      },
+      {
+       "words": "parking",
+       "at": 19,
+       "gives": "P",
+       "note": "P is the map abbreviation for parking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A professional cricketer parks his kit during a match.",
+     "walkthrough": "Gentlemen v Players was a fixture between amateur and professional cricketers in England until 1962.",
+     "definitionFit": "A prop is an object used by actors on stage during a theatrical play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1747,61 @@
     "text": "Clubs with gold clothing abomination for manufacturer of whites?",
     "enumeration": "7"
    },
-   "solution": "CHATEAU"
+   "solution": "CHATEAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "manufacturer of whites?",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "clothing",
+       "at": 16,
+       "note": "clothing means the outer letters wrap around the next piece like a garment"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Clubs",
+         "at": 0,
+         "gives": "C",
+         "note": "C is the abbreviation for clubs in cards"
+        },
+        {
+         "words": "gold",
+         "at": 11,
+         "gives": "AU",
+         "note": "Au is the chemical symbol for gold"
+        }
+       ]
+      },
+      {
+       "words": "abomination",
+       "at": 25,
+       "gives": "HATE",
+       "note": "an abomination is something you hate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports club with gold-trimmed horrors asks who makes its cricket whites.",
+     "walkthrough": "'whites' suggests cricket clothing, but it is white wine.",
+     "definitionFit": "A French wine estate is called a chateau, and many produce white wines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "whites"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1815,43 @@
     "text": "Cook too long abroad suffering from overwork",
     "enumeration": "7"
    },
-   "solution": "BURNOUT"
+   "solution": "BURNOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "suffering from overwork",
+      "at": 21,
+      "note": "a noun phrase: the suffering caused by overwork"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cook too long",
+       "at": 0,
+       "gives": "BURN",
+       "note": "to burn food is to cook it too long"
+      },
+      {
+       "words": "abroad",
+       "at": 14,
+       "gives": "OUT",
+       "note": "abroad means out, away from home"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Alastair Cook, on a long tour abroad, is exhausted by overwork.",
+     "walkthrough": "Alastair Cook was England's long-serving opening batsman; here 'Cook' is the verb.",
+     "definitionFit": "Burnout is physical or emotional exhaustion caused by prolonged stress at work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 29,
@@ -481,7 +1865,43 @@
     "text": "Point scoffs, \"Flipping tail-enders\"",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Point",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Flipping tail-enders",
+       "at": 15,
+       "note": "flipping the tail-enders swaps round only the last two letters of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scoffs",
+       "at": 6,
+       "gives": "EATS",
+       "note": "to scoff is to eat greedily, so scoffs gives eats"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batter scoffs that the tail-enders are hopeless.",
+     "walkthrough": "Tail-enders are the weak batters at the bottom of the order, but here they are the word's last two letters.",
+     "definitionFit": "East is one of the four cardinal compass points."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tail-enders"
+    }
+   }
   },
   {
    "number": 30,
@@ -501,7 +1921,60 @@
      }
     ]
    },
-   "solution": "SAINTPETER"
+   "solution": "SAINTPETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lord's wicket keeper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 46,
+       "note": "during means the other pieces sit within the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "series",
+       "at": 53,
+       "gives": "SER"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "isn't",
+         "at": 21,
+         "gives": "AINT",
+         "note": "ain't is colloquial for isn't"
+        },
+        {
+         "words": "particularly liked",
+         "at": 27,
+         "gives": "PET",
+         "note": "a pet is a favourite, someone particularly liked"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicketkeeper at Lord's who is not especially popular during a Test series.",
+     "walkthrough": "Lord's is London's famous cricket ground, but here the Lord is God; a wicket is a small gate, so St Peter keeps heaven's gate.",
+     "definitionFit": "Saint Peter traditionally holds the keys and guards the gates of heaven."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wicket"
+    }
+   }
   }
  ]
 }
