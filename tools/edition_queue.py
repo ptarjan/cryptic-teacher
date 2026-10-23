@@ -213,8 +213,21 @@ def unit_status(unit, run):
         if scan_queue.vlm_down(e):
             print(f"{unit['kind']} {unit['rel']}: {vlm_deferral(e)}", file=sys.stderr, flush=True)
             return edition_commit.EXITS["vlm"]
+        if media_deferral(unit, e):
+            return edition_commit.EXITS["media"]
         scan_queue.failure((unit["rel"],), e)
         return 1
+
+
+def media_deferral(unit, e):
+    """In the unit's own process: whether error `e` is the media share not answering
+    (downloads.media_down); then say the unit ends deferred, retried once it answers."""
+    import downloads
+    if not downloads.media_down(e):
+        return False
+    print(f"{unit['kind']} {unit['rel']}: deferred, the media share is down ({type(e).__name__}: {e})",
+          file=sys.stderr, flush=True)
+    return True
 
 
 #: Each fetch source's module and how its unit runs there. A fetch unit
@@ -228,7 +241,7 @@ def load_fetcher(source):
     """Import fetch `source`'s module, its MODULES and what unit_status
     uses (a fetch unit's start, under the code lock); return the module."""
     module = importlib.import_module(FETCH_UNITS[source][0])
-    for name in (*module.MODULES, "edition_commit", "scan_queue"):
+    for name in (*module.MODULES, "downloads", "edition_commit", "scan_queue"):
         importlib.import_module(name)
     return module
 
@@ -349,7 +362,7 @@ def load_unit(paper):
     modules (the other papers' filers, the fetchers)."""
     import code_reach
     reach = code_reach.modules(UNIT_MODULES.get(paper, UNIT_MODULES[None]))
-    load_reach(reach | {"edition_commit", "ocr_remote", "scan_queue"}, reach)
+    load_reach(reach | {"downloads", "edition_commit", "ocr_remote", "scan_queue"}, reach)
 
 
 _snapshot = snapshot() if __name__ == "__main__" else None
@@ -386,6 +399,8 @@ if _snapshot is not None and _spec.get("brief"):
         if scan_queue.vlm_down(e):
             print(f"read {_spec['unit']['rel']}: {vlm_deferral(e)}", file=sys.stderr, flush=True)
             sys.exit(edition_commit.EXITS["vlm"])
+        if media_deferral(_spec["unit"], e):
+            sys.exit(edition_commit.EXITS["media"])
         scan_queue.failure((_spec["unit"]["rel"],), e)
         sys.exit(1)
 if _spec.get("unit", {}).get("kind") in ("scan", "read"):
@@ -1721,6 +1736,129 @@ def nap(seconds):
             pass
 
 
+#: While the media share is down (downloads.media_down: the Mac's SMB server refused the session
+#: for a minute, 10-20 08:03 and 10-23 12:44, and the pass died), it is probed this often.
+MEDIA_PROBE_EVERY = 20
+#: A probe that has not answered in this many seconds found the share down (a hung SMB stat).
+MEDIA_PROBE_TIMEOUT = 10
+#: A unit ending deferred for the share this many times in a run while each probe found it up
+#: fails instead: an errno on one path of a share that answers is that path's, not an outage.
+MEDIA_TRIES = 3
+#: The dispatch loop's own media error noted this many times in MEDIA_BLIP_WINDOW seconds, each
+#: found answering at the first probe, is raised: a path the share refuses while it answers.
+MEDIA_BLIPS = 5
+MEDIA_BLIP_WINDOW = 600
+#: The dispatch loop's nap between passes while the share is down (cut short by a unit's exit or a TERM).
+MEDIA_NAP = 5
+_media_reexec = [None, None]  # dispatch's reexec and the pids of its running units, for media_restart
+
+
+def media_wait_limit():
+    """Seconds the queue waits for the media share before it gives up (env CT_MEDIA_WAIT, 1800)."""
+    return seconds_from_env("CT_MEDIA_WAIT", 1800)
+
+
+_media_probe = [None]  # the probe thread last started (one at a time: a hung stat is not stacked)
+
+
+def media_reachable(root=None, timeout=MEDIA_PROBE_TIMEOUT):
+    """Whether the media share answers: a stat and a listing of `root` (downloads.ROOT) within
+    `timeout` seconds, on a thread, so a hung SMB call never holds the dispatch loop."""
+    import downloads
+    root = root or downloads.ROOT
+    if _media_probe[0] is not None and _media_probe[0].is_alive():
+        return False  # the last one still hangs
+    box = []
+
+    def probe():
+        try:
+            os.stat(root)
+            os.listdir(root)
+            box.append(True)
+        except OSError:
+            box.append(False)
+    _media_probe[0] = threading.Thread(target=probe, daemon=True, name="media probe")
+    _media_probe[0].start()
+    _media_probe[0].join(timeout)
+    return bool(box and box[0])
+
+
+class MediaGone(Exception):
+    """The media share stayed down past media_wait_limit(): the queue ends nonzero."""
+
+
+class MediaGate:
+    """The dispatch loop's hold while the media share is down. down(e) notes an outage (a
+    unit that ended deferred for it, EXITS["media"], or the loop's own error on a media
+    path); hold() then probes (`probe`, media_reachable) at once and every `every` seconds,
+    and while the share does not answer no unit starts: "media down: waiting" is logged
+    once, "media back" when it answers again. Past `limit` seconds down, hold() raises
+    MediaGone. A note the first probe finds answered is let go without a line."""
+
+    def __init__(self, probe=None, every=None, limit=None, clock=None, say=None):
+        self.probe, self.clock = probe or media_reachable, clock or time.monotonic
+        self.every = MEDIA_PROBE_EVERY if every is None else every
+        self.limit = media_wait_limit() if limit is None else limit
+        self.say = say or log
+        self.since = None  # when the outage was first noted
+        self.next_probe = None
+        self.waiting = False  # "media down: waiting" logged, "media back" owed
+        self.why = None
+        self.error = None  # the loop's own error behind the note, if any
+        self.blips = []  # when a note of the loop's own error met a share that answered
+        self.seen_down = False  # a probe has found the share down
+
+    def down(self, e=None):
+        """Note an outage when `e` is None (a unit's EXITS["media"]) or downloads.media_down(e);
+        whether it was noted (False: `e` is no outage, raise it)."""
+        import downloads
+        if e is not None and not downloads.media_down(e):
+            return False
+        if self.since is None:
+            self.since = self.clock()
+            self.next_probe = self.since
+        if e is not None:
+            self.why = f"{type(e).__name__}: {e}"
+            self.error = e
+        return True
+
+    def held(self):
+        """Whether an outage is noted and not yet seen over (no probe run)."""
+        return self.since is not None
+
+    def hold(self):
+        """Whether no unit may start now: probes when one is due."""
+        if self.since is None:
+            return False
+        now = self.clock()
+        if now >= self.next_probe:
+            self.next_probe = now + self.every
+            if self.probe():
+                if self.waiting:
+                    self.say(f"media back after {now - self.since:.0f}s down; units start again")
+                    self.blips.clear()
+                elif self.error is not None:
+                    self.blips = [t for t in self.blips if now - t < MEDIA_BLIP_WINDOW] + [now]
+                    if len(self.blips) >= MEDIA_BLIPS:
+                        raise self.error  # the share answers, this path does not: a bug, not an outage
+                self.since, self.waiting, self.why, self.error = None, False, None, None
+                return False
+            self.seen_down = True
+            if not self.waiting:
+                self.waiting = True
+                self.say(f"media down: waiting ({self.why or 'a unit ended deferred for it'}); no unit starts, "
+                         f"probed every {self.every:.0f}s, given up after {self.limit:.0f}s")
+        if now - self.since > self.limit:
+            raise MediaGone(f"the media share has been down {now - self.since:.0f}s (CT_MEDIA_WAIT {self.limit:.0f}s)")
+        return True
+
+    def wait(self, sleep=None):
+        """Block until the share answers (hold() false); MediaGone past the limit."""
+        sleep = sleep or (lambda s: time.sleep(s))
+        while self.hold():
+            sleep(max(0.0, min(self.every, self.next_probe - self.clock())))
+
+
 def vlm_up():
     """Whether the VLM answers: vlm_gate_reader(), else vlm_reader.up(). False
     when no VLM address was ever configured (vlm_reader.unconfigured: it is
@@ -1911,6 +2049,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     vlm_logged = [None, 0]  # (when the "VLM down" line was last logged, its count)
     vlm_pending = [0]  # the reads waiting for it at the last pass that could start units
     idle_walk = [None, None]  # (idle_key, (held flags, vlm_deferred)) of the last pass whose walk began nothing
+    # The media share down (a unit's EXITS["media"], or this loop's own error on a media path):
+    # no unit starts until it answers, and past CT_MEDIA_WAIT the run ends 1 (MediaGate).
+    media = MediaGate()
+    media_tries = {}  # key_of(unit): times it ended deferred for the share this run (MEDIA_TRIES)
+    media_gone = []  # why the run gave up on the share
     beside = [Beside(argv) for argv in beside or ()]
     scans = reads = fetches = []
     # The editions just laid out (fresh), looked for every FRESH_POLL
@@ -2297,6 +2440,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if rc == EXITS["lost"]:
                 losses[key_of(unit)] = losses.get(key_of(unit), 0) + 1
+            # The media share did not answer: deferred, and no unit starts until it does (media.hold).
+            # One deferred for it MEDIA_TRIES times this run fails: that path's error, not an outage.
+            media_retry = False
+            if rc == EXITS["media"]:
+                media_tries[key_of(unit)] = media_tries.get(key_of(unit), 0) + 1
+                media_retry = media_tries[key_of(unit)] <= MEDIA_TRIES
+                media.down()
             if rc == EXITS["vlm"]:
                 spooled_by = vlm_reader.spooled_by(pid)
                 spooled_end = bool(spooled_by)
@@ -2317,8 +2467,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 elif not full_end:
                     vlm_held.add(key_of(unit))
                     vlm_lost_at[0] = time.monotonic()
-            if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]):
-                tried.discard(key_of(unit))  # started again once the desktop is idle, or the VLM answers
+            if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]) or media_retry:
+                tried.discard(key_of(unit))  # started again once the desktop is idle, the VLM or the media share answers
                 tried.difference_update(batch_mate_keys(unit))  # ... each batched edition on its own
                 if unit.get("batch"):
                     unbatched.update(batch_mate_keys(unit))
@@ -2335,11 +2485,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 defer_until.pop(key_of(unit), None)
             if unit["kind"] == "scan" and rc == 0:
                 scanned.add((unit["paper"], unit["rel"]))
-            elif unit["kind"] == "scan" and rc != EXITS["deferred"]:
+            elif unit["kind"] == "scan" and rc != EXITS["deferred"] and not media_retry:
                 scan_failed.add((unit["paper"], unit["rel"]))
             what = {0: "done", 3: "busy (another unit has it)", 4: "held (a run holds the ledger)",
                     5: "failed, the source looks down", 6: "done, but throttled (429)",
                     7: "not started: the disk is full",
+                    EXITS["media"]: "deferred (the media share is down)" if media_retry
+                    else f"failed (the media share's error {MEDIA_TRIES + 1} times this run)",
                     EXITS["deferred"]: "deferred (the desktop is busy)",
                     EXITS["lost"]: "deferred (the desktop was lost)",
                     EXITS["vlm"]: "deferred (spooled)" if rc == EXITS["vlm"] and spooled_end
@@ -2394,7 +2546,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             keep_plan(plan_file, plan_key, [[u for u in us if key_of(u) not in tried]
                                             for us in (scans, reads, fetches)], plan_at, planned_took[0])
 
-    def reexec():
+    def reexec(why=None):
         """Hand the running units to this run's new image and become it."""
         path = handoff or resume or Path(f"/tmp/edition-queue-{os.getpid()}.json")
         thaw()  # the next image does not know the filers are stopped
@@ -2405,7 +2557,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             argv += ["--seconds", str(max(0.0, seconds - (time.monotonic() - begun)))]
         if not handoff:
             argv += ["--resume", str(path)]
-        log(f"code changed ({', '.join(sorted(f.name for f, h in code.items() if digest(f) != h))}); "
+        log(f"{why or 'code changed (' + ', '.join(sorted(f.name for f, h in code.items() if digest(f) != h)) + ')'}; "
             f"re-exec, {len(running) + len(adopted)} running unit(s) kept")
         sys.stdout.flush()
         sys.stderr.flush()
@@ -2421,6 +2573,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     # made on new code, and the chain re-execs without one at most once.
     def may_reexec():
         return plan_done is not None or not os.environ.get(REEXEC_ENV)
+
+    # A media error this loop does not catch itself ends dispatch; main waits for the share
+    # and hands the running units to a new image through this (media_restart).
+    _media_reexec[:] = [reexec, lambda: [pid for pid, _ in units_running()]]
 
     # The unit ceiling follows the Windows host's free RAM and CPU (mem_gate.ceiling_controller; opt-in by
     # env, hosts default from CT_YIELD_HOSTS and the VLM's /metrics); its probes run on a thread.
@@ -2438,6 +2594,20 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 log(line)
         for b in beside:
             b.poll(may_start() and not game_now[0], None if seconds is None else seconds - (time.monotonic() - begun))
+        # The media share down: nothing is planned, looked for or started (each would meet it) until a
+        # probe finds it answering; units running are reaped and kept to their limits meanwhile. A stop,
+        # a reload or the slice's end goes on as ever (none starts a unit).
+        if may_start():
+            try:
+                media_holds = media.hold()
+            except MediaGone as e:
+                log(f"media down: giving up, {e}; stopping")
+                media_gone.append(str(e))
+                stop.append("media")
+                media_holds = False
+            if media_holds:
+                nap(MEDIA_NAP)
+                continue
         # A plan stats every edition and article (minutes on the media
         # mount), so after the first it is made on a thread while this loop
         # goes on reaping and starting from the plan before it.
@@ -2453,9 +2623,14 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 reexec()
         if may_start() and (fresh_at is None or time.monotonic() - fresh_at >= min(replan, FRESH_POLL)):
             fresh_at = time.monotonic()
-            new_scans, new_reads = fresh(papers, cache)
+            try:
+                new_scans, new_reads = fresh(papers, cache)
+            except OSError as e:
+                if not media.down(e):
+                    raise
+                new_scans, new_reads = fresh_scans, fresh_reads  # looked for again once the share answers
             fresh_scans, fresh_reads = unchanged_eq(fresh_scans, new_scans), unchanged_eq(fresh_reads, new_reads)
-        if may_start() and planner is None and (
+        if may_start() and planner is None and not media.held() and (
                 plan_done is None or time.monotonic() - plan_done >= replan and time.monotonic() - plan_done >= replan_after()):
             box = {"begun": time.monotonic(), "notes": []}
 
@@ -2471,13 +2646,18 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 # Scans and reads start first; the fetch plan (every done
                 # edition's siblings, minutes off a cold cache) is made on
                 # the thread at once after.
-                while upkept:
-                    upkept.pop()()
-                box["plan"], box["partial"] = (*plan(papers, cache, reread, box["notes"]), []), True
+                try:
+                    while upkept:
+                        upkept.pop()()
+                    box["plan"], box["partial"] = (*plan(papers, cache, reread, box["notes"]), []), True
+                except BaseException as e:  # raised again below, as make()'s
+                    box["error"] = e
             elif planned is None:
                 make()
             else:
                 planner[0].start()
+        if planner is not None and not planner[0].is_alive() and "error" in planner[1] and media.down(planner[1]["error"]):
+            planner = None  # the plan met the media share down: made again once it answers (media.hold)
         if planner is not None and not planner[0].is_alive():
             box, planner = planner[1], None
             if "error" in box:
@@ -2797,8 +2977,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         reach = max((last_of.get(sl, -1) for sl, v in free.items() if v > 0), default=-1)
         for i, (u, ukey, uslot) in enumerate(itertools.chain(((v, key_of(v), slot_of(v)) for v in fill), zip(queue, qkeys, qslots))
                                              if reach >= 0 and not skip_walk else (), -len(fill)):
-            if i > reach:
-                break
+            if i > reach or media.held():
+                break  # (the media share noted down this pass: nothing more starts until it answers)
             if not may_start() or free[uslot] <= 0 or ukey in tried:
                 continue
             if reserve and ukey not in fill_keys and not uslot.startswith("fetch ") and ceiling_left <= reserve:
@@ -2813,7 +2993,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             # edition's files, and a held scan is asked again every pass.
             if u["kind"] == "scan" and ukey not in firsts and ukey not in fill_keys and fed(u) and not newest_first(u):
                 continue
-            if u["kind"] == "scan" and u["paper"] in fa.FILERS and stood(u):
+            try:
+                stands_now = u["kind"] == "scan" and u["paper"] in fa.FILERS and stood(u)
+            except OSError as e:  # its ledger or files on the media share, which did not answer (10-20, 10-23)
+                if not media.down(e):
+                    raise
+                break
+            if stands_now:
                 # Scanned since the plan was made (a kept plan, a read, another queue): its reads may go on.
                 tried.add(ukey)
                 scanned.add((u["paper"], u["rel"]))
@@ -2953,7 +3139,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             running.clear()
             adopted.clear()
             break
-        if not running and not adopted and planner is None and not any(b.busy() for b in beside):
+        if not running and not adopted and planner is None and not any(b.busy() for b in beside) and not (
+                media.held() and may_start()):
             untried = sum(k not in tried for k in qkeys)
             if not may_start():
                 left = untried + sum(b.again and not b.done for b in beside)
@@ -2963,8 +3150,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 # landed, made on the new code when it changed.
                 if may_reexec() and any(digest(f) != h for f, h in code.items()):
                     reexec()
-                scans, reads, fetches = replan_all()
-                new_scans, new_reads = fresh(papers, cache)
+                try:
+                    scans, reads, fetches = replan_all()
+                    new_scans, new_reads = fresh(papers, cache)
+                except OSError as e:
+                    if not media.down(e):
+                        raise
+                    continue  # planned again once the media share answers (media.hold)
                 fresh_scans, fresh_reads = unchanged_eq(fresh_scans, new_scans), unchanged_eq(fresh_reads, new_reads)
                 fresh_at = time.monotonic()
                 fetches = unchanged(fetches, [u for u in fetches if u["paper"] not in stopped])
@@ -3005,6 +3197,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         for b in beside:
             b.stop(signal.SIGKILL)
         reap()
+        if media_gone:
+            print(f"edition queue: the media share stayed down; {media_gone[0]}")
+            return 1
         return 143
     print(f"edition queue: {len(tried)} units started; " + ", ".join(f"{v} {k}" for k, v in sorted(outcomes.items())))
     if vlm_pending[0]:
@@ -3211,11 +3406,52 @@ def main(argv=None):
         for (src, reason), n in sorted(counts.items()):
             print(f"  {src:11s} {reason:22s} {n:6d}")
         return 0
-    return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers,
-                    [shlex.split(b) for b in args.beside], fetch=args.fetch, trove_workers=args.trove_workers,
-                    handoff=args.handoff, resume=args.resume,
-                    # A re-exec onto new code keeps its slice's ledgers: their upkeep ran at the slice's start.
-                    upkeep=None if args.resume else lambda: ledger_upkeep(papers, args.cache))
+    try:
+        return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers,
+                        [shlex.split(b) for b in args.beside], fetch=args.fetch, trove_workers=args.trove_workers,
+                        handoff=args.handoff, resume=args.resume,
+                        # A re-exec onto new code keeps its slice's ledgers: their upkeep ran at the slice's start.
+                        upkeep=None if args.resume else lambda: ledger_upkeep(papers, args.cache))
+    except OSError as e:
+        import downloads
+        if not downloads.media_down(e):
+            raise
+        return media_restart(e)
+
+
+def media_restart(e, gate=None, execv=None):
+    """The dispatch loop met the media share down (`e`, downloads.media_down) where it does
+    not wait for it itself: wait for it (MediaGate), then hand the running units to a new
+    image (dispatch's reexec; else re-exec as started). A share that answers at the first
+    probe raises `e` again: that path's error is a bug, not an outage. 1 past CT_MEDIA_WAIT."""
+    gate = gate or MediaGate()
+    gate.down(e)
+
+    def stopped(signum, _frame):  # dispatch's handlers are gone with it: a stop TERMs its units and ends
+        for pid in (_media_reexec[1]() if _media_reexec[1] else ()):
+            try:
+                os.killpg(pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+        raise SystemExit(128 + signum)
+    if execv is None:
+        signal.signal(signal.SIGTERM, stopped)
+        signal.signal(signal.SIGINT, stopped)
+    try:
+        gate.wait()
+    except MediaGone as gone:
+        log(f"media down: giving up, {gone}")
+        return 1
+    if not gate.seen_down:
+        raise e
+    why = f"media back: the loop met it down ({type(e).__name__}: {e})"
+    if _media_reexec[0] is not None and execv is None:
+        _media_reexec[0](why)
+    log(f"{why}; re-exec")
+    sys.stdout.flush()
+    sys.stderr.flush()
+    (execv or os.execv)(sys.executable, [sys.executable, *sys.argv])
+    return 0
 
 
 if __name__ == "__main__":

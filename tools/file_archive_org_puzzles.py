@@ -7512,6 +7512,8 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None, host=False):
             try:
                 found = solutions_only(d)
             except Exception as e:  # as below: the whole scan then runs and stands as one that raises
+                if downloads.media_down(e):
+                    raise  # the media share down: the unit ends deferred, no row kept
                 progress(f"solutions-only read of {rel} failed, scanning whole: {scan_queue.failure((rel,), e)}")
                 found = None
             if found is not None:
@@ -7522,7 +7524,9 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None, host=False):
         try:
             found = scan_anywhere(d)
         except Exception as e:  # any raise, as _run: a scan that raises stands as one with no headings
-            found = {"puzzles": [], "solutions": [], "failed": scan_queue.failure((rel,), e)}
+            if downloads.media_down(e):
+                raise  # ... but not a page the media share did not serve: the unit ends deferred, no row kept
+            found ={"puzzles": [], "solutions": [], "failed": scan_queue.failure((rel,), e)}
         progress(f"scanned {rel}: " + (f"failed: {found['failed']}" if "failed" in found
                                        else f"{len(found['puzzles'])} puzzle(s)"))
         scan_queue.append(ledger, [{**row, "edition": rel, "scan": found, "filesHash": fh,
@@ -7828,6 +7832,8 @@ def read_edition(d, found):
             except vlm.Down:
                 raise  # the VLM down: the whole edition waits for it (vlm_reader.wanted)
             except Exception as e:  # any raise: one bad page is a verdict, not a crash
+                if downloads.media_down(e):
+                    raise  # the media share down: the edition is read again once it answers, no "crashed" kept
                 verdict, puzzle = refuse({"number": hit["number"]}, "crashed",
                                          f"crashed: {type(e).__name__}: {e}"), None
             results.append((verdict, puzzle))

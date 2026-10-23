@@ -269,6 +269,25 @@ on_origin puzzles/pf/1.json >/dev/null || fail "the commits a failed streak left
 [ ! -e "$(git -C "$tmp/pf" rev-parse --path-format=absolute --git-path durable-push-failures)" ] || fail "a pushing checkpoint did not end the streak"
 rm -f "$HOME/alerts"
 
+# 4d. A fetch whose transport stalls (10-23 12:46: the ssh to github.com hung a relaunch 4.5 min
+#     after a network blip) is cut off after CT_NET_TIMEOUT, and the move goes on with the
+#     origin/master last fetched. The remote here is a command that never answers.
+git clone -q "$tmp/origin.git" "$tmp/nf" 2>/dev/null
+git -C "$tmp/nf" config protocol.ext.allow always
+git -C "$tmp/nf" remote set-url origin "ext::sleep 600"
+cat >"$tmp/nf.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles)
+. tools/durable.sh
+durable_resync
+EOF
+began=$SECONDS
+rc=0
+out=$(CT_NET_TIMEOUT=2 timeout 120 bash "$tmp/nf.sh" "$tmp/nf" 2>&1) || rc=$?
+{ [ "$rc" = 0 ] && [ $((SECONDS - began)) -lt 60 ]; } ||
+  fail "a stalled fetch held the move: rc $rc after $((SECONDS - began))s: $out"
+grep -q "fetch of origin/master failed or timed out" <<<"$out" || fail "a cut-off fetch was not said: $out"
+
 # 5. corpus_queue.py stop gives the pass's leader TERM and waits for it.
 python3 - "$REAL" <<'PY'
 import os, sys, time

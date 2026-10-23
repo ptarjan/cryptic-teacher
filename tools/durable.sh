@@ -272,7 +272,13 @@ durable_run() {  # durable_run <what> <command...>: its exit status; DURABLE_TEE
 durable_resync() {  # move the tree to origin/master; nothing is lost if it cannot (status 1)
   local lock move pending
   durable_wait
-  git fetch -q origin master 2>/dev/null
+  # Cut off after CT_NET_TIMEOUT (120s): a stalled ssh to github.com (10-23) would hold the move,
+  # and the slices with it, for good. Failed or cut off, the tree moves to the origin/master last fetched.
+  if command -v timeout >/dev/null 2>&1; then
+    timeout "${CT_NET_TIMEOUT:-120}" git fetch -q origin master 2>/dev/null
+  else
+    git fetch -q origin master 2>/dev/null
+  fi || echo "durable: fetch of origin/master failed or timed out; moving to the one last fetched"
   # A process starting off this tree (tools/edition_queue.py) loads its code
   # under a shared lock on code.lock; the move takes it alone, so none loads
   # half of each version.

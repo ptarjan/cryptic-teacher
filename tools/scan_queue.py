@@ -423,8 +423,8 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
             try:
                 result = fn(*item)
             except Exception as e:  # any raise: one bad source is logged, not the run's end
-                if vlm_down(e):
-                    raise  # the VLM down: the unit ends deferred (vlm_guard), not one bad source
+                if vlm_down(e) or downloads.media_down(e):
+                    raise  # the VLM or the media share down: the unit ends deferred (vlm_guard), not one bad source
                 error = failure(item, e)
                 if failed is not None:
                     yield item, failed(item, error)
@@ -454,7 +454,7 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
                 except BrokenProcessPool:
                     raise
                 except Exception as e:  # any raise: one bad source is logged, not the run's end
-                    if vlm_down(e):
+                    if vlm_down(e) or downloads.media_down(e):
                         raise
                     error = failure(item, e)
                     if failed is not None:
