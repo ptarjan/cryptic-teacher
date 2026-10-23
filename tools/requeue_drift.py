@@ -66,7 +66,9 @@ def survey(path):
 
 
 def survey_all(paths):
-    jobs = int(os.environ.get("VALIDATE_JOBS") or os.cpu_count() or 1)
+    # Two workers by default: it runs on the shared host beside the burn and the bridge, and a
+    # cpu_count() fan-out starved them (10-22). VALIDATE_JOBS overrides.
+    jobs = int(os.environ.get("VALIDATE_JOBS") or 2)
     if jobs < 2 or "fork" not in multiprocessing.get_all_start_methods():
         yield from map(survey, paths)
         return
