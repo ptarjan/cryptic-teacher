@@ -1279,31 +1279,49 @@
      "indicators": [
       {
        "text": "to tail",
-       "note": "to tail something is to follow behind it, so English comes first"
+       "at": 26,
+       "note": "to tail is to follow behind, so the shortened sum comes after the letter for English"
       }
      ],
      "parts": [
       {
        "words": "English",
-       "gives": "E",
-       "note": "E = English"
+       "at": 34,
+       "gives": "E"
       },
       {
-       "words": "almost £20",
-       "gives": "SCOR",
-       "note": "a score is twenty, so twenty pounds is a score, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 15,
+         "note": "almost says the word is cut short by its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "£20",
+         "at": 22,
+         "gives": "SCORE",
+         "note": "a score is slang for twenty pounds"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "model",
+       "at": 42,
        "gives": "T",
-       "note": "the Model T was Henry Ford's famous car"
+       "note": "the Model T was Ford's famous car, so T stands for model"
       }
      ]
     },
     "explanation": {
-     "surface": "A hired companion is paid nearly twenty pounds to follow an English model.",
-     "walkthrough": "'Model' looks like a fashion model in this surface, but it gives T, from Ford's Model T.",
-     "definitionFit": "An escort is a person hired to accompany someone socially, so is a companion paid for their time."
+     "surface": "A hired companion who takes almost twenty quid to follow an English model around.",
+     "walkthrough": "'almost' trims the British slang word for twenty pounds by one letter, and 'to tail' sets it after E; the Model T was Ford's famous car.",
+     "definitionFit": "An escort is a person hired to accompany someone socially, so a paid companion."
     },
     "features": {
      "answerInScene": true,
