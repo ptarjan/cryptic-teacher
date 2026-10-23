@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Slack? If not interested, you couldn't ___",
     "enumeration": "8"
    },
-   "solution": "CARELESS"
+   "solution": "CARELESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slack?",
+      "at": 0,
+      "meaning": "slack in the sense of negligent or lax, lacking due attention"
+     },
+     {
+      "text": "If not interested, you couldn't ___",
+      "at": 7,
+      "meaning": "the idiom 'couldn't ...' expresses complete indifference, so the missing words fill the blank"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzling question about slackness followed by a familiar idiom with a gap left in it.",
+     "walkthrough": "The second half is a fill-in-the-blank: the phrase 'you couldn't care less' supplies the answer split into two words.",
+     "definitionFit": "Someone slack is negligent, lax and inattentive in their work or habits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +72,45 @@
     "text": "Failed to hear the weather",
     "enumeration": "4"
    },
-   "solution": "MIST"
+   "solution": "MIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "weather",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MIST",
+     "indicators": [
+      {
+       "text": "to hear",
+       "at": 7,
+       "note": "the clue asks us to listen, so the word for failed is taken by its sound alone"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Failed",
+       "at": 0,
+       "gives": "MISSED",
+       "note": "failed, as in failed to hit, means missed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone didn't catch the weather forecast on the radio.",
+     "walkthrough": "'Failed to hear' reads as one phrase about not listening, but 'to hear' signals the sound-alike; MISSED and MIST sound the same.",
+     "definitionFit": "Mist is a kind of weather condition, low cloud or fine water droplets in the air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hear"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +124,44 @@
     "text": "What's this on my screen, I hear one swearing",
     "enumeration": "6"
    },
-   "solution": "CURSOR"
+   "solution": "CURSOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's this on my screen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CURSOR",
+     "indicators": [
+      {
+       "text": "I hear",
+       "at": 26,
+       "note": "the speaker reports what is heard, so the following word is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one swearing",
+       "at": 33,
+       "gives": "CURSER",
+       "note": "one who swears, or curses, is a curser"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer user hears someone cursing while puzzling over something on the screen.",
+     "walkthrough": "CURSER and CURSOR sound alike.",
+     "definitionFit": "The cursor is the blinking marker or pointer that shows position on a computer display."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +175,71 @@
     "text": "Old boy has a couple of teeth to eat fish that's out of date",
     "enumeration": "8"
    },
-   "solution": "OBSOLETE"
+   "solution": "OBSOLETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out of date",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to eat",
+       "at": 30,
+       "note": "the outer letters swallow the fish, taking it inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Old boy",
+         "at": 0,
+         "gives": "OB",
+         "note": "OB is the standard abbreviation for old boy, a former pupil"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a couple of",
+           "at": 12,
+           "note": "a couple means two, so the first two letters of teeth are taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "teeth",
+           "at": 24
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "fish",
+       "at": 37,
+       "gives": "SOLE",
+       "note": "the sole is a flatfish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly man with only two teeth left is somehow eating fish that has gone off.",
+     "walkthrough": "'a couple of' takes the first two letters of 'teeth', and 'to eat' has OB plus those letters swallow the fish; 'has' is just a link.",
+     "definitionFit": "Obsolete describes something no longer in use, outmoded and superseded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "teeth"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +259,42 @@
      }
     ]
    },
-   "solution": "HEARINGAID"
+   "solution": "HEARINGAID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sound investment",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ordered",
+       "at": 12,
+       "note": "the letters of the two words are put into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nigeria had",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nigeria commissioned a safe financial investment.",
+     "walkthrough": "'sound investment' looks like financial prudence; here it is something bought for the sake of sound, a device for better listening.",
+     "definitionFit": "Buying a device that amplifies sound for the hard of hearing is an investment in one's ears."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +308,52 @@
     "text": "Extremely rude over a meal",
     "enumeration": "6"
    },
-   "solution": "REPAST"
+   "solution": "REPAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a meal",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "at": 0,
+         "note": "the extremes of the word rude are its two end letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rude",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "over",
+       "at": 15,
+       "gives": "PAST",
+       "note": "over, as in finished, means past"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was terribly rude while having dinner.",
+     "walkthrough": "'Extremely' looks like an intensifier for 'rude' but picks its outer letters, R and E.",
+     "definitionFit": "A repast is a formal word for a meal or feast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +367,41 @@
     "text": "It is customary to cook a halibut",
     "enumeration": "8"
    },
-   "solution": "HABITUAL"
+   "solution": "HABITUAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "customary",
+      "at": 6
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to cook",
+       "at": 16,
+       "note": "cooking the letters means tampering with them, rearranging them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a halibut",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Preparing a halibut for dinner is a normal routine.",
+     "walkthrough": "'cook' looks culinary next to the fish, but signals the anagram of A HALIBUT.",
+     "definitionFit": "Habitual means done by habit, regular and usual, which is what customary describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +415,43 @@
     "text": "Fat monarch makes room for food",
     "enumeration": "6"
    },
-   "solution": "LARDER"
+   "solution": "LARDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "room for food",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fat",
+       "at": 0,
+       "gives": "LARD",
+       "note": "lard is pig fat"
+      },
+      {
+       "words": "monarch",
+       "at": 4,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, stands for the Queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overweight king turns a chamber into a food store.",
+     "walkthrough": "ER is Elizabeth Regina, a crossword stand-in for a monarch.",
+     "definitionFit": "A larder is a cool pantry or storeroom where provisions are kept."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Fat"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +465,57 @@
     "text": "British soldiers capturing East German city",
     "enumeration": "6"
    },
-   "solution": "BREMEN"
+   "solution": "BREMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German city",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "capturing",
+       "at": 17,
+       "note": "the outer letters seize the next piece and hold it inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "British",
+         "at": 0,
+         "gives": "BR"
+        },
+        {
+         "words": "soldiers",
+         "at": 8,
+         "gives": "MEN",
+         "note": "men, as in officers and men, are ordinary soldiers"
+        }
+       ]
+      },
+      {
+       "words": "East",
+       "at": 27,
+       "gives": "E",
+       "note": "E is the compass abbreviation for east"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "British troops take a city in eastern Germany.",
+     "definitionFit": "Bremen is a port city in northern Germany on the Weser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +529,35 @@
     "text": "Disastrous direction to go",
     "enumeration": "4"
    },
-   "solution": "WEST"
+   "solution": "WEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disastrous direction to go",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Disastrous direction to go",
+       "at": 0,
+       "note": "to go in this compass direction is an idiom for being ruined, broken or killed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking this route would be a catastrophe.",
+     "walkthrough": "To 'go west' is an old idiom for dying or being destroyed, so it is a calamitous way to head.",
+     "definitionFit": "The idiom 'go west' means to perish or fall apart, making that compass point the disastrous heading."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +577,42 @@
      }
     ]
    },
-   "solution": "SERBOCROAT"
+   "solution": "SERBOCROAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "translating",
+       "at": 24,
+       "note": "translating turns words into a new form, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Castro bore",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fidel Castro was a tedious speaker whose words needed translating.",
+     "walkthrough": "'translating' suits a language clue but signals the anagram of CASTRO BORE.",
+     "definitionFit": "Serbo-Croat is the South Slavic tongue of Serbia, Croatia, Bosnia and Montenegro."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "translating"
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +626,36 @@
     "text": "The next reign after Louis XVI?",
     "enumeration": "6"
    },
-   "solution": "TERROR"
+   "solution": "TERROR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The next reign after Louis XVI?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The next reign after Louis XVI?",
+       "at": 0,
+       "note": "the period after the French king's fall was the Reign of the revolutionaries, not of a monarch"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A history question about which ruler followed the guillotined French king.",
+     "walkthrough": "No king came next: the Reign of Terror (1793-94) followed Louis XVI's overthrow, so 'reign' is used whimsically.",
+     "definitionFit": "The Reign of Terror was the bloody phase of the French Revolution after the monarchy fell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reign"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +675,35 @@
      }
     ]
    },
-   "solution": "ROUNDROBIN"
+   "solution": "ROUNDROBIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where the merry men gathered for a letter?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Where the merry men gathered for a letter?",
+       "at": 0,
+       "note": "Robin Hood's merry men would gather around their leader; the phrase also names a letter signed by many"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about where Robin Hood's outlaws met to write a letter.",
+     "walkthrough": "Robin Hood's band clustered 'round Robin'; a round robin is a petition or letter signed by many, or one copied to many.",
+     "definitionFit": "A round robin is a letter sent to many people, or one signed in a circle by many."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +717,30 @@
     "text": "A very long time to make a ring",
     "enumeration": "8"
    },
-   "solution": "ETERNITY"
+   "solution": "ETERNITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A very long time",
+      "at": 0,
+      "meaning": "time without end, or loosely a very long time"
+     },
+     {
+      "text": "a ring",
+      "at": 25,
+      "meaning": "an ... ring is a band set with stones all round, given as a token of lasting love"
+     }
+    ],
+    "explanation": {
+     "surface": "It takes ages to craft a ring.",
+     "walkthrough": "An eternity ring is a band of stones running unbroken round the finger; 'eternity' alone completes the name.",
+     "definitionFit": "Eternity means endless time; with 'ring' it names a jewellery band, so the word helps make one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +754,42 @@
     "text": "Turned to church as an authority",
     "enumeration": "6"
    },
-   "solution": "SOURCE"
+   "solution": "SOURCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an authority",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Turned",
+       "at": 0,
+       "gives": "SOUR",
+       "note": "milk that has turned has gone sour"
+      },
+      {
+       "words": "church",
+       "at": 10,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone converted to the church because it was a figure of authority.",
+     "walkthrough": "'Turned to church' suggests conversion, but 'Turned' is SOUR, as milk turns.",
+     "definitionFit": "A source, as in a reliable source, is a person or text one can cite with authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turned"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +803,41 @@
     "text": "I lose mac, awkward thing to wear",
     "enumeration": "8"
    },
-   "solution": "CAMISOLE"
+   "solution": "CAMISOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thing to wear",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "awkward",
+       "at": 12,
+       "note": "awkward suggests clumsy disorder, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I lose mac",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has lost their raincoat has an awkward time finding something to wear.",
+     "walkthrough": "A mac is a British raincoat (mackintosh); 'awkward' signals the anagram of I LOSE MAC.",
+     "definitionFit": "A camisole is a woman's light sleeveless undergarment or top, an item of clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awkward"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +851,48 @@
     "text": "In a week or so city goes to ruin",
     "enumeration": "6"
    },
-   "solution": "DECAYS"
+   "solution": "DECAYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "goes to ruin",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the city piece is placed in the stretch of days"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a week or so",
+       "at": 3,
+       "gives": "DAYS",
+       "note": "a week or so is a matter of days"
+      },
+      {
+       "words": "city",
+       "at": 16,
+       "gives": "EC",
+       "note": "EC is the postcode area of the City of London"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Within about a week the city falls into decline.",
+     "walkthrough": "In crosswords 'city' often means the City of London, whose postcode is EC; 'In' puts it among the days.",
+     "definitionFit": "To decay is to rot or deteriorate, which is to go to ruin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +906,58 @@
     "text": "Pinned into wrong desk? Used to be",
     "enumeration": "8"
    },
-   "solution": "SKEWERED"
+   "solution": "SKEWERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pinned",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 7,
+       "note": "the second piece is put into the first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 12,
+         "note": "wrong means set out of its proper order, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "desk",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "Used to be",
+       "at": 24,
+       "gives": "WERE",
+       "note": "were is the past form of to be"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note pinned to the wrong desk, as it once was.",
+     "walkthrough": "'wrong' rearranges the desk letters to SKED, and 'into' puts the past tense inside them.",
+     "definitionFit": "Skewered means pierced or fastened with a skewer, so pinned through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -301,7 +971,42 @@
     "text": "Write badly with small stroke",
     "enumeration": "6"
    },
-   "solution": "SCRAWL"
+   "solution": "SCRAWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Write badly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "at": 17,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as in clothes sizes"
+      },
+      {
+       "words": "stroke",
+       "at": 23,
+       "gives": "CRAWL",
+       "note": "the crawl is a swimming stroke"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Poor handwriting made with tiny pen strokes.",
+     "walkthrough": "'stroke' looks like a pen stroke but is the swimming stroke.",
+     "definitionFit": "To scrawl is to write carelessly or illegibly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stroke"
+    }
+   }
   },
   {
    "number": 20,
@@ -315,7 +1020,51 @@
     "text": "In serious outbreak criticise bungling medic",
     "enumeration": "8"
    },
-   "solution": "PANDEMIC"
+   "solution": "PANDEMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "serious outbreak",
+      "at": 3
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "criticise",
+       "at": 20,
+       "gives": "PAN",
+       "note": "to pan a play is to criticise it harshly"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bungling",
+         "at": 30,
+         "note": "bungling means making a mess, so the letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "medic",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "During a major epidemic, a doctor who makes mistakes is blamed.",
+     "walkthrough": "'bungling' signals the anagram of MEDIC, giving DEMIC.",
+     "definitionFit": "A pandemic is a disease spreading across whole countries or the world, a grave epidemic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -329,7 +1078,49 @@
     "text": "Very surprised these days to go round part of Hampton Court gardens",
     "enumeration": "6"
    },
-   "solution": "AMAZED"
+   "solution": "AMAZED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Very surprised",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to go round",
+       "at": 26,
+       "note": "the outer letters circle around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "these days",
+       "at": 15,
+       "gives": "AD",
+       "note": "AD, anno Domini, is the present era"
+      },
+      {
+       "words": "part of Hampton Court gardens",
+       "at": 38,
+       "gives": "MAZE",
+       "note": "the gardens of Hampton Court Palace contain a famous hedge maze"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Visitors today are astonished as they walk round the palace gardens.",
+     "walkthrough": "Hampton Court is a royal palace near London famous for its hedge maze, where visitors can get lost.",
+     "definitionFit": "Amazed means astonished, struck with great surprise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -343,7 +1134,52 @@
     "text": "After good notice obtain appliance",
     "enumeration": "6"
    },
-   "solution": "GADGET"
+   "solution": "GADGET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "appliance",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "the last piece comes after the first two"
+      }
+     ],
+     "parts": [
+      {
+       "words": "good",
+       "at": 6,
+       "gives": "G"
+      },
+      {
+       "words": "notice",
+       "at": 11,
+       "gives": "AD",
+       "note": "an ad, or advertisement, is a notice"
+      },
+      {
+       "words": "obtain",
+       "at": 18,
+       "gives": "GET",
+       "note": "to obtain is to get"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having seen a good advert, someone buys a device.",
+     "definitionFit": "A gadget is a small device or mechanical contrivance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1193,60 @@
     "text": "Turning up in drinking vessel, notice mineral",
     "enumeration": "6"
    },
-   "solution": "GYPSUM"
+   "solution": "GYPSUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mineral",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Turning up",
+       "at": 0,
+       "note": "in a down entry, turning up reads the letters from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 11,
+         "note": "the second piece goes in the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drinking vessel",
+         "at": 14,
+         "gives": "MUG",
+         "note": "a mug is a drinking vessel"
+        },
+        {
+         "words": "notice",
+         "at": 31,
+         "gives": "SPY",
+         "note": "to spy is to notice or catch sight of"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Finding a mineral turn up at the bottom of a cup.",
+     "walkthrough": "'in' puts the spying word inside the cup, making MUSPYG, and 'Turning up' reads that from the bottom of this down entry.",
+     "definitionFit": "Gypsum is a soft calcium sulphate mineral used to make plaster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1266,32 @@
      }
     ]
    },
-   "solution": "RAZORSHARP"
+   "solution": "RAZORSHARP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Showing acute intelligence",
+      "at": 0,
+      "meaning": "... describes a very keen mind"
+     },
+     {
+      "text": "after a strop?",
+      "at": 27,
+      "meaning": "a strop is a leather strap for honing a razor, so afterwards the blade is sharp"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thinks very clearly after a tantrum.",
+     "walkthrough": "'strop' looks like the British slang for a sulk or tantrum, but is the leather strap used to hone a razor.",
+     "definitionFit": "Razor-sharp means extremely keen, used of a quick, incisive mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strop"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1305,49 @@
     "text": "Weapon that somehow combines power and lots of energy",
     "enumeration": "4"
    },
-   "solution": "EPEE"
+   "solution": "EPEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Weapon",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "somehow combines",
+       "at": 12,
+       "note": "somehow means the pieces are put together in some new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "power",
+       "at": 29,
+       "gives": "P",
+       "note": "P is the physics symbol for power"
+      },
+      {
+       "words": "lots of energy",
+       "at": 39,
+       "gives": "EEE",
+       "note": "E stands for energy, and lots of it is several Es, here three"
+      }
+     ]
+    },
+    "spelling": "ÉPÉE",
+    "explanation": {
+     "surface": "A weapon that brings together strength and plenty of vigour.",
+     "walkthrough": "'lots of energy' supplies three Es; mixing them with P gives the fencing sword.",
+     "definitionFit": "The épée is a sword used in fencing, a weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1361,43 @@
     "text": "Send back some stale chocolates",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Send back",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 10,
+       "note": "some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stale chocolates",
+       "at": 15,
+       "gives": "ECHO",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Returning a box of chocolates that have gone stale.",
+     "walkthrough": "The answer runs across stalE CHOcolates.",
+     "definitionFit": "To echo is to send a sound back, as a wall reflects it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Send"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1411,47 @@
     "text": "Open to bribery, one is held pardonable",
     "enumeration": "6"
    },
-   "solution": "VENIAL"
+   "solution": "VENIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pardonable",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is held",
+       "at": 21,
+       "note": "the numeral is held inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Open to bribery",
+       "at": 0,
+       "gives": "VENAL",
+       "note": "venal means corruptible, open to bribery"
+      },
+      {
+       "words": "one",
+       "at": 17,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corrupt official is being detained, though his offence might be forgiven.",
+     "definitionFit": "A venial sin is a minor one that can be forgiven, as opposed to a mortal sin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1465,36 @@
     "text": "A funny reaction in gales, perhaps",
     "enumeration": "8"
    },
-   "solution": "LAUGHTER"
+   "solution": "LAUGHTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A funny reaction in gales, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A funny reaction in gales, perhaps",
+       "at": 0,
+       "note": "a reaction to something funny, which often comes in gales, as the idiom has it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange response to stormy weather.",
+     "walkthrough": "'gales' looks meteorological, but the idiom 'gales of' describes bursts of mirth.",
+     "definitionFit": "The sound of amusement comes in fits, peals or gales, a natural response to a joke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gales"
+    }
+   }
   }
  ]
 }
