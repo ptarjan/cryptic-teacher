@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,59 @@
     "text": "Fixes up crack in middle of desk",
     "enumeration": "6"
    },
-   "solution": "EQUIPS"
+   "solution": "EQUIPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fixes up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "in says the joke sits inside the letters picked from the desk"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 18,
+         "note": "middle of takes the central letters of the word desk, dropping its ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "desk",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "crack",
+       "at": 9,
+       "gives": "QUIP",
+       "note": "a crack is a witty remark, a quip"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone repairs a split running down the centre of a writing desk.",
+     "walkthrough": "'crack' looks like a split in the wood, but it is a joke.",
+     "definitionFit": "To equip something is to fit it out with what it needs, which is fixing it up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +100,72 @@
     "text": "First in election, Prime Minister assuming he has long time — but such things are transitory!",
     "enumeration": "8"
    },
-   "solution": "EPHEMERA"
+   "solution": "EPHEMERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "such things are transitory",
+      "at": 66
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First in",
+         "at": 0,
+         "note": "first in picks the opening letter of the word election"
+        }
+       ],
+       "parts": [
+        {
+         "words": "election",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "assuming",
+         "at": 34,
+         "note": "assuming means taking on, so the leader's abbreviation takes in the pronoun"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Prime Minister",
+         "at": 19,
+         "gives": "PM"
+        },
+        {
+         "words": "he",
+         "at": 43,
+         "gives": "HE"
+        }
+       ]
+      },
+      {
+       "words": "long time",
+       "at": 50,
+       "gives": "ERA",
+       "note": "an era is a long period of time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newly elected leader thinks he has years ahead, but such power is fleeting.",
+     "definitionFit": "Ephemera are items of short-lived interest or use, things that do not last."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +179,44 @@
     "text": "Not like sliced bread, this burns crust regularly",
     "enumeration": "5"
    },
-   "solution": "UNCUT"
+   "solution": "UNCUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not like sliced bread",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "at": 40,
+       "note": "regularly means taking every other letter from the words burns and crust"
+      }
+     ],
+     "parts": [
+      {
+       "words": "burns",
+       "at": 28
+      },
+      {
+       "words": "crust",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A whole loaf whose crust is scorched evenly.",
+     "walkthrough": "'regularly' takes the second, fourth and every alternate letter of 'burns crust'.",
+     "definitionFit": "Sliced bread has been cut; a loaf left whole is uncut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +230,57 @@
     "text": "Job on wharf ultimately insufficient for researcher",
     "enumeration": "7"
    },
-   "solution": "POSTDOC"
+   "solution": "POSTDOC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "researcher",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Job",
+       "at": 0,
+       "gives": "POST",
+       "note": "a post is a job"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ultimately insufficient",
+         "at": 13,
+         "note": "ultimately insufficient means the word falls short at its end, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wharf",
+         "at": 7,
+         "gives": "DOCK",
+         "note": "a dock is a wharf"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dock-worker's job doesn't pay enough for a scientist.",
+     "walkthrough": "'ultimately insufficient' cuts the final K from DOCK.",
+     "definitionFit": "A postdoc is a researcher who has completed a doctorate and holds a postdoctoral post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wharf"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +294,61 @@
     "text": "Tighten your belt and behind — adults are going to be slender",
     "enumeration": "6"
    },
-   "solution": "SVELTE"
+   "solution": "SVELTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slender",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "are going",
+       "at": 38,
+       "note": "are going says the adults depart, so those letters leave the combined words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tighten your belt",
+         "at": 0,
+         "gives": "SAVE",
+         "note": "to tighten your belt is to economise, to save"
+        },
+        {
+         "words": "behind",
+         "at": 22,
+         "gives": "LATE",
+         "note": "behind in time means late"
+        }
+       ]
+      },
+      {
+       "words": "adults",
+       "at": 31,
+       "gives": "AA",
+       "note": "A is the film-certificate abbreviation for adult, so adults is two As"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Diet advice: cinch your waist and your bottom, and grown-ups will become slim.",
+     "walkthrough": "SAVE + LATE gives SAVELATE; 'are going' takes away its two As to leave SVELTE.",
+     "definitionFit": "Svelte describes a figure that is slim and graceful, a synonym of slender."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +362,50 @@
     "text": "Queen entering royal museum gallery",
     "enumeration": "7"
    },
-   "solution": "VERANDA"
+   "solution": "VERANDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gallery",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 6,
+       "note": "entering means going inside, so the queen's letters go into the museum's"
+      }
+     ],
+     "parts": [
+      {
+       "words": "royal museum",
+       "at": 15,
+       "gives": "VANDA",
+       "note": "the V and A, the Victoria and Albert Museum in London, named after the royal couple"
+      },
+      {
+       "words": "Queen",
+       "at": 0,
+       "gives": "ER",
+       "note": "ER is Elizabeth Regina, the Queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The monarch walks into a gallery of a royal museum.",
+     "walkthrough": "The V and A is London's Victoria and Albert Museum, written V AND A. 'Gallery' looks like part of the museum, but it is the porch.",
+     "definitionFit": "A gallery can be a roofed, open-sided walkway along a building, which is a veranda."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gallery"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +425,76 @@
      }
     ]
    },
-   "solution": "LAZYSUSAN"
+   "solution": "LAZYSUSAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one circulates with food",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 18,
+       "note": "round means the scrambled letters go around the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "running",
+         "at": 10,
+         "note": "running suggests the letters of zany lass are set in motion and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Zany",
+         "at": 0
+        },
+        {
+         "words": "lass",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "U",
+       "indicators": [
+        {
+         "text": "talking",
+         "at": 29,
+         "note": "talking means the word you is taken by its spoken sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "at": 24,
+         "gives": "YOU",
+         "note": "you is said aloud as the letter U"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wacky girl dashes around you, chattering.",
+     "walkthrough": "'running' gives LAZYSSAN, and 'round' wraps it around the letter U, which sounds like 'you' when 'talking'.",
+     "definitionFit": "A lazy Susan is a revolving tray on a dining table, turning dishes round to diners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +508,73 @@
     "text": "Cake from leavened grain with half fat stuffing",
     "enumeration": "6"
    },
-   "solution": "ECLAIR"
+   "solution": "ECLAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuffing",
+       "at": 39,
+       "note": "stuffing says the half-portion of fat is filled inside the rearranged grain"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "leavened",
+         "at": 10,
+         "note": "leavened means raised and transformed, so the grain's letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grain",
+         "at": 19,
+         "gives": "RICE",
+         "note": "rice is a grain"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 30,
+         "note": "half means only the front portion of the word for fat is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fat",
+         "at": 35,
+         "gives": "LARD",
+         "note": "lard is a cooking fat"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bake made from raised grain stuffed with reduced-fat filling.",
+     "walkthrough": "'leavened' rearranges the grain to ECIR, an indirect anagram of a synonym rather than of a clue word.",
+     "definitionFit": "An eclair is a small cream-filled pastry, a kind of cake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leavened"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +588,48 @@
     "text": "Stocky peasants taking part in Asian festival",
     "enumeration": "8"
    },
-   "solution": "THICKSET"
+   "solution": "THICKSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stocky",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking part in",
+       "at": 16,
+       "note": "taking part in places the country folk within the festival's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Asian festival",
+       "at": 31,
+       "gives": "TET",
+       "note": "Tet is the Vietnamese lunar new year festival"
+      },
+      {
+       "words": "peasants",
+       "at": 7,
+       "gives": "HICKS",
+       "note": "hicks are unsophisticated country people, peasants"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sturdy farm workers join in the celebrations of an Asian festival.",
+     "walkthrough": "Tet is the Vietnamese new year.",
+     "definitionFit": "A thickset person is heavily built and solid, which is what stocky means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +643,43 @@
     "text": "Influencer to advertise jacket",
     "enumeration": "11"
    },
-   "solution": "TRAILBLAZER"
+   "solution": "TRAILBLAZER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Influencer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to advertise",
+       "at": 11,
+       "gives": "TRAIL",
+       "note": "to trail a film or show is to advertise it in advance"
+      },
+      {
+       "words": "jacket",
+       "at": 24,
+       "gives": "BLAZER",
+       "note": "a blazer is a jacket"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A social-media figure promotes a jacket.",
+     "walkthrough": "'Influencer' suggests social media; here it means a pioneer.",
+     "definitionFit": "A trailblazer is a pioneer whose new ideas shape others, an influencer in the older sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Influencer"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +693,53 @@
     "text": "Junket of raspberry with rind of lime",
     "enumeration": "6"
    },
-   "solution": "RAZZLE"
+   "solution": "RAZZLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Junket",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "raspberry",
+       "at": 10,
+       "gives": "RAZZ",
+       "note": "a raspberry is a rude noise, also called a razz"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "rind of",
+         "at": 25,
+         "note": "rind of means the outside letters of the word lime, its first and last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lime",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dessert of raspberry flavoured with lime peel, junket being a milk pudding.",
+     "walkthrough": "'Junket' looks like the dessert of the surface, but here it means a spree. 'rind of' gives LE, the outer letters of lime.",
+     "definitionFit": "A razzle is a lively spree or binge, and a junket is a pleasure trip or jaunt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Junket"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +753,43 @@
     "text": "Midriffs rejected as obscene content",
     "enumeration": "4"
    },
-   "solution": "SMUT"
+   "solution": "SMUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "obscene content",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rejected",
+       "at": 9,
+       "note": "rejected means the word for the bellies is thrown back, read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Midriffs",
+       "at": 0,
+       "gives": "TUMS",
+       "note": "tums are tummies, the midriff area"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Images of bare bellies are censored as indecent material.",
+     "walkthrough": "'rejected' turns TUMS round.",
+     "definitionFit": "Smut is indecent or pornographic material, obscene content."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +803,54 @@
     "text": "Working out problem, I had backtracked, lacking certainty",
     "enumeration": "10"
    },
-   "solution": "DIAGNOSTIC"
+   "solution": "DIAGNOSTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Working out problem",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backtracked",
+         "at": 27,
+         "note": "backtracked means the contracted form of I had runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I had",
+         "at": 21,
+         "gives": "ID",
+         "note": "I had contracts to I'd, written ID"
+        }
+       ]
+      },
+      {
+       "words": "lacking certainty",
+       "at": 40,
+       "gives": "AGNOSTIC",
+       "note": "an agnostic holds that certainty about God is impossible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone retreats in doubt while trying to solve a puzzle.",
+     "walkthrough": "'backtracked' turns the contraction I'd round; an agnostic is a person without certainty about God.",
+     "definitionFit": "Diagnostic describes the process of identifying what is wrong, working out the problem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "backtracked"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +870,43 @@
      }
     ]
    },
-   "solution": "CRITICALMASS"
+   "solution": "CRITICALMASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's liable to produce a reaction",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Finding fault",
+       "at": 0,
+       "gives": "CRITICAL",
+       "note": "critical means finding fault"
+      },
+      {
+       "words": "service",
+       "at": 19,
+       "gives": "MASS",
+       "note": "mass is a church service"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about a church service is likely to provoke a response.",
+     "walkthrough": "The reaction is a nuclear chain reaction, not a churchgoer's response.",
+     "definitionFit": "Critical mass is the minimum amount of fissile material needed to sustain a nuclear chain reaction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reaction"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +926,34 @@
      }
     ]
    },
-   "solution": "TASTEBUDS"
+   "solution": "TASTEBUDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They perform sensationally in oral assessments",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They perform sensationally in oral assessments",
+       "at": 0,
+       "note": "sensationally means through the senses: these organs in the mouth judge flavours"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Taste buds are the sensory organs on the tongue that judge flavour, assessing what enters the mouth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sensationally"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +967,66 @@
     "text": "Greek islander having no right to catch fabulous sea creature",
     "enumeration": "8"
    },
-   "solution": "CETACEAN"
+   "solution": "CETACEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to catch",
+       "at": 31,
+       "note": "to catch means the shortened islander's word holds the next piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having no",
+         "at": 15,
+         "note": "having no means the islander's word goes without the letter for right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Greek islander",
+         "at": 0,
+         "gives": "CRETAN",
+         "note": "a Cretan is a native of Crete"
+        },
+        {
+         "words": "right",
+         "at": 25,
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "fabulous",
+       "at": 40,
+       "gives": "ACE",
+       "note": "ace means excellent, fabulous"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek with no rights manages to land a mythical sea monster.",
+     "walkthrough": "'having no' leaves CETAN, and 'to catch' takes the excellent piece inside. 'fabulous' looks like part of a mythical beast, but means excellent.",
+     "definitionFit": "A cetacean is a whale, dolphin or porpoise, a marine mammal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fabulous"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1046,43 @@
      }
     ]
    },
-   "solution": "SINGLEMINDED"
+   "solution": "SINGLEMINDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having only one goal",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Not part of match",
+       "at": 0,
+       "gives": "SINGLE",
+       "note": "something not part of a matching pair is single, unpaired"
+      },
+      {
+       "words": "cared about",
+       "at": 19,
+       "gives": "MINDED",
+       "note": "minded means cared about, as in 'I wouldn't have minded'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer left out of the game but bothered about scoring just once.",
+     "walkthrough": "The football 'match' and 'goal' are misdirection: the match is a pair.",
+     "definitionFit": "A single-minded person pursues one aim with determination, having only one goal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1096,59 @@
     "text": "Absence of nap, having start of afternoon off, is most curious",
     "enumeration": "7"
    },
-   "solution": "NOSIEST"
+   "solution": "NOSIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "most curious",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "off",
+       "at": 42,
+       "note": "off means that letter is removed from the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Absence of nap",
+       "at": 0,
+       "gives": "NOSIESTA",
+       "note": "no siesta means an absence of a nap"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "at": 23,
+         "note": "start of picks the first letter of the word afternoon"
+        }
+       ],
+       "parts": [
+        {
+         "words": "afternoon",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Skipping your afternoon snooze makes you most inquisitive.",
+     "walkthrough": "'off' removes A, from 'start of afternoon', taking the last A from NO SIESTA.",
+     "definitionFit": "Nosiest is the superlative of nosy, meaning most inquisitive or prying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nap"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1168,81 @@
      }
     ]
    },
-   "solution": "MIDWEEK"
+   "solution": "MIDWEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "when Champions League opponents meet?",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "header",
+         "at": 8,
+         "note": "header means the first letter, the head of the word Messi's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Messi's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 35,
+         "note": "about means the stirred-up letters go around the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "excited",
+           "at": 27,
+           "note": "excited suggests the letters of kid are stirred up and rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "kid",
+           "at": 23
+          }
+         ]
+        },
+        {
+         "words": "minute",
+         "at": 41,
+         "gives": "WEE",
+         "note": "minute, meaning tiny, is wee"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football star heads the ball, and a youngster gets excited.",
+     "walkthrough": "'excited' gives IDK. Champions League games are played on Tuesdays and Wednesdays.",
+     "definitionFit": "Champions League football matches are played on Tuesday and Wednesday evenings, in the middle of the week."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "header"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1256,47 @@
     "text": "Queen embracing old flame in outbuilding",
     "enumeration": "6"
    },
-   "solution": "ANNEXE"
+   "solution": "ANNEXE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "outbuilding",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "at": 6,
+       "note": "embracing means holding the former partner within the queen's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Queen",
+       "at": 0,
+       "gives": "ANNE",
+       "note": "Anne was Queen of Great Britain, 1702-1714"
+      },
+      {
+       "words": "old flame",
+       "at": 16,
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A queen hugs her former lover in a shed.",
+     "definitionFit": "An annexe is a building added to or near a main building, an outbuilding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1310,29 @@
     "text": "Lacking height, failed to prepare wall adequately?",
     "enumeration": "10"
    },
-   "solution": "UNDERSIZED"
+   "solution": "UNDERSIZED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lacking height",
+      "at": 0,
+      "meaning": "too small, short of the usual height"
+     },
+     {
+      "text": "failed to prepare wall adequately?",
+      "at": 16,
+      "meaning": "size is a gluey sealant brushed on walls before papering"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Undersized means smaller than normal; read as under-sized it means given too little size, the wall sealant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1346,41 @@
     "text": "Defect following piece of legislation",
     "enumeration": "4"
    },
-   "solution": "FLAW"
+   "solution": "FLAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Defect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "following",
+       "at": 7,
+       "gives": "F",
+       "note": "F is the abbreviation for following, as in page references"
+      },
+      {
+       "words": "piece of legislation",
+       "at": 17,
+       "gives": "LAW",
+       "note": "a law is a piece of legislation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shortcoming that results from a new statute.",
+     "definitionFit": "A flaw is a fault or imperfection, a synonym of defect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1394,41 @@
     "text": "Rifle shot gets you bit of a promotion",
     "enumeration": "5"
    },
-   "solution": "FLIER"
+   "solution": "FLIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bit of a promotion",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "shot",
+       "at": 6,
+       "note": "shot means broken or ruined, so the letters of rifle are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rifle",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rifle shot gets a mention in an advertising campaign.",
+     "walkthrough": "'shot' looks like firing the rifle, but it is the rearranging signal.",
+     "definitionFit": "A flier is a leaflet handed out as one piece of an advertising campaign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1442,53 @@
     "text": "Judge's case gets thirty days, showing lack of experience",
     "enumeration": "6"
    },
-   "solution": "JEJUNE"
+   "solution": "JEJUNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "showing lack of experience",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case",
+         "at": 8,
+         "note": "the case of a word is its outside, here the first and last letters of Judge"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Judge's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "thirty days",
+       "at": 18,
+       "gives": "JUNE",
+       "note": "June is a month of thirty days"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge's ruling gets thirty days in jail, revealing naivety.",
+     "walkthrough": "'case' takes JE, the outer letters of Judge.",
+     "definitionFit": "Jejune means naive and simplistic, showing a lack of experience or maturity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1508,53 @@
      }
     ]
    },
-   "solution": "REEDITED"
+   "solution": "REEDITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Freshly cut",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "grass",
+       "at": 12,
+       "gives": "REED",
+       "note": "a reed is a tall grass"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "roughly",
+         "at": 18,
+         "note": "roughly says the letters of tied are put together in a rough, rearranged way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tied",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Newly mown grass is bundled up carelessly.",
+     "walkthrough": "'Freshly cut' looks like mowing; it means edited again. 'roughly' rearranges TIED into ITED.",
+     "definitionFit": "A film or text re-edited has been cut and revised once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1568,42 @@
     "text": "Fake keepers at zoo houses",
     "enumeration": "6"
    },
-   "solution": "ERSATZ"
+   "solution": "ERSATZ",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "houses",
+       "at": 20,
+       "note": "houses says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "keepers at zoo",
+       "at": 5,
+       "gives": "ERSATZ",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Animal enclosures supposedly look after zoo creatures, but are counterfeit.",
+     "definitionFit": "Ersatz describes an inferior substitute or imitation, something fake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1623,50 @@
      }
     ]
    },
-   "solution": "SKIRUN"
+   "solution": "SKIRUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this is liable to go downhill!",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabbing",
+       "at": 5,
+       "note": "grabbing says the star holds the drink within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Star",
+       "at": 0,
+       "gives": "SUN",
+       "note": "the sun is a star"
+      },
+      {
+       "words": "drink",
+       "at": 14,
+       "gives": "KIR",
+       "note": "kir is a drink of white wine and cassis"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity snatches a drink, heading for a fall.",
+     "walkthrough": "'go downhill' suggests decline; the slope is literal.",
+     "definitionFit": "A ski run is a slope or course that skiers descend, so it literally goes downhill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Star"
+    }
+   }
   }
  ]
 }
