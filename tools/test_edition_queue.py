@@ -872,16 +872,31 @@ eq.plan = units([], [("k1", []), ("k2", [])])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=2, replan=0.1, handoff=kept_ho)
 log.unlink(missing_ok=True)
-def stalled(papers, cache=None, reread=None, out=None):
-    time.sleep(3)
-    return [], []
-eq.plan = stalled
-with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
-    t0 = time.monotonic()
+plans_made = []
+def stalled_until(rels, limit=60):
+    """A planner whose (empty) plan is made only once each of `rels` has logged its start, or after
+    `limit` s: the kept plan's starts are an event of the test's, not a guessed 3 s. With a fixed 3 s
+    a loaded CI runner failed this case: the host's own gates (its MemAvailable under the floor,
+    "memory-bound"; reads waiting on the VLM in the shared temp dir) held the kept units past the
+    3 s, the empty plan then replaced the kept one, as it should, and no unit started at all."""
+    def plan(papers, cache=None, reread=None, out=None):
+        until = time.monotonic() + limit
+        while time.monotonic() < until and not (
+                log.exists() and all(f" start read {r} " in log.read_text() for r in rels)):
+            time.sleep(0.05)
+        plans_made.append(time.monotonic())
+        return [], []
+    return plan
+eq.plan = stalled_until(["k1", "k2"])
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=2, replan=0.1, handoff=kept_ho)
-starts = [(float(line.split()[0]), line.split()[3]) for line in log.read_text().splitlines() if line.split()[1] == "start"]
+starts = [(float(line.split()[0]), line.split()[3]) for line in (log.read_text() if log.exists() else "").splitlines()
+          if line.split()[1] == "start"]
+if not starts:
+    print("the run given the kept plan started nothing; its log:\n" + err.getvalue())
 check("the next run starts the kept plan's units before its own plan is made", (["k1", "k2"], True),
-      (sorted(r for _, r in starts), all(t - t0 < 2 for t, _ in starts)))
+      (sorted(r for _, r in starts), bool(plans_made) and all(t < plans_made[0] for t, _ in starts)))
 log.unlink(missing_ok=True)
 # A slice boundary: the next slice fills its free slots with what the last
 # one had not started, at once, its ledger upkeep on the planner thread.
@@ -907,16 +922,22 @@ finally:
 released.touch()  # the next slice, taking k2 and k3 over, sees them end
 ran = {line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"}
 log.unlink(missing_ok=True)
-eq.plan = stalled
+left_over = sorted({"k1", "k2", "k3", "k4", "k5"} - ran)
+eq.plan = stalled_until(left_over)
+plans_made.clear()
 upkept = []
-with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
-    t0 = time.monotonic()
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    # The upkeep, like the plan, ends only once the units left over have started (or 60 s).
     eq.dispatch(["times"], cache, workers=4, replan=0.1, handoff=kept_ho,
-                upkeep=lambda: (time.sleep(3), upkept.append(time.monotonic() - t0)))
-starts = [(float(line.split()[0]), line.split()[3]) for line in log.read_text().splitlines() if line.split()[1] == "start"]
+                upkeep=lambda: (eq.plan([]), upkept.append(time.monotonic())))
+starts = [(float(line.split()[0]), line.split()[3]) for line in (log.read_text() if log.exists() else "").splitlines()
+          if line.split()[1] == "start"]
+if not starts:
+    print("the next slice started nothing; its log:\n" + err.getvalue())
 check("the next slice starts at once what the last left unstarted, not what it ran; upkeep beside it",
-      (sorted({"k1", "k2", "k3", "k4", "k5"} - ran), True, 1, True),
-      (sorted(r for _, r in starts), all(t - t0 < 2 for t, _ in starts), len(upkept), "k1" in ran))
+      (left_over, True, 1, True),
+      (sorted(r for _, r in starts), len(upkept) == 1 and all(t < upkept[0] for t, _ in starts), len(upkept), "k1" in ran))
 log.unlink(missing_ok=True)
 fake(sleep={"slow": 30})
 eq.plan = units([], [(f"r{k}", []) for k in range(6)])
