@@ -10,6 +10,9 @@ drains them, and exits RELOAD_RC so the wrapper, tools/ocr_full_pass.sh,
 moves its tree to origin/master and starts the new code at once):
 
   * `kill -HUP <the python pid>` (never the wrapper's bash: that one stops);
+    the pre-reset burn (tools/prereset_backfill.sh) is a shell, not a queue,
+    and takes `kill -USR1 <its pid>`: track-job starts it with SIGHUP ignored,
+    which a non-interactive bash cannot trap;
   * Watcher: every CT_RELOAD_POLL seconds (180) a background thread fetches
     origin/master and compares the tree's own HEAD with it, over the paths
     code_changed() calls code that are also in the queue's closure (queue_code). A puzzle-only push (durable.sh pushes puzzles
