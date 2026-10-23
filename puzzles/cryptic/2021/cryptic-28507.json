@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Feature of 6, where white bishop begins?",
     "enumeration": "4"
    },
-   "solution": "CONE"
+   "solution": "CONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feature of 6",
+      "at": 0,
+      "meaning": "6 down is PINE, and a pine tree bears woody seed cases"
+     },
+     {
+      "text": "where white bishop begins?",
+      "at": 14,
+      "meaning": "in chess notation a white bishop starts on square c1, read as the letter C and the word ONE"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about chess: which square does the white bishop start from?",
+     "walkthrough": "'6' points to 6 down, PINE. A white bishop starts on c1 or f1; the c1 square is read as C and ONE.",
+     "definitionFit": "Pine trees bear woody seed cases, so these are a characteristic part of that tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bishop"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +73,63 @@
     "text": "A fourth tequila drunk (plus the fifth in reserve also to be drunk)",
     "enumeration": "8"
    },
-   "solution": "QUARTILE"
+   "solution": "QUARTILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A fourth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drunk",
+       "at": 17,
+       "note": "drunk suggests the tequila is knocked about, so its letters are mixed up"
+      },
+      {
+       "text": "also to be drunk",
+       "at": 50,
+       "note": "says the extra letter joins the tequila in the shake-up of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tequila",
+       "at": 9
+      },
+      {
+       "op": "nth",
+       "n": 5,
+       "indicators": [
+        {
+         "text": "the fifth in",
+         "at": 29,
+         "note": "points to the letter in fifth position of the word reserve"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reserve",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker downs a quarter-measure of tequila while keeping some in reserve to drink later.",
+     "walkthrough": "The fifth letter of 'reserve' is R; add it to TEQUILA and rearrange all eight letters.",
+     "definitionFit": "In statistics a quartile divides data into four equal parts, so loosely it is one quarter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fourth"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +143,44 @@
     "text": "Vessel's a part of 15, by the sound of it",
     "enumeration": "6"
    },
-   "solution": "BARQUE"
+   "solution": "BARQUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BARQUE",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "at": 23,
+       "note": "tells us the answer is said the same as the tree part but spelt differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a part of 15",
+       "at": 9,
+       "gives": "BARK",
+       "note": "15 across is TREE, and bark is the outer covering of a tree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship is described as being made of part of a tree, which wooden ships are.",
+     "walkthrough": "'15' refers to the answer to 15 across, TREE.",
+     "definitionFit": "A barque is a type of sailing ship with three or more masts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +200,49 @@
      }
     ]
    },
-   "solution": "PARKLANE"
+   "solution": "PARKLANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "close to 8",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "says the lifesaver sits inside the tree word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "15",
+       "at": 13,
+       "gives": "PLANE",
+       "note": "15 across is TREE, and the plane is a kind of tree, common in London streets"
+      },
+      {
+       "words": "Lifesaver",
+       "at": 0,
+       "gives": "ARK",
+       "note": "Noah's ark saved life from the Flood"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lifeguard in a tree near some place numbered 8.",
+     "walkthrough": "8 across is MAYFAIR; on the British Monopoly board, PARK LANE and MAYFAIR are the two dark blue squares, side by side.",
+     "definitionFit": "On the British Monopoly board these two dark blue properties are neighbours, as are the real London streets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lifesaver"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +256,41 @@
     "text": "Removed cooler position",
     "enumeration": "6"
    },
-   "solution": "OFFICE"
+   "solution": "OFFICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "position",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Removed",
+       "at": 0,
+       "gives": "OFF",
+       "note": "something taken off is removed"
+      },
+      {
+       "words": "cooler",
+       "at": 8,
+       "gives": "ICE",
+       "note": "ice cools a drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has been taken out of a cooler place, maybe moved from their seat by the air conditioning.",
+     "definitionFit": "An office is a post or role someone holds, as in holding public office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooler"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +304,46 @@
     "text": "15 with blunted needle?",
     "enumeration": "4"
    },
-   "solution": "PINE"
+   "solution": "PINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "15",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "blunted",
+       "at": 8,
+       "note": "blunting removes the point, here the leading letter of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "needle",
+       "at": 16,
+       "gives": "SPINE",
+       "note": "a spine is a sharp needle, as on a cactus or hedgehog"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree with a needle that has lost its sharpness, fitting for conifers.",
+     "walkthrough": "'15' refers to 15 across, TREE. Blunting SPINE takes off its point, the first letter.",
+     "definitionFit": "The pine is a needle-leaved evergreen conifer, so it is a kind of tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +357,48 @@
     "text": "15 boxes you in",
     "enumeration": "7"
    },
-   "solution": "POPULAR"
+   "solution": "POPULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boxes",
+       "at": 3,
+       "note": "a word that boxes another encloses it as in a box"
+      }
+     ],
+     "parts": [
+      {
+       "words": "15",
+       "at": 0,
+       "gives": "POPLAR",
+       "note": "15 across is TREE, and the poplar is a tree"
+      },
+      {
+       "words": "you",
+       "at": 9,
+       "gives": "U",
+       "note": "U is text-speak for you"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree surrounds you, as if you were inside it.",
+     "definitionFit": "Something in fashion is popular, as in 'flares are in this year'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +412,47 @@
     "text": "Couple of 15s surrounding a Monopoly area",
     "enumeration": "7"
    },
-   "solution": "MAYFAIR"
+   "solution": "MAYFAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Monopoly area",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounding",
+       "at": 14,
+       "note": "the two tree words are placed around the a"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Couple of 15s",
+       "at": 0,
+       "gives": "MAYFIR",
+       "note": "two trees: may is another name for hawthorn, and fir is a conifer"
+      },
+      {
+       "words": "a",
+       "at": 26,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two trees standing around a district from the board game.",
+     "walkthrough": "'15s' are TREEs: MAY plus FIR, with A placed inside FIR.",
+     "definitionFit": "Mayfair is the most expensive property on the British Monopoly board, a smart district of London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +466,44 @@
     "text": "15 cut, we hear?",
     "enumeration": "4"
    },
-   "solution": "PEAR"
+   "solution": "PEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "15",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PEAR",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 8,
+       "note": "signals that the answer is said like the word meaning cut"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cut",
+       "at": 3,
+       "gives": "PARE",
+       "note": "to pare is to cut away the skin or edges"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree is felled, or so we are told.",
+     "walkthrough": "'15' refers to 15 across, TREE.",
+     "definitionFit": "The pear is a fruit tree as well as its fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +517,41 @@
     "text": "Caustic substance alive with 15",
     "enumeration": "9"
    },
-   "solution": "QUICKLIME"
+   "solution": "QUICKLIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Caustic substance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "alive",
+       "at": 18,
+       "gives": "QUICK",
+       "note": "quick has the old sense of living, as in 'the quick and the dead'"
+      },
+      {
+       "words": "15",
+       "at": 29,
+       "gives": "LIME",
+       "note": "15 across is TREE, and the lime is a tree (the linden)"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corrosive substance that comes alive when combined with a tree.",
+     "definitionFit": "Quicklime is calcium oxide, which burns skin and reacts strongly with water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alive"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +565,76 @@
     "text": "Nick climbs around it after I set up",
     "enumeration": "9"
    },
-   "solution": "INITIATED"
+   "solution": "INITIATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "set up",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "places the rest of the wordplay after the letter I"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I",
+       "at": 28
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 12,
+         "note": "the reversed word goes round the it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "climbs",
+           "at": 5,
+           "note": "in a down clue climbing means the word is read upwards, from bottom to top"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Nick",
+           "at": 0,
+           "gives": "DETAIN",
+           "note": "to nick a suspect is to arrest or detain them"
+          }
+         ]
+        },
+        {
+         "words": "it",
+         "at": 19,
+         "gives": "IT"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thief scales something after the narrator has arranged it.",
+     "walkthrough": "'Nick' looks like a thief but means arrest. 'climbs' signals an upward reading in this down entry, and 'around' wraps that around IT.",
+     "definitionFit": "To initiate something is to start it, so initiated is a synonym of set up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +648,44 @@
     "text": "Reportedly 15s, something green on the table?",
     "enumeration": "5"
    },
-   "solution": "BAIZE"
+   "solution": "BAIZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something green on the table?",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BAIZE",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "at": 0,
+       "note": "indicates the answer is said like the plural tree word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "15s",
+       "at": 11,
+       "gives": "BAYS",
+       "note": "15 across is TREE; bays are laurel trees"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some trees, apparently, appear as a green item on a table.",
+     "walkthrough": "'15s' are TREEs. The question mark signals that the definition is cheeky: the cloth covering a snooker table.",
+     "definitionFit": "Baize is the green felt cloth covering snooker, billiard and card tables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +699,54 @@
     "text": "Hard copy up 15",
     "enumeration": "5"
    },
-   "solution": "BIRCH"
+   "solution": "BIRCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "15",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 10,
+         "note": "in a down clue, up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "copy",
+         "at": 5,
+         "gives": "CRIB",
+         "note": "to crib is to copy someone else's work"
+        }
+       ]
+      },
+      {
+       "words": "Hard",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the pencil-grading abbreviation for hard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm duplicate is taken up to a tree.",
+     "walkthrough": "'15' refers to 15 across, TREE. 'up' reverses only the copy word, in this down entry; H for hard follows it, though the clue prints it first.",
+     "definitionFit": "The birch is a slender tree with white or silver bark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copy"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +770,59 @@
      }
     ]
    },
-   "solution": "IDARESAY"
+   "solution": "IDARESAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It seems likely",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to pen",
+       "at": 30,
+       "note": "to pen something is to enclose it, so the mixed letters wrap around the article"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "jerk",
+         "at": 16,
+         "note": "a jerk is a sudden jolt, so these letters get shaken into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is ready",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "article",
+       "at": 37,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool is prepared to write a piece for a newspaper.",
+     "walkthrough": "'jerk' rearranges IS READY into IDRESAY, and 'to pen' places A inside it.",
+     "definitionFit": "The phrase 'I dare say' expresses that something is probably so, like 'I suppose'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jerk"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +836,76 @@
     "text": "Country shortly after revolution importing small 15",
     "enumeration": "5"
    },
-   "solution": "ASPEN"
+   "solution": "ASPEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "15",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "importing",
+       "at": 33,
+       "note": "the country takes in the small letter, bringing it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after revolution",
+         "at": 16,
+         "note": "a revolution turns the shortened country right round, back to front"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "shortly",
+           "at": 8,
+           "note": "tells us to cut the final letter of the country"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Country",
+           "at": 0,
+           "gives": "NEPAL",
+           "note": "Nepal is a Himalayan country"
+          },
+          {
+           "gives": "L"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "small",
+       "at": 43,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation soon after an uprising brings in a little tree.",
+     "walkthrough": "'15' refers to 15 across, TREE. 'shortly' trims NEPAL to NEPA, 'after revolution' gives APEN, and 'importing' puts S inside.",
+     "definitionFit": "The aspen is a poplar tree known for its trembling leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +919,63 @@
     "text": "Frame that's attached to pan in storeroom, did you say?",
     "enumeration": "4"
    },
-   "solution": "TREE"
+   "solution": "TREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Frame",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "that's attached to",
+       "at": 6,
+       "note": "the answer is the part that, attached to pan, makes the sound of the storeroom word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "PANTREE",
+       "indicators": [
+        {
+         "text": "did you say",
+         "at": 43,
+         "note": "signals a sound-alike: the storeroom word is heard as pan plus the answer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "storeroom",
+         "at": 32,
+         "gives": "PANTRY",
+         "note": "a pantry is a small room for storing food"
+        }
+       ]
+      },
+      {
+       "words": "pan",
+       "at": 25,
+       "gives": "PAN",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A picture frame, joined to a cooking pan, kept in the larder.",
+     "walkthrough": "A subtractive homophone: PANTRY sounds like PAN + TREE, so the answer is what joins PAN to make it.",
+     "definitionFit": "A tree can be a wooden frame or support, as in a shoe tree or a saddle tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Frame"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +989,48 @@
     "text": "Crop: one planted in network?",
     "enumeration": "5"
    },
-   "solution": "MAIZE"
+   "solution": "MAIZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "planted in",
+       "at": 10,
+       "note": "one is set inside the network as a seed is planted in soil"
+      }
+     ],
+     "parts": [
+      {
+       "words": "network",
+       "at": 21,
+       "gives": "MAZE",
+       "note": "a maze is a network of paths"
+      },
+      {
+       "words": "one",
+       "at": 6,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single crop sown in a grid of fields.",
+     "definitionFit": "Maize, or corn, is a cereal grain grown on a vast scale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "network"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1044,29 @@
     "text": "Official 15",
     "enumeration": "8"
    },
-   "solution": "MANDARIN"
+   "solution": "MANDARIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Official",
+      "at": 0,
+      "meaning": "a senior official or bureaucrat, originally in imperial China"
+     },
+     {
+      "text": "15",
+      "at": 9,
+      "meaning": "15 across is TREE; a citrus tree"
+     }
+    ],
+    "explanation": {
+     "surface": "A bureaucrat who is also a tree.",
+     "definitionFit": "A mandarin is a high-ranking civil servant, and also a citrus plant bearing small oranges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1080,40 @@
     "text": "Promotion featured in biography, perhaps",
     "enumeration": "4"
    },
-   "solution": "HYPE"
+   "solution": "HYPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Promotion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "featured in",
+       "at": 10,
+       "note": "the answer appears within the clue words, running across them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "biography, perhaps",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Publicity that appears in a life story, maybe.",
+     "walkthrough": "The letters sit across the end of 'biography' and the start of 'perhaps'.",
+     "definitionFit": "Hype is excessive publicity used to promote something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1127,48 @@
     "text": "15 god embraced by US actress",
     "enumeration": "8"
    },
-   "solution": "HAWTHORN"
+   "solution": "HAWTHORN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "15",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraced by",
+       "at": 7,
+       "note": "the god is held inside the actress's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "US actress",
+       "at": 19,
+       "gives": "HAWN",
+       "note": "Goldie Hawn is an American actress"
+      },
+      {
+       "words": "god",
+       "at": 3,
+       "gives": "THOR",
+       "note": "Thor is the Norse god of thunder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree, or a god being hugged by a Hollywood star.",
+     "walkthrough": "'15' refers to 15 across, TREE.",
+     "definitionFit": "The hawthorn is a thorny tree or shrub, much used in hedges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1182,29 @@
     "text": "15, old one",
     "enumeration": "8"
    },
-   "solution": "CHESTNUT"
+   "solution": "CHESTNUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "15",
+      "at": 0,
+      "meaning": "15 across is TREE; a tree"
+     },
+     {
+      "text": "old one",
+      "at": 4,
+      "meaning": "a stale, often-repeated joke"
+     }
+    ],
+    "explanation": {
+     "surface": "A tree that is also an old joke.",
+     "definitionFit": "A chestnut is both a tree and an overused story or joke told too often."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1218,29 @@
     "text": "15 is looking good",
     "enumeration": "6"
    },
-   "solution": "SPRUCE"
+   "solution": "SPRUCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "15",
+      "at": 0,
+      "meaning": "15 across is TREE; a conifer"
+     },
+     {
+      "text": "looking good",
+      "at": 6,
+      "meaning": "neat and smart in appearance"
+     }
+    ],
+    "explanation": {
+     "surface": "A tree that is looking good.",
+     "definitionFit": "Spruce names both an evergreen tree and a neat, smartly dressed appearance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1254,61 @@
     "text": "15 briefly clipped back",
     "enumeration": "5"
    },
-   "solution": "ROWAN"
+   "solution": "ROWAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "15",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 19,
+       "note": "tells us the remaining letters are read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "clipped",
+         "at": 11,
+         "note": "clipping takes off both ends of the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "briefly",
+         "at": 3,
+         "gives": "INAWORD",
+         "note": "'in a word' means briefly or in short"
+        },
+        {
+         "gives": "I"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree that is briefly trimmed back, like a pruned shrub.",
+     "walkthrough": "'15' refers to 15 across, TREE. 'clipped' trims IN A WORD to NAWOR, and 'back' turns that round.",
+     "definitionFit": "The rowan, or mountain ash, is a small tree with red berries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clipped"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1322,58 @@
     "text": "Very little trust after borders abandoned in Iraq",
     "enumeration": "6"
    },
-   "solution": "RARELY"
+   "solution": "RARELY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Very little",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 18,
+       "note": "places the trust word after the trimmed country"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "borders abandoned in",
+         "at": 24,
+         "note": "the edges of the country name are dropped, keeping only its middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Iraq",
+         "at": 45
+        }
+       ]
+      },
+      {
+       "words": "trust",
+       "at": 12,
+       "gives": "RELY",
+       "note": "to rely on someone is to trust them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Little faith remains once Iraq's frontiers are left unguarded.",
+     "definitionFit": "Rarely means seldom, hardly ever, which describes something happening very little."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "borders"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1387,75 @@
     "text": "Plant cherry to the left beside acorn, I gathered",
     "enumeration": "9"
    },
-   "solution": "CORIANDER"
+   "solution": "CORIANDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beside",
+       "at": 25,
+       "note": "places the reversed colour next to the mixed letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "gathered",
+         "at": 41,
+         "note": "the letters are collected up and rearranged into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "acorn",
+         "at": 32
+        },
+        {
+         "words": "I",
+         "at": 39
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to the left",
+         "at": 13,
+         "note": "in an across clue, going left means the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cherry",
+         "at": 6,
+         "gives": "RED",
+         "note": "cherry is a shade of red"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener plants a cherry tree on the left next to an acorn that was picked up.",
+     "walkthrough": "'gathered' rearranges ACORN I into CORIAN; 'to the left' turns RED into DER.",
+     "definitionFit": "Coriander is a herb grown for its leaves and seeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1469,30 @@
     "text": "Part of 15 in port",
     "enumeration": "4"
    },
-   "solution": "CORK"
+   "solution": "CORK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of 15",
+      "at": 0,
+      "meaning": "15 across is TREE; ... is the bark of the ... oak"
+     },
+     {
+      "text": "port",
+      "at": 14,
+      "meaning": "A port city in southern Ireland"
+     }
+    ],
+    "explanation": {
+     "surface": "A piece of a tree found in a harbour town.",
+     "definitionFit": "Cork comes from the bark of the cork oak; the Irish city of Cork is a seaport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 22,
@@ -411,7 +1506,58 @@
     "text": "Steer back of coach onto 15",
     "enumeration": "4"
    },
-   "solution": "HELM"
+   "solution": "HELM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Steer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "onto",
+       "at": 20,
+       "note": "the coach letter is placed on to the front of the tree"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back of",
+         "at": 6,
+         "note": "the back of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coach",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "15",
+       "at": 25,
+       "gives": "ELM",
+       "note": "15 across is TREE; the elm is a tree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drive the rear of a bus into a tree.",
+     "definitionFit": "To helm a vessel is to be at its controls, guiding its course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1571,48 @@
     "text": "12 down 15 south of lake",
     "enumeration": "4"
    },
-   "solution": "LASH"
+   "solution": "LASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "12 down",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "south of",
+       "at": 11,
+       "note": "in a down clue, below means the tree comes after the lake letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lake",
+       "at": 20,
+       "gives": "L",
+       "note": "L is the map abbreviation for lake"
+      },
+      {
+       "words": "15",
+       "at": 8,
+       "gives": "ASH",
+       "note": "15 across is TREE; the ash is a tree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree growing to the south of a lake.",
+     "walkthrough": "12 down is BIRCH, here the verb: to beat with a birch rod.",
+     "definitionFit": "To birch someone is to flog them, as is to lash them with a whip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1626,49 @@
     "text": "Layer right inside bourbon, for example",
     "enumeration": "7"
    },
-   "solution": "BRICKIE"
+   "solution": "BRICKIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Layer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 12,
+       "note": "the right letter goes into the biscuit word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bourbon, for example",
+       "at": 19,
+       "gives": "BICKIE",
+       "note": "a bourbon is a chocolate biscuit, and bickie is a British slang word for biscuit"
+      },
+      {
+       "words": "right",
+       "at": 6,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A layer of right goes in a bourbon whiskey cocktail, perhaps.",
+     "walkthrough": "A bourbon is a chocolate sandwich biscuit sold in Britain, not just the whiskey. BICKIE is British informal for biscuit.",
+     "definitionFit": "A brickie, British slang for bricklayer, is someone who lays bricks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bourbon"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1682,61 @@
     "text": "First lot shortly arranged for the arranger?",
     "enumeration": "7"
    },
-   "solution": "FLORIST"
+   "solution": "FLORIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the arranger",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "arranged",
+       "at": 18,
+       "note": "the letters are reordered into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "First",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 10,
+         "note": "cutting it short drops the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lot",
+         "at": 6
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The first batch is quickly organised for whoever arranges things.",
+     "walkthrough": "'shortly' trims LOT to LO; 'arranged' rearranges FIRST + LO.",
+     "definitionFit": "A florist is a person who arranges flowers professionally, so is a flower arranger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "arranger"
+    }
+   }
   }
  ]
 }
