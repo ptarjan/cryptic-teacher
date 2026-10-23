@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,42 @@
     "text": "Take some time next to counter in New York — it'll help you get your words right",
     "enumeration": "12"
    },
-   "solution": "SPELLCHECKER"
+   "solution": "SPELLCHECKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it'll help you get your words right",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Take some time",
+       "at": 0,
+       "gives": "SPELL",
+       "note": "a spell is a period of time, so taking some time is having a spell"
+      },
+      {
+       "words": "counter in New York",
+       "at": 23,
+       "gives": "CHECKER",
+       "note": "in American English a checker is a draughts piece, a playing counter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to linger at a shop counter in Manhattan, oddly promising better writing.",
+     "walkthrough": "'next to' simply joins the two pieces. Americans call draughts checkers, so a checker is one of the counters.",
+     "definitionFit": "A software tool that flags misspelt words exists precisely to help a writer get their words right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +83,48 @@
     "text": "Avian predator ignoring unusually large target",
     "enumeration": "4"
    },
-   "solution": "PREY"
+   "solution": "PREY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "target",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ignoring",
+       "at": 15,
+       "note": "ignoring says those letters are left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Avian predator",
+       "at": 0,
+       "gives": "OSPREY",
+       "note": "an osprey is a large fish-eating hawk"
+      },
+      {
+       "words": "unusually large",
+       "at": 24,
+       "gives": "OS",
+       "note": "OS stands for outsize, unusually large"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hunting bird passes over an oversized quarry.",
+     "definitionFit": "Prey is the creature a hunter aims at, its quarry or target."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +138,58 @@
     "text": "Left pair of Americans either side of IT chief (very attractive)",
     "enumeration": "8"
    },
-   "solution": "LUSCIOUS"
+   "solution": "LUSCIOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very attractive",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Left",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "either side of",
+         "at": 23,
+         "note": "either side of says the two copies flank the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pair of Americans",
+         "at": 5,
+         "gives": "USUS",
+         "note": "US stands for the Americans, and a pair gives it twice"
+        },
+        {
+         "words": "IT chief",
+         "at": 38,
+         "gives": "CIO",
+         "note": "CIO is a chief information officer, the head of IT"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two Americans flank the head of tech, who is described as very good-looking.",
+     "definitionFit": "Luscious describes something richly appealing to the senses, especially a very attractive person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chief"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +203,59 @@
     "text": "Minister heading for Uruguay aboard plane",
     "enumeration": "6"
    },
-   "solution": "CURATE"
+   "solution": "CURATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minister",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "aboard",
+       "at": 29,
+       "note": "aboard says that letter goes inside the vehicle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plane",
+       "at": 36,
+       "gives": "CRATE",
+       "note": "crate is slang for an old aircraft"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "at": 9,
+         "note": "heading for means the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Uruguay",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government minister flies to Uruguay.",
+     "walkthrough": "'Minister' looks political but means a clergyman.",
+     "definitionFit": "A curate is an assistant member of the clergy, and ministers of religion are clergy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minister"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +269,79 @@
     "text": "A lot of cows going through border of field, heading off exhilaration",
     "enumeration": "10"
    },
-   "solution": "EBULLIENCE"
+   "solution": "EBULLIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exhilaration",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going through",
+       "at": 14,
+       "note": "going through says the shortened word for cows passes inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 45,
+         "note": "heading off says the first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "border of field",
+         "at": 28,
+         "gives": "FENCE",
+         "note": "a fence marks the edge of a field"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of says most of the word is kept, its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cows",
+         "at": 9,
+         "gives": "BULLIES",
+         "note": "to cow someone is to bully them, so cows means bullies"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A herd of cattle pushes through a field's boundary, causing excitement.",
+     "walkthrough": "'cows' looks like cattle but is the verb meaning intimidates. 'A lot of' and 'heading off' each trim a piece, one at its end, the other at its start.",
+     "definitionFit": "Ebullience is bubbling high spirits, close in meaning to exhilaration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cows"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +361,69 @@
      }
     ]
    },
-   "solution": "KNIGHTERRANTRY"
+   "solution": "KNIGHTERRANTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Questing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "king",
+       "at": 9,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      },
+      {
+       "words": "late in the day",
+       "at": 15,
+       "gives": "NIGHT",
+       "note": "night comes late in the day"
+      },
+      {
+       "words": "slip up",
+       "at": 35,
+       "gives": "ERR",
+       "note": "to err is to slip up"
+      },
+      {
+       "words": "soldier",
+       "at": 48,
+       "gives": "ANT",
+       "note": "a soldier ant is a kind of ant"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "to lose heart",
+         "at": 64,
+         "note": "to lose heart says the middle of the word drops out, leaving its ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ready",
+         "at": 58
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A late-night monarch on a quest stumbles alongside a soldier who is ready but downhearted.",
+     "definitionFit": "Knight-errantry was the medieval practice of roaming in search of adventure, the questing life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "soldier"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +437,46 @@
     "text": "Clever, not needing book to be correct",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "correct",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not needing",
+       "at": 8,
+       "note": "not needing says the letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Clever",
+       "at": 0,
+       "gives": "BRIGHT",
+       "note": "bright means clever"
+      },
+      {
+       "words": "book",
+       "at": 20,
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smart student does not need a textbook to get answers right.",
+     "definitionFit": "Right and correct are synonyms for being accurate or free from error."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +490,72 @@
     "text": "Trainee not quite joining reduced staff in crime busting force",
     "enumeration": "8"
    },
-   "solution": "INTERPOL"
+   "solution": "INTERPOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crime busting force",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 8,
+         "note": "not quite says the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trainee",
+         "at": 0,
+         "gives": "INTERN",
+         "note": "an intern is a trainee"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 26,
+         "note": "reduced says the word is cut short at the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "staff",
+         "at": 34,
+         "gives": "POLE",
+         "note": "a pole is a staff or rod"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An apprentice joins a cut-back team at a police agency.",
+     "walkthrough": "'staff' looks like employees but means a stick.",
+     "definitionFit": "Interpol is the international police organisation that helps forces cooperate against crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +575,85 @@
      }
     ]
    },
-   "solution": "PICTUREGALLERY"
+   "solution": "PICTUREGALLERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Collection of art",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "surroundings",
+         "at": 67,
+         "note": "surroundings says this word goes round what has been built, with 'in' as a link"
+        }
+       ],
+       "parts": [
+        {
+         "words": "modest",
+         "at": 41,
+         "gives": "PURE",
+         "note": "pure can mean chaste or modest"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "held in",
+           "at": 26,
+           "note": "held in says the letter goes inside the word it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "it",
+           "at": 34
+          },
+          {
+           "words": "college",
+           "at": 18,
+           "gives": "C"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "decorated",
+         "at": 57,
+         "note": "decorated says the letters are dressed up in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "largely",
+         "at": 49
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art college's collection is kept in a modest but ornately trimmed building.",
+     "walkthrough": "'largely' looks like 'mostly', but it is the anagram fodder for 'decorated'; 'in' is only a link.",
+     "definitionFit": "A picture gallery is a room or building where a collection of paintings is shown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "largely"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +667,59 @@
     "text": "Rumour first group is out of time",
     "enumeration": "5"
    },
-   "solution": "NOISE"
+   "solution": "NOISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rumour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "first",
+       "at": 7,
+       "gives": "NOI",
+       "note": "first is number one, written NO I with I as the Roman one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 22,
+         "note": "out of says the letter for time is taken away from the pieces before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "group",
+         "at": 13,
+         "gives": "SET",
+         "note": "a set is a group"
+        },
+        {
+         "words": "time",
+         "at": 29,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip has it that the leading band are no longer keeping time.",
+     "walkthrough": "'is' is just a link. NO I (number one) plus SET makes NOISET, and 'out of time' removes the T.",
+     "definitionFit": "Noise in the sense of talk or report going around, as in noises being made about something, is rumour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +733,49 @@
     "text": "Blossoming in the growing season?",
     "enumeration": "9"
    },
-   "solution": "SPROUTING"
+   "solution": "SPROUTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blossoming in the growing season?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 11,
+       "note": "in says one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the growing season",
+       "at": 14,
+       "gives": "SPRING",
+       "note": "spring is the season when plants start to grow"
+      },
+      {
+       "words": "Blossoming",
+       "at": 0,
+       "gives": "OUT",
+       "note": "flowers that are blossoming are out"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A gardener's note about flowers opening up during the spring months.",
+     "walkthrough": "The whole clue doubles as the definition, since plants put out shoots in spring.",
+     "definitionFit": "Sprouting is putting out new shoots and buds, the kind of flourishing typical of spring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +789,42 @@
     "text": "Takes in some fare at supper?",
     "enumeration": "4"
    },
-   "solution": "EATS"
+   "solution": "EATS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Takes in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 9,
+       "note": "some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fare at supper",
+       "at": 14,
+       "gives": "EATS",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner consumes part of the food served at the evening meal.",
+     "walkthrough": "The draft took 'Takes' alone as the definition; the phrase 'Takes in' is what means eats, so 'in' belongs to the definition rather than being a link.",
+     "definitionFit": "To take in food is to consume it, and eats is the plain synonym for consumes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +844,72 @@
      }
     ]
    },
-   "solution": "PISTOLSHOT"
+   "solution": "PISTOLSHOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "report",
+      "at": 65
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "tumbling over",
+         "at": 33,
+         "note": "tumbling over says the combined letters are turned round and read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "Consuming",
+           "at": 1,
+           "note": "consuming says the drink swallows up the next piece, which goes inside it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "drink",
+           "at": 26,
+           "gives": "SIP",
+           "note": "to sip is to drink"
+          },
+          {
+           "words": "a good deal",
+           "at": 11,
+           "gives": "LOTS",
+           "note": "lots means a good deal"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "getting angry",
+       "at": 48,
+       "gives": "HOT",
+       "note": "hot under the collar is angry, so getting angry is getting hot"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quoted account of someone drinking heavily, falling down and losing their temper.",
+     "walkthrough": "'Consuming' and 'tumbling over' together make PISTOLS. 'report' looks like a written account but is the bang of a gun.",
+     "definitionFit": "A report is a loud explosive sound, so a gun being fired produces one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +929,72 @@
      }
     ]
    },
-   "solution": "BLOODGROUP"
+   "solution": "BLOODGROUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "item of medical data",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Ailing",
+       "at": 0,
+       "note": "ailing means sick, so these letters are in a poor state and get rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "always neglecting",
+         "at": 30,
+         "note": "always neglecting says every occurrence of the letter is left out, not just one"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "guy",
+           "at": 7
+          },
+          {
+           "words": "poorly",
+           "at": 17
+          },
+          {
+           "words": "body",
+           "at": 24
+          }
+         ]
+        },
+        {
+         "words": "variable",
+         "at": 48,
+         "gives": "YYY",
+         "note": "Y is a classic algebraic variable; all three in the fodder go"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sick man in poor physical shape keeps forgetting a changeable entry in his medical notes.",
+     "walkthrough": "GUY, POORLY and BODY each hold a Y; 'always neglecting' drops all three, and 'Ailing' rearranges the ten letters left.",
+     "definitionFit": "A person's blood type, such as O or AB, is one of the facts kept in medical records."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "variable"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +1008,39 @@
     "text": "Our pile's wobbly, threatening",
     "enumeration": "8"
    },
-   "solution": "PERILOUS"
+   "solution": "PERILOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "threatening",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wobbly",
+       "at": 11,
+       "note": "something wobbly is unsteady, so these letters are shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Our pile's",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Our heap of belongings is unsteady and looks ready to topple.",
+     "definitionFit": "Perilous means full of danger, and something dangerous is threatening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +1054,68 @@
     "text": "Salad vegetable, mostly picked, over beside railway",
     "enumeration": "6"
    },
-   "solution": "CELERY"
+   "solution": "CELERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Salad vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 32,
+         "note": "over says the shortened word is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 17,
+           "note": "mostly says the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "picked",
+           "at": 24,
+           "gives": "ELECT",
+           "note": "elect means picked or chosen"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "railway",
+       "at": 44,
+       "gives": "RY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A salad ingredient, mostly chosen, sitting next to a train line.",
+     "walkthrough": "ELECT without its last letter is ELEC, which 'over' reverses to CELE.",
+     "definitionFit": "Celery is a crunchy stalked vegetable often eaten raw in salads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +1129,67 @@
     "text": "People farming English manor redeployed in yards?",
     "enumeration": "8"
    },
-   "solution": "YEOMANRY"
+   "solution": "YEOMANRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "People farming",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 40,
+       "note": "in says the rearranged letters go inside the yards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "yards",
+       "at": 43,
+       "gives": "YY",
+       "note": "Y is short for yard, so two yards are YY"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 15,
+         "gives": "E"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "redeployed",
+           "at": 29,
+           "note": "redeployed says the letters are moved to new positions"
+          }
+         ],
+         "parts": [
+          {
+           "words": "manor",
+           "at": 23
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Farmhands from an English country estate are moved around into yards.",
+     "definitionFit": "Yeomen were small landowners who farmed their own land, and yeomanry is them as a class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1203,57 @@
     "text": "Cultural note abandoned in representation of coastline",
     "enumeration": "8"
    },
-   "solution": "SOCIETAL"
+   "solution": "SOCIETAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cultural",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "representation of",
+       "at": 27,
+       "note": "representation of says the letters are rendered in a different form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoned",
+         "at": 14,
+         "note": "abandoned says that letter is dropped from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coastline",
+         "at": 45
+        },
+        {
+         "words": "note",
+         "at": 9,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter leaves out a musical note in depicting the coastline.",
+     "definitionFit": "Societal means relating to society and its ways, which overlaps with cultural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1267,41 @@
     "text": "Lake city in USA — really?",
     "enumeration": "6"
    },
-   "solution": "LAGOON"
+   "solution": "LAGOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "city in USA",
+       "at": 5,
+       "gives": "LA",
+       "note": "LA is Los Angeles"
+      },
+      {
+       "words": "really?",
+       "at": 19,
+       "gives": "GOON",
+       "note": "'go on!' is an exclamation of disbelief, like 'really?'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doubtful reaction to someone claiming an American city sits on a lake.",
+     "definitionFit": "A lagoon is a stretch of salt water cut off from the sea, a kind of small lake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "really"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1315,58 @@
     "text": "Expression of wonder about note a sure thing in virtuoso piece",
     "enumeration": "8"
    },
-   "solution": "CONCERTO"
+   "solution": "CONCERTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "virtuoso piece",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 21,
+       "note": "about says the exclamation goes round the pieces that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Expression of wonder",
+       "at": 0,
+       "gives": "COO",
+       "note": "coo! is an exclamation of surprise or wonder"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "note",
+         "at": 27,
+         "gives": "N"
+        },
+        {
+         "words": "a sure thing",
+         "at": 32,
+         "gives": "CERT",
+         "note": "a cert is a certainty, a sure thing"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gasp of admiration greets a guaranteed showstopper in a dazzling solo performance.",
+     "walkthrough": "'in' is a link here: the note and the sure thing sit together inside the exclamation.",
+     "definitionFit": "A concerto is a showpiece for a solo instrument, often written to display the player's virtuosity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1380,65 @@
     "text": "Host bringing in beer, also carrying British wine",
     "enumeration": "6"
    },
-   "solution": "MALBEC"
+   "solution": "MALBEC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bringing in",
+       "at": 5,
+       "note": "bringing in says the host takes the rest inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Host",
+       "at": 0,
+       "gives": "MC",
+       "note": "MC is master of ceremonies, a host"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "at": 28,
+         "note": "carrying says the beer holds the letter inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "at": 17,
+         "gives": "ALE",
+         "note": "ale is beer"
+        },
+        {
+         "words": "British",
+         "at": 37,
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A host serves beer and also British wine.",
+     "walkthrough": "'also' is just a link between the two container steps.",
+     "definitionFit": "Malbec is a red grape variety and the red wine made from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1452,41 @@
     "text": "Get Phi calm, unusually calm",
     "enumeration": "10"
    },
-   "solution": "PHLEGMATIC"
+   "solution": "PHLEGMATIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "calm",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusually",
+       "at": 14,
+       "note": "unusually says these letters are arranged in an unexpected way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Get Phi calm",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter asks for help staying unusually composed.",
+     "walkthrough": "Phi is this puzzle's setter, writing himself into the clue.",
+     "definitionFit": "Phlegmatic describes a temperament that stays unemotional and unruffled, which is calm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Phi"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1500,68 @@
     "text": "Courtyard — work to surround it with area that's elevated",
     "enumeration": "5"
    },
-   "solution": "PATIO"
+   "solution": "PATIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Courtyard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "that's elevated",
+       "at": 42,
+       "note": "in a down clue elevated says the letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to surround",
+         "at": 17,
+         "note": "to surround says the work goes round the next pieces"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work",
+         "at": 12,
+         "gives": "OP",
+         "note": "OP is short for opus, a work"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "it",
+           "at": 29
+          },
+          {
+           "words": "area",
+           "at": 37,
+           "gives": "A"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Raised paving work encloses an outdoor yard.",
+     "walkthrough": "The container gives OITAP, and 'that's elevated' turns it upward, as befits a down clue.",
+     "definitionFit": "A patio is a paved outdoor area next to a house, like a small courtyard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1575,40 @@
     "text": "Member of ancient culture in Central America",
     "enumeration": "4"
    },
-   "solution": "INCA"
+   "solution": "INCA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Member of ancient culture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 26
+      },
+      {
+       "words": "Central America",
+       "at": 29,
+       "gives": "CA",
+       "note": "CA is short for Central America"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describes someone from an old civilisation living in Central America.",
+     "walkthrough": "The surface places this culture in Central America; the Incas were in fact from the Andes of South America.",
+     "definitionFit": "The Inca were the people of a pre-Columbian empire, so an Inca belongs to that ancient culture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Central"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1622,42 @@
     "text": "This has nothing on marine fish producer?",
     "enumeration": "4"
    },
-   "solution": "FARM"
+   "solution": "FARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish producer?",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nothing",
+       "at": 9,
+       "gives": "FA",
+       "note": "FA, as in sweet FA, means nothing"
+      },
+      {
+       "words": "marine",
+       "at": 20,
+       "gives": "RM",
+       "note": "RM stands for Royal Marine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something with no hold over a fish breeder in the sea.",
+     "walkthrough": "'This has' means the answer is made of what follows; in a down clue 'on' puts one piece above the other. The question mark flags a fish farm as one kind.",
+     "definitionFit": "A fish farm rears fish for food, so a farm can produce fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "marine"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1677,75 @@
      }
     ]
    },
-   "solution": "THEHOBBIT"
+   "solution": "THEHOBBIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "book set in fabulous land",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 31,
+       "note": "in says the earlier pieces go inside the bird"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bird",
+       "at": 34,
+       "gives": "TIT",
+       "note": "a tit is a small bird"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "That chap",
+         "at": 0,
+         "gives": "HE",
+         "note": "he refers to that chap"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "reduced",
+           "at": 14,
+           "note": "reduced says the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "interest",
+           "at": 22,
+           "gives": "HOBBY",
+           "note": "a hobby is an interest"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man with fewer interests in birds owns a fantasy book.",
+     "walkthrough": "'has' is a link; 'interest' means a pastime, not money earned.",
+     "definitionFit": "Tolkien's novel is set in Middle-earth, an imaginary world of dragons and wizards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "interest"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1759,46 @@
     "text": "Kitchen item increasingly just overlooked at first",
     "enumeration": "5"
    },
-   "solution": "AIRER"
+   "solution": "AIRER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kitchen item",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "overlooked at first",
+       "at": 31,
+       "note": "overlooked at first says the opening letter is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "increasingly just",
+       "at": 13,
+       "gives": "FAIRER",
+       "note": "fairer means more just"
+      },
+      {
+       "gives": "F"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A household appliance that gets ever fairer, though people ignore it initially.",
+     "walkthrough": "A clothes airer is a rack for drying laundry, often kept in British kitchens.",
+     "definitionFit": "A clothes airer is a folding drying rack commonly stood in the kitchen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1818,36 @@
      }
     ]
    },
-   "solution": "OLYMPICFLAME"
+   "solution": "OLYMPICFLAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sports blazer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sports blazer",
+       "at": 0,
+       "note": "not a jacket worn for sport but something that blazes at a sporting event"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looks like a jacket with a club badge.",
+     "walkthrough": "A blazer is a jacket, but also anything that blazes; the torch lit at the Games is the latter.",
+     "definitionFit": "The flame burns throughout the Games, literally a fire blazing over a sporting event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blazer"
+    }
+   }
   }
  ]
 }
