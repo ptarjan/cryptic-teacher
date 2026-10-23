@@ -175,6 +175,8 @@ METER_LINE = re.compile(r"five-hour (\d+)% -> (\d+)% in ([\d.]+)h at width (\d+(
 WIDTH_LINE = re.compile(r"^--- pool of (\d+):")
 RATE_LINES = 60
 RATE_MIN_LINES = 10
+# Runs in flight on average under which an interval says nothing about a run's rate.
+MIN_RATE_WIDTH = 2.0
 
 
 def ceiling(meter):
@@ -182,16 +184,19 @@ def ceiling(meter):
     return SESSION_CEILING if meter == "session" else EXHAUSTED
 
 
-def per_run_rate(lines, last=RATE_LINES, least=RATE_MIN_LINES):
+def per_run_rate(lines, last=RATE_LINES, least=RATE_MIN_LINES, min_width=MIN_RATE_WIDTH):
     """Five-hour points per run-hour over the last `last` meter lines logged,
     PER_RUN_RATE under `least` usable ones. An interval whose meter fell crossed
-    a reset and says nothing, so it is skipped."""
+    a reset and says nothing, so it is skipped, as is one with under `min_width`
+    runs in flight on average: the rooms' own spend over almost no runs reads as
+    an enormous per-run rate (10-23: 38% -> 79% in 3.55h at width 0.01 = 1,150 a
+    run-hour, which held the need at 0 for hours with 41,864 puzzles queued)."""
     points = run_hours = 0.0
     meters = [m for m in map(METER_LINE.search, lines) if m][-last:]
     used = 0
     for m in meters:
         before, after, hours, width = int(m[1]), int(m[2]), float(m[3]), float(m[4])
-        if after < before or hours <= 0 or width <= 0:
+        if after < before or hours <= 0 or width < min_width:
             continue
         points += after - before
         run_hours += hours * width
@@ -840,7 +845,10 @@ def width_self_test():
                         (pooled, 5 / 6.25), (mixed, 96 / (12 * 7.65)),
                         # an interval with nothing in flight says nothing
                         (pooled[:9] + [pool.format(5, 9).replace("12.50", "0.00")],
-                         PER_RUN_RATE)]:
+                         PER_RUN_RATE),
+                        # 10-23: the rooms' 41 points over 3.5h at width 0.01 are not a run's rate
+                        (pooled + [pool.format(38, 79).replace("0.5h at width 12.50", "3.55h at width 0.01")],
+                         5 / 6.25)]:
         if abs(per_run_rate(lines) - want) > 1e-9:
             print(f"FAIL per_run_rate of {len(lines)} lines = {per_run_rate(lines)} "
                   f"(want {want})", file=sys.stderr)
