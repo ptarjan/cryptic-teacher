@@ -233,10 +233,13 @@ fi
 echo "$$" > "$LOCK/pid"
 # bash skips the EXIT trap when a signal kills it, which strands the lock; so a
 # signal is turned into an ordinary exit and the trap below runs for it too.
-# HUP is the hot reload (tools/hot_reload.py), not a stop: see reload_burn.
+# USR1 is the hot reload (tools/hot_reload.py), not a stop: see reload_burn. HUP
+# asks the same, but a burn started under track-job/deprioritize has SIGHUP
+# ignored (SigIgn 0x7), and a non-interactive bash cannot trap a signal that was
+# ignored when it started, so HUP did nothing there (10-23): USR1 is never ignored.
 RELOAD_ASKED=0
 WATCH_PID=""
-trap 'RELOAD_ASKED=1' HUP
+trap 'RELOAD_ASKED=1' USR1 HUP
 trap 'exit 130' INT
 trap 'exit 143' TERM
 trap '[ -z "$WATCH_PID" ] || kill "$WATCH_PID" 2>/dev/null; rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
@@ -642,7 +645,7 @@ pool_reap() {
     rc=$?
     pid=${pid:-}
     [ -n "$pid" ] && break
-    # A HUP ends the wait with no pid: back to run_pool, which reloads (reload_burn).
+    # A USR1 (or HUP) ends the wait with no pid: back to run_pool, which reloads (reload_burn).
     reload_due && return
     # One finished between the scan and wait -n: the next scan finds it.
     sleep 1
@@ -708,7 +711,7 @@ pool_replan() {
   local -A held=() pending=() placed=()
   local rest=()
   f=$(mktemp "${TMPDIR:-/tmp}/ct-prereset-plan.XXXXXX") || return
-  POOL_PLAN_BUSY=1  # a HUP waits (reload_due): an exec now would orphan the planner
+  POOL_PLAN_BUSY=1  # a USR1 waits (reload_due): an exec now would orphan the planner
   printf '%s\n' "${queue[@]:$at}" >"$f.in"
   : >"$f.new"
   t0=${EPOCHREALTIME/[.,]/}
@@ -1024,15 +1027,16 @@ reexec_self() {
 }
 # --- hot reload ----------------------------------------------------------------
 # Paul 10-18: "I hate wait queue cycles... kill hup them." Two triggers, as for
-# tools/edition_queue.py (tools/hot_reload.py): `kill -HUP` this shell (the pid
-# whose command line is `. "$0"`), or the watcher below, which every
-# CT_RELOAD_POLL (180s) sees origin/master's tools/ code differ from the tree's
-# and sends the same HUP. The burn does not wind down to be reloaded, because
+# tools/edition_queue.py (tools/hot_reload.py): `kill -USR1` this shell (the pid
+# whose command line is `. "$0"`; HUP too, but track-job starts the burn with
+# SIGHUP ignored, which bash cannot trap, so USR1 is the one that works), or the
+# watcher below, which every CT_RELOAD_POLL (180s) sees origin/master's tools/
+# code differ from the tree's and sends USR1. The burn does not wind down to be reloaded, because
 # nothing needs it to: a run is a fresh process off the tree, and the tree
 # reaches origin at once instead of at the next hourly sync_wave, and the shell
 # code re-execs onto it, adopting the runs in flight. So a reload never stops a
 # run, and never exits 75; a HUP during a nap or a re-plan waits for it to end.
-reload_due() {  # a HUP waits for run_pool, which is where the tree may move
+reload_due() {  # a USR1 waits for run_pool, which is where the tree may move
   [ "$RELOAD_ASKED" = 1 ] && [ "$POOL_HOLD" = 0 ] && [ -z "${POOL_PLAN_BUSY:-}" ]
 }
 reload_burn() {
@@ -1050,7 +1054,7 @@ reload_watch() {  # one watcher at a time, firing once; reload_burn starts the n
   (
     while sleep "${CT_RELOAD_POLL:-180}"; do
       python3 "$REPO/tools/hot_reload.py" check "$REPO" >/dev/null 2>&1 || continue
-      kill -HUP $$
+      kill -USR1 $$
       exit 0
     done
   ) 9>&- &  # not the tree's lease (fd 9): a sleep outliving the burn would hold it
