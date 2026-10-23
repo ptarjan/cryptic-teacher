@@ -760,7 +760,7 @@ check("a read whose needed scan has not begun starts without waiting for it, and
       ev.index(["start", "read", "r1", "v1"]) < ev.index(["end", "scan", "s1"]))
 check("a unit past its limit is killed, the others not held up", (False, True, True),
       (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, time.monotonic() - t0 < 15))
-log.unlink()
+log.unlink(missing_ok=True)
 fake(sleep={"n1": 1.0})
 eq.plan = lambda papers, cache=None, reread=None, out=None: (
     [{"kind": "scan", "paper": "times", "rel": "b1", "rank": 3, "reason": "scan stale"}],
@@ -770,7 +770,7 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("a whole-corpus unit waits, in its own idle pool, until no new one is left to start", True,
       ev.index(["start", "read", "n2", "v1"]) < ev.index(["start", "scan", "b1", "v1"]))
-log.unlink()
+log.unlink(missing_ok=True)
 fake(sleep={"r1": 0.6, "r2": 0.6})
 eq.plan = units(["s9"], [("r1", []), ("r2", [])])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
@@ -778,7 +778,7 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("a scan no read waits on holds while a full read pool of reads is ready", True,
       ev.index(["start", "read", "r2", "v1"]) < ev.index(["start", "scan", "s9", "v1"]))
-log.unlink()
+log.unlink(missing_ok=True)
 import threading
 def release_on(marker, path, limit=60):
     """Touch `path` once units.log holds `marker`, or after `limit` s: a held unit's end is an event
@@ -800,7 +800,7 @@ released.touch()
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("with fewer ready reads than read slots the scans start at once", True,
       ev.index(["start", "scan", "s9", "v1"]) < ev.index(["end", "read", "r1"]))
-log.unlink()
+log.unlink(missing_ok=True)
 fake(sleep={"s0": 1.5})
 eq.plan = units(["s0", "s1"], [("r1", ["s1"])])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
@@ -808,7 +808,7 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("a read whose days-after scan waits behind a full scan pool starts at once", True,
       ev.index(["start", "read", "r1", "v1"]) < ev.index(["end", "scan", "s0"]))
-log.unlink()
+log.unlink(missing_ok=True)
 fake(sleep={"s0": 1.5}, outcome={"bad": "failed"})
 eq.plan = units(["s0", "r1", "bad"], [("r1", ["r1"]), ("bad", ["bad"])])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
@@ -818,7 +818,7 @@ check("a read whose own scan waits behind a full scan pool starts only after tha
       ev.index(["end", "scan", "r1"]) < ev.index(["start", "read", "r1", "v1"]))
 check("a read whose own scan failed is left for the next run, not read unscanned", False,
       ["start", "read", "bad", "v1"] in ev)
-log.unlink()
+log.unlink(missing_ok=True)
 fake()
 # scan_stands hashes through _stand_hash (its path facts kept), not input_hash.
 (hashes, stand_hash), f.input_hash, f._stand_hash = (f.input_hash, f._stand_hash), lambda d: "h", lambda c, r: "h"
@@ -831,7 +831,7 @@ check("a planned scan whose edition was scanned since (a kept plan) is not start
       (False, True, True), (["start", "scan", "done", "v1"] in ev, ["start", "read", "done", "v1"] in ev,
                             ["start", "scan", "s1", "v1"] in ev))
 f.input_hash, f._stand_hash = hashes, stand_hash
-log.unlink()
+log.unlink(missing_ok=True)
 fake()
 calls = []
 def slow_replan(papers, cache=None, reread=None, out=None):
@@ -847,7 +847,7 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
 starts = [float(line.split()[0]) for line in log.read_text().splitlines() if line.split()[1] == "start"]
 check("a slow replan does not hold up starts from the plan before it", (3, True),
       (len(starts), max(starts) - starts[0] < 2.5))
-log.unlink()
+log.unlink(missing_ok=True)
 fresh_unit = {"kind": "read", "paper": "times", "rel": "f1", "rank": 0, "reason": "just laid out", "needs": []}
 eq.plan = units([], [("b1", []), ("b2", [])])
 eq.fresh = lambda papers, cache=None: ([], [fresh_unit])
@@ -855,7 +855,7 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
     eq.dispatch(["times"], cache, workers=1, replan=0.2)
 starts = [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"]
 check("an edition just laid out starts before the planned backlog, once", ["f1", "b1", "b2"], starts)
-log.unlink()
+log.unlink(missing_ok=True)
 calls = []
 eq.plan = slow_replan
 t_fresh = time.monotonic() + 0.5
@@ -866,12 +866,12 @@ starts = {line.split()[3]: float(line.split()[0]) for line in log.read_text().sp
 check("one laid out mid-plan starts while the planner thread is still at it", (True, True),
       ("f1" in starts, starts.get("f1", 99) < calls[1] + 3))
 eq.fresh = lambda papers, cache=None: ([], [])
-log.unlink()
+log.unlink(missing_ok=True)
 kept_ho = Path(os.environ["TMP"]) / "kept-handoff.json"
 eq.plan = units([], [("k1", []), ("k2", [])])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=2, replan=0.1, handoff=kept_ho)
-log.unlink()
+log.unlink(missing_ok=True)
 def stalled(papers, cache=None, reread=None, out=None):
     time.sleep(3)
     return [], []
@@ -882,7 +882,7 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
 starts = [(float(line.split()[0]), line.split()[3]) for line in log.read_text().splitlines() if line.split()[1] == "start"]
 check("the next run starts the kept plan's units before its own plan is made", (["k1", "k2"], True),
       (sorted(r for _, r in starts), all(t - t0 < 2 for t, _ in starts)))
-log.unlink()
+log.unlink(missing_ok=True)
 # A slice boundary: the next slice fills its free slots with what the last
 # one had not started, at once, its ledger upkeep on the planner thread.
 # Driven by events, not wall time (a 2 s slice on a loaded CI runner ended before any unit logged its
@@ -906,7 +906,7 @@ finally:
     eq.time = time
 released.touch()  # the next slice, taking k2 and k3 over, sees them end
 ran = {line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"}
-log.unlink()
+log.unlink(missing_ok=True)
 eq.plan = stalled
 upkept = []
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
@@ -917,7 +917,7 @@ starts = [(float(line.split()[0]), line.split()[3]) for line in log.read_text().
 check("the next slice starts at once what the last left unstarted, not what it ran; upkeep beside it",
       (sorted({"k1", "k2", "k3", "k4", "k5"} - ran), True, 1, True),
       (sorted(r for _, r in starts), all(t - t0 < 2 for t, _ in starts), len(upkept), "k1" in ran))
-log.unlink()
+log.unlink(missing_ok=True)
 fake(sleep={"slow": 30})
 eq.plan = units([], [(f"r{k}", []) for k in range(6)])
 out = io.StringIO()
@@ -954,7 +954,7 @@ check("--beside runs beside the units until it leaves nothing", (0, "3", True),
 
 # --fetch: a source's fetch units run in a pool of their own beside the
 # reads; a 429 lowers the pool, FETCH_OUTAGES in a row stop the source.
-log.unlink()
+log.unlink(missing_ok=True)
 outcome = {}
 fake(default=0.3, ends=False)
 eq.plan = units([], [("r1", [])])
@@ -966,7 +966,7 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("fetch units run beside the reads, each once, in their own pool", (0, ["r1"], [f"e{k}" for k in range(6)]),
       (rc, [e[2] for e in ev if e[1] == "read"], sorted(e[2] for e in ev if e[1] == "fetch")))
-log.unlink()
+log.unlink(missing_ok=True)
 fake(default=0.3, ends=False, sleep={"e0": 0.1}, outcome={"e0": "throttled", **{f"e{k}": "outage" for k in range(1, 4)}})
 eq.FETCH_OUTAGES = 3
 eq.FETCHERS["src"]["workers"] = 2
@@ -978,7 +978,7 @@ check("a 429 lowers the pool; FETCH_OUTAGES down in a row stop the source for th
        "start fetch e5" in log.read_text()))
 
 # A slow fetch plan holds no read back: the first plan's reads start before it is made.
-log.unlink()
+log.unlink(missing_ok=True)
 fake(default=0.3, ends=False)
 err = io.StringIO()
 plan_saw = []
@@ -1006,7 +1006,7 @@ check("a fetch plan is made once per fetch_replan, not every replan; mirror: at 
       (1, True), (len(made[60]), len(made[0]) > 2))
 
 # Each unit's command line names its kind, paper and edition, not the queue's.
-log.unlink()
+log.unlink(missing_ok=True)
 fake(ps=True)
 eq.plan = units([], [("GaleTimes1988UKEnglish/1988-08-30", [])])
 eq.FETCHERS = {"src": {"plan": lambda: [{"rel": "article/120905968", "reason": "not fetched"}],
@@ -1219,7 +1219,7 @@ fake()
 # ---- fresh code: a unit started after a code change runs the new code.
 # The first unit changes the unit script as it runs (master moved under
 # the tree); every unit started after it runs the changed script.
-log.unlink()
+log.unlink(missing_ok=True)
 fake(rewrite_on="c0", change=['VERSION = "v1"', 'VERSION = "v2"'], sleep={"c0": 0.5})
 eq.plan = units([], [(f"c{k}", []) for k in range(4)])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
@@ -1230,7 +1230,7 @@ check("a unit started after a code change runs the new code, none the old",
 
 # ---- the queue itself follows its code: a change to it hands its running
 # units to its new image (same pid, a child still) and re-execs.
-log.unlink()
+log.unlink(missing_ok=True)
 driver = T / "driver.py"
 driver.write_text(f"""import os, sys
 sys.path.insert(0, {str(Path.cwd())!r})
@@ -1269,7 +1269,7 @@ check("its running unit is kept, not started again, reaped by the new image, the
 # A re-exec reuses a young kept plan as its own: it says so, and the plan's
 # time to make survives in the file for the replan back-off.
 check("mirror: with plan_reuse 0 the re-exec's image does not keep the plan", False, "kept, not made again" in p.stderr)
-log.unlink()
+log.unlink(missing_ok=True)
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 driver.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"'))
 fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
@@ -1284,7 +1284,7 @@ eq.keep_plan(kp, ["k"], ([], [], []), time.time(), 123.0)
 check("a kept plan carries how long it took", (([], [], []), 123.0), (eq.last_plan(kp, ["k"])[0], eq.last_plan(kp, ["k"])[2]))
 # Mirror: a plan that takes minutes (a cold cache on the media mount) holds
 # no re-exec back; the old code would run until the plan ended.
-log.unlink()
+log.unlink(missing_ok=True)
 slow = T / "slow_driver.py"
 slow.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
 calls = []
@@ -1303,7 +1303,7 @@ check("a code change re-execs the queue while its plan is still being made",
 # Mirror: an image that has not yet made a plan of its own (it runs the kept
 # one) makes it before re-exec'ing on the next change, so changes landing
 # faster than a plan takes still get plans made on new code.
-log.unlink()
+log.unlink(missing_ok=True)
 busy = T / "busy_driver.py"
 busy_src = (driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
 def plan(*a, **k):
@@ -1325,7 +1325,7 @@ check("an image re-execs on a change only after making its own first plan",
       ["p1", "p2", "plan made by p2", "p3"], said)
 # Mirror: every unit ended while that first plan was made (a loaded host),
 # so the run's last plan is next; it is made on the new code, not the old.
-log.unlink()
+log.unlink(missing_ok=True)
 busy.write_text(busy_src.replace("time.sleep(1.5)", "time.sleep(5)"))
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 fake(rewrite_on="long", rewrite=str(busy), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 1})
@@ -1339,7 +1339,7 @@ check("mirror: with its units all ended during its first plan, an image still re
 # an hour on a loaded host, and the dispatcher it runs would be the old all
 # that while (2026-10-15: edition_queue.py landed at 01:51 and a slice begun
 # at 01:45 was still on its first plan at 02:10).
-log.unlink()
+log.unlink(missing_ok=True)
 fresh_drv = T / "fresh_driver.py"
 kept = T / "fresh-kept.json"
 fresh_drv.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
@@ -1365,7 +1365,7 @@ check("a slice's first image re-execs on a change to itself while its first plan
 
 # ---- --handoff: a slice's end hands its running units to the next run,
 # which counts them in its pools and does not start them again.
-log.unlink()
+log.unlink(missing_ok=True)
 released = T / "release-long"
 fake(hold={"long": str(released)})  # "long" runs until released, so it is still running when the slice ends
 eq.plan = units([], [("long", []), ("r1", [])])
