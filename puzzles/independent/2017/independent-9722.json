@@ -991,62 +991,58 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "getting confused",
+       "at": 36,
+       "note": "getting confused means becoming jumbled, so the remaining letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "words": "only",
-       "gives": "ON",
-       "note": "only cut short"
-      },
-      {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "getting confused",
-         "note": "confused letters are jumbled out of their proper order"
+         "text": "briefly",
+         "at": 13,
+         "note": "briefly means cut short, so each of these three words loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "the",
-         "note": "taken as written"
-        },
-        {
-         "words": "Jones",
-         "gives": "J",
-         "note": "initial of the surname"
-        },
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "briefly",
-           "note": "said briefly, words are cut short and lose their final letters"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "boy",
-           "gives": "BOY",
-           "note": "boy cut short"
+           "words": "the",
+           "at": 22
           },
           {
-           "gives": "Y"
+           "words": "Jones",
+           "at": 26
+          },
+          {
+           "words": "boy",
+           "at": 32
           }
          ]
+        },
+        {
+         "gives": "ESY"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Jones lad works only for a short while before getting muddled.",
-     "walkthrough": "A loose parse: the abbreviations are trimmed and the last pieces mixed up.",
-     "definitionFit": "Someone on the job is at work, actively engaged in their duties."
+     "surface": "The Jones lad only works part-time and keeps getting muddled.",
+     "walkthrough": "'briefly' cuts THE, JONES and BOY to TH, JONE and BO; 'getting confused' rearranges those eight letters.",
+     "definitionFit": "On the job is an idiom for at work, in the middle of doing one's work."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "briefly"
     }
    }
   },
