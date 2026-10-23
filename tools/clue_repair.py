@@ -562,7 +562,12 @@ def mend_steps(text, enum=None, is_word=None, uses=None, words=True, lights=None
         ("dash_blank", lambda t: re.sub(r"(?<=[A-Za-z])(—{2,})(?=[A-Za-z])", r" \1 ", t)),
         ("spaces", lambda t: re.sub(r"\s{2,}", " ", t).strip()),
         ("bled_count", lambda t: bled_count(t, enum)),
+        # the light's own count left in the text, a neighbour's scraps after it
+        # ("experience (5). code."; tools/audit_updates.py's i:count-in-text)
+        ("count_in_text", lambda t: clue_text.count_in_text(t, enum)),
         ("trailing_count", lambda t: trailing_count(t, enum, lights)),
+        # "£" read as "E" before a sum ("with E25 left"; audit_updates' d:pound-as-E)
+        ("pound_sign", clue_text.pound_sign),
     ]
     if words:
         rules += [

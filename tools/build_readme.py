@@ -855,6 +855,8 @@ LAYOUT = [
     ("fetching", "tools/test_refusal_replay.py", "does the wake's refusal section replay, group, count retries and name a cause?"),
     ("fetching", "tools/learn_postproc.py", "mine the clue-text rewrites in \"Update ...\" commits for post-processor rules"),
     ("fetching", "tools/test_learn_postproc.py", "does learn_postproc class each clue rewrite and score a rule's hits, worse and fixpoint breaks?"),
+    ("fetching", "tools/audit_updates.py", "audit the clue text each reread (\"Update ...\" commit) wrote: glitches it brought in or took out"),
+    ("fetching", "tools/test_audit_updates.py", "does audit_updates class each reread change introduced, fixed or neutral, and alert on a new class?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

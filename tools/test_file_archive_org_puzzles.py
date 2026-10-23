@@ -3493,6 +3493,43 @@ check("a reread that cuts a word at its edge or turns a word to a non-word corre
 check("a reread that gains a lone & corrects nothing (times-12467)",
       [False, False], [f.corrects("Lone wolf unimpeded by a weapon", "Lone wolf unimpeded by & a weapon"),
                        f.corrects("Lone wolf unimpeded by weapon", "Lone wolf unimpeded by & weapon")])
+check("a reread that gains furniture, a leaked hyphen, E for £, a glued figure, an unpaired quote, "
+      "1 for I or its count corrects nothing (clue_text.REFUSED_GLITCHES, tools/audit_updates.py)",
+      [False] * 7,
+      [f.corrects("About to entertain lavishly, look up place to eat",
+                  "About to entertain lavishly, look times, up place to eat"),
+       f.corrects("Knocks about Minehead looking for swindles", "Knocks about Minehead look- 2119. ing for swindles"),
+       f.corrects("Locks secured, in the end, with £25 left", "Locks secured, in the end, with E25 left"),
+       f.corrects("A former emperor rebuffed the follower of another",
+                  "2A former emperor rebuffed the follower of another"),
+       f.corrects('Oriental girl stars in "The Special Agents"', 'Oriental girl stars in "The Special Agents'),
+       f.corrects("Featured in the newspaper. I live for danger", "Featured in the newspaper. 1 live for danger"),
+       f.corrects("Bomb is not half an unpleasant experience", "Bomb is not half an unpleasant experience (5). code.")])
+check("rewritten(): another clue's words over a held clue, not a reading of it",
+      [True, True, False, False],
+      [f.rewritten("Bill's relations", "Virtue"), f.rewritten("See 25", "Cambridge Park, E 11 01-989"),
+       f.rewritten("Dry places ruined this old timer", "Dry places ruined this old-timer"),
+       f.rewritten("", "Virtue")])
+
+# keep_held_clues(): a count that drops word breaks the answer bears out ("3,4" over
+# REDWINE to "7"), or a reading of other words, keeps the held clue; a count that
+# gains breaks is taken.
+def p7(clues):
+    return {"source": {"acquiredBy": f.TOOL}, "dimensions": {"cols": 7, "rows": len(clues)},
+            "entries": [{"number": i + 1, "direction": "across", "position": {"x": 0, "y": i}, "length": 7,
+                         "clue": c, "solution": "REDWINE"} for i, c in enumerate(clues)]}
+held7 = p7([{"text": "Port, perhaps, in colour", "enumeration": "3,4"}, {"text": "Bill's relations", "enumeration": "7"},
+            {"text": "Wine colour", "enumeration": "7"}])
+read7 = p7([{"text": "Port, perhaps, in colour", "enumeration": "7"}, {"text": "Virtue", "enumeration": "7"},
+            {"text": "Wine colour", "enumeration": "3,4"}])
+check("a count losing breaks the answer bears out, or another clue's words, keeps the held clue; "
+      "a count gaining breaks is taken",
+      [["1-across", "2-across"], ["3,4", "7", "3,4"], ["Port, perhaps, in colour", "Bill's relations", "Wine colour"]],
+      [sorted(f.keep_held_clues(read7, held7)), [e["clue"]["enumeration"] for e in read7["entries"]],
+       [e["clue"]["text"] for e in read7["entries"]]])
+check("breaks_lost(): only breaks the answer bears out (ASKANCE's \"4,3\" may go)",
+      [True, False, False],
+      [f.breaks_lost("3,4", "7", "REDWINE"), f.breaks_lost("4,3", "7", "ASKANCE"), f.breaks_lost("3,4", "7", None)])
 check("mirror: regressed() names those, and not a mend, a split word or a letter gained",
       ([True] * 3, [False] * 3),
       ([f.regressed("good at heart", "good at hear"), f.regressed("the 1st Earl", "the st Earl"),

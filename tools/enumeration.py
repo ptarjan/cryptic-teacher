@@ -382,6 +382,32 @@ def counts(enumeration):
     return [int(n) for n in re.findall(r"\d+", enumeration or "")]
 
 
+def structure_lost(was, now):
+    """Whether the enumeration `now` is the held `was` with word breaks
+    lost: the same letters in fewer parts ("4-4" to "8", "3,4" to "7").
+    A reread reads a count's marks worse than the print sets them (27 such
+    in the 10-16..23 rereads, tools/audit_updates.py's g:enum-structure)."""
+    a, b = counts(was), counts(now)
+    return bool(a and b) and sum(a) == sum(b) and len(b) < len(a)
+
+
+def answer_breaks(enum, answer, is_word):
+    """Whether the answer bears out `enum`'s word breaks: cut at its counts,
+    each piece is a word `is_word` knows, and the whole run together is not
+    ("6,4" over SHANTYTOWN would need "shantytown" unknown). A reread's count
+    that drops breaks the answer bears out is the reread's slip; one that
+    drops breaks it does not ("4,3" over ASKANCE) may be the fix."""
+    letters = re.sub(r"[^a-z]", "", (answer or "").lower())
+    parts = counts(enum)
+    if not letters or len(parts) < 2 or sum(parts) != len(letters):
+        return False
+    pieces, at = [], 0
+    for n in parts:
+        pieces.append(letters[at:at + n])
+        at += n
+    return all(is_word(p) for p in pieces) and not is_word(letters)
+
+
 def unsplit(clue, totals=()):
     """True when a clue's text still ends in an enumeration it should have
     handed to `enumeration` (the write gate refuses these).

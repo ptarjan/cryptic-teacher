@@ -3186,5 +3186,10 @@ tools/learn_postproc.py                        mine the clue-text rewrites in "U
                                                commits for post-processor rules
 tools/test_learn_postproc.py                   does learn_postproc class each clue rewrite and
                                                score a rule's hits, worse and fixpoint breaks?
+tools/audit_updates.py                         audit the clue text each reread ("Update ..."
+                                               commit) wrote: glitches it brought in or took out
+tools/test_audit_updates.py                    does audit_updates class each reread change
+                                               introduced, fixed or neutral, and alert on a new
+                                               class?
 ```
 <!-- LAYOUT-END -->

@@ -225,6 +225,8 @@ def rule_registry():
         "speck_figures": lambda t, e: clue_text.speck_figures(t),
         "trailing_count (specked)": clue_repair.trailing_count,
         "stub_before_word": lambda t, e: clue_repair.stub_before_word(t, is_word),
+        "pound_sign": lambda t, e: clue_text.pound_sign(t),
+        "count_in_text": clue_text.count_in_text,
         "mend_text (all rules)": lambda t, e: clue_repair.mend_text(t, e),
     }
 
