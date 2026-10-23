@@ -1240,29 +1240,62 @@ def vlm_feed_target():
     return max(n, vlm_reader.slots() + vlm_reader.PIPELINE)
 
 
+def vlm_feed_scans():
+    """The most scans gpu_fill keeps running for fill reads that wait on them: CT_VLM_FEED_SCANS (default 4)."""
+    try:
+        return max(0, int(os.environ.get("CT_VLM_FEED_SCANS", "4")))
+    except ValueError:
+        return 4
+
+
 def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_fills, max_fills,
-             scan_of=None, scanning=frozenset()):
+             scan_of=None, scanning=frozenset(), max_scans=0):
     """The units to start ahead of the queue's order because the VLM stage is short of asks (spooled
     below vlm_reader.slots() + PIPELINE) while CT_NEWEST_FIRST papers' OCR-only work holds the read
     pool: the next never-read reads of other papers that ask the VLM, as many as keep running fills
     (all of them, however old: each is asks still to come) under `max_fills` (the caller bounds it by
-    CT_VLM_FEED_READS and the free read slots, not by Times' share of the pool). A such read still waiting
-    on its own scan (queued far back behind the Gale and Times scans) brings that scan forward
-    (`scan_of(u)`: the scan unit or None; one running in `scanning` counts as a fill). Empty with no
-    CT_NEWEST_FIRST, a fed VLM or a full spool."""
+    CT_VLM_FEED_READS and the free read slots, not by Times' share of the pool). Empty with a fed VLM or
+    a full spool.
+
+    Only when no such read is ready (Paul 10-23: GPU 0% for 6+ min, all 656 FT never-read reads waiting
+    on FT scans planned behind ~1,850 Gale stale scans, the Gale before-its-fix rereads on their own
+    pages' stale scans) does it return the scans those fill reads wait on (`scan_of(u)`: the scan unit or
+    None), in the reads' order, one per page, so that at most `max_scans` such scans run at once (a
+    running scan in `scanning` that a fill read waits on counts). Ready reads always come first: on
+    10-21, when a waiting read's scan was taken whenever met, 15 of ~25 feed starts were scans."""
     target = vlm_feed_target()
     if full or spooled >= target:
         return []
     left = min(max_fills - running_fills, target - spooled)
-    out = []
+    out, waiting = [], []
     for u, k in read_cands:
         if left <= 0:
             break
         if not (fills_gpu(u) and k not in tried and k not in busy and not vlm_waits(u)):
             continue
-        if not waits(u):  # reads only: a scan never asks the VLM, so it cannot fill the GPU
+        if not waits(u):
             out.append(u)
             left -= 1
+        elif not out and scan_of is not None and max_scans > 0:
+            waiting.append(u)
+    if out or not waiting:
+        return out
+    # No fill read is ready: bring forward the scans the waiting ones need.
+    feeding = {(u["paper"], u["rel"]) for u in waiting if (u["paper"], u["rel"]) in scanning}
+    room = max_scans - len(feeding)
+    seen = set(feeding)
+    for u in waiting:
+        if room <= 0:
+            break
+        pr = (u["paper"], u["rel"])
+        if pr in seen:
+            continue
+        seen.add(pr)
+        s = scan_of(u)
+        if s is None or key_of(s) in tried or key_of(s) in busy:
+            continue
+        out.append(s)
+        room -= 1
     return out
 
 
@@ -2095,6 +2128,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     # the urgent candidates' keys, {key: its first index among them}).
     queue_memo = [None] * 10
     scan_of_rel = [None, {}]  # the scan_keys lists, their scans by (paper, rel): gpu_fill's scan_of
+    fill_scan_logged = [0]  # the fill scans last logged: logged again when their count changes
     scan_keys = [None, frozenset(), None]  # the lists' (id, len), their scans' (paper, rel), the lists
 
     def replan_all(notes=None):
@@ -2705,9 +2739,19 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                         # idle". Fills run up to CT_VLM_FEED_READS at once (each spends minutes on OCR before
                         # its first ask), never past the free read slots; Times work still starts first.
                         min(vlm_feed_reads(), fills_running + free.get("read", 0)),
-                        fill_scan, scanning
+                        fill_scan, scanning,
+                        # Paul 10-23: no fill read ready, GPU 0%: the scans they wait on start, a few at once.
+                        min(vlm_feed_scans(), max(1, mem_gate.unit_ceiling() // 3))
                         ) if (free.get("read", 0) > 0 and may_start() and not yielding and not starved) else []
         fill_keys = {key_of(u) for u in fill}
+        fill_scans = sum(1 for u in fill if u["kind"] == "scan")
+        if fill_scans and free.get("scan", 0) < fill_scans and ceiling_left > 0:
+            # The scan share held scans for reads, but no fill read can start until these end.
+            free["scan"] = min(fill_scans, ceiling_left)
+            if fill_scans != fill_scan_logged[0]:
+                log(f"vlm feed: no VLM-asking read ready ({len(queued)} asks spooled, target {vlm_feed_target()}); "
+                    f"{fill_scans} scan(s) they wait on start ahead of the queue")
+        fill_scan_logged[0] = fill_scans
         if fill and free.get("scan", 0) > 0 and not vlm_full:
             # The fill reads start ahead of the queue: the pool fed() asks about is the one before they begin,
             # else a scan no read waits on is "not fed" the moment they take the last read slot and starts
@@ -2760,7 +2804,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if reserve and ukey not in fill_keys and not uslot.startswith("fetch ") and ceiling_left <= reserve:
                 reserve_hit = True  # the last slots are for reads that ask the VLM
                 continue
-            if cpu_cap is not None and cpu_live >= cpu_cap and cpu_only_unit(u):
+            if cpu_cap is not None and cpu_live >= cpu_cap and cpu_only_unit(u) and ukey not in fill_keys:
                 cpu_capped = True  # the GPU is underfed: the rest of the ceiling is for reads that ask the VLM
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):

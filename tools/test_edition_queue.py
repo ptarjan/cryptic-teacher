@@ -1914,6 +1914,26 @@ _scan_of = lambda u: _sc.get((u["paper"], u["rel"]))
 check("gpu_fill: reads waiting on their own scan are not filled, nor are their scans (a scan never asks the VLM)", ([], []),
       ([u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 0, False, 0, 2)],
        [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 0, False, 0, 2, _scan_of)]))
+# Paul 10-23: GPU 0% for 6+ min, every fill read waiting on its own scan far back in the plan. With no fill
+# read ready, the scans they wait on start, in the reads' order, at most max_scans running at once.
+_fs = lambda *a, **k: [(u["kind"], u["rel"]) for u in eq.gpu_fill(*a, **k)]
+check("gpu_fill: no fill read ready, the scans they wait on start, capped at max_scans", [("scan", "t0"), ("scan", "t1")],
+      _fs(_cands, set(), set(), _waiting, _none, 0, False, 0, 2, _scan_of, frozenset(), 2))
+check("gpu_fill: a running scan a fill read waits on counts against max_scans", [("scan", "t1")],
+      _fs(_cands, set(), set(), _waiting, _none, 0, False, 0, 2, _scan_of, {("times", "t0")}, 2))
+check("gpu_fill: max_scans already running, no more scans", [],
+      _fs(_cands, set(), set(), _waiting, _none, 0, False, 0, 2, _scan_of, {("times", "t0"), ("times", "t2")}, 2))
+check("gpu_fill: tried or running scans are skipped", [("scan", "t2")],
+      _fs(_cands, {eq.key_of(_sc["times", "t0"])}, {eq.key_of(_sc["times", "t1"])}, _waiting, _none, 0, False, 0, 2,
+          _scan_of, frozenset(), 3))
+check("gpu_fill: a ready fill read goes alone, no scan pulled forward", [("read", "t0")],
+      _fs(_cands, set(), set(), lambda u: u["rel"] in ("t1", "t2"), _none, 0, False, 0, 2, _scan_of, frozenset(), 2))
+check("gpu_fill: a fed VLM or a full spool pulls no scan", ([], []),
+      (_fs(_cands, set(), set(), _waiting, _none, 4, False, 0, 2, _scan_of, frozenset(), 2),
+       _fs(_cands, set(), set(), _waiting, _none, 0, True, 0, 2, _scan_of, frozenset(), 2)))
+check("gpu_fill: CPU-only reads waiting on scans pull none forward", [],
+      _fs([(u, eq.key_of(u)) for u in _tm], set(), set(), lambda u: True, _none, 0, False, 0, 2,
+          lambda u: {**u, "kind": "scan"}, frozenset(), 2))
 # Times first (Paul 10-21): the named papers' pending scans take every slot their ready reads will not.
 _ms = lambda paper, rel: {"kind": "scan", "paper": paper, "rel": rel, "rank": 2, "reason": "scan stale"}
 _tsc = [_ms("gale", "a"), _ms("ft", "f"), _ms("gale", "b"), _ms("gale", "c"), _ms("gale", "d")]
