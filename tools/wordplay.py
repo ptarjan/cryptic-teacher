@@ -375,6 +375,49 @@ def find_at(clue, text, nth=1, taken=()):
     return pool[nth - 1] if len(pool) >= nth else None
 
 
+_MARKS = str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"', "–": "-", "—": "-",
+                        "‑": "-", "‐": "-", "−": "-"})
+
+
+def fold_marks(s):
+    """`s` with curly quotes and dash kinds made straight, one character for one."""
+    return s.translate(_MARKS)
+
+
+def _gapped_runs(text, clue):
+    """(the clue's stretch from the first to the last of `text`'s words, its runs of
+    adjacent matched words) when the words all occur in the clue in order but with
+    other words between; else None."""
+    toks = [(m.group().lower(), m.start(), m.end())
+            for m in re.finditer(r"[\w'’]+", fold_marks(clue))]
+    words = [w.lower() for w in re.findall(r"[\w'’]+", fold_marks(text))]
+    if len(words) < 2:
+        return None
+    for start in range(len(toks)):
+        i, hit = start, []
+        for w in words:
+            while i < len(toks) and toks[i][0] != w:
+                i += 1
+            if i == len(toks):
+                break
+            hit.append(i)
+            i += 1
+        else:
+            if hit[0] != start or hit[-1] - hit[0] + 1 == len(hit):
+                continue
+            runs, cur = [], [hit[0]]
+            for a, b in zip(hit, hit[1:]):
+                if b == a + 1:
+                    cur.append(b)
+                else:
+                    runs.append(cur)
+                    cur = [b]
+            runs.append(cur)
+            return (clue[toks[hit[0]][1]:toks[hit[-1]][2]],
+                    [clue[toks[r[0]][1]:toks[r[-1]][2]] for r in runs])
+    return None
+
+
 def not_in_clue(text, clue, nth=1):
     """The refusal for words a span names that the clue does not hold, saying
     what to change: a repeat that has no such copy, words the clue has but not
@@ -388,6 +431,16 @@ def not_in_clue(text, clue, nth=1):
                        f"so there is no copy #{nth}")
     words = re.findall(r"[\w'’]+", text.lower())
     absent = [w for w in words if w not in low]
+    if "#" in text:
+        return head + ("`#n` goes once, at the very end of the quote (`fond#2`), and the "
+                       "quote itself must be one unbroken run of clue words")
+    runs = _gapped_runs(text, clue)
+    if runs:
+        return head + (f"those words sit in the clue in order but not side by side: the clue has "
+                       f"{runs[0]!r} there. Quote that whole run if the words between belong to it; "
+                       f"otherwise give each run its own piece: "
+                       f"{', '.join(repr(r) for r in runs[1])} (an indicator: one <..> per run; "
+                       f"wordplay: one [..] per run)")
     if len(words) > 1 and not absent:
         return head + ("each word is in the clue but not side by side: give each run of "
                        "clue words its own [..] piece (the words between belong to other pieces "
@@ -435,6 +488,12 @@ def locate(node, clue, taken=()):
             at = find_at(clue, text, nth, used)
         if at is None and low:
             at = find_at(low, text.lower(), nth, used)
+        if at is None:
+            # Curly vs straight quotes and dash kinds: a 1:1 character fold, so the
+            # offset is the clue's own and the stored text is the clue's spelling.
+            folded = fold_marks(clue).lower()
+            if len(folded) == len(clue):
+                at = find_at(folded, fold_marks(text).lower(), nth, used)
         if at is not None and clue[at:at + len(text)] != text:
             span[key] = text = clue[at:at + len(text)]
         if at is None:
