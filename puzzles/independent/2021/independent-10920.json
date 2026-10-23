@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Gymnast needs this money in the bank",
     "enumeration": "7"
    },
-   "solution": "BALANCE"
+   "solution": "BALANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gymnast needs this",
+      "at": 0,
+      "meaning": "a gymnast on the beam must keep their ..., their poise"
+     },
+     {
+      "text": "money in the bank",
+      "at": 19,
+      "meaning": "a bank ... is the sum held in an account"
+     }
+    ],
+    "explanation": {
+     "surface": "A gymnast is after a cash deposit rather than a steady footing.",
+     "definitionFit": "Balance means both physical poise and the amount of funds held in an account."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gymnast"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +72,69 @@
     "text": "London 24 seen primarily in 3 on left",
     "enumeration": "7"
    },
-   "solution": "ARSENAL"
+   "solution": "ARSENAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "London 24",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 25,
+         "note": "in tells us the chosen letter goes inside the word from the other entry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "3",
+         "at": 28,
+         "gives": "ARENA",
+         "note": "the answer to 3 Down is ARENA"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 15,
+           "note": "primarily asks for only the opening letter of the word seen"
+          }
+         ],
+         "parts": [
+          {
+           "words": "seen",
+           "at": 10
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 33,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A London football side shows up mostly in a stadium on the left side.",
+     "walkthrough": "24 is ELEVEN, a football team, so the definition is a London club; 3 is the 3-down answer.",
+     "definitionFit": "Arsenal is a famous football club based in north London, so a London team of eleven players."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +148,52 @@
     "text": "Area near ground, or the ground itself",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the ground itself",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Area",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ground",
+         "at": 10,
+         "note": "ground, as in crushed or milled, says the letters of near are broken up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "near",
+         "at": 5
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone clarifies whether they mean the zone next to the stadium or the stadium proper.",
+     "walkthrough": "'ground' appears twice: first as the anagram signal (milled), then as a sports ground in the definition.",
+     "definitionFit": "An arena is a sports stadium or enclosed venue, which is a ground in the sporting sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +207,41 @@
     "text": "Letter opposing drink",
     "enumeration": "7"
    },
-   "solution": "CHIANTI"
+   "solution": "CHIANTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Letter",
+       "at": 0,
+       "gives": "CHI",
+       "note": "chi is a letter of the Greek alphabet"
+      },
+      {
+       "words": "opposing",
+       "at": 7,
+       "gives": "ANTI",
+       "note": "anti means against or opposing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter of complaint is written against drinking.",
+     "definitionFit": "Chianti is a red wine from Tuscany, so a kind of alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +255,32 @@
     "text": "Decline what every player strives for",
     "enumeration": "7"
    },
-   "solution": "ATROPHY"
+   "solution": "ATROPHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Decline",
+      "at": 0,
+      "meaning": "to waste away or decline"
+     },
+     {
+      "text": "what every player strives for",
+      "at": 8,
+      "meaning": "read as two words, a trophy is the prize every competitor hopes to win"
+     }
+    ],
+    "explanation": {
+     "surface": "A player turns down the very prize they are chasing.",
+     "walkthrough": "The second definition reads the answer split as A TROPHY.",
+     "definitionFit": "Atrophy is wasting or deterioration, a gradual weakening; split in two it is the cup sportspeople chase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Decline"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +294,48 @@
     "text": "Golf supporter hires old character to produce choppers",
     "enumeration": "6"
    },
-   "solution": "TEETHE"
+   "solution": "TEETHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "produce choppers",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hires",
+       "at": 15,
+       "note": "hires means takes on, so the first word takes the second into its middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Golf supporter",
+       "at": 0,
+       "gives": "TEE",
+       "note": "a tee holds up the golf ball"
+      },
+      {
+       "words": "old character",
+       "at": 21,
+       "gives": "ETH",
+       "note": "eth is an Old English letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golf tee employs an old-timer to make some cutting tools.",
+     "definitionFit": "Choppers is slang for teeth, and a baby who teethes is growing its first teeth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "choppers"
+    }
+   }
   },
   {
    "number": 7,
@@ -125,7 +359,47 @@
      }
     ]
    },
-   "solution": "ONTHEWING"
+   "solution": "ONTHEWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Location of member of 24's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "at": 27,
+       "gives": "O"
+      },
+      {
+       "words": "theatre",
+       "at": 31,
+       "gives": "NT",
+       "note": "NT stands for the National Theatre in London"
+      },
+      {
+       "words": "cutting",
+       "at": 39,
+       "gives": "HEWING",
+       "note": "hewing means cutting, as with an axe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer's old theatre is being trimmed.",
+     "walkthrough": "24 is ELEVEN, a football team; a winger plays out on the wing.",
+     "definitionFit": "A winger in a football side plays out wide, so on the flank is where that player is found."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 8,
@@ -139,7 +413,43 @@
     "text": "Stealing possible contents of mound in Suffolk?",
     "enumeration": "7"
    },
-   "solution": "HOOKING"
+   "solution": "HOOKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stealing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "mound in Suffolk",
+       "at": 30,
+       "gives": "HOO",
+       "note": "Sutton Hoo in Suffolk is a famous Anglo-Saxon burial mound site, hoo being an old word for a spur of land"
+      },
+      {
+       "words": "possible contents",
+       "at": 9,
+       "gives": "KING",
+       "note": "a king may have been buried in the ship burial there"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether a Suffolk mound might hold looted goods.",
+     "walkthrough": "Sutton Hoo is a famous Anglo-Saxon royal burial site in Suffolk, England; a Hoo king is what it may contain.",
+     "definitionFit": "To hook something is slang for to pinch or steal it, so hooking is thieving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "contents"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +469,31 @@
      }
     ]
    },
-   "solution": "SQUASHRACKETS"
+   "solution": "SQUASHRACKETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Police aim to do this",
+      "at": 0,
+      "meaning": "police want to ..., crushing criminal schemes"
+     },
+     {
+      "text": "sport",
+      "at": 22,
+      "meaning": "the full name of the game of squash"
+     }
+    ],
+    "explanation": {
+     "surface": "The police are said to be taking up a racquet game.",
+     "definitionFit": "Rackets are crooked schemes that police crush, and squash rackets is a court game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Police"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +507,54 @@
     "text": "Part of the Scillies, eastern half redeveloped",
     "enumeration": "4"
    },
-   "solution": "ISLE"
+   "solution": "ISLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of the Scillies, eastern half redeveloped",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "redeveloped",
+       "at": 35,
+       "note": "redeveloped says those letters are rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "eastern half",
+         "at": 22,
+         "note": "in an across entry east is the right-hand side, so we keep the back four letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scillies",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Half of the Isles of Scilly is being redeveloped.",
+     "walkthrough": "'eastern half' takes LIES from SCILLIES, and 'redeveloped' rearranges it. The Scillies are islands off Cornwall.",
+     "definitionFit": "The Scilly Isles are a group of small islands off south-west England, each one an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eastern"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +574,54 @@
      }
     ]
    },
-   "solution": "INQUESTION"
+   "solution": "INQUESTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for debate",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Court investigation",
+       "at": 0,
+       "gives": "INQUEST",
+       "note": "an inquest is a judicial inquiry, for instance into a death"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 27,
+         "note": "rejected means sent back, so the letters for leader are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leader",
+         "at": 20,
+         "gives": "NOI",
+         "note": "a leader is No. 1, written NO I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court inquiry turns down its chairman, so the matter remains open.",
+     "walkthrough": "A leader is 'No. 1' in crossword shorthand, and 'rejected' turns those letters backwards.",
+     "definitionFit": "A matter in question is one still under discussion and not yet settled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +641,46 @@
      }
     ]
    },
-   "solution": "INVAIN"
+   "solution": "INVAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Useless",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imported",
+       "at": 29,
+       "note": "imported means brought in, so the letter goes inside the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "way to carry goods",
+       "at": 8,
+       "gives": "INVAN",
+       "note": "goods may be carried in a van"
+      },
+      {
+       "words": "I",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a goods route is pointless once they have brought it in.",
+     "definitionFit": "Done in vain means done to no effect, which is futile or fruitless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "imported"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +694,80 @@
     "text": "Ultimately fit and lithe, trained in Air Corps",
     "enumeration": "8"
    },
-   "solution": "ATHLETIC"
+   "solution": "ATHLETIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ultimately fit and lithe, trained in Air Corps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 34,
+       "note": "in tells us the rearranged letters sit inside the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Air Corps",
+       "at": 37,
+       "gives": "AC"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "Ultimately",
+           "at": 0,
+           "note": "ultimately asks for only the final letter of the word fit"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fit",
+           "at": 11
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "trained",
+           "at": 26,
+           "note": "trained, as in drilled into shape, says the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lithe",
+           "at": 19
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A recruit ends up fit and supple after training in the Air Corps.",
+     "walkthrough": "'Ultimately' gives T and 'trained' rearranges LITHE to HLETI; both go 'in' AC. The whole clue also describes the answer.",
+     "definitionFit": "An athletic person is fit, strong and agile, exactly what such training produces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "trained"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +781,47 @@
     "text": "Boxer's cunning with rowers",
     "enumeration": "9"
    },
-   "solution": "FLYWEIGHT"
+   "solution": "FLYWEIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boxer's",
+      "at": 0,
+      "note": "read as Boxer is: the definition is a boxer and the 's is a link"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cunning",
+       "at": 8,
+       "gives": "FLY",
+       "note": "fly is British slang for sharp or cunning"
+      },
+      {
+       "words": "with",
+       "at": 16,
+       "gives": "W"
+      },
+      {
+       "words": "rowers",
+       "at": 21,
+       "gives": "EIGHT",
+       "note": "an eight is a rowing crew of eight oarsmen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer shows shrewdness in the company of oarsmen.",
+     "definitionFit": "A flyweight is a boxer in one of the lightest weight classes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rowers"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +835,65 @@
     "text": "Ring users with radical compounds, about 50",
     "enumeration": "9"
    },
-   "solution": "WRESTLERS"
+   "solution": "WRESTLERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ring users",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with",
+       "at": 11,
+       "gives": "W"
+      },
+      {
+       "words": "radical",
+       "at": 16,
+       "gives": "R",
+       "note": "R is an abbreviation for radical"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 35,
+         "note": "about means going round, so the chemical word surrounds the numeral"
+        }
+       ],
+       "parts": [
+        {
+         "words": "compounds",
+         "at": 24,
+         "gives": "ESTERS",
+         "note": "esters are organic chemical compounds"
+        },
+        {
+         "words": "50",
+         "at": 41,
+         "gives": "L",
+         "note": "L is the Roman numeral for fifty"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note: people using rings combine with radical compounds at around fifty.",
+     "walkthrough": "'about' puts L inside ESTERS to make ESTLERS. 'Radical' and 'compounds' point to chemistry, but radical just gives R.",
+     "definitionFit": "Wrestlers fight in a ring, so they are the people who use it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +907,43 @@
     "text": "Some rubbing out needed in this game",
     "enumeration": "5"
    },
-   "solution": "BINGO"
+   "solution": "BINGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rubbing out",
+       "at": 5,
+       "gives": "BINGO",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eraser is required for playing this particular game.",
+     "walkthrough": "The definition is just 'game'; 'needed in this' only links it to the wordplay, so the draft's longer definition is narrowed here.",
+     "definitionFit": "Bingo is a numbers game in which players mark off called numbers on a card."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rubbing"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +957,58 @@
     "text": "Comparatively adept sailor with large margins of error",
     "enumeration": "5"
    },
-   "solution": "ABLER"
+   "solution": "ABLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comparatively adept",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sailor",
+       "at": 20,
+       "gives": "AB",
+       "note": "AB, able seaman, is a sailor"
+      },
+      {
+       "words": "large",
+       "at": 32,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "margins of",
+         "at": 38,
+         "note": "margins of asks for only the outside letters of the word error"
+        }
+       ],
+       "parts": [
+        {
+         "words": "error",
+         "at": 49
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor with a wide margin for error is relatively skilful.",
+     "walkthrough": "'margins of' takes ER, the outside letters of 'error'; 'with' is only a link.",
+     "definitionFit": "Abler is the comparative of able, meaning more capable or skilled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "margins"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1022,73 @@
     "text": "A bit worried about old US lawman's CV?",
     "enumeration": "7"
    },
-   "solution": "BIODATA"
+   "solution": "BIODATA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "CV",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 14,
+       "note": "about means surrounding, so the scrambled letters go round the next pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worried",
+         "at": 6,
+         "note": "worried means fretted at, so the letters are shaken up into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "bit",
+         "at": 2
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 20,
+         "gives": "O"
+        },
+        {
+         "words": "US lawman",
+         "at": 24,
+         "gives": "DA",
+         "note": "a DA is a district attorney, an American prosecutor"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little anxious about an elderly American lawman's résumé.",
+     "walkthrough": "'worried' is the anagram signal and 'about' is the container signal; the question mark admits that a CV is a loose match for this word.",
+     "definitionFit": "Biodata is personal and career details, the same information a curriculum vitae gives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1108,36 @@
      }
     ]
    },
-   "solution": "RACINGCAR"
+   "solution": "RACINGCAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Button container that needs refilling regularly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Button container that needs refilling regularly",
+       "at": 0,
+       "note": "Jenson Button was a Formula One driver, and his vehicle needed regular pit stops for fuel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A box for buttons that must keep being topped up.",
+     "walkthrough": "Button is Jenson Button, a British Formula One world champion; mid-race refuelling has since been banned in F1.",
+     "definitionFit": "A Formula One vehicle carries the driver and, in his era, stopped to take on more fuel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Button"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1157,60 @@
      }
     ]
    },
-   "solution": "ICESHOW"
+   "solution": "ICESHOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Display of slippers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rocks",
+       "at": 20,
+       "gives": "ICE",
+       "note": "drinks on the rocks are served with ice"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 38,
+         "note": "in tells us the abbreviation goes inside the regional letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cornwall?",
+         "at": 41,
+         "gives": "SW",
+         "note": "Cornwall is in south-west England, SW; the question mark admits the looseness"
+        },
+        {
+         "words": "head office",
+         "at": 26,
+         "gives": "HO"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footwear display shakes a Cornish company's headquarters.",
+     "walkthrough": "'slippers' are skaters who slip on the ice, not footwear.",
+     "definitionFit": "An ice show is a performance by skaters, people gliding and sliding on ice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slippers"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1224,42 @@
     "text": "It's mean to state how old someone is",
     "enumeration": "7"
    },
-   "solution": "AVERAGE"
+   "solution": "AVERAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mean",
+      "at": 5
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to state",
+       "at": 10,
+       "gives": "AVER",
+       "note": "to aver is to state or assert"
+      },
+      {
+       "words": "how old someone is",
+       "at": 19,
+       "gives": "AGE",
+       "note": "a person's age is how old they are"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is unkind to announce a person's age.",
+     "definitionFit": "In arithmetic the mean is the usual average, the sum divided by the count."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1273,69 @@
     "text": "Crossing line, a bear raised game",
     "enumeration": "6"
    },
-   "solution": "HOOPLA"
+   "solution": "HOOPLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Crossing",
+       "at": 0,
+       "note": "crossing means going across, so the reversed letters straddle the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 22,
+         "note": "raised, in a down entry, means the letters are read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 15
+          },
+          {
+           "words": "bear",
+           "at": 17,
+           "gives": "POOH",
+           "note": "Pooh is Winnie-the-Pooh, the bear of A.A. Milne"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "line",
+       "at": 9,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bear crosses a line and is lifted up during a game.",
+     "walkthrough": "'raised' turns A POOH upwards to HOOPA, and 'Crossing' puts it round L.",
+     "definitionFit": "Hoopla is a fairground game where rings are thrown over prizes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1349,59 @@
     "text": "Old couple in Split, dancing perhaps",
     "enumeration": "8"
    },
-   "solution": "FOOTWORK"
+   "solution": "FOOTWORK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dancing perhaps",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 11,
+       "note": "in tells us the pieces go inside the word for split"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Split",
+       "at": 14,
+       "gives": "FORK",
+       "note": "a fork is a split or branching"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Old",
+         "at": 0,
+         "gives": "O"
+        },
+        {
+         "words": "couple",
+         "at": 4,
+         "gives": "TWO",
+         "note": "a couple is two"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly pair in the Croatian city of Split, possibly dancing.",
+     "walkthrough": "Split looks like the Croatian city, capitalised for the surface; it is a fork.",
+     "definitionFit": "Footwork is skilled movement of the feet, which dancing is an example of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Split"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1415,36 @@
     "text": "Team in taxi missing reserves",
     "enumeration": "6"
    },
-   "solution": "ELEVEN"
+   "solution": "ELEVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Team",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "rebus",
+     "reading": "TAXI minus TA, leaving XI",
+     "parts": [
+      {
+       "words": "taxi missing reserves",
+       "at": 8,
+       "note": "TA, the Territorial Army, is the British army reserve; take it from taxi and the Roman numeral XI is left"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team in a cab is short of substitutes.",
+     "walkthrough": "The wordplay builds XI, which is read as the number it stands for, as in a team sheet's First XI. The Territorial Army is Britain's volunteer reserve force.",
+     "definitionFit": "A football or cricket side has eleven players, so a side is often called an eleven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reserves"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1458,31 @@
     "text": "Albatross beats this bird of prey",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Albatross beats this",
+      "at": 0,
+      "meaning": "in golf an albatross, three under par, beats an ..., two under"
+     },
+     {
+      "text": "bird of prey",
+      "at": 21,
+      "meaning": "a large raptor"
+     }
+    ],
+    "explanation": {
+     "surface": "One bird outdoes a raptor.",
+     "definitionFit": "Eagle is both a golf score of two under par and a large hunting bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Albatross"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1502,45 @@
      }
     ]
    },
-   "solution": "SALESPITCH"
+   "solution": "SALESPITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A blend of chats and spiel?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "A blend of",
+       "at": 0,
+       "note": "a blend mixes things together, so the letters of both words are mixed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chats",
+       "at": 11
+      },
+      {
+       "words": "spiel",
+       "at": 21
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A salesman's patter is a mixture of small talk and spiel.",
+     "walkthrough": "'A blend of' mixes the letters of CHATS and SPIEL; the whole clue also describes the answer.",
+     "definitionFit": "A sales pitch is a persuasive talk from a seller, chat and patter combined."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1554,43 @@
     "text": "A good service was one of her strengths",
     "enumeration": "4"
    },
-   "solution": "GRAF"
+   "solution": "GRAF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A good service was one of her strengths",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "at": 2,
+       "gives": "G"
+      },
+      {
+       "words": "service",
+       "at": 7,
+       "gives": "RAF",
+       "note": "the RAF, the Royal Air Force, is one of the armed services"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A tennis player's strong serve is praised.",
+     "walkthrough": "Steffi Graf was a German tennis champion; 'service' is the military RAF, not a serve.",
+     "definitionFit": "Steffi Graf won many Grand Slam tennis titles, helped by a powerful serve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 28,
@@ -455,7 +1604,48 @@
     "text": "Robin's mate defending small member of 24 before change in terminology",
     "enumeration": "7"
    },
-   "solution": "BATSMAN"
+   "solution": "BATSMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "member of 24 before change in terminology",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "defending",
+       "at": 13,
+       "note": "defending means guarding, so the comic hero surrounds the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Robin's mate",
+       "at": 0,
+       "gives": "BATMAN",
+       "note": "Robin is Batman's sidekick"
+      },
+      {
+       "words": "small",
+       "at": 23,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Batman protects a small player before the jargon changes.",
+     "walkthrough": "24 is ELEVEN, here a cricket team. Cricket's laws now say batter instead.",
+     "definitionFit": "A batsman is a cricketer who bats, the term used before the gender-neutral word batter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Robin's"
+    }
+   }
   },
   {
    "number": 29,
@@ -469,7 +1659,41 @@
     "text": "Son joins keener member of 24 at the back",
     "enumeration": "7"
    },
-   "solution": "SWEEPER"
+   "solution": "SWEEPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "member of 24 at the back",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Son",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "keener",
+       "at": 10,
+       "gives": "WEEPER",
+       "note": "to keen is to wail in grief, so a keener is a weeper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A son joins a more enthusiastic player in defence.",
+     "walkthrough": "'keener' looks like a comparative of keen but is a noun: one who keens, or mourns. 24 is ELEVEN, a football team.",
+     "definitionFit": "A sweeper is a football defender playing behind the back line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "keener"
+    }
+   }
   }
  ]
 }
