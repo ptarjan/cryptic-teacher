@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Left before decision, creating divided opinion",
     "enumeration": "5"
    },
-   "solution": "SPLIT"
+   "solution": "SPLIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Left",
+      "at": 0,
+      "meaning": "to ... is to leave or depart, so 'left' is the past tense '...'"
+     },
+     {
+      "text": "before decision, creating divided opinion",
+      "at": 5,
+      "meaning": "placed in front of 'decision' this word makes '... decision', a verdict on which the judges are divided"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone walked out just before a vote, leaving opinion divided.",
+     "walkthrough": "Two readings: slang for departed, and the word that turns 'decision' into a split decision, the boxing verdict where judges disagree.",
+     "definitionFit": "Slang usage has 'split' meaning departed, and a split decision is one where the judges disagree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +78,41 @@
      }
     ]
    },
-   "solution": "SILVERTONGUE"
+   "solution": "SILVERTONGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it could help you sound believable",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "fabrication",
+       "at": 14,
+       "note": "a fabrication is something made up, so the letters are constructed anew"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Use revolting",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Telling a disgusting lie may make you sound more convincing.",
+     "walkthrough": "'revolting' looks like the anagram signal but is part of the fodder; 'fabrication' does that job.",
+     "definitionFit": "A silver tongue is the gift of eloquent persuasion, which makes a speaker convincing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "revolting"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +126,30 @@
     "text": "Sea creatures captured using little spears?",
     "enumeration": "9"
    },
-   "solution": "LANCELETS"
+   "solution": "LANCELETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sea creatures",
+      "at": 0,
+      "meaning": "small fish-like marine animals"
+     },
+     {
+      "text": "little spears?",
+      "at": 29,
+      "meaning": "a lance is a spear and -let a diminutive, so whimsically small lances"
+     }
+    ],
+    "explanation": {
+     "surface": "Marine animals caught with tiny spears.",
+     "definitionFit": "Lancelets are primitive marine chordates, and the name literally means small lance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +163,54 @@
     "text": "Ask for money from hoodlum exchanging grand for cocaine",
     "enumeration": "5"
    },
-   "solution": "TOUCH"
+   "solution": "TOUCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ask for money from",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "exchanging",
+       "at": 27,
+       "note": "one letter is swapped out for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hoodlum",
+       "at": 19,
+       "gives": "TOUGH",
+       "note": "a tough is a thug or hoodlum"
+      },
+      {
+       "words": "grand",
+       "at": 38,
+       "gives": "G",
+       "note": "G stands for a grand, a thousand pounds or dollars"
+      },
+      {
+       "words": "cocaine",
+       "at": 48,
+       "gives": "C",
+       "note": "C is slang shorthand for cocaine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster swaps cash for drugs while begging a loan.",
+     "definitionFit": "To touch someone for cash is informal for asking them to lend or give it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grand"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +224,50 @@
     "text": "Caesar, perhaps, in his day and age had one with Antony …",
     "enumeration": "8"
    },
-   "solution": "BROMANCE"
+   "solution": "BROMANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one with Antony",
+      "at": 40,
+      "note": "the noun phrase stands for a close male friendship such as Caesar might have shared with Mark Antony"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "one piece sits within the other, as Caesar sits within his era"
+      }
+     ],
+     "parts": [
+      {
+       "words": "his day and age",
+       "at": 20,
+       "gives": "BCE",
+       "note": "Caesar lived BCE, before the Common Era"
+      },
+      {
+       "words": "Caesar, perhaps",
+       "at": 0,
+       "gives": "ROMAN",
+       "note": "Julius Caesar is an example of a Roman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Julius Caesar, in his era, enjoyed a close friendship with Mark Antony.",
+     "walkthrough": "BCE stands for 'Before Common Era', Caesar's day and age; the ellipsis carries the clue on to the next one.",
+     "definitionFit": "A bromance is an intense friendship between two men, as Caesar and Antony are imagined to have had."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "day"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +281,49 @@
     "text": "Private enters petitions for new recruits",
     "enumeration": "9"
    },
-   "solution": "BEGINNERS"
+   "solution": "BEGINNERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "new recruits",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enters",
+       "at": 8,
+       "note": "the private piece enters, goes inside, the petitions piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "petitions",
+       "at": 15,
+       "gives": "BEGS",
+       "note": "begs means petitions, entreats"
+      },
+      {
+       "words": "Private",
+       "at": 0,
+       "gives": "INNER",
+       "note": "inner means private, as in inner thoughts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier submits requests on behalf of fresh recruits.",
+     "walkthrough": "'Private' looks like a soldier but means inner.",
+     "definitionFit": "Newcomers to an activity or job are novices, learners just starting out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Private"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +337,53 @@
     "text": "Remove one's used sweaty tank tops",
     "enumeration": "4"
    },
-   "solution": "OUST"
+   "solution": "OUST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "tops",
+       "at": 30,
+       "note": "the tops of words in a down clue are their first letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one's",
+       "at": 7
+      },
+      {
+       "words": "used",
+       "at": 13
+      },
+      {
+       "words": "sweaty",
+       "at": 18
+      },
+      {
+       "words": "tank",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to take off your sweaty used vests.",
+     "walkthrough": "'tank tops' looks like sleeveless jumpers, but 'tops' alone is the indicator.",
+     "definitionFit": "To oust is to expel or drive out, to get rid of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tops"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +397,60 @@
     "text": "Criminal ran brothel, mostly obscene",
     "enumeration": "9"
    },
-   "solution": "ABHORRENT"
+   "solution": "ABHORRENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "obscene",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Criminal",
+       "at": 0,
+       "note": "criminal suggests something wrong or crooked, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ran",
+       "at": 9
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 22,
+         "note": "most of the word is kept, its final letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brothel",
+         "at": 13
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook operated a seedy brothel.",
+     "walkthrough": "'mostly' trims brothel to BROTHE; 'Criminal' shuffles that with RAN.",
+     "definitionFit": "Abhorrent means detestable, morally repugnant, close to obscene in its offensiveness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +464,31 @@
     "text": "What a wandering poet thought lacking company is obscure",
     "enumeration": "5"
    },
-   "solution": "CLOUD"
+   "solution": "CLOUD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What a wandering poet thought lacking company",
+      "at": 0,
+      "meaning": "Wordsworth wrote 'I wandered lonely as a ...', likening his solitude to a ..."
+     },
+     {
+      "text": "obscure",
+      "at": 49,
+      "meaning": "to obscure or blur"
+     }
+    ],
+    "explanation": {
+     "surface": "A rambling poet's lonely thoughts are hard to fathom.",
+     "walkthrough": "The poet is Wordsworth, whose famous daffodils poem opens 'I wandered lonely as a cloud'.",
+     "definitionFit": "In Wordsworth's line the lonely thing is a cloud, and as a verb cloud means to make unclear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wandering"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +508,36 @@
      }
     ]
    },
-   "solution": "LANGUAGESCHOOL"
+   "solution": "LANGUAGESCHOOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "where you may learn Italian couple is due!",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "where you may learn Italian couple is due!",
+       "at": 2,
+       "note": "'due' is the Italian for two, a couple, which is the sort of thing taught at an institution for foreign tongues"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seemingly a place where an Italian couple are expected to arrive.",
+     "walkthrough": "'Due' looks English (expected) but is Italian for two: the kind of fact you learn at such a school.",
+     "definitionFit": "A school teaching foreign tongues is exactly where a student learns that 'due' means two in Italian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "due"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +557,43 @@
      }
     ]
    },
-   "solution": "SENIORMOMENT"
+   "solution": "SENIORMOMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old slip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "superior",
+       "at": 17,
+       "gives": "SENIOR",
+       "note": "a senior is a superior in rank"
+      },
+      {
+       "words": "substance, perhaps",
+       "at": 26,
+       "gives": "MOMENT",
+       "note": "moment means importance or substance, as in matters of great moment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient garment made of quality fabric.",
+     "walkthrough": "'slip' suggests a petticoat, but it is a lapse.",
+     "definitionFit": "A senior moment is a brief memory lapse jokingly blamed on age."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +607,42 @@
     "text": "Reposition the panel, revealing frequently overlooked room feature",
     "enumeration": "8"
    },
-   "solution": "ELEPHANT"
+   "solution": "ELEPHANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "frequently overlooked room feature",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Reposition",
+       "at": 0,
+       "note": "to reposition is to move things around, so the letters of the following words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the panel",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Moving a wall panel exposes some architectural detail people usually miss.",
+     "walkthrough": "The 'room feature' is the elephant in the room: the obvious problem everyone ignores.",
+     "definitionFit": "The idiom 'the elephant in the room' names a glaring issue that everybody present pretends not to notice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "room"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +656,42 @@
     "text": "Force bank to provide short term storage",
     "enumeration": "6"
    },
-   "solution": "FRIDGE"
+   "solution": "FRIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "short term storage",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Force",
+       "at": 0,
+       "gives": "F",
+       "note": "F is the physics abbreviation for force"
+      },
+      {
+       "words": "bank",
+       "at": 6,
+       "gives": "RIDGE",
+       "note": "a ridge is a raised bank of earth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financial institution is pressured into offering temporary storage.",
+     "walkthrough": "'Bank' suggests money, but it is a ridge of earth.",
+     "definitionFit": "Food is kept chilled in a refrigerator for days rather than months, so it is storage for the near term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +705,29 @@
     "text": "Nervous types could set something off",
     "enumeration": "9"
    },
-   "solution": "TREMBLERS"
+   "solution": "TREMBLERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nervous types",
+      "at": 0,
+      "meaning": "people who shake with nerves"
+     },
+     {
+      "text": "could set something off",
+      "at": 14,
+      "meaning": "a trembler is a motion-sensitive switch that can trigger a bomb or alarm"
+     }
+    ],
+    "explanation": {
+     "surface": "Anxious people might trigger an explosion.",
+     "definitionFit": "People who quake with fear are tremblers, and a trembler switch detonates a device when disturbed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +741,59 @@
     "text": "Graduate lecturer pockets big profit from game",
     "enumeration": "9"
    },
-   "solution": "BADMINTON"
+   "solution": "BADMINTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Graduate",
+       "at": 0,
+       "gives": "BA",
+       "note": "BA, a Bachelor of Arts, is a graduate"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "pockets",
+         "at": 18,
+         "note": "to pocket is to put inside, so one piece holds another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lecturer",
+         "at": 9,
+         "gives": "DON",
+         "note": "a don is a university lecturer"
+        },
+        {
+         "words": "big profit",
+         "at": 26,
+         "gives": "MINT",
+         "note": "to make a mint is to earn a fortune"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate tutor makes a fortune out of a sport.",
+     "definitionFit": "Badminton is a racket sport played with a shuttlecock over a high net."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pockets"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +813,32 @@
      }
     ]
    },
-   "solution": "SINGLEOUT"
+   "solution": "SINGLEOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Highlight",
+      "at": 0,
+      "meaning": "to pick out for attention"
+     },
+     {
+      "text": "a short low-scoring innings?",
+      "at": 10,
+      "meaning": "a batter who scores a single run and is then out has a brief, poor innings"
+     }
+    ],
+    "explanation": {
+     "surface": "Drawing attention to a brief, unproductive spell at the crease.",
+     "walkthrough": "In cricket a single is one run and out means dismissed, so 'single, out' sums up a feeble innings.",
+     "definitionFit": "To single out a person is to choose them for special notice, which is to highlight them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Highlight"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +852,45 @@
     "text": "Picking up waste after performing is pure tedium",
     "enumeration": "5"
    },
-   "solution": "ENNUI"
+   "solution": "ENNUI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tedium",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ENNUI",
+     "indicators": [
+      {
+       "text": "Picking up",
+       "at": 0,
+       "note": "picking up a sound means hearing it, so the letters are what the words sound like spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "waste after performing",
+       "at": 11,
+       "gives": "ONWEE",
+       "note": "an actor performing is 'on', and waste is 'wee' (urine); the waste comes after, giving 'on wee' spoken together"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Collecting rubbish after a show is utterly boring.",
+     "walkthrough": "Said together, ON and WEE sound like the French-derived word for boredom.",
+     "definitionFit": "Ennui is listless weariness from lack of interest, which is tedium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "waste"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +904,41 @@
     "text": "Film of nature's most unusual bloodsucker",
     "enumeration": "9"
    },
-   "solution": "NOSFERATU"
+   "solution": "NOSFERATU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "most unusual",
+       "at": 17,
+       "note": "the most unusual arrangement of the letters is a rearrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of nature's",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A documentary about the strangest blood-drinking creature in the wild.",
+     "walkthrough": "The film's title character is a vampire, so 'bloodsucker' fills out the picture.",
+     "definitionFit": "Nosferatu is the 1922 German silent vampire movie by F. W. Murnau."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nature's"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +952,47 @@
     "text": "Following instinct, director proceeded carefully",
     "enumeration": "5"
    },
-   "solution": "NOSED"
+   "solution": "NOSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "proceeded carefully",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Following",
+       "at": 0,
+       "note": "the director piece follows the instinct piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "instinct",
+       "at": 10,
+       "gives": "NOSE",
+       "note": "a nose is a knack or instinct for something, as in a nose for news"
+      },
+      {
+       "words": "director",
+       "at": 20,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trusting their gut, a film director moved cautiously.",
+     "definitionFit": "To nose forward is to edge ahead slowly and cautiously, like a car into traffic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "instinct"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1006,48 @@
     "text": "Cleaner finds it is more sensible going outside",
     "enumeration": "9"
    },
-   "solution": "SANITISER"
+   "solution": "SANITISER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cleaner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going outside",
+       "at": 34,
+       "note": "one piece goes around the outside of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more sensible",
+       "at": 20,
+       "gives": "SANER",
+       "note": "saner means more sensible"
+      },
+      {
+       "words": "it is",
+       "at": 14,
+       "gives": "ITIS",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner reckons it is wiser to go out.",
+     "definitionFit": "A sanitiser is a disinfecting product, a type of cleaning agent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cleaner"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1061,72 @@
     "text": "Perfect place for turning one vessel covered in gold",
     "enumeration": "6"
    },
-   "solution": "UTOPIA"
+   "solution": "UTOPIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perfect place",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "for turning",
+       "at": 14,
+       "note": "the whole construction is to be turned round and read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covered in",
+         "at": 37,
+         "note": "the gold piece covers the other pieces, wrapping round them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gold",
+         "at": 48,
+         "gives": "AU",
+         "note": "Au is the chemical symbol for gold"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "at": 26,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          },
+          {
+           "words": "vessel",
+           "at": 30,
+           "gives": "POT",
+           "note": "a pot is a vessel"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ideal spot for spinning a gilded pot.",
+     "walkthrough": "'covered in' puts IPOT inside AU to give AIPOTU, which 'for turning' reverses.",
+     "definitionFit": "Utopia, from Thomas More, is an imagined ideal society, a flawless realm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1140,34 @@
     "text": "Men following car to get this type of work",
     "enumeration": "5"
    },
-   "solution": "OPERA"
+   "solution": "OPERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Men following car to get this type of work",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Men following car to get this type of work",
+       "at": 0,
+       "note": "putting MEN after CAR makes Carmen, and Bizet's Carmen is an example of this kind of stage work"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The letters themselves are not built: CAR + MEN gives Carmen, which is an example of the answer.",
+     "definitionFit": "Bizet's Carmen is one of the best-known works of musical drama sung throughout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1187,59 @@
      }
     ]
    },
-   "solution": "ALTEREGO"
+   "solution": "ALTEREGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a different side",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 7,
+       "note": "to entertain is to host or hold, so one piece holds the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Singer",
+       "at": 0,
+       "gives": "ALTO",
+       "note": "an alto is a singer with a low female or high male voice"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "queen",
+         "at": 20,
+         "gives": "ER",
+         "note": "ER is Elizabeth Regina, the Queen"
+        },
+        {
+         "words": "for example",
+         "at": 27,
+         "gives": "EG",
+         "note": "EG abbreviates exempli gratia, for example"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer hosting royalty shows another side of themselves.",
+     "definitionFit": "An alter ego is a second self, another aspect of someone's personality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1253,48 @@
     "text": "Straightens out partners following initial mate",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Straightens out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 25,
+       "note": "the partners piece comes after, following, the mate piece in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "initial mate",
+       "at": 35,
+       "gives": "EVE",
+       "note": "Eve was Adam's mate, the first in Genesis"
+      },
+      {
+       "words": "partners",
+       "at": 16,
+       "gives": "NS",
+       "note": "N and S, North and South, are partners at the bridge table"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Couples tidy things up after their first friend.",
+     "definitionFit": "To even something is to make it level or smooth, to straighten it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1308,44 @@
     "text": "Inform on these local extremists",
     "enumeration": "4"
    },
-   "solution": "TELL"
+   "solution": "TELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inform on",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "outer",
+     "indicators": [
+      {
+       "text": "extremists",
+       "at": 22,
+       "note": "the extremes of each word are its first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "these",
+       "at": 10
+      },
+      {
+       "words": "local",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to report some local radicals to the authorities.",
+     "definitionFit": "To tell on someone is to report their misdeeds, to inform against them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremists"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1369,49 @@
      }
     ]
    },
-   "solution": "BESTBEFOREDATE"
+   "solution": "BESTBEFOREDATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Things aren't so good after that",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Defeat",
+       "at": 0,
+       "gives": "BEST",
+       "note": "to best someone is to defeat them"
+      },
+      {
+       "words": "prior to",
+       "at": 7,
+       "gives": "BEFORE",
+       "note": "before means prior to"
+      },
+      {
+       "words": "engagement",
+       "at": 16,
+       "gives": "DATE",
+       "note": "a date is an appointment or engagement"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Losing just before the wedding leaves life on a downward slope.",
+     "walkthrough": "'Engagement' hints at a betrothal but is simply a date; the definition describes food labelling.",
+     "definitionFit": "Food past the date printed on its label is no longer at peak quality, though still safe to eat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "engagement"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1425,52 @@
     "text": "Some armour Britain lost in dreadful gun battle",
     "enumeration": "8"
    },
-   "solution": "GAUNTLET"
+   "solution": "GAUNTLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Some armour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "lost",
+       "at": 20,
+       "note": "something lost is missing from the mix, so a letter leaves the fodder"
+      },
+      {
+       "text": "dreadful",
+       "at": 28,
+       "note": "a dreadful battle is a mess, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gun battle",
+       "at": 37
+      },
+      {
+       "words": "Britain",
+       "at": 12,
+       "gives": "B",
+       "note": "B is a short form for Britain, as on car plates GB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pieces of armour are lost by Britain in a terrible firefight.",
+     "walkthrough": "Shuffle GUN BATTLE, which 'lost' says is short of a B: the letters left make the answer.",
+     "definitionFit": "A gauntlet is an armoured glove, one part of a suit of plate armour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Britain"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1484,29 @@
     "text": "Exercise illegal occupation",
     "enumeration": "5"
    },
-   "solution": "SQUAT"
+   "solution": "SQUAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exercise",
+      "at": 0,
+      "meaning": "a leg exercise of bending the knees"
+     },
+     {
+      "text": "illegal occupation",
+      "at": 9,
+      "meaning": "a building occupied without permission"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Gym workouts include the knee-bending squat, and squatting means living in a property without legal right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exercise"
+    }
+   }
   }
  ]
 }
