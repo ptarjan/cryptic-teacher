@@ -1007,27 +1007,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "across",
-       "note": "one piece laid across another butts up against it, end to end"
+       "at": 30,
+       "note": "across means the other pieces stretch over the letter on both sides"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "overturning",
-         "note": "in a down clue, overturning turns a word upside down so it reads backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "large",
-         "gives": "BIG",
-         "note": "large means big"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "overturning",
+           "at": 6,
+           "note": "overturning means the word for large is turned over, which in a down clue reads it backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "large",
+           "at": 18,
+           "gives": "BIG",
+           "note": "large means big"
+          }
+         ]
+        },
+        {
+         "words": "table",
+         "at": 24,
+         "gives": "ALTAR",
+         "note": "an altar is the communion table in a church"
         }
        ]
       },
@@ -1036,32 +1050,28 @@
        "indicators": [
         {
          "text": "front of",
-         "note": "the front of a word is its first letter"
+         "at": 37,
+         "note": "front of asks for the first letter of room"
         }
        ],
        "parts": [
         {
          "words": "room",
-         "note": "the first letter of room"
+         "at": 46
         }
        ]
-      },
-      {
-       "words": "table",
-       "gives": "ALTAR",
-       "note": "an altar is the communion table in a church"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tips over a big table in a room, rocking it.",
-     "walkthrough": "'Rock' looks like a verb about shaking the table; it is the definition. The Rock is the nickname of Gibraltar, the British territory at the tip of Spain.",
-     "definitionFit": "The limestone headland at the tip of Spain is universally nicknamed 'the Rock'."
+     "surface": "A removal man upending a big table across the doorway of a room.",
+     "walkthrough": "'overturning' turns BIG into GIB; with ALTAR it straddles R, the 'front of room', by 'across'.",
+     "definitionFit": "Gibraltar is nicknamed the Rock, after the limestone promontory that dominates the territory."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Rock"
+     "misdirectedWord": "table"
     }
    }
   },
