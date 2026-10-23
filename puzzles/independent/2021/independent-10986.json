@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Nobel Peace prize winner breaching royal protocol?",
     "enumeration": "9"
    },
-   "solution": "KISSINGER"
+   "solution": "KISSINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nobel Peace prize winner",
+      "at": 0,
+      "meaning": "Henry ..., US Secretary of State, shared the 1973 Nobel Peace Prize"
+     },
+     {
+      "text": "breaching royal protocol?",
+      "at": 25,
+      "meaning": "read as ..., planting a kiss on the Queen, which etiquette forbids"
+     }
+    ],
+    "explanation": {
+     "surface": "A distinguished laureate commits a faux pas in front of the monarch.",
+     "walkthrough": "The second reading splits the name as KISSING ER: ER is the late Queen (Elizabeth Regina), and nobody is meant to kiss her. The question mark flags the playful split.",
+     "definitionFit": "Henry Kissinger, the American diplomat, received the Nobel Peace Prize in 1973 for the Vietnam ceasefire talks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "breaching"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +73,59 @@
     "text": "One in ten make blunders delivering anaesthetic",
     "enumeration": "8"
    },
-   "solution": "KETAMINE"
+   "solution": "KETAMINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "anaesthetic",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 4,
+       "note": "in places one piece within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "blunders",
+         "at": 16,
+         "note": "blunders means makes a mess of, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ten make",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One in ten anaesthetists makes a mistake during delivery.",
+     "walkthrough": "'blunders' rearranges TEN MAKE into KETAMNE; 'in' puts I inside it.",
+     "definitionFit": "Ketamine is a drug used as a general anaesthetic, especially in veterinary practice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +139,45 @@
     "text": "That lady, Wimbledon champion in the 70s, is going topless",
     "enumeration": "3"
    },
-   "solution": "SHE"
+   "solution": "SHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That lady",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "going topless",
+       "at": 45,
+       "note": "going topless means losing the top, the first letter in a down answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wimbledon champion in the 70s",
+       "at": 11,
+       "gives": "ASHE",
+       "note": "Arthur Ashe won the Wimbledon men's singles in 1975"
+      },
+      {
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A female tennis star of the seventies appears without her top.",
+     "definitionFit": "She is the pronoun used for a woman already mentioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lady"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +197,50 @@
      }
     ]
    },
-   "solution": "ICESCREW"
+   "solution": "ICESCREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Climbing equipment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "of",
+       "at": 32,
+       "note": "team of the ice trade puts ICES before CREW in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gelato sellers",
+       "at": 35,
+       "gives": "ICES",
+       "note": "read as ICE'S, the ice-cream trade's; ices are frozen desserts such as gelato"
+      },
+      {
+       "words": "team",
+       "at": 27,
+       "gives": "CREW",
+       "note": "a crew is a team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mountaineering gear produced by a gang of ice-cream vendors.",
+     "walkthrough": "The question mark flags a fanciful respacing of the answer as a possessive: the frozen-dessert trade's team.",
+     "definitionFit": "An ice screw is a threaded metal tube screwed into ice as protection when climbing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gelato"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +254,42 @@
     "text": "My turn, be quiet",
     "enumeration": "4"
    },
-   "solution": "GOSH"
+   "solution": "GOSH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "My",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "turn",
+       "at": 3,
+       "gives": "GO",
+       "note": "a go is a turn in a game"
+      },
+      {
+       "words": "be quiet",
+       "at": 9,
+       "gives": "SH",
+       "note": "SH is the command to hush"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player says it is their turn and asks for silence.",
+     "walkthrough": "'My' is the exclamation of surprise, not the possessive.",
+     "definitionFit": "Both are mild exclamations of surprise, used interchangeably."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +303,54 @@
     "text": "Subjugation of announcement about replacing former partner",
     "enumeration": "10"
    },
-   "solution": "REPRESSION"
+   "solution": "REPRESSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Subjugation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "replacing",
+       "at": 34,
+       "note": "replacing says one element takes the place of another in the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "announcement",
+       "at": 15,
+       "gives": "EXPRESSION",
+       "note": "an expression is a statement or utterance"
+      },
+      {
+       "words": "former partner",
+       "at": 44,
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "words": "about",
+       "at": 28,
+       "gives": "RE",
+       "note": "RE means about or concerning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A press statement concerning a new partner talks of oppression.",
+     "definitionFit": "Repression is the forcible subduing of people, much like subjugation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "announcement"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +364,64 @@
     "text": "Barbarian leader from part of Greece left for Carthage originally",
     "enumeration": "6"
    },
-   "solution": "ATTILA"
+   "solution": "ATTILA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Barbarian leader",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 42,
+       "note": "for means in place of, so one letter is swapped for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "part of Greece",
+       "at": 22,
+       "gives": "ATTICA",
+       "note": "Attica is the region of Greece around Athens"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 55,
+         "note": "originally points to the opening letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Carthage",
+         "at": 46
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 37,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient warlord from a Greek region heads off to Carthage.",
+     "walkthrough": "'left' reads like 'departed', but it is L, put in place of C ('Carthage originally').",
+     "definitionFit": "Attila was the fifth-century leader of the Huns, a byword for barbarian invaders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +435,53 @@
     "text": "Extent of English desire for too much cycling",
     "enumeration": "6"
    },
-   "solution": "DEGREE"
+   "solution": "DEGREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "cycling",
+       "at": 38,
+       "note": "cycling moves a letter round from one end to the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 10,
+         "gives": "E"
+        },
+        {
+         "words": "desire for too much",
+         "at": 18,
+         "gives": "GREED",
+         "note": "greed is excessive desire"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How far English greed goes when out on a bike.",
+     "walkthrough": "'cycling' moves the D of EGREED from the end to the front.",
+     "definitionFit": "Degree means extent or level, as in 'to a degree'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +495,48 @@
     "text": "European visiting Great Lake's restaurant?",
     "enumeration": "7"
    },
-   "solution": "EATERIE"
+   "solution": "EATERIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "restaurant?",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "visiting",
+       "at": 9,
+       "gives": "AT",
+       "note": "visiting someone means being at their place, so AT"
+      },
+      {
+       "words": "Great Lake's",
+       "at": 18,
+       "gives": "ERIE",
+       "note": "Erie is one of North America's Great Lakes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller from Europe drops in at a lakeside diner in Ohio.",
+     "walkthrough": "The question mark marks the unusual spelling: EATERIE, with the lake's ending, for the usual 'eatery'.",
+     "definitionFit": "An eatery is an informal restaurant; this spelling is a recognised variant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "visiting"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +556,64 @@
      }
     ]
    },
-   "solution": "ROGUESTATE"
+   "solution": "ROGUESTATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "North Korea?",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "charges",
+       "at": 16,
+       "note": "charges means rushes in, so one piece barges into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to go round",
+       "at": 24,
+       "gives": "ROTATE",
+       "note": "to rotate is to go round"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means not quite all, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "estimate",
+         "at": 7,
+         "gives": "GUESS",
+         "note": "a guess is a rough estimate"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An estimate of fees for a round trip to North Korea.",
+     "walkthrough": "'charges' looks like fees but is the verb 'rushes in', putting one piece inside the other.",
+     "definitionFit": "North Korea is often called a rogue state, one seen as defying international law; the question mark marks it as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "charges"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +627,52 @@
     "text": "Article uses works to portray mythical king",
     "enumeration": "7"
    },
-   "solution": "THESEUS"
+   "solution": "THESEUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mythical king",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "THE",
+       "note": "THE is the definite article"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "works",
+         "at": 13,
+         "note": "works in the sense of kneads or reshapes, so the letters of the next word are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "uses",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An essay draws on artworks to depict a legendary monarch.",
+     "walkthrough": "'works' rearranges USES into SEUS.",
+     "definitionFit": "Theseus, slayer of the Minotaur, was the legendary ruler of Athens in Greek myth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +686,42 @@
     "text": "Messenger baring her bum",
     "enumeration": "9"
    },
-   "solution": "HARBINGER"
+   "solution": "HARBINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Messenger",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bum",
+       "at": 21,
+       "note": "bum as an adjective means bad or faulty, so the letters before it are messed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "baring her",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courier moons the recipient, exposing her backside.",
+     "walkthrough": "'bum' looks like a noun for a backside but works as the adjective 'poor quality', signalling the anagram.",
+     "definitionFit": "A harbinger is a herald or forerunner announcing something to come."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bum"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +735,40 @@
     "text": "Vindictiveness of male child at tea-party?",
     "enumeration": "6"
    },
-   "solution": "MALICE"
+   "solution": "MALICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vindictiveness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "male",
+       "at": 18,
+       "gives": "M"
+      },
+      {
+       "words": "child at tea-party",
+       "at": 23,
+       "gives": "ALICE",
+       "note": "Alice attends the Mad Hatter's tea party in Alice's Adventures in Wonderland"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy turns spiteful at a children's party.",
+     "definitionFit": "Malice is the desire to harm others, ill will close to vindictive spite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tea-party"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +782,45 @@
     "text": "I try and signal nasty swelling of organ",
     "enumeration": "10"
    },
-   "solution": "LARYNGITIS"
+   "solution": "LARYNGITIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "swelling of organ",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "nasty",
+       "at": 17,
+       "note": "nasty means badly made, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I try",
+       "at": 0
+      },
+      {
+       "words": "signal",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to warn of a painful inflammation.",
+     "walkthrough": "'nasty' rearranges I TRY SIGNAL; 'and' only joins.",
+     "definitionFit": "Laryngitis is inflammation of the larynx, the voice box."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "signal"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +840,70 @@
      }
     ]
    },
-   "solution": "MELBATOAST"
+   "solution": "MELBATOAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crispy bread",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 6,
+         "note": "around means turned about, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Amble",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "feeding",
+         "at": 18,
+         "note": "feeding means going into, so one piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "small child",
+         "at": 26,
+         "gives": "TOT",
+         "note": "a tot is a small child"
+        },
+        {
+         "words": "when",
+         "at": 13,
+         "gives": "AS",
+         "note": "as can mean when, as in 'as I left'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wandering about while giving a toddler some crunchy toast.",
+     "walkthrough": "'when' standing for AS is a common crossword equivalence ('as I left' = 'when I left').",
+     "definitionFit": "Melba toast is very thin, dry toast, named after the singer Nellie Melba."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Amble"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +917,57 @@
     "text": "View capturing a lake with sides of different length",
     "enumeration": "7"
    },
-   "solution": "SCALENE"
+   "solution": "SCALENE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with sides of different length",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "capturing",
+       "at": 5,
+       "note": "capturing means holding inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "View",
+       "at": 0,
+       "gives": "SCENE",
+       "note": "a scene is a view or vista"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15
+        },
+        {
+         "words": "lake",
+         "at": 17,
+         "gives": "L",
+         "note": "L is the map abbreviation for lake"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landscape painting includes a lake with uneven shores.",
+     "definitionFit": "A scalene triangle has three unequal sides, a geometry term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "View"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +981,76 @@
     "text": "School second XI backed to restrict runs, being calm and collected",
     "enumeration": "9"
    },
-   "solution": "NERVELESS"
+   "solution": "NERVELESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "calm and collected",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to restrict",
+       "at": 24,
+       "note": "restricting means hemming in, so the next piece sits inside the reversed letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "at": 17,
+         "note": "backed means sent backwards, so the combined letters are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "School",
+           "at": 0,
+           "gives": "S"
+          },
+          {
+           "words": "second",
+           "at": 7,
+           "gives": "S"
+          },
+          {
+           "words": "XI",
+           "at": 14,
+           "gives": "ELEVEN",
+           "note": "XI is eleven in Roman numerals, the size of a cricket or football team"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "runs",
+       "at": 36,
+       "gives": "R",
+       "note": "R is the cricket scoring abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school's reserve cricket team keeps the scoring down and stays unruffled.",
+     "walkthrough": "'backed' turns SSELEVEN into NEVELESS; 'to restrict' then puts R inside it.",
+     "definitionFit": "Being nerveless means showing no nervousness, staying cool under pressure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "XI"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1070,63 @@
      }
     ]
    },
-   "solution": "BELOWPAR"
+   "solution": "BELOWPAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not up to scratch",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "at": 0,
+       "gives": "B"
+      },
+      {
+       "words": "rock band",
+       "at": 8,
+       "gives": "ELO",
+       "note": "ELO is the Electric Light Orchestra"
+      },
+      {
+       "words": "with",
+       "at": 18,
+       "gives": "W"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "uplifting",
+         "at": 23,
+         "note": "uplifting means lifting up, so in a down answer the word reads bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "musical style",
+         "at": 33,
+         "gives": "RAP",
+         "note": "rap is a musical genre"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British rock group with an upbeat sound is mediocre.",
+     "definitionFit": "Below par means below the usual standard, from golf's par score."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uplifting"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1140,57 @@
     "text": "Working is stopping elderly being worried",
     "enumeration": "8"
    },
-   "solution": "AGONISED"
+   "solution": "AGONISED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "worried",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stopping",
+       "at": 11,
+       "note": "stopping means plugging a gap, so one piece fills the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "elderly",
+       "at": 20,
+       "gives": "AGED",
+       "note": "aged means elderly"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Working",
+         "at": 0,
+         "gives": "ON",
+         "note": "on means working, as in a machine that is on"
+        },
+        {
+         "words": "is",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pensioners fret about still having to work.",
+     "definitionFit": "Agonised means anguished or tormented by anxiety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stopping"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1204,41 @@
     "text": "Embargo on adapted missile",
     "enumeration": "9"
    },
-   "solution": "BOOMERANG"
+   "solution": "BOOMERANG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "missile",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "adapted",
+       "at": 11,
+       "note": "adapted means altered to suit, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Embargo on",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An arms embargo is placed on a modified weapon.",
+     "walkthrough": "'adapted' rearranges EMBARGO ON.",
+     "definitionFit": "A boomerang is a curved throwing stick, a missile that can return to the thrower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Embargo"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1252,55 @@
     "text": "Retiring billionaire Glaswegian suppresses nation",
     "enumeration": "7"
    },
-   "solution": "ALGERIA"
+   "solution": "ALGERIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nation",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Retiring",
+       "at": 0,
+       "note": "Retiring says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "suppresses",
+         "at": 32,
+         "note": "suppresses means keeps out of sight, so the letters lie concealed inside the words before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "billionaire Glaswegian",
+         "at": 9,
+         "gives": "AIREGLA",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy Scot steps down and keeps a whole country under his thumb.",
+     "walkthrough": "The draft took 'suppresses nation' as the definition, but 'suppresses' is the signal that the letters are concealed in 'billionaire Glaswegian'; the definition is 'nation' alone. 'Retiring' reads AIREGLA backwards.",
+     "definitionFit": "Algeria is a North African country, the largest in Africa by area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suppresses"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1320,45 @@
      }
     ]
    },
-   "solution": "ATWORK"
+   "solution": "ATWORK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in the office?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ATWORK",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 15,
+       "note": "say signals that what follows is spoken, words sounding like the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A booty shake",
+       "at": 0,
+       "gives": "ATWERK",
+       "note": "a twerk is a dance shaking the bottom, so A TWERK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An office worker bursts into a provocative dance at their desk.",
+     "walkthrough": "A TWERK, said out loud, matches the answer.",
+     "definitionFit": "Being at work means being on the job, typically in the office; the question mark marks it as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "booty"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1372,49 @@
     "text": "Keen, raising energy to get wasted",
     "enumeration": "6"
    },
-   "solution": "RARING"
+   "solution": "RARING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to get wasted",
+       "at": 21,
+       "note": "wasted means lost, so that letter disappears"
+      }
+     ],
+     "parts": [
+      {
+       "words": "raising",
+       "at": 6,
+       "gives": "REARING",
+       "note": "rearing children means raising them"
+      },
+      {
+       "words": "energy",
+       "at": 14,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Parenting so exhausting it drives you to drink.",
+     "walkthrough": "'wasted' suggests drunkenness but here means the E is used up.",
+     "definitionFit": "Raring, as in 'raring to go', means very eager or enthusiastic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wasted"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1428,58 @@
     "text": "Gabon divided by introduction of Nazi rule",
     "enumeration": "6"
    },
-   "solution": "GOVERN"
+   "solution": "GOVERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rule",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gabon",
+       "at": 0,
+       "gives": "G",
+       "note": "G is Gabon's international vehicle registration code"
+      },
+      {
+       "words": "divided by",
+       "at": 6,
+       "gives": "OVER",
+       "note": "in a fraction one number is written over another, so divided by is OVER"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "introduction of",
+         "at": 17,
+         "note": "the introduction of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nazi",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An African country is split by the arrival of fascism.",
+     "walkthrough": "'divided by' reads like a split, but in arithmetic 'six over two' means six divided by two.",
+     "definitionFit": "To govern is to rule or control a country or people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "divided"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1499,48 @@
      }
     ]
    },
-   "solution": "WATERDOWN"
+   "solution": "WATERDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dilute effect of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandoning",
+       "at": 44,
+       "note": "abandoning means leaving behind, so that word is dropped from the title"
+      }
+     ],
+     "parts": [
+      {
+       "words": "harrowing story of rabbits",
+       "at": 17,
+       "gives": "WATERSHIPDOWN",
+       "note": "Watership Down is Richard Adams's novel about rabbits, famous for its bleak, upsetting scenes"
+      },
+      {
+       "words": "ship",
+       "at": 55,
+       "gives": "SHIP",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The impact of a grim rabbit tale is softened once the sailors leave.",
+     "definitionFit": "To water down something is to weaken it or make it less forceful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "harrowing"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1554,52 @@
     "text": "Zip code's ending in river",
     "enumeration": "4"
    },
-   "solution": "NILE"
+   "solution": "NILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "river",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Zip",
+       "at": 0,
+       "gives": "NIL",
+       "note": "zip is slang for nothing, nil"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending",
+         "at": 11,
+         "note": "the ending of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "code's",
+         "at": 4
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The end of a postal code lies in a river.",
+     "walkthrough": "'Zip code' looks like the US postcode, but Zip means nothing.",
+     "definitionFit": "The Nile is the great river of north-east Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Zip"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1613,46 @@
     "text": "Hinders one million couples",
     "enumeration": "7"
    },
-   "solution": "IMPAIRS"
+   "solution": "IMPAIRS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hinders",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 8,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "million",
+       "at": 12,
+       "gives": "M"
+      },
+      {
+       "words": "couples",
+       "at": 20,
+       "gives": "PAIRS",
+       "note": "couples are pairs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A million married couples get in the way.",
+     "definitionFit": "Impairs means damages or weakens, which hampers how something works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "couples"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1666,47 @@
     "text": "American released from islands belonging to the aforementioned",
     "enumeration": "3"
    },
-   "solution": "ITS"
+   "solution": "ITS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "belonging to the aforementioned",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "released from",
+       "at": 9,
+       "note": "released from means let out, so that letter leaves the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "islands",
+       "at": 23,
+       "gives": "AITS",
+       "note": "an ait (or eyot) is a small island in a river"
+      },
+      {
+       "words": "American",
+       "at": 0,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US prisoner is freed from island confinement.",
+     "definitionFit": "Its is the possessive pronoun for a thing just mentioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "released"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1720,49 @@
     "text": "Is bitter about Conservatives abandoning representations of Islam?",
     "enumeration": "7"
    },
-   "solution": "RESENTS"
+   "solution": "RESENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Is bitter about",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandoning",
+       "at": 30,
+       "note": "abandoning means leaving, so those letters are taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "representations of Islam",
+       "at": 41,
+       "gives": "CRESCENTS",
+       "note": "the crescent moon is a common emblem of Islam"
+      },
+      {
+       "words": "Conservatives",
+       "at": 16,
+       "gives": "CC",
+       "note": "C is the abbreviation for Conservative, so two Conservatives are two Cs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resents the Tories dropping religious symbols.",
+     "walkthrough": "The two Cs leave from separate places: the start and the middle of CRESCENTS.",
+     "definitionFit": "To resent something is to feel bitter indignation about it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservatives"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1776,82 @@
     "text": "Speculated that half-cut lust, in retrospect, limits love",
     "enumeration": "9"
    },
-   "solution": "THEORISED"
+   "solution": "THEORISED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Speculated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 16,
+         "note": "half-cut means only part of the word is kept, here its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "limits",
+         "at": 46,
+         "note": "limits means encloses within bounds, so one piece holds the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "in retrospect",
+           "at": 31,
+           "note": "in retrospect means looking back, so the letters are read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lust",
+           "at": 25,
+           "gives": "DESIRE",
+           "note": "lust is strong desire"
+          }
+         ]
+        },
+        {
+         "words": "love",
+         "at": 53,
+         "gives": "O",
+         "note": "O is love, the tennis score of zero"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy theorist wonders whether lust, looking back, constrains love.",
+     "walkthrough": "'half-cut' is slang for drunk but here keeps half of THAT. 'in retrospect' turns lust's synonym into ERISED, which 'limits' wraps round O.",
+     "definitionFit": "To theorise is to form ideas or hypotheses, that is, to speculate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "half-cut"
+    }
+   }
   }
  ]
 }
