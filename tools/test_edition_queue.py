@@ -730,6 +730,10 @@ if unit["rel"] == b.get("rewrite_on"):
     with open(path, "w") as fh:
         fh.write(text.replace(*b["change"]))
 time.sleep(b.get("sleep", {{}}).get(unit["rel"], b.get("default", 0.2)))
+held = b.get("hold", {{}}).get(unit["rel"])  # runs until this file exists (a test's event, not a guessed time)
+until = time.monotonic() + 600
+while held and not os.path.exists(held) and time.monotonic() < until:
+    time.sleep(0.1)
 if b.get("ends", True) and not b.get("ps"):
     say(f"{{time.monotonic():.3f}} end {{unit['kind']}} {{unit['rel']}}")
 outcome = b.get("outcome", {{}}).get(unit["rel"], "read" if unit["kind"] == "read" else "fetched")
@@ -1135,28 +1139,32 @@ check("a slice's first image re-execs on a change to itself while its first plan
 # ---- --handoff: a slice's end hands its running units to the next run,
 # which counts them in its pools and does not start them again.
 log.unlink()
-fake(sleep={"long": 10})
+released = T / "release-long"
+fake(hold={"long": str(released)})  # "long" runs until released, so it is still running when the slice ends
 eq.plan = units([], [("long", []), ("r1", [])])
 ho = T / "handoff.json"
 out = io.StringIO()
-t0 = time.monotonic()
-# The slice's clock runs out only once "long" has logged its start: a wall-clock slice could end on a
-# slow CI runner with its brief still PENDING (made on a pool thread), nothing running to hand over.
+# Driven by events, not wall time (a 25-min CI run on a loaded runner flaked on both): the slice's clock
+# runs out only once "long" has logged its start (its brief is made on a pool thread and its process
+# can take seconds to come up), and the slice is long enough that only that can end it.
+SLICE = 600  # the jump ages "long" too: overdue() (READ_SECONDS 1200) kills it only after 600 s of real running
 class SliceClock:
     def __getattr__(self, name):
         return getattr(time, name)
     def monotonic(self):
         begun = log.exists() and "start read long" in log.read_text()
-        return time.monotonic() + (120 if begun else 0)
+        return time.monotonic() + (SLICE if begun else 0)
 eq.time = SliceClock()
 try:
     with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(out):
-        rc = eq.dispatch(["times"], cache, workers=1, seconds=120, handoff=ho)
+        rc = eq.dispatch(["times"], cache, workers=1, seconds=SLICE, handoff=ho)
 finally:
     eq.time = time
-check("a slice ends at once, handing over its running unit, and says it left work", (0, True, ["long"], True),
-      (rc, time.monotonic() - t0 < 9, [r["unit"]["rel"] for r in json.loads(ho.read_text())],
-       "left for the next run" in out.getvalue()))
+began = [float(l.split()[0]) for l in log.read_text().splitlines() if " start read long " in l]
+check("a slice ends at once, handing over its running unit, and says it left work", (0, True, ["long"], True, False),
+      (rc, bool(began) and time.monotonic() - began[0] < 60, [r["unit"]["rel"] for r in json.loads(ho.read_text())],
+       "left for the next run" in out.getvalue(), "end read long" in log.read_text()))
+released.touch()  # the next run, taking it over, sees it end
 err = io.StringIO()
 with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     rc = eq.dispatch(["times"], cache, workers=1, handoff=ho, replan=0.2)
