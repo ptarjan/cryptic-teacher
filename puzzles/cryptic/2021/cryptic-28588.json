@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,42 @@
     "text": "Decorated with diamonds above and below",
     "enumeration": "4"
    },
-   "solution": "ICED"
+   "solution": "ICED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Decorated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "diamonds above",
+       "at": 15,
+       "gives": "ICE",
+       "note": "ice is slang for diamonds, set on top in this down answer"
+      },
+      {
+       "words": "below",
+       "at": 34,
+       "gives": "D",
+       "note": "below brings in the diamonds again as D, the card-suit abbreviation, placed underneath"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of jewellery set with diamonds on its top and bottom edges.",
+     "walkthrough": "'diamonds' does double duty: ICE (slang for gems) above and D (the card suit's abbreviation) below.",
+     "definitionFit": "A cake that has been iced has been decorated with a sugary coating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diamonds"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +83,32 @@
     "text": "Private patients are treated here",
     "enumeration": "6"
    },
-   "solution": "INWARD"
+   "solution": "INWARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Private",
+      "at": 0,
+      "meaning": "private, kept to oneself"
+     },
+     {
+      "text": "patients are treated here",
+      "at": 8,
+      "meaning": "read as ..., where hospital patients are looked after"
+     }
+    ],
+    "explanation": {
+     "surface": "Private hospital patients get their care in this place.",
+     "walkthrough": "The second definition splits the answer as IN WARD.",
+     "definitionFit": "Inward thoughts are private ones, kept within; a hospital ward is where patients receive care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Private"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +122,40 @@
     "text": "Outline conversion of hotel suite",
     "enumeration": "10"
    },
-   "solution": "SILHOUETTE"
+   "solution": "SILHOUETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outline",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "conversion of",
+       "at": 8,
+       "note": "a conversion remodels a building, here signalling that the letters of the two words are rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hotel suite",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sketch plan for turning a hotel suite into something else.",
+     "definitionFit": "A silhouette is the dark outline or profile of a shape seen against light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conversion"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +169,44 @@
     "text": "Eschewing even bits of theory, create lines of verse",
     "enumeration": "6"
    },
-   "solution": "TERCET"
+   "solution": "TERCET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lines of verse",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Eschewing even bits of",
+       "at": 0,
+       "note": "avoiding the even-numbered letters leaves only the odd ones of the two words theory and create"
+      }
+     ],
+     "parts": [
+      {
+       "words": "theory",
+       "at": 23
+      },
+      {
+       "words": "create",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet told to avoid too much theory and simply write some lines.",
+     "definitionFit": "A tercet is a group of three lines of poetry, a stanza or part of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +220,70 @@
     "text": "Educated learner's initially expelled, with poor grade repeated",
     "enumeration": "8"
    },
-   "solution": "ITERATED"
+   "solution": "ITERATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "repeated",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "expelled",
+         "at": 29,
+         "note": "expelled means thrown out, so that letter is removed from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Educated",
+         "at": 0,
+         "gives": "LITERATE",
+         "note": "literate means educated, able to read and write"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 19,
+           "note": "initially points to the opening letter of learner's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "learner's",
+           "at": 9
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "poor grade",
+       "at": 44,
+       "gives": "D",
+       "note": "D is a low grade in exams"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An educated pupil was thrown out after getting a bad mark.",
+     "walkthrough": "'expelled' removes L (learner's initially) from LITERATE.",
+     "definitionFit": "Iterated means said or done again, so it is a synonym for repeated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "expelled"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +297,52 @@
     "text": "Figures turned up at short notice: not a lot",
     "enumeration": "4"
    },
-   "solution": "DATA"
+   "solution": "DATA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Figures",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turned up",
+       "at": 8,
+       "note": "in a down answer, turned up means the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at",
+         "at": 18
+        },
+        {
+         "words": "short notice",
+         "at": 21,
+         "gives": "AD",
+         "note": "an ad, short for advertisement, is a brief notice"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Numbers appeared with little warning, and only a few of them.",
+     "walkthrough": "'turned up' reverses ATAD; that reading, A TAD, is also 'not a lot', a second pointer to the same letters.",
+     "definitionFit": "Data are facts and figures, the numbers collected for analysis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +356,47 @@
     "text": "Pilgrim, speaking directly, left home",
     "enumeration": "8"
    },
-   "solution": "FRANKLIN"
+   "solution": "FRANKLIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pilgrim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "speaking directly",
+       "at": 9,
+       "gives": "FRANK",
+       "note": "frank means outspoken and direct"
+      },
+      {
+       "words": "left",
+       "at": 28,
+       "gives": "L"
+      },
+      {
+       "words": "home",
+       "at": 33,
+       "gives": "IN",
+       "note": "in means at home"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pilgrim, put bluntly, has left his house.",
+     "walkthrough": "The Franklin is one of the pilgrims in Chaucer's Canterbury Tales; the name also links to the theme's Benjamin Franklin.",
+     "definitionFit": "The Franklin, a landowner, is a member of Chaucer's company of pilgrims travelling to Canterbury."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pilgrim"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +410,58 @@
     "text": "Exact straight line passed over centre of gravity",
     "enumeration": "4"
    },
-   "solution": "LEVY"
+   "solution": "LEVY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exact",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "passed over",
+       "at": 20,
+       "note": "the line passes over the letter, so it goes around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "straight line",
+       "at": 6,
+       "gives": "LEY",
+       "note": "a ley, or ley line, is a supposed straight line linking ancient sites"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre of",
+         "at": 32,
+         "note": "centre of picks the middle letter of the word gravity"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gravity",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A precise straight line drawn through an object's centre of gravity.",
+     "definitionFit": "To exact a payment is to demand it, as a tax or levy is imposed and collected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exact"
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +475,67 @@
     "text": "Self-assured, able to absorb study after study",
     "enumeration": "9"
    },
-   "solution": "CONFIDENT"
+   "solution": "CONFIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Self-assured",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 35,
+       "note": "after places the able piece behind the second study"
+      }
+     ],
+     "parts": [
+      {
+       "words": "study",
+       "at": 41,
+       "gives": "CON",
+       "note": "to con is to study or learn by heart"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to absorb",
+         "at": 19,
+         "note": "to absorb means to take in, so one piece holds the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "able",
+         "at": 14,
+         "gives": "FIT",
+         "note": "fit means able or suitable"
+        },
+        {
+         "words": "study",
+         "at": 29,
+         "gives": "DEN",
+         "note": "a den is a study, a private room for work"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confident student keen to take on study after study.",
+     "walkthrough": "'study' appears twice and is clued two ways, a room and a verb meaning to learn.",
+     "definitionFit": "Someone confident has assurance in their own abilities, so is self-assured."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "absorb"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +549,48 @@
     "text": "In time, about to come to same conclusion",
     "enumeration": "5"
    },
-   "solution": "AGREE"
+   "solution": "AGREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "come to same conclusion",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In places the word for about within the word for time"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time",
+       "at": 3,
+       "gives": "AGE",
+       "note": "an age is a period of time"
+      },
+      {
+       "words": "about",
+       "at": 9,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eventually, two people are about to reach the same verdict.",
+     "definitionFit": "To agree is to share an opinion, reaching an identical conclusion to someone else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +604,42 @@
     "text": "Curtains made at home, apart from fringes",
     "enumeration": "5"
    },
-   "solution": "DEATH"
+   "solution": "DEATH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Curtains",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "apart from fringes",
+       "at": 23,
+       "note": "dropping the fringes, the outer letters, of the phrase leaves the answer within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "made at home",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Home-made curtains, though without any fringe trim.",
+     "walkthrough": "'Curtains' looks like soft furnishing but means the end; 'apart from fringes' strips MA and OME from MADE AT HOME.",
+     "definitionFit": "Curtains is slang for the end, especially the end of a life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Curtains"
+    }
+   }
   },
   {
    "number": 12,
@@ -185,7 +653,42 @@
     "text": "Revise a city rent that's bound to bring better profit",
     "enumeration": "9"
    },
-   "solution": "CERTAINTY"
+   "solution": "CERTAINTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bound to bring better profit",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Revise",
+       "at": 0,
+       "note": "to revise is to rework something, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a city rent",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord revising a city rent sure to bring a better return.",
+     "walkthrough": "'better' reads as 'more profitable' but is one who bets.",
+     "definitionFit": "A certainty in racing is a sure winner, something sure to pay off for whoever bets on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +708,58 @@
      }
     ]
    },
-   "solution": "NODOUBT"
+   "solution": "NODOUBT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without question",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sign agreement",
+       "at": 0,
+       "gives": "NOD",
+       "note": "to nod is to signal agreement"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 32,
+         "note": "outside means one piece goes around the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "available",
+         "at": 22,
+         "gives": "OUT",
+         "note": "out can mean available, as a book published and out"
+        },
+        {
+         "words": "book",
+         "at": 17,
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nodding agreement that the book is undoubtedly on sale.",
+     "definitionFit": "No doubt means certainly, beyond any question or dispute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +773,32 @@
     "text": "One form of what time is? Minutes, perhaps",
     "enumeration": "5"
    },
-   "solution": "NOTES"
+   "solution": "NOTES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One form of what time is?",
+      "at": 0,
+      "meaning": "time is money, and banknotes are one form of money"
+     },
+     {
+      "text": "Minutes, perhaps",
+      "at": 26,
+      "meaning": "minutes of a meeting are ... taken of it"
+     }
+    ],
+    "explanation": {
+     "surface": "A musing on what time is, and whether minutes count.",
+     "walkthrough": "The first definition rests on the saying 'time is money'.",
+     "definitionFit": "Banknotes are paper money; minutes are a written record, the notes of a meeting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Minutes"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +812,48 @@
     "text": "Around lake, watch person catching fish",
     "enumeration": "7"
    },
-   "solution": "TICKLER"
+   "solution": "TICKLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "person catching fish",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Around",
+       "at": 0,
+       "note": "Around means the watch goes about the lake's letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "watch",
+       "at": 13,
+       "gives": "TICKER",
+       "note": "ticker is slang for a watch"
+      },
+      {
+       "words": "lake",
+       "at": 7,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone by a lake, watching an angler land a fish.",
+     "walkthrough": "Trout tickling is catching fish by hand, stroking their bellies until they can be flipped out.",
+     "definitionFit": "A tickler catches trout by rubbing them gently by hand before scooping them out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "watch"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +867,40 @@
     "text": "A certain opinion on iconic TV broadcast",
     "enumeration": "10"
    },
-   "solution": "CONVICTION"
+   "solution": "CONVICTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A certain opinion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 31,
+       "note": "broadcast also means scattered, as seed, so these letters are scattered and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on iconic TV",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pundit airing a firm view on a classic television show.",
+     "definitionFit": "A conviction is a firmly held belief, an opinion one is sure of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +914,48 @@
     "text": "Assesses lab subjects, having injected drug",
     "enumeration": "5"
    },
-   "solution": "RATES"
+   "solution": "RATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assesses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having injected",
+       "at": 23,
+       "note": "having injected means the drug is put inside the lab animals"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lab subjects",
+       "at": 9,
+       "gives": "RATS",
+       "note": "rats are common laboratory test animals"
+      },
+      {
+       "words": "drug",
+       "at": 39,
+       "gives": "E",
+       "note": "E is short for ecstasy, the drug"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist evaluates laboratory animals that were given a drug.",
+     "definitionFit": "To rate something is to judge or evaluate it, so rates is a synonym for assesses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lab"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +969,60 @@
     "text": "Gamble on it, backed in place of many mounts",
     "enumeration": "5"
    },
-   "solution": "TIBET"
+   "solution": "TIBET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place of many mounts",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 7,
+       "note": "on puts the gamble after the other piece in this across answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "at": 14,
+         "note": "backed means the short word it is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "Gamble",
+       "at": 0,
+       "gives": "BET",
+       "note": "a bet is a gamble"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A punter backs a horse after betting on it, horses being mounts.",
+     "walkthrough": "'mounts' suggests horses, but means mountains: Tibet is home to many Himalayan peaks.",
+     "definitionFit": "Tibet lies on a high plateau ringed by mountains, including Everest on its border."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mounts"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1036,48 @@
     "text": "Tribe's difficulty dividing African country",
     "enumeration": "8"
    },
-   "solution": "BENJAMIN"
+   "solution": "BENJAMIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tribe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dividing",
+       "at": 19,
+       "note": "dividing means the difficulty splits the country's name and sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "African country",
+       "at": 28,
+       "gives": "BENIN",
+       "note": "Benin is a country in West Africa"
+      },
+      {
+       "words": "difficulty",
+       "at": 8,
+       "gives": "JAM",
+       "note": "a jam is a difficulty or fix"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tribe's troubles splitting an African nation.",
+     "definitionFit": "Benjamin was one of the twelve tribes of Israel, named after Jacob's youngest son."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tribe"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1091,46 @@
     "text": "Purpose shown by predecessors of foe",
     "enumeration": "3"
    },
-   "solution": "END"
+   "solution": "END",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Purpose",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "predecessors of",
+       "at": 17,
+       "note": "predecessors are what come just before, so each letter of the word foe is swapped for the letter preceding it in the alphabet"
+      }
+     ],
+     "parts": [
+      {
+       "words": "foe",
+       "at": 33
+      },
+      {
+       "gives": "FOE"
+      },
+      {
+       "gives": "END"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An enemy's aims shaped by those who went before.",
+     "definitionFit": "An end is an aim or goal, as in a means to an end."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "predecessors"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1144,35 @@
     "text": "Microscopic part for pupil, say?",
     "enumeration": "8"
    },
-   "solution": "EYEPIECE"
+   "solution": "EYEPIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Microscopic part for pupil, say?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Microscopic part for pupil, say?",
+       "at": 0,
+       "note": "the pupil is part of the eye, and this part of a microscope is the piece put to the eye, not a schoolchild's"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'pupil' suggests a school student but is the eye's pupil.",
+     "definitionFit": "The lens a viewer looks through on a microscope is placed at the eye."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pupil"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1186,43 @@
     "text": "Group of players that's gross? On the contrary",
     "enumeration": "5"
    },
-   "solution": "NONET"
+   "solution": "NONET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Group of players",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "On the contrary",
+       "at": 31,
+       "gives": "NO",
+       "note": "on the contrary answers the question with a denial, no"
+      },
+      {
+       "words": "gross",
+       "at": 24,
+       "gives": "NET",
+       "note": "the contrary of gross, as in income, is net"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a musical group is disgusting, then saying the reverse.",
+     "walkthrough": "The opposite of gross (income) is net; 'On the contrary' answers the question with NO and NET.",
+     "definitionFit": "A nonet is an ensemble of nine musicians."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gross"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1236,55 @@
     "text": "Because, for example, ultimately it's true",
     "enumeration": "7"
    },
-   "solution": "SINCERE"
+   "solution": "SINCERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "true",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Because",
+       "at": 0,
+       "gives": "SINCE",
+       "note": "since means because"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 22,
+         "note": "ultimately takes the final letter of each of the two words for and example"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for",
+         "at": 9
+        },
+        {
+         "words": "example",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that something is true because, in the end, an example proves it.",
+     "definitionFit": "A sincere person is genuine and honest, true in their feelings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "example"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1298,42 @@
     "text": "Release call for peace by superpower",
     "enumeration": "7"
    },
-   "solution": "QUIETUS"
+   "solution": "QUIETUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Release",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "call for peace",
+       "at": 8,
+       "gives": "QUIET",
+       "note": "Quiet! is a call for peace and silence"
+      },
+      {
+       "words": "superpower",
+       "at": 26,
+       "gives": "US",
+       "note": "the US is a superpower"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A superpower releases a demand for peace.",
+     "walkthrough": "Quietus, from Hamlet, means death, a release from life.",
+     "definitionFit": "A quietus is a final discharge or release, specifically death as release from life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Release"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1347,35 @@
     "text": "Most powerful men on board, but not at court",
     "enumeration": "6"
    },
-   "solution": "QUEENS"
+   "solution": "QUEENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most powerful men on board, but not at court",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Most powerful men on board, but not at court",
+       "at": 0,
+       "note": "on a chess board this piece is the strongest, though in a royal court the king ranks above it"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'men' is chess pieces, not people; 'board' is the chessboard, not a company's.",
+     "definitionFit": "In chess the queen is the strongest piece, while at a royal court the king outranks the queen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1389,69 @@
     "text": "Communicated with head of French department, initially, around ten",
     "enumeration": "6"
    },
-   "solution": "TEXTED"
+   "solution": "TEXTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Communicated with",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 56,
+         "note": "around means the French head goes about the ten"
+        }
+       ],
+       "parts": [
+        {
+         "words": "head of French",
+         "at": 18,
+         "gives": "TETE",
+         "note": "tete is French for head"
+        },
+        {
+         "words": "ten",
+         "at": 63,
+         "gives": "X",
+         "note": "X is the Roman numeral for ten"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 45,
+         "note": "initially takes the first letter of department"
+        }
+       ],
+       "parts": [
+        {
+         "words": "department",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Messages sent to the head of a French university department around ten o'clock.",
+     "definitionFit": "To text someone is to send them a phone message, so to have communicated with them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1465,62 @@
     "text": "Doctor is clad by a colleague to prepare for theatre",
     "enumeration": "9"
    },
-   "solution": "DRAMATISE"
+   "solution": "DRAMATISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prepare for theatre",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Doctor",
+       "at": 0,
+       "gives": "DR"
+      },
+      {
+       "words": "a",
+       "at": 18
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "clad by",
+         "at": 10,
+         "note": "clad by means is is wrapped inside the other words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "colleague",
+         "at": 20,
+         "gives": "MATE",
+         "note": "a mate is a fellow worker"
+        },
+        {
+         "words": "is",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor is gowned by a colleague before going into the operating theatre.",
+     "walkthrough": "'theatre' suggests the operating theatre, but the answer is about the stage.",
+     "definitionFit": "To dramatise a story is to adapt it for performance on stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1534,32 @@
     "text": "What's required you must pay finally?",
     "enumeration": "4"
    },
-   "solution": "DUTY"
+   "solution": "DUTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's required",
+      "at": 0,
+      "meaning": "what one is obliged to do"
+     },
+     {
+      "text": "you must pay finally?",
+      "at": 16,
+      "meaning": "death ... is the tax paid at the end of life"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what you must pay in the end.",
+     "walkthrough": "Death duty is the old British name for inheritance tax, paid on an estate after death.",
+     "definitionFit": "A duty is an obligation, and also a tax, such as the death duty levied on estates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "finally"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1573,43 @@
     "text": "A river journey for ancient boat with many oarsmen",
     "enumeration": "4"
    },
-   "solution": "ARGO"
+   "solution": "ARGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ancient boat with many oarsmen",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "river",
+       "at": 2,
+       "gives": "R"
+      },
+      {
+       "words": "journey",
+       "at": 8,
+       "gives": "GO",
+       "note": "to go is to journey"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river trip in an old galley rowed by a large crew.",
+     "definitionFit": "The Argo was Jason's ship in Greek myth, rowed by fifty Argonauts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1623,59 @@
     "text": "Tries and dismisses following court's conclusion",
     "enumeration": "5"
    },
-   "solution": "TAXES"
+   "solution": "TAXES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tries",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 20,
+       "note": "following puts the dismissal word after the court's last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "conclusion",
+         "at": 38,
+         "note": "conclusion takes the final letter of court's, ignoring the possessive"
+        }
+       ],
+       "parts": [
+        {
+         "words": "court's",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "words": "dismisses",
+       "at": 10,
+       "gives": "AXES",
+       "note": "axes means sacks or dismisses"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge hears cases and throws them out after court ends.",
+     "walkthrough": "'Tries' suggests court trials, but means strains, as in taxes one's patience.",
+     "definitionFit": "To tax someone is to strain or test them, as a hard task tries their patience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Tries"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1699,40 @@
    "group": [
     "27-down",
     "28-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "absolutely!",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "badly",
+       "at": 12,
+       "note": "badly signals that the letters of the two words are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reign thus",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation that a monarch rules poorly, no question.",
+     "definitionFit": "A sure thing is an exclamation of assent, like of course or certainly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reign"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +1759,49 @@
     "text": "Old soldier in unit invested in food processor",
     "enumeration": "9"
    },
-   "solution": "CANNONEER"
+   "solution": "CANNONEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old soldier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invested in",
+       "at": 20,
+       "note": "invested in means put inside, as money is placed in something"
+      }
+     ],
+     "parts": [
+      {
+       "words": "food processor",
+       "at": 32,
+       "gives": "CANNER",
+       "note": "a canner preserves food in tins, so processes it"
+      },
+      {
+       "words": "unit",
+       "at": 15,
+       "gives": "ONE",
+       "note": "one is the unit number"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-soldier sunk money into a kitchen appliance.",
+     "walkthrough": "'food processor' suggests a kitchen gadget, but is a person who cans food.",
+     "definitionFit": "A cannoneer was an artilleryman who manned a cannon, a soldier of former times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "processor"
+    }
+   }
   }
  ]
 }
