@@ -1833,11 +1833,11 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    It stays put while a keyboard is up (kbd-up hides only the bar), because
    padding that came and went would reflow the grid under the solver's finger. */
 .tabbar { display: none; }
-html.standalone body { padding-bottom: calc(48px + 56px + env(safe-area-inset-bottom, 0px)); }
+html.standalone body { padding-bottom: calc(48px + 56px + max(12px, env(safe-area-inset-bottom, 0px))); }
 html.standalone .tabbar {
   display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
   background: var(--bg); border-top: 1px solid var(--line);
-  padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  padding: 0 env(safe-area-inset-right, 0px) max(12px, env(safe-area-inset-bottom, 0px)) env(safe-area-inset-left, 0px);
 }
 html.standalone.kbd-up .tabbar { display: none; }
 .tabbar a {
@@ -1872,7 +1872,7 @@ html.standalone.kbd-up .tabbar { display: none; }
    bar is how you leave) and nothing floating over the puzzle. */
 html.standalone #picker-panel, html.standalone #stats-panel {
   position: fixed; z-index: 40; left: 0; right: 0; top: 0;
-  bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+  bottom: calc(56px + max(12px, env(safe-area-inset-bottom, 0px)));
   width: auto; max-height: none; border: 0; border-radius: 0; box-shadow: none;
   background: var(--bg); padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px;
   box-sizing: border-box; overflow-y: auto; -webkit-overflow-scrolling: touch;
