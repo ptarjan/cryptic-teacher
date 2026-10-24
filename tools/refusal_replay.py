@@ -165,7 +165,11 @@ def refusals(paths, since):
             for eid in dict.fromkeys(m.group(1) for t in texts for m in LINE.finditer(t)):
                 key = re.compile(r"^\s+" + re.escape(eid) + r": the wordplay does not give", re.M)
                 hits = [i for i, t in enumerate(texts) if key.search(t)]
-                first = next(m for m in LINE.finditer(texts[hits[0]]) if m.group(1) == eid)
+                # a refusal line of another shape (no "gives ...; the answer needs") is no
+                # item to replay: start at the first hit LINE reads, not crash on the audit
+                first = next((m for i in hits for m in LINE.finditer(texts[i]) if m.group(1) == eid), None)
+                if first is None:
+                    continue
                 end = next((i for i in range(hits[0] + 1, len(texts)) if not key.search(texts[i])), None)
                 out.append({"pid": pid, "eid": eid, "ans": first.group(2), "wp": first.group(3),
                             "sess": pathlib.Path(path).stem[:8], "cleared": end is not None,

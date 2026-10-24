@@ -46,6 +46,18 @@ check(sorted(items), ["1-across", "2-down"], "each refused entry is found once")
 check((items["1-across"]["retries"], items["1-across"]["cleared"]), (1, True), "a refusal that clears costs 1 retry")
 check((items["2-down"]["retries"], items["2-down"]["cleared"]), (2, True), "a refusal that clears on the third check costs 2")
 
+# 10-24: a refusal line of another shape (here no "gives ...; the answer needs") crashed the
+# audit section with StopIteration; the one that reads is still found, the other skipped.
+odd = ("  3-down: the wordplay does not give EASEL; clue words no leaf, indicator or definition "
+       "covers (a piece may be missing, or they are link words): 'after'\n")
+recs2 = [{"type": "user", "message": {"content": aud.BAG_PREFIX + " abc-1"}}]
+recs2 += turn(1, odd + refused("4-down", "ROLE", "r + o"))
+recs2 += turn(2, "clean")
+path2 = os.path.join(d, "sess5678.jsonl")
+with open(path2, "w") as f:
+    f.write("\n".join(json.dumps(x) for x in recs2))
+check(sorted(i["eid"] for i in r.refusals([path2], since)), ["4-down"], "an unreadable refusal line is skipped, not a crash")
+
 # stub the evaluator: only the comma form passes, and the long one is a reorder
 def fake(wp, clue, ans):
     return None if "," in wp and ans != "BAD" else f"{ans}: wordplay gives {'ACT' if ans == 'CAT' else 'ZZZ'}; the answer needs {ans}"

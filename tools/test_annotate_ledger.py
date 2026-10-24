@@ -76,5 +76,11 @@ text = L.work_order("why", {"cur": 0.04, "best": 0.03}, worse, ("abc123", "x", "
 check(all(s in text for s in ("$0.040", "rule:a", "abc123", "ONE Sonnet worker", "$0.022/clue")), True,
       "the work order carries the rows, top cause, last commit and the instruction")
 
+# 10-24: the alert named 93e60a8b958 as the last annotate-code commit while two fixes to
+# the refusal in tools/wordplay.py had landed: the evaluator and the check modules count.
+check([p for p in ("tools/wordplay.py", "tools/apply_annotations.py", "tools/annotate_check.py",
+                   "tools/find_answer_leaks.py") if p not in L.CODE_PATHS and not p.startswith("tools/annotate")],
+      [], "the evaluator and the modules the checks import are annotate code")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
