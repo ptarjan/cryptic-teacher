@@ -1070,26 +1070,33 @@
        "note": "N is the chess notation for a knight"
       },
       {
-       "op": "substitution",
+       "op": "container",
        "indicators": [
         {
-         "text": "delaying married",
+         "text": "delaying",
          "at": 19,
-         "note": "married is abbreviated to its usual single letter, and delaying it means that letter is held back to come a little later in the virtue word"
+         "note": "delaying means the M of the virtue word is held back and comes later in it"
         }
        ],
        "parts": [
         {
-         "words": "virtue",
-         "at": 12,
-         "gives": "MORALITY",
-         "note": "morality means virtue or goodness"
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "virtue",
+           "at": 12,
+           "gives": "MORALITY",
+           "note": "morality means virtue or goodness"
+          },
+          {
+           "gives": "M"
+          }
+         ]
         },
         {
-         "gives": "MOR"
-        },
-        {
-         "gives": "ORM"
+         "words": "married",
+         "at": 28,
+         "gives": "M"
         }
        ]
       }
@@ -1097,7 +1104,7 @@
     },
     "explanation": {
      "surface": "A knight's virtue held off marriage, a matter of routine.",
-     "walkthrough": "M is the standard abbreviation for married; 'delaying' it moves the M of MORALITY back two places to give ORMALITY, which follows N. The answer is a noun, as routine is here.",
+     "walkthrough": "'delaying' moves the M of MORALITY (the 'married' abbreviation) further along, giving ORMALITY after N. The answer is a noun, as routine is here.",
      "definitionFit": "Routine as a noun can mean the usual or ordinary state of things, which is what normality means."
     },
     "features": {

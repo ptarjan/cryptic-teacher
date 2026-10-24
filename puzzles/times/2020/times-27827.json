@@ -1477,28 +1477,36 @@
      "op": "charade",
      "parts": [
       {
-       "words": "credit is",
+       "words": "credit",
        "at": 10,
-       "gives": "CRIS",
-       "note": "CR is the accounting abbreviation for credit, followed by the word is as written"
+       "gives": "CR"
       },
       {
-       "words": "doubled",
-       "at": 20,
-       "gives": "IS",
-       "note": "doubled supplies a second copy of the little word is"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "doubled",
+         "at": 20,
+         "note": "doubled means the word is is written twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 17
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A credit crunch becomes an emergency when debts double.",
-     "walkthrough": "'doubled' tells you to write the word 'is' a second time.",
-     "definitionFit": "A crisis is a time of acute danger or difficulty, an emergency."
+     "surface": "An emergency arises when credit is doubled.",
+     "walkthrough": "'doubled' writes IS twice.",
+     "definitionFit": "A crisis is a time of acute danger or difficulty."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "doubled"
+     "aptDefinition": false
     }
    }
   },

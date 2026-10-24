@@ -1602,38 +1602,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "repeat",
      "indicators": [
       {
-       "text": "leading",
-       "at": 15,
-       "note": "leading means the time letter goes in front of the article"
+       "text": "again",
+       "at": 9,
+       "note": "again means the pair is used a second time"
       }
      ],
      "parts": [
       {
-       "words": "Time",
-       "at": 0,
-       "gives": "T"
-      },
-      {
-       "words": "articles",
-       "at": 23,
-       "gives": "A",
-       "note": "A is the indefinite article"
-      },
-      {
-       "words": "and again",
-       "at": 5,
-       "gives": "TA",
-       "note": "and again asks for that same pair, time leading an article, a second time"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Time",
+         "at": 0,
+         "gives": "T"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leading",
+           "at": 15,
+           "note": "leading points to the front letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "articles",
+           "at": 23
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Newspaper editorials repeatedly bid farewell.",
-     "walkthrough": "'leading articles' suggests newspaper editorials, but here T leads A, the indefinite article; 'and again' repeats that pair.",
-     "definitionFit": "Ta-ta is a casual British way of saying goodbye, i.e. a valediction."
+     "surface": "Newspaper leaders repeatedly signing off.",
+     "walkthrough": "'Time' gives T and 'leading' gives A from articles; 'again' doubles the pair.",
+     "definitionFit": "Ta-ta is an informal British farewell, and a valediction is a goodbye."
     },
     "features": {
      "answerInScene": false,

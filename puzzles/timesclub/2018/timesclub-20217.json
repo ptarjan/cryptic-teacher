@@ -580,30 +580,34 @@
      }
     ],
     "wordplay": {
-     "op": "composite",
+     "op": "anagram",
      "indicators": [
       {
        "text": "Terrible",
        "at": 0,
        "note": "something terrible is in a bad state, so the remaining letters are put into disorder"
-      },
-      {
-       "text": "losing",
-       "at": 21,
-       "note": "losing tells us some letters of discomfort drop out before the rest are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "discomfort",
-       "at": 9,
-       "note": "taken as written before letters are lost"
-      },
-      {
-       "words": "every third",
-       "at": 28,
-       "gives": "SMR",
-       "note": "every third letter of discomfort, those in positions three, six and nine"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing every third",
+         "at": 21,
+         "note": "losing every third letter means each letter in positions three, six and nine of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "discomfort",
+         "at": 9,
+         "note": "taken as written before letters are lost"
+        },
+        {
+         "gives": "SMR"
+        }
+       ]
       }
      ]
     },

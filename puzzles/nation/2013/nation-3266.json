@@ -321,29 +321,43 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MAGMA",
      "indicators": [
       {
        "text": "surrounding",
-       "note": "surrounding means one part goes around the other"
+       "at": 12,
+       "note": "surrounding means the two mothers sit either side of the grand, enclosing it"
       }
      ],
      "parts": [
       {
-       "words": "grandmothers",
-       "gives": "GMAMA",
-       "note": "split as grand (G, a thousand dollars) and mothers (MA and MA)"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "mothers",
+         "at": 29,
+         "gives": "MA",
+         "note": "ma is an informal word for mother, so two mothers give two of them"
+        },
+        {
+         "gives": "MA"
+        }
+       ]
+      },
+      {
+       "words": "grand",
+       "at": 24,
+       "gives": "G",
+       "note": "G is slang shorthand for a grand, a thousand dollars"
       }
      ]
     },
     "explanation": {
-     "surface": "Lava flows around some grandmothers.",
-     "walkthrough": "Split grandmothers into grand and mothers: the two mothers go either side of G.",
-     "definitionFit": "Magma is melted rock beneath the earth's surface, the material that erupts as lava."
+     "surface": "Something about lava encircling a pair of elderly women.",
+     "walkthrough": "Split 'grandmothers' into 'grand' and 'mothers': the mothers, MA and MA, are 'surrounding' G for grand.",
+     "definitionFit": "Magma is the melted rock beneath the earth's surface that becomes lava when it erupts."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "grandmothers"
     }

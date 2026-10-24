@@ -693,32 +693,39 @@
      }
     ],
     "wordplay": {
-     "op": "composite",
+     "op": "deletion",
      "indicators": [
       {
        "text": "out of",
        "at": 11,
-       "note": "out of here means with the named letter removed, so every instance of the time abbreviation is taken away"
+       "note": "out of here means with the named letter removed, so every T is taken away"
       }
      ],
      "parts": [
       {
-       "words": "Ultimately",
-       "at": 0,
-       "gives": "ATLAST",
-       "note": "at last means ultimately, in the end"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Ultimately",
+         "at": 0,
+         "gives": "ATLAST",
+         "note": "at last means ultimately, in the end"
+        },
+        {
+         "words": "time",
+         "at": 18,
+         "gives": "T"
+        }
+       ]
       },
       {
-       "words": "time",
-       "at": 18,
-       "gives": "TT",
-       "note": "T is the standard abbreviation for time; both of the phrase's T's are taken out"
+       "gives": "T"
       }
      ]
     },
     "explanation": {
      "surface": "Someone apologises that they have finally run out of time.",
-     "walkthrough": "'Ultimately' gives AT LAST, and 'out of time' strips out every T, the time abbreviation, both of them, leaving the answer.",
+     "walkthrough": "'Ultimately' gives AT LAST, and 'out of time' takes away its T's, both of them, leaving the answer.",
      "definitionFit": "Alas is an interjection of regret, used when giving bad news much as one might say unfortunately."
     },
     "features": {

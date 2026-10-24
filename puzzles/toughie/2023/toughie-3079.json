@@ -94,26 +94,33 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
+     "op": "container",
      "indicators": [
       {
-       "text": "to promote new",
+       "text": "to promote",
        "at": 13,
-       "note": "new is abbreviated to its first letter, and promoting it in a down clue lifts that letter higher up the column, earlier in the word"
+       "note": "in a down clue, promoting a letter moves it higher up the column, so the letter for new shifts earlier in the word"
       }
      ],
      "parts": [
       {
-       "words": "Enthusiastic",
-       "at": 0,
-       "gives": "KEEN",
-       "note": "keen means enthusiastic"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Enthusiastic",
+         "at": 0,
+         "gives": "KEEN",
+         "note": "keen means enthusiastic"
+        },
+        {
+         "words": "new",
+         "at": 24,
+         "gives": "N"
+        }
+       ]
       },
       {
-       "gives": "EEN"
-      },
-      {
-       "gives": "NEE"
+       "gives": "N"
       }
      ]
     },
@@ -1621,7 +1628,7 @@
          "words": "affectionately greeted Schwarzenegger",
          "at": 14,
          "gives": "KISSEDARNIE",
-         "note": "kissed means greeted affectionately, and Arnold Schwarzenegger is known as Arnie"
+         "note": "kissed means greeted affectionately; Arnold Schwarzenegger is known as Arnie"
         }
        ]
       }

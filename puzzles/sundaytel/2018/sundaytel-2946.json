@@ -203,29 +203,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "container",
      "indicators": [
       {
-       "text": "Almost",
-       "at": 0,
-       "note": "almost means nearly all, so the word for too loses its last letter"
+       "text": "bound",
+       "at": 15,
+       "note": "the iron symbol binds the other letters, so they go inside it"
       }
      ],
      "parts": [
       {
-       "words": "too ironbound",
-       "at": 7,
-       "gives": "FALSOE",
-       "note": "too is ALSO, and ironbound puts it inside FE, the chemical symbol for iron, as if bound by iron"
+       "words": "iron",
+       "at": 11,
+       "gives": "FE",
+       "note": "Fe is the chemical symbol for iron"
       },
       {
-       "gives": "O"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means nearly all, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "too",
+         "at": 7,
+         "gives": "ALSO",
+         "note": "also means too, in addition"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "Someone asks whether a thing is nearly too firmly bound in iron, then declares it a mistake.",
-     "walkthrough": "'ironbound' reads as a single adjective, but split it: iron is FE, and bound means wrapped around ALSO (too), whose final O 'Almost' removes.",
+     "walkthrough": "'ironbound' reads as one word, but it splits into iron, FE, and 'bound', which wraps FE round ALS, what 'Almost' leaves of ALSO.",
      "definitionFit": "False means incorrect or untrue, which is what wrong means here."
     },
     "features": {
