@@ -7898,8 +7898,10 @@ def keep_held_clues(puzzle, old):
         # another clue's words over a whole held one ("See 25" to "Cambridge Park,
         # E 11 01-989"), is the reread's slip: the held clue stands
         # (tools/audit_updates.py's g:enum-structure and f:rewrite).
+        # So is a count no reader printed (countFrom "grid": the light's length)
+        # over a held count with breaks a reader did print ("4,2,3,6" to "15").
         slipped = breaks_lost(held.get("enumeration"), now.get("enumeration"), h.get("solution") or e.get("solution")) \
-            or rewritten(held["text"], now.get("text"))
+            or grid_count_over(held, now) or rewritten(held["text"], now.get("text"))
         if not slipped and (held.get("enumeration") != now.get("enumeration") or held.get("text") == now.get("text")):
             continue
         if not slipped and (now.get("text") or "").strip() \
@@ -8079,6 +8081,13 @@ def rewritten(was, now):
     another clue's or the page's text on the light ("Bill's relations" to
     "Virtue"). Neither blank."""
     return bool((was or "").strip() and (now or "").strip()) and clue_text.likeness(was, now) < REWRITE_LIKENESS
+
+
+def grid_count_over(held, now):
+    """Whether the clue `now` takes its count from the grid (no reader printed
+    one) where the `held` clue's printed count has word breaks it drops."""
+    return now.get("countFrom") == "grid" and held.get("countFrom") != "grid" \
+        and enumeration.structure_lost(held.get("enumeration"), now.get("enumeration"))
 
 
 def breaks_lost(was, now, answer):
