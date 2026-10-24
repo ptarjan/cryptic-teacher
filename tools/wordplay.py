@@ -1451,10 +1451,54 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
     try:
         evaluate(tree, answer)
     except WordplayError as err:
-        tree = _with_picks_dropped(tree, answer)
+        tree = _with_picks_dropped(tree, answer) or _with_hidden_merged(tree, clue, answer)
         if tree is None:
             raise err
     return normalize(tree, clue, answer)[0]
+
+
+def _with_hidden_merged(tree, clue, answer):
+    """A copy of `tree` with merge_hidden_run() applied when that makes it give
+    `answer`, else None."""
+    repaired = copy.deepcopy(tree)
+    if not merge_hidden_run(repaired, clue):
+        return None
+    try:
+        evaluate(repaired, answer)
+    except WordplayError:
+        return None
+    return repaired
+
+
+def merge_hidden_run(tree, clue):
+    """hid<ind>([Sign] + [a] + [road's]) is hid<ind>([Sign a road's]): a hidden word
+    runs across the clue's words, which the run writes as a charade of one leaf per
+    word where hid() wants one leaf (the 'hid() takes one leaf' refusal, the commonest
+    sub-cause of 'wordplay does not give the answer'). The leaves, plain clue words
+    with no letters of their own, that sit side by side in the clue are joined in
+    place into one leaf, their notes joined. Returns how many hid() nodes changed;
+    translate() keeps the change only when the tree then gives the answer."""
+    changed = 0
+    for node in _walk(tree):
+        parts = node.get("parts") or []
+        if node.get("op") != "hidden" or len(parts) != 1 or parts[0].get("op") != "charade":
+            continue
+        leaves = parts[0].get("parts") or []
+        if (len(leaves) < 2 or parts[0].get("indicators")
+                or not all("op" not in p and p.get("words") and "at" in p and "gives" not in p
+                           and not p.get("select") and not p.get("unchecked") for p in leaves)):
+            continue
+        if any(clue[a["at"] + len(a["words"]):b["at"]].strip(" \t") or b["at"] < a["at"] + len(a["words"])
+               for a, b in zip(leaves, leaves[1:])):
+            continue
+        first, last = leaves[0], leaves[-1]
+        merged = {"words": clue[first["at"]:last["at"] + len(last["words"])], "at": first["at"]}
+        notes = [p["note"].rstrip(". ") for p in leaves if p.get("note")]
+        if notes:
+            merged["note"] = "; ".join(notes)
+        node["parts"] = [merged]
+        changed += 1
+    return changed
 
 
 def _with_picks_dropped(tree, answer):
