@@ -1451,6 +1451,15 @@ def times_scans_pending(scan_lists, tried, busy, scanned):
             and (u["paper"], u["rel"]) not in scanned]
 
 
+def listener_free(free_listener, other_due, ceiling_left):
+    """The Listener pool's free slots this pass: its fixed pool's (LISTENER_WORKERS, `free_listener`)
+    while other read or scan work is due or running (`other_due`), else every unit-ceiling slot left
+    (`ceiling_left`): its units ask no VLM, so nothing else wants them. The ceiling still bounds it."""
+    if other_due or ceiling_left <= 0:
+        return free_listener
+    return max(free_listener, ceiling_left)
+
+
 def times_scan_room(pending, ready_reads, free_scan, free_read, ceiling_left):
     """How many scans may start now while the CT_NEWEST_FIRST papers' scans are `pending` (a count):
     every unit-ceiling slot but those their `ready_reads` will take (at most `free_read`), so the
@@ -2146,6 +2155,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     cpu_cap_bound = False  # logged once each time the CPU-only cap holds a start back
     reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
     ceiling_bound = False  # logged once each time the unit-children ceiling is met
+    listener_wide = False  # logged once each time the Listener pool widens to the ceiling or narrows back
     times_first = [False]  # logged once each time the Times scans take the slots FT would
     scan_held = False  # logged once each time the scans are held to their share for the reads
     opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
@@ -2288,7 +2298,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     # change with it), not per unit per pass: (signature, queue, keys, slots, last index of
     # each slot, (unit, key, slot) of the urgent candidates, (unit, key) of the read-slot reads, lists,
     # the urgent candidates' keys, {key: its first index among them}).
-    queue_memo = [None] * 10
+    queue_memo = [None] * 12
     scan_of_rel = [None, {}]  # the scan_keys lists, their scans by (paper, rel): gpu_fill's scan_of
     fill_scan_logged = [0]  # the fill scans last logged: logged again when their count changes
     scan_keys = [None, frozenset(), None]  # the lists' (id, len), their scans' (paper, rel), the lists
@@ -2836,8 +2846,26 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 first_at.setdefault(k, i)
             queue_memo[:] = [sig, q, qkeys, qslots, last_of, cands,
                              [(v, key_of(v)) for v in fresh_reads + reads if slot_of(v) == "read"], lists,  # lists held: no id reused
-                             frozenset(first_at), first_at]
-        _, queue, qkeys, qslots, last_of, urgent_cands, read_cands, _, urgent_keys, urgent_first = queue_memo
+                             frozenset(first_at), first_at,
+                             frozenset(k for k, sl in zip(qkeys, qslots) if sl != "listener" and not sl.startswith("fetch ")),
+                             frozenset(k for k, sl in zip(qkeys, qslots) if sl == "listener")]
+        (_, queue, qkeys, qslots, last_of, urgent_cands, read_cands, _, urgent_keys, urgent_first,
+         other_keys, listener_keys) = queue_memo
+        # Paul 10-24: the plan held only Listener reads (local OCR, no VLM) and its fixed pool ran 8 of the
+        # 24 ceiling slots, 16 idle. While no other read or scan is due (queued untried) or running, the
+        # Listener pool takes every ceiling slot left; once one is, it is back to LISTENER_WORKERS.
+        other_due = bool(other_keys - tried) or any(
+            slot_of(v) != "listener" and v["kind"] != "fetch" for _, (v, _) in units_running())
+        widen = not other_due and bool(listener_keys - tried)
+        if widen:
+            free["listener"] = listener_free(free.get("listener", 0), other_due, ceiling_left)
+        if widen != listener_wide and (widen or listener_wide):
+            n_listener = sum(1 for _, (v, _) in units_running() if slot_of(v) == "listener")
+            log(f"listener pool: widened to {n_listener + max(0, free['listener'])}, nothing else due "
+                f"(unit ceiling {mem_gate.unit_ceiling()})" if widen else
+                f"listener pool: back to {pools['listener']} (CT_LISTENER_WORKERS), "
+                + ("other work due" if other_due else "no Listener read left"))
+        listener_wide = widen
         # Whether an untried urgent unit is not waiting for the VLM. The untried keys come from one set
         # difference (stored hashes, C speed), not a key built and looked up per candidate each pass
         # (~half the loop's CPU while all are tried); the walk then starts at the first untried one, so
@@ -3006,7 +3034,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if reserve and ukey not in fill_keys and not uslot.startswith("fetch ") and ceiling_left <= reserve:
                 reserve_hit = True  # the last slots are for reads that ask the VLM
                 continue
-            if cpu_cap is not None and cpu_live >= cpu_cap and cpu_only_unit(u) and ukey not in fill_keys:
+            if (cpu_cap is not None and cpu_live >= cpu_cap and cpu_only_unit(u) and ukey not in fill_keys
+                    and not (listener_wide and uslot == "listener")):  # no VLM-asking read is due to keep slots for
                 cpu_capped = True  # the GPU is underfed: the rest of the ceiling is for reads that ask the VLM
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):
