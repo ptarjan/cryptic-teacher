@@ -3820,9 +3820,22 @@
   // group is solved. So a tap charges exactly when the group is unsolved and it
   // either opens the blocks rung, or — "Just tell me" on a blocks question —
   // takes back a blocks rung earned by an earlier piece.
+  // A piece handed over unasked (guessAsk is null: the last unlit words, or its
+  // own letters) whose letters are all printed in the words it names tells the
+  // solver nothing they cannot see, so opening the rung on it is not a purchase.
+  // Anagram fodder qualifies; a synonym's letters are not in the clue and cost.
+  function blocksFree(e, at) {
+    if (!e || guessAsk(e, "blocks", at || 0)) return false;
+    const b = blockAskAt(e, at || 0);
+    if (!b) return false;
+    const have = {};
+    wholeWord(b.clueFragment).split("").forEach((c) => { have[c] = (have[c] || 0) + 1; });
+    return wholeWord(b.gives).split("").every((c) => have[c]-- > 0);
+  }
+
   function blocksCost(e, tell) {
     if (!e || groupSolved(e)) return false;
-    if (!isShown(e, "blocks")) return true;
+    if (!isShown(e, "blocks")) return !blocksFree(e, 0);
     return !!tell && earnedRungs(e).indexOf("blocks") >= 0;
   }
 
@@ -5877,6 +5890,9 @@
           // hanging under the rung they just took would be answered by it.
           guessing = null;
           focusHint(b.rung);
+          // Free by elimination: shown and earned, so the meter does not move.
+          if (b.rung === "blocks" && !isShown(on, "blocks") && !groupSolved(on) && blocksFree(on, at)
+              && earnedRungs(on).indexOf("blocks") < 0) earnedRungs(on).push("blocks");
           showHint(on, b.rung);
           // A piece with no question in it — no fragment to point at, or no
           // letters to point at it with — is simply handed over. The rung still
@@ -6241,10 +6257,11 @@
         // confirm (blocksCost): armed, the button says what the next tap does.
         const arm = s.key === "blocks" ? "blocks-0" : undefined;
         const armed = arm && armedFor(e, arm);
+        const freeBlocks = s.key === "blocks" && !solved && !guessAsk(e, "blocks", 0) && blocksFree(e, 0);
         nextSpec.push({ rung: s.key, arm,
           cls: (j || left ? "ghost small" : (nuxFreeRung(e, s.key, solved) ? "rung-point" : "")) + (solved ? " free" : "")
             + (armed ? " arm-cost" : ""),
-          text: armed ? ARMED_TEXT : `${n} · ${s.label}${solved ? " · free" : ""}` });
+          text: armed ? ARMED_TEXT : `${n} · ${s.label}${solved || freeBlocks ? " · free" : ""}` });
       });
       togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
         nextSpec.push({ cls: "ghost small locked", disabled: true, text: `${n} · ${s.label}`,
