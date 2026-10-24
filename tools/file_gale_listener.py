@@ -40,14 +40,17 @@ read agree, and is checked against a third:
     1930 lists print no counts, so a clue's enumeration settles nothing
     here; where a reading has one, the light it names must be that long.
 
-The puzzle files with no answers (build() takes none), so the nightly
-solve fills its key. Even so read, a report misreads a letter as another
-that still makes a word (PERTS for AERTS on No 1, 1 of 12), so its answers
-are never filed as published: the puzzle with them goes to REPORTS
+Even so read, a report misreads a letter as another that still makes a
+word (PERTS for AERTS on No 1, 1 of 12), so only the answers
+published_answers() takes file, as published: those whose every letter a
+second reader bears out, the Times' cell classifier
+(trove_solution_ocr.classified on report_glyph()) or the crossing light
+read whole the other way (No 1: 7 of 38, none wrong). The rest stay blank
+for the nightly solve; a held file of this tool's takes them too
+(with_report). Every answer read goes to REPORTS
 (cross_validate.ListenerReport's cache), filed or not, where
 tools/cross_validate.py's `listenerreport` adapter votes on answers. A
-solve the report disagrees with is a lead there, and the report never
-outranks it. A puzzle whose report is not saved files all the same.
+puzzle whose report is not saved files all the same, unsolved.
 
 The puzzle goes through scan_queue.file_puzzle, so write_puzzle_file's
 validators (puzzle_integrity.refuse_bad_write) decide it as for every other
@@ -615,6 +618,38 @@ def answers(lts, letters, full):
     return out
 
 
+def published_answers(lts, read, probs):
+    """{light id: word} of the report's answers that file as published: those
+    answers() takes (every cell settled, the whole light read as the word,
+    known()) whose every letter a second reading bears out: the cell
+    classifier (trove_solution_ocr.classified, the Times solution grids'
+    second reader, on report_glyph(); `probs` {cell: 26 probabilities}) reads
+    it likeliest there, or the crossing light, read whole the other way,
+    answers() takes with it too. On No 1's report answers() took PERTS for
+    AERTS, its P a letter the classifier gives under 1% and whose crossing
+    was not read: blank; DALE's L (1%, crossed by TSARSULTAN read whole)
+    files. Any light in doubt stays blank: partial answers file, and the
+    nightly solve fills the rest. With no `probs` (a cell cut off the page)
+    nothing files."""
+    if not probs:
+        return {}
+    settled = crossed(lts, read["letters"], read["full"])
+    taken = {key: w for key, w in ((k, answers({k: c}, settled, read["full"])[f"{k[0]}-{k[1]}"])
+                                   for k, c in lts.items()) if w}
+    by = {}
+    for key, w in taken.items():
+        for rc, ch in zip(lts[key], w):
+            by.setdefault(rc, {})[key] = ch
+    out = {}
+    for (n, d), w in taken.items():
+        if all(rc in probs and (ts.AZ[int(probs[rc].argmax())] == ch
+                                or any(k != (n, d) for k in by[rc]))
+               and set(by[rc].values()) == {ch}
+               for rc, ch in zip(lts[(n, d)], w)):
+            out[f"{n}-{d}"] = w
+    return out
+
+
 # ------------------------------------------------------------ the puzzle
 
 def build(reading, rows):
@@ -649,6 +684,63 @@ def build(reading, rows):
     return puzzle
 
 
+def held_rows(puzzle):
+    """build()'s rows back off a filed puzzle: its "bars" (or open rows), a
+    cell in no entry a block."""
+    R, C = puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"]
+    bars = puzzle.get("bars") or ["." * C] * R
+    used = set()
+    for e in puzzle["entries"]:
+        x, y = e["position"]["x"], e["position"]["y"]
+        used.update((y, x + i) if e["direction"] == "across" else (y + i, x) for i in range(e["length"]))
+    return ["".join(bars[r][c] if (r, c) in used else "#" for c in range(C)) for r in range(R)]
+
+
+def with_report(old, puzzle):
+    """The held file `old` (this tool's, on `puzzle`'s grid) with the answers
+    `puzzle` files as published (published_answers) laid in, or None when it
+    gains none: (the file, [light ids laid]). A light another source already
+    answers is never changed (the Listener Team's key, a report laid
+    before); a model's answer gives way, the report's going into
+    solutions.printed (provenance.printed_answers) and a guess whose letters
+    cross it otherwise going blank, its hint with it, for the solve to fill
+    again."""
+    words = {f"{e['number']}-{e['direction']}": e["solution"] for e in puzzle["entries"] if e.get("solution")}
+    out = copy.deepcopy(old)
+    detail = out.get("solutions") or {}
+    model = "model" in detail
+    printed = dict(detail.get("printed") or {})
+    letters, laid = {}, []
+    for e in out["entries"]:
+        lid = f"{e['number']}-{e['direction']}"
+        w = words.get(lid)
+        if not w or len(w) != e["length"] or lid in printed or e.get("solution") and not model:
+            continue
+        if e.get("solution") != w:
+            e.pop("annotation", None)
+            e["solution"] = w
+        if model:
+            printed[lid] = w
+        laid.append(lid)
+        letters.update(zip(cells_of(e), w))
+    if not laid:
+        return None
+    for e in out["entries"]:
+        if model and e.get("solution") and f"{e['number']}-{e['direction']}" not in printed and any(
+                letters.get(rc, ch) != ch for rc, ch in zip(cells_of(e), e["solution"])):
+            e["solution"] = None
+            e.pop("annotation", None)
+    if model:
+        out["solutions"] = {**detail, "printed": printed}
+    return out, laid
+
+
+def cells_of(e):
+    """The (y, x) cells of entry `e`, in order."""
+    x, y = e["position"]["x"], e["position"]["y"]
+    return [(y, x + i) if e["direction"] == "across" else (y + i, x) for i in range(e["length"])]
+
+
 def report_copy(puzzle, words):
     """`puzzle` as its report prints it: the answers `words` read off the
     report's grid in. A vote for cross_validate.py, never a file."""
@@ -658,11 +750,13 @@ def report_copy(puzzle, words):
     return out
 
 
-def join(reading, grids, reports, read_letters):
+def join(reading, grids, reports, read_letters, read_probs=None):
     """(puzzle or None, verdict, the report's copy or None) for one reading: `grids` the unfilled
     grids read on its pages ({"grid", "fit"}), `reports` every filled grid
     on any saved page ({"grid", "page"}), read_letters(report, lts) its
-    letters ({"letters", "full"}, read_grid_letters' shape)."""
+    letters ({"letters", "full"}, read_grid_letters' shape), and
+    read_probs(report, lts) its cells' classifier probabilities (probs_reader):
+    with them the puzzle has the report's published_answers() in."""
     verdict = {"number": reading["number"]}
     clues = reading["clues"]
     if not grids:
@@ -748,7 +842,13 @@ def join(reading, grids, reports, read_letters):
     verdict["cells"] = {"sure": len(sure), "crossed": sorted([list(c) for c in set(settled) - set(sure)]),
                         "unread": sorted([list(c) for c in cells - set(settled)]), "of": len(cells)}
     verdict["reportAnswers"] = sum(1 for w in words.values() if w)
-    return puzzle, verdict, report_copy(puzzle, words)
+    copied = report_copy(puzzle, words)
+    if read_probs is not None:
+        filed = published_answers(lts, read, read_probs(report, lts))
+        for e in puzzle["entries"]:
+            e["solution"] = filed.get(f"{e['number']}-{e['direction']}")
+        verdict["published"] = len(filed)
+    return puzzle, verdict, copied
 
 
 # ------------------------------------------------------------ the pages
@@ -844,12 +944,80 @@ def letters_reader(inbox=gl.SAVED, cache=GRIDS):
     return read
 
 
+#: report_glyph's cut: a square LETTER_SPAN of the cell wide about the
+#: letter's ink (that outside the number's corner, trove_solution_ocr's
+#: NUMBER_HIGH by half the cell), ink where darker than LETTER_INK, thickened
+#: LETTER_THICK pixels at the glyph's scale. The report's letters are a
+#: typewriter's, a third of the cell high and a pixel thin at glyph() size,
+#: which the classifier, trained on the Times' heavy type, reads as I (7 of
+#: No 1's 100 cells right by glyph(); 73 so cut).
+LETTER_SPAN, LETTER_INK, LETTER_THICK = 0.5, 140, 3
+
+
+def report_glyph(gray, ys, xs, r, c):
+    """Cell (r, c) of a report's filled grid as trove_solution_ocr.glyph()
+    cuts a Times cell for the classifier, but by the LETTER_SPAN cut."""
+    import numpy as np
+    from PIL import Image
+    side = ts.GLYPH + 2 * ts.GLYPH_SHIFT
+    h, w = ys[r + 1] - ys[r], xs[c + 1] - xs[c]
+    a = gray[int(ys[r] + ts.GLYPH_MARGIN * h):int(ys[r + 1] - ts.GLYPH_MARGIN * h),
+             int(xs[c] + ts.GLYPH_MARGIN * w):int(xs[c + 1] - ts.GLYPH_MARGIN * w)]
+    if a.size == 0:
+        return np.zeros((side, side), np.float32)
+    ink = a < LETTER_INK
+    letter = ink.copy()
+    letter[:int(ts.NUMBER_HIGH * ink.shape[0]), :ink.shape[1] // 2] = False
+    ys_, xs_ = np.nonzero(letter)
+    cy, cx = (np.median(ys_), np.median(xs_)) if len(ys_) else (ink.shape[0] / 2, ink.shape[1] / 2)
+    half = LETTER_SPAN * max(ink.shape) / 2
+    cut = ink[max(0, int(cy - half)):int(cy + half), max(0, int(cx - half)):int(cx + half)]
+    if cut.size == 0:
+        return np.zeros((side, side), np.float32)
+    g = np.asarray(Image.fromarray(cut.astype(np.uint8) * 255).resize((side, side), Image.BILINEAR),
+                   np.float32) / 255
+    k = LETTER_THICK
+    p = np.pad(g, k)
+    return np.max([p[k + dy:k + dy + side, k + dx:k + dx + side]
+                   for dy in range(-(k // 2), k - k // 2) for dx in range(-(k // 2), k - k // 2)], 0)
+
+
+def probs_reader(inbox=gl.SAVED, cache=GRIDS):
+    """read_probs for join(): {cell: 26 letter probabilities} of the
+    classifier (trove_solution_ocr.classified) on each cell of the report's
+    lights, cut by report_glyph() on the report's own rules, cached by the
+    report, its lights, the cut and the model (CELL_MODEL_SHA); {} when a
+    cell is off the lattice."""
+    import numpy as np
+
+    def read(report, lts):
+        ys, xs = report["grid"]["lattice"]
+        cells = sorted({rc for cs in lts.values() for rc in cs})
+        if any(r + 1 >= len(ys) or c + 1 >= len(xs) for r, c in cells):
+            return {}
+        key = hashlib.sha256(json.dumps([report["page"], report["grid"]["box"], ts.CELL_MODEL_SHA,
+                                         code_key(sys.modules[__name__], "report_glyph"),
+                                         [list(rc) for rc in cells]]).encode()).hexdigest()[:20]
+        dest = cache / f"probs-{key}.json"
+        got = gl.read_json(dest)
+        if got is None:
+            img, _ = gi.images(gl.page_path(inbox, report["page"]))[report["grid"]["page"]]
+            gray = np.asarray(img.convert("L"), dtype=np.uint8)
+            probs = ts.classified({rc: report_glyph(gray, ys, xs, *rc) for rc in cells})
+            got = [[r, c, [round(float(p), 6) for p in probs[(r, c)]]] for r, c in cells]
+            cache.mkdir(parents=True, exist_ok=True)
+            gl.write_whole(dest, json.dumps(got))
+        return {(r, c): np.asarray(p) for r, c, p in got}
+    return read
+
+
 def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout,
-        grids_of=page_grids, read_letters=None, reports_to=REPORTS, numbers=None):
+        grids_of=page_grids, read_letters=None, reports_to=REPORTS, numbers=None, read_probs=None):
     """Join every reading in `store` (or just those of `numbers`) with its
     grid and report; file those that pass, and keep each report's copy in
     `reports_to`. Returns {number: verdict}, also merged into store/LEDGER."""
     read_letters = read_letters or letters_reader(Path(inbox))
+    read_probs = read_probs or probs_reader(Path(inbox))
     ledger = gl.load_ledger(store)
     # The saved pages, listed once (the folder and its Fetched subfolder; on the desktop over the share).
     where = {p.name: p for p in gl.page_files(inbox)}
@@ -888,7 +1056,7 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
     verdicts = {}
     for n, reading in sorted(readings.items()):
         mine = [g for sha, e in files if e.get("number") == n for g in grids.get(e["file"], ()) if g["fit"]]
-        puzzle, verdict, printed = join(reading, mine, reports, read_letters)
+        puzzle, verdict, printed = join(reading, mine, reports, read_letters, read_probs)
         if printed and write:
             Path(reports_to).mkdir(parents=True, exist_ok=True)
             (Path(reports_to) / f"{printed['id']}.json").write_text(json.dumps(printed, indent=1) + "\n")
@@ -923,10 +1091,16 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
                     same = ((old.get("source") or {}).get("acquiredBy") == TOOL
                             and fa.trove_solution_ocr.puzzle_grid(old) == fa.trove_solution_ocr.puzzle_grid(puzzle))
                     fixed = same and fa.corrected_clues(puzzle, old)
-                    if not fixed:
+                    # And the report's answers it lacks (with_report).
+                    answered = same and with_report(old, puzzle)
+                    if answered:
+                        old = answered[0]
+                        verdict["answered"] = answered[1]
+                    if not fixed and not answered:
                         verdict["skip"] = "already held"
                     else:
-                        verdict["corrected"] = fixed
+                        if fixed:
+                            verdict["corrected"] = fixed
                         if write:
                             scan_queue.file_puzzle(write_puzzle_file, TOOL, path, old, verdict)
                 elif write:
@@ -939,7 +1113,9 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
                          if verdict.get("corrected") else "") if verdict.get("wrote") else None,
             f"report: {verdict['noReport']}" if "noReport" in verdict else None) if v)
               + (f", {verdict['reportAnswers']}/{len(puzzle['entries'])} answers read off the report"
-                 if "reportAnswers" in verdict else ""), file=out)
+                 + f", {verdict.get('published', 0)} sure enough to file as published"
+                 if "reportAnswers" in verdict else "")
+              + (f", answered {', '.join(verdict['answered'])}" if verdict.get("answered") else ""), file=out)
     if write:
         # Read, merged and written whole under its lock: units filing at once
         # (tools/edition_queue.py runs several) keep each other's verdicts.
