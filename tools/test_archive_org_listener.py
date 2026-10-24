@@ -161,6 +161,36 @@ check("a misread next number inside the text is a run-on", False,
 check("an ellipsis opening is sound", True, al.sound(". . . their Peasant's Revolt"))
 check("an instruction opening is sound (No 127's \"(mixed) Shoulder.\")", [True, True, False],
       [al.sound("(mixed) Shoulder."), al.sound("(Letter missing.) A town"), al.sound("(6) Shoulder")])
+# No 471's "25 lacks cohesion in Northern League." and "37's right half.",
+# No 378's "anag. Bubbling thirst extinguisher.": a cited light opens them.
+check("a cited light or anag. opening is sound", [True, True, True],
+      [al.sound("25 lacks cohesion in Northern League."), al.sound("37's right half."),
+       al.sound("anag. Bubbling thirst extinguisher.")])
+check("a stray figure before a capital, or a link's \"3 rev.\", is no cited light (mirror)", [False, False, False],
+      [al.sound("5 Town in Assam."), al.sound("25 L"), al.sound("3 rev. What is your favourite tap, Ma'am?")])
+
+# No 434's 9 down: one reading lays it clean, another runs it on into 10
+# down ("(io)" its number misread), the third loses it. The run-on reading
+# saw the clue end where 10 down starts: a second opinion.
+a = {"9-down": ("There's one on the drum.", None, None), "10-down": ("The stone of a drupe.", None, None)}
+b = {"9-down": ("There's one on the drum.(io) The stone of 41 a drupe.", None, None)}
+c = {"10-down": ("The stone of 41 a drupe.", None, None)}
+check("a clue another reading runs on into the next clue is corroborated", "There's one on the drum.",
+      al.pick([c, b, a])["9-down"][0])
+b = {"9-down": ("There's one on the drum.(io) Prizewinners: E. P. Adam (Nottingham); J. H. Atkins", None, None)}
+check("a reading running on into no clue corroborates nothing (mirror)", "", al.pick([c, b, a])["9-down"][0])
+a = {"9-down": ("There's one", None, None), "10-down": ("The stone of a drupe.", None, None)}
+b = {"9-down": ("There's one on the drum.(io) The stone of 41 a drupe.", None, None)}
+check("a clue its end lost is not corroborated by the run-on (mirror)", "", al.pick([c, b, a])["9-down"][0])
+
+# No 503's 4D: one reading's "†O seek" for "to seek", kept by the vote.
+own = ["Moved lady †O seek prophet's aid.", "Moved lady to seek prophets aid.", "Moved lady toseekprophet'said."]
+check("a footnote mark inside a clue one reading alone prints goes", "Moved lady to seek prophet's aid.",
+      al.unmarked("Moved lady †to seek prophet's aid.", own))
+check("one two readings print stays, as does one opening the clue (mirror)",
+      ["Moved lady †to seek.", "†Not far from 13."],
+      [al.unmarked("Moved lady †to seek.", ["Moved lady †to seek.", "Moved lady †to seek"]),
+       al.unmarked("†Not far from 13.", ["†Not far from 13."])])
 
 # The Listener's readings set each filed clue's count and words as they
 # print them (ocr_clues.as_printed with this filer's parse), and leave a

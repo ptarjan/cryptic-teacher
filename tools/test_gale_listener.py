@@ -380,6 +380,19 @@ for what, page, want in (("a letter's \"23,\" over the preamble cuts nothing", n
 check("No 8: a notice under one prose line opening \"23,\" is no notice under a list", None,
       g.notice_top(al.fa.merge_rows([(w[1], w[3], w[0], w[2], w[4]) for w in no8() if w[0] < 500])))
 
+# No 447's last down clue read on into the rules under the lists: the
+# clue ends at its stop, the rules' "(5)" and "(7)" are no clues; a list
+# run on past the rules keeps its clues there.
+rules = [(0, 20, 0, 900, "(33) Rose of Sharon."),
+         (30, 50, 0, 900, "(36) The did not answer; his stool'. addressed to the Editor of The Listener,"),
+         (60, 80, 0, 900, "(5) Subject to the above rules, the sender of each correct solution"),
+         (90, 110, 0, 900, "(7) In all matters the Editor's decision is final.")]
+check("a clue read on into the rules ends at its stop, the rules go", ["(33) Rose of Sharon.", "(36) The did not answer; his stool'."],
+      [l[4] for l in g.rules_cut(rules)])
+check("a list run on past the rules keeps its clues (mirror)", ["(33) Rose of Sharon.", "(36) The did not answer; his stool'.", "(38) A tree."],
+      [l[4] for l in g.rules_cut(rules + [(120, 140, 0, 900, "(38) A tree.")])])
+check("a list with no rules is left alone (mirror)", rules[:1], g.rules_cut(rules[:1]))
+
 # No 3's page: ACROSS and DOWN low on the left under the grid, both lists
 # running on at the top of the right half. The headings give only the
 # first band; the clue numbers give all of it, so they are taken. Without

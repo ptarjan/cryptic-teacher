@@ -686,6 +686,10 @@ check("a quotation the vote kept shut but not open takes the mark a reading open
 check("none when no reading opens it, or it opens on another word (mirror)", [None, None],
       [oc.reopened("And the —— is heard above the lyre'.", ["And the —— is heard above the lyre'."]),
        oc.reopened("And the —— is heard above the lyre'.", ["'The —— is heard above the lyre'."])])
+check("No 386: a mark a reading spaces off the first word opens it too",
+      "'Who therein d The just reward of her high huswifry'.",
+      oc.reopened("Who therein d The just reward of her high huswifry'.",
+                  ["' Who therein 'd The just reward of her high huswifry '."]))
 check("No 103: a stop left alone before the first word is an elided start, opened there",
       "rev. '. . . is a monster of so frightful mien'.",
       oc.reopened("rev. . is a monster of so frightful mien'.", ["rev. is a monster of so frightful mien'."]))

@@ -4180,8 +4180,9 @@ def reopened(text, readings):
         return None
     if (m := ELIDED.match(text)) and unclosed_quote(got := m.group(1) + "'. . . " + text[m.end():]) is None:
         return got
+    # A reader may space the mark off its word ("' Who therein", No 386).
     for r in readings:
-        m = re.match(r"\s*(['\u2018\"\u201c])(\S+)", r or "")
+        m = re.match(r"\s*(['\u2018\"\u201c])\s?(\S+)", r or "")
         if m and m.group(2).strip(EDGE) == first[0].strip(EDGE):
             got = ("'" if m.group(1) in "'\u2018" else '"') + text
             if unclosed_quote(got) is None:
