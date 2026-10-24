@@ -425,15 +425,22 @@ def not_in_clue(text, clue, nth=1):
     head = f"{text!r} is not in the clue {clue!r}: "
     low = clue.lower()
     if nth > 1:
-        have = len(re.findall(re.escape(text.lower()), low))
+        # Count what find_at counts: whole-word copies when there are any ("a" in
+        # "inhabiting a region" is one copy, not the seven letters a inside words).
+        have = (len(re.findall(rf"(?<!\w){re.escape(text.lower())}(?!\w)", low))
+                or len(re.findall(re.escape(text.lower()), low)))
         return head + (f"the clue has {have} copy of those words, so there is no copy #{nth}: "
                        f"drop the `#{nth}`" if have == 1 else f"the clue has {have} copies, "
                        f"so there is no copy #{nth}")
     words = re.findall(r"[\w'’]+", text.lower())
     absent = [w for w in words if w not in low]
     if "#" in text:
+        fixed = re.sub(r"#(\d+)(?=\s)", "", text)
+        n = int(re.search(r"#(\d+)", text).group(1))
+        hint = (f": write {fixed + '#' + str(n)!r}"
+                if fixed != text and low.count(fixed.lower()) >= n else "")
         return head + ("`#n` goes once, at the very end of the quote (`fond#2`), and the "
-                       "quote itself must be one unbroken run of clue words")
+                       "quote itself must be one unbroken run of clue words" + hint)
     runs = _gapped_runs(text, clue)
     if runs:
         return head + (f"those words sit in the clue in order but not side by side: the clue has "
@@ -442,6 +449,14 @@ def not_in_clue(text, clue, nth=1):
                        f"{', '.join(repr(r) for r in runs[1])} (an indicator: one <..> per run; "
                        f"wordplay: one [..] per run)")
     if len(words) > 1 and not absent:
+        toks = re.findall(r"[\w'’]+", low)
+        if all(w in toks for w in words):
+            pos = [toks.index(w) for w in words]
+            if pos != sorted(pos):
+                return head + ("those words are in the clue but in a different order than "
+                               "you wrote them: quote them as the clue has them, "
+                               + ", ".join(repr(words[i]) for i in sorted(range(len(words)), key=pos.__getitem__))
+                               + " (each run its own piece if other words sit between)")
         return head + ("each word is in the clue but not side by side: give each run of "
                        "clue words its own [..] piece (the words between belong to other pieces "
                        "or are link words)")

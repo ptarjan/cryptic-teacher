@@ -167,6 +167,11 @@ for name, expr, words, clue in [
     ("a repeat that isn't there", "[in#2]IN", ["no copy #2"], "Tea in cup"),
     ("gapped words name the clue's own run", "rev<swaps for>([x]X)",
      ["'swaps daughter for'", "'swaps', 'for'"], "Country fellow swaps daughter for piano!"),
+    ("a repeat counts whole words", "[a#2]A", ["has 1 copy"], "Animal inhabiting a region of Spain"),
+    ("reordered words say the clue's order", "[who in Paris]X", ["different order", "'in', 'paris', 'who'"],
+     "Traitor in Paris who attracts support"),
+    ("#n mid-quote names the fix", "[ugly#2 this]X", ["write 'ugly this#2'"],
+     "This is ugly this, terribly ugly this around"),
     ("#n mid-quote", "[ugly#2 this]X", ["`#n` goes once"], "This is ugly, terribly ugly this around"),
 ]:
     r = perr(expr, *words, clue=clue)
