@@ -371,35 +371,20 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "after removing",
+       "text": "after removing duplicates",
        "at": 33,
-       "note": "removing applies to the doubled S as well, so one of that pair is taken out too"
+       "note": "the word has a doubled pair of each of two letters, and one of each pair is taken away"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "duplicates",
-         "at": 48,
-         "note": "the word has a doubled C, and the duplicate copy is the one to go"
-        }
-       ],
-       "parts": [
-        {
-         "words": "permission to enter",
-         "at": 13,
-         "gives": "ACCESS",
-         "note": "access is the right or permission to go in"
-        },
-        {
-         "gives": "C"
-        }
-       ]
+       "words": "permission to enter",
+       "at": 13,
+       "gives": "ACCESS",
+       "note": "access is the right or permission to go in"
       },
       {
-       "gives": "S"
+       "gives": "CS"
       }
      ]
     },
@@ -875,55 +860,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught in",
+       "at": 11,
+       "note": "the man is held within the other letters"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Countryman",
-       "note": "one printed word doing two jobs: its first part is the definition and its last three letters are the next piece"
-      },
-      {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "caught in",
-         "note": "something caught in something else is trapped inside it"
+         "text": "storm",
+         "at": 27,
+         "note": "a storm whips things about, so the letters of a rain are shuffled"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "storm",
-           "note": "a storm throws things about, so the letters before it are tossed into a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a rain",
-           "note": "taken as written"
-          }
-         ]
-        },
-        {
-         "words": "man",
-         "gives": "GENT",
-         "note": "a gent is a gentleman"
+         "words": "a rain",
+         "at": 21
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "rainstorm",
-       "note": "one printed word doing two jobs: its first part is fodder and its end is the scrambling signal"
+       "words": "man",
+       "at": 7,
+       "gives": "GENT",
+       "note": "a gent is a man, short for gentleman"
       }
      ]
     },
     "explanation": {
-     "surface": "A rural fellow gets drenched in a downpour.",
-     "walkthrough": "'Countryman' reads as one word for a rustic, but it splits: Country is the definition and man the gent who is caught.",
-     "definitionFit": "Argentina is a nation in South America, so it is an example of a country."
+     "surface": "A man from the countryside gets caught in a rainstorm.",
+     "walkthrough": "'Countryman' and 'rainstorm' each split in two: 'Country' is the definition and 'man' the wordplay, and 'storm' rearranges A RAIN to ARINA, with GENT inside.",
+     "definitionFit": "Argentina is a nation in South America, so an example of a country."
     },
     "features": {
      "answerInScene": false,

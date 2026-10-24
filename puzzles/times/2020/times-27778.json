@@ -1257,13 +1257,6 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "gaining",
-       "at": 36,
-       "note": "gaining means the home word takes on the weight next, before the repeat follows"
-      }
-     ],
      "parts": [
       {
        "words": "quietly",
@@ -1272,28 +1265,46 @@
        "note": "p (piano) means quietly in music"
       },
       {
-       "words": "at home",
-       "at": 27,
-       "gives": "IN",
-       "note": "in means at home"
-      },
-      {
-       "words": "weight",
-       "at": 44,
-       "gives": "KG",
-       "note": "kg, kilogram, is a unit of weight"
-      },
-      {
-       "words": "repeatedly",
-       "at": 15,
-       "gives": "IN",
-       "note": "repeatedly calls for the home word once more, so it supplies a second copy"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gaining",
+         "at": 36,
+         "note": "the weight is taken in, between the two home words"
+        }
+       ],
+       "parts": [
+        {
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 15,
+           "note": "repeatedly says the home word comes twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "at home",
+           "at": 27,
+           "gives": "IN",
+           "note": "in means at home"
+          }
+         ]
+        },
+        {
+         "words": "weight",
+         "at": 44,
+         "gives": "KG",
+         "note": "kg, kilogram, is a unit of weight"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "Someone drinking discreetly and often at home puts on weight.",
-     "walkthrough": "'repeatedly' looks like it describes the drinking, but it asks for the home word a second time, and 'gaining' puts the weight before that repeat. Pink gin was a Royal Navy favourite.",
+     "walkthrough": "'repeatedly' doubles IN; 'gaining' puts KG between them, after P.",
      "definitionFit": "Pink gin is a cocktail of gin and Angostura bitters, a naval favourite."
     },
     "features": {

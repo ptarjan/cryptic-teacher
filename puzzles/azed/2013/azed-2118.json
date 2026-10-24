@@ -856,7 +856,7 @@
         {
          "text": "about",
          "at": 8,
-         "note": "the article goes about the two extreme letters"
+         "note": "the article goes about the extracted letters, holding them inside"
         }
        ],
        "parts": [
@@ -867,42 +867,41 @@
          "note": "the is the definite article"
         },
         {
-         "words": "regime's extremes",
-         "at": 14,
-         "gives": "RE",
-         "note": "the first and last letters of regime"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "extremes",
+           "at": 23,
+           "note": "the extremes of a word are its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "regime's",
+           "at": 14,
+           "note": "only its end letters are used"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "when shortened",
-         "at": 37,
-         "note": "did is cut down to its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "did",
-         "at": 32
-        },
-        {
-         "gives": "ID"
-        }
-       ]
+       "words": "did, when shortened",
+       "at": 32,
+       "gives": "D",
+       "note": "D is the short form of did"
       }
      ]
     },
     "explanation": {
-     "surface": "A grammatical aside about a regime's extremes and a truncated verb.",
-     "walkthrough": "The answer is enumerated as one word but means 3-D.",
-     "definitionFit": "Three-dimensional images seem to have depth added to the usual height and width."
+     "surface": "A grammar note about a regime's actions, abbreviated, given extra depth.",
+     "walkthrough": "Something three-D has the third dimension, depth, added to height and width.",
+     "definitionFit": "Three-dimensional images have depth as well as height and width, the third dimension."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "depth"
     }
    }
   },

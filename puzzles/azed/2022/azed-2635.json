@@ -1322,11 +1322,6 @@
        "text": "irregular",
        "at": 20,
        "note": "irregular means out of order, so the letters of the answer plus those named are jumbled"
-      },
-      {
-       "text": "perhaps",
-       "at": 44,
-       "note": "perhaps flags that the phrase is only one possible arrangement of the letters, a disguised version"
       }
      ],
      "parts": [
@@ -1394,19 +1389,27 @@
      ],
      "parts": [
       {
-       "op": "alternate",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "not OK",
+         "text": "not",
          "at": 35,
-         "note": "not OK says the O and the K of work go, and as they are its second and fourth letters the alternate letters are what remain"
+         "note": "not means the letters OK are removed from work"
         }
        ],
        "parts": [
         {
          "words": "work",
-         "at": 29,
-         "note": "the word work, which loses two of its letters"
+         "at": 29
+        },
+        {
+         "words": "OK",
+         "at": 39,
+         "gives": "O",
+         "note": "the letters of OK are removed from work, the O first and then the K"
+        },
+        {
+         "gives": "K"
         }
        ]
       },

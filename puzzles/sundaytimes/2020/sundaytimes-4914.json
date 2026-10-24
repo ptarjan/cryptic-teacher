@@ -263,7 +263,7 @@
      }
     ],
     "wordplay": {
-     "op": "composite",
+     "op": "anagram",
      "indicators": [
       {
        "text": "turned",
@@ -273,20 +273,32 @@
      ],
      "parts": [
       {
-       "words": "your home",
-       "at": 10
-      },
-      {
-       "words": "Loveless",
-       "at": 0,
-       "gives": "OO",
-       "note": "love is O, the zero score in tennis; loveless means with no love at all, so both Os are taken out"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "less",
+         "at": 4,
+         "note": "Loveless means without any love at all, so every love goes from the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "your home",
+         "at": 10
+        },
+        {
+         "words": "Love",
+         "at": 0,
+         "gives": "OO",
+         "note": "love is O, the zero score in tennis; both of them are dropped here"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A lonely person finds a home without love has turned cold and damp.",
-     "walkthrough": "'Loveless' (love being O) removes both Os from YOUR HOME to leave YURHME, and 'turned' rearranges those letters.",
+     "walkthrough": "'Loveless' removes both Os from YOUR HOME to leave YURHME, and 'turned' rearranges those letters.",
      "definitionFit": "Rheumy can describe raw, chilly and moist weather or air, as well as watery eyes."
     },
     "features": {

@@ -647,15 +647,11 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Abruptly",
-       "note": "abruptly means cut short, so the last letter goes"
-      }
-     ],
      "parts": [
       {
        "words": "Ho",
+       "at": 1,
+       "gives": "HO",
        "note": "taken as written"
       },
       {
@@ -663,7 +659,8 @@
        "indicators": [
         {
          "text": "back",
-         "note": "the second 'back' turns the pieces before it around"
+         "at": 30,
+         "note": "back here means read in the opposite direction, so the word draw is turned round"
         }
        ],
        "parts": [
@@ -671,12 +668,29 @@
          "op": "charade",
          "parts": [
           {
-           "words": "Abruptly draw back",
-           "gives": "RETRAC",
-           "note": "draw back = RETRACT, cut short to RETRAC"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "Abruptly",
+             "at": 5,
+             "note": "something ended abruptly is cut off short, so the last letter goes"
+            }
+           ],
+           "parts": [
+            {
+             "words": "draw back",
+             "at": 14,
+             "gives": "RETRACT",
+             "note": "to draw back is to retract"
+            },
+            {
+             "gives": "T"
+            }
+           ]
           },
           {
            "words": "draw",
+           "at": 25,
            "note": "taken as written"
           }
          ]
@@ -686,14 +700,14 @@
      ]
     },
     "explanation": {
-     "surface": "A cry of alarm as someone recoils before stepping into a tomb.",
-     "walkthrough": "The repeated 'draw back' looks like shocked repetition, but the first is a synonym cut short and the second is the word itself plus a turnaround of everything after Ho. Howard Carter opened Tutankhamun's tomb in 1922.",
-     "definitionFit": "Howard Carter was the archaeologist who first entered Tutankhamun's tomb."
+     "surface": "A startled cry to recoil from the threshold, fitting the moment an Egyptologist opens a sealed tomb.",
+     "walkthrough": "'draw back' also does double duty as the turnaround of the shortened RETRAC: read backwards it gives CARTER. Howard Carter was the archaeologist who opened Tutankhamun's tomb in 1922.",
+     "definitionFit": "Howard Carter, the English archaeologist, was the first person in millennia to enter the burial chamber of Tutankhamun."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "back"
+     "misdirectedWord": "draw"
     }
    }
   },

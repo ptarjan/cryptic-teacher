@@ -1143,64 +1143,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "confused",
+       "at": 17,
+       "note": "confused means mixed up, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Jellyfish",
-       "note": "one printed word split in two: its first five letters are the definition and the last four are the fish whose hearts are taken"
-      },
-      {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "confused",
-         "note": "confused means muddled into a new order"
+         "text": "hearts",
+         "at": 10,
+         "note": "the heart of a word is its middle, here the two letters inside fish"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "hearts",
-           "note": "hearts are the central letters of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "fish",
-           "note": "the two central letters"
-          }
-         ]
-        },
+         "words": "fish",
+         "at": 5,
+         "gives": "IS",
+         "note": "middle letters of fish"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "regularly means taking letters at even intervals"
-          }
-         ],
-         "parts": [
-          {
-           "words": "plaice",
-           "note": "first, third and fifth letters"
-          }
-         ]
+         "text": "regularly",
+         "at": 38,
+         "note": "taking letters regularly means every other one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plaice",
+         "at": 31,
+         "note": "alternate letters of plaice, first, third and fifth"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Jellyfish hearts get mixed up with bits of plaice.",
-     "walkthrough": "Jellyfish wants to be one creature; split it, and jelly is the definition while fish is the fodder.",
-     "definitionFit": "Aspic is a savoury jelly made from meat or fish stock."
+     "surface": "The insides of jellyfish are mixed up with the flatfish plaice.",
+     "walkthrough": "'Jellyfish' splits in two: 'Jelly' is the definition and 'fish hearts' gives IS. 'regularly' takes PAC from plaice, and 'confused' rearranges IS and PAC.",
+     "definitionFit": "Aspic is a savoury jelly made from meat or fish stock, used to set cold dishes."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Jellyfish"
     }
    }

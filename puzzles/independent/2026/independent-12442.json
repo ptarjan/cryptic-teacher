@@ -1218,51 +1218,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPONSOR",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "amendment of",
+       "at": 5,
+       "note": "an amendment changes a text, so the letters are reworked into a new order"
+      },
+      {
+       "text": "losing",
+       "at": 29,
+       "note": "losing means giving something up, so the named letter is taken out of the fodder"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SPONSOR",
+       "words": "Spooner's",
+       "at": 18
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "amendment of",
-         "note": "an amendment alters the wording of a thing, and what is altered here is the order the letters stand in"
-        },
-        {
          "text": "in the end",
-         "note": "the end of a word is its final letter, and that is the one being given up"
+         "at": 41,
+         "note": "the end of a word is its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Spooner's",
-         "note": "the reverend's name with its 's, eight letters to start from"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "losing",
-           "note": "what is lost is dropped before anything else is done with the rest"
-          }
-         ],
-         "parts": [
-          {
-           "words": "vote",
-           "note": "the last letter of votE, the one that goes"
-          }
-         ]
+         "words": "vote",
+         "at": 36,
+         "note": "last letter of vote"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Spooner is the red herring of the puzzle: no sounds are swapped anywhere, and his name is simply the fodder, one letter lighter.",
-     "definitionFit": "To sponsor a bill or a runner is to back it - 'back' in the money-behind-you sense rather than the direction."
+     "surface": "Supporting a change to Reverend Spooner's text, but losing the vote in the end.",
+     "walkthrough": "'losing' drops the E that 'in the end' takes from vote, leaving SPOONRS, and 'amendment of' rearranges those letters. 'Back' is a verb meaning support.",
+     "definitionFit": "To sponsor someone is to back or support them, often with money or an endorsement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
     }
    }
   },

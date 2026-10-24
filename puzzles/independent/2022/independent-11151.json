@@ -985,23 +985,28 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Weak",
-       "at": 0,
-       "gives": "W",
-       "note": "W is the abbreviation for weak, as in the physicists' weak force"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 5,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Weak",
+         "at": 0
+        }
+       ]
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "leader",
-         "at": 5,
-         "note": "the leader of the commotion word is its first letter, the one to go"
-        },
-        {
          "text": "ignoring",
          "at": 12,
-         "note": "the commotion word ignores, drops, the letter named by leader"
+         "note": "the commotion word ignores its own leader, so its first letter is dropped"
         }
        ],
        "parts": [
@@ -1020,6 +1025,7 @@
     },
     "explanation": {
      "surface": "A feeble chief who shrugs off a disturbance is a coward.",
+     "walkthrough": "'leader' does double work: the first letter of Weak replaces the first letter of the commotion.",
      "definitionFit": "A wuss is a slang term for a feeble, timid person."
     },
     "features": {

@@ -681,33 +681,27 @@
      "op": "composite",
      "indicators": [
       {
-       "text": "with",
-       "at": 6,
-       "note": "with says the named letters are added to the answer before the mixing"
-      },
-      {
        "text": "making",
        "at": 14,
-       "note": "the answer together with us makes a rearrangement of lentil soup"
+       "note": "making signals that the answer together with us is made from a rearrangement of the soup's letters"
       }
      ],
      "parts": [
       {
        "words": "lentil soup",
        "at": 21,
-       "note": "taken as written: all ten letters are the pool"
+       "note": "the letters of lentil soup, shuffled, give the answer plus U and S"
       },
       {
        "words": "us",
-       "at": 11,
-       "note": "taken as written"
+       "at": 11
       }
      ]
     },
     "explanation": {
-     "surface": "A tale in which we cook up a pan of pulse soup.",
-     "walkthrough": "Add US to the answer and the letters rearrange to LENTIL SOUP.",
-     "definitionFit": "A plotline is the storyline of a novel, film or play."
+     "surface": "A homely tale about us cooking lentil soup together.",
+     "walkthrough": "A composite anagram: the answer plus US rearranges to LENTIL SOUP, so take U and S out of those letters and rearrange the rest. 'Soup' looks like an indicator but is fodder.",
+     "definitionFit": "A plotline is the sequence of events that forms a narrative, the thread of a story."
     },
     "features": {
      "answerInScene": false,
@@ -862,7 +856,7 @@
      }
     ],
     "wordplay": {
-     "op": "composite",
+     "op": "anagram",
      "indicators": [
       {
        "text": "Different",
@@ -872,14 +866,23 @@
      ],
      "parts": [
       {
-       "words": "age once, still",
-       "at": 10
-      },
-      {
-       "words": "endlessly",
-       "at": 26,
-       "gives": "EEL",
-       "note": "endlessly tells us to drop the last letter of each of the three words age, once and still"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 26,
+         "note": "endlessly tells us to drop the last letter of each of the three words age, once and still"
+        }
+       ],
+       "parts": [
+        {
+         "words": "age once, still",
+         "at": 10
+        },
+        {
+         "gives": "EEL"
+        }
+       ]
       }
      ]
     },
