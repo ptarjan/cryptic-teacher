@@ -24,6 +24,12 @@ has since been fixed (or the draft was never the problem). Report how many pass,
 how many of those differ from the committed wordplay, and which checks rejected
 them first. Drafts for different clues of one puzzle are validated together, so
 a cross-clue check could blame one for another's; the count is a bound.
+
+--apply writes them. For each puzzle it takes the differing drafts from --results
+(the dry run's passing list), skips a draft with an identity op (sound(X, X)) or whose
+clue was changed by a commit after the session's own, applies the rest to the file as it
+is now, and writes only if the full validator gives no clue of theirs an error and the
+puzzle no error it did not already have. Prints applied and skipped-by-reason counts.
 """
 import argparse
 import copy
@@ -219,9 +225,219 @@ def full_errors(pairs, puzzle):
     return [[m.strip() for m in errors if m.strip().startswith(k)] for k in mine]
 
 
+CALL = re.compile(r"(\w+)(?:<[^<>]*>)?\(")
+
+
+def plain(arg):
+    """The letters of an argument that is just `[label]LETTERS` or `LETTERS`, else None."""
+    m = re.fullmatch(r"\s*(?:\[[^\]]*\])?\s*([A-Za-z' -]+?)\s*", arg)
+    return re.sub(r"[^A-Za-z]", "", m.group(1)).upper() if m else None
+
+
+def split_args(body):
+    """Top-level comma split of a call body, ignoring commas in [..] and (..)."""
+    out, depth, cur = [], 0, ""
+    for ch in body:
+        if ch in "[(":
+            depth += 1
+        elif ch in "])":
+            depth -= 1
+        if ch == "," and depth == 0:
+            out.append(cur)
+            cur = ""
+        else:
+            cur += ch
+    return out + [cur]
+
+
+def call_bodies(wp):
+    """[(op, body)] for every op call in a wp string, nested ones too."""
+    out = []
+    for m in CALL.finditer(wp):
+        depth, i = 1, m.end()
+        while i < len(wp) and depth:
+            if wp[i] == "[":
+                j = wp.find("]", i)
+                i = j if j >= 0 else len(wp) - 1
+            elif wp[i] == "(":
+                depth += 1
+            elif wp[i] == ")":
+                depth -= 1
+            i += 1
+        out.append((m.group(1), wp[m.end():i - 1]))
+    return out
+
+
+def identity_op(wp):
+    """The first op of `wp` whose input equals its output (sound(X, X), sub(.., X, X)), else None."""
+    for op, body in call_bodies(wp):
+        args = [plain(a) for a in split_args(body)]
+        if op == "sound" and len(args) == 2 and args[0] and args[0] == args[1]:
+            return f"{op}({body})"
+        if op == "sub" and len(args) == 3 and args[1] and args[1] == args[2]:
+            return f"{op}({body})"
+    return None
+
+
+def clue_versions(path, tag, after):
+    """How many commits after epoch `after` changed this clue's stored annotation."""
+    import subprocess
+    from fetch_puzzle import ROOT
+    rel = Path(path).resolve().relative_to(Path(ROOT).resolve()).as_posix()
+    log = subprocess.run(["git", "-C", str(ROOT), "log", "--format=%H %ct", "--", rel],
+                         capture_output=True, text=True).stdout.split("\n")
+    commits = [l.split() for l in log if l.strip()][::-1]  # oldest first
+    num, direction = int(tag[:-1]), "across" if tag[-1] == "A" else "down"
+    prev, changes, seen_before = None, 0, False
+    for h, ct in commits:
+        if int(ct) <= after:
+            seen_before = True
+        out = subprocess.run(["git", "-C", str(ROOT), "show", f"{h}:{rel}"],
+                             capture_output=True, text=True)
+        try:
+            ents = json.loads(out.stdout)["entries"]
+        except (ValueError, KeyError):
+            continue
+        ann = next((e.get("annotation") for e in ents
+                    if e.get("number") == num and e.get("direction") == direction), None)
+        if int(ct) > after and ann != prev:
+            changes += 1
+        prev = ann
+    return changes
+
+
+def stamp_epoch(stamp):
+    import calendar
+    return calendar.timegm(time.strptime(stamp[:19], "%Y-%m-%dT%H:%M:%S"))
+
+
+def apply_puzzle(job):
+    """({reason: n}, [applied]) for one puzzle's differing drafts: skip the identity-op
+    ones and the clues edited since the session, validate the rest against the file as it
+    is NOW, and write only if validate_puzzle gains no error."""
+    pid, recs = job
+    skipped, applied = {}, []
+
+    def skip(why, n=1):
+        skipped[why] = skipped.get(why, 0) + n
+    try:
+        path = resolve_puzzle(pid)
+        puzzle = read_puzzle_file(path)
+    except (SystemExit, OSError, ValueError, KeyError):
+        return {"puzzle gone": len(recs)}, []
+    latest = {}
+    for rec in sorted(recs, key=lambda r: r["stamp"]):
+        if rec["tag"] in latest:
+            skip("superseded by a later draft of the same clue")
+        latest[rec["tag"]] = rec
+    p = copy.deepcopy(puzzle)
+    chosen = []  # (rec, entry in p, committed wp)
+    for tag, rec in latest.items():
+        wp = rec["draft"]["wp"]
+        num, direction = int(tag[:-1]), "across" if tag[-1] == "A" else "down"
+        entry = next((e for e in p["entries"]
+                      if e.get("number") == num and e.get("direction") == direction), None)
+        if not entry:
+            skip("clue not in puzzle")
+            continue
+        committed = annotation.to_model(entry["annotation"]).get("wp") if entry.get("annotation") else None
+        if (wp or "").strip() == (committed or "").strip():
+            skip("already identical to committed")
+        elif identity_op(wp):
+            skip("identity op")
+        elif clue_versions(path, tag, stamp_epoch(rec["stamp"])) > 1:
+            skip("committed clue edited after the draft's session")
+        else:
+            chosen.append((rec, entry, committed))
+
+    def trial(items):
+        q = copy.deepcopy(p)
+        mine = []
+        for rec, entry, _ in items:
+            e = next(x for x in q["entries"]
+                     if x.get("number") == entry["number"] and x.get("direction") == entry["direction"])
+            try:
+                e["annotation"] = annotation.from_model(rec["draft"], e, q)
+            except Exception:
+                return None, None, rec
+            mine.append((f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}:", rec))
+        try:
+            _, errors, _ = V.validate_puzzle(q)
+        except Exception as exc:
+            return q, [f"{type(exc).__name__}: {exc}"], None
+        return q, [m.strip() for m in errors], mine
+
+    while chosen:
+        q, errors, mine = trial(chosen)
+        if q is None:
+            chosen = [c for c in chosen if c[0] is not mine]
+            skip("draft does not evaluate")
+            continue
+        if mine is None:  # the validator crashed on the whole set
+            skip("validator crashed", len(chosen))
+            chosen = []
+            break
+        bad = {rec["tag"] for k, rec in mine if any(m.startswith(k) for m in errors)}
+        if bad:
+            skip("fails the validator now", len(bad))
+            chosen = [c for c in chosen if c[0]["tag"] not in bad]
+            continue
+        if errors:  # something else fails: only a problem if the file already did
+            try:
+                _, base, _ = V.validate_puzzle(copy.deepcopy(puzzle))
+            except Exception:
+                base = []
+            new = [m for m in errors if m not in {b.strip() for b in base}]
+            if new:
+                skip("puzzle gains a validator error", len(chosen))
+                chosen = []
+                break
+        import fetch_puzzle
+        fetch_puzzle.write_puzzle_file(path, q)
+        for rec, entry, committed in chosen:
+            applied.append({"pid": pid, "tag": rec["tag"], "clue": (entry.get("clue") or {}).get("text"),
+                            "before": committed, "after": rec["draft"]["wp"]})
+        break
+    return skipped, applied
+
+
+def apply_all(drafts, args, t0):
+    """Write the passing, differing drafts into the puzzle files; print the counts."""
+    from collections import Counter
+    from multiprocessing import Pool
+    results = json.loads(Path(args.results).read_text())
+    want = {(i["pid"], i["tag"], i["draft"]["wp"]) for i in results["items"] if i["differs"]}
+    by_pid = {}
+    for key, rec in drafts.items():
+        if (rec["pid"], rec["tag"], rec["draft"]["wp"]) in want:
+            by_pid.setdefault(rec["pid"], []).append(rec)
+    print(f"{len(want)} differing passing draft(s) in {args.results}; "
+          f"{sum(map(len, by_pid.values()))} in {len(by_pid)} puzzle(s) to re-validate", flush=True)
+    skipped, applied = Counter(), []
+    jobs = sorted(by_pid.items())
+    with Pool(2) as pool:
+        for n, (sk, ap) in enumerate(pool.imap_unordered(apply_puzzle, jobs, chunksize=2)):
+            skipped.update(sk)
+            applied += ap
+            if n % 25 == 0:
+                print(f"  {n}/{len(jobs)} puzzles, {len(applied)} applied ({time.time() - t0:.0f}s)",
+                      file=sys.stderr, flush=True)
+    Path(args.applied).write_text(json.dumps(applied, indent=1))
+    print(f"\napplied: {len(applied)} clue(s) in {len({a['pid'] for a in applied})} puzzle(s) "
+          f"(list in {args.applied})\nskipped: {sum(skipped.values())}")
+    for why, k in skipped.most_common():
+        print(f"  {k:4d}  {why}")
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--since", default=SINCE)
+    ap.add_argument("--apply", action="store_true",
+                    help="write the passing, differing drafts into the puzzle files")
+    ap.add_argument("--results", default="/tmp/fp_full_results.json",
+                    help="the dry run's passing drafts (--apply re-validates each)")
+    ap.add_argument("--applied", default="/tmp/fp_applied.json")
     ap.add_argument("--cache", default="/tmp/fp_drafts_all.json")
     ap.add_argument("--extract-only", action="store_true")
     ap.add_argument("--sample", type=int, default=0, help="judge only N seeded-random puzzles")
@@ -234,6 +450,8 @@ def main(argv=None):
           f"since {args.since} ({time.time() - t0:.0f}s)", flush=True)
     if args.extract_only:
         return 0
+    if args.apply:
+        return apply_all(drafts, args, t0)
     return judge_all(drafts, args, t0)
 
 
