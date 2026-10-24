@@ -943,7 +943,21 @@ def write_shim(path, puzzle):
     are spelled refetches every puzzle once; the social cards are keyed on the
     puzzle's content instead (make_og_card.card_key) and do not notice.
     """
-    shim_path(path).write_text(shim_text(path, puzzle), encoding="utf-8")
+    write_whole(shim_path(path), shim_text(path, puzzle))
+
+
+def write_whole(dest, text):
+    """Write `text` to `dest` whole or not at all: a sibling part file, flushed
+    to disk, then renamed over it. A kill (or the VM going down) mid-write then
+    leaves the old file or the new one, never an empty one for the next
+    reader to choke on (10-23: a bridge restart left empty .json/.js files)."""
+    dest = Path(dest)
+    part = dest.with_name(f".{dest.name}.part")
+    with open(part, "w", encoding="utf-8") as f:
+        f.write(text)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(part, dest)
 
 
 def shim_text(path, puzzle):
@@ -1142,10 +1156,7 @@ def write_puzzle_file(path, puzzle, generator=None):
     # Whole or not at all: a long job's checkpoint (tools/durable.sh) commits
     # the corpus while its writer is still filing, and a kill mid-write must
     # not leave half a file for the next start to salvage.
-    part = dest.with_name(f".{dest.name}.part")
-    part.write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n",
-                    encoding="utf-8")
-    os.replace(part, dest)
+    write_whole(dest, json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n")
     if held and held.resolve() != dest.resolve():
         held.unlink()
     # A puzzle filed with its grid leaves the clues-only state: one id, one
