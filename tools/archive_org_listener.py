@@ -319,10 +319,66 @@ def sound(text):
     """A clue text that is one clue: words, starting as a clue starts (a
     lone "1" is the I ocr_clues.clean makes of it, a footnote's mark, "*God",
     "\u2020Not far from 13", a reversed light's "rev. He'd", an instruction
-    "(mixed) Shoulder." or "(Letter missing.) A town"), with no count
-    or clue number inside it."""
-    return bool(text and re.match(r"(?:rev\.\s)?[*\u2020\u2021]?\s?(?:[A-Z\"'.\u2018\u201c]|1\s|\([A-Za-z])", text)
+    "(mixed) Shoulder." or "(Letter missing.) A town", a light it cites
+    "25 lacks cohesion" or "37's right half.", an "anag." of the light
+    before), with no count or clue number inside it."""
+    return bool(text and re.match(r"(?:rev\.\s)?[*\u2020\u2021]?\s?(?:[A-Z\"'.\u2018\u201c]|1\s|\([A-Za-z]"
+                                  r"|\d{1,2}(?:['\u2019]s\s|\s(?!rev\b)[a-z]{2})|anag\.\s)", text)
                 and not RUN_ON.search(text) and not clue_text.NEXT_NUMBER.search(text))
+
+
+#: What opens the next clue a reading runs a clue on into: its number,
+#: bare or bracketed ("21. Field", "(28) Song", No 434's "(io)" for 10).
+NEXT_OPENS = re.compile(r"\s*(?:\(\s?[\w\u2460-\u2473]{1,3}\s?\)|(?<![\w(])\d{1,2}\b\.?|[\u2460-\u2473])\s*")
+
+#: How far from the clean text's end the run-on reading's next number may sit.
+NEXT_SLACK = 3
+
+#: The fewest letters of the next clue a run-on reading must print.
+RUN_ON_LETTERS = 8
+
+
+def ran_on(v, lid, k, lays):
+    """Whether reading `k`'s text for `lid` (`v`) is corroborated by
+    another reading that runs the same words on into the next clue: its
+    text for `lid` opens alike and the rest of it is some other light's
+    clue as a reading lays it. The run-on reading saw the same clue end
+    where the next clue starts (No 434's 9 down, "There's one on the
+    drum." read "There's one on the drum.(io) The stone of 41 a drupe.")."""
+    mine = v[0].lower()
+    for j, laid in enumerate(lays):
+        t = (laid.get(lid) or ("",))[0].lower()
+        if j == k or len(t) <= len(mine) or ocr_clues.similar(mine, t[:len(mine)]) < CORROBORATE:
+            continue
+        # The next clue's number, where this text ends give or take the
+        # readings' spacing.
+        m = NEXT_OPENS.search(t, max(0, len(mine) - NEXT_SLACK))
+        if not m or m.start() > len(mine) + NEXT_SLACK:
+            continue
+        rest = t[m.end():]
+        if sum(c.isalpha() for c in rest) < RUN_ON_LETTERS:
+            continue
+        if any(other != lid and o[0] and ocr_clues.similar(rest, o[0].lower()[:len(rest)]) >= CORROBORATE
+               for ly in lays for other, o in ly.items()):
+            return True
+    return False
+
+
+#: A footnote's mark glued to a small word inside a clue.
+INNER_MARK = re.compile(r"(?<=\s)[†‡](?=[a-z])")
+
+
+def unmarked(text, own):
+    """`text` without a footnote mark inside it before a small word that
+    no other reading of the clue (`own`) prints: a speck or a letter read
+    as one (No 503's 4D "Moved lady †O seek", the vote's "†to";
+    the others "to seek"). A mark opening the clue ("†Not far from
+    13") is the print's."""
+    if not text or not INNER_MARK.search(text):
+        return text
+    if sum(1 for o in own if o and INNER_MARK.search(o)) > 1:
+        return text
+    return INNER_MARK.sub("", text)
 
 
 def pick(lays, texts=(), guessed=()):
@@ -352,6 +408,9 @@ def pick(lays, texts=(), guessed=()):
         if not good and sum(1 for v in have if sound(v[0])) == 1:
             good = [v for k, laid in enumerate(lays) if lid in laid and lid not in guessed[k]
                     and (v := laid[lid]) and sound(v[0]) and printed_elsewhere(v, lid, k, lays, lines, guessed)]
+        if not good:
+            good = [v for k, laid in enumerate(lays) if lid in laid and lid not in guessed[k]
+                    and (v := laid[lid]) and sound(v[0]) and ran_on(v, lid, k, lays)]
         # The clue's words from the reading that is sound; a count that
         # reading lost ("(?)", closed_clues) is the one another lays.
         out[lid] = (good[0][0], good[0][1] or enum, good[0][2]) if good else ("", enum, None)
@@ -797,6 +856,7 @@ def vote(words, verdict, cols=None, lengths=None, figures=False):
     for lid, (t, e, g) in laid.items():
         t = ocr_clues.ligatured(ocr_clues.letter_put_back(ocr_clues.paired(t)),
                                 [(ly.get(lid) or ("",))[0] for ly in lays])
+        t = unmarked(t, [(ly.get(lid) or ("",))[0] for ly in lays])
         laid[lid] = (t, e, g)
         if t and ocr_clues.unclosed_quote(t) is not None:
             own = [(ly.get(lid) or ("",))[0] for ly in lays]

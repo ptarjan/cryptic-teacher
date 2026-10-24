@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 24
+VERSION = 25
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -441,7 +441,40 @@ def page_columns(words):
 
     def numbered(lst):
         return sum(bool(al.LINE_CLUE.match(line[4])) for line in lst)
-    return max(found, key=lambda c: (min(map(numbered, c)) >= COLUMN_MIN, sum(map(numbered, c))), default=None)
+    best = max(found, key=lambda c: (min(map(numbered, c)) >= COLUMN_MIN, sum(map(numbered, c))), default=None)
+    return [rules_cut(lst) for lst in best] if best else best
+
+
+#: The competition's rules set under the 1930s lists ("(1) Solutions should
+#: be addressed to the Editor of The Listener, Broadcasting House ... (7) In
+#: all matters connected with the crosswords the Editor's decision is
+#: final."): a list's last clue read on into them took them for its words
+#: (No 447's 36D, No 503's 32D "See 37 A. disqualify entries for bad
+#: handwriting ...").
+RULES = re.compile(r"addressed\s+to\s+the\s+Editor|Broadcasting\s+House|disqualify\s+entries|capricious\s+traps"
+                   r"|Editor\W{0,3}s\s+decision\s+is|Editor\s+reserves\s+the\s+right|Collaborators\s+may\s+only",
+                   re.IGNORECASE)
+#: The rules number their items (1) to (7).
+RULE_ITEMS = 7
+SENTENCE_STOP = re.compile(r"[.?!][\"'’”)]*(?=\s|$)")
+
+
+def rules_cut(lst):
+    """A list's lines (`lst`) without the rules (RULES): the line they open
+    in kept to its last sentence's stop before them, when that leaves
+    words, and the lines after it left out up to one opening on a clue
+    number above the list's last before them and the rules' own items
+    (the list run on past the rules; "(5) Subject to" is a rule)."""
+    for i, line in enumerate(lst):
+        if m := RULES.search(line[4]):
+            head = line[4][:m.start()]
+            ends = list(SENTENCE_STOP.finditer(head))
+            kept = head[:ends[-1].end()] if ends else ""
+            last = max([RULE_ITEMS] + [int(n.group(1)) for ln in lst[:i] if (n := al.LINE_CLUE.match(ln[4]))])
+            more = next((j for j in range(i + 1, len(lst)) if (n := al.LINE_CLUE.match(lst[j][4]))
+                         and int(n.group(1)) > last and not RULES.search(lst[j][4])), len(lst))
+            return lst[:i] + ([(*line[:4], kept)] if re.search(r"[A-Za-z]{2}", kept) else []) + rules_cut(lst[more:])
+    return lst
 
 
 #: A clue's number as the 1934-40 lists print it, run on in a paragraph:
@@ -2139,7 +2172,15 @@ UNPARSED = "no reading parses"
 #: their clues; a lettered link in the list's own direction ("(29-35U)")
 #: links (No 242: 48 -> 49 of 49, its lights now its clue list's; No 273:
 #: 39 -> 44 of 46, 31 and 35 down linked).
-CLUES_FIX = 24
+#: 25: a clue one reading lays clean and another runs on into the next
+#: clue is laid (al.ran_on: No 434's 9D "There's one on the drum.(io) The
+#: stone ..."); a clue opening on a light it cites ("25 lacks cohesion",
+#: "37's right half.") or "anag." is a clue (al.sound); a quote one reading
+#: opens with its mark spaced off ("' Who therein") opens (No 386); a
+#: list's last clue read on into the competition's rules ends there
+#: (rules_cut: No 447's 36D, No 503's 32D). No 434: 61 -> 62 of 62; No
+#: 471: 39 -> 41 of 41; No 447: 31 -> 32 of 32; No 503: 39 -> 40 of 40.
+CLUES_FIX = 25
 SHORT = "refused clues-short before its fix"
 
 
