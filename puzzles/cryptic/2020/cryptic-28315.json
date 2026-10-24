@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,29 @@
     "text": "Cold sore",
     "enumeration": "6"
    },
-   "solution": "BITTER"
+   "solution": "BITTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cold",
+      "at": 0,
+      "meaning": "a biting, freezing wind is described this way"
+     },
+     {
+      "text": "sore",
+      "at": 5,
+      "meaning": "sore here means resentful, aggrieved"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: an icy wind can be called this, and so can a person nursing a grudge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sore"
+    }
+   }
   },
   {
    "number": 1,
@@ -59,7 +84,45 @@
     "text": "Message to take down, quickly read out?",
     "enumeration": "5"
    },
-   "solution": "TWEET"
+   "solution": "TWEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Message",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TWEET",
+     "indicators": [
+      {
+       "text": "quickly read out",
+       "at": 22,
+       "note": "saying the words aloud at speed slurs them together into one syllable-pair, so this signals a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to take down",
+       "at": 8,
+       "gives": "TOEAT",
+       "note": "to take food down is to eat it, giving the phrase 'to eat'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for a note to be jotted down and then read back in a hurry.",
+     "walkthrough": "'To take down' looks like dictation, but it means swallowing: 'to eat', gabbled fast, runs together into the answer.",
+     "definitionFit": "A post on the social platform formerly called Twitter is the familiar name for a short online message."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "take"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +136,80 @@
     "text": "Fuel compared to first of oil in middle of well",
     "enumeration": "7"
    },
-   "solution": "ETHANOL"
+   "solution": "ETHANOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fuel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in places one set of letters inside the other here"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 33,
+         "note": "middle of keeps the word well without its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "well",
+         "at": 43
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "compared to",
+         "at": 5,
+         "gives": "THAN",
+         "note": "'than' is the word used when comparing one thing to another"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 17,
+           "note": "first of picks the opening letter of the word oil"
+          }
+         ],
+         "parts": [
+          {
+           "words": "oil",
+           "at": 26
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comparison of fuels drawn from the centre of an oil well.",
+     "walkthrough": "'middle of well' here means the word with its outer letters stripped off, not a mid-point letter; 'compared to' supplies the comparison word.",
+     "definitionFit": "This alcohol is blended into petrol and burnt as a biofuel, so it is a type of fuel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +236,61 @@
     "text": "Mysterious vessel in time capsized",
     "enumeration": "6"
    },
-   "solution": "ARCANE"
+   "solution": "ARCANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mysterious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "in puts the container word inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "capsized",
+         "at": 26,
+         "note": "a capsized boat is upside down, so in a down clue the word era is turned over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time",
+         "at": 21,
+         "gives": "ERA",
+         "note": "an era is a period of time"
+        }
+       ]
+      },
+      {
+       "words": "vessel",
+       "at": 11,
+       "gives": "CAN",
+       "note": "a can is a container, a vessel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange container buried in a time capsule has been tipped over.",
+     "walkthrough": "'capsized' acts only on the word for time, so the vessel stays the right way round when it goes inside.",
+     "definitionFit": "Something arcane is secret or obscure, understood only by a few, hence mysterious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capsized"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +304,69 @@
     "text": "Tongue in pain ultimately, doctor operates to sew it up",
     "enumeration": "9"
    },
-   "solution": "ESPERANTO"
+   "solution": "ESPERANTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tongue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to sew it up",
+       "at": 43,
+       "note": "sewing up encloses the final letter of pain within the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "doctor",
+         "at": 27,
+         "note": "to doctor something is to tamper with it, so the letters of operates are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "operates",
+         "at": 34
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 15,
+         "note": "ultimately points to the last letter of the word pain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pain",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surgeon operates on a painful tongue and stitches the wound closed.",
+     "walkthrough": "'doctor' rearranges OPERATES, and 'to sew it up' encloses N, the last letter of pain, inside that anagram.",
+     "definitionFit": "Tongue means a language, and this is the constructed international language devised by Zamenhof."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tongue"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +380,61 @@
     "text": "Overly sweet claret drunk with last of sherry",
     "enumeration": "7"
    },
-   "solution": "TREACLY"
+   "solution": "TREACLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Overly sweet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "at": 20,
+         "note": "drunk suggests being messed up and unsteady, so the letters of claret are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "claret",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 31,
+         "note": "last of takes the final letter of the word sherry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sherry",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Claret drunk alongside sherry would taste cloyingly sweet.",
+     "definitionFit": "Like molasses syrup, something described this way is sickly and cloying, figuratively over-sentimental."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 8,
@@ -152,7 +458,35 @@
      }
     ]
    },
-   "solution": "SLAPANDTICKLE"
+   "solution": "SLAPANDTICKLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Combination of painful and exciting strokes? That's it!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Combination of painful and exciting strokes? That's it!",
+       "at": 0,
+       "note": "a smack hurts and a light stroking excites; joined together they name jokey British slang for amorous horseplay, with 'it' the usual euphemism for sex"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a mix of painful and thrilling strokes and declares that is exactly it.",
+     "definitionFit": "The phrase is old-fashioned British slang for playful sexual activity, combining a smack with gentle stroking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strokes"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +510,71 @@
    "group": [
     "9-across",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Weasel's relative",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "in puts the turned-round letters inside the golf hole"
+      }
+     ],
+     "parts": [
+      {
+       "words": "absurdly long hole",
+       "at": 42,
+       "gives": "PARTEN",
+       "note": "a golf hole is rated par three to five; a 'par ten' would be ridiculously long"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "put back",
+         "at": 30,
+         "note": "put back means the words staff and I are written in reverse order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "staff",
+           "at": 18,
+           "gives": "MEN",
+           "note": "a firm's staff are its men, its workers"
+          },
+          {
+           "words": "I",
+           "at": 28
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about a weasel's cousin hiding in a strangely long burrow.",
+     "walkthrough": "'hole' is a golf hole: PAR TEN. 'put back' turns MEN and I into INEM, which goes in after the P.",
+     "definitionFit": "This tree-dwelling animal belongs to the mustelid family, the same family as the weasel, stoat and otter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hole"
+    }
+   }
   },
   {
    "number": 10,
@@ -200,7 +598,49 @@
    "group": [
     "10-across",
     "4-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "might he be coddling?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Egg beater",
+       "at": 0,
+       "gives": "HELICOPTER",
+       "note": "an eggbeater is old slang for a rotary-winged aircraft, from the whirling blades"
+      },
+      {
+       "words": "father",
+       "at": 11,
+       "gives": "PA",
+       "note": "pa is an informal word for father"
+      },
+      {
+       "words": "damaged",
+       "at": 18,
+       "gives": "RENT",
+       "note": "rent means torn, ripped, hence damaged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An egg whisk broken by Dad, with a nod to coddled eggs.",
+     "walkthrough": "'Egg beater' and 'coddling' make an egg-cooking scene, but the beater is aircraft slang and coddling is overprotecting a child.",
+     "definitionFit": "The term describes a mother or father who hovers over a child, overprotecting and pampering it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "coddling"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +667,49 @@
     "text": "Tiny spot that's pink on leg",
     "enumeration": "8"
    },
-   "solution": "PINPRICK"
+   "solution": "PINPRICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tiny spot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 22,
+       "note": "on means the word for pink sits next to the word for leg"
+      }
+     ],
+     "parts": [
+      {
+       "words": "leg",
+       "at": 25,
+       "gives": "PIN",
+       "note": "pins is slang for legs, so one leg is a pin"
+      },
+      {
+       "words": "pink",
+       "at": 17,
+       "gives": "PRICK",
+       "note": "to pink is to pierce lightly or nick, as in pinking with a sword"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small pink mark appears on someone's leg.",
+     "walkthrough": "'pink' looks like a colour, but here it is the verb meaning to stab lightly.",
+     "definitionFit": "A minute hole or dot, like one made with a needle point, is a tiny spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pink"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +723,64 @@
     "text": "Drug that's popular filling plate beside me",
     "enumeration": "9"
    },
-   "solution": "MESCALINE"
+   "solution": "MESCALINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beside",
+       "at": 34,
+       "note": "beside places the word me next to the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "me",
+       "at": 41
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "filling",
+         "at": 20,
+         "note": "filling means one word goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plate",
+         "at": 28,
+         "gives": "SCALE",
+         "note": "a scale is a thin plate, like those on a fish or armour"
+        },
+        {
+         "words": "popular",
+         "at": 12,
+         "gives": "IN",
+         "note": "in means fashionable, popular"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sees a popular drug piled onto a plate right next to them.",
+     "definitionFit": "It is a hallucinogenic alkaloid taken from the peyote cactus, a psychedelic substance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plate"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +794,47 @@
     "text": "Bodily hole in shade of pink",
     "enumeration": "9"
    },
-   "solution": "CORPOREAL"
+   "solution": "CORPOREAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bodily",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "in puts the word for hole within the colour"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shade of pink",
+       "at": 15,
+       "gives": "CORAL",
+       "note": "coral is a pinkish-orange shade"
+      },
+      {
+       "words": "hole",
+       "at": 7,
+       "gives": "PORE",
+       "note": "a pore is a tiny hole in the skin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hole appears in something coloured pink.",
+     "definitionFit": "The word means having a physical, material body rather than a spiritual one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +858,74 @@
    "group": [
     "15-across",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old strip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with",
+       "at": 10,
+       "gives": "AND",
+       "note": "with means 'and', joining one thing to another"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 19,
+         "note": "in sets the hat between those two letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 39,
+           "note": "primarily takes the first letters of yellow and pink"
+          }
+         ],
+         "parts": [
+          {
+           "words": "yellow",
+           "at": 22
+          },
+          {
+           "words": "pink",
+           "at": 33
+          }
+         ]
+        },
+        {
+         "words": "hat",
+         "at": 15,
+         "gives": "CAP",
+         "note": "a cap is a hat"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing an old comic strip whose character wears a hat in yellow and pink.",
+     "walkthrough": "The British comic strip's hero, a work-shy northerner, always wears a flat cap, so the hat belongs in the picture too.",
+     "definitionFit": "A long-running British newspaper cartoon strip, begun in 1957 in the Daily Mirror, so a strip of old."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strip"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +939,54 @@
     "text": "Three quarters of twelve people on a Hebridean isle",
     "enumeration": "4"
    },
-   "solution": "JURA"
+   "solution": "JURA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hebridean isle",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Three quarters of",
+         "at": 0,
+         "note": "three quarters of a four-letter word keeps three letters, dropping the last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "twelve people",
+         "at": 18,
+         "gives": "JURY",
+         "note": "a jury in a trial is made up of twelve people"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 35
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nine of a dozen people end up on a Scottish island.",
+     "definitionFit": "An island of the Inner Hebrides off western Scotland, famous for its whisky and red deer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twelve"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1000,54 @@
     "text": "Pace jerk has wrong, upped",
     "enumeration": "7"
    },
-   "solution": "JOGTROT"
+   "solution": "JOGTROT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pace",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "jerk",
+       "at": 5,
+       "gives": "JOG",
+       "note": "to jog is to jolt or nudge, a jerk"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upped",
+         "at": 21,
+         "note": "in a down clue, upped means the word is read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wrong",
+         "at": 14,
+         "gives": "TORT",
+         "note": "a tort is a civil wrong in law"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rhythm that a fool got wrong and then quickened.",
+     "walkthrough": "'upped' turns TORT into TROT.",
+     "definitionFit": "It names a steady, easy running gait, a slow measured pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jerk"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1067,42 @@
      }
     ]
    },
-   "solution": "STUDPOKER"
+   "solution": "STUDPOKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "virile chap",
+       "at": 19,
+       "gives": "STUD",
+       "note": "a stud is a sexually virile man"
+      },
+      {
+       "words": "one prodding",
+       "at": 6,
+       "gives": "POKER",
+       "note": "something or someone that prods or jabs is a poker"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky game in which someone prods a macho man.",
+     "definitionFit": "It is a form of the card game in which some cards are dealt face up, a casino gambling game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "prodding"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1116,68 @@
     "text": "Lower temperature necessary in the end above church altarpiece",
     "enumeration": "7"
    },
-   "solution": "DIPTYCH"
+   "solution": "DIPTYCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "altarpiece",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "above",
+       "at": 39,
+       "note": "in a down clue, above places the earlier letters on top of the church abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lower",
+       "at": 0,
+       "gives": "DIP",
+       "note": "to dip is to lower briefly"
+      },
+      {
+       "words": "temperature",
+       "at": 6,
+       "gives": "T"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in the end",
+         "at": 28,
+         "note": "in the end picks the last letter of necessary"
+        }
+       ],
+       "parts": [
+        {
+         "words": "necessary",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 45,
+       "gives": "CH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning down the heat in a church, needed above the altar.",
+     "definitionFit": "A painting on two hinged panels, often placed over an altar in a church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lower"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1191,59 @@
     "text": "Better shears cutting coat of ewe",
     "enumeration": "7"
    },
-   "solution": "ECLIPSE"
+   "solution": "ECLIPSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Better",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cutting",
+       "at": 14,
+       "note": "cutting means the word for shears cuts into those outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "coat of",
+         "at": 22,
+         "note": "the coat of a word is its outer letters, the two Es of ewe"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ewe",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "words": "shears",
+       "at": 7,
+       "gives": "CLIPS",
+       "note": "shears as a verb means clips, cuts wool"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Better shears for clipping the fleece of a ewe.",
+     "walkthrough": "'Better' reads as an adjective about the shears, but it is a verb: to outdo.",
+     "definitionFit": "To outshine or surpass something is to put it in the shade, the way the moon blocks the sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1257,28 @@
     "text": "Drunk was irritated",
     "enumeration": "6"
    },
-   "solution": "STEWED"
+   "solution": "STEWED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drunk",
+      "at": 0,
+      "meaning": "slang for intoxicated, like sozzled"
+     },
+     {
+      "text": "was irritated",
+      "at": 6,
+      "meaning": "to stew is to fret and fume, so this is the past tense: fumed"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "British slang uses the word for inebriated, and stewing over something means brooding in annoyance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1292,69 @@
     "text": "One doesn't believe it: number reversed in account",
     "enumeration": "8"
    },
-   "solution": "AGNOSTIC"
+   "solution": "AGNOSTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One doesn't believe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 40,
+       "note": "in places the reversed letters inside the account abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "account",
+       "at": 43,
+       "gives": "AC"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversed",
+         "at": 31,
+         "note": "reversed means it and the song word are written backwards together"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "it",
+           "at": 20
+          },
+          {
+           "words": "number",
+           "at": 24,
+           "gives": "SONG",
+           "note": "a number is a song, a piece of music"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sceptic insists a figure must have been mistakenly flipped in the books.",
+     "walkthrough": "'number' is a song, not a figure; IT SONG reversed gives GNOSTI.",
+     "definitionFit": "This is a person who holds that the existence of God cannot be known, so withholds belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1368,29 @@
     "text": "Wee like wee?",
     "enumeration": "6"
    },
-   "solution": "PIDDLY"
+   "solution": "PIDDLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wee",
+      "at": 0,
+      "meaning": "wee as an adjective means small, trifling"
+     },
+     {
+      "text": "like wee?",
+      "at": 4,
+      "meaning": "wee as a noun is urine; something resembling piddle is jokily described with a -y ending"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means trivial or paltry, and it also playfully suggests resembling urine, from piddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1404,61 @@
     "text": "Look back in anger after Nov 31, fancifully?",
     "enumeration": "5"
    },
-   "solution": "DECOR"
+   "solution": "DECOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 19,
+       "note": "after means the letter from anger follows the date"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nov 31, fancifully",
+       "at": 25,
+       "gives": "DECO",
+       "note": "November has only thirty days, so a fanciful 31st would be December 0, written DEC O"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back in",
+         "at": 5,
+         "note": "back in picks the final letter of the word anger"
+        }
+       ],
+       "parts": [
+        {
+         "words": "anger",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "DÉCOR",
+    "explanation": {
+     "surface": "John Osborne's play Look Back in Anger is set beside an impossible date.",
+     "walkthrough": "'Look back in anger' looks like the play title, but 'Look' is the definition and 'back in anger' gives R.",
+     "definitionFit": "The style and furnishings of a room give it its look, its interior design."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1486,66 @@
    "group": [
     "24-across",
     "1-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "privileged few going to the country?",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sustainable",
+       "at": 23,
+       "gives": "GREEN",
+       "note": "green means environmentally friendly, sustainable"
+      },
+      {
+       "words": "power",
+       "at": 35,
+       "gives": "WELLY",
+       "note": "British slang 'give it some welly' means put power into it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Circling",
+         "at": 0,
+         "note": "circling means the word for demanded wraps round the word for the platform"
+        }
+       ],
+       "parts": [
+        {
+         "words": "demanded",
+         "at": 41,
+         "gives": "BADE",
+         "note": "bade is a past tense of bid, so it means ordered, demanded"
+        },
+        {
+         "words": "oil platform",
+         "at": 9,
+         "gives": "RIG",
+         "note": "an oil rig is a drilling platform at sea"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oil platform, encircled by protesters demanding green power, seen as a privileged clique.",
+     "walkthrough": "The phrase is British slang for well-off townies in rubber boots, wellies being Wellington boots, who visit the countryside.",
+     "definitionFit": "The phrase mocks affluent, upper-class people who adopt country pursuits and dress, a privileged rural set."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 25,
@@ -466,7 +1572,54 @@
     "text": "Reflective poem set in Spanish city",
     "enumeration": "6"
    },
-   "solution": "TOLEDO"
+   "solution": "TOLEDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spanish city",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Reflective",
+       "at": 0,
+       "note": "a reflection shows things back to front, so poem and set are read backwards together"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "poem",
+         "at": 11,
+         "gives": "ODE",
+         "note": "an ode is a lyric poem"
+        },
+        {
+         "words": "set",
+         "at": 16,
+         "gives": "LOT",
+         "note": "a lot is a set, a batch, as at an auction"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thoughtful poem set in a Spanish city.",
+     "walkthrough": "'Reflective' seems to describe a pensive poem, but it signals the letters reading backwards.",
+     "definitionFit": "It is the historic former capital of Castile, on the River Tagus, famous for swords and El Greco."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reflective"
+    }
+   }
   },
   {
    "number": 27,
@@ -480,7 +1633,29 @@
     "text": "Storm damage",
     "enumeration": "6"
    },
-   "solution": "CHARGE"
+   "solution": "CHARGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Storm",
+      "at": 0,
+      "meaning": "to storm is to rush at and attack"
+     },
+     {
+      "text": "damage",
+      "at": 6,
+      "meaning": "damage is jokey slang for cost, as in asking what the bill comes to"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Rushing an enemy position is an attack of that name, and a price levied is a fee, the cost."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "damage"
+    }
+   }
   }
  ]
 }
