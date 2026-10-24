@@ -47,4 +47,38 @@ check("letters both extra and missing: no surplus edit", True, len(w) == 1 and "
 w = warned("OBSESSION", [{"clueFragment": "old boy", "gives": "OB"},
                          {"clueFragment": "meeting", "gives": "SESSION"}])
 check("blocks already add up: no warning", [], w)
+
+# Real drafts of 2026-10-23 that the check refused before fb49e09 (96 of 116
+# sampled error lines): a rep<> step shows one copy as its blocks, so the blocks
+# fall one copy short of the answer by design, alone or inside a charade.
+import annotation
+
+def repeat_warned(answer, d, wp, notes):
+    clue = d + " " + " ".join(notes) + " " + wp.replace("<", " ").replace(">", " ")
+    entry = {"number": 1, "direction": "across", "solution": answer, "clue": {"text": clue},
+             "enumeration": str(len(answer))}
+    m = {"def": d, "wp": wp, "notes": notes, "explanation": {"surface": "x", "definitionFit": "y"}}
+    entry["annotation"] = annotation.view(annotation.from_model(m, entry), entry)
+    errors, warnings = [], []
+    v.check_blocks_account_for_answer([entry], errors, warnings)
+    return errors + warnings
+
+for ans, d, wp, notes in [
+    ("CRISIS", "emergency", "[Credit]CR + rep<double>([is])",
+     {"double": "double means the word is written out twice", "Credit": "CR is the accounting abbreviation for credit"}),
+    ("NEEDED", "called for", "first<cut by half>([News]) + rep<repeatedly>([editor]ED)",
+     {"cut by half": "cut by half keeps only the front half of the word news",
+      "repeatedly": "repeatedly says the editor abbreviation appears twice",
+      "editor": "ED is the standard abbreviation for editor"}),
+    ("SKIFF", "Glide", "[Glide over water]SKI + rep<double>([force]F)",
+     {"double": "double means the abbreviation for force is written twice in a row",
+      "force": "F is the abbreviation for force in physics"}),
+    ("MIAMI", "city in Florida", "ins<about>(rep<repeated>([Note]MI), [a])",
+     {"Note": "MI is the third note of the sol-fa scale", "repeated": "says the note is written down twice in a row",
+      "about": "the doubled note goes around the single letter, cut open to hold it"}),
+    ("RAHRAH", "Boisterously enthusiastic", "rep<repeated>(first<initially>([reunion], [at], [home]))",
+     {"initially": "initially tells us to take the opening letter of each of the words reunion, at and home",
+      "repeated": "repeated says the three letters just picked appear twice in a row"}),
+]:
+    check(f"{ans}: a repeat's one copy in the blocks is not a refusal", [], repeat_warned(ans, d, wp, notes))
 raise SystemExit(fails)
