@@ -4,6 +4,7 @@
     python3 tools/annotate_ledger.py record            # audit since the last row, append one
     python3 tools/annotate_ledger.py record --since 2026-10-20T10:00:00+00:00 --dry-run
     python3 tools/annotate_ledger.py decide [--dry-run]  # the wake rule over the ledger
+    python3 tools/annotate_ledger.py --no-lever "<cause key or label>"  # investigated, no lever
 
 Paul 10-20: "check each run and hill climb on the cost" (target $0.022/clue, the
 pre-bag level). tools/prereset_backfill.sh calls `record` (niced, time-boxed,
@@ -57,6 +58,8 @@ REPO = pathlib.Path(__file__).resolve().parent.parent
 CACHE = pathlib.Path(os.environ.get("ANNOTATE_CACHE", pathlib.Path.home() / ".cache"))
 LEDGER = pathlib.Path(os.environ.get("ANNOTATE_LEDGER", CACHE / "annotate_cost_ledger.jsonl"))
 STATE = pathlib.Path(os.environ.get("ANNOTATE_WAKE_STATE", CACHE / "annotate_cost_wake.json"))
+NO_LEVER = pathlib.Path(os.environ.get("ANNOTATE_NO_LEVER", CACHE / "annotate_no_lever.json"))
+NO_LEVER_RISE = 1.5   # a no-lever cause wakes again when its $/clue passes this x the recorded
 WAKE_SH = os.environ.get("WAKE_SH") or __import__("local_config").path("household_dir") + "/tools/wake.sh"
 WAKE_ROOM = os.environ.get("ANNOTATE_WAKE_ROOM", "-1003929432016:61")
 MIN_SESSIONS = 5
@@ -86,6 +89,10 @@ CODE_PATHS = ["tools/annotate*", "tools/validate_annotations.py", "tools/puzzle_
               "tools/clue_types.py", "tools/corroborate.py", "tools/definitions.py",
               "tools/groups.py", "tools/find_answer_leaks.py", "tools/find_renarration.py",
               "tools/hidden_mechanical.py", "tools/tree_normalize.py", "tools/code_checks.py"]
+# The ledger and its test match tools/annotate* but do not change what an annotate run costs:
+# a commit to them must not reset the best level or lift a no-lever record.
+LEDGER_FILES = [":(exclude)tools/annotate_ledger.py", ":(exclude)tools/test_annotate_ledger.py",
+                ":(exclude)tools/annotate_audit.py"]
 
 
 def now_utc():
@@ -129,7 +136,7 @@ def window(rows):
 
 def code_commit(repo=REPO):
     """(sha, ISO committer time, subject) of the last commit touching annotate code."""
-    out = subprocess.run(["git", "log", "-1", "--format=%h%x09%cI%x09%s", "--"] + CODE_PATHS,
+    out = subprocess.run(["git", "log", "-1", "--format=%h%x09%cI%x09%s", "--"] + CODE_PATHS + LEDGER_FILES,
                          cwd=repo, capture_output=True, text=True, check=False).stdout.strip()
     parts = out.split("\t")
     return tuple(parts) if len(parts) == 3 else (None, None, None)
@@ -149,11 +156,50 @@ def make_row(res, sha):
                            for c in res["causes"][:3]]}
 
 
-def should_wake(rows, since_commit, state, now):
+def read_no_lever():
+    """{cause key: {label, date, per_clue, commit, commit_time}} the room marked investigated."""
+    try:
+        return json.loads(NO_LEVER.read_text())
+    except (OSError, ValueError):
+        return {}
+
+
+def muted(rec, per_clue, since_commit):
+    """True while a no-lever record holds: no new annotate-code commit, $/clue under 1.5x."""
+    if not rec:
+        return False
+    if (rec.get("commit_time") or None) != (since_commit or None):
+        return False
+    return per_clue < rec.get("per_clue", 0) * NO_LEVER_RISE
+
+
+def mark_no_lever(cause, rows, commit, now=None):
+    """Record a cause as investigated with no lever; returns the stored record (None if the
+    cause is in no row). cause matches a top cause's key or label."""
+    now = now or now_utc()
+    if commit[1]:
+        rows = [r for r in rows if parse(r["end"]) >= parse(commit[1])]
+    for r in reversed(rows):
+        for c in r.get("top_causes") or []:
+            if cause in (c.get("key"), c.get("label")):
+                key = c["key"]
+                per_clue, _ = cause_per_clue(rows, key)
+                rec = {"label": c.get("label"), "date": now.date().isoformat(),
+                       "per_clue": round(per_clue, 6), "commit": commit[0], "commit_time": commit[1]}
+                book = read_no_lever()
+                book[key] = rec
+                NO_LEVER.parent.mkdir(parents=True, exist_ok=True)
+                NO_LEVER.write_text(json.dumps(book, indent=1) + "\n")
+                return dict(rec, key=key)
+    return None
+
+
+def should_wake(rows, since_commit, state, now, no_lever=None):
     """(reason, facts) when the room should be woken, else (None, why not).
 
     rows: ledger rows, oldest first; since_commit: ISO time of the last annotate-code
-    commit (None = all rows count); state: {woken, top} of the previous wake."""
+    commit (None = all rows count); state: {woken, top} of the previous wake;
+    no_lever: {cause key: record} of causes investigated with no lever (see muted)."""
     if since_commit:
         rows = [r for r in rows if parse(r["end"]) >= parse(since_commit)]
     need = AFTER_COMMIT_ROWS if since_commit else 1
@@ -177,6 +223,8 @@ def should_wake(rows, since_commit, state, now):
     pay = (f"top cause `{top_cause.get('key')}` (${per_clue:.4f}/clue after check, ${rate:.2f}/h): "
            f"est. saving ${saving:.0f} over the remaining ~{left:,.0f} clues vs ~${FIX_COST:.0f} fix cost")
     if saving > FIX_COST:
+        if muted((no_lever or {}).get(top_cause.get("key")), per_clue, since_commit):
+            return None, f"{pay} - marked no-lever, no new annotate-code commit, under {NO_LEVER_RISE}x"
         return pay, facts
     if best and cur > best * (1 + REGRESS):
         return (f"latest ${cur:.3f}/clue is {cur / best - 1:+.0%} over the best level "
@@ -267,7 +315,7 @@ def decide(dry_run=False, now=None):
         state = json.loads(STATE.read_text())
     except (OSError, ValueError):
         pass
-    reason, facts = should_wake(rows, commit[1], state, now)
+    reason, facts = should_wake(rows, commit[1], state, now, read_no_lever())
     if not reason:
         print(f"annotate ledger: no wake - {facts}")
         return 0
@@ -311,13 +359,23 @@ def record(since=None, until=None, dry_run=False):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("cmd", choices=["record", "decide"])
+    ap.add_argument("cmd", nargs="?", choices=["record", "decide"])
+    ap.add_argument("--no-lever", metavar="CAUSE",
+                    help="mark a top cause (its key or label) investigated with no lever: the alert "
+                    "stays quiet until a new annotate-code commit or its $/clue passes 1.5x")
     ap.add_argument("--since")
     ap.add_argument("--until")
     ap.add_argument("--dry-run", action="store_true",
                     help="record: print the row, append nothing; decide: print the wake, send nothing")
     args = ap.parse_args(argv)
     try:
+        if args.no_lever:
+            rec = mark_no_lever(args.no_lever, read_ledger(), code_commit())
+            print(f"annotate ledger: no-lever recorded {rec}" if rec else
+                  f"annotate ledger: no top cause matches {args.no_lever!r} since the last code commit")
+            return 0 if rec else 1
+        if not args.cmd:
+            ap.error("a command (record, decide) or --no-lever is required")
         if args.cmd == "decide":
             return decide(args.dry_run)
         row = record(audit.parse_time(args.since) if args.since else None,
