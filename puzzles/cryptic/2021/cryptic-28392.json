@@ -1106,19 +1106,42 @@
      }
     ],
     "wordplay": {
-     "op": "rebus",
-     "reading": "DONE jumbled in STEAD",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 36,
+       "note": "the clue's instead is read as in stead, so the scrambled word goes in"
+      }
+     ],
      "parts": [
       {
-       "words": "done wrong instead",
-       "at": 25,
-       "note": "read as in stead, these words picture the letters of done jumbled and set in the word stead"
+       "words": "stead",
+       "at": 38,
+       "gives": "STEAD",
+       "note": "stead is taken as written, read from the second part of instead"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 30,
+         "note": "wrong says the letters of done are set out incorrectly"
+        }
+       ],
+       "parts": [
+        {
+         "words": "done",
+         "at": 25
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "Something has been done wrongly instead, and is now finished.",
-     "walkthrough": "The question mark asks the solver to split 'instead' into 'in stead': 'wrong' jumbles DONE into ONED, which then sits within STEAD.",
+     "walkthrough": "The question mark asks the solver to split 'instead' into 'in stead'; 'wrong' reworks DONE to ONED, inside STEAD.",
      "definitionFit": "Stone dead means completely and unquestionably lifeless."
     },
     "features": {

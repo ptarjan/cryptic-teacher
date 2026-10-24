@@ -1774,26 +1774,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "after breaking up",
-       "at": 30,
-       "note": "breaking up says the one clue word cowboy is split into its two halves, each of which could become another word"
+       "text": "could become",
+       "at": 7,
+       "note": "could become says each half turns into another word: a cow is a thing that lows, and a boy might be called Ed"
       }
      ],
      "parts": [
       {
-       "words": "Cow",
-       "at": 0,
-       "gives": "LOWER",
-       "note": "the first half of cowboy once it is broken up: a cow is something that lows, a lower"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "after breaking up",
+         "at": 30,
+         "note": "breaking up says the one clue word is broken into its two halves, so each half can be swapped separately"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cowboy",
+         "at": 0,
+         "note": "taken as written, then split into its two halves, cow and boy"
+        },
+        {
+         "gives": "COW",
+         "note": "the first half of the split word"
+        },
+        {
+         "gives": "LOWER",
+         "note": "a cow is something that lows, so it is a lower"
+        }
+       ]
       },
       {
-       "words": "boy",
-       "at": 3,
+       "gives": "BOY",
+       "note": "the second half of the split word"
+      },
+      {
        "gives": "ED",
-       "note": "the second half of cowboy: Ed is a boy's name"
+       "note": "Ed is a boy's name"
       }
      ]
     },
