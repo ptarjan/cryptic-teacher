@@ -729,8 +729,15 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
     where = {p.name: p for p in gl.page_files(inbox)}
     files = [(sha, e) for sha, e in ledger.items() if e["file"] in where]
     readings = {}
-    for p in sorted(store.glob("listener-*.json")):
-        r = json.loads(p.read_text())
+    # With `numbers`, only their readings are opened: each read unit files its own puzzles while others write theirs.
+    paths = (sorted(store.glob("listener-*.json")) if numbers is None
+             else [store / f"listener-{n}.json" for n in sorted(numbers) if (store / f"listener-{n}.json").exists()])
+    for p in paths:
+        try:
+            r = json.loads(p.read_text())
+        except ValueError as e:  # one torn reading must not stop the filing of every other
+            print(f"{p.name}: unreadable ({e}); not filed this run", file=out)
+            continue
         if numbers is None or r["number"] in numbers:
             readings[r["number"]] = r
     if numbers is not None:
