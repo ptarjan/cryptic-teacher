@@ -7009,7 +7009,11 @@ RANKS = {HOST_SCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never 
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
-         "read by another VLM": 3}
+         "read by another VLM": 3,
+         # A Listener page numbered by its title read, or refused unnumbered, while
+         # its citation's date went unread (gale_listener.CITE_FIX): never read as
+         # its own puzzle, as good as unread, and 35 held another's clues (10-24).
+         "refused misnumbered before its fix": 0}
 #: The reasons of a read whose scan is by older scan code: "answers missing"
 #: when a stored title is a puzzle read without answers that no page links a
 #: solution heading to and an edition is dated within SOLUTION_DAYS after it
