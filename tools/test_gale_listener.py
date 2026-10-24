@@ -1090,14 +1090,31 @@ no273 = [(1744, 300, "CLUESACROSS"),
          (1948, 88, "Frolicked it. (29-35U) See 19. (33U) Its anagram.")]
 cols = g.paragraph_columns(para_words(no273))
 check("No 273's lists: (8-s), (9-IoD), (Anag. 28B), (2-4oA) and (3-s) number their clues",
-      [["1. Whitsun 13.", "8. Proverbs at these.", "9. 'Heaven will make a feast'.", "24, 27. See 36, 25D.",
+      [["1. Whitsun 13.", "8. Proverbs at these.", "9, 10. 'Heaven will make a feast'.", "24, 27. See 36, 25D.",
         "28. With 39A, Ceremony.", "30. With second letter."],
-       ["1. Whitsun symbol.", "2. Some affirm.", "3. Whit Sunday.", "25, 31. Frolicked it.", "29, 35. See 19.",
+       ["1. Whitsun symbol.", "2, 40. Some affirm.", "3. Whit Sunday.", "25, 31. Frolicked it.", "29, 35. See 19.",
         "33. Its anagram."]], cols and [[l[4] for l in c] for c in cols])
-check("a lettered link joins a light of its list's own way, not the other's (mirror)", [31, 35, None, None, 39],
+check("a lettered link joins a light of its list's own way, or the other list's lettered so",
+      [31, 35, 40, 10, 39, 29, 28],
       [g.para_linked(g.PARA_MARK.search(t), s) for t, s in (("(25-31, 27A-39)", "DOWN"), ("(29-35U)", "DOWN"),
                                                              ("(2-40A)", "DOWN"), ("(9-10D)", "ACROSS"),
-                                                             ("(38, 39)", "DOWN"))])
+                                                             ("(38, 39)", "DOWN"), ("(12-29D)", "ACROSS"),
+                                                             ("(34-28D)", "ACROSS"))])
+check("but not with its first light lettered, nor up among the across clues (mirror)", [None, None],
+      [g.para_linked(g.PARA_MARK.search(t), s) for t, s in (("(2A-40D)", "ACROSS"), ("(2-40U)", "ACROSS"))])
+# No 447's (1938) theme line over its lists: the lights it names, as two
+# readings read them ("S," a 5, "IA" 1A, "The 26s" 26; the word "I" none).
+canvas = [(950, 1759, 1080, 1780, "CANVAS"), (682, 1779, 760, 1800, "The"), (765, 1779, 800, 1800, "26s"),
+          (805, 1779, 850, 1800, "that"), (855, 1779, 900, 1800, "28U"), (905, 1779, 935, 1800, "7D"),
+          (940, 1779, 970, 1800, "7A"), (975, 1779, 990, 1800, "S,"), (1000, 1779, 1030, 1800, "IA,"),
+          (1040, 1779, 1060, 1800, "I"), (1380, 1779, 1500, 1800, "printed"),
+          (875, 1817, 1145, 1838, "CLUES—ACROSS"), (700, 1850, 1100, 1871, "(8) Because it was")]
+check("a theme line under its title over ACROSS names its lights",
+      ("CANVAS", ["26", "28U", "7D", "7A", "5", "1A"]), g.theme_line(canvas))
+check("the lights two readings read are the theme's, one alone reads none of it",
+      {"title": "CANVAS", "lights": ["26", "28U", "7D", "7A", "1A"]},
+      g.theme_lights({"a": canvas, "b": [w for w in canvas if w[4] != "S,"]}))
+check("no title word over ACROSS, no theme line (mirror)", None, g.theme_line(canvas[1:]))
 # No 133's (1932): "CLUES—ACROSS" read as specks, only DOWN read: the
 # across list is read from its "1." line up the column, not dropped.
 no133 = (line("Name and address", 100, 300) + line("¢t 3", 300, 400) + line("1. Claustra olim", 100, 430)

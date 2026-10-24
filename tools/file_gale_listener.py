@@ -24,9 +24,12 @@ read agree, and is checked against a third:
     3 and 4 and skips 32) has its list read by those numbers. Failing all
     that, the grid as its widths read it is used when, numbered as the page
     prints (a number in a cell starting no light, one skipped: No 3's 27
-    and 47), its lights are the clue list's (as_read). Before that the
+    and 47), its lights are the clue list's (as_read), or, its runs of two
+    shut but up to MOST_KEPT, every number read on its start (No 447's
+    themed 7 across and 37 down: closed_as_read). Before that the
     list is mended() where the page itself errs: a line read twice, a
-    clue number misprinted, a light printed with no clue;
+    clue number misprinted, a light printed with no clue (one other clues
+    cite, or the page's theme line names: No 447's CANVAS);
   - its report's answers, the check: the filled grid of the "Report on
     Crossword No. N" printed about two issues later, found on any saved page as the filled grid whose
     blocks and bars agree with the puzzle's on REPORT_AGREE of the cells
@@ -184,7 +187,7 @@ def number_of(lid):
     return int(n), d
 
 
-def mended(rows, clues):
+def mended(rows, clues, theme=None):
     """(clues, notes): the clue list (`clues` {light id: {"text", ...}}) laid
     on the grid's lights where the page itself is wrong or read twice;
     `notes` {light id: what was done}. Each mend needs the page's own word:
@@ -196,7 +199,10 @@ def mended(rows, clues):
         prints "35." for 36A) or the reader misread it;
       - a light no clue names whose number another clue cites ("23. Wonderful
         25.") is printed with no clue (No 103's theme word, 25D): its entry's
-        clue is "missing" with no text."""
+        clue is "missing" with no text;
+      - so is a light no clue names that the page's theme line (`theme`,
+        the reading's verdict "theme": themed) names, No 447's CANVAS
+        lights, which the theme line clues and no list does."""
     have = {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(rows).items()}
     clues, notes = linked_across(have, dict(clues))
     text = {lid: " ".join((c.get("text") or "").split()).lower() for lid, c in clues.items()}
@@ -229,7 +235,23 @@ def mended(rows, clues):
         if re.search(rf"(?<![\d,.]){n}(?!\d|\s*{other})", cited):
             clues[lid] = {"text": "", "noCluePrinted": True}
             notes[lid] = "printed with no clue: other clues cite it"
+        elif themed(lid, theme):
+            clues[lid] = {"text": "", "noCluePrinted": True}
+            notes[lid] = f"printed with no clue: the {theme['title']} line names it"
     return clues, notes
+
+
+#: A theme light's letter (gale_listener.theme_line): its direction.
+THEME_WAY = {"A": "across", "B": "across", "D": "down", "U": "down"}
+
+
+def themed(lid, theme):
+    """Whether the page's theme line (the reading's verdict "theme", No
+    447's "CANVAS / The 26s that 28U 7D 7A 5, ...") names the light `lid`:
+    its number, lettered its way or not lettered."""
+    n, d = number_of(lid)
+    return any(re.fullmatch(rf"{n}([ABDU]?)", t) and THEME_WAY.get(t[-1], d) == d
+               for t in (theme or {}).get("lights") or ())
 
 
 def linked_across(have, clues):
@@ -239,13 +261,22 @@ def linked_across(have, clues):
     that number when that one has no clue but "See" the first. The 1934-40
     paragraph lists link across them: "(33, 29) To find a low mean man" is
     among the across clues, 29 a down light only (No 254, 1935). `have`
-    {light id: cells}; notes {light id: what was done}."""
+    {light id: cells}; notes {light id: what was done}.
+    The other light may be one more clue's tail already, its answer the
+    end of both: No 471 (1939) prints "(29-8)" among the across clues and
+    "(3-8)" among the down, UNI and ORA each run on into 8 down's TED."""
     clues, notes = dict(clues), {}
+    tails = {t: h for h, c in clues.items() for t in (c.get("group") or ())[1:]}
 
     def cites(lid, head):
         t = (clues.get(lid) or {}).get("text") or ""
         # "See 37A." (No 273) cites 37 across as "See 37" does.
         return not t.strip() or bool(re.match(rf"see\W*{number_of(head)[0]}(?!\d)", t.strip(), re.IGNORECASE))
+
+    def shared(lid, head):
+        # A tail of a clue the other way, "See" that clue's head.
+        other = tails.get(lid)
+        return bool(other and other != head and number_of(other)[1] == number_of(lid)[1] and cites(lid, other))
 
     for head, c in list(clues.items()):
         group = list(c.get("group") or ())
@@ -254,7 +285,7 @@ def linked_across(have, clues):
                 continue
             n, d = number_of(tail)
             flip = f"{n}-{'down' if d == 'across' else 'across'}"
-            if flip not in have or not cites(flip, head):
+            if flip not in have or not (cites(flip, head) or shared(flip, head)):
                 continue
             group[k] = flip
             if cites(tail, head) and tail not in have:
@@ -390,7 +421,7 @@ def recited(clues, notes):
     return out, printed
 
 
-def as_read(g, clues):
+def as_read(g, clues, theme=None):
     """The fit of `g` ({"grid", "fit"}) whose rows are each side as its
     width says, numbered as the page prints (lg.as_printed: strays and
     skips), with "laid" (rows, clues, notes), when those lights are the
@@ -406,10 +437,38 @@ def as_read(g, clues):
     got = as_page(fit["rows"], fit, clues)
     if got is None:
         return None
-    laid, notes = mended(fit["rows"], got[0])
+    laid, notes = mended(fit["rows"], got[0], theme)
     if lights_fit(fit["rows"], laid) is not None:
         return None
     return {**fit, "laid": (fit["rows"], laid, {**got[1], **notes})}
+
+
+def closed_as_read(g, clues, theme=None):
+    """as_read for a page leaving its 2-cell runs unnumbered but a few
+    (reclosed: up to MOST_KEPT kept): `g`'s rows each side as its width
+    says, every printed number read on the start it numbers, the clue list
+    (mended) their lights; else None, and None when more than one set kept
+    fits. No 447 (1938) numbers its themed runs of two, 7 across and 37
+    down, and no other; its fit, five numbers unread, chased the rest with
+    bars the page has not (36 across cut up for a 37 across). A light the
+    theme line names with its way ("7A", "37U") is one: kept, of 447's
+    runs of two its unlettered "5" or "9" could name too."""
+    if not g["fit"].get("printed") or g["fit"].get("numbering") or g["fit"].get("stray"):
+        return None
+    printed = {(r, c): n for r, c, n in g["fit"]["printed"]}
+    named = {f"{t[:-1]}-{THEME_WAY[t[-1]]}" for t in (theme or {}).get("lights") or () if t[-1] in THEME_WAY}
+    hits = []
+    for alt in reclosed(g["grid"]["rows"]):
+        st = lg.starts(alt)
+        if any(st.get(c) != n for c, n in printed.items()) or named - light_ids(alt):
+            continue
+        laid, notes = mended(alt, clues, theme)
+        if lights_fit(alt, laid) is None:
+            hits.append((alt, laid, notes))
+    if len(hits) != 1:
+        return None
+    alt, laid, notes = hits[0]
+    return {**g["fit"], "rows": alt, "asRead": True, "laid": (alt, laid, notes)}
 
 
 def order(lid):
@@ -846,6 +905,7 @@ def join(reading, grids, reports, read_letters, read_probs=None, read_strips=Non
     read_strips and ask the VLM's (report_join)."""
     verdict = {"number": reading["number"]}
     clues = reading["clues"]
+    theme = reading.get("verdict", {}).get("theme")
     if not grids:
         verdict["lacks"] = "grid: no unfilled grid read on its pages" + gl.see_pages(
             reading.get("verdict", {}).get("seePages"))
@@ -867,7 +927,7 @@ def join(reading, grids, reports, read_letters, read_probs=None, read_strips=Non
                 got = as_page(rows if fit.get("numbering") == "printed" else fit["rows"], fit, page)
                 if got is None:
                     return None
-                laid, notes = mended(rows if fit.get("numbering") == "printed" else fit["rows"], got[0])
+                laid, notes = mended(rows if fit.get("numbering") == "printed" else fit["rows"], got[0], theme)
                 return laid, {**shifted, **got[1], **notes}
 
             rows, sides, laid, notes, why, mends = fit_to_clues(g["grid"], g["fit"], lay)
@@ -875,7 +935,7 @@ def join(reading, grids, reports, read_letters, read_probs=None, read_strips=Non
                 skip, note = skipped(g["fit"]["rows"], got[0])
                 if skip and lights_fit(g["fit"]["rows"], skip) is None:
                     rows, sides, laid, notes = g["fit"]["rows"], [], skip, {**got[1], **note}
-        if not rows and (got := as_read(g, clues)):
+        if not rows and (got := as_read(g, clues, theme) or closed_as_read(g, clues, theme)):
             fit, (rows, laid, notes), sides = got, got["laid"], []
         if rows:
             clues = laid

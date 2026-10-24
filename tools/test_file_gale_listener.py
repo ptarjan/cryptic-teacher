@@ -118,6 +118,28 @@ own = {**named, head: {"text": "clue", "group": [head, only_down.replace("down",
        only_down.replace("down", "across"): {"text": f"See {hn}"}}
 got, notes = f.mended(OPEN, {**own, only_down: {"text": "its own words"}})
 check("not where that light has words of its own (mirror)", ([head, tail], {}), (got[head]["group"], notes))
+# No 471 (1939): "(29-8)" among the across clues and "(3-8)" among the down,
+# UNI and ORA each running on into 8 down's TED: 8 down is both clues' tail.
+shared = {k: v for k, v in named.items() if k != only_down} | {
+    head: {"text": "clue", "group": [head, tail]}, tail: {"text": f"See {hn}"},
+    "3-down": {"text": "down clue", "group": ["3-down", only_down]}, only_down: {"text": "See 3"}}
+got, notes = f.mended(OPEN, shared)
+check("a linked clue's second light may be another clue's tail the other way",
+      (None, [head, only_down], "See 3", {only_down: f"linked to {head} from the other list"}),
+      (f.lights_fit(OPEN, got), got[head]["group"], got[only_down]["text"], notes))
+got, notes = f.mended(OPEN, {**shared, "3-down": {"text": "down clue"}})
+check("not where its 'See' names a clue it is no tail of (mirror)", ([head, tail], {}), (got[head]["group"], notes))
+# No 447 (1938): its theme line, "CANVAS / The 26s that 28U 7D 7A 5, ...",
+# names the lights no list clues; each is printed with no clue.
+check("a theme light lettered its way, or not lettered, is the theme's",
+      [True, True, False, True, False],
+      [f.themed(lid, {"lights": ["4", "1A", "2U"]}) for lid in ("4-down", "1-across", "1-down", "2-down", "3-down")])
+got, notes = f.mended(OPEN, {k: v for k, v in named.items() if k != "4-down"}, {"title": "CANVAS", "lights": ["4"]})
+check("a light the theme line names is printed with no clue",
+      (None, {"4-down": "printed with no clue: the CANVAS line names it"}, {"text": "", "noCluePrinted": True}),
+      (f.lights_fit(OPEN, got), notes, got["4-down"]))
+got, notes = f.mended(OPEN, {k: v for k, v in named.items() if k != "4-down"}, {"title": "CANVAS", "lights": ["4A"]})
+check("one it names the other way stays unclued (mirror)", ({}, "no clue for 4-down"), (notes, f.lights_fit(OPEN, got)))
 # The list running past a light (No 8's 55 to 57 across) skips it: no reading has a line for it.
 skip = lambda *gone: {k: v for k, v in named.items() if k not in gone}
 got, notes = f.skipped(OPEN, skip("6-across"))
@@ -480,6 +502,23 @@ check("a stray and a skipped number: the grid as read, the list by the page's nu
       got and (got["rows"], f.lights_fit(OPEN, got["laid"][1]), got["laid"][2]))
 check("a clue at the stray number refuses the grid as read (mirror)", None,
       f.as_read(g, {**listed, "5-across": {"text": "x"}}))
+# No 447 numbers two of its runs of two, the theme's, and no other; five
+# numbers unread, its fit chased the rest with bars the page has not. The
+# grid as read, its runs of two shut but the one the theme names, is taken.
+PAIRS = [".r..", "....", "....", "...."]   # 1 across and 3 across two long
+g = {"grid": {"rows": PAIRS}, "fit": {"rows": ["+r..", "....", "....", "...."], "exact": True,
+                                      "printed": [[0, 0, 1], [0, 1, 2], [0, 2, 3], [1, 0, 5]]}}
+listed = {k: {"text": "words"} for k in ("5-across", "6-across", "7-across", "1-down", "2-down", "3-down", "4-down")}
+got = f.closed_as_read(g, listed, {"title": "CANVAS", "lights": ["1A"]})
+check("runs of two shut but the theme's: the grid as read, the theme's light unclued",
+      ([".rr.", "....", "....", "...."], {"1-across": "printed with no clue: the CANVAS line names it"}),
+      got and (got["rows"], got["laid"][2]))
+got = f.closed_as_read(g, listed)
+check("with no theme naming it, both shut (mirror)", (["rrr.", "....", "....", "...."], {}),
+      got and (got["rows"], got["laid"][2]))
+check("nor where a number read sits on no start it numbers (mirror)", None,
+      f.closed_as_read({**g, "fit": {**g["fit"], "printed": [[0, 0, 1], [0, 3, 3]]}}, listed,
+                       {"title": "CANVAS", "lights": ["1A"]}))
 # On a page numbered as printed, the flips the clue list asks for come
 # from the unsure sides alone, on the lines of the lights it disagrees on.
 BARRED = ["....", "....", "....", "...."]
