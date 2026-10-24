@@ -456,8 +456,18 @@ def classified_part(gap, blocks=1.0, **kw):
 old_read = {"edition": "NewsUK1980UKEnglish/1980-01-21_0", "solutionKey": "old"}
 check("a classified grid read by other code, three lights short: predicted for the fitted and VLM reads",
       f.LIKELY[4], f.short_cause("times", old_read, v(90210, **classified_part(3)), {}))
-check("mirror: read by the current code, it is not", None,
+check("mirror: read by the current code, three lights short, it is not", None,
       f.short_cause("times", {**old_read, "solutionKey": f.solution_key()}, v(90210, **classified_part(3)), {}))
+# Read by the current code's full read (no enumerations: no fitted read, no strip asked) and at most
+# STRIP_MAX lights short, before REREAD_SHORT_FITTED: predicted too, whatever its blocks (SHORT_UNFITTED).
+cur_read = {**old_read, "solutionKey": f.solution_key(), "readAt": "2026-10-23T00:00:00+00:00"}
+check("a grid this code's full read left two lights short, before the fitted reread: predicted",
+      [f.LIKELY[4], f.LIKELY[4]],
+      [f.short_cause("times", cur_read, v(90210, **classified_part(2)), {}),
+       f.short_cause("times", cur_read, v(90210, **classified_part(1, blocks=0.9)), {})])
+check("mirror: read after REREAD_SHORT_FITTED, or by answers_only, it is not", [None, None],
+      [f.short_cause("times", {**cur_read, "readAt": "2026-10-24T05:00:00+00:00"}, v(90210, **classified_part(2)), {}),
+       f.short_cause("times", cur_read, v(90210, answersOnly=True, **classified_part(2)), {})])
 check("mirror: more than SHORT_GAP lights short, blocks unsure, or refused", (None, None, None),
       (f.short_cause("times", old_read, v(90210, **classified_part(f.SHORT_GAP + 1)), {}),
        f.short_cause("times", old_read, v(90210, **classified_part(2, blocks=0.9)), {}),

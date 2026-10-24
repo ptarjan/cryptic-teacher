@@ -6479,6 +6479,35 @@ def unenumerated_held(row):
     return False
 
 
+#: The due reason of a Times edition whose linked solution grid this solution code (solution_key) read
+#: but for 1 to STRIP_MAX lights, its held puzzle every clue and not every answer: the full read's
+#: solved() had no enumerations, so neither fitted_reads nor the VLM's strips ran for the last lights.
+#: answers_only reads them (SOLUTION_FIXES), once: rows read before REREAD_SHORT_FITTED.
+#: Paul 10-23: ~1,936 Times puzzles stood so, none due.
+SHORT_UNFITTED = "solution short, not read fitted"
+REREAD_SHORT_FITTED = "2026-10-24T04:30:00+00:00"
+
+
+def short_unfitted(row):
+    """Whether Times ledger `row`, read before REREAD_SHORT_FITTED by this solution code, linked a
+    solution grid it read but for 1 to trove_solution_ocr.STRIP_MAX lights, not by answers_only, for
+    a puzzle filed with every clue and not every answer (filed_state)."""
+    if row.get("solutionKey") != solution_key() or not scan_queue.read_before(row, scan_queue.when(REREAD_SHORT_FITTED)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("solutionFrom") or v.get("answersOnly") or v.get("refused") or not v.get("id")
+                or not isinstance(s, dict) or s.get("refused")):
+            continue
+        if 0 < s.get("lights", 0) - s.get("accepted", 0) <= trove_solution_ocr.STRIP_MAX \
+                and filed_state(paper.series, v.get("number")) == (False, True):
+            return True
+    return False
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -6516,6 +6545,8 @@ def fix_reason(row):
                 if paper not in CELLS_CLASSIFIED and row.get("solutionKey") in SOLUTION_UNCLASSIFIED:
                     continue
                 return "solution short, read by other code"
+    if short_unfitted(row):
+        return SHORT_UNFITTED
     return None
 
 
@@ -6534,7 +6565,8 @@ SOLUTION_UNCLASSIFIED = frozenset({"49e26fb92ece9e33"})
 #: it held blank is one a VOTE_MENDED change since its read mends.
 #: Also (LIKELY[4]) its solution grid, read by other code (solution_key), lacks at most
 #: SHORT_GAP lights: answers_only reads it again with fitted_reads and, for the lights left, the
-#: VLM's word for their cells (vlm_lights).
+#: VLM's word for their cells (vlm_lights); or, read by this code's full read (no fitted read, no
+#: strip asked), lacks at most trove_solution_ocr.STRIP_MAX (SHORT_UNFITTED).
 LIKELY = ("answers linked", "answers in the next issue's text", "solution grid read before read_framed",
           "blanks a vote fix mends", "solution grid read before the fitted and VLM reads")
 #: The lights a solution grid read by other code may lack and be read again for the fitted and VLM
@@ -6611,10 +6643,14 @@ def short_cause(series, row, v, solutions):
     if "lattices" not in s and gap <= PARTIAL_GAP:
         return LIKELY[2]
     # A grid read by other code (answers_only reads it again: the classifier, fitted_reads, and
-    # for the lights still short the VLM's strips) that left at most SHORT_GAP lights.
-    if (row.get("solutionKey") != solution_key() and 0 < gap <= SHORT_GAP
-            and s.get("blocks", 0) >= trove_solution_ocr.SURE_BLOCKS
-            and paper_of(row.get("edition", "")).key in CELLS_CLASSIFIED):
+    # for the lights still short the VLM's strips) that left at most SHORT_GAP lights; or one this
+    # code's full read left at most STRIP_MAX lights short, never read fitted (SHORT_UNFITTED).
+    if paper_of(row.get("edition", "")).key not in CELLS_CLASSIFIED or gap <= 0:
+        return None
+    if row.get("solutionKey") != solution_key():
+        return LIKELY[4] if gap <= SHORT_GAP and s.get("blocks", 0) >= trove_solution_ocr.SURE_BLOCKS else None
+    if (gap <= trove_solution_ocr.STRIP_MAX and not v.get("answersOnly")
+            and scan_queue.read_before(row, scan_queue.when(REREAD_SHORT_FITTED))):
         return LIKELY[4]
     return None
 
@@ -6971,7 +7007,7 @@ RANKS = {HOST_SCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never 
          "solution short, its cells unclassified": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
-         "answers held back by a clue with no enumeration": 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          "read by another VLM": 3}
 #: The reasons of a read whose scan is by older scan code: "answers missing"
@@ -7377,7 +7413,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: Paul 10-23: kept for the VLM, every such reread took the full read, whose solved() has no
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
-                  "answers held back by a clue with no enumeration")
+                  "answers held back by a clue with no enumeration", SHORT_UNFITTED)
 
 
 def keeps_vlm(why, row, unit=None):

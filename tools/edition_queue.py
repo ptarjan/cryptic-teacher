@@ -1175,7 +1175,8 @@ def by_urgency(units):
 #: "titles changed", ...) are held behind them unless likely_gain > 0.
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
-              "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration")
+              "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
+              fa.SHORT_UNFITTED)
 
 
 def unproven_first(unit):
@@ -1242,7 +1243,7 @@ CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked")
 #: gpu_fill's reserve holds slots for reads that do ask. Unlike CPU_ONLY they are not answers-linked
 #: (no batching) and not under the cpu-only cap (they would starve behind it).
 LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
-           "answers held back by a clue with no enumeration")
+           "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED)
 
 
 def vlm_feed_reads():
