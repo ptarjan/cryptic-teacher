@@ -377,9 +377,11 @@ pending.write_text(json.dumps({
                  "notes": {"Rag": "a rag is a newspaper, and one out every day is a daily"}}}))
 unnamed = AC.unname_block_notes(named, pending)
 notes_now = {k: next(iter(v["notes"].values())) for k, v in json.loads(pending.read_text()).items()}
-say("answer_opener_trimmed", unnamed == ["1-across"]
-    and notes_now["1-across"] == "a grid of metal bars over a drain"
-    and notes_now["2-across"].startswith("William") and notes_now["3-across"].startswith("a rag"))
+say("answer_opener_trimmed", unnamed == ["1-across", "2-across", "3-across"]
+    and notes_now["1-across"] == "a grid of metal bars over a drain")
+# What no rule clears is blanked, so the model is not sent back for it.
+say("unclearable_note_blanked", notes_now["2-across"] == "William ... was Archbishop of Canterbury"
+    and notes_now["3-across"].startswith("a rag") and "daily" not in notes_now["3-across"].lower())
 from find_answer_leaks import unname
 say("unname_gives_the_answer", unname("noaHS ARk; read backwards gives RASH", "RASH")
     == "noaHS ARk; read backwards gives the answer")
