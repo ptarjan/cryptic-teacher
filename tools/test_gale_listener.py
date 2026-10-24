@@ -973,6 +973,11 @@ with tempfile.TemporaryDirectory() as tmp:
     check("one read whole, or short since, is not (mirror)", ["version changed", "version changed"],
           [g.due_reason({"version": g.CLUES_FIX - 1, "agreed": 41, "clues": 41}),
            g.due_reason({"version": g.CLUES_FIX, "agreed": 34, "clues": 41})])
+    check("of the pages read short, the nearest whole is read first; other reasons follow in file order",
+          [1, 9, float("inf"), float("inf")],
+          [g.clues_left({"agreed": 41, "clues": 42}, g.SHORT), g.clues_left({"agreed": 35, "clues": 44}, g.SHORT),
+           g.clues_left({"why": g.UNPARSED}, "refused no-reading-parses before its fix"),
+           g.clues_left(None, "never read (Gale fetch)")])
 
 # The 1934-40 lists, run on as paragraphs (No 400): "(N)" opens each clue
 # mid-line, the across list runs on from the left column's foot to the

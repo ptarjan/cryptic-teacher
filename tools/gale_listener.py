@@ -2047,8 +2047,18 @@ def plan(inbox=SAVED, store=STORE):
         if (row or {}).get("version") != VERSION:
             todo[p] = row
     due = sorted(((p, due_reason(row)) for p, row in todo.items()),
-                 key=lambda pr: (rank_of(pr[1]), pr[0].stat().st_mtime))
+                 key=lambda pr: (rank_of(pr[1]), clues_left(todo[pr[0]], pr[1]), pr[0].stat().st_mtime))
     return [{"rel": p.name, "rank": rank_of(reason), "reason": reason, "needs": []} for p, reason in due]
+
+
+def clues_left(row, reason):
+    """How many clues a page read SHORT last left unagreed: plan reads the
+    nearest whole first, as they are the rereads that file (No 254 at 21 of
+    27, No 601 at 35 of 44 waited behind ~600 rereads in file order, 10-24).
+    Every other page ranks after them in its rank, in file order."""
+    if reason == SHORT and row:
+        return max(0, (row.get("clues") or 0) - (row.get("agreed") or 0))
+    return float("inf")
 
 
 def rank_of(reason):
