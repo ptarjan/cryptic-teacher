@@ -287,6 +287,9 @@ check("held: cured-since and fix-landed reads go, annotation asked stays, and th
       (["X/n", "X/a"], []), ([t[3]["rel"] for t in rd_x], sc_x))
 sc_y, rd_y = eq.hold_refusal_rereads([], [tup(unit_c), tup(unit_t)])
 check("with no new unit left the refusal rereads come back", 2, len(rd_y))
+unit_l = {"paper": "listener", "rel": "GALE_GM1.pdf", "reason": "refused clues-short before its fix", "needs": []}
+_, rd_l = eq.hold_refusal_rereads([], [tup(unit_n), tup(unit_l), tup(unit_c)])
+check("a Listener refusal reread (local OCR, no VLM) is not held", ["X/n", "GALE_GM1.pdf"], [t[3]["rel"] for t in rd_l])
 
 # ---- canary-proven refusal rereads skip the hold and go right after the never-read work
 gk = lambda rel, date, reason="refused no-reading-parses before its fix", paper="gale": tup(
@@ -412,6 +415,13 @@ check("eq.by_urgency: the Listener's pages go first, ahead of the newest-first p
       ["listener-page", "gale-old-gain", "gale-hand", "gale-new", "other", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units + [(0, 1, 0, {"rel": "listener-page", "paper": "listener", "rank": 0,
                                                                "kind": "read", "reason": "never read (Gale fetch)"})])])
+lu = lambda rel, rank, reason: (rank, 1, 0, {"rel": rel, "paper": "listener", "rank": rank, "kind": "read", "reason": reason})
+check("eq.by_urgency: the Listener's pages read short before a fix alternate with its never-read ones",
+      ["l-short", "l-new1", "l-unparsed", "l-new2", "l-new3"],
+      [u["rel"] for u in eq.by_urgency([lu("l-new1", 0, "never read (Gale fetch)"), lu("l-new2", 0, "never read (Gale fetch)"),
+                                        lu("l-new3", 0, "never read (Gale fetch)"),
+                                        lu("l-short", 2, "refused clues-short before its fix"),
+                                        lu("l-unparsed", 2, "refused no-reading-parses before its fix")])])
 rr = lambda rel, date, reason, **k: (2, 0, 0, {"rel": rel, "date": date, "paper": "times", "rank": 2, "reason": reason, **k})
 check("eq.by_urgency: CT_NEWEST_FIRST, never read first, then rereads after a refusal or short read, then ones whose page holds the puzzle",
       ["never", "refused", "short", "changed-new", "changed-old"],

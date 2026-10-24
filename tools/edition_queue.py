@@ -953,8 +953,11 @@ def hold_refusal_rereads(scans, reads, out=None):
     # CT_NEWEST_FIRST papers' refusal rereads are never held: Paul 10-21, "Read the remaining times
     # puzzles before doing ft" (their never-read pages ran out; ~1,200 rereads waited behind FT's).
     named = newest_first_papers()
+    # Nor are the Listener's: read on local OCR in their own pool (LISTENER_WORKERS), they ask no VLM, so
+    # holding them saved the VLM nothing. Held, its 619 pages read before the paragraph-list fixes
+    # (CLUES_FIX) waited behind 2,858 never-read ones (~110 h of its pool, 10-24), and no Listener filed.
     held = [t for t in reads if refusal_reread(t[3]["reason"]) and not canary_proven(t[3])
-            and (t[3]["paper"] not in named or canary_failed(t[3]))]
+            and t[3]["paper"] != "listener" and (t[3]["paper"] not in named or canary_failed(t[3]))]
     if not held:
         return scans, reads
     if refusal_rereads_wanted():
@@ -1166,7 +1169,15 @@ def by_urgency(units):
     # (thousands) a Listener unit never met a free ceiling slot: FT reached them as the VLM's fills, which
     # a Listener read (local OCR, no VLM) never is. So the Listener's go first: its own pool
     # (LISTENER_WORKERS), the idle-core gate and the fill reserve keep them from taking more.
-    return [u for *_, u in units if u.get("paper") == "listener"] + [u for *_, u in units if u.get("paper") != "listener"]
+    # Its pages read before a reader fix alternate one for one with its never-read ones: ranked after
+    # them, the 619 read short or unparsed before CLUES_FIX waited behind 2,858 (~110 h of its pool),
+    # while a 10-24 canary of the near-complete ones read whole (No 2: 42 -> 43 of 43 clues) and
+    # never-read pages read that day filed none.
+    listener, again = [], []
+    for *_, u in units:
+        if u.get("paper") == "listener":
+            (again if refusal_reread(u.get("reason") or "") else listener).append(u)
+    return alternate(again, listener) + [u for *_, u in units if u.get("paper") != "listener"]
 
 
 #: The rank 2 reasons whose last read was refused or short and a fix landed

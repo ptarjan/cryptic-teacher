@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 20
+VERSION = 21
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -432,10 +432,16 @@ def page_columns(words):
     laid out any way: of headed_columns (both headings read) and
     numbered_columns, the one holding more numbered clue lines, headed_columns
     on a tie. Under a low ACROSS, headed_columns sees only the lists' first
-    band (No 3's run on at the top of the next column)."""
+    band (No 3's run on at the top of the next column). One whose lists
+    both hold COLUMN_MIN numbered lines goes first: on a paragraph page the
+    headings' lines open on a number by chance (No 245, 1934: headed 1
+    across and 41 down, its paragraphs 22 and 20)."""
     found = [c for c in (headed_columns(words), numbered_columns(words), paragraph_columns(words),
                          paragraph_columns(words, DOTTED)) if c]
-    return max(found, key=lambda c: sum(bool(al.LINE_CLUE.match(line[4])) for lst in c for line in lst), default=None)
+
+    def numbered(lst):
+        return sum(bool(al.LINE_CLUE.match(line[4])) for line in lst)
+    return max(found, key=lambda c: (min(map(numbered, c)) >= COLUMN_MIN, sum(map(numbered, c))), default=None)
 
 
 #: A clue's number as the 1934-40 lists print it, run on in a paragraph:
@@ -446,8 +452,38 @@ def page_columns(words):
 #: "(40-22) Thracian torturers." (No 443, 1938); read from its last figure,
 #: each was a number lower than the clue's before it, and dropped. An
 #: anagram's clue says so in its bracket: "(47 anag.) Shivering", a
-#: reversed light's too: "(45 rev.) Better be" (No 242, 1934).
-PARA_MARK = re.compile(r"(?<![\w(])\(?(\d{1,2})([A-Z]?)(?:(?:,\s?|-)\d{1,2}[A-Z]?)*(?:\s?(?:anag|rev)\.?\s?)?\)([*†‡!¥]*)(?![\w)])")
+#: reversed light's too: "(45 rev.) Better be" (No 242, 1934). A reader
+#: may set the clue's capital hard against it: "(26rev.)Muddled" (No 261).
+PARA_MARK = re.compile(r"(?<![\w(])\(?(\d{1,2})([A-Z]?)(?:(?:,\s?|-)\d{1,2}[A-Z]?)*(?:\s?(?:anag|rev)\.?\s?)?\)([*†‡!¥]*)(?![a-z\d_)])")
+#: A clue's number in its bracket with a figure read as a letter: "(Is)"
+#: for (15), "(3o)", "(z1)", "(i7)", "(1g rev.)", "(Io rev.)", "(s rev.)"
+#: (No 261, 1935: 9 of its 29 numbers so read by one reader or another).
+#: Read as figures where a figure is in it, "rev."/"anag." follows it, or
+#: it is two letters opening on I or l ("(II)", "(Io)"): "(I)", "(so)" and
+#: "(is)" are words.
+MARK_LIKE = re.compile(r"(?<![\w(])\(([\dIlioOzZsSg]{1,2})(?=[A-Z]?\)|(\s?(?:anag|rev)\b))")
+LIKE_FIGURES = str.maketrans("IlioOzZsSg", "1110022559")
+WIDE_BRACKETS = str.maketrans("（）", "()")
+#: A light a clue refers to, "See (31) Down.": no clue's number.
+SEE = re.compile(r"\bsee\W*$", re.IGNORECASE)
+#: ... or names its direction after it: "Certainly applicable to (33)Down."
+CITED = re.compile(r"\s*(?:Down|Across)\b(?=\s*[.,;:)]|\s*$)")
+
+
+def figures_read(text):
+    """`text` with each MARK_LIKE number read as figures, its length kept
+    (paragraph_columns places each clue by its offset), and a full-width
+    bracket read as one ("（16)Without", ch on No 400)."""
+    text = text.translate(WIDE_BRACKETS)
+
+    def fix(m):
+        tok = m.group(1)
+        if tok.isdigit() or not (re.search(r"\d", tok) or m.group(2) or re.fullmatch(r"[Il][\dIlioOzZsSg]", tok)):
+            return m.group(0)
+        return "(" + tok.translate(LIKE_FIGURES)
+    return MARK_LIKE.sub(fix, text)
+
+
 #: PARA_MARK opening a clue's words in capitals: what tells a page of
 #: paragraph lists from one with counts at clues' ends ("Region (6)").
 PARA_OPENS = re.compile(PARA_MARK.pattern + r"(?=[,\s]*\(|\s+[\"'‘“]?[A-Z0-9])")
@@ -472,6 +508,8 @@ PARA_MIN = 6
 PARA_GROUP = re.compile(r"^[\s,]*(?:and\s+|&\s*)?$")
 #: Two words in capitals: the next heading under the lists ("CROSSWORD RULES.").
 PARA_STOP = re.compile(r"\b[A-Z]{3,}[\s.,:—-]+[A-Z]{3,}\b")
+#: ... but for the entry form's "NAME AND ADDRESS" before DOWN's heading: that column's end.
+FORM = re.compile(r"\bADDRESS\b")
 #: A gap of more than this many of its column's line pitches ends the lists there.
 PARA_GAP = 2.5
 #: A box this many times a word's height is the grid's or a picture's, no clue's.
@@ -527,18 +565,30 @@ def paragraph_columns(words, marks=PARA_MARKS):
     stream = []
     for x0, x1 in (s for s in spans if s[1] >= across[0]):
         rows = para_rows([w for w in body if x0 <= (w[0] + w[2]) / 2 <= x1], height)
-        if (stream and x0 > across[2] and not any(t == "DOWN" and r is None for t, r in stream)
-                and sum(len(opens.findall(r[4])) for r in rows) < COLUMN_MIN):
+        unread_down = stream and x0 > across[2] and not any(t == "DOWN" and r is None for t, r in stream)
+        if unread_down and sum(len(opens.findall(r[4])) for r in rows) < COLUMN_MIN:
             # The heading at a column's foot, the across list run on at the
             # next column's top, above the heading's level, and only a
             # report below it there (No 242, 1934).
             rows = para_above(words, (x0, x1), across, height, tall, mark) or rows
+        elif unread_down and any(heading(w[4]) == "DOWN" and x0 <= (w[0] + w[2]) / 2 <= x1 and w[3] < across[1]
+                                 for w in headings(words)):
+            # The across list run on at the next column's top, above the
+            # heading's level, DOWN's heading there too, and the down list
+            # running on below that level (No 245, 1934): the column whole.
+            above = para_above(words, (x0, x1), across, height, tall, mark)
+            rows = above + [r for r in rows if not above or r[0] > above[-1][0]]
         if stream and not any(mark.search(r[4]) for r in rows):
             break  # a column with no clue number: a report, an article
         steps = sorted(b[0] - a[0] for a, b in itertools.pairwise(rows) if b[0] > a[0])
         pitch = steps[len(steps) // 2] if steps else 0
         last, stop = None, False
         for r in rows:
+            if not re.search(r"[A-Za-z]{2}|\(", r[4]):
+                # A grid's cell numbers under the list ("1 2 3 4 5") or a speck
+                # ("!"): no line of it, though it spans a gap as before.
+                last = r[0] if last is None or r[0] - last <= PARA_GAP * pitch else last
+                continue
             # A heading's own space above it is no gap (No 582's DOWN, 1941),
             # nor is an unread DOWN's: the down list starting again at 1 or 2
             # under it (No 443's "(1) No post-mortem", 1938).
@@ -552,10 +602,14 @@ def paragraph_columns(words, marks=PARA_MARKS):
                 stream.append((head, None))
                 continue
             text = r[4]
+            form = False
             if cut := PARA_STOP.search(text):
-                text, stop = text[:cut.start()], True
+                # The entry form's "NAME AND ADDRESS" under a column the across
+                # list runs on from ends that column alone (No 245, 1934).
+                form = bool(FORM.search(text, cut.start())) and not any(t == "DOWN" and w is None for t, w in stream)
+                text, stop = text[:cut.start()], not form
             stream.append((text, r))
-            if stop:
+            if stop or form:
                 break
         if stop:
             break
@@ -581,6 +635,8 @@ def paragraph_columns(words, marks=PARA_MARKS):
     # "(1)" read for a count, 1941, cut its across list there).
     headed_down = any(text == "DOWN" and row is None for text, row in stream)
     for side, text, boxes in pieces:
+        if mark is PARA_MARK:
+            text = figures_read(text)
         marks = list(mark.finditer(text))
         last = 0
         clue = None  # [number, start of its words, row]
@@ -596,6 +652,10 @@ def paragraph_columns(words, marks=PARA_MARKS):
             if clue and PARA_GROUP.match(text[marks[i - 1].end():m.start()]) and clue[1] == marks[i - 1].end():
                 clue[1] = m.end()  # one more light of the same clue
                 continue
+            if mark is PARA_MARK and (SEE.search(text, 0, m.start()) or CITED.match(text, m.end())):
+                continue  # "See (31) Down.", "applicable to (33)Down.": the light a clue refers to
+            if mark is PARA_MARK and not m.group(0).startswith("(") and re.match(r"\w", text[m.end():m.end() + 1]):
+                continue  # a bracket's tail hard on a word: "(8-27- 36)Reading" (No 400's 8 down)
             if not split.match(text, m.start()) or n <= last and not (
                     n <= 2 and side == "ACROSS" and not lists["DOWN"] and not headed_down):
                 continue  # the clue's own words: a count ("Song (5)."), a lower number
@@ -1967,7 +2027,15 @@ UNPARSED = "no reading parses"
 #: not a clue's "See 37 Across.", and the across list run on at the next
 #: column's top above the heading's level is read, as is "(45 rev.)" (No
 #: 242, 1934: its page read 7 across before, 22 across and 22 down after).
-CLUES_FIX = 20
+#: 21: a paragraph list's bracket read with a figure as a letter ("(Is)",
+#: "(3o)", "(z1)", "(1g rev.)") or full-width, or with the clue's capital
+#: hard on it ("(26rev.)Muddled"), numbers its clue; "See (31) Down." does
+#: not (numbered clues before -> after: No 261's ch 6A 7D -> 18A 19D, en5
+#: 15A 4D -> 18A 18D; No 254's ch 9A 4D -> 18A 19D). The across list run on
+#: above the heading's level with DOWN's heading there, a grid's numbers
+#: under a column, and a paragraph page's chance line-numbered headed
+#: reading (No 245, 1934: its reading 1 of 9 clues before, 40 of 47 after).
+CLUES_FIX = 21
 SHORT = "refused clues-short before its fix"
 
 

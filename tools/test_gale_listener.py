@@ -1068,6 +1068,37 @@ check("only DOWN read: the across list above it, from its 1.",
       tuple([l[4].split(".")[0] for l in c] for c in g.page_columns(no133) or ([], [])))
 check("with no 1. above DOWN, nothing above it is a list (mirror)", None,
       g.numbered_columns([w for w in no133 if w[4] != "1." or w[1] > 500]))
+# No 261's (1935): a reader reads a bracket's figure as a letter ("(Is)",
+# "(3o)", "(z1)", "(1g rev.)"), sets a capital hard on it ("(26rev.)Muddled"),
+# and a clue's "See (31) Down." refers to a light, numbering no clue.
+no261 = [(1744, 300, "CLUESACROSS"),
+         (1772, 88, "(12) The schoolboy's face? (13)* One"), (1794, 88, "tramp. (Is)* A Harpy. (16 rev.)"),
+         (1816, 88, "& (1o rev.) Medea. (1g rev.) See (3o)."), (1838, 88, "(z1)* Platitudinous remark. (26rev.)Muddled"),
+         (1860, 88, "corpse-cover. (3I rev.) Woollens."),
+         (1882, 300, "DOWN"),
+         (1904, 88, "(1) Obvious reference. (2) Christmas."), (1926, 88, "(3)** See (31) Down. (4) & (28) Might"),
+         (1948, 88, "have described a web. (s rev.)* See (32).")]
+cols = g.paragraph_columns(para_words(no261))
+check("No 261's lists: figures read as letters in a bracket, a capital hard on it, a See (N) no clue",
+      [[12, 13, 15, 16, 19, 21, 26, 31], [1, 2, 3, 4, 5]], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+check("its 3 down is the See, its 26 across the words after the bracket",
+      ["3. See (31) Down.", "26. Muddled corpse-cover."],
+      cols and [next(l[4] for l in cols[1] if l[4].startswith("3.")), next(l[4] for l in cols[0] if l[4].startswith("26."))])
+check("a word in brackets stays a word (mirror)", "(I) and (so) and (is)", g.figures_read("(I) and (so) and (is)"))
+# No 245's (1934): the across list runs on at the next column's top, above
+# the heading's level, DOWN's heading there too and the down list running
+# on below that level; a grid's numbers under the left column close the gap
+# to its "NAME AND ADDRESS".
+no245 = [(1744, 300, "CLUESACROSS"), (1772, 88, "(1) Protects the arm. (5) Old English"),
+         (1794, 88, "would drink. (10) Victim of nursery.")]
+no245 += [(1830 + 40 * i, 88, " ".join(str(n) for n in range(6 * i + 1, 6 * i + 7))) for i in range(7)]
+no245 += [(2110, 88, "NAME AND ADDRESS"), (1534, 765, "(35) Assumed arms. (38-45) Defect in"),
+          (1556, 765, "a bow. (40) When doubled."), (1578, 900, "DOWN")]
+no245 += [(1600 + 22 * i, 765, f"({2 * i + 1}) Down clue. ({2 * i + 2}) Another one.") for i in range(18)]
+no245 += [(2100, 765, "Report on Crossword No. 243"), (2122, 765, "(1) was hard. (2) The")]
+cols = g.page_columns(para_words(no245))
+check("No 245's lists: run on above the heading's level with DOWN there, over a grid's numbers",
+      [[1, 5, 10, 35, 38, 40], list(range(1, 37))], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
 check("one clue a line is no paragraph list (mirror)", None,
       g.paragraph_columns(para_words([(100, 88, "ACROSS"), (130, 88, "1. Bird (4)"), (160, 88, "5. Fish (4)")])))
 
