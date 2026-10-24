@@ -22,6 +22,9 @@
   "date": "2020-05-06",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "Find a new supplier for stock",
     "enumeration": "8"
    },
-   "solution": "RESOURCE"
+   "solution": "RESOURCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Find a new supplier for",
+      "at": 0,
+      "meaning": "to source something again from a different provider"
+     },
+     {
+      "text": "stock",
+      "at": 24,
+      "meaning": "a supply or reserve held ready for use, as in natural assets"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one shopkeeper's task, but the clue splits after 'for' into two separate meanings of the same word.",
+     "definitionFit": "Read as RE-SOURCE it means obtain from a new supplier; as one word it is a supply or asset to draw on, a sense of stock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +76,41 @@
     "text": "Ribs to get cooked in small restaurant",
     "enumeration": "6"
    },
-   "solution": "BISTRO"
+   "solution": "BISTRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "small restaurant",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "get cooked",
+       "at": 8,
+       "note": "to cook the books is to alter them, so cooked letters are rearranged into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ribs to",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spare ribs are being prepared in a little eatery's kitchen.",
+     "walkthrough": "'get cooked' rearranges the letters of RIBS TO.",
+     "definitionFit": "A bistro is a modest French-style eating house, a small informal place serving meals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +124,56 @@
     "text": "Bric-a-brac mostly running wild",
     "enumeration": "8"
    },
-   "solution": "BARBARIC"
+   "solution": "BARBARIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wild",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "running",
+       "at": 19,
+       "note": "running in the sense of running riot: the letters run about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 12,
+         "note": "mostly means most of the word is used, with its final letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bric-a-brac",
+         "at": 0
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heap of junk seems to be spilling out uncontrollably.",
+     "walkthrough": "'mostly' drops the last C of BRIC-A-BRAC, and 'running' rearranges the remaining BRICABRA. 'running wild' looks like one phrase, but 'wild' alone is the definition.",
+     "definitionFit": "Wild behaviour is savage and uncivilised, which is what barbaric describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +187,48 @@
     "text": "Most successful, getting shilling in wager",
     "enumeration": "4"
    },
-   "solution": "BEST"
+   "solution": "BEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most successful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 34,
+       "note": "in says the shilling's letter is placed inside the word for the wager"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wager",
+       "at": 37,
+       "gives": "BET",
+       "note": "a wager is a bet"
+      },
+      {
+       "words": "shilling",
+       "at": 25,
+       "gives": "S",
+       "note": "S is the abbreviation for shilling, an old British coin worth twelve pence"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler does best by staking a shilling.",
+     "walkthrough": "'in' puts S inside BET. The shilling was a pre-decimal British coin, abbreviated S (from Latin solidus).",
+     "definitionFit": "Best is the superlative of good, meaning top-performing or most successful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +242,40 @@
     "text": "Come back again to harvest fruit",
     "enumeration": "8"
    },
-   "solution": "REAPPEAR"
+   "solution": "REAPPEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Come back again",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "harvest",
+       "at": 19,
+       "gives": "REAP",
+       "note": "to harvest a crop is to reap it"
+      },
+      {
+       "words": "fruit",
+       "at": 27,
+       "gives": "PEAR",
+       "note": "a pear is a fruit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An orchard keeper returns each year to pick the crop.",
+     "definitionFit": "To reappear is to show up once more after being absent, to return."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +289,42 @@
     "text": "Stick with commercial at this point",
     "enumeration": "6"
    },
-   "solution": "ADHERE"
+   "solution": "ADHERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "commercial",
+       "at": 11,
+       "gives": "AD",
+       "note": "a commercial is an advertisement, an ad"
+      },
+      {
+       "words": "at this point",
+       "at": 22,
+       "gives": "HERE",
+       "note": "at this point means here"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resolves to persevere with an advert from now on.",
+     "walkthrough": "'with' is a link word; 'Stick with' looks like the definition but 'Stick' alone is it.",
+     "definitionFit": "To stick is to cling fast to something, which is what adhering means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +338,54 @@
     "text": "A bit of welding up is not working",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not working",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 17,
+       "note": "in a down clue up means the letters are read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "A bit of",
+         "at": 0,
+         "note": "a bit of a word is a run of its letters, taken from inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "welding",
+         "at": 9,
+         "gives": "ELDI"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A section of a welding job has stopped functioning.",
+     "walkthrough": "'A bit of' takes ELDI from inside WELDING, and 'up' turns it round.",
+     "definitionFit": "An idle machine or worker is inactive, doing no work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +399,42 @@
     "text": "Part of ulcer is extremely red",
     "enumeration": "6"
    },
-   "solution": "CERISE"
+   "solution": "CERISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "red",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "at": 0,
+       "note": "Part of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ulcer is extremely",
+       "at": 8,
+       "gives": "CERISE",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical note: some of an ulcer is badly inflamed and red.",
+     "definitionFit": "Cerise is a bright cherry-coloured shade, a kind of red."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +448,49 @@
     "text": "Home for hermit in Home Counties — like Hades",
     "enumeration": "8"
    },
-   "solution": "SEASHELL"
+   "solution": "SEASHELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Home for hermit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Home Counties",
+       "at": 19,
+       "gives": "SE",
+       "note": "the Home Counties around London are in the South East, SE"
+      },
+      {
+       "words": "like",
+       "at": 35,
+       "gives": "AS",
+       "note": "like means as"
+      },
+      {
+       "words": "Hades",
+       "at": 40,
+       "gives": "HELL",
+       "note": "Hades, the underworld, is hell"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a hermit's home in the commuter belt is hellish.",
+     "walkthrough": "The Home Counties are the counties surrounding London, in England's South East. The hermit here is a hermit crab, which lives in a borrowed shell.",
+     "definitionFit": "Hermit crabs shelter in empty mollusc shells, so a discarded shell from the beach serves as their house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hermit"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +504,40 @@
     "text": "Storage space that's left frequently",
     "enumeration": "4"
    },
-   "solution": "LOFT"
+   "solution": "LOFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Storage space",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 21,
+       "gives": "L"
+      },
+      {
+       "words": "frequently",
+       "at": 26,
+       "gives": "OFT",
+       "note": "oft is an old word for often, frequently"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cupboard or attic is somewhere things are often abandoned.",
+     "definitionFit": "A loft is the roof space of a house, commonly used to keep belongings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +551,46 @@
     "text": "Expected level is cut endlessly",
     "enumeration": "3"
    },
-   "solution": "PAR"
+   "solution": "PAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expected level",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "at": 22,
+       "note": "endlessly says the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is cut",
+       "at": 15,
+       "gives": "PARE",
+       "note": "to pare is to cut or trim, so is cut gives the verb pare"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A target figure is being trimmed back without limit.",
+     "walkthrough": "'endlessly' drops the last E of PARE.",
+     "definitionFit": "Par is the standard or normal amount, as in golf's score for a hole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +604,51 @@
     "text": "Scooter treated with European wood preservative",
     "enumeration": "8"
    },
-   "solution": "CREOSOTE"
+   "solution": "CREOSOTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wood preservative",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "treated",
+         "at": 8,
+         "note": "treated means processed or worked on, so the letters are worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scooter",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "European",
+       "at": 21,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scooter has been coated with a continental product to protect timber.",
+     "walkthrough": "'treated' rearranges SCOOTER into CREOSOT, then E is added.",
+     "definitionFit": "Creosote is a tarry oil painted on fences and sheds to stop timber rotting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treated"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +668,40 @@
      }
     ]
    },
-   "solution": "OFFWHITE"
+   "solution": "OFFWHITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bad",
+       "at": 10,
+       "gives": "OFF",
+       "note": "food that has gone bad is off"
+      },
+      {
+       "words": "part of egg",
+       "at": 14,
+       "gives": "WHITE",
+       "note": "the white is the part of an egg around the yolk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking the shade of a rotten egg's insides.",
+     "definitionFit": "Off-white is a pale shade with a hint of grey or yellow, a named colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +715,41 @@
     "text": "Key picture is very impressive",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very impressive",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Key",
+       "at": 0,
+       "gives": "E",
+       "note": "E is a musical key"
+      },
+      {
+       "words": "picture",
+       "at": 4,
+       "gives": "PIC",
+       "note": "pic is short for picture"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An important image is a striking one.",
+     "definitionFit": "Something epic is grand and heroic in scale, so it impresses greatly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +763,40 @@
     "text": "I defame Manxman, perhaps",
     "enumeration": "8"
    },
-   "solution": "ISLANDER"
+   "solution": "ISLANDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Manxman, perhaps",
+      "at": 9
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "at": 0,
+       "gives": "I"
+      },
+      {
+       "words": "defame",
+       "at": 2,
+       "gives": "SLANDER",
+       "note": "to defame someone is to slander them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confession: the speaker has insulted a man from the Isle of Man.",
+     "walkthrough": "A Manxman comes from the Isle of Man, in the Irish Sea; 'perhaps' marks him as one example.",
+     "definitionFit": "A Manxman lives on an island, so he is one example of an island dweller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +810,41 @@
     "text": "What can magnify part of pollen sac",
     "enumeration": "4"
    },
-   "solution": "LENS"
+   "solution": "LENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What can magnify",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part of",
+       "at": 17,
+       "note": "part of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pollen sac",
+       "at": 25,
+       "gives": "LENS",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A botanist notes the tool for enlarging a bit of a flower's anther.",
+     "definitionFit": "A curved glass used in microscopes and spectacles enlarges what is seen through it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +858,48 @@
     "text": "Difficult predicament I missed in disease of sheep",
     "enumeration": "6"
    },
-   "solution": "SCRAPE"
+   "solution": "SCRAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Difficult predicament",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missed",
+       "at": 24,
+       "note": "missed says the letter is left out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "disease of sheep",
+       "at": 34,
+       "gives": "SCRAPIE",
+       "note": "scrapie is a brain disease of sheep"
+      },
+      {
+       "words": "I",
+       "at": 22,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer is in trouble, having failed to spot an illness in the flock.",
+     "walkthrough": "'missed' removes I from SCRAPIE.",
+     "definitionFit": "Getting into a scrape means landing in an awkward fix or tight spot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "missed"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +913,41 @@
     "text": "Energetic person in sack dance",
     "enumeration": "8"
    },
-   "solution": "FIREBALL"
+   "solution": "FIREBALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Energetic person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sack",
+       "at": 20,
+       "gives": "FIRE",
+       "note": "to sack someone is to fire them"
+      },
+      {
+       "words": "dance",
+       "at": 25,
+       "gives": "BALL",
+       "note": "a ball is a formal dance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lively type takes part in a sack race-style dance.",
+     "definitionFit": "A fireball is figuratively a dynamic, spirited individual full of drive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sack"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +961,69 @@
     "text": "Sound of sheep right round a Zulu market",
     "enumeration": "6"
    },
-   "solution": "BAZAAR"
+   "solution": "BAZAAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "market",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 21,
+         "note": "round says the sheep's sound and right go around the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sound of sheep",
+         "at": 0,
+         "gives": "BAA",
+         "note": "a sheep says baa"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 27,
+           "gives": "A"
+          },
+          {
+           "words": "Zulu",
+           "at": 29,
+           "gives": "Z",
+           "note": "Z is Zulu in the NATO phonetic alphabet"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 15,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bleating sheep surround an African trader at a bazaar.",
+     "walkthrough": "'round' puts AZ inside BAAR, after its first letter.",
+     "definitionFit": "A bazaar is an Eastern marketplace of stalls, or a fundraising sale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1037,29 @@
     "text": "Subdue female elephant",
     "enumeration": "3"
    },
-   "solution": "COW"
+   "solution": "COW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Subdue",
+      "at": 0,
+      "meaning": "to intimidate or browbeat someone into submission"
+     },
+     {
+      "text": "female elephant",
+      "at": 7,
+      "meaning": "the female of large mammals such as elephants and whales takes the same name as a female bovine"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a verb it means to cow, intimidate; as a noun it names an adult female of several big mammals, including elephants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "elephant"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1073,48 @@
     "text": "Sweet pudding gone after seconds",
     "enumeration": "4"
    },
-   "solution": "SAGO"
+   "solution": "SAGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sweet pudding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 19,
+       "note": "after says the word for gone comes behind the abbreviation for seconds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seconds",
+       "at": 25,
+       "gives": "S"
+      },
+      {
+       "words": "gone",
+       "at": 14,
+       "gives": "AGO",
+       "note": "gone, as in long gone, means ago"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The dessert vanished once people went back for second helpings.",
+     "walkthrough": "'seconds' looks like extra helpings; it is S, the abbreviation used for time.",
+     "definitionFit": "Sago is a starchy grain from palm pith, cooked with milk and sugar as a dessert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1128,41 @@
     "text": "Forfeits regularly encountered worry constantly",
     "enumeration": "4"
    },
-   "solution": "FRET"
+   "solution": "FRET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "worry constantly",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "at": 9,
+       "note": "regularly means taking every other letter, at a steady interval"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Forfeits",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frets about penalties they keep running into.",
+     "walkthrough": "'regularly' picks letters 1, 3, 5 and 7 of FORFEITS; 'encountered' is a link word.",
+     "definitionFit": "To fret is to be persistently anxious, agonising over something again and again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1176,46 @@
     "text": "Element unknown in carbon",
     "enumeration": "4"
    },
-   "solution": "ZINC"
+   "solution": "ZINC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "unknown",
+       "at": 8,
+       "gives": "Z",
+       "note": "in algebra, x, y and z are unknowns, so z is an unknown"
+      },
+      {
+       "words": "in",
+       "at": 16
+      },
+      {
+       "words": "carbon",
+       "at": 19,
+       "gives": "C",
+       "note": "C is the chemical symbol for carbon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist finds a mystery substance in a carbon sample.",
+     "walkthrough": "'in' looks like a containment signal, but it gives its own letters in sequence.",
+     "definitionFit": "Zinc is a metallic chemical element, number 30 in the periodic table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 23,
@@ -363,7 +1229,70 @@
     "text": "Patronising Spanish fizz that is bottled in large runs",
     "enumeration": "8"
    },
-   "solution": "CAVALIER"
+   "solution": "CAVALIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Patronising",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Spanish fizz",
+       "at": 12,
+       "gives": "CAVA",
+       "note": "cava is a Spanish sparkling wine"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bottled in",
+         "at": 33,
+         "note": "bottled in says the letters are enclosed inside the others, as wine is in a bottle"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "large",
+           "at": 44,
+           "gives": "L"
+          },
+          {
+           "words": "runs",
+           "at": 50,
+           "gives": "R",
+           "note": "R is the cricket abbreviation for runs"
+          }
+         ]
+        },
+        {
+         "words": "that is",
+         "at": 25,
+         "gives": "IE",
+         "note": "IE abbreviates id est, Latin for that is"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A condescending person pours sparkling wine into big bottles.",
+     "walkthrough": "'bottled in' puts IE between L and R. 'Patronising' is a deceptive first word: it is the definition, not an adjective for the wine.",
+     "definitionFit": "A cavalier attitude is offhand and haughty, treating others with disdainful superiority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottled"
+    }
+   }
   },
   {
    "number": 24,
@@ -377,7 +1306,56 @@
     "text": "English word for something initially like paint",
     "enumeration": "6"
    },
-   "solution": "ENAMEL"
+   "solution": "ENAMEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "paint",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "word for something",
+       "at": 8,
+       "gives": "NAME",
+       "note": "a name is the word for a thing"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 27,
+         "note": "initially means only the first letter of the following word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "like",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English word that describes something resembling paint.",
+     "walkthrough": "'initially' takes L from 'like'.",
+     "definitionFit": "Enamel is a glossy hard-drying coating, a kind of gloss paint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1375,40 @@
      }
     ]
    },
-   "solution": "LOVESEAT"
+   "solution": "LOVESEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "where there's just space for two",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Really likes",
+       "at": 0,
+       "gives": "LOVES",
+       "note": "to love something is to really like it"
+      },
+      {
+       "words": "to dine",
+       "at": 13,
+       "gives": "EAT",
+       "note": "to dine is to eat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic couple enjoys dinner at a cosy table for two.",
+     "definitionFit": "A small sofa built for a pair of people to sit close together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 }
