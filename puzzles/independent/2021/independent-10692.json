@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,69 @@
     "text": "Overact manically: spectator finally bailing in interval",
     "enumeration": "6"
    },
-   "solution": "OCTAVE"
+   "solution": "OCTAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "interval",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "manically",
+       "at": 8,
+       "note": "acting manically means wildly, so the remaining letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bailing",
+         "at": 37,
+         "note": "bailing means jumping out, so the chosen letter leaves the word overact"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Overact",
+         "at": 0
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 29,
+           "note": "finally points to the closing letter of the word spectator"
+          }
+         ],
+         "parts": [
+          {
+           "words": "spectator",
+           "at": 19
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ham actor's frantic performance, with even the last spectator leaving at the interval.",
+     "walkthrough": "'finally' picks R from spectator; 'bailing' drops it from OVERACT, leaving OVEACT, which 'manically' rearranges.",
+     "definitionFit": "In music an eight-note span between two pitches of the same name is a standard interval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "interval"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +110,30 @@
     "text": "Give applause",
     "enumeration": "4"
    },
-   "solution": "HAND"
+   "solution": "HAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give",
+      "at": 0,
+      "meaning": "to pass something over to someone, as in 'pass me the salt'"
+     },
+     {
+      "text": "applause",
+      "at": 5,
+      "meaning": "as in 'give them a big round of clapping'"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to clap.",
+     "definitionFit": "One sense is the verb of passing over by palm; the other is the idiom 'a big ___' for clapping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Give"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +147,59 @@
     "text": "Family in Copenhagen on vacation touring city",
     "enumeration": "4"
    },
-   "solution": "CLAN"
+   "solution": "CLAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Family",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "touring",
+       "at": 33,
+       "note": "touring means travelling around, so the outer pair goes round the city"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on vacation",
+         "at": 21,
+         "note": "a word on vacation is emptied of its insides, leaving only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Copenhagen",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "city",
+       "at": 41,
+       "gives": "LA",
+       "note": "LA is Los Angeles"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family on holiday in Copenhagen goes sightseeing around the city.",
+     "walkthrough": "'on vacation' empties the word to its outer letters; 'touring' sends them round Los Angeles.",
+     "definitionFit": "A Scottish kinship group descended from a common ancestor is a family in the broad sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +213,56 @@
     "text": "And cut those people rendering \"God Save the Queen\", perhaps",
     "enumeration": "6"
    },
-   "solution": "ANTHEM"
+   "solution": "ANTHEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\"God Save the Queen\", perhaps",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 4,
+         "note": "a cut word loses its tail, so the last letter of And goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "And",
+         "at": 0,
+         "gives": "AND"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "those people",
+       "at": 8,
+       "gives": "THEM",
+       "note": "them is the pronoun for those people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a group of singers to stop their rendition of the national song.",
+     "walkthrough": "'cut' docks the D of And, leaving AN.",
+     "definitionFit": "Britain's national song is the classic example of a patriotic hymn of this kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +276,48 @@
     "text": "A plan with merit? Not usually in this chamber",
     "enumeration": "10"
    },
-   "solution": "PARLIAMENT"
+   "solution": "PARLIAMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this chamber",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Not usually",
+       "at": 19,
+       "note": "not in the usual form, so the letters of these words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A plan",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "merit",
+       "at": 12,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wry dig that sensible proposals are rarely heard in the legislature.",
+     "walkthrough": "'Not usually' rearranges A PLAN plus MERIT.",
+     "definitionFit": "The House of Commons or Lords is a legislative chamber, and the whole body takes this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "usually"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +331,60 @@
     "text": "Quite a few bits and pieces of battery storing energy",
     "enumeration": "8"
    },
-   "solution": "TERABYTE"
+   "solution": "TERABYTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quite a few bits",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "storing",
+       "at": 39,
+       "note": "storing means holding inside, so the scrambled battery takes in the energy letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pieces of",
+         "at": 21,
+         "note": "the word battery broken into pieces is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "battery",
+         "at": 31
+        }
+       ]
+      },
+      {
+       "words": "energy",
+       "at": 47,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Odds and ends of a battery that holds energy.",
+     "walkthrough": "'pieces of' scrambles BATTERY; 'storing' puts E inside.",
+     "definitionFit": "A unit of digital storage equal to a trillion bytes holds a very large number of binary digits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bits"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +398,40 @@
     "text": "Church member, for a spell",
     "enumeration": "5"
    },
-   "solution": "CHARM"
+   "solution": "CHARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spell",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Church",
+       "at": 0,
+       "gives": "CH"
+      },
+      {
+       "words": "member",
+       "at": 7,
+       "gives": "ARM",
+       "note": "a limb is a member of the body"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parishioner is enlisted for a magic incantation.",
+     "definitionFit": "A magic incantation or enchantment is a spell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +445,49 @@
     "text": "Representatives in places about to be eliminated",
     "enumeration": "7"
    },
-   "solution": "MEMBERS"
+   "solution": "MEMBERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Representatives",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to be eliminated",
+       "at": 32,
+       "note": "elimination removes something, so the word for about comes out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "places",
+       "at": 19,
+       "gives": "REMEMBERS",
+       "note": "to place someone is to recall who they are, as in 'I can't place her'"
+      },
+      {
+       "words": "about",
+       "at": 26,
+       "gives": "RE",
+       "note": "RE means about or concerning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Delegates in seats that are about to be abolished.",
+     "walkthrough": "'places' means recalls, as in 'I can't place that face'.",
+     "definitionFit": "Elected MPs are often called Members, i.e. those who represent constituents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "places"
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +501,40 @@
     "text": "Riotous glee in a family",
     "enumeration": "7"
    },
-   "solution": "LINEAGE"
+   "solution": "LINEAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "family",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Riotous",
+       "at": 0,
+       "note": "riotous means wild and disorderly, signalling the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "glee in a",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Raucous merriment within a household.",
+     "definitionFit": "Ancestry or descent through generations is what a family line is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Riotous"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +548,43 @@
     "text": "Party's broadcast censored",
     "enumeration": "4"
    },
-   "solution": "BAND"
+   "solution": "BAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Party",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BAND",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 8,
+       "note": "something broadcast is heard on air, so the word is taken by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "censored",
+       "at": 18,
+       "gives": "BANNED",
+       "note": "a censored item has been prohibited"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political party's broadcast has been censored.",
+     "definitionFit": "A group of people acting together, such as a band of rebels, is a party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +598,41 @@
     "text": "May perhaps squirm on the inside",
     "enumeration": "5"
    },
-   "solution": "MONTH"
+   "solution": "MONTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "May perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 26,
+       "note": "inside says the letters are found within the run squirm on the"
+      }
+     ],
+     "parts": [
+      {
+       "words": "squirm on the",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone may wriggle with inner discomfort.",
+     "walkthrough": "'May' looks like a verb but is the calendar name; the answer sits within 'squirM ON THe'.",
+     "definitionFit": "May is one example of the twelve divisions of the calendar year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "May"
+    }
+   }
   },
   {
    "number": 12,
@@ -185,7 +646,52 @@
     "text": "Occasionally overlooked illegal parking in spring",
     "enumeration": "4"
    },
-   "solution": "LEAP"
+   "solution": "LEAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spring",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "Occasionally overlooked",
+         "at": 0,
+         "note": "missing every other letter, so only alternate letters of illegal remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "illegal",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "parking",
+       "at": 32,
+       "gives": "P",
+       "note": "P is the road-sign symbol for parking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Illegal parking that is sometimes ignored in springtime.",
+     "walkthrough": "The even letters of illegal give LEA.",
+     "definitionFit": "To jump or bound is to spring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 13,
@@ -199,7 +705,55 @@
     "text": "Key of D sounding top-class",
     "enumeration": "6"
    },
-   "solution": "DELETE"
+   "solution": "DELETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Key",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "D",
+       "at": 7,
+       "gives": "D"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ELETE",
+       "indicators": [
+        {
+         "text": "sounding",
+         "at": 9,
+         "note": "sounding means as the word is heard, so it is spelt by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "top-class",
+         "at": 18,
+         "gives": "ELITE",
+         "note": "the elite are the top class"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical piece in the key of D that sounds first-rate.",
+     "walkthrough": "'Key' suggests music but means a keyboard key; D plus a sound of ELITE.",
+     "definitionFit": "It is the name of a computer keyboard key used for erasing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 14,
@@ -213,7 +767,51 @@
     "text": "Joy at Texan oil production",
     "enumeration": "10"
    },
-   "solution": "EXALTATION"
+   "solution": "EXALTATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Joy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "production",
+       "at": 17,
+       "note": "a production of the letters makes something new from them, signalling an anagram"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at",
+       "at": 4,
+       "note": "taken as written"
+      },
+      {
+       "words": "Texan",
+       "at": 7,
+       "note": "taken as written"
+      },
+      {
+       "words": "oil",
+       "at": 13,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Delight at the output of Texas oilfields.",
+     "definitionFit": "A feeling of elation or rapture is great joy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "production"
+    }
+   }
   },
   {
    "number": 15,
@@ -227,7 +825,30 @@
     "text": "Cast's concern",
     "enumeration": "7"
    },
-   "solution": "COMPANY"
+   "solution": "COMPANY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cast",
+      "at": 0,
+      "meaning": "a theatre troupe or the actors of a production"
+     },
+     {
+      "text": "concern",
+      "at": 7,
+      "meaning": "a business or firm, as in 'a going concern'"
+     }
+    ],
+    "explanation": {
+     "surface": "The worry belonging to a cast of actors.",
+     "definitionFit": "Both a theatrical troupe and a commercial firm go by this one word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concern"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +862,57 @@
     "text": "Form of halogen as source of salt",
     "enumeration": "5"
    },
-   "solution": "CLASS"
+   "solution": "CLASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Form",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "halogen",
+       "at": 8,
+       "gives": "CL",
+       "note": "Cl is the chemical symbol for chlorine, a halogen"
+      },
+      {
+       "words": "as",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "source of",
+         "at": 19,
+         "note": "the source is where something starts, so the opening letter of salt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salt",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note: the type of halogen that is the origin of table salt.",
+     "walkthrough": "'Form' is a school year group here, not a shape.",
+     "definitionFit": "In British schools a form is a year group of pupils taught together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Form"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +926,53 @@
     "text": "Part of Georgia is actually to the west of here",
     "enumeration": "4"
    },
-   "solution": "ASIA"
+   "solution": "ASIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "here",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to the west",
+       "at": 28,
+       "note": "in an across entry going west is reading right to left, so the run goes backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "Part of",
+         "at": 0,
+         "note": "part of the words: the letters lie within Georgia is actually"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Georgia is actually",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geography fact: part of Georgia actually lies west of this continent.",
+     "walkthrough": "AISA is within 'georgIA IS Actually', and 'to the west' turns it round.",
+     "definitionFit": "Georgia straddles the Europe boundary, the continent to its east being where the clue points."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Georgia"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +986,31 @@
     "text": "Odd fish perhaps not sharks",
     "enumeration": "8"
    },
-   "solution": "SINGULAR"
+   "solution": "SINGULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Odd",
+      "at": 0,
+      "meaning": "strange or peculiar"
+     },
+     {
+      "text": "fish perhaps not sharks",
+      "at": 4,
+      "meaning": "the word fish can be a one-of form while the word sharks is a plural, so this is grammatical number of one"
+     }
+    ],
+    "explanation": {
+     "surface": "A strange fish that is probably not a shark.",
+     "definitionFit": "Peculiar is one meaning; the other is the grammar term for one rather than many."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1024,51 @@
     "text": "Group is finally close to a discovery",
     "enumeration": "5"
    },
-   "solution": "SWARM"
+   "solution": "SWARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Group",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 9,
+         "note": "finally points to the closing letter of the word is"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "close to a discovery",
+       "at": 17,
+       "gives": "WARM",
+       "note": "in a hunting game you are warm when you are near to finding the thing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A research team says it is at last near a breakthrough.",
+     "definitionFit": "A dense crowd of insects or people is a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1082,78 @@
     "text": "A missing eardrum, curiously, signified the first crimes",
     "enumeration": "7"
    },
-   "solution": "MURDERS"
+   "solution": "MURDERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crimes",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "curiously",
+         "at": 19,
+         "note": "curiously means in an odd way, so the remaining letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing",
+           "at": 2,
+           "note": "missing means absent, so the A is taken out of eardrum"
+          }
+         ],
+         "parts": [
+          {
+           "words": "eardrum",
+           "at": 10
+          },
+          {
+           "words": "A",
+           "at": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the first",
+         "at": 40,
+         "note": "the first letter of the word signified"
+        }
+       ],
+       "parts": [
+        {
+         "words": "signified",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective notes that a damaged eardrum was the first clue to the crimes.",
+     "walkthrough": "'missing' drops A from EARDRUM to ERDRUM, which 'curiously' rearranges; 'the first' takes S from signified.",
+     "definitionFit": "Unlawful killings are among the gravest crimes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eardrum"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1167,47 @@
     "text": "Vessel I'm not sure we included",
     "enumeration": "4"
    },
-   "solution": "EWER"
+   "solution": "EWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included",
+       "at": 23,
+       "note": "included means taken inside, so we goes within the hesitation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I'm not sure",
+       "at": 7,
+       "gives": "ER",
+       "note": "er is the hesitation noise of someone unsure"
+      },
+      {
+       "words": "we",
+       "at": 20,
+       "note": "taken as written; that the letters of 'sure we' also run backwards to the answer is a coincidence, as no reversal is signalled"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hesitant speaker unsure whether a ship carried them.",
+     "definitionFit": "A large water jug is a vessel for holding liquid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1221,58 @@
     "text": "India dividing NATO partners Greece and Turkey?",
     "enumeration": "7"
    },
-   "solution": "NATIONS"
+   "solution": "NATIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greece and Turkey?",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "dividing",
+         "at": 6,
+         "note": "dividing means splitting apart, so the letter goes inside NATO"
+        }
+       ],
+       "parts": [
+        {
+         "words": "NATO",
+         "at": 15
+        },
+        {
+         "words": "India",
+         "at": 0,
+         "gives": "I",
+         "note": "I is India in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "words": "partners",
+       "at": 20,
+       "gives": "NS",
+       "note": "N and S, North and South, are partners at the bridge table"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "India causing a split between NATO allies Greece and Turkey.",
+     "walkthrough": "N and S are bridge partners, North and South.",
+     "definitionFit": "Greece and Turkey are two examples of sovereign states, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1286,70 @@
     "text": "Wild coast hiding first sign of danger for boat crews?",
     "enumeration": "6"
    },
-   "solution": "OCTADS"
+   "solution": "OCTADS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boat crews?",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hiding",
+       "at": 11,
+       "note": "hiding means concealing within, so the scrambled coast holds the letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Wild",
+         "at": 0,
+         "note": "wild means unruly, signalling the letters of coast are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coast",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first sign of",
+         "at": 18,
+         "note": "the opening letter of danger"
+        }
+       ],
+       "parts": [
+        {
+         "words": "danger",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugged shoreline hides early warnings for sailors.",
+     "walkthrough": "'Wild' scrambles COAST and 'hiding' puts the D of danger inside.",
+     "definitionFit": "A rowing eight is a crew of eight, and sets of eight are this word, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crews"
+    }
+   }
   },
   {
    "number": 23,
@@ -353,7 +1363,60 @@
     "text": "Recall evening in Paris, eating at ten to seven, or 8:30?",
     "enumeration": "6"
    },
-   "solution": "RATIOS"
+   "solution": "RATIOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ten to seven, or 8:30?",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 25,
+       "note": "eating means taking in, so the reversed word swallows at"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Recall",
+         "at": 0,
+         "note": "recall read as re-call, calling back, so the word is run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "evening in Paris",
+         "at": 7,
+         "gives": "SOIR",
+         "note": "soir is French for evening"
+        }
+       ]
+      },
+      {
+       "words": "at",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remembers a Parisian evening, dining at ten to seven or half past eight.",
+     "walkthrough": "'ten to seven' and '8:30' look like clock times but are proportions; 'Recall' reverses the French word to RIOS, and 'eating' takes in the at.",
+     "definitionFit": "Ten to seven and eight to thirty are proportions between quantities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seven"
+    }
+   }
   },
   {
    "number": 24,
@@ -367,7 +1430,63 @@
     "text": "Lots of dogs pee in the auditorium unobserved",
     "enumeration": "6"
    },
-   "solution": "OODLES"
+   "solution": "OODLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lots",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "unobserved",
+       "at": 35,
+       "note": "unobserved means not seen, so the letter disappears from the dogs"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dogs",
+       "at": 8,
+       "gives": "POODLES",
+       "note": "poodles are a breed of dog"
+      },
+      {
+       "op": "homophone",
+       "spelt": "P",
+       "indicators": [
+        {
+         "text": "in the auditorium",
+         "at": 17,
+         "note": "in an auditorium things are heard, so pee is the spoken name of a letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pee",
+         "at": 13,
+         "gives": "PEE",
+         "note": "the word pee is how the letter P is said"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Many dogs relieve themselves in a theatre without anyone noticing.",
+     "walkthrough": "'in the auditorium' makes pee the letter P, which 'unobserved' takes from POODLES.",
+     "definitionFit": "A great quantity, plenty, is the informal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pee"
+    }
+   }
   },
   {
    "number": 25,
@@ -381,7 +1500,30 @@
     "text": "Case of diamonds, say",
     "enumeration": "4"
    },
-   "solution": "SUIT"
+   "solution": "SUIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Case",
+      "at": 0,
+      "meaning": "a legal action brought in court, a lawsuit"
+     },
+     {
+      "text": "diamonds, say",
+      "at": 8,
+      "meaning": "diamonds are one of the four card categories, along with hearts, clubs and spades"
+     }
+    ],
+    "explanation": {
+     "surface": "A jewellery case holding diamonds.",
+     "definitionFit": "A lawsuit is a legal case, and diamonds are one of the four card categories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diamonds"
+    }
+   }
   },
   {
    "number": 26,
@@ -395,7 +1537,72 @@
     "text": "After hearing shot, beat the first two in race",
     "enumeration": "5"
    },
-   "solution": "TRIBE"
+   "solution": "TRIBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "race",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "after puts the second piece behind the first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "TRI",
+       "indicators": [
+        {
+         "text": "hearing",
+         "at": 6,
+         "note": "on hearing, the word is taken by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shot",
+         "at": 14,
+         "gives": "TRY",
+         "note": "a try or attempt is a shot"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the first two in",
+         "at": 25,
+         "note": "the opening two letters of beat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beat",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Runners in a race take off at the starting pistol.",
+     "walkthrough": "'race' looks like a contest but means a people.",
+     "definitionFit": "A people of shared descent, a race in the older sense, is a tribe-like grouping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 27,
@@ -409,7 +1616,47 @@
     "text": "Provided Force with unknown suspect",
     "enumeration": "4"
    },
-   "solution": "IFFY"
+   "solution": "IFFY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "suspect",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Provided",
+       "at": 0,
+       "gives": "IF",
+       "note": "if means provided that"
+      },
+      {
+       "words": "Force",
+       "at": 9,
+       "gives": "F",
+       "note": "F is the physics symbol for force"
+      },
+      {
+       "words": "unknown",
+       "at": 20,
+       "gives": "Y",
+       "note": "y is a classic algebraic unknown"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police supplied with an unidentified suspect.",
+     "definitionFit": "Doubtful or questionable is the informal sense of suspect as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 28,
@@ -423,7 +1670,47 @@
     "text": "Urges Republican to be refused cases",
     "enumeration": "4"
    },
-   "solution": "PODS"
+   "solution": "PODS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cases",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to be refused",
+       "at": 17,
+       "note": "refused means turned away, so the letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Urges",
+       "at": 0,
+       "gives": "PRODS",
+       "note": "to prod someone is to urge them on"
+      },
+      {
+       "words": "Republican",
+       "at": 6,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican is pressed to have legal cases thrown out.",
+     "definitionFit": "Seed husks such as those of peas are cases or shells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Urges"
+    }
+   }
   },
   {
    "number": 28,
@@ -437,7 +1724,58 @@
     "text": "Ring friend about Emilia's debut",
     "enumeration": "4"
    },
-   "solution": "PEAL"
+   "solution": "PEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "about means around, so the friend goes round the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "friend",
+       "at": 5,
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "debut",
+         "at": 27,
+         "note": "a debut is a first appearance, so the opening letter of Emilia's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Emilia's",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Calling a friend about Emilia's first performance.",
+     "definitionFit": "The ringing of a set of bells is a sound of bells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 29,
@@ -461,7 +1799,52 @@
      }
     ]
    },
-   "solution": "ALOADOF"
+   "solution": "ALOADOF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this much",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stupid",
+         "at": 2,
+         "note": "stupid suggests muddled, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old oaf",
+         "at": 9,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish old buffoon talks complete nonsense.",
+     "walkthrough": "'stupid' rearranges OLD OAF. The phrase completes 'codswallop', British slang for nonsense: the oaf delivers that quantity of it.",
+     "definitionFit": "The phrase is an idiom for a large quantity, as in a heap of nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stupid"
+    }
+   }
   },
   {
    "number": 30,
@@ -475,7 +1858,64 @@
     "text": "Rubbish head of state and others from the Right",
     "enumeration": "5"
    },
-   "solution": "SLATE"
+   "solution": "SLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 8,
+         "note": "the head is the first letter of state"
+        }
+       ],
+       "parts": [
+        {
+         "words": "state",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "from the Right",
+         "at": 33,
+         "note": "read from the right means backwards in an across entry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "others",
+         "at": 26,
+         "gives": "ETAL",
+         "note": "et al is Latin shorthand for and others"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dismissing the head of state and right-wing colleagues.",
+     "walkthrough": "'Rubbish' is a verb: to criticise harshly.",
+     "definitionFit": "To criticise severely, to pan, is to rubbish in British usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   }
  ]
 }
