@@ -168,6 +168,25 @@ def text_of(cols):
             + "\n".join(l[4] for l in cols[1]))
 
 
+#: A clue number mid-line with the ellipsis its clue opens on glued to it
+#: ("plant (6). 37...defend", "plant 37. . .. defend", "plant 37. '... defend"):
+#: no clue starts there for the parser, so the clue before swallows it.
+#: The number's own stop is hard on it: a figure spaced off a clue's
+#: ellipsis is a grid number read into the list (No 504 6D's "point. 39 . .
+#: Submit", one clue). All on one line: "tailoring. 6...\nOdysseus" (No 478)
+#: is a line's junk end, not a clue.
+ELLIPSIS_MID = re.compile(r"(?<=\S) +(?=\d{1,2}\. ?['‘]? ?\. ?\.?(?: ?\.){0,2} ?[A-Za-z])")
+
+
+def ellipsis_heads(text):
+    """`text` with a line broken before each clue number ELLIPSIS_MID finds
+    (No 617 37A "'... defend yourself By —— or by absence: all's in
+    anger'", run on after 35A "Rabbit-headed plant (6)." on one line: 35A
+    was voted "Rabbit-headed plant 37." and 37A cut to "'..."). At a line's
+    start the shared tidy reads such a head (clue_text.ELLIPSIS_HEAD)."""
+    return ELLIPSIS_MID.sub("\n", text)
+
+
 def clues(text):
     """ftp.clues, going on past a stretch it cannot read: the clues before it
     are kept, and reading starts again at the next clue number. A clue with no
@@ -800,7 +819,7 @@ def vote(words, verdict, cols=None, lengths=None, figures=False):
     words one reading doubled once (undoubled); tools/gale_listener.py's
     lists. Shared by every Listener page reader (tools/gale_listener.py's too)."""
     cols = cols or columns
-    texts = unjoined({k: fa.tidy(text_of(cols(w))) for k, w in words.items()})
+    texts = unjoined({k: fa.tidy(ellipsis_heads(text_of(cols(w)))) for k, w in words.items()})
     tried = []
     for k, t in texts.items():
         parsed, why = parse(t) if t.strip() else (None, "no words")
@@ -866,7 +885,11 @@ def vote(words, verdict, cols=None, lengths=None, figures=False):
             spaced_alike = next((o for o in own if o and o != t and o.replace(" ", "") == t.replace(" ", "")
                                  and ocr_clues.unclosed_quote(o) is None), None)
             if got := (spaced_alike or ocr_clues.reopened(t, own) or ocr_clues.reclosed(t, own + list(texts.values()))
-                       or ocr_clues.unquoted_speck(t, own) or ocr_clues.requoted(t, own)):
+                       or ocr_clues.unquoted_speck(t, own) or ocr_clues.requoted(t, own)
+                       # An opening a reading prints mid-clue or in a run-on line,
+                       # or a single read as a double ("“The Club'", No 351).
+                       or ocr_clues.opened_inside(t, own + list(texts.values()), own)
+                       or ocr_clues.single_opened(t, own)):
                 laid[lid] = (got, e, g)
                 continue
             # A quotation's end or start lost: a printed blank ("——'") no
