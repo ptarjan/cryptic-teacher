@@ -79,7 +79,13 @@ FIX_COST = 6.0        # one Sonnet cost-fix worker, in dollars (estimate, not me
 RATE_ROWS = 6         # recent rows averaged for the cause's $/h (never fewer than 3)
 # What "annotate code" means for the best-level baseline.
 CODE_PATHS = ["tools/annotate*", "tools/validate_annotations.py", "tools/puzzle_worker.sh",
-              "tools/clue_bag.py", "tools/annotate_prompt.md", "tools/annotate_bag_prompt.md"]
+              "tools/clue_bag.py", "tools/annotate_prompt.md", "tools/annotate_bag_prompt.md",
+              # the modules an annotate run's checks and apply step import: a fix there is
+              # an annotate fix (wordplay.py holds the "does not give the answer" refusal)
+              "tools/wordplay.py", "tools/apply_annotations.py", "tools/annotation.py",
+              "tools/clue_types.py", "tools/corroborate.py", "tools/definitions.py",
+              "tools/groups.py", "tools/find_answer_leaks.py", "tools/find_renarration.py",
+              "tools/hidden_mechanical.py", "tools/tree_normalize.py", "tools/code_checks.py"]
 
 
 def now_utc():
