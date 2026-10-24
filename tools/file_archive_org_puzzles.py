@@ -7371,6 +7371,22 @@ def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs
 
 #: Reasons an edition is read for a bug: never skipped (a reread is wanted).
 BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short", "annotation asked", "--reread")
+#: The fix reasons a read is due for its solution grid alone (fix_reason): its clues stand, so it is
+#: not one whose clues the VLM must read again (_KEEP_VLM). answers_only reads it first (the
+#: classifier, fitted_reads and the VLM's strips for the last lights), the full read when it cannot.
+#: Paul 10-23: kept for the VLM, every such reread took the full read, whose solved() has no
+#: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
+SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
+                  "answers held back by a clue with no enumeration")
+
+
+def keeps_vlm(why, row, unit=None):
+    """Whether a read due for `why` (due_reason of its ledger `row`; `unit` the queue's, None for a
+    whole-corpus run) reads its clues again (_KEEP_VLM: no answers_only): a bug's reread or a fix
+    landed, bar SOLUTION_FIXES; a forced one; a run with no queue unit of an edition not due."""
+    fix = fix_reason(row)
+    return ((why or "").startswith(BUG_READS) and why not in SOLUTION_FIXES or bool(fix) and fix not in SOLUTION_FIXES
+            or unit is not None and bool(unit.get("force")) or not why and unit is None)
 #: Reasons that are the VLM's alone (not new files, solutions or titles).
 VLM_READS = ("read without the VLM", "read by another VLM", STALE_SCAN[1])
 
@@ -7689,8 +7705,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
         why = due_reason(known[rel], h, sol_seen, seen_by, reread, sources)
         if why or editions and (unit is None or unit.get("force")):
-            if (why or "").startswith(BUG_READS) or fix_reason(known[rel]) or unit is not None and unit.get("force") \
-                    or not why and unit is None:
+            if keeps_vlm(why, known[rel], unit):
                 keep_vlm.add(d.name)
             due[d] =(h, sol_seen, fh, reprint_key([p["number"] for p in scans[rel]["puzzles"]], paper.series))
         elif unit is not None:
