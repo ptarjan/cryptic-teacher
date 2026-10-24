@@ -1543,7 +1543,7 @@ def check_key_grades_model(old, new, flags):
 def refuse_bad_write(puzzle, old=None):
     """Raise RefusedWrite (a ValueError) naming every finding `puzzle` would bring to disk."""
     flags = []
-    check_puzzle(puzzle, datetime.now(timezone.utc).date(), flags)
+    check_puzzle(puzzle, newest_today(), flags)
     # No setter never holds a puzzle (Paul's standing rule: never hold a puzzle
     # for its form): a write refuses only one that drops a byline the held file
     # has, which is a reader that broke. The audit (and so the pre-push) passes
@@ -1599,6 +1599,13 @@ def refuse_bad_clues_only(record):
 
 
 ISO_DAY = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+
+def newest_today():
+    """The latest calendar day anywhere on Earth (UTC+14). A paper prints its
+    own local day, so a UK Sunday puzzle is out while UTC is still Saturday.
+    Seen 2026-10-24 23:32 UTC: everyman-4175, dated 10-25, refused as future."""
+    return (datetime.now(timezone.utc) + timedelta(hours=14)).date()
 
 
 def date_of(puzzle):
@@ -2118,7 +2125,7 @@ def refused(targets, today):
 
 def main(argv):
     if argv[:1] == ["--refused"]:
-        for path, why in refused(argv[1:], datetime.now(timezone.utc).date()).items():
+        for path, why in refused(argv[1:], newest_today()).items():
             print(f"{path}\t{'; '.join(why)}")
         return 0
     if argv[:1] == ["--quotes"]:
@@ -2133,7 +2140,7 @@ def main(argv):
     quiet = "--quiet" in argv
     targets = [a for a in argv if not a.startswith("--")]
     started = time.time()
-    today = datetime.now(timezone.utc).date()
+    today = newest_today()
     # What this tool judges is the files, read straight off disk: the index
     # is not consulted, so a stale index.json is not a defect in them.
     files = listing()
