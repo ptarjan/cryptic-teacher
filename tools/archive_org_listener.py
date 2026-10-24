@@ -642,7 +642,12 @@ def vote(words, verdict, cols=None, lengths=None):
         laid[lid] = (t, e, g)
         if t and ocr_clues.unclosed_quote(t) is not None:
             own = [(ly.get(lid) or ("",))[0] for ly in lays]
-            if got := (ocr_clues.reopened(t, own) or ocr_clues.reclosed(t, own + list(texts.values()))
+            # A reading that spaced an apostrophe off its word ("one' s
+            # decease", No 254) opens a quote another reading, alike but for
+            # its spaces, does not.
+            spaced_alike = next((o for o in own if o and o != t and o.replace(" ", "") == t.replace(" ", "")
+                                 and ocr_clues.unclosed_quote(o) is None), None)
+            if got := (spaced_alike or ocr_clues.reopened(t, own) or ocr_clues.reclosed(t, own + list(texts.values()))
                        or ocr_clues.unquoted_speck(t, own)):
                 laid[lid] = (got, e, g)
                 continue
@@ -666,6 +671,12 @@ def vote(words, verdict, cols=None, lengths=None):
         for tail in (g or [])[1:] if t else ():
             heads.setdefault(tail, []).append(lid.split("-")[0])
     for tail, nums in heads.items():
+        # A tail with words of its own is the other list's light: the
+        # 1934-40 paragraph lists link across them ("(33, 29)" among the
+        # across clues, 29 a down light; No 254). Its clue stays.
+        own = (laid.get(tail) or ("",))[0]
+        if own and not re.match(r"see\b", own, re.IGNORECASE):
+            continue
         laid[tail] = (f"See {', '.join(nums)}", None, None)
         blank.pop(tail, None)
     verdict["clues"] = len(laid)

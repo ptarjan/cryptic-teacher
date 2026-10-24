@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 21
+VERSION = 22
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -454,14 +454,23 @@ def page_columns(words):
 #: anagram's clue says so in its bracket: "(47 anag.) Shivering", a
 #: reversed light's too: "(45 rev.) Better be" (No 242, 1934). A reader
 #: may set the clue's capital hard against it: "(26rev.)Muddled" (No 261).
-PARA_MARK = re.compile(r"(?<![\w(])\(?(\d{1,2})([A-Z]?)(?:(?:,\s?|-)\d{1,2}[A-Z]?)*(?:\s?(?:anag|rev)\.?\s?)?\)([*†‡!¥]*)(?![a-z\d_)])")
+#: A light set reversed inside another is numbered by the first: "(43 rev.
+#: in 42) Alleged destroyers" (No 245, 1934). Its stars may come first,
+#: inside the bracket: "(**10) Victim", "(*8) Mounted" (No 245).
+PARA_MARK = re.compile(r"(?<![\w(])(?:\([*†‡]*)?(\d{1,2})([A-Z]?)(?:(?:,\s?|-)\d{1,2}[A-Z]?)*"
+                       r"(?:\s?(?:anag|rev)\.?(?:\s?in\s\d{1,2})?\s?)?\)([*†‡!¥]*)(?![a-z\d_)])")
 #: A clue's number in its bracket with a figure read as a letter: "(Is)"
 #: for (15), "(3o)", "(z1)", "(i7)", "(1g rev.)", "(Io rev.)", "(s rev.)"
 #: (No 261, 1935: 9 of its 29 numbers so read by one reader or another).
 #: Read as figures where a figure is in it, "rev."/"anag." follows it, or
 #: it is two letters opening on I or l ("(II)", "(Io)"): "(I)", "(so)" and
-#: "(is)" are words.
-MARK_LIKE = re.compile(r"(?<![\w(])\(([\dIlioOzZsSg]{1,2})(?=[A-Z]?\)|(\s?(?:anag|rev)\b))")
+#: "(is)" are words. So too the first of lights clued together, a figure
+#: following: "(II, 40) Leads 'proof'" (No 254, 1935).
+MARK_LIKE = re.compile(r"(?<![\w(])\([*†‡]*([\dIlioOzZsSg]{1,2})(?=[A-Z]?\)|(\s?(?:anag|rev)\b)|(,\s?\d{1,2}[A-Z]?[,)]))")
+#: A clue's number whose closing bracket a reading lost, its capital after
+#: a space: "(1 Protects the arm", "(33 Dukedom of London" (No 245, 1934);
+#: not a light a clue cites by its direction, "(43 Ac.)", "(32 Down)".
+UNCLOSED = re.compile(r"(?<![\w(])\((\d{1,2})\s(?!(?:Down|Across|Ac|Dn|Up)\b)(?=[\"'‘“]?[A-Z][a-z])")
 LIKE_FIGURES = str.maketrans("IlioOzZsSg", "1110022559")
 WIDE_BRACKETS = str.maketrans("（）", "()")
 #: A light a clue refers to, "See (31) Down.": no clue's number.
@@ -478,10 +487,11 @@ def figures_read(text):
 
     def fix(m):
         tok = m.group(1)
-        if tok.isdigit() or not (re.search(r"\d", tok) or m.group(2) or re.fullmatch(r"[Il][\dIlioOzZsSg]", tok)):
+        if tok.isdigit() or not (re.search(r"\d", tok) or m.group(2) or re.fullmatch(r"[Il][\dIlioOzZsSg]", tok)
+                                 or m.group(3) and tok in ("I", "l")):
             return m.group(0)
-        return "(" + tok.translate(LIKE_FIGURES)
-    return MARK_LIKE.sub(fix, text)
+        return m.group(0)[:m.start(1) - m.start()] + tok.translate(LIKE_FIGURES)
+    return UNCLOSED.sub(r"(\1)", MARK_LIKE.sub(fix, text))
 
 
 #: PARA_MARK opening a clue's words in capitals: what tells a page of
@@ -508,6 +518,9 @@ PARA_MIN = 6
 PARA_GROUP = re.compile(r"^[\s,]*(?:and\s+|&\s*)?$")
 #: Two words in capitals: the next heading under the lists ("CROSSWORD RULES.").
 PARA_STOP = re.compile(r"\b[A-Z]{3,}[\s.,:—-]+[A-Z]{3,}\b")
+#: The last puzzle's report under the lists, its heading run on after the
+#: last clue: "please. Report on Crossword No. 252", read "on Crossword" (No 254).
+PARA_REPORT = re.compile(r"(?:\bReport\s+)?\bon\s+Crossword\b")
 #: ... but for the entry form's "NAME AND ADDRESS" before DOWN's heading: that column's end.
 FORM = re.compile(r"\bADDRESS\b")
 #: A gap of more than this many of its column's line pitches ends the lists there.
@@ -603,7 +616,8 @@ def paragraph_columns(words, marks=PARA_MARKS):
                 continue
             text = r[4]
             form = False
-            if cut := PARA_STOP.search(text):
+            if cut := min(filter(None, (PARA_STOP.search(text), PARA_REPORT.search(text))),
+                          key=lambda c: c.start(), default=None):
                 # The entry form's "NAME AND ADDRESS" under a column the across
                 # list runs on from ends that column alone (No 245, 1934).
                 form = bool(FORM.search(text, cut.start())) and not any(t == "DOWN" and w is None for t, w in stream)
@@ -651,6 +665,8 @@ def paragraph_columns(words, marks=PARA_MARKS):
                 continue  # a count, the next clue's number right after it: "Scotland (7) (5) Puts" (No 582)
             if clue and PARA_GROUP.match(text[marks[i - 1].end():m.start()]) and clue[1] == marks[i - 1].end():
                 clue[1] = m.end()  # one more light of the same clue
+                if not LETTERED.search(marks[i - 1].group(0) + m.group(0)):
+                    clue[3] = clue[3] or int(m.group(1))
                 continue
             if mark is PARA_MARK and (SEE.search(text, 0, m.start()) or CITED.match(text, m.end())):
                 continue  # "See (31) Down.", "applicable to (33)Down.": the light a clue refers to
@@ -659,13 +675,15 @@ def paragraph_columns(words, marks=PARA_MARKS):
             if not split.match(text, m.start()) or n <= last and not (
                     n <= 2 and side == "ACROSS" and not lists["DOWN"] and not headed_down):
                 continue  # the clue's own words: a count ("Song (5)."), a lower number
+            if n > last and para_outlier(text, marks[i + 1:], last, n, split):
+                continue  # a number misread high: the clue's words, the next clue's lost
             if clue:
                 lists[side].append(para_line(clue, text[clue[1]:m.start()]))
             if n <= last:
                 side = "DOWN"  # its heading unread: the down list starts again at 1
             last = n
             row = next(r for off, r in reversed(boxes) if off <= m.start())
-            clue = [n, m.end(), row]
+            clue = [n, m.end(), row, para_linked(m) if n == int(m.group(1)) else None]
         if clue:
             lists[side].append(para_line(clue, text[clue[1]:]))
     if min(len(lists["ACROSS"]), len(lists["DOWN"])) < COLUMN_MIN:
@@ -703,6 +721,21 @@ def para_restart(text, mark, stream):
     m = mark.match(text.lstrip())
     return bool(m and int(m.group(1)) <= 2 and any(row is not None for _, row in stream)
                 and not any(t == "DOWN" and row is None for t, row in stream))
+
+
+def para_outlier(text, after, last, n, split):
+    """Whether clue number `n`, the list's last clue `last`, is misread
+    high: the next two numbers opening clues' words in `text` (of `after`,
+    the marks following it) both fall between, rising. "(1, 40) Leads"
+    read for (11, 40) after (10) numbered it 40, and its list's (15) to
+    (38) were all dropped as lower (No 254, 1935)."""
+    seen = []
+    for m in after:
+        if split.match(text, m.start()) and not (SEE.search(text, 0, m.start()) or CITED.match(text, m.end())):
+            seen.append(int(m.group(1)))
+            if len(seen) == 2:
+                return last < seen[0] < seen[1] < n
+    return False
 
 
 #: paragraph_columns' gutters: PARA_BIN-wide stretches across the lists
@@ -773,9 +806,28 @@ def para_rows(words, height):
 
 
 def para_line(clue, words):
-    """paragraph_columns' line for one clue: its first row's box, "N. words"."""
-    n, _, row = clue
-    return (row[0], row[1], row[2], row[3], f"{n}. {' '.join(words.lstrip(' ,').split())}")
+    """paragraph_columns' line for one clue: its first row's box, "N. words",
+    or "N, M. words" for a clue of two lights (al.LINKED_PLAIN)."""
+    n, _, row, linked = clue
+    head = f"{n}, {linked}" if linked else f"{n}"
+    return (row[0], row[1], row[2], row[3], f"{head}. {' '.join(words.lstrip(' ,').split())}")
+
+
+#: The second light of a clue PARA_MARK brackets with its first: "(10, 39)",
+#: "(38-45)" (the answer running on); one bracketed apart, "(4) & (28)",
+#: paragraph_columns links itself.
+PARA_LINK = re.compile(r"^\(?[*†‡]*\d{1,2}(?:,\s?|-)(\d{1,2})(?![\dA-Z])")
+#: A light's mark naming its direction or kind ("(37A, 26D)", "(7U and
+#: 38U)", No 273): its lights' directions are the print's, not the list's.
+LETTERED = re.compile(r"\d[A-Z]")
+
+
+def para_linked(m):
+    """The second light (an int) of the clue PARA_MARK `m` brackets, or None:
+    "(10, 39) The name must fit" clues 39 too (No 254, 1935), filled "See
+    10" by al.vote. A third light is left as read; none for a LETTERED one."""
+    got = PARA_LINK.match(m.group(0))
+    return int(got.group(1)) if got and not LETTERED.search(m.group(0)) else None
 
 
 #: The word a list's heading may open on, "CLUES—ACROSS" (No 197's),
@@ -814,7 +866,10 @@ def lend_heads(words):
     """{reader: words} with a reading that misreads a list heading ("DOW",
     "OWN", "ACIOSS") given the headings another reading reads alone,
     its own words there replaced: a heading is the page's layout, no
-    clue's text."""
+    clue's text. A word whose middle is off the heading's line by more than
+    a quarter of its height is the next line's: a paragraph list's first
+    line set hard under "CLUES-ACROSS" ("monarch's doom.", 1px under it on
+    No 254, 1935) is no heading's."""
     lent = next((p for w in words.values() if (p := list_heads(w))), None)
     if not lent:
         return words
@@ -824,7 +879,8 @@ def lend_heads(words):
             out[k] = w
             continue
         out[k] = [o for o in w if not any(h[0] - 10 <= (o[0] + o[2]) / 2 <= h[2] + 10
-                                           and h[1] - 10 <= (o[1] + o[3]) / 2 <= h[3] + 10 for h in lent)]
+                                           and h[1] - (h[3] - h[1]) / 4 <= (o[1] + o[3]) / 2 <= h[3] + (h[3] - h[1]) / 4
+                                           for h in lent)]
         out[k] += list(lent)
     return out
 
@@ -2035,7 +2091,15 @@ UNPARSED = "no reading parses"
 #: above the heading's level with DOWN's heading there, a grid's numbers
 #: under a column, and a paragraph page's chance line-numbered headed
 #: reading (No 245, 1934: its reading 1 of 9 clues before, 40 of 47 after).
-CLUES_FIX = 21
+#: 22: a paragraph clue number misread high ("(1, 40)" for (11, 40)) no
+#: longer drops the clues after it; stars inside the bracket ("(**10)"),
+#: "(43 rev. in 42)" and an unclosed "(1 Protects" number their clues; a
+#: bracket of two lights ("(10, 39)", "(38-45)", "(4) & (28)") clues both,
+#: the filer finding the second in the other list where its own has none;
+#: a lent heading no longer takes the line set under it, nor does the
+#: last report's heading run on into the last clue (No 254: 34 -> 39 of 41
+#: agreed; No 273: 25 -> 39 of 43; No 245: 40 -> 44 of 51).
+CLUES_FIX = 22
 SHORT = "refused clues-short before its fix"
 
 
