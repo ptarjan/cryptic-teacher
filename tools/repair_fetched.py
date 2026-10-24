@@ -759,6 +759,51 @@ def repair_regressed_clues(since="5 days ago", apply_it=False, ref="origin/maste
     return restored
 
 
+def repair_lost_breaks(since="2026-10-21", apply_it=False, ref="origin/master"):
+    """[(id, light, was, now)] (counts) for each clue whose count a reread of a
+    times puzzle slipped and this restores from git history: each "Update"
+    commit on `ref` since `since` is compared clue by clue with its parent,
+    and where file_archive_org_puzzles.count_slipped says the new count
+    traded word breaks the answer bears out for other breaks ("2,3,2,3,2"
+    over ONTHEUPANDUP to "5,7", a neighbour's count) or is the grid's
+    length over a held count with breaks, the words stand and the file
+    still holds the commit's count, the parent's count and its marks come
+    back. A lone count read off the print ("5,2" to "7") stays: it is the
+    print's. Nothing else in the file changes; with `apply_it` False
+    nothing is written."""
+    import file_archive_org_puzzles as archive
+    restored = []
+    for pid, commits in sorted(spoiled_commits(since, ref).items()):
+        path = puzzle_paths.find(pid)
+        if path is None:
+            continue
+        puzzle = fetcher.read_puzzle_file(path)
+        now_by = {entry_id(e): e for e in puzzle["entries"]}
+        changed = False
+        for sha, rel in reversed(commits):
+            try:
+                before = json.loads(git_out("show", f"{sha}^:{rel}"))
+                after = json.loads(git_out("show", f"{sha}:{rel}"))
+            except ValueError:
+                continue
+            was_by = {entry_id(e): e for e in before["entries"]}
+            for e in after["entries"]:
+                lid = entry_id(e)
+                h, cur = was_by.get(lid), now_by.get(lid)
+                held, new = ((h or {}).get("clue") or {}), (e.get("clue") or {})
+                if cur is None or not held.get("enumeration") or held.get("text") != new.get("text") \
+                        or held.get("enumeration") == new.get("enumeration") \
+                        or (cur.get("clue") or {}).get("enumeration") != new.get("enumeration") \
+                        or not archive.count_slipped(held, new, cur.get("solution") or (h or {}).get("solution")):
+                    continue
+                restored.append((pid, lid, new.get("enumeration"), held["enumeration"]))
+                cur["clue"] = archive.held_count(cur["clue"], held)
+                changed = True
+        if changed and apply_it:
+            fetcher.write_puzzle_file(path, puzzle)
+    return restored
+
+
 def grown(held, now):
     """Whether the clue text `now` is the held `held` with a few words added
     and none lost: a reread laying neighbouring print in a clue. A run of
@@ -781,6 +826,11 @@ def main(argv):
                     help="only restore, from git history, the held clue of each times puzzle an 'Update' commit "
                          "since SINCE (default '5 days ago') made worse: a word cut or turned non-word "
                          "(file_archive_org_puzzles.regressed); --apply writes")
+    ap.add_argument("--lost-breaks", nargs="?", const="2026-10-21", metavar="SINCE",
+                    help="only restore, from git history, the held count of each times puzzle an 'Update' commit "
+                         "since SINCE (default 2026-10-21) slipped: word breaks the answer bears out traded for "
+                         "a neighbour's, or the grid's length over them "
+                         "(file_archive_org_puzzles.count_slipped); --apply writes")
     ap.add_argument("--apply", action="store_true",
                     help="write the repairs; without it nothing is written")
     ap.add_argument("--dry-run", action="store_true",
@@ -817,6 +867,13 @@ def main(argv):
         return 0
     if args.apply and args.dry_run:
         ap.error("--apply and --dry-run say opposite things; pass one")
+    if args.lost_breaks:
+        restored = repair_lost_breaks(args.lost_breaks, args.apply)
+        for pid, lid, was, now in restored:
+            print(f"{pid} {lid}: {was!r} -> {now!r}")
+        print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} count(s) "
+              f"{'restored' if args.apply else 'would be restored'}")
+        return 0
     if args.regressed_clues:
         restored = repair_regressed_clues(args.regressed_clues, args.apply)
         for pid, lid, was, now in restored:

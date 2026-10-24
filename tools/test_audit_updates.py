@@ -30,7 +30,8 @@ for what, p, want in (
          ["i:count-in-text"]),
         ("a blank", pair("Wine colour", ""), ["i:empty"]),
         ("another clue's words", pair("Bill's relations", "Virtue"), ["f:rewrite"]),
-        ("word breaks lost", pair("Clip of audition?", "Clip of audition?", "5-8", "13"), ["g:enum-structure"]),
+        ("word breaks lost", pair("Trustworthy, and still improving", "Trustworthy, and still improving",
+                                  "2,3,2,3,2", "5,7"), ["g:enum-structure"]),
         ("an enumeration dropped", pair("Sally in plane", "Sally in plane", "4", None), ["g:enum-dropped"])):
     check(f"introduced: {what}", (want, []), A.classify(p))
 
@@ -41,6 +42,8 @@ check("fixed: a stray stop and the count",
 check("fixed: word breaks gained", ([], ["g:enum-structure"]), A.classify(pair("Red wine", "Red wine", "7", "3,4")))
 check("neutral: a word changed, no class", ([], []), A.classify(pair("Operatic spectacles we hear",
                                                                      "Operatic spectacles we bear")))
+check("neutral: a lone count read over breaks is the print's (The Times 21,933 prints SHEEPSHEARING \"(13)\")",
+      ([], []), A.classify(pair("Clip of audition?", "Clip of audition?", "5-8", "13")))
 check("neutral: a cross-reference has no count of its own", ([], []),
       A.classify(pair("See ac", "See 1 ac", "5", None)))
 check("verdicts", ["introduced-glitch", "fixed-glitch", "neutral"],

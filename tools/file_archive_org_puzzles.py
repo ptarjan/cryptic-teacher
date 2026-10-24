@@ -7894,14 +7894,15 @@ def keep_held_clues(puzzle, old):
         held, now = (h or {}).get("clue") or {}, e.get("clue") or {}
         if h is None or lid in lost or not (held.get("text") or "").strip() or ocr_clues.bled(held["text"]):
             continue
-        # A count that loses word breaks the answer bears out ("5-8" to "13"), or
-        # another clue's words over a whole held one ("See 25" to "Cambridge Park,
-        # E 11 01-989"), is the reread's slip: the held clue stands
-        # (tools/audit_updates.py's g:enum-structure and f:rewrite).
-        # So is a count no reader printed (countFrom "grid": the light's length)
-        # over a held count with breaks a reader did print ("4,2,3,6" to "15").
-        slipped = breaks_lost(held.get("enumeration"), now.get("enumeration"), h.get("solution") or e.get("solution")) \
-            or grid_count_over(held, now) or rewritten(held["text"], now.get("text"))
+        # A count that trades word breaks the answer bears out for other breaks
+        # ("2,3,2,3,2" to "5,7"), a count no reader printed (countFrom "grid": the
+        # light's length) over a held count with breaks ("4,2,3,6" to "15")
+        # (count_slipped), or another clue's words over a whole held one ("See 25"
+        # to "Cambridge Park, E 11 01-989"), is the reread's slip: the held clue
+        # stands (tools/audit_updates.py's g:enum-structure and f:rewrite). A lone
+        # count read off the print ("5,2" to "7") is the print's: it is taken.
+        slipped = count_slipped(held, now, h.get("solution") or e.get("solution")) \
+            or rewritten(held["text"], now.get("text"))
         if not slipped and (held.get("enumeration") != now.get("enumeration") or held.get("text") == now.get("text")):
             continue
         if not slipped and (now.get("text") or "").strip() \
@@ -8093,8 +8094,27 @@ def grid_count_over(held, now):
 def breaks_lost(was, now, answer):
     """Whether the enumeration `now` drops word breaks of the held `was`
     (enumeration.structure_lost) that the light's `answer` bears out
-    (enumeration.answer_breaks): the reread misread the count's marks."""
-    return enumeration.structure_lost(was, now) and enumeration.answer_breaks(was, answer, ocr_clues.is_word)
+    (enumeration.answer_breaks), for other breaks: the reread took a
+    neighbour's count ("2,3,2,3,2" over ONTHEUPANDUP to "5,7", The Times
+    18,561). A lone count ("5,2" to "7") is no slip: the paper prints one
+    over answers other puzzles break (CATCHUP "(7)", TIMEWORN "(8)",
+    SHEEPSHEARING "(13)"), and the held breaks were the corpus's guess
+    (fetch_puzzle.settled_breaks), not the print; a lone count no reader
+    printed is grid_count_over's."""
+    return len(enumeration.counts(now)) > 1 and enumeration.structure_lost(was, now) \
+        and enumeration.answer_breaks(was, answer, ocr_clues.is_word)
+
+
+def count_slipped(held, now, answer):
+    """Whether the clue `now`'s count is a reread's slip over the `held`
+    clue's (breaks_lost, grid_count_over): the held count stands."""
+    return breaks_lost(held.get("enumeration"), now.get("enumeration"), answer) or grid_count_over(held, now)
+
+
+def held_count(clue, held):
+    """`clue` with the `held` clue's count, its marks and its countFrom."""
+    clue = {k: v for k, v in clue.items() if k not in ("enumeration", "separators", "countFrom")}
+    return {**clue, **{k: held[k] for k in ("enumeration", "separators", "countFrom") if k in held}}
 
 
 def regressed(was, now, printed=()):
@@ -8232,10 +8252,10 @@ def corrected_clues(puzzle, old, skip=()):
                                          lights, now[lid].get("asPrinted") or ())):
             continue
         clue = {**now[lid]}
-        # A count that lost word breaks the answer bears out ("5-8" to "13") keeps the held one's.
-        if "enumeration" in was and ("enumeration" not in clue
-                                     or breaks_lost(was["enumeration"], clue["enumeration"], e.get("solution"))):
-            clue["enumeration"] = was["enumeration"]
+        # A count that lost word breaks the answer bears out to other breaks, or a
+        # grid's count over a printed one (count_slipped), keeps the held one's.
+        if "enumeration" in was and ("enumeration" not in clue or count_slipped(was, clue, e.get("solution"))):
+            clue = held_count(clue, was)
         e["clue"] = clue
         if any(lid in ids for ids in duplicated_clues(old["entries"], one_list=True)):
             e["clue"] = was

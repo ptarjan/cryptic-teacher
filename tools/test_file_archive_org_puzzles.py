@@ -3511,22 +3511,35 @@ check("rewritten(): another clue's words over a held clue, not a reading of it",
        f.rewritten("Dry places ruined this old timer", "Dry places ruined this old-timer"),
        f.rewritten("", "Virtue")])
 
-# keep_held_clues(): a count that drops word breaks the answer bears out ("3,4" over
-# REDWINE to "7"), or a reading of other words, keeps the held clue; a count that
-# gains breaks is taken.
-def p7(clues):
-    return {"source": {"acquiredBy": f.TOOL}, "dimensions": {"cols": 7, "rows": len(clues)},
-            "entries": [{"number": i + 1, "direction": "across", "position": {"x": 0, "y": i}, "length": 7,
-                         "clue": c, "solution": "REDWINE"} for i, c in enumerate(clues)]}
+# keep_held_clues(): a count that trades word breaks the answer bears out for other
+# breaks ("2,3,2,3,2" over ONTHEUPANDUP to "5,7", a neighbour's count: The Times
+# 18,561 prints "(2,3,2,3,2)"), or a reading of other words, keeps the held clue; a
+# lone count read off the print ("3,4" over REDWINE to "7": the 1950s-90s Times
+# print CATCHUP "(7)", TIMEWORN "(8)" over the corpus's guessed "5,2", "4-4") and a
+# count that gains breaks are taken.
+def p7(clues, answer="REDWINE"):
+    return {"source": {"acquiredBy": f.TOOL}, "dimensions": {"cols": len(answer), "rows": len(clues)},
+            "entries": [{"number": i + 1, "direction": "across", "position": {"x": 0, "y": i}, "length": len(answer),
+                         "clue": c, "solution": answer} for i, c in enumerate(clues)]}
 held7 = p7([{"text": "Port, perhaps, in colour", "enumeration": "3,4"}, {"text": "Bill's relations", "enumeration": "7"},
             {"text": "Wine colour", "enumeration": "7"}])
 read7 = p7([{"text": "Port, perhaps, in colour", "enumeration": "7"}, {"text": "Virtue", "enumeration": "7"},
             {"text": "Wine colour", "enumeration": "3,4"}])
-check("a count losing breaks the answer bears out, or another clue's words, keeps the held clue; "
-      "a count gaining breaks is taken",
-      [["1-across", "2-across"], ["3,4", "7", "3,4"], ["Port, perhaps, in colour", "Bill's relations", "Wine colour"]],
+check("another clue's words keep the held clue; a lone count read off the print over guessed breaks, "
+      "and a count gaining breaks, are taken",
+      [["2-across"], ["7", "7", "3,4"], ["Port, perhaps, in colour", "Bill's relations", "Wine colour"]],
       [sorted(f.keep_held_clues(read7, held7)), [e["clue"]["enumeration"] for e in read7["entries"]],
        [e["clue"]["text"] for e in read7["entries"]]])
+held12 = p7([{"text": "Trustworthy, and still improving", "enumeration": "2,3,2,3,2",
+              "separators": [{"at": n, "mark": ","} for n in (2, 5, 7, 10)]}], "ONTHEUPANDUP")
+read12 = p7([{"text": "Trustworthy, and still improving", "enumeration": "5,7",
+              "separators": [{"at": 5, "mark": ","}]}], "ONTHEUPANDUP")
+for e in held12["entries"]:
+    e["solution"] = None  # the answer the reread fills in bears the breaks out too
+check("a count trading breaks the answer bears out for a neighbour's keeps the held clue, marks and all "
+      "(times-18561)",
+      [["1-across"], held12["entries"][0]["clue"]],
+      [f.keep_held_clues(read12, held12), read12["entries"][0]["clue"]])
 held8 = p7([{"text": "Port, perhaps, in colour", "enumeration": "3,4"}, {"text": "Wine colour", "enumeration": "7"}])
 for e in held8["entries"]:
     e["solution"] = None
@@ -3537,9 +3550,16 @@ for e in read8["entries"]:
 check("a grid-length count over a printed count with breaks keeps the held clue, answer or not",
       [["1-across"], ["3,4", "7"]],
       [sorted(f.keep_held_clues(read8, held8)), [e["clue"]["enumeration"] for e in read8["entries"]]])
-check("breaks_lost(): only breaks the answer bears out (ASKANCE's \"4,3\" may go)",
-      [True, False, False],
-      [f.breaks_lost("3,4", "7", "REDWINE"), f.breaks_lost("4,3", "7", "ASKANCE"), f.breaks_lost("3,4", "7", None)])
+check("breaks_lost(): only breaks the answer bears out, traded for other breaks (ASKANCE's \"4,3\" may go; "
+      "a lone count is the print's)",
+      [True, False, False, False, False],
+      [f.breaks_lost("2,3,2,3,2", "5,7", "ONTHEUPANDUP"), f.breaks_lost("3,4", "7", "REDWINE"),
+       f.breaks_lost("5,2", "7", "CATCHUP"), f.breaks_lost("4,3", "7", "ASKANCE"),
+       f.breaks_lost("2,3,2,3,2", "5,7", None)])
+check("held_count(): the held count, its marks and countFrom over the reading's, the words kept",
+      {"text": "Low laugh", "enumeration": "2-2", "separators": [{"at": 2, "mark": "-"}]},
+      f.held_count({"text": "Low laugh", "enumeration": "4", "countFrom": "grid"},
+                   {"text": "Lo laugh", "enumeration": "2-2", "separators": [{"at": 2, "mark": "-"}]}))
 check("mirror: regressed() names those, and not a mend, a split word or a letter gained",
       ([True] * 3, [False] * 3),
       ([f.regressed("good at heart", "good at hear"), f.regressed("the 1st Earl", "the st Earl"),
