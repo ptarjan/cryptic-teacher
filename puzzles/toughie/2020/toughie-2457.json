@@ -22,6 +22,9 @@
   "date": "2020-06-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -41,7 +44,42 @@
      }
     ]
    },
-   "solution": "INSIDERIGHT"
+   "solution": "INSIDERIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Player",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "doing a stretch",
+       "at": 7,
+       "gives": "INSIDE",
+       "note": "a prisoner doing a stretch is serving time, i.e. inside"
+      },
+      {
+       "words": "by the book",
+       "at": 23,
+       "gives": "RIGHT",
+       "note": "done by the book means done correctly, i.e. right"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone serving a prison sentence who nonetheless follows every rule to the letter.",
+     "walkthrough": "The surface pictures a convict; the definition is the single word 'Player'.",
+     "definitionFit": "An inside right is a forward position in old football formations, so a player who fills it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Player"
+    }
+   }
   },
   {
    "number": 2,
@@ -55,7 +93,31 @@
     "text": "Nettle and grass",
     "enumeration": "4"
    },
-   "solution": "NARK"
+   "solution": "NARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nettle",
+      "at": 0,
+      "meaning": "to nettle is to annoy or irritate"
+     },
+     {
+      "text": "grass",
+      "at": 11,
+      "meaning": "a grass is a police informer"
+     }
+    ],
+    "explanation": {
+     "surface": "Two plants growing side by side.",
+     "definitionFit": "To nark is to irritate someone; a nark is also slang for an informer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,7 +131,56 @@
     "text": "One is a leader in Mosque",
     "enumeration": "4"
    },
-   "solution": "IMAM"
+   "solution": "IMAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One is a leader in Mosque",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One is",
+       "at": 0,
+       "gives": "IM",
+       "note": "one speaking of themselves says I'm, i.e. I am"
+      },
+      {
+       "words": "a",
+       "at": 7
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "at": 9,
+         "note": "the leader of the word Mosque is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mosque",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A statement that someone leads prayers at a mosque.",
+     "walkthrough": "'leader in' takes M from 'Mosque'. The whole clue also defines.",
+     "definitionFit": "An imam leads the prayers in a mosque, so is a religious leader there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +194,98 @@
     "text": "Heading to university for party in his city centre, doge of good breeding",
     "enumeration": "7"
    },
-   "solution": "EUGENIC"
+   "solution": "EUGENIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of good breeding",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "in means one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "centre",
+         "at": 44,
+         "note": "taking just the centre of the city's name means dropping its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "his city",
+         "at": 35,
+         "gives": "VENICE",
+         "note": "the doge's city is Venice, ruled by doges"
+        },
+        {
+         "gives": "VE"
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 22,
+         "note": "one piece goes in place of the other, as in 'swapped for'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doge",
+         "at": 52,
+         "gives": "DOGE",
+         "note": "taken as the word doge"
+        },
+        {
+         "words": "party",
+         "at": 26,
+         "gives": "DO",
+         "note": "a do is a party"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Heading to",
+           "at": 0,
+           "note": "the heading of university is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "university",
+           "at": 11
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Venetian doge of good stock, with a university starting point for a party.",
+     "walkthrough": "'his city' leans on 'doge': doges ruled Venice. 'Heading to university for party' is a swap signalled by 'for'; 'centre' trims the city and 'in' nests the result inside it.",
+     "definitionFit": "Eugenic relates to improving inherited qualities through selective breeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +299,49 @@
     "text": "Flavour of the month, having nailed business image",
     "enumeration": "4"
    },
-   "solution": "ICON"
+   "solution": "ICON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "image",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having nailed",
+       "at": 22,
+       "note": "having nailed means having fixed a piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Flavour of the month",
+       "at": 0,
+       "gives": "IN",
+       "note": "something in fashion is in"
+      },
+      {
+       "words": "business",
+       "at": 36,
+       "gives": "CO",
+       "note": "CO, abbreviation for company"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy figure who has secured a business deal.",
+     "walkthrough": "'having nailed' looks like success in business, but it signals one piece held inside another.",
+     "definitionFit": "An icon is a picture or image, as in a religious painting or a symbol on screen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nailed"
+    }
+   }
   },
   {
    "number": 6,
@@ -111,7 +355,69 @@
     "text": "Arm and leg finally received by Attila?",
     "enumeration": "7"
    },
-   "solution": "HANDGUN"
+   "solution": "HANDGUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "received by",
+       "at": 20,
+       "note": "received by means held inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Attila",
+       "at": 32,
+       "gives": "HUN",
+       "note": "Attila the Hun, so a Hun"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "and",
+         "at": 4
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 12,
+           "note": "finally picks the last letter of leg"
+          }
+         ],
+         "parts": [
+          {
+           "words": "leg",
+           "at": 8
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Attila the Hun is presented with an arm and a leg.",
+     "walkthrough": "'Attila?' is a definition by example, flagged by the question mark. 'finally' picks the end of 'leg' and 'received by' puts the pieces inside.",
+     "definitionFit": "Arms are weapons, and a pistol is a small firearm, an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Arm"
+    }
+   }
   },
   {
    "number": 7,
@@ -125,7 +431,43 @@
     "text": "Frustrate plot the writer's kept hidden?",
     "enumeration": "11"
    },
-   "solution": "COUNTERMINE"
+   "solution": "COUNTERMINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Frustrate plot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "kept hidden",
+       "at": 28,
+       "gives": "COUNTER",
+       "note": "something kept hidden is under the counter, so the writer's possession sits under the shop counter in this down light"
+      },
+      {
+       "words": "the writer's",
+       "at": 15,
+       "gives": "MINE",
+       "note": "the writer's means mine, the setter speaking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thwarting a scheme the author has been keeping secret.",
+     "walkthrough": "In a down entry MINE is under COUNTER, i.e. 'under the counter', kept hidden.",
+     "definitionFit": "To countermine is to foil a scheme with a counterplot; originally to dig a tunnel to intercept an enemy's mine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +487,36 @@
      }
     ]
    },
-   "solution": "PENALTYSPOT"
+   "solution": "PENALTYSPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "After a foul place to go for kicks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "After a foul place to go for kicks",
+       "at": 0,
+       "note": "after a foul in the area, footballers go to this marked place to take a kick at goal; the surface suggests a seedy spot for thrills"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sleazy venue for cheap thrills.",
+     "walkthrough": "Read with a comma after 'foul': after a foul, the place where a footballer goes to kick.",
+     "definitionFit": "In football the spot twelve yards from goal where a kick awarded for a foul is taken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kicks"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +530,55 @@
     "text": "Habit of the Queen, perhaps, to take a turn loading twelve-bores",
     "enumeration": "4"
    },
-   "solution": "ROBE"
+   "solution": "ROBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Habit of the Queen, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to take a turn",
+       "at": 29,
+       "note": "taking a turn means the hidden letters are read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "loading",
+         "at": 44,
+         "note": "the shotguns are loading, i.e. holding, the letters within their name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "twelve-bores",
+         "at": 52,
+         "gives": "EBOR"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal habit of turning while carrying loaded shotguns, as if at a shoot.",
+     "walkthrough": "'loading' signals letters held inside 'twelve-bores'; 'to take a turn' turns those letters round.",
+     "definitionFit": "A habit is a garment such as a monk's; a monarch's ceremonial gown is an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Habit"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +598,37 @@
      }
     ]
    },
-   "solution": "BREAKGROUND"
+   "solution": "BREAKGROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to start new project",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "BREAK + GROUND",
+     "parts": [
+      {
+       "words": "This baker",
+       "at": 0,
+       "note": "the word baker is what you get when the letters of break are ground, i.e. crushed and rearranged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker who is about to launch a new venture.",
+     "walkthrough": "A reverse clue: read the answer as an instruction, with 'ground' as the anagram signal acting on BREAK, and it produces the word 'baker'.",
+     "definitionFit": "To break ground is an idiom for beginning a building job or new undertaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "baker"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +642,45 @@
     "text": "Cut short year's entry for a bit of old India",
     "enumeration": "4"
    },
-   "solution": "ANNA"
+   "solution": "ANNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a bit of old India",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Cut short",
+       "at": 0,
+       "note": "cutting short means the last letter of the record is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "year's entry",
+       "at": 10,
+       "gives": "ANNAL",
+       "note": "an annal is the record of a single year's events"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An abridged diary entry for one year about colonial India.",
+     "definitionFit": "The anna was a coin of British India, worth a sixteenth of a rupee, hence a bit of old currency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +694,67 @@
     "text": "One's to produce picture internally, for first of stars contracted influenza",
     "enumeration": "11"
    },
-   "solution": "FLUOROSCOPE"
+   "solution": "FLUOROSCOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's to produce picture internally",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for first of",
+       "at": 37,
+       "note": "one piece replaces the first letter of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stars",
+       "at": 50,
+       "gives": "HOROSCOPE",
+       "note": "the stars in a newspaper are the horoscope"
+      },
+      {
+       "gives": "H"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "contracted",
+         "at": 56,
+         "note": "contracted means the word influenza is shortened to its familiar clipped form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "influenza",
+         "at": 67,
+         "gives": "INFLUENZA",
+         "note": "taken as the word influenza"
+        },
+        {
+         "gives": "INENZA"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star who caught influenza needs an internal scan.",
+     "walkthrough": "'contracted' looks like 'caught' but means shortened, so FLU.",
+     "definitionFit": "A fluoroscope is an X-ray instrument showing live images of the inside of the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "contracted"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +768,59 @@
     "text": "Surprising end result chap secured in the Open",
     "enumeration": "11"
    },
-   "solution": "UNSHELTERED"
+   "solution": "UNSHELTERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in the Open",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secured",
+       "at": 27,
+       "note": "secured means held inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Surprising",
+         "at": 0,
+         "note": "a surprising outcome is an unexpected arrangement, so the letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "end result",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "chap",
+       "at": 22,
+       "gives": "HE",
+       "note": "a chap is a he"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer's surprising final result in the Open championship.",
+     "walkthrough": "'the Open' looks like the golf championship; 'Surprising' scrambles END RESULT and 'secured' puts HE inside.",
+     "definitionFit": "Without shelter or cover means exposed outdoors, that is out in the open."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Open"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +834,57 @@
     "text": "Top actors Rickman and Firth getting fat",
     "enumeration": "7"
    },
-   "solution": "LANOLIN"
+   "solution": "LANOLIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fat",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Top",
+       "at": 0,
+       "note": "topping each name removes its head, the first letter of Alan and of Colin"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "actors Rickman",
+         "at": 4,
+         "gives": "ALAN",
+         "note": "Alan Rickman, the actor"
+        },
+        {
+         "words": "Firth",
+         "at": 23,
+         "gives": "COLIN",
+         "note": "Colin Firth, the actor"
+        }
+       ]
+      },
+      {
+       "gives": "AC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two leading British actors putting on weight for a role.",
+     "walkthrough": "'Top' beheads both first names, ALAN and COLIN, leaving LAN and OLIN.",
+     "definitionFit": "Lanolin is the greasy wax from sheep's wool, a fatty substance used in creams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +898,36 @@
     "text": "Injury writ large after this vox pop escalated",
     "enumeration": "5"
    },
-   "solution": "NOISE"
+   "solution": "NOISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vox pop",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "N O I S E",
+     "parts": [
+      {
+       "words": "Injury writ large after this vox pop escalated",
+       "at": 0,
+       "note": "a lesion is an injury: write L for large after this word, then read it upwards and lesion appears; the words in between are the definition"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist's street interviews about an injury grew louder and louder.",
+     "walkthrough": "A reverse clue: answer plus L (large) turned up ('escalated' in a down entry) gives LESION.",
+     "definitionFit": "Vox pop is the voice of the people, and a voice is a sound, so a noise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "escalated"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +941,55 @@
     "text": "Glam rockers back at top of class; we're at back!",
     "enumeration": "7"
    },
-   "solution": "DUMBEST"
+   "solution": "DUMBEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "we're at back!",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 13,
+         "note": "back means the band's name is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Glam rockers",
+         "at": 0,
+         "gives": "MUD",
+         "note": "Mud were a 1970s British glam rock band"
+        }
+       ]
+      },
+      {
+       "words": "top of class",
+       "at": 21,
+       "gives": "BEST",
+       "note": "the top of the class is the best pupil"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pupils who idolise glam rock bands sit at the back of the class.",
+     "walkthrough": "Mud had a 1974 Christmas number one. The definition is the cheeky claim of the least able pupils, traditionally seated at the back of the classroom.",
+     "definitionFit": "The least clever pupils are stereotypically seated at the rear of a classroom, so they might say this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1009,53 @@
      }
     ]
    },
-   "solution": "DOALL"
+   "solution": "DOALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Work load then left for me?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Work",
+         "at": 0,
+         "note": "to work something is to knead or reshape it, so the letters of load are reshaped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "load",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 15,
+       "gives": "L",
+       "note": "L, abbreviation for left"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone grumbles that all the work has been left to them.",
+     "walkthrough": "'Work' looks like a noun paired with 'load' but is the anagram signal acting on 'load'.",
+     "definitionFit": "A factotum or general servant who handles every task, all the jobs left for one person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1069,43 @@
     "text": "Pass over stretch of canal",
     "enumeration": "5"
    },
-   "solution": "COLON"
+   "solution": "COLON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stretch of canal",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pass",
+       "at": 0,
+       "gives": "COL",
+       "note": "a col is a mountain pass"
+      },
+      {
+       "words": "over",
+       "at": 5,
+       "gives": "ON",
+       "note": "on as in 'on top of', meaning over"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Travelling along a length of waterway after crossing a pass.",
+     "walkthrough": "The canal is the alimentary canal, not a waterway.",
+     "definitionFit": "The large intestine is a section of the alimentary canal, the digestive tract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "canal"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1119,45 @@
     "text": "From which ricocheted the outer shot?",
     "enumeration": "4"
    },
-   "solution": "OCHE"
+   "solution": "OCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "From which ricocheted the outer shot?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "the outer shot",
+       "at": 22,
+       "note": "with the outer letters shot, i.e. got rid of, only the core of ricocheted remains"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ricocheted",
+       "at": 11
+      },
+      {
+       "gives": "RICTED"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A darts player's throw bounces off the outer ring of the board.",
+     "walkthrough": "'the outer shot' removes RIC and TED from either end of 'ricocheted'; the whole clue also describes the line darts are thrown from.",
+     "definitionFit": "In darts the oche is the line behind which a player stands to throw, so where shots come from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1171,49 @@
     "text": "Pastry case — it's missing: I go after Joel",
     "enumeration": "4"
    },
-   "solution": "AMOS"
+   "solution": "AMOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I go after Joel",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "at": 19,
+       "note": "missing means those letters are taken away from the pastry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pastry case",
+       "at": 0,
+       "gives": "SAMOSA",
+       "note": "a samosa is a fried pastry case with a filling"
+      },
+      {
+       "words": "it's",
+       "at": 14,
+       "gives": "SA",
+       "note": "'it' is crossword slang for sex appeal, SA, so it's = SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pastry shell has gone missing and someone follows a man called Joel.",
+     "walkthrough": "SA is removed scattered: the S at the start and the A at the end of SAMOSA. 'Joel' looks like a person but is the Old Testament book.",
+     "definitionFit": "In the Bible the book of the prophet who comes immediately after Joel is named for him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Joel"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1227,47 @@
     "text": "A small part to play — 'Tra-la' with this song",
     "enumeration": "5"
    },
-   "solution": "PSALM"
+   "solution": "PSALM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "song",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "to play",
+       "at": 13,
+       "note": "to play signals the letters are rearranged, as in playing around with them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A small part",
+       "at": 0,
+       "note": "taken as written, the composite fodder"
+      },
+      {
+       "words": "Tra-la",
+       "at": 24,
+       "note": "taken as written, the letters to be found alongside the answer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor with a bit part that consists of singing 'tra-la'.",
+     "walkthrough": "A composite anagram: the letters of A SMALL PART, rearranged ('to play'), equal TRA-LA plus the answer.",
+     "definitionFit": "A psalm is a sacred song or hymn, as in the Book of Psalms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1281,71 @@
     "text": "Half-inch nail only at intervals runs all the way to the top",
     "enumeration": "7"
    },
-   "solution": "PURLOIN"
+   "solution": "PURLOIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Half-inch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to the top",
+       "at": 50,
+       "note": "going to the top in a down entry means reading the letters upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "at intervals",
+           "at": 20,
+           "note": "at intervals means every other letter of the words is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nail only",
+           "at": 10
+          }
+         ]
+        },
+        {
+         "words": "runs",
+         "at": 33,
+         "gives": "R",
+         "note": "R, cricket abbreviation for runs"
+        },
+        {
+         "words": "all the way",
+         "at": 38,
+         "gives": "UP",
+         "note": "up as in 'eat it up', completely"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A half-inch nail, with every other piece missing, ladders up a structure.",
+     "walkthrough": "Half-inch is Cockney rhyming slang for pinch, i.e. steal. 'at intervals' takes alternate letters and 'to the top' reads everything upwards in this down entry.",
+     "definitionFit": "Half-inch rhymes with pinch, slang for to steal, the same as filch or nick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Half-inch"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1359,61 @@
     "text": "'Like some marrow?', I say — look at that interrupting breakfast celebration",
     "enumeration": "7"
    },
-   "solution": "MYELOID"
+   "solution": "MYELOID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like some marrow?",
+      "at": 1
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I say",
+       "at": 21,
+       "gives": "MY",
+       "note": "my! is an exclamation like 'I say'"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "interrupting",
+         "at": 42,
+         "note": "interrupting means one piece breaks into the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "breakfast celebration",
+         "at": 55,
+         "gives": "EID",
+         "note": "Eid al-Fitr celebrates breaking the Ramadan fast, a break-fast feast"
+        },
+        {
+         "words": "look at that",
+         "at": 29,
+         "gives": "LO",
+         "note": "lo means look, behold"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaiming over a vegetable during a breakfast party.",
+     "walkthrough": "'breakfast' is break-fast: Eid ends a fast. 'Marrow' is bone marrow, not the vegetable.",
+     "definitionFit": "Myeloid describes tissue of or resembling bone marrow, from which blood cells form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "marrow"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1427,68 @@
     "text": "Intelligence scores dismal, approaching zero, skew",
     "enumeration": "7"
    },
-   "solution": "OBLIQUE"
+   "solution": "OBLIQUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "skew",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "approaching",
+       "at": 28,
+       "note": "the rest comes up to the O from behind, so O stands first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "zero",
+       "at": 40,
+       "gives": "O",
+       "note": "zero looks like the letter O"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "scores",
+         "at": 13,
+         "note": "to score is to cut into, so the intelligence measure cuts into the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dismal",
+         "at": 20,
+         "gives": "BLUE",
+         "note": "feeling blue means feeling dismal"
+        },
+        {
+         "words": "Intelligence",
+         "at": 0,
+         "gives": "IQ",
+         "note": "IQ, intelligence quotient"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's intelligence test results are so poor they are close to nothing.",
+     "walkthrough": "'scores' looks like test marks but means cuts into; 'approaching' puts the zero first.",
+     "definitionFit": "Oblique means slanting or at an angle, the same sense as skew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scores"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1502,66 @@
     "text": "Geneticist driving pupil longing to control second floor",
     "enumeration": "7"
    },
-   "solution": "LYSENKO"
+   "solution": "LYSENKO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Geneticist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "driving pupil",
+       "at": 11,
+       "gives": "L",
+       "note": "L for learner driver"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to control",
+         "at": 33,
+         "note": "to control is to hold, so the longing holds the second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "longing",
+         "at": 25,
+         "gives": "YEN",
+         "note": "a yen is a longing"
+        },
+        {
+         "words": "second",
+         "at": 44,
+         "gives": "S",
+         "note": "S, abbreviation for second"
+        }
+       ]
+      },
+      {
+       "words": "floor",
+       "at": 51,
+       "gives": "KO",
+       "note": "to floor an opponent is to knock them out, KO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A learner driver yearning to take charge of the second floor of a building.",
+     "walkthrough": "'floor' is not a storey but a verb, as in a boxer floored, so KO.",
+     "definitionFit": "Trofim Lysenko was a Soviet biologist whose discredited theories of heredity dominated Soviet genetics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "floor"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1575,32 @@
     "text": "Ancient Rimer's associates croaked",
     "enumeration": "4"
    },
-   "solution": "CREW"
+   "solution": "CREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ancient Rimer's associates",
+      "at": 0,
+      "meaning": "the sailors aboard with Coleridge's Ancient Mariner in The Rime of the Ancient Mariner"
+     },
+     {
+      "text": "croaked",
+      "at": 27,
+      "meaning": "an old past tense of crow, a bird calling harshly, so it called as a croaking bird does"
+     }
+    ],
+    "explanation": {
+     "surface": "An old poet's companions all died.",
+     "walkthrough": "Coleridge's poem is spelt 'Rime', hence 'Rimer'. The Mariner's shipmates also famously all croaked, i.e. died, in the poem.",
+     "definitionFit": "The ship's company of the poem's vessel, and an archaic past form of the verb for a cockerel calling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rimer's"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1614,42 @@
     "text": "Arm section to infiltrate all-powerful nation",
     "enumeration": "4"
    },
-   "solution": "ULNA"
+   "solution": "ULNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arm section",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to infiltrate",
+       "at": 12,
+       "note": "the answer infiltrates, sitting inside, the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "all-powerful nation",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A unit of an armed force to infiltrate a superpower.",
+     "walkthrough": "'to infiltrate' marks letters inside 'powerful nation'.",
+     "definitionFit": "This is one of the two forearm bones, so a part of the arm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Arm"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1663,70 @@
     "text": "One will depart parish and use false god",
     "enumeration": "4"
    },
-   "solution": "ZEUS"
+   "solution": "ZEUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "god",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "will depart",
+         "at": 4,
+         "note": "departing means the word one leaves the district"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parish",
+         "at": 16,
+         "gives": "ZONE",
+         "note": "a parish is a district or zone"
+        },
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "ONE",
+         "note": "taken as the word one"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "false",
+         "at": 31,
+         "note": "false means the letters of use are falsified, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "use",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchgoer will leave the parish and worship a false deity.",
+     "walkthrough": "'will depart' takes ONE from ZONE leaving Z; 'false' rearranges USE. 'false god' looks like the definition but 'false' belongs to the wordplay.",
+     "definitionFit": "Zeus was the chief deity of the ancient Greek pantheon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "false"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1740,37 @@
     "text": "Is this opened by White Rabbit and Hare, say, limping?",
     "enumeration": "4"
    },
-   "solution": "GAME"
+   "solution": "GAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Is this opened by White",
+      "at": 0,
+      "meaning": "in chess White makes the first move, opening the match"
+     },
+     {
+      "text": "Rabbit and Hare, say",
+      "at": 24,
+      "meaning": "rabbits and hares are examples of animals hunted for food"
+     },
+     {
+      "text": "limping",
+      "at": 46,
+      "meaning": "a lame leg is called a gammy or bad leg"
+     }
+    ],
+    "explanation": {
+     "surface": "Alice's White Rabbit and the March Hare, perhaps, limping along.",
+     "walkthrough": "Three definitions; the Alice in Wonderland picture hides chess.",
+     "definitionFit": "A chess match is one, hunted animals are another sense, and a crippled leg is described with this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "White"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1798,54 @@
      }
     ]
    },
-   "solution": "DOALLONECAN"
+   "solution": "DOALLONECAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maximise efforts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to serve",
+       "at": 17,
+       "gives": "DO",
+       "note": "to do someone, as in 'do breakfast', is to serve them"
+      },
+      {
+       "words": "each",
+       "at": 32,
+       "gives": "ALL",
+       "note": "in scores, 'all' means each, as in fifteen-all"
+      },
+      {
+       "words": "a",
+       "at": 26,
+       "gives": "ONE",
+       "note": "a means one"
+      },
+      {
+       "words": "mug",
+       "at": 28,
+       "gives": "CAN",
+       "note": "a can is a drinking vessel, like a mug"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A host serving everyone a single mug of something.",
+     "walkthrough": "GO ALL OUT FOR is a tempting wrong answer to 'Maximise efforts'.",
+     "definitionFit": "To try as hard as possible is the same as making your efforts as great as they can be."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 29,
@@ -493,7 +1859,30 @@
     "text": "Like four-and-twenty blackbirds? And magpies!",
     "enumeration": "4"
    },
-   "solution": "PIED"
+   "solution": "PIED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like four-and-twenty blackbirds?",
+      "at": 0,
+      "meaning": "baked in a pie, as in the nursery rhyme Sing a Song of Sixpence"
+     },
+     {
+      "text": "magpies",
+      "at": 37,
+      "meaning": "like magpies, i.e. black and white in patches"
+     }
+    ],
+    "explanation": {
+     "surface": "Comparing nursery-rhyme blackbirds with magpies.",
+     "definitionFit": "The rhyme's birds were baked in a pie; and the word also describes the patched black-and-white plumage magpies have."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 30,
@@ -507,7 +1896,81 @@
     "text": "Tinned soup, initially cold, through action got intensely hot",
     "enumeration": "11"
    },
-   "solution": "INCANDESCED"
+   "solution": "INCANDESCED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "got intensely hot",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tinned",
+       "at": 0,
+       "gives": "INCAN",
+       "note": "tinned means in a can"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "through",
+         "at": 29,
+         "note": "the deed runs through the soup and cold letters, enclosing them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "action",
+         "at": 37,
+         "gives": "DEED",
+         "note": "a deed is an action"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "at": 13,
+             "note": "initially picks the first letter of soup"
+            }
+           ],
+           "parts": [
+            {
+             "words": "soup",
+             "at": 7
+            }
+           ]
+          },
+          {
+           "words": "cold",
+           "at": 23,
+           "gives": "C",
+           "note": "C, abbreviation for cold, as on a tap"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Canned soup that started cold has been heated right through.",
+     "walkthrough": "'initially' takes S from 'soup'; 'through' puts S and C inside DEED.",
+     "definitionFit": "To incandesce is to glow with heat, so to have become white-hot or intensely hot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tinned"
+    }
+   }
   }
  ]
 }
