@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 16
+VERSION = 17
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -492,7 +492,7 @@ def paragraph_columns(words, marks=PARA_MARKS):
     if not heights:
         return None
     height = heights[len(heights) // 2]
-    if sum(len(opens.findall(r[4][1:])) for r in para_rows(words, height)) < PARA_MIN:
+    if para_openers(words, height, opens) < PARA_MIN:
         return None
     across = next((w for w in sorted(words, key=lambda w: w[1])
                    if heading(w[4]) == "ACROSS" or re.search(r"A[CG]R[O0]SS", w[4].upper())), None)
@@ -511,7 +511,7 @@ def paragraph_columns(words, marks=PARA_MARKS):
     top = min(titles, default=across[1]) - 10
     body = [w for w in words if w[3] - w[1] <= tall and (w[1] + w[3]) / 2 >= (top if w[0] > across[2] else across[1] - 10)
             and not any(b[0] <= (w[0] + w[2]) / 2 <= b[2] and b[1] <= (w[1] + w[3]) / 2 <= b[3] for b in blots)]
-    spans = para_spans([w for w in body if re.search(r"[A-Za-z]{2}|\(\d", w[4])])
+    spans = para_numbers(para_spans([w for w in body if re.search(r"[A-Za-z]{2}|\(\d", w[4])]), body)
     stream = []
     for x0, x1 in (s for s in spans if s[1] >= across[0]):
         rows = para_rows([w for w in body if x0 <= (w[0] + w[2]) / 2 <= x1], height)
@@ -521,7 +521,8 @@ def paragraph_columns(words, marks=PARA_MARKS):
         pitch = steps[len(steps) // 2] if steps else 0
         last, stop = None, False
         for r in rows:
-            if last is not None and pitch and r[0] - last > PARA_GAP * pitch:
+            # A heading's own space above it is no gap (No 582's DOWN, 1941).
+            if last is not None and pitch and r[0] - last > PARA_GAP * pitch and heading(r[4]) != "DOWN":
                 break
             last = r[0]
             head = heading(r[4]) or ("ACROSS" if r is rows[0] and re.search(r"A[CG]R[O0]SS", r[4].upper())
@@ -555,17 +556,23 @@ def paragraph_columns(words, marks=PARA_MARKS):
         boxes.append((len(joined), row))
         joined += text.strip() + " "
     flush()
+    # DOWN's heading read: a "(1)" or "(2)" before it is no restart (No 582's
+    # "(1)" read for a count, 1941, cut its across list there).
+    headed_down = any(text == "DOWN" and row is None for text, row in stream)
     for side, text, boxes in pieces:
         marks = list(mark.finditer(text))
         last = 0
         clue = None  # [number, start of its words, row]
         for i, m in enumerate(marks):
             n = int(m.group(1))
+            if (i + 1 < len(marks) and not text[m.end():marks[i + 1].start()].strip()
+                    and int(marks[i + 1].group(1)) < n and n > last):
+                continue  # a count, the next clue's number right after it: "Scotland (7) (5) Puts" (No 582)
             if clue and PARA_GROUP.match(text[marks[i - 1].end():m.start()]) and clue[1] == marks[i - 1].end():
                 clue[1] = m.end()  # one more light of the same clue
                 continue
             if not split.match(text, m.start()) or n <= last and not (
-                    n <= 2 and side == "ACROSS" and not lists["DOWN"]):
+                    n <= 2 and side == "ACROSS" and not lists["DOWN"] and not headed_down):
                 continue  # the clue's own words: a count ("Song (5)."), a lower number
             if clue:
                 lists[side].append(para_line(clue, text[clue[1]:m.start()]))
@@ -587,6 +594,25 @@ def paragraph_columns(words, marks=PARA_MARKS):
 PARA_BIN, PARA_THIN = 10, 0.25
 
 
+#: A clue number's own box as No 582's lists set it: "(11)", "(4U)*".
+BOXED_NUMBER = re.compile(r"\(\d{1,2}[A-Z]?\)[*†‡!¥]*")
+
+
+def para_numbers(spans, words):
+    """`spans` with a column holding only clue numbers' own boxes joined to
+    the column right of it: No 582's (1941) "(N)"s are set out in a gutter
+    of their own left of the clue texts and the ACROSS heading, so read
+    apart from it they were lost and its clues read with no numbers."""
+    out = []
+    for s in spans:
+        inside = [w for w in words if s[0] <= (w[0] + w[2]) / 2 <= s[1]]
+        if out and out[-1][2]:
+            out[-1] = [out[-1][0], s[1], False]
+            continue
+        out.append([s[0], s[1], len(inside) >= PARA_MIN and all(BOXED_NUMBER.fullmatch(w[4]) for w in inside)])
+    return [[x0, x1] for x0, x1, _ in out]
+
+
 def para_spans(words):
     """[[x0, x1]] the columns of `words`, parted at the gutters."""
     if not words:
@@ -605,6 +631,12 @@ def para_spans(words):
             else:
                 spans.append([b * PARA_BIN, b * PARA_BIN])
     return [[x0, x1 + PARA_BIN] for x0, x1 in spans]
+
+
+def para_openers(words, height, opens=PARA_OPENS):
+    """How many clue numbers open words (`opens`) in the lines of `words`
+    ("wretched ones. (17) An"; No 582's "(1) Qualified for")."""
+    return sum(len(opens.findall(r[4][1:])) for r in para_rows(words, height))
 
 
 def para_rows(words, height):
@@ -1835,8 +1867,11 @@ UNPARSED = "no reading parses"
 #: passing over a page that holds only a report: a page read before it with
 #: its clue list short, or none parsed, is read again (evidence: on 40
 #: fetched 1930s pages Nos 114, 127, 141, 147, 148 gained 1-26 clues and 5
-#: more were seen to be reports alone).
-CLUES_FIX = 15
+#: more were seen to be reports alone). 17: the 1941 lists setting each
+#: "(N)" in a gutter of its own (para_numbers), a DOWN heading below a gap
+#: and a "(1)" misread mid-list no longer ending the across list (No 582:
+#: 0 numbered clues on its page read before, 13 across and 12 down after).
+CLUES_FIX = 17
 SHORT = "refused clues-short before its fix"
 
 

@@ -994,6 +994,29 @@ check("paragraph lists: a clue a number, run on across the gutter; counts and th
         "12. Plant.", "14. Hill and dale."], ["1. Cart.", "2. Song (5).", "3. Mule.", "4. Lamb."]),
       cols and ([l[4] for l in cols[0]], [l[4] for l in cols[1]]))
 check("page_columns takes them", cols, g.page_columns(para))
+# No 582's (1941): a clue a line, its "(N)" set in a gutter of its own left
+# of the clue texts and the ACROSS heading; a line's count runs into the
+# next clue's number ("Scotland (7) (5) Puts"), a count misread "(1)"
+# mid-list, and DOWN's heading under a gap wider than the lines' pitch.
+gutter = [(2524, 1107, "CLUESACROSS")]
+for i, (n, text) in enumerate([(1, "Qualified for a degree in Scotland (7)"), (5, "Puts about and goes in (7)."),
+                               (9, "Where the drama is portrayed? (15)."), (10, "Everyone in colour (7)."),
+                               (11, "Religion gives a sergeant-major"), (None, "bad back (7)."),
+                               (12, "Where real tweed is seen (9)."), (13, "Found in a famous beer"),
+                               ("(1)", None), (16, "Crinoline for peace time services (9).")]):
+    y = 2575 + 38 * i
+    if n is not None:
+        gutter.append((y, 815, n if isinstance(n, str) else f"({n})"))
+    if text:
+        gutter.append((y, 899, text))
+gutter.append((2575 + 38 * 9 + 120, 1150, "DOWN"))
+for i, (n, text) in enumerate([(1, "Horsey half of an astronomer (5)."), (2, "Choose your weapon, woodman (7)."),
+                               (3, "Boy discovered at the day's end (5).")]):
+    gutter += [(2575 + 38 * 9 + 170 + 38 * i, 815, f"({n})"), (2575 + 38 * 9 + 170 + 38 * i, 899, text)]
+cols = g.paragraph_columns(para_words(gutter))
+check("No 582's lists: numbers in their own gutter; a count before the next number, a stray (1), DOWN under a gap",
+      ([1, 5, 9, 10, 11, 12, 13, 16], [1, 2, 3]),
+      cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
 check("one clue a line is no paragraph list (mirror)", None,
       g.paragraph_columns(para_words([(100, 88, "ACROSS"), (130, 88, "1. Bird (4)"), (160, 88, "5. Fish (4)")])))
 
