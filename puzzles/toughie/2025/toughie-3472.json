@@ -1628,82 +1628,71 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "STREAM",
-     "indicators": [
-      {
-       "text": "includes",
-       "note": "to include something is to hold it within, so side wraps around the other letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "foremost",
+         "at": 9,
+         "note": "foremost picks the letter at the very front of the word"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "Stokes's",
+         "at": 0,
+         "note": "the first letter of Stokes is S"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "includes",
+         "at": 23,
+         "note": "includes means the team takes another letter inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "side",
+         "at": 18,
+         "gives": "TEAM",
+         "note": "a side is a team in sport"
+        },
+        {
+         "op": "first",
          "indicators": [
           {
-           "text": "to Harry",
-           "note": "to harry is to harass and disturb, so the letters of master are thrown about"
+           "text": "at No.1",
+           "at": 32,
+           "note": "at number one means the first letter of the following word"
           }
          ],
          "parts": [
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "foremost",
-             "note": "the foremost part of a name is its first letter, which is all that is kept of Stokes's"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Stokes's",
-             "note": "first letter of Stokes's"
-            }
-           ]
-          },
-          {
-           "words": "side",
-           "gives": "TEAM",
-           "note": "a sports side"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "at No.1",
-             "note": "position number one is the first letter, so only the start of Root is taken"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Root",
-             "note": "first letter of Root"
-            }
-           ]
+           "words": "Root",
+           "at": 40,
+           "note": "the first letter of Root is R"
           }
          ]
-        },
-        {
-         "unchecked": true,
-         "words": "master",
-         "note": "a second, independent route to the same letters: this word rearranged gives the whole answer again, so it adds nothing to the build above"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "England cricket: captain Ben Stokes's side has Joe Root at the top, mentoring young Harry Brook.",
-     "walkthrough": "Two routes to the answer: S plus TEAM around R, and separately an anagram of master. Brook is not the batter but the definition; Stokes, Root and Brook are England cricketers.",
-     "definitionFit": "A brook is a small stream, so the two words are near synonyms for running water."
+     "surface": "Cricket talk: captain Ben Stokes's England side has Joe Root at the top, master to Harry Brook.",
+     "walkthrough": "Stokes, Root and Brook are all England cricketers, which hides the definition among the names; 'master to Harry' is also an anagram of master giving the same answer.",
+     "definitionFit": "A brook is a small river, and a stream is a synonym for it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Brook"
     }
    }

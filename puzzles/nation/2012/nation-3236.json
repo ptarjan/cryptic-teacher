@@ -1086,32 +1086,40 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
+     "op": "container",
      "indicators": [
       {
-       "text": "with head stuffed inside",
-       "at": 22,
-       "note": "the head, the first letter, is pushed one place inside the phrase, so it swaps with the letter after it"
+       "text": "stuffed inside",
+       "at": 32,
+       "note": "stuffed inside means pushed into the remaining letters"
       }
      ],
      "parts": [
       {
-       "words": "A black cat, perhaps",
-       "at": 0,
-       "gives": "BADOMEN",
-       "note": "a black cat crossing your path is supposed to be a bad omen"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "A black cat, perhaps",
+         "at": 0,
+         "gives": "BADOMEN",
+         "note": "a black cat crossing your path is supposed to be a bad omen"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       },
       {
-       "gives": "BA"
-      },
-      {
-       "gives": "AB"
+       "words": "head",
+       "at": 27,
+       "gives": "B",
+       "note": "the head is the first letter of the phrase just found, B"
       }
      ]
     },
     "explanation": {
      "surface": "A dark-furred cat with its head squashed into a stomach.",
-     "walkthrough": "'A black cat, perhaps' is BAD OMEN. 'With head stuffed inside' moves its first letter, B, in behind the A, so BA becomes AB.",
+     "walkthrough": "'A black cat, perhaps' is BAD OMEN; its head, B, is taken off the front and stuffed one place inside, after the A.",
      "definitionFit": "The abdomen is the part of the body containing the stomach and guts, the belly."
     },
     "features": {
@@ -1271,28 +1279,32 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Groom",
+      "text": "Groom 'em?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "reverse",
-     "reading": "PRE EN",
+     "op": "cryptic",
      "parts": [
       {
-       "words": "'em",
+       "words": "Groom",
+       "at": 0,
+       "note": "read as a verb meaning to tidy up one's appearance, as a bird does"
+      },
+      {
+       "words": "'em?",
        "at": 6,
-       "note": "the letter M comes just before N in the alphabet, so it is pre-N"
+       "note": "the setter's hint that the thing groomed is the bird's own feathers, read as a playful instruction"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Read the answer as PRE-EN, before N: the letter that comes before N is M, spelt out as 'em'.",
-     "definitionFit": "To preen is to groom oneself carefully, as a bird does with its feathers."
+     "walkthrough": "The groom looks like a bridegroom, but the clue asks what a bird does to its plumage.",
+     "definitionFit": "To preen is to smooth and arrange feathers or to tidy one's appearance, which is grooming."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Groom"
     }
