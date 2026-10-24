@@ -6124,9 +6124,12 @@ _SOLUTION_KEY = []
 #: the rows read under the old key are not read again for it (fix_reason). unlisted_reads (answers_only
 #: only, reads more) is pinned too: the rows it may improve are due once by REREAD_UNLISTED instead
 #: (short_again), not every short Times row as "read by other code". So is matched_box, which reads
-#: only a grid every ink box was refused for: those rows are due once as REFUSED_GRID.
+#: only a grid every ink box was refused for: those rows are due once as REFUSED_GRID. So is
+#: name_only (a surname cmudict alone lists decodes only where every cell is sure: TROEGER), which
+#: only takes fewer lights: a row read before it reads no more for it.
 _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
-                  "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706"}
+                  "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706",
+                  "e1f457cc02985dda": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
