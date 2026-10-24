@@ -1453,8 +1453,34 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
     except WordplayError as err:
         tree = _with_picks_dropped(tree, answer) or _with_hidden_merged(tree, clue, answer)
         if tree is None:
+            left = unaccounted_words(locate_copy(clue_out, clue, taken), clue, taken)
+            if left and "does not give" in str(err):
+                raise WordplayError(f"{err}; clue words no leaf, indicator or definition covers "
+                                    f"(a piece may be missing, or they are link words): "
+                                    f"{', '.join(repr(w) for w in left)}") from None
             raise err
     return normalize(tree, clue, answer)[0]
+
+
+def locate_copy(clue_out, clue, taken):
+    """The model's wp parsed and located against `clue`, for reading spans only."""
+    tree = parse(clue_out["wp"])
+    locate(tree, clue, taken)
+    return tree
+
+
+def unaccounted_words(tree, clue, taken=()):
+    """The clue's words that no leaf, indicator or taken span (the definition) covers,
+    in clue order: a wordplay that misses the answer has often left a piece out."""
+    covered = list(taken)
+    for span, key in _spans(tree):
+        if "at" in span:
+            covered.append((span["at"], span["at"] + len(span[key])))
+    out = []
+    for m in re.finditer(r"[\w'’]+", clue):
+        if not any(a < m.end() and m.start() < b for a, b in covered):
+            out.append(m.group(0))
+    return out
 
 
 def _with_hidden_merged(tree, clue, answer):
