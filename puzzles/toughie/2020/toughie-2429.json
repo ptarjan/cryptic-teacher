@@ -22,6 +22,9 @@
   "date": "2020-05-01",
   "check": "grid rebuilt from the blog's light list (unique, linked answer split by the grid); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -41,7 +44,31 @@
      }
     ]
    },
-   "solution": "ATSEA"
+   "solution": "ATSEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In need of a lift",
+      "at": 0,
+      "meaning": "bewildered and low, in need of a boost to their spirits"
+     },
+     {
+      "text": "in the main?",
+      "at": 19,
+      "meaning": "the main is the open ocean, so this means out on the water"
+     }
+    ],
+    "explanation": {
+     "surface": "A sailor stranded on the ocean waits for someone to pick them up.",
+     "definitionFit": "The phrase means both bewildered (needing cheering up) and literally out on the ocean, the main."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 1,
@@ -55,7 +82,70 @@
     "text": "Gold violin cases nearly closed a road in Italy",
     "enumeration": "10"
    },
-   "solution": "AUTOSTRADA"
+   "solution": "AUTOSTRADA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "road in Italy",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cases",
+         "at": 12,
+         "note": "to case something is to enclose it, so the gold and violin wrap around the next part"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Gold",
+           "at": 0,
+           "gives": "AU",
+           "note": "AU is the chemical symbol for gold"
+          },
+          {
+           "words": "violin",
+           "at": 5,
+           "gives": "STRAD",
+           "note": "a Strad is a Stradivarius violin"
+          }
+         ]
+        },
+        {
+         "words": "nearly closed",
+         "at": 18,
+         "gives": "TO",
+         "note": "a door pushed to is shut or almost shut"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 32,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Musicians' gilded instrument cases nearly block an Italian road.",
+     "walkthrough": "'cases' is a verb, not the violin's box. A door pushed 'to' is closed or almost so.",
+     "definitionFit": "An autostrada is an Italian motorway, a major highway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +159,41 @@
     "text": "The mesmeric musician Vangelis is stupefying",
     "enumeration": "8"
    },
-   "solution": "SVENGALI"
+   "solution": "SVENGALI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The mesmeric musician",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "stupefying",
+       "at": 34,
+       "note": "stupefying means dazing and confusing, so the composer's name is thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Vangelis",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The hypnotic composer Vangelis is astonishing listeners.",
+     "walkthrough": "Svengali is the musician and hypnotist in George du Maurier's novel Trilby.",
+     "definitionFit": "The fictional villain of Trilby is a musician who controls a singer by hypnosis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stupefying"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +207,82 @@
     "text": "How sharp is this partner's second reminder, about to beat clubs",
     "enumeration": "8"
    },
-   "solution": "ACUTANCE"
+   "solution": "ACUTANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How sharp is this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second",
+         "at": 28,
+         "note": "second picks out the letter in position two of the word partner"
+        }
+       ],
+       "parts": [
+        {
+         "words": "partner's",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 45,
+         "note": "about means around, so the reminder word surrounds the beating and clubs parts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reminder",
+         "at": 35,
+         "gives": "CUE",
+         "note": "a cue is a reminder or prompt"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "to beat",
+           "at": 51,
+           "gives": "TAN",
+           "note": "to tan someone's hide is to beat them"
+          },
+          {
+           "words": "clubs",
+           "at": 59,
+           "gives": "C",
+           "note": "C is the card-game abbreviation for clubs"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bridge player's second reminder to their partner, about hitting clubs.",
+     "walkthrough": "'about' wraps the reminder around the beating and clubs letters. 'partner's second' sounds like bridge bidding but just picks a letter.",
+     "definitionFit": "Acutance is the measure of edge sharpness in a photographic image."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partner's"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +296,60 @@
     "text": "City bar panels of wood work in the theatre",
     "enumeration": "8"
    },
-   "solution": "BELMOPAN"
+   "solution": "BELMOPAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "panels",
+       "at": 9,
+       "note": "to panel something is to line or encase it, so the bar word encloses the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bar",
+       "at": 5,
+       "gives": "BAN",
+       "note": "to bar is to ban"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "wood",
+         "at": 19,
+         "gives": "ELM",
+         "note": "elm is a kind of wood"
+        },
+        {
+         "words": "work in the theatre",
+         "at": 24,
+         "gives": "OP",
+         "note": "an operation, OP, is work done in an operating theatre"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city bar is fitted with wooden panelling, the sort of work done for a stage set.",
+     "walkthrough": "'theatre' suggests the stage, but it is the operating theatre, where an OP is performed.",
+     "definitionFit": "Belmopan is the capital of Belize in Central America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +363,30 @@
     "text": "Deep sea fish",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deep",
+      "at": 0,
+      "meaning": "a deep, low singing voice or musical register"
+     },
+     {
+      "text": "sea fish",
+      "at": 5,
+      "meaning": "a spiny-finned fish of coastal waters, prized for eating"
+     }
+    ],
+    "explanation": {
+     "surface": "A fish living far down in the ocean.",
+     "definitionFit": "The word is both the lowest musical voice and a perch-like marine fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Deep"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +400,32 @@
     "text": "I need assistance this time",
     "enumeration": "6"
    },
-   "solution": "MAYDAY"
+   "solution": "MAYDAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I need assistance",
+      "at": 0,
+      "meaning": "the international radio distress call asking for help"
+     },
+     {
+      "text": "this time",
+      "at": 18,
+      "meaning": "the first of May, the date on which this puzzle appeared"
+     }
+    ],
+    "explanation": {
+     "surface": "A call for help made right now.",
+     "walkthrough": "This puzzle was published on 1 May 2020, so 'this time' is the date of publication.",
+     "definitionFit": "It is the spoken radio distress signal, and also the name for the first day of May."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +439,66 @@
     "text": "Cryptic compilers Mr Stephenson at first fails to keep in order",
     "enumeration": "6"
    },
-   "solution": "POLICE"
+   "solution": "POLICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "keep in order",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Cryptic",
+       "at": 0,
+       "note": "cryptic means puzzling and obscure, so the letters of compilers are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "compilers",
+       "at": 8
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mr",
+         "at": 18
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 32,
+           "note": "at first takes the opening letter of the surname"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Stephenson",
+           "at": 21
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crossword setters say their editor initially fails to keep order.",
+     "walkthrough": "'fails to keep' says COMPILERS loses M, R and S (Mr and Stephenson's first letter), leaving COPILE, which 'Cryptic' rearranges. Hugh Stephenson edited the Guardian crossword.",
+     "definitionFit": "To police something is to enforce rules and maintain discipline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cryptic"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +512,31 @@
     "text": "Square one for each service option herein",
     "enumeration": "4"
    },
-   "solution": "NINE"
+   "solution": "NINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Square",
+      "at": 0,
+      "meaning": "a square number, three times three"
+     },
+     {
+      "text": "one for each service option herein",
+      "at": 7,
+      "meaning": "the digit dialled three times for UK emergency services, one for each of the three services in this grid"
+     }
+    ],
+    "explanation": {
+     "surface": "A tidy number, one for each choice on a menu.",
+     "walkthrough": "In the UK, 999 is the emergency number; the grid holds POLICE, AMBULANCE and FIRE, one digit each.",
+     "definitionFit": "It is a perfect square, and the digit repeated in the British emergency phone number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 8,
@@ -192,7 +575,60 @@
      }
     ]
    },
-   "solution": "SEXDRIVE"
+   "solution": "SEXDRIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "need for it?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocking",
+       "at": 24,
+       "note": "the times sign gets in the way of, sitting inside, the shuffled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Unusually",
+         "at": 0,
+         "note": "unusually says the letters of diverse appear in an uncommon order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diverse",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "times",
+       "at": 18,
+       "gives": "X",
+       "note": "X is the multiplication sign for times"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A varied set of schedules gets in the way of something needed.",
+     "walkthrough": "'Unusually' rearranges DIVERSE to SEDRIVE; 'blocking' puts X inside it. 'it' is a coy euphemism for sex.",
+     "definitionFit": "Libido is the appetite for sex, which 'it' stands for in coy speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 10,
@@ -206,7 +642,54 @@
     "text": "First wife, possibly not welcome when turning up, sold overseas",
     "enumeration": "8"
    },
-   "solution": "EXPORTED"
+   "solution": "EXPORTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sold overseas",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "First wife, possibly",
+       "at": 0,
+       "gives": "EX",
+       "note": "a first wife may be an ex"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "when turning up",
+         "at": 33,
+         "note": "turning up in a down clue means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not welcome",
+         "at": 21,
+         "gives": "DETROP",
+         "note": "de trop, French borrowed into English, means unwanted, in the way"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former spouse, unwelcome when she appears, is shipped off abroad.",
+     "walkthrough": "'when turning up' reverses DE TROP to PORTED.",
+     "definitionFit": "Goods that are exported are sent to buyers in other countries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 11,
@@ -233,7 +716,54 @@
     "text": "Standing guard over base, left like Sondheim's clowns",
     "enumeration": "8"
    },
-   "solution": "SENTINEL"
+   "solution": "SENTINEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Standing guard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 15,
+       "note": "in a down clue over means placed above, so the clowns' phrase sits on top of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "like Sondheim's clowns",
+       "at": 31,
+       "gives": "SENTIN",
+       "note": "Sondheim's song says 'Send in the clowns', so they are sent in"
+      },
+      {
+       "words": "base",
+       "at": 20,
+       "gives": "E",
+       "note": "e is the base of natural logarithms"
+      },
+      {
+       "words": "left",
+       "at": 26,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guard stands watch over a base, abandoned like the clowns of a musical.",
+     "walkthrough": "'Send in the Clowns' is from Sondheim's A Little Night Music; the clowns are SENT IN.",
+     "definitionFit": "A sentinel is a soldier or guard keeping watch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +777,59 @@
     "text": "Screening rate of movement doctor may see breathing problem",
     "enumeration": "9"
    },
-   "solution": "EMPHYSEMA"
+   "solution": "EMPHYSEMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "breathing problem",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Screening",
+       "at": 0,
+       "note": "screening means hiding behind a screen, so the shuffled letters enclose the speed unit"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "doctor",
+         "at": 27,
+         "note": "to doctor is to tamper with, so the letters of may see are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "may see",
+         "at": 34
+        }
+       ]
+      },
+      {
+       "words": "rate of movement",
+       "at": 10,
+       "gives": "MPH",
+       "note": "MPH, miles per hour, measures a rate of movement"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor scanning someone's motion might spot a respiratory illness.",
+     "walkthrough": "'doctor' looks like the medic of the surface but is the anagram signal, turning MAY SEE into EYSEMA; 'Screening' puts MPH inside it.",
+     "definitionFit": "Emphysema is a lung disease that causes shortness of breath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +861,73 @@
    "group": [
     "14-down",
     "8-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mass bail-out needed!",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 32,
+       "note": "about means around, so the outer words wrap around the staff security letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Every",
+         "at": 0,
+         "gives": "ALL",
+         "note": "every means all"
+        },
+        {
+         "words": "shot",
+         "at": 6,
+         "gives": "TOT",
+         "note": "a tot is a small shot of spirits"
+        },
+        {
+         "words": "informed",
+         "at": 11,
+         "gives": "HEP",
+         "note": "hep is dated slang for in the know, informed"
+        },
+        {
+         "words": "arbitrators",
+         "at": 20,
+         "gives": "UMPS",
+         "note": "umps is short for umpires, who arbitrate in sport"
+        }
+       ]
+      },
+      {
+       "words": "staff security",
+       "at": 38,
+       "gives": "HANDS",
+       "note": "H and S, health and safety, protects a workforce"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Every drink-informed referee frets about workplace safety while a crisis demands a mass rescue.",
+     "walkthrough": "'about' wraps the outer pieces around H AND S, health and safety. 'bail-out' is bailing water from a sinking boat, not a financial rescue.",
+     "definitionFit": "The phrase is a call for everyone to help in an emergency, originally to pump water out of a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bail-out"
+    }
+   }
   },
   {
    "number": 15,
@@ -299,7 +947,59 @@
      }
     ]
    },
-   "solution": "ALIMENTARYCANAL"
+   "solution": "ALIMENTARYCANAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "course of lunch?",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to follow",
+       "at": 25,
+       "note": "the shuffled letters follow, coming after, the lone A"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 35,
+       "gives": "A"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Operate",
+         "at": 0,
+         "note": "to operate on something is to work on it, so the letters of a cam internally are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a cam internally",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone works a camera inside the body to track a mealtime course.",
+     "walkthrough": "'Operate' rearranges A CAM INTERNALLY into LIMENTARYCANAL, placed after A. 'course' is not a dish but the route food takes.",
+     "definitionFit": "The gut is the passage food travels through after a meal, so lunch takes this route."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1013,53 @@
     "text": "Something to blow series of forgotten rock-'n'-rollers from the ground",
     "enumeration": "8"
    },
-   "solution": "CORNETTO"
+   "solution": "CORNETTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something to blow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "from the ground",
+       "at": 55,
+       "note": "in a down clue, reading from the ground upward reverses the letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "series of",
+         "at": 18,
+         "note": "a series is a run of consecutive letters lying across the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "forgotten rock-'n'-rollers",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trumpet-like tribute to a run of forgotten early rockers.",
+     "walkthrough": "'series of' takes OTTENROC from 'forgotten rock'; 'from the ground' reads it upward.",
+     "definitionFit": "The cornetto is a Renaissance wooden wind instrument played with a cup mouthpiece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "blow"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1079,43 @@
      }
     ]
    },
-   "solution": "NONEVENT"
+   "solution": "NONEVENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fixture with teams depleted?",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Love",
+       "at": 0,
+       "gives": "NONE",
+       "note": "love in tennis means a score of nothing, none"
+      },
+      {
+       "words": "opening",
+       "at": 5,
+       "gives": "VENT",
+       "note": "a vent is an opening"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis score of love opens a match missing several players.",
+     "walkthrough": "The definition is cryptic: a match with no players is hardly an event at all.",
+     "definitionFit": "A non-event is an occasion that turns out disappointingly insignificant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1129,78 @@
     "text": "Chap carrying 75% of cargo in top-notch vehicle",
     "enumeration": "9"
    },
-   "solution": "AMBULANCE"
+   "solution": "AMBULANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vehicle",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in says the chap and his load go inside the top-notch word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "top-notch",
+       "at": 30,
+       "gives": "ACE",
+       "note": "top-notch means ace, excellent"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "at": 5,
+         "note": "carrying means holding within, so the chap encloses the cargo part"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chap",
+         "at": 0,
+         "gives": "MAN",
+         "note": "a chap is a man"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "75% of",
+           "at": 14,
+           "note": "three quarters of a four-letter word drops one letter, the last"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cargo",
+           "at": 21,
+           "gives": "BULK",
+           "note": "bulk is a ship's cargo, as in bulk carrier"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man carries most of a load inside a first-class vehicle.",
+     "walkthrough": "'75% of' keeps three of the four letters of the cargo word; 'carrying' and 'in' nest the pieces one inside another.",
+     "definitionFit": "An ambulance is an emergency vehicle that carries the sick or injured."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1214,60 @@
     "text": "Warning: its usual partner will have egg on face",
     "enumeration": "6"
    },
-   "solution": "BEACON"
+   "solution": "BEACON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Warning",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will have",
+       "at": 27,
+       "note": "the partner word will hold, keeping inside it, the next letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "its usual partner",
+       "at": 9,
+       "gives": "BACON",
+       "note": "egg and bacon are a classic pairing"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "face",
+         "at": 44,
+         "note": "the face of a word is its front, so only its first letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "egg",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that someone's partner will be embarrassed.",
+     "walkthrough": "'egg on face' suggests embarrassment; the face of 'egg' is E, which goes inside BACON.",
+     "definitionFit": "A beacon is a fire or light lit as a signal of danger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1281,31 @@
     "text": "Toy dog, perhaps, that's hanging loose",
     "enumeration": "6"
    },
-   "solution": "LAPPET"
+   "solution": "LAPPET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Toy dog, perhaps",
+      "at": 0,
+      "meaning": "a small toy breed of dog kept in the lap is a ..."
+     },
+     {
+      "text": "hanging loose",
+      "at": 25,
+      "meaning": "a loose flap or fold of a garment or flesh"
+     }
+    ],
+    "explanation": {
+     "surface": "A small dog left to run free.",
+     "definitionFit": "A lappet is a dangling flap on a headdress, while a lap pet is a small pampered dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Toy"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1319,44 @@
     "text": "What beasts have done time … here?",
     "enumeration": "7"
    },
-   "solution": "DUNGEON"
+   "solution": "DUNGEON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "here",
+      "at": 29,
+      "note": "the clue's place reference stands for a place of confinement, a noun, a dark cell where time is served"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "What beasts have done",
+       "at": 0,
+       "gives": "DUNG",
+       "note": "beasts leave dung behind"
+      },
+      {
+       "words": "time",
+       "at": 22,
+       "gives": "EON",
+       "note": "an eon is a vast stretch of time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about where animals have relieved themselves and served time.",
+     "walkthrough": "'done time' looks like one phrase meaning imprisonment, but splits: 'done' ends the dung phrase and 'time' gives EON.",
+     "definitionFit": "A dungeon is the underground cell where prisoners serve their sentences."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "done"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1370,58 @@
     "text": "Standard staff supply of legal paraphernalia at induction",
     "enumeration": "8"
    },
-   "solution": "FLAGPOLE"
+   "solution": "FLAGPOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Standard staff",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "supply",
+       "at": 15,
+       "note": "read as supple-y, flexibly, so the letters bend into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of legal",
+       "at": 22
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at induction",
+         "at": 45,
+         "note": "induction is a start, so only the opening letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paraphernalia",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Legal kit is handed out to new staff during their first-day induction.",
+     "walkthrough": "'supply' looks like a provision of goods but reads as 'supplely', the anagram signal for OF LEGAL plus P. 'Standard' is a flag.",
+     "definitionFit": "A flag, or standard, is hoisted on this tall staff, or pole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 22,
@@ -417,7 +1435,54 @@
     "text": "Condition escalated on discharge",
     "enumeration": "4"
    },
-   "solution": "FIRE"
+   "solution": "FIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "discharge",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "escalated",
+         "at": 10,
+         "note": "escalated means taken upward, so in a down clue the word reads bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Condition",
+         "at": 0,
+         "gives": "IF",
+         "note": "if introduces a condition"
+        }
+       ]
+      },
+      {
+       "words": "on",
+       "at": 20,
+       "gives": "RE",
+       "note": "re means on, concerning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical condition worsened after the patient was let go.",
+     "walkthrough": "'escalated' reverses IF to FI.",
+     "definitionFit": "To fire is to dismiss from a job, or let off a gun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Condition"
+    }
+   }
   },
   {
    "number": 23,
@@ -431,7 +1496,53 @@
     "text": "Paradise regained (everyone's content after reverse)",
     "enumeration": "4"
    },
-   "solution": "EDEN"
+   "solution": "EDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Paradise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "after reverse",
+       "at": 38,
+       "note": "after a reverse means the letters are read the other way round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "content",
+         "at": 30,
+         "note": "content means what is held inside, so the letters lie within the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "regained (everyone's",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Milton's Paradise Regained, a happy ending after a setback.",
+     "walkthrough": "'content' takes NEDE from 'regained everyone's'; 'after reverse' turns it round.",
+     "definitionFit": "The biblical garden is the earthly paradise of Adam and Eve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 24,
@@ -455,7 +1566,66 @@
    "group": [
     "24-across",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "5 and 19?",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Ominous",
+         "at": 0,
+         "note": "ominous suggests something has gone wrong, so the letters of disaster signs are in disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disaster signs",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "from the outset",
+         "at": 23,
+         "note": "from the outset means the opening letter of each word, here like and say"
+        }
+       ],
+       "parts": [
+        {
+         "words": "like",
+         "at": 39
+        },
+        {
+         "words": "say",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Portents of catastrophe, such as a radio call or a warning light.",
+     "walkthrough": "'Ominous' rearranges DISASTER SIGNS into DISTRESSSIGNA; 'from the outset' adds L and S from 'like, say'. 5 and 19 are MAYDAY and BEACON.",
+     "definitionFit": "A mayday call and a beacon are both ways of calling for help in an emergency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Ominous"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1639,44 @@
     "text": "In Munich, a mug? Not I",
     "enumeration": "8"
    },
-   "solution": "EINSTEIN"
+   "solution": "EINSTEIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In Munich, a mug? Not I",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In Munich, a",
+       "at": 0,
+       "gives": "EIN",
+       "note": "ein is German for a"
+      },
+      {
+       "words": "mug",
+       "at": 13,
+       "gives": "STEIN",
+       "note": "a stein is a German beer mug"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A German speaker denies being a fool.",
+     "walkthrough": "The whole clue is spoken by the great German-born physicist: no mug, he.",
+     "definitionFit": "The famous genius, Albert, would be the last person to call a fool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 26,
@@ -483,7 +1690,31 @@
     "text": "Run rings around barbecue?",
     "enumeration": "5"
    },
-   "solution": "OUTDO"
+   "solution": "OUTDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Run rings around",
+      "at": 0,
+      "meaning": "to run rings around someone is to beat them easily, surpass them"
+     },
+     {
+      "text": "barbecue?",
+      "at": 17,
+      "meaning": "a barbecue is an outdoor party"
+     }
+    ],
+    "explanation": {
+     "surface": "A runner laps everyone at a summer barbecue.",
+     "definitionFit": "Surpassing someone is to beat them; a barbecue is a social gathering held outside, split as two words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barbecue"
+    }
+   }
   }
  ]
 }
