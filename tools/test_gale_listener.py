@@ -1277,5 +1277,102 @@ with tempfile.TemporaryDirectory() as tmp:
     check("reports looked up for a saved and an upcoming row, not one whose report is saved", [2, 3, 4], got)
     check("unsolved lists the saved puzzles with no report saved", [2, 3], [r["number"] for r in g.unsolved(idx, store)])
 
+# The Saturday Times' Listener pages (1991-2014): their own folder, listed and
+# planned with the magazine's, ahead of its never-read pages; matched by their
+# citation; read for the Listener's block alone, not the page's other puzzles.
+with tempfile.TemporaryDirectory() as tmp:
+    inbox, store = Path(tmp) / "Listener", Path(tmp) / "store"
+    (inbox / g.FETCHED).mkdir(parents=True); (inbox / g.TIMES).mkdir(parents=True); store.mkdir()
+    (inbox / g.TIMES / "GALE_IF0501930662.pdf").write_bytes(b"times")
+    os.utime(inbox / g.TIMES / "GALE_IF0501930662.pdf", (2e9, 2e9))
+    (inbox / g.FETCHED / "GALE_GM2500000003.pdf").write_bytes(b"magazine")
+    check("a Times page is listed and found in its folder", (2, inbox / g.TIMES / "GALE_IF0501930662.pdf", True),
+          (len(g.page_files(inbox)), g.page_path(inbox, "GALE_IF0501930662.pdf"),
+           g.is_times(g.page_path(inbox, "GALE_IF0501930662.pdf"))))
+    check("and planned before the magazine's never-read pages, saved later or not",
+          ["GALE_IF0501930662.pdf", "GALE_GM2500000003.pdf"], [u["rel"] for u in g.plan(inbox, store)])
+    check("a magazine page is no Times page (mirror)", False, g.is_times(inbox / g.FETCHED / "GALE_GM2500000003.pdf"))
+
+check("a Times citation's number and date, its title numbered or not",
+      [(3138, D(1992, 2, 22)), (3890, D(2006, 8, 12)), (None, D(1992, 11, 14)), None],
+      [g.times_cited('\n"Listener Crossword No. 3138: Playflare by Apex." Times, 22 Feb. 1992, p. 91. The Times'),
+       g.times_cited('"The Listener Crossword 3890." Times, 12 Aug. 2006, p. 179.'),
+       g.times_cited('"The Listener Crossword." Times, 14 Nov. 1992, p. 133.'),
+       g.times_cited('"Crossword No. 36." The Listener, 3 Dec. 1930, p. 9.')])
+times_idx = [{"number": 3137, "title": "Web", "setter": "Hen", "date": D(1992, 2, 15)},
+             {"number": 3138, "title": "Playflare", "setter": "Apex", "date": D(1992, 2, 22)}]
+kept_images = g.gi.images
+try:
+    def cited_as(cite):
+        g.gi.images = lambda p: [(Image.new("L", (8, 8)), cite)]
+        m = g.match(Path("GALE_IF0501930662.pdf"), times_idx, read_title=False)
+        return m["number"], m.get("how"), m.get("times")
+    check("a Times page is matched by its citation's title, and read as a Times page",
+          (3138, "Times citation title", True),
+          cited_as('"Listener Crossword No. 3138: Playflare by Apex." Times, 22 Feb. 1992, p. 91.'))
+    check("by its date when the title numbers none, or one far from its date (mirror)",
+          [(3137, "Times citation date", True)] * 2,
+          [cited_as('"The Listener Crossword." Times, 15 Feb. 1992, p. 89.'),
+           cited_as('"The Listener Crossword No. 3183." Times, 15 Feb. 1992, p. 89.')])
+finally:
+    g.gi.images = kept_images
+
+
+def times_page(title=True):
+    """A Times page's words: the Listener's title over its lists, a concise's lists left of them, a bridge
+    column right, and last week's correction under the lists."""
+    ws = [(681, 496, 911, 590, "quiz")]
+    if title:
+        ws += [(1800, 500, 2280, 570, "Listener"), (2300, 500, 2850, 570, "Crossword"), (2890, 500, 3130, 570, "3890")]
+    ws += [(1580, 3000, 1740, 3040, "ACROSS"), (2655, 3000, 2790, 3040, "DOWN"),
+           (156, 3376, 349, 3414, "ACROSS"), (867, 3685, 1030, 3722, "DOWN")]
+    for i in range(16):
+        y = 3060 + 50 * i
+        ws += [(1590, y, 1620, y + 40, str(i + 1)), (1640, y, 2600, y + 40, "Peculiar charm of novel"),
+               (2660, y, 2690, y + 40, str(i + 1)), (2700, y, 3650, y + 40, "Euclid mingled with others")]
+    for i in range(20):
+        y = 3420 + 50 * i
+        ws += [(160, y, 800, y + 40, f"{i + 1} Done by one side"), (870, y, 1500, y + 40, f"{i + 1} Relative")]
+    ws += [(3730, y, 4400, y + 40, "Reaching the Spingold final") for y in range(500, 5000, 50)]
+    return ws + [(1690, 4060, 3600, 4100, "The solution grid for Listener No 3886 should")]
+
+
+box = g.times_box(times_page())
+check("a Times page's Listener block: its lists, not the concise's left nor the bridge's right, nor the note under",
+      (True, True, True), box and (1500 < box[0] <= 1590, 3650 <= box[2] < 3730, 3850 <= box[3] < 4060))
+check("its title read as the tallest \"Listener Crossword\", the line's words with it", (1800, 500, 3130, 570),
+      g.times_title(times_page()))
+check("no title read, no block: the page's lists are not read as the Listener's (mirror)", None,
+      g.times_box(times_page(title=False)))
+# The 1991-92 pages: the across list over two columns, DOWN low in the first; a bridge column right.
+low = [(300, 500, 700, 560, "Listener"), (720, 500, 1200, 560, "Crossword"), (100, 1000, 260, 1040, "ACROSS"),
+       (100, 3000, 230, 3040, "DOWN"), (100, 3050, 130, 3090, "1"), (140, 3050, 700, 3090, "A down clue")]
+for i in range(30):
+    y = 1050 + 50 * i
+    low += [(100, y, 130, y + 40, str(i + 1)), (140, y, 700, y + 40, "Clue words here"),
+            (780, y, 810, y + 40, str(31 + i)), (820, y, 1400, y + 40, "More clue words")]
+low += [(1500, y, 2200, y + 40, "Bridge column prose") for y in range(500, 3200, 50)]
+box = g.times_box(low)
+check("DOWN low under ACROSS in its column: the columns are measured from ACROSS, the list's run-on column kept",
+      (True, True, True), box and (box[0] <= 100, 1400 <= box[2] < 1500, box[3] >= 3090))
+# Last week's solution set in the down list's column (No 3121's page, 1991): blanked from its SOLUTIONS
+# line to the clue line under it; the next column's list beside it is not.
+sol = [(300, 500, 700, 560, "Listener"), (720, 500, 1200, 560, "Crossword"), (100, 1000, 260, 1040, "ACROSS"),
+       (900, 1000, 1030, 1040, "DOWN"), (900, 1600, 1100, 1640, "SOLUTIONS:"), (1120, 1600, 1400, 1640, "CROSSWORD")]
+for i in range(30):
+    y = 1050 + 50 * i
+    sol += [(100, y, 130, y + 40, str(i + 1)), (140, y, 700, y + 40, "Clue words here"),
+            (1600, y, 1630, y + 40, str(21 + i)), (1640, y, 2200, y + 40, "More clue words")]
+    if y < 1600 or y >= 1950:
+        sol += [(900, y, 930, y + 40, str(i + 1)), (940, y, 1500, y + 40, "Syrup's lost in pineapple")]
+    elif y > 1600:
+        sol += [(900, y, 1500, y + 40, "W W H El AA")]
+sol += [(2300, y, 2900, y + 40, "Bridge column prose") for y in range(500, 2600, 50)]
+cut = g.times_cut(sol)
+check("last week's solution in the lists' column is blanked to the clue line under it, the next column's list not",
+      [(True, True, True, True)], cut and [(890 <= m[0] <= 900, 1580 <= m[1] <= 1600, 1500 <= m[2] < 1600,
+                                            1900 <= m[3] <= 1950) for m in cut[1]])
+check("a page with no SOLUTIONS line blanks nothing (mirror)", [], g.times_cut(low)[1])
+
 print(f"FAILS {fails}")
 sys.exit(1 if fails else 0)
