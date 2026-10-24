@@ -883,7 +883,25 @@ def drain_one():
                 continue
             try:
                 got = json.loads(claim.read_text())
-                ask_png(png.read_bytes(), got["prompt"], got["max_tokens"], spool=False, held=True)
+                data = png.read_bytes()
+                if not isinstance(got, dict) or "prompt" not in got or "max_tokens" not in got or not data:
+                    raise ValueError("empty or truncated entry")
+            except ValueError as e:
+                # A torn entry (10-24: a container stop left 0-byte .json and .png, their writes never
+                # synced): it can never be asked. Requeued, it came back first every time (no pid: a read
+                # of its own, the fewest asks) and each drain_one returned None, so the drainer asked
+                # one ask in ~3 min. Dropped like an orphan; its read spools it again.
+                sys.stderr.write(f"vlm_reader: dropped spooled ask {key[:8]}: {e}\n")
+                claim.unlink(missing_ok=True)
+                png.unlink(missing_ok=True)
+                _clear_waits(d, key)
+                continue
+            except OSError:
+                got = None
+            try:
+                if got is None:
+                    raise OSError("entry unreadable")
+                ask_png(data, got["prompt"], got["max_tokens"], spool=False, held=True)
                 _log_ask(key, got)
             except (RuntimeError, OSError, ValueError, KeyError):
                 try:
