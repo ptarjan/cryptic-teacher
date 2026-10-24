@@ -109,7 +109,7 @@ assert(run({ standalone: false, iosFlag: true }).bar, "navigator.standalone (iOS
   const r = run({ page: "/learn/", referrer: ORIGIN + "/puzzles/cryptic-30135/", appFlags: ["cryptic-30135"] });
   assert(r.html.classList.contains("standalone"), "standalone sets html.standalone");
   assert(r.bar, "/learn/ opened from the app has the tab bar");
-  assert(["puzzle", "puzzles", "stats", "learn"].every((k) => r.tab(k)), "the bar has Puzzle, Puzzles, Stats and Learn");
+  assert(["puzzle", "puzzles", "stats", "learn"].every((k) => r.tab(k)), "the bar has Solve, Library, Stats and Learn");
   assert(JSON.stringify(r.lit) === '["learn"]', `/learn/ lights Learn alone (lit ${JSON.stringify(r.lit)})`);
   assert(r.tab("puzzle").href === ORIGIN + "/?p=cryptic-30135", `the Puzzle tab opens the last puzzle (got ${r.tab("puzzle").href})`);
   assert(r.tab("puzzles").href === ORIGIN + "/#picker" && r.tab("stats").href === ORIGIN + "/#stats",
