@@ -7997,6 +7997,14 @@
   // the picker and for the script tag of the NEXT puzzle opened.
   function at(rel) { return new URL(rel, homeUrl()).href; }
 
+  // The same goes for the icons and manifest linked in <head>: index.html writes
+  // them relative, and once the bar is /puzzles/<id>/ the browser asks for
+  // /puzzles/<id>/favicon.svg and 404s. Pin them to the front door now.
+  document.querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"], link[rel="manifest"]').forEach((l) => {
+    const h = l.getAttribute("href");
+    if (h) l.setAttribute("href", at(h));
+  });
+
   // The same rule for what goes in the address bar, every form of it: a bare
   // "?p=<b>" resolves against the bar too, and with the bar at /puzzles/<a>/
   // gives /puzzles/<a>/?p=<b> — a bar still naming a, which reloads and shares
