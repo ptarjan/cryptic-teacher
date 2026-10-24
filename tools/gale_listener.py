@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 15
+VERSION = 16
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -433,7 +433,8 @@ def page_columns(words):
     numbered_columns, the one holding more numbered clue lines, headed_columns
     on a tie. Under a low ACROSS, headed_columns sees only the lists' first
     band (No 3's run on at the top of the next column)."""
-    found = [c for c in (headed_columns(words), numbered_columns(words), paragraph_columns(words)) if c]
+    found = [c for c in (headed_columns(words), numbered_columns(words), paragraph_columns(words),
+                         paragraph_columns(words, DOTTED)) if c]
     return max(found, key=lambda c: sum(bool(al.LINE_CLUE.match(line[4])) for lst in c for line in lst), default=None)
 
 
@@ -448,6 +449,18 @@ PARA_OPENS = re.compile(PARA_MARK.pattern + r"(?=[,\s]*\(|\s+[\"'‘“]?[A-Z0-9
 #: PARA_MARK where a clue's words follow it, on such a page ("(15) anag.
 #: A slave"): a count is followed by its clue's stop ("Song (5).").
 PARA_SPLIT = re.compile(PARA_MARK.pattern + r"(?=[,\s]*[^\s.,;:)\]])")
+#: The 1949-90 lists run on as paragraphs too, each clue opening "N." after
+#: the last one's stop or count: "1. Not a sleeping-bag for the soldier (8).
+#: 5. Bold widow ..." (No 1069, 1950), "house. 5. To side with" (No 2107,
+#: 1970), a reading often running them on with no space, "(7).7.\u2018The".
+#: DOTTED: (mark, opens, split) as PARA_MARK's three; its empty groups stand
+#: for PARA_MARK's light mark and stars. Its opens follow a count's ")":
+#: the 1930s lists print none, and their one-clue lines read across two
+#: columns ("1. Clue. 25. Clue") are no paragraph.
+DOT_MARK = re.compile(r"(?:^|(?<=[.)\uff09!?'\u2019\"\u201d\u00b7])|(?<=[.)\uff09!?'\u2019\"\u201d\u00b7]\s))(\d{1,2})()()\.")
+DOTTED = (DOT_MARK, re.compile(r"(?<=[)\uff09])\.?\s?(\d{1,2})\.(?=\s*[\"'\u2018\u201c(]?[A-Z])"),
+          re.compile(DOT_MARK.pattern + r"(?=\s*[^\s.,;:)\]])"))
+PARA_MARKS = (PARA_MARK, PARA_OPENS, PARA_SPLIT)
 #: A page's lists are paragraphs when at least this many numbers open clues mid-line.
 PARA_MIN = 6
 #: Numbers only commas part are one clue for those lights: "(51), (32B), (14)! Epsilon".
@@ -460,7 +473,7 @@ PARA_GAP = 2.5
 PARA_TALL = 2.5
 
 
-def paragraph_columns(words):
+def paragraph_columns(words, marks=PARA_MARKS):
     """[across lines, down lines] for lists printed as running paragraphs
     (1934-40): under the ACROSS heading ("CLUES—ACROSS", read "CLUESACROSS"
     too) and in the columns right of it holding clue numbers, the lines are
@@ -472,26 +485,37 @@ def paragraph_columns(words):
     2 (DOWN's heading unread). DOWN's heading switches lists; a gap, two
     words in capitals (the rules' heading) or a column with no clue number
     ends them. None unless PARA_MIN numbers open clues mid-line and both
-    lists have clues."""
+    lists have clues. `marks`: PARA_MARKS, or DOTTED for the 1949-90 lists'
+    "N." numbers."""
+    mark, opens, split = marks
     heights = sorted(w[3] - w[1] for w in words if WORDY.search(w[4]))
     if not heights:
         return None
     height = heights[len(heights) // 2]
-    if sum(len(PARA_OPENS.findall(r[4][1:])) for r in para_rows(words, height)) < PARA_MIN:
+    if sum(len(opens.findall(r[4][1:])) for r in para_rows(words, height)) < PARA_MIN:
         return None
     across = next((w for w in sorted(words, key=lambda w: w[1])
                    if heading(w[4]) == "ACROSS" or re.search(r"A[CG]R[O0]SS", w[4].upper())), None)
+    if marks is DOTTED:
+        # Their prose above may "come across" (No 1069): the heading itself.
+        across = next((w for w in sorted(words, key=lambda w: w[1]) if heading(w[4]) == "ACROSS"), None)
     if across is None:
         return None
     tall = PARA_TALL * height
     blots = [w for w in words if w[3] - w[1] > tall]
-    body = [w for w in words if w[3] - w[1] <= tall and (w[1] + w[3]) / 2 >= across[1] - 10
+    # The 1949-90 lists run on at the top of the next column, level with the
+    # puzzle's title over the heading ("Crossword No. 1,069. Plain Sailing"):
+    # right of the heading, from there.
+    titles = [w[1] for w in words if marks is DOTTED and across[1] - 600 <= w[1] < across[1]
+              and re.search(r"crossword\W+(?:n[o0]\W+)?\d", w[4], re.IGNORECASE)]
+    top = min(titles, default=across[1]) - 10
+    body = [w for w in words if w[3] - w[1] <= tall and (w[1] + w[3]) / 2 >= (top if w[0] > across[2] else across[1] - 10)
             and not any(b[0] <= (w[0] + w[2]) / 2 <= b[2] and b[1] <= (w[1] + w[3]) / 2 <= b[3] for b in blots)]
     spans = para_spans([w for w in body if re.search(r"[A-Za-z]{2}|\(\d", w[4])])
     stream = []
     for x0, x1 in (s for s in spans if s[1] >= across[0]):
         rows = para_rows([w for w in body if x0 <= (w[0] + w[2]) / 2 <= x1], height)
-        if stream and not any(PARA_MARK.search(r[4]) for r in rows):
+        if stream and not any(mark.search(r[4]) for r in rows):
             break  # a column with no clue number: a report, an article
         steps = sorted(b[0] - a[0] for a, b in itertools.pairwise(rows) if b[0] > a[0])
         pitch = steps[len(steps) // 2] if steps else 0
@@ -501,7 +525,7 @@ def paragraph_columns(words):
                 break
             last = r[0]
             head = heading(r[4]) or ("ACROSS" if r is rows[0] and re.search(r"A[CG]R[O0]SS", r[4].upper())
-                                     and not PARA_MARK.search(r[4]) else None)
+                                     and not mark.search(r[4]) else None)
             if head:
                 stream.append((head, None))
                 continue
@@ -532,7 +556,7 @@ def paragraph_columns(words):
         joined += text.strip() + " "
     flush()
     for side, text, boxes in pieces:
-        marks = list(PARA_MARK.finditer(text))
+        marks = list(mark.finditer(text))
         last = 0
         clue = None  # [number, start of its words, row]
         for i, m in enumerate(marks):
@@ -540,7 +564,7 @@ def paragraph_columns(words):
             if clue and PARA_GROUP.match(text[marks[i - 1].end():m.start()]) and clue[1] == marks[i - 1].end():
                 clue[1] = m.end()  # one more light of the same clue
                 continue
-            if not PARA_SPLIT.match(text, m.start()) or n <= last and not (
+            if not split.match(text, m.start()) or n <= last and not (
                     n <= 2 and side == "ACROSS" and not lists["DOWN"]):
                 continue  # the clue's own words: a count ("Song (5)."), a lower number
             if clue:
@@ -1117,7 +1141,11 @@ def read_page(img, key, lengths=None):
     # A line any reading numbers is a line every RapidOCR reading reads; a
     # line one reads again alone may number one for the other, so twice.
     rapid = [w for w in ocr_clues.READERS if w not in ocr_clues.TESS_MODELS]
-    for which in rapid * 2:
+    # Not on the 1949-90 run-on lists (DOTTED): a line opened mid-way on a
+    # number, read again from there, comes back over the band's own words
+    # for it and the clues read twice ("It is 11. It IS not necessary", No 1069).
+    dotted = any(paragraph_columns(words[w], DOTTED) for w in rapid)
+    for which in [] if dotted else rapid * 2:
         words[which] = figures(reread_lines(img, key, which, [tuple(w) for w in words[which]],
                                             [located] + [words[o] for o in rapid if o != which]))
     words = lend_heads(words)

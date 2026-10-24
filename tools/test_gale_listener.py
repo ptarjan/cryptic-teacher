@@ -101,6 +101,14 @@ check("a table's numbers set beside their clues, a lone I there read 1",
       [(213, 253, "12."), (236, 253, "1.")], [(hung[0][0], hung[0][2], hung[0][4]), (hung[10][0], hung[10][2], hung[10][4])])
 near = table[:2] + [(150, w[1], 485, w[3], w[4]) for w in table[5:7]]
 check("numbers beside their clues already stay put (mirror)", near, g.hanging_numbers(near))
+dot_mark, dot_opens, dot_split = g.DOTTED
+check("the 1949-90 run-on lists: each \"N.\" after a stop or count opens a clue, run on with no space too",
+      ["1", "5", "6", "7", "24"],
+      [m.group(1) for m in dot_mark.finditer("1. Not a bag (8). 5. Bold widow (6). 6. Final （7).7.‘The road (9). "
+                                             "24. 7, for example (5).") if dot_split.match(m.string, m.start())])
+check("its opens follow a count: a 1930s line read across two columns is no paragraph (mirror)", [3, 0],
+      [len(dot_opens.findall("soldier (8). 5. Bold (6). 10. No place (9). 11. It is")),
+       len(dot_opens.findall("1. Hector did not see this dawn. 25. Behead the word."))])
 check("a week with no crossword matches no date",
       None, g.by_date([{"number": 39, "title": "[No crossword]", "date": D(1930, 12, 24)}], D(1930, 12, 24)))
 
