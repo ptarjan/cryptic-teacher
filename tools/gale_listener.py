@@ -1341,10 +1341,17 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
             dest = store / f"listener-{m['number']}.json"
             # Two pages of one puzzle read at once: the fuller wins either way.
             with scan_queue.lock(dest, wait_for_it=True):
-                old = json.loads(dest.read_text()) if dest.exists() else None
+                try:
+                    old = json.loads(dest.read_text()) if dest.exists() else None
+                except ValueError:  # torn by an older writer: this reading replaces it
+                    old = None
                 if old is None or old["verdict"].get("agreed", 0) <= verdict["agreed"]:
-                    dest.write_text(json.dumps(reading(m, rows[m["number"]], verdict, laid), indent=1,
-                                               ensure_ascii=False) + "\n")
+                    # Whole or not at all: filing reads every reading while another unit writes one, and
+                    # over the share a shorter rewrite in place left listener-102.json torn (10-23).
+                    tmp = dest.with_name(f".{dest.name}.{os.getpid()}.tmp")
+                    tmp.write_text(json.dumps(reading(m, rows[m["number"]], verdict, laid), indent=1,
+                                              ensure_ascii=False) + "\n")
+                    os.replace(tmp, dest)
                     entry["reading"] = dest.name
                     mm.record(READINGS_MANIFEST, dest, number=m["number"])
     scan_queue.append(store / LEDGER, [{"sha": h, **entry}])

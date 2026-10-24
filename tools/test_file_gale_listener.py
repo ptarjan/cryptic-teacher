@@ -231,6 +231,15 @@ seen.clear()
 f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
       out=io.StringIO(), numbers={3}, write=False)
 check("a page of an earlier No is not read for --number 3 (mirror)", ["p3.pdf"], seen)
+# Another unit's reading torn mid-write (listener-102.json, 10-23) stops no other puzzle's filing.
+(store / "listener-102.json").write_text('{"number": 102}\n"tail"\n')
+torn = f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
+             out=io.StringIO(), numbers={3}, write=False)
+check("a torn reading of another puzzle is not even opened for --number 3", [3], sorted(torn))
+torn = f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
+             out=io.StringIO(), write=False)
+check("and a whole run passes over it (mirror)", [1, 2, 3], sorted(torn))
+(store / "listener-102.json").unlink()
 del pages["p3.pdf"][1:]
 (out / "listener-1.json").unlink()
 bare = run(out=io.StringIO())[1]
