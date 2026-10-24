@@ -1791,6 +1791,20 @@ scan_queue.append(pl, [settled_row(e4)])
 check("an answered or refused one still ranks 3", [[(3, "scan stale")], [(3, "scan stale")]],
       [stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 30, "lights": 30}}),
        stale_fixed({"number": 15436, "refused": True})])
+# A "scan stale" read unit_skip calls VLM-only (its puzzle held) is dropped, unless likely() has it
+# "answers linked" (a heading links now the puzzle filed with every clue and no answers): then it is
+# "scan stale, answers linked", answers_only's CPU read, not skipped before likely() runs.
+real_skip, real_row_likely = f.unit_skip, f._row_likely
+f.unit_skip = lambda *a, **k: "already held (VLM-only reason)"
+try:
+    answered = {"number": 15436, "solutionFrom": "x", "solution": {"accepted": 30, "lights": 30}}
+    check("a stale read held already is skipped as VLM-only", [], stale_fixed(answered))
+    f._row_likely = lambda st, series, rel, row, solutions: (
+        ({f.LIKELY[0]: 1}, ()) if rel.endswith("_1") else real_row_likely(st, series, rel, row, solutions))
+    check("... but not when its answers are linked now: it is read answers-only",
+          [(f.RANKS[f.STALE_SCAN[2]], f.STALE_SCAN[2])], stale_fixed(answered))
+finally:
+    f.unit_skip, f._row_likely = real_skip, real_row_likely
 scan_queue.append(pl, [settled_row(e1), settled_row(e2)])
 (e2 / "pages.json").write_text("{\"x\": 1}")
 check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "inputs changed"),
