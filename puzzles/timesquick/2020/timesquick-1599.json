@@ -22,6 +22,9 @@
   "date": "2020-04-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,29 @@
     "text": "Ironing needing immediate attention",
     "enumeration": "8"
    },
-   "solution": "PRESSING"
+   "solution": "PRESSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ironing",
+      "at": 0,
+      "meaning": "smoothing clothes with a hot iron"
+     },
+     {
+      "text": "needing immediate attention",
+      "at": 8,
+      "meaning": "an urgent matter"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One word covers both the household chore of flattening clothes and the sense of something urgent that cannot wait."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ironing"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +74,59 @@
     "text": "Help relative, in a way",
     "enumeration": "6"
    },
-   "solution": "ASSIST"
+   "solution": "ASSIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Help",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 18,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 15,
+         "note": "the relative is placed in the middle of the other pieces, so in signals insertion here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "way",
+         "at": 20,
+         "gives": "ST",
+         "note": "ST is the usual abbreviation for street, a way"
+        },
+        {
+         "words": "relative",
+         "at": 5,
+         "gives": "SIS",
+         "note": "a sister, shortened to sis, is a relative"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is asked to help a family member in some fashion.",
+     "walkthrough": "'in' puts SIS inside A ST; 'in a way' reads as one phrase but splits into indicator, letter and abbreviation.",
+     "definitionFit": "To aid someone is a straightforward synonym for lending a hand to them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +140,28 @@
     "text": "Uninteresting accommodation",
     "enumeration": "4"
    },
-   "solution": "FLAT"
+   "solution": "FLAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uninteresting",
+      "at": 0,
+      "meaning": "a dull, lifeless performance can be called ..."
+     },
+     {
+      "text": "accommodation",
+      "at": 14,
+      "meaning": "an apartment, a home on one floor of a building"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both dull or lifeless and an apartment, the British name for a self-contained home in a block."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +175,69 @@
     "text": "A pole manoeuvred round stern of hired boat",
     "enumeration": "6"
    },
-   "solution": "PEDALO"
+   "solution": "PEDALO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 18,
+       "note": "the shuffled letters go round the extra letter, which sits inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "manoeuvred",
+         "at": 7,
+         "note": "the letters of a pole are moved about into a new order, as a craft is manoeuvred"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A pole",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "stern of",
+         "at": 24,
+         "note": "the stern is the back of a boat, so this takes the last letter of hired"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hired",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone steers a punt pole around the back of a rented boat.",
+     "walkthrough": "'manoeuvred' turns A POLE into PEALO, and 'round' puts D inside it. 'hired boat' reads as one phrase but 'hired' only supplies its stern.",
+     "definitionFit": "A pedal-powered pleasure craft hired at seaside resorts and boating lakes is a kind of small vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stern"
+    }
+   }
   },
   {
    "number": 5,
@@ -91,7 +251,62 @@
     "text": "Reading about peak in Tanzania, might that be steep?",
     "enumeration": "8"
    },
-   "solution": "GRADIENT"
+   "solution": "GRADIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "might that be steep",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 8,
+         "note": "about means moved around, so the letters of reading are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Reading",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "peak in",
+         "at": 14,
+         "note": "the peak of a word is its top, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tanzania",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reading up on a Tanzanian mountain wonders whether its slopes are steep.",
+     "walkthrough": "'about' rearranges READING to GRADIEN; 'peak in' gives the top letter of Tanzania. Reading is not the English town here.",
+     "definitionFit": "A slope's steepness is measured as its incline, so a steep one is a high incline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "peak"
+    }
+   }
   },
   {
    "number": 6,
@@ -105,7 +320,46 @@
     "text": "Come across a soft fruit",
     "enumeration": "6"
    },
-   "solution": "APPEAR"
+   "solution": "APPEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Come across",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 12
+      },
+      {
+       "words": "soft",
+       "at": 14,
+       "gives": "P",
+       "note": "P, piano, is the musical direction for soft"
+      },
+      {
+       "words": "fruit",
+       "at": 19,
+       "gives": "PEAR",
+       "note": "a pear is a soft fruit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stumbles upon a ripe, squashy piece of fruit.",
+     "walkthrough": "'soft fruit' looks like one description, but 'soft' gives P (piano) and 'fruit' gives PEAR.",
+     "definitionFit": "To come across as something is to seem or look that way, so the phrase means to seem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 7,
@@ -119,7 +373,31 @@
     "text": "Responsibility ours?",
     "enumeration": "4"
    },
-   "solution": "ONUS"
+   "solution": "ONUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Responsibility",
+      "at": 0,
+      "meaning": "a burden or duty that falls on someone"
+     },
+     {
+      "text": "ours?",
+      "at": 15,
+      "meaning": "split as ..., something that is ... is ours to deal with"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition is a pun: split the answer into ON US, and something that is on us is ours.",
+     "definitionFit": "A burden or duty is something on us, which makes it ours to carry; the second reading splits the word in two."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ours"
+    }
+   }
   },
   {
    "number": 8,
@@ -133,7 +411,30 @@
     "text": "Decide to tackle this puzzle again?",
     "enumeration": "7"
    },
-   "solution": "RESOLVE"
+   "solution": "RESOLVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Decide",
+      "at": 0,
+      "meaning": "to make up one's mind firmly"
+     },
+     {
+      "text": "to tackle this puzzle again?",
+      "at": 7,
+      "meaning": "split as ..., to work out the crossword a second time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition is a pun on the prefix RE- (again) plus SOLVE.",
+     "definitionFit": "To make a firm decision is one sense; read as re-solve it means working out the crossword a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -147,7 +448,59 @@
     "text": "Mature writer on middle of trip",
     "enumeration": "5"
    },
-   "solution": "RIPEN"
+   "solution": "RIPEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 14,
+       "note": "in an across answer the writer is put on, after, the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 17,
+         "note": "the middle of a four-letter word is its two central letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trip",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "writer",
+       "at": 7,
+       "gives": "PEN",
+       "note": "a pen is a writing instrument"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author matures during a trip, mid-journey.",
+     "walkthrough": "'writer' looks like an author but is the instrument; 'on' puts it after the middle of trip in this across answer.",
+     "definitionFit": "Fruit or cheese that matures grows ready for eating, the verb sense used here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 10,
@@ -161,7 +514,28 @@
     "text": "Author, fleet of foot",
     "enumeration": "5"
    },
-   "solution": "SWIFT"
+   "solution": "SWIFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0,
+      "meaning": "Jonathan ... wrote Gulliver's Travels"
+     },
+     {
+      "text": "fleet of foot",
+      "at": 8,
+      "meaning": "quick-moving, fast"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Jonathan Swift was the Irish satirist; the ordinary adjective means quick or fast-moving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -175,7 +549,62 @@
     "text": "Look at plaiting dreads with minimum of skill",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look at",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "plaiting",
+         "at": 8,
+         "note": "plaiting weaves strands into a new pattern, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dreads",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "minimum of",
+         "at": 29,
+         "note": "the minimum part of the word is just its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "skill",
+         "at": 40
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hairdresser eyes some dreadlocks to be plaited, needing very little skill.",
+     "walkthrough": "'plaiting' rearranges DREADS to ADDRES; 'minimum of' gives the first letter of skill.",
+     "definitionFit": "To address a problem is to look at it or deal with it, the verb sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plaiting"
+    }
+   }
   },
   {
    "number": 12,
@@ -189,7 +618,59 @@
     "text": "Barge in open site travelling round river",
     "enumeration": "9"
    },
-   "solution": "INTERPOSE"
+   "solution": "INTERPOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Barge in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 30,
+       "note": "the rearranged letters go round the river letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "travelling",
+         "at": 19,
+         "note": "travelling suggests movement, so the letters of open site are moved about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "open site",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "river",
+       "at": 36,
+       "gives": "R",
+       "note": "R is the standard abbreviation for river on maps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A canal barge travels round a river to an open site.",
+     "walkthrough": "'travelling' rearranges OPEN SITE to INTEPOSE and 'round' puts R inside. 'Barge' looks like a boat but is the verb.",
+     "definitionFit": "To interrupt a conversation uninvited is to intrude, putting oneself between the speakers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Barge"
+    }
+   }
   },
   {
    "number": 13,
@@ -203,7 +684,49 @@
     "text": "Team put in tenant's payment for occupant",
     "enumeration": "8"
    },
-   "solution": "RESIDENT"
+   "solution": "RESIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "occupant",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 5,
+       "note": "the team is placed inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tenant's payment",
+       "at": 12,
+       "gives": "RENT",
+       "note": "a tenant pays rent to the landlord"
+      },
+      {
+       "words": "Team",
+       "at": 0,
+       "gives": "SIDE",
+       "note": "a side is a sports team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team's money goes into the rent paid by whoever lives there.",
+     "walkthrough": "'Team' reads as a crew of tenants, but a sports side is meant; 'put in' signals the container.",
+     "definitionFit": "Someone who lives in a place is its inhabitant or occupant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Team"
+    }
+   }
   },
   {
    "number": 14,
@@ -217,7 +740,50 @@
     "text": "Whistler really experiencing freedom, first of all",
     "enumeration": "3"
    },
-   "solution": "REF"
+   "solution": "REF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Whistler",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "first of all",
+       "at": 38,
+       "note": "first of all means the first letter of each of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "really",
+       "at": 9
+      },
+      {
+       "words": "experiencing",
+       "at": 16
+      },
+      {
+       "words": "freedom",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone whistling feels truly free.",
+     "walkthrough": "'Whistler' suggests the painter, but it is the match official who blows the whistle.",
+     "definitionFit": "A referee controls a football match by blowing a whistle, so is a whistler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Whistler"
+    }
+   }
   },
   {
    "number": 15,
@@ -231,7 +797,52 @@
     "text": "Fine breaking piece of crockery for savage",
     "enumeration": "8"
    },
-   "solution": "FIENDISH"
+   "solution": "FIENDISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "savage",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breaking",
+         "at": 5,
+         "note": "breaking shatters the word fine, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fine",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "piece of crockery",
+       "at": 14,
+       "gives": "DISH",
+       "note": "a dish is an item of crockery"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine is imposed for breaking a dish, which seems savage.",
+     "walkthrough": "'breaking' looks as if it acts on the crockery but scrambles 'Fine' before it.",
+     "definitionFit": "A cruel, wicked act is devilish or brutal, the adjective sense of savage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 16,
@@ -245,7 +856,36 @@
     "text": "Joke that may backfire just the same?",
     "enumeration": "3"
    },
-   "solution": "GAG"
+   "solution": "GAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Joke that may backfire just the same?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Joke that may backfire just the same?",
+       "at": 0,
+       "note": "a quip that, fired backwards, reads exactly as it does forwards: a three-letter palindrome"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joke may backfire, ending the same as it started.",
+     "walkthrough": "'backfire' suggests a joke going wrong, but here it means reading backwards: the word is the same either way.",
+     "definitionFit": "A one-liner told by a comedian is a quip or jest, and this one is a palindrome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backfire"
+    }
+   }
   },
   {
    "number": 17,
@@ -259,7 +899,48 @@
     "text": "Right in dirt, type of rock",
     "enumeration": "6"
    },
-   "solution": "GRUNGE"
+   "solution": "GRUNGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "type of rock",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "the right letter is placed in the word for dirt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dirt",
+       "at": 9,
+       "gives": "GUNGE",
+       "note": "gunge is British slang for sticky, messy dirt or goo"
+      },
+      {
+       "words": "Right",
+       "at": 0,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Right in the dirt sits a kind of rock.",
+     "walkthrough": "'rock' means music, not stone. GUNGE is British slang for sticky gunk.",
+     "definitionFit": "The Seattle style of alternative music from the early 1990s, played by Nirvana, is a genre of rock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 18,
@@ -273,7 +954,58 @@
     "text": "Diamond, perhaps? It is real, surprisingly, set around ring",
     "enumeration": "9"
    },
-   "solution": "SOLITAIRE"
+   "solution": "SOLITAIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diamond, perhaps?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "set around",
+       "at": 44,
+       "note": "the rearranged letters are set around the ring letter, as a stone is set"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "surprisingly",
+         "at": 30,
+         "note": "surprisingly suggests something unexpected, so the letters of it is real are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "It is real",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "ring",
+       "at": 55,
+       "gives": "O",
+       "note": "O is ring-shaped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is the diamond real? Surprisingly yes, set in a ring.",
+     "walkthrough": "'surprisingly' turns IT IS REAL into SLITAIRE and 'set around' puts O inside. The surface is all jewellery.",
+     "definitionFit": "A single gem set alone in a ring, often a diamond, is called by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -287,7 +1019,59 @@
     "text": "Bigger beer round back of bar",
     "enumeration": "6"
    },
-   "solution": "LARGER"
+   "solution": "LARGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bigger",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 12,
+       "note": "the beer goes round the other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beer",
+       "at": 7,
+       "gives": "LAGER",
+       "note": "lager is a type of beer"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back of",
+         "at": 18,
+         "note": "the back of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bar",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bigger beer is bought as a round at the back of the bar.",
+     "walkthrough": "'round' looks like a round of drinks but puts LAGER around R.",
+     "definitionFit": "The comparative form of large means greater in size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 20,
@@ -301,7 +1085,50 @@
     "text": "I live on Rhode Island and a European peninsula",
     "enumeration": "6"
    },
-   "solution": "IBERIA"
+   "solution": "IBERIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European peninsula",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "at": 0
+      },
+      {
+       "words": "live",
+       "at": 2,
+       "gives": "BE",
+       "note": "to be is to live or exist"
+      },
+      {
+       "words": "Rhode Island",
+       "at": 10,
+       "gives": "RI",
+       "note": "RI is the US state abbreviation for Rhode Island"
+      },
+      {
+       "words": "a",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller claims to live in Rhode Island and in a European country.",
+     "walkthrough": "'on' simply joins the pieces in order here.",
+     "definitionFit": "Spain and Portugal share the large south-western peninsula of Europe, named after the ancient Iberians."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 21,
@@ -315,7 +1142,31 @@
     "text": "Arguably a kangaroo rat",
     "enumeration": "7"
    },
-   "solution": "BOUNDER"
+   "solution": "BOUNDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arguably a kangaroo",
+      "at": 0,
+      "meaning": "a kangaroo moves by leaping, so could be called one that bounds"
+     },
+     {
+      "text": "rat",
+      "at": 20,
+      "meaning": "a rat is a cad, a dishonourable man"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'rat' is a cad, not the rodent, and 'kangaroo rat' is a red herring: a real hopping rodent.",
+     "definitionFit": "A cad or scoundrel is an old-fashioned insult; a leaping animal is one that bounds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rat"
+    }
+   }
   },
   {
    "number": 21,
@@ -329,7 +1180,28 @@
     "text": "Put up with huge beast",
     "enumeration": "4"
    },
-   "solution": "BEAR"
+   "solution": "BEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put up with",
+      "at": 0,
+      "meaning": "to tolerate or endure"
+     },
+     {
+      "text": "huge beast",
+      "at": 12,
+      "meaning": "a large furry mammal such as a grizzly"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The verb means to tolerate; the noun is the large furry mammal such as a grizzly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -343,7 +1215,59 @@
     "text": "Pip covers head of timid horse",
     "enumeration": "5"
    },
-   "solution": "STEED"
+   "solution": "STEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "horse",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covers",
+       "at": 4,
+       "note": "the seed goes round and covers the other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pip",
+       "at": 0,
+       "gives": "SEED",
+       "note": "a pip is a fruit seed"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 11,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "timid",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pip, a character, covers the head of a timid horse.",
+     "walkthrough": "'Pip' looks like a name but is a fruit seed; 'covers' puts SEED around T.",
+     "definitionFit": "A mount for riding, especially in literary use, is a horse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pip"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1281,45 @@
     "text": "Search for Indian on the radio?",
     "enumeration": "4"
    },
-   "solution": "SEEK"
+   "solution": "SEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Search for",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SEEK",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "at": 18,
+       "note": "radio is heard not seen, so the word is given by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Indian",
+       "at": 11,
+       "gives": "SIKH",
+       "note": "a Sikh is a follower of a religion founded in the Punjab, India"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone searches for an Indian station on the radio.",
+     "walkthrough": "'on the radio' means the word is heard: SIKH sounds like the answer.",
+     "definitionFit": "To look for something is to hunt or search for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "radio"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1333,40 @@
     "text": "Element damaging organ",
     "enumeration": "5"
    },
-   "solution": "ARGON"
+   "solution": "ARGON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "damaging",
+       "at": 8,
+       "note": "damaging breaks up the word organ, so its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "organ",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some element is harming a church organ.",
+     "definitionFit": "A noble gas found in air, atomic number 18, is a chemical element."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "damaging"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1380,42 @@
     "text": "Batters terribly idle, yes?",
     "enumeration": "7"
    },
-   "solution": "EYELIDS"
+   "solution": "EYELIDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Batters",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "terribly",
+       "at": 8,
+       "note": "terribly suggests something badly done, so the letters of idle yes are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "idle, yes",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer asks if lazy batsmen are terribly idle.",
+     "walkthrough": "'Batters' looks like players at the crease but means things that bat, as one bats an eyelash.",
+     "definitionFit": "One bats one's eye covers when blinking or flirting, so they are things that bat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Batters"
+    }
+   }
   }
  ]
 }
