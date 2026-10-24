@@ -24,8 +24,8 @@ for (const m of table.matchAll(/(\w+): "([^"]+)"/g)) keyOf[m[2]] = m[1];
 
 const text = (html) => String(html)
   .replace(/<[^>]*>/g, " ")
-  .replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<")
-  .replace(/&gt;/g, ">").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"')
+  .replace(/&nbsp;/g, " ").replace(/&lt;/g, "<")
+  .replace(/&gt;/g, ">").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&")
   .replace(/\s+/g, " ").trim();
 
 // Only the asked-for puzzles are indexed: a full rebuild is 57k puzzles.

@@ -5,6 +5,13 @@
 const fs = require("fs");
 const path = require("path");
 const ROOT = require("path").join(__dirname, "..");
+// Strip tags until nothing changes, so "<scr<b>ipt" cannot reassemble.
+function stripTags(s, rep) {
+  let prev;
+  s = String(s);
+  do { prev = s; s = s.replace(/<[^>]*>/g, rep); } while (s !== prev);
+  return s;
+}
 const pp = require("./puzzle_paths");
 
 let failures = 0;
@@ -658,7 +665,7 @@ const APP_BLOCKS = (() => {
   assert(from > 0 && to > from, "wordplaySteps is still in app.js to be read");
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const wordplaySteps = new Function("esc", "escClue", "LIST_SEP", src.slice(from, to) + "\nreturn wordplaySteps;")(esc, esc, " · ");
-  const text = (h) => h.replace(/<[^>]*>/g, "").replace(/&#39;/g, "'").replace(/&amp;/g, "&");
+  const text = (h) => stripTags(h, "").replace(/&#39;/g, "'").replace(/&amp;/g, "&");
   const dominate = wordplaySteps({ op: "container",
     indicators: [{ text: "getting into", at: 13, note: "getting into says the jumbled letters enter the building" }],
     parts: [{ words: "13 millennium 11", at: 26, gives: "DOME", note: "the naff Millennium project was the Dome" },
@@ -836,10 +843,10 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   // The strip wraps each word of the enumeration in a span, so the rule is
   // stated as text: the only text a sighted solver reads
   // here is letters and the odd hyphen or apostrophe between words.
-  assert(/^[A-Z’\-]*$/.test(patHTML().replace(/<[^>]*>/g, "")),
+  assert(/^[A-Z’\-]*$/.test(stripTags(patHTML(), "")),
     "the pattern strip renders the boxes and nothing else — the summary is the " +
     "aria-label, not a line of prose under the clue: " + patHTML());
-  const meter = registry["hint-meter"].innerHTML.replace(/<[^>]*>/g, "");
+  const meter = stripTags(registry["hint-meter"].innerHTML, "");
   assert(meter.length < 40,
     `the hint meter is a count, not a sentence (${meter.length} chars): ${meter}`);
 }
@@ -2303,7 +2310,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     `opening ${autoPuzzle.id} should flag the tab in sessionStorage as ${key}`);
   const page = readBuilt(`puzzles/${autoPuzzle.id}/index.html`);
   const head = page.slice(0, page.indexOf("</head>"));
-  const inline = [...head.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1])
+  const inline = [...head.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map((m) => m[1])
     .find((src) => src.includes("sessionStorage"));
   if (assert(inline, `puzzles/${autoPuzzle.id}/ should carry the reload-back script in <head>`)) {
     const land = (flagged, type = "reload") => {
@@ -2858,12 +2865,12 @@ function blogSidecars() {
         btn.onclick();
         if (isAsking(registry["hint-body"])) {
           const asked = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
-          assert(!asked.some((s) => bare(s.replace(/<[^>]*>/g, "")) === r.ans),
+          assert(!asked.some((s) => bare(stripTags(s, "")) === r.ans),
             `${r.id} ${entryId(r.e)} (${r.ans}): the question in front of the rung prints the answer — ${registry["hint-body"].innerHTML}`);
           registry["guess-tell"].onclick();
         }
         const spans = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
-        const spelled = spans.find((s) => bare(s.replace(/<[^>]*>/g, "")) === r.ans);
+        const spelled = spans.find((s) => bare(stripTags(s, "")) === r.ans);
         assert(!spelled,
           `${r.id} ${entryId(r.e)} (${r.ans}): the letters rung spells the answer out before the walkthrough`);
       }
@@ -5270,7 +5277,7 @@ global.realSetTimeout(() => {
       "and no piece inside it claims to be an end — those are the beads: " + lit);
     const whole = lit.slice(lit.indexOf(run[0]),
       lit.lastIndexOf(run[run.length - 1]) + run[run.length - 1].length);
-    const bare = whole.replace(/<mark class="def"[^>]*>[\s\S]*?<\/mark>/g, "").replace(/<[^>]*>/g, "");
+    const bare = stripTags(whole.replace(/<mark class="def"[^>]*>[\s\S]*?<\/mark>/g, ""), "");
     assert(bare === "",
       "and the spaces between its words are marked too, so the band is unbroken: "
         + JSON.stringify(bare));
@@ -5516,7 +5523,7 @@ global.realSetTimeout(() => {
   {
     const strip = (h) => ((String(h).match(/<p class="gm-chips">([\s\S]*?)<\/p>/) || [])[1] || "")
       .match(/<button[^>]*>[^<]*<\/button>/g) || [];
-    const text = (b) => b.replace(/<[^>]*>/g, "");
+    const text = (b) => stripTags(b, "");
     const after = strip(panelHTML());
     assert(after.map(text).join("|") === strip(html).map(text).join("|"),
       "placing a chunk moves no other chunk on the strip: "
@@ -6981,7 +6988,7 @@ global.realSetTimeout(() => {
 // test is still holding.
 {
   const fresh = (q) => require("./fake_dom.js").boot({ query: q });
-  const clueOf = (r) => (r.registry["hint-clue"].innerHTML || "").replace(/<[^>]+>/g, "");
+  const clueOf = (r) => stripTags((r.registry["hint-clue"].innerHTML || ""), "");
 
   const dflt = clueOf(fresh("?p=cryptic-30066"));
   const asked = fresh("?p=cryptic-30066&c=3D");
@@ -7671,7 +7678,7 @@ global.realSetTimeout(() => {
     },
   });
   const reg = d.registry;
-  const hintText = () => reg["hint-clue"].innerHTML.replace(/<[^>]*>/g, "");
+  const hintText = () => stripTags(reg["hint-clue"].innerHTML, "");
   const across = reg["clues-across"].children.map((li) => li.id);
   assert(String(across) === "clue-1-across,clue-1-across~2,clue-4-across",
     "a light leading two answers lists both clues, the second straight after the first: " + across);
@@ -7753,7 +7760,7 @@ global.realSetTimeout(() => {
   assert(box && box.tagName === "INPUT" && box.maxLength === 4, "its row carries an answer box of its length");
 
   row.listeners.click[0]();
-  assert(/Off the grid.*Divine beings/.test(reg["hint-clue"].innerHTML.replace(/<[^>]*>/g, "")),
+  assert(/Off the grid.*Divine beings/.test(stripTags(reg["hint-clue"].innerHTML, "")),
     "picking it makes it the hint panel's clue: " + reg["hint-clue"].innerHTML);
   const sel = () => reg["grid"].children.findIndex((el) => el.classList.contains("sel"));
   const before = sel();

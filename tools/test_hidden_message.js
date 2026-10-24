@@ -13,7 +13,14 @@ const check = (ok, msg) => {
   console.log((ok ? "ok   " : "FAIL ") + msg);
   if (!ok) failures++;
 };
-const text = (s) => s.replace(/<[^>]*>/g, "");
+// Strip tags until nothing changes, so "<scr<b>ipt" cannot reassemble.
+function stripTags(s, rep) {
+  let prev;
+  s = String(s);
+  do { prev = s; s = s.replace(/<[^>]*>/g, rep); } while (s !== prev);
+  return s;
+}
+const text = (s) => stripTags(s, "");
 
 const d = require("./fake_dom.js").boot({ query: "?p=" + ID });
 const puz = global.window.CRYPTIC_PUZZLES[ID];

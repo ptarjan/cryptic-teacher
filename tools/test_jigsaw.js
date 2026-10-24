@@ -17,6 +17,13 @@
       keeps them, and its clue list still has none. */
 "use strict";
 const { boot } = require("./fake_dom.js");
+// Strip tags until nothing changes, so "<scr<b>ipt" cannot reassemble.
+function stripTags(s, rep) {
+  let prev;
+  s = String(s);
+  do { prev = s; s = s.replace(/<[^>]*>/g, rep); } while (s !== prev);
+  return s;
+}
 
 let failures = 0;
 const check = (ok, msg) => { console.log((ok ? "ok   " : "FAIL ") + msg); if (!ok) failures++; };
@@ -35,7 +42,7 @@ const lit = (t) => squares(t).map((el, i) => (el.classList.contains("hl") || el.
   .filter((i) => i >= 0).join(",");
 const numbered = (t) => squares(t).filter((el) => /class="num"/.test(el.innerHTML)).length;
 const rows = (t, id) => t.reg[id].children;
-const plain = (html) => html.replace(/<[^>]*>/g, "").replace(/&#39;/g, "'").replace(/&quot;/g, '"')
+const plain = (html) => stripTags(html, "").replace(/&#39;/g, "'").replace(/&quot;/g, '"')
   .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 const rowText = (li) => plain(li.querySelector(".clue-text").innerHTML);
 const at = (t, x, y) => t.reg["grid"].children[y * t.cols + x];

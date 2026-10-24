@@ -80,6 +80,10 @@ on:
   # A hand-started full run, to confirm a fix without waiting for the cron.
   workflow_dispatch:
 
+# Least privilege by default; the scope job widens its own (actions: read).
+permissions:
+  contents: read
+
 jobs:
   # Puzzle-only pushes (the burn jobs push them every few minutes) skip the
   # sharded suite. tools/ci_scope.py decides, conservatively: only puzzle files
