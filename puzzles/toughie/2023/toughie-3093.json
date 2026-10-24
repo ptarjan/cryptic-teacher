@@ -788,6 +788,13 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "lines",
+       "at": 24,
+       "note": "to line something is to sit on its inside, so this letter goes within the others"
+      }
+     ],
      "parts": [
       {
        "op": "reversal",
@@ -800,10 +807,10 @@
        ],
        "parts": [
         {
-         "words": "lines cut",
-         "at": 24,
+         "words": "cut",
+         "at": 30,
          "gives": "SNIP",
-         "note": "lines that are cut are snipped, hence snip"
+         "note": "to cut is to snip"
         }
        ]
       },
@@ -813,13 +820,14 @@
         {
          "text": "Introduction of",
          "at": 0,
-         "note": "an introduction is a first letter, here also put into the word"
+         "note": "an introduction comes at the start, so the first letter is taken"
         }
        ],
        "parts": [
         {
          "words": "gigabit",
-         "at": 16
+         "at": 16,
+         "note": "its first letter is used"
         }
        ]
       }
@@ -827,11 +835,13 @@
     },
     "explanation": {
      "surface": "Rolling out gigabit broadband means cutting back old lines while testing the network.",
+     "walkthrough": "'Lines' looks like cables, but it is a verb: the letter lines the inside of the reversed word.",
      "definitionFit": "A ping is a small diagnostic packet sent to check whether a computer on a network responds."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
     }
    }
   },
@@ -1435,17 +1445,30 @@
      "op": "spoonerism",
      "indicators": [
       {
-       "text": "using Spooner's account of",
+       "text": "using Spooner's",
        "at": 13,
-       "note": "Spooner swapped the opening sounds of words"
+       "note": "Spooner swapped the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "words": "Queen's",
-       "at": 40,
-       "gives": "CAT",
-       "note": "a queen is a female cat"
+       "op": "homophone",
+       "spelt": "CAT",
+       "indicators": [
+        {
+         "text": "account of",
+         "at": 29,
+         "note": "an account is spoken, so the words are taken by how they sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Queen's",
+         "at": 40,
+         "gives": "KAT",
+         "note": "a queen is a female cat; its spoken sound, kat, is what gets swapped"
+        }
+       ]
       },
       {
        "words": "entrance",

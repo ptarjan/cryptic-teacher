@@ -1796,9 +1796,9 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "final 20% off",
-         "at": 23,
-         "note": "removing the final fifth of a five-letter word drops its last letter"
+         "text": "off",
+         "at": 33,
+         "note": "off means the picked letter is taken away from the charge word"
         }
        ],
        "parts": [
@@ -1809,7 +1809,21 @@
          "note": "a lunge is a sudden forward charge"
         },
         {
-         "gives": "E"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "final 20%",
+           "at": 23,
+           "note": "the charge word has five letters, so its final fifth is just its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "charge",
+           "at": 37,
+           "gives": "LUNGE"
+          }
+         ]
         }
        ]
       },
@@ -1841,7 +1855,7 @@
     },
     "explanation": {
      "surface": "An advert for a drug-fuelled binge, minus the ecstasy, offering unlimited breathing.",
-     "walkthrough": "LUNGE loses its final letter to give LUNG; FUEL loses its E to give FUL. 'Coke' teases the drug, but here it is a fuel made from coal.",
+     "walkthrough": "'Coke' teases the drug, but here it is a smokeless fuel made from coal; a lunge is a forward thrust in fencing.",
      "definitionFit": "A lungful is the full quantity of air the chest can take in a single breath."
     },
     "features": {
