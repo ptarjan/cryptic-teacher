@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Air filter",
     "enumeration": "6"
    },
-   "solution": "STRAIN"
+   "solution": "STRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Air",
+      "at": 0,
+      "meaning": "an air is a tune or melody"
+     },
+     {
+      "text": "filter",
+      "at": 4,
+      "meaning": "to filter liquid is to pass it through a sieve or cloth"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A strain is a passage of melody, an air; and to strain a liquid is to sieve or filter it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Air"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +75,91 @@
      }
     ]
    },
-   "solution": "PINOTBLANC"
+   "solution": "PINOTBLANC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 19,
+         "note": "the first 'in' puts the reversed pair inside the rearranged letters that follow"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "in resort",
+           "at": 30,
+           "note": "'in resort' means having recourse to rearrangement, so the letters of top inn are reordered"
+          }
+         ],
+         "parts": [
+          {
+           "words": "top inn",
+           "at": 22
+          }
+         ]
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "over",
+           "at": 14,
+           "note": "'over' tells us the pair a and pound is turned back to front"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "a",
+             "at": 6
+            },
+            {
+             "words": "pound",
+             "at": 8,
+             "gives": "LB",
+             "note": "LB is the abbreviation for a pound in weight"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "clubs",
+       "at": 45,
+       "gives": "C",
+       "note": "C is the card-suit abbreviation for clubs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wine list entry describing a drinker at a resort hotel, paying a pound extra, with golf clubs to hand.",
+     "walkthrough": "'in resort' rearranges TOP INN into PINOTN; 'over' turns A LB into BLA, and 'in' sets that inside to give PINOTBLAN, before C is added.",
+     "definitionFit": "Pinot blanc is a white grape variety and the dry white wine made from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +173,40 @@
     "text": "Likewise a leading orchestra",
     "enumeration": "4"
    },
-   "solution": "ALSO"
+   "solution": "ALSO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Likewise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 9,
+       "gives": "A"
+      },
+      {
+       "words": "leading orchestra",
+       "at": 11,
+       "gives": "LSO",
+       "note": "LSO is the London Symphony Orchestra, one of the leading orchestras"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A review saying another ensemble is likewise one of the top orchestras.",
+     "definitionFit": "Both words are adverbs meaning in addition or in the same way, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "orchestra"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +220,41 @@
     "text": "Photograph game attempt",
     "enumeration": "8"
    },
-   "solution": "SNAPSHOT"
+   "solution": "SNAPSHOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Photograph",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "game",
+       "at": 11,
+       "gives": "SNAP",
+       "note": "snap is a children's card game where matching cards are called out"
+      },
+      {
+       "words": "attempt",
+       "at": 16,
+       "gives": "SHOT",
+       "note": "a shot is an attempt, as in having a shot at something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A caption: a picture taken of someone's attempt during a game.",
+     "definitionFit": "A snapshot is an informal photograph taken quickly, so the two are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +268,58 @@
     "text": "Make out detailed object and obsolete coin",
     "enumeration": "8"
    },
-   "solution": "FARTHING"
+   "solution": "FARTHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "obsolete coin",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "detailed",
+         "at": 9,
+         "note": "de-tailed: the word for make out loses its tail, its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Make out",
+         "at": 0,
+         "gives": "FARE",
+         "note": "to fare is to make out or get on, as in how did you fare"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "object",
+       "at": 18,
+       "gives": "THING",
+       "note": "a thing is an object"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A collector discerning a detailed object which turns out to be an old coin.",
+     "walkthrough": "'detailed' looks like a description of the object but means cut off the tail of FARE, leaving FAR.",
+     "definitionFit": "The farthing was a British coin worth a quarter of an old penny, withdrawn in 1961, hence obsolete."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +333,58 @@
     "text": "Lodged in a river in state capital",
     "enumeration": "8"
    },
-   "solution": "ADELAIDE"
+   "solution": "ADELAIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "state capital",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 10,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "the first 'in' places the word for lodged inside the river's letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river",
+         "at": 12,
+         "gives": "DEE",
+         "note": "the Dee is a river in Scotland and also one on the England–Wales border"
+        },
+        {
+         "words": "Lodged",
+         "at": 0,
+         "gives": "LAID",
+         "note": "laid means put down or lodged, as in laid to rest"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something stuck in a river in an Australian state capital.",
+     "definitionFit": "Adelaide is the capital city of the state of South Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lodged"
+    }
+   }
   },
   {
    "number": 7,
@@ -120,7 +398,51 @@
     "text": "Suitable for gourmets, grill's opening — tremendous",
     "enumeration": "13"
    },
-   "solution": "GASTRONOMICAL"
+   "solution": "GASTRONOMICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suitable for gourmets",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 31,
+         "note": "the opening of the word grill's is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grill's",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "tremendous",
+       "at": 41,
+       "gives": "ASTRONOMICAL",
+       "note": "astronomical means enormous or tremendous, as in astronomical prices"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant review: the grill's opening night was tremendous and fit for gourmets.",
+     "definitionFit": "Gastronomical relates to fine eating and good food, so it describes what suits gourmets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 8,
@@ -134,7 +456,59 @@
     "text": "In need of companionship working in large cathedral city",
     "enumeration": "6"
    },
-   "solution": "LONELY"
+   "solution": "LONELY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In need of companionship",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "the second 'in' places the word for working inside large plus the city"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 36,
+         "gives": "L",
+         "note": "L is the standard clothing-size abbreviation for large"
+        },
+        {
+         "words": "cathedral city",
+         "at": 42,
+         "gives": "ELY",
+         "note": "Ely is a small cathedral city in Cambridgeshire"
+        }
+       ]
+      },
+      {
+       "words": "working",
+       "at": 25,
+       "gives": "ON",
+       "note": "on means working or operating, as a switched-on machine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working in a big cathedral city and feeling isolated.",
+     "definitionFit": "Someone lonely is solitary and longs for company, exactly what needing companionship describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 9,
@@ -148,7 +522,41 @@
     "text": "Play set in Waterloo, two-hander",
     "enumeration": "4"
    },
-   "solution": "LOOT"
+   "solution": "LOOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "set in",
+       "at": 5,
+       "note": "set in says the answer is lodged within the run of letters that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Waterloo, two-hander",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre listing: a play for two actors set in Waterloo.",
+     "walkthrough": "'two-hander' looks like a description of the play but just provides letters.",
+     "definitionFit": "Loot is a 1965 black comedy stage play by Joe Orton."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "two-hander"
+    }
+   }
   },
   {
    "number": 10,
@@ -162,7 +570,42 @@
     "text": "Some stopped alongside pleasure craft",
     "enumeration": "6"
    },
-   "solution": "PEDALO"
+   "solution": "PEDALO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pleasure craft",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stopped alongside",
+       "at": 5,
+       "gives": "PEDALO",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some boats pulled up alongside a pleasure craft.",
+     "definitionFit": "A pedalo is a small pedal-powered boat hired for fun at the seaside or on a lake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stopped"
+    }
+   }
   },
   {
    "number": 11,
@@ -176,7 +619,51 @@
     "text": "Stinging creature in house close to firescreen",
     "enumeration": "8"
    },
-   "solution": "SCORPION"
+   "solution": "SCORPION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stinging creature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "house",
+       "at": 21,
+       "gives": "SCORPIO",
+       "note": "Scorpio is one of the twelve zodiac signs, called houses in astrology"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 27,
+         "note": "the close of the word firescreen is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "firescreen",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect lurking in a house near the firescreen.",
+     "definitionFit": "A scorpion is an arachnid with a venomous sting in its curved tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 12,
@@ -190,7 +677,60 @@
     "text": "Artist captures gold in part of tree",
     "enumeration": "12"
    },
-   "solution": "GAINSBOROUGH"
+   "solution": "GAINSBOROUGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "captures",
+       "at": 7,
+       "gives": "GAINS",
+       "note": "gains means captures or wins, as in an army gains ground"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 21,
+         "note": "'in' puts the heraldic gold inside the part of the tree"
+        }
+       ],
+       "parts": [
+        {
+         "words": "part of tree",
+         "at": 24,
+         "gives": "BOUGH",
+         "note": "a bough is a main branch of a tree"
+        },
+        {
+         "words": "gold",
+         "at": 16,
+         "gives": "OR",
+         "note": "OR is gold in heraldry"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist painting gold light in the branches of a tree.",
+     "walkthrough": "'captures' looks like the containment signal, but it is GAINS, a separate piece.",
+     "definitionFit": "Thomas Gainsborough was an 18th-century English painter of portraits and landscapes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "captures"
+    }
+   }
   },
   {
    "number": 13,
@@ -204,7 +744,59 @@
     "text": "Wave from worried adult in agreement",
     "enumeration": "10"
    },
-   "solution": "UNDULATION"
+   "solution": "UNDULATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wave",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "'in' puts the rearranged letters inside the word for agreement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agreement",
+       "at": 27,
+       "gives": "UNION",
+       "note": "a union is an agreement or alliance"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worried",
+         "at": 10,
+         "note": "worried letters are disturbed and churned up into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "adult",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wave from an anxious grown-up who nonetheless agrees.",
+     "walkthrough": "'Wave' could be a greeting, but here it names a rippling shape; 'worried' looks like the adult's mood.",
+     "definitionFit": "An undulation is a wavelike rise and fall, so it is a wave in form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 14,
@@ -218,7 +810,49 @@
     "text": "Stood up on pitch getting trophy?",
     "enumeration": "8"
    },
-   "solution": "ROSEBOWL"
+   "solution": "ROSEBOWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trophy?",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 9,
+       "note": "in a down entry 'on' puts the first piece above the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stood up",
+       "at": 0,
+       "gives": "ROSE",
+       "note": "rose means got up or stood up"
+      },
+      {
+       "words": "pitch",
+       "at": 12,
+       "gives": "BOWL",
+       "note": "to bowl is to pitch the ball, as in cricket"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player rising to their feet on the field to collect a cup.",
+     "walkthrough": "The question mark flags that the answer is a type of trophy, not a definition of all trophies.",
+     "definitionFit": "A rose bowl is a decorative silver bowl often awarded as a prize in competitions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 15,
@@ -232,7 +866,43 @@
     "text": "Heart-throb, not working it's said",
     "enumeration": "4"
    },
-   "solution": "IDOL"
+   "solution": "IDOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Heart-throb",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "IDOL",
+     "indicators": [
+      {
+       "text": "it's said",
+       "at": 25,
+       "note": "it's said signals the spoken sound of the word for not working"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not working",
+       "at": 13,
+       "gives": "IDLE",
+       "note": "idle means not working, inactive"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip that a pin-up hasn't been working lately.",
+     "definitionFit": "A heart-throb is a much adored celebrity, the object of fans' worship, as is a pop idol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 16,
@@ -252,7 +922,41 @@
      }
     ]
    },
-   "solution": "LEAVEOUT"
+   "solution": "LEAVEOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Miss",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "holiday",
+       "at": 5,
+       "gives": "LEAVE",
+       "note": "leave is time off work, a holiday"
+      },
+      {
+       "words": "abroad",
+       "at": 13,
+       "gives": "OUT",
+       "note": "out means away from home, abroad"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Missing a holiday overseas.",
+     "definitionFit": "To leave out is to omit, which is to miss something out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 17,
@@ -266,7 +970,58 @@
     "text": "Bearded dean upset about wife",
     "enumeration": "5"
    },
-   "solution": "AWNED"
+   "solution": "AWNED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bearded",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 19,
+       "note": "about means going round, so the rearranged letters surround the wife abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 13,
+         "note": "upset letters are knocked over into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dean",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "wife",
+       "at": 25,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bearded church dean upset over his wife.",
+     "walkthrough": "'upset' rearranges DEAN into ANED, and 'about' puts it round W.",
+     "definitionFit": "Awned is a botanical term for grasses with bristles, such as bearded barley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bearded"
+    }
+   }
   },
   {
    "number": 18,
@@ -280,7 +1035,40 @@
     "text": "Implement of inordinate length",
     "enumeration": "4"
    },
-   "solution": "TOOL"
+   "solution": "TOOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Implement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "inordinate",
+       "at": 13,
+       "gives": "TOO",
+       "note": "too means excessively, inordinately, as in too long"
+      },
+      {
+       "words": "length",
+       "at": 24,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instrument of excessive length.",
+     "definitionFit": "A tool is an implement used for doing work by hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inordinate"
+    }
+   }
   },
   {
    "number": 19,
@@ -294,7 +1082,30 @@
     "text": "Professional pulled it off",
     "enumeration": "12"
    },
-   "solution": "ACCOMPLISHED"
+   "solution": "ACCOMPLISHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Professional",
+      "at": 0,
+      "meaning": "as an adjective meaning skilled and expert, of professional standard"
+     },
+     {
+      "text": "pulled it off",
+      "at": 13,
+      "meaning": "a past-tense verb meaning succeeded in doing or completed it"
+     }
+    ],
+    "explanation": {
+     "surface": "Praise for an expert who succeeded.",
+     "definitionFit": "Accomplished as an adjective means expert, and as a past verb means achieved or carried out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Professional"
+    }
+   }
   },
   {
    "number": 20,
@@ -308,7 +1119,34 @@
     "text": "Small insignificant snub",
     "enumeration": "6"
    },
-   "solution": "SLIGHT"
+   "solution": "SLIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Small",
+      "at": 0,
+      "meaning": "slender or small in build"
+     },
+     {
+      "text": "insignificant",
+      "at": 6,
+      "meaning": "trivial or minor"
+     },
+     {
+      "text": "snub",
+      "at": 20,
+      "meaning": "a deliberate insult or snub"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Slight means slender, means trivial, and as a noun means an insult or cold-shouldering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "snub"
+    }
+   }
   },
   {
    "number": 21,
@@ -322,7 +1160,42 @@
     "text": "Chess piece in hand, knight",
     "enumeration": "4"
    },
-   "solution": "PAWN"
+   "solution": "PAWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chess piece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hand",
+       "at": 15,
+       "gives": "PAW",
+       "note": "a paw is a slang word for a hand"
+      },
+      {
+       "words": "knight",
+       "at": 21,
+       "gives": "N",
+       "note": "N is the chess notation for a knight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player holding a chess piece in their hand, perhaps a knight.",
+     "walkthrough": "'knight' tempts as the chess piece itself; it only gives N.",
+     "definitionFit": "The pawn is the lowest-ranked chess piece, eight per side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knight"
+    }
+   }
   },
   {
    "number": 22,
@@ -336,7 +1209,58 @@
     "text": "Sublime joke grasped by the old lady in charge",
     "enumeration": "8"
    },
-   "solution": "MAJESTIC"
+   "solution": "MAJESTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sublime",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grasped by",
+       "at": 13,
+       "note": "grasped by means held inside the following letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the old lady",
+         "at": 24,
+         "gives": "MA",
+         "note": "ma is an informal word for mother, the old lady"
+        },
+        {
+         "words": "in charge",
+         "at": 37,
+         "gives": "IC"
+        }
+       ]
+      },
+      {
+       "words": "joke",
+       "at": 8,
+       "gives": "JEST",
+       "note": "a jest is a joke"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother in charge getting a joke, finding it sublime.",
+     "definitionFit": "Majestic means grand and awe-inspiring, which is what sublime means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lady"
+    }
+   }
   },
   {
    "number": 23,
@@ -350,7 +1274,40 @@
     "text": "Fish aunt cooked",
     "enumeration": "4"
    },
-   "solution": "TUNA"
+   "solution": "TUNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cooked",
+       "at": 10,
+       "note": "cooked suggests the letters have been fiddled into a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aunt",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish of fish one's aunt cooked.",
+     "definitionFit": "Tuna is a large oceanic food fish, such as albacore or bluefin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 24,
@@ -364,7 +1321,53 @@
     "text": "Stand when tour party brought over",
     "enumeration": "6"
    },
-   "solution": "TRIPOD"
+   "solution": "TRIPOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stand",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tour",
+       "at": 11,
+       "gives": "TRIP",
+       "note": "a trip is a journey, a tour"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought over",
+         "at": 22,
+         "note": "brought over means turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 16,
+         "gives": "DO",
+         "note": "a do is a party or celebration"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A camera support brought along on a tour by a group.",
+     "definitionFit": "A tripod is a three-legged stand, used for cameras."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 25,
@@ -384,7 +1387,41 @@
      }
     ]
    },
-   "solution": "INTURN"
+   "solution": "INTURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one after the other",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Elected",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means elected to office, as a candidate who gets in"
+      },
+      {
+       "words": "go off",
+       "at": 11,
+       "gives": "TURN",
+       "note": "to turn is to go off or sour, as milk turns"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elected representatives going off one by one.",
+     "definitionFit": "The phrase means in sequence, one after another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Elected"
+    }
+   }
   },
   {
    "number": 26,
@@ -398,7 +1435,53 @@
     "text": "Syndicate rejected flaw as way out of contract?",
     "enumeration": "8"
    },
-   "solution": "LOOPHOLE"
+   "solution": "LOOPHOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "way out of contract?",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 10,
+         "note": "rejected means thrown back, so the letters are reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Syndicate",
+         "at": 0,
+         "gives": "POOL",
+         "note": "a pool is a syndicate sharing resources or bets"
+        }
+       ]
+      },
+      {
+       "words": "flaw",
+       "at": 19,
+       "gives": "HOLE",
+       "note": "a hole is a flaw, as a hole in an argument"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A syndicate turning down a contract as flawed and looking for a way out.",
+     "definitionFit": "A loophole is an ambiguity or omission in a contract or law that lets one evade it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Syndicate"
+    }
+   }
   }
  ]
 }
