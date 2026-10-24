@@ -696,6 +696,42 @@ check("No 103: a stop left alone before the first word is an elided start, opene
 check("no stop before it, or one ending a word: nothing put back (mirror)", [None, None],
       [oc.reopened("rev. is a monster of so frightful mien'.", ["rev. is a monster of so frightful mien'."]),
        oc.reopened("A. B. is a monster of so frightful mien'.", [])])
+rejoice = "E.g., Rejoice in the Lord alway: and again I say, Rejoice' (omitting last seven letters)."
+check("No 162 7D: an opening a reading prints mid-clue, after the same word, is put back there",
+      "E.g., 'Rejoice in the Lord alway: and again I say, Rejoice' (omitting last seven letters).",
+      oc.opened_inside(rejoice, ["E.g.,‘Rejoice in the Lord alway:and again I say,Rejoice(omitting last seven letters)."],
+                       [rejoice]))
+check("No 114 12A: a curly opening glued to the word before opens a quote on a small word",
+      "rev. Some prefer what I provide to 'tay and stuff'.",
+      oc.opened_inside("rev. Some prefer what I provide to tay and stuff'.",
+                       ["rev. Some prefer what I provide to‘tay and stuff'"],
+                       ["rev. Some prefer what I provide to tay and stuff'.", "rev. Some prefer what I provide to‘tay and stuff'"]))
+check("No 449 26A: the opening a reading prints before the first words inside a run-on line",
+      "'The pretty prattling graces Of those small —— gay'.",
+      oc.opened_inside("The pretty prattling graces Of those small —— gay'.",
+                       ["it does. (22) ‘The pretty prattling graces Of those small —— gay’."],
+                       ["The pretty prattling graces Of those small —— gay'."]))
+check("an apostrophe after a letter, or no reading's mark, opens nothing (mirror)", [None, None],
+      [oc.opened_inside("Brute's wife, she loved him quite a bit'.", ["Brute'swife, she loved him quite a bit'."],
+                        ["Brute'swife, she loved him quite a bit'."]),
+       oc.opened_inside("Man ! Thou — betwixt a smile and tear'", ["Man ! Thou betwixt a smile and tear’"],
+                        ["Man ! Thou betwixt a smile and tear’"])])
+check("No 162 9D: no reading of the clue prints the vote's words (a blank mangled): nothing opened (mirror)", None,
+      oc.opened_inside("The ringed fire-tongs which are the s distinguishing mark'.",
+                       ["‘The ringed fire-tongs which are the ——’s distinguishing mark’."],
+                       ["The ringed fire-tongs which are the- 's distinguishing mark'."]))
+check("No 596 20D: a long quotation filling the clue with no blank lost its blank; a short one, or one with its blank, did not",
+      [True, False, False],
+      [oc.blank_lost("'Then to the Lip of this poor Urn I lean'd, the Secret-Well of Life to learn'"),
+       oc.blank_lost("'Then to the Lip of this poor —— Urn I lean'd, the Secret-Well of Life to learn'"),
+       oc.blank_lost("'Where feeling plays'.")])
+check("No 351 36A: a double opening only a single after a word shuts was a single",
+      "One of the founders of 'The Club'.",
+      oc.single_opened("One of the founders of “The Club'.", ["One of the founders of “The Club’.", "One of the founders ofThe Club'."]))
+check("a double a double shuts, or no reading of the clue printing its words, stays (mirror)", [None, None],
+      [oc.single_opened('Said "The Club\'s own".', ['Said "The Club\'s own".']),
+       oc.single_opened("\"The ringed fire-tongs which are the s distinguishing mark'.",
+                        ["\"The ringed fire-tongs which are the- 's distinguishing mark'."])])
 death = "This word might be put into the mouth of Death."
 check("No 10 41A: a quote a whole sentence opens and never closes, a reading prints bare, is a speck",
       death, oc.unquoted_speck("'" + death, ["'" + death, death]))
@@ -794,6 +830,16 @@ check("reconcile holds an engine tie when Tesseract lost no letters elsewhere (m
 
 # No 103: Tesseract ends clue after clue on a comma where RapidOCR prints the stop.
 import archive_org_listener as al
+check("No 617: a clue number glued to its opening ellipsis mid-line starts a line of its own",
+      ["35 Rabbit-headed plant (6).\n37...defend yourself (8)", "35 Rabbit-headed plant\n37. . .. defend yourself",
+       "35 Rabbit-headed plant\n37. '... defend yourself"],
+      [al.ellipsis_heads("35 Rabbit-headed plant (6). 37...defend yourself (8)"),
+       al.ellipsis_heads("35 Rabbit-headed plant 37. . .. defend yourself"),
+       al.ellipsis_heads("35 Rabbit-headed plant 37. '... defend yourself")])
+check("a number with no ellipsis after it, one ending a clue, or one spaced off it stays (mirror, No 504 6D)",
+      ["Author 34 16 (5).", "Wait for it . . . 12 (5).", "' Know thy own point. 39 . . Submit in this"],
+      [al.ellipsis_heads("Author 34 16 (5)."), al.ellipsis_heads("Wait for it . . . 12 (5)."),
+       al.ellipsis_heads("' Know thy own point. 39 . . Submit in this")])
 lays_t = {f"{n}-down": (f"Clue number {n} here,", None, None) for n in range(1, 13)}
 lays_r = {f"{n}-down": (f"Clue number {n} here.", None, None) for n in range(1, 13)}
 check("an end comma one engine alone prints, often on the page, is its slip: the stop stands (No 103)",

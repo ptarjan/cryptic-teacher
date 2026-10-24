@@ -89,7 +89,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 26
+VERSION = 27
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -2277,7 +2277,17 @@ UNPARSED = "no reading parses"
 #: light (No 471: 41 -> 42 of 42, 12A/29D and 34A/28D linked); a theme line
 #: over the lists naming lights no list clues (No 447's "CANVAS / The 26s
 #: that 28U 7D 7A 5, ...") is kept as the verdict's "theme" (theme_lights).
-CLUES_FIX = 26
+#: 27: a quotation the vote leaves closed but never opened takes the
+#: opening mark a reading prints before the same words, mid-clue or in a
+#: run-on line ("E.g., 'Rejoice", "to 'tay and stuff'"; ocr_clues.opened_inside),
+#: and a double opening only a single shuts is that single ("'The Club'";
+#: single_opened), each when a reading of the clue prints its words:
+#: the most common named reason a page reads short by 1-4 clues ("a quotation it
+#: never closes", 61 of the stored short pages' blanks). A clue number
+#: glued mid-line to the ellipsis its quotation opens on starts its clue
+#: (al.ellipsis_heads): No 617 37A no longer cut to "'..." and its 35A no
+#: longer voted "Rabbit-headed plant 37.".
+CLUES_FIX = 27
 SHORT = "refused clues-short before its fix"
 
 

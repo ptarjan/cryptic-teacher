@@ -4110,6 +4110,29 @@ def paired(text):
     return text
 
 
+def as_read(text, own):
+    """Whether a reading of the clue (`own`) prints `text`'s words and
+    stops but for quote marks and spaces: a clue the vote put together
+    from no one reading may have lost a printed blank (No 162 9D's
+    "the \u2014\u2014's" voted "the s")."""
+    bare = re.sub(r"\s+", "", QUOTE_MARKS.sub("", text or ""))
+    return any(o and re.sub(r"\s+", "", QUOTE_MARKS.sub("", o)) == bare for o in own)
+
+
+def single_opened(text, own):
+    """`text` with a double opening that only a single after a word shuts
+    made that single ("\u201cThe Club'" for the print's \u2018The Club\u2019, No 351
+    36A), when it as_read(); else None."""
+    for m in QUOTE_OPEN.finditer(text or ""):
+        rest = text[m.end():]
+        if m.group(1) in "\"“" and not re.search(r"[\"”]", rest) \
+                and re.search(r"(?<=[A-Za-z])['\u2019](?![A-Za-z])", rest):
+            got = text[:m.start()] + "'" + rest
+            return got if (unclosed_quote(got) is None and as_read(text, own) and not GLUED_STOP.search(got)
+                           and not blank_lost(got)) else None
+    return None
+
+
 def reclosed(text, readings):
     """`text`, a clue whose quotation opens and never closes, with the
     closing a reading (`readings`, each reading's text, whole or for the
@@ -4188,6 +4211,71 @@ def reopened(text, readings):
             if unclosed_quote(got) is None:
                 return got
     return None
+
+
+def opened_inside(text, readings, own=()):
+    """`text`, a clue whose quotation closes and never opens, with the
+    opening mark put back before the word a reading (`readings`, a clue's
+    or a whole list's text) prints it before, when a reading of the clue
+    (`own`) prints the words and stops it does but for quote marks and
+    spaces (else the vote may have mangled a printed blank, No 162 9D's
+    "the ----'s" voted "the s"): the clue's first two words
+    anywhere in the reading (No 449 26A, "it does. (22) \u2018The pretty
+    prattling graces", the clue run on after the one before), or a word
+    inside the clue after the same word before it (No 162 7D's "E.g.,
+    \u2018Rejoice in the Lord ... Rejoice\u2019", the vote's "E.g., Rejoice";
+    No 114 12A's "to\u2018tay and stuff'"). A plain mark counts only after a
+    space or a stop, a curly opening one anywhere: an apostrophe after a
+    letter opens nothing. None when no reading prints one, or it leaves the
+    clue unclosed."""
+    k = unclosed_quote(text)
+    if k is None or not text[k - 1:k].isalpha():
+        return None
+    if not as_read(text, own):
+        return None
+    words = [w for w in re.finditer(r"[A-Za-z]+", text) if w.end() <= k]
+    mark = r"(?:\W{0,3}?[\u2018\u201c]|\W{0,2}[\s(,;:.\u2014][\"'])\s?"
+    for i, b in enumerate(words):
+        if i == 0:
+            # A mark already there, spaced off the word ("' It was"), is
+            # no opening lost.
+            if len(words) < 2 or QUOTE_MARKS.search(text[:b.start()]):
+                continue
+            find = re.compile(r"(?:^|(?<=[\s(.,;:]))[\u2018\u201c\"']\s?" + re.escape(b.group())
+                              + r"\W+" + re.escape(words[1].group()) + r"\b")
+        else:
+            a = words[i - 1]
+            if QUOTE_MARKS.search(text[a.end():b.start()]):
+                continue
+            find = re.compile(r"\b" + re.escape(a.group()) + mark + re.escape(b.group()) + r"\b")
+        if any(r and find.search(r) for r in readings):
+            got = text[:b.start()] + "'" + text[b.start():]
+            # A stop glued to the next word ("cue:'A", "',o'er") is the
+            # vote's spacing, not the print's: no clue to file.
+            if unclosed_quote(got) is None and not GLUED_STOP.search(got) and not blank_lost(got):
+                return got
+    return None
+
+
+#: The fewest words of a quotation filling a whole clue that, with no
+#: blank in it, is taken for one whose blank no reader saw.
+QUOTED_WHOLE = 8
+
+
+def blank_lost(text):
+    """Whether `text` is a quotation filling the whole clue, QUOTED_WHOLE
+    words or more, with no blank: the Listener's quotation clue omits its
+    answer ("——"), and a blank every reader missed leaves the quote's
+    words alike in all of them (No 596 20D's "'Then to the Lip of this
+    poor —— Urn I lean'd, ...'" read without it), so the clue is not
+    filed on the strength of a mark put back."""
+    m = re.match(r"^(?:rev\.\s*)?['\u2018\"\u201c](.*)['\u2019\"\u201d][.,;:!?]*$", text or "")
+    return bool(m and "\u2014" not in text and "-" * 2 not in text
+                and len(re.findall(r"[A-Za-z]+", m.group(1))) >= QUOTED_WHOLE)
+
+
+#: A comma, colon or semicolon hard on the next word or quote.
+GLUED_STOP = re.compile(r"[,;:][A-Za-z'\u2018\u2019\"]")
 
 
 QUOTE_MARKS = re.compile(r"['‘’\"“”]")
