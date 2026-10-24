@@ -5633,6 +5633,71 @@ def squares(crop, box, above=False, at=None):
     return out
 
 
+#: The share of a matched lattice's cells (matched_box) kept in from its rules when its cells'
+#: paper is measured, and the pitch step (pixels) it is searched in.
+MATCH_MARGIN, MATCH_STEP = 0.2, 0.5
+
+
+def matched_box(window, grid, sides):
+    """(agreement, box, pitch) of the n x n lattice in `window` (a solution grid's window) whose cells
+    are blocks (under trove_solution_ocr.BLOCK_PAPER of their middle paper) most nearly where
+    `grid` has them, its side within `sides` ((lo, hi) pixels); None when none fits. For a grid
+    whose largest ink is no box of it: joined to a neighbour's ink on a near-square box squares()
+    keeps whole (1974-78's 444x434 for a 313px grid), or its frame broken (306x212)."""
+    import numpy as np
+    gray = np.asarray(window.convert("L"), dtype=np.uint8)
+    n = len(grid)
+    paper = trove_solution_ocr.opened((gray >= trove_grid.otsu(gray)).astype(np.uint8), 2).astype(np.float64)
+    h, w = paper.shape
+    integ = np.zeros((h + 1, w + 1))
+    integ[1:, 1:] = paper.cumsum(0).cumsum(1)
+    want = np.array([[ch == "#" for ch in row] for row in grid])
+    best = None
+    for pitch in np.arange(sides[0] / n, sides[1] / n + 1e-9, MATCH_STEP):
+        side = pitch * n
+        ny, nx = int(h - side) + 1, int(w - side) + 1
+        if ny <= 0 or nx <= 0:
+            break
+        k = max(1, int(round(pitch * (1 - 2 * MATCH_MARGIN))))
+        # The mean paper of the k x k square at each top-left (y, x).
+        m = (integ[k:, k:] - integ[:-k, k:] - integ[k:, :-k] + integ[:-k, :-k]) / (k * k)
+        off = int(round(pitch * MATCH_MARGIN))
+        score = np.zeros((ny, nx))
+        for r in range(n):
+            y = int(round(r * pitch)) + off
+            for c in range(n):
+                x = int(round(c * pitch)) + off
+                blk = m[y:y + ny, x:x + nx] < trove_solution_ocr.BLOCK_PAPER
+                score += blk if want[r, c] else ~blk
+        # Of lattices whose blocks fit alike (a smaller or larger one fits big blocks as well), the
+        # one whose frame lies on the grid's ink: its frame's paper share, under one cell's worth.
+        s = int(round(side))
+        rows = (integ[1:, s:] - integ[:-1, s:] - integ[1:, :-s] + integ[:-1, :-s]) / s
+        cols = (integ[s:, 1:] - integ[s:, :-1] - integ[:-s, 1:] + integ[:-s, :-1]) / s
+        frame = (rows[:ny, :nx] + rows[s - 1:s - 1 + ny, :nx] + cols[:ny, :nx] + cols[:ny, s - 1:s - 1 + nx]) / 4
+        fit = score - 0.5 * frame
+        y0, x0 = divmod(int(fit.argmax()), nx)
+        if best is None or fit[y0, x0] > best[3]:
+            best = (float(score[y0, x0]) / (n * n), (x0, y0, x0 + s, y0 + s), pitch, float(fit[y0, x0]))
+    return best and best[:3]
+
+
+def worded(word, enum=None):
+    """Whether answer `word` is a word (is_word), or the words its enumeration ("5-4", "(3,5)")
+    cuts it into are."""
+    if is_word(word.lower()):
+        return True
+    parts = [int(x) for x in re.findall(r"\d+", enum or "")]
+    if len(parts) < 2 or sum(parts) != len(word):
+        return False
+    at = 0
+    for p in parts:
+        if not is_word(word[at:at + p].lower()):
+            return False
+        at += p
+    return True
+
+
 def read_solution(img, sol, grid, above=False, lean=False, enums=None):
     """({light: answer}, stats) read off the solution grid under a "Solution
     to Puzzle No N" heading on page `img`, or with `above`, over it (the
@@ -5678,25 +5743,46 @@ def read_solution(img, sol, grid, above=False, lean=False, enums=None):
     boxes = [box] if SQUARE_MIN <= bw / max(bh, 1) <= SQUARE_MAX else []
     boxes += cuts
     boxes = [b for b in boxes if 200 <= b[2] - b[0] <= 800 and SQUARE_MIN <= (b[2] - b[0]) / max(b[3] - b[1], 1) <= SQUARE_MAX]
-    if not boxes:
+    classify = paper_of(d).key in CELLS_CLASSIFIED
+    if not boxes and not classify:
         return {}, {"refused": f"the ink under the heading is {bw}x{bh}"}
     path = CROPS / "solutions" / f"{d.name}_{sol['number']}.png"
     path.parent.mkdir(parents=True, exist_ok=True)
     best = None
-    for b in boxes:
+
+    def read(b):
         # Cut afresh on every read, so the crop is always this code's cut.
         cut = window.crop(b)
         # The recogniser reads the ~23px cells far surer at three times the size.
         cut.resize((cut.width * 3, cut.height * 3), Image.BICUBIC).save(path)
         # The crop is the grid, frame to frame: read on its own rules; a Times
         # print's cells by the cell classifier too, which was trained on them.
-        answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True,
-                                                         classify=paper_of(d).key in CELLS_CLASSIFIED, lean=lean,
-                                                         enums=enums)
+        return trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True, classify=classify,
+                                               lean=lean, enums=enums)
+    for b in boxes:
+        answers, stats = read(b)
         if best is None or stats["blocks"] > best[1]["blocks"]:
             best = (answers, stats)
         if stats["blocks"] >= SOLUTION_BLOCKS:
             break
+    if (best is None or best[1]["blocks"] < SOLUTION_BLOCKS) and classify:
+        # No ink box is the grid (joined to a neighbour's ink, or its frame broken): the lattice
+        # in the window whose blocks match the puzzle's is, its frame kept in a quarter cell's
+        # margin. Its read stands only as any read does, by its own blocks (SOLUTION_BLOCKS).
+        found = matched_box(window, grid, (200, min(800, window.width, window.height)))
+        if found and found[0] >= SOLUTION_BLOCKS:
+            pad = int(round(found[2] / 4))
+            x0, y0, x1, y1 = found[1]
+            answers, stats = read((max(0, x0 - pad), max(0, y0 - pad), min(window.width, x1 + pad),
+                                   min(window.height, y1 + pad)))
+            # A matched grid's ink is read past what joined it, its letters less sure: an answer
+            # stands only as a word, or words by its enumeration (1978's AQUALUNG read AGUALUNG).
+            kept = {k: w for k, w in answers.items() if worded(w, (enums or {}).get(k))}
+            if best is None or stats["blocks"] > best[1]["blocks"]:
+                best = (kept, {**stats, "matched": round(found[0], 3), "accepted": len(kept),
+                               "unworded": len(answers) - len(kept)})
+    if best is None:
+        return {}, {"refused": f"the ink under the heading is {bw}x{bh}"}
     answers, stats = best
     if stats["blocks"] < SOLUTION_BLOCKS:
         return {}, {**stats, "refused": "its blocks are not the puzzle's"}
@@ -6037,9 +6123,10 @@ _SOLUTION_KEY = []
 #: answers (read_framed's `lean` for answers_only, and listed_of built off the words' bytes):
 #: the rows read under the old key are not read again for it (fix_reason). unlisted_reads (answers_only
 #: only, reads more) is pinned too: the rows it may improve are due once by REREAD_UNLISTED instead
-#: (short_again), not every short Times row as "read by other code".
+#: (short_again), not every short Times row as "read by other code". So is matched_box, which reads
+#: only a grid every ink box was refused for: those rows are due once as REFUSED_GRID.
 _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
-                  "056213fe33f38ceb": "8417cfb08f3a9706"}
+                  "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -6746,6 +6833,38 @@ def short_again(row):
     return UNLISTED if min(gaps) <= trove_solution_ocr.STRIP_MAX else SHORT_WIDE
 
 
+#: The due reason of a Times edition whose linked solution grid was refused (its blocks not the
+#: puzzle's, or its ink no grid's size) before read_solution looked for the grid by its blocks
+#: (matched_box): the largest ink under a 1970s-90s heading is often the grid joined to a
+#: neighbour's ink, or a part of it its broken frame left, and no box of it is the grid. The
+#: solution key is pinned past that change (_SOLUTION_PINS), so answers_only reads these again
+#: (SOLUTION_FIXES), once: rows read before REREAD_REFUSED_GRID. Paul 10-24: 699 Times puzzles
+#: (1970s 132, 1980s 288, 1990s 135) stood refused so.
+REFUSED_GRID = "solution short, its grid refused unmatched"
+REREAD_REFUSED_GRID = "2026-10-24T22:00:00+00:00"
+#: The refusals matched_box may mend.
+GRID_REFUSALS = ("its blocks are not the puzzle's", "the ink under the heading is ")
+
+
+def refused_grid(row):
+    """Whether Times ledger `row`, read before REREAD_REFUSED_GRID, refused a linked solution grid
+    for its blocks or its ink's size (GRID_REFUSALS), for a puzzle held without every answer."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_REFUSED_GRID)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if not v.get("solutionFrom") or not v.get("id") or not isinstance(s, dict) \
+                or not str(s.get("refused") or "").startswith(GRID_REFUSALS):
+            continue
+        filed = filed_state(paper.series, v.get("number"))
+        if filed is not None and not filed[0]:
+            return True
+    return False
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -6773,6 +6892,8 @@ def fix_reason(row):
         return "unfiled before its fix"
     if unenumerated_held(row):
         return "answers held back by a clue with no enumeration"
+    if refused_grid(row):
+        return REFUSED_GRID
     if row.get("solutionKey") != solution_key():
         paper = paper_of(row.get("edition", "")).key
         for v in row.get("verdicts", ()):
@@ -7272,6 +7393,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, SHORT_WIDE: 2,
+         REFUSED_GRID: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
@@ -7713,7 +7835,8 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: Paul 10-23: kept for the VLM, every such reread took the full read, whose solved() has no
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
-                  "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, SHORT_WIDE)
+                  "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, SHORT_WIDE,
+                  REFUSED_GRID)
 
 
 def keeps_vlm(why, row, unit=None):
