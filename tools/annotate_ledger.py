@@ -21,9 +21,10 @@ is not averaged away. A row under MIN_CLUES clues is merged with the rows before
 it (up to ROLL) and, if still thin, is noise and never wakes.
 
 The wake rule (should_wake), in code, queued quietly (wake.sh -q) to the room:
-  (a) payback: the #1 first-check-failure cause's $/hour after the check (averaged over
-      the recent rows listing it) x HORIZON_H (7 days) x SUCCESS_RATE (0.5) exceeds
-      FIX_COST (~$6, one Sonnet worker), whatever the $/clue; or
+  (a) payback: the #1 first-check-failure cause's $/clue after the check (its cost over the
+      clues of the recent rows listing it) x clues still to annotate (backlog puzzles from
+      puzzles/index.json + 30 days of arrivals, x mean clues/puzzle) x SUCCESS_RATE (0.5)
+      exceeds FIX_COST (~$6, one Sonnet worker), whatever the $/clue; or
   (b) regression: the latest window's pooled $/clue is more than 10% above the best such
       level since the last commit touching annotate code;
 at most once per COOLDOWN_H (1) hours. The wake text carries the payback numbers.
@@ -32,6 +33,13 @@ Paul 10-23: "why aren't you doing cost fixing more often?" - at $0.015-0.021/clu
 old fixed $0.022 target never woke, even with one retry cause burning dollars an hour.
 Then: "Lower the goal. I want to spend inference fixing the per clue as long as it pays
 off in saved other inference." Hence the payback gate instead of a target.
+
+Paul 10-23: "I think the savings is over many months. How far does progress say before we
+are done annotating". tools/backlog_burndown.py --days 7 said 18,976 puzzles left, clearing
+in about 26 days; after that only a trickle of new puzzles. So the saving is counted per
+clue over the clues still to annotate, not per hour over a fixed 7 days. The backlog count
+reads puzzles/index.json directly (burndown's git walk is too slow for a hook), so it can
+read high while a burn is running.
 """
 import argparse
 import datetime
@@ -59,8 +67,12 @@ AFTER_COMMIT_ROWS = 2  # re-judge this many rows after an annotate-code commit (
 REGRESS = 0.10
 COOLDOWN_H = 1        # was 4
 # Payback gate: wake when fixing the top cause is expected to save more than the fix costs.
-HORIZON_H = 7 * 24    # a fix is assumed to keep paying for 7 days
-SUCCESS_RATE = 0.5    # and to work half the time
+# Paul 10-23: "I think the savings is over many months" - so the horizon is the clues still
+# to annotate (backlog + NEW_DAYS of arrivals, x mean clues/puzzle), not a fixed 7 days.
+INDEX = pathlib.Path(os.environ.get("ANNOTATE_INDEX", REPO / "puzzles" / "index.json"))
+NEW_DAYS = 30         # after the backlog clears only new puzzles arrive, a trickle
+DEFAULT_CLUES_PER_PUZZLE = 28
+SUCCESS_RATE = 0.5    # a fix is assumed to work half the time
 FIX_COST = 6.0        # one Sonnet cost-fix worker, in dollars (estimate, not measured)
 RATE_ROWS = 6         # recent rows averaged for the cause's $/h (never fewer than 3)
 # What "annotate code" means for the best-level baseline.
@@ -146,14 +158,16 @@ def should_wake(rows, since_commit, state, now):
     rolls = [pooled(window(rows[:i + 1])) for i in range(len(rows))]
     best = min((x for x in rolls if x is not None), default=None)
     top_cause = (rows[-1].get("top_causes") or [{}])[0]
+    per_clue, mean_clues = cause_per_clue(rows, top_cause.get("key"))
+    left = clues_left(mean_clues)
+    saving = per_clue * left * SUCCESS_RATE
     rate = cause_rate(rows, top_cause.get("key"))
-    saving = rate * HORIZON_H * SUCCESS_RATE
-    facts = {"cur": cur, "best": best, "rate": rate, "saving": saving}
+    facts = {"cur": cur, "best": best, "rate": rate, "saving": saving, "left": left}
     woken = state.get("woken")
     if woken and (now - parse(woken)).total_seconds() < COOLDOWN_H * 3600:
         return None, f"woken {woken}, inside the {COOLDOWN_H}h cooldown"
-    pay = (f"top cause `{top_cause.get('key')}`: ${rate:.2f}/h after check -> est. saving "
-           f"${saving:.0f} over {HORIZON_H // 24}d vs ~${FIX_COST:.0f} fix cost")
+    pay = (f"top cause `{top_cause.get('key')}` (${per_clue:.4f}/clue after check, ${rate:.2f}/h): "
+           f"est. saving ${saving:.0f} over the remaining ~{left:,.0f} clues vs ~${FIX_COST:.0f} fix cost")
     if saving > FIX_COST:
         return pay, facts
     if best and cur > best * (1 + REGRESS):
@@ -172,6 +186,42 @@ def cause_rate(rows, key):
                 cost += c.get("cost_after_check") or 0
                 hours += (parse(r["end"]) - parse(r["start"])).total_seconds() / 3600
     return cost / hours if hours > 0 else 0.0
+
+
+def cause_per_clue(rows, key):
+    """(the cause's $/clue after the check, mean clues per puzzle), over the last RATE_ROWS
+    rows: cost over the clues of the rows that list the cause; 0 when none does."""
+    cost = clues = 0.0
+    for r in rows[-RATE_ROWS:]:
+        for c in r.get("top_causes") or []:
+            if c.get("key") == key:
+                cost += c.get("cost_after_check") or 0
+                clues += r.get("clues") or 0
+    recent = rows[-RATE_ROWS:]
+    puzzles = sum(r.get("puzzles") or 0 for r in recent)
+    mean = sum(r.get("clues") or 0 for r in recent) / puzzles if puzzles else DEFAULT_CLUES_PER_PUZZLE
+    return (cost / clues if clues else 0.0), mean
+
+
+def backlog_counts(path=None):
+    """(puzzles still to annotate, puzzles dated in the last NEW_DAYS days) from
+    puzzles/index.json, the file tools/backlog_burndown.py reads (no git log walk, so it
+    is instant). Its `annotated` flags lag a running burn, so the backlog reads a little
+    high; (0, 0) when the file is missing."""
+    try:
+        idx = json.loads((path or INDEX).read_text())["puzzles"]
+    except (OSError, ValueError, KeyError):
+        return 0, 0
+    cut = (now_utc() - datetime.timedelta(days=NEW_DAYS)).date().isoformat()
+    back = sum(1 for p in idx if p.get("hasSolutions") and not p.get("annotated"))
+    new = sum(1 for p in idx if (p.get("date") or "") >= cut)
+    return back, new
+
+
+def clues_left(mean_clues):
+    """Clues still to annotate: the backlog plus NEW_DAYS of new arrivals, x mean clues/puzzle."""
+    back, new = backlog_counts()
+    return (back + new) * mean_clues
 
 
 def work_order(reason, facts, rows, commit):
