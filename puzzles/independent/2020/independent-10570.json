@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Asked for money? Crazy",
     "enumeration": "7"
    },
-   "solution": "TOUCHED"
+   "solution": "TOUCHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Asked for money?",
+      "at": 0,
+      "meaning": "to touch someone for money is to ask them for a loan or gift"
+     },
+     {
+      "text": "Crazy",
+      "at": 17,
+      "meaning": "an old informal word for slightly mad"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone begging for cash is dismissed as unhinged.",
+     "definitionFit": "Both senses are idioms: a borrower 'touches' a friend for a fiver, and a dotty person is said to be a bit touched."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,53 @@
     "text": "First two of theatre seats, say, will do for cast",
     "enumeration": "5"
    },
-   "solution": "THROW"
+   "solution": "THROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cast",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First two of",
+         "at": 0,
+         "note": "First two of means the opening pair of letters of theatre are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "theatre",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "words": "seats, say",
+       "at": 21,
+       "gives": "ROW",
+       "note": "a row is a line of seats, given as an example by say"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The front couple of seats in a theatre will be fine for the actors.",
+     "walkthrough": "'cast' looks like the actors in a play, but it is the verb meaning to fling.",
+     "definitionFit": "To cast a stone is to hurl or fling it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +132,79 @@
     "text": "Running round most of valley, seizing time without ramblers?",
     "enumeration": "9"
    },
-   "solution": "UNTRODDEN"
+   "solution": "UNTRODDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without ramblers?",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seizing",
+       "at": 30,
+       "note": "seizing means the jumbled letters grab the time letter inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Running",
+         "at": 0,
+         "note": "running means the letters of round and the shortened valley word are set going in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "round",
+         "at": 8
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 14,
+           "note": "most of means the last letter of the valley word is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "valley",
+           "at": 22,
+           "gives": "DENE",
+           "note": "a dene is a narrow wooded valley"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 38,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Runners circle a valley, keeping an eye on the clock, in the absence of walkers.",
+     "walkthrough": "'Running' makes UNRODDEN, which 'seizing' wraps round T. 'Running' looks like the activity in the scene, but it only signals the shuffle.",
+     "definitionFit": "Ground never walked on has had no hikers across it, which the question mark hints at playfully."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Running"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +218,49 @@
     "text": "Criminal's bad luck, dropping half the rings",
     "enumeration": "4"
    },
-   "solution": "HOOD"
+   "solution": "HOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Criminal's",
+      "at": 0,
+      "note": "the 's stands for is, joining the definition (a gangster) to the wordplay"
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropping",
+       "at": 21,
+       "note": "dropping means that pair of ring letters falls out of the jinx word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bad luck",
+       "at": 11,
+       "gives": "HOODOO",
+       "note": "a hoodoo is a jinx or run of bad luck"
+      },
+      {
+       "words": "half the rings",
+       "at": 30,
+       "gives": "OO",
+       "note": "the jinx word has four ring-shaped letters O, and half of them is a pair"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook's jinx ends when he loses half his rings.",
+     "definitionFit": "Hood is slang, chiefly American, for a gangster or thug, short for hoodlum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +280,62 @@
      }
     ]
    },
-   "solution": "DISTRESSEDAREAS"
+   "solution": "DISTRESSEDAREAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unemployment black spots",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 29,
+       "note": "around means the scrambled letters go round the accepted letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to work",
+         "at": 6,
+         "note": "to work means the letters of tries and addresses are worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tries",
+         "at": 0
+        },
+        {
+         "words": "addresses",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "accepted",
+       "at": 36,
+       "gives": "A",
+       "note": "A is short for accepted, as marked on a bill of exchange"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to get a job by contacting places where jobs are scarce.",
+     "definitionFit": "Regions of high joblessness and poverty were officially designated for aid under this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "addresses"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +349,58 @@
     "text": "Is husband following obscure unknown figure, being out-of-date?",
     "enumeration": "7"
    },
-   "solution": "FOGYISH"
+   "solution": "FOGYISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out-of-date",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 11,
+       "note": "the words Is and husband come after the obscuring word and the unknown in the finished word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "obscure",
+       "at": 21,
+       "gives": "FOG",
+       "note": "to fog is to obscure or cloud"
+      },
+      {
+       "words": "unknown figure",
+       "at": 29,
+       "gives": "Y",
+       "note": "Y is an algebraic unknown"
+      },
+      {
+       "words": "Is",
+       "at": 0
+      },
+      {
+       "words": "husband",
+       "at": 3,
+       "gives": "H",
+       "note": "H is the abbreviation for husband in family records"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A husband trailing a shadowy stranger seems hopelessly behind the times.",
+     "definitionFit": "A fogy is a stuffy old-fashioned person, so behaving like one means being behind the times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "obscure"
+    }
+   }
   },
   {
    "number": 5,
@@ -131,7 +424,64 @@
      }
     ]
    },
-   "solution": "FINETOOTHEDCOMB"
+   "solution": "FINETOOTHEDCOMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tool for searchers?",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Penalty",
+       "at": 0,
+       "gives": "FINE",
+       "note": "a fine is a penalty"
+      },
+      {
+       "words": "also",
+       "at": 8,
+       "gives": "TOO",
+       "note": "too means also"
+      },
+      {
+       "words": "the",
+       "at": 22,
+       "note": "taken as written"
+      },
+      {
+       "words": "current",
+       "at": 26,
+       "gives": "DC",
+       "note": "DC is direct current"
+      },
+      {
+       "words": "old",
+       "at": 34,
+       "gives": "O"
+      },
+      {
+       "words": "doctor",
+       "at": 38,
+       "gives": "MB",
+       "note": "MB is a Bachelor of Medicine, a doctor's qualification"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine and a dated doctor's electrical treatment are handed to people hunting for something.",
+     "walkthrough": "'old doctor' is two pieces, not one: O for old, then MB.",
+     "definitionFit": "To go over something with this implement is a common idiom for a meticulous search."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 6,
@@ -151,7 +501,58 @@
      }
     ]
    },
-   "solution": "GROUNDZERO"
+   "solution": "GROUNDZERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Target of bomb",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pulverised",
+       "at": 16,
+       "gives": "GROUND",
+       "note": "ground means crushed to powder"
+      },
+      {
+       "words": "zone",
+       "at": 27,
+       "gives": "Z"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "sent skywards",
+         "at": 43,
+         "note": "sent skywards means the rock word reads upwards in this down answer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rock",
+         "at": 38,
+         "gives": "ORE",
+         "note": "ore is rock containing metal"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bomb's target is a smashed area with debris flung into the air.",
+     "definitionFit": "The point directly beneath an explosion, especially a nuclear one, is called this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +566,48 @@
     "text": "Picture that is used to bind publication",
     "enumeration": "5"
    },
-   "solution": "IMAGE"
+   "solution": "IMAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "used to bind",
+       "at": 16,
+       "note": "used to bind means the that-is letters wrap round the publication word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that is",
+       "at": 8,
+       "gives": "IE",
+       "note": "ie is short for id est, that is"
+      },
+      {
+       "words": "publication",
+       "at": 29,
+       "gives": "MAG",
+       "note": "a mag, short for magazine, is a publication"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An illustration is needed to hold a magazine together.",
+     "definitionFit": "An image is a representation such as a photograph or drawing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bind"
+    }
+   }
   },
   {
    "number": 8,
@@ -179,7 +621,41 @@
     "text": "One's death is represented here",
     "enumeration": "9"
    },
-   "solution": "HEADSTONE"
+   "solution": "HEADSTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's death is represented here",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "is represented",
+       "at": 12,
+       "note": "is represented means the letters of one's death are presented again in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One's death",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "This is where a person's passing is marked.",
+     "walkthrough": "The apostrophe in 'One's' is ignored; the whole clue is both the anagram and a description of a grave marker.",
+     "definitionFit": "A grave marker records when the person under it died, so a death is set out on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +675,43 @@
      }
     ]
    },
-   "solution": "RATPOISON"
+   "solution": "RATPOISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moved to a prison — having used this in food?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Moved",
+       "at": 0,
+       "note": "moved means the letters of the words to a prison are shifted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to a prison",
+       "at": 6
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A poisoner, caught after lacing a meal, is transferred to jail.",
+     "walkthrough": "The whole clue does double duty: 'Moved' rearranges TO A PRISON, and the clue also describes the fate of someone who slipped this into a meal.",
+     "definitionFit": "Someone who doctored food with a rodent killer could well end up behind bars, which is the scene the clue paints."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Moved"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +725,67 @@
     "text": "American in House backing a Midwest city",
     "enumeration": "5"
    },
-   "solution": "OMAHA"
+   "solution": "OMAHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Midwest city",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 18,
+         "note": "backing means that combination is read from the end to the start"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "in",
+           "at": 9,
+           "note": "in means the American abbreviation sits inside the house abbreviation"
+          }
+         ],
+         "parts": [
+          {
+           "words": "House",
+           "at": 12,
+           "gives": "HO"
+          },
+          {
+           "words": "American",
+           "at": 0,
+           "gives": "AM"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American politician in the House supports a city in the Midwest.",
+     "definitionFit": "Nebraska's largest city lies on the Missouri River in the American Midwest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +799,41 @@
     "text": "Constituent of panelling in Court Department",
     "enumeration": "4"
    },
-   "solution": "WOOD"
+   "solution": "WOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Constituent of panelling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Court",
+       "at": 28,
+       "gives": "WOO",
+       "note": "to court is to woo"
+      },
+      {
+       "words": "Department",
+       "at": 34,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Panelling is installed in a court building's department.",
+     "walkthrough": "'Court' looks like a noun naming a law court, but it is the verb meaning to romance.",
+     "definitionFit": "Panels for walls are traditionally made of timber such as oak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Court"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +847,64 @@
     "text": "They imagine a lot of journalists will accept offer",
     "enumeration": "10"
    },
-   "solution": "PRETENDERS"
+   "solution": "PRETENDERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They imagine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will accept",
+       "at": 34,
+       "note": "will accept means the offer word is taken inside the trimmed journalists word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 13,
+         "note": "a lot of, not all, means the last letter of the journalists word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "journalists",
+         "at": 22,
+         "gives": "PRESS",
+         "note": "the press is the body of journalists"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "offer",
+       "at": 46,
+       "gives": "TENDER",
+       "note": "a tender is a formal offer or bid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reporters will take up a proposal of their own invention.",
+     "walkthrough": "'They imagine' is the definition in the sense of making a claim: those who pretend. PRES is PRESS less its last S.",
+     "definitionFit": "Pretenders are claimants, people who lay claim to something, such as a throne, without full right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "imagine"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +918,40 @@
     "text": "Prime altar decorated in time before the wedding",
     "enumeration": "10"
    },
-   "solution": "PREMARITAL"
+   "solution": "PREMARITAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in time before the wedding",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "decorated",
+       "at": 12,
+       "note": "decorated means the letters of prime altar are dressed up in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prime altar",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The main altar is adorned ahead of the ceremony.",
+     "definitionFit": "The word describes anything happening before marriage, such as an engagement period."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decorated"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +965,48 @@
     "text": "Article dropped by one attacking cavalryman",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cavalryman",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropped by",
+       "at": 8,
+       "note": "dropped by means the article is lost from the attacker word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one attacking",
+       "at": 19,
+       "gives": "RAIDER",
+       "note": "a raider is someone who attacks"
+      },
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "A",
+       "note": "A is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attacker loses a piece of equipment while charging on horseback.",
+     "definitionFit": "A cavalry soldier is mounted on a horse, so is a horseman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 14,
@@ -283,7 +1020,43 @@
     "text": "Lars and Peter working to improve state of wall",
     "enumeration": "9"
    },
-   "solution": "REPLASTER"
+   "solution": "REPLASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "improve state of wall",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "working",
+       "at": 15,
+       "note": "working means the letters of the two names are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lars",
+       "at": 0
+      },
+      {
+       "words": "Peter",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two builders named Lars and Peter are busy fixing up a wall.",
+     "definitionFit": "To give a wall a fresh coat of render is to renew its surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +1070,67 @@
     "text": "Soprano favouring finale of Berlioz and nothing more, using forced notes",
     "enumeration": "9"
    },
-   "solution": "SFORZANDO"
+   "solution": "SFORZANDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "using forced notes",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soprano",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "favouring",
+       "at": 8,
+       "gives": "FOR",
+       "note": "to be for something is to favour it"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finale of",
+         "at": 18,
+         "note": "finale of means the last letter of Berlioz"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Berlioz",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "and",
+       "at": 36,
+       "note": "taken as written"
+      },
+      {
+       "words": "nothing more",
+       "at": 40,
+       "gives": "O",
+       "note": "nothing more, a plain zero, is the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer who prefers the end of a Berlioz piece pushes her notes hard.",
+     "definitionFit": "This Italian musical direction tells performers to play a note with sudden strong emphasis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "favouring"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1144,58 @@
     "text": "Nearby fellow enthralled by remarkable evening",
     "enumeration": "9"
    },
-   "solution": "NIGHTFALL"
+   "solution": "NIGHTFALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "evening",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Nearby",
+       "at": 0,
+       "gives": "NIGH",
+       "note": "nigh means near"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "enthralled by",
+         "at": 14,
+         "note": "enthralled by means the fellow letter is held inside the remarkable word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "remarkable",
+         "at": 28,
+         "gives": "TALL",
+         "note": "tall, as in a tall story, means far-fetched or remarkable"
+        },
+        {
+         "words": "fellow",
+         "at": 7,
+         "gives": "F"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neighbour is captivated by a wonderful evening.",
+     "definitionFit": "Dusk, when night comes down, is the start of the evening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remarkable"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1215,80 @@
      }
     ]
    },
-   "solution": "PHNOMPENH"
+   "solution": "PHNOMPENH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Asian city",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Positive",
+       "at": 0,
+       "gives": "P"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 42,
+         "note": "in means the name and writer words go between the two hot abbreviations"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "hot",
+           "at": 45,
+           "gives": "H",
+           "note": "H is the abbreviation for hot on taps"
+          },
+          {
+           "words": "hot",
+           "at": 50,
+           "gives": "H",
+           "note": "H again for hot"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "French name",
+           "at": 9,
+           "gives": "NOM",
+           "note": "nom is French for name"
+          },
+          {
+           "words": "writer",
+           "at": 35,
+           "gives": "PEN",
+           "note": "a pen is a writer's tool"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confident French author's name is attached to a sweltering Asian location.",
+     "definitionFit": "Cambodia's capital sits where the Mekong and Tonle Sap rivers meet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Positive"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1302,47 @@
     "text": "What makes one blush, showing some change of heart? Behaving badly",
     "enumeration": "5"
    },
-   "solution": "ROGUE"
+   "solution": "ROGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Behaving badly",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "showing some change of heart",
+       "at": 22,
+       "note": "the middle letters of the make-up word swap places, a change in its heart"
+      }
+     ],
+     "parts": [
+      {
+       "words": "What makes one blush",
+       "at": 0,
+       "gives": "ROUGE",
+       "note": "rouge is make-up that gives a blush to the cheeks"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has been misbehaving reddens and shows regret.",
+     "walkthrough": "'showing some change of heart' swaps the U and G in the middle of ROUGE. 'Blush' pretends to be embarrassment rather than cosmetics.",
+     "definitionFit": "Used as an adjective, as in a rogue trader, it describes someone acting wildly outside the rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blush"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1356,42 @@
     "text": "Lad ran goal excitedly, slowing to score",
     "enumeration": "10"
    },
-   "solution": "ALLARGANDO"
+   "solution": "ALLARGANDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slowing to score",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "excitedly",
+       "at": 13,
+       "note": "excitedly means the letters of lad ran goal are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lad ran goal",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy dashed off in triumph after scoring a goal.",
+     "walkthrough": "'score' looks like a football tally, but it means a written piece of music.",
+     "definitionFit": "This Italian term in a piece of music tells players to broaden and slow down gradually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1405,46 @@
     "text": "Trivial insult ignored by son",
     "enumeration": "5"
    },
-   "solution": "LIGHT"
+   "solution": "LIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trivial",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ignored by",
+       "at": 15,
+       "note": "ignored by means the son letter is left out of the insult word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "insult",
+       "at": 8,
+       "gives": "SLIGHT",
+       "note": "a slight is an insult or snub"
+      },
+      {
+       "words": "son",
+       "at": 26,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A son shrugs off a petty jibe.",
+     "definitionFit": "Light reading or a light matter is not serious, so unimportant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1458,48 @@
     "text": "Excessive, with no additional energy required to make the pace",
     "enumeration": "4"
    },
-   "solution": "STEP"
+   "solution": "STEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pace",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no additional",
+       "at": 11,
+       "note": "with no additional means the extra energy letter is removed from the excessive word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Excessive",
+       "at": 0,
+       "gives": "STEEP",
+       "note": "a steep price is an excessive one"
+      },
+      {
+       "words": "energy",
+       "at": 30,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "No extra effort is needed to keep up with the speed of a walk.",
+     "definitionFit": "A single stride is a pace, and the two words are interchangeable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1513,58 @@
     "text": "It's a shame about termination of sincere expression of holiness",
     "enumeration": "5"
    },
-   "solution": "PIETY"
+   "solution": "PIETY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "expression of holiness",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about means the shame word goes round that final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a shame",
+       "at": 5,
+       "gives": "PITY",
+       "note": "it's a pity means it's a shame"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "termination of",
+         "at": 19,
+         "note": "termination of means the last letter of sincere"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sincere",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone laments the end of a heartfelt religious display.",
+     "definitionFit": "Devoutness shown in worship is an outward display of religious reverence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "termination"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1578,58 @@
     "text": "That fellow curtailed passion, being subject to will?",
     "enumeration": "4"
    },
-   "solution": "HEIR"
+   "solution": "HEIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "subject to will?",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "That fellow",
+       "at": 0,
+       "gives": "HE",
+       "note": "he is that fellow"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 12,
+         "note": "curtailed means the passion word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "passion",
+         "at": 22,
+         "gives": "IRE",
+         "note": "ire is anger, a passion"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man cut short his anger, bowing to someone's determination.",
+     "walkthrough": "'will' looks like willpower, but it is the legal document that names who inherits.",
+     "definitionFit": "A person named to inherit in a testament is the one a bequest is directed to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "will"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1643,67 @@
     "text": "Drunk to touch heart after diverting attention",
     "enumeration": "5"
    },
-   "solution": "TIGHT"
+   "solution": "TIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drunk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 21,
+       "note": "after means the trimmed heart word comes after the touching word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to touch",
+       "at": 6,
+       "gives": "TIG",
+       "note": "tig is the children's chasing game where one touches another, so to tig is to touch"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "diverting",
+         "at": 27,
+         "note": "diverting means the attention word is turned away out of the heart word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heart",
+         "at": 15,
+         "gives": "HEART",
+         "note": "taken as the word heart"
+        },
+        {
+         "words": "attention",
+         "at": 37,
+         "gives": "EAR",
+         "note": "to give ear is to pay attention"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk reaches for someone's chest after catching their eye.",
+     "walkthrough": "TIG, also called tag, is a British playground chasing game. HEART loses EAR to leave HT.",
+     "definitionFit": "Tight is informal slang for intoxicated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diverting"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1717,60 @@
     "text": "River containing single example of vermin — that's clear",
     "enumeration": "9"
    },
-   "solution": "EXONERATE"
+   "solution": "EXONERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clear",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "containing",
+       "at": 6,
+       "note": "containing means the river word holds the other pieces inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "River",
+       "at": 0,
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "single",
+         "at": 17,
+         "gives": "ONE",
+         "note": "single means one"
+        },
+        {
+         "words": "example of vermin",
+         "at": 24,
+         "gives": "RAT",
+         "note": "a rat is one kind of vermin"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river with a lone rat in it is pronounced free of pests.",
+     "walkthrough": "The EXE is a river in south-west England.",
+     "definitionFit": "To clear someone is to declare them blameless, absolving them of a charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clear"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1784,48 @@
     "text": "Talks idly, ceding power, providing surprises",
     "enumeration": "7"
    },
-   "solution": "RATTLES"
+   "solution": "RATTLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "surprises",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ceding",
+       "at": 12,
+       "note": "ceding means the power letter is given up from the chattering word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Talks idly",
+       "at": 0,
+       "gives": "PRATTLES",
+       "note": "prattles means chatters idly"
+      },
+      {
+       "words": "power",
+       "at": 19,
+       "gives": "P",
+       "note": "P is the physics symbol for power"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chatterer who gives up authority keeps springing shocks.",
+     "definitionFit": "To unsettle or disconcert someone is to rattle them, a verb sense matching surprises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1839,41 @@
     "text": "Stream and meadow in Lancashire town",
     "enumeration": "7"
    },
-   "solution": "BURNLEY"
+   "solution": "BURNLEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lancashire town",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stream",
+       "at": 0,
+       "gives": "BURN",
+       "note": "burn is a Scottish and northern word for a stream"
+      },
+      {
+       "words": "meadow",
+       "at": 11,
+       "gives": "LEY",
+       "note": "a ley is a meadow or grassland"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brook and grassland are found in a northern English town.",
+     "walkthrough": "Lancashire is a county in north-west England; this town is known for its football club.",
+     "definitionFit": "This mill town in the north-west is in the county of Lancashire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
