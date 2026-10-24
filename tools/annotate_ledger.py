@@ -22,9 +22,10 @@ it (up to ROLL) and, if still thin, is noise and never wakes.
 
 The wake rule (should_wake), in code, queued quietly (wake.sh -q) to the room:
   (a) payback: the #1 first-check-failure cause's $/clue after the check (its cost over the
-      clues of the recent rows listing it) x clues still to annotate (backlog puzzles from
-      puzzles/index.json + 30 days of arrivals, x mean clues/puzzle) x SUCCESS_RATE (0.5)
-      exceeds FIX_COST (~$6, one Sonnet worker), whatever the $/clue; or
+      clues of the recent rows listing it) x clues still to annotate ((filed - hinted) +
+      filing inflow until the /progress/ hinted ETA, capped at 12 months; x mean
+      clues/puzzle) x SUCCESS_RATE (0.5) exceeds FIX_COST (~$6, one Sonnet worker),
+      whatever the $/clue; or
   (b) regression: the latest window's pooled $/clue is more than 10% above the best such
       level since the last commit touching annotate code;
 at most once per COOLDOWN_H (1) hours. The wake text carries the payback numbers.
@@ -35,11 +36,11 @@ Then: "Lower the goal. I want to spend inference fixing the per clue as long as 
 off in saved other inference." Hence the payback gate instead of a target.
 
 Paul 10-23: "I think the savings is over many months. How far does progress say before we
-are done annotating". tools/backlog_burndown.py --days 7 said 18,976 puzzles left, clearing
-in about 26 days; after that only a trickle of new puzzles. So the saving is counted per
-clue over the clues still to annotate, not per hour over a fixed 7 days. The backlog count
-reads puzzles/index.json directly (burndown's git walk is too slow for a hook), so it can
-read high while a burn is running.
+are done annotating". backlog_burndown.py said 18,976 puzzles left (~26 days), but Paul
+corrected it: /progress/ says hinted finishes in ~8 months, with 40,088 filed puzzles still
+to annotate, filing adding ~800-1,350 puzzles a day and hinting ~620-715. So the saving is
+counted per clue over the clues still to annotate, not per hour over a fixed 7 days, and
+the counts are the page's own recorded nights (tools/progress.py), not a scrape.
 """
 import argparse
 import datetime
@@ -68,9 +69,10 @@ REGRESS = 0.10
 COOLDOWN_H = 1        # was 4
 # Payback gate: wake when fixing the top cause is expected to save more than the fix costs.
 # Paul 10-23: "I think the savings is over many months" - so the horizon is the clues still
-# to annotate (backlog + NEW_DAYS of arrivals, x mean clues/puzzle), not a fixed 7 days.
-INDEX = pathlib.Path(os.environ.get("ANNOTATE_INDEX", REPO / "puzzles" / "index.json"))
-NEW_DAYS = 30         # after the backlog clears only new puzzles arrive, a trickle
+# to annotate (filed less hinted, plus the filing inflow until the page's hinted ETA, x mean
+# clues/puzzle), not a fixed 7 days. The counts are /progress/'s own recorded nights.
+MAX_HORIZON_DAYS = 365  # the horizon is the page's hinted ETA, capped at 12 months
+PACE_DAYS = 7           # the page's 7-day pace
 DEFAULT_CLUES_PER_PUZZLE = 28
 SUCCESS_RATE = 0.5    # a fix is assumed to work half the time
 FIX_COST = 6.0        # one Sonnet cost-fix worker, in dollars (estimate, not measured)
@@ -203,25 +205,27 @@ def cause_per_clue(rows, key):
     return (cost / clues if clues else 0.0), mean
 
 
-def backlog_counts(path=None):
-    """(puzzles still to annotate, puzzles dated in the last NEW_DAYS days) from
-    puzzles/index.json, the file tools/backlog_burndown.py reads (no git log walk, so it
-    is instant). Its `annotated` flags lag a running burn, so the backlog reads a little
-    high; (0, 0) when the file is missing."""
-    try:
-        idx = json.loads((path or INDEX).read_text())["puzzles"]
-    except (OSError, ValueError, KeyError):
-        return 0, 0
-    cut = (now_utc() - datetime.timedelta(days=NEW_DAYS)).date().isoformat()
-    back = sum(1 for p in idx if p.get("hasSolutions") and not p.get("annotated"))
-    new = sum(1 for p in idx if (p.get("date") or "") >= cut)
-    return back, new
+def backlog_counts(days=None):
+    """(puzzles to annotate, filing inflow a day, horizon in days) from the nightly counts
+    /progress/ draws (tools/data/progress.json via tools/progress.py): to annotate = filed
+    less hinted; inflow = filed's 7-day pace; horizon = the page's hinted ETA, (known less
+    hinted) over hinted's 7-day pace, capped at MAX_HORIZON_DAYS. (0, 0, 0) with no history."""
+    import progress
+    days = progress.load() if days is None else days
+    if not days:
+        return 0, 0.0, 0
+    known, _, filed, _, hinted = progress.nested_totals(days[max(days)])
+    per_hint = progress.rate(progress.funnel_series(days, 4), PACE_DAYS) or 0
+    inflow = max(progress.rate(progress.funnel_series(days, 2), PACE_DAYS) or 0, 0.0)
+    horizon = (known - hinted) / per_hint if per_hint > 0 else MAX_HORIZON_DAYS
+    return max(filed - hinted, 0), inflow, min(horizon, MAX_HORIZON_DAYS)
 
 
-def clues_left(mean_clues):
-    """Clues still to annotate: the backlog plus NEW_DAYS of new arrivals, x mean clues/puzzle."""
-    back, new = backlog_counts()
-    return (back + new) * mean_clues
+def clues_left(mean_clues, days=None):
+    """Clues still to annotate: (filed less hinted + filing inflow over the horizon) x mean
+    clues/puzzle."""
+    back, inflow, horizon = backlog_counts(days)
+    return (back + inflow * horizon) * mean_clues
 
 
 def work_order(reason, facts, rows, commit):
