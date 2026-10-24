@@ -2615,7 +2615,10 @@ def blocks_miss_letters(ann, entry):
         return False
     got = "".join(letters(b.get("gives")) for b in ann.get("blocks") or [] if isinstance(b, dict))
     want = block_letters(ann, wordplay_letters(ann, entry))
-    return bool(got) and sorted(got) != sorted(want) and sorted(got) != sorted(slipped_letters(ann, want))
+    # A repeat shows one copy as its blocks (annotation.repeat_copy_letters).
+    got2 = got + annotation.repeat_copy_letters(ann.get("wordplay"))
+    return bool(got) and sorted(got) != sorted(want) and sorted(got2) != sorted(want) \
+        and sorted(got) != sorted(slipped_letters(ann, want))
 
 
 def slipped_letters(ann, want):
