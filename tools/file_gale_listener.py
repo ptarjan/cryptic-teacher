@@ -896,6 +896,38 @@ def report_copy(puzzle, words):
 
 
 def join(reading, grids, reports, read_letters, read_probs=None, read_strips=None, ask=None):
+    """join_one of the reading's clues, else of the first of its
+    "alternatives" (a Times page's other cuts, gale_listener.times_read)
+    whose lights are the grid's, its verdict's "alternative" naming that
+    cut; else of the reading with the lights it leaves unclued taken from
+    them ("alternative": {light id: cut}). No 3121's down list set above its
+    headings reads its top only from the title down, No 3120's lists read
+    only from the headings."""
+    got = join_one(reading, grids, reports, read_letters, read_probs, read_strips, ask)
+    alts = reading.get("alternatives") or () if got[0] is None else ()
+    for alt in alts:
+        tried = join_one({**reading, "clues": alt["clues"]}, grids, reports, read_letters, read_probs, read_strips,
+                         ask)
+        if tried[0] is not None:
+            tried[1]["alternative"] = alt["cut"]
+            return tried
+    # Else the cuts' readings together on each exact grid: a light the reading leaves unclued takes the
+    # first alternative's words for it (No 3121's 3-8 Down read only from the title down, its 29-34 Down
+    # only from the headings). A light no grid has takes none.
+    for g in (g for g in grids if alts and g["fit"]["exact"]):
+        clues, took = dict(reading["clues"]), {}
+        for lid in sorted(light_ids(g["fit"]["rows"]) - {k for k, c in clues.items() if (c.get("text") or "").strip()},
+                          key=order):
+            if alt := next((a for a in alts if ((a["clues"].get(lid) or {}).get("text") or "").strip()), None):
+                clues[lid], took[lid] = alt["clues"][lid], alt["cut"]
+        if took and (tried := join_one({**reading, "clues": clues}, [g], reports, read_letters, read_probs,
+                                       read_strips, ask))[0] is not None:
+            tried[1]["alternative"] = took
+            return tried
+    return got
+
+
+def join_one(reading, grids, reports, read_letters, read_probs=None, read_strips=None, ask=None):
     """(puzzle or None, verdict, the report's copy or None) for one reading: `grids` the unfilled
     grids read on its pages ({"grid", "fit"}), `reports` every filled grid
     on any saved page ({"grid", "page"}), read_letters(report, lts) its
