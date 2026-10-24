@@ -80,6 +80,9 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET" || req.headers.has("range")) return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin || url.pathname.endsWith("/sw.js")) return;
+  // The page's update check asks for the home HTML with cache "no-store": it
+  // wants the server's copy now, not the held one, so the worker stays out.
+  if (req.cache === "no-store") return;
 
   if (req.mode === "navigate") {
     if (isHome(url)) {
