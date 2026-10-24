@@ -3604,7 +3604,13 @@ def _held_list(series):
                 ps = de.path
                 seen = _HELD.get(ps)
                 if seen is None or seen[0] != stamp:
-                    d = json.loads(p.read_text())
+                    try:
+                        d = json.loads(p.read_text())
+                    except ValueError:
+                        # A write cut off by a kill leaves an empty file: one torn
+                        # puzzle mustn't crash every read of its series.
+                        print(f"held listing: {p} is not parsable; skipped", file=sys.stderr)
+                        continue
                     date = d.get("date")
                     seen = _HELD[ps] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
                                                (d.get("source") or {}).get("url"), (date or "")[:10]))
