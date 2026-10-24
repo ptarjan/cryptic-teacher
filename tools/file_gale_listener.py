@@ -898,19 +898,24 @@ def report_copy(puzzle, words):
 def join(reading, grids, reports, read_letters, read_probs=None, read_strips=None, ask=None):
     """join_one of the reading's clues, else of the first of its
     "alternatives" (a Times page's other cuts, gale_listener.times_read)
-    whose lights are the grid's, its verdict's "alternative" naming that
-    cut; else of the reading with the lights it leaves unclued taken from
+    whose lights are the grid's and whose clues all read (reads_whole), its
+    verdict's "alternative" naming that cut; else of the reading with the lights it leaves unclued taken from
     them ("alternative": {light id: cut}). No 3121's down list set above its
     headings reads its top only from the title down, No 3120's lists read
     only from the headings."""
     got = join_one(reading, grids, reports, read_letters, read_probs, read_strips, ask)
     alts = reading.get("alternatives") or () if got[0] is None else ()
+    # An alternative whose lights are the grid's but whose clues are not all read (No 3181's title cut,
+    # its 18 Across and 27 Down unread there, read in the reading) goes behind the cuts read together.
+    fallback = None
     for alt in alts:
         tried = join_one({**reading, "clues": alt["clues"]}, grids, reports, read_letters, read_probs, read_strips,
                          ask)
         if tried[0] is not None:
             tried[1]["alternative"] = alt["cut"]
-            return tried
+            if reads_whole(tried[0]):
+                return tried
+            fallback = fallback or tried
     # Else the cuts' readings together on each exact grid: a light the reading leaves unclued takes the
     # first alternative's words for it (No 3121's 3-8 Down read only from the title down, its 29-34 Down
     # only from the headings). A light no grid has takes none.
@@ -923,8 +928,16 @@ def join(reading, grids, reports, read_letters, read_probs=None, read_strips=Non
         if took and (tried := join_one({**reading, "clues": clues}, [g], reports, read_letters, read_probs,
                                        read_strips, ask))[0] is not None:
             tried[1]["alternative"] = took
-            return tried
-    return got
+            if fallback is None or reads_whole(tried[0]):
+                return tried
+    return fallback or got
+
+
+def reads_whole(puzzle):
+    """Whether every clue of a joined puzzle reads true (fa.complete), a light
+    the page prints with no clue ({"missing": true}) as printed."""
+    return fa.complete(puzzle, {f"{e['number']}-{e['direction']}" for e in puzzle["entries"]
+                                if e["clue"] == {"missing": True}})
 
 
 def join_one(reading, grids, reports, read_letters, read_probs=None, read_strips=None, ask=None):

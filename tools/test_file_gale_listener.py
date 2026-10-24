@@ -450,6 +450,24 @@ puzzle, v, _ = f.join({**reading(8, TEXT), "alternatives": [{**alt, "clues": cut
                       [{"grid": grid, "fit": exact}], [], read_letters)
 check("a reading that fits is filed, its alternatives not tried (mirror)", (None, "Playing piece"),
       (v.get("alternative"), clue("1-across").get("text")))
+# A cut whose lights are the grid's but which left a clue unread (No 3181's title cut, its 18 Across
+# read only in the reading) goes behind the cuts read together, which read every clue.
+holed = {**alt, "cut": 1, "clues": {**reading(8, TEXT)["clues"], "1-across": {"text": "", "enumeration": None}}}
+puzzle, v, _ = f.join({**reading(8, {k: t for k, t in TEXT.items() if k != "2-down" and k != "4-down"}),
+                       "alternatives": [holed]}, [{"grid": grid, "fit": exact}], [], read_letters)
+check("a cut fitting the grid with a clue unread yields to the reading with the cut's lights it lacks",
+      ({"2-down": 1, "4-down": 1}, "Playing piece", True),
+      (v.get("alternative"), clue("1-across").get("text") if puzzle else None, f.reads_whole(puzzle)))
+puzzle, v, _ = f.join({**reading(8, {k: t for k, t in TEXT.items() if k.endswith("down")}),
+                       "alternatives": [holed]}, [{"grid": grid, "fit": exact}], [], read_letters)
+check("with nothing to read it together with, that cut is filed as it is (mirror)", (1, False),
+      (v.get("alternative"), f.reads_whole(puzzle)))
+# "See preamble" on several lights (No 3144's 1, 5 and 10 Down, the count's words dropped) is the
+# print's, no clue read onto lights it is not on.
+check("one \"See preamble\" pointer on two lights is no duplicated clue; the same clue's words are (mirror)",
+      ([], [["1-down", "2-down"]]),
+      tuple(fetch_puzzle.duplicated_clues([{"number": n, "direction": "down", "clue": {"text": t}} for n in (1, 2)],
+                                          one_list=True) for t in ("See preamble (12)", "Playing piece")))
 
 # join() files the skipped light unclued, but flips a faint stray bar first.
 puzzle, v, _ = f.join(reading(8, {k: t for k, t in TEXT.items() if k != "6-across"}), [{"grid": grid, "fit": exact}],
