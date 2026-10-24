@@ -1292,6 +1292,17 @@ with tempfile.TemporaryDirectory() as tmp:
     check("and planned before the magazine's never-read pages, saved later or not",
           ["GALE_IF0501930662.pdf", "GALE_GM2500000003.pdf"], [u["rel"] for u in g.plan(inbox, store)])
     check("a magazine page is no Times page (mirror)", False, g.is_times(inbox / g.FETCHED / "GALE_GM2500000003.pdf"))
+    # A Times page read at VERSION under older cuts is read again, not the magazine's page read so.
+    older, now = Path(tmp) / "older", Path(tmp) / "now"
+    older.mkdir(); now.mkdir()
+    (older / g.LEDGER).write_text("".join(json.dumps({"sha": s, "file": f, "version": g.VERSION}) + "\n"
+                                          for s, f in [("a", "GALE_IF0501930662.pdf"), ("b", "GALE_GM2500000003.pdf")]))
+    check("a Times page read under older cuts is due again, the magazine's page at VERSION not",
+          [("GALE_IF0501930662.pdf", g.TIMES_REREAD, 2)], [(u["rel"], u["reason"], u["rank"]) for u in g.plan(inbox, older)])
+    (now / g.LEDGER).write_text(json.dumps({"sha": "a", "file": "GALE_IF0501930662.pdf", "version": g.VERSION,
+                                            "timesCut": g.TIMES_CUTS}) + "\n")
+    check("one read under these cuts is current (mirror)", ["GALE_GM2500000003.pdf"],
+          [u["rel"] for u in g.plan(inbox, now)])
 
 check("a Times citation's number and date, its title numbered or not",
       [(3138, D(1992, 2, 22)), (3890, D(2006, 8, 12)), (None, D(1992, 11, 14)), None],
@@ -1373,6 +1384,63 @@ check("last week's solution in the lists' column is blanked to the clue line und
       [(True, True, True, True)], cut and [(890 <= m[0] <= 900, 1580 <= m[1] <= 1600, 1500 <= m[2] < 1600,
                                             1900 <= m[3] <= 1950) for m in cut[1]])
 check("a page with no SOLUTIONS line blanks nothing (mirror)", [], g.times_cut(low)[1])
+# ACROSS read cut short, "ACR" (No 3167's page): a heading alone on its line, not beside a clue's words.
+acr = [w if w[4] != "ACROSS" or w[0] != 1580 else (1580, 3000, 1740, 3040, "ACR") for w in times_page()]
+box = g.times_box(acr)
+check("a lone \"ACR\" heads the across list: the Listener's block is still cut",
+      (True, True), box and (1500 < box[0] <= 1590, 3650 <= box[2] < 3730))
+check("\"ACR\" with words beside it on its line heads nothing (mirror)", [],
+      [w for w in g.times_heads(acr + [(1760, 3000, 2000, 3040, "Peculiar")], 40) if w[4] == "ACR"])
+# The prizes, the address and the entry coupon under the down list (No 3120's page read its
+# "63 Green Lane" as 63 Down): blanked to the box's foot in that column, the across list beside it not.
+prize = [w for w in times_page() if not (w[0] >= 2655 and w[0] < 3700 and w[1] >= 3660)]
+prize += [(2660, 3660, 2800, 3700, "Prizes:"), (2820, 3660, 3600, 3700, "a book token will go to the first"),
+          (2660, 3710, 2700, 3750, "63"), (2710, 3710, 3600, 3750, "Green Lane, St Albans")]
+cut = g.times_cut(prize)
+check("a Prizes line in the down list's column blanks it to the box's foot, the across column not",
+      [(True, True, True, True)], cut and [(2600 <= m[0] <= 2660, 3640 <= m[1] <= 3660, 3600 <= m[2] < 3730,
+                                            m[3] == cut[0][3]) for m in cut[1]])
+check("a Prizes word inside a clue's line blanks nothing (mirror)", [],
+      g.times_cut([w for w in times_page() if w[4] != "Euclid mingled with others" or w[1] != 3660]
+                  + [(2700, 3660, 2900, 3700, "Prizes"), (2920, 3660, 3600, 3700, "of war")])[1])
+# A list set from under the title, above the headings' level (No 3121's down list beside its preamble):
+# a second cut, from the title down, else those clues are cut off; the first is still from the headings
+# (No 3120's lists read from the title lose their headings to the preamble's).
+above = [(300, 500, 700, 560, "Listener"), (720, 500, 1200, 560, "Crossword"), (100, 1000, 260, 1040, "ACROSS"),
+         (900, 1000, 1030, 1040, "DOWN")]
+above += [(100, y, 700, y + 40, "All clues are normal but the answers") for y in range(600, 950, 50)]
+for i in range(30):
+    y = 1050 + 50 * i
+    above += [(100, y, 130, y + 40, str(i + 1)), (140, y, 700, y + 40, "Clue words here"),
+              (900, y, 930, y + 40, str(i + 1)), (940, y, 1500, y + 40, "Syrup's lost in pineapple")]
+for i, y in enumerate(range(600, 2500, 50)):
+    above += [(1600, y, 1630, y + 40, str(40 + i)), (1640, y, 2200, y + 40, "Bequest a testator might")]
+above += [(2300, y, 2900, y + 40, "Bridge column prose") for y in range(500, 2600, 50)]
+cuts = g.times_cuts(above)
+check("a list run on from under the title, above the headings: a second cut from the title, that column in",
+      [(True, True), (True, True)], [(c[0][1] >= 900, 2200 <= c[0][2] < 2300) for c in cuts[:1]]
+      + [(c[0][1] <= 600, 2200 <= c[0][2] < 2300) for c in cuts[1:]])
+check("a preamble alone over the lists, no clue lines: one cut, from the headings (mirror)", [True],
+      [c[0][1] >= 2900 for c in g.times_cuts(times_page())])
+check("a cut that blanks is read unblanked too", [True, False], [bool(c[1]) for c in g.times_cuts(sol)])
+# Each cut read; the first's reading kept, the others' as alternatives the filer may take.
+kept_read = g.read_page
+try:
+    readings = iter([({"clues": 2, "agreed": 2}, {"1-across": ("A", None, None), "63-down": ("Green Lane", None, None)}),
+                     ({"clues": 2, "agreed": 1}, {"1-across": ("A", None, None), "1-down": ("B", None, None)}),
+                     ({"refused": "no clue list on the page"}, None)])
+    g.read_page = lambda img, key: next(readings)
+    verdict, laid = g.times_read([(None, "a"), (None, "b"), (None, "c")])
+    check("a Times page's first cut is its reading, another's an alternative, an unread one none",
+          (["1-across", "63-down"], [(1, 1, ["1-across", "1-down"])]),
+          (sorted(laid), [(a["cut"], a["agreed"], sorted(a["laid"])) for a in verdict["alternatives"]]))
+    r = g.reading({"file": "GALE_IF0500347604.pdf", "times": True, "docId": None},
+                  {"number": 3120, "title": "T", "date": D(1991, 10, 19)}, verdict, laid)
+    check("and written with the reading, out of its verdict", ([1], {"text": "B", "enumeration": None}, False),
+          ([a["cut"] for a in r["alternatives"]], r["alternatives"][0]["clues"]["1-down"],
+           "alternatives" in r["verdict"]))
+finally:
+    g.read_page = kept_read
 
 print(f"FAILS {fails}")
 sys.exit(1 if fails else 0)

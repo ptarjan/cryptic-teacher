@@ -1498,6 +1498,11 @@ TIMES_NUMBERED = 0.35
 #: columns: under it, the page's note of last week's corrections, or
 #: another article.
 TIMES_END = 3
+#: A column of the lists with this many lines opening like a clue between
+#: the title and the headings' level runs a list from under the title (No
+#: 3144's 41 Across and 15 Down, a line each over the headings' level). Only
+#: an alternative cut, which the filer takes where the grid says so.
+TIMES_ABOVE = 1
 #: A clue line's opening number, as a Times page's OCR reads it.
 LINE_NUMBER = re.compile(r"^\W{0,2}\d{1,2}\b")
 
@@ -1537,15 +1542,26 @@ def times_title(words):
     return next(iter(times_titles(words)), None)
 
 
+#: ACROSS cut short as a Times page's OCR reads it, "ACR" (No 3167's), which
+#: heading() does not take: a heading only alone on its line.
+TIMES_ACR = re.compile(r"^\W*ACR\W*$")
+
+
+def times_heading(text):
+    """heading(text), or "ACROSS" for a TIMES_ACR word."""
+    return heading(text) or ("ACROSS" if TIMES_ACR.match(text) else None)
+
+
 def times_heads(words, lh):
     """The words heading a Times page's lists: ACROSS or DOWN in capitals
-    ("ACROSS:", misread "CROS"), or in title case with no word beside it on
-    its line within two line heights (a clue's "see 5 Across" has)."""
+    ("ACROSS:", misread "CROS"), or in title case or cut short ("ACR") with
+    no word beside it on its line within two line heights (a clue's "see 5
+    Across" has)."""
     out = []
     for w in words:
-        if not heading(w[4]):
+        if not times_heading(w[4]):
             continue
-        if not re.sub(r"[^A-Za-z]", "", w[4]).isupper() and any(
+        if (not heading(w[4]) or not re.sub(r"[^A-Za-z]", "", w[4]).isupper()) and any(
                 o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2
                 and min(abs(o[0] - w[2]), abs(w[0] - o[2])) < 2 * lh for o in words):
             continue
@@ -1611,22 +1627,47 @@ def times_box(words):
 #: notes numbered "7 ness; 10 Iowa;", which read as clues), "Solution to
 #: Crossword 3101", "Winners of Listener Crossword 3135", "ANSWERS".
 TIMES_STOP = re.compile(r"^\W*(?:SOLUTIONS?|Solutions?|WINNERS|Winners|ANSWERS)\b\W*$")
+#: A line in the lists' columns opening on this heads the prizes, the
+#: Listener's address and the entry coupon: blanked to the box's foot in its
+#: column alone (the lists do not run on under them).
+TIMES_PRIZE = re.compile(r"^\W*(?:PRIZES?|Prizes?)\W*$")
 
 
 def times_cut(words):
     """(times_box's box, [masks]): each mask a box of the page to blank
-    out of it, a column of the lists from a TIMES_STOP line down; None
-    with no box."""
+    out of it, a column of the lists from a TIMES_STOP line down (or a
+    TIMES_PRIZE line to the box's foot); None with no box."""
+    return next(iter(times_cuts(words)), None)
+
+
+def times_cuts(words):
+    """[(box, [masks])], times_cut first, then the other cuts its lists
+    may need, each read and kept as an alternative the filer may take where
+    the first's lights are not the grid's (read_file): the box from the
+    title down where a column has clues above the headings' level (No
+    3121's and 3175's down lists start there; No 3120's grid and preamble
+    over the lists read so lose the lists' headings), and times_cut
+    unblanked where it blanks (a SOLUTIONS block's mask may take the clues
+    run on beside it). [] with no box."""
     lh = line_height(words)
     every = times_heads(words, lh)
     for title in times_titles(words):
-        if got := _times_box(words, title, [w for w in every if w[1] > title[3]], lh):
-            return got
-    return None
+        heads = [w for w in every if w[1] > title[3]]
+        if got := _times_box(words, title, heads, lh):
+            out = [got]
+            if (raised := _times_box(words, title, heads, lh, raised=True)) and raised[0] != got[0]:
+                out.append(raised)
+            if got[1]:
+                out.append((got[0], []))
+            return out
+    return []
 
 
-def _times_box(words, title, heads, lh):
-    """times_cut under the one title `title`, its lists headed by `heads`."""
+def _times_box(words, title, heads, lh, raised=False):
+    """times_cut under the one title `title`, its lists headed by `heads`;
+    `raised`, the box from the title down where a column of it has
+    TIMES_ABOVE lines opening like a clue above the headings' level, else
+    None."""
     def partner(across):
         # DOWN under ACROSS in its column, or in a column right of it at any
         # level (the 1991-92 pages set the across list under the grid and
@@ -1634,7 +1675,7 @@ def _times_box(words, title, heads, lh):
         return min((w for w in heads if heading(w[4]) == "DOWN" and w[0] >= across[0] - 2 * lh
                     and (w[1] > across[3] or w[0] > across[0] + 3 * lh)),
                    key=lambda w: abs(w[0] - across[0]) + abs(w[1] - across[1]), default=None)
-    pair = next(((a, d) for a in sorted((w for w in heads if heading(w[4]) == "ACROSS"), key=lambda w: max(
+    pair = next(((a, d) for a in sorted((w for w in heads if times_heading(w[4]) == "ACROSS"), key=lambda w: max(
         0, title[0] - w[2], w[0] - title[2]) + (w[1] - title[3]) / 4) if (d := partner(a))), None)
     if pair is None:
         return None
@@ -1656,6 +1697,14 @@ def _times_box(words, title, heads, lh):
                 words, *col, top, band) < TIMES_NUMBERED:
             break
         right = nxt[0]
+    if raised:
+        # A list set from under the title, above the headings' level (No 3121's down list, from its
+        # 3 Down, beside the preamble): the box from the title down, else those clues are cut off.
+        cols = [(a[1], b[0]) for a, b in zip(gs, gs[1:]) if b[0] > left and a[1] < right]
+        if not any(sum(opens for _, opens in column_lines(words, max(cl, left), min(cr, right), title[3], top))
+                   >= TIMES_ABOVE for cl, cr in cols):
+            return None
+        top = title[3]
     bottom = top
     for w in sorted((w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[3] > top), key=lambda w: w[1]):
         if w[1] - bottom > TIMES_END * lh and bottom > max(across[3], down[3]):
@@ -1664,12 +1713,20 @@ def _times_box(words, title, heads, lh):
     box = (int(max(0, left - lh / 2)), int(max(0, top)), int(right + lh / 4), int(bottom + lh / 2))
     masks = []
     for w in words:
-        if not (TIMES_STOP.match(w[4]) and left <= (w[0] + w[2]) / 2 <= right and top + 2 * lh < w[1] < bottom):
+        prize = bool(TIMES_PRIZE.match(w[4]))
+        if not ((prize or TIMES_STOP.match(w[4])) and left <= (w[0] + w[2]) / 2 <= right
+                and top + 2 * lh < w[1] < bottom):
             continue
         col_left = max((g[1] for g in gs if g[1] <= w[0] + 1), default=box[0])
         if any(o is not w and col_left <= o[0] < w[0] and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2
                and re.search(r"\w", o[4]) for o in words):
             continue  # not the line's first word in its column: a clue's
+        if prize:
+            # The prizes, the address and the entry coupon end their column: its "63 Green Lane"
+            # opens like a clue (No 3120's page read it as 63 Down).
+            col_right = min((g[0] for g in gs if g[0] >= w[2]), default=box[2])
+            masks.append((int(col_left), int(w[1] - lh / 4), int(min(col_right, box[2])), box[3]))
+            continue
         # In its column and each right of it, down to the first line there opening like a clue: last
         # week's grid and notes may spill into the next column (No 3104's page), or be a block set in
         # one column with the lists going on under it or beside it (No 3121's).
@@ -1714,14 +1771,21 @@ def column_lines(words, x0, x1, y0, y1):
     return out
 
 
-def times_block(img, key):
-    """(image, key) of the Listener's clue lists cut from a Saturday Times
-    page (times_cut over its page_words), its masks blanked white, its own
-    page_words those of the page inside it and out of the masks (no second
-    read); None when none is found."""
-    from PIL import ImageDraw
+def times_blocks(img, key):
+    """[(image, key)] of each of times_cuts over a Saturday Times page's
+    page_words (times_block), times_cut's first; [] when none is found."""
     words = page_words(img, key)
-    got = times_cut(words)
+    return [times_block(img, key, cut, words) for cut in times_cuts(words)]
+
+
+def times_block(img, key, cut=None, words=None):
+    """(image, key) of the Listener's clue lists cut from a Saturday Times
+    page (`cut`, else times_cut over its page_words), its masks blanked
+    white, its own page_words those of the page inside it and out of the
+    masks (no second read); None when none is found."""
+    from PIL import ImageDraw
+    words = page_words(img, key) if words is None else words
+    got = cut or times_cut(words)
     if got is None:
         return None
     box, masks = got
@@ -2160,18 +2224,37 @@ def see_pages(pages):
     return f" (it sends to p. {', '.join(map(str, pages))})" if pages else ""
 
 
+def times_read(blocks):
+    """(verdict, laid) of a Times page's blocks (times_blocks): the first's
+    reading (else the fullest other's), each other reading kept in its
+    verdict's "alternatives" ({"cut": its index, "clues", "agreed",
+    "laid"}), which the filer tries in turn where the reading's lights are not
+    the grid's (file_gale_listener.join)."""
+    read = [(i, *read_page(img, key)) for i, (img, key) in enumerate(blocks)]
+    got = [r for r in read if r[2]]
+    if not got:
+        return read[0][1], None
+    first = got[0] if got[0][0] == 0 else max(got, key=lambda r: r[1]["agreed"])
+    verdict, laid = first[1], first[2]
+    if alts := [{"cut": i, "clues": v["clues"], "agreed": v["agreed"], "laid": la}
+                for i, v, la in got if i != first[0] and la != laid]:
+        verdict = {**verdict, "cut": first[0], "alternatives": alts}
+    return verdict, laid
+
+
 def read_file(m):
     """(verdict, laid) of the fullest page of a matched file; of a Times
     page's Listener block alone (times_block)."""
     best = ({"refused": "no page image"}, None)
     for img, key in m["pages"]:
         if m.get("times"):
-            if (block := times_block(img, key)) is None:
+            if not (blocks := times_blocks(img, key)):
                 if not best[1]:
                     best = ({"refused": "no Listener clue lists found on the Times page"}, None)
                 continue
-            img, key = block
-        verdict, laid = read_page(img, key)
+            verdict, laid = times_read(blocks)
+        else:
+            verdict, laid = read_page(img, key)
         if laid and (not best[1] or verdict["agreed"] > best[0]["agreed"]):
             best = (verdict, laid)
         elif not best[1] and "refused" in verdict:
@@ -2278,12 +2361,20 @@ def read_there(data, name, sha, rows, greek):
 
 
 def reading(m, row, verdict, laid):
-    """The reading written to STORE: archive_org_listener.reading's shape."""
+    """The reading written to STORE: archive_org_listener.reading's shape,
+    and a Times page's other cuts' readings (times_read) as its
+    "alternatives" [{"cut", "agreed", "of", "clues"}], their clues in its
+    "clues"' shape."""
+    alts = verdict.pop("alternatives", None)
     alike = verdict.get("asPrinted", {})
     suspects = {lid: s for lid, (t, _, _) in laid.items() if t and (s := ocr_clues.suspect(t, printed=alike.get(lid, ())))}
     if suspects:
         verdict["suspect"] = {lid: [tok for tok, _ in s] for lid, s in suspects.items()}
     return {
+        **({"alternatives": [{"cut": a["cut"], "agreed": a["agreed"], "of": a["clues"],
+                              "clues": {lid: {"text": t, "enumeration": e, **({"group": grp} if grp else {})}
+                                        for lid, (t, e, grp) in a["laid"].items()}} for a in alts]}
+           if alts else {}),
         "id": f"listener-{row['number']}",
         "number": row["number"],
         "series": lp.SERIES,
@@ -2417,6 +2508,8 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
         entry["disowned"] = dropped
         print(f"{p.name}: dropped {dropped}, which it wrote when matched as that number", file=out)
     entry.update(number=m["number"], how=m.get("how"), why=m.get("why"), reports=m["reports"])
+    if m.get("times") or is_times(p):
+        entry["timesCut"] = TIMES_CUTS
     if verdict.get("seePages"):
         entry["seePages"] = verdict["seePages"]
     if m["number"] is None and m["reports"]:
@@ -2433,7 +2526,10 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
                     old = json.loads(dest.read_text()) if dest.exists() else None
                 except ValueError:  # torn by an older writer: this reading replaces it
                     old = None
-                if old is None or old["verdict"].get("agreed", 0) <= verdict["agreed"]:
+                # A Times page read again replaces its own reading, fuller or not: its cuts' fix may
+                # read fewer clues (No 3120's coupon, read as 63 Down, is blanked) and adds alternatives.
+                if (old is None or old["verdict"].get("agreed", 0) <= verdict["agreed"]
+                        or m.get("times") and (old.get("source") or {}).get("file") == m["file"]):
                     # Whole or not at all: filing reads every reading while another unit writes one, and
                     # over the share a shorter rewrite in place left listener-102.json torn (10-23).
                     write_whole(dest, json.dumps(reading(m, rows[m["number"]], verdict, laid), indent=1,
@@ -2564,11 +2660,12 @@ def plan(inbox=SAVED, store=STORE):
         else:
             seen.add(d)
             row = docs.get(d)
-        if (row or {}).get("version") != VERSION:
+        if not current(p, row):
             todo[p] = row
     # A Times page first in its rank: ~85 modern pages that may file whole, not behind ~2,850 of the
     # magazine's never read (their mtimes all earlier).
-    due = sorted(((p, due_reason(row)) for p, row in todo.items()),
+    due = sorted(((p, TIMES_REREAD if (row or {}).get("version") == VERSION else due_reason(row))
+                  for p, row in todo.items()),
                  key=lambda pr: (rank_of(pr[1]), clues_left(todo[pr[0]], pr[1]), not is_times(pr[0]),
                                  pr[0].stat().st_mtime))
     return [{"rel": p.name, "rank": rank_of(reason), "reason": reason, "needs": []} for p, reason in due]
@@ -2685,6 +2782,21 @@ CITE_FIX = 28
 MISNUMBERED = "refused misnumbered before its fix"
 
 
+#: The revision of a Times page's cuts (times_cuts) its ledger row's
+#: "timesCut" records: 2 cuts "ACR", blanks the prizes and entry coupon, and
+#: reads the box from the title and unblanked as alternatives. A Times page
+#: read at VERSION under an older one is read again (TIMES_REREAD), not the
+#: magazine's.
+TIMES_CUTS = 2
+TIMES_REREAD = "Times Listener page read before its cut's fix"
+
+
+def current(p, row):
+    """Whether the saved page `p`, last ledgered `row`, is read at this
+    VERSION, and a Times page's under these TIMES_CUTS."""
+    return (row or {}).get("version") == VERSION and (not is_times(p) or row.get("timesCut", 1) >= TIMES_CUTS)
+
+
 def due_reason(row):
     """Why plan reads a page again, given its last ledger row (None: never
     read): "never read (Gale fetch)"; MISNUMBERED for one numbered by its
@@ -2719,7 +2831,7 @@ def read_unit(name, inbox=SAVED, store=STORE, reader=read_file, out=sys.stdout, 
         if not mine:
             return "busy"
         before = load_ledger(store).get(h)
-        if (before or {}).get("version") == VERSION:
+        if current(p, before):
             return "current"
         idx = index(times=is_times(p))
         entry = read_one(p, h, idx, {r["number"]: r for r in idx}, store, out, reader, before=before)

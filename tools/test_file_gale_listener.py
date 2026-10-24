@@ -429,6 +429,28 @@ check("alike in their Greek letters too is the same clue", [["1-across", "1-down
       fetch_puzzle.duplicated_clues([{"number": 1, "direction": d, "clue": {"text": greek["1-across"]}}
                                      for d in ("across", "down")]))
 
+# A Times page's reading whose lights are not the grid's (No 3120's coupon read as 63 Down, its across
+# list lost) files the first of its other cuts' readings that are (gale_listener.times_read).
+alt = {"cut": 2, "agreed": 8, "of": 8, "clues": reading(8, TEXT)["clues"]}
+cut = reading(8, {**{k: t for k, t in TEXT.items() if k.endswith("down")}, "63-down": "Green Lane, St Albans"})
+puzzle, v, _ = f.join({**cut, "alternatives": [alt]}, [{"grid": grid, "fit": exact}], [], read_letters)
+check("a reading whose lights are not the grid's files its alternative's that are, and says which",
+      (2, "Postcard", "Playing piece"),
+      (v.get("alternative"), clue("1-down").get("text") if puzzle else None, clue("1-across").get("text") if puzzle else None))
+_, v, _ = f.join(cut, [{"grid": grid, "fit": exact}], [], read_letters)
+check("with no alternative it lacks the grid still (mirror)", (True, None),
+      ((v.get("lacks") or "").startswith("grid:"), v.get("alternative")))
+downs = reading(8, {k: t for k, t in TEXT.items() if k.endswith("down")})["clues"]
+puzzle, v, _ = f.join({**reading(8, {k: t for k, t in TEXT.items() if k != "2-down" and k != "4-down"}),
+                       "alternatives": [{**alt, "cut": 1, "clues": {"63-down": {"text": "Green Lane"}}},
+                                        {**alt, "clues": downs}]}, [{"grid": grid, "fit": exact}], [], read_letters)
+check("no cut whole, the reading's unclued lights take the first alternative with words for them, no spare",
+      ({"2-down": 2, "4-down": 2}, "Zone"), (v.get("alternative"), clue("2-down").get("text") if puzzle else None))
+puzzle, v, _ = f.join({**reading(8, TEXT), "alternatives": [{**alt, "clues": cut["clues"]}]},
+                      [{"grid": grid, "fit": exact}], [], read_letters)
+check("a reading that fits is filed, its alternatives not tried (mirror)", (None, "Playing piece"),
+      (v.get("alternative"), clue("1-across").get("text")))
+
 # join() files the skipped light unclued, but flips a faint stray bar first.
 puzzle, v, _ = f.join(reading(8, {k: t for k, t in TEXT.items() if k != "6-across"}), [{"grid": grid, "fit": exact}],
                       [], read_letters)
