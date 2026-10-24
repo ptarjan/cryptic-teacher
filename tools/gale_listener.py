@@ -52,6 +52,7 @@ import os
 import re
 import subprocess
 import sys
+import threading
 import time
 import traceback
 import unicodedata
@@ -224,7 +225,7 @@ def page_words(img, key):
         return [tuple(w) for w in json.loads(path.read_text())]
     words = ocr_clues.tesseract_words(img.convert("RGB"), ocr_clues.TESS_MODELS["times"])
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(words))
+    write_whole(path, json.dumps(words))
     return words
 
 
@@ -833,7 +834,7 @@ def read_page(img, key, lengths=None):
             got += [(x0 + b[0], y0 + b[1], x1 + b[0], y1 + b[1], t)
                     for x0, y0, x1, y1, t in ocr_clues.read_words(img.crop(b), which)]
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(got))
+        write_whole(path, json.dumps(got))
         words[which] = figures(got)
     # A line any reading numbers is a line every RapidOCR reading reads; a
     # line one reads again alone may number one for the other, so twice.
@@ -869,7 +870,7 @@ def read_box(img, key, box, which):
     got = [(x0 + box[0], y0 + box[1], x1 + box[0], y1 + box[1], t)
            for x0, y0, x1, y1, t in ocr_clues.read_words(img.crop(box), which)]
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(got))
+    write_whole(path, json.dumps(got))
     return got
 
 
@@ -990,7 +991,7 @@ def greek_box(img, key, box):
     got = [(x0 // GREEK_UPSCALE + box[0], y0 // GREEK_UPSCALE + box[1], x1 // GREEK_UPSCALE + box[0],
             y1 // GREEK_UPSCALE + box[1], t) for x0, y0, x1, y1, t in ocr_clues.tesseract_words(crop, greek_model(), psm=7)]
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(got))
+    write_whole(path, json.dumps(got))
     return got
 
 
@@ -1194,7 +1195,7 @@ def read_remote(p, h, idx):
         t.extractall(OCR_CACHE, filter="data")
     import file_gale_listener  # it imports this module
     file_gale_listener.GRIDS.mkdir(parents=True, exist_ok=True)
-    (file_gale_listener.GRIDS / f"{h}.json").write_text(got["grids"])
+    write_whole(file_gale_listener.GRIDS / f"{h}.json", got["grids"])
     m = got["match"]
     m.update(date=m.get("date") and datetime.date.fromisoformat(m["date"]), pages=[])
     laid = got["laid"] and {lid: tuple(v) for lid, v in got["laid"].items()}
@@ -1278,6 +1279,38 @@ def file_hash(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def write_whole(path, text):
+    """Write `text` to `path` whole: to a hidden file beside it, then
+    renamed over it, so a parallel unit reading it sees the old file or the
+    new, never a torn one (over the share a shorter rewrite in place left
+    listener-102.json torn, 10-23)."""
+    path = Path(path)
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.{threading.get_ident()}.tmp")
+    try:
+        tmp.write_text(text)
+        for wait in (0.2, 0.5, 1, 2, None):
+            try:
+                os.replace(tmp, path)
+                break
+            except PermissionError:
+                # A share's server may refuse the rename while a reader
+                # holds the old file open: a moment later it is closed.
+                if wait is None:
+                    raise
+                time.sleep(wait)
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
+def read_json(path):
+    """json.loads of `path`, or None when it is missing or torn (written in
+    place by a writer from before write_whole)."""
+    try:
+        return json.loads(Path(path).read_text())
+    except (FileNotFoundError, ValueError):
+        return None
+
+
 #: The ledger: one row a read, appended ({"sha": the file's sha256, ...});
 #: the last row a file standing. LEGACY is the whole-file ledger it grew
 #: from, read beneath it.
@@ -1348,10 +1381,8 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
                 if old is None or old["verdict"].get("agreed", 0) <= verdict["agreed"]:
                     # Whole or not at all: filing reads every reading while another unit writes one, and
                     # over the share a shorter rewrite in place left listener-102.json torn (10-23).
-                    tmp = dest.with_name(f".{dest.name}.{os.getpid()}.tmp")
-                    tmp.write_text(json.dumps(reading(m, rows[m["number"]], verdict, laid), indent=1,
-                                              ensure_ascii=False) + "\n")
-                    os.replace(tmp, dest)
+                    write_whole(dest, json.dumps(reading(m, rows[m["number"]], verdict, laid), indent=1,
+                                                 ensure_ascii=False) + "\n")
                     entry["reading"] = dest.name
                     mm.record(READINGS_MANIFEST, dest, number=m["number"])
     scan_queue.append(store / LEDGER, [{"sha": h, **entry}])
@@ -1541,8 +1572,8 @@ def wanted(idx=None, store=STORE, root=ROOT):
 
 def _build_readings(store):
     """List STORE's readings once into READINGS_MANIFEST (a cold memo)."""
-    found = [{"number": json.loads(p.read_text())["number"], "at": p.stat().st_mtime}
-             for p in sorted(store.glob("listener-*.json"))]
+    found = [{"number": r["number"], "at": p.stat().st_mtime}
+             for p in sorted(store.glob("listener-*.json")) if (r := read_json(p))]
     mm.write(READINGS_MANIFEST, found)
     mm.complete_path(READINGS_MANIFEST).write_text(json.dumps({"at": time.time()}))
     return {r["number"] for r in found}
@@ -1550,7 +1581,7 @@ def _build_readings(store):
 
 def _glob_readings(store):
     """reading_numbers for a store not on the media disk (a test's): a glob is fine there."""
-    return {json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")}
+    return {r["number"] for p in store.glob("listener-*.json") if (r := read_json(p))}
 
 
 def reading_numbers(store=STORE):

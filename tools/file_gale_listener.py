@@ -637,11 +637,11 @@ def page_grids(path, sha, cache=GRIDS):
     import ocr_remote
     key = code_key(lg, *GRID_CODE)
     dest = cache / f"{sha}.json"
-    if dest.exists():
-        got = json.loads(dest.read_text())
+    got = gl.read_json(dest)
+    if got is not None:
         if got.get("code") == file_key(lg):
             got["code"] = key
-            dest.write_text(json.dumps(got))
+            gl.write_whole(dest, json.dumps(got))
         if got.get("code") == key:
             return loaded_grids(got["grids"])
     got = ocr_remote.call("listener_grids", path.name, data=path.read_bytes())
@@ -651,7 +651,7 @@ def page_grids(path, sha, cache=GRIDS):
     else:
         grids = got[0]
     cache.mkdir(parents=True, exist_ok=True)
-    dest.write_text(json.dumps({"code": key, "grids": grids}))
+    gl.write_whole(dest, json.dumps({"code": key, "grids": grids}))
     return loaded_grids(json.loads(json.dumps(grids)))
 
 
@@ -705,14 +705,15 @@ def letters_reader(inbox=gl.SAVED, cache=GRIDS):
         old = cache / f"letters-{keyed(file_key(ts))}.json"
         if not dest.exists() and old.exists():
             old.replace(dest)
-        if not dest.exists():
+        got = gl.read_json(dest)
+        if got is None:
             img, _ = gi.images(gl.page_path(inbox, report["page"]))[report["grid"]["page"]]
             gray = np.asarray(img.convert("L"), dtype=np.uint8)
             got = ts.read_grid_letters(gray, *report["grid"]["lattice"], lts)
             cache.mkdir(parents=True, exist_ok=True)
-            dest.write_text(json.dumps({"letters": [[r, c, ch] for (r, c), ch in got["letters"].items()],
-                                        "full": [[n, d, sorted(ws)] for (n, d), ws in got["full"].items()]}))
-        got = json.loads(dest.read_text())
+            got = {"letters": [[r, c, ch] for (r, c), ch in got["letters"].items()],
+                   "full": [[n, d, sorted(ws)] for (n, d), ws in got["full"].items()]}
+            gl.write_whole(dest, json.dumps(got))
         return {"letters": {(r, c): ch for r, c, ch in got["letters"]},
                 "full": {(n, d): set(ws) for n, d, ws in got["full"]}}
     return read
@@ -809,11 +810,14 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
               + (f", {verdict['reportAnswers']}/{len(puzzle['entries'])} answers read off the report"
                  if "reportAnswers" in verdict else ""), file=out)
     if write:
-        kept = {}
-        if numbers is not None and (store / LEDGER).exists():
-            kept = {int(k): v for k, v in json.loads((store / LEDGER).read_text()).items()}
-        merged = {**kept, **verdicts}
-        (store / LEDGER).write_text(json.dumps({n: merged[n] for n in sorted(merged)}, indent=1) + "\n")
+        # Read, merged and written whole under its lock: units filing at once
+        # (tools/edition_queue.py runs several) keep each other's verdicts.
+        with scan_queue.lock(store / LEDGER, wait_for_it=True):
+            kept = {}
+            if numbers is not None:
+                kept = {int(k): v for k, v in (gl.read_json(store / LEDGER) or {}).items()}
+            merged = {**kept, **verdicts}
+            gl.write_whole(store / LEDGER, json.dumps({n: merged[n] for n in sorted(merged)}, indent=1) + "\n")
     return verdicts
 
 
