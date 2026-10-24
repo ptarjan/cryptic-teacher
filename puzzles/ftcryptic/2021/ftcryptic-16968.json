@@ -22,6 +22,9 @@
   "date": "2021-12-14",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,41 @@
     "text": "Drink distributed in eastern US",
     "enumeration": "9"
    },
-   "solution": "SAUTERNES"
+   "solution": "SAUTERNES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "distributed",
+       "at": 6,
+       "note": "letters distributed are spread about and dealt out afresh, so these are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eastern US",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drink being sold across the eastern United States.",
+     "walkthrough": "'distributed' shuffles the nine letters of EASTERN US; 'in' just joins.",
+     "definitionFit": "Sauternes is a sweet white wine from Bordeaux, so it is a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distributed"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +86,42 @@
     "text": "A little way along, discards a bothersome item of footwear",
     "enumeration": "5"
    },
-   "solution": "SABOT"
+   "solution": "SABOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "item of footwear",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "A little way along",
+       "at": 0,
+       "note": "A little way along says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "discards a bothersome",
+       "at": 20,
+       "gives": "SABOT",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone a short way down the road throws away an annoying shoe.",
+     "definitionFit": "A sabot is a wooden clog, worn especially by French peasants, so a kind of shoe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discards"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +135,50 @@
     "text": "Unqualified — a new Church statement",
     "enumeration": "9"
    },
-   "solution": "UTTERANCE"
+   "solution": "UTTERANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "statement",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Unqualified",
+       "at": 0,
+       "gives": "UTTER",
+       "note": "unqualified as in complete or absolute, like utter"
+      },
+      {
+       "words": "a",
+       "at": 14
+      },
+      {
+       "words": "new",
+       "at": 16,
+       "gives": "N"
+      },
+      {
+       "words": "Church",
+       "at": 20,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church issues an absolute new statement of doctrine.",
+     "definitionFit": "An utterance is something spoken, a remark or declaration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Unqualified"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +192,86 @@
     "text": "President is in from France — what's brought about that? Force ignored at start",
     "enumeration": "10"
    },
-   "solution": "EISENHOWER"
+   "solution": "EISENHOWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "President",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "brought about that",
+         "at": 37,
+         "note": "something brought about another is placed around it, so the exclamation wraps the preceding letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "what's",
+         "at": 30,
+         "gives": "EH",
+         "note": "EH is the exclamation 'what?', what's being read as 'what is'"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "is",
+           "at": 10,
+           "gives": "IS",
+           "note": "taken as written"
+          },
+          {
+           "words": "in from France",
+           "at": 13,
+           "gives": "EN",
+           "note": "EN is the French word for in"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignored at start",
+         "at": 63,
+         "note": "the first letter of the word for force is ignored, dropping its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Force",
+         "at": 57,
+         "gives": "POWER",
+         "note": "power is force or might"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled observer asks what has caused a president to arrive from France.",
+     "walkthrough": "'what's' is read as the puzzled exclamation 'what?', and 'brought about that' means wrapped around the French-tinged letters before it; 'ignored at start' cuts the opening letter of the word for force.",
+     "definitionFit": "Dwight D. Eisenhower was the 34th President of the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brought"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +285,40 @@
     "text": "Beginning northern climb",
     "enumeration": "7"
    },
-   "solution": "NASCENT"
+   "solution": "NASCENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beginning",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "northern",
+       "at": 10,
+       "gives": "N"
+      },
+      {
+       "words": "climb",
+       "at": 19,
+       "gives": "ASCENT",
+       "note": "an ascent is a climb"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Starting the climb up the northern face of a mountain.",
+     "definitionFit": "Nascent describes something just coming into being, an adjective sense of beginning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beginning"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +332,49 @@
     "text": "One with potential beginning to entertain the French",
     "enumeration": "7"
    },
-   "solution": "STARLET"
+   "solution": "STARLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One with potential",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to entertain",
+       "at": 29,
+       "note": "to entertain a guest is to hold them within, so one word goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beginning",
+       "at": 19,
+       "gives": "START",
+       "note": "a beginning is a start"
+      },
+      {
+       "words": "the French",
+       "at": 42,
+       "gives": "LE",
+       "note": "LE is French for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A promising performer starts out by entertaining French audiences.",
+     "definitionFit": "A starlet is a young actress tipped for future stardom, someone with promise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "entertain"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +388,55 @@
     "text": "Officer at sea bawling out sailor upsets newcomers at start",
     "enumeration": "5"
    },
-   "solution": "BOSUN"
+   "solution": "BOSUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Officer at sea",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "at start",
+       "at": 51,
+       "note": "only the start of each of the following words is taken, their opening letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bawling",
+       "at": 15
+      },
+      {
+       "words": "out",
+       "at": 23
+      },
+      {
+       "words": "sailor",
+       "at": 27
+      },
+      {
+       "words": "upsets",
+       "at": 34
+      },
+      {
+       "words": "newcomers",
+       "at": 41
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's officer shouting at a sailor alarms the new recruits.",
+     "definitionFit": "A bosun, or boatswain, is the ship's officer in charge of equipment and crew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +450,51 @@
     "text": "Mixture of, oddly, barley and whiskey",
     "enumeration": "4"
    },
-   "solution": "BREW"
+   "solution": "BREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mixture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 12,
+         "note": "oddly means the odd-numbered letters, the first, third and fifth, are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "barley",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "whiskey",
+       "at": 30,
+       "gives": "W",
+       "note": "Whiskey is the NATO phonetic alphabet word for W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drink blended from barley and whiskey.",
+     "definitionFit": "A brew is a concoction or mixture, often of drinks prepared together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +508,30 @@
     "text": "It might be buttered in historic Scottish place",
     "enumeration": "5"
    },
-   "solution": "SCONE"
+   "solution": "SCONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It might be buttered",
+      "at": 0,
+      "meaning": "a small baked cake often split and buttered"
+     },
+     {
+      "text": "historic Scottish place",
+      "at": 24,
+      "meaning": "... in Perthshire is where Scottish kings were crowned on the Stone of ..."
+     }
+    ],
+    "explanation": {
+     "surface": "Something buttered in an old Scottish town.",
+     "definitionFit": "Both senses share a spelling: a teatime bake, and the ancient Scottish royal coronation site."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +545,42 @@
     "text": "Yet to iron slips, getting reputation?",
     "enumeration": "9"
    },
-   "solution": "NOTORIETY"
+   "solution": "NOTORIETY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reputation",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "slips",
+       "at": 12,
+       "note": "letters that slip slide out of place, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Yet to iron",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has yet to iron their slips worries about their good name.",
+     "walkthrough": "'slips' looks like underwear waiting to be ironed but is the anagram signal; the question mark flags that notoriety is a bad reputation.",
+     "definitionFit": "Notoriety is fame for something bad, an unfavourable kind of reputation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "slips"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +594,51 @@
     "text": "Club has outside somewhere to swim",
     "enumeration": "5"
    },
-   "solution": "BATHS"
+   "solution": "BATHS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "somewhere to swim",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Club",
+       "at": 0,
+       "gives": "BAT",
+       "note": "a bat is a club used in sport"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 9,
+         "note": "only the outside of the word, its first and last letters, is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "has",
+         "at": 5
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports club boasts a pool on its grounds.",
+     "definitionFit": "Public baths are a swimming pool building, a place for swimming."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Club"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +652,64 @@
     "text": "One unfairly blamed is rested, inspiring better English attempt",
     "enumeration": "9"
    },
-   "solution": "SCAPEGOAT"
+   "solution": "SCAPEGOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One unfairly blamed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspiring",
+       "at": 31,
+       "note": "inspiring literally means breathing in, so the other letters are taken inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rested",
+       "at": 23,
+       "gives": "SAT",
+       "note": "to rest on a seat is to sit, past tense sat"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "better",
+         "at": 41,
+         "gives": "CAP",
+         "note": "to cap something is to better or outdo it"
+        },
+        {
+         "words": "English",
+         "at": 48,
+         "gives": "E"
+        },
+        {
+         "words": "attempt",
+         "at": 56,
+         "gives": "GO",
+         "note": "a go is an attempt"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sidelined player who has been rested is spurred to make a better English attempt.",
+     "definitionFit": "A scapegoat is a person made to bear the blame for others' faults."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +723,40 @@
     "text": "Aren't at all trained for dance",
     "enumeration": "10"
    },
-   "solution": "TARANTELLA"
+   "solution": "TARANTELLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "trained",
+       "at": 14,
+       "note": "trained letters are shaped or drilled into a new form, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Aren't at all",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some people are not trained at all for dancing.",
+     "definitionFit": "The tarantella is a fast whirling Italian folk dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trained"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +770,40 @@
     "text": "Successor of Ambassador, Irish",
     "enumeration": "4"
    },
-   "solution": "HEIR"
+   "solution": "HEIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Successor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ambassador",
+       "at": 13,
+       "gives": "HE",
+       "note": "HE, His Excellency, is the title of an ambassador"
+      },
+      {
+       "words": "Irish",
+       "at": 25,
+       "gives": "IR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The successor to an Irish ambassador.",
+     "definitionFit": "An heir is one who succeeds to a title or estate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ambassador"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +817,40 @@
     "text": "New bar pianist widely supported",
     "enumeration": "10"
    },
-   "solution": "BIPARTISAN"
+   "solution": "BIPARTISAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "widely supported",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "New",
+       "at": 0,
+       "note": "a new version of the letters is made, rearranging them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bar pianist",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new pianist in the bar has broad backing.",
+     "definitionFit": "A bipartisan measure has the backing of both main parties, so broad support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +864,41 @@
     "text": "Partner kind with prisoner",
     "enumeration": "7"
    },
-   "solution": "CONSORT"
+   "solution": "CONSORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Partner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "prisoner",
+       "at": 18,
+       "gives": "CON",
+       "note": "a con is a convict, a prisoner"
+      },
+      {
+       "words": "kind",
+       "at": 8,
+       "gives": "SORT",
+       "note": "a kind is a sort"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner's partner is a kind person.",
+     "definitionFit": "A consort is a spouse or companion, especially of a monarch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +912,60 @@
     "text": "Pass over worker scoffing one breakfast item?",
     "enumeration": "9"
    },
-   "solution": "CROISSANT"
+   "solution": "CROISSANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "breakfast item?",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "scoffing",
+         "at": 17,
+         "note": "scoffing means eating up, so one piece is swallowed inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pass over",
+         "at": 0,
+         "gives": "CROSS",
+         "note": "to cross is to pass over"
+        },
+        {
+         "words": "one",
+         "at": 26,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "words": "worker",
+       "at": 10,
+       "gives": "ANT",
+       "note": "the worker ant is the crossword's stock worker"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker wolfs one item at breakfast as he passes by.",
+     "walkthrough": "'scoffing' puts the numeral one inside the word for pass over. The question mark admits this is only one possible breakfast item.",
+     "definitionFit": "A croissant is a flaky crescent roll typically eaten at breakfast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scoffing"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +979,60 @@
     "text": "First loch to feature in article — it's emblematic",
     "enumeration": "7"
    },
-   "solution": "THISTLE"
+   "solution": "THISTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's emblematic",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to feature in",
+       "at": 11,
+       "note": "to feature in something is to appear inside it, so these letters go within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "article",
+       "at": 25,
+       "gives": "THE",
+       "note": "the is the definite article"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "First",
+         "at": 0,
+         "gives": "IST",
+         "note": "1ST is written for first, the 1 read as the letter I"
+        },
+        {
+         "words": "loch",
+         "at": 6,
+         "gives": "L",
+         "note": "L is a map abbreviation for loch"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The leading loch appears in a magazine article as a symbol.",
+     "walkthrough": "'First' gives 1ST with the numeral read as I. 'to feature in' puts ISTL inside THE.",
+     "definitionFit": "The thistle is the national emblem of Scotland, so it is emblematic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1056,49 @@
      }
     ]
    },
-   "solution": "TETEATETE"
+   "solution": "TETEATETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "private conversation?",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 21,
+       "note": "the notes go about the letter, wrapping around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Four identical notes",
+       "at": 0,
+       "gives": "TETETETE",
+       "note": "TE is the seventh note of the sol-fa scale, written four times"
+      },
+      {
+       "words": "a",
+       "at": 27,
+       "gives": "A"
+      }
+     ]
+    },
+    "spelling": "TÊTE À TÊTE",
+    "explanation": {
+     "surface": "A musical phrase of four repeated notes about a secret chat.",
+     "walkthrough": "'about' puts A in the middle of TETE TETE.",
+     "definitionFit": "A tête-à-tête is a private talk between two people, French for head to head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1112,61 @@
     "text": "Finished first helpings of everything at table? Pig!",
     "enumeration": "7"
    },
-   "solution": "OVEREAT"
+   "solution": "OVEREAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pig",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Finished",
+       "at": 0,
+       "gives": "OVER",
+       "note": "over means finished or ended"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first helpings of",
+         "at": 9,
+         "note": "the first helpings of the words are their opening letters only"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everything",
+         "at": 27
+        },
+        {
+         "words": "at",
+         "at": 38
+        },
+        {
+         "words": "table",
+         "at": 41
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finished first and then took a second helping of everything on the table: a pig!",
+     "walkthrough": "'Pig!' is a verb here, to pig out.",
+     "definitionFit": "To pig is to eat greedily, so to stuff oneself beyond need."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pig"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1180,32 @@
     "text": "They might poke fun at posers?",
     "enumeration": "7"
    },
-   "solution": "TEASERS"
+   "solution": "TEASERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They might poke fun at",
+      "at": 0,
+      "meaning": "people who tease, mocking others"
+     },
+     {
+      "text": "posers",
+      "at": 23,
+      "meaning": "a poser is a puzzling question, and so is a teaser"
+     }
+    ],
+    "explanation": {
+     "surface": "Mockers who might laugh at show-offs.",
+     "walkthrough": "'posers' looks like people striking poses, but it is the puzzle sense.",
+     "definitionFit": "Both senses fit: teasers mock people, and brain-teasers are tricky puzzles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "posers"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1219,65 @@
     "text": "Eerie with first appearance of antipathy for love? Horrible!",
     "enumeration": "7"
    },
-   "solution": "GHASTLY"
+   "solution": "GHASTLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Horrible",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 41,
+       "note": "for means one letter is put in place of another, a swap"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Eerie",
+       "at": 0,
+       "gives": "GHOSTLY",
+       "note": "ghostly means eerie"
+      },
+      {
+       "words": "love",
+       "at": 45,
+       "gives": "O",
+       "note": "love is zero in tennis, O"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first appearance of",
+         "at": 11,
+         "note": "the first appearance of the word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "antipathy",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eerie dislike instead of love: how horrible!",
+     "walkthrough": "'for' swaps the O in GHOSTLY for A from antipathy.",
+     "definitionFit": "Ghastly means horrible or shockingly unpleasant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1291,52 @@
     "text": "Brilliance of ultimately charming new arrivals?",
     "enumeration": "7"
    },
-   "solution": "GLITTER"
+   "solution": "GLITTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brilliance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 14,
+         "note": "ultimately means at the end, so the last letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "charming",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "new arrivals",
+       "at": 34,
+       "gives": "LITTER",
+       "note": "a litter is a batch of newborn animals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The brilliance of some delightful newborns.",
+     "walkthrough": "The question mark flags new arrivals as newborn puppies or kittens.",
+     "definitionFit": "Glitter is sparkle, a dazzling shine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrivals"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1350,39 @@
     "text": "Disadvantage of small horse",
     "enumeration": "4"
    },
-   "solution": "SNAG"
+   "solution": "SNAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disadvantage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "at": 16,
+       "gives": "S"
+      },
+      {
+       "words": "horse",
+       "at": 22,
+       "gives": "NAG",
+       "note": "a nag is an old horse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The drawback of a little horse.",
+     "definitionFit": "A snag is a hitch or drawback."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1396,42 @@
     "text": "Place to walk one's going to by the sound of it",
     "enumeration": "5"
    },
-   "solution": "AISLE"
+   "solution": "AISLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Place to walk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "AISLE",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "at": 29,
+       "note": "by the sound of it says the word is identified by how it is spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one's going to",
+       "at": 14,
+       "gives": "ILL",
+       "note": "I'LL, short for I will, means I am going to"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone announcing they will walk somewhere.",
+     "definitionFit": "An aisle is a passage between rows of seats, a walkway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1445,53 @@
     "text": "After graduate comes to essential point, assess court official",
     "enumeration": "10"
    },
-   "solution": "MAGISTRATE"
+   "solution": "MAGISTRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "court official",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "After means the next piece follows the graduate in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "graduate",
+       "at": 6,
+       "gives": "MA",
+       "note": "MA is a Master of Arts graduate"
+      },
+      {
+       "words": "essential point",
+       "at": 24,
+       "gives": "GIST",
+       "note": "the gist is the essential point"
+      },
+      {
+       "words": "assess",
+       "at": 41,
+       "gives": "RATE",
+       "note": "to rate is to assess"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once a graduate gets to the crux, a court official must assess it.",
+     "definitionFit": "A magistrate is a judicial officer who hears cases in a lower court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1505,39 @@
     "text": "Contest on equal footing over time",
     "enumeration": "5"
    },
-   "solution": "EVENT"
+   "solution": "EVENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on equal footing",
+       "at": 8,
+       "gives": "EVEN",
+       "note": "level or even"
+      },
+      {
+       "words": "time",
+       "at": 30,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A competition fairly balanced over time.",
+     "definitionFit": "An event is a sporting competition, a contest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1551,30 @@
     "text": "Meander, getting trade maybe",
     "enumeration": "4"
    },
-   "solution": "WIND"
+   "solution": "WIND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meander",
+      "at": 0,
+      "meaning": "to twist and turn, meandering"
+     },
+     {
+      "text": "trade maybe",
+      "at": 17,
+      "meaning": "a trade ... is one kind of ..."
+     }
+    ],
+    "explanation": {
+     "surface": "Wandering about and picking up some business.",
+     "definitionFit": "Both senses fit: the verb, twisting along; and the noun, air currents such as trade winds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "trade"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1588,49 @@
     "text": "Avoiding pub maybe, not present to receive money",
     "enumeration": "9"
    },
-   "solution": "ABSTINENT"
+   "solution": "ABSTINENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Avoiding pub maybe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to receive",
+       "at": 32,
+       "note": "to receive is to take in, so the money goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not present",
+       "at": 20,
+       "gives": "ABSENT",
+       "note": "absent means not present"
+      },
+      {
+       "words": "money",
+       "at": 43,
+       "gives": "TIN",
+       "note": "tin is slang for money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone skipping the pub, not there to collect cash.",
+     "walkthrough": "'tin' is old British slang for money.",
+     "definitionFit": "Abstinent means refraining from drink, so a teetotaller avoids the pub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "receive"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1644,43 @@
     "text": "At audition rocked in leather",
     "enumeration": "5"
    },
-   "solution": "SUEDE"
+   "solution": "SUEDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "leather",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SUEDE",
+     "indicators": [
+      {
+       "text": "At audition",
+       "at": 0,
+       "note": "audition is hearing, so the word is identified by how it is spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rocked",
+       "at": 12,
+       "gives": "SWAYED",
+       "note": "swayed means rocked from side to side"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer at an audition rocking out in leather.",
+     "definitionFit": "Suede is leather with a napped surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audition"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1694,50 @@
     "text": "Review of rent day to be widely discussed online",
     "enumeration": "5"
    },
-   "solution": "TREND"
+   "solution": "TREND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to be widely discussed online",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Review of",
+         "at": 0,
+         "note": "a review re-views and revises, so the letters are reworked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rent",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "day",
+       "at": 15,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rent review day becomes a hot topic on the internet.",
+     "definitionFit": "To trend is to become a popular topic on social media."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Review"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1751,52 @@
     "text": "Tough owner's horses, not half-decent",
     "enumeration": "9"
    },
-   "solution": "STRINGENT"
+   "solution": "STRINGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tough",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "owner's horses",
+       "at": 6,
+       "gives": "STRING",
+       "note": "a string is the set of racehorses belonging to one owner or stable"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "not half-",
+         "at": 22,
+         "note": "not half says only half of the word stays, here its closing portion"
+        }
+       ],
+       "parts": [
+        {
+         "words": "decent",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An owner's racehorses that are not even half-decent are a tough prospect.",
+     "walkthrough": "In horse racing a string is the set of racehorses kept by one owner or stable.",
+     "definitionFit": "Stringent means strict or rigorous, demanding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "horses"
+    }
+   }
   }
  ]
 }
