@@ -643,31 +643,30 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "turned",
+         "text": "turned around",
          "at": 9,
-         "note": "turned tells us to read the restored word from its last letter to its first"
+         "note": "turned around tells us to read the restored word from its last letter to its first"
         }
        ],
        "parts": [
         {
          "op": "container",
-         "indicators": [
-          {
-           "text": "around",
-           "at": 16,
-           "note": "around puts the returned letter back inside the rest of the word, where it belongs"
-          }
-         ],
          "parts": [
           {
-           "words": "bust",
-           "at": 24,
-           "gives": "BUS",
-           "note": "the printed word has had its T moved to the end, so in place it gives only BUS; the T belongs between U and S, making buts, as in ifs and buts"
+           "op": "deletion",
+           "parts": [
+            {
+             "words": "bust",
+             "at": 24,
+             "note": "the printed word has had its T moved to the end; put back where it belongs it is buts, as in ifs and buts"
+            },
+            {
+             "gives": "T"
+            }
+           ]
           },
           {
-           "gives": "T",
-           "note": "the moved letter, returned to its proper place, as the preamble directs"
+           "gives": "T"
           }
          ]
         }
@@ -688,7 +687,7 @@
     },
     "explanation": {
      "surface": "A local man has turned round a play about a police raid into something for the unions.",
-     "walkthrough": "One of the preamble's moved-letter clues: 'bust' is really 'buts', whose T has moved to the end. Restored and 'turned', BUTS gives STUB; then NO, the Japanese drama, goes 'for' TU, and SNOB is entered with its letters shifted as NOSB.",
+     "walkthrough": "'bust' is 'buts' with its T moved to the end; restored and 'turned around' it gives STUB, and with NO (the Japanese drama) 'for' TU (trade union) it becomes SNOB, entered as NOSB.",
      "definitionFit": "In Cambridge university slang a snob was a townsman, someone not a member of the university."
     },
     "features": {

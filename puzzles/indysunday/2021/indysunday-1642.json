@@ -767,34 +767,39 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
+     "op": "container",
      "indicators": [
       {
-       "text": "I sent back",
-       "at": 20,
+       "text": "sent back",
+       "at": 22,
        "note": "the letter I in the French word is sent further back, a couple of places towards the end of the word"
       }
      ],
      "parts": [
       {
-       "words": "Small piece of meat",
-       "at": 0,
-       "gives": "MEDAILLON",
-       "note": "a médaillon is the French culinary term for a small round cut of meat, spelt with an extra letter compared with the English word"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Small piece of meat",
+         "at": 0,
+         "gives": "MEDAILLON",
+         "note": "a médaillon is the French culinary term for a small round cut of meat, spelt with an extra letter compared with the English word"
+        },
+        {
+         "gives": "I",
+         "note": "taken as written: the letter that is moved"
+        }
+       ]
       },
       {
-       "gives": "ILL",
-       "note": "the stretch of the French word holding the I before the double L"
-      },
-      {
-       "gives": "LLI",
-       "note": "the same stretch once the I has moved two places back"
+       "words": "I",
+       "at": 20
       }
      ]
     },
     "explanation": {
      "surface": "A diner returns a tiny portion of meat, complaining it is merely a garnish.",
-     "walkthrough": "Take the French MEDAILLON; 'I sent back' moves its I two places towards the end, so ILL becomes LLI and the word reads MEDALLION. The surface suggests a restaurant complaint, but 'sent back' is the moving instruction.",
+     "walkthrough": "Take the French MEDAILLON and move its I two places back to give MEDALL-I-ON. The surface suggests a restaurant complaint, but 'sent back' is the moving instruction.",
      "definitionFit": "A medallion is a large ornamental disc or pendant worn purely as an adornment."
     },
     "features": {

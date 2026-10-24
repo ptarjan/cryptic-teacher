@@ -1674,34 +1674,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IRISES",
-     "indicators": [
-      {
-       "text": "feature in",
-       "note": "to feature in something is to appear within it, so the run sits inside the words and their outer letters are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "unchecked": true,
-       "gives": "IRISES",
+       "words": "Girl",
+       "at": 0,
+       "gives": "IRIS",
+       "note": "Iris is a girl's name"
+      },
+      {
+       "op": "deletion",
        "parts": [
         {
-         "words": "Girl is essential",
-         "gives": "IRLISES",
-         "note": "the run of letters inside these words, with the outer letters dropped"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "feature in",
+           "at": 18,
+           "note": "to feature in something is to appear inside it, so the S sits within the outer pair"
+          }
+         ],
+         "parts": [
+          {
+           "op": "outer",
+           "parts": [
+            {
+             "words": "essential",
+             "at": 8,
+             "note": "the outer letters of essential, its first and last"
+            }
+           ]
+          },
+          {
+           "words": "is",
+           "at": 5,
+           "gives": "S",
+           "note": "is shortens to 's, as in it's"
+          }
+         ]
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A girl is a key element in one of Van Gogh's canvases.",
-     "walkthrough": "Iris looks like the girl, but the letters are concealed across the words, giving IRLISES; the L is this clue's surplus, leaving the answer.",
-     "definitionFit": "Irises is the 1889 painting of blue flowers Van Gogh made at the asylum in Saint-Rémy."
+     "surface": "An art guide saying that a girl is the key element of one of Van Gogh's canvases.",
+     "walkthrough": "S goes inside EL, the ends of essential, giving ESL after IRIS. The surplus L goes to the preamble's message, leaving IRISES.",
+     "definitionFit": "Irises is Van Gogh's 1889 canvas of purple flowers, painted at the asylum in Saint-Rémy."
     },
     "features": {
      "answerInScene": true,

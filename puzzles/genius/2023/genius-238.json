@@ -243,42 +243,64 @@
    },
    "solution": "WORDASSOCIATION",
    "annotation": {
-    "definedByPreamble": true,
+    "definitions": [
+     {
+      "text": "Criminal doctor is/was recipient of a charge",
+      "at": 0
+     }
+    ],
     "wordplay": {
      "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "Criminal",
-         "at": 0,
-         "note": "criminal suggests something bent or crooked, so the letters are rearranged"
+         "text": "recipient of",
+         "at": 23,
+         "note": "recipient of means the anagram receives the next letter inside it"
         }
        ],
        "parts": [
         {
-         "words": "doctor is/was",
-         "at": 9,
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Criminal",
+           "at": 0,
+           "note": "criminal means the letters of the following words are corrupted into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "doctor",
+           "at": 9
+          },
+          {
+           "words": "is/was",
+           "at": 16,
+           "note": "both words are taken as written, letters and all"
+          }
+         ]
         },
         {
-         "gives": "A"
+         "words": "a",
+         "at": 36
         }
        ]
       },
       {
-       "words": "recipient of a charge",
-       "at": 23,
+       "words": "charge",
+       "at": 38,
        "gives": "ION",
-       "note": "an ion is an atom that has gained or lost electric charge"
+       "note": "an ion is an atom carrying an electric charge"
       }
      ]
     },
     "explanation": {
-     "surface": "A crooked doctor who is, or was, being charged with an offence.",
-     "walkthrough": "The preamble says this solution is not defined: it is one of the two thematic hints. 'Criminal' rearranges DOCTOR IS WAS plus A into WORD ASSOCIAT, and ION follows. The 'a' serves both the anagram and the ion phrase. In each linked pair the second meaning is associated with an anagram of the word: a word association.",
-     "definitionFit": "Word association is the game or technique of answering one word with the first word it brings to mind."
+     "surface": "A news line about a crooked medic who is, or was, on the receiving end of a criminal charge.",
+     "walkthrough": "The preamble says this answer is not defined: the clue is pure wordplay. The answer is half the theme: each linked clue's second definition goes with a different word, made from the same letters.",
+     "definitionFit": "Word association is the game of answering one word with the first related word that comes to mind, the link between each linked answer's two definitions."
     },
     "features": {
      "answerInScene": false,
@@ -928,20 +950,28 @@
      }
     ],
     "wordplay": {
-     "op": "move",
+     "op": "container",
      "indicators": [
       {
-       "text": "delayed",
+       "text": "delayed in",
        "at": 4,
-       "note": "delayed means the letter comes later in the word than it did"
+       "note": "delayed means the S for son turns up one place later than it did in the word for exams"
       }
      ],
      "parts": [
       {
-       "words": "another lot of exams",
-       "at": 15,
-       "gives": "RESITS",
-       "note": "resits are exams taken again"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "another lot of exams",
+         "at": 15,
+         "gives": "RESITS",
+         "note": "resits are exams taken again after failing"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
        "words": "Son",
@@ -951,9 +981,9 @@
      ]
     },
     "explanation": {
-     "surface": "A son put back to another round of exams goes sour about it.",
-     "walkthrough": "'delayed' moves the first S of RESITS one place later. Reist is a dialect verb used of bacon going off.",
-     "definitionFit": "To reist, in Scots and northern dialect, is to turn rancid, as salted meat does when it spoils."
+     "surface": "A student who keeps resitting exams finally goes sour.",
+     "walkthrough": "Reist is a Scots and dialect word, used of bacon, meaning to go rancid; Chambers also spells it reest.",
+     "definitionFit": "To reist is a dialect verb for bacon or meat going off and turning rank."
     },
     "features": {
      "answerInScene": false,
@@ -986,27 +1016,71 @@
    },
    "solution": "SPOILTFORCHOICE",
    "annotation": {
-    "definedByPreamble": true,
+    "definitions": [
+     {
+      "text": "Chief cook failing to finish recipe (by implication)",
+      "at": 0
+     }
+    ],
     "wordplay": {
-     "op": "reverse",
-     "reading": "SPOILT + FOR CHOICE",
+     "op": "charade",
      "parts": [
       {
-       "words": "Chief cook failing to finish recipe",
-       "at": 0,
-       "note": "CHIEF, COO (cook without its last letter) and R (recipe) together are the letters of FOR CHOICE spoilt, that is rearranged"
+       "gives": "SPOILT"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "(by implication)",
+         "at": 36,
+         "note": "by implication means this is a reverse clue: the answer itself, read as a cryptic instruction, implies the clue words as an anagram"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chief",
+         "at": 0
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "failing to finish",
+           "at": 11,
+           "note": "failing to finish means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cook",
+           "at": 6,
+           "note": "the word supplies its first three letters"
+          },
+          {
+           "gives": "K"
+          }
+         ]
+        },
+        {
+         "words": "recipe",
+         "at": 29,
+         "gives": "R",
+         "note": "R is the abbreviation for recipe, Latin for 'take', on prescriptions"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A head chef who never completes a dish's instructions.",
-     "walkthrough": "The preamble says this solution is not defined: it is a thematic hint. Read as wordplay it means the letters of FOR CHOICE muddled, which is what the clue spells; the anagram signal is in the answer, hence 'by implication'. R is the doctor's abbreviation for recipe, take.",
-     "definitionFit": "To be spoilt for choice is to have so many options that choosing is hard; here each chosen word has been spoilt into another."
+     "surface": "A head chef never quite completes the recipe, or so it is implied.",
+     "walkthrough": "Read the answer as a clue: SPOILT is an anagram signal and FOR CHOICE is the fodder, which rearranges to CHIEF, COO and R. The preamble says this answer is not defined.",
+     "definitionFit": "Spoilt for choice means having so many options that choosing is hard, as each linked clue offers two definitions."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cook"
+     "misdirectedWord": "Chief"
     }
    }
   },

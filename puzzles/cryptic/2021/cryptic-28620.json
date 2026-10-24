@@ -1440,22 +1440,24 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "twice",
-       "at": 8,
-       "note": "twice says the state's abbreviation is written down two times in a row"
-      }
-     ],
      "parts": [
       {
-       "words": "Georgia",
-       "at": 0,
-       "gives": "GA",
-       "note": "GA is the abbreviation for the US state of Georgia"
-      },
-      {
-       "gives": "GA"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 8,
+         "note": "twice says the abbreviation is used two times in a row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Georgia",
+         "at": 0,
+         "gives": "GA",
+         "note": "GA is the postal abbreviation for the US state of Georgia"
+        }
+       ]
       },
       {
        "words": "runs",
@@ -1472,11 +1474,12 @@
      ]
     },
     "explanation": {
-     "surface": "A traveller from Georgia dashes home twice in a race.",
-     "definitionFit": "Yuri Gagarin was the first human in space in 1961, a true trailblazing aviator."
+     "surface": "A Georgian flyer twice runs home in a pioneering feat.",
+     "walkthrough": "'twice' gives GAGA.",
+     "definitionFit": "Yuri Gagarin was a Soviet cosmonaut and the first human to fly into space."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Georgia"
     }

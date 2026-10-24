@@ -1326,26 +1326,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "shifting last of swag",
+       "text": "shifting",
        "at": 18,
-       "note": "the final letter of swag is the G, and shifting it means moving it to a new spot in the word, a minimal rearrangement"
+       "note": "shifting means moving to another spot, so that letter is taken out and put back one place along"
       }
      ],
      "parts": [
       {
-       "words": "rapscallion",
-       "at": 6,
-       "gives": "ROGUE",
-       "note": "a rapscallion is a rascal or rogue"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "rapscallion",
+         "at": 6,
+         "gives": "ROGUE",
+         "note": "a rapscallion is a rascal or rogue"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 27,
+           "note": "last of points to the final letter of the word swag"
+          }
+         ],
+         "parts": [
+          {
+           "words": "swag",
+           "at": 35,
+           "note": "its last letter is G"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
      "surface": "A red-faced scoundrel is moving the last of his loot.",
-     "walkthrough": "'shifting last of swag' tells you to move the G (the end of swag) inside ROGUE one place along, so ROGUE becomes ROU-G-E. Rouge is French for red.",
+     "walkthrough": "'shifting' moves G ('last of swag') within ROGUE: lift it out to leave ROUE, then put it back one place later. Rouge is French for red.",
      "definitionFit": "Rouge is red make-up and, from French, the colour red, so it matches a ruddy, reddish complexion."
     },
     "features": {

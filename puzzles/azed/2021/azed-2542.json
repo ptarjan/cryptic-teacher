@@ -1463,31 +1463,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
        "text": "alternates with",
        "at": 28,
-       "note": "the letters of the two words are not joined end to end but set in turn, one from each, which gives a new order of their pooled letters"
+       "note": "the letters of the two words are slotted in turn, one from each, so each of the second word's letters goes between two of the first's"
       }
      ],
      "parts": [
       {
-       "words": "Sign",
-       "at": 23,
-       "gives": "LEO",
-       "note": "Leo, the lion, is a sign of the zodiac"
+       "op": "container",
+       "parts": [
+        {
+         "words": "Sign",
+         "at": 23,
+         "gives": "LEO",
+         "note": "Leo, the lion, is a sign of the zodiac"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "it",
+           "at": 44,
+           "note": "the two letters of it, placed one at a time between the letters of the zodiac sign"
+          }
+         ]
+        }
+       ]
       },
       {
-       "words": "it",
-       "at": 44
+       "op": "last",
+       "parts": [
+        {
+         "words": "it",
+         "at": 44
+        }
+       ]
       }
      ]
     },
-    "spelling": "LIE TO",
     "explanation": {
      "surface": "A sailor checks the omens: a star sign keeps alternating with something else.",
-     "walkthrough": "'alternates with' interleaves the letters: L from LEO, I from IT, E, T, O. Lie to is a sailing term: a ship lies to when it is held almost stationary, head to the wind.",
+     "walkthrough": "The letters of LEO and IT interleave, L-I-E-T-O. Lie to is a sailing term: a ship lies to when it is held almost stationary, head to the wind.",
      "definitionFit": "A ship lying to is brought to a standstill with its head to the wind, so its progress through the water stops."
     },
     "features": {

@@ -496,7 +496,7 @@
      }
     ],
     "wordplay": {
-     "op": "composite",
+     "op": "anagram",
      "indicators": [
       {
        "text": "being represented",
@@ -506,20 +506,29 @@
      ],
      "parts": [
       {
-       "words": "appreciate",
-       "at": 4
-      },
-      {
-       "words": "90%",
-       "at": 0,
-       "gives": "E",
-       "note": "taking 90% of the ten-letter word means its final tenth, the last letter, is left out of the mix"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "90%",
+         "at": 0,
+         "note": "90% of a ten-letter word means it loses one of its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "appreciate",
+         "at": 4
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "Nine-tenths of people value being given a voice.",
-     "walkthrough": "'90%' keeps nine of the ten letters of 'appreciate', dropping an E; 'being represented' rearranges the rest.",
+     "walkthrough": "'90%' drops one E from APPRECIATE, leaving nine letters to rearrange.",
      "definitionFit": "Per capita is Latin for 'by heads', meaning for each person."
     },
     "features": {

@@ -1159,36 +1159,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "raving",
-       "at": 16,
-       "note": "raving means wild and disordered, so the letters of at me are jumbled"
-      },
-      {
-       "text": "in first half",
-       "at": 29,
-       "note": "says that the first jumble of those letters fills the first half of the answer"
-      },
-      {
-       "text": "otherwise in second",
-       "at": 44,
-       "note": "otherwise asks for the same letters arranged a different way to fill the second half"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "at me",
-       "at": 23,
-       "gives": "ATMEATME",
-       "note": "taken as written, but its four letters are used twice, once for each half of the answer"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "raving",
+         "at": 16,
+         "note": "raving means wild and disordered, so the letters of at me are jumbled for the first half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at me",
+         "at": 23,
+         "note": "taken as written, its letters to be rearranged for each half"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "otherwise",
+         "at": 44,
+         "note": "otherwise asks for the same letters arranged a different way for the second half"
+        }
+       ],
+       "parts": [
+        {
+         "gives": "ATME"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A sports player complains about a teammate shouting at them in the first half and behaving differently after the break.",
-     "walkthrough": "The same four letters of 'at me' are used twice: 'raving' jumbles them into TEAM 'in first half', and 'otherwise in second' rearranges them again into MATE for the second half.",
+     "walkthrough": "The same four letters of 'at me' are used twice: 'raving' makes TEAM, and 'otherwise' rearranges them again into MATE. 'in first half' and 'in second' say which half each goes in.",
      "definitionFit": "A teammate is a fellow member of the same team or side."
     },
     "features": {
