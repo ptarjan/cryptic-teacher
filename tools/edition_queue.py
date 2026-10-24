@@ -2853,7 +2853,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             queue_memo[:] = [sig, q, qkeys, qslots, last_of, cands,
                              [(v, key_of(v)) for v in fresh_reads + reads if slot_of(v) == "read"], lists,  # lists held: no id reused
                              frozenset(first_at), first_at,
-                             frozenset(k for k, sl in zip(qkeys, qslots) if sl != "listener" and not sl.startswith("fetch ")),
+                             # A whole-corpus re-read (fa.BLANKET) waits behind the Listener's due reads anyway, so it
+                             # is not "other work due": 10-24 five held FT/Guardian --reread units kept the pool at 8
+                             # of 24 slots while it, in turn, held them (load 8, one File in 25 min).
+                             frozenset(k for u, k, sl in zip(q, qkeys, qslots) if sl != "listener" and not sl.startswith("fetch ")
+                                       and (u["rank"] < fa.BLANKET or newest_first(u))),
                              frozenset(k for k, sl in zip(qkeys, qslots) if sl == "listener")]
         (_, queue, qkeys, qslots, last_of, urgent_cands, read_cands, _, urgent_keys, urgent_first,
          other_keys, listener_keys) = queue_memo
