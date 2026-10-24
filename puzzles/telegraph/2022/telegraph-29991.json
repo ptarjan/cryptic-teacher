@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,59 @@
      }
     ]
    },
-   "solution": "PORKPIE"
+   "solution": "PORKPIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "snack",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Stuffed with",
+       "at": 0,
+       "note": "the jumbled letters are filled with the zero-score letter, like a stuffed pastry"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 26,
+         "note": "something cooked is altered from its raw state, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kipper",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "duck",
+       "at": 13,
+       "gives": "O",
+       "note": "a duck in cricket is a score of nothing, the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook making a snack from a kipper stuffed with duck meat.",
+     "walkthrough": "'cooked' turns KIPPER into PORKPIE without its O, and 'Stuffed with' puts O (a cricket duck, a score of zero) inside.",
+     "definitionFit": "A pork pie is a British savoury pastry commonly eaten as a light meal or picnic bite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +105,59 @@
     "text": "Vain Englishman and American crossing river",
     "enumeration": "7"
    },
-   "solution": "POMPOUS"
+   "solution": "POMPOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "at": 29,
+       "note": "the two nationalities straddle the river, as if bridging it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Englishman",
+         "at": 5,
+         "gives": "POM",
+         "note": "Pom is Australian slang for an English person"
+        },
+        {
+         "words": "American",
+         "at": 20,
+         "gives": "US",
+         "note": "US means American"
+        }
+       ]
+      },
+      {
+       "words": "river",
+       "at": 38,
+       "gives": "PO",
+       "note": "the Po is Italy's longest river"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conceited Brit and Yank wade over a river.",
+     "walkthrough": "Pom is Australian and New Zealand slang for an English person.",
+     "definitionFit": "Pompous people are self-important and puffed up, i.e. full of vanity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +171,43 @@
     "text": "Sheep bit castle defenders here?",
     "enumeration": "7"
    },
-   "solution": "RAMPART"
+   "solution": "RAMPART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "castle defenders here?",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sheep",
+       "at": 0,
+       "gives": "RAM",
+       "note": "a ram is a male sheep"
+      },
+      {
+       "words": "bit",
+       "at": 6,
+       "gives": "PART",
+       "note": "a part is a bit of something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sheep took a bite at the castle's defenders.",
+     "walkthrough": "'bit' looks like the past tense of bite; it is a noun meaning a piece.",
+     "definitionFit": "A rampart is the defensive wall of a castle, where its guards would stand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +221,49 @@
     "text": "Verifying which six must leave tip?",
     "enumeration": "5"
    },
-   "solution": "PRONG"
+   "solution": "PRONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tip",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "must leave",
+       "at": 20,
+       "note": "the Roman six has to depart from the word, so it is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Verifying",
+       "at": 0,
+       "gives": "PROVING",
+       "note": "proving means verifying"
+      },
+      {
+       "words": "six",
+       "at": 16,
+       "gives": "VI",
+       "note": "VI is six in Roman numerals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question of which six people have to quit while ahead.",
+     "walkthrough": "Removing VI from PROVING leaves the answer.",
+     "definitionFit": "A prong is a pointed tip, as on a fork."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +277,77 @@
     "text": "Unfinished Harper Lee novel about month passing",
     "enumeration": "9"
    },
-   "solution": "EPHEMERAL"
+   "solution": "EPHEMERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "passing",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 28,
+       "note": "the reworked letters sit about the month letter, surrounding it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "novel",
+         "at": 22,
+         "note": "novel means new, so these letters are formed afresh in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Unfinished",
+           "at": 0,
+           "note": "unfinished means lacking its end, so the final letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Harper",
+           "at": 11
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        },
+        {
+         "words": "Lee",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "month",
+       "at": 34,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An incomplete Harper Lee book concerning a month going by.",
+     "walkthrough": "'novel' poses as a book; it is the anagram signal, rearranging HARPELEE (HARPE after 'Unfinished' trims it, plus LEE) around M, placed by 'about'.",
+     "definitionFit": "Ephemeral things are fleeting, lasting only a short while before fading away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +361,53 @@
     "text": "France goalie, beaten, leaves",
     "enumeration": "7"
    },
-   "solution": "FOLIAGE"
+   "solution": "FOLIAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "leaves",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "France",
+       "at": 0,
+       "gives": "F",
+       "note": "F is the international vehicle code for France"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "beaten",
+         "at": 15,
+         "note": "beaten means battered out of shape, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "goalie",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French goalkeeper, defeated, walks off the pitch.",
+     "walkthrough": "'leaves' looks like a verb about the beaten goalie departing; it is the plural noun. 'beaten' rearranges GOALIE into OLIAGE.",
+     "definitionFit": "Foliage is the collective growth of a plant's leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +421,53 @@
     "text": "Father now struggling to make headlines?",
     "enumeration": "5"
    },
-   "solution": "FROWN"
+   "solution": "FROWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "make headlines?",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Father",
+       "at": 0,
+       "gives": "FR",
+       "note": "FR is the abbreviation for Father, a priest's title"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "struggling",
+         "at": 11,
+         "note": "struggling suggests writhing about, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "now",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest now battling to get into the news.",
+     "walkthrough": "'headlines' are not news but lines on the head: a frown wrinkles the forehead.",
+     "definitionFit": "Frowning creases the brow, literally producing lines across one's forehead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "headlines"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +481,65 @@
     "text": "Through time, hard to stop gaunt monster",
     "enumeration": "9"
    },
-   "solution": "LEVIATHAN"
+   "solution": "LEVIATHAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "monster",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to stop",
+       "at": 19,
+       "note": "to stop a gap is to plug it, so these letters plug the gaunt word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gaunt",
+       "at": 27,
+       "gives": "LEAN",
+       "note": "lean means thin or gaunt"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Through",
+         "at": 0,
+         "gives": "VIA",
+         "note": "via means through or by way of"
+        },
+        {
+         "words": "time",
+         "at": 8,
+         "gives": "T"
+        },
+        {
+         "words": "hard",
+         "at": 14,
+         "gives": "H",
+         "note": "H is the abbreviation for hard, as on pencils"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Over time a starved beast becomes hard to halt.",
+     "walkthrough": "'to stop' reads as halting the monster; it means plugging a gap, the inner letters filling the thin word.",
+     "definitionFit": "The Leviathan is a biblical sea beast, and the word now means any colossal creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +553,31 @@
     "text": "Second drink from anonymous person?",
     "enumeration": "7"
    },
-   "solution": "ANOTHER"
+   "solution": "ANOTHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Second drink",
+      "at": 0,
+      "meaning": "asking for ... means ordering a further round"
+     },
+     {
+      "text": "anonymous person?",
+      "at": 18,
+      "meaning": "... is the British placeholder name for an unnamed person, as on team sheets"
+     }
+    ],
+    "explanation": {
+     "surface": "Ordering a refill from a stranger.",
+     "walkthrough": "A. N. Other is the British stand-in name for a player or person not yet named.",
+     "definitionFit": "Another is both a further glass and, spaced out, the stock name for someone unidentified."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +591,41 @@
     "text": "Being in German city church",
     "enumeration": "7"
    },
-   "solution": "ESSENCE"
+   "solution": "ESSENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "German city",
+       "at": 9,
+       "gives": "ESSEN",
+       "note": "Essen is a city in Germany's Ruhr region"
+      },
+      {
+       "words": "church",
+       "at": 21,
+       "gives": "CE",
+       "note": "CE stands for the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Attending church in a German city.",
+     "definitionFit": "Essence in philosophy is the inner nature or being of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Being"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +639,59 @@
     "text": "Enormous insect covering a small distance",
     "enumeration": "7"
    },
-   "solution": "MAMMOTH"
+   "solution": "MAMMOTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Enormous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 16,
+       "note": "the insect word sits over and around the other letters, covering them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "insect",
+       "at": 9,
+       "gives": "MOTH",
+       "note": "a moth is an insect"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 25,
+         "gives": "A"
+        },
+        {
+         "words": "small distance",
+         "at": 27,
+         "gives": "MM",
+         "note": "MM is the abbreviation for millimetre, a tiny length"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge bug spanning only a tiny gap.",
+     "walkthrough": "'a small distance' gives A plus MM, the millimetre abbreviation, not a single letter.",
+     "definitionFit": "Mammoth used as an adjective means gigantic, after the extinct elephant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +705,29 @@
     "text": "Clear but not subtle",
     "enumeration": "7"
    },
-   "solution": "OBVIOUS"
+   "solution": "OBVIOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0,
+      "meaning": "... in the sense of plain to see"
+     },
+     {
+      "text": "not subtle",
+      "at": 10,
+      "meaning": "... in the sense of heavy-handed, lacking finesse"
+     }
+    ],
+    "explanation": {
+     "surface": "Plain, yet not subtle.",
+     "definitionFit": "Obvious means both easily seen and crude or unsubtle in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +741,60 @@
     "text": "Marcher to roam with mother breaking leg",
     "enumeration": "9"
    },
-   "solution": "ORANGEMAN"
+   "solution": "ORANGEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Marcher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaking",
+       "at": 28,
+       "note": "the roaming and mother letters burst into the middle of the leg word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "leg",
+       "at": 37,
+       "gives": "ON",
+       "note": "in cricket the leg side is also called the on side, so leg gives ON"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "roam",
+         "at": 11,
+         "gives": "RANGE",
+         "note": "to range is to wander or roam"
+        },
+        {
+         "words": "mother",
+         "at": 21,
+         "gives": "MA",
+         "note": "MA is an informal word for mother"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walker sets out to wander with mum, who has broken a leg.",
+     "walkthrough": "An Orangeman is a member of the Protestant Orange Order of Northern Ireland, known for its marching parades. Leg as ON is the cricket leg (on) side.",
+     "definitionFit": "Orangemen are famous for their annual parades, so a marcher is a fair description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +808,57 @@
     "text": "Aubergine served for starters with chicken pasty?",
     "enumeration": "5"
    },
-   "solution": "ASHEN"
+   "solution": "ASHEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pasty",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "for starters",
+         "at": 17,
+         "note": "starters are the opening items, so the opening letters of the two words are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Aubergine",
+         "at": 0
+        },
+        {
+         "words": "served",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "chicken",
+       "at": 35,
+       "gives": "HEN",
+       "note": "a hen is a chicken"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A menu note: aubergine as a first course alongside a chicken pie.",
+     "walkthrough": "'pasty' looks like the Cornish pie; it is the adjective meaning pale. A pasty is a pastry filled with meat or vegetables.",
+     "definitionFit": "A pasty complexion is pale and sickly, which is what ashen describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pasty"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +872,58 @@
     "text": "Lecherous god for example right to save time",
     "enumeration": "5"
    },
-   "solution": "SATYR"
+   "solution": "SATYR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lecherous god",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to save",
+         "at": 32,
+         "note": "to save something is to keep it safe within, so the time letter is held inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for example",
+         "at": 14,
+         "gives": "SAY",
+         "note": "say is used to introduce an example"
+        },
+        {
+         "words": "time",
+         "at": 40,
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 26,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An example of a lustful deity's right to hoard time.",
+     "walkthrough": "'to save' places T inside SAYR.",
+     "definitionFit": "Satyrs in Greek myth were woodland spirits notorious for lust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "save"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +937,50 @@
     "text": "Complex procedure to fix poor morale",
     "enumeration": "9"
    },
-   "solution": "RIGMAROLE"
+   "solution": "RIGMAROLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Complex procedure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to fix",
+       "at": 18,
+       "gives": "RIG",
+       "note": "to rig is to fix dishonestly"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poor",
+         "at": 25,
+         "note": "poor means in bad shape, so these letters are put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "morale",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elaborate process for mending low spirits.",
+     "definitionFit": "A rigmarole is a long-winded, fussy process or palaver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +994,61 @@
     "text": "Hurdler say in line runs in stockings",
     "enumeration": "9"
    },
-   "solution": "RACEHORSE"
+   "solution": "RACEHORSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hurdler say",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "line",
+       "at": 15,
+       "gives": "RACE",
+       "note": "race can mean a line of descent, a lineage"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 25,
+         "note": "the runs letter is placed in the stockings word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stockings",
+         "at": 28,
+         "gives": "HOSE",
+         "note": "hose is an old word for stockings"
+        },
+        {
+         "words": "runs",
+         "at": 20,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for runs"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hurdle racer stands in line with ladders in their stockings.",
+     "walkthrough": "'say' marks the hurdler as an example: a horse that runs over hurdles.",
+     "definitionFit": "A hurdler is one kind of horse bred and trained to compete over jumps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1062,49 @@
     "text": "Concern about handle in case",
     "enumeration": "9"
    },
-   "solution": "CARTOUCHE"
+   "solution": "CARTOUCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "case",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 8,
+       "note": "the concern word goes about the handling word, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Concern",
+       "at": 0,
+       "gives": "CARE",
+       "note": "care means concern"
+      },
+      {
+       "words": "handle",
+       "at": 14,
+       "gives": "TOUCH",
+       "note": "to touch is to handle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Worry over a handle on a suitcase.",
+     "walkthrough": "'handle' looks like a noun, the grip on a case; it is the verb, to touch.",
+     "definitionFit": "A cartouche is a cartridge case, and also an oval frame enclosing hieroglyphs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "handle"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1118,39 @@
     "text": "Disorderly Irish sort often in pub",
     "enumeration": "9"
    },
-   "solution": "IRREGULAR"
+   "solution": "IRREGULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disorderly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Irish",
+       "at": 11,
+       "gives": "IR"
+      },
+      {
+       "words": "sort often in pub",
+       "at": 17,
+       "gives": "REGULAR",
+       "note": "a regular is a customer who frequents a pub"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy Irish drinker who is always at the bar.",
+     "definitionFit": "Irregular troops or conduct are not in proper order, hence disorderly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1164,41 @@
     "text": "Installs fashionable pipes",
     "enumeration": "7"
    },
-   "solution": "INDUCTS"
+   "solution": "INDUCTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Installs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fashionable",
+       "at": 9,
+       "gives": "IN",
+       "note": "in means fashionable"
+      },
+      {
+       "words": "pipes",
+       "at": 21,
+       "gives": "DUCTS",
+       "note": "ducts are pipes or channels"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fits trendy plumbing.",
+     "definitionFit": "To induct someone is to formally install them in an office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Installs"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1212,48 @@
     "text": "Diet has military group shedding tons",
     "enumeration": "7"
    },
-   "solution": "REGIMEN"
+   "solution": "REGIMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shedding",
+       "at": 24,
+       "note": "shedding means casting off, so the tons letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "military group",
+       "at": 9,
+       "gives": "REGIMENT",
+       "note": "a regiment is a military unit"
+      },
+      {
+       "words": "tons",
+       "at": 33,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army unit on a diet loses a lot of weight.",
+     "definitionFit": "A regimen is a prescribed plan of eating or treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tons"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1267,49 @@
     "text": "Mogul governor in Washington wearing collar",
     "enumeration": "5"
    },
-   "solution": "NAWAB"
+   "solution": "NAWAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mogul governor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 29,
+       "note": "the collar word goes around the state abbreviation as if worn by it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "collar",
+       "at": 37,
+       "gives": "NAB",
+       "note": "to collar someone is to nab or arrest them"
+      },
+      {
+       "words": "Washington",
+       "at": 18,
+       "gives": "WA",
+       "note": "WA is the postal abbreviation for Washington state"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A governor in Washington dressed in a collar.",
+     "walkthrough": "'collar' looks like a noun of clothing; it is the verb meaning to arrest.",
+     "definitionFit": "A nawab was a provincial ruler appointed under the Mughal Empire in India."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "collar"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1323,71 @@
     "text": "Anger consumes one beginning to sample spirits",
     "enumeration": "7"
    },
-   "solution": "WRAITHS"
+   "solution": "WRAITHS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spirits",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "consumes",
+         "at": 6,
+         "note": "the anger word swallows the numeral letter, holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Anger",
+         "at": 0,
+         "gives": "WRATH",
+         "note": "wrath is anger"
+        },
+        {
+         "words": "one",
+         "at": 15,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 19,
+         "note": "the beginning of the next word supplies its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sample",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fury drives someone to start tasting liquor.",
+     "walkthrough": "'spirits' suggests drinks, as the surface's sampling hints; it means ghosts.",
+     "definitionFit": "Wraiths are ghosts or apparitions of the dead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sample"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1401,49 @@
     "text": "Townsperson's husband tucked into fast food",
     "enumeration": "7"
    },
-   "solution": "BURGHER"
+   "solution": "BURGHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Townsperson",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucked into",
+       "at": 22,
+       "note": "the husband letter is tucked inside the food word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fast food",
+       "at": 34,
+       "gives": "BURGER",
+       "note": "a burger is fast food"
+      },
+      {
+       "words": "husband",
+       "at": 14,
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A local's spouse wolfs down a takeaway.",
+     "walkthrough": "'tucked into' reads as eating heartily; here it places H inside BURGER.",
+     "definitionFit": "A burgher is a citizen of a town, historically a freeman of a borough."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tucked"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1457,43 @@
     "text": "Teaching degree presented by setter perhaps",
     "enumeration": "5"
    },
-   "solution": "DOGMA"
+   "solution": "DOGMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Teaching",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "setter perhaps",
+       "at": 29,
+       "gives": "DOG",
+       "note": "a setter is a breed of dog"
+      },
+      {
+       "words": "degree",
+       "at": 9,
+       "gives": "MA",
+       "note": "MA is a Master of Arts degree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword compiler awards a degree in teaching.",
+     "walkthrough": "'setter' suggests the crossword compiler; it is the dog breed.",
+     "definitionFit": "Dogma is a doctrine or body of teaching laid down as authoritative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1507,59 @@
     "text": "Rude song about hotel cat",
     "enumeration": "9"
    },
-   "solution": "SHORTHAIR"
+   "solution": "SHORTHAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cat",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "the outer letters sit about the hotel letter, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Rude",
+         "at": 0,
+         "gives": "SHORT",
+         "note": "short means curt or rude"
+        },
+        {
+         "words": "song",
+         "at": 5,
+         "gives": "AIR",
+         "note": "an air is a song or tune"
+        }
+       ]
+      },
+      {
+       "words": "hotel",
+       "at": 16,
+       "gives": "H",
+       "note": "H is hotel in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vulgar song concerning a hotel cat.",
+     "walkthrough": "'about' puts H inside SHORTAIR.",
+     "definitionFit": "Shorthairs are breeds of domestic cat with short coats, such as the British Shorthair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1573,41 @@
     "text": "See GI shot in prolonged attack",
     "enumeration": "5"
    },
-   "solution": "SIEGE"
+   "solution": "SIEGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prolonged attack",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "shot",
+       "at": 7,
+       "note": "shot means wrecked or ruined, so these letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See GI",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watch a soldier shot during a long assault.",
+     "walkthrough": "'shot' looks like gunfire in the soldier's scene; it means broken, the anagram signal.",
+     "definitionFit": "A siege is a sustained military blockade of a town or fort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1621,41 @@
     "text": "Material from precious daughter",
     "enumeration": "5"
    },
-   "solution": "TWEED"
+   "solution": "TWEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "precious",
+       "at": 14,
+       "gives": "TWEE",
+       "note": "precious can mean affectedly dainty, i.e. twee"
+      },
+      {
+       "words": "daughter",
+       "at": 23,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fabric from a beloved daughter.",
+     "walkthrough": "'precious' suggests dear; here it means over-refined.",
+     "definitionFit": "Tweed is a rough woollen cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "precious"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1669,49 @@
     "text": "Fruit dessert to arrive without container",
     "enumeration": "7"
    },
-   "solution": "COMPOTE"
+   "solution": "COMPOTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit dessert",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 24,
+       "note": "without here means outside, so the arrival word surrounds the container"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to arrive",
+       "at": 14,
+       "gives": "COME",
+       "note": "to come is to arrive"
+      },
+      {
+       "words": "container",
+       "at": 32,
+       "gives": "POT",
+       "note": "a pot is a container"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pudding turns up with no dish to hold it.",
+     "walkthrough": "'without' reads as lacking, but here it has its older sense of outside.",
+     "definitionFit": "Compote is fruit stewed in syrup, served as a pudding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1725,45 @@
     "text": "Fast runner no sporting sort we're told",
     "enumeration": "7"
    },
-   "solution": "CHEETAH"
+   "solution": "CHEETAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fast runner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHEETAH",
+     "indicators": [
+      {
+       "text": "we're told",
+       "at": 29,
+       "note": "what we are told is heard spoken, so the word sounds like the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "no sporting sort",
+       "at": 12,
+       "gives": "CHEATER",
+       "note": "a cheater is someone who does not play fair"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speedy athlete said to be unsporting.",
+     "walkthrough": "In a non-rhotic British accent CHEATER and CHEETAH sound the same.",
+     "definitionFit": "The cheetah is the fastest land animal, a natural sprinter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1777,40 @@
     "text": "Following on is straightforward",
     "enumeration": "7"
    },
-   "solution": "SINCERE"
+   "solution": "SINCERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "straightforward",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Following",
+       "at": 0,
+       "gives": "SINCE",
+       "note": "since means after or following"
+      },
+      {
+       "words": "on",
+       "at": 10,
+       "gives": "RE",
+       "note": "re means on or concerning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What follows on is simple.",
+     "definitionFit": "A sincere person is honest and direct, without pretence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -476,7 +1830,55 @@
      }
     ]
    },
-   "solution": "ENDUSER"
+   "solution": "ENDUSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "consumer",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "put off",
+       "at": 16,
+       "note": "put off can mean disturbed or upset, so these letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 9,
+         "note": "almost means not quite all, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rudeness",
+         "at": 0
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A customer is deterred by bad manners.",
+     "walkthrough": "'almost' trims RUDENESS to RUDENES, which 'put off' rearranges.",
+     "definitionFit": "An end-user is the person who finally uses a product, the consumer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
