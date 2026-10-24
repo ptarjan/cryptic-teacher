@@ -240,6 +240,17 @@ torn = f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, 
              out=io.StringIO(), write=False)
 check("and a whole run passes over it (mirror)", [1, 2, 3], sorted(torn))
 (store / "listener-102.json").unlink()
+f.gl.write_whole(store / "whole.json", "{}\n")
+check("write_whole writes the file, and leaves no temporary beside it", (["whole.json"], "{}\n"),
+      (sorted(p.name for p in store.glob("*whole*")), (store / "whole.json").read_text()))
+(store / "whole.json").unlink()
+# filed.json torn by a writer from before write_whole: a unit's filing
+# writes it whole again, not a crash.
+(store / f.LEDGER).write_text('{"1": {}}\n"tail"\n')
+f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
+      out=io.StringIO(), numbers={3})
+check("a torn filed.json is written whole again", ["3"], sorted(json.loads((store / f.LEDGER).read_text())))
+f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed, out=io.StringIO())
 del pages["p3.pdf"][1:]
 (out / "listener-1.json").unlink()
 bare = run(out=io.StringIO())[1]
