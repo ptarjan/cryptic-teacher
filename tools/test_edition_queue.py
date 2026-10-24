@@ -2228,6 +2228,10 @@ check("times_scan_room: all but the ready reads' slots, capped at the pending sc
       (eq.times_scan_room(40, 5, 2, 12, 15), eq.times_scan_room(3, 0, 1, 12, 20), eq.times_scan_room(40, 5, 2, 3, 10),
        eq.times_scan_room(40, 0, 7, 12, 4)))
 check("times_scan_room: nothing pending leaves the pool's own room", 4, eq.times_scan_room(0, 5, 4, 12, 20))
+check("listener_free: nothing else due takes every ceiling slot left; other work due keeps the fixed pool",
+      (16, 0, 3, -4, 5),
+      (eq.listener_free(0, False, 16), eq.listener_free(0, True, 16), eq.listener_free(3, False, 0),
+       eq.listener_free(-4, True, 10), eq.listener_free(5, False, 2)))
 del os.environ["CT_NEWEST_FIRST"]
 check("times_scans_pending: without CT_NEWEST_FIRST, none", [], eq.times_scans_pending([_tsc], set(), set(), set()))
 check("gpu_fill: without CT_NEWEST_FIRST the VLM is fed too", ["t0", "t1"],
