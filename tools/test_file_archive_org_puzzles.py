@@ -3527,6 +3527,16 @@ check("a count losing breaks the answer bears out, or another clue's words, keep
       [["1-across", "2-across"], ["3,4", "7", "3,4"], ["Port, perhaps, in colour", "Bill's relations", "Wine colour"]],
       [sorted(f.keep_held_clues(read7, held7)), [e["clue"]["enumeration"] for e in read7["entries"]],
        [e["clue"]["text"] for e in read7["entries"]]])
+held8 = p7([{"text": "Port, perhaps, in colour", "enumeration": "3,4"}, {"text": "Wine colour", "enumeration": "7"}])
+for e in held8["entries"]:
+    e["solution"] = None
+read8 = p7([{"text": "Port, perhaps, in colour", "enumeration": "7", "countFrom": "grid"},
+            {"text": "Wine colour", "enumeration": "7", "countFrom": "grid"}])
+for e in read8["entries"]:
+    e["solution"] = None
+check("a grid-length count over a printed count with breaks keeps the held clue, answer or not",
+      [["1-across"], ["3,4", "7"]],
+      [sorted(f.keep_held_clues(read8, held8)), [e["clue"]["enumeration"] for e in read8["entries"]]])
 check("breaks_lost(): only breaks the answer bears out (ASKANCE's \"4,3\" may go)",
       [True, False, False],
       [f.breaks_lost("3,4", "7", "REDWINE"), f.breaks_lost("4,3", "7", "ASKANCE"), f.breaks_lost("3,4", "7", None)])
