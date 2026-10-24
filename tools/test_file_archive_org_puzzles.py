@@ -144,6 +144,16 @@ hits = f.headings([line("THE TIMES CROSSWORD NO 19,742 1 1 times weathercall")],
 check("1990s title read, junk after the number left out", (19742, 100 + 10*3+8 + 10*5+8 + 10*9+8 + 10*2+8 + 10*6),
       (hits[0][0], hits[0][1][2]))
 check("1970s title read", [13677], [n for n, _ in f.headings([line("The Times Crossword Puzzle No 13,677")], f.TITLE)])
+# A 2004 Monday's Saturday prize solution, "Solution to Crossword 22,845" (no "Prize" word): read clean
+# as one of the prize numbers only, never a misread or another number.
+check("a Monday's prize heading with no Prize word", [22845],
+      [n for n, _ in f.prize_headings([line("Solution to Crossword 22,845")], {22845})])
+check("... not a number off the prize's", [], [n for n, _ in f.prize_headings([line("Solution to Crossword 22,846")], {22845})])
+check("... not a misread one", [], [n for n, _ in f.prize_headings([line("Solution to Crossword 22,84S")], {22845})])
+# HOST_RESCAN: a Gale host's solutions-only read made before REREAD_HOST_HEADINGS is due once more.
+check("a Gale host with no solutions-only read since the fix is due", True, f.host_rescan_due(f.GALE, {"scan": {}}))
+check("... not once read since", False, f.host_rescan_due(f.GALE, {"solOnly": {"at": "2099-01-01T00:00:00+00:00"}}))
+check("... nor an archive.org Times edition", False, f.host_rescan_due(f.TIMES, {"scan": {}}))
 check("Concise, Times Two and Jumbo titles are not the cryptic's", [],
       f.headings([line("CONCISE CROSSWORD NO 2065"), line("Times Two Crossword, page 32"),
                   line("Times Jumbo Crossword No 812")], f.TITLE))

@@ -6289,6 +6289,8 @@ def scan_stands(paper, rel, cache=CACHE, rows=None, keys=None, host=False):
     asking for them. The row's cheap facts (a scan, a current key) are
     tested before the files' hash: most queued scans have neither."""
     row = (standing(paper, cache) if rows is None else rows).get(rel)
+    if host and host_rescan_due(paper, row):
+        return False  # a HOST_RESCAN (or HOST_SCAN) host's solutions-only read is due once more
     if host and row and "solOnly" in row and only_current(row, paper, _stand_hash(cache, rel)):
         return True  # a HOST_SCAN unit's solutions-only read is done; the edition's own scan is not asked
     if not row or "scan" not in row:
@@ -7198,7 +7200,18 @@ FRESH = 3600
 #: The reason of the scan (OCR alone, no VLM ask) of the edition printing the solution of a Times puzzle
 #: filed with every clue and not every answer (solution_hosts); rank 1, ahead of the other scans.
 HOST_SCAN = "scan stale, solution host"
-RANKS = {HOST_SCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
+#: The reason of the solutions-only read (scan_unit's `host`) of a Gale Times edition printing the
+#: solution of a Times puzzle filed with every clue and not every answer, whose scan stands (or
+#: whose solutions_only read is done) but links none of it, read before REREAD_HOST_HEADINGS:
+#: solutions_only now reads the bands at the "Solution" words its page reads left in the cache
+#: (cached_page_words) and a Monday's "Solution to Crossword N" prize heading (prize_headings).
+#: Paul 10-24: ~480 such Times puzzles' hosts held the heading's text, ~220 read clean.
+HOST_RESCAN = "solution host, its headings read before their fix"
+#: Once: a host whose solutions_only read ("solOnly" "at") is older than this is due (host_rescan_due).
+REREAD_HOST_HEADINGS = "2026-10-24T21:30:00+00:00"
+#: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
+HOST_REASONS = (HOST_SCAN, HOST_RESCAN)
+RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
@@ -7532,6 +7545,12 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
             if u["rel"] in hosts and u["reason"] in ("scan stale", "never scanned"):
                 u.update(reason=HOST_SCAN, rank=RANKS[HOST_SCAN], gain=hosts[u["rel"]])
         scan_units.sort(key=lambda u: u["reason"] != HOST_SCAN)  # stable: the order within each group stands
+    # Hosts whose scan stands but whose solution bands were read before REREAD_HOST_HEADINGS, ahead too.
+    rescans = host_rescans(paper, dirs, rels, stale_set, solutions, held, known)
+    if rescans:
+        scan_units[:0] = [{"kind": "scan", "paper": paper.key, "rel": rels[d], "rank": RANKS[HOST_RESCAN], "date": day_of(d),
+                           "reason": HOST_RESCAN, "gain": rescans[rels[d]]}
+                          for d in sorted((d for d in dirs if rels[d] in rescans), key=newest, reverse=True)]
     # A scan no read waits on, of an edition whose last scan found only puzzles that will not file.
     scans_before = len(scan_units)
     kept = []
@@ -7576,6 +7595,30 @@ def host_days(day):
     return [host_day(day), *more]
 
 
+def host_rescan_due(paper, row):
+    """Whether Gale Times ledger `row` of a solution host is due its solutions_only read once more
+    (HOST_RESCAN): none made at or after REREAD_HOST_HEADINGS (a "solOnly" with no "at" is older)."""
+    return paper is GALE and bool(row) and str((row.get("solOnly") or {}).get("at") or "") < REREAD_HOST_HEADINGS
+
+
+def host_rescans(paper, dirs, rels, stale_set, solutions, held, known):
+    """{rel: puzzles} of the Gale Times editions whose scan stands, host_days of a puzzle filed with
+    every clue and not every answer (answerless_puzzles), that link none of those puzzles and are
+    host_rescan_due: solution_hosts' stale hosts' kin, read in their solution bands alone (HOST_RESCAN)."""
+    if paper is not GALE:
+        return {}
+    want = {}
+    for n, day in answerless_puzzles(paper.series, held, solutions).items():
+        for host in host_days(day):
+            want.setdefault(host, []).append(n)
+    out = {}
+    for d in dirs:
+        nums = want.get(edition_date(d)) if d not in stale_set else None
+        if nums and host_rescan_due(paper, (known or {}).get(rels[d])):
+            out[rels[d]] = len(nums)
+    return out
+
+
 def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs, known=None):
     """{rel: puzzles} of the editions of `paper` whose scan by current code is due because they print the
     solution of puzzles filed with every clue and not every answer (answerless_puzzles): the issue
@@ -7598,7 +7641,7 @@ def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs
         if not nums or d not in stale_set:
             continue
         rel = rels[d]
-        if only_current((known or {}).get(rel), paper, fhs.get(d)):
+        if only_current((known or {}).get(rel), paper, fhs.get(d)) and not host_rescan_due(paper, (known or {}).get(rel)):
             continue  # its solution bands are read (solutions_only): linked, or there are none for these puzzles
         linked = _text_linked(st, paper, d, rel, scans[rel], scans[rel].get("date") or day_of(d), held, deadline, fhs.get(d))
         if linked is not None and not linked & set(nums):
@@ -7709,22 +7752,67 @@ def solutions_only(d):
     expected = paper.expected(day)
     voted = list(range(expected - paper.slack, expected + paper.slack + 1))
     found = {"date": pages["date"], "item": pages["item"], "puzzles": [], "solutions": []}
+    # A Monday's "Solution to Crossword 22,845" (2004-12-20: no "Prize" word, so neither PRIZE_SOLUTION
+    # nor a SOLUTION_LAGS number) is the Saturday prize's, PRIZE_LAG before the date's title.
+    prize = {t - PRIZE_LAG for t in voted} if prize_monday(day) and paper.series == SERIES else set()
     import ocr_remote
     with ocr_remote.local_slot():
         for leaf in leaves:
             img = page(d, leaf)
             key = f"{d.parent.name}_{d.name}_{leaf}"
             sols = {}
-            for band in solution_bands(img, []):
+            read = cached_page_words(key)
+
+            def judge(lines):
+                lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
+                for n, b in {n: b for n, b in reversed(paper.headings(lines, voted)[1] + prize_headings(lines, prize))}.items():
+                    sols.setdefault(n, b)
+            for band in solution_bands(img, [w for words in read for w in words]):
                 for which in READERS:
                     path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
-                    words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]
-                    lines = row_lines(words)
-                    lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
-                    for n, b in {n: b for n, b in reversed(paper.headings(lines, voted)[1])}.items():
-                        sols.setdefault(n, b)
+                    judge(row_lines([(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]))
+            for words in read:  # the page's whole reads, as its scan read them (no OCR: cached), on the
+                # lines with a "Solution" word: a title line's "PUZZLE No. 4,950" is no heading
+                judge([ln for ln in printed_lines(words) if SOLUTION_WORD.search(" ".join(w[4] for w in ln))])
             found["solutions"] += [{"number": n, "leaf": leaf, "box": box} for n, box in sols.items()
                                    if n not in {s["number"] for s in found["solutions"]}]
+    return found
+
+
+def cached_page_words(key):
+    """[words] of each whole-page read (PAGE_READERS, plain or grid-first) the scans of leaf `key`
+    ("<item>_<edition>_<leaf>") left in the crop cache, mend_misreads applied; [] where none did.
+    Read, never made: solutions_only takes from them the "Solution" words its bands start at
+    (solution_bands) and the headings they read, where no solution grid's top band holds the heading
+    (1945-04-27's "Solution of Puzzle No. 4,725", a scan whose grid-first title read lost the title)."""
+    out = []
+    for which in PAGE_READERS:
+        for tail in ("", ".gf"):
+            try:
+                words = json.loads((CROPS / "titles" / f"{key}_page.{reader_key(which)}{tail}.json").read_text())["words"]
+            except (OSError, ValueError, KeyError, TypeError):
+                continue
+            out.append([(*w[:4], mend_misreads(w[4])) for w in words if len(w) == 5])
+    return out
+
+
+def prize_headings(lines, prize):
+    """[(number, box)] of the LOOSE_SOLUTION headings in `lines` ("Solution to Crossword 22,845") whose
+    number reads clean, digit for digit, as one of `prize` (a Monday's Saturday prize numbers): no
+    repair, so a misread of another number never stands for one."""
+    found = []
+    for ws in lines:
+        for k in range(len(ws)):
+            text = ""
+            for j in range(k, len(ws)):
+                text = (text + " " + ws[j][4]).strip()
+                m = LOOSE_SOLUTION.match(text)
+                if not m or not like(m[1], "solution") or not (m[3] and like(m[3], "crossword")):
+                    continue
+                read = re.sub(r"[\s,.]", "", m[4])
+                if read.isdigit() and int(read) in prize:
+                    found.append((int(read), box_of(ws[k:j + 1])))
+                break
     return found
 
 
@@ -7746,6 +7834,11 @@ def scan_of(row, paper, fh=None):
     scan = (row or {}).get("scan")
     if scan and row.get("scanKey") in current_keys(paper) and (fh is None or row.get("filesHash") == fh) \
             and not prize_rescan(paper, row.get("scanKey"), row.get("edition")):
+        if only_current(row, paper, fh):  # a HOST_RESCAN's headings over a standing scan's
+            have = {s["number"] for s in scan.get("solutions", ())}
+            more = [s for s in row["solOnly"]["scan"]["solutions"] if s["number"] not in have]
+            if more:
+                return {**scan, "solutions": list(scan.get("solutions", ())) + more}
         return scan
     if only_current(row, paper, fh):
         # a failed stale scan has no "date": take the solutions_only read's
@@ -7770,10 +7863,13 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None, host=False):
             return "busy"
         fh = input_hash(d)
         row = load_known(ledger).get(rel) or {}
-        if scan_current(row, fh, rel):
+        # A host due its solutions-only read once more (HOST_RESCAN) is read so whether its scan stands or not.
+        due = host and host_rescan_due(paper_of(d), row)
+        current = scan_current(row, fh, rel)
+        if current and not due:
             return "current"
         if host:
-            if only_current(row, paper, fh):
+            if only_current(row, paper, fh) and not due:
                 return "current"
             try:
                 found = solutions_only(d)
@@ -7785,8 +7881,11 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None, host=False):
             if found is not None:
                 progress(f"scanned {rel} for its solutions: {len(found['solutions'])} solution heading(s)")
                 scan_queue.append(ledger, [{**row, "edition": rel, "solOnly": {
-                    "v": SOLUTIONS_ONLY, "scanKey": scan_key(paper_of(d)), "filesHash": fh, "scan": found}}])
+                    "v": SOLUTIONS_ONLY, "scanKey": scan_key(paper_of(d)), "filesHash": fh, "scan": found,
+                    "at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}}])
                 return "scanned"
+            if current:
+                return "current"  # its scan stands: no whole scan for a host's solutions
         try:
             found = scan_anywhere(d)
         except Exception as e:  # any raise, as _run: a scan that raises stands as one with no headings

@@ -327,7 +327,7 @@ def run_unit(unit, cache, puzzles, reread):
     if unit["kind"] == "scan":
         # A solution host is wanted for the solutions it prints: its solution bands alone are read.
         # (A unit process never imports fa: it exits before the queue's own imports.)
-        return m.scan_unit(paper, unit["rel"], cache, host=unit.get("reason") == getattr(m, "HOST_SCAN", None))
+        return m.scan_unit(paper, unit["rel"], cache, host=unit.get("reason") in getattr(m, "HOST_REASONS", ()))
     return m.read_unit(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"),
                        also=unit.get("batch") or ())
 
@@ -771,7 +771,7 @@ def only_evidence(paper, scans, reads, out=None):
         needed = {rel for u in reads for rel in u.get("needs") or ()}
         week = set()
     gated = [u for u in scans if u["reason"] == "scan stale" and u["rel"] in week]
-    scans = [u for u in scans if u["reason"] in ("never scanned", fa.HOST_SCAN) or u["rel"] in needed]
+    scans = [u for u in scans if u["reason"] in ("never scanned", *fa.HOST_REASONS) or u["rel"] in needed]
     # The scans a year_evidence read waits on go with it (a "scan stale" scan is tier 2, so those reads, tier 1,
     # waited behind every other unit for the scan they need: 2007's 312 pages stood unread for that).
     fixed = {rel for u in reads if year_evidence(u) or u["reason"] == fa.NO_TITLE_RESCAN for rel in u.get("needs") or ()}
@@ -1152,7 +1152,7 @@ def by_urgency(units):
         # them (each read files its puzzle's answers by OCR alone, ~110 s; a scan only links the next).
         newest.sort(key=lambda t: (files_likely_tier(t[0], t[3]),
                                    0 if t[3].get("kind") == "read" and fa.LIKELY[0] in (t[3].get("likely") or {})
-                                   else 1 if t[3].get("reason") == fa.HOST_SCAN else 2))
+                                   else 1 if t[3].get("reason") in fa.HOST_REASONS else 2))
         rest = [t for t in units if t[3].get("paper") not in named]
         # Another paper's never read/scanned units go ahead of the named papers' rereads: once the named
         # papers' new pages are read, those rereads mostly end "already held" or an update (10-18: 34 new
@@ -2899,7 +2899,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             paper = fa.FILERS[u["paper"]]
             if u["paper"] not in stands:
                 stands[u["paper"]] = fa.standing(paper, cache)
-            return fa.scan_stands(paper, u["rel"], cache_s, stands[u["paper"]], stand_keys, u.get("reason") == fa.HOST_SCAN)
+            return fa.scan_stands(paper, u["rel"], cache_s, stands[u["paper"]], stand_keys, u.get("reason") in fa.HOST_REASONS)
 
         scanning_by = rels_by_paper(scanning)  # kept in step as scans begin below
 
