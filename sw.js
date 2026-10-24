@@ -12,8 +12,10 @@
      If the network has not answered in 4 seconds and a copy is held, the copy
      is used (a plane's wifi that is up but dead).
    - Puzzle files live in their own cache, capped at MAX_PUZZLES, oldest out
-     first. Every puzzle the solver opens lands there, and the page's "Save
-     puzzles for offline" button sends a batch of URLs in a "save" message.
+     first. Every puzzle the solver opens lands there, and the page sends a
+     batch of URLs in a "save" message by itself: once idle after an online
+     load (at most every 6h) and after a solve, with no tap needed. A new
+     worker skips waiting and claims the page, so the first load is covered.
      One puzzle file holds the grid, the annotations and the hints.
    - sw.js itself is never cached here, so a new worker is always picked up.
    Old stamped copies of a file are dropped when the page announces its current

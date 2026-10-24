@@ -8181,7 +8181,12 @@
     const complete = entries.length > 0 && entries.every(isEntrySolved) && uncluedSolved();
     const earned = wasComplete === false && complete;
     wasComplete = complete;
-    if (earned) beacon("done");
+    if (earned) {
+      beacon("done");
+      // A solved grid changes which puzzles come next: top the saved batch up.
+      savedCache = null;
+      setTimeout(() => offlineAuto(true), 2000);
+    }
     celebrate(complete, earned);
   }
   // The finish box is two children, built once and never replaced: the burst and
@@ -8873,31 +8878,45 @@
     if (el) el.textContent = msg;
   }
 
+  let offlineBusy = false;
   function renderOfflineBox() {
     const box = $("offline-box");
     if (!box || !offlineOK()) return;
     box.classList.remove("hidden");
     const n = offlineFiles ? offlineFiles.size : 0;
-    const btn = $("btn-offline");
-    if (btn && !btn.disabled) offlineNote(n ? `${n} puzzle${n > 1 ? "s" : ""} saved on this device.`
-                                             : "None saved yet.");
+    if (!offlineBusy) offlineNote(n ? `${n} puzzle${n > 1 ? "s" : ""} ready offline` : "No puzzles saved offline yet");
   }
 
-  function saveOffline() {
-    const btn = $("btn-offline");
-    if (isOffline()) { offlineNote("You’re offline. Connect to wifi, then tap again."); return; }
+  // Saving needs no tap: the page does it once idle after loading online, at
+  // most every OFFLINE_EVERY_MS, and again when a puzzle is solved (`force`).
+  const OFFLINE_EVERY_MS = 6 * 3600 * 1000;
+  const OFFLINE_KEY = "ct:offline-at";
+  function offlineAuto(force) {
+    if (isOffline() || offlineBusy) return;
+    const c = navigator.connection;
+    if (c && c.saveData) return;
+    let last = 0;
+    try { last = Number(localStorage.getItem(OFFLINE_KEY)) || 0; } catch (e) { /* no storage */ }
+    if (!force && Date.now() - last < OFFLINE_EVERY_MS) return;
+    saveOffline(true);
+  }
+
+  function saveOffline(quiet) {
+    if (isOffline()) { offlineNote("You’re offline. Connect to wifi and try again."); return; }
     const rows = offlineBatch();
     if (!rows.length) { offlineNote("Nothing to save."); return; }
-    btn.disabled = true;
+    if (offlineBusy) return;
+    offlineBusy = true;
     offlineNote(`Saving 0 of ${rows.length}…`);
-    const end = (msg) => { btn.disabled = false; offlineRefresh(); offlineNote(msg); };
+    const end = (msg) => { offlineBusy = false; offlineRefresh(); offlineNote(msg); };
     navigator.serviceWorker.ready.then((reg) => {
       const ch = new MessageChannel();
       ch.port1.onmessage = (ev) => {
         const m = ev.data || {};
         if (!m.finished) { offlineNote(`Saving ${m.done + m.failed} of ${m.total}…`); return; }
-        end(m.failed ? `Saved ${m.done} of ${m.total}; ${m.failed} couldn’t be reached. Tap to try again.`
-                     : `Saved ${m.done} puzzles for offline.`);
+        if (!m.failed) { try { localStorage.setItem(OFFLINE_KEY, String(Date.now())); } catch (e) { /* no storage */ } }
+        end(m.failed ? `Saved ${m.done} of ${m.total}; ${m.failed} couldn’t be reached. Will try again.`
+                     : `${m.done} puzzles ready offline`);
         offlineRefresh(() => { if (!$("picker-panel").classList.contains("hidden")) renderPicker(); });
       };
       reg.active.postMessage({ type: "save", urls: rows.map(puzzleUrl) }, [ch.port2]);
@@ -8907,7 +8926,7 @@
   function offlineInit() {
     if (!offlineOK()) return;
     const btn = $("btn-offline");
-    if (btn) btn.onclick = saveOffline;
+    if (btn) btn.onclick = (ev) => { ev.preventDefault(); saveOffline(false); };
     // Registered here as well as when notifications are ticked: the app must
     // be offline-capable for someone who never touches notifications.
     navigator.serviceWorker.register("sw.js").then(() => navigator.serviceWorker.ready).then((reg) => {
@@ -8924,7 +8943,12 @@
       renderOfflineBox();
       if (!$("picker-panel").classList.contains("hidden")) renderPicker();
     };
-    window.addEventListener("online", again);
+    // Once the page is idle, so it never competes with the first paint.
+    const idle = () => offlineAuto(false);
+    const later = () => (window.requestIdleCallback ? requestIdleCallback(idle, { timeout: 10000 }) : setTimeout(idle, 3000));
+    if (document.readyState === "complete") later();
+    else window.addEventListener("load", later);
+    window.addEventListener("online", () => { again(); offlineAuto(false); });
     window.addEventListener("offline", again);
   }
 
