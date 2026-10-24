@@ -7232,6 +7232,12 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
         rel = rels[d]
         label = None if d in stale_set and reads[d] != STALE_SCAN[1] else \
             unit_skip(paper, d, scans[rel], known.get(rel) or {}, reads[d], held)
+        # A "scan stale" read whose puzzle is filed with every clue and no answers, its solution heading
+        # linked now, is likely()'s "scan stale, answers linked" (answers_only: CPU, no VLM ask), not a
+        # VLM-only reread of a puzzle already held. Paul 10-23: 1,136 Gale Times editions (~1,080
+        # puzzles, 1940s-2010s) were skipped as "already held (VLM-only reason)" here before likely() ran.
+        if label and LIKELY[0] in _row_likely(st, paper.series, rel, known.get(rel) or {}, solutions)[0]:
+            label = None
         if label:
             del reads[d]
             skipped[f"read: {label}"] = skipped.get(f"read: {label}", 0) + 1
