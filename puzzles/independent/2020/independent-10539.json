@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,60 @@
     "text": "Legal expert barely accepts rabbi's case",
     "enumeration": "6"
    },
-   "solution": "JURIST"
+   "solution": "JURIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Legal expert",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepts",
+       "at": 20,
+       "note": "a word that accepts something takes it inside, so one piece goes into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "barely",
+       "at": 13,
+       "gives": "JUST",
+       "note": "barely means only just, giving the word just"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case",
+         "at": 36,
+         "note": "a word's case is its outside, so the first and last letters of rabbi are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rabbi's",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer only just manages to take on a rabbi's legal case.",
+     "walkthrough": "'case' looks like a legal case in this surface, but it asks for the outer letters of rabbi, R and I.",
+     "definitionFit": "A jurist is a person learned in law, such as a judge or legal scholar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +101,49 @@
     "text": "Inclusive event about to include games for children",
     "enumeration": "4"
    },
-   "solution": "OPEN"
+   "solution": "OPEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inclusive event",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to include",
+       "at": 22,
+       "note": "to include means the first piece holds the second inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "about",
+       "at": 16,
+       "gives": "ON",
+       "note": "about means on, as in a talk on or about a topic"
+      },
+      {
+       "words": "games for children",
+       "at": 33,
+       "gives": "PE",
+       "note": "PE, physical education, is the school games lesson"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An event for all ages is about to add some children's games.",
+     "walkthrough": "'about to' reads as a phrase meaning soon, but 'about' gives ON and 'to include' is the insertion signal.",
+     "definitionFit": "An open is a competition, as in golf or tennis, that any player may enter, so it is inclusive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +157,48 @@
     "text": "Invention to stop pilot showing fewer nerves",
     "enumeration": "8"
    },
-   "solution": "STEELIER"
+   "solution": "STEELIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "showing fewer nerves",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to stop",
+       "at": 10,
+       "note": "to stop a word is to plug it up, so one piece goes into the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pilot",
+       "at": 18,
+       "gives": "STEER",
+       "note": "to pilot a vehicle is to steer it"
+      },
+      {
+       "words": "Invention",
+       "at": 0,
+       "gives": "LIE",
+       "note": "an invention is a made-up story, a lie"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A device meant to stop a pilot getting jittery.",
+     "definitionFit": "A person with nerves of steel is unflappable; being more steely means being calmer and braver than another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Invention"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +222,57 @@
      }
     ]
    },
-   "solution": "ELEVEN"
+   "solution": "ELEVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What is n",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "could be",
+       "at": 28,
+       "note": "could be means the letters of the following words might be rearranged into something else"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "twelve",
+         "at": 37,
+         "note": "taken as written"
+        },
+        {
+         "words": "one",
+         "at": 49,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "two",
+       "at": 24,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It reads as a little algebra puzzle: find n when n plus two equals twelve plus one.",
+     "walkthrough": "The arithmetic works (11 + 2 = 12 + 1), and so do the letters: the words ELEVEN PLUS TWO are an exact anagram of TWELVE PLUS ONE. Remove TWO's letters from TWELVE ONE and the rest spell n.",
+     "definitionFit": "Solving n + 2 = 12 + 1 gives n as the number eleven, written out as a word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +286,46 @@
     "text": "Gasp with relief, resorting to banter",
     "enumeration": "10"
    },
-   "solution": "PERSIFLAGE"
+   "solution": "PERSIFLAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "banter",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "resorting",
+       "at": 18,
+       "note": "read as re-sorting: the letters of gasp and relief are sorted again into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gasp",
+       "at": 0
+      },
+      {
+       "words": "relief",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gasps with relief and then falls back on jokes.",
+     "walkthrough": "'resorting' looks like turning to something, but read as re-sorting it is the anagram signal.",
+     "definitionFit": "Persiflage is light, teasing talk, a synonym for banter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resorting"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +345,56 @@
      }
     ]
    },
-   "solution": "HAIRCARE"
+   "solution": "HAIRCARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shock treatment",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "support for",
+       "at": 17,
+       "note": "in a down answer a support sits below, so these pieces come after the hospital letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hospital",
+       "at": 29,
+       "gives": "H",
+       "note": "H is the abbreviation for hospital on maps and signs"
+      },
+      {
+       "words": "Broadcast",
+       "at": 0,
+       "gives": "AIR",
+       "note": "to broadcast a programme is to air it"
+      },
+      {
+       "words": "Mind's",
+       "at": 10,
+       "gives": "CARE",
+       "note": "to mind someone is to care for them; the 's stands for is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mind, the mental health charity, is broadcasting backing for a hospital offering electric shock therapy.",
+     "walkthrough": "'shock' is a shock of hair, not an electric jolt. Mind is a British mental-health charity, which feeds the false medical picture.",
+     "definitionFit": "A shock is a thick mass of hair, so treatment for it is looking after your hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shock"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +408,47 @@
     "text": "True male chauvinist pig's dodgy term for women",
     "enumeration": "7"
    },
-   "solution": "CRUMPET"
+   "solution": "CRUMPET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "term for women",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "dodgy",
+       "at": 27,
+       "note": "dodgy means unsound or shifty, so the letters are jumbled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "True",
+       "at": 0
+      },
+      {
+       "words": "male chauvinist pig's",
+       "at": 5,
+       "gives": "MCP",
+       "note": "MCP is the abbreviation for male chauvinist pig"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sexist man's shady slang for women.",
+     "walkthrough": "The clue doubles as a description of the answer: it really is a chauvinist's dodgy word. Crumpet is British slang treating women as sexually attractive objects.",
+     "definitionFit": "In British slang, crumpet is a dated, sexist word for attractive women regarded collectively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "True"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +468,60 @@
      }
     ]
    },
-   "solution": "CLOSINGTIME"
+   "solution": "CLOSINGTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 5,
+       "gives": "C",
+       "note": "C, from circa, means about with dates"
+      },
+      {
+       "words": "being behind",
+       "at": 11,
+       "gives": "LOSING",
+       "note": "a side that is behind in a game is losing"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 24,
+         "note": "revolutionary means turning round, so the letters of the word are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "issue",
+         "at": 38,
+         "gives": "EMIT",
+         "note": "to issue something is to emit it"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book about lagging behind on a radical question.",
+     "walkthrough": "'revolutionary' looks political but signals a turnaround. This book is Joseph Heller's sequel to Catch-22, which links to 22-across.",
+     "definitionFit": "Closing Time (1994) is Joseph Heller's novel, the sequel to Catch-22."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +535,62 @@
     "text": "Wonder about interrupting line in play",
     "enumeration": "6"
    },
-   "solution": "LEEWAY"
+   "solution": "LEEWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "play",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "at": 13,
+       "note": "a piece interrupting another breaks into its middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "line",
+       "at": 26,
+       "gives": "LEY",
+       "note": "a ley is a line, as in ley lines across the landscape"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 7,
+         "note": "about means turned around, so the letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wonder",
+         "at": 0,
+         "gives": "AWE",
+         "note": "wonder in the sense of amazement is awe"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders about an actor interrupting a line in a stage play.",
+     "walkthrough": "'play' is not drama but slack: freedom to move.",
+     "definitionFit": "Leeway is room to move or freedom, as the play in a loose rope or joint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +604,43 @@
     "text": "Bulb in contact with conductor of electricity",
     "enumeration": "5"
    },
-   "solution": "ONION"
+   "solution": "ONION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bulb",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in contact with",
+       "at": 5,
+       "gives": "ON",
+       "note": "on means touching, as a book on a table is in contact with it"
+      },
+      {
+       "words": "conductor of electricity",
+       "at": 21,
+       "gives": "ION",
+       "note": "ions carry charge, which is how a solution conducts electricity"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A light bulb touching a wire that conducts electricity.",
+     "walkthrough": "The surface paints a light bulb; the bulb is the vegetable.",
+     "definitionFit": "An onion grows as a bulb, layers of fleshy leaf around a short stem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bulb"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +654,72 @@
     "text": "Covertly obtain report of First Lady and doctor blocking concession",
     "enumeration": "9"
    },
-   "solution": "EAVESDROP"
+   "solution": "EAVESDROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Covertly obtain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "EAVE",
+       "indicators": [
+        {
+         "text": "report of",
+         "at": 16,
+         "note": "a report is a sound, so the word that follows is replaced by one said the same way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "First Lady",
+         "at": 26,
+         "gives": "EVE",
+         "note": "Eve was the first woman, in Genesis"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "blocking",
+         "at": 48,
+         "note": "a piece blocking another sits in its way, inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "concession",
+         "at": 57,
+         "gives": "SOP",
+         "note": "a sop is a small concession made to pacify someone"
+        },
+        {
+         "words": "doctor",
+         "at": 41,
+         "gives": "DR"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Secretly getting word of the president's wife and her doctor holding up a concession.",
+     "walkthrough": "'First Lady' suggests a president's wife but means Eve, the first woman in Genesis; 'report of' swaps her name for a same-sounding spelling, and 'blocking' signals the insertion.",
+     "definitionFit": "To eavesdrop is to listen secretly to others' talk, a way of getting information covertly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lady"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +739,53 @@
      }
     ]
    },
-   "solution": "PICTURETHIS"
+   "solution": "PICTURETHIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Imagine the scene",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "shot",
+       "at": 27,
+       "gives": "PICTURE",
+       "note": "a shot is a photograph, a picture"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "suspect",
+         "at": 37,
+         "note": "suspect as an adjective means dubious or not right, so the letters of hits are put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hits",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Picture a crime scene where a gunshot strikes the suspect.",
+     "walkthrough": "'shot' and 'suspect' paint a shooting, but the shot is a photograph and suspect is the anagram signal.",
+     "definitionFit": "The phrase is said to invite a listener to imagine a situation in their mind's eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +799,42 @@
     "text": "Innate talent for getting something from home schooling",
     "enumeration": "9"
    },
-   "solution": "INTUITION"
+   "solution": "INTUITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Innate talent for getting something",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "home",
+       "at": 41,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "words": "schooling",
+       "at": 46,
+       "gives": "TUITION",
+       "note": "tuition is teaching or schooling"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A natural knack for picking things up from being home-schooled.",
+     "walkthrough": "The surface says the talent comes from schooling, yet the answer is knowledge that needs no schooling at all.",
+     "definitionFit": "Intuition is the instinctive ability to understand something without reasoning, an inborn gift for grasping things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +848,63 @@
     "text": "Confirmed spineless creature lacks courage and fibre essentially",
     "enumeration": "10"
    },
-   "solution": "INVETERATE"
+   "solution": "INVETERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confirmed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacks",
+       "at": 29,
+       "note": "lacks means is missing, so letters are taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spineless creature",
+       "at": 10,
+       "gives": "INVERTEBRATE",
+       "note": "an invertebrate is an animal with no backbone"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 53,
+         "note": "the essence of a word is its centre, so the middle letter of each of courage and fibre is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "courage",
+         "at": 35
+        },
+        {
+         "words": "fibre",
+         "at": 47
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confirmed coward, a spineless creature without courage or moral fibre at heart.",
+     "walkthrough": "'essentially' takes R, the middle of COURAGE, and B, the middle of FIBRE; 'lacks' removes both from the invertebrate.",
+     "definitionFit": "Inveterate describes a habit firmly established, as a confirmed bachelor or an inveterate gambler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spineless"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +918,46 @@
     "text": "Foreign money flowed into football club",
     "enumeration": "5"
    },
-   "solution": "FRANC"
+   "solution": "FRANC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Foreign money",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 21,
+       "note": "into means the first piece goes inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "football club",
+       "at": 26,
+       "gives": "FC"
+      },
+      {
+       "words": "flowed",
+       "at": 14,
+       "gives": "RAN",
+       "note": "a river that flowed ran"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foreign cash poured into a football club.",
+     "definitionFit": "The franc was the currency of France and Belgium and is still used in Switzerland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +977,41 @@
      }
     ]
    },
-   "solution": "GETOVER"
+   "solution": "GETOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Recover",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 8,
+       "note": "from means the letters are taken out of the following words, lying within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "damage to vertebrae",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting better after a back injury.",
+     "walkthrough": "'damage' looks like an anagram signal, but the answer lies across damaGE TO VERtebrae.",
+     "definitionFit": "To get over an illness or setback is to recover from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "damage"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1025,57 @@
     "text": "Thirty odd pieces of copy evolved into multi-faceted work",
     "enumeration": "8"
    },
-   "solution": "TRIPTYCH"
+   "solution": "TRIPTYCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "multi-faceted work",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "evolved",
+       "at": 26,
+       "note": "evolved means developed into a new form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Thirty",
+       "at": 0
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "odd pieces of",
+         "at": 7,
+         "note": "the odd pieces are the letters in odd positions, first and third"
+        }
+       ],
+       "parts": [
+        {
+         "words": "copy",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thirty odd fragments of a copy grew into a complex piece of work.",
+     "walkthrough": "'Thirty odd' reads as about thirty, but 'odd' belongs with 'pieces of copy', giving C and P.",
+     "definitionFit": "A triptych is a picture or carving on three hinged panels, a work in several parts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1089,51 @@
     "text": "High level power behind American university",
     "enumeration": "7"
    },
-   "solution": "PLATEAU"
+   "solution": "PLATEAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "High level",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "power",
+       "at": 11,
+       "gives": "P",
+       "note": "P is the symbol for power in physics"
+      },
+      {
+       "words": "behind",
+       "at": 17,
+       "gives": "LATE",
+       "note": "behind means running late"
+      },
+      {
+       "words": "American",
+       "at": 24,
+       "gives": "A"
+      },
+      {
+       "words": "university",
+       "at": 33,
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Power coming behind an American university's high ranking.",
+     "definitionFit": "A plateau is a raised area of flat land, or a stable high stage reached after growth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1147,42 @@
     "text": "Annual cost of living perhaps concerning people with children",
     "enumeration": "8"
    },
-   "solution": "PARENTAL"
+   "solution": "PARENTAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "concerning people with children",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Annual",
+       "at": 0,
+       "gives": "PA",
+       "note": "PA is short for per annum, meaning yearly"
+      },
+      {
+       "words": "cost of living perhaps",
+       "at": 7,
+       "gives": "RENTAL",
+       "note": "a rental, the rent paid for a home, is one example of the cost of living"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The yearly cost of living matters to families with children.",
+     "walkthrough": "'cost of living perhaps' is an example in reverse: rent is one cost of having somewhere to live.",
+     "definitionFit": "Parental means relating to mothers and fathers, people who have children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "living"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1196,60 @@
     "text": "Dummy username perhaps leads to insertion of Trojan",
     "enumeration": "5"
    },
-   "solution": "IDIOT"
+   "solution": "IDIOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dummy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "username perhaps",
+       "at": 6,
+       "gives": "ID",
+       "note": "a username is an example of an ID, an identifier"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leads to",
+         "at": 23,
+         "note": "leads are the front ends, so the first letter of each following word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insertion",
+         "at": 32
+        },
+        {
+         "words": "of",
+         "at": 42
+        },
+        {
+         "words": "Trojan",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fake username lets a Trojan computer virus get inserted.",
+     "walkthrough": "The computing picture of a Trojan virus is a red herring; only the first letters of the three words count.",
+     "definitionFit": "Dummy is an informal insult for a stupid person, a fool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dummy"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1263,60 @@
     "text": "Have some correspondence with my bishop perhaps, but not priest",
     "enumeration": "9"
    },
-   "solution": "CORRELATE"
+   "solution": "CORRELATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Have some correspondence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "my",
+       "at": 30,
+       "gives": "COR",
+       "note": "cor is an exclamation of surprise, like my!"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not",
+         "at": 49,
+         "note": "but not means the following letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bishop perhaps",
+         "at": 33,
+         "gives": "PRELATE",
+         "note": "a bishop is one kind of prelate, a senior churchman"
+        },
+        {
+         "words": "priest",
+         "at": 57,
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Write some letters to my bishop, but not to the priest.",
+     "walkthrough": "'correspondence' suggests letters, but it is the sense of matching up.",
+     "definitionFit": "Two things that correlate correspond to each other, varying together in a related way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "correspondence"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1330,58 @@
     "text": "Place with entrance to hallowed ground",
     "enumeration": "6"
    },
-   "solution": "CHAPEL"
+   "solution": "CHAPEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Place with entrance to hallowed ground",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ground",
+       "at": 32,
+       "note": "ground means crushed and broken up, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Place",
+       "at": 0
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "entrance to",
+         "at": 11,
+         "note": "the entrance is the way in, the first letter of hallowed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hallowed",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A building where one enters consecrated ground.",
+     "walkthrough": "The whole clue is the wordplay and the definition at once: a chapel is a place of worship on hallowed ground.",
+     "definitionFit": "A chapel is a small building or room for Christian worship, consecrated space."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1395,59 @@
     "text": "Architect gold-plated exterior of triumphal arch",
     "enumeration": "6"
    },
-   "solution": "AUTHOR"
+   "solution": "AUTHOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Architect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "plated",
+       "at": 15,
+       "note": "plated means coated on the outside, so the gold goes round the following letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gold",
+       "at": 10,
+       "gives": "AUOR",
+       "note": "gold gives both AU, its chemical symbol, and OR, its heraldic name, one on each side"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "exterior of",
+         "at": 22,
+         "note": "the exterior is the outside, so the first and last letters of triumphal arch are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "triumphal arch",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A designer gilds the outside of a triumphal arch.",
+     "walkthrough": "'Architect' suggests a building designer but means the creator of any plan. 'gold' does double duty, its symbol and its heraldic name plating each side of the outer letters.",
+     "definitionFit": "An author is the originator of a plan or idea, as the architect of a scheme is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Architect"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1461,34 @@
     "text": "Please think about host",
     "enumeration": "9"
    },
-   "solution": "ENTERTAIN"
+   "solution": "ENTERTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Please",
+      "at": 0,
+      "meaning": "to please people is to amuse or divert them"
+     },
+     {
+      "text": "think about",
+      "at": 7,
+      "meaning": "to think about an idea is to consider it"
+     },
+     {
+      "text": "host",
+      "at": 19,
+      "meaning": "to host guests is to receive them at home"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One verb covers amusing an audience, considering a proposal and having guests round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Please"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1502,36 @@
     "text": "This here creates an absurd situation",
     "enumeration": "5"
    },
-   "solution": "CATCH"
+   "solution": "CATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This here creates an absurd situation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "This here creates an absurd situation",
+       "at": 0,
+       "note": "this answer sits at 22, and the word placed before the number 22 names a no-win paradox from Heller's novel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that this very thing makes for an absurd state of affairs.",
+     "walkthrough": "'This here' points at the clue's own number, 22: put the answer before it and you get the famous phrase for a paradoxical trap.",
+     "definitionFit": "A Catch-22 is a paradoxical rule leaving no way out, from Joseph Heller's novel of that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "here"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1545,45 @@
     "text": "Dictator's descendants surrender",
     "enumeration": "4"
    },
-   "solution": "CEDE"
+   "solution": "CEDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "surrender",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CEDE",
+     "indicators": [
+      {
+       "text": "Dictator's",
+       "at": 0,
+       "note": "a dictator speaks words aloud for another to write, so this is a word said the same as another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "descendants",
+       "at": 11,
+       "gives": "SEED",
+       "note": "seed is an old word for offspring or descendants"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dictator's children give up power.",
+     "walkthrough": "'Dictator' looks like a tyrant, but it is someone dictating aloud.",
+     "definitionFit": "To cede territory or rights is to give them up, yield them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dictator's"
+    }
+   }
   },
   {
    "number": 23,
@@ -429,7 +1597,59 @@
     "text": "Means to make sweeping cuts: that is conclusion of incendiary article",
     "enumeration": "6"
    },
-   "solution": "SCYTHE"
+   "solution": "SCYTHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Means to make sweeping cuts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "that is",
+       "at": 29,
+       "gives": "SC",
+       "note": "SC, from scilicet, means that is or namely"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "conclusion of",
+         "at": 37,
+         "note": "the conclusion of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "incendiary",
+         "at": 51
+        }
+       ]
+      },
+      {
+       "words": "article",
+       "at": 62,
+       "gives": "THE",
+       "note": "the is the definite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A budget plan for sweeping cuts ends up as an incendiary item.",
+     "walkthrough": "'sweeping cuts' suggests spending cuts, but it is literal mowing.",
+     "definitionFit": "A scythe is a long curved blade swung in wide sweeps to cut grass or crops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sweeping"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1663,56 @@
     "text": "You and me succeeding a right pair is difficult",
     "enumeration": "7"
    },
-   "solution": "ARDUOUS"
+   "solution": "ARDUOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "difficult",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "succeeding",
+       "at": 11,
+       "note": "succeeding means coming after, so this piece is placed after the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 22
+      },
+      {
+       "words": "right",
+       "at": 24,
+       "gives": "R"
+      },
+      {
+       "words": "pair",
+       "at": 30,
+       "gives": "DUO",
+       "note": "a duo is a pair"
+      },
+      {
+       "words": "You and me",
+       "at": 0,
+       "gives": "US",
+       "note": "you and me together are us"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two of us following a pair of the right kind finds it hard.",
+     "definitionFit": "Arduous means hard going, needing great effort, as an arduous climb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
