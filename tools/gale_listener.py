@@ -2181,9 +2181,15 @@ def read_unit(name, inbox=SAVED, store=STORE, reader=read_file, out=sys.stdout, 
             return "failed"
     # Only the puzzles this page can move are joined again: its own and those
     # it reports on (file_gale_listener.run's numbers), not every reading.
-    numbers = {n for n in [entry.get("number"), *(entry.get("reports") or ())] if isinstance(n, int)}
+    # A report's heading is rarely read (285 of 471 pages with a filled grid
+    # name none), so the REPORT_WITHIN Nos before its own are joined too: the
+    # filled grid may be one of theirs, whose answers then file.
+    import file_gale_listener  # it imports this module
+    own = entry.get("number")
+    numbers = {n for n in [own, *(entry.get("reports") or ()),
+                           *(own - k for k in range(1, file_gale_listener.REPORT_WITHIN + 1) if isinstance(own, int))]
+               if isinstance(n, int) and n > 0}
     if file_it and numbers:
-        import file_gale_listener  # it imports this module
         with scan_queue.lock(store / "filing", wait_for_it=True):
             file_gale_listener.run(store, inbox, out=out, numbers=numbers)
     return "read"

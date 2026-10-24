@@ -219,9 +219,28 @@ read_from = []
 def read_letters(report, lts):
     read_from.append(report["page"])
     return {"letters": sure, "full": full}
+import numpy as np
+def onehot(ch):
+    p = np.full(26, 0.001)
+    p[f.ts.AZ.index(ch)] = 1
+    return p / p.sum()
+# The classifier reads every cell as printed but r0c0 (crossed by 1-across
+# and 1-down, both taken) and r1c1 (2-down's, whose crossing 5-across no
+# recogniser read whole).
+CLASSED = {(r, c): onehot("X" if (r, c) in {(0, 0), (1, 1)} else SQUARE[r][c]) for r in range(4) for c in range(4)}
+def probs_of(report, lts):
+    return CLASSED
+check("published_answers: a letter only the classifier doubts stands where a taken crossing reads it too; "
+      "one with no such crossing blanks the light",
+      {"1-across": "CARD", "1-down": "CARD", "3-down": "REAR", "6-across": "REAR"},
+      f.published_answers(lts, {"letters": sure, "full": full}, CLASSED))
+check("with no classifier reading, nothing files (mirror)", {}, f.published_answers(lts, {"letters": sure, "full": full}, {}))
+check("a light the classifier reads otherwise everywhere it is not crossed is blank: PERTS for AERTS (mirror)",
+      {"1-across": "CARD", "1-down": "CARD", "6-across": "REAR"},
+      f.published_answers(lts, {"letters": sure, "full": full}, {**CLASSED, (1, 2): onehot("P")}))
 log = io.StringIO()
 run = lambda **kw: f.run(store, inbox, out, grids_of=lambda p, sha: pages[p.name], read_letters=read_letters,
-                         reports_to=printed, **kw)
+                         read_probs=probs_of, reports_to=printed, **kw)
 got = run(out=log)
 filed = json.loads((out / "listener-1.json").read_text()) if (out / "listener-1.json").exists() else {}
 copy = json.loads((printed / "listener-1.json").read_text()) if (printed / "listener-1.json").exists() else {}
@@ -232,9 +251,11 @@ check("the crossed cell and the open one are said", ([[0, 0]], [[3, 3]]),
 check("the report's copy: none on an entry with an open cell", {"1-across": "CARD", "7-across": None, "4-down": None},
       {k: e.get("solution") for e in copy.get("entries", ())
        for k in [f"{e['number']}-{e['direction']}"] if k in ("1-across", "7-across", "4-down")})
-check("the filed puzzle has no answer the report read, and is not published-solved", ([], False),
-      ([e["solution"] for e in filed.get("entries", ()) if e.get("solution")],
-       filed.get("solutions", {}).get("origin") == "published"))
+check("the filed puzzle has the answers published_answers takes, as published; 2-down AREA, the copy's, is not",
+      ({"1-across": "CARD", "1-down": "CARD", "3-down": "REAR", "6-across": "REAR"}, "published", 4, "AREA"),
+      ({f"{e['number']}-{e['direction']}": e["solution"] for e in filed.get("entries", ()) if e.get("solution")},
+       filed.get("solutions", {}).get("origin"), got[1].get("published"),
+       next((e["solution"] for e in copy.get("entries", ()) if (e["number"], e["direction"]) == (2, "down")), None)))
 check("its provenance is the Gale filer's", ("tools/file_gale_listener.py", "newspaper"),
       (filed.get("source", {}).get("acquiredBy"), filed.get("source", {}).get("retrievedFrom")))
 shape = lambda p: [(e["number"], e["direction"], e["position"], e["length"]) for e in p.get("entries", ())]
@@ -246,25 +267,52 @@ check("No 3's blank clue, and the clue read onto two lights, are what it lacks; 
 check("the verdicts are kept", {"1", "2", "3"}, set(json.loads((store / f.LEDGER).read_text())))
 again = run(out=io.StringIO())
 check("a second run holds No 1 as it is", "already held", again[1].get("skip"))
+# A held file of this tool's on the same grid takes the report's answers it lacks.
+held = json.loads((out / "listener-1.json").read_text())
+bare_file = {**held, "entries": [{**e, "solution": None} for e in held["entries"]]}
+bare_file.pop("solutions", None)
+(out / "listener-1.json").write_text(json.dumps(bare_file))
+back = run(out=io.StringIO())[1]
+refiled = json.loads((out / "listener-1.json").read_text())
+check("an unsolved held file is filed again with the answers, as published",
+      (True, ["1-across", "1-down", "3-down", "6-across"], "published"),
+      (bool(back.get("wrote")), sorted(f"{e['number']}-{e['direction']}" for e in refiled["entries"] if e.get("solution")),
+       refiled.get("solutions", {}).get("origin")))
+answers_in = {"1-across": "CARD", "1-down": "CARD", "3-down": "REAR", "6-across": "REAR"}
+built = f.build(reading(1, TEXT), OPEN)
+for e in built["entries"]:
+    e["solution"] = answers_in.get(f"{e['number']}-{e['direction']}")
+model = {**built, "entries": [{**e, "solution": w, "annotation": {"x": 1}} for e, w in zip(
+    built["entries"], ["CORD", "AREA", "REAR", "DART", "CORD", "ARIA", "REAR", "DART"])],
+         "solutions": {"origin": "model", "model": "m", "date": "2026-10-01", "check": "c"}}
+laid, ids = f.with_report(model, built)
+got_model = {f"{e['number']}-{e['direction']}": (e["solution"], "annotation" in e) for e in laid["entries"]}
+check("over a model's solve the report's answers lay in, as printed, a crossing guess they contradict going blank",
+      ({"1-across": ("CARD", False), "1-down": ("CARD", False), "3-down": ("REAR", True), "6-across": ("REAR", True),
+        "5-across": ("AREA", True), "2-down": (None, False), "7-across": ("DART", True), "4-down": ("DART", True)},
+       answers_in, ["1-across", "6-across", "1-down", "3-down"]),
+      (got_model, laid["solutions"]["printed"], ids))
+check("a file whose answers another source printed takes none (mirror)", None,
+      f.with_report({**built, "entries": [{**e, "solution": "WXYZ"} for e in built["entries"]], "solutions": {"origin": "published"}}, built))
 seen = []
 def grids_seen(p, sha):
     seen.append(p.name)
     return pages[p.name]
-one = f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
+one = f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, read_probs=probs_of, reports_to=printed,
             out=io.StringIO(), numbers={1})
 check("--number 1 files No 1 alone, reading its pages and later ones only", ([1], ["p1.pdf", "p2.pdf", "p3.pdf"]),
       (sorted(one), sorted(seen)))
 check("and keeps the other verdicts in the ledger", {"1", "2", "3"}, set(json.loads((store / f.LEDGER).read_text())))
 seen.clear()
-f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
+f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, read_probs=probs_of, reports_to=printed,
       out=io.StringIO(), numbers={3}, write=False)
 check("a page of an earlier No is not read for --number 3 (mirror)", ["p3.pdf"], seen)
 # Another unit's reading torn mid-write (listener-102.json, 10-23) stops no other puzzle's filing.
 (store / "listener-102.json").write_text('{"number": 102}\n"tail"\n')
-torn = f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
+torn = f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, read_probs=probs_of, reports_to=printed,
              out=io.StringIO(), numbers={3}, write=False)
 check("a torn reading of another puzzle is not even opened for --number 3", [3], sorted(torn))
-torn = f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
+torn = f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, read_probs=probs_of, reports_to=printed,
              out=io.StringIO(), write=False)
 check("and a whole run passes over it (mirror)", [1, 2, 3], sorted(torn))
 (store / "listener-102.json").unlink()
@@ -275,10 +323,10 @@ check("write_whole writes the file, and leaves no temporary beside it", (["whole
 # filed.json torn by a writer from before write_whole: a unit's filing
 # writes it whole again, not a crash.
 (store / f.LEDGER).write_text('{"1": {}}\n"tail"\n')
-f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
+f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, read_probs=probs_of, reports_to=printed,
       out=io.StringIO(), numbers={3})
 check("a torn filed.json is written whole again", ["3"], sorted(json.loads((store / f.LEDGER).read_text())))
-f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed, out=io.StringIO())
+f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, read_probs=probs_of, reports_to=printed, out=io.StringIO())
 del pages["p3.pdf"][1:]
 (out / "listener-1.json").unlink()
 bare = run(out=io.StringIO())[1]
