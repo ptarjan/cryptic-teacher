@@ -58,7 +58,10 @@ check("a count the light does not have is a disagreement", "count disagrees for 
       f.lights_fit(OPEN, {f"{n}-{d}": {"text": "x", "enumeration": "5" if (n, d) == (1, "across") else None}
                           for n, d in lts}))
 
-linked = {f"{n}-{d}": {"text": "x"} for n, d in lts} | {"1-across": {"text": "x", "enumeration": "8", "group": ["1-across", "5-across"]}}
+check("but not one laid with no words (No 580's 20 Down: its words lost, 21 Down's count left on it)", None,
+      f.lights_fit(OPEN, {f"{n}-{d}": {"text": "" if (n, d) == (1, "across") else "x",
+                                       "enumeration": "5" if (n, d) == (1, "across") else None} for n, d in lts}))
+linked = {f"{n}-{d}": {"text": "x"} for n, d in lts} |{"1-across": {"text": "x", "enumeration": "8", "group": ["1-across", "5-across"]}}
 check("a linked clue's count is its lights' together (No 601's 3/22 Down, (9))", None, f.lights_fit(OPEN, linked))
 check("and one they do not total disagrees (mirror)", "count disagrees for 1-across",
       f.lights_fit(OPEN, {**linked, "1-across": {**linked["1-across"], "enumeration": "4"}}))
@@ -88,6 +91,12 @@ check("and is filed as a clue the page leaves out", {"missing": True},
       next(e["clue"] for e in built["entries"] if (e["number"], e["direction"]) == (4, "down")))
 got, notes = f.mended(OPEN, {k: v for k, v in named.items() if k != "4-down"} | {"2-down": {"text": "See 4 across."}})
 check("one cited in the other direction stays unclued (mirror)", ({}, "no clue for 4-down"), (notes, f.lights_fit(OPEN, got)))
+# A linked clue's tail cites its head: No 261's 19 across "See 30" of "(30) &
+# (19 rev.)" is no word that a 30 Down the grid misread is printed with no clue.
+tailed = {k: v for k, v in named.items() if k != "1-down"} | {
+    "1-across": {"text": "clue", "group": ["1-across", "5-across"]}, "5-across": {"text": "See 1"}}
+got, notes = f.mended(OPEN, tailed)
+check("a linked tail's 'See N' cites no light the other way", ({}, "no clue for 1-down"), (notes, f.lights_fit(OPEN, got)))
 # The 1934-40 paragraph lists link lights across them: "(33, 29)" among the
 # across clues, 29 a down light only (No 254); the vote laid "See 33" on 29 across.
 only_down = next(lid for lid in lids if lid.endswith("-down") and lid.replace("down", "across") not in lids)
@@ -100,6 +109,9 @@ got, notes = f.mended(OPEN, across_link)
 check("a linked clue's second light the grid has only in the other list is that one",
       (None, [head, only_down], f"See {hn} Across", {only_down: f"linked to {head} from the other list"}),
       (f.lights_fit(OPEN, got), got[head]["group"], got[only_down]["text"], notes))
+got, notes = f.mended(OPEN, {**across_link, only_down: {"text": f"See {hn}A."}})
+check("and so where that one reads 'See NA.' (No 273's 26 Down, 'See 37A.')", (None, [head, only_down]),
+      (f.lights_fit(OPEN, got), got[head]["group"]))
 own = {**named, head: {"text": "clue", "group": [head, only_down.replace("down", "across")]},
        only_down.replace("down", "across"): {"text": f"See {hn}"}}
 got, notes = f.mended(OPEN, {**own, only_down: {"text": "its own words"}})
@@ -382,4 +394,33 @@ rows, *_ = f.fit_to_clues({"rows": BARRED, "sides": far, "thin": 1.0}, page, lam
 check("a side read surely a rule is never flipped (mirror)", None, rows)
 rows, *_ = f.fit_to_clues({"rows": BARRED, "sides": wide, "thin": 1.0}, {"rows": BARRED}, lambda rows: (three, {}))
 check("a page numbered as its lights are tries one flip alone (mirror)", None, rows)
+# A fit leaving 2-cell runs unnumbered bars them shut (lg.closed): No 608's
+# misread bar in 10 Across left a tail of two, shut, so one flip never mended it.
+check("opened takes out the bar shutting a run of two", ["..r..", ".#.#.", "....."],
+      f.opened(["..rr.", ".#.#.", "....."]))
+check("three cells barred apart keep their bars (mirror)", ["rr.", "...", "..."], f.opened(["rr.", "...", "..."]))
+check("reclosed shuts each run of two, or keeps it numbered (No 261's 30 Across)",
+      [["r.#", "..b", "..."], ["..#", "..b", "..."], ["r.#", "...", "..."], ["..#", "...", "..."]],
+      f.reclosed(["..#", "...", "..."]))
+SHUT = ["..rr.", ".#.#.", "....."]
+lone = {(r, c, s): 1.0 for r in range(3) for c in range(5) for s in "rb"
+        if ((s == "r" and c < 4) or (s == "b" and r < 2)) and SHUT[r][c] != "#"}
+lone[(0, 2, "r")] = 1.6   # the misread bar
+five = {f"{n}-{d}": {"text": "x", "enumeration": "5" if (n, d) == (1, "across") else None}
+        for n, d in f.rg.light_cells([".....", ".#.#.", "....."])}
+rows, put, *_, why, _ = f.fit_to_clues({"rows": SHUT, "sides": lone, "thin": 1.0}, {"rows": SHUT, "shortest": 3},
+                                       lambda rows: (five, {}))
+check("the misread bar flips out with the run of two it shut open again", ((((0, 2, "r"),), [".....", ".#.#.", "....."]), None),
+      ((put, rows), why))
+rows, *_ = f.fit_to_clues({"rows": SHUT, "sides": lone, "thin": 1.0}, {"rows": SHUT}, lambda rows: (five, {}))
+check("a fit numbering its runs of two has none shut, so none opened (mirror)", None, rows)
+# A flip keeps the page's own word: No 261's flips moving 29 off its start or
+# leaving a cell in no light give the clue list's lights all the same.
+under = ["....", ".b..", "....", "...."]
+check("a flip moving a number both readers read off its start is no mend", False,
+      f.unmoved({"rows": OPEN, "printed": [[0, 1, 2]]}, OPEN, [".b..", "....", "....", "...."]))
+check("one leaving the read numbers where they were is (mirror)", True,
+      f.unmoved({"rows": OPEN, "printed": [[0, 0, 1], [0, 1, 2]]}, OPEN, under))
+check("a flip leaving a cell in no light is no mend", ({(0, 0)}, False),
+      (f.unlit(["+..", "...", "..."]), f.unmoved({"rows": OPEN, "numbering": "printed"}, ["...", "...", "..."], ["+..", "...", "..."])))
 sys.exit(1 if fails else 0)

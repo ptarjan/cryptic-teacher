@@ -154,7 +154,10 @@ def misfits(rows, clues):
 
     def cells(lid, c):
         return sum(have.get(g, 0) for g in dict.fromkeys([lid, *(c.get("group") or ())]))
+    # Nor does a count it laid no words with (No 580's 20 Down, its words
+    # lost and 21 Down's "(3)" left on it).
     long = sorted((lid for lid, c in clues.items() if lid in have and c.get("enumeration")
+                   and (c.get("text") or "").strip()
                    and gl.al.ftp.count(c["enumeration"]) != cells(lid, c)), key=order)
     return spare, unclued, long
 
@@ -207,7 +210,11 @@ def mended(rows, clues):
             continue
         clues[bare[0]] = clues.pop(spare[0])
         notes[bare[0]] = f"printed as {spare[0]}"
-    cited = " ".join(" ".join((c.get("text") or "").split()).lower() for lid, c in clues.items() if lid in have)
+    # A linked clue's tail ("See 30", No 261's 19 across of "(30) & (19
+    # rev.)") cites its own head, not a light of that number the other way.
+    tails = {t for c in clues.values() for t in (c.get("group") or ())[1:]}
+    cited = " ".join(" ".join((c.get("text") or "").split()).lower() for lid, c in clues.items()
+                     if lid in have and lid not in tails)
     for lid in sorted(set(have) - set(clues), key=order):
         n, d = number_of(lid)
         other = "down" if d == "across" else "across"
@@ -229,7 +236,8 @@ def linked_across(have, clues):
 
     def cites(lid, head):
         t = (clues.get(lid) or {}).get("text") or ""
-        return not t.strip() or bool(re.match(rf"see\W*{number_of(head)[0]}\b", t.strip(), re.IGNORECASE))
+        # "See 37A." (No 273) cites 37 across as "See 37" does.
+        return not t.strip() or bool(re.match(rf"see\W*{number_of(head)[0]}(?!\d)", t.strip(), re.IGNORECASE))
 
     for head, c in list(clues.items()):
         group = list(c.get("group") or ())
@@ -432,7 +440,10 @@ def flips(grid, fit, lay):
     a light they disagree on (misfit_lines). A bar printed faint reads as a rule, so
     several go missing (No 4's four); a rule never reads as several bars,
     and taking one out (No 4's under 19 Down) gives a light no word fills.
-    [] when none does."""
+    A fit leaving its 2-cell runs unnumbered is flipped with them open and
+    closed again (reclosed), none flipped first: No 261 numbers one, 30
+    across. A flip must keep the page's own word (unmoved): its read
+    numbers on their starts, no cell left in no light. [] when none does."""
     thin = max(grid["thin"], 1.0)
     edge = math.log(lg.BAR_RATIO)
     unsure = sorted((side for side, width in grid["sides"].items() if lg.UNSURE[0] <= width / thin <= lg.UNSURE[1]),
@@ -440,19 +451,99 @@ def flips(grid, fit, lay):
     rows = fit["rows"]
     got = lay(rows)
     lines = misfit_lines(rows, got[0]) if got and fit.get("numbering") == "printed" else set()
-    bars = bars_of(rows)
+    # A fit leaving 2-cell runs unnumbered has them barred shut (lg.closed):
+    # its sides are flipped on the grid with them open, which is closed again
+    # (reclosed) as the page may number them.
+    shut = fit.get("shortest") == 3
+    base = opened(rows) if shut else rows
+    bars = bars_of(base)
     near = [side for side in unsure if not bars.get(side)
             and (side[2], side[0] if side[2] == "r" else side[1]) in lines][:NEAR]
-    for k in range(1, MOST_FLIPS + 1):
-        hits = []
-        for sides in itertools.combinations(unsure if k == 1 else near, k):
-            alt = lg.with_bars(rows, {**bars, **{side: not bars.get(side) for side in sides}})
-            got = lay(alt)
-            if got and lights_fit(alt, got[0]) is None:
-                hits.append((sides, alt, *got))
+    for k in range(0 if shut else 1, MOST_FLIPS + 1):
+        hits, seen = [], {tuple(rows)}
+        for sides in itertools.combinations(unsure if k <= 1 else near, k):
+            flipped = lg.with_bars(base, {**bars, **{side: not bars.get(side) for side in sides}})
+            for alt in (reclosed(flipped) if shut else [flipped]):
+                if tuple(alt) in seen:
+                    continue
+                seen.add(tuple(alt))
+                if not unmoved(fit, rows, alt):
+                    continue
+                got = lay(alt)
+                if got and lights_fit(alt, got[0]) is None:
+                    hits.append((sides, alt, *got))
         if hits:
             return hits
     return []
+
+
+def unlit(rows):
+    """The open cells of `rows` in no light."""
+    lit = {c for cells in rg.light_cells(rows).values() for c in cells}
+    return {(r, c) for r, row in enumerate(rows) for c, ch in enumerate(row) if ch != "#"} - lit
+
+
+def unmoved(fit, rows, alt):
+    """Whether `alt`, the fitted `rows` with sides flipped, keeps the page's
+    own word on them: no number both readers read (fit "printed") that
+    starts `rows`' light of that number starts none in `alt`, and no cell
+    left in no light that is in one in `rows`. No 261's four single flips
+    each give the clue list's lights; one moves 29 off its start, one
+    leaves a cell unlit, one does both. A page numbering otherwise (fit
+    "numbering", "stray") is held to the second alone."""
+    if unlit(alt) - unlit(rows):
+        return False
+    if fit.get("numbering") or fit.get("stray"):
+        return True
+    was, now = lg.starts(rows), lg.starts(alt)
+    return all(now.get((y, x)) == n for y, x, n in fit.get("printed") or () if was.get((y, x)) == n)
+
+
+#: reclosed() keeps at most this many of a grid's 2-cell runs numbered.
+MOST_KEPT = 2
+
+
+def opened(rows):
+    """`rows` without the bars lg.closed() shuts a 2-cell run with: a bar
+    between two cells that would be a run of two alone, walled (edge,
+    block or a bar not itself such) on its far sides. No 608's row 3 tail
+    of two, shut beside a misread bar, is open again."""
+    h, w = len(rows), len(rows[0])
+    bars = bars_of(rows)
+
+    def wall(y, x, s):
+        # Whether the side `s` ("r" right, "b" below) of cell (y, x) ends a run.
+        if y < 0 or x < 0 or (s == "r" and x >= w - 1) or (s == "b" and y >= h - 1):
+            return True
+        if rows[y][x] == "#":
+            return True
+        nxt = rows[y][x + 1] if s == "r" else rows[y + 1][x]
+        return nxt == "#" or bool(bars.get((y, x, s)))
+
+    def shuts(y, x, s):
+        if not bars.get((y, x, s)) or rows[y][x] == "#":
+            return False
+        if s == "r":
+            return x + 1 < w and rows[y][x + 1] != "#" and wall(y, x - 1, "r") and wall(y, x + 1, "r")
+        return y + 1 < h and rows[y + 1][x] != "#" and wall(y - 1, x, "b") and wall(y + 1, x, "b")
+    cand = {side for side in bars if shuts(*side)}
+
+    def outer(y, x, s):
+        # The far walls of the pair a candidate side splits.
+        return {(y, x - 1, s), (y, x + 1, s)} if s == "r" else {(y - 1, x, s), (y + 1, x, s)}
+    # Three cells barred apart are no run of two: their bars stay.
+    drop = {side for side in cand if not outer(*side) & cand}
+    return lg.with_bars(rows, {side: True for side in bars if side not in drop})
+
+
+def reclosed(rows):
+    """`rows` (2-cell runs open) closed (lg.closed) as a page leaving its
+    2-cell runs unnumbered may number some: none kept, then each set of up
+    to MOST_KEPT kept (No 261 numbers its run of two at 30 across, "(30) &
+    (19 rev.) A skeleton", and leaves three others bare)."""
+    twos = sorted({cells[0] for cells in rg.light_cells(rows).values() if len(cells) == 2})
+    return [lg.closed(rows, 3, set(keep)) for k in range(min(MOST_KEPT, len(twos)) + 1)
+            for keep in itertools.combinations(twos, k)]
 
 
 def fit_to_clues(grid, fit, lay):
