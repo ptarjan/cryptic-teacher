@@ -8826,7 +8826,7 @@
   // page's half: tell the worker what the page loaded, let the solver save a
   // batch before a flight, and show which puzzles a dead connection can open.
   const PUZZLE_CACHE = "ct-puzzles-1";   // the name sw.js files puzzles under
-  const OFFLINE_BATCH = 30;
+  const OFFLINE_BATCH = 100;   // about 1 MB gzipped (median puzzle ~10 KB)
   const offlineOK = () => !!(navigator.serviceWorker && window.caches && typeof fetch === "function");
   const isOffline = () => typeof navigator !== "undefined" && navigator.onLine === false;
   let offlineFiles = null;   // puzzle files held on this device, once read

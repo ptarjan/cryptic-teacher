@@ -27,7 +27,8 @@
 
 const SHELL = "ct-shell-1";
 const PUZZLES = "ct-puzzles-1";
-const MAX_PUZZLES = 150;
+const MAX_PUZZLES = 250;        // above the page's batch of 100
+const MAX_FILE_BYTES = 300 * 1024;   // a single puzzle file bigger than this is skipped
 const NETWORK_WAIT_MS = 4000;
 
 self.addEventListener("install", () => self.skipWaiting());
@@ -140,7 +141,9 @@ async function savePuzzles(urls, port) {
       if (!(await cache.match(req))) {
         const res = await fetch(req);
         if (!res.ok) throw new Error("HTTP " + res.status);
-        await cache.put(req, res);
+        const buf = await res.arrayBuffer();
+        // Oversize: not saved, not an error (the puzzle still opens online).
+        if (buf.byteLength <= MAX_FILE_BYTES) await cache.put(req, new Response(buf, { headers: res.headers }));
       }
       done++;
     } catch (e) { failed++; }
