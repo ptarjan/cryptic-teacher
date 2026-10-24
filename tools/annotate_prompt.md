@@ -195,7 +195,15 @@ Four first runs in ten fail, mostly on these:
   these words signal that operation in this clue, not what the device does in general.
   It comes before the pieces, so it never names a piece's letters or the answer:
   `"returning means the word rats is read backwards"`, not `"returning means RATS becomes STAR"`.
-- No note may contain the answer. Write about the clue words; the walkthrough spells it.
+- No note may contain the answer, nor the solution of a linked light, as a word or as a run
+  of words (the validator reads "under-taker", "S and Y", "get set" as the answer).
+  Write about the clue words, never about the answer. This is the commonest first-check
+  failure, in three shapes:
+  - a definition's sense note that opens on the answer ("a tattoo is a display of troops"):
+    say what the clue words mean, with a synonym or example, not the answer's own word;
+  - "read the answer as ..." or "the answer read as a phrase says ...": describe the
+    clue's fragment ("the outside letters are S and Y"), never the assembled answer;
+  - a note on one fragment that mentions another light's solution: leave it out.
 - A `cd()` has exactly one leaf, no letters, and no note that spells the answer.
 - `features.misdirectedWord` is one word, copied exactly as printed in the clue.
 
