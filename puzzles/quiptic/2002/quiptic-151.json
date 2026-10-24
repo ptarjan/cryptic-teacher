@@ -797,8 +797,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "you'd find alcohol in it",
-      "at": 35
+      "text": "Were gin twice shaken and stirred, you'd find alcohol in it",
+      "at": 0
      }
     ],
     "wordplay": {
@@ -806,29 +806,42 @@
      "indicators": [
       {
        "text": "shaken and stirred",
-       "note": "shaking and stirring mixes things up, so these letters are thoroughly rearranged"
+       "at": 15,
+       "note": "shaken and stirred, as with a cocktail, says the letters are mixed into a new order"
       }
      ],
      "parts": [
       {
        "words": "Were",
-       "note": "taken as written"
+       "at": 0
       },
       {
-       "words": "gin twice",
-       "gives": "GINGIN",
-       "note": "the word gin written two times over"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 9,
+         "note": "twice says the word gin is used two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gin",
+         "at": 5
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A cocktail of double gin, shaken and stirred in Bond style, would certainly be alcoholic.",
-     "walkthrough": "The definition is a loose description: this drink is one that contains alcohol.",
-     "definitionFit": "Ginger wine is a fortified drink made from fermented ginger and raisins, so it contains alcohol."
+     "surface": "A bartender's musing: mix up some gin and there will certainly be alcohol in the result.",
+     "walkthrough": "'twice' gives GINGIN; 'shaken and stirred' rearranges it with WERE. The whole clue also defines: ginger wine has alcohol in it.",
+     "definitionFit": "Ginger wine is an alcoholic drink of fermented ginger and raisins, so alcohol is indeed found in it."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "gin"
     }
    }
