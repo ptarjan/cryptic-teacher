@@ -408,6 +408,10 @@ os.environ["CT_NEWEST_FIRST"] = "gale, times"
 check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' likely filers first, then their rereads alternating with other papers' work (Paul 10-21, 871ecef558f)",
       ["gale-old-gain", "gale-hand", "gale-new", "other", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
+check("eq.by_urgency: the Listener's pages go first, ahead of the newest-first papers' too (Paul 10-23)",
+      ["listener-page", "gale-old-gain", "gale-hand", "gale-new", "other", "times-mid"],
+      [u["rel"] for u in eq.by_urgency(nf_units + [(0, 1, 0, {"rel": "listener-page", "paper": "listener", "rank": 0,
+                                                               "kind": "read", "reason": "never read (Gale fetch)"})])])
 rr = lambda rel, date, reason, **k: (2, 0, 0, {"rel": rel, "date": date, "paper": "times", "rank": 2, "reason": reason, **k})
 check("eq.by_urgency: CT_NEWEST_FIRST, never read first, then rereads after a refusal or short read, then ones whose page holds the puzzle",
       ["never", "refused", "short", "changed-new", "changed-old"],
