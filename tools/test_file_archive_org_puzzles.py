@@ -2483,6 +2483,20 @@ check("a light decodes at 50 to 1 over its rival word (RIDE 0.97, RICE 0.015) an
        tso.classified_reads(row4, {}, margin_p(0.05))))
 check("a crossing's letter the classifier rules out stops it", {},
       tso.fitted_reads(cross, {(2, "down"): "CUE"}, {**sure_cells("?UE", at=(0, 2), across=False), **sure_cells("RIDE")}, {}))
+# A surname cmudict alone lists is no word to win a margin (times-13764, 1974: the classifier
+# decoded TROEGER for TRIGGER at 50 to 1, its I and G misread): it stands only where every cell
+# not held reads it at UNLISTED_TOP, as a word no list holds does.
+check("TROEGER is cmudict's alone; TRIGGER and ROAN are words", (True, False, False),
+      (tso.name_only("TROEGER"), tso.name_only("TRIGGER"), tso.name_only("ROAN")))
+row7 = {(1, "across"): [(0, i) for i in range(7)]}
+check("a cmudict-only name read at 0.8 a cell is not decoded, at 0.99 it is; a word at 0.8 is",
+      ({}, {(1, "across"): "TROEGER"}, {(1, "across"): "TRIGGER"}),
+      (tso.classified_reads(row7, {}, sure_cells("TROEGER", p=0.8)),
+       tso.classified_reads(row7, {}, sure_cells("TROEGER")),
+       tso.classified_reads(row7, {}, sure_cells("TRIGGER", p=0.8))))
+check("nor is it fitted at 0.8 a cell", ({}, {(1, "across"): "TROEGER"}),
+      (tso.fitted_reads(row7, {}, sure_cells("TROEGER", p=0.8), {}),
+       tso.fitted_reads(row7, {}, sure_cells("TROEGER"), {})))
 check("the cell model on disk is the one CELL_MODEL_SHA names", True,
       hashlib.sha256(tso.CELL_MODEL.read_bytes()).hexdigest() == tso.CELL_MODEL_SHA)
 glyphs = {(0, 0): np.zeros((tso.GLYPH + 2 * tso.GLYPH_SHIFT,) * 2, np.float32)}

@@ -1323,6 +1323,9 @@ def classified_reads(lts, accepted, probs):
             # otherwise.
             if any(probs[rc][AZ.index(ch)] < CLASS_FLOOR for rc, ch in zip(cells, word)):
                 continue
+            # A surname cmudict alone lists (TROEGER for TRIGGER) is no word to win a margin.
+            if name_only(word) and not cells_sure(word, cells, probs, held):
+                continue
             if best is None or margin > best[0]:
                 best = (margin, key, word)
         if best is None:
@@ -1390,6 +1393,8 @@ def fitted(cells, probs, held, enum):
         piece, span = word[at:at + size], cells[at:at + size]
         at += size
         if not piece_listed(piece, multi):
+            return None
+        if name_only(piece) and not cells_sure(piece, span, probs, held):
             return None
         if any(rc not in held for rc in span) and fit_rivals(piece, span, probs, held):
             return None
@@ -1665,14 +1670,33 @@ def listed(word):
     """Whether `word` is one listed word, no run-together: WordNet's (a lemma
     or a regular inflection), tools/data/lexicon.tsv's, cmudict's or
     corpus_words()'."""
-    global _LISTED
+    global _LISTED, _LEXICON
     if _LISTED is None:
         with open(TOOLS / "data" / "lexicon.tsv", encoding="utf-8") as f:
-            _LISTED = {line.split("\t", 1)[0] for line in f if not line.startswith("#")}
+            _LEXICON = {line.split("\t", 1)[0] for line in f if not line.startswith("#")}
         with gzip.open(TOOLS / "data" / "cmudict.txt.gz", "rt", encoding="utf-8") as f:
-            _LISTED |= {line.split("\t", 1)[0].upper() for line in f if not line.startswith("#")}
+            _LISTED = _LEXICON | {line.split("\t", 1)[0].upper() for line in f if not line.startswith("#")}
     known("A")
     return word.lower() in wordnet() or word.upper() in _LISTED or word.upper() in corpus_words()
+
+
+_LEXICON = None
+
+
+def name_only(word):
+    """Whether `word` is listed() by cmudict alone, no dictionary's word: ~60,000 of its 122,000
+    are surnames and spellings of names (TROEGER, which the classifier decoded at 50 to 1 for a
+    1974 print's TRIGGER, its I and G misread). Such a word stands on the evidence a word no list
+    holds needs (unlisted_reads'), not on a margin over listed rivals."""
+    listed("A")
+    w = word.upper()
+    return w in _LISTED and w not in (_LEXICON or ()) and word.lower() not in wordnet() and w not in corpus_words()
+
+
+def cells_sure(word, cells, probs, held):
+    """Whether each cell of `cells` that `held` ({cell: letter}) does not hold reads its letter of
+    `word` at least UNLISTED_TOP likely."""
+    return all(rc in held or probs[rc][AZ.index(ch)] >= UNLISTED_TOP for rc, ch in zip(cells, word))
 
 
 #: The repo whose committed puzzles/ corpus_words() reads (tests point it at

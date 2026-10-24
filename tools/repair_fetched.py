@@ -905,6 +905,51 @@ def repair_lost_breaks(since="2026-10-21", apply_it=False, ref="origin/master"):
     return restored
 
 
+#: (puzzle id, light, answer filed) for Times answers a solution-grid read filed since the
+#: classifier's 50-to-1 decode (2026-10-22) that are a surname cmudict alone lists, misread
+#: off a word one or two letters away (TROEGER for TRIGGER, the case trove_solution_ocr.name_only
+#: now stops): each was judged against its clue, of the 437 such answers filed then (the rest
+#: names the clue bears out: NORGE, SCHEER, COSIMA).
+MISREAD_NAMES = (
+    ("times-4666", "4-down", "BOAN"), ("times-4747", "24-down", "LEONI"), ("times-5136", "1-across", "CALES"),
+    ("times-5640", "21-down", "BARTLE"), ("times-5771", "22-down", "BRESSER"), ("times-6453", "3-down", "BASWELL"),
+    ("times-6849", "13-across", "BUCHE"), ("times-14430", "6-down", "BUCHE"),
+    ("times-9443", "5-down", "UNDERTHETAGLE"), ("times-11756", "10-across", "ARANA"),
+    ("times-12814", "26-across", "ARANA"), ("times-10958", "26-down", "BEEL"), ("times-11020", "13-across", "FLAD"),
+    ("times-11770", "9-across", "PINEDO"), ("times-12325", "13-across", "GAUDET"), ("times-13353", "25-across", "BEALS"),
+    ("times-13595", "20-down", "FRISKE"), ("times-13817", "1-across", "MASTERCABO"), ("times-14160", "4-down", "GARR"),
+    ("times-14336", "20-down", "BESSERT"), ("times-14780", "24-down", "HORD"), ("times-14999", "16-across", "ALDA"),
+    ("times-16123", "25-down", "TONIA"), ("times-16577", "23-across", "HAGE"), ("times-16627", "10-across", "RABEL"),
+    ("times-16997", "22-down", "RISA"), ("times-22232", "28-across", "STAI"), ("times-5671", "4-down", "ELSTON"),
+    ("times-10098", "27-across", "ASBRIDGE"), ("times-22707", "9-across", "ORMAND"),
+)
+
+
+def repair_misread_names(apply_it=False, rows=MISREAD_NAMES):
+    """[(id, light, answer)] for each of `rows` whose file still holds that answer: the answer is
+    blanked (a light left for a reread to fill, not a wrong word). Nothing else in the file
+    changes; with `apply_it` False nothing is written."""
+    blanked = []
+    by_pid = {}
+    for pid, lid, word in rows:
+        by_pid.setdefault(pid, []).append((lid, word))
+    for pid, lights in sorted(by_pid.items()):
+        path = puzzle_paths.find(pid)
+        if path is None:
+            continue
+        puzzle = fetcher.read_puzzle_file(path)
+        changed = False
+        for e in puzzle["entries"]:
+            for lid, word in lights:
+                if entry_id(e) == lid and e.get("solution") == word:
+                    e["solution"] = None
+                    blanked.append((pid, lid, word))
+                    changed = True
+        if changed and apply_it:
+            fetcher.write_puzzle_file(path, puzzle)
+    return blanked
+
+
 def grown(held, now):
     """Whether the clue text `now` is the held `held` with a few words added
     and none lost: a reread laying neighbouring print in a clue. A run of
@@ -936,6 +981,9 @@ def main(argv):
                     help="only list the ftcryptic files dated on a Sunday, another number's day or out of "
                          "number order (misdated_ft), with the day their numbered neighbours settle; "
                          "--apply writes those")
+    ap.add_argument("--misread-names", action="store_true",
+                    help="only blank the Times answers in MISREAD_NAMES (a surname cmudict alone lists, "
+                         "misread off a word: BOAN for ROAN); --apply writes")
     ap.add_argument("--apply", action="store_true",
                     help="write the repairs; without it nothing is written")
     ap.add_argument("--dry-run", action="store_true",
@@ -980,6 +1028,13 @@ def main(argv):
         fixed = sum(1 for r in found if r[2])
         print(f"{len(found)} misdated, {fixed} {'redated' if args.apply else 'would be redated'}, "
               f"{len(found) - fixed} left to look at")
+        return 0
+    if args.misread_names:
+        blanked = repair_misread_names(args.apply)
+        for pid, lid, word in blanked:
+            print(f"{pid} {lid}: {word} -> blank")
+        print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
+              f"{'blanked' if args.apply else 'would be blanked'} of {len(MISREAD_NAMES)} listed")
         return 0
     if args.lost_breaks:
         restored = repair_lost_breaks(args.lost_breaks, args.apply)
