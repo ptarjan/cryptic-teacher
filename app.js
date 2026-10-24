@@ -8823,6 +8823,7 @@
       // device alive, run behind a grid that is already on screen.
       refreshNotify();
       offlineInit();
+      autoUpdateInit();
       loadStartedPuzzles(() => {
         if (!$("picker-panel").classList.contains("hidden")) renderPicker();
       });
@@ -8953,6 +8954,94 @@
       };
       reg.active.postMessage({ type: "save", urls: rows.map(puzzleUrl), drop }, [ch.port2]);
     }).catch(() => end("Couldn’t save just now. Try again."));
+  }
+
+  /* Self-update. A Home Screen app is resumed from memory, so it may never
+     navigate, and the home HTML is served with max-age=600: left alone, a deploy
+     can take a long time to reach it. So on launch, and whenever the app comes
+     back to the front (at most every 5 minutes), it asks the worker to look for
+     a new sw.js and fetches the home HTML with cache "no-store" (sw.js lets that
+     request through to the network). The page's stamped assets (?v=<hash>) are
+     compared with the ones fetched; a new one means a deploy.
+     Progress is in localStorage and sync, so a reload loses nothing, but a
+     solver mid-word should not see the grid vanish: if there was any input in
+     the last 20s the reload waits for the app to be hidden and shown again, and
+     a small "Updated — tap to reload" pill is shown meanwhile. The reload first
+     pushes any pending sync and waits a moment for it. */
+  const UPDATE_GAP_MS = 5 * 60 * 1000, UPDATE_BUSY_MS = 20 * 1000, UPDATE_LOOP_MS = 2 * 60 * 1000;
+  const UPDATE_RELOAD_KEY = "ct:updReload";
+  function autoUpdateInit() {
+    if (typeof fetch !== "function" || location.protocol === "file:") return;
+    let lastCheck = 0, lastInput = 0, found = false, checking = false;
+    ["keydown", "input", "pointerdown"].forEach((t) =>
+      document.addEventListener(t, () => { lastInput = Date.now(); }, true));
+    const stamps = (pairs) => {
+      const out = new Set();
+      pairs.forEach((u) => {
+        try {
+          const x = new URL(u, homeUrl());
+          if (x.search.startsWith("?v=") && x.origin === location.origin) out.add(x.pathname + x.search);
+        } catch (e) { /* skip */ }
+      });
+      return out;
+    };
+    const mine = () => stamps([...document.querySelectorAll("script[src],link[href]")]
+      .map((el) => el.getAttribute("src") || el.getAttribute("href")));
+    const theirs = (html) => stamps((html.match(/(?:src|href)="[^"]*\?v=[0-9a-f]+"/g) || [])
+      .map((m) => m.slice(m.indexOf('"') + 1, -1)));
+    function reloadNow() {
+      try { sessionStorage.setItem(UPDATE_RELOAD_KEY, String(Date.now())); } catch (e) { /* no storage */ }
+      try { syncFlush(); } catch (e) { /* nothing to flush */ }
+      const t0 = Date.now();
+      (function go() {
+        if ((syncBusy || syncTimer !== null) && Date.now() - t0 < 3000) { setTimeout(go, 150); return; }
+        location.reload();
+      })();
+    }
+    function pill() {
+      if ($("update-pill")) return;
+      const b = document.createElement("button");
+      b.id = "update-pill";
+      b.type = "button";
+      b.textContent = "Updated — tap to reload";
+      b.style.cssText = "position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + env(safe-area-inset-bottom,0px));" +
+        "z-index:9999;padding:8px 16px;border:0;border-radius:999px;background:#1b5e20;color:#fff;font:600 14px system-ui,sans-serif;" +
+        "box-shadow:0 2px 10px rgba(0,0,0,.3)";
+      b.onclick = reloadNow;
+      document.body.appendChild(b);
+    }
+    function apply(fromVisible) {
+      if (!found) return;
+      let recent = false;
+      try { recent = Date.now() - Number(sessionStorage.getItem(UPDATE_RELOAD_KEY) || 0) < UPDATE_LOOP_MS; } catch (e) { /* none */ }
+      const busy = Date.now() - lastInput < UPDATE_BUSY_MS;
+      if (recent || (busy && !fromVisible)) { pill(); return; }
+      reloadNow();
+    }
+    function check() {
+      if (checking || (navigator.onLine === false)) return;
+      if (Date.now() - lastCheck < UPDATE_GAP_MS) return;
+      lastCheck = Date.now();
+      checking = true;
+      if (navigator.serviceWorker) navigator.serviceWorker.getRegistration().then((r) => r && r.update()).catch(() => {});
+      fetch(at("./"), { cache: "no-store", credentials: "same-origin" })
+        .then((r) => (r.ok ? r.text() : ""))
+        .then((html) => {
+          const now = mine();
+          if (!html || !now.size) return;
+          for (const s of theirs(html)) if (!now.has(s)) { found = true; break; }
+          apply(false);
+        })
+        .catch(() => {})
+        .then(() => { checking = false; });
+    }
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) return;
+      // Shown again with an update already found: now is the safe moment.
+      if (found) apply(true); else check();
+    });
+    if (document.readyState === "complete") check();
+    else window.addEventListener("load", check);
   }
 
   function offlineInit() {
