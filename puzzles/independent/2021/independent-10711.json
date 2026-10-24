@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,40 @@
     "text": "Saucy, for a time",
     "enumeration": "4"
    },
-   "solution": "PERT"
+   "solution": "PERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saucy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for a",
+       "at": 7,
+       "gives": "PER",
+       "note": "per means for a, as in 'ten pounds per head'"
+      },
+      {
+       "words": "time",
+       "at": 13,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is cheeky only briefly, for a short while.",
+     "definitionFit": "Pert describes a forward, impudent manner, a close synonym of cheeky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +81,65 @@
     "text": "Expert's love for top American mailman?",
     "enumeration": "10"
    },
-   "solution": "POSTMASTER"
+   "solution": "POSTMASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mailman?",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 14,
+       "note": "love for top American means one letter takes the place of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Expert's",
+       "at": 0,
+       "gives": "PASTMASTER",
+       "note": "a past master is an expert"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "at": 18,
+         "note": "top means the first letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "American",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "love",
+       "at": 9,
+       "gives": "O",
+       "note": "love is zero in tennis scores, so O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist prefers a leading American postal worker.",
+     "walkthrough": "PAST MASTER (an expert) swaps its A, the top of American, for O (love): POST MASTER. The question mark flags that a postmaster runs a post office rather than delivering.",
+     "definitionFit": "A postmaster is in charge of a post office, so loosely a mail worker; the query admits the stretch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +153,55 @@
     "text": "Engineers and soldiers following soldier's rules",
     "enumeration": "7"
    },
-   "solution": "REGIMEN"
+   "solution": "REGIMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rules",
+      "at": 43,
+      "note": "a regimen is a single set of rules, so the plural stands for one collective noun"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 23,
+       "note": "following places the soldiers after the single soldier"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Engineers",
+       "at": 0,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers of the British Army"
+      },
+      {
+       "words": "soldier's",
+       "at": 33,
+       "gives": "GI",
+       "note": "GI is a US soldier"
+      },
+      {
+       "words": "soldiers",
+       "at": 14,
+       "gives": "MEN",
+       "note": "men are ordinary soldiers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Engineers and troops obey the regulations set by a soldier.",
+     "definitionFit": "A regimen is a prescribed course of conduct, diet or exercise: a set of rules to follow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Engineers"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +215,72 @@
     "text": "Popular story about sick revolutionary is perfect",
     "enumeration": "10"
    },
-   "solution": "INFALLIBLE"
+   "solution": "INFALLIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "perfect",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Popular",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means fashionable or popular"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 14,
+         "note": "the story goes about, that is around, the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story",
+         "at": 8,
+         "gives": "FABLE",
+         "note": "a fable is a short moral story"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "revolutionary",
+           "at": 25,
+           "note": "something revolutionary turns round, so the word for sick is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sick",
+           "at": 20,
+           "gives": "ILL",
+           "note": "ill means sick"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-liked tale about an ailing rebel turns out to be flawless.",
+     "walkthrough": "'revolutionary' turns ILL into LLI, and 'about' puts the story FABLE around it: FA-LLI-BLE, after IN.",
+     "definitionFit": "Infallible means incapable of error, so without any flaw: perfect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +294,59 @@
     "text": "Unacceptable to claim inventor's first idea",
     "enumeration": "6"
    },
-   "solution": "NOTION"
+   "solution": "NOTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "idea",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to claim",
+       "at": 13,
+       "note": "to claim means to take hold of, so the phrase captures the letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unacceptable",
+       "at": 0,
+       "gives": "NOTON",
+       "note": "not on is an idiom for unacceptable"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 33,
+         "note": "first means the initial letter of inventor"
+        }
+       ],
+       "parts": [
+        {
+         "words": "inventor's",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is wrong to claim credit for the inventor's original idea.",
+     "walkthrough": "'Not on' is a British idiom for unacceptable; it holds I.",
+     "definitionFit": "A notion is a concept or belief, so a synonym of idea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "claim"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +360,53 @@
     "text": "Essentially, tall locals patrol Maze prison",
     "enumeration": "8"
    },
-   "solution": "ALCATRAZ"
+   "solution": "ALCATRAZ",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prison",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "Essentially",
+       "at": 0,
+       "note": "essentially means at the core, so each word gives its middle letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tall",
+       "at": 13
+      },
+      {
+       "words": "locals",
+       "at": 18
+      },
+      {
+       "words": "patrol",
+       "at": 25
+      },
+      {
+       "words": "Maze",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The heart of the matter: tall local men guard the Maze prison.",
+     "walkthrough": "The Maze was a Northern Irish prison; here it only supplies its middle letters.",
+     "definitionFit": "Alcatraz was the notorious federal prison on an island in San Francisco Bay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Maze"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +420,70 @@
     "text": "Allow John to start to investigate flies",
     "enumeration": "3"
    },
-   "solution": "LET"
+   "solution": "LET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Allow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "flies",
+       "at": 35,
+       "note": "flies means leaves quickly, so those letters depart from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "John",
+       "at": 6,
+       "gives": "TOILET",
+       "note": "john is American slang for a toilet"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "to",
+         "at": 11,
+         "gives": "TO"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start to",
+           "at": 14,
+           "note": "start to means the first letter of investigate"
+          }
+         ],
+         "parts": [
+          {
+           "words": "investigate",
+           "at": 23
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Permit John to begin looking into some flies.",
+     "walkthrough": "John is the toilet; TO and I fly off it.",
+     "definitionFit": "To let someone do something is to permit or allow it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +497,57 @@
     "text": "Relative nearly left establishment that struggles to maintain social distancing",
     "enumeration": "7"
    },
-   "solution": "BROTHEL"
+   "solution": "BROTHEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "establishment that struggles to maintain social distancing",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 9,
+         "note": "nearly means not quite whole, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Relative",
+         "at": 0,
+         "gives": "BROTHER",
+         "note": "a brother is a relative"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 16,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative nearly gone from a venue that can't keep people apart.",
+     "walkthrough": "The definition is a joke on pandemic rules: in a brothel people cannot keep their distance.",
+     "definitionFit": "A brothel is a house of prostitution, where close physical contact is the whole business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Relative"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +561,47 @@
     "text": "Worried, skipping question that's simple",
     "enumeration": "4"
    },
-   "solution": "EASY"
+   "solution": "EASY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "simple",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "skipping",
+       "at": 9,
+       "note": "skipping means leaving out, so the letters for question are dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Worried",
+       "at": 0,
+       "gives": "QUEASY",
+       "note": "queasy can mean uneasy or troubled"
+      },
+      {
+       "words": "question",
+       "at": 18,
+       "gives": "QU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is anxious and avoids the question because it's straightforward.",
+     "definitionFit": "Easy means requiring little effort, the same sense as simple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "question"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +621,35 @@
      }
     ]
    },
-   "solution": "TENNISBALL"
+   "solution": "TENNISBALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's again hit hard following server issues during court proceedings",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One's again hit hard following server issues during court proceedings",
+       "at": 0,
+       "note": "reads like a defendant battered by computer trouble in a law court, but the server is a tennis player, the court a tennis court, and the object struck again and again is the ball"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'server' suggests computers and 'court proceedings' a trial; on a tennis court the ball is served and then hit repeatedly.",
+     "definitionFit": "A tennis ball is what the server puts into play and players keep striking during a rally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "server"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +663,50 @@
     "text": "Regulate boxing agents, in part",
     "enumeration": "7"
    },
-   "solution": "SEGMENT"
+   "solution": "SEGMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boxing",
+       "at": 9,
+       "note": "boxing means enclosing, so one word holds the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Regulate",
+       "at": 0,
+       "gives": "SET",
+       "note": "to set a clock or dial is to regulate it"
+      },
+      {
+       "words": "agents",
+       "at": 16,
+       "gives": "GMEN",
+       "note": "G-men are US federal agents, from 'government men'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to bring control to the agents who handle boxers, at least partly.",
+     "walkthrough": "'boxing' looks like the sport but means enclosing: SET holds GMEN. G-men is American slang for FBI agents.",
+     "definitionFit": "A segment is one section or portion of a whole, so a part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boxing"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +720,49 @@
     "text": "They're positive half of defensive works must be removed",
     "enumeration": "7"
    },
-   "solution": "CATIONS"
+   "solution": "CATIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They're positive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "half of",
+       "at": 17,
+       "note": "half of the long word is wanted here, the fourteen letters cut down to seven"
+      },
+      {
+       "text": "must be removed",
+       "at": 41,
+       "note": "removed tells us the front half is taken away, leaving the back half of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "defensive works",
+       "at": 25,
+       "gives": "FORTIFICATIONS",
+       "note": "fortifications are walls and earthworks built for defence"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confidently says half the defensive works have to go.",
+     "walkthrough": "'They're positive' reads as people being sure; in chemistry it is the definition. FORTIFICATIONS has fourteen letters; dropping the first seven leaves the answer.",
+     "definitionFit": "Cations are ions carrying a positive electric charge, attracted to the cathode."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "positive"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +786,66 @@
      }
     ]
    },
-   "solution": "MOMENTOFTRUTH"
+   "solution": "MOMENTOFTRUTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "critical period",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "In",
+         "at": 0,
+         "note": "In before males places that word within the test"
+        }
+       ],
+       "parts": [
+        {
+         "words": "test",
+         "at": 3,
+         "gives": "MOT",
+         "note": "the MOT is the annual roadworthiness test for UK vehicles"
+        },
+        {
+         "words": "males",
+         "at": 9,
+         "gives": "MEN",
+         "note": "men are males"
+        }
+       ]
+      },
+      {
+       "words": "frequently",
+       "at": 15,
+       "gives": "OFT",
+       "note": "oft is an old word for often"
+      },
+      {
+       "words": "compassion",
+       "at": 34,
+       "gives": "RUTH",
+       "note": "ruth is an archaic word for pity or compassion, surviving in ruthless"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "During an exam, the men repeatedly show sympathy at a crucial stage.",
+     "walkthrough": "The MOT is Britain's yearly roadworthiness check for cars; ruth (compassion) survives today mainly in ruthless.",
+     "definitionFit": "A moment of truth is the decisive point when something is put to the test: a crucial time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +859,35 @@
     "text": "I bury someone who's passed in an unconventional manner?",
     "enumeration": "10"
    },
-   "solution": "UNDERTAKER"
+   "solution": "UNDERTAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I bury someone who's passed in an unconventional manner?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "I bury someone who's passed in an unconventional manner?",
+       "at": 0,
+       "note": "the speaker deals with the dead and lays them in the ground; the query hints that the job title can also be read as someone who takes a test by going beneath rather than over"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'passed' means died here, though it tempts a reading of passing an exam or a ball. The question mark flags the playful second reading.",
+     "definitionFit": "An undertaker is a funeral director, who arranges the burial of the dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passed"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +901,42 @@
     "text": "Photograph last plant",
     "enumeration": "10"
    },
-   "solution": "SNAPDRAGON"
+   "solution": "SNAPDRAGON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Photograph",
+       "at": 0,
+       "gives": "SNAP",
+       "note": "a snap is a quick photograph"
+      },
+      {
+       "words": "last",
+       "at": 11,
+       "gives": "DRAGON",
+       "note": "to drag on is to last tediously long"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A picture taken of the final plant.",
+     "walkthrough": "'last' looks like an adjective for the plant, but is a verb: to drag on.",
+     "definitionFit": "The snapdragon, or antirrhinum, is a garden flower whose blooms open like a mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +950,54 @@
     "text": "Most balanced article on Sweden is in French",
     "enumeration": "6"
    },
-   "solution": "SANEST"
+   "solution": "SANEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most balanced",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 22,
+       "note": "in an across answer, on means coming after, so the article follows Sweden"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sweden",
+       "at": 25,
+       "gives": "S",
+       "note": "S is the international vehicle code for Sweden"
+      },
+      {
+       "words": "article",
+       "at": 14,
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      },
+      {
+       "words": "is in French",
+       "at": 32,
+       "gives": "EST",
+       "note": "est is French for is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of writing about Sweden, written in French, is the most level-headed.",
+     "definitionFit": "Sanest is the superlative of sane, meaning most mentally sound and even-tempered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1011,71 @@
     "text": "Chap wearing trousers playing old musical instrument",
     "enumeration": "8"
    },
-   "solution": "MANDOLIN"
+   "solution": "MANDOLIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musical instrument",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trousers",
+       "at": 13,
+       "note": "used as a verb, trousers means pockets, so the pieces hold the other letters inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Chap",
+         "at": 0,
+         "gives": "MAN",
+         "note": "a chap is a man"
+        },
+        {
+         "words": "wearing",
+         "at": 5,
+         "gives": "IN",
+         "note": "in means wearing, as in 'in a suit'"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 22,
+         "note": "playing suggests the letters of old are moved about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man in trousers plays some antique instrument.",
+     "walkthrough": "'trousers' looks like clothing but is a verb meaning pockets: MAN IN takes DOL, from 'playing' acting on OLD.",
+     "definitionFit": "The mandolin is a small lute-like stringed instrument with paired strings, played with a plectrum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1089,43 @@
     "text": "Team, one from Madrid, of stars",
     "enumeration": "8"
    },
-   "solution": "SIDEREAL"
+   "solution": "SIDEREAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of stars",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Team",
+       "at": 0,
+       "gives": "SIDE",
+       "note": "a side is a sports team"
+      },
+      {
+       "words": "one from Madrid",
+       "at": 6,
+       "gives": "REAL",
+       "note": "Real Madrid is the famous football club, so Real is one team from Madrid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football side, a Madrid outfit, full of stars.",
+     "walkthrough": "'one from Madrid' looks like a person; it is another team, Real Madrid.",
+     "definitionFit": "Sidereal is an adjective meaning relating to the stars, as in sidereal time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1139,42 @@
     "text": "Shapes I'm busting to get attention",
     "enumeration": "8"
    },
-   "solution": "EMPHASIS"
+   "solution": "EMPHASIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "attention",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "busting",
+       "at": 11,
+       "note": "busting means breaking apart, so these letters are scattered and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shapes I'm",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is breaking out of their outfit to be noticed.",
+     "walkthrough": "'busting' breaks up SHAPESIM to give the answer.",
+     "definitionFit": "Emphasis is special importance or attention given to something, so the two words overlap in sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "busting"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1188,68 @@
     "text": "Dangerous to shave bottom close to heater in living room",
     "enumeration": "7"
    },
-   "solution": "PARLOUR"
+   "solution": "PARLOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "living room",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to shave bottom",
+         "at": 10,
+         "note": "shaving the bottom of a down answer trims off its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dangerous",
+         "at": 0,
+         "gives": "PARLOUS",
+         "note": "parlous means dangerous or precarious"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 26,
+         "note": "close to means the end letter of heater"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heater",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shaving your backside near a heater in the lounge is risky.",
+     "walkthrough": "PARLOUS loses its last letter, then R ends heater.",
+     "definitionFit": "A parlour is an old-fashioned word for a sitting room, where a household relaxes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "shave"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1269,61 @@
      }
     ]
    },
-   "solution": "DRUMUP"
+   "solution": "DRUMUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Try to get",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 27,
+       "note": "put in says the drink is placed inside the dessert"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "from the east",
+         "at": 42,
+         "note": "in an across answer reading from the east means right to left, so the dessert is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dessert",
+         "at": 34,
+         "gives": "PUD",
+         "note": "pud is British short for pudding, a dessert"
+        }
+       ]
+      },
+      {
+       "words": "alcoholic drink",
+       "at": 11,
+       "gives": "RUM",
+       "note": "rum is a spirit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rum gets poured into a pudding coming from the east.",
+     "walkthrough": "'from the east' turns PUD into DUP, and 'put in' places RUM inside it.",
+     "definitionFit": "To drum up business or support is to try to solicit or obtain it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1337,59 @@
     "text": "Pick imitation nursing attire, 50% off",
     "enumeration": "7"
    },
-   "solution": "MATTOCK"
+   "solution": "MATTOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pick",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nursing",
+       "at": 15,
+       "note": "nursing means holding close, so the imitation holds the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "imitation",
+       "at": 5,
+       "gives": "MOCK",
+       "note": "a mock item is an imitation"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "50% off",
+         "at": 31,
+         "note": "half the word is cut, leaving its first three of six letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "attire",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fake nurses' uniforms with half the price knocked off.",
+     "walkthrough": "'Pick' looks like a verb but is the tool; 'nursing' puts ATT, half of attire, inside MOCK.",
+     "definitionFit": "A mattock is a digging tool like a pickaxe, with a broad blade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pick"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1403,51 @@
     "text": "Shelter in rocks at foot of mountain",
     "enumeration": "6"
    },
-   "solution": "SCREEN"
+   "solution": "SCREEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shelter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rocks",
+       "at": 11,
+       "gives": "SCREE",
+       "note": "scree is loose broken rock on a slope"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "foot of",
+         "at": 20,
+         "note": "in a down answer the foot is the bottom, so the last letter of mountain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mountain",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking cover among the stones at the base of a peak.",
+     "definitionFit": "A screen is a barrier that shields or protects, as does a shelter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1467,41 @@
      }
     ]
    },
-   "solution": "ROLLERCOASTER"
+   "solution": "ROLLERCOASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "railroad ride",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "restored",
+       "at": 15,
+       "note": "restored means put back together, so these letters are rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Local restorer",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neighbourhood craftsman has refurbished an old railway attraction.",
+     "walkthrough": "'restored' rearranges LOCALRESTORER.",
+     "definitionFit": "A roller coaster is a fairground ride of small cars running on a steep looping track, hence a railroad ride."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "railroad"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1515,44 @@
     "text": "Objections about displaying butt",
     "enumeration": "4"
    },
-   "solution": "STUB"
+   "solution": "STUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "butt",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 11,
+       "note": "about means turned around, so the word for objections is written backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Objections",
+       "at": 0,
+       "gives": "BUTS",
+       "note": "buts are objections, as in 'no ifs or buts'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Complaints about showing one's backside.",
+     "walkthrough": "'about' turns BUTS round.",
+     "definitionFit": "A stub and a butt are both the leftover end of a cigarette."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "butt"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1566,60 @@
     "text": "Box, perhaps containing old chief's foot",
     "enumeration": "7"
    },
-   "solution": "TROCHEE"
+   "solution": "TROCHEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "foot",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "containing",
+       "at": 13,
+       "note": "containing says the tree holds the other letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Box, perhaps",
+       "at": 0,
+       "gives": "TREE",
+       "note": "box is one example of a tree, hence perhaps"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 24,
+         "gives": "O"
+        },
+        {
+         "words": "chief's",
+         "at": 28,
+         "gives": "CH",
+         "note": "CH is an abbreviation for chief"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A box holding the foot of a former leader.",
+     "walkthrough": "'Box' looks like a container; it is the box tree. 'containing' puts O and CH inside TREE.",
+     "definitionFit": "A trochee is a metrical foot of one stressed then one unstressed syllable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Box"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1633,45 @@
     "text": "Grant possibly picked up for cast",
     "enumeration": "3"
    },
-   "solution": "HUE"
+   "solution": "HUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cast",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HUE",
+     "indicators": [
+      {
+       "text": "picked up",
+       "at": 15,
+       "note": "picked up means heard, so the word is the sound of the name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Grant possibly",
+       "at": 0,
+       "gives": "HUGH",
+       "note": "Hugh Grant is an English film actor, so Hugh is one Grant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grant may have been chosen for the film's cast.",
+     "walkthrough": "'cast' suggests actors, matching Hugh Grant; it is a tinge of colour.",
+     "definitionFit": "A cast is a tinge or shade of colour, as is a hue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1685,60 @@
     "text": "Look to wear green pants soon",
     "enumeration": "7"
    },
-   "solution": "ERELONG"
+   "solution": "ERELONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soon",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to wear",
+       "at": 5,
+       "note": "the other letters wear the word, as clothing goes around a body"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pants",
+         "at": 19,
+         "note": "pants is British slang for rubbish, so the letters of green are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "green",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "words": "Look",
+       "at": 0,
+       "gives": "LO",
+       "note": "lo is an old word meaning look or behold"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A look that involves putting on green trousers, quickly.",
+     "walkthrough": "'pants' (British slang for awful) rearranges GREEN into ERENG, and 'to wear' puts LO inside: ERE-LO-NG.",
+     "definitionFit": "Erelong is an archaic adverb meaning before long, shortly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +1752,46 @@
     "text": "British demand queue for boundary",
     "enumeration": "10"
    },
-   "solution": "BORDERLINE"
+   "solution": "BORDERLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boundary",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "at": 0,
+       "gives": "B"
+      },
+      {
+       "words": "demand",
+       "at": 8,
+       "gives": "ORDER",
+       "note": "to order is to demand"
+      },
+      {
+       "words": "queue",
+       "at": 15,
+       "gives": "LINE",
+       "note": "a line is a queue"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Britain insists people form an orderly queue.",
+     "definitionFit": "A borderline is the dividing line between two areas or states, so a boundary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "demand"
+    }
+   }
   },
   {
    "number": 29,
@@ -465,7 +1805,49 @@
     "text": "Pretending to be undressed, or similar",
     "enumeration": "4"
    },
-   "solution": "AKIN"
+   "solution": "AKIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "similar",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "undressed",
+       "at": 17,
+       "note": "undressed means stripped of the outer covering, so the word loses its first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pretending",
+       "at": 0,
+       "gives": "FAKING",
+       "note": "faking means pretending"
+      },
+      {
+       "gives": "F"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is putting on an act of being naked, or something close.",
+     "walkthrough": "'undressed' strips FAKING of its outer letters.",
+     "definitionFit": "Akin means related or alike, so of a similar kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "undressed"
+    }
+   }
   }
  ]
 }
