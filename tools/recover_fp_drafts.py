@@ -279,29 +279,51 @@ def identity_op(wp):
     return None
 
 
+HISTORY = {}  # rel path -> [(commit time, hash)] oldest first, commits since SINCE only
+
+
+def load_history(since_epoch):
+    """One `git log --name-only` over the window, instead of a log per puzzle."""
+    import subprocess
+    from fetch_puzzle import ROOT
+    out = subprocess.run(["git", "-C", str(ROOT), "log", f"--since={since_epoch - 86400}",
+                          "--format=C %H %ct", "--name-only", "--", "puzzles"],
+                         capture_output=True, text=True).stdout
+    cur = None
+    for line in out.split("\n"):
+        if line.startswith("C "):
+            _, h, ct = line.split()
+            cur = (int(ct), h)
+        elif line.strip() and cur:
+            HISTORY.setdefault(line.strip(), []).append(cur)
+    for v in HISTORY.values():
+        v.reverse()
+
+
 def clue_versions(path, tag, after):
-    """How many commits after epoch `after` changed this clue's stored annotation."""
+    """How many commits after epoch `after` changed this clue's stored annotation.
+    A file with at most one commit after `after` has at most one change: no git show."""
     import subprocess
     from fetch_puzzle import ROOT
     rel = Path(path).resolve().relative_to(Path(ROOT).resolve()).as_posix()
-    log = subprocess.run(["git", "-C", str(ROOT), "log", "--format=%H %ct", "--", rel],
-                         capture_output=True, text=True).stdout.split("\n")
-    commits = [l.split() for l in log if l.strip()][::-1]  # oldest first
+    later = [(ct, h) for ct, h in HISTORY.get(rel, []) if ct > after]
+    if len(later) < 2:
+        return len(later)
     num, direction = int(tag[:-1]), "across" if tag[-1] == "A" else "down"
-    prev, changes, seen_before = None, 0, False
-    for h, ct in commits:
-        if int(ct) <= after:
-            seen_before = True
-        out = subprocess.run(["git", "-C", str(ROOT), "show", f"{h}:{rel}"],
+
+    def ann_at(rev):
+        out = subprocess.run(["git", "-C", str(ROOT), "show", f"{rev}:{rel}"],
                              capture_output=True, text=True)
         try:
             ents = json.loads(out.stdout)["entries"]
         except (ValueError, KeyError):
-            continue
-        ann = next((e.get("annotation") for e in ents
-                    if e.get("number") == num and e.get("direction") == direction), None)
-        if int(ct) > after and ann != prev:
-            changes += 1
+            return None
+        return next((e.get("annotation") for e in ents
+                     if e.get("number") == num and e.get("direction") == direction), None)
+    prev, changes = ann_at(later[0][1] + "^"), 0
+    for _, h in later:
+        ann = ann_at(h)
+        changes += ann != prev
         prev = ann
     return changes
 
@@ -361,6 +383,8 @@ def apply_puzzle(job):
             except Exception:
                 return None, None, rec
             mine.append((f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}:", rec))
+        import puzzle_schema  # the file writer puts keys in schema order; validate that form
+        q = puzzle_schema.order(q)
         try:
             _, errors, _ = V.validate_puzzle(q)
         except Exception as exc:
@@ -415,13 +439,15 @@ def apply_all(drafts, args, t0):
           f"{sum(map(len, by_pid.values()))} in {len(by_pid)} puzzle(s) to re-validate", flush=True)
     skipped, applied = Counter(), []
     jobs = sorted(by_pid.items())
+    load_history(min(stamp_epoch(r["stamp"]) for rs in by_pid.values() for r in rs))
+    print(f"history of {len(HISTORY)} puzzle file(s) loaded ({time.time() - t0:.0f}s)", flush=True)
     with Pool(2) as pool:
         for n, (sk, ap) in enumerate(pool.imap_unordered(apply_puzzle, jobs, chunksize=2)):
             skipped.update(sk)
             applied += ap
             if n % 25 == 0:
-                print(f"  {n}/{len(jobs)} puzzles, {len(applied)} applied ({time.time() - t0:.0f}s)",
-                      file=sys.stderr, flush=True)
+                print(f"  {n}/{len(jobs)} puzzles, {len(applied)} applied, skipped "
+                      f"{dict(skipped)} ({time.time() - t0:.0f}s)", flush=True)
     Path(args.applied).write_text(json.dumps(applied, indent=1))
     print(f"\napplied: {len(applied)} clue(s) in {len({a['pid'] for a in applied})} puzzle(s) "
           f"(list in {args.applied})\nskipped: {sum(skipped.values())}")
