@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,48 @@
     "text": "Moderation in drugs (not cocaine)",
     "enumeration": "9"
    },
-   "solution": "MEDIATION"
+   "solution": "MEDIATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moderation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 21,
+       "note": "the bracketed 'not cocaine' tells us to strip the drug's letter out of the word before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drugs",
+       "at": 14,
+       "gives": "MEDICATION",
+       "note": "medication is a collective word for drugs"
+      },
+      {
+       "words": "cocaine",
+       "at": 25,
+       "gives": "C",
+       "note": "C is the standard abbreviation for cocaine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea for moderate drug use, with cocaine explicitly ruled out.",
+     "definitionFit": "Mediation is calming intervention between parties, a sense of moderation as acting as a moderator in a dispute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Moderation"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +89,56 @@
     "text": "On a voyage, ship's company is heard to chant",
     "enumeration": "8"
    },
-   "solution": "CRUISING"
+   "solution": "CRUISING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "On a voyage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "CRUI",
+       "indicators": [
+        {
+         "text": "is heard to",
+         "at": 28,
+         "note": "being heard means we take the sound of the words, not their spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ship's company",
+         "at": 13,
+         "gives": "CREWS",
+         "note": "a ship's company is its crew; the 's makes it crew's"
+        }
+       ]
+      },
+      {
+       "words": "chant",
+       "at": 40,
+       "gives": "SING",
+       "note": "to chant is to sing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors singing aboard a ship at sea.",
+     "walkthrough": "'is heard to' says CREWS SING, spoken, runs together: the S of CREWS merges with that of SING, so the first part is written CRUI.",
+     "definitionFit": "Someone cruising is travelling by ship for pleasure, so is out on a voyage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +152,31 @@
     "text": "Being theatrical under canvas",
     "enumeration": "7"
    },
-   "solution": "CAMPING"
+   "solution": "CAMPING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being theatrical",
+      "at": 0,
+      "meaning": "camp means exaggerated and theatrical"
+     },
+     {
+      "text": "under canvas",
+      "at": 17,
+      "meaning": "people ... sleep in tents, under canvas"
+     }
+    ],
+    "explanation": {
+     "surface": "An actor showing off on a camping holiday.",
+     "definitionFit": "Camping is both exaggerated, showy behaviour and sleeping outdoors in a tent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "theatrical"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +190,70 @@
     "text": "Clever 23, one deep in the midst of ground crew",
     "enumeration": "8"
    },
-   "solution": "WISEACRE"
+   "solution": "WISEACRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clever 23",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in the midst of",
+       "at": 20,
+       "note": "being in the midst of something puts these letters inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ground",
+         "at": 36,
+         "note": "ground here is the past participle of grind, so the letters are crushed into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crew",
+         "at": 43
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 11,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "deep",
+         "at": 15,
+         "gives": "SEA",
+         "note": "the deep is a poetic word for the sea"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smart alec working among the ground crew at an airport.",
+     "walkthrough": "23 is DICK, so the definition reads 'Clever Dick'. 'ground' mixes CREW to give WCRE, with ISEA set inside after the W.",
+     "definitionFit": "A clever Dick is a know-all, which is exactly what a wiseacre is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +267,62 @@
     "text": "Starts to get lively during month of dance music",
     "enumeration": "6"
    },
-   "solution": "JUNGLE"
+   "solution": "JUNGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance music",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 21,
+       "note": "letters that happen during the month are set inside its name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "month",
+       "at": 28,
+       "gives": "JUNE",
+       "note": "June is a month"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Starts to",
+         "at": 0,
+         "note": "the starts of the next words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get",
+         "at": 10
+        },
+        {
+         "words": "lively",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Things start to liven up in the month of a big dance music festival.",
+     "definitionFit": "Jungle is a fast breakbeat style of electronic dance music from 1990s Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lively"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +336,66 @@
     "text": "Lenny, perhaps his last part after 'Chicken Run'?",
     "enumeration": "5"
    },
-   "solution": "HENRY"
+   "solution": "HENRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lenny, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 29,
+       "note": "his last letter comes after the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chicken",
+       "at": 36,
+       "gives": "HEN",
+       "note": "a hen is a chicken"
+      },
+      {
+       "words": "Run",
+       "at": 44,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "his last part",
+         "at": 15,
+         "note": "his refers back to Lenny, and his last part is the final letter of that name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lenny",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a comedian's final role might follow the animated film Chicken Run.",
+     "walkthrough": "Lenny is the British comedian Lenny Henry; his name serves as definition and, through 'his', supplies its own last letter.",
+     "definitionFit": "Lenny Henry is a famous British comedian, so Lenny is an example of someone with this surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +409,41 @@
     "text": "Kind of green bananas",
     "enumeration": "5"
    },
-   "solution": "GENRE"
+   "solution": "GENRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kind",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bananas",
+       "at": 14,
+       "note": "going bananas means going crazy, so the letters go wild"
+      }
+     ],
+     "parts": [
+      {
+       "words": "green",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A type of unripe banana.",
+     "walkthrough": "'bananas' looks like the thing described as green, but it is the anagram signal.",
+     "definitionFit": "A genre is a category or type of work, a sort or kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +457,32 @@
     "text": "Clean-cut doctor's description of former patient?",
     "enumeration": "9"
    },
-   "solution": "MANICURED"
+   "solution": "MANICURED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clean-cut",
+      "at": 0,
+      "meaning": "neatly trimmed and groomed"
+     },
+     {
+      "text": "doctor's description of former patient?",
+      "at": 10,
+      "meaning": "read as three words, ..., it is what a doctor might say of someone they treated"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor describing a smart-looking ex-patient.",
+     "walkthrough": "The second definition splits the answer into MAN I CURED; the question mark flags the wordplay.",
+     "definitionFit": "Manicured means neatly kept and groomed, as is someone clean-cut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Clean-cut"
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +496,31 @@
     "text": "Sailor's small white bowl",
     "enumeration": "4"
    },
-   "solution": "JACK"
+   "solution": "JACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sailor",
+      "at": 0,
+      "meaning": "a ..., or ... tar, is an old word for a sailor"
+     },
+     {
+      "text": "small white bowl",
+      "at": 9,
+      "meaning": "in the game of bowls the ... is the small white ball players aim at"
+     }
+    ],
+    "explanation": {
+     "surface": "A sailor's little white dish.",
+     "walkthrough": "In lawn bowls, a British green game, players roll their bowls towards a small white target ball.",
+     "definitionFit": "A jack is both a seaman and the small target ball, itself a bowl, in the game of bowls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bowl"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +534,42 @@
     "text": "Mineral component of fossil I catalogued",
     "enumeration": "6"
    },
-   "solution": "SILICA"
+   "solution": "SILICA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mineral",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "component of",
+       "at": 8,
+       "note": "component of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fossil I catalogued",
+       "at": 21,
+       "gives": "SILICA",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geologist naming a mineral found in a fossil they recorded.",
+     "definitionFit": "Silica, silicon dioxide, is a common mineral found as quartz and flint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "component"
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +583,47 @@
     "text": "Publicity drive Queen's informally expecting",
     "enumeration": "8"
    },
-   "solution": "PREGGERS"
+   "solution": "PREGGERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "informally expecting",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Publicity",
+       "at": 0,
+       "gives": "PR",
+       "note": "PR, public relations, means publicity"
+      },
+      {
+       "words": "drive",
+       "at": 10,
+       "gives": "EGG",
+       "note": "to egg someone on is to drive them"
+      },
+      {
+       "words": "Queen's",
+       "at": 16,
+       "gives": "ERS",
+       "note": "ER, Elizabeth Regina, is the Queen; the 's adds an S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A publicity campaign revealing that the Queen is expecting a baby.",
+     "definitionFit": "Preggers is British slang for pregnant, which is what expecting means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 12,
@@ -185,7 +637,62 @@
     "text": "Afflicted by rickets, misshapen bones, essentially",
     "enumeration": "8"
    },
-   "solution": "STRICKEN"
+   "solution": "STRICKEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Afflicted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misshapen",
+         "at": 22,
+         "note": "something misshapen is bent out of its form, so these letters change shape"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rickets",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 39,
+         "note": "the essence of a word is its central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bones",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suffering from rickets, with deformed bones.",
+     "walkthrough": "'misshapen' rearranges RICKETS to STRICKE; 'essentially' takes N, the middle of BONES.",
+     "definitionFit": "To be stricken is to be struck down by illness or trouble, so afflicted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "misshapen"
+    }
+   }
   },
   {
    "number": 13,
@@ -199,7 +706,59 @@
     "text": "In short, former Queen's Counsel finally taken on by company boss",
     "enumeration": "4"
    },
-   "solution": "CLEO"
+   "solution": "CLEO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In short, former Queen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken on by",
+       "at": 41,
+       "note": "being taken on by a firm puts the letter inside the boss's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "company boss",
+       "at": 53,
+       "gives": "CEO",
+       "note": "a CEO, chief executive officer, is a company boss"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 33,
+         "note": "finally picks the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Counsel",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired lawyer being hired by a company chief.",
+     "walkthrough": "'In short' shortens Cleopatra, the former queen of Egypt.",
+     "definitionFit": "Cleo is the short form of Cleopatra, the last ruling queen of ancient Egypt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Counsel"
+    }
+   }
   },
   {
    "number": 14,
@@ -213,7 +772,54 @@
     "text": "Poor writer on 13's river boat",
     "enumeration": "9"
    },
-   "solution": "PENNILESS"
+   "solution": "PENNILESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 12,
+       "note": "in a down clue the writer sits on top of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "writer",
+       "at": 5,
+       "gives": "PEN",
+       "note": "a pen is a writing implement"
+      },
+      {
+       "words": "13's river",
+       "at": 15,
+       "gives": "NILE",
+       "note": "13 is Cleo, Cleopatra, whose river was the Nile"
+      },
+      {
+       "words": "boat",
+       "at": 26,
+       "gives": "SS",
+       "note": "SS, steamship, prefixes a boat's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An impoverished author aboard Cleopatra's river barge.",
+     "definitionFit": "Someone penniless has no money at all, so is poor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 15,
@@ -227,7 +833,32 @@
     "text": "Man's town, such as 9?",
     "enumeration": "7"
    },
-   "solution": "DOUGLAS"
+   "solution": "DOUGLAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Man's town",
+      "at": 0,
+      "meaning": "The capital town of the Isle of Man"
+     },
+     {
+      "text": "such as 9?",
+      "at": 12,
+      "meaning": "9 is JACK, and Jack ... was an actor in the Carry On films"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a man's home town resembles the sailor.",
+     "walkthrough": "The Isle of Man is a self-governing island in the Irish Sea; Jack Douglas was a British comic actor in the Carry On films.",
+     "definitionFit": "Douglas is the Isle of Man's capital and the surname of the comedy actor Jack Douglas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Man's"
+    }
+   }
   },
   {
    "number": 16,
@@ -241,7 +872,46 @@
     "text": "Working in Canada, drunk reveals a reptile",
     "enumeration": "8"
    },
-   "solution": "ANACONDA"
+   "solution": "ANACONDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a reptile",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drunk",
+       "at": 19,
+       "note": "a drunk staggers about, so the letters reel into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Working",
+       "at": 0,
+       "gives": "ON",
+       "note": "a machine that is working is on"
+      },
+      {
+       "words": "Canada",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken worker in Canada shows a snake.",
+     "definitionFit": "The anaconda is a huge South American constrictor snake, a reptile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 17,
@@ -255,7 +925,48 @@
     "text": "Believe singer's after a drink for instructor",
     "enumeration": "7"
    },
-   "solution": "TEACHER"
+   "solution": "TEACHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instructor",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 17,
+       "note": "the singer's name comes after the drink"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a drink",
+       "at": 23,
+       "gives": "TEA",
+       "note": "tea is a drink"
+      },
+      {
+       "words": "Believe singer",
+       "at": 0,
+       "gives": "CHER",
+       "note": "Cher had a huge hit with the song Believe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer arriving after a drink, for her teacher.",
+     "definitionFit": "A teacher is someone who instructs pupils."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Believe"
+    }
+   }
   },
   {
    "number": 18,
@@ -269,7 +980,29 @@
     "text": "He famously explored a state capital",
     "enumeration": "8"
    },
-   "solution": "COLUMBUS"
+   "solution": "COLUMBUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He famously explored",
+      "at": 0,
+      "meaning": "Christopher ... was the explorer who crossed the Atlantic in 1492"
+     },
+     {
+      "text": "a state capital",
+      "at": 21,
+      "meaning": "The capital of the US state of Ohio"
+     }
+    ],
+    "explanation": {
+     "surface": "A famous explorer and a capital city.",
+     "definitionFit": "Christopher Columbus explored the Americas, and Columbus is Ohio's capital city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -283,7 +1016,63 @@
     "text": "Coils half of rope up, making a knot",
     "enumeration": "7"
    },
-   "solution": "WINDSOR"
+   "solution": "WINDSOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a knot",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Coils",
+       "at": 0,
+       "gives": "WINDS",
+       "note": "to coil is to wind, so coils means winds"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 19,
+         "note": "in a down clue, up means the letters read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "half of",
+           "at": 6,
+           "note": "half of a four-letter word is its first two letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rope",
+           "at": 14
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coiling rope to tie a knot.",
+     "walkthrough": "'half of' takes RO from ROPE and 'up' turns it to OR.",
+     "definitionFit": "The Windsor is a wide, symmetrical tie knot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -297,7 +1086,52 @@
     "text": "Novel introduction to extreme combat sport",
     "enumeration": "4"
    },
-   "solution": "EMMA"
+   "solution": "EMMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "introduction to",
+         "at": 6,
+         "note": "the introduction to a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extreme",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "combat sport",
+       "at": 30,
+       "gives": "MMA",
+       "note": "MMA, mixed martial arts, is a combat sport"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first look at an extreme fighting sport.",
+     "walkthrough": "'Novel' looks like an adjective meaning new, but it is the noun.",
+     "definitionFit": "Emma is a novel by Jane Austen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 21,
@@ -311,7 +1145,69 @@
     "text": "EU leader has time for country's first senior 28",
     "enumeration": "6"
    },
-   "solution": "MATRON"
+   "solution": "MATRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "senior 28",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "has",
+       "at": 10,
+       "note": "the leader has one letter in place of another"
+      },
+      {
+       "text": "for",
+       "at": 19,
+       "note": "for here means in place of, so one letter swaps for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "EU leader",
+       "at": 0,
+       "gives": "MACRON",
+       "note": "Emmanuel Macron is a leader in the EU, President of France"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 33,
+         "note": "the first of the word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "country's",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 14,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An EU president making time for a country's top nurse.",
+     "walkthrough": "28 is NURSE, so the definition reads 'senior nurse'.",
+     "definitionFit": "A matron is the senior nurse in charge of a hospital's nursing staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 22,
@@ -325,7 +1221,67 @@
     "text": "Doing endless exercises, fast and slow",
     "enumeration": "8"
    },
-   "solution": "INDOLENT"
+   "solution": "INDOLENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slow",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exercises",
+         "at": 14,
+         "note": "exercises means the letters are worked over into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 6,
+           "note": "without its end, the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Doing",
+           "at": 0
+          },
+          {
+           "gives": "G"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "fast",
+       "at": 25,
+       "gives": "LENT",
+       "note": "Lent is the Christian period of fasting, a fast"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Exercising non-stop, quickly and then slowly.",
+     "walkthrough": "'endless' cuts DOING to DOIN, 'exercises' rearranges it to INDO. 'fast' looks like speed's opposite to slow, but it means Lent.",
+     "definitionFit": "Indolent means lazy and sluggish, slow to act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 23,
@@ -339,7 +1295,61 @@
     "text": "Detective, one on crook's case",
     "enumeration": "4"
    },
-   "solution": "DICK"
+   "solution": "DICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Detective",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 15,
+       "note": "in a down clue the detective sits on top of the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Detective, one",
+       "at": 0,
+       "gives": "DI",
+       "note": "DI, detective inspector, is one kind of detective"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case",
+         "at": 26,
+         "note": "the case of a word is its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crook",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A police officer taking on a criminal's case.",
+     "walkthrough": "'case' takes C and K, the outside of CROOK; dick is old American slang for a detective.",
+     "definitionFit": "Dick is slang, mainly American, for a private investigator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 24,
@@ -353,7 +1363,50 @@
     "text": "Climate change — has it wiped out this beast?",
     "enumeration": "5"
    },
-   "solution": "CAMEL"
+   "solution": "CAMEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this beast",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "change",
+       "at": 8,
+       "note": "change means the letters are reordered"
+      },
+      {
+       "text": "wiped out",
+       "at": 24,
+       "note": "wiped out says some letters are removed from the pool before reordering"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Climate",
+       "at": 0
+      },
+      {
+       "words": "it",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering if climate change has driven an animal to extinction.",
+     "walkthrough": "Take IT out of CLIMATE and rearrange what is left, CLMAE.",
+     "definitionFit": "The camel is a desert animal, which 'this beast' points to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wiped"
+    }
+   }
   },
   {
    "number": 25,
@@ -373,7 +1426,36 @@
      }
     ]
    },
-   "solution": "FASTFOOD"
+   "solution": "FASTFOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Starvation diet?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Starvation diet",
+       "at": 0,
+       "note": "fasting is starving yourself, so a diet of fasting is jokingly called food of the fast kind"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel eating plan.",
+     "walkthrough": "Read the answer as food for a fast: a starvation diet.",
+     "definitionFit": "Burgers and chips served quickly, here punningly read as the food of someone fasting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Starvation"
+    }
+   }
   },
   {
    "number": 26,
@@ -387,7 +1469,61 @@
     "text": "Good-looking lead characters in Carry On movies — everybody loves you!",
     "enumeration": "6"
    },
-   "solution": "COMELY"
+   "solution": "COMELY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Good-looking",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "lead characters in",
+       "at": 13,
+       "note": "the lead characters of the words are their first letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Carry",
+       "at": 32
+      },
+      {
+       "words": "On",
+       "at": 38
+      },
+      {
+       "words": "movies",
+       "at": 41
+      },
+      {
+       "words": "everybody",
+       "at": 50
+      },
+      {
+       "words": "loves",
+       "at": 60
+      },
+      {
+       "words": "you",
+       "at": 66
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor in Carry On films, adored by the public.",
+     "walkthrough": "The Carry On films are a long-running series of cheeky British comedies.",
+     "definitionFit": "Comely is an old-fashioned word for attractive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 27,
@@ -407,7 +1543,64 @@
      }
     ]
    },
-   "solution": "LEMONDROP"
+   "solution": "LEMONDROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "both of them short",
+       "at": 30,
+       "note": "both words lose their ends, so each loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "pursuing",
+         "at": 4,
+         "note": "pursuing means coming after, so the guy follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French national",
+         "at": 13,
+         "gives": "LEMONDE",
+         "note": "Le Monde is a French national daily newspaper"
+        },
+        {
+         "words": "Guy",
+         "at": 0,
+         "gives": "ROPE",
+         "note": "a guy is a guy rope, steadying a tent"
+        }
+       ]
+      },
+      {
+       "gives": "EE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man chasing a Frenchman, both small and sweet-natured.",
+     "walkthrough": "'both of them short' takes the last E off LEMONDE and ROPE. 'national' suggests a person but means a newspaper.",
+     "definitionFit": "A lemon drop is a lemon-flavoured boiled sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "national"
+    }
+   }
   },
   {
    "number": 28,
@@ -421,7 +1614,62 @@
     "text": "Centrepiece of running buffet sure is tender",
     "enumeration": "5"
    },
-   "solution": "NURSE"
+   "solution": "NURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tender",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Centrepiece of",
+         "at": 0,
+         "note": "the centrepiece of a word is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "running",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "buffet",
+         "at": 23,
+         "note": "to buffet is to batter, so the letters are knocked about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sure",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The central dish at a buffet is certainly succulent.",
+     "walkthrough": "'buffet' and 'tender' look like food words; the first knocks SURE about, the second means one who tends.",
+     "definitionFit": "A nurse tends the sick, so is a tender in the sense of one who looks after."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "buffet"
+    }
+   }
   }
  ]
 }
