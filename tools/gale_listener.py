@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 14
+VERSION = 15
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -123,9 +123,14 @@ REPORT = re.compile(r"(?:report|notes)\s+on\b[^\n]{0,40}?crossword\W{0,3}n[o0]\.
 #: capitals: a report's notes head theirs "NOTES", the rules say "Clues are
 #: not given") or its "This Week's Crossword" title, the swash C often read
 #: "(" ("This Weeks (rossword"; not "This Week's Crossword is printed on page
-#: 709"), or its entry form's "Prize: ..., Closing date" (a report's are
+#: 709", "will be found on page vii"), or its entry form's "Prize: ..., Closing date" (a report's are
 #: "Prizewinners").
-PUZZLE_HERE = re.compile(r"\bCLUES\b|\bPrize\W{0,2}:|\bClosing\s+date|(?i:week\W{0,2}s?\W{0,5}\S{0,3}rossword(?!\W*is\s+printed))")
+PUZZLE_HERE = re.compile(r"\bCLUES\b|\bPrize\W{0,2}:|\bClosing\s+date|(?i:week\W{0,2}s?\W{0,5}\S{0,3}rossword(?!\W*(?:is|will|be)\b))")
+#: A page saying the week's puzzle is elsewhere ("This week's Crossword will
+#: be found on page vii", "... is printed on page 709"), or heading a report
+#: ("Report on (rossword No. I42": its number seldom read right).
+ELSEWHERE = re.compile(r"week\W{0,2}s?\W{0,5}\S{0,3}rossword\W*(?:is|will|be)\b|\breport\s+on\W+\S{0,3}rossword",
+                       re.IGNORECASE)
 
 
 def puzzle_here(text, number):
@@ -302,6 +307,7 @@ def match(path, idx, read_title=True):
     by_number = {r["number"]: r for r in idx}
     number, how, reports = cited(cite)
     report_only = bool(reports) and number is None
+    pointed = []
     day = gi.name_date(name, DATES)
     if day:
         r = by_date(idx, day)
@@ -322,13 +328,18 @@ def match(path, idx, read_title=True):
         for img, key in out["pages"]:
             text = ocr_clues.lines_of(page_words(img, key))
             reports |= {num(n) for n in REPORT.findall(text)}
-            report_only = report_only and not puzzle_here(text, out["number"])
+            here = puzzle_here(text, out["number"])
+            report_only = report_only and not here
+            pointed.append(not here and bool(ELSEWHERE.search(text)))
             if out["number"] is None and (m := TITLE.search(text)):
                 out.update(number=int(re.sub(r"\D", "", m.group(1))), how="title read")
-        if report_only and out["number"] is not None and out["pages"]:
+        if (report_only or pointed and all(pointed)) and out["number"] is not None and out["pages"]:
             # Gale's article is the report, and the page prints no clue list:
             # the issue's own puzzle is on another page (5 of 7 such 1932
-            # pages), so its read would only spend ~17 min to find nothing.
+            # pages), so its read would only spend ~17 min to find nothing. So
+            # too a page whatever its article that heads a report or points
+            # to the week's puzzle on another page, and prints none (No 151's
+            # "Beef and Beet in Norfolk", read as 1/39 from its report's notes).
             out.update(number=None, why=f"the report page only: No {out['number']}'s clues are on another page")
     out["reports"] = sorted(n for n in reports if n in by_number and n != out["number"])
     if out["number"] is not None and (out["number"] not in by_number or not printed(by_number[out["number"]])):
@@ -370,6 +381,50 @@ def words_only(words):
             continue
         out.append(w)
     return out
+
+
+#: A clue's number, or what goes with it in the number column: "16 & 17*.",
+#: "21.**", "27. x*", "41 & 38 rev.", "I3." (a 1 read I).
+NUMBERISH = re.compile(r"[\W\dIl]*\d[\W\dIl]*(?:rev\b\W*)?[x*\W]*|[\dIl]{1,2}\W+|&|rev\W*|[x*.]+", re.IGNORECASE)
+#: Lines whose texts start at one x, this many at least, make a hanging list.
+HANGING = 4
+
+
+def hanging_numbers(words):
+    """`words` with the numbers of a list set as a table (No 141, 1932: each
+    number right-set in its own column ~125 px left of the clue texts, which
+    all start at one x) moved up beside their clue's first word, as the other
+    lists print them; words_only and the column finders take a number further
+    than BESIDE heights from its words for a grid's. A lone "I" there is 1.
+    Unchanged when no HANGING lines share a text edge so far right of their
+    numbers."""
+    lines = []
+    for w in words:
+        if not (NUMBERISH.fullmatch(w[4]) and re.search(r"\d", w[4]) or w[4] in ("I", "l")):
+            continue
+        h, mid = w[3] - w[1], (w[1] + w[3]) / 2
+        row = sorted((o for o in words if o[0] >= w[2] - 5
+                      and abs((o[1] + o[3]) / 2 - mid) < min(h, o[3] - o[1]) / 2), key=lambda o: o[0])
+        group = [w]
+        for o in row:
+            gap = o[0] - group[-1][2]
+            if NUMBERISH.fullmatch(o[4]) and -5 <= gap <= max(40, BESIDE * h):
+                group.append(o)
+                continue
+            if 0 <= gap < 12 * h:
+                lines.append((o[0], gap > max(40, BESIDE * h), group))
+            break
+    far = sorted(x for x, wide, _ in lines if wide)
+    edges = [x for x in far if sum(abs(e - x) <= 15 for e in far) >= HANGING]
+    out = {id(w): w for w in words}
+    for x, _, group in lines:
+        if not any(abs(e - x) <= 15 for e in edges) or any(out[id(g)] is not g for g in group):
+            continue
+        tx = min(e for e in edges if abs(e - x) <= 15)
+        shift = tx - 12 - group[-1][2]
+        for g in group:
+            out[id(g)] = (g[0] + shift, g[1], g[2] + shift, g[3], "1." if g[4] in ("I", "l") else g[4])
+    return [out[id(w)] for w in words]
 
 
 def page_columns(words):
@@ -574,7 +629,8 @@ def list_heads(words):
     """(ACROSS, DOWN) heading words heading the lists, DOWN under ACROSS or
     in a column right of it; None without both."""
     heads = headings(words)
-    across = al.heading_word(heads, "ACROSS")
+    # heading(), not al.heading_word: a "CLUES—ACROSS." heads No 141's lists (1932).
+    across = next((w for w in sorted(heads, key=lambda w: w[1]) if heading(w[4]) == "ACROSS"), None)
     down = across and next((w for w in sorted(heads, key=lambda w: (w[0] // 200, w[1]))
                             if heading(w[4]) == "DOWN"
                             and (w[1] > across[3] or w[0] > across[2])), None)
@@ -975,6 +1031,11 @@ def numbered(run, n):
     return kept
 
 
+#: Two lights' numbers run into the clue's first word ("9,36.Inversely",
+#: "16&17*.What", No 127 and No 141, 1932): parted like a single one.
+GLUED_GROUP = re.compile(r"^(\d{1,2}(?:\s?[,&]\s?\d{1,2})+\W{0,3}\.)(?=[A-Z(\u2018'\"\u201c])")
+
+
 def figures(words):
     """The words with a line's opening clue number read as letters put back
     in digits (a number cannot open on 0, so "O." and "Oo." stay words),
@@ -995,7 +1056,7 @@ def figures(words):
             # or the gutter read into it (No 17's "7." from x 784, where the
             # column's numbers start at ~864). The number ends where it does.
             w = (int(w[2] - NUMBER_WIDTH * len(w[4]) * (w[3] - w[1])), *w[1:])
-        w = (*w[:4], clue_text.tidy_ocr_clues(w[4], scope="piece"))
+        w = (*w[:4], GLUED_GROUP.sub(r"\1 ", clue_text.tidy_ocr_clues(w[4], scope="piece")))
         out.append(w)
     return out
 
@@ -1060,6 +1121,7 @@ def read_page(img, key, lengths=None):
         words[which] = figures(reread_lines(img, key, which, [tuple(w) for w in words[which]],
                                             [located] + [words[o] for o in rapid if o != which]))
     words = lend_heads(words)
+    words = {k: hanging_numbers(w) for k, w in words.items()}
     if blanks := page_blanks(img, located):
         verdict["blanks"] = len(blanks)
         words = {k: ocr_clues.with_blanks(w, blanks) for k, w in words.items()}
@@ -1605,7 +1667,7 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
     scan_queue.append(store / LEDGER, [{"sha": h, **entry}])
     mm.record(LEDGER_MANIFEST, store / LEDGER, sha=h, number=entry.get("number"), reports=entry.get("reports") or [])
     print(f"{p.name}: " + (f"No {m['number']} ({m['how']}), " if m["number"] is not None else "")
-          + (f"{entry['agreed']}/{entry['clues']} clues read" if "agreed" in entry else entry["why"] or "")
+          + (f"{entry['agreed']}/{entry['clues']} clues read" if "agreed" in entry else entry["why"] or "a report page")
           + "".join(f", the solution of No {n}" for n in m["reports"]), file=out)
     return entry
 
@@ -1740,18 +1802,29 @@ def rank_of(reason):
 PARAGRAPHS = 13
 #: The refusal those pages ended on.
 UNPARSED = "no reading parses"
+#: The VERSION reading the 1932-33 lists set as a table (hanging_numbers),
+#: headed "CLUES—ACROSS.", opening "(mixed)" or "9,36.Inversely", and
+#: passing over a page that holds only a report: a page read before it with
+#: its clue list short, or none parsed, is read again (evidence: on 40
+#: fetched 1930s pages Nos 114, 127, 141, 147, 148 gained 1-26 clues and 5
+#: more were seen to be reports alone).
+CLUES_FIX = 15
+SHORT = "refused clues-short before its fix"
 
 
 def due_reason(row):
     """Why plan reads a page again, given its last ledger row (None: never
     read): "never read (Gale fetch)"; fa's "refused no-reading-parses before
-    its fix" for one that ended UNPARSED before PARAGRAPHS (a reason
+    its fix" for one that ended UNPARSED before CLUES_FIX (PARAGRAPHS until
+    then), SHORT for one whose clue list came out short before it (reasons
     tools/edition_queue.py plans with blanket rereads off); else the
     blanket "version changed"."""
     if not row:
         return "never read (Gale fetch)"
-    if row.get("why") == UNPARSED and (row.get("version") or 0) < PARAGRAPHS:
+    if row.get("why") == UNPARSED and (row.get("version") or 0) < CLUES_FIX:
         return "refused no-reading-parses before its fix"
+    if row.get("agreed", 0) < row.get("clues", 0) and (row.get("version") or 0) < CLUES_FIX:
+        return SHORT
     return "version changed"
 
 

@@ -159,6 +159,8 @@ check("a count inside the text is a run-on", False, al.sound("NEW HAMPSHIRE () P
 check("a misread next number inside the text is a run-on", False,
       al.sound("Like an old woman >0 In some places"))
 check("an ellipsis opening is sound", True, al.sound(". . . their Peasant's Revolt"))
+check("an instruction opening is sound (No 127's \"(mixed) Shoulder.\")", [True, True, False],
+      [al.sound("(mixed) Shoulder."), al.sound("(Letter missing.) A town"), al.sound("(6) Shoulder")])
 
 # The Listener's readings set each filed clue's count and words as they
 # print them (ocr_clues.as_printed with this filer's parse), and leave a
