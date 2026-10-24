@@ -64,6 +64,7 @@ if grids:
     check("rows, blocks and bars read back", list(ROWS), grids[0]["rows"])
     check("an empty grid is not a report's filled one", True, grids[0]["filled"] < 0.5)
     check("numbers are light_cells'", lg.numbers(list(ROWS)), lg.numbers(grids[0]["rows"]))
+    check("a grid of numbers alone has no figured reading", None, grids[0].get("figured"))
 
 # A faint bar (a third wider than a rule, under BAR_RATIO) reads as a rule;
 # one whose far cell starts no other light shows in the numbering, so
@@ -123,6 +124,12 @@ check("in_order keeps neither cell of a number read twice where both fit (No 17'
       {(10, 3): 37, (12, 0): 42}, lg.in_order({(10, 3): 37, (11, 0): 41, (11, 6): 41, (12, 0): 42}, 100))
 check("but keeps the one that fits when the other is out of order (No 9's 12 read 2)",
       {(0, 1): 1, (0, 3): 2, (1, 10): 11}, lg.in_order({(0, 1): 1, (0, 3): 2, (1, 10): 11, (2, 1): 2}, 100))
+# No 447: both readers read 36 as 56 and 38 as 58, two cells and a row on
+# from 35; the run cannot rise 21 in two cells, so 39 and 41 are kept.
+late = {(8, 2): 34, (8, 5): 35, (8, 7): 56, (9, 2): 58, (9, 9): 39, (10, 8): 41}
+check("in_order rises no more than the cells between two reads (No 447's 36 read 56)",
+      {(8, 2): 34, (8, 5): 35, (9, 9): 39, (10, 8): 41}, lg.in_order(late, 143, 13))
+check("without the width the misread pair ties and is kept (mirror)", True, (8, 7) in lg.in_order(late, 143))
 
 # A row and a column mostly blocks (No 15's last row is 9 blocks of 13):
 # the band of blocks covers as much as a rule, and its edges are the rules.
@@ -186,6 +193,40 @@ if grids:
     check("its cells read back, those off the outline blocks, the cell beside a broken stroke a cell",
           list(MAP), grids[0]["rows"])
     check("its numbers are light_cells'", lg.numbers(list(MAP)), lg.numbers(grids[0]["rows"]))
+# No 471 draws footballers for its blocks: a figure in a cell's middle,
+# far under BLOCK_INK, is a block of a puzzle's grid; a numbered cell is not.
+FIGS = ("..#..",
+        ".....",
+        "#...#",
+        ".....",
+        "..#..")
+img = Image.new("L", (1400, 1400), 235)
+d = ImageDraw.Draw(img)
+for y in range(1050, 1300, 40):                    # prose, so the page has its ink levels
+    for x in range(100, 1200, 70):
+        d.text((x, y), "word", fill=30)
+for i in range(6):
+    d.line((X0, 200 + i * P, X0 + 5 * P, 200 + i * P), fill=25, width=3)
+    d.line((X0 + i * P, 200, X0 + i * P, 200 + 5 * P), fill=25, width=3)
+for r, row in enumerate(FIGS):
+    for c, ch in enumerate(row):
+        x, y = X0 + c * P, 200 + r * P
+        if ch == "#":                              # a stick figure: head, body, legs
+            d.ellipse((x + 38, y + 12, x + 52, y + 26), outline=20, width=3)
+            d.line((x + 45, y + 26, x + 45, y + 58), fill=20, width=5)
+            d.line((x + 45, y + 58, x + 35, y + 82), fill=20, width=4)
+            d.line((x + 45, y + 58, x + 55, y + 82), fill=20, width=4)
+            d.line((x + 30, y + 38, x + 60, y + 38), fill=20, width=4)
+for (n, _), cells in sorted(lg.rg.light_cells(list(FIGS)).items()):
+    y, x = cells[0]
+    d.text((X0 + x * P + 6, 200 + y * P + 5), str(n), fill=20)
+grids = [g for g in lg.find_grids(np.asarray(img, dtype=np.uint8)) if g["rows"]]
+check("a grid with figures for blocks is found", 1, len(grids))
+if grids:
+    check("it is a puzzle's grid, not a report's", True, grids[0]["filled"] < 0.5)
+    check("read plain, its figures are cells (letters given would be)", ["....."] * 5, grids[0]["rows"])
+    check("figured, its figures are blocks, its numbered cells cells", (list(FIGS), 0.0),
+          ((grids[0].get("figured") or {}).get("rows"), (grids[0].get("figured") or {}).get("filled")))
 # Two strokes RULE_GAP + 1 apart stay two runs (mirror): text's stacked
 # letters are no rule.
 def joined(gap):
