@@ -76,6 +76,12 @@ check("Gale's \"1.403\" and \"1, 349\" alike", [1403, 1349],
       [g.cited(f'"Crossword No. {n}. " The Listener, 18 Apr. 1957')[0] for n in ("1.403", "1, 349")])
 check("a report's comma number", (None, None, {1309}), g.cited('"Report on Crossword No. 1,309. " The Listener'))
 check("\"Notes on\" is a report", (None, None, {287}), g.cited('"Notes on Crossword No. 287. " The Listener'))
+check("a pointer to a report on another page is none (No 17's page, 1930), a report's heading is",
+      [[], [], ["17"]], [g.REPORT.findall("missing. (The Report on Crossword No. 15 twill be found on page 155)"),
+                         g.REPORT.findall("(The report on Crossword No 18 gill be found on the next page)"),
+                         g.REPORT.findall("Report on Crossword No. 17\nIt is difficult to say why fifty-nine")])
+check("a page's title is its own number, not a report's it points to (No 17, 1930)", "17",
+      g.title_of("(The Report on Crossword No. 15 twill be found on page 155)\nCrossword No. 17\nCLUES").group(1))
 check("the week's puzzle printed: its CLUES heading, its title read \"(rossword\", its entry form",
       [True, True, True], [g.puzzle_here(t, 147) for t in
                            ("CLUES\nACROSS", "This Weeks (rossword", "Prize: The Adventures of the Black Girl")])

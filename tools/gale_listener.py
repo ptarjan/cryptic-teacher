@@ -118,8 +118,14 @@ NUMBERED = re.compile(r"^n[o0]\.?\s*" + FIGURE + r"|crossword\W{0,3}(?:puzzle\W{
                       re.IGNORECASE)
 #: The report printing a past puzzle's solution grid and solvers:
 #: "Report on Crossword No. 16", "Report on Wireless Crossword No. 38",
-#: "Notes on Crossword No. 287".
-REPORT = re.compile(r"(?:report|notes)\s+on\b[^\n]{0,40}?crossword\W{0,3}n[o0]\.?\s*" + FIGURE, re.IGNORECASE)
+#: "Notes on Crossword No. 287". Not a pointer to it on another page, the
+#: line going on to a page: No 17's "(The Report on Crossword No. 15 will
+#: be found on page 155)" (read "twill be found") held No 15's report
+#: saved, so p. 155 was never fetched; No 20's "... No 18 gill be found on
+#: the next page" No 18's; No 154's "Report on Crossword No. 15[2] on p.
+#: 303." No 15's.
+REPORT = re.compile(r"(?:report|notes)\s+on\b[^\n]{0,40}?crossword\W{0,3}n[o0]\.?\s*" + FIGURE
+                    + r"(?![^\n]{0,40}\b(?:page\b|on\s+p\.))", re.IGNORECASE)
 #: What only a page printing the week's puzzle has: its "CLUES" heading (in
 #: capitals: a report's notes head theirs "NOTES", the rules say "Clues are
 #: not given") or its "This Week's Crossword" title, the swash C often read
@@ -132,6 +138,14 @@ PUZZLE_HERE = re.compile(r"\bCLUES\b|\bPrize\W{0,2}:|\bClosing\s+date|(?i:week\W
 #: ("Report on (rossword No. I42": its number seldom read right).
 ELSEWHERE = re.compile(r"week\W{0,2}s?\W{0,5}\S{0,3}rossword\W*(?:is|will|be)\b|\breport\s+on\W+\S{0,3}rossword",
                        re.IGNORECASE)
+
+
+def title_of(text):
+    """TITLE's first match in a page's words `text` that is no report's
+    number: No 17's page (1930), its citation unread, was read as No 15 off
+    "(The Report on Crossword No. 15 will be found on page 155)"."""
+    return next((m for m in TITLE.finditer(text) if not re.search(
+        r"(?:report|notes)\s+on\W+\S*\W*$", text[max(0, m.start() - 30):m.start()], re.IGNORECASE)), None)
 
 
 def puzzle_here(text, number):
@@ -332,7 +346,7 @@ def match(path, idx, read_title=True):
             here = puzzle_here(text, out["number"])
             report_only = report_only and not here
             pointed.append(not here and bool(ELSEWHERE.search(text)))
-            if out["number"] is None and (m := TITLE.search(text)):
+            if out["number"] is None and (m := title_of(text)):
                 out.update(number=int(re.sub(r"\D", "", m.group(1))), how="title read")
         if (report_only or pointed and all(pointed)) and out["number"] is not None and out["pages"]:
             # Gale's article is the report, and the page prints no clue list:
