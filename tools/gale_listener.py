@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 19
+VERSION = 20
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -445,8 +445,9 @@ def page_columns(words):
 #: bracket, the clue numbered by the first: "(1, 8, 52) The nightingale.",
 #: "(40-22) Thracian torturers." (No 443, 1938); read from its last figure,
 #: each was a number lower than the clue's before it, and dropped. An
-#: anagram's clue says so in its bracket: "(47 anag.) Shivering".
-PARA_MARK = re.compile(r"(?<![\w(])\(?(\d{1,2})([A-Z]?)(?:(?:,\s?|-)\d{1,2}[A-Z]?)*(?:\s?anag\.?)?\)([*†‡!¥]*)(?![\w)])")
+#: anagram's clue says so in its bracket: "(47 anag.) Shivering", a
+#: reversed light's too: "(45 rev.) Better be" (No 242, 1934).
+PARA_MARK = re.compile(r"(?<![\w(])\(?(\d{1,2})([A-Z]?)(?:(?:,\s?|-)\d{1,2}[A-Z]?)*(?:\s?(?:anag|rev)\.?\s?)?\)([*†‡!¥]*)(?![\w)])")
 #: PARA_MARK opening a clue's words in capitals: what tells a page of
 #: paragraph lists from one with counts at clues' ends ("Region (6)").
 PARA_OPENS = re.compile(PARA_MARK.pattern + r"(?=[,\s]*\(|\s+[\"'‘“]?[A-Z0-9])")
@@ -498,8 +499,15 @@ def paragraph_columns(words, marks=PARA_MARKS):
     height = heights[len(heights) // 2]
     if para_openers(words, height, opens) < PARA_MIN:
         return None
-    across = next((w for w in sorted(words, key=lambda w: w[1])
-                   if heading(w[4]) == "ACROSS" or re.search(r"A[CG]R[O0]SS", w[4].upper())), None)
+    # The heading read alone on its line, else a misread one in its
+    # capitals ("CLUESAGROSS"), else any word saying across: a clue's "(11)
+    # See 37 Across." above it (No 242, 1934) is no heading when one is
+    # read, and the preamble's "36 and 45 Across form" just over an
+    # unreadable one ("Orie cuss ackoss", No 208) stands for it.
+    by_y = sorted(words, key=lambda w: w[1])
+    across = (next((w for w in sorted(headings(words), key=lambda w: w[1]) if heading(w[4]) == "ACROSS"), None)
+              or next((w for w in by_y if re.search(r"A[CG]R[O0]SS", w[4])), None)
+              or next((w for w in by_y if heading(w[4]) == "ACROSS" or re.search(r"A[CG]R[O0]SS", w[4].upper())), None))
     if marks is DOTTED:
         # Their prose above may "come across" (No 1069): the heading itself.
         across = next((w for w in sorted(words, key=lambda w: w[1]) if heading(w[4]) == "ACROSS"), None)
@@ -519,6 +527,12 @@ def paragraph_columns(words, marks=PARA_MARKS):
     stream = []
     for x0, x1 in (s for s in spans if s[1] >= across[0]):
         rows = para_rows([w for w in body if x0 <= (w[0] + w[2]) / 2 <= x1], height)
+        if (stream and x0 > across[2] and not any(t == "DOWN" and r is None for t, r in stream)
+                and sum(len(opens.findall(r[4])) for r in rows) < COLUMN_MIN):
+            # The heading at a column's foot, the across list run on at the
+            # next column's top, above the heading's level, and only a
+            # report below it there (No 242, 1934).
+            rows = para_above(words, (x0, x1), across, height, tall, mark) or rows
         if stream and not any(mark.search(r[4]) for r in rows):
             break  # a column with no clue number: a report, an article
         steps = sorted(b[0] - a[0] for a, b in itertools.pairwise(rows) if b[0] > a[0])
@@ -602,6 +616,24 @@ def paragraph_columns(words, marks=PARA_MARKS):
 #: An unread DOWN heading leaves at most this many line pitches over the
 #: down list's first line.
 PARA_HEAD_GAP = 5
+
+
+def para_above(words, span, across, height, tall, mark):
+    """paragraph_columns' rows of the column `span` above the ACROSS
+    heading's level: from the top of the paragraph holding its first clue
+    number (the lines over it set at the paragraph's own pitch), so an
+    advert or article above it, set off by a gap, is none of it."""
+    x0, x1 = span
+    rows = para_rows([w for w in words if w[3] - w[1] <= tall and x0 <= (w[0] + w[2]) / 2 <= x1
+                      and (w[1] + w[3]) / 2 < across[1]], height)
+    first = next((i for i, r in enumerate(rows) if mark.search(r[4])), None)
+    if first is None:
+        return []
+    steps = sorted(b[0] - a[0] for a, b in itertools.pairwise(rows[first:]) if b[0] > a[0])
+    pitch = steps[len(steps) // 2] if steps else height
+    while first and rows[first][0] - rows[first - 1][0] <= PARA_GAP * pitch:
+        first -= 1
+    return rows[first:]
 
 
 def para_restart(text, mark, stream):
@@ -1931,7 +1963,11 @@ UNPARSED = "no reading parses"
 #: ("(1, 8, 52)", "(40-22)", "(47 anag.)") is numbered by its first, and
 #: under a lone DOWN the across list is read up from its "1." (page reads,
 #: numbered clues before -> after: No 443 0 -> 52, No 449 0 -> 38, No 133 0 -> 19).
-CLUES_FIX = 19
+#: 20: the paragraph lists' ACROSS heading is a heading alone on its line,
+#: not a clue's "See 37 Across.", and the across list run on at the next
+#: column's top above the heading's level is read, as is "(45 rev.)" (No
+#: 242, 1934: its page read 7 across before, 22 across and 22 down after).
+CLUES_FIX = 20
 SHORT = "refused clues-short before its fix"
 
 

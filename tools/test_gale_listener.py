@@ -1044,6 +1044,20 @@ linked = [(1744, 300, "CLUESACROSS"), (1772, 88, "(1) Doom. (8) Fisher come. (10
 cols = g.paragraph_columns(para_words(linked))
 check("a bracket set at its later light's place is numbered by it, no restart of the list",
       [[1, 8, 10, 40, 42], [1, 2, 3]], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+# No 242's (1934): "CLUES—ACROSS" at the left column's foot, the list run
+# on at the next column's top far above it (an advert over that), a
+# report under the heading's level there; a clue's "See 37 Across." is no
+# heading, and "(45 rev.)" a clue's number.
+no242 = [(300, 765, "Royal Soldiers Home advert"), (1744, 300, "CLUESACROSS"),
+         (1772, 88, "(2) Victim of Scorpio. (10) A monster"), (1794, 88, "of note. (13) See 6."),
+         (1000, 765, "Epical hero met him. (19) A laddie."), (1022, 765, "(21) One thought. (24) See 35."),
+         (1044, 765, "(45 rev.) Better be chastised."), (1088, 900, "DOWN"),
+         (1110, 765, "(1) Ay, in the word. (3) See 12."), (1132, 765, "(4) Another animal. (11) See"),
+         (1154, 765, "37 Across."),
+         (1800, 765, "Prizewinners: C. A. Adams (London, N.8);"), (1822, 765, "were very successful.")]
+cols = g.paragraph_columns(para_words(no242))
+check("No 242's lists: run on above the heading in the next column, a report below it",
+      [[2, 10, 13, 19, 21, 24, 45], [1, 3, 4, 11]], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
 # No 133's (1932): "CLUES—ACROSS" read as specks, only DOWN read: the
 # across list is read from its "1." line up the column, not dropped.
 no133 = (line("Name and address", 100, 300) + line("¢t 3", 300, 400) + line("1. Claustra olim", 100, 430)
