@@ -1867,7 +1867,7 @@
     // sw.js is registered UNSTAMPED and must stay out of stamp_assets.py's
     // ASSETS: the URL is the worker's identity, so a hash on it registers a
     // second worker beside the one already holding this device's subscription.
-    return navigator.serviceWorker.register("sw.js")
+    return navigator.serviceWorker.register(at("sw.js"))
       .then((reg) => reg.pushManager.getSubscription()
         .then((sub) => sub || reg.pushManager.subscribe({
           userVisibleOnly: true, applicationServerKey: vapidKeyBytes(),
@@ -8953,7 +8953,9 @@
     if (btn) btn.onclick = (ev) => { ev.preventDefault(); saveOffline(false); };
     // Registered here as well as when notifications are ticked: the app must
     // be offline-capable for someone who never touches notifications.
-    navigator.serviceWorker.register("sw.js").then(() => navigator.serviceWorker.ready).then((reg) => {
+    // at(), not a bare "sw.js": opening a puzzle rewrites the bar to
+    // /puzzles/<id>/, and a reload there would ask for /puzzles/<id>/sw.js (404).
+    navigator.serviceWorker.register(at("sw.js")).then(() => navigator.serviceWorker.ready).then((reg) => {
       // The worker cannot see requests made before it controlled the page, so
       // say what this page loaded.
       const urls = [];
