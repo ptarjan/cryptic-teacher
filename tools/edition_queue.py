@@ -1193,7 +1193,7 @@ def by_urgency(units):
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
-              fa.SHORT_UNFITTED)
+              fa.SHORT_UNFITTED, fa.UNMERGED)
 
 
 def unproven_first(unit):
@@ -1252,7 +1252,9 @@ def fills_gpu(unit):
 
 
 #: Reasons of rereads that finish on CPU alone (answers_only, no VLM ask): they never feed the GPU.
-CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked")
+#: fa.UNMERGED: a solution grid a full read read whole, its answers never merged; answers_only reads it
+#: again whole (no light short, no strip asked) and merges them.
+CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.UNMERGED)
 #: Reasons of rereads that ask the VLM only a little: a Times solution reread spends 30-250 s of CPU, spools
 #: 1-3 asks (solution strips are capped at vlm_reader STRIP_MAX) and defers. Paul 10-22: with all 18 slots
 #: on these the GPU sat ~27% busy (~160 asks/h of ~400) while 798 FT never-read reads waited. They keep
