@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Barista's warning police still?",
     "enumeration": "7"
    },
-   "solution": "MUGSHOT"
+   "solution": "MUGSHOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Barista's warning",
+      "at": 0,
+      "meaning": "a coffee server might caution that the cup is hot: read as two words"
+     },
+     {
+      "text": "police still",
+      "at": 18,
+      "meaning": "a photograph of a suspect taken by the police after arrest"
+     }
+    ],
+    "explanation": {
+     "surface": "A coffee-shop worker shouts a warning, or perhaps tells the police to stay put.",
+     "walkthrough": "Split the answer after its third letter and a barista's caution about a hot cup appears.",
+     "definitionFit": "A police still is the custody photograph of an arrested person's face, taken front and side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +79,56 @@
      }
     ]
    },
-   "solution": "MRBEAN"
+   "solution": "MRBEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comic character",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "MR",
+       "indicators": [
+        {
+         "text": "for speaking",
+         "at": 34,
+         "note": "for speaking says the words that lacked a stand for are said out loud, giving the sound of a title"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lacked a",
+         "at": 20,
+         "gives": "MISSEDA",
+         "note": "lacked means missed, so lacked a is said 'missed a', which sounds like Mister, written MR"
+        }
+       ]
+      },
+      {
+       "words": "head",
+       "at": 29,
+       "gives": "BEAN",
+       "note": "bean is slang for the head"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian's creation who never had the wits to say much.",
+     "walkthrough": "'missed a bean' (lacked a head) said quickly sounds like 'Mister Bean'; the title is entered in its short form MR. Mr Bean is Rowan Atkinson's near-silent British TV comic creation.",
+     "definitionFit": "Rowan Atkinson's bumbling, almost wordless television figure is a famous comedic creation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +142,49 @@
     "text": "Our crossword is a type one gets into",
     "enumeration": "6"
    },
-   "solution": "GENIUS"
+   "solution": "GENIUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Our crossword",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gets into",
+       "at": 28,
+       "note": "gets into tells us that the letter for one goes inside the word for a type"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a type",
+       "at": 17,
+       "gives": "GENUS",
+       "note": "a genus is a kind, class or type"
+      },
+      {
+       "words": "one",
+       "at": 24,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boast that this very puzzle belongs to a category people get hooked on.",
+     "walkthrough": "'Our crossword' is the setter speaking for The Guardian, whose monthly prize puzzle bears this name.",
+     "definitionFit": "The Guardian runs a monthly prize puzzle under this title, so it is the paper's own crossword."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +198,49 @@
     "text": "Cleverly hide man and servant",
     "enumeration": "10"
    },
-   "solution": "HANDMAIDEN"
+   "solution": "HANDMAIDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "servant",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Cleverly",
+       "at": 0,
+       "note": "cleverly suggests the letters of hide man and are ingeniously rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hide",
+       "at": 9
+      },
+      {
+       "words": "man",
+       "at": 14
+      },
+      {
+       "words": "and",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to conceal a man and his domestic help with some cunning.",
+     "walkthrough": "'Cleverly' rearranges HIDEMANAND.",
+     "definitionFit": "A female attendant or maid is a personal servant in old-fashioned terms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cleverly"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +254,36 @@
     "text": "Milne's one was doubly good",
     "enumeration": "5"
    },
-   "solution": "TIGER"
+   "solution": "TIGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Milne's one was doubly good",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Milne's one was doubly good",
+       "at": 0,
+       "note": "A. A. Milne's bouncy Pooh character is this big cat with its G (good) doubled"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a Winnie-the-Pooh character was twice as good.",
+     "walkthrough": "Milne's character is Tigger: double the G (good) in the answer and his name appears.",
+     "definitionFit": "Tigger in the Pooh stories is a striped big cat, the animal named here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +297,64 @@
     "text": "Tendentious bid may be put forward after no end of hesitation",
     "enumeration": "7"
    },
-   "solution": "DOUBLED"
+   "solution": "DOUBLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tendentious bid may be",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 35,
+       "note": "after places the word for put forward behind the shortened hesitation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no end of",
+         "at": 41,
+         "note": "no end of means the last letter of the word for hesitation is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hesitation",
+         "at": 51,
+         "gives": "DOUBT",
+         "note": "doubt is hesitation or uncertainty"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "put forward",
+       "at": 23,
+       "gives": "LED",
+       "note": "led means put forward or went in front"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A provocative proposal being advanced after a brief moment of uncertainty.",
+     "walkthrough": "In bridge, an opponent may challenge a doubtful bid by doubling it, raising the stakes.",
+     "definitionFit": "At contract bridge a contentious contract is challenged by an opponent's double, raising its scoring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bid"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +368,45 @@
     "text": "Be tenured, potentially offering security",
     "enumeration": "9"
    },
-   "solution": "DEBENTURE"
+   "solution": "DEBENTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "security",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "potentially",
+       "at": 12,
+       "note": "potentially hints the letters of be tenured could become something else when reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Be",
+       "at": 0
+      },
+      {
+       "words": "tenured",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting tenure as an academic might give you job security.",
+     "walkthrough": "'potentially' rearranges BETENURED; 'offering' links the wordplay to the definition.",
+     "definitionFit": "A long-term bond issued by a company is a financial security."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "security"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +420,43 @@
     "text": "With speech, makes pots",
     "enumeration": "4"
    },
-   "solution": "URNS"
+   "solution": "URNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pots",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "URNS",
+     "indicators": [
+      {
+       "text": "With speech",
+       "at": 0,
+       "note": "with speech means the word for makes is spoken, giving a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "makes",
+       "at": 13,
+       "gives": "EARNS",
+       "note": "earns means makes, as in makes money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who earns a living by talking, and also turns out pots.",
+     "definitionFit": "Large vases or vessels, as for ashes or tea, are pots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +470,65 @@
     "text": "Vikings used this pine club with a hole in it",
     "enumeration": "8"
    },
-   "solution": "LONGBOAT"
+   "solution": "LONGBOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vikings used this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pine",
+       "at": 18,
+       "gives": "LONG",
+       "note": "to pine is to long or yearn"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "with",
+         "at": 28,
+         "note": "with ... in it says the letter for a hole sits inside the club"
+        },
+        {
+         "text": "in it",
+         "at": 40,
+         "note": "in it is part of the instruction placing the hole inside the club"
+        }
+       ],
+       "parts": [
+        {
+         "words": "club",
+         "at": 23,
+         "gives": "BAT",
+         "note": "a bat is a club used in sport"
+        },
+        {
+         "words": "a hole",
+         "at": 33,
+         "gives": "O",
+         "note": "O looks like a hole"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something Norse raiders used: a club of pine wood with a hole bored through it.",
+     "walkthrough": "'pine' looks like the timber but is the verb to yearn.",
+     "definitionFit": "The Norse raiders crossed the seas in their long, narrow oared warships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pine"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +542,61 @@
     "text": "Fail to keep up in time? Wretched!",
     "enumeration": "8"
    },
-   "solution": "DESOLATE"
+   "solution": "DESOLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wretched",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in places the reversed word for fail to keep within the time word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time",
+       "at": 19,
+       "gives": "DATE",
+       "note": "a date is a point in time"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 13,
+         "note": "up reverses the word in this down clue, read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fail to keep",
+         "at": 0,
+         "gives": "LOSE",
+         "note": "to lose something is to fail to keep it"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone falling behind schedule cries out in misery.",
+     "walkthrough": "'Fail to keep up' reads as one phrase about lagging, but 'up' is the reversal signal, giving ESOL.",
+     "definitionFit": "Feeling miserable and forlorn, utterly cheerless, is a synonym of wretched."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +610,49 @@
     "text": "Land one, punching Hilary",
     "enumeration": "5"
    },
-   "solution": "BENIN"
+   "solution": "BENIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "punching",
+       "at": 10,
+       "note": "punching has the letter for one forced into the surname"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hilary",
+       "at": 19,
+       "gives": "BENN",
+       "note": "Hilary Benn is a British Labour politician"
+      },
+      {
+       "words": "one",
+       "at": 5,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lands a punch on a person named Hilary.",
+     "walkthrough": "Hilary Benn is a British Labour politician, son of Tony Benn.",
+     "definitionFit": "A West African nation is a land, a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Land"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +672,54 @@
      }
     ]
    },
-   "solution": "GOBANANAS"
+   "solution": "GOBANANAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Be wildly excited",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "putting",
+       "at": 18,
+       "note": "putting ... to says the fruit is set beside the mouth, after it"
+      },
+      {
+       "text": "to",
+       "at": 36,
+       "note": "to completes putting one thing against another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mouth",
+       "at": 39,
+       "gives": "GOB",
+       "note": "gob is British slang for the mouth"
+      },
+      {
+       "words": "pineapple",
+       "at": 26,
+       "gives": "ANANAS",
+       "note": "ananas is another name for the pineapple"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thrilled to bits as they bite into a pineapple.",
+     "walkthrough": "GOB is British slang for mouth; ANANAS is the pineapple's name in French and botany.",
+     "definitionFit": "The idiom means to become frenzied or crazy with excitement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +733,54 @@
     "text": "As naval fighter, put on a shade of blue",
     "enumeration": "10"
    },
-   "solution": "AQUAMARINE"
+   "solution": "AQUAMARINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shade of blue",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "at": 18,
+       "note": "put on places the other words after the article in this across clue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 25,
+       "gives": "A"
+      },
+      {
+       "words": "As",
+       "at": 0,
+       "gives": "QUA",
+       "note": "qua is Latin for as, in the capacity of"
+      },
+      {
+       "words": "naval fighter",
+       "at": 3,
+       "gives": "MARINE",
+       "note": "a marine is a soldier serving with the navy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dressing up as a sailor-soldier in a blue uniform.",
+     "walkthrough": "'As' is the Latin-derived QUA (in the capacity of), not a simple link word.",
+     "definitionFit": "A pale greenish-blue colour named after the gemstone is a hue in the blue family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "As"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +794,45 @@
     "text": "Endless ring makes a measure of sound",
     "enumeration": "3"
    },
-   "solution": "BEL"
+   "solution": "BEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a measure of sound",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Endless",
+       "at": 0,
+       "note": "endless means the final letter of the word for ring is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ring",
+       "at": 8,
+       "gives": "BELL",
+       "note": "a bell is something that rings"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A never-ending ringing noise turns into a measurement of loudness.",
+     "definitionFit": "Ten decibels make one of these units for comparing sound intensity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +852,41 @@
      }
     ]
    },
-   "solution": "SPORTSCARS"
+   "solution": "SPORTSCARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "high-speed transport",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Show off",
+       "at": 0,
+       "gives": "SPORT",
+       "note": "to sport something is to show it off"
+      },
+      {
+       "words": "injuries",
+       "at": 9,
+       "gives": "SCARS",
+       "note": "scars are marks left by injuries"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Showing off the wounds from a crash in a fast vehicle.",
+     "definitionFit": "Fast two-seater motors built for performance are rapid vehicles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "injuries"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +910,45 @@
      }
     ]
    },
-   "solution": "SILVOUSPLAIT"
+   "solution": "SILVOUSPLAIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The French please",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "a mixture of",
+       "at": 23,
+       "note": "a mixture of tells us to mix the letters of tulips and violas together"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tulips",
+       "at": 36
+      },
+      {
+       "words": "violas",
+       "at": 47
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French gardener's polite request for a mixed bunch of flowers.",
+     "walkthrough": "'a mixture of' rearranges TULIPSVIOLAS; 'with' and 'and' are links.",
+     "definitionFit": "The French phrase is the polite request word used across the Channel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tulips"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +962,60 @@
     "text": "Bombs huge town all round: that makes things sticky",
     "enumeration": "9"
    },
-   "solution": "VISCOSITY"
+   "solution": "VISCOSITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that makes things sticky",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bombs",
+       "at": 0,
+       "gives": "VIS",
+       "note": "V1s, written VIS with I for 1, were German flying bombs in WWII"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "all round",
+         "at": 16,
+         "note": "all round has the city word wrapped about the outsize letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "town",
+         "at": 11,
+         "gives": "CITY",
+         "note": "a city is a large town"
+        },
+        {
+         "words": "huge",
+         "at": 6,
+         "gives": "OS",
+         "note": "OS is the abbreviation for outsize"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bombs falling around a huge town leave everything gummed up.",
+     "walkthrough": "V1s were the German flying bombs of the Second World War, here written with I for the figure 1.",
+     "definitionFit": "Thickness or resistance to flow is the property giving a liquid its gluey quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bombs"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1029,45 @@
     "text": "Visionary site laid out",
     "enumeration": "8"
    },
-   "solution": "IDEALIST"
+   "solution": "IDEALIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Visionary",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 20,
+       "note": "out suggests the letters of site laid are put out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "site",
+       "at": 10
+      },
+      {
+       "words": "laid",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreamer surveys a building plot that has been planned.",
+     "walkthrough": "'laid out' looks like a planning phrase; 'out' rearranges SITELAID.",
+     "definitionFit": "A dreamer pursuing lofty principles is a visionary, a person of high ideals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1087,40 @@
      }
     ]
    },
-   "solution": "ONCEOVER"
+   "solution": "ONCEOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quick look",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "as soon as",
+       "at": 11,
+       "gives": "ONCE",
+       "note": "once means as soon as, as in once you arrive"
+      },
+      {
+       "words": "finished",
+       "at": 22,
+       "gives": "OVER",
+       "note": "over means finished or ended"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking a brief glance the moment a job is done.",
+     "definitionFit": "A rapid inspection or brief survey is a quick glance at something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1140,60 @@
      }
     ]
    },
-   "solution": "DONKEYSYEARS"
+   "solution": "DONKEYSYEARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "long ago",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hidden",
+       "at": 41,
+       "note": "hidden says the end letters are tucked inside the donkey's ears"
+      }
+     ],
+     "parts": [
+      {
+       "words": "What Midas was given",
+       "at": 0,
+       "gives": "DONKEYEARS",
+       "note": "in myth King Midas was given the ears of an ass (a donkey) by Apollo"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 22,
+         "note": "extremely takes the outermost letters of sensibly"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sensibly",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "DONKEY'S YEARS",
+    "explanation": {
+     "surface": "Midas's punishment, sensibly concealed, belongs to the distant past.",
+     "walkthrough": "'extremely' takes the ends of sensibly and 'hidden' tucks them into the donkey's ears; 'so' is a link. King Midas was given ass's ears by Apollo for preferring Pan's music.",
+     "definitionFit": "The colloquial British phrase means an age, a very lengthy time stretching back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hidden"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1207,47 @@
     "text": "Rotter's love, great mistake",
     "enumeration": "6"
    },
-   "solution": "TOERAG"
+   "solution": "TOERAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rotter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mistake",
+       "at": 21,
+       "note": "mistake tells us the letters are wrongly arranged, so shuffle them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "love",
+       "at": 9,
+       "gives": "O",
+       "note": "love is zero in tennis, shown as O"
+      },
+      {
+       "words": "great",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cad's affection turns out to be a terrible error.",
+     "walkthrough": "'mistake' rearranges OGREAT. The answer is British slang for a contemptible person.",
+     "definitionFit": "British slang for a scoundrel or worthless cad, much like a rotter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1261,63 @@
     "text": "Fan of one of Europe's currencies almost pocketed each",
     "enumeration": "6"
    },
-   "solution": "ZEALOT"
+   "solution": "ZEALOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fan",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pocketed",
+       "at": 41,
+       "note": "pocketed has the shortened currency enclose the letters for each"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 34,
+         "note": "almost drops the final letter of the currency"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one of Europe's currencies",
+         "at": 7,
+         "gives": "ZLOTY",
+         "note": "the zloty is the currency of Poland"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "each",
+       "at": 50,
+       "gives": "EA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An enthusiast for a European currency who has pocketed some of each.",
+     "walkthrough": "'almost' trims the zloty to ZLOT, which 'pocketed' wraps around EA.",
+     "definitionFit": "A fanatical supporter or enthusiast is an ardent follower or devotee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fan"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1331,48 @@
     "text": "Fear wife's stuck in casualty",
     "enumeration": "3"
    },
-   "solution": "AWE"
+   "solution": "AWE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuck in",
+       "at": 12,
+       "note": "stuck in puts the letter for wife inside the hospital department"
+      }
+     ],
+     "parts": [
+      {
+       "words": "casualty",
+       "at": 21,
+       "gives": "AE",
+       "note": "A and E, accident and emergency, is the British hospital casualty department"
+      },
+      {
+       "words": "wife",
+       "at": 5,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frightened because their wife is stuck in hospital.",
+     "walkthrough": "Casualty, or A&E (accident and emergency), is the British hospital emergency department.",
+     "definitionFit": "Reverential dread or wonder mixed with fright is a kind of fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "casualty"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1386,42 @@
     "text": "Solicit a few pounds for Audrey's husband",
     "enumeration": "10"
    },
-   "solution": "TOUCHSTONE"
+   "solution": "TOUCHSTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Audrey's husband",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Solicit",
+       "at": 0,
+       "gives": "TOUCH",
+       "note": "to touch someone for money is to solicit a loan from them"
+      },
+      {
+       "words": "a few pounds",
+       "at": 8,
+       "gives": "STONE",
+       "note": "a stone is a British weight of fourteen pounds"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking for a bit of money on behalf of a woman's husband.",
+     "walkthrough": "In Shakespeare's As You Like It, the clown Touchstone weds the goatherd Audrey. A stone is a British weight of 14 lb.",
+     "definitionFit": "Shakespeare's court jester in As You Like It marries the country girl Audrey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pounds"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1435,32 @@
     "text": "Country's pro-Labour slogan?",
     "enumeration": "5"
    },
-   "solution": "CONGO"
+   "solution": "CONGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0,
+      "meaning": "a central African nation"
+     },
+     {
+      "text": "pro-Labour slogan",
+      "at": 10,
+      "meaning": "split as ..., a call for the Conservatives (Cons) to be thrown out"
+     }
+    ],
+    "explanation": {
+     "surface": "A nation's political rallying cry in favour of the Labour party.",
+     "walkthrough": "Con is short for Conservative, the party opposed to Labour in Britain.",
+     "definitionFit": "A large river nation of central Africa is a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1474,41 @@
     "text": "In a cell, what carries information regularly from Miranda",
     "enumeration": "4"
    },
-   "solution": "MRNA"
+   "solution": "MRNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In a cell, what carries information",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "at": 36,
+       "note": "regularly takes every other letter of Miranda, starting with the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Miranda",
+       "at": 51
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Messages smuggled regularly from a woman named Miranda to a prison cell.",
+     "walkthrough": "'cell' suggests a prison but is biological here.",
+     "definitionFit": "Messenger RNA carries genetic code from the DNA to the ribosomes in a living cell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cell"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1522,40 @@
     "text": "Popular edition getting everything topsy-turvy",
     "enumeration": "9"
    },
-   "solution": "INVERSION"
+   "solution": "INVERSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "getting everything topsy-turvy",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Popular",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means popular or fashionable"
+      },
+      {
+       "words": "edition",
+       "at": 8,
+       "gives": "VERSION",
+       "note": "a version is an edition of something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A best-selling edition of a book turns the world upside down.",
+     "definitionFit": "Turning things upside down or reversing their order is the act of upending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1569,60 @@
     "text": "Penny in old money chucked back by such a fool",
     "enumeration": "5"
    },
-   "solution": "APRIL"
+   "solution": "APRIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "such a fool",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "chucked back",
+       "at": 19,
+       "note": "chucked back tells us the whole lot is turned round and read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 6,
+         "note": "in puts the letter for penny inside the old currency"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old money",
+         "at": 9,
+         "gives": "LIRA",
+         "note": "the lira was the Italian currency before the euro"
+        },
+        {
+         "words": "Penny",
+         "at": 0,
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dupe who tossed a penny back into a pile of old coins.",
+     "walkthrough": "'in' puts P inside LIRA to give LIRPA; 'chucked back' reverses it. The fool is one fooled on the first day of the fourth month.",
+     "definitionFit": "The victim of a prank on the first of the month is that month's fool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "chucked"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1636,49 @@
     "text": "Commonly, money (apart from euro) is thin",
     "enumeration": "7"
    },
-   "solution": "THREADY"
+   "solution": "THREADY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thin",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "apart from",
+       "at": 17,
+       "note": "apart from removes the letter for euro from the slang money"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Commonly, money",
+       "at": 0,
+       "gives": "THEREADY",
+       "note": "the ready is a colloquial word for cash, so commonly flags the slang"
+      },
+      {
+       "words": "euro",
+       "at": 28,
+       "gives": "E",
+       "note": "E is the symbol for euro"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that ordinary cash, other than the euro, is scarce.",
+     "walkthrough": "'The ready' is informal British for ready money; remove one E.",
+     "definitionFit": "Like a fine strand of fibre, a weak, faint pulse or voice is described this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Commonly"
+    }
+   }
   },
   {
    "number": 28,
@@ -483,7 +1698,45 @@
      }
     ]
    },
-   "solution": "ONSIGHT"
+   "solution": "ONSIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "As soon as clocked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ONSIGHT",
+     "indicators": [
+      {
+       "text": "given a hearing",
+       "at": 36,
+       "note": "given a hearing means the phrase for at workplace is spoken out loud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at workplace",
+       "at": 22,
+       "gives": "ONSITE",
+       "note": "on site means at the place of work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An employee clocking in at work and then facing a disciplinary hearing.",
+     "walkthrough": "'clocked' looks like punching a time clock but is slang for seen; 'in' is a link.",
+     "definitionFit": "To clock someone is British slang for spotting them, so the phrase means immediately upon seeing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clocked"
+    }
+   }
   }
  ]
 }
