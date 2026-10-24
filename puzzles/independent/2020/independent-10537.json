@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,46 @@
     "text": "Timer doesn't open security device",
     "enumeration": "4"
    },
-   "solution": "LOCK"
+   "solution": "LOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "security device",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "doesn't open",
+       "at": 6,
+       "note": "a word that doesn't open has lost its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Timer",
+       "at": 0,
+       "gives": "CLOCK",
+       "note": "a clock is a device that keeps time"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A timer that fails to start on a security system.",
+     "walkthrough": "'doesn't open' looks like a fault in the timer; it tells you to drop the first letter of CLOCK.",
+     "definitionFit": "A lock is a mechanism fastening doors and safes, so it is a device for keeping things secure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +87,61 @@
     "text": "Messed-up girl shouted at male, possibly over ninety",
     "enumeration": "10"
    },
-   "solution": "MISMANAGED"
+   "solution": "MISMANAGED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Messed-up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "MIS",
+       "indicators": [
+        {
+         "text": "shouted",
+         "at": 15,
+         "note": "something shouted is spoken out loud, so the word for girl is taken by its sound rather than its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 10,
+         "gives": "MISS",
+         "note": "Miss is the title of a young unmarried woman"
+        }
+       ]
+      },
+      {
+       "words": "male",
+       "at": 26,
+       "gives": "MAN",
+       "note": "a man is a male person"
+      },
+      {
+       "words": "possibly over ninety",
+       "at": 32,
+       "gives": "AGED",
+       "note": "someone over ninety would be called aged, elderly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confused young woman yelling at an elderly man.",
+     "walkthrough": "MISS is pronounced like the prefix MIS-, which is how it enters the answer.",
+     "definitionFit": "Something mismanaged has been handled badly, so it is botched or messed up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Messed-up"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +155,53 @@
     "text": "Starter of samosa with considerable taste",
     "enumeration": "6"
    },
-   "solution": "SAMPLE"
+   "solution": "SAMPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "taste",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Starter of",
+         "at": 0,
+         "note": "the starter of a word is its first letter, punning on a samosa served as a starter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "samosa",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "considerable",
+       "at": 23,
+       "gives": "AMPLE",
+       "note": "ample means plentiful, considerable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A samosa starter with plenty of flavour.",
+     "walkthrough": "'Starter' looks like a course in a meal; it picks the first letter S from 'samosa'.",
+     "definitionFit": "To sample food is to try a little of it, which is the verb taste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Starter"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +215,45 @@
     "text": "We hear little Matthew loves beastly fighters",
     "enumeration": "8"
    },
-   "solution": "MATADORS"
+   "solution": "MATADORS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "beastly fighters",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MATADORS",
+     "indicators": [
+      {
+       "text": "We hear",
+       "at": 0,
+       "note": "we hear signals that the words are judged by their sound when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "little Matthew loves",
+       "at": 8,
+       "gives": "MATADORES",
+       "note": "little Matthew is Mat, a pet form of the name, and loves gives adores, so Mat adores"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Young Matthew is fond of wild fighting animals.",
+     "walkthrough": "MAT ADORES spoken sounds like the answer.",
+     "definitionFit": "Matadors are the bullfighters who face a bull in the ring, so their fights are with beasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beastly"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +267,40 @@
     "text": "Lake discovered in game reserve",
     "enumeration": "4"
    },
-   "solution": "MERE"
+   "solution": "MERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "discovered in",
+       "at": 5,
+       "note": "something discovered in a phrase has been found sitting within its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "game reserve",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lake found inside a nature reserve for game.",
+     "walkthrough": "The letters run across 'gaME REserve'.",
+     "definitionFit": "A mere is a poetic or regional word for a small lake or pond."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +314,58 @@
     "text": "Africa, for one, curtailed church's control of water",
     "enumeration": "10"
    },
-   "solution": "CONTINENCE"
+   "solution": "CONTINENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "control of water",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 17,
+         "note": "curtailed means cut short, so the final letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Africa, for one",
+         "at": 0,
+         "gives": "CONTINENT",
+         "note": "Africa is an example of a continent"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "church's",
+       "at": 27,
+       "gives": "CE",
+       "note": "CE stands for the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "African church authorities managing water supply.",
+     "walkthrough": "'control of water' sounds like irrigation, but it is bladder control.",
+     "definitionFit": "Continence is the ability to hold in urine, which is self-control over passing water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +379,52 @@
     "text": "Original American way of working upset China",
     "enumeration": "7"
    },
-   "solution": "MOHICAN"
+   "solution": "MOHICAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Original American",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "way of working",
+       "at": 18,
+       "gives": "MO",
+       "note": "MO is modus operandi, a method of working"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 33,
+         "note": "upset means knocked over or disturbed, so these letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "China",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American method of operating that has annoyed China.",
+     "walkthrough": "'upset' rearranges CHINA into HICAN.",
+     "definitionFit": "The Mohicans were a Native American people, the original inhabitants of the continent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +438,65 @@
     "text": "Yahoo, say, backed up by secretary's young assistant",
     "enumeration": "7"
    },
-   "solution": "PAGEBOY"
+   "solution": "PAGEBOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "young assistant",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "secretary's",
+       "at": 25,
+       "gives": "PA",
+       "note": "PA is a personal assistant, a secretary"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed up",
+         "at": 12,
+         "note": "backed up means sent backwards, so these letters are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Yahoo",
+           "at": 0,
+           "gives": "YOB",
+           "note": "a yahoo is a boorish lout, a yob"
+          },
+          {
+           "words": "say",
+           "at": 7,
+           "gives": "EG",
+           "note": "say introduces an example, EG"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An internet company, supported by a secretary's junior helper.",
+     "walkthrough": "'Yahoo' looks like the web firm but is a lout. YOB and EG reversed give GEBOY; a yob is British slang for a hooligan.",
+     "definitionFit": "A pageboy is a boy attendant, as at a wedding or formerly in a great house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yahoo"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +516,43 @@
      }
     ]
    },
-   "solution": "PRIMENUMBER"
+   "solution": "PRIMENUMBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "3 perhaps",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Excellent",
+       "at": 0,
+       "gives": "PRIME",
+       "note": "prime means first-rate, excellent"
+      },
+      {
+       "words": "anaesthetic",
+       "at": 10,
+       "gives": "NUMBER",
+       "note": "an anaesthetic is something that numbs, a numb-er"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A top-quality painkiller compared to clue three.",
+     "walkthrough": "'anaesthetic' looks like a noun for a drug; read NUMBER as 'thing that numbs'.",
+     "definitionFit": "Three is divisible only by itself and one, the property of primes; 'perhaps' marks it as an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "anaesthetic"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +566,47 @@
     "text": "Polar native lacks wings to make plane",
     "enumeration": "4"
    },
-   "solution": "SKIM"
+   "solution": "SKIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plane",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacks wings",
+       "at": 13,
+       "note": "wings are the outer edges of a word, here missing at both ends"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Polar native",
+       "at": 0,
+       "gives": "ESKIMO",
+       "note": "an Eskimo is a native of the Arctic"
+      },
+      {
+       "gives": "EO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Arctic local without wings trying to build an aircraft.",
+     "walkthrough": "'plane' looks like an aircraft (hence 'wings'), but it is the verb, to glide over water.",
+     "definitionFit": "To plane is to glide lightly over a water surface, as a boat or stone does, which is to skim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +620,53 @@
     "text": "Hospital department follows each person full-time",
     "enumeration": "9"
    },
-   "solution": "PERMANENT"
+   "solution": "PERMANENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "full-time",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "at": 20,
+       "note": "follows shows the department comes after the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "each",
+       "at": 28,
+       "gives": "PER",
+       "note": "per means for each, as in 'per head'"
+      },
+      {
+       "words": "person",
+       "at": 33,
+       "gives": "MAN",
+       "note": "man means a person"
+      },
+      {
+       "words": "Hospital department",
+       "at": 0,
+       "gives": "ENT",
+       "note": "ENT is the ear, nose and throat department"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Every staff member in a hospital unit working full shifts.",
+     "definitionFit": "A permanent job is a lasting, regular post rather than temporary, as a full-time one is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +680,50 @@
     "text": "Criminal gang caught by Iron Curtain border?",
     "enumeration": "6"
    },
-   "solution": "FRINGE"
+   "solution": "FRINGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Curtain border",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught by",
+       "at": 14,
+       "note": "caught by means held inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Iron",
+       "at": 24,
+       "gives": "FE",
+       "note": "Fe is the chemical symbol for iron"
+      },
+      {
+       "words": "Criminal gang",
+       "at": 0,
+       "gives": "RING",
+       "note": "a ring is a criminal network, as in a smuggling ring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gangsters trapped by the Iron Curtain at a Cold War frontier.",
+     "walkthrough": "'Iron Curtain' reads as a single phrase; split it, Iron giving FE and Curtain belonging to the definition.",
+     "definitionFit": "A fringe is a decorative edging of threads, as hangs along the bottom of a curtain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Curtain"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +737,60 @@
     "text": "Taking back right to rise up in response",
     "enumeration": "10"
    },
-   "solution": "RETRACTION"
+   "solution": "RETRACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Taking back",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "in puts the turned piece within the word for response"
+      }
+     ],
+     "parts": [
+      {
+       "words": "response",
+       "at": 32,
+       "gives": "REACTION",
+       "note": "a reaction is a response"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rise up",
+         "at": 21,
+         "note": "in a down clue rising up reads the letters from bottom to top, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "right",
+         "at": 12,
+         "gives": "RT"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Withdrawing a political right to revolt in reply.",
+     "walkthrough": "'right to rise up' reads like a call to revolt; 'to' is only a link, and 'rise up' works because this is a down clue.",
+     "definitionFit": "A retraction withdraws a statement, the act of taking back what was said."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +804,47 @@
     "text": "Skulking low life-force's no good",
     "enumeration": "8"
    },
-   "solution": "MOOCHING"
+   "solution": "MOOCHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skulking",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "low",
+       "at": 9,
+       "gives": "MOO",
+       "note": "to low is to moo, as cattle do"
+      },
+      {
+       "words": "life-force's",
+       "at": 13,
+       "gives": "CHI",
+       "note": "chi is the vital life-force in Chinese thought"
+      },
+      {
+       "words": "no good",
+       "at": 26,
+       "gives": "NG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lurking about a lowlife whose energy is useless.",
+     "walkthrough": "'low' reads as an adjective but is the cow's call.",
+     "definitionFit": "Mooching means loitering or slouching about aimlessly, close to skulking around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 15,
@@ -233,7 +858,43 @@
     "text": "Memorable moments from top-class matches?",
     "enumeration": "10"
    },
-   "solution": "HIGHLIGHTS"
+   "solution": "HIGHLIGHTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Memorable moments",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "top-class",
+       "at": 23,
+       "gives": "HIGH",
+       "note": "high means superior, top-class"
+      },
+      {
+       "words": "matches",
+       "at": 33,
+       "gives": "LIGHTS",
+       "note": "matches are lights, used to light a fire"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The best bits shown from elite sporting fixtures.",
+     "walkthrough": "'matches' looks like sporting contests but means things for striking a flame.",
+     "definitionFit": "Highlights are the outstanding parts of an event, the moments most worth remembering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "matches"
+    }
+   }
   },
   {
    "number": 16,
@@ -247,7 +908,44 @@
     "text": "Only men party with sinister-looking guns",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Only men party",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "sinister-looking",
+       "at": 20,
+       "note": "sinister means left in heraldry, so looking left means reading right to left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "guns",
+       "at": 37,
+       "gives": "GATS",
+       "note": "gats are guns in old gangster slang"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A men-only celebration where the guns look menacing.",
+     "walkthrough": "'sinister' looks like menace but carries its Latin sense of left; GATS read leftwards.",
+     "definitionFit": "A stag party is a celebration for a groom attended only by males."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sinister-looking"
+    }
+   }
   },
   {
    "number": 17,
@@ -261,7 +959,42 @@
     "text": "Abolish Grammar School reports!",
     "enumeration": "5"
    },
-   "solution": "BANGS"
+   "solution": "BANGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reports",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Abolish",
+       "at": 0,
+       "gives": "BAN",
+       "note": "to ban is to prohibit or abolish"
+      },
+      {
+       "words": "Grammar School",
+       "at": 8,
+       "gives": "GS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to scrap selective state schools, like a headline.",
+     "walkthrough": "'reports' looks like a noun for documents; it is loud noises. A grammar school is a selective British state secondary school.",
+     "definitionFit": "Reports are loud explosive noises, like gunshots, which are bangs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reports"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1008,49 @@
     "text": "Colonies rash to support US cooperative gathering",
     "enumeration": "8"
    },
-   "solution": "BEEHIVES"
+   "solution": "BEEHIVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colonies",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to support",
+       "at": 14,
+       "note": "in a down clue, a piece supporting another sits below it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "US cooperative gathering",
+       "at": 25,
+       "gives": "BEE",
+       "note": "a bee is a communal working gathering, like a quilting bee"
+      },
+      {
+       "words": "rash",
+       "at": 9,
+       "gives": "HIVES",
+       "note": "hives is an itchy skin rash"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Communities hastily backing an American collective meeting.",
+     "walkthrough": "'rash' looks like hasty; it is the skin complaint.",
+     "definitionFit": "Beehives house bee colonies, so the word stands for the colonies themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rash"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1064,40 @@
     "text": "Hereditary factor somewhat degenerate",
     "enumeration": "4"
    },
-   "solution": "GENE"
+   "solution": "GENE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hereditary factor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "somewhat",
+       "at": 18,
+       "note": "somewhat means only part, so a piece of the word is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "degenerate",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inherited trait that is a bit corrupt.",
+     "walkthrough": "The letters sit inside 'deGENErate'.",
+     "definitionFit": "A gene is the unit of heredity passed from parent to offspring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1111,45 @@
     "text": "Nightmare about dead Mary? On the contrary",
     "enumeration": "8"
    },
-   "solution": "DAYDREAM"
+   "solution": "DAYDREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nightmare",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "about means round and around, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dead",
+       "at": 16
+      },
+      {
+       "words": "Mary",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horror dream about a dead woman named Mary.",
+     "walkthrough": "'about' stirs DEAD MARY. 'On the contrary' says the definition is the opposite of 'Nightmare'.",
+     "definitionFit": "Read with the closing phrase, the definition is the opposite of a bad dream: a pleasant waking reverie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1163,45 @@
     "text": "Verbal instruction to infuse red wine for fish",
     "enumeration": "6"
    },
-   "solution": "MULLET"
+   "solution": "MULLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MULLET",
+     "indicators": [
+      {
+       "text": "Verbal",
+       "at": 0,
+       "note": "verbal means spoken, so the phrase counts by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "instruction to infuse red wine",
+       "at": 7,
+       "gives": "MULLIT",
+       "note": "to mull wine is to heat it with spices, so the instruction is 'mull it'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spoken advice to soak fish in red wine.",
+     "walkthrough": "MULL IT said out loud gives the answer.",
+     "definitionFit": "Red and grey mullets are well-known edible sea fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "infuse"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1215,43 @@
     "text": "Purée that is No. 5 on today's course",
     "enumeration": "6"
    },
-   "solution": "MASHIE"
+   "solution": "MASHIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No. 5 on today's course",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Purée",
+       "at": 0,
+       "gives": "MASH",
+       "note": "mash is food pulped into a purée"
+      },
+      {
+       "words": "that is",
+       "at": 6,
+       "gives": "IE",
+       "note": "ie is the abbreviation of id est, that is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mashed food that's the fifth dish of today's menu.",
+     "walkthrough": "'course' suggests a meal; it is a golf course.",
+     "definitionFit": "A mashie was an old golf club, equivalent to the five iron of modern sets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1265,39 @@
     "text": "Shoddy quality of disorganised ski ascent",
     "enumeration": "9"
    },
-   "solution": "TACKINESS"
+   "solution": "TACKINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shoddy quality",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "disorganised",
+       "at": 18,
+       "note": "disorganised means jumbled, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ski ascent",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A badly organised ski lift ride shows poor standards.",
+     "definitionFit": "Tackiness is cheap, tasteless or tawdry character, the mark of shoddy goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1311,70 @@
     "text": "Coldplay's first album includes one film passage",
     "enumeration": "4"
    },
-   "solution": "CLIP"
+   "solution": "CLIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "film passage",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 11,
+         "note": "first means the opening letter of the band's name is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Coldplay's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "includes",
+         "at": 23,
+         "note": "includes means holds inside, so one piece goes within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "album",
+         "at": 17,
+         "gives": "LP",
+         "note": "an LP is a long-playing record album"
+        },
+        {
+         "words": "one",
+         "at": 32,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The debut record of a British band containing a movie excerpt.",
+     "walkthrough": "'first album' looks like Coldplay's debut; 'first' only picks C.",
+     "definitionFit": "A clip is a short extract from a film or broadcast, a passage of footage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "album"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1388,52 @@
     "text": "Old German picked up French in the end",
     "enumeration": "4"
    },
-   "solution": "GOTH"
+   "solution": "GOTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old German",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "picked up",
+       "at": 11,
+       "gives": "GOT",
+       "note": "got means obtained, picked up"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in the end",
+         "at": 28,
+         "note": "in the end means the last letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient German learned French eventually.",
+     "walkthrough": "'picked up' looks like a sound signal; it just means GOT.",
+     "definitionFit": "The Goths were an ancient Germanic people who invaded the Roman Empire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1447,53 @@
     "text": "Smart leaders of the revolution in Moscow",
     "enumeration": "4"
    },
-   "solution": "TRIM"
+   "solution": "TRIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Smart",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "leaders of",
+       "at": 6,
+       "note": "leaders are the front letters of each of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the",
+       "at": 17
+      },
+      {
+       "words": "revolution",
+       "at": 21
+      },
+      {
+       "words": "in",
+       "at": 32
+      },
+      {
+       "words": "Moscow",
+       "at": 35
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Well-dressed heads of the Russian Revolution.",
+     "walkthrough": "'leaders' suggests Lenin and co; it takes initial letters.",
+     "definitionFit": "Trim means neat and well kept in appearance, as smart does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1507,40 @@
     "text": "Maybe yew produced fir cone",
     "enumeration": "7"
    },
-   "solution": "CONIFER"
+   "solution": "CONIFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe yew",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "produced",
+       "at": 10,
+       "note": "produced means made, so the letters are formed into a new word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fir cone",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps a yew tree has borne a fir cone.",
+     "walkthrough": "'Maybe' marks the yew as an example.",
+     "definitionFit": "The yew is an evergreen in the conifer group, though it bears berries not cones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1560,32 @@
      }
     ]
    },
-   "solution": "PIGTAIL"
+   "solution": "PIGTAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Queue",
+      "at": 0,
+      "meaning": "a queue is an old word for a plait of hair hanging at the back"
+     },
+     {
+      "text": "final part of Babe?",
+      "at": 13,
+      "meaning": "Babe is the pig in the film, so its final part is its tail"
+     }
+    ],
+    "explanation": {
+     "surface": "Waiting in line to watch the end of the film Babe.",
+     "walkthrough": "'Queue' looks like a line of people; it is a plait. Babe is the 1995 film about a pig.",
+     "definitionFit": "A plait at the back of the head is a queue; a pig's curly rear appendage is the other sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Queue"
+    }
+   }
   }
  ]
 }
