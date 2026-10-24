@@ -1456,6 +1456,11 @@ tools/annotate_ledger.py                       the burn's own cost meter: each c
 tools/test_annotate_ledger.py                  tests tools/annotate_ledger.py: fake ledger rows
                                                give wake and no-wake decisions (regression, new
                                                top cause, cooldown, target)
+tools/recover_fp_drafts.py                     dry run: for clues an annotate session rewrote
+                                               after a validator false positive, replays the
+                                               first rejected draft through today's validator
+                                               and buckets it against the committed wordplay —
+                                               writes nothing to puzzles
 tools/annotate_audit.sh                        the scheduled entry: runs the audit from a
                                                worktree at origin/master
 tools/test_annotate_audit.py                   tests tools/annotate_audit.py: rule naming from
@@ -2772,7 +2777,7 @@ tools/test_abbreviation_notes.py               is an abbreviation gloss derived 
                                                never stored: view shows it, the validator
                                                refuses a note that only restates it, from_model
                                                drops one, and a note that adds anything stays?
-tools/test_validate_shard.py                   the deploy's full annotation check runs as 4
+tools/test_validate_shard.py                   the deploy's full annotation check runs as 6
                                                shards (`--shard i/n`), one step each: the
                                                shards are disjoint, their union is the whole
                                                corpus, the split is stable, and a malformed or
