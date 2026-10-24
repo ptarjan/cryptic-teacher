@@ -1258,38 +1258,60 @@
      "indicators": [
       {
        "text": "mixed",
-       "note": "mixed ingredients are stirred together, so these letters are jumbled"
-      },
-      {
-       "text": "bananas",
-       "note": "bananas means crazy, so the following letters go wild into a new order"
+       "at": 8,
+       "note": "mixed means stirred together, so all these letters are rearranged"
       }
      ],
      "parts": [
       {
        "words": "Granola",
-       "note": "taken as written"
+       "at": 0
       },
       {
-       "words": "cut",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bananas",
+         "at": 23,
+         "note": "bananas means crazy, so the letters of cut go mad"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cut",
+         "at": 19
+        }
+       ]
       },
       {
-       "words": "put on the counter",
-       "gives": "SET",
-       "note": "to set something down is to put it on a surface"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on the counter",
+         "at": 35,
+         "note": "counter means running the opposite way, so the word for put is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "put",
+         "at": 31,
+         "gives": "SET",
+         "note": "to put is to set"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A breakfast of cereal with sliced bananas is laid on the kitchen worktop.",
-     "walkthrough": "Bananas looks like the fruit in the bowl, but it is the second anagram signal.",
-     "definitionFit": "To congratulate someone is to praise or compliment them on an achievement."
+     "surface": "Granola stirred with chopped banana and set on the worktop earns praise.",
+     "walkthrough": "'Mixed' scrambles GRANOLA, CUT and TES (SET reversed) together; 'generating' is a link.",
+     "definitionFit": "Compliments as a verb means praises, which is what congratulates means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "bananas"
+     "misdirectedWord": "counter"
     }
    }
   },
