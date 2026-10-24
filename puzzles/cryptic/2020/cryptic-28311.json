@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "End protest",
     "enumeration": "6"
    },
-   "solution": "OBJECT"
+   "solution": "OBJECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "End",
+      "at": 0,
+      "meaning": "an end is an aim or purpose, as in 'to that end'"
+     },
+     {
+      "text": "protest",
+      "at": 4,
+      "meaning": "to protest is to raise an objection"
+     }
+    ],
+    "explanation": {
+     "surface": "A call to stop demonstrating.",
+     "definitionFit": "As a noun the word means a goal or aim; as a verb it means to raise an objection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 2,
@@ -55,7 +81,30 @@
      }
     ]
    },
-   "solution": "BYMEANSOF"
+   "solution": "BYMEANSOF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Using",
+      "at": 0,
+      "meaning": "a phrase meaning with the help of"
+     },
+     {
+      "text": "implication that prepositions are synonymous?",
+      "at": 6,
+      "meaning": "read literally, the phrase says one small preposition means another"
+     }
+    ],
+    "explanation": {
+     "surface": "A grammarian suggesting two prepositions mean the same.",
+     "definitionFit": "The phrase means through the agency of, so it can replace 'using'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,7 +118,76 @@
     "text": "Old stone tool, one for garden holding most of work up",
     "enumeration": "6"
    },
-   "solution": "EOLITH"
+   "solution": "EOLITH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old stone tool",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 52,
+       "note": "in a down answer up means the letters are read upwards, in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "at": 31,
+         "note": "holding means containing, so the garden tool surrounds the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one for garden",
+         "at": 16,
+         "gives": "HOE",
+         "note": "a hoe is a garden tool"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 39,
+           "note": "most of drops the final letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "work",
+           "at": 47,
+           "gives": "TILL",
+           "note": "to till is to work the soil"
+          },
+          {
+           "gives": "L"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A primitive tool, one used in gardens, containing most of some work.",
+     "walkthrough": "'most of' trims TILL to TIL, 'holding' puts it in HOE to give HTILOE, and 'up' reverses the whole.",
+     "definitionFit": "This is a crude chipped flint thought to be among the earliest human-made implements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +207,29 @@
      }
     ]
    },
-   "solution": "TURNEDOUT"
+   "solution": "TURNEDOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put in an appearance",
+      "at": 0,
+      "meaning": "means arrived or showed up at an event"
+     },
+     {
+      "text": "clothed",
+      "at": 22,
+      "meaning": "means dressed, as in 'well' dressed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone attending an event, dressed.",
+     "definitionFit": "The phrasal verb means attended, and the adjective describes someone dressed or equipped."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +243,76 @@
     "text": "Military aide to call back shortly after flyer",
     "enumeration": "6"
    },
-   "solution": "BATMAN"
+   "solution": "BATMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Military aide",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 35,
+       "note": "after places the reversed piece behind the flyer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flyer",
+       "at": 41,
+       "gives": "BAT",
+       "note": "a bat is a flying mammal"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 22,
+         "note": "back tells us the shortened word is read in the reverse direction"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "shortly",
+           "at": 27,
+           "note": "shortly means cut short, so the last letter of the word is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "call",
+           "at": 17,
+           "gives": "NAME",
+           "note": "to call someone something is to name them"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to return a phone call soon after a pilot rang.",
+     "walkthrough": "'flyer' suggests a pilot but is the animal; 'shortly' trims the end before 'back' reverses.",
+     "definitionFit": "In the British Army an officer's personal servant was traditionally called by this title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flyer"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +326,48 @@
     "text": "Immerse oneself in article by graduate",
     "enumeration": "5"
    },
-   "solution": "BATHE"
+   "solution": "BATHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Immerse oneself",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 27,
+       "note": "by means next to, joining the two pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "graduate",
+       "at": 30,
+       "gives": "BA",
+       "note": "BA, a Bachelor of Arts, is a graduate"
+      },
+      {
+       "words": "article",
+       "at": 19,
+       "gives": "THE",
+       "note": "the is the definite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deeply absorbed in a piece written by a graduate.",
+     "definitionFit": "To take a swim or a soak is to immerse oneself in water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +381,58 @@
     "text": "Withdraw apt word, or exchange words 24 hours hence",
     "enumeration": "8"
    },
-   "solution": "TOMORROW"
+   "solution": "TOMORROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "24 hours hence",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Withdraw",
+         "at": 0,
+         "note": "read as draw back, so the word is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "apt word",
+         "at": 9,
+         "gives": "MOT",
+         "note": "mot, as in mot juste, is a French word for the apt word"
+        }
+       ]
+      },
+      {
+       "words": "or",
+       "at": 19
+      },
+      {
+       "words": "exchange words",
+       "at": 22,
+       "gives": "ROW",
+       "note": "to row is to argue, exchanging words"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to retract a fitting remark or argue it out the next day.",
+     "walkthrough": "MOT comes from 'le mot juste', the right word; 'Withdraw' reverses it to TOM.",
+     "definitionFit": "The day after today arrives in a day's time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Withdraw"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +452,48 @@
      }
     ]
    },
-   "solution": "ADLIB"
+   "solution": "ADLIB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Made-up address",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "chasing",
+       "at": 27,
+       "note": "chasing means following, so the politician comes second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "promotion",
+       "at": 35,
+       "gives": "AD",
+       "note": "an ad is a promotion or advertisement"
+      },
+      {
+       "words": "politician",
+       "at": 16,
+       "gives": "LIB",
+       "note": "Lib is short for Liberal, a politician"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speech a politician seeking advancement might deliver.",
+     "definitionFit": "An improvised speech is spoken off the cuff rather than prepared in advance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "promotion"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +507,53 @@
     "text": "Better finish for limping walker",
     "enumeration": "7"
    },
-   "solution": "GAMBLER"
+   "solution": "GAMBLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Better",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finish for",
+         "at": 7,
+         "note": "the finish of a word is its final letter, here taken from limping"
+        }
+       ],
+       "parts": [
+        {
+         "words": "limping",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "walker",
+       "at": 26,
+       "gives": "AMBLER",
+       "note": "an ambler is someone who walks at a leisurely pace"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on how someone with a limp might complete a walk.",
+     "walkthrough": "'Better' reads as a comparative adjective but is the noun: one who bets.",
+     "definitionFit": "A better is someone who places bets, and a punter who wagers habitually fits that description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 8,
@@ -189,7 +577,68 @@
      }
     ]
    },
-   "solution": "GOINGTOOFAR"
+   "solution": "GOINGTOOFAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crossing the boundary",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 25,
+       "note": "after places the airmen piece behind the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Current",
+       "at": 0,
+       "gives": "GOING",
+       "note": "going means current, as in the going rate"
+      },
+      {
+       "words": "also",
+       "at": 31,
+       "gives": "TOO",
+       "note": "too means also"
+      },
+      {
+       "op": "homophone",
+       "spelt": "FAR",
+       "indicators": [
+        {
+         "text": "picked up",
+         "at": 15,
+         "note": "picked up means heard, so the letters are taken by their sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "airmen",
+         "at": 8,
+         "gives": "RAF",
+         "note": "the RAF is Britain's Royal Air Force"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Airmen being collected after something also crosses a border.",
+     "walkthrough": "'picked up' says RAF is heard, giving FAR; 'after' puts it last.",
+     "definitionFit": "The idiom means overstepping acceptable limits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 9,
@@ -209,7 +658,61 @@
      }
     ]
    },
-   "solution": "TIMELAG"
+   "solution": "TIMELAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "interval",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 15,
+       "note": "on places the reversed piece after the first in an across answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "porridge",
+       "at": 18,
+       "gives": "TIME",
+       "note": "porridge is British slang for a prison sentence, time served"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflected",
+         "at": 5,
+         "note": "reflected means mirrored, so the word for girl is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Girl",
+         "at": 0,
+         "gives": "GAL",
+         "note": "gal is an informal word for a girl"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl musing over the porridge served at breakfast.",
+     "walkthrough": "'reflected' turns GAL into LAG; PORRIDGE is British slang for a prison term, so 'porridge served' suggests doing TIME.",
+     "definitionFit": "A delay between a cause and its effect is an interval of this kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "porridge"
+    }
+   }
   },
   {
    "number": 10,
@@ -229,7 +732,60 @@
      }
     ]
    },
-   "solution": "GREATNEPHEW"
+   "solution": "GREATNEPHEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kinsman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "skirting",
+       "at": 8,
+       "note": "skirting means going round the edge of, so the outer pieces surround the region"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "huge",
+         "at": 31,
+         "gives": "GREAT",
+         "note": "great means huge"
+        },
+        {
+         "words": "sigh of relief",
+         "at": 36,
+         "gives": "PHEW",
+         "note": "phew is the exclamation of relief"
+        }
+       ]
+      },
+      {
+       "words": "Tyneside",
+       "at": 17,
+       "gives": "NE",
+       "note": "Tyneside, around Newcastle, is in the North East of England, abbreviated NE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative avoiding Newcastle with immense relief.",
+     "walkthrough": "Tyneside is the area around Newcastle in North East England, hence NE.",
+     "definitionFit": "A brother's or sister's grandson is a male relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "skirting"
+    }
+   }
   },
   {
    "number": 11,
@@ -253,7 +809,44 @@
      }
     ]
    },
-   "solution": "IVANTHETERRIBLE"
+   "solution": "IVANTHETERRIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ruler",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "IVANTHE + TERRIBLE",
+     "indicators": [
+      {
+       "text": "clued cryptically",
+       "at": 16,
+       "note": "these words say the solution is itself wordplay that clues the two words before them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I haven't",
+       "at": 6,
+       "note": "the words I HAVEN'T, scrambled, make the first seven letters of the solution, with the last word of the solution acting as the anagram signal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter confessing to having given no proper clue at all.",
+     "walkthrough": "A reverse clue: the answer, read as wordplay, is IVANTHE (I HAVEN'T jumbled) followed by TERRIBLE, i.e. 'I haven't' clued terribly, which is what the clue admits.",
+     "definitionFit": "The sixteenth-century tsar of Russia was a notoriously cruel monarch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clued"
+    }
+   }
   },
   {
    "number": 12,
@@ -267,7 +860,52 @@
     "text": "Troops abroad finally intercept import",
     "enumeration": "4"
    },
-   "solution": "GIST"
+   "solution": "GIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "import",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Troops abroad",
+       "at": 0,
+       "gives": "GIS",
+       "note": "GIs are American soldiers, often stationed overseas"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 14,
+         "note": "finally picks out the closing letter of intercept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "intercept",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers serving overseas finally intercepting imported goods.",
+     "walkthrough": "'import' reads as goods brought in but is the noun meaning significance.",
+     "definitionFit": "The import of a statement is its essential meaning or substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "import"
+    }
+   }
   },
   {
    "number": 13,
@@ -281,7 +919,67 @@
     "text": "Culture expert to call back conclusively, nurseryman claims",
     "enumeration": "10"
    },
-   "solution": "FOLKLORIST"
+   "solution": "FOLKLORIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Culture expert",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "claims",
+       "at": 53,
+       "note": "claims means takes in, so the nurseryman holds the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nurseryman",
+       "at": 42,
+       "gives": "FLORIST",
+       "note": "a nurseryman grows and sells plants, as a florist does flowers"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "conclusively",
+         "at": 28,
+         "note": "conclusively takes the final letter of each of the three words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "at": 15
+        },
+        {
+         "words": "call",
+         "at": 18
+        },
+        {
+         "words": "back",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant seller insists on returning a call to settle things.",
+     "walkthrough": "'back' looks like a reversal signal but here is only one of the three words whose last letters 'conclusively' takes.",
+     "definitionFit": "This specialist studies the traditional tales, customs and beliefs of a people, which is a form of culture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 14,
@@ -295,7 +993,36 @@
     "text": "Like a setter in the doghouse?",
     "enumeration": "9"
    },
-   "solution": "KENNELLED"
+   "solution": "KENNELLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like a setter in the doghouse?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Like a setter in the doghouse?",
+       "at": 0,
+       "note": "a setter is a breed of dog, so in a doghouse it is literally housed in a dog's shelter, not merely in disgrace"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword compiler in disgrace.",
+     "walkthrough": "'setter' suggests the crossword compiler, but is the gundog, and 'the doghouse' is literal.",
+     "definitionFit": "A dog shut in its kennel has been put there, the literal sense of being in the doghouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 15,
@@ -315,7 +1042,40 @@
      }
     ]
    },
-   "solution": "INTERALIA"
+   "solution": "INTERALIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Among other things",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mishandled",
+       "at": 19,
+       "note": "mishandled means dealt with wrongly, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at airline",
+       "at": 30
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Luggage among other items lost at an airline.",
+     "definitionFit": "The Latin phrase is used in English to mean among other matters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mishandled"
+    }
+   }
   },
   {
    "number": 16,
@@ -335,7 +1095,41 @@
      }
     ]
    },
-   "solution": "FULLPELT"
+   "solution": "FULLPELT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "At which sprinters run",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "holding as much as possible",
+       "at": 24,
+       "gives": "FULL",
+       "note": "full means containing all it can"
+      },
+      {
+       "words": "hide",
+       "at": 57,
+       "gives": "PELT",
+       "note": "a pelt is an animal's hide"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sprinters running while carrying the maximum load and hiding.",
+     "definitionFit": "The phrase means at top speed, the pace of a sprint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hide"
+    }
+   }
   },
   {
    "number": 17,
@@ -355,7 +1149,41 @@
      }
     ]
    },
-   "solution": "OFFPUTTING"
+   "solution": "OFFPUTTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "discouraging",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Postponed",
+       "at": 0,
+       "gives": "OFF",
+       "note": "an event that is off has been called off or put off"
+      },
+      {
+       "words": "green activity on course",
+       "at": 10,
+       "gives": "PUTTING",
+       "note": "putting is what golfers do on the green of a golf course"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cancelled round of golf being disheartening.",
+     "definitionFit": "Something unpleasant enough to deter or repel is disheartening and discouraging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 18,
@@ -369,7 +1197,49 @@
     "text": "Eyesore you once found on street",
     "enumeration": "4"
    },
-   "solution": "STYE"
+   "solution": "STYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eyesore",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 23,
+       "note": "on places the second piece after the first in an across answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "street",
+       "at": 26,
+       "gives": "ST"
+      },
+      {
+       "words": "you once",
+       "at": 8,
+       "gives": "YE",
+       "note": "ye is an old form of you"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unsightly thing that people used to notice in the road.",
+     "walkthrough": "'Eyesore' reads as an ugly sight but is taken literally: a sore on the eye.",
+     "definitionFit": "Taken literally, a painful inflamed swelling on the eyelid is an eye sore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Eyesore"
+    }
+   }
   },
   {
    "number": 19,
@@ -383,7 +1253,51 @@
     "text": "Precious case for duchess's customary country wear",
     "enumeration": "6"
    },
-   "solution": "TWEEDS"
+   "solution": "TWEEDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "customary country wear",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Precious",
+       "at": 0,
+       "gives": "TWEE",
+       "note": "twee means precious, affectedly dainty"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case for",
+         "at": 9,
+         "note": "the case of a word is its outer letters, the first and last of duchess's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "duchess's",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dainty case for a duchess's usual rural outfits.",
+     "definitionFit": "Clothes of rough woollen cloth are the traditional dress for the British countryside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 20,
@@ -411,7 +1325,57 @@
      }
     ]
    },
-   "solution": "FORALLONESWORTH"
+   "solution": "FORALLONESWORTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with maximum effort",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "worked",
+       "at": 30,
+       "note": "worked means manipulated or reshaped, signalling the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Penniless",
+         "at": 0,
+         "note": "D was the symbol for the old British penny, so being without a penny drops that letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lord of North Wales",
+         "at": 10
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "FOR ALL ONE'S WORTH",
+    "explanation": {
+     "surface": "An impoverished Welsh aristocrat working as hard as he could.",
+     "walkthrough": "'Penniless' removes D, the old penny, from the fodder, and 'worked' rearranges what is left.",
+     "definitionFit": "The idiom means putting every possible bit of energy into something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Penniless"
+    }
+   }
   },
   {
    "number": 21,
@@ -425,7 +1389,59 @@
     "text": "Impatient tourist on vacation tucking into fish",
     "enumeration": "5"
    },
-   "solution": "RATTY"
+   "solution": "RATTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Impatient",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucking into",
+       "at": 30,
+       "note": "tucking into means going inside, so the remaining letters enter the fish"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fish",
+       "at": 43,
+       "gives": "RAY",
+       "note": "a ray is a flat fish"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on vacation",
+         "at": 18,
+         "note": "vacation means emptied, so the word is left with only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tourist",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restless holidaymaker eating fish.",
+     "walkthrough": "'on vacation' looks like a holiday but empties 'tourist' to TT.",
+     "definitionFit": "Someone irritable and short-tempered, as a cornered rat is, is easily made impatient."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 22,
@@ -439,7 +1455,46 @@
     "text": "Proprietor in Bow further over the hill?",
     "enumeration": "5"
    },
-   "solution": "OLDER"
+   "solution": "OLDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "further over the hill?",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "in Bow",
+       "at": 11,
+       "note": "Bow is in London's Cockney East End, where the H is dropped in speech"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Proprietor",
+       "at": 0,
+       "gives": "HOLDER",
+       "note": "a holder is one who owns or holds something"
+      },
+      {
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shop owner in east London getting on in years.",
+     "walkthrough": "Bow is a district of London's East End; Cockney speech drops the initial H.",
+     "definitionFit": "Someone more over the hill is further past their prime, that is of greater age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bow"
+    }
+   }
   },
   {
    "number": 23,
@@ -453,7 +1508,51 @@
     "text": "Priest regularly scrutinised renovated car part",
     "enumeration": "7"
    },
-   "solution": "RETREAD"
+   "solution": "RETREAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "renovated car part",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 7,
+         "note": "regularly takes every other letter of priest, starting with the second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Priest",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "scrutinised",
+       "at": 17,
+       "gives": "READ",
+       "note": "to read something closely is to scrutinise it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman carefully checks over a restored piece of a car.",
+     "definitionFit": "A tyre given a fresh tread so it can be used again is a reconditioned car component."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Priest"
+    }
+   }
   },
   {
    "number": 24,
@@ -473,7 +1572,41 @@
      }
     ]
    },
-   "solution": "LIESLOW"
+   "solution": "LIESLOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "remains in cover",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Story",
+       "at": 0,
+       "gives": "LIE",
+       "note": "a story can mean a fib or lie"
+      },
+      {
+       "words": "lacking pace",
+       "at": 6,
+       "gives": "SLOW",
+       "note": "slow means without speed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sluggish tale about whatever is left over.",
+     "definitionFit": "The idiom means keeping hidden and out of sight until danger passes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remains"
+    }
+   }
   },
   {
    "number": 25,
@@ -487,7 +1620,60 @@
     "text": "Energy-packed story adapted for silent type in bed?",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "silent type in bed?",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "packed",
+       "at": 7,
+       "note": "packed means stuffed inside, so the energy letter goes into story"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "adapted",
+         "at": 20,
+         "note": "adapted means altered, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "Energy",
+       "at": 0,
+       "gives": "E",
+       "note": "E is the symbol for energy in physics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lively tale reworked for a quiet person lying in bed.",
+     "walkthrough": "'adapted' rearranges STORY and 'Energy-packed' puts E inside. The definition plays on 'bed' as a seabed colony and the shellfish's proverbial silence.",
+     "definitionFit": "This shellfish grows in beds on the sea floor and is proverbially close-mouthed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 26,
@@ -501,7 +1687,43 @@
     "text": "Throw out of an inn, perhaps detective's watering hole",
     "enumeration": "6"
    },
-   "solution": "DISBAR"
+   "solution": "DISBAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Throw out of an inn, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "detective's",
+       "at": 29,
+       "gives": "DIS",
+       "note": "DI is a Detective Inspector, so DI's gives these letters"
+      },
+      {
+       "words": "watering hole",
+       "at": 41,
+       "gives": "BAR",
+       "note": "a bar is a place to drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ejected from a pub, perhaps the one a detective drinks in.",
+     "walkthrough": "'inn' suggests a pub, but means one of London's Inns of Court, the bodies that admit barristers.",
+     "definitionFit": "To expel a barrister from the legal profession strips them of membership of their Inn of Court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inn"
+    }
+   }
   }
  ]
 }
