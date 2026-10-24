@@ -148,10 +148,33 @@ TIMES_KIND = re.compile(f"{CROSSWORD_OCR}|[cg]ross-? ?number", re.IGNORECASE)
 TIMES_CRYPTIC = re.compile(r"\btimes\W+" + CROSSWORD_OCR + r"\W*(puzzle\W*)?(no\b\W*)?(\d[\d,. ]*)?$", re.IGNORECASE)
 
 
+#: The Saturday Times' own "Listener crossword" article (from No 3,090,
+#: 1991-03-23): a row of kind LISTENER_KIND in TTDA, apart from the daily
+#: crossword page (crossword() still rejects "listener" titles).
+LISTENER_KIND = "listener"
+#: Matcher version of that kind (own entry: the daily MATCHER is not moved).
+MATCHER[LISTENER_KIND] = 1
+LISTENER_ARTICLE = re.compile(r"\blistener\b.*\b(cross-? ?w[oa]rd|puzzle)|(cross-? ?w[oa]rd|puzzle).*\blistener\b",
+                              re.IGNORECASE)
+LISTENER_NOT = re.compile(r"report on|solution|winners|competition|champion\b|\bcontest|miscellany|"
+                          r"today's weather|concise|quick", re.IGNORECASE)
+
+
+def listener_article(titles, number=None):
+    """The index into `titles` of the Saturday Times' Listener crossword
+    article, or None: the one naming `number` first."""
+    cands = [i for i, t in enumerate(titles) if LISTENER_ARTICLE.search(t) and not LISTENER_NOT.search(t)]
+    if number is not None:
+        cands.sort(key=lambda i: not named(number).search(titles[i]))
+    return cands[0] if cands else None
+
+
 def stale(prod, e):
     """Whether cache entry `e` is to be looked up again: cached by an older
     matcher, and a miss or (the Times) a title this one rejects or ranks
     below the cryptic's."""
+    if e.get("kind") == LISTENER_KIND:
+        return e.get("matcher", 0) < MATCHER[LISTENER_KIND] and "doc" not in e
     if e.get("matcher", 0) >= MATCHER[prod]:
         return False
     if "doc" not in e:
@@ -192,15 +215,21 @@ def entry(prod, dvi, number=None, find=None):
     return {"doc": a["docId"], "title": a["docTitle"], "page": first, "records": records}
 
 
-def lookup(prod, day, gale, number=None):
-    """The entry for `day`, or {"why": ...} when Gale has no such crossword."""
+def lookup(prod, day, gale, number=None, kind=None):
+    """The entry for `day`, or {"why": ...} when Gale has no such crossword.
+    `kind` LISTENER_KIND: the Saturday Times' Listener article, its entry
+    marked with that kind."""
     issues = gale.issues(prod, day)
     if not issues:
         return {"why": "Gale has no issue that day"}
     titles = []
     for i in issues:
         dvi = gale.issue(prod, i)
-        e = entry(prod, dvi, number)
+        if kind == LISTENER_KIND:
+            e = entry(prod, dvi, find=lambda ts: listener_article(ts, number))
+            e = e and {**e, "kind": kind}
+        else:
+            e = entry(prod, dvi, number)
         if e:
             return e
         titles += [a["docTitle"] for a in articles(dvi["originalDocument"].get("articleTableOfContents"))]

@@ -131,6 +131,9 @@ ASIDE = "Set aside"
 FETCHED_DIR = f"{INBOX}/Fetched"
 #: The Listener's folder under GALE_ROOT.
 LISTENER = "Listener"
+#: The Saturday Times' Listener articles (1991-2014): kept only, not laid out
+#: as an edition or a magazine page.
+TIMES_LISTENER_DIR = f"{GALE_ROOT}/{LISTENER}/Times/Fetched"
 CHANNEL = os.environ.get("GALE_FETCH_CHANNEL", "cryptic-crosswords")
 DOC = re.compile(r"[A-Z]{2}\d{8,12}", re.IGNORECASE)
 
@@ -300,9 +303,12 @@ def pdf_of(fetch, url, day, doc, text_of=None):
     return body
 
 
-def fetched_dir(prod):
-    """The Mac folder product `prod`'s downloaded PDFs are kept in."""
+def fetched_dir(prod, kind=None):
+    """The Mac folder product `prod`'s downloaded PDFs are kept in (the
+    Saturday Times' Listener articles, kind "listener": their own)."""
     import gale_inbox
+    if kind == gale_docs.LISTENER_KIND:
+        return TIMES_LISTENER_DIR
     if prod == "TTDA":
         return FETCHED_DIR
     return f"{GALE_ROOT}/{LISTENER if prod == 'LSNR' else gale_inbox.OTHERS[prod].folder}/Fetched"
@@ -415,6 +421,10 @@ def plan(got, skip=SKIP):
         for day, number, report in gale_listener.wanted():
             out += want("LSNR", day, docs, got, number, report)
     if len(out) < REPLAN:
+        # The Saturday Times' own Listener articles, 1991-2014.
+        for day in times_listener_days(docs):
+            out += want("TTDA", day, docs, got, kind=gale_docs.LISTENER_KIND)
+    if len(out) < REPLAN:
         for prod in gale_inbox.OTHERS:
             for day in gale_inbox.other_wanted(prod):
                 out += want(prod, day, docs, got)
@@ -431,32 +441,57 @@ def superseded(day, ms, docs):
     return bool(e and fetched) and (gale_docs.stale("TTDA", e) or e.get("doc", "").upper() not in fetched)
 
 
-def key(prod, day, number=None, report=False):
+def key(prod, day, number=None, report=False, kind=None):
     """The gale_docs.CACHE key of a row: its date's, or the report's on
-    puzzle `number`."""
+    puzzle `number`, or (kind "listener") the Saturday Times' Listener
+    article of that date, apart from the daily crossword's."""
+    if kind:
+        return f"{prod}/{kind}/{day.isoformat()}"
     return f"{prod}/report/{number}" if report else f"{prod}/{day.isoformat()}"
 
 
-def want(prod, day, docs, got, number=None, report=False):
+def want(prod, day, docs, got, number=None, report=False, kind=None):
     """[(prod, day, its cache entry or None, *ask)], or [] when Gale has no
     crossword that day (no report on `number`) or its document is in `got`.
-    ask: (number, report), given a number (the Listener's rows). None: not
-    looked up yet, or looked up by an older matcher (gale_docs.stale)."""
-    ask = () if number is None else (number, report)
-    e = docs.get(key(prod, day, number, report))
+    ask: (number, report), given a number (the Listener's rows), plus kind
+    for the Times' Listener article. None: not looked up yet, or looked up
+    by an older matcher (gale_docs.stale)."""
+    ask = (number, report, kind) if kind else () if number is None else (number, report)
+    e = docs.get(key(prod, day, number, report, kind))
     if e is None or gale_docs.stale(prod, e):
         return [(prod, day, None, *ask)]
     return [(prod, day, e, *ask)] if "doc" in e and e["doc"].upper() not in got else []
 
 
-def look_up(prod, day, gale, number=None, report=False):
+#: The Saturday Times ran the Listener as its own article from No 3,090.
+TIMES_LISTENER = (datetime.date(1991, 3, 23), datetime.date(2014, 12, 31))
+
+
+def times_listener_days(docs):
+    """The Saturdays of TIMES_LISTENER, earliest first, but those whose
+    daily lookup found Gale has no issue that day."""
+    d, end, out = TIMES_LISTENER[0], TIMES_LISTENER[1], []
+    while d <= end:
+        if (docs.get(f"TTDA/{d.isoformat()}") or {}).get("why") != "Gale has no issue that day":
+            out.append(d)
+        d += datetime.timedelta(days=7)
+    return out
+
+
+def look_up(prod, day, gale, number=None, report=False, kind=None):
     """The cache entry for `day` of `prod` (gale_docs.lookup), or for the
     report on puzzle `number` of `day` (gale_docs.lookup_report, its issue's
-    date its "day"), kept in gale_docs.CACHE."""
-    e = (gale_docs.lookup_report if report else gale_docs.lookup)(prod, day, gale, number)
+    date its "day"), or (kind "listener") its Times Listener article, kept
+    in gale_docs.CACHE."""
+    if kind:
+        e = gale_docs.lookup(prod, day, gale, number, kind)
+    else:
+        e = (gale_docs.lookup_report if report else gale_docs.lookup)(prod, day, gale, number)
     e["at"] = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
-    e["matcher"] = gale_docs.MATCHER[prod]
-    gale_docs.keep(key(prod, day, number, report), e)
+    e["matcher"] = gale_docs.MATCHER[kind or prod]
+    if kind:
+        e["kind"] = kind
+    gale_docs.keep(key(prod, day, number, report, kind), e)
     return e
 
 
@@ -471,7 +506,12 @@ def file_page(body, prod, day, doc, e):
     """Keep the PDF on the Mac and lay it out as issue `day`'s: a
     Listener page for its reader (a report's entry carries its issue's
     "day"), any other as that date's edition."""
-    put(body, f"GALE_{doc}.pdf", fetched_dir(prod))
+    put(body, f"GALE_{doc}.pdf", fetched_dir(prod, e.get("kind")))
+    if e.get("kind") == gale_docs.LISTENER_KIND:
+        # Not that date's edition (the daily crossword's) nor a magazine
+        # page: only kept, and so, with no local layout, nothing to guard
+        # when the Mac's media root is not mounted.
+        return
     if prod == "LSNR":
         import gale_listener
         # In the container the Mac's media root is not mounted: the desktop's
@@ -621,7 +661,7 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                 raise Reload("reload asked")
             if e is None:
                 if dry:
-                    log(f"would look up {prod} {day}{' report' if ask[1:] == [True] else ''}, then fetch it")
+                    log(f"would look up {prod} {day}{' report' if ask[1:2] == [True] else ''}{' Listener article' if ask[2:] else ''}, then fetch it")
                     continue
                 try:
                     e = lookup_of(prod, day, *ask)
