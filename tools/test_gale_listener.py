@@ -314,6 +314,13 @@ cols = g.page_columns(g.figures(no88(
     + line("9. Turn to the left.", 1193, 1855), notes=False)))
 check("a list running on at the next column's top is still read (mirror)",
       ["1", "2", "5", "6", "7", "8", "9"], [l[4].split(".")[0] for l in cols[1]] if cols else None)
+# No 174's page (1933): beside its lists No 172's report, whose prose opens
+# on the light it is about ("30 Down, the word TANLING ..."): numbered_columns
+# takes no such line for a clue, so the down list's run-on at the next
+# column's top (26-35) still follows 25.
+check("CITING: a sentence on a light, not a clue line",
+      [True, False, False], [bool(g.CITING.match(t)) for t in
+                             ("30 Down, the word TANLING", "30. Down in the mouth.", "12 Down in the dumps")])
 
 # No 2's page: a prize notice set across the page under the lists, after
 # a wider gap ("Mr. A. R. Morton, c/o Mrs. ..., 68 Essex Road, ... prize

@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 17
+VERSION = 18
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -838,6 +838,11 @@ TALLER = 1.8
 #: A word starting this much of its column's width past where the clue
 #: lines end is no clue's: the grid's or the entry form's beside it.
 BEYOND = 0.2
+#: A report's sentence opening on the light it is about, its number with
+#: no stop: "30 Down, the word TANLING meaning ..." (No 172's report beside
+#: No 174's lists, 1933). No clue line: chained on as DOWN 30, it left the
+#: list's real run-on (26-35 at the next column's top) following none.
+CITING = re.compile(r"^\W{0,2}\d{1,2}\s+(?:across|down)\s*,", re.IGNORECASE)
 #: A list's footnote, under its last clue: "*One letter missing."
 FOOTNOTE = re.compile(r"^\W{0,2}[*\u2020\u2021#]\s*[A-Z]")
 #: A line ending its sentence: "Lenten.", "Why did this aspirated this?".
@@ -960,7 +965,8 @@ def numbered_columns(words):
                           and run[-1][1][-1][3] - x0 >= FULL * (right - x0))
                      and not heading(line[4]) and not FOOTNOTE.match(line[4])
                      and line[1] - line[0] <= TALLER * (run[-1][1][-1][1] - run[-1][1][-1][0]))
-            if m and line[2] - x0 < NUMBER_EDGE and WORDY.search(m.group(2)) and not heading(line[4]):
+            if (m and line[2] - x0 < NUMBER_EDGE and WORDY.search(m.group(2)) and not heading(line[4])
+                    and not CITING.match(line[4])):
                 n = int(m.group(1))
                 if run and run[-1][0] and line[0] - last_y <= RESTART and lost_zero(run[-1][0], n):
                     n *= 10
@@ -1871,7 +1877,10 @@ UNPARSED = "no reading parses"
 #: "(N)" in a gutter of its own (para_numbers), a DOWN heading below a gap
 #: and a "(1)" misread mid-list no longer ending the across list (No 582:
 #: 0 numbered clues on its page read before, 13 across and 12 down after).
-CLUES_FIX = 17
+#: 18: a report's "30 Down, the word ..." beside the lists no longer chained
+#: on as a clue (CITING), so the down list's run-on at the next column's top
+#: follows it again (No 174: 15 of its grid's 21 downs read before, 20 after).
+CLUES_FIX = 18
 SHORT = "refused clues-short before its fix"
 
 
