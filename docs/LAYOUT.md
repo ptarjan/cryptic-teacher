@@ -1461,6 +1461,7 @@ tools/test_annotate_ledger.py                  tests tools/annotate_ledger.py: f
 tools/recover_fp_drafts.py                     dry run: for clues an annotate session rewrote
                                                after a validator false positive, replays the
                                                first rejected draft through today's validator
+                                               (--apply writes the ones that pass and differ)
                                                and buckets it against the committed wordplay —
                                                writes nothing to puzzles
 tools/annotate_audit.sh                        the scheduled entry: runs the audit from a
