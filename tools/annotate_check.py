@@ -824,8 +824,8 @@ def drop_derived_keys(pending):
 
 def unname_block_notes(path, pending):
     """Rewrite each block note that names its answer, where find_answer_leaks.unname
-    can do it without judgement, or blank the answer in a note on one sense of
-    a double definition; the entry ids changed.
+    can do it without judgement, or else blank the answer's words in the note
+    ("..."); the entry ids changed.
     check_block_notes_dont_name_the_answer is the commonest rejection, and each
     one it sends back costs a turn."""
     try:
@@ -847,15 +847,18 @@ def unname_block_notes(path, pending):
                 continue
             lights = light_solutions(by_id[eid], by_id)
             pieces = pieces_of(seen)
-            senses = "double_definition" in seen["type"]
             for key, note in list(a["notes"].items()):
                 block = next((b for b in seen.get("blocks") or [] if b.get("note") == note), None)
                 if block is None or not isinstance(note, str):
                     continue
                 for name in names(seen["answer"], lights):
                     gives = block.get("gives") if name == seen["answer"] else ""
+                    # What no rule clears is blanked ("...") rather than sent back:
+                    # 10-24, 8 of 8 refusals were quotes or fragments (apron strings,
+                    # 'P and A') the model would only have written the same way
+                    # with a word taken out, at a turn each.
                     new = unname(note, name, gives, clues.get(eid, ""), pieces,
-                                 blank=senses and not block.get("gives"))
+                                 blank=True)
                     if new:
                         a["notes"][key] = note = new
                         changed.append(eid)
