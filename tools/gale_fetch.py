@@ -474,7 +474,10 @@ def file_page(body, prod, day, doc, e):
     put(body, f"GALE_{doc}.pdf", fetched_dir(prod))
     if prod == "LSNR":
         import gale_listener
-        gale_listener.lay_out_fetched(day, doc, body, report="day" in e)
+        # In the container the Mac's media root is not mounted: the desktop's
+        # standing pass reads the Fetched copy put() just wrote.
+        if gale_listener.SAVED.parent.is_dir():
+            gale_listener.lay_out_fetched(day, doc, body, report="day" in e)
         return
     import gale_inbox
     gale_inbox.lay_out_fetched(day, doc, body, e, prod=prod)
