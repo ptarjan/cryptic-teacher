@@ -224,7 +224,11 @@ def backlog_counts(days=None):
     per_hint = progress.rate(progress.funnel_series(days, 4), PACE_DAYS) or 0
     inflow = max(progress.rate(progress.funnel_series(days, 2), PACE_DAYS) or 0, 0.0)
     horizon = (known - hinted) / per_hint if per_hint > 0 else MAX_HORIZON_DAYS
-    return max(filed - hinted, 0), inflow, min(horizon, MAX_HORIZON_DAYS)
+    horizon = min(horizon, MAX_HORIZON_DAYS)
+    back = max(filed - hinted, 0)
+    if horizon > 0:  # filing cannot outrun the corpus: backlog + inflow <= known less hinted
+        inflow = min(inflow, max(known - hinted - back, 0) / horizon)
+    return back, inflow, horizon
 
 
 def clues_left(mean_clues, days=None):

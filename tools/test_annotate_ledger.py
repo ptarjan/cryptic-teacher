@@ -82,5 +82,16 @@ check([p for p in ("tools/wordplay.py", "tools/apply_annotations.py", "tools/ann
                    "tools/find_answer_leaks.py") if p not in L.CODE_PATHS and not p.startswith("tools/annotate")],
       [], "the evaluator and the modules the checks import are annotate code")
 
+# 10-24: the payback said ~7.8M clues left: backlog + filing inflow x horizon (290k puzzles)
+# exceeded the 153k puzzles known but not hinted. Filing cannot outrun the corpus.
+import progress
+_nt, _fs, _rt = progress.nested_totals, progress.funnel_series, progress.rate
+progress.nested_totals = lambda d: (175657, 79515, 62662, 47558, 22379)
+progress.funnel_series = lambda days, i: i
+progress.rate = lambda s, n: 585.0 if s == 4 else 952.0
+back, inflow, hor = L.backlog_counts({"2026-10-23": {}})
+progress.nested_totals, progress.funnel_series, progress.rate = _nt, _fs, _rt
+check(round(back + inflow * hor), 175657 - 22379, "backlog + inflow never exceeds known less hinted")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
