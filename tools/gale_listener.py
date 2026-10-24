@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 18
+VERSION = 19
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -441,8 +441,12 @@ def page_columns(words):
 #: A clue's number as the 1934-40 lists print it, run on in a paragraph:
 #: "(14)*** Labour in vain ... (15) anag. A slave ...", the light's mark
 #: after it ("(16B)", "(4U)") and its stars; a reading may lose the opening
-#: bracket ("2)*** One who slays").
-PARA_MARK = re.compile(r"(?<![\w(])\(?(\d{1,2})([A-Z]?)\)([*†‡!¥]*)(?![\w)])")
+#: bracket ("2)*** One who slays"). Lights clued together share one
+#: bracket, the clue numbered by the first: "(1, 8, 52) The nightingale.",
+#: "(40-22) Thracian torturers." (No 443, 1938); read from its last figure,
+#: each was a number lower than the clue's before it, and dropped. An
+#: anagram's clue says so in its bracket: "(47 anag.) Shivering".
+PARA_MARK = re.compile(r"(?<![\w(])\(?(\d{1,2})([A-Z]?)(?:(?:,\s?|-)\d{1,2}[A-Z]?)*(?:\s?anag\.?)?\)([*†‡!¥]*)(?![\w)])")
 #: PARA_MARK opening a clue's words in capitals: what tells a page of
 #: paragraph lists from one with counts at clues' ends ("Region (6)").
 PARA_OPENS = re.compile(PARA_MARK.pattern + r"(?=[,\s]*\(|\s+[\"'‘“]?[A-Z0-9])")
@@ -521,8 +525,11 @@ def paragraph_columns(words, marks=PARA_MARKS):
         pitch = steps[len(steps) // 2] if steps else 0
         last, stop = None, False
         for r in rows:
-            # A heading's own space above it is no gap (No 582's DOWN, 1941).
-            if last is not None and pitch and r[0] - last > PARA_GAP * pitch and heading(r[4]) != "DOWN":
+            # A heading's own space above it is no gap (No 582's DOWN, 1941),
+            # nor is an unread DOWN's: the down list starting again at 1 or 2
+            # under it (No 443's "(1) No post-mortem", 1938).
+            if (last is not None and pitch and r[0] - last > PARA_GAP * pitch and heading(r[4]) != "DOWN"
+                    and not (r[0] - last <= PARA_HEAD_GAP * pitch and para_restart(r[4], mark, stream))):
                 break
             last = r[0]
             head = heading(r[4]) or ("ACROSS" if r is rows[0] and re.search(r"A[CG]R[O0]SS", r[4].upper())
@@ -565,6 +572,10 @@ def paragraph_columns(words, marks=PARA_MARKS):
         clue = None  # [number, start of its words, row]
         for i, m in enumerate(marks):
             n = int(m.group(1))
+            if n <= last and (later := [k for k in map(int, re.findall(r"\d+", m.group(0))) if k > last]):
+                # A bracket of lights set at a later one's place ("(1, 40)"
+                # after 10 across): numbered by it, no restart of the list.
+                n = min(later)
             if (i + 1 < len(marks) and not text[m.end():marks[i + 1].start()].strip()
                     and int(marks[i + 1].group(1)) < n and n > last):
                 continue  # a count, the next clue's number right after it: "Scotland (7) (5) Puts" (No 582)
@@ -586,6 +597,20 @@ def paragraph_columns(words, marks=PARA_MARKS):
     if min(len(lists["ACROSS"]), len(lists["DOWN"])) < COLUMN_MIN:
         return None
     return [lists["ACROSS"], lists["DOWN"]]
+
+
+#: An unread DOWN heading leaves at most this many line pitches over the
+#: down list's first line.
+PARA_HEAD_GAP = 5
+
+
+def para_restart(text, mark, stream):
+    """Whether a paragraph line (`text`) after a gap starts the down list
+    whose heading went unread: it opens on clue 1 or 2 (`mark`), the across
+    list has clues above it, and no DOWN heading was read."""
+    m = mark.match(text.lstrip())
+    return bool(m and int(m.group(1)) <= 2 and any(row is not None for _, row in stream)
+                and not any(t == "DOWN" and row is None for t, row in stream))
 
 
 #: paragraph_columns' gutters: PARA_BIN-wide stretches across the lists
@@ -915,6 +940,8 @@ def numbered_columns(words):
     if not lefts or not heads:
         return None
     start = min(heads, key=lambda w: (sum(x <= w[0] for x in lefts), w[1]))
+    if heading(start[4]) == "DOWN" and not any(heading(w[4]) == "ACROSS" for w in heads):
+        start = across_start(words, start, lefts) or start
     runs = []
     # A grid's cell numbers beside a column (No 17's) would run into its
     # lines: a bare number past where the clue numbers stand, with no words
@@ -1008,6 +1035,25 @@ def numbered_columns(words):
         return None
     lines = [[line for _, ls in lst for line in ls] for lst in lists]
     return lines if heading(start[4]) == "ACROSS" else lines[::-1]
+
+
+def across_start(words, down, lefts):
+    """An ACROSS heading for numbered_columns to start at when only DOWN's
+    was read (No 133's "CLUES—ACROSS" read "¢t 3 ¢«", 1932): just over the
+    across list's "1." line, the nearest above DOWN in DOWN's column with
+    words beside it; None without one."""
+    x0 = max((x for x in lefts if x <= down[0]), default=None)
+    if x0 is None:
+        return None
+    x1 = min((x for x in lefts if x > x0), default=float("inf"))
+    ones = [w for w in words if x0 <= w[0] < min(x1, x0 + NUMBER_EDGE) and w[3] < down[1]
+            and (m := OPENS.match(w[4])) and int(re.sub(r"\D", "", m.group(0))) == 1
+            and any(WORDY.search(o[4]) and 0 <= o[0] - w[2] <= max(40, BESIDE * (w[3] - w[1]))
+                    and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2 for o in words)]
+    if not ones:
+        return None
+    one = max(ones, key=lambda w: w[1])
+    return (one[0], one[1] - 5, one[2], one[1] - 1, "ACROSS")
 
 
 def notice_top(rows):
@@ -1880,7 +1926,12 @@ UNPARSED = "no reading parses"
 #: 18: a report's "30 Down, the word ..." beside the lists no longer chained
 #: on as a clue (CITING), so the down list's run-on at the next column's top
 #: follows it again (No 174: 15 of its grid's 21 downs read before, 20 after).
-CLUES_FIX = 18
+#: 19: a list whose one heading was read no longer dropped: an unread DOWN's
+#: gap over a paragraph list's "(1)" no longer ends it, a bracket of lights
+#: ("(1, 8, 52)", "(40-22)", "(47 anag.)") is numbered by its first, and
+#: under a lone DOWN the across list is read up from its "1." (page reads,
+#: numbered clues before -> after: No 443 0 -> 52, No 449 0 -> 38, No 133 0 -> 19).
+CLUES_FIX = 19
 SHORT = "refused clues-short before its fix"
 
 
