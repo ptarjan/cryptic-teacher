@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Unconventional subject in Prague once",
     "enumeration": "8"
    },
-   "solution": "BOHEMIAN"
+   "solution": "BOHEMIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unconventional",
+      "at": 0,
+      "meaning": "describes someone living an arty, free-spirited life outside social norms"
+     },
+     {
+      "text": "subject in Prague once",
+      "at": 15,
+      "meaning": "a native of Bohemia, the old kingdom whose capital was Prague"
+     }
+    ],
+    "explanation": {
+     "surface": "An offbeat character living under the old regime in the Czech capital.",
+     "definitionFit": "Bohemia was the kingdom centred on Prague, and its name gave English a word for artists living outside convention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "subject"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +77,65 @@
      }
     ]
    },
-   "solution": "BRAHMS"
+   "solution": "BRAHMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Barman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coming into",
+       "at": 22,
+       "note": "one piece entering another means the royal letters go inside the cash word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 40,
+         "note": "cut short, so the last letter of the money word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "money",
+         "at": 34,
+         "gives": "BRASS",
+         "note": "brass is slang for money"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "The Queen",
+       "at": 12,
+       "gives": "HM",
+       "note": "HM stands for Her Majesty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub barman, sent by the Queen, comes into some money.",
+     "walkthrough": "'Barman' is a pun: not a pub server but a man who writes bars of music. 'shortly' drops the last letter of the money word, and 'coming into' puts the royal letters inside.",
+     "definitionFit": "The German composer wrote music measured out in bars, so he is jokingly a man of bars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Barman"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +149,34 @@
     "text": "It contains shifting sand over time",
     "enumeration": "9"
    },
-   "solution": "HOURGLASS"
+   "solution": "HOURGLASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It contains shifting sand over time",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It contains shifting sand over time",
+       "at": 0,
+       "note": "a timer whose sand runs from top bulb to bottom, measuring a period as it moves"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something like a desert or beach, its dunes moving over the years.",
+     "definitionFit": "The old timing device is a glass vessel through whose narrow waist sand trickles over a fixed period."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shifting"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +190,67 @@
     "text": "Actors finally perform (season having delayed opening)",
     "enumeration": "7"
    },
-   "solution": "MUMMERS"
+   "solution": "MUMMERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Actors",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 7,
+         "note": "finally points to the closing letter of the word perform"
+        }
+       ],
+       "parts": [
+        {
+         "words": "perform",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "having delayed opening",
+         "at": 31,
+         "note": "the opening letter of the season word is held back and placed at its end instead"
+        }
+       ],
+       "parts": [
+        {
+         "words": "season",
+         "at": 24,
+         "gives": "SUMMER",
+         "note": "summer is a season"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Actors at last take the stage, the summer season having opened late.",
+     "walkthrough": "'having delayed opening' moves the S of SUMMER to the back, giving UMMERS.",
+     "definitionFit": "Mummers are traditional folk players who perform masked plays, a kind of actor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "season"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +264,59 @@
     "text": "South Africa embodies England for her, on reflection",
     "enumeration": "5"
    },
-   "solution": "AGNES"
+   "solution": "AGNES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "her",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on reflection",
+       "at": 39,
+       "note": "a reflection in a mirror flips things, so the combined letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "embodies",
+         "at": 13,
+         "note": "to embody is to hold within, so the English abbreviation goes inside the African one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "South Africa",
+         "at": 0,
+         "gives": "SA"
+        },
+        {
+         "words": "England",
+         "at": 22,
+         "gives": "ENG"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket fan muses that South Africa now includes England in its team.",
+     "walkthrough": "'embodies' gives SENGA; 'on reflection' reverses that to the name.",
+     "definitionFit": "A female first name, so a woman who could be referred to with the pronoun given."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +330,46 @@
     "text": "Was relieved, having fought without focus",
     "enumeration": "6"
    },
-   "solution": "SPARED"
+   "solution": "SPARED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Was relieved",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without focus",
+       "at": 28,
+       "note": "the focus is the central letter, so the middle letter of the boxing word is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fought",
+       "at": 21,
+       "gives": "SPARRED",
+       "note": "sparred means fought, as boxers do in practice"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone felt relief after a fight that lacked concentration.",
+     "walkthrough": "SPARRED has seven letters; 'without focus' takes out its central R.",
+     "definitionFit": "To be spared something is to be let off or freed from it, a sense close to being relieved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "focus"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +383,64 @@
     "text": "Damsel endlessly in distress? Here's a knight in shining armour",
     "enumeration": "7"
    },
-   "solution": "PALADIN"
+   "solution": "PALADIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a knight in shining armour",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "one piece sits within another, so the shortened lady goes inside the word for distress"
+      }
+     ],
+     "parts": [
+      {
+       "words": "distress",
+       "at": 20,
+       "gives": "PAIN",
+       "note": "pain is a synonym for distress"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 7,
+         "note": "without its end, so the final letter of the lady word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Damsel",
+         "at": 0,
+         "gives": "LADY",
+         "note": "a damsel is a young lady"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A damsel in distress is rescued by her gallant knight in shining armour.",
+     "walkthrough": "'endlessly' trims LADY to LAD, which goes into PAIN.",
+     "definitionFit": "A paladin was one of Charlemagne's twelve peers, hence any chivalrous champion or heroic knight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Damsel"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +454,75 @@
     "text": "Dali following Lowry to draw in Lakeland village",
     "enumeration": "5"
    },
-   "solution": "RYDAL"
+   "solution": "RYDAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lakeland village",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 5,
+       "note": "Dali comes after Lowry, so the two names are run together in that order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to draw",
+         "at": 21,
+         "note": "to draw in is to pull in at the edges, so the first painter's name loses its front letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lowry",
+         "at": 15
+        },
+        {
+         "gives": "LOW"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 29,
+         "note": "the phrase draw in also trims the second painter's name, which loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dali",
+         "at": 0
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two painters go off to sketch in a pretty village in the Lake District.",
+     "walkthrough": "'following' puts Lowry before Dali, and the answer runs across the two names written together. L. S. Lowry was an English painter of industrial scenes.",
+     "definitionFit": "Rydal is a small village in the English Lake District, home to Wordsworth's Rydal Mount."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +536,44 @@
     "text": "Visionary feature made Yard remarkable",
     "enumeration": "8"
    },
-   "solution": "DAYDREAM"
+   "solution": "DAYDREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Visionary feature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "remarkable",
+       "at": 28,
+       "note": "something remarkable is out of the ordinary, so these letters are put in an unusual new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "made",
+       "at": 18
+      },
+      {
+       "words": "Yard",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scotland Yard has done something striking with a far-sighted new feature.",
+     "definitionFit": "A reverie of pleasant imagined scenes is a waking vision, a feature of a dreamer's mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yard"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +587,53 @@
     "text": "Princess supporting actor and new dramatist",
     "enumeration": "8"
    },
-   "solution": "SHERIDAN"
+   "solution": "SHERIDAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dramatist",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 9,
+       "note": "in a down answer a supporter sits underneath, so the princess comes below the actor"
+      }
+     ],
+     "parts": [
+      {
+       "words": "actor",
+       "at": 20,
+       "gives": "SHER",
+       "note": "Sir Antony Sher was a celebrated British stage actor"
+      },
+      {
+       "words": "Princess",
+       "at": 0,
+       "gives": "IDA",
+       "note": "Princess Ida is the title heroine of a Gilbert and Sullivan opera"
+      },
+      {
+       "words": "new",
+       "at": 30,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A princess playing support to a lead actor and a newcomer in a stage production.",
+     "definitionFit": "Richard Brinsley Sheridan wrote The Rivals and The School for Scandal, so he was a playwright."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +657,36 @@
      }
     ]
    },
-   "solution": "ABUSMANSHOLIDAY"
+   "solution": "ABUSMANSHOLIDAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Driver driven to distraction on day off?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Driver driven to distraction on day off?",
+       "at": 0,
+       "note": "a holiday spent doing what you do at work, as when a coach driver spends leave on a coach trip"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker driven mad on a day when he should be relaxing.",
+     "walkthrough": "'driven to distraction' hints that the driver is driven even on leave, doing the same thing as his job.",
+     "definitionFit": "The idiom names leisure time spent on activity much like one's usual work, from a bus driver riding buses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "distraction"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +700,42 @@
     "text": "Drawers might be glossy bags",
     "enumeration": "7"
    },
-   "solution": "MAGNETS"
+   "solution": "MAGNETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drawers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "glossy",
+       "at": 17,
+       "gives": "MAG",
+       "note": "a glossy is a magazine printed on shiny paper, so a mag"
+      },
+      {
+       "words": "bags",
+       "at": 24,
+       "gives": "NETS",
+       "note": "to bag is to catch, as is to net"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chests of drawers could be shiny bags, says a furniture catalogue.",
+     "definitionFit": "Things that draw or pull objects towards themselves, as iron filings are attracted, are drawers in the cryptic sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Drawers"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +749,49 @@
     "text": "Enigmatic poser's a cheat making a fresh start",
     "enumeration": "7"
    },
-   "solution": "RIDDLER"
+   "solution": "RIDDLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Enigmatic poser",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "making a fresh start",
+       "at": 26,
+       "note": "the starting letter of the cheat word is swapped for a different one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a cheat",
+       "at": 18,
+       "gives": "DIDDLER",
+       "note": "a diddler is a swindler or cheat"
+      },
+      {
+       "gives": "D"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mysterious person posing for photos turns out to be a fraud starting over.",
+     "walkthrough": "'making a fresh start' replaces the opening D of DIDDLER with R.",
+     "definitionFit": "Someone who sets puzzles poses questions, and the Batman villain is an enigmatic setter of conundrums."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "poser"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +805,49 @@
     "text": "Die before undertaking parole at camp",
     "enumeration": "8"
    },
-   "solution": "PASSWORD"
+   "solution": "PASSWORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "parole at camp",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 4,
+       "note": "the dying word goes ahead of the promise word in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Die",
+       "at": 0,
+       "gives": "PASS",
+       "note": "to pass, or pass away, is to die"
+      },
+      {
+       "words": "undertaking",
+       "at": 11,
+       "gives": "WORD",
+       "note": "a word, as in giving your word, is a promise or undertaking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner dies before being let out on parole from a prison camp.",
+     "walkthrough": "'parole' is not release from jail here but its old military sense, the secret word given to a sentry.",
+     "definitionFit": "In military use a parole is the watchword soldiers give to pass the guard at camp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "parole"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +861,62 @@
     "text": "Offering favour without initially intending good",
     "enumeration": "8"
    },
-   "solution": "OBLATION"
+   "solution": "OBLATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Offering",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 16,
+       "note": "lacking something, so letters are taken out of the favour word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "favour",
+       "at": 9,
+       "gives": "OBLIGATION",
+       "note": "an obligation is a favour owed, as in being obliged to someone"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 24,
+         "note": "initially points to the opening letters of the words intending and good"
+        }
+       ],
+       "parts": [
+        {
+         "words": "intending",
+         "at": 34
+        },
+        {
+         "words": "good",
+         "at": 44
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gift made without any real good intentions behind it.",
+     "definitionFit": "An oblation is a religious offering, something presented to God."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "favour"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +930,45 @@
     "text": "Part for diva is almost conventional",
     "enumeration": "5"
    },
-   "solution": "NORMA"
+   "solution": "NORMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part for diva",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "almost",
+       "at": 17,
+       "note": "almost the whole word, so the final letter of the conventional word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conventional",
+       "at": 24,
+       "gives": "NORMAL",
+       "note": "normal means ordinary or conventional"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An opera singer's role is close to standard fare.",
+     "definitionFit": "Bellini's opera has a title role, the druid priestess, that is a famous part for leading sopranos."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +982,51 @@
     "text": "Extremely reliable vehicle — one holding things back?",
     "enumeration": "9"
    },
-   "solution": "RETRACTOR"
+   "solution": "RETRACTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one holding things back?",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "at": 0,
+         "note": "the extremes of a word are its outer letters, the first and last of reliable"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reliable",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "vehicle",
+       "at": 19,
+       "gives": "TRACTOR",
+       "note": "a tractor is a farm vehicle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer's dependable vehicle might be holding up the traffic.",
+     "definitionFit": "A surgical instrument that pulls back the edges of a wound is named for drawing tissue away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "vehicle"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1040,72 @@
     "text": "Province engaged in function not arising in place near 7",
     "enumeration": "8"
    },
-   "solution": "CONISTON"
+   "solution": "CONISTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place near 7",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "engaged in",
+         "at": 9,
+         "note": "held within, so the province letters go inside the function"
+        }
+       ],
+       "parts": [
+        {
+         "words": "function",
+         "at": 20,
+         "gives": "COS",
+         "note": "cos is the cosine, a trigonometric function"
+        },
+        {
+         "words": "Province",
+         "at": 0,
+         "gives": "NI",
+         "note": "NI stands for Northern Ireland, often called the Province"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "arising",
+         "at": 33,
+         "note": "in a down answer rising means reading upwards, so the negative word is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not",
+         "at": 29,
+         "gives": "NOT",
+         "note": "the word not, taken as letters before being turned"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A province involved in some function, not rising anywhere near the village of the earlier clue.",
+     "walkthrough": "'arising' turns NOT to TON. Northern Ireland is called 'the Province' in Britain.",
+     "definitionFit": "The village and its lake lie a few miles from Rydal in the Lake District, so it is close to the answer at 7."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1119,49 @@
     "text": "Unfenced coast is haven of peace",
     "enumeration": "5"
    },
-   "solution": "OASIS"
+   "solution": "OASIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "haven of peace",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Unfenced",
+         "at": 0,
+         "note": "with its fences, the edges, taken away, so only the inner letters of coast remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coast",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stretch of open coast is a peaceful refuge.",
+     "definitionFit": "A fertile spot in a desert is figuratively any calm retreat or refuge from turmoil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Unfenced"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1175,30 @@
     "text": "Supporters helping",
     "enumeration": "7"
    },
-   "solution": "SECONDS"
+   "solution": "SECONDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supporters",
+      "at": 0,
+      "meaning": "the attendants who assist a boxer or duellist"
+     },
+     {
+      "text": "helping",
+      "at": 11,
+      "meaning": "a second serving of food, as in going back for more"
+     }
+    ],
+    "explanation": {
+     "surface": "Backers lending a hand.",
+     "definitionFit": "A boxer's corner men are his assistants, and a further plate of dinner is another portion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1212,40 @@
     "text": "Prints I consult about",
     "enumeration": "8"
    },
-   "solution": "LINOCUTS"
+   "solution": "LINOCUTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prints",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "around and about suggests turning things over, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I consult",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checking up on some printed pictures.",
+     "definitionFit": "Pictures printed from designs carved into a block of linoleum are a type of print."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consult"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1259,64 @@
     "text": "Greens — a group once almost locked up?",
     "enumeration": "7"
    },
-   "solution": "CABBAGE"
+   "solution": "CABBAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greens",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 36,
+       "note": "with locked, up says the shortened band is shut away inside the cage word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "locked",
+       "at": 29,
+       "gives": "CAGE",
+       "note": "locked, as in locked up, suggests being kept in a cage"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 22,
+         "note": "almost the whole name, so the last letter of the band is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a group once",
+         "at": 9,
+         "gives": "ABBA",
+         "note": "ABBA was a Swedish pop group of the 1970s"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Environmental campaigners, once a pop group, almost end up in jail.",
+     "walkthrough": "'locked up?' does double duty, suggesting the prison word and putting the band inside it, hence the question mark. ABBA was a Swedish pop group of the 1970s.",
+     "definitionFit": "A leafy green vegetable is one of the greens on a dinner plate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Greens"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1330,49 @@
     "text": "Married by eminent cleric in Charlock?",
     "enumeration": "6"
    },
-   "solution": "WEDDED"
+   "solution": "WEDDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Married",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "one piece sits within another, so the cleric's letters go inside the plant"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Charlock",
+       "at": 29,
+       "gives": "WEED",
+       "note": "charlock is wild mustard, a common weed of fields"
+      },
+      {
+       "words": "eminent cleric",
+       "at": 11,
+       "gives": "DD",
+       "note": "DD, Doctor of Divinity, is a title held by senior churchmen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple married by a senior churchman in a village called Charlock.",
+     "walkthrough": "'Charlock' looks like a place name but is a field weed, hence the question mark for an example.",
+     "definitionFit": "Joined in matrimony, as a couple is after the ceremony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlock"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1386,60 @@
     "text": "Incompetent appeal collecting very little money in NY without permission",
     "enumeration": "7"
    },
-   "solution": "ILLICIT"
+   "solution": "ILLICIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without permission",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "collecting",
+       "at": 19,
+       "note": "gathering something up, so the money goes inside the two joined words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Incompetent",
+         "at": 0,
+         "gives": "ILL",
+         "note": "ill can mean badly or incompetently, as in ill-judged"
+        },
+        {
+         "words": "appeal",
+         "at": 12,
+         "gives": "IT",
+         "note": "it is slang for sex appeal"
+        }
+       ]
+      },
+      {
+       "words": "very little money in NY",
+       "at": 30,
+       "gives": "IC",
+       "note": "1c, one cent, is a tiny American sum, written IC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A useless plea in New York brings in hardly any cash.",
+     "walkthrough": "IC stands for 1c, one US cent, the I read as the numeral one.",
+     "definitionFit": "Something done against the law or rules is forbidden, done without authorisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appeal"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1453,58 @@
     "text": "Popular President hugged by lady every now and then",
     "enumeration": "5"
    },
-   "solution": "LIKED"
+   "solution": "LIKED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Popular",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hugged by",
+       "at": 18,
+       "note": "something hugged is held in the middle, so the president goes inside the letters picked from lady"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "every now and then",
+         "at": 33,
+         "note": "only now and then, so alternate letters of lady are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lady",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "President",
+       "at": 8,
+       "gives": "IKE",
+       "note": "Ike was the nickname of US President Eisenhower"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-liked president gets an occasional hug from a lady.",
+     "definitionFit": "Something well regarded by many people is favoured, held in affection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "President"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1518,54 @@
     "text": "Receive honour after cycling speed trial",
     "enumeration": "7"
    },
-   "solution": "EMBRACE"
+   "solution": "EMBRACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Receive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "after cycling",
+         "at": 15,
+         "note": "cycling means letters going round, so the last letter of the honour moves to its front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "honour",
+         "at": 8,
+         "gives": "MBE",
+         "note": "MBE, Member of the Order of the British Empire, is a British honour"
+        }
+       ]
+      },
+      {
+       "words": "speed trial",
+       "at": 29,
+       "gives": "RACE",
+       "note": "a race is a trial of speed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets an award after a time trial on a bicycle.",
+     "walkthrough": "'after cycling' moves the honour's last letter to its front. 'cycling' tempts you to look for a bike.",
+     "definitionFit": "To welcome or accept an idea or person readily is to take it in, as when one embraces a proposal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1585,48 @@
      }
     ]
    },
-   "solution": "EGGON"
+   "solution": "EGGON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Urge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to retain",
+       "at": 19,
+       "note": "retaining something means holding it in, so the horse goes inside the company name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "power company",
+       "at": 5,
+       "gives": "EON",
+       "note": "E.ON is a large electricity and gas supplier in the UK"
+      },
+      {
+       "words": "horse",
+       "at": 29,
+       "gives": "GG",
+       "note": "gee-gee, GG, is a childish word for a horse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An energy firm is encouraged to keep a horse.",
+     "definitionFit": "To spur on or encourage someone to act, often to do something unwise, is to goad them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1656,37 @@
      }
     ]
    },
-   "solution": "TAKENFORGRANTED"
+   "solution": "TAKENFORGRANTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "treated this casually",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "TAKEN FOR + GRANTED",
+     "parts": [
+      {
+       "words": "Dragnet",
+       "at": 6,
+       "note": "the letters of Dragnet rearranged give the word granted, so one could be taken for the other"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Would the old TV police show be shrugged off as nothing special?",
+     "walkthrough": "Dragnet was a US police drama. Its letters rearrange into GRANTED, so it could be mistaken for that word.",
+     "definitionFit": "Something assumed without question, so not valued or thought about, is handled carelessly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dragnet"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1700,36 @@
     "text": "A habit isn't something she's accustomed to",
     "enumeration": "6"
    },
-   "solution": "NUDIST"
+   "solution": "NUDIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A habit isn't something she's accustomed to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A habit isn't something she's accustomed to",
+       "at": 0,
+       "note": "a habit is also clothing, and a naturist is not used to wearing any clothes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has not fallen into a routine, or a nun who is not a nun.",
+     "walkthrough": "'habit' reads as a routine, but it is a nun's robe, and so any garment.",
+     "definitionFit": "A naturist goes unclothed by choice, so a garment is the last thing she is used to wearing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1743,41 @@
     "text": "Gathered information and got it wrong",
     "enumeration": "8"
    },
-   "solution": "INFERRED"
+   "solution": "INFERRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gathered",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "information",
+       "at": 9,
+       "gives": "INF",
+       "note": "inf. is a short form of information"
+      },
+      {
+       "words": "got it wrong",
+       "at": 25,
+       "gives": "ERRED",
+       "note": "erred means made a mistake"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone collected information and then made a mistake with it.",
+     "definitionFit": "To gather from evidence is to deduce or conclude, as in 'I gather you disagree'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gathered"
+    }
+   }
   }
  ]
 }
