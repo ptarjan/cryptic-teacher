@@ -6,10 +6,17 @@
 # Fake ledger rows in, wake / no-wake decisions out (tools/annotate_ledger.py).
 import datetime
 import os
+import pathlib
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, "tools")
 import annotate_ledger as L
+
+# Hermetic: the live /progress/ backlog must not decide these checks. 1,000 clues left makes
+# a $0.01/clue cause save $5 (< the $6 fix cost) and a $0.025/clue one $12.50.
+CLUES_LEFT = 1000
+L.clues_left = lambda mean_clues, days=None: CLUES_LEFT  # set via left(n) below
+L.NO_LEVER = pathlib.Path("/nonexistent/annotate_no_lever.json")
 
 fails = 0
 def check(got, want, what):
@@ -31,8 +38,13 @@ flat = [row(i, 0.040) for i in range(1, 7)]
 check(L.should_wake(flat, None, quiet, now)[0], None, "flat $/clue, same cause: quiet")
 fix2 = (T0 + datetime.timedelta(hours=5.5)).isoformat()
 check(L.should_wake(flat, fix2, quiet, now)[0], None, "1 row after a code commit: not yet")
+def left(n):
+    global CLUES_LEFT
+    CLUES_LEFT = n
+left(10000)  # $0.01/clue x 10,000 clues x 0.5 = $50 > the $6 fix: the payback wakes
 check(L.should_wake(flat, (T0 + datetime.timedelta(hours=4.5)).isoformat(), quiet, now)[0] is not None,
-      True, "2 rows after a code commit, over target: wake")
+      True, "2 rows after a code commit, big payback: wake")
+left(1000)
 bad = flat[:5] + [row(6, 0.157)]
 check(L.should_wake(bad, None, quiet, now)[0] is not None, True, "one bad row is not averaged away")
 thin = dict(row(6, 0.157), clues=20, cost=3.14)
@@ -46,16 +58,30 @@ check(L.should_wake(worse, None, quiet, now)[0] is not None, True, "rolling 33% 
 fix = (T0 + datetime.timedelta(hours=3.5)).isoformat()
 check(L.should_wake(worse, fix, dict(quiet, commit=fix), now)[0], None,
       "rows before the last annotate-code commit do not set the best level")
+left(10000)
 check(L.should_wake(worse, fix, quiet, now)[0] is not None, True,
-      "still over target 3 rows after a new annotate-code commit: wake for the next cause")
+      "big payback 3 rows after a new annotate-code commit: wake for the next cause")
+left(1000)
 
 mild = [row(i, 0.040) for i in range(1, 4)] + [row(i, 0.043) for i in range(4, 7)]
 check(L.should_wake(mild, None, quiet, now)[0], None, "7.5% over best: quiet")
 
-flip = flat[:5] + [row(6, 0.040, top="rule:b")]
-check(L.should_wake(flip, None, quiet, now)[0] is not None, True, "a new #1 cause: wake")
-check(L.should_wake(flip, None, {"woken": quiet["woken"], "top": "rule:b"}, now)[0], None,
-      "#1 cause the same as at the last wake: quiet")
+left(10000)
+check(L.should_wake(flat, None, quiet, now)[0] is not None, True, "big payback, flat $/clue: wake")
+# no-lever: the room investigated the cause and found nothing to fix.
+nl = {"rule:a": {"per_clue": 0.01, "commit_time": None}}
+check(L.should_wake(flat, None, quiet, now, nl)[0], None, "no-lever cause, same $/clue: quiet")
+nl_c = {"rule:a": {"per_clue": 0.01, "commit_time": fix}}
+check(L.should_wake(worse, fix, quiet, now, nl_c)[0], None, "no-lever cause, same last commit: quiet")
+check(L.should_wake(worse, fix, quiet, now, nl)[0] is not None, True,
+      "no-lever recorded before a NEW annotate-code commit: wakes again")
+check(L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.0066, "commit_time": None}})[0] is not None,
+      True, "no-lever cause whose $/clue rose past 1.5x the recorded: wakes again")
+check(L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.0070, "commit_time": None}})[0], None,
+      "no-lever cause under 1.5x the recorded $/clue: quiet")
+check(L.should_wake(flat, None, quiet, now, {"rule:b": {"per_clue": 0.01, "commit_time": None}})[0] is not None,
+      True, "no-lever on a different cause does not mute this one")
+left(1000)
 
 recent = {"woken": (now - datetime.timedelta(minutes=30)).isoformat(), "top": "rule:a"}
 check(L.should_wake(worse, None, recent, now)[0], None, "woken 30 min ago: 1h cooldown holds")
@@ -66,14 +92,14 @@ check(L.should_wake(cheap, None, quiet, now)[0], None, "at the $0.022 target: qu
 def hot(r, spend):
     return dict(r, top_causes=[dict(r["top_causes"][0], cost_after_check=spend)])
 burning = cheap[:5] + [hot(cheap[5], 2.5)]
-check("spent $2.50" in (L.should_wake(burning, None, quiet, now)[0] or ""), True,
-      "under target but the top cause spent $2.50 after the check: wake")
+check("$0.0125/clue" in (L.should_wake(burning, None, quiet, now)[0] or ""), True,
+      "under target but the top cause saves $6.25 > the $6 fix (1,000 clues left): wake")
 check(L.should_wake(burning, None, recent, now)[0], None, "under target, burning, but inside the 1h cooldown: quiet")
 check(L.should_wake(cheap[:5] + [hot(cheap[5], 1.9)], None, quiet, now)[0], None,
-      "under target and top cause spent $1.90 (< $2): quiet")
+      "under target and the saving $5.75 is under the $6 fix: quiet")
 
 text = L.work_order("why", {"cur": 0.04, "best": 0.03}, worse, ("abc123", "x", "Annotate fix"))
-check(all(s in text for s in ("$0.040", "rule:a", "abc123", "ONE Sonnet worker", "$0.022/clue")), True,
+check(all(s in text for s in ("$0.040", "rule:a", "abc123", "ONE Sonnet worker")), True,
       "the work order carries the rows, top cause, last commit and the instruction")
 
 # 10-24: the alert named 93e60a8b958 as the last annotate-code commit while two fixes to
