@@ -2214,6 +2214,23 @@ check("the VLM's word against the classifier's floor is not taken", None,
 check("pieces of an enumeration: a phrase's words, else the light whole", ([4, 4, 3, 3], [12], [9], [4, 5]),
       (tso.pieces_of("4,4,3,3", 14), tso.pieces_of("4,4,3,3", 12), tso.pieces_of(None, 9), tso.pieces_of("4-5", 9)))
 f._KEEP_VLM["names"] = ao_kept
+# A reread due for its solution grid alone (SOLUTION_FIXES) is not kept for the VLM: answers_only reads
+# it first (fitted reads, the VLM's strips); a refusal's fix, a forced unit and a bug reread still are.
+real_fix = f.fix_reason
+try:
+    f.fix_reason = lambda row: row.get("fix")
+    check("keeps_vlm: solution-only fixes read answers-only first; the rest keep the VLM",
+          [False, False, False, True, True, True, False],
+          [f.keeps_vlm("solution short, its cells unclassified", {"fix": "solution short, its cells unclassified"}, {}),
+           f.keeps_vlm("inputs changed", {"fix": "answers held back by a clue with no enumeration"}, {}),
+           f.keeps_vlm("solution short, read by other code", {}, {}),
+           f.keeps_vlm("refused not-a-grid before its fix", {"fix": "refused not-a-grid before its fix"}, {}),
+           f.keeps_vlm("solution short, read by other code", {}, {"force": True}),
+           f.keeps_vlm(None, {}, None),
+           f.keeps_vlm("inputs changed", {}, {})])
+finally:
+    f.fix_reason = real_fix
+
 for n, fn in ao_stubbed.items():
     setattr(f, n, fn)
 
