@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Some olives are wasted",
     "enumeration": "6"
    },
-   "solution": "STONED"
+   "solution": "STONED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Some olives are",
+      "at": 0,
+      "meaning": "olives with their pits removed are sold as ... olives"
+     },
+     {
+      "text": "wasted",
+      "at": 16,
+      "meaning": "slang for heavily drunk or high on drugs"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that some olives have gone to waste.",
+     "walkthrough": "'Wasted' looks like it describes the olives being thrown away, but it is a separate slang sense: intoxicated.",
+     "definitionFit": "Pitted olives are described as stoned, and stoned is also slang for intoxicated, like wasted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wasted"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +73,41 @@
     "text": "Total love for wrestling",
     "enumeration": "4"
    },
-   "solution": "SUMO"
+   "solution": "SUMO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wrestling",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Total",
+       "at": 0,
+       "gives": "SUM",
+       "note": "to total is to sum, add up"
+      },
+      {
+       "words": "love",
+       "at": 6,
+       "gives": "O",
+       "note": "love is zero in tennis, shaped like the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gives up everything they love for the sport of wrestling.",
+     "definitionFit": "Sumo is the Japanese style of wrestling between heavyweight competitors in a ring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Total"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +127,45 @@
      }
     ]
    },
-   "solution": "ONTRUST"
+   "solution": "ONTRUST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without seeing the evidence",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "organisation",
+       "at": 9,
+       "note": "organisation means arranging, so the letters of the words before it are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Turns",
+       "at": 0
+      },
+      {
+       "words": "to",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone joins a group and takes its claims at face value.",
+     "walkthrough": "'organisation' is the anagram signal, rearranging TURNSTO.",
+     "definitionFit": "Taking something on trust means believing it without proof or evidence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organisation"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +179,42 @@
     "text": "Aristocrat with gongs and rings here",
     "enumeration": "8"
    },
-   "solution": "EARLOBES"
+   "solution": "EARLOBES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rings here",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Aristocrat",
+       "at": 0,
+       "gives": "EARL",
+       "note": "an earl is a British nobleman"
+      },
+      {
+       "words": "gongs",
+       "at": 16,
+       "gives": "OBES",
+       "note": "gongs is British slang for medals and honours, such as the OBE (Order of the British Empire)"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decorated nobleman wearing his medals and his rings.",
+     "walkthrough": "'gongs' is British slang for honours; an OBE is an Order of the British Empire award.",
+     "definitionFit": "Earrings are worn on the lobes of the ears, so this is where such rings go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +228,60 @@
     "text": "Had a laugh when jilted around the third of July",
     "enumeration": "8"
    },
-   "solution": "CHUCKLED"
+   "solution": "CHUCKLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Had a laugh",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 24,
+       "note": "around means the word for jilted is wrapped round the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jilted",
+       "at": 17,
+       "gives": "CHUCKED",
+       "note": "to chuck a partner is to jilt or dump them"
+      },
+      {
+       "op": "nth",
+       "n": 3,
+       "indicators": [
+        {
+         "text": "the third of",
+         "at": 31,
+         "note": "the third of points at the third letter of the word July"
+        }
+       ],
+       "parts": [
+        {
+         "words": "July",
+         "at": 44
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dumped in early July still manages a laugh.",
+     "walkthrough": "'the third of July' looks like a date, but it is the letter L, which goes inside CHUCKED.",
+     "definitionFit": "To chuckle is to laugh quietly, so chuckled is a past tense for having a quiet laugh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "third"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +295,43 @@
     "text": "Animal, vegetable, plant",
     "enumeration": "11"
    },
-   "solution": "HORSERADISH"
+   "solution": "HORSERADISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Animal",
+       "at": 0,
+       "gives": "HORSE",
+       "note": "a horse is an animal"
+      },
+      {
+       "words": "vegetable",
+       "at": 8,
+       "gives": "RADISH",
+       "note": "a radish is a root vegetable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It sounds like the old parlour game of animal, vegetable or mineral.",
+     "walkthrough": "The surface mimics the guessing game 'animal, vegetable, mineral', with 'plant' in place of mineral.",
+     "definitionFit": "Horseradish is a plant grown for its pungent root, used to make a sauce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +345,32 @@
     "text": "Larks in bushes",
     "enumeration": "6"
    },
-   "solution": "CAPERS"
+   "solution": "CAPERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Larks",
+      "at": 0,
+      "meaning": "larks are playful pranks or escapades"
+     },
+     {
+      "text": "in bushes",
+      "at": 6,
+      "meaning": "the flower buds of the caper bush, so they grow in bushes"
+     }
+    ],
+    "explanation": {
+     "surface": "Skylarks are hiding in the shrubbery.",
+     "walkthrough": "'Larks' looks like the birds, which would sit in bushes, but it means frolics.",
+     "definitionFit": "Capers are high-spirited antics, and also the pickled buds of a Mediterranean shrub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Larks"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +384,85 @@
     "text": "Happier when Starmer after change of heart supports leaders of leftist unitary councils",
     "enumeration": "7"
    },
-   "solution": "LUCKIER"
+   "solution": "LUCKIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Happier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supports",
+       "at": 43,
+       "note": "in a down answer the piece that supports another sits below it, so the Starmer piece comes second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leaders of",
+         "at": 52,
+         "note": "leaders of points at the opening letters of the three words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leftist",
+         "at": 63
+        },
+        {
+         "words": "unitary",
+         "at": 71
+        },
+        {
+         "words": "councils",
+         "at": 79
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "after change of heart",
+         "at": 21,
+         "note": "change of heart means the middle letters of the name are swapped around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Starmer",
+         "at": 13,
+         "gives": "KEIR",
+         "note": "Keir Starmer is the UK Labour leader and Prime Minister"
+        },
+        {
+         "gives": "EI"
+        },
+        {
+         "gives": "IE"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political line: Starmer is cheerier backed by leftist local councils after a U-turn.",
+     "walkthrough": "Swapping the heart of KEIR gives KIER, which goes under LUC (the first letters of 'leftist unitary councils'); 'supports' works because this is a down clue.",
+     "definitionFit": "Luckier means more fortunate, and a fortunate person is often a happier one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +476,49 @@
     "text": "Ray indeed is happy",
     "enumeration": "9"
    },
-   "solution": "DELIGHTED"
+   "solution": "DELIGHTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "happy",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 4,
+       "note": "in, the front of the word indeed, tells us one piece goes inside the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deed",
+       "at": 6,
+       "gives": "DEED",
+       "note": "taken as written, from the end of the word indeed"
+      },
+      {
+       "words": "Ray",
+       "at": 0,
+       "gives": "LIGHT",
+       "note": "a ray is a beam of light"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Ray is genuinely happy.",
+     "walkthrough": "The one word 'indeed' is read as two, 'in deed', giving both the indicator and the outer piece. 'Ray' looks like a name but means a beam.",
+     "definitionFit": "Delighted means very pleased, a stronger synonym of happy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +532,62 @@
     "text": "'Grow up pal', she said, 'you are in'",
     "enumeration": "6"
    },
-   "solution": "MATURE"
+   "solution": "MATURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grow up",
+      "at": 1
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 34,
+       "note": "in places the spoken letters inside the word for pal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pal",
+       "at": 9,
+       "gives": "MATE",
+       "note": "a pal is a friend, a mate"
+      },
+      {
+       "op": "homophone",
+       "spelt": "UR",
+       "indicators": [
+        {
+         "text": "she said",
+         "at": 15,
+         "note": "she said tells us the phrase is to be heard as spoken letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you are",
+         "at": 26,
+         "gives": "YOUARE",
+         "note": "you are spoken quickly sounds like the letters U and R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman tells her friend to act their age and join in.",
+     "walkthrough": "Said aloud, 'you are' is the letters U R, which go in MATE.",
+     "definitionFit": "To mature is to grow up, to become adult in body or behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +601,49 @@
     "text": "Hot Romeo spotted in local",
     "enumeration": "8"
    },
-   "solution": "TROPICAL"
+   "solution": "TROPICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "spotted in",
+       "at": 10,
+       "note": "spotted in means the letter is seen inside the word for local"
+      }
+     ],
+     "parts": [
+      {
+       "words": "local",
+       "at": 21,
+       "gives": "TOPICAL",
+       "note": "topical means local, of a particular place, as in a topical cream applied to one spot"
+      },
+      {
+       "words": "Romeo",
+       "at": 4,
+       "gives": "R",
+       "note": "Romeo is R in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attractive Romeo was seen in the neighbourhood pub.",
+     "walkthrough": "'local' is British slang for one's nearby pub, which is the surface sense; here it means topical, of a particular place.",
+     "definitionFit": "Tropical climates are hot, so the word stands for sweltering weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "local"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +679,32 @@
    "group": [
     "11-across",
     "21-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "From bad to worse",
+      "at": 0,
+      "meaning": "the idiom describes escaping one trouble only to land in a worse one"
+     },
+     {
+      "text": "in terms of eating and heating?",
+      "at": 18,
+      "meaning": "a frying pan cooks food to eat and a fire heats a room, so the phrase literally moves between them"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about how food and warmth go from bad to worse.",
+     "walkthrough": "The second half reads the idiom literally: the pan is for cooking, the fire for heating.",
+     "definitionFit": "The proverb pictures something jumping from a hot pan straight into flames, a worse fate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +724,64 @@
      }
     ]
    },
-   "solution": "TALLSTORIES"
+   "solution": "TALLSTORIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they're unbelievable!",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to begin with",
+       "at": 36,
+       "note": "to begin with puts the delay piece at the front, before the Conservatives"
+      }
+     ],
+     "parts": [
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "demoting leader",
+         "at": 20,
+         "note": "demoting leader means the first letter is moved down to the end of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delay",
+         "at": 14,
+         "gives": "STALL",
+         "note": "to stall is to delay"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "Conservatives",
+       "at": 0,
+       "gives": "TORIES",
+       "note": "Tories is the everyday name for members of the UK Conservative Party"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Delaying Conservatives push out their leader; the result is hard to believe.",
+     "walkthrough": "'demoting leader' sends the first letter of the delay word to its end, making TALLS; 'to begin with' keeps that piece in front.",
+     "definitionFit": "Tall stories are exaggerated, far-fetched tales that no listener could believe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +805,59 @@
      }
     ]
    },
-   "solution": "INTHECLEAR"
+   "solution": "INTHECLEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Innocent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "at": 14,
+       "note": "follows places the king after the scrambled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "diversity",
+         "at": 29,
+         "note": "diversity suggests variety, so the letters of the word before it are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ethnic",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "king",
+       "at": 9,
+       "gives": "LEAR",
+       "note": "King Lear is Shakespeare's tragic king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blameless monarch champions ethnic diversity.",
+     "walkthrough": "'diversity' looks like part of the surface's politics but is the anagram signal, giving INTHEC; 'follows' puts the Shakespearean king after it.",
+     "definitionFit": "To be in the clear is to be free of suspicion or blame, guiltless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diversity"
+    }
+   }
   },
   {
    "number": 13,
@@ -271,7 +871,65 @@
     "text": "Powerless South American island quietly coming up",
     "enumeration": "9"
    },
-   "solution": "INCAPABLE"
+   "solution": "INCAPABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Powerless",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "South American",
+       "at": 10,
+       "gives": "INCA",
+       "note": "the Inca were the people of the ancient Andean empire"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming up",
+         "at": 40,
+         "note": "coming up in a down answer means read from the bottom, so the letters are reversed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "island",
+           "at": 25,
+           "gives": "ELBA",
+           "note": "Elba is the Mediterranean island of Napoleon's exile"
+          },
+          {
+           "words": "quietly",
+           "at": 32,
+           "gives": "P",
+           "note": "p is the musical abbreviation for piano, quietly"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A South American on an island, quietly rising and yet without power.",
+     "walkthrough": "'coming up' reverses the island and P together, making PABLE, since in a down answer up means read bottom to top.",
+     "definitionFit": "Incapable means unable to act or do things, lacking power or ability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 14,
@@ -285,7 +943,48 @@
     "text": "Young Simpson nudging along a spoilt child",
     "enumeration": "4"
    },
-   "solution": "BRAT"
+   "solution": "BRAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spoilt child",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "nudging along",
+       "at": 14,
+       "note": "nudging along means one letter is pushed a place further along in the name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Young Simpson",
+       "at": 0,
+       "gives": "BART",
+       "note": "Bart is the young son in the cartoon The Simpsons"
+      },
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bart Simpson pushes a pampered child about.",
+     "walkthrough": "The A in BART is nudged one place along.",
+     "definitionFit": "A brat is a badly behaved, spoilt child, much like Bart himself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nudging"
+    }
+   }
   },
   {
    "number": 15,
@@ -305,7 +1004,57 @@
      }
     ]
    },
-   "solution": "OLDFLAME"
+   "solution": "OLDFLAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "past lover",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "hopelessly",
+       "at": 26,
+       "note": "hopelessly suggests something in a mess, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Two thirds of",
+         "at": 0,
+         "note": "two thirds of a six-letter word is its first four letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "models",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "fall",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone falls hopelessly for fashion models and a former partner.",
+     "walkthrough": "Two thirds of MODELS is MODE; 'hopelessly' scrambles MODE and FALL.",
+     "definitionFit": "An old flame is a former romantic partner, someone once loved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 16,
@@ -319,7 +1068,41 @@
     "text": "Appealing and periodically acquitted",
     "enumeration": "4"
    },
-   "solution": "CUTE"
+   "solution": "CUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appealing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "periodically",
+       "at": 14,
+       "note": "periodically means at regular intervals, so every other letter of the next word is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "acquitted",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defendant is attractive and cleared now and again.",
+     "walkthrough": "'periodically' takes the even letters of 'acquitted'.",
+     "definitionFit": "Cute means attractive in a charming way, so it is appealing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "acquitted"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1116,53 @@
     "text": "One leaves mangled genitals in knots",
     "enumeration": "7"
    },
-   "solution": "TANGLES"
+   "solution": "TANGLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "knots",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "leaves",
+       "at": 4,
+       "note": "leaves means one letter departs from the fodder before the rest is rearranged"
+      },
+      {
+       "text": "mangled",
+       "at": 11,
+       "note": "mangled means crushed out of shape, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "genitals",
+       "at": 19
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painful image of injured private parts left tied up in knots.",
+     "walkthrough": "GENITALS minus I ('One leaves') is rearranged by 'mangled'.",
+     "definitionFit": "Tangles are twisted, knotted masses of string or hair, so they are knots."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "genitals"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1176,46 @@
     "text": "Was uncertain about old elastic pants",
     "enumeration": "10"
    },
-   "solution": "OSCILLATED"
+   "solution": "OSCILLATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Was uncertain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "pants",
+       "at": 32,
+       "note": "pants is British slang for rubbish, signalling the letters are rearranged into nonsense"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old",
+       "at": 20
+      },
+      {
+       "words": "elastic",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dithers over a pair of old underpants with stretched elastic.",
+     "walkthrough": "'pants' looks like underwear, but as British slang for rubbish it is the anagram signal for OLD ELASTIC.",
+     "definitionFit": "To oscillate is to swing back and forth, and figuratively to waver between opinions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1229,49 @@
     "text": "Tight old solver's admitting disagreement",
     "enumeration": "7"
    },
-   "solution": "THRIFTY"
+   "solution": "THRIFTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitting",
+       "at": 19,
+       "note": "admitting means letting in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old solver's",
+       "at": 6,
+       "gives": "THY",
+       "note": "thy is the old word for your, the solver's"
+      },
+      {
+       "words": "disagreement",
+       "at": 29,
+       "gives": "RIFT",
+       "note": "a rift is a disagreement or split"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stingy old crossword solver is involved in a quarrel.",
+     "walkthrough": "Crossword clues address the solver as 'you', so the archaic 'thy' is the old solver's.",
+     "definitionFit": "Tight is informal for stingy or mean with money, the opposite of thrifty's careful sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tight"
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1285,42 @@
     "text": "Convince strangers to welcome brotherly love?",
     "enumeration": "6"
    },
-   "solution": "INCEST"
+   "solution": "INCEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "brotherly love?",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to welcome",
+       "at": 19,
+       "note": "to welcome means the words take the answer inside them, as a host holds a guest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Convince strangers",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Persuading strangers to be welcomed with fraternal affection.",
+     "walkthrough": "The answer sits inside 'convINCE STrangers'.",
+     "definitionFit": "Read literally, love between brother and sister is incest; the question mark flags the dark twist on the friendly phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brotherly"
+    }
+   }
   },
   {
    "number": 21,
@@ -416,7 +1361,45 @@
     "text": "Family of Cyril Allen gutted",
     "enumeration": "4"
    },
-   "solution": "CLAN"
+   "solution": "CLAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Family",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "outer",
+     "indicators": [
+      {
+       "text": "gutted",
+       "at": 22,
+       "note": "gutted means the insides are removed, leaving only the outside letters of each name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cyril",
+       "at": 10
+      },
+      {
+       "words": "Allen",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cyril Allen's family were devastated.",
+     "walkthrough": "'gutted' looks like British slang for very upset, but it strips each name to its ends.",
+     "definitionFit": "A clan is an extended family group, especially in Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 23,
@@ -430,7 +1413,41 @@
     "text": "Brief account round home",
     "enumeration": "8"
    },
-   "solution": "BULLETIN"
+   "solution": "BULLETIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brief account",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "round",
+       "at": 14,
+       "gives": "BULLET",
+       "note": "a round is a single bullet of ammunition"
+      },
+      {
+       "words": "home",
+       "at": 20,
+       "gives": "IN",
+       "note": "in means at home"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short report going round the house.",
+     "definitionFit": "A bulletin is a short official statement or news report."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 24,
@@ -444,7 +1461,60 @@
     "text": "Legitimate appalling successor to Elizabeth the second",
     "enumeration": "6"
    },
-   "solution": "LAWFUL"
+   "solution": "LAWFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Legitimate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "successor to",
+       "at": 21,
+       "note": "successor to places the word for appalling straight after that letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "the second",
+         "at": 44,
+         "note": "the second picks out the second letter of Elizabeth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Elizabeth",
+         "at": 34
+        }
+       ]
+      },
+      {
+       "words": "appalling",
+       "at": 11,
+       "gives": "AWFUL",
+       "note": "awful means appalling"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Whoever succeeded Queen Elizabeth II was a dreadful but legal heir.",
+     "walkthrough": "'Elizabeth the second' reads as the monarch but means the second letter of Elizabeth, L.",
+     "definitionFit": "Lawful means permitted by law, which is what legitimate means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Elizabeth"
+    }
+   }
   },
   {
    "number": 25,
@@ -464,7 +1534,59 @@
      }
     ]
    },
-   "solution": "EASYTASK"
+   "solution": "EASYTASK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Simple job",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "after places the enquiring word behind the reworked name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "edition",
+         "at": 34,
+         "note": "an edition is a new version, so the letters of the poet's name are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yeats",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "to enquire",
+       "at": 11,
+       "gives": "ASK",
+       "note": "to ask is to enquire"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Checking a new edition of Yeats's poems is light work.",
+     "walkthrough": "'edition' looks like a book term but signals the anagram making EASYT; 'after' sets the enquiring word behind it.",
+     "definitionFit": "An easy task is a simple piece of work, a job needing little effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edition"
+    }
+   }
   },
   {
    "number": 26,
@@ -478,7 +1600,64 @@
     "text": "African-American mostly pursuing knowledge",
     "enumeration": "6"
    },
-   "solution": "KENYAN"
+   "solution": "KENYAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursuing",
+       "at": 24,
+       "note": "pursuing means following behind, so the American piece comes after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "knowledge",
+       "at": 33,
+       "gives": "KEN",
+       "note": "ken is one's range of knowledge, as in beyond my ken"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 17,
+         "note": "mostly means all but the last letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "American",
+         "at": 8,
+         "gives": "YANK",
+         "note": "Yank is slang for an American"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An African-American chasing learning.",
+     "walkthrough": "'African-American' looks like one term, but the hyphen splits definition and wordplay.",
+     "definitionFit": "A Kenyan is a person from Kenya, a country in East Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   }
  ]
 }
