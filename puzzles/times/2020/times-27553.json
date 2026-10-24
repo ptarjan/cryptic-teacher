@@ -21,6 +21,9 @@
   "date": "2020-01-06",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,32 @@
     "text": "Where you might see film star making first appearance?",
     "enumeration": "5"
    },
-   "solution": "ONSET"
+   "solution": "ONSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where you might see film star",
+      "at": 0,
+      "meaning": "actors are seen working at the place a film is shot, read here as two words"
+     },
+     {
+      "text": "first appearance",
+      "at": 37,
+      "meaning": "the beginning or start of something, such as an illness"
+     }
+    ],
+    "explanation": {
+     "surface": "A quiz question about where a movie star might make a debut.",
+     "walkthrough": "Split as ON SET, it is where an actor works; as one word it is a beginning. 'making' is a link.",
+     "definitionFit": "The onset of something is its beginning, the moment it first shows itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "appearance"
+    }
+   }
   },
   {
    "number": 1,
@@ -58,7 +86,31 @@
      }
     ]
    },
-   "solution": "OURMUTUALFRIEND"
+   "solution": "OURMUTUALFRIEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0,
+      "meaning": "the title of Charles Dickens's last completed novel"
+     },
+     {
+      "text": "one we both know well",
+      "at": 7,
+      "meaning": "a person who is known to each of two people"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describes a book as an old acquaintance familiar to both of them.",
+     "walkthrough": "Dickens's final finished novel (1865) has a title that literally describes an acquaintance two people share.",
+     "definitionFit": "The Dickens title is a stock phrase for a person whom two speakers each know."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -72,7 +124,49 @@
     "text": "Troublemaker pitches tent, moving south",
     "enumeration": "5"
    },
-   "solution": "SCAMP"
+   "solution": "SCAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Troublemaker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "moving",
+       "at": 27,
+       "note": "moving tells us the letter for south shifts its place in the word, here up to the top of this down entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pitches tent",
+       "at": 13,
+       "gives": "CAMPS",
+       "note": "someone who pitches a tent camps"
+      },
+      {
+       "words": "south",
+       "at": 34,
+       "gives": "S",
+       "note": "S is the compass abbreviation for south"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A camper who causes mischief keeps relocating southwards.",
+     "walkthrough": "In a down entry 'moving south' might seem to send a letter to the bottom; instead the S at the end of CAMPS goes to the front.",
+     "definitionFit": "A scamp is a mischievous rascal, someone who causes minor trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "south"
+    }
+   }
   },
   {
    "number": 3,
@@ -86,7 +180,49 @@
     "text": "Laugh about women's idle talk",
     "enumeration": "7"
    },
-   "solution": "TWITTER"
+   "solution": "TWITTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "idle talk",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 6,
+       "note": "about means the laugh word is placed around the letter for women"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Laugh",
+       "at": 0,
+       "gives": "TITTER",
+       "note": "to titter is to laugh nervously"
+      },
+      {
+       "words": "women's",
+       "at": 12,
+       "gives": "W",
+       "note": "W is the standard abbreviation for women, as on clothing sizes or toilets"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneers at the chatter of women.",
+     "walkthrough": "'about' puts W inside TITTER.",
+     "definitionFit": "Twitter is trivial chattering talk, like birds' chirping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Laugh"
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +236,59 @@
     "text": "Magistrate perversely rejecting current plan",
     "enumeration": "9"
    },
-   "solution": "STRATAGEM"
+   "solution": "STRATAGEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plan",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perversely",
+       "at": 11,
+       "note": "perversely means the remaining letters are twisted into a contrary order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "rejecting",
+         "at": 22,
+         "note": "rejecting says the letter for current is thrown out of the word magistrate"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Magistrate",
+         "at": 0
+        },
+        {
+         "words": "current",
+         "at": 32,
+         "gives": "I",
+         "note": "I is the physics symbol for electric current"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge awkwardly turns down an energy scheme.",
+     "walkthrough": "'rejecting' removes I from MAGISTRATE, leaving MAGSTRATE, and 'perversely' rearranges those letters.",
+     "definitionFit": "A stratagem is a cunning scheme devised to outwit someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 4,
@@ -114,7 +302,43 @@
     "text": "Go after religious adherent in speech",
     "enumeration": "4"
    },
-   "solution": "SEEK"
+   "solution": "SEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go after",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SEEK",
+     "indicators": [
+      {
+       "text": "in speech",
+       "at": 28,
+       "note": "in speech says we want a word sounding like the adherent's name when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "religious adherent",
+       "at": 9,
+       "gives": "SIKH",
+       "note": "a Sikh is a follower of Sikhism"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pursues a believer, perhaps in a sermon.",
+     "definitionFit": "To seek something is to pursue or look for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 5,
@@ -128,7 +352,49 @@
     "text": "Returner of questionnaire gloomy after change at top",
     "enumeration": "10"
    },
-   "solution": "RESPONDENT"
+   "solution": "RESPONDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Returner of questionnaire",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "after change at top",
+       "at": 33,
+       "note": "after change at top says the gloomy word has its first letter swapped for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gloomy",
+       "at": 26,
+       "gives": "DESPONDENT",
+       "note": "despondent means low-spirited or gloomy"
+      },
+      {
+       "gives": "D"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A survey taker sounds downcast after a management reshuffle.",
+     "walkthrough": "'change at top' swaps the D at the start of DESPONDENT for R; the new letter is not clued, only the crossing letters confirm it.",
+     "definitionFit": "A respondent is a person who answers a survey and sends it back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 6,
@@ -142,7 +408,41 @@
     "text": "Asserts aristocrat is sheltering enemy of the revolution?",
     "enumeration": "7"
    },
-   "solution": "TSARIST"
+   "solution": "TSARIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "enemy of the revolution?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "is sheltering",
+       "at": 19,
+       "note": "is sheltering says the phrase before it holds the answer within its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Asserts aristocrat",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman claims he is protecting a foe of the revolutionaries.",
+     "walkthrough": "The letters run across asserTS ARISTocrat. The question mark flags that this supporter of the Russian emperor was an opponent of 1917.",
+     "definitionFit": "A supporter of imperial Russian rule opposed the Bolshevik revolution that overthrew it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "aristocrat"
+    }
+   }
   },
   {
    "number": 7,
@@ -156,7 +456,43 @@
     "text": "Environmentalist to sponsor bill in Washington",
     "enumeration": "9"
    },
-   "solution": "GREENBACK"
+   "solution": "GREENBACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bill in Washington",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Environmentalist",
+       "at": 0,
+       "gives": "GREEN",
+       "note": "a Green is an environmental campaigner"
+      },
+      {
+       "words": "to sponsor",
+       "at": 17,
+       "gives": "BACK",
+       "note": "to back a project is to sponsor or fund it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eco-activist sponsors legislation in the US capital.",
+     "walkthrough": "'bill' looks like a piece of legislation in Congress, but it is a banknote.",
+     "definitionFit": "Greenback is American slang for a dollar note, from the green ink on its reverse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bill"
+    }
+   }
   },
   {
    "number": 8,
@@ -180,7 +516,36 @@
      }
     ]
    },
-   "solution": "MIDDLEAGESPREAD"
+   "solution": "MIDDLEAGESPREAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Corporation with origin in the forties?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Corporation with origin in the forties?",
+       "at": 0,
+       "note": "corporation is an old jocular word for a pot belly, which tends to appear from one's fortieth year on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company history noting it was founded in the 1940s.",
+     "walkthrough": "'Corporation' reads as a company, and 'the forties' as a decade; they mean a paunch and a person's age.",
+     "definitionFit": "The phrase describes the extra weight round the waist that people tend to gain from about forty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Corporation"
+    }
+   }
   },
   {
    "number": 9,
@@ -194,7 +559,48 @@
     "text": "Study by unit head is being prepared",
     "enumeration": "9"
    },
-   "solution": "READINESS"
+   "solution": "READINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "being prepared",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Study",
+       "at": 0,
+       "gives": "READ",
+       "note": "to read a subject is to study it at university"
+      },
+      {
+       "words": "unit",
+       "at": 9,
+       "gives": "I",
+       "note": "I, the Roman numeral, is one, a unit"
+      },
+      {
+       "words": "head",
+       "at": 14,
+       "gives": "NESS",
+       "note": "a ness is a headland, as in Loch Ness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A department chief is getting things ready by doing some reading.",
+     "walkthrough": "A ness is a headland or promontory.",
+     "definitionFit": "Readiness is the state of being ready or prepared for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 10,
@@ -208,7 +614,61 @@
     "text": "Better sort of dash back — joiner's outside",
     "enumeration": "5"
    },
-   "solution": "AMEND"
+   "solution": "AMEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Better",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 36,
+       "note": "outside means the joining word sits around the reversed dash"
+      }
+     ],
+     "parts": [
+      {
+       "words": "joiner's",
+       "at": 27,
+       "gives": "AND",
+       "note": "the word and is a joining word, a conjunction; the 's is read as 'is'"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 20,
+         "note": "back means the dash type is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sort of dash",
+         "at": 7,
+         "gives": "EM",
+         "note": "an em dash is a long dash in typography"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter's work is improved by a dash of something on the outside.",
+     "walkthrough": "'joiner' looks like a carpenter but is a joining word; an em dash is the long typographic dash, named for the width of a letter M.",
+     "definitionFit": "To amend something is to improve or correct it, as a verb meaning make better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joiner's"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +682,51 @@
     "text": "Arrogant yuppy regularly lacking compassion",
     "enumeration": "6"
    },
-   "solution": "UPPITY"
+   "solution": "UPPITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arrogant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly lacking",
+         "at": 15,
+         "note": "regularly lacking says every other letter of yuppy is dropped, keeping the second and fourth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yuppy",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "compassion",
+       "at": 33,
+       "gives": "PITY",
+       "note": "pity is a feeling of compassion"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-important young professional often has no sympathy.",
+     "walkthrough": "'regularly lacking' drops the odd letters Y, P, Y of YUPPY, leaving UP.",
+     "definitionFit": "Someone uppity is self-important and above themselves, i.e. haughty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +740,70 @@
     "text": "Ideal citizen displaying love for autocratic leader",
     "enumeration": "8"
    },
-   "solution": "NOTIONAL"
+   "solution": "NOTIONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ideal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "displaying",
+       "at": 14,
+       "note": "displaying shows the citizen word carrying a different letter"
+      },
+      {
+       "text": "for",
+       "at": 30,
+       "note": "for means one letter is put in place of another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "citizen",
+       "at": 6,
+       "gives": "NATIONAL",
+       "note": "a national is a citizen of a country"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 45,
+         "note": "leader means just the first letter of autocratic is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "autocratic",
+         "at": 34
+        }
+       ]
+      },
+      {
+       "words": "love",
+       "at": 25,
+       "gives": "O",
+       "note": "love is zero in tennis, the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A model citizen shows love for the dictator in charge.",
+     "walkthrough": "'displaying ... for' puts O in place of the A of NATIONAL.",
+     "definitionFit": "Notional means existing only in theory or as an idea, imagined rather than real."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +823,45 @@
      }
     ]
    },
-   "solution": "SANDMARTIN"
+   "solution": "SANDMARTIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "summer visitor",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Son",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "and",
+       "at": 4
+      },
+      {
+       "words": "another boy",
+       "at": 8,
+       "gives": "MARTIN",
+       "note": "Martin is a boy's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy and his friend come to stay for the summer holidays.",
+     "walkthrough": "'summer visitor' sounds like a holidaymaker; it is a bird that migrates to Britain each summer.",
+     "definitionFit": "This small brown swallow-like bird spends summers in Britain and winters in Africa, a migrant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "visitor"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +875,40 @@
     "text": "Dodgy, being at the mercy of cards one's dealt",
     "enumeration": "9"
    },
-   "solution": "UNDERHAND"
+   "solution": "UNDERHAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dodgy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "being at the mercy of",
+       "at": 7,
+       "gives": "UNDER",
+       "note": "under means subject to, as in under someone's control"
+      },
+      {
+       "words": "cards one's dealt",
+       "at": 29,
+       "gives": "HAND",
+       "note": "a hand is the set of cards dealt to a player"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A card player feels cheated by the hand he has been given.",
+     "definitionFit": "Underhand dealings are sly, secretive and deceitful, i.e. shady."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -290,7 +928,65 @@
      }
     ]
    },
-   "solution": "DISPOSEOF"
+   "solution": "DISPOSEOF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dump",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "detective",
+       "at": 5,
+       "gives": "DI",
+       "note": "DI is a Detective Inspector"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturning",
+         "at": 15,
+         "note": "overturning means the possessive rival and the operations are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "rival's",
+           "at": 27,
+           "gives": "FOES",
+           "note": "a rival is a foe, and 's makes it possessive, foe's"
+          },
+          {
+           "words": "operations",
+           "at": 35,
+           "gives": "OPS",
+           "note": "ops is short for operations"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer gets rid of evidence by upsetting an opponent's plans.",
+     "walkthrough": "'overturning' reverses FOESOPS, giving SPOSEOF.",
+     "definitionFit": "To dispose of something is to get rid of or throw it away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "operations"
+    }
+   }
   },
   {
    "number": 16,
@@ -304,7 +1000,46 @@
     "text": "Jewellery I found in Scarlett's place",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jewellery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 12,
+       "note": "found in means the letter I is set within the plantation's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scarlett's place",
+       "at": 21,
+       "gives": "TARA",
+       "note": "Tara is Scarlett O'Hara's plantation in Gone with the Wind"
+      },
+      {
+       "words": "I",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone discovers a gem in a film heroine's home.",
+     "walkthrough": "'found in' puts I inside TARA.",
+     "definitionFit": "A tiara is a jewelled ornamental headband or crown worn by women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1053,49 @@
     "text": "Flop as lover after heart transplant",
     "enumeration": "5"
    },
-   "solution": "LOSER"
+   "solution": "LOSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "after heart transplant",
+       "at": 14,
+       "note": "after heart transplant says the central letter of lover is replaced by a different one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lover",
+       "at": 8,
+       "gives": "LOVER"
+      },
+      {
+       "gives": "V"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic fails following cardiac surgery.",
+     "walkthrough": "'heart transplant' replaces the middle V of LOVER with S; the new letter is unclued. 'as' is a link.",
+     "definitionFit": "A flop is a failure, someone who never wins or succeeds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1109,45 @@
     "text": "Pen-pusher said to be one who corrects what's wrong",
     "enumeration": "7"
    },
-   "solution": "RIGHTER"
+   "solution": "RIGHTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one who corrects what's wrong",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RIGHTER",
+     "indicators": [
+      {
+       "text": "said",
+       "at": 11,
+       "note": "said tells us to use a word sounding like the pen-pusher when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pen-pusher",
+       "at": 0,
+       "gives": "WRITER",
+       "note": "a writer pushes a pen across the page"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An office clerk is reputed to fix errors.",
+     "walkthrough": "'Pen-pusher' suggests a clerk but here is simply one who writes. 'to be' is a link.",
+     "definitionFit": "A righter is someone who rights wrongs, putting matters straight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pen-pusher"
+    }
+   }
   },
   {
    "number": 19,
@@ -356,7 +1171,43 @@
      }
     ]
    },
-   "solution": "DONTASKME"
+   "solution": "DONTASKME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I've no idea",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "needing massage",
+       "at": 12,
+       "note": "needing massage means the letters are kneaded and worked into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Monk's date",
+       "at": 0
+      }
+     ]
+    },
+    "spelling": "DON'T ASK ME",
+    "explanation": {
+     "surface": "A monk's appointment needs a rub-down, says someone baffled.",
+     "walkthrough": "'needing massage' reworks the letters of MONKS DATE.",
+     "definitionFit": "The phrase is a casual way to say you have no clue about the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "massage"
+    }
+   }
   },
   {
    "number": 20,
@@ -370,7 +1221,69 @@
     "text": "Greed, a weakness holding painter back",
     "enumeration": "7"
    },
-   "solution": "AVARICE"
+   "solution": "AVARICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 7
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "at": 18,
+         "note": "holding means the weakness word wraps around the reversed painter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weakness",
+         "at": 9,
+         "gives": "VICE",
+         "note": "a vice is a moral failing or weakness"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 34,
+           "note": "back means the painter abbreviation is reversed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "painter",
+           "at": 26,
+           "gives": "RA",
+           "note": "RA is a Royal Academician, an artist"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Greed is a failing that grips an artist.",
+     "walkthrough": "RA stands for Royal Academician, a member of London's Royal Academy of Arts, so it stands for any painter.",
+     "definitionFit": "Avarice is extreme desire for wealth, a synonym for cupidity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -390,7 +1303,60 @@
      }
     ]
    },
-   "solution": "RIOTGEAR"
+   "solution": "RIOTGEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Protection",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "surrounding",
+         "at": 32,
+         "note": "surrounding means the decay word goes around the letter for one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "decay",
+         "at": 16,
+         "gives": "ROT",
+         "note": "rot is decay"
+        },
+        {
+         "words": "one",
+         "at": 44,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      },
+      {
+       "words": "drugs",
+       "at": 26,
+       "gives": "GEAR",
+       "note": "gear is slang for illicit drugs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A treatment that guards against rot and narcotics.",
+     "walkthrough": "'Protection from decay' reads like a wood preservative, but 'from' is a link and the protection is police kit; 'gear' is British slang for drugs.",
+     "definitionFit": "Police wear this kit of shields and helmets to shield themselves during civil disorder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decay"
+    }
+   }
   },
   {
    "number": 22,
@@ -410,7 +1376,54 @@
      }
     ]
    },
-   "solution": "TARTUP"
+   "solution": "TARTUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make pretty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sailor",
+       "at": 12,
+       "gives": "TAR",
+       "note": "tar is an old word for a sailor"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 25,
+         "note": "around means the word for stick is turned the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stick",
+         "at": 19,
+         "gives": "PUT",
+         "note": "to stick something somewhere is to put it there"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman beautifies things while hanging about.",
+     "walkthrough": "'stick around' suggests lingering, but splits into a verb meaning place and a reversal signal.",
+     "definitionFit": "To tart up is British slang for dressing up or decorating something showily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 23,
@@ -424,7 +1437,43 @@
     "text": "Backing rapid alternative to buses?",
     "enumeration": "5"
    },
-   "solution": "TRAMS"
+   "solution": "TRAMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "alternative to buses?",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Backing",
+       "at": 0,
+       "note": "Backing means the rapid word is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rapid",
+       "at": 8,
+       "gives": "SMART",
+       "note": "smart can mean quick, as in a smart pace"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting a fast transport option instead of the bus.",
+     "walkthrough": "'Backing' reads SMART in reverse.",
+     "definitionFit": "Streetcars on rails are another form of public transport running on city streets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Backing"
+    }
+   }
   },
   {
    "number": 24,
@@ -438,7 +1487,32 @@
     "text": "Sovereign with nothing on",
     "enumeration": "4"
    },
-   "solution": "FREE"
+   "solution": "FREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sovereign",
+      "at": 0,
+      "meaning": "an independent, self-governing state is ..."
+     },
+     {
+      "text": "with nothing on",
+      "at": 10,
+      "meaning": "costing nothing, with no charge on it"
+     }
+    ],
+    "explanation": {
+     "surface": "A monarch wearing no clothes.",
+     "walkthrough": "'Sovereign' looks like a king or a gold coin; it is the adjective. 'with nothing on' looks like naked but means at no charge.",
+     "definitionFit": "Both senses fit the word: an independent nation, and something given without payment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sovereign"
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1526,56 @@
     "text": "Raise embezzler's case before European court",
     "enumeration": "5"
    },
-   "solution": "ERECT"
+   "solution": "ERECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Raise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case",
+         "at": 18,
+         "note": "case means just the outer letters of embezzler, its casing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "embezzler's",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "European",
+       "at": 30,
+       "gives": "E"
+      },
+      {
+       "words": "court",
+       "at": 39,
+       "gives": "CT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An embezzler's trial is brought before a European tribunal.",
+     "walkthrough": "'case' takes the outside letters of EMBEZZLER: E and R.",
+     "definitionFit": "To erect a building is to put it up or construct it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 26,
@@ -466,7 +1589,65 @@
     "text": "End the heartless destruction of minaret",
     "enumeration": "9"
    },
-   "solution": "TERMINATE"
+   "solution": "TERMINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "End",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 8,
+         "note": "heartless removes the middle letter of the word the"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 4
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "destruction of",
+         "at": 18,
+         "note": "destruction of means the tower's letters are demolished and rebuilt in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "minaret",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone calls a halt to the cruel demolition of a mosque tower.",
+     "walkthrough": "'heartless' drops the H of THE to give TE; 'destruction of' rearranges MINARET into RMINATE.",
+     "definitionFit": "To terminate something is to bring it to a stop or conclusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 27,
@@ -480,7 +1661,49 @@
     "text": "Submission of monarch, held by resistance",
     "enumeration": "9"
    },
-   "solution": "DEFERENCE"
+   "solution": "DEFERENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Submission",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by",
+       "at": 23,
+       "note": "held by means the monarch's letters sit inside the resistance word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "resistance",
+       "at": 31,
+       "gives": "DEFENCE",
+       "note": "defence is resistance against attack"
+      },
+      {
+       "words": "monarch",
+       "at": 14,
+       "gives": "ER",
+       "note": "ER is Elizabeth Regina, the Queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king's surrender, overseen by the Resistance fighters.",
+     "walkthrough": "ER (Elizabeth Regina) is the usual crossword monarch.",
+     "definitionFit": "Deference is respectful yielding to another's wishes or authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +1717,54 @@
     "text": "Mollified, stopped to let Charlie out",
     "enumeration": "5"
    },
-   "solution": "EASED"
+   "solution": "EASED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mollified",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to let",
+       "at": 19,
+       "note": "to let, with out, says a letter is released from the stopped word"
+      },
+      {
+       "text": "out",
+       "at": 34,
+       "note": "out completes the phrase let out, removing the letter from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stopped",
+       "at": 11,
+       "gives": "CEASED",
+       "note": "ceased means stopped"
+      },
+      {
+       "words": "Charlie",
+       "at": 26,
+       "gives": "C",
+       "note": "Charlie is C in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was calmed, having halted to free a man named Charlie.",
+     "walkthrough": "'to let ... out' removes C from CEASED.",
+     "definitionFit": "Mollified means soothed or calmed, as pain or tension that has lessened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   }
  ]
 }
