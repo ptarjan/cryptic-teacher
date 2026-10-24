@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,48 @@
     "text": "Band's jacket recommendation? Not black",
     "enumeration": "4"
    },
-   "solution": "BLUR"
+   "solution": "BLUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not",
+       "at": 30,
+       "note": "'Not black' tells us to drop the letter standing for black from the recommendation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jacket recommendation",
+       "at": 7,
+       "gives": "BLURB",
+       "note": "a blurb is the praise printed on a book's jacket"
+      },
+      {
+       "words": "black",
+       "at": 34,
+       "gives": "B",
+       "note": "B is the pencil-grading abbreviation for black"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician asks what jacket to wear on stage, and is told anything but black.",
+     "definitionFit": "Blur were a leading Britpop group of the 1990s, so the name fits a band."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jacket"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +89,29 @@
     "text": "Hybrid court",
     "enumeration": "8"
    },
-   "solution": "COMPOUND"
+   "solution": "COMPOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hybrid",
+      "at": 0,
+      "meaning": "a mixture made of several parts combined"
+     },
+     {
+      "text": "court",
+      "at": 7,
+      "meaning": "an enclosed yard or area, as in a prison exercise yard"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Something mixed from elements is a composite; an enclosed courtyard or pen is the other sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +125,47 @@
     "text": "Vehicle carrying Latin duo",
     "enumeration": "6"
    },
-   "solution": "COUPLE"
+   "solution": "COUPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "duo",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 8,
+       "note": "a vehicle carrying something holds it inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Vehicle",
+       "at": 0,
+       "gives": "COUPE",
+       "note": "a coupe is a two-door car"
+      },
+      {
+       "words": "Latin",
+       "at": 17,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car is transporting a pair of Latin speakers or performers.",
+     "definitionFit": "A duo is a pair, two people together, which is what this word means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vehicle"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +179,45 @@
     "text": "Iris affected with bust and shoulder inflammation",
     "enumeration": "8"
    },
-   "solution": "BURSITIS"
+   "solution": "BURSITIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shoulder inflammation",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "affected",
+       "at": 5,
+       "note": "affected suggests something altered or disturbed, so the letters of iris and bust are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Iris",
+       "at": 0
+      },
+      {
+       "words": "bust",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Iris suffers a painful shoulder along with trouble around the chest.",
+     "walkthrough": "'affected' signals rearranging IRIS and BUST together; 'with' merely links them to the definition.",
+     "definitionFit": "This is swelling of a bursa, a fluid sac cushioning a joint, commonly in the shoulder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Iris"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +231,49 @@
     "text": "Sing about high priest's balloon content?",
     "enumeration": "6"
    },
-   "solution": "HELIUM"
+   "solution": "HELIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "balloon content?",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 5,
+       "note": "about means surrounding, so the singing word is wrapped around the priest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sing",
+       "at": 0,
+       "gives": "HUM",
+       "note": "to hum is to sing with closed lips"
+      },
+      {
+       "words": "high priest",
+       "at": 11,
+       "gives": "ELI",
+       "note": "Eli was the high priest who raised Samuel in the Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chorister is told to sing about the high priest's balloon, a curious instruction.",
+     "walkthrough": "The question mark flags that balloon filling is one example of the gas, not a full definition.",
+     "definitionFit": "This light, non-flammable gas is what fills party balloons so they float."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Sing"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +287,46 @@
     "text": "Thumb stuck under a basic building block?",
     "enumeration": "4"
    },
-   "solution": "ATOM"
+   "solution": "ATOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "basic building block?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "stuck under",
+       "at": 6,
+       "note": "in a down answer, a piece stuck under another comes after it in the column"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 18
+      },
+      {
+       "words": "Thumb",
+       "at": 0,
+       "gives": "TOM",
+       "note": "Tom Thumb is the tiny hero of a folk tale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thumb is wedged beneath a basic toy brick.",
+     "definitionFit": "Matter is built up from these tiny particles, so it is a fundamental unit of construction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Thumb"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +340,67 @@
     "text": "Cola formula, almost pure drink",
     "enumeration": "7"
    },
-   "solution": "ALCOHOL"
+   "solution": "ALCOHOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "formula",
+         "at": 5,
+         "note": "a formula is a recipe or arrangement, so the letters of cola are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cola",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 14,
+         "note": "almost means the last letter of the synonym is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pure",
+         "at": 21,
+         "gives": "HOLY",
+         "note": "holy means pure or sacred"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cola recipe is said to be practically a pure, wholesome drink.",
+     "walkthrough": "'formula' turns COLA into ALCO; 'almost' cuts HOLY to HOL.",
+     "definitionFit": "Spirits, beer and wine are collectively called by this word, a general term for drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "formula"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +414,62 @@
     "text": "Spread butter, with end of knife that's used to deliver liquid",
     "enumeration": "7"
    },
-   "solution": "BURETTE"
+   "solution": "BURETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's used to deliver liquid",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Spread",
+         "at": 0,
+         "note": "spread suggests the letters are smeared out into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "butter",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 20,
+         "note": "the end of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "knife",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for spreading butter with the tip of a knife.",
+     "walkthrough": "'Spread' rearranges BUTTER; 'end of' takes the last letter of knife, E.",
+     "definitionFit": "This graduated glass tube with a tap dispenses measured volumes of liquid in titrations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spread"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +496,49 @@
     "text": "'K' is wrestling with Pat (sumo)",
     "enumeration": "9"
    },
-   "solution": "POTASSIUM"
+   "solution": "POTASSIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "'K'",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wrestling",
+       "at": 7,
+       "note": "wrestling suggests bodies tangled and thrown about, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is",
+       "at": 4
+      },
+      {
+       "words": "Pat",
+       "at": 22
+      },
+      {
+       "words": "sumo",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wrestler called K is grappling with Pat at sumo.",
+     "walkthrough": "'wrestling' rearranges IS, PAT and SUMO together.",
+     "definitionFit": "K is the chemical symbol for this alkali metal, from its Latin name kalium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wrestling"
+    }
+   }
   },
   {
    "number": 11,
@@ -170,7 +552,41 @@
     "text": "It's probably not good to eat nasty people with a utensil",
     "enumeration": "9"
    },
-   "solution": "TOADSTOOL"
+   "solution": "TOADSTOOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's probably not good to eat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nasty people",
+       "at": 30,
+       "gives": "TOADS",
+       "note": "toads are loathsome, contemptible people"
+      },
+      {
+       "words": "utensil",
+       "at": 50,
+       "gives": "TOOL",
+       "note": "a tool is an implement or utensil"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that it's bad manners to dine with unpleasant company using some implement.",
+     "definitionFit": "Many wild fungi of this kind are poisonous, so eating one is usually unwise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "eat"
+    }
+   }
   },
   {
    "number": 12,
@@ -184,7 +600,43 @@
     "text": "Announced fruit's value",
     "enumeration": "5"
    },
-   "solution": "GAUGE"
+   "solution": "GAUGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "value",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GAUGE",
+     "indicators": [
+      {
+       "text": "Announced",
+       "at": 0,
+       "note": "announced means said out loud, so we want a word that sounds like the fruit"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fruit",
+       "at": 10,
+       "gives": "GAGE",
+       "note": "a gage is a greengage, a kind of plum"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares what a piece of fruit is worth.",
+     "definitionFit": "To value something is to estimate or measure it, which is what this verb means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +650,70 @@
     "text": "All right at start of cruise, for example, to go round the Lizard?",
     "enumeration": "5"
    },
-   "solution": "GECKO"
+   "solution": "GECKO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lizard?",
+      "at": 59
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to go round",
+       "at": 43,
+       "note": "going round means turning back, so the assembled string is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "All right",
+         "at": 0,
+         "gives": "OK",
+         "note": "OK means all right"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at start of",
+           "at": 10,
+           "note": "the start of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cruise",
+           "at": 22
+          }
+         ]
+        },
+        {
+         "words": "for example",
+         "at": 30,
+         "gives": "EG"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cruise ship sails round the Lizard, the Cornish headland, and all is well.",
+     "walkthrough": "'The Lizard' looks like the Cornish peninsula, the most southerly point of mainland Britain; here it is just a reptile.",
+     "definitionFit": "This small, often wall-climbing reptile is a type of lizard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lizard"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +727,48 @@
     "text": "One's taken by Mark, perhaps, to be a metalloid",
     "enumeration": "8"
    },
-   "solution": "ANTIMONY"
+   "solution": "ANTIMONY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "metalloid",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken by",
+       "at": 6,
+       "note": "taken by means received into, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mark, perhaps",
+       "at": 15,
+       "gives": "ANTONY",
+       "note": "Mark Antony, the Roman general, so Antony is one example"
+      },
+      {
+       "words": "One's",
+       "at": 0,
+       "gives": "IM",
+       "note": "one's contracts to I'm, which gives I and M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Mark accepts a part and becomes a semi-metal.",
+     "definitionFit": "This brittle element, symbol Sb, has properties between metals and non-metals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +782,52 @@
     "text": "Head appearing on large English coin",
     "enumeration": "5"
    },
-   "solution": "NOBLE"
+   "solution": "NOBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "coin",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "appearing on",
+       "at": 5,
+       "note": "in a down answer, a piece appearing on others sits above them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Head",
+       "at": 0,
+       "gives": "NOB",
+       "note": "nob is slang for the head"
+      },
+      {
+       "words": "large",
+       "at": 18,
+       "gives": "L"
+      },
+      {
+       "words": "English",
+       "at": 24,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch's head appears on a big English coin.",
+     "definitionFit": "This was an old English gold coin, first minted under Edward III."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +841,48 @@
     "text": "Support needed to hold C sharp",
     "enumeration": "4"
    },
-   "solution": "ACID"
+   "solution": "ACID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sharp",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "needed to hold",
+       "at": 8,
+       "note": "to hold something is to keep it inside, so C goes within the support"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Support",
+       "at": 0,
+       "gives": "AID",
+       "note": "aid means support or help"
+      },
+      {
+       "words": "C",
+       "at": 23,
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician needs support to hold a C sharp.",
+     "walkthrough": "'C sharp' looks like the musical note, but 'sharp' is the definition.",
+     "definitionFit": "Sharp means tart or sour-tasting, as acidic flavours are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sharp"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +896,41 @@
     "text": "Talk drugs, mustard and marsh, say?",
     "enumeration": "5"
    },
-   "solution": "GASES"
+   "solution": "GASES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mustard and marsh, say?",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Talk",
+       "at": 0,
+       "gives": "GAS",
+       "note": "gas is idle chatter"
+      },
+      {
+       "words": "drugs",
+       "at": 5,
+       "gives": "ES",
+       "note": "E is slang for ecstasy, so Es means several of these tablets"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chat about narcotics, condiments and wetlands, a rambling conversation.",
+     "definitionFit": "Mustard gas and marsh gas are both examples of airy substances, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mustard"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +950,55 @@
      }
     ]
    },
-   "solution": "GOLFCLUB"
+   "solution": "GOLFCLUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wood",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 13,
+         "note": "back means the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to sell",
+         "at": 5,
+         "gives": "FLOG",
+         "note": "to flog is British slang for to sell"
+        }
+       ]
+      },
+      {
+       "words": "disco",
+       "at": 18,
+       "gives": "CLUB",
+       "note": "a club is a nightclub or disco"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A timber merchant offers to sell wood back to a nightclub.",
+     "walkthrough": "'Wood' suggests timber, but it is a golf club with a large head, once made of wood.",
+     "definitionFit": "In golf, a wood is a long-distance stick with a broad head, the driver being one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wood"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1025,46 @@
     "text": "'To the bride', perhaps, in German (Browning)",
     "enumeration": "8"
    },
-   "solution": "TOASTING"
+   "solution": "TOASTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Browning",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "To the bride', perhaps",
+       "at": 1,
+       "gives": "TOAST",
+       "note": "a toast is a raised-glass tribute such as 'to the bride'"
+      },
+      {
+       "words": "in",
+       "at": 25
+      },
+      {
+       "words": "German",
+       "at": 28,
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wedding toast is given in German, with a nod to the poet Browning.",
+     "walkthrough": "Browning looks like the poet but is the definition: cooking brown under a grill.",
+     "definitionFit": "Browning bread under heat is exactly the cooking process meant here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Browning"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1078,41 @@
     "text": "Fancy doorbell, but not a respectable place",
     "enumeration": "8"
    },
-   "solution": "BORDELLO"
+   "solution": "BORDELLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not a respectable place",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Fancy",
+       "at": 0,
+       "note": "fancy as an adjective means elaborate or ornamental, so the letters are dressed up in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doorbell",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elaborate doorbell, yet the house it belongs to is disreputable.",
+     "walkthrough": "'Fancy' rearranges DOORBELL; 'but' is a link.",
+     "definitionFit": "A brothel is a disreputable house, and this is another word for one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1126,59 @@
     "text": "Chemist and singer residing in the outskirts of Darwin",
     "enumeration": "6"
    },
-   "solution": "DALTON"
+   "solution": "DALTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chemist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "residing in",
+       "at": 19,
+       "note": "residing in means living inside, so the singer goes within the outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "the outskirts of",
+         "at": 31,
+         "note": "the outskirts of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Darwin",
+         "at": 48
+        }
+       ]
+      },
+      {
+       "words": "singer",
+       "at": 12,
+       "gives": "ALTO",
+       "note": "an alto is a singer with a low female or high male voice"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist and a vocalist live on the edge of the Australian city of Darwin.",
+     "walkthrough": "Darwin looks like the naturalist, but here it only supplies D and N.",
+     "definitionFit": "John Dalton was the English scientist who proposed modern atomic theory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Darwin"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1192,43 @@
     "text": "Stage broadcast worry",
     "enumeration": "5"
    },
-   "solution": "PHASE"
+   "solution": "PHASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PHASE",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 6,
+       "note": "broadcast means put out over the air, so we want the sound of the synonym"
+      }
+     ],
+     "parts": [
+      {
+       "words": "worry",
+       "at": 16,
+       "gives": "FAZE",
+       "note": "to faze is to worry or disconcert"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer is anxious about a stage show that is being broadcast.",
+     "definitionFit": "A stage of development is a step or period in a process."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stage"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1242,46 @@
     "text": "Term for each moon day",
     "enumeration": "6"
    },
-   "solution": "PERIOD"
+   "solution": "PERIOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Term",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for each",
+       "at": 5,
+       "gives": "PER",
+       "note": "per means for each"
+      },
+      {
+       "words": "moon",
+       "at": 14,
+       "gives": "IO",
+       "note": "Io is one of Jupiter's moons"
+      },
+      {
+       "words": "day",
+       "at": 19,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school term arranged with a lesson for each moon day.",
+     "definitionFit": "A term is a span of time, such as a school session, which matches this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moon"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1295,51 @@
     "text": "Instant cure-all, possibly composed of tiny pieces",
     "enumeration": "9"
    },
-   "solution": "MOLECULAR"
+   "solution": "MOLECULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "composed of tiny pieces",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Instant",
+       "at": 0,
+       "gives": "MO",
+       "note": "mo is short for moment, an instant"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 18,
+         "note": "possibly signals one possible arrangement of the letters of cure-all"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cure-all",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instant panacea might be broken down into minute fragments.",
+     "definitionFit": "Relating to the smallest units of a substance, made of particles bound together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cure-all"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1363,77 @@
    "group": [
     "21-down",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "controversial shoulder protection",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to acquire",
+       "at": 5,
+       "note": "to acquire is to take in, so the plan wraps around the jumble"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Plan",
+       "at": 0,
+       "gives": "MAP",
+       "note": "a map is a plan or chart"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "including",
+         "at": 30,
+         "note": "including means taking something in, so the letter for wide goes inside the rearranged rink"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "curling",
+           "at": 16,
+           "note": "curling means twisting or bending, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rink",
+           "at": 24
+          }
+         ]
+        },
+        {
+         "words": "wide",
+         "at": 40,
+         "gives": "W",
+         "note": "W is the cricket abbreviation for a wide"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plans to take a curling rink on, while wearing a contentious fur stole.",
+     "walkthrough": "'curling' looks like the ice sport at the rink, but it rearranges RINK to INKR; 'including' then puts W inside that.",
+     "definitionFit": "A fur stole worn over the shoulders; fur is ethically disputed, hence controversial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "curling"
+    }
+   }
   },
   {
    "number": 22,
@@ -419,7 +1457,41 @@
    "group": [
     "22-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "laboratory item",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "River",
+       "at": 0,
+       "gives": "TEST",
+       "note": "the Test is a river in Hampshire, England, famous for trout fishing"
+      },
+      {
+       "words": "transport",
+       "at": 6,
+       "gives": "TUBE",
+       "note": "the Tube is London's underground railway"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river boat carries some laboratory equipment.",
+     "definitionFit": "A thin glass cylinder closed at one end, a standard piece of lab glassware."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "River"
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1505,40 @@
     "text": "Was a killer from Isleworth?",
     "enumeration": "4"
    },
-   "solution": "SLEW"
+   "solution": "SLEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Was a killer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 13,
+       "note": "from means the letters are taken out of the place name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Isleworth",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Was there a murderer from Isleworth, a district of west London?",
+     "definitionFit": "The past tense of slay, to kill, so it means killed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Isleworth"
+    }
+   }
   },
   {
    "number": 24,
@@ -453,7 +1558,70 @@
      }
     ]
    },
-   "solution": "INFOCUS"
+   "solution": "INFOCUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "biting",
+       "at": 37,
+       "note": "biting means holding in the teeth, so one piece is enclosed by the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "several times removed",
+         "at": 14,
+         "note": "a distant cousin is several times removed, which here says the letters are moved around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cousin",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head off",
+         "at": 44,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fellow",
+         "at": 53
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distant relative bites the head off a man in a fit of temper.",
+     "walkthrough": "'several times removed' rearranges COUSIN to INOCUS, and 'biting' puts F, the head of fellow, inside it.",
+     "definitionFit": "A picture that is sharp is clear and properly focused, the idea of this phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "removed"
+    }
+   }
   },
   {
    "number": 25,
@@ -467,7 +1635,53 @@
     "text": "Titled person on revolving bar",
     "enumeration": "7"
    },
-   "solution": "COUNTER"
+   "solution": "COUNTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bar",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Titled person",
+       "at": 0,
+       "gives": "COUNT",
+       "note": "a count is a nobleman with a title"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolving",
+         "at": 17,
+         "note": "revolving means turning round, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "at": 14,
+         "gives": "RE",
+         "note": "re means on or concerning"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman sits on a rotating bar stool.",
+     "definitionFit": "A counter is the long table in a shop or pub across which goods are served, a bar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolving"
+    }
+   }
   }
  ]
 }
