@@ -455,15 +455,18 @@ if _snapshot is not None:
 #: The papers in the order a rank's units are taken; "trove" is the
 #: Canberra Times articles (tools/file_trove_puzzles.py), read in a pool of
 #: their own (TROVE_WORKERS) beside the editions', and "listener" the
-#: Listener pages tools/gale_fetch.py downloads (tools/gale_listener.py), read one at
-#: a time (LISTENER_WORKERS: this host's Tesseract) within LISTENER_SECONDS.
+#: Listener pages tools/gale_fetch.py downloads (tools/gale_listener.py), LISTENER_WORKERS
+#: at once (this host's Tesseract, no VLM) within LISTENER_SECONDS.
 PAPERS = ["gale", "listener", "times", "telegraph", "guardian", "ft",
           "galeindependent", "galesundaytimes", "galetls", "trove"]
 #: Reads at once: mostly waits on the desktop (mem_gate and desktop_room
 #: hold the rest back when either host is short of memory).
 WORKERS = 25
 TROVE_WORKERS = 6
-LISTENER_WORKERS = 1
+#: Paul 10-23: the Listener ahead of FT's never-read pages. ~2,950 unread pages (Gale 1930-91, on the
+#: media disk since 10-20); each unit is one page's local OCR, no VLM, so they share the unit ceiling
+#: (mem_gate's controller: Windows' free RAM) with the reads but take no GPU turn.
+LISTENER_WORKERS = int(os.environ.get("CT_LISTENER_WORKERS") or 4)
 LISTENER_SECONDS = 1800
 #: The core a scan unit pins itself to (-1: the host's last), OCR's one core.
 SCAN_CPU = "OCR_SCAN_CPU"

@@ -25,6 +25,10 @@ ROOT = Path(os.environ.get("CT_DOWNLOADS") or local_config.path("media_root") + 
 #: The whole media disk (Gale's "Gale crosswords" folder is on it, beside ROOT); ROOT itself under CT_DOWNLOADS.
 MEDIA_ROOT = (ROOT if os.environ.get("CT_DOWNLOADS") or not local_config.path("media_root").strip()
               else Path(local_config.path("media_root")))
+#: The media disk's "Gale crosswords" folder, beside ROOT (on the Mac, and over its share on the
+#: desktop, where the local config's media_root is not the share's mount but CT_DOWNLOADS is):
+#: each Gale paper's pages, <paper>/ and <paper>/Fetched/ (tools/gale_fetch.py, tools/gale_listener.py).
+GALE_CROSSWORDS = ROOT.parent / "Gale crosswords"
 #: What an outage of the media share raises on a path under it (the Mac's SMB server refusing the
 #: session for a minute, 10-20 and 10-23: EHOSTDOWN; a dropped or stale mount: ENOTCONN, ESTALE,
 #: EIO; a session the server restricts: EACCES, EPERM). media_down.
