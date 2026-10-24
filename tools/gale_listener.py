@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 22
+VERSION = 23
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -2099,7 +2099,12 @@ UNPARSED = "no reading parses"
 #: a lent heading no longer takes the line set under it, nor does the
 #: last report's heading run on into the last clue (No 254: 34 -> 39 of 41
 #: agreed; No 273: 25 -> 39 of 43; No 245: 40 -> 44 of 51).
-CLUES_FIX = 22
+#: 23: a run of words one reading lost stays one gap in the vote, and goes
+#: in whole when two readings print it (No 254 38A, no longer "One of four
+#: One of fierce' who strive"); a quote never opened takes a reading's
+#: alike but for its quotes; "of 1 A" ending a clue is no next clue run on
+#: (No 601 2D). No 254: 41 -> 42 of 42; No 601: 42 -> 43 of 43.
+CLUES_FIX = 23
 SHORT = "refused clues-short before its fix"
 
 
