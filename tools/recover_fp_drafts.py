@@ -456,7 +456,11 @@ def apply_puzzle(job):
                 chosen = []
                 break
         import fetch_puzzle
-        fetch_puzzle.write_puzzle_file(path, q)
+        try:
+            fetch_puzzle.write_puzzle_file(path, q)
+        except ValueError:  # puzzle_integrity.RefusedWrite cannot cross the Pool pickle
+            skip("integrity gate refused the write", len(chosen))
+            break
         for rec, entry, committed in chosen:
             applied.append({"pid": pid, "tag": rec["tag"], "clue": (entry.get("clue") or {}).get("text"),
                             "before": committed, "after": rec["draft"]["wp"]})
@@ -530,6 +534,13 @@ def check_names(msgs):
     return out
 
 
+def save_results(path, passed):
+    """Write the passing drafts to --results (the list --apply reads); called as it goes."""
+    items = [{"pid": b[0]["pid"], "tag": b[0]["tag"], "draft": {"wp": b[0]["draft"]["wp"]},
+              "differs": (b[0]["draft"]["wp"] or "").strip() != (b[4] or "").strip()} for b in passed]
+    Path(path).write_text(json.dumps({"items": items}))
+
+
 def judge_all(drafts, args, t0):
     """Run the full validator on every draft; print the counts and examples."""
     from collections import Counter
@@ -581,6 +592,8 @@ def judge_all(drafts, args, t0):
         if n % 25 == 0:
             print(f"  {n}/{len(prepared)} puzzles, {len(passed)} pass ({time.time() - t0:.0f}s)",
                   file=sys.stderr, flush=True)
+            save_results(args.results, passed)
+    save_results(args.results, passed)
     total = sum(map(len, prepared.values()))
     differ = [b for b in passed if (b[0]["draft"]["wp"] or "").strip() != (b[4] or "").strip()]
     print(f"\nrejected wp drafts judged: {total}\npass the full validator now: {len(passed)}\n"
