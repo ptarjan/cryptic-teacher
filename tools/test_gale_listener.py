@@ -84,6 +84,23 @@ check("its own number titled, not as the report's", [True, False],
 check("a report's notes, rules and pointer are no puzzle (mirror)", False,
       g.puzzle_here("Report on Crossword No. 138\nNOTES\nAcross. 11\nPrizewinners: A. B.\n2. Clues are not given\n"
                     "This Week's Crossword is printed on page 709", 140))
+check("a pointer to the week's puzzle elsewhere, or a report's heading, is no puzzle but says so",
+      [False, False, True, True],
+      [g.puzzle_here(t, 151) for t in ("This week's Crossword will be found on page vii", "This weeks Crossword\nbe - -")]
+      + [bool(g.ELSEWHERE.search(t)) for t in ("This week's Crossword will be found on page vii",
+                                               "Report on (rossword Vo. 144 (reek")])
+check("two lights' numbers run into the first word are parted",
+      ["9,36. Inversely top-shaped.", "16&17*. What happens"],
+      [w[4] for w in g.figures([(0, 0, 300, 30, "9,36.Inversely top-shaped."), (0, 40, 300, 70, "16&17*.What happens")])])
+# No 141 (1932): numbers set in their own column ~125 px left of the texts.
+table = [(100, 40 * i, 140, 40 * i + 22, f"{n}.") for i, n in enumerate((12, 13, 14, 19, 22))] \
+    + [(265, 40 * i, 600, 40 * i + 22, f"Clue {n} words.") for i, n in enumerate((12, 13, 14, 19, 22))] \
+    + [(119, 200, 136, 222, "I"), (265, 200, 600, 222, "One of the accompaniments.")]
+hung = g.hanging_numbers(table)
+check("a table's numbers set beside their clues, a lone I there read 1",
+      [(213, 253, "12."), (236, 253, "1.")], [(hung[0][0], hung[0][2], hung[0][4]), (hung[10][0], hung[10][2], hung[10][4])])
+near = table[:2] + [(150, w[1], 485, w[3], w[4]) for w in table[5:7]]
+check("numbers beside their clues already stay put (mirror)", near, g.hanging_numbers(near))
 check("a week with no crossword matches no date",
       None, g.by_date([{"number": 39, "title": "[No crossword]", "date": D(1930, 12, 24)}], D(1930, 12, 24)))
 
@@ -934,6 +951,13 @@ with tempfile.TemporaryDirectory() as tmp:
     check("a page that parsed is a blanket re-read (mirror)", ("version changed", g.fa.BLANKET), due.get("a.pdf"))
     check("and the evidence reason is one the queue plans with blanket rereads off", True,
           __import__("edition_queue").evidence_reason(due["c.pdf"][0]))
+    check("a page read short before the table lists' fix is due for it, an evidence reason ranked by fa.RANKS",
+          (g.SHORT, g.fa.RANKS[g.SHORT], True),
+          (g.due_reason({"version": g.CLUES_FIX - 1, "agreed": 34, "clues": 41}), g.rank_of(g.SHORT),
+           __import__("edition_queue").evidence_reason(g.SHORT)))
+    check("one read whole, or short since, is not (mirror)", ["version changed", "version changed"],
+          [g.due_reason({"version": g.CLUES_FIX - 1, "agreed": 41, "clues": 41}),
+           g.due_reason({"version": g.CLUES_FIX, "agreed": 34, "clues": 41})])
 
 # The 1934-40 lists, run on as paragraphs (No 400): "(N)" opens each clue
 # mid-line, the across list runs on from the left column's foot to the
