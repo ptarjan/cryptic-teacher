@@ -8891,6 +8891,7 @@
   // most every OFFLINE_EVERY_MS, and again when a puzzle is solved (`force`).
   const OFFLINE_EVERY_MS = 6 * 3600 * 1000;
   const OFFLINE_KEY = "ct:offline-at";
+  const OFFLINE_BATCH_KEY = "ct:offline-batch";   // files the last batch held
   function offlineAuto(force) {
     if (isOffline() || offlineBusy) return;
     const c = navigator.connection;
@@ -8904,8 +8905,26 @@
   function saveOffline(quiet) {
     if (isOffline()) { offlineNote("You’re offline. Connect to wifi and try again."); return; }
     const rows = offlineBatch();
-    if (!rows.length) { offlineNote("Nothing to save."); return; }
     if (offlineBusy) return;
+    // Recycling. Dropped: a saved puzzle that is now solved, and one the last
+    // batch held that this pick no longer includes. Kept: every unfinished
+    // puzzle with letters on it, and anything merely opened (the worker's cap
+    // retires those, oldest first). Letters live in localStorage and the sync
+    // Worker, never in this cache, so a drop cannot lose progress; and while a
+    // sync push is failing, nothing is dropped at all.
+    const prog = savedProgress();
+    const want = new Set(rows.map((p) => p.file));
+    const started = new Set(), solved = new Set();
+    Object.keys(prog).forEach((id) => {
+      const p = BY_ID[id], own = p && BY_ID[p.reprintOf || p.id];
+      if (!own || !own.file) return;
+      (pickerStatus(p).done ? solved : started).add(own.file);
+    });
+    let prev = [];
+    try { prev = JSON.parse(localStorage.getItem(OFFLINE_BATCH_KEY) || "[]"); } catch (e) { prev = []; }
+    const dropFiles = syncFails ? [] : [...new Set([...prev, ...solved])].filter((f) => !want.has(f) && !started.has(f));
+    const drop = dropFiles.map((f) => at("puzzles/" + f + ".gz"));
+    if (!rows.length && !drop.length) { offlineNote("Nothing to save."); return; }
     offlineBusy = true;
     offlineNote(`Saving 0 of ${rows.length}…`);
     const end = (msg) => { offlineBusy = false; offlineRefresh(); offlineNote(msg); };
@@ -8914,12 +8933,17 @@
       ch.port1.onmessage = (ev) => {
         const m = ev.data || {};
         if (!m.finished) { offlineNote(`Saving ${m.done + m.failed} of ${m.total}…`); return; }
-        if (!m.failed) { try { localStorage.setItem(OFFLINE_KEY, String(Date.now())); } catch (e) { /* no storage */ } }
+        if (!m.failed) {
+          try {
+            localStorage.setItem(OFFLINE_KEY, String(Date.now()));
+            localStorage.setItem(OFFLINE_BATCH_KEY, JSON.stringify([...want]));
+          } catch (e) { /* no storage */ }
+        }
         end(m.failed ? `Saved ${m.done} of ${m.total}; ${m.failed} couldn’t be reached. Will try again.`
                      : `${m.done} puzzles ready offline`);
         offlineRefresh(() => { if (!$("picker-panel").classList.contains("hidden")) renderPicker(); });
       };
-      reg.active.postMessage({ type: "save", urls: rows.map(puzzleUrl) }, [ch.port2]);
+      reg.active.postMessage({ type: "save", urls: rows.map(puzzleUrl), drop }, [ch.port2]);
     }).catch(() => end("Couldn’t save just now. Try again."));
   }
 
