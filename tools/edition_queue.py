@@ -702,6 +702,9 @@ def evidence_reason(reason):
             or (reason.startswith("refused ") and reason.endswith(" before its fix"))
             or reason == fa.NO_TITLE_RESCAN  # a Gale 2000-14 page no title was found on, scan code since
             or reason == "unfiled before its fix"  # a puzzle written with blank clues, a column-layout fix since
+            # A held puzzle whose solution grid read 3+ lights short before unlisted_reads (Paul 10-24: every
+            # short grid current code may improve, once); no likely gain, so after the 1-2-short ones.
+            or reason == fa.SHORT_WIDE
             or reason.endswith(" cured since"))  # trove: the fix for the cause a read was refused for landed
 
 
@@ -1193,7 +1196,7 @@ def by_urgency(units):
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
-              fa.SHORT_UNFITTED, fa.UNMERGED)
+              fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.SHORT_WIDE)
 
 
 def unproven_first(unit):
@@ -1262,7 +1265,7 @@ CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.U
 #: gpu_fill's reserve holds slots for reads that do ask. Unlike CPU_ONLY they are not answers-linked
 #: (no batching) and not under the cpu-only cap (they would starve behind it).
 LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
-           "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED)
+           "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.SHORT_WIDE)
 
 
 def vlm_feed_reads():

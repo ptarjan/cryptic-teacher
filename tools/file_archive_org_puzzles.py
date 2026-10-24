@@ -6035,8 +6035,11 @@ def solution_key():
 _SOLUTION_KEY = []
 #: {solution key of newer code: the key it stands in for}, for a change that reads the same
 #: answers (read_framed's `lean` for answers_only, and listed_of built off the words' bytes):
-#: the rows read under the old key are not read again for it (fix_reason).
-_SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8"}
+#: the rows read under the old key are not read again for it (fix_reason). unlisted_reads (answers_only
+#: only, reads more) is pinned too: the rows it may improve are due once by REREAD_UNLISTED instead
+#: (short_again), not every short Times row as "read by other code".
+_SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
+                  "056213fe33f38ceb": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -6700,6 +6703,49 @@ def unmerged_whole(row):
     return any(unmerged(row, v) for v in row.get("verdicts", ()))
 
 
+#: The due reasons of a Times edition whose linked solution grid was read short (blocks read at
+#: SURE_BLOCKS, so the classifier read its cells) for a puzzle held with every clue and not every
+#: answer, from this page, read before REREAD_UNLISTED: since then answers_only also takes a light
+#: no word list holds (trove_solution_ocr.unlisted_reads: a name or a phrase run together, every
+#: cell the classifier's and every checked one an accepted crossing's). UNLISTED for a grid 1 to
+#: STRIP_MAX lights short (Paul 10-24: ~1,570 Times puzzles stood so after their answers-only reread,
+#: ARCOT, INVERESK, ST SWITHINS DAY among the lights left); SHORT_WIDE for one more lights short,
+#: by this code or (more than SHORT_GAP short, which short_cause predicts nothing for) by older
+#: solution code: read again once, after the UNLISTED ones (no likely gain: files_likely_tier 1).
+UNLISTED = "solution short, read again for unlisted words"
+SHORT_WIDE = "solution short of 3+ lights, read again"
+REREAD_UNLISTED = "2026-10-24T23:00:00+00:00"
+
+
+def short_again(row):
+    """UNLISTED or SHORT_WIDE for Times ledger `row`, read before REREAD_UNLISTED, with a verdict whose
+    linked solution grid it read short at SURE_BLOCKS for a puzzle held with every clue and not every
+    answer, filed from this page (answers_only reads only such a puzzle); else None. UNLISTED when any
+    such verdict is at most trove_solution_ocr.STRIP_MAX short."""
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED or not scan_queue.read_before(row, scan_queue.when(REREAD_UNLISTED)):
+        return None
+    gaps = []
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
+                or not isinstance(s, dict) or s.get("refused") or s.get("blocks", 0) < trove_solution_ocr.SURE_BLOCKS):
+            continue
+        gap = s.get("lights", 0) - s.get("accepted", 0)
+        if gap <= 0 or filed_state(paper.series, v.get("number")) != (False, True):
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+        except (KeyError, OSError, ValueError):
+            pass  # no pages.json or held file to tell (a test's row): answers_only judges
+        gaps.append(gap)
+    if not gaps:
+        return None
+    return UNLISTED if min(gaps) <= trove_solution_ocr.STRIP_MAX else SHORT_WIDE
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -6732,6 +6778,11 @@ def fix_reason(row):
         for v in row.get("verdicts", ()):
             s = v.get("solution")
             if isinstance(s, dict) and (s.get("refused") or s.get("accepted", 0) < s.get("lights", 0)):
+                # More than SHORT_GAP short, short_cause predicts it nothing (only_evidence dropped it):
+                # read once by this code, after the rest (short_again).
+                if paper in CELLS_CLASSIFIED and not s.get("refused") \
+                        and s.get("lights", 0) - s.get("accepted", 0) > SHORT_GAP and short_again(row):
+                    return SHORT_WIDE
                 if paper in CELLS_CLASSIFIED and not s.get("refused") and "classified" not in s:
                     return "solution short, its cells unclassified"
                 if paper not in CELLS_CLASSIFIED and row.get("solutionKey") in SOLUTION_UNCLASSIFIED:
@@ -6741,7 +6792,7 @@ def fix_reason(row):
         return SHORT_UNFITTED
     if unmerged_whole(row):
         return UNMERGED
-    return None
+    return short_again(row)
 
 
 #: The solution_key()s before the cell classifier (CELLS_CLASSIFIED): it reads
@@ -6763,7 +6814,7 @@ SOLUTION_UNCLASSIFIED = frozenset({"49e26fb92ece9e33"})
 #: strip asked), lacks at most trove_solution_ocr.STRIP_MAX (SHORT_UNFITTED).
 LIKELY = ("answers linked", "answers in the next issue's text", "solution grid read before read_framed",
           "blanks a vote fix mends", "solution grid read before the fitted and VLM reads",
-          "solution grid read whole, its answers never merged")
+          "solution grid read whole, its answers never merged", "solution grid short of words no list holds")
 #: The lights a solution grid read by other code may lack and be read again for the fitted and VLM
 #: reads (trove_solution_ocr.STRIP_MAX, 2, caps the lights the VLM is asked of).
 SHORT_GAP = 5
@@ -6850,6 +6901,10 @@ def short_cause(series, row, v, solutions):
     if (gap <= trove_solution_ocr.STRIP_MAX and not v.get("answersOnly")
             and scan_queue.read_before(row, scan_queue.when(REREAD_SHORT_FITTED))):
         return LIKELY[4]
+    # Read short by at most STRIP_MAX before unlisted_reads (UNLISTED): its last lights may be names.
+    if (gap <= trove_solution_ocr.STRIP_MAX and s.get("blocks", 0) >= trove_solution_ocr.SURE_BLOCKS
+            and scan_queue.read_before(row, scan_queue.when(REREAD_UNLISTED))):
+        return LIKELY[6]
     return None
 
 
@@ -7216,7 +7271,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          "solution short, its cells unclassified": 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, SHORT_WIDE: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
@@ -7658,7 +7713,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: Paul 10-23: kept for the VLM, every such reread took the full read, whose solved() has no
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
-                  "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED)
+                  "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, SHORT_WIDE)
 
 
 def keeps_vlm(why, row, unit=None):

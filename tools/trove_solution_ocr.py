@@ -826,6 +826,10 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
             fit = fitted_reads(lts, accepted, probs, enums)
             accepted.update(fit)
             stats["fitted"] = len(fit)
+            # A name or run-together no word list holds, read twice over: every crossing accepted.
+            named = unlisted_reads(lts, accepted, probs, enums)
+            accepted.update(named)
+            stats["unlisted"] = len(named)
     stats = {**stats, "blocks": blocks, "accepted": len(accepted), "lattices": len(reads)}
     short = [key for key in lts if key not in accepted]
     if enums is not None and classify and blocks >= SURE_BLOCKS and 0 < len(short) <= STRIP_MAX:
@@ -1409,6 +1413,79 @@ def fitted_reads(lts, accepted, probs, enums=None):
         if best is None:
             return out
         have[best[1]] = out[best[1]] = best[2]
+
+
+#: unlisted_reads takes a light no listed() word fills (a name, a phrase run together: ARCOT,
+#: INVERESK, ST SWITHINS DAY) only where every letter is read twice over: each cell the classifier
+#: reads as the light's letter at least UNLISTED_TOP likely, every cell another light crosses held
+#: by an accepted crossing (so only unchecked cells stand on the classifier alone, and there no other
+#: letter is even CLASS_FLOOR likely: RUSIIC for RUSTIC, T at 0.014, on a 2007 print), its length the
+#: enumeration's, and no listed word (of the light, or of a piece of its enumeration) one unchecked
+#: letter away from it: BALINITY, which a 1973 print's recogniser and VLM both read for SALINITY.
+UNLISTED_TOP = 0.9
+
+
+def one_away(word, cells, held):
+    """Whether a listed() word of `word`'s length agrees with `held` ({cell: letter}) and differs
+    from `word` in exactly one cell `held` does not hold."""
+    ws, arr = listed_of(len(word))
+    if not len(ws):
+        return False
+    mine = np.array([AZ.index(ch) for ch in word], np.int8)
+    ok = np.ones(len(ws), bool)
+    diff = np.zeros(len(ws), np.int16)
+    for i, rc in enumerate(cells):
+        if rc in held:
+            ok &= arr[:, i] == mine[i]
+        else:
+            diff += arr[:, i] != mine[i]
+    return bool((ok & (diff == 1)).any())
+
+
+def unlisted(cells, probs, held, enum, crossed):
+    """The word unlisted_reads takes on `cells`, or None. `crossed` is the cells another light
+    crosses, `held` the accepted lights' letters."""
+    if any(rc not in probs for rc in cells) or any(rc in crossed and rc not in held for rc in cells):
+        return None
+    parts = [int(x) for x in re.findall(r"\d+", enum or "")]
+    if not parts or sum(parts) != len(cells):
+        return None
+    top = [int(np.argmax(probs[rc])) for rc in cells]
+    if any(probs[rc][t] < UNLISTED_TOP for rc, t in zip(cells, top)):
+        return None
+    # An unchecked cell stands on the classifier alone: no other letter even CLASS_FLOOR likely there.
+    if any(rc not in held and np.sort(probs[rc])[-2] >= CLASS_FLOOR for rc in cells):
+        return None
+    word = "".join(AZ[t] for t in top)
+    if any(held.get(rc, ch) != ch for rc, ch in zip(cells, word)):
+        return None
+    if all(rc in held for rc in cells) or one_away(word, cells, held):
+        return None
+    at = 0
+    for size in (parts if len(parts) > 1 else ()):
+        span = cells[at:at + size]
+        if one_away(word[at:at + size], span, held):
+            return None
+        at += size
+    return word
+
+
+def unlisted_reads(lts, accepted, probs, enums):
+    """{key: word} for lights not `accepted` that unlisted() takes, each against the accepted
+    lights alone (a light it takes holds no cell for another). `enums` is {key: enumeration}."""
+    held = {rc: ch for k, w in accepted.items() for rc, ch in zip(lts[k], w)}
+    count = {}
+    for cells in lts.values():
+        for rc in cells:
+            count[rc] = count.get(rc, 0) + 1
+    out = {}
+    for key, cells in lts.items():
+        if key in accepted:
+            continue
+        word = unlisted(cells, probs, held, (enums or {}).get(key), {rc for rc in cells if count[rc] > 1})
+        if word:
+            out[key] = word
+    return out
 
 
 #: The log odds by which the classifier must read an accepted light's cells
