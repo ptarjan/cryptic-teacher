@@ -42,6 +42,7 @@ tools/file_gale_listener.py, which joins each reading with its page's grid
 report's letters are kept as a check on the solve, never filed.
 """
 import argparse
+import collections
 import datetime
 import difflib
 import hashlib
@@ -88,7 +89,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 25
+VERSION = 26
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -871,14 +872,27 @@ def para_linked(m, side=None):
     10" by al.vote. A third light is left as read. In a LETTERED bracket,
     only lights in the list's own direction (`side`, OWN_LETTERS) link:
     "(29-35U)" and "(25-31, 27A-39)" in the down list clue 35 and 31 down
-    too; "(2-40A)" there names an across light, left as read (No 273)."""
+    too. Its second light lettered the other list's way, "(12-29D)" among
+    the across clues (No 471, 1939), links too: the list's own number,
+    which the filer (file_gale_listener.linked_across) points at the grid's
+    other-direction light, its own direction having none or a clue of its
+    own. Only an unlettered first light and the other list's letter
+    (ACROSS_DOWN) link so: "(27A-39)" in a down list stays as read."""
     got = PARA_LINK.match(m.group(0))
     if not got:
         return None
     if not LETTERED.search(m.group(0)):
         return int(got.group(2))
     own = OWN_LETTERS.get(side, "")
-    return int(got.group(2)) if own and all(not c or c in own for c in (got.group(1), got.group(3))) else None
+    if own and all(not c or c in own for c in (got.group(1), got.group(3))):
+        return int(got.group(2))
+    other = ACROSS_DOWN.get(side)
+    return int(got.group(2)) if other and not got.group(1) and got.group(3) == other else None
+
+
+#: The letter naming the other list's light in a bracket set in each list:
+#: "(12-29D)" among the across clues, "(5-9A)" among the down.
+ACROSS_DOWN = {"ACROSS": "D", "DOWN": "A"}
 
 
 #: The word a list's heading may open on, "CLUES—ACROSS" (No 197's),
@@ -1439,7 +1453,85 @@ def read_page(img, key, lengths=None):
     verdict, laid = al.vote(words, verdict, cols=page_columns, lengths=lengths, figures=True)
     if laid and not all(t for t, _, _ in laid.values()):
         laid = greek_mended(img, key, words, verdict, laid)
+    if laid and (theme := theme_lights(words)):
+        verdict["theme"] = theme
     return verdict, laid
+
+
+#: A theme line names at least this many lights...
+THEME_MIN = 3
+#: ...each read so by at least this many readings.
+THEME_VOTES = 2
+
+
+def theme_line(words):
+    """(title, [light token]) of the page's theme line, or None: the line
+    under a title word of capitals alone on its line (headings' ALONE) just
+    above the ACROSS heading, over it, as No 447's (1938) "CANVAS / The 26s
+    that 28U 7D 7A 5, 35 13, 1A, and a 9 37U 27 6." heads its lists: the
+    lights it names are the theme's, which no list clues. A token read with
+    a letter for a figure ("IA", "S,") is the figure (LIKE_FIGURES)."""
+    across = next((w for w in sorted(headings(words), key=lambda w: w[1]) if heading(w[4]) == "ACROSS"), None)
+    if across is None:
+        return None
+    h = across[3] - across[1]
+    mid = (across[0] + across[2]) / 2
+
+    def alone(w):
+        return not any(o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < h / 2
+                       and min(abs(o[0] - w[2]), abs(w[0] - o[2])) < ALONE for o in words)
+    title = next((w for w in sorted(words, key=lambda w: -w[1])
+                  if re.fullmatch(r"[A-Z]{4,}", w[4]) and not heading(w[4]) and w[3] <= across[1]
+                  and across[1] - w[1] < 4 * h and w[0] < mid < w[2] + (w[2] - w[0]) and alone(w)), None)
+    if title is None:
+        return None
+    # The line between the title and the heading, its words chained from the
+    # one nearest the heading's middle while they sit a few heights apart.
+    line = sorted((w for w in words if title[3] <= (w[1] + w[3]) / 2 <= across[1]), key=lambda w: w[0])
+    if not line:
+        return None
+    at = min(range(len(line)), key=lambda i: abs((line[i][0] + line[i][2]) / 2 - mid))
+    lo = hi = at
+    while lo > 0 and line[lo][0] - line[lo - 1][2] < 2 * h:
+        lo -= 1
+    while hi + 1 < len(line) and line[hi + 1][0] - line[hi][2] < 2 * h:
+        hi += 1
+    tokens = []
+    for w in line[lo:hi + 1]:
+        for tok in w[4].split():
+            m = THEME_READ.fullmatch(tok.strip(",.;:"))
+            # A figure read as a letter stands alone only where no word
+            # would: "S," is 5, "I" the word.
+            if m and (re.search(r"\d", m.group(1)) or m.group(2) or m.group(1) in ("S", "l")):
+                n = m.group(1).translate(LIKE_FIGURES).lstrip("0")
+                if n:
+                    tokens.append(n + m.group(2).strip("'’s"))
+    return title[4], tokens
+
+
+#: A light theme_line reads: its number (a figure perhaps read as its
+#: lookalike letter), then A or B (across, or back), D or U (down, or
+#: up), or nothing: "28U", "7A", "35", "IA"; or a plural, "The 26s".
+THEME_READ = re.compile(r"([\dIlSO]{1,2})([ABDU]?|(?<=\d)['’]?s)")
+
+
+def theme_lights(words):
+    """{"title", "lights"} of the page's theme line (theme_line) as the
+    readings (`words` {reader: words}) vote it: each light token at least
+    THEME_VOTES of them read, in the order the most-read reading has them;
+    None when fewer than THEME_MIN do. A token one reading alone reads (a
+    speck for "5") names no light, so no clue the lists lost is called the
+    theme's (file_gale_listener.mended)."""
+    read = [got for ws in words.values() if (got := theme_line(ws))]
+    if not read:
+        return None
+    count = collections.Counter(t for _, toks in read for t in set(toks))
+    kept = [t for t in max((toks for _, toks in read), key=len) if count[t] >= THEME_VOTES]
+    kept += sorted({t for t, c in count.items() if c >= THEME_VOTES} - set(kept))
+    if len(kept) < THEME_MIN:
+        return None
+    title = collections.Counter(t for t, _ in read).most_common(1)[0][0]
+    return {"title": title, "lights": kept}
 
 
 def page_blanks(img, located):
@@ -2180,7 +2272,12 @@ UNPARSED = "no reading parses"
 #: list's last clue read on into the competition's rules ends there
 #: (rules_cut: No 447's 36D, No 503's 32D). No 434: 61 -> 62 of 62; No
 #: 471: 39 -> 41 of 41; No 447: 31 -> 32 of 32; No 503: 39 -> 40 of 40.
-CLUES_FIX = 25
+#: 26: a bracket lettering its second light the other list's way ("(12-29D)"
+#: among the across clues) links it too, the filer pointing it at that
+#: light (No 471: 41 -> 42 of 42, 12A/29D and 34A/28D linked); a theme line
+#: over the lists naming lights no list clues (No 447's "CANVAS / The 26s
+#: that 28U 7D 7A 5, ...") is kept as the verdict's "theme" (theme_lights).
+CLUES_FIX = 26
 SHORT = "refused clues-short before its fix"
 
 
