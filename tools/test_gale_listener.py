@@ -1022,8 +1022,38 @@ for i, (n, text) in enumerate([(1, "Horsey half of an astronomer (5)."), (2, "Ch
     gutter += [(2575 + 38 * 9 + 170 + 38 * i, 815, f"({n})"), (2575 + 38 * 9 + 170 + 38 * i, 899, text)]
 cols = g.paragraph_columns(para_words(gutter))
 check("No 582's lists: numbers in their own gutter; a count before the next number, a stray (1), DOWN under a gap",
-      ([1, 5, 9, 10, 11, 12, 13, 16], [1, 2, 3]),
+      [[1, 5, 9, 10, 11, 12, 13, 16], [1, 2, 3]],
       cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+# No 443's (1938): lights clued together share a bracket, numbered by the
+# first ("(1, 8, 52)", "(40-22)"), an anagram says so in it ("(47 anag.)"),
+# and DOWN's heading, unread, leaves a gap over the down list's "(1)".
+no443 = [(1744, 300, "CLUESACROSS"),
+         (1772, 88, "(1, 8, 52) The nightingale. (5, 9D) Its"), (1794, 88, "post-mortem. (9) A democrat."),
+         (1816, 88, "(14) Perfect. (40-22) Thracian torturers."), (1838, 88, "(47 anag.) Shivering made him so."),
+         (1898, 88, "(1) No post-mortem. (2U anag.) Oath-"), (1920, 88, "offerings. (3) Pan is the"),
+         (1942, 88, "Great Mother's."), (2010, 88, "CROSSWORD RULES. (1) Entries")]
+cols = g.paragraph_columns(para_words(no443))
+check("No 443's lists: a bracket of lights numbered by its first, an anagram's, an unread DOWN's gap",
+      [[1, 5, 9, 14, 40, 47], [1, 2, 3]], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+check("a gap over a line that is no restart still ends the lists (mirror)", None,
+      g.paragraph_columns(para_words([r if r[2] != "(1) No post-mortem. (2U anag.) Oath-"
+                                      else (r[0], r[1], "A note. (2U anag.) Oath-") for r in no443])))
+linked = [(1744, 300, "CLUESACROSS"), (1772, 88, "(1) Doom. (8) Fisher come. (10) The"),
+          (1794, 88, "name. (1, 40) Leads proof. (42)"), (1816, 88, "Last one."),
+          (1876, 88, "(1) Professor here. (2) His coat"), (1898, 88, "lost. (3) Boat here.")]
+cols = g.paragraph_columns(para_words(linked))
+check("a bracket set at its later light's place is numbered by it, no restart of the list",
+      [[1, 8, 10, 40, 42], [1, 2, 3]], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+# No 133's (1932): "CLUES—ACROSS" read as specks, only DOWN read: the
+# across list is read from its "1." line up the column, not dropped.
+no133 = (line("Name and address", 100, 300) + line("¢t 3", 300, 400) + line("1. Claustra olim", 100, 430)
+         + line("10. Occurs here", 100, 460) + line("11. Temptato feminae", 100, 490) + line("DOWN", 300, 530)
+         + line("1. A freedman", 100, 560) + line("2. A river", 100, 590) + line("3. Cibi peremptum", 100, 620))
+check("only DOWN read: the across list above it, from its 1.",
+      (["1", "10", "11"], ["1", "2", "3"]),
+      tuple([l[4].split(".")[0] for l in c] for c in g.page_columns(no133) or ([], [])))
+check("with no 1. above DOWN, nothing above it is a list (mirror)", None,
+      g.numbered_columns([w for w in no133 if w[4] != "1." or w[1] > 500]))
 check("one clue a line is no paragraph list (mirror)", None,
       g.paragraph_columns(para_words([(100, 88, "ACROSS"), (130, 88, "1. Bird (4)"), (160, 88, "5. Fish (4)")])))
 
