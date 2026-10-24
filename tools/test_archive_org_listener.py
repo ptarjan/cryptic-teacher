@@ -222,5 +222,49 @@ check("964: 5 down opening on an ellipsis is laid whole", True,
 check("964: 6 down keeps its three dots", "... stabbed in the back, perhaps, vice-president fashion?", got["6-down"])
 check("964: nothing blank", None, verdict.get("blank"))
 
+# No 242 (1934): numbers its clues cite, lost to the vote's bounds at figures.
+_texts = {"page": "15. With Is Down: Epical hero\n18. With anag.45:Scorpio's smaller cousins\n20. With 27: Material",
+          "ch": "15. With 15 Down: Epical hero\n18. With anag. 45: Scorpio's smaller cousins\n"
+                "20. With transposed 27; Material",
+          "en5": "15. With 1s Down: Epical hero\n18. With anag. Scorpio's smaller cousins\n20. transposed 27: Material",
+          "laid": "15. With 15 Down: Epical hero\n18. With anag. Scorpio's smaller\n20. With transposed 27; Material"}
+_sure = al.sure_cited(_texts)
+check("a number two readings print between words is sure", {("with", "15", "down"), ("anag", "45", "scorpio's"),
+                                                              ("transposed", "27", "material")},
+      {k for k in _sure if k[1] in ("15", "45", "27")})
+check("a list's next clue after a stop is no citation", {}, al.cited_in("pretty ones. 19 If a laddie"))
+check("nor the next column's number between two words (No 359)", {}, al.cited_in("hero acted 12 with spirit"))
+check("... but a colon after the figures is one (mirror)", {("anag", "45", "scorpio's"): (". ", ": ")},
+      al.cited_in("With anag. 45: Scorpio's"))
+_voted = {"15-across": ("With Is Down: Epical hero", None, None),
+          "18-across": ("With anag: Scorpio's smaller cousins", None, None),
+          "20-across": ("Material composed largely", None, None),
+          "21-across": ("", None, None)}
+_before = {"20-across": ("With transposed 27; Material composed largely", None, None)}
+_got = al.cited(_voted, _before, {lid: _sure for lid in _voted})
+check("a cited number read as letters is put back", "With 15 Down: Epical hero", _got["15-across"][0])
+check("a cited number the vote lost goes back with its marks", "With anag. 45: Scorpio's smaller cousins",
+      _got["18-across"][0])
+check("a clue voted to its tail past a cited number takes the laid head back",
+      "With transposed 27; Material composed largely", _got["20-across"][0])
+check("a blank clue stays blank", "", _got["21-across"][0])
+check("a clue whose readings print no number there is left (mirror)", {"1-across": ("Price is down", None, None)},
+      al.cited({"1-across": ("Price is down", None, None)}, {}, {"1-across": _sure}))
+check("... nor one only another clue's readings print it in (mirror)", "Whitsun symbol.",
+      al.cited({"1-down": ("Whitsun symbol.", None, None)}, {}, {"42-across": {("whitsun", "44", "symbol"): (", ", " ")}})
+      ["1-down"][0])
+check("a cited number is no next clue to sound()", (False, True),
+      (al.sound("With anag. 45: Scorpio's"), al.sound(al.uncited("With anag. 45: Scorpio's", _sure))))
+check("a zero in a word is an o when that makes a word", "'I, too', said this, but B0X7 and 10 stay",
+      al.oh_for_zero("'I, to0', said this, but B0X7 and 10 stay"))
+check("... not when it makes none (mirror)", "Z0q", al.oh_for_zero("Z0q"))
+_twice = "After 11, in Jacke Drums Entertainment 11, in Jacke Drums Entertainment one says"
+check("a run of words one reading reads twice is read once", "After 11, in Jacke Drums Entertainment one says",
+      al.undoubled(_twice, [_twice, "After 11, in Jacke Drums Entertainment one says"]))
+_oh = "Oh then, then oh: oh then, then oh: This 34A last"
+check("... but one most readings print twice stands (mirror)", "Whit oh then, then oh oh then, then oh: This",
+      al.undoubled("Whit oh then, then oh oh then, then oh: This", ["Whit oh then, then oh oh then, then oh: This"] * 2))
+check("a refrain's capital keeps it apart (mirror)", _oh, al.undoubled(_oh, [_oh]))
+
 print("FAILS", fails)
 raise SystemExit(1 if fails else 0)

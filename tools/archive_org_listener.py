@@ -583,19 +583,163 @@ def end_stops(laid, lays, readers):
     return out
 
 
+#: A number a clue cites between two of its words ("With 15 Down:", "With
+#: anag. 45: Scorpio's", "With transposed 27; Material"): the words either
+#: side, the marks between, the figures. No bracket ("See (12 in 3)" is a
+#: clue's own number) and no line break (a list's next clue).
+CITED = re.compile(r"([A-Za-z]+(?:'[A-Za-z]+)?)([^\w\n()]{1,3}?)(\d{1,2})(?!\d)([^\w\n()]{1,3})"
+                   r"(?=([A-Za-z]+(?:'[A-Za-z]+)?))")
+
+
+#: The words after a light's number that name its direction: "15 Down".
+CITING_WAYS = ("across", "down", "ac", "dn")
+
+
+def cited_in(text):
+    """{(word before, figures, word after): (marks before, marks after)}:
+    each number `text` (one reading's) prints between two words (CITED) in
+    a citation's shape, a colon or semicolon after the figures ("anag. 45:
+    Scorpio's") or the light's direction ("With 15 Down"), its marks closed
+    up, a space after each. Others ("ones. 19 If", "acted 12 with") are a
+    list's next clue or the next column's, no citation."""
+    out = {}
+    for m in CITED.finditer(text):
+        before, after = m.group(2).split(), m.group(4).split()
+        if not (re.search(r"[:;]", m.group(4)) or m.group(5).lower() in CITING_WAYS):
+            # Figures between two words of no citation's shape ("acted 12
+            # with", "tyme 17 us") are the next column's clue numbers.
+            continue
+        out[(m.group(1).lower(), m.group(3), m.group(5).lower())] = ("".join(before) + " ", "".join(after) + " ")
+    return out
+
+
+def figure_shaped(word, figures):
+    """Whether `word` is `figures` misread, a letter for a look-alike digit
+    or the digit itself ("Is" or "1s" for 15)."""
+    return len(word) == len(figures) and not word.isdigit() and all(
+        c == d or c in clue_text.DIGIT_LETTERS.get(d, "") for d, c in zip(figures, word.lower()))
+
+
+def sure_cited(texts):
+    """{(word before, figures, word after): (marks before, marks after)}:
+    the numbers cited between two words (cited_in) that two readings or
+    more of a clue (`texts`, {reader: its text for the clue}) print, more
+    of them than print any other number between those words, with the marks
+    most print."""
+    seen = {}
+    for t in texts.values():
+        for key, gaps in cited_in(t).items():
+            seen.setdefault(key, []).append(gaps)
+    sure = {}
+    for (w1, n, w2), gaps in seen.items():
+        rival = max((len(g) for (a, m, b), g in seen.items() if (a, b) == (w1, w2) and m != n), default=0)
+        if len(gaps) >= 2 and len(gaps) > rival:
+            sure[(w1, n, w2)] = max(gaps, key=gaps.count)
+    return sure
+
+
+def uncited(text, sure):
+    """`text` with the figures of each number `sure` (sure_cited) holds
+    standing between its words made "#": a cited number, no next clue's
+    ("With anag. 45: Scorpio's" is one clue; sound)."""
+    for w1, n, w2 in sure:
+        text = re.sub(rf"(\b{re.escape(w1)}\W{{1,3}}){n}(?=\W{{1,3}}{re.escape(w2)}\b)", r"\1#", text,
+                      flags=re.IGNORECASE)
+    return text
+
+
+def cited(laid, before, sure):
+    """`laid` (voted) with the numbers its clues cite between words put
+    back where the vote lost them, the readings bounding a clue at every
+    figure: "With 15 Down" voted "With Is Down" (two readings read the 15 as
+    letters), "With anag. 45: Scorpio's" voted "With anag: Scorpio's", and
+    "With transposed 27; Material ..." voted to its tail past the number
+    (No 242). A number of the clue's `sure` ({light: sure_cited of its
+    readings}) goes back between its two words where the voted clue has them
+    side by side, or in place of a word it is misread as. A voted clue that
+    is the tail of its laid one (`before`, the laid clues the vote was given)
+    past such a number takes the laid clue's head back."""
+    out = dict(laid)
+    for lid, (t, e, g) in laid.items():
+        if not t or not sure.get(lid):
+            continue
+        was = (before.get(lid) or ("",))[0] or ""
+        for (w1, n, w2), (g1, g2) in sure[lid].items():
+            w1_, w2_ = re.escape(w1), re.escape(w2)
+            if re.search(rf"\b{w1_}\W{{1,3}}{n}\W{{1,3}}{w2_}\b", t, re.IGNORECASE):
+                continue
+            head = re.match(rf"(.*?\b{w1_}\W{{1,3}}{n}\W{{1,3}})(?={w2_}\b)", was, re.IGNORECASE)
+            first = re.match(r"[A-Za-z]+(?:'[A-Za-z]+)?", t)
+            if head and first and first.group().lower() == w2 and re.search(r"[A-Za-z]", head.group(1)) \
+                    and not re.search(rf"\b{w1_}\b", t, re.IGNORECASE) \
+                    and was[head.end():].split()[:3] == t.split()[:3]:
+                # The vote kept only the tail past the number.
+                t = head.group(1).rstrip() + " " + t
+                continue
+            swap = re.search(rf"\b({w1_})(\W{{1,3}})(\S{{1,3}}?)(\W{{1,3}})({w2_})\b", t, re.IGNORECASE)
+            if swap and figure_shaped(swap.group(3), n):
+                t = t[:swap.start(3)] + n + t[swap.end(3):]
+                continue
+            lost = re.search(rf"\b({w1_})([^\w\d]{{0,3}})({w2_})\b", t, re.IGNORECASE)
+            if lost and "\n" not in lost.group(2):
+                t = t[:lost.end(1)] + g1.rstrip() + " " + n + g2 + t[lost.start(3):]
+        out[lid] = (re.sub(r" +", " ", t).strip(), e, g)
+    return out
+
+
+#: A run of three to eight words read twice over, back to back: "After 11,
+#: in Jacke Drums Entertainment 11, in Jacke Drums Entertainment one says"
+#: (No 273's 12 down, one RapidOCR reader reading a line twice).
+DOUBLED_RUN = re.compile(r"(?<!\S)((?:\S+\s+){2,7}?\S+)\s+\1(?!\S)")
+
+
+def undoubled(text, readings):
+    """`text` with each DOUBLED_RUN read once, where fewer than two of the
+    clue's `readings` print it twice ("Oh then, then oh: oh then, then oh"
+    is the print's own when they do)."""
+    flat = [" ".join(r.split()).lower() for r in readings if r]
+    at = 0
+    while text and (m := DOUBLED_RUN.search(text, at)):
+        if sum(" ".join(m.group(0).split()).lower() in r for r in flat) >= 2:
+            at = m.end()
+            continue
+        text = text[:m.start()] + m.group(1) + text[m.end():]
+        at = m.start()
+    return text
+
+
+#: A word with a zero among its letters ("to0", "t0o"): a type whose "o"
+#: every reader may read as the figure (No 242's "'I, too,' said").
+ZERO_IN_WORD = re.compile(r"\b(?=[A-Za-z0]*0)(?=[A-Za-z0]*[A-Za-z])[A-Za-z0]{2,}\b")
+
+
+def oh_for_zero(text):
+    """`text` with each ZERO_IN_WORD word whose zeros read as "o" make a
+    word the lexicon knows so read ("to0" -> "too")."""
+    def fix(m):
+        word = m.group()
+        o = "O" if word.replace("0", "").isupper() and len(word.replace("0", "")) > 1 else "o"
+        mended = word.replace("0", o)
+        return mended if ocr_clues.known(mended.lower()) else word
+    return ZERO_IN_WORD.sub(fix, text) if text else text
+
+
 def spaced(text):
     """How many of a reading's words the lexicon knows."""
     return sum(ocr_clues.known(w.lower()) for w in re.findall(r"[A-Za-z]+", text))
 
 
-def vote(words, verdict, cols=None, lengths=None):
+def vote(words, verdict, cols=None, lengths=None, figures=False):
     """(verdict, {light: (text, enumeration, None)} or None) from each
     reader's words ({reader: [(x0, y0, x1, y1, text)]}): each reading's
     ACROSS and DOWN lists (`cols` of its words, else columns) parsed, laid by
     number (pick) and voted on (ocr_clues.reconcile, ocr_clues.as_printed).
     `lengths` ({light: cells}, from a grid read off the page) counts a light
-    whose count no reading read. Shared by every Listener page reader
-    (tools/gale_listener.py's too)."""
+    whose count no reading read. `figures`: mend the figures in the clues'
+    words, putting back the numbers they cite that the vote lost (cited)
+    and reading a zero in a word as "o" (oh_for_zero), and read a run of
+    words one reading doubled once (undoubled); tools/gale_listener.py's
+    lists. Shared by every Listener page reader (tools/gale_listener.py's too)."""
     cols = cols or columns
     texts = unjoined({k: fa.tidy(text_of(cols(w))) for k, w in words.items()})
     tried = []
@@ -626,7 +770,21 @@ def vote(words, verdict, cols=None, lengths=None):
     # Which reading each laid clue is, so the vote knows its engine.
     source = {lid: next((t[2] for t, ly in zip(tried, lays) if ly.get(lid) == v), None)
               for lid, v in laid.items()}
+    if figures:
+        laid = {lid: (undoubled(t, [(ly.get(lid) or ("",))[0] for ly in lays]), e, g) for lid, (t, e, g) in laid.items()}
+    before = laid
     laid, blank = ocr_clues.reconcile(laid, stream, lengths, uncounted=uncounted, names=others, mine=source)
+    # The numbers each clue cites that its own readings print: a line one
+    # reader reads twice into another clue ("Combined with 44, symbol of
+    # Whitsun 44, symbol", No 273) is no evidence for that one.
+    sure = {lid: got for lid in laid if figures
+            and (got := sure_cited({k: ly[lid][0] for k, ly in enumerate(lays) if (ly.get(lid) or ("",))[0]}))}
+    if sure:
+        # The vote bounds a clue at every number its readings print, so a
+        # number the clue cites may be lost or read as letters (cited).
+        laid = cited(laid, before, sure)
+    if figures:
+        laid = {lid: (oh_for_zero(t), e, g) for lid, (t, e, g) in laid.items()}
     # A reversed light's head prints "rev." and a clue ends on one mark: a
     # reader taking stops for commas (No 97's Tesseract "34 rev, ... kind,")
     # outvotes neither.
@@ -655,7 +813,7 @@ def vote(words, verdict, cols=None, lengths=None):
             # reader sees, or a mark the vote dropped that no reading kept.
             laid[lid] = ("", e, g)
             blank[lid] = "a quotation it never closes: its end is lost"
-        elif t and not sound(t):
+        elif t and not sound(uncited(t, sure.get(lid, {}))):
             # The vote put back words that run on into the next clue.
             laid[lid] = ("", e, g)
             blank[lid] = "runs on into the next clue"
