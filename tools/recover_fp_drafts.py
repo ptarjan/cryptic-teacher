@@ -373,17 +373,19 @@ def apply_puzzle(job):
             chosen.append((rec, entry, committed))
 
     def trial(items):
+        import puzzle_schema  # the file writer puts keys in schema order; validate that form
         q = copy.deepcopy(p)
         mine = []
         for rec, entry, _ in items:
             e = next(x for x in q["entries"]
                      if x.get("number") == entry["number"] and x.get("direction") == entry["direction"])
             try:
-                e["annotation"] = annotation.from_model(rec["draft"], e, q)
+                # from_model fills unset optional fields with null; the schema rejects
+                # null, and every normal write goes through prune() to drop them.
+                e["annotation"] = puzzle_schema.prune(annotation.from_model(rec["draft"], e, q))
             except Exception:
                 return None, None, rec
             mine.append((f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}:", rec))
-        import puzzle_schema  # the file writer puts keys in schema order; validate that form
         q = puzzle_schema.order(q)
         try:
             _, errors, _ = V.validate_puzzle(q)
