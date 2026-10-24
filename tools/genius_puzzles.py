@@ -835,7 +835,7 @@ ARTICLE_PARTS = re.compile(r'data-gu-name="(?:standfirst|body)"[^>]*>(.*?)(?=<[^
 def article_text(body):
     """The article's standfirst and body as one flat line."""
     parts = ARTICLE_PARTS.findall(body)
-    t = " ".join(re.sub(r"<script\b.*?</script\s*>|<style\b.*?</style\s*>", " ", x, flags=re.S) for x in parts)
+    t = " ".join(re.sub(r"<script\b.*?</script\s*>|<style\b.*?</style\s*>", " ", x, flags=re.S | re.I) for x in parts)
     t = html.unescape(re.sub(r"<[^>]+>", " ", t))
     t = re.sub(r"(?i)click here to access the print version|Photograph: \w+", " ", t)
     return flat(t, kerned=False)
@@ -1579,7 +1579,7 @@ HEADLINE = re.compile(r"\s*[‘'\"]?([A-Z]+(?:[ '’\-](?:[A-Z]{2,}|[A-Z](?=[ '�
 #: The same with letters bracketed off, "HOOT(NANNY)", "[BORIS] GODUNOV".
 # Each repeat starts with a separator, an opening bracket, or follows a closing
 # bracket, so a run of capitals has only one way to split (no ReDoS).
-BRACKETED = re.compile(r"\s*((?:[\[(]?[A-Z]+[\])]?)(?:(?:[ '’\-]?[\[(]|[ '’\-]|(?<=[\])]))[A-Z]+[\])]?)*)(?![a-z])")
+BRACKETED = re.compile(r"\s*([\[(]?[A-Z]+(?:[\])][A-Z]+)*[\])]?(?:(?:[ '’\-]?[\[(]|[ '’\-])[A-Z]+(?:[\])][A-Z]+)*[\])]?)*)(?![a-z])")
 
 
 def windows(rendered, clues):
