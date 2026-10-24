@@ -21,16 +21,17 @@ is not averaged away. A row under MIN_CLUES clues is merged with the rows before
 it (up to ROLL) and, if still thin, is noise and never wakes.
 
 The wake rule (should_wake), in code, queued quietly (wake.sh -q) to the room:
-  (a) the latest window's pooled $/clue is more than 10% above the best such level
-      since the last commit touching annotate code; or
-  (b) the #1 cause is not the #1 cause of the previous wake; or
-  (c) AFTER_COMMIT_ROWS (2) rows after an annotate-code commit, still over target; or
-  (d) even at or under target, the latest row's #1 first-check-failure cause spent at
-      least CAUSE_SPEND ($2) after the check, so the hill climb keeps going below target;
-at most once per COOLDOWN_H (1) hours. (a)-(c) only apply while over the target.
+  (a) payback: the #1 first-check-failure cause's $/hour after the check (averaged over
+      the recent rows listing it) x HORIZON_H (7 days) x SUCCESS_RATE (0.5) exceeds
+      FIX_COST (~$6, one Sonnet worker), whatever the $/clue; or
+  (b) regression: the latest window's pooled $/clue is more than 10% above the best such
+      level since the last commit touching annotate code;
+at most once per COOLDOWN_H (1) hours. The wake text carries the payback numbers.
 
 Paul 10-23: "why aren't you doing cost fixing more often?" - at $0.015-0.021/clue the
-rule never woke, even with one retry cause burning dollars an hour; (d) is the answer.
+old fixed $0.022 target never woke, even with one retry cause burning dollars an hour.
+Then: "Lower the goal. I want to spend inference fixing the per clue as long as it pays
+off in saved other inference." Hence the payback gate instead of a target.
 """
 import argparse
 import datetime
@@ -57,12 +58,11 @@ MIN_CLUES = 50        # a window thinner than this is noise: never wakes
 AFTER_COMMIT_ROWS = 2  # re-judge this many rows after an annotate-code commit (was 3)
 REGRESS = 0.10
 COOLDOWN_H = 1        # was 4
-TARGET = 0.022
-# Below target the climb continues when the #1 first-check-failure cause spent at least this
-# much after the check in the latest row. Ledger 10-20..10-24: 73 of 93 rows are at/under
-# target; their top-cause spend has median $1.88 and 42% are >= $2 (66% >= $1), so $2 wakes
-# on roughly every other hour (1h cooldown) rather than every hour or never.
-CAUSE_SPEND = 2.0
+# Payback gate: wake when fixing the top cause is expected to save more than the fix costs.
+HORIZON_H = 7 * 24    # a fix is assumed to keep paying for 7 days
+SUCCESS_RATE = 0.5    # and to work half the time
+FIX_COST = 6.0        # one Sonnet cost-fix worker, in dollars (estimate, not measured)
+RATE_ROWS = 6         # recent rows averaged for the cause's $/h (never fewer than 3)
 # What "annotate code" means for the best-level baseline.
 CODE_PATHS = ["tools/annotate*", "tools/validate_annotations.py", "tools/puzzle_worker.sh",
               "tools/clue_bag.py", "tools/annotate_prompt.md", "tools/annotate_bag_prompt.md"]
@@ -146,38 +146,38 @@ def should_wake(rows, since_commit, state, now):
     rolls = [pooled(window(rows[:i + 1])) for i in range(len(rows))]
     best = min((x for x in rolls if x is not None), default=None)
     top_cause = (rows[-1].get("top_causes") or [{}])[0]
-    spend = top_cause.get("cost_after_check") or 0
-    under = cur <= TARGET
-    if under and spend < CAUSE_SPEND:
-        return None, (f"${cur:.3f}/clue is at the ${TARGET} target and the top cause spent "
-                      f"${spend:.2f} (under ${CAUSE_SPEND:.2f})")
+    rate = cause_rate(rows, top_cause.get("key"))
+    saving = rate * HORIZON_H * SUCCESS_RATE
+    facts = {"cur": cur, "best": best, "rate": rate, "saving": saving}
     woken = state.get("woken")
     if woken and (now - parse(woken)).total_seconds() < COOLDOWN_H * 3600:
         return None, f"woken {woken}, inside the {COOLDOWN_H}h cooldown"
-    if under:
-        # Hill climb below target: one retry cause burning dollars an hour is worth fixing.
-        return (f"${cur:.3f}/clue is under target but the top cause `{top_cause.get('key')}` spent "
-                f"${spend:.2f} after the first check in the latest window "
-                f"(threshold ${CAUSE_SPEND:.2f})"), {"cur": cur, "best": best}
-    top = top_cause.get("key")
+    pay = (f"top cause `{top_cause.get('key')}`: ${rate:.2f}/h after check -> est. saving "
+           f"${saving:.0f} over {HORIZON_H // 24}d vs ~${FIX_COST:.0f} fix cost")
+    if saving > FIX_COST:
+        return pay, facts
     if best and cur > best * (1 + REGRESS):
         return (f"latest ${cur:.3f}/clue is {cur / best - 1:+.0%} over the best level "
-                f"${best:.3f} since the last annotate-code commit"), {"cur": cur, "best": best}
-    if top and top != state.get("top"):
-        return (f"cause #1 is now `{top}`, was `{state.get('top')}` at the previous wake"), \
-            {"cur": cur, "best": best}
-    if since_commit and state.get("commit") != since_commit:
-        # Hill climb: each annotate-code change gets measured, and while the cost is
-        # still over target the next cause is worked on, even with no regression.
-        return (f"${cur:.3f}/clue is still over the ${TARGET} target {AFTER_COMMIT_ROWS} runs after the "
-                f"last annotate-code commit"), {"cur": cur, "best": best}
-    return None, f"${cur:.3f}/clue within 10% of best ${best:.3f}; #1 cause unchanged"
+                f"${best:.3f} since the last annotate-code commit; {pay}"), facts
+    return None, f"${cur:.3f}/clue within 10% of best ${best:.3f}; {pay} - not worth a fix"
+
+
+def cause_rate(rows, key):
+    """$/hour the cause spends after the check: its cost over the hours of the recent rows
+    (the last RATE_ROWS, so at least 3) that list it; 0 when none does."""
+    cost = hours = 0.0
+    for r in rows[-RATE_ROWS:]:
+        for c in r.get("top_causes") or []:
+            if c.get("key") == key:
+                cost += c.get("cost_after_check") or 0
+                hours += (parse(r["end"]) - parse(r["start"])).total_seconds() / 3600
+    return cost / hours if hours > 0 else 0.0
 
 
 def work_order(reason, facts, rows, commit):
     last = rows[-ROLL:]
-    lines = [f"Annotate cost hill-climb: {reason}. Target $0.022/clue (pre-bag level); now "
-             f"${facts['cur']:.3f}. Latest ledger rows (end, sessions, $/clue, turns/clue):"]
+    lines = [f"Annotate cost hill-climb: {reason}. Now ${facts['cur']:.3f}/clue "
+             f"(best since the last code commit ${facts['best']:.3f}). Latest ledger rows (end, sessions, $/clue, turns/clue):"]
     for r in last:
         pc, tc = r.get("cost_per_clue"), r.get("turns_per_clue")
         lines.append(f"  {r['end'][:16]}  {r['sessions']} sessions, {r.get('clues', 0)} clues, "
@@ -190,7 +190,7 @@ def work_order(reason, facts, rows, commit):
     lines.append("Ledger: ~/.cache/annotate_cost_ledger.jsonl; `python3 tools/annotate_audit.py --since "
                  "<ISO> --json` re-audits a window. Check git log for a fix already landed for this "
                  "cause; if none, spawn ONE Sonnet worker (isolation=worktree) to fix it, code-side if "
-                 "possible; target $0.022/clue.")
+                 "possible; goal is the payback above, not a fixed $/clue.")
     return "\n".join(lines)[:1900]
 
 
