@@ -2136,6 +2136,22 @@ with tempfile.TemporaryDirectory() as ue_dir:
     ue_held = lights_held([None] * 4)
     ue_path.write_text(json.dumps(ue_held))
     check("... nor with every clue counted", False, f.unenumerated_held(ue_row))
+    # short_unfitted(): this solution code's full read left the grid 1 to STRIP_MAX lights short of a
+    # puzzle held with every clue and no answer: read again once, answers-only (SHORT_UNFITTED).
+    su_row = {**ue_row, "solutionKey": f.solution_key(),
+              "verdicts": [{**ue_row["verdicts"][0], "solution": {"lights": 4, "accepted": 2}}]}
+    su_v = su_row["verdicts"][0]
+    check("a grid this code read two lights short, its puzzle held with every clue and no answer, is due",
+          [True, 2, True, True],
+          [f.short_unfitted(su_row), f.RANKS[f.SHORT_UNFITTED], f.SHORT_UNFITTED in f.SOLUTION_FIXES,
+           f.keeps_vlm(f.SHORT_UNFITTED, {}, {}) is False])
+    check("... not three short, nor whole, nor read after REREAD_SHORT_FITTED, nor by answers_only, nor by other code",
+          [False] * 5,
+          [f.short_unfitted({**su_row, "verdicts": [{**su_v, "solution": {"lights": 4, "accepted": 1}}]}),
+           f.short_unfitted({**su_row, "verdicts": [{**su_v, "solution": {"lights": 4, "accepted": 4}}]}),
+           f.short_unfitted({**su_row, "readAt": "2026-10-24T05:00:00+00:00"}),
+           f.short_unfitted({**su_row, "verdicts": [{**su_v, "answersOnly": True}]}),
+           f.short_unfitted({**su_row, "solutionKey": "old"})])
     if ue_old is None:
         del f._HELD_PATH[f.TIMES.series, 1]
     else:
