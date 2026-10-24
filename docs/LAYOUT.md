@@ -692,6 +692,9 @@ tools/annotate_prompt.md                       the prompt the daily Claude Code 
 fetching
 tools/vlm_solution_prompt.md                   the prompt the vision model gets to read one row
                                                of a printed solution grid
+tools/vlm_report_prompt.md                     the prompt the vision model gets to read one
+                                               light of a Listener report's typewritten filled
+                                               grid
 
 annotating
 tools/build_annotate_prompt.py                 regenerates that prompt’s wordplay grammar from
