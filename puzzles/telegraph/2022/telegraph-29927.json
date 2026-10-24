@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,47 @@
      }
     ]
    },
-   "solution": "ROUNDTABLE"
+   "solution": "ROUNDTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "knights sat here?",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "About",
+       "at": 0,
+       "gives": "ROUND",
+       "note": "round means about, as in 'round the corner'"
+      },
+      {
+       "words": "time",
+       "at": 6,
+       "gives": "T"
+      },
+      {
+       "words": "skilled",
+       "at": 11,
+       "gives": "ABLE",
+       "note": "able means skilled or capable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a skilled company of knights seated together, Arthurian in flavour.",
+     "walkthrough": "'About' looks like a link word introducing a topic, but it supplies the first word.",
+     "definitionFit": "Arthur's knights famously gathered at a circular table at Camelot, so this furniture is where they sat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "About"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +93,70 @@
     "text": "Meal starts to really excel with endless Italian food",
     "enumeration": "6"
    },
-   "solution": "REPAST"
+   "solution": "REPAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 5,
+         "note": "starts to points at the opening letters of the two words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "really",
+         "at": 15
+        },
+        {
+         "words": "excel",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 33,
+         "note": "endless tells us to drop the final letter of the food word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian food",
+         "at": 41,
+         "gives": "PASTA",
+         "note": "pasta is the classic Italian food"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant review: the meal really excels thanks to its Italian dish.",
+     "definitionFit": "A repast is a formal or literary word for a meal or feast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +170,36 @@
     "text": "Lower milk containers?",
     "enumeration": "6"
    },
-   "solution": "UDDERS"
+   "solution": "UDDERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lower milk containers?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Lower milk containers?",
+       "at": 0,
+       "note": "a 'lower' is read as something that lows, i.e. a cow, so these are a cow's milk containers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It seems to ask about milk containers on a lower shelf.",
+     "walkthrough": "'Lower' looks like 'more low' but is LOW-er, a mooing animal.",
+     "definitionFit": "A cow's milk is held in the bag-like mammary gland under its belly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lower"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +213,74 @@
     "text": "Day I tell off student in Cambridgeshire city on purpose",
     "enumeration": "12"
    },
-   "solution": "DELIBERATELY"
+   "solution": "DELIBERATELY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on purpose",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Day",
+       "at": 0,
+       "gives": "D"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 23,
+         "note": "in says the following pieces go inside the city name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cambridgeshire city",
+         "at": 26,
+         "gives": "ELY",
+         "note": "Ely is the cathedral city in Cambridgeshire"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "student",
+           "at": 15,
+           "gives": "L",
+           "note": "L is a learner, as on a learner driver's plate"
+          },
+          {
+           "words": "I",
+           "at": 4
+          },
+          {
+           "words": "tell off",
+           "at": 6,
+           "gives": "BERATE",
+           "note": "to berate is to scold or tell off"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells off a student in Ely one day, apparently quite intentionally.",
+     "walkthrough": "The student's L goes before 'I tell off' inside the city, though the clue names it last.",
+     "definitionFit": "Doing something deliberately means doing it intentionally, with clear intent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "student"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +294,55 @@
     "text": "Some flipping yob's appropriate court punishment",
     "enumeration": "4"
    },
-   "solution": "ASBO"
+   "solution": "ASBO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "court punishment",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "flipping",
+       "at": 5,
+       "note": "flipping says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "Some",
+         "at": 0,
+         "note": "Some says the answer is a run of letters hidden inside the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yob's appropriate",
+         "at": 14,
+         "gives": "OBSA",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated remark that some yob's court punishment is fitting.",
+     "walkthrough": "'flipping' reads as a mild British expletive but signals reading backwards. An ASBO was an Anti-Social Behaviour Order, a British court order against nuisance conduct.",
+     "definitionFit": "This British order was imposed by magistrates on people causing persistent nuisance, a court-issued sanction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +356,61 @@
     "text": "Heard lies about heading to party — this is what we expect from the PM",
     "enumeration": "10"
    },
-   "solution": "LEADERSHIP"
+   "solution": "LEADERSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this is what we expect from the PM",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 11,
+         "note": "about means the letters are moved around into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Heard lies",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading to",
+         "at": 17,
+         "note": "heading to takes the first letter of the word party"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cynical line: hearing lies around party politics is what we expect from the Prime Minister.",
+     "definitionFit": "A prime minister is expected to guide the country, showing the quality of a person in charge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +424,30 @@
     "text": "Where men might eat jam",
     "enumeration": "4"
    },
-   "solution": "MESS"
+   "solution": "MESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where men might eat",
+      "at": 0,
+      "meaning": "a dining room for military personnel"
+     },
+     {
+      "text": "jam",
+      "at": 20,
+      "meaning": "a jam is a difficult situation or predicament"
+     }
+    ],
+    "explanation": {
+     "surface": "Soldiers sitting down to eat jam.",
+     "definitionFit": "Service personnel dine in a mess hall; being in a jam or a mess both mean a predicament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "jam"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +461,68 @@
     "text": "I came up with price right away for waste",
     "enumeration": "8"
    },
-   "solution": "EMACIATE"
+   "solution": "EMACIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "waste",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 7,
+         "note": "up here means stirred up or disordered, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I came",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "at": 27,
+         "note": "away here says the letter for right departs from the price word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "price",
+         "at": 15,
+         "gives": "RATE",
+         "note": "a rate is a price or charge"
+        },
+        {
+         "words": "right",
+         "at": 21,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arrived with a price and immediately went off to waste.",
+     "definitionFit": "To waste away is to grow thin and gaunt, which is what this verb describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +536,36 @@
     "text": "Smack builders in this workplace?",
     "enumeration": "8"
    },
-   "solution": "SHIPYARD"
+   "solution": "SHIPYARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Smack builders in this workplace?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Smack builders in this workplace?",
+       "at": 0,
+       "note": "a smack is a small fishing boat, so its builders work where vessels are constructed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It suggests violent builders hitting each other at work.",
+     "walkthrough": "'Smack' looks like a verb or slap, but it is a sailing fishing boat.",
+     "definitionFit": "Boats and vessels are constructed and repaired in this kind of waterside yard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Smack"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +585,63 @@
      }
     ]
    },
-   "solution": "PADDLEBOAT"
+   "solution": "PADDLEBOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "building",
+       "at": 13,
+       "note": "building means the letters are put together in a new construction"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Adapted",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "less",
+         "at": 22,
+         "note": "less tells us to take away the letter for wide"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bowl",
+         "at": 8
+        },
+        {
+         "words": "wide",
+         "at": 27,
+         "gives": "W",
+         "note": "W is the abbreviation for wide, as in a cricket wide"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket picture: an adapted bowling action producing fewer wides.",
+     "walkthrough": "'less wide' removes W from BOWL, leaving BOL, which is shuffled with ADAPTED.",
+     "definitionFit": "A pedal-powered or paddle-wheeled boat is a small craft, a type of vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bowl"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +655,39 @@
     "text": "Minimal investment restricts African country",
     "enumeration": "4"
    },
-   "solution": "MALI"
+   "solution": "MALI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African country",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "restricts",
+       "at": 19,
+       "note": "restricts means the words hold the answer within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Minimal investment",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An economics note: minimal foreign investment is holding back an African nation.",
+     "definitionFit": "This landlocked West African state, capital Bamako, is a country in Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +707,50 @@
      }
     ]
    },
-   "solution": "VAPOURTRAILS"
+   "solution": "VAPOURTRAILS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jumbo might show these",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "at": 35,
+       "note": "crossing means one piece goes across, inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "low spirits",
+       "at": 23,
+       "gives": "VAPOURS",
+       "note": "the vapours is an old term for depression or low spirits"
+      },
+      {
+       "words": "path",
+       "at": 44,
+       "gives": "TRAIL",
+       "note": "a trail is a path"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elephant in low spirits crossing a path.",
+     "walkthrough": "'Jumbo' suggests an elephant but is a jumbo jet.",
+     "definitionFit": "A jumbo jet leaves condensation lines across the sky behind its engines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jumbo"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +764,53 @@
     "text": "Writer from south-east in bed? On the contrary",
     "enumeration": "6"
    },
-   "solution": "SCRIBE"
+   "solution": "SCRIBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "in places one piece within another"
+      },
+      {
+       "text": "On the contrary",
+       "at": 31,
+       "note": "On the contrary swaps the roles, so the bed goes inside the compass point"
+      }
+     ],
+     "parts": [
+      {
+       "words": "south-east",
+       "at": 12,
+       "gives": "SE"
+      },
+      {
+       "words": "bed",
+       "at": 26,
+       "gives": "CRIB",
+       "note": "a crib is a baby's bed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is the writer from the south-east of England, or in bed?",
+     "walkthrough": "'On the contrary' flips the clue's literal container instruction, so the bed holds nothing and is held instead.",
+     "definitionFit": "A scribe was a professional copyist; the word is also used loosely for any author or journalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +824,59 @@
     "text": "Truth about tucking into new variety",
     "enumeration": "8"
    },
-   "solution": "VERACITY"
+   "solution": "VERACITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Truth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucking into",
+       "at": 12,
+       "note": "tucking into means the short piece is placed within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 25,
+         "note": "new means the following letters are made into a fresh arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "variety",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "words": "about",
+       "at": 6,
+       "gives": "C",
+       "note": "C is short for circa, Latin for about"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone discusses the truth about tucking into a new variety of food.",
+     "walkthrough": "'new' turns VARIETY into VERAITY, and C goes inside it.",
+     "definitionFit": "Veracity is truthfulness or accuracy, a formal synonym for truth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tucking"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +896,58 @@
      }
     ]
    },
-   "solution": "NITRICACID"
+   "solution": "NITRICACID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This could be found in explosive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "exchange",
+       "at": 33,
+       "note": "exchange means the letters swap places"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 56,
+         "note": "leaving says the hospital letter departs from the pool"
+        }
+       ],
+       "parts": [
+        {
+         "words": "critic had in",
+         "at": 42
+        },
+        {
+         "words": "hospital",
+         "at": 64,
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An explosive row with a critic who had just been discharged from hospital.",
+     "walkthrough": "Remove H from CRITIC HAD IN, then rearrange the remaining letters ('exchange').",
+     "definitionFit": "This acid is used to make explosives such as TNT and nitroglycerine, so it is an ingredient of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "explosive"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +961,55 @@
     "text": "Small walk after school to get anorak at the station?",
     "enumeration": "12"
    },
-   "solution": "TRAINSPOTTER"
+   "solution": "TRAINSPOTTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "anorak at the station?",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 11,
+       "note": "after says the walking pieces come behind the school word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "school",
+       "at": 17,
+       "gives": "TRAIN",
+       "note": "to train is to school or teach"
+      },
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "walk",
+       "at": 6,
+       "gives": "POTTER",
+       "note": "to potter is to walk about in a leisurely way"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short walk after school leads to buying a coat at the station.",
+     "walkthrough": "'anorak' is British slang for an obsessive hobbyist, the stereotype being a rail enthusiast noting engine numbers.",
+     "definitionFit": "A rail enthusiast logging locomotive numbers on platforms is the archetypal obsessive geek."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "anorak"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +1023,62 @@
     "text": "Old boy with very large settee, not oddly out-of-date",
     "enumeration": "8"
    },
-   "solution": "OBSOLETE"
+   "solution": "OBSOLETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out-of-date",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old boy",
+       "at": 0,
+       "gives": "OB",
+       "note": "OB is short for old boy, a former pupil"
+      },
+      {
+       "words": "very",
+       "at": 13,
+       "gives": "SO",
+       "note": "so means very, as in 'so good'"
+      },
+      {
+       "words": "large",
+       "at": 18,
+       "gives": "L"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "not oddly",
+         "at": 32,
+         "note": "not oddly means take the even letters, skipping the odd ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "settee",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former pupil with a huge sofa that looks dated.",
+     "definitionFit": "Something obsolete is no longer in use, outmoded or superseded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1092,76 @@
     "text": "Skier perhaps did this second demonstration, upset after all collapsed",
     "enumeration": "8"
    },
-   "solution": "SLALOMED"
+   "solution": "SLALOMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skier perhaps did this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 51,
+       "note": "after places the next piece behind the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "second",
+       "at": 23,
+       "gives": "S"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "collapsed",
+         "at": 61,
+         "note": "collapsed means the letters have fallen into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "all",
+         "at": 57
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 45,
+         "note": "upset in a down clue means turned upside down, so read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "demonstration",
+         "at": 30,
+         "gives": "DEMO",
+         "note": "a demo is a demonstration"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second demonstration was upset after everyone collapsed.",
+     "walkthrough": "'collapsed' turns ALL into LAL; 'upset' reverses DEMO to OMED.",
+     "definitionFit": "A skier zigzagging between gates on a downhill course did this kind of race."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "demonstration"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1181,40 @@
      }
     ]
    },
-   "solution": "BULLTERRIERS"
+   "solution": "BULLTERRIERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dogs",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "worried",
+       "at": 14,
+       "note": "worried, as a dog worries something, means the letters are shaken about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Terrible slur",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A terrible insult upset some dogs.",
+     "definitionFit": "These are muscular terrier breeds such as the English and Staffordshire types of dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1228,46 @@
     "text": "Location south of a street",
     "enumeration": "6"
    },
-   "solution": "AVENUE"
+   "solution": "AVENUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "street",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "south of",
+       "at": 9,
+       "note": "south of in a down clue means placed below, so after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 18
+      },
+      {
+       "words": "Location",
+       "at": 0,
+       "gives": "VENUE",
+       "note": "a venue is a location for an event"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A place lying south of a street.",
+     "definitionFit": "An avenue is a broad road in a town, often tree-lined."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Location"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1281,41 @@
     "text": "Bad actor allowed leading role",
     "enumeration": "6"
    },
-   "solution": "HAMLET"
+   "solution": "HAMLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "leading role",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bad actor",
+       "at": 0,
+       "gives": "HAM",
+       "note": "a ham is a bad, over-the-top actor"
+      },
+      {
+       "words": "allowed",
+       "at": 10,
+       "gives": "LET",
+       "note": "let means allowed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor actor got the starring part.",
+     "walkthrough": "HAMLET is Shakespeare's Danish prince.",
+     "definitionFit": "The Prince of Denmark is the title character and lead part in Shakespeare's tragedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1335,43 @@
      }
     ]
    },
-   "solution": "OILSLICK"
+   "solution": "OILSLICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crude in the main",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Grease",
+       "at": 0,
+       "gives": "OIL",
+       "note": "oil is grease or lubricant"
+      },
+      {
+       "words": "sophisticated",
+       "at": 7,
+       "gives": "SLICK",
+       "note": "slick means smooth and sophisticated"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quip about whether greasy hair is sophisticated or crude.",
+     "walkthrough": "'the main' is the sea, and 'Crude' is crude petroleum, not vulgar.",
+     "definitionFit": "A spill of crude petroleum spreading across the sea's surface is the image here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crude"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1385,63 @@
     "text": "Pilot almost swallowing six trifles",
     "enumeration": "6"
    },
-   "solution": "TRIVIA"
+   "solution": "TRIVIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trifles",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "swallowing",
+       "at": 13,
+       "note": "swallowing means one piece takes the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 6,
+         "note": "almost means drop the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pilot",
+         "at": 0,
+         "gives": "TRIAL",
+         "note": "a pilot study is a trial"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "six",
+       "at": 24,
+       "gives": "VI",
+       "note": "VI is six in Roman numerals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot nearly swallowing six trifles for dessert.",
+     "definitionFit": "Trivia are trivial matters, small unimportant things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pilot"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1455,45 @@
     "text": "Blubber from sea mammal, we're told",
     "enumeration": "4"
    },
-   "solution": "WAIL"
+   "solution": "WAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blubber",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WAIL",
+     "indicators": [
+      {
+       "text": "we're told",
+       "at": 25,
+       "note": "we're told says we hear the word rather than see it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sea mammal",
+       "at": 13,
+       "gives": "WHALE",
+       "note": "a whale is a large sea mammal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Blubber comes from a sea mammal, apparently.",
+     "walkthrough": "'Blubber' looks like whale fat, but it is the verb meaning to cry noisily.",
+     "definitionFit": "To blubber is to sob or cry loudly, the same as a loud howl of grief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blubber"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1507,39 @@
     "text": "Trees he climbs on a regular basis",
     "enumeration": "4"
    },
-   "solution": "ELMS"
+   "solution": "ELMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trees",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "on a regular basis",
+       "at": 16,
+       "note": "on a regular basis takes every second letter of the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "he climbs",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man regularly climbs trees.",
+     "definitionFit": "These are deciduous hardwood trees, many lost to Dutch elm disease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1553,46 @@
     "text": "Odd social event adult left",
     "enumeration": "10"
    },
-   "solution": "OCCASIONAL"
+   "solution": "OCCASIONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Odd",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "social event",
+       "at": 4,
+       "gives": "OCCASION",
+       "note": "an occasion is a social event"
+      },
+      {
+       "words": "adult",
+       "at": 17,
+       "gives": "A",
+       "note": "A is the abbreviation for adult, as in film ratings"
+      },
+      {
+       "words": "left",
+       "at": 23,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange adult walked out of a party.",
+     "definitionFit": "Odd can mean happening now and then, as in 'the odd drink', i.e. infrequent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1606,47 @@
     "text": "Finishes repairs with minutes to go",
     "enumeration": "4"
    },
-   "solution": "ENDS"
+   "solution": "ENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Finishes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to go",
+       "at": 30,
+       "note": "with ... to go says the minutes letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "repairs",
+       "at": 9,
+       "gives": "MENDS",
+       "note": "mends means repairs"
+      },
+      {
+       "words": "minutes",
+       "at": 22,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A workman finishes the repairs with minutes to spare.",
+     "definitionFit": "Ends as a verb means finishes or concludes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "minutes"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1660,48 @@
     "text": "Teenager upset with the French perfume",
     "enumeration": "10"
    },
-   "solution": "ADOLESCENT"
+   "solution": "ADOLESCENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Teenager",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "upset",
+       "at": 9,
+       "gives": "ADO",
+       "note": "ado is fuss or upset"
+      },
+      {
+       "words": "the French",
+       "at": 20,
+       "gives": "LE",
+       "note": "le is French for the"
+      },
+      {
+       "words": "perfume",
+       "at": 31,
+       "gives": "SCENT",
+       "note": "scent is perfume"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager is upset about a French perfume.",
+     "walkthrough": "'upset' looks like an adjective or anagram signal but is a noun meaning fuss.",
+     "definitionFit": "Someone in their teens is a young person in the stage between child and adult."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   }
  ]
 }
