@@ -1158,6 +1158,45 @@ check("(mirror) neighbours implying a number two digits off mend nothing",
       None, f.mended_digit(5421, D("1983-02-18"), 5099, {5100: D("1983-02-17"), 5102: D("1983-02-19")}))
 check("with no neighbours, the hundreds digit that brings it near the date's number is mended",
       5101, f.mended_digit(5401, D("1983-02-18"), 5099, {}))
+# issue_dated(): an FT item title's date is weighed against the editions
+# numbered either side of its issue. #26722, titled Jul 16 1975 between #26721
+# (Fri Jul 18) and #26723 (Mon Jul 21), is Saturday Jul 19 (ftcryptic-2833).
+ft75 = ["1975-04-30_26654", "1975-05-01_26664", "1975-05-02_26656", "1975-05-10_26663", "1975-05-12_26664",
+        "1975-05-13_26665", "1975-07-15_26718", "1975-07-16_26719", "1975-07-16_26722", "1975-07-17_26720",
+        "1975-07-18_26721", "1975-07-21_26723"]
+check("a title date out of order with its issue neighbours is the day both count to",
+      (D("1975-07-19"), None, True), f.issue_dated("1975-07-16_26722", D("1975-07-16"), ft75))
+check("(mirror) a title date its issue neighbours bracket stands, vouched for",
+      (D("1975-07-16"), None, True), f.issue_dated("1975-07-16_26719", D("1975-07-16"), ft75))
+check("a misread issue number (#26664 for #26655) counting to another edition's date leaves the title's",
+      (D("1975-05-01"), None, False), f.issue_dated("1975-05-01_26664", D("1975-05-01"), ft75))
+check("(mirror) the edition its shared issue number is right for stands, vouched for",
+      (D("1975-05-12"), None, True), f.issue_dated("1975-05-12_26664", D("1975-05-12"), ft75))
+ft89 = ["1989-01-20_30748", "1989-01-22_30749", "1989-01-23_30750", "1989-04-28_30830", "1989-04-30_30831",
+        "1989-05-02_30832"]
+check("an FT edition titled on a Sunday is the Saturday its issue neighbours count to",
+      (D("1989-01-21"), None, True), f.issue_dated("1989-01-22_30749", D("1989-01-22"), ft89))
+check("(mirror) a Sunday its issue neighbours do not settle is refused",
+      (None, True), (lambda r: (r[0], bool(r[1])))(f.issue_dated("1989-04-30_30831", D("1989-04-30"), ft89)))
+check("issue_step skips Sundays both ways", [D("1975-07-21"), D("1975-07-19"), D("1975-07-19")],
+      [f.issue_step(D("1975-07-19"), 1), f.issue_step(D("1975-07-21"), -1), f.issue_step(D("1975-07-18"), 1)])
+# ft_dated(): a date another number is filed for, or out of order with the
+# puzzles numbered either side, moves to the day those count to.
+# ftcryptic-2262, from #26148 titled Aug 30 1973 (a date its issue
+# neighbours vouch for), is Aug 31: 2261 is filed for Aug 30, 2264 for Sep 3.
+held73 = {2259: D("1973-08-28"), 2260: D("1973-08-29"), 2261: D("1973-08-30"), 2264: D("1973-09-03")}
+check("a date another FT number is filed for moves to the day its numbered neighbours count to",
+      (D("1973-08-31"), None), f.ft_dated(2262, D("1973-08-30"), held73, True))
+check("... and placed() keeps its number there", (2262, None), f.placed(2262, D("1973-08-31"), held73))
+held75 = {2829: D("1975-07-15"), 2832: D("1975-07-18"), 2834: D("1975-07-21")}
+check("a date out of number order, not vouched for by issue, moves",
+      (D("1975-07-19"), None), f.ft_dated(2833, D("1975-07-16"), held75, False))
+check("(mirror) one vouched for by issue and filed for no other number stays: the number is the misread",
+      (D("1975-07-16"), None), f.ft_dated(2833, D("1975-07-16"), held75, True))
+check("(mirror) a date in number order stays", (D("1975-07-19"), None), f.ft_dated(2833, D("1975-07-19"), held75, True))
+check("a taken date its numbered neighbours do not settle is refused",
+      (None, True), (lambda r: (r[0], bool(r[1])))(f.ft_dated(2262, D("1973-08-30"),
+                                                              {2261: D("1973-08-30"), 2264: D("1973-09-08")}, True)))
 check("(mirror) a number two digits from the date's, or only its units digit, is not mended",
       [None, None, None], [f.mended_digit(5481, D("1983-02-18"), 5099, {}),
                            f.mended_digit(20212, D("1965-07-05"), 10914, {}),
@@ -4296,6 +4335,11 @@ ft83 = {"date": "1983-02-18", "puzzles": [{"number": 5401, "leaf": 1}], "solutio
 check("an FT title read 5,401 on 1983-02-18 files as 5,101, not refused as misdated",
       (5101, None), f.filed_number(Path("x/FinancialTimes1983UKEnglish/1983-02-18_29003"), ft83,
                                    {"number": 5401, "leaf": 1})[::2])
+ft2833 = {"date": "1975-07-16", "puzzles": [{"number": 2833, "leaf": 1}], "solutions": [],
+          "editions": ["1975-07-16_26719", "1975-07-16_26722", "1975-07-18_26721", "1975-07-21_26723"]}
+check("an FT title files for the day its edition's issue neighbours give, not the item title's (ftcryptic-2833)",
+      (2833, _dt.date(1975, 7, 19), None),
+      f.filed_number(Path("x/FinancialTimes1975UKEnglish/1975-07-16_26722"), ft2833, {"number": 2833, "leaf": 1}))
 # Four columns under the grid: ACROSS down the first two over the DOWN
 # heading, DOWN under it and on down the third and fourth, which stop at the
 # previous solution's heading.

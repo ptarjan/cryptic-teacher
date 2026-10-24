@@ -3684,6 +3684,7 @@ class Held(dict):
     def __init__(self, *a, **k):
         super().__init__(*a, **k)
         self.pairs = sorted((d, m) for m, d in self.items())
+        self.numbers = sorted(self)
         self.on_day = {}
         for d, m in self.pairs:
             self.on_day.setdefault(d, []).append(m)
@@ -4091,16 +4092,151 @@ def issue_day(day, n, numbers, item=""):
     return day
 
 
+#: An archive.org FT edition dir's name, "<date>_<issue>": the date its item
+#: title gives and the masthead's issue number, one an issue (six a week,
+#: none on Sunday). The titles are wrong now and then (#26722 is titled
+#: Jul 16 1975 between #26721 of Jul 18 and #26723 of Jul 21), and so are the
+#: issue numbers (#26664 for #26655 on 1 May 1975), so issue_dated weighs
+#: each against the other.
+EDITION_ISSUE = re.compile(r"(\d{4}-\d\d-\d\d)_(\d+)$")
+#: How many issues from the item title's date a date its puzzle number's
+#: filed neighbours count to may lie for numbered_day to move it there.
+MOVE_ISSUES = 6
+
+
+def issue_step(day, k):
+    """The day `k` issues after `day` (before it, `k` negative): six a week,
+    none on Sunday."""
+    one = datetime.timedelta(days=1 if k > 0 else -1)
+    for _ in range(abs(k)):
+        day += one
+        day += one * (day.weekday() == 6)
+    return day
+
+
+def edition_issues(names):
+    """[(issue, date)] of the "<date>_<issue>" edition dir `names`."""
+    return _edition_issues(tuple(names))
+
+
+@functools.lru_cache(maxsize=256)
+def _edition_issues(names):
+    """edition_issues of a tuple, kept: a plan weighs every FT edition."""
+    out = []
+    for m in filter(None, map(EDITION_ISSUE.match, names)):
+        try:
+            out.append((int(m.group(2)), datetime.date.fromisoformat(m.group(1))))
+        except ValueError:
+            continue
+    return out
+
+
+def item_editions(d, found):
+    """The edition dir names of `d`'s item: the scan's `editions` when the
+    request carries them (a desktop read holds only its own edition's dir),
+    else the item's listing."""
+    return found.get("editions") or dir_cache.listed(d.parent)
+
+
+def issue_dated(name, day, names):
+    """(day, None, sure) the edition dir `name` ("<date>_<issue>"), its item
+    title dating it `day`, prints, among its item's edition dir `names`; or
+    (None, why, False) when nothing settles it. The editions numbered either
+    side of its issue (the nearest, each number held by one edition only)
+    weigh the title: a date strictly between theirs and no Sunday stands
+    (`sure` when both count to it, one number an issue). Else the day both
+    count to stands (`sure`), unless another edition is dated it: then the
+    issue number is the misread. Else a title date no other edition holds and
+    no Sunday stands, not sure; a clashing one is refused."""
+    m = EDITION_ISSUE.match(name)
+    if not m:
+        return day, None, False
+    issue = int(m.group(2))
+    eds = [(i, e) for i, e in edition_issues(names) if f"{e.isoformat()}_{i}" != name]
+    count = collections.Counter(i for i, _ in eds)
+    once = [(i, e) for i, e in eds if count[i] == 1 and i != issue]
+    below = max((p for p in once if p[0] < issue), default=None)
+    above = min((p for p in once if p[0] > issue), default=None)
+    counted = [issue_step(e, issue - i) for i, e in filter(None, (below, above))]
+    if day.weekday() != 6 and (not below or below[1] < day) and (not above or day < above[1]):
+        return day, None, len(counted) == 2 and counted[0] == counted[1] == day
+    dated = {e for _, e in eds}
+    if len(counted) == 2 and counted[0] == counted[1] and counted[0] not in dated:
+        return counted[0], None, True
+    if day.weekday() != 6 and day not in dated:
+        return day, None, False
+    return None, (f"edition {name} is dated {day}{' (a Sunday)' * (day.weekday() == 6)}, out of order with "
+                  f"{' and '.join(f'#{i} of {e}' for i, e in filter(None, (below, above))) or 'no other edition'}, "
+                  f"which do not settle its date"), False
+
+
+def numbered_either_side(n, held):
+    """(lo, hi): the nearest filed numbers below and above `n` in `held`
+    ({number: date}), each None when there is none."""
+    numbers = Held.of(held).numbers
+    i, j = bisect.bisect_left(numbers, n), bisect.bisect_right(numbers, n)
+    return numbers[i - 1] if i else None, numbers[j] if j < len(numbers) else None
+
+
+def numbered_day(n, held):
+    """The day the filed puzzles numbered either side of No `n` in `held`
+    ({number: date}) both count to, one number an issue, or None when
+    either is missing or they disagree."""
+    lo, hi = numbered_either_side(n, held)
+    if lo is None or hi is None:
+        return None
+    day = issue_step(held[lo], n - lo)
+    return day if day == issue_step(held[hi], n - hi) else None
+
+
+def ft_dated(n, day, held, sure):
+    """(day, None) No `n`, printed in an FT edition the item title (issue_dated
+    weighed) dates `day`, files for, or (None, why). A date another number is
+    filed for, or not strictly between the dates of the filed puzzles
+    numbered either side of `n`, clashes: the day those count to (numbered_day,
+    within MOVE_ISSUES) stands instead when it is free, unless the edition's
+    issue neighbours vouch for `day` (`sure`) and nothing is filed for it,
+    when the number is the misread (placed: ftcryptic-2262, from #26148
+    titled Aug 30 1973, files for Aug 31 between 2261 on Aug 30 and 2264 on
+    Sep 3)."""
+    held = Held.of(held)
+    on = [m for m in held.on_day.get(day, ()) if m != n]
+    lo, hi = numbered_either_side(n, held)
+    clash = on or (lo is not None and held[lo] >= day) or (hi is not None and held[hi] <= day) \
+        or n in held and held[n] != day
+    if not clash:
+        return day, None
+    moved = numbered_day(n, held)
+    free = moved is not None and moved.weekday() != 6 and not held.on_day.get(moved) \
+        and held.get(n, moved) == moved
+    if free and (on or not sure) and abs(moved - day).days <= MOVE_ISSUES * 7 / 6 + 1:
+        return moved, None
+    if on:
+        return None, f"No {n} on {day}: No {on[0]} is filed for that day and its neighbours do not settle another"
+    return day, None
+
+
 def filed_number(d, found, hit):
     """(number, day, None) that a title files as, or (None, day, why) it is
     refused."""
     n = hit["number"]
     paper = paper_of(d)
-    day = issue_day(datetime.date.fromisoformat(found["date"]), n, [h["number"] for h in found["puzzles"]],
-                    found.get("item"))
+    edition = datetime.date.fromisoformat(found["date"])
+    sure = False
+    if paper is FT:
+        dated, why, sure = issue_dated(d.name, edition, item_editions(d, found))
+        if why:
+            return None, edition, why
+        edition = dated
+    day = issue_day(edition, n, [h["number"] for h in found["puzzles"]], found.get("item"))
     if paper in (TIMES, GALE) and day.weekday() == 6:
         return None, day, f"{day} is a Sunday and the Times prints no daily cryptic on it: a Sunday paper's puzzle"
     held = held_dates(paper.series)
+    if paper is FT:
+        moved, why = ft_dated(n, day, held, sure)
+        if why:
+            return None, day, why
+        day = moved
     if "fromSolutions" in hit:
         n, why = solution_title(day, hit["fromSolutions"], held)
         if why:

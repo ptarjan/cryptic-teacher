@@ -610,5 +610,30 @@ lights = {"entries": [
 same("lost_word_breaks names only the grid-counted light", rf.fetcher.lost_word_breaks(lights, breaks), {"2-across": "5,8"})
 rf.fetcher.answer_breaks.cache_clear()
 
+print("misdated_ft: an FT date on a Sunday, another number's day or out of number order is redated "
+      "to the day its numbered neighbours count to, or left")
+import datetime as _d
+D = _d.date.fromisoformat
+url = ("https://archive.org/details/FinancialTimes1989UKEnglish/"
+       "Jan%2022%201989%2C%20Financial%20Times%2C%20%2330749%2C%20UK%20%28en%29/page/n43/mode/1up")
+same("an FT page url names its item and edition dir", rf.ft_edition(url),
+     ("FinancialTimes1989UKEnglish", "1989-01-22_30749"))
+rows = [(6839, D("1989-01-20"), None), (6840, D("1989-01-22"), url), (6841, D("1989-01-23"), None)]
+same("a Sunday between Friday's and Monday's numbers is the Saturday",
+     [(n, fixed) for n, _s, fixed, _c, _w in rf.misdated_ft(rows)], [(6840, D("1989-01-21"))])
+rows = [(2259, D("1973-08-28"), None), (2260, D("1973-08-29"), None), (2261, D("1973-08-30"), None),
+        (2262, D("1973-08-30"), None), (2264, D("1973-09-03"), None)]
+same("of two numbers on one day, the one its neighbours count elsewhere moves and the other is left (ftcryptic-2262)",
+     [(n, fixed) for n, _s, fixed, _c, _w in rf.misdated_ft(rows)], [(2261, None), (2262, D("1973-08-31"))])
+rows = [(3681, D("1978-07-01"), None), (3682, D("1978-07-02"), None), (3683, D("1978-07-03"), None)]
+same("(mirror) a Sunday with no free day between its numbered neighbours is left",
+     [(n, fixed) for n, _s, fixed, _c, _w in rf.misdated_ft(rows)], [(3682, None)])
+rows = [(2829, D("1975-07-15"), None), (2833, D("1975-07-16"), None), (2834, D("1975-07-21"), None),
+        (2832, D("1975-07-18"), None)]
+same("a date out of number order moves to the day its neighbours count to (ftcryptic-2833)",
+     [(n, fixed) for n, _s, fixed, _c, _w in rf.misdated_ft(rows) if n == 2833], [(2833, D("1975-07-19"))])
+same("(mirror) dates in number order are not listed",
+     rf.misdated_ft([(1, D("1975-07-15"), None), (2, D("1975-07-16"), None)]), [])
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)
