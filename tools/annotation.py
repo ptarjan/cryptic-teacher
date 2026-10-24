@@ -493,6 +493,23 @@ def _blocks(node, got):
     return [b for p in parts for b in _blocks(p, got)]
 
 
+def repeat_copy_letters(tree):
+    """The letters of the second copy every `repeat` step in `tree` writes out.
+    The view shows a repeat's one copy as its blocks (the app says "twice" in
+    the indicator), so the blocks fall one copy short of the answer by design:
+    PAWPAW's blocks give PA + W. This is the missing copy, for a check that adds
+    the blocks' letters up to the answer."""
+    import wordplay
+    out = ""
+    for n, _ in _walk(tree or {}):
+        if n.get("op") == "repeat" and not n.get("unchecked"):
+            try:
+                out += "".join(_letters(b.get("gives")) for p in _parts(n) for b in _blocks(p, {}))
+            except wordplay.WordplayError:
+                pass
+    return out
+
+
 def _cut(pieces, at):
     """`pieces` split at letter offset `at`, a piece cut in two if need be."""
     before, after, seen = [], [], 0
