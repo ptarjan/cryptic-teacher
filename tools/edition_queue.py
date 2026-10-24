@@ -1269,12 +1269,9 @@ def vlm_feed_reads():
 
 def vlm_feed_target():
     """The asks (spooled plus VLM-needing reads in flight) the queue keeps the VLM fed with:
-    CT_VLM_FEED (default 4), at least the stage's slots + PIPELINE."""
-    try:
-        n = int(os.environ.get("CT_VLM_FEED", "4"))
-    except ValueError:
-        n = 4
-    return max(n, vlm_reader.slots() + vlm_reader.PIPELINE)
+    CT_VLM_FEED (default 4), at least the stage's slots + PIPELINE (vlm_reader.feed_target: a read
+    below it waits in-process for its spooled asks' answers rather than defer)."""
+    return vlm_reader.feed_target()
 
 
 def vlm_feed_scans():
@@ -2803,12 +2800,15 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 # works. It waits here, free, until the spool is below its cap.
                 full_held.add(key_of(u))
                 return True
-            if defer_until.get(key_of(u), 0) > time.monotonic():
-                return True  # deferred again and again for its asks: backed off (DEFER_BACKOFF)
             if key_of(u) in spool_wait:
                 if any(vlm_reader.pending(k) for k in spool_wait[key_of(u)]):
                     return True
                 del spool_wait[key_of(u)]  # answered: its asks hit the cache now
+                # ... and it starts at once: the backoff spares OCR redone for asks still unanswered, and
+                # 10-24 held reads whose asks an idle drainer answered in seconds for 120 s+ (the GPU at 0%).
+                defer_until.pop(key_of(u), None)
+            elif defer_until.get(key_of(u), 0) > time.monotonic():
+                return True  # deferred again and again for its asks: backed off (DEFER_BACKOFF)
             if not vlm_now:
                 vlm_now.append(time.monotonic() - vlm_lost_at[0] >= VLM_RECHECK and vlm_up())
                 if vlm_now[0] and vlm_held:

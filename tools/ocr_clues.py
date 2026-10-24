@@ -4507,40 +4507,51 @@ def vlm_pick(texts, laid, blank, parse, pick, lengths=None):
     clue, shown every reading's text for it (the VLM's own column reading
     among them), or None. A pick the desktop's spool queued (vlm_reader.Spooled)
     does not stop the rest: every blank clue is spooled in this one pass, then the
-    first Spooled is raised (the read defers once, not once per blank clue)."""
-    from vlm_reader import Spooled
+    first Spooled is raised (the read defers once, not once per blank clue), unless the spool is
+    shallow and vlm_reader.settled() gets their answers in: then those clues are picked again,
+    from the cache."""
+    import vlm_reader
     laid, blank = dict(laid), dict(blank)
-    spooled = None
-    for lid in list(blank):
-        cands = candidates(texts, lid, parse)
-        if not cands:
-            continue
-        # A light no reader laid has no count of its own: the grid's `lengths` give it one (FT
-        # 1981-10-19: 14 of the 16 picks were for lights with none, so the worn-page rule never ran).
-        enum = laid[lid][1] or (str(lengths[lid]) if lengths and lengths.get(lid) else None)
-        own = settled_by_vlm(texts, lid, parse, cands, enum) or clean_inside(cands, laid[lid][1]) \
-            or agreed_past_footer(cands, laid[lid][1])
-        if own is not None:
-            got = trimmed(held(clean(strip_count(own)), cands), lid)
-            if tokens(got) and not merged(got):
-                laid[lid] = (got, laid[lid][1], laid[lid][2])
-                del blank[lid]
-                continue
-        try:
-            asked = pick(lid, cands)
-        except Spooled as e:
-            spooled = spooled or e
-            continue
-        # The model copies the solution-box footer under the last across clue along with it
-        # ("... hair (8) WORD 23,105"); a clue ends at its count.
-        got = trimmed(held(clean(strip_count(footer_cut(asked or ""))), cands), lid)
-        if not tokens(got) or merged(got):
-            continue
-        laid[lid] = (got, laid[lid][1], laid[lid][2])
-        del blank[lid]
-    if spooled:
-        raise spooled
+    snap, errs, left = vlm_reader.flags(), [], []
+    with vlm_reader.batched():
+        for lid in list(blank):
+            try:
+                _vlm_pick_one(texts, laid, blank, parse, pick, lengths, lid)
+            except vlm_reader.Spooled as e:
+                errs.append(e)
+                left.append(lid)
+    if errs:
+        if not vlm_reader.settled(snap, errs):
+            raise errs[0]
+        for lid in left:
+            _vlm_pick_one(texts, laid, blank, parse, pick, lengths, lid)
     return laid, blank
+
+
+def _vlm_pick_one(texts, laid, blank, parse, pick, lengths, lid):
+    """vlm_pick's work for the blank light `lid`: `laid` and `blank` are updated in place."""
+    cands = candidates(texts, lid, parse)
+    if not cands:
+        return
+    # A light no reader laid has no count of its own: the grid's `lengths` give it one (FT
+    # 1981-10-19: 14 of the 16 picks were for lights with none, so the worn-page rule never ran).
+    enum = laid[lid][1] or (str(lengths[lid]) if lengths and lengths.get(lid) else None)
+    own = settled_by_vlm(texts, lid, parse, cands, enum) or clean_inside(cands, laid[lid][1]) \
+        or agreed_past_footer(cands, laid[lid][1])
+    if own is not None:
+        got = trimmed(held(clean(strip_count(own)), cands), lid)
+        if tokens(got) and not merged(got):
+            laid[lid] = (got, laid[lid][1], laid[lid][2])
+            del blank[lid]
+            return
+    asked = pick(lid, cands)  # Spooled: vlm_pick's to settle
+    # The model copies the solution-box footer under the last across clue along with it
+    # ("... hair (8) WORD 23,105"); a clue ends at its count.
+    got = trimmed(held(clean(strip_count(footer_cut(asked or ""))), cands), lid)
+    if not tokens(got) or merged(got):
+        return
+    laid[lid] = (got, laid[lid][1], laid[lid][2])
+    del blank[lid]
 
 
 # ------------------------------------------------------------ as the readings print it

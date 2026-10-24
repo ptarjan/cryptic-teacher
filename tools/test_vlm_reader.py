@@ -597,6 +597,7 @@ def fake_ok(req, timeout=None):
     asked.append(1)
     return io.BytesIO(json.dumps({"choices": [{"message": {"content": "spoolt"}}]}).encode())
 urllib.request.urlopen = fake_ok
+os.environ[vlm.SPOOL_WAIT_ENV] = "0"  # no drainer runs here: the reads defer at once (the wait's own cases are below)
 os.environ[vlm.SPOOL_ENV] = "1"
 cols = [Image.new("L", (400, 300), 31 + i) for i in range(3)]
 try:
@@ -790,6 +791,75 @@ for _k in vlm.spooled():
 vlm.full_mark(os.getpid()).unlink(missing_ok=True)
 os.environ.pop("CT_VLM_SPOOL_MAX")
 os.environ.pop("CT_VLM_SPOOL_MAX_FILE")
+vlm._MISSED[0] = False
+vlm._CAUSE[0] = ""
+
+# A shallow spool (others' asks below feed_target): a read that spools asks waits here for the drainer's
+# answers and reads on, no deferral, its miss state untouched (10-24: FT reads deferred for 1-3 asks an idle
+# drainer answered in seconds, then redid their OCR after a 120 s+ backoff). A deep spool still defers at once.
+for _k in vlm.spooled():
+    vlm.drain_one()
+os.environ[vlm.SPOOL_WAIT_ENV] = "10"
+os.environ[vlm.SPOOL_ENV] = "1"
+vlm._SLOTS[0] = 1
+vlm.PIPELINE = 0
+vlm._WAITED[0] = 0.0
+_real_poll = vlm.SPOOL_POLL
+vlm.SPOOL_POLL = 0.02
+urllib.request.urlopen = fake_ok
+_stop = threading.Event()
+def _drainer():
+    while not _stop.is_set():
+        if not vlm.drain_one():
+            real_sleep(0.02)
+_dt = threading.Thread(target=_drainer, daemon=True)
+_dt.start()
+_n0, _u0 = len(asked), vlm.unanswered()
+check("a shallow spool: one ask waits for the drainer's answer", ("spoolt", False, _u0),
+      (vlm.ask_png(b"wait-one", "p", 10), vlm.missed(), vlm.unanswered()))
+_wcols = [Image.new("L", (400, 300), 141 + i) for i in range(3)]
+check("... a read_all spools all its columns, waits once and reads on", (["spoolt"] * 3, False, _u0, 4),
+      (vlm.read_all(_wcols), vlm.missed(), vlm.unanswered(), len(asked) - _n0))
+_wpage = Image.new("L", (400, 300), 151)
+check("... read_columns too, in the boxes' order", (["spoolt"] * 2, False),
+      (vlm.read_columns("wait-page", _wpage, [(0, 0, 100, 100), (200, 0, 300, 100)]), vlm.missed()))
+_wpk = ocr_clues.vlm_pick(pk_texts, pk_laid, pk_blank, f.parse, lambda lid, cands: vlm.pick_in(_wpage, lid, cands))
+check("... and vlm_pick's picks, without deferring", (False, _u0), (vlm.missed(), vlm.unanswered()))
+_stop.set()
+_dt.join(10)
+# No drainer: the wait ends at its bound and the read defers as before.
+os.environ[vlm.SPOOL_WAIT_ENV] = "0.2"
+_t0 = time.monotonic()
+try:
+    vlm.read_all([Image.new("L", (400, 300), 161)])
+    _wraised = None
+except vlm.Spooled as e:
+    _wraised = len(e.keys)
+check("no answer within the bound: the read defers, its asks named", (1, True, "spooled", True),
+      (_wraised, vlm.missed(), vlm.cause(), time.monotonic() - _t0 < 5))
+for _k in vlm.spooled():
+    vlm.drain_one()
+vlm._MISSED[0] = False
+vlm._CAUSE[0] = ""
+# A deep spool (others' asks at feed_target): no wait at all.
+os.environ[vlm.SPOOL_WAIT_ENV] = "10"
+for _i in range(vlm.feed_target()):
+    _dk = f"deep{_i}".ljust(40, "z")  # not a key answered above
+    vlm.put_spool(_dk, b"deep%d" % _i, "p", 10)
+    (vlm.spool_dir() / (_dk + ".json")).write_text(json.dumps({"prompt": "p", "max_tokens": 10, "pid": 424242, "at": 0}))
+_t0 = time.monotonic()
+try:
+    vlm.ask_png(b"deep-mine", "p", 10)
+    _draised = False
+except vlm.Spooled as e:
+    _draised = e.keys == [vlm.ask_key(b"deep-mine", "p")]
+check("a deep spool: the ask defers at once, as before", (True, True, True),
+      (_draised, vlm.missed(), time.monotonic() - _t0 < 1))
+for _k in vlm.spooled():
+    vlm.drain_one()
+vlm.SPOOL_POLL = _real_poll
+os.environ.pop(vlm.SPOOL_WAIT_ENV)
+os.environ.pop(vlm.SPOOL_ENV)
 vlm._MISSED[0] = False
 vlm._CAUSE[0] = ""
 
