@@ -900,8 +900,8 @@ CANARY_PROVEN = (
     ("gale", "no-reading-parses", 1950, 1959, "10-21 canary: 8 of 9 1950s pages parsed from OCR alone (was 0 of 6), 0 VLM asks"),
     ("gale", "unfiled", 1950, 1959, "10-21 canary: 8 of 10 one-blank 1950s pages read complete from OCR alone (was 0 of 10), 4 of 4 filed pages still complete"),
     # Since 10-24 unfiled_blank leaves out a puzzle already filed with every clue, so these are pages never filed.
-    ("gale", "unfiled", 1945, 1949, "10-24 canary: 3 of 5 never-filed 1945-48 pages filed whole (3, 4, 11 blanks before), "
-                                    "1 down 12 blanks to 1, 1 refused; 51 live rereads since 10-22: blanks 366 -> 24"),
+    ("gale", "unfiled", 1945, 1949, "10-24 canary: 3 of 8 never-filed 1945-48 pages filed whole (was 0), blanks 32 -> 5 "
+                                    "on the 6 written, 1 refused, 1 found nothing; 51 live rereads since 10-22: blanks 366 -> 24"),
 )
 
 
