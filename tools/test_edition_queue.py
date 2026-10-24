@@ -227,13 +227,26 @@ check("solution_headings takes the prize under a Monday's title and not a Prize 
        f.solution_headings([[(1, 2, 3, 4, "Solution"), (3, 4, 4, 5, "to"), (4, 3, 5, 9, "Prize"), (5, 3, 5, 9, "Crossword"),
                              (1, 2, 5, 9, "23,420")]], [23500])])
 # ---- a read that wrote an incomplete puzzle before the cause time is due once ("unfiled before its fix")
-_un = {"id": "times-1", "number": 1, "complete": False, "wrote": True, "unfiled": 3, "clues": 27, "lights": 30}
+_un = {"id": "times-9999999", "number": 9999999, "complete": False, "wrote": True, "unfiled": 3, "clues": 27, "lights": 30}
 _unrow = {"verdicts": [_un], "scan": {"item": "GaleTimes1947UKEnglish", "date": "1947-04-19"}}
 # _after must stay later than f.REREAD_UNFILED, which each reader fix bumps.
 _before, _after = "2026-10-19T23:11:28+00:00", "2099-01-01T00:00:00+00:00"
 check("an incomplete write read before the cause time is due, with its puzzle and blank count", True,
       f.fix_reason({**_unrow, "readAt": _before}) == "unfiled before its fix"
-      and f.unfiled_blank(_unrow) == [("times-1", 3)])
+      and f.unfiled_blank(_unrow) == [("times-9999999", 3)])
+_held1 = Path(tempfile.mkdtemp()) / "times-9999999.json"
+_was1 = f._HELD_PATH.get(("times", 9999999))
+f._HELD_PATH[("times", 9999999)] = _held1
+_held1.write_text(json.dumps({"entries": [{"clue": {"text": "a"}}, {"clue": {"text": "b"}}]}))
+_whole1 = f.fix_reason({**_unrow, "readAt": _before})
+_held1.write_text(json.dumps({"entries": [{"clue": {"text": "a"}}, {"clue": None}, {"x": 1}]}))
+_short1 = f.fix_reason({**_unrow, "readAt": _before})
+if _was1 is None:
+    del f._HELD_PATH[("times", 9999999)]
+else:
+    f._HELD_PATH[("times", 9999999)] = _was1
+check("a puzzle the corpus already holds with every clue is not due for its page's blanks; one held short still is",
+      [None, "unfiled before its fix"], [_whole1, _short1])
 check("one read after it (incomplete again) is not due again; nor a complete or a refused one", [None] * 3,
       [f.fix_reason({**_unrow, "readAt": _after}),
        f.fix_reason({**_unrow, "readAt": _before, "verdicts": [{**_un, "complete": True}]}),
