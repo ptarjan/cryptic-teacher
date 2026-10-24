@@ -111,12 +111,33 @@ def rejections(path, since):
                     if not isinstance(text, str):
                         text = json.dumps(text)
                     replay(use, b.get("is_error"), text, files, patches)
-                    if use["name"] == "Bash" and MARK in text and stamp >= since:
+                    if use["name"] == "Bash" and stamp >= since and (
+                            MARK in text or "refused to write" in text or "STOPPED" in text):
                         m = RUN.search(use["input"].get("command") or "")
                         mine = files.get(f"_ann_{m.group(1)}.json") if m else None
-                        errs = ERR.findall(text)
+                        errs = ERR.findall(text) + refused(text)
                         if mine is not None and errs:
                             out.append((stamp, m.group(1), errs, mine))
+    return out
+
+
+def refused(text):
+    """[(tag, finding)] for the clues apply_annotations refused ("refused to write ...:"
+    then "  [TAG ]9-across: finding" lines, or the bag's STOPPED compact form), parsed
+    as annotate_audit.stopped_names does. These drafts never reach an ERROR line."""
+    line_rx = re.compile(r"^[ \t]*(?:[A-Z]+ )?(\d+)-(across|down)\b:?[ \t]*(.*)$")
+    lines = []
+    listed = re.split(r"refused to write[^\n]*:\n", text, maxsplit=1)[1:]
+    if listed:
+        lines += listed[0].split("\n\n")[0].splitlines()
+    if "STOPPED" in text:
+        lines += [ln for ln in text.splitlines() if re.match(r"^[ \t]*(?:[A-Z]+ )?\d+-(?:across|down):", ln)]
+    out = []
+    for ln in lines:
+        m = line_rx.match(ln)
+        if m:
+            out.append((m.group(1) + ("A" if m.group(2) == "across" else "D"),
+                        "apply refused: " + m.group(3).strip()))
     return out
 
 
@@ -149,7 +170,8 @@ def file_records(args):
     named by an ERROR line, with the clue's draft as the session had it then."""
     path, since = args
     try:
-        if MARK not in Path(path).read_text(encoding="utf-8", errors="replace"):
+        body = Path(path).read_text(encoding="utf-8", errors="replace")
+        if MARK not in body and "refused to write" not in body and "STOPPED" not in body:
             return []
     except OSError:
         return []
