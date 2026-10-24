@@ -474,6 +474,10 @@ check("a solution read in part or refused by other solution code, or no key, is 
        f.due_reason(part(30, None, "other"), "h", [], "v"),
        f.due_reason(part(30, None, None), "h", [], "v"),
        f.due_reason(part(20, None, f.solution_key()), "h", [], "v")])
+check("a grid refused unmatched is a rank 2 answers-only reread, once: a read after REREAD_REFUSED_GRID is not due",
+      (2, True, False), (f.RANKS[f.REFUSED_GRID], f.REFUSED_GRID in f.SOLUTION_FIXES,
+                         f.refused_grid({**part(0, "its blocks are not the puzzle's", None),
+                                         "edition": "NewsUK1984UKEnglish/1984-05-01_61715"})))
 classified_part = {**part(20, None, "other"), "verdicts": [
     {"number": 1, "solution": {"accepted": 20, "lights": 30, "classified": 3}}]}
 ft_part = lambda key: {**part(20, None, key), "edition": "FinancialTimes1985UKEnglish/1985-01-02"}
@@ -2726,6 +2730,23 @@ check("a grid cut by the window of a short heading is read whole", ({"1-across":
 check("a box far from square (a speck under the heading) has no square cut", [],
       f.squares(Image.new("L", (400, 400), 255), (0, 0, 300, 20)))
 check("a square box has none", [], f.squares(Image.new("L", (400, 400), 255), (0, 0, 300, 296)))
+# matched_box(): a grid whose ink joins a neighbour's (1974-78: a 444x434 box for a 313px grid) is
+# found as the lattice whose blocks are the puzzle's.
+mg = ["..#..", ".#.#.", "#...#", ".#.#.", "..#.."]
+mw = Image.new("L", (520, 420), 255)
+md = ImageDraw.Draw(mw)
+md.rectangle((100, 100, 350, 350), outline=0, width=3)
+for k in range(1, 5):
+    md.line((100 + 50 * k, 100, 100 + 50 * k, 350), fill=0, width=2)
+    md.line((100, 100 + 50 * k, 350, 100 + 50 * k), fill=0, width=2)
+md.rectangle((350, 60, 470, 380), fill=0)
+for r, row in enumerate(mg):
+    for c, ch in enumerate(row):
+        if ch == "#":
+            md.rectangle((100 + 50 * c, 100 + 50 * r, 150 + 50 * c, 150 + 50 * r), fill=0)
+m_agree, m_box, _ = f.matched_box(mw, mg, (200, 400))
+check("a grid joined to a neighbour's ink is found by its blocks", (1.0, True),
+      (m_agree, all(abs(a - b) <= 4 for a, b in zip(m_box, (100, 100, 350, 350)))))
 # solved(): read_solution kept by what it reads from, so a re-read for a
 # clue-vote change runs no solution OCR; another grid or heading reads again.
 stats_blocks = 1.0
