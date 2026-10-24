@@ -187,7 +187,7 @@ def mended(rows, clues):
         25.") is printed with no clue (No 103's theme word, 25D): its entry's
         clue is "missing" with no text."""
     have = {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(rows).items()}
-    clues, notes = dict(clues), {}
+    clues, notes = linked_across(have, dict(clues))
     text = {lid: " ".join((c.get("text") or "").split()).lower() for lid, c in clues.items()}
     for lid in sorted(set(clues) - set(have), key=order):
         twin = next((o for o in sorted(have, key=order) if o in clues and text[lid] and text[o] == text[lid]), None)
@@ -214,6 +214,40 @@ def mended(rows, clues):
         if re.search(rf"(?<![\d,.]){n}(?!\d|\s*{other})", cited):
             clues[lid] = {"text": "", "noCluePrinted": True}
             notes[lid] = "printed with no clue: other clues cite it"
+    return clues, notes
+
+
+def linked_across(have, clues):
+    """(clues, notes): a clue of two lights whose second (its "group" tail)
+    the list sets in its own direction where the grid has no such light, or
+    one with a clue of its own, re-pointed at the other direction's light of
+    that number when that one has no clue but "See" the first. The 1934-40
+    paragraph lists link across them: "(33, 29) To find a low mean man" is
+    among the across clues, 29 a down light only (No 254, 1935). `have`
+    {light id: cells}; notes {light id: what was done}."""
+    clues, notes = dict(clues), {}
+
+    def cites(lid, head):
+        t = (clues.get(lid) or {}).get("text") or ""
+        return not t.strip() or bool(re.match(rf"see\W*{number_of(head)[0]}\b", t.strip(), re.IGNORECASE))
+
+    for head, c in list(clues.items()):
+        group = list(c.get("group") or ())
+        for k, tail in enumerate(group[1:], 1):
+            if tail in have and cites(tail, head):
+                continue
+            n, d = number_of(tail)
+            flip = f"{n}-{'down' if d == 'across' else 'across'}"
+            if flip not in have or not cites(flip, head):
+                continue
+            group[k] = flip
+            if cites(tail, head) and tail not in have:
+                clues.pop(tail, None)
+            if not (clues.get(flip) or {}).get("text"):
+                clues[flip] = {"text": f"See {number_of(head)[0]} {number_of(head)[1].capitalize()}"}
+            notes[flip] = f"linked to {head} from the other list"
+        if group != list(c.get("group") or ()):
+            clues[head] = {**c, "group": group}
     return clues, notes
 
 

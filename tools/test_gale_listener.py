@@ -1023,7 +1023,7 @@ for i, (n, text) in enumerate([(1, "Horsey half of an astronomer (5)."), (2, "Ch
 cols = g.paragraph_columns(para_words(gutter))
 check("No 582's lists: numbers in their own gutter; a count before the next number, a stray (1), DOWN under a gap",
       [[1, 5, 9, 10, 11, 12, 13, 16], [1, 2, 3]],
-      cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+      cols and [[int(l[4].split(".")[0].split(",")[0]) for l in c] for c in cols])
 # No 443's (1938): lights clued together share a bracket, numbered by the
 # first ("(1, 8, 52)", "(40-22)"), an anagram says so in it ("(47 anag.)"),
 # and DOWN's heading, unread, leaves a gap over the down list's "(1)".
@@ -1034,7 +1034,7 @@ no443 = [(1744, 300, "CLUESACROSS"),
          (1942, 88, "Great Mother's."), (2010, 88, "CROSSWORD RULES. (1) Entries")]
 cols = g.paragraph_columns(para_words(no443))
 check("No 443's lists: a bracket of lights numbered by its first, an anagram's, an unread DOWN's gap",
-      [[1, 5, 9, 14, 40, 47], [1, 2, 3]], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+      [[1, 5, 9, 14, 40, 47], [1, 2, 3]], cols and [[int(l[4].split(".")[0].split(",")[0]) for l in c] for c in cols])
 check("a gap over a line that is no restart still ends the lists (mirror)", None,
       g.paragraph_columns(para_words([r if r[2] != "(1) No post-mortem. (2U anag.) Oath-"
                                       else (r[0], r[1], "A note. (2U anag.) Oath-") for r in no443])))
@@ -1043,7 +1043,7 @@ linked = [(1744, 300, "CLUESACROSS"), (1772, 88, "(1) Doom. (8) Fisher come. (10
           (1876, 88, "(1) Professor here. (2) His coat"), (1898, 88, "lost. (3) Boat here.")]
 cols = g.paragraph_columns(para_words(linked))
 check("a bracket set at its later light's place is numbered by it, no restart of the list",
-      [[1, 8, 10, 40, 42], [1, 2, 3]], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+      [[1, 8, 10, 40, 42], [1, 2, 3]], cols and [[int(l[4].split(".")[0].split(",")[0]) for l in c] for c in cols])
 # No 242's (1934): "CLUES—ACROSS" at the left column's foot, the list run
 # on at the next column's top far above it (an advert over that), a
 # report under the heading's level there; a clue's "See 37 Across." is no
@@ -1057,7 +1057,7 @@ no242 = [(300, 765, "Royal Soldiers Home advert"), (1744, 300, "CLUESACROSS"),
          (1800, 765, "Prizewinners: C. A. Adams (London, N.8);"), (1822, 765, "were very successful.")]
 cols = g.paragraph_columns(para_words(no242))
 check("No 242's lists: run on above the heading in the next column, a report below it",
-      [[2, 10, 13, 19, 21, 24, 45], [1, 3, 4, 11]], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+      [[2, 10, 13, 19, 21, 24, 45], [1, 3, 4, 11]], cols and [[int(l[4].split(".")[0].split(",")[0]) for l in c] for c in cols])
 # No 133's (1932): "CLUES—ACROSS" read as specks, only DOWN read: the
 # across list is read from its "1." line up the column, not dropped.
 no133 = (line("Name and address", 100, 300) + line("¢t 3", 300, 400) + line("1. Claustra olim", 100, 430)
@@ -1080,7 +1080,7 @@ no261 = [(1744, 300, "CLUESACROSS"),
          (1948, 88, "have described a web. (s rev.)* See (32).")]
 cols = g.paragraph_columns(para_words(no261))
 check("No 261's lists: figures read as letters in a bracket, a capital hard on it, a See (N) no clue",
-      [[12, 13, 15, 16, 19, 21, 26, 31], [1, 2, 3, 4, 5]], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+      [[12, 13, 15, 16, 19, 21, 26, 31], [1, 2, 3, 4, 5]], cols and [[int(l[4].split(".")[0].split(",")[0]) for l in c] for c in cols])
 check("its 3 down is the See, its 26 across the words after the bracket",
       ["3. See (31) Down.", "26. Muddled corpse-cover."],
       cols and [next(l[4] for l in cols[1] if l[4].startswith("3.")), next(l[4] for l in cols[0] if l[4].startswith("26."))])
@@ -1098,9 +1098,55 @@ no245 += [(1600 + 22 * i, 765, f"({2 * i + 1}) Down clue. ({2 * i + 2}) Another 
 no245 += [(2100, 765, "Report on Crossword No. 243"), (2122, 765, "(1) was hard. (2) The")]
 cols = g.page_columns(para_words(no245))
 check("No 245's lists: run on above the heading's level with DOWN there, over a grid's numbers",
-      [[1, 5, 10, 35, 38, 40], list(range(1, 37))], cols and [[int(l[4].split(".")[0]) for l in c] for c in cols])
+      [[1, 5, 10, 35, 38, 40], list(range(1, 37))], cols and [[int(l[4].split(".")[0].split(",")[0]) for l in c] for c in cols])
+check("its (38-45) clues both lights", "38, 45. Defect", cols and cols[0][4][4][:14])
 check("one clue a line is no paragraph list (mirror)", None,
       g.paragraph_columns(para_words([(100, 88, "ACROSS"), (130, 88, "1. Bird (4)"), (160, 88, "5. Fish (4)")])))
+
+
+def para_heads(lines):
+    cols = g.paragraph_columns(para_words(lines))
+    return cols and [[l[4].split(".")[0] for l in c] for c in cols]
+
+
+# No 254's (1935): "(11, 40)" read "(1, 40)" or "(II, 40)": no 40 across
+# dropping the list's (15) to (38) as lower; "(10, 39)" clues both lights.
+def no254(eleven):
+    return [(1744, 300, "CLUESACROSS"), (1772, 88, f"(1) Doom. (8) Fisher come. (10, 39) The"),
+            (1794, 88, f"name. {eleven} Leads proof. (15) One"), (1816, 88, "of rank. (16) A locum. (18) Bog-latin."),
+            (1838, 300, "DOWN"), (1860, 88, "(1) Professor here. (2) His coat"),
+            (1882, 88, "lost. (3) Boat here. (36) Assembly"), (1904, 88, "please. Report on Crossword No. 252")]
+
+
+check("No 254: a number misread high drops no clue after it; a bracket of two lights clues both",
+      [["1", "8", "10, 39", "15", "16", "18"], ["1", "2", "3", "36"]], para_heads(no254("(1, 40)")))
+check("its \"(II, 40)\" read as 11", [["1", "8", "10, 39", "11, 40", "15", "16", "18"], ["1", "2", "3", "36"]],
+      para_heads(no254("(II, 40)")))
+check("the last report's heading is no part of the last clue", "36. Assembly please.",
+      (g.paragraph_columns(para_words(no254("(II, 40)"))) or [[], [("", "", "", "", "")]])[1][-1][4])
+past = [(y, x, t.replace("(15)", "(41)").replace("(16)", "(42)").replace("(18)", "(43)")) for y, x, t in no254("(1, 40)")]
+check("a bracket at its later light's place with the list going on past it stays (mirror)",
+      [["1", "8", "10, 39", "40", "41", "42", "43"], ["1", "2", "3", "36"]], para_heads(past))
+# No 245's (1934): stars inside the bracket, a light reversed in another,
+# a reading losing a bracket's close.
+no245b = [(1744, 300, "CLUESACROSS"), (1772, 88, "(1 Protects the arm. (**10) Victim"),
+          (1794, 88, "of nursery. (43 rev. in 42) Alleged destroyers."), (1816, 88, "(*44 rev.) Shooting-ground. (**46) Mark."),
+          (1838, 300, "DOWN"), (1860, 88, "(1) If he would. (2) Shaft. (*8) Mounted"),
+          (1882, 88, "Sagittarius. (9) Sagittarius. (12) Here.")]
+check("No 245: stars in the bracket, \"(43 rev. in 42)\" and an unclosed \"(1 Protects\" number their clues",
+      [["1", "10", "43", "44", "46"], ["1", "2", "8", "9", "12"]], para_heads(no245b))
+check("and no star is left on the clue before", "2. Shaft.",
+      (g.paragraph_columns(para_words(no245b)) or [[], [(), ("", "", "", "", "")]])[1][1][4])
+check("a light's count in brackets stays the clue's words (mirror)", "(2 words) and (5)",
+      g.figures_read("(2 words) and (5)"))
+check("and a light cited by its direction is no unclosed number (mirror)", "Part of (43 Ac.). (32 Down) and",
+      g.figures_read("Part of (43 Ac.). (32 Down) and"))
+# A heading lent from another reading takes no word of the line set close under it.
+heads = [(100, 1680, 320, 1705, "CLUES-ACROSS"), (100, 1897, 190, 1919, "DOWN")]
+under = [(150, 1706, 260, 1722, "monarch's"), (100, 1684, 300, 1703, "CLUESACR0SS")]
+lent = g.lend_heads({"a": heads, "b": under})
+check("a lent heading takes its own line's misread words, not the line under it",
+      ["monarch's", "CLUES-ACROSS", "DOWN"], [w[4] for w in lent["b"]])
 
 # The media disk's Listener folder: Paul's pages loose, the fetcher's in Fetched/.
 # One unit per Gale document: a second download of one read already (stamped

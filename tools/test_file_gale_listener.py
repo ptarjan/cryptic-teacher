@@ -88,6 +88,22 @@ check("and is filed as a clue the page leaves out", {"missing": True},
       next(e["clue"] for e in built["entries"] if (e["number"], e["direction"]) == (4, "down")))
 got, notes = f.mended(OPEN, {k: v for k, v in named.items() if k != "4-down"} | {"2-down": {"text": "See 4 across."}})
 check("one cited in the other direction stays unclued (mirror)", ({}, "no clue for 4-down"), (notes, f.lights_fit(OPEN, got)))
+# The 1934-40 paragraph lists link lights across them: "(33, 29)" among the
+# across clues, 29 a down light only (No 254); the vote laid "See 33" on 29 across.
+only_down = next(lid for lid in lids if lid.endswith("-down") and lid.replace("down", "across") not in lids)
+tail = only_down.replace("down", "across")
+head = next(lid for lid in lids if lid.endswith("-across"))
+hn = head.split("-")[0]
+across_link = {k: v for k, v in named.items() if k != only_down} | {
+    head: {"text": "clue", "group": [head, tail]}, tail: {"text": f"See {hn}"}}
+got, notes = f.mended(OPEN, across_link)
+check("a linked clue's second light the grid has only in the other list is that one",
+      (None, [head, only_down], f"See {hn} Across", {only_down: f"linked to {head} from the other list"}),
+      (f.lights_fit(OPEN, got), got[head]["group"], got[only_down]["text"], notes))
+own = {**named, head: {"text": "clue", "group": [head, only_down.replace("down", "across")]},
+       only_down.replace("down", "across"): {"text": f"See {hn}"}}
+got, notes = f.mended(OPEN, {**own, only_down: {"text": "its own words"}})
+check("not where that light has words of its own (mirror)", ([head, tail], {}), (got[head]["group"], notes))
 # The list running past a light (No 8's 55 to 57 across) skips it: no reading has a line for it.
 skip = lambda *gone: {k: v for k, v in named.items() if k not in gone}
 got, notes = f.skipped(OPEN, skip("6-across"))
