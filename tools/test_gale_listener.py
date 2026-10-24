@@ -910,6 +910,46 @@ with tempfile.TemporaryDirectory() as tmp:
     planned = [u["rel"] for u in g.plan(inbox, store)]
     check("a page read at an older VERSION is read again", True, "a.pdf" in planned)
     check("a page read at this VERSION is not (mirror)", False, "b.pdf" in planned)
+    (inbox / "c.pdf").write_bytes(b"c")
+    rows.append({"sha": g.file_hash(inbox / "c.pdf"), "version": g.PARAGRAPHS - 1, "why": g.UNPARSED})
+    (store / g.LEDGER).write_text("".join(json.dumps(r) + "\n" for r in rows))
+    due = {u["rel"]: (u["reason"], u["rank"]) for u in g.plan(inbox, store)}
+    check("a page no reading parsed before the paragraph lists is due for their fix, ranked by fa.RANKS",
+          ("refused no-reading-parses before its fix", g.fa.RANKS["refused no-reading-parses before its fix"]),
+          due.get("c.pdf"))
+    check("a page that parsed is a blanket re-read (mirror)", ("version changed", g.fa.BLANKET), due.get("a.pdf"))
+    check("and the evidence reason is one the queue plans with blanket rereads off", True,
+          __import__("edition_queue").evidence_reason(due["c.pdf"][0]))
+
+# The 1934-40 lists, run on as paragraphs (No 400): "(N)" opens each clue
+# mid-line, the across list runs on from the left column's foot to the
+# next's top, DOWN's heading is centred in that column, a report beside
+# them and the rules under them are no clue's.
+def para_words(lines):
+    out = []
+    for y, x, text in lines:
+        for word in text.split():
+            out.append((x, y, x + 12 * len(word), y + 17, word))
+            x += 12 * len(word) + 10
+    return out
+para = para_words([(1744, 300, "CLUESACROSS"),
+                   (1772, 88, "(1) Bird. (5) Fish in a"), (1794, 88, "pond. (7) Tree."),
+                   (1816, 88, "(9) Stone (cut). (11)"), (1838, 88, "Ten of them, a decade."),
+                   (1751, 765, "Long river. (12) Plant."), (1773, 765, "(14) Hill and dale."),
+                   (1795, 900, "DOWN"),
+                   (1817, 765, "(1) Cart. (2) Song (5)."), (1839, 765, "(3) Mule. (4) Lamb."),
+                   (1861, 765, "CROSSWORD RULES. (1) Entries"),
+                   (1751, 1450, "Report on the Competition"), (1773, 1450, "(1) was hard. (2) The"),
+                   (1795, 1450, "entries were many."),
+                   (1700, 88, "Prize: a book. (Closing date: First post Tuesday.)")])
+cols = g.paragraph_columns(para)
+check("paragraph lists: a clue a number, run on across the gutter; counts and the report's numbers no clue's",
+      (["1. Bird.", "5. Fish in a pond.", "7. Tree.", "9. Stone (cut).", "11. Ten of them, a decade. Long river.",
+        "12. Plant.", "14. Hill and dale."], ["1. Cart.", "2. Song (5).", "3. Mule.", "4. Lamb."]),
+      cols and ([l[4] for l in cols[0]], [l[4] for l in cols[1]]))
+check("page_columns takes them", cols, g.page_columns(para))
+check("one clue a line is no paragraph list (mirror)", None,
+      g.paragraph_columns(para_words([(100, 88, "ACROSS"), (130, 88, "1. Bird (4)"), (160, 88, "5. Fish (4)")])))
 
 # The media disk's Listener folder: Paul's pages loose, the fetcher's in Fetched/.
 # One unit per Gale document: a second download of one read already (stamped
