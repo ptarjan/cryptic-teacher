@@ -640,4 +640,21 @@ try:
 except w.WordplayError as e:
     check("leaves with a clue word between them are not joined", "does not give IGNARO" in str(e), str(e))
 
+# A refusal names the clue words nothing accounts for (NUDIST style: ins<>(NUTS, DI) misses).
+NUD = "Lunatics imprisoned by detectives lacking clothes"
+try:
+    w.translate({"wp": "ins<imprisoned by>([Lunatics]NUTS, [detectives]DI)"}, NUD, "NUDIST",
+                [(NUD.index("lacking"), len(NUD))])
+    check("a wrong tree is refused", False, "accepted")
+except w.WordplayError as e:
+    check("the refusal keeps the letters diagnosis", "does not give NUDIST" in str(e), str(e))
+    check("the definition's words are not listed as left over", "'lacking'" not in str(e), str(e))
+try:
+    w.translate({"wp": "ins<imprisoned by>([Lunatics]NUTS, [detectives]DI)"}, NUD, "NUDIST")
+except w.WordplayError as e:
+    check("clue words no leaf covers are listed", "'lacking', 'clothes'" in str(e), str(e))
+check("unaccounted_words skips leaves and indicators",
+      w.unaccounted_words(w.locate_copy({"wp": "ins<imprisoned by>([Lunatics]NUTS, [detectives]DI)"}, NUD, ()), NUD)
+      == ["lacking", "clothes"])
+
 raise SystemExit(fails > 0)
