@@ -34,7 +34,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 4, "LSNR": 2, "TGRH": 2, "FTHA": 2, "INDA": 2, "STHA": 2, "TLSH": 2}
+MATCHER = {"TTDA": 5, "LSNR": 2, "TGRH": 2, "FTHA": 2, "INDA": 2, "STHA": 2, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -119,6 +119,7 @@ def crossword(prod, titles, number=None):
     bad = re.compile(r"concise|solution|winners|report on|quick|jumbo|times ?(two|2)\b|\bt2\b|mephisto|french"
                      r"|general knowledge|two-into-one|champion\b|\bcontest|today's weather|miscellany"
                      + ("" if prod == "LSNR" else r"|listener")
+                     + (r"|\btimes?\W+today\b" if prod == "TTDA" else "")
                      + (r"|^\W*[cg]ross-? ?w[oa]rd \d{1,3}\W*$" if prod == "TTDA" else ""), re.IGNORECASE)
     # Gale's OCR'd titles: "Grossword", "Crossward", "Cross-number" too; the
     # Telegraph's to 1990 or so are its clue heading, "No. 12,212 across".
@@ -139,7 +140,14 @@ def crossword(prod, titles, number=None):
 #: "Crossword" as Gale's OCR misreads it in the Times' own title: "Crossworld",
 #: "Crossmord", "Crosswork", "Crosssword", "Crossoword", "Crossw0rd", "Crossworo",
 #: "Crosswor" (found 2026-10-21 on dates whose contents then read as no crossword).
-CROSSWORD_OCR = r"(?:[cg]ros{2,3}o?-?[wm][o0a]r[a-z0-9]{0,2}\b|[cg]ross-? ?w[oa]rd)"
+#: ("Corssword" too: the letters of "Cross" swapped, 2004-04-02.)
+CROSSWORD_OCR = r"(?:[cg]ros{2,3}o?-?[wm][o0a]r[a-z0-9]{0,2}\b|[cg]ross-? ?w[oa]rd|[cg]orss-?w[oa]rd)"
+#: Page 2's (or 1's) "The Times Today ... Crossword: 22" contents line, which
+#: names the crossword's page: never the crossword itself, but its page when
+#: the crossword's own article is untitled or misspelt beyond reading
+#: (2004-03-10, 04-02, 04-08: the matcher kept this line as the crossword and
+#: so saved page 1).
+TIMES_TODAY = re.compile(r"\btimes?\W+today\b", re.IGNORECASE)
 #: A title that may name the Times' crossword (TTDA's KIND).
 TIMES_KIND = re.compile(f"{CROSSWORD_OCR}|[cg]ross-? ?number", re.IGNORECASE)
 
@@ -204,10 +212,17 @@ def entry(prod, dvi, number=None, find=None):
     arts = list(articles(dvi["originalDocument"].get("articleTableOfContents")))
     titles = [a["docTitle"] for a in arts]
     k = find(titles) if find else crossword(prod, titles, number)
+    pages = {int(p["pageNumber"]): p["mediaRecordId"] for p in dvi.get("pageDocuments") or ()}
+    if k is None and prod == "TTDA" and not find:
+        # No article reads as the crossword: its page, from the contents line.
+        for a in arts:
+            m = TIMES_TODAY.search(a["docTitle"]) and re.search(r"crossw?\w*\W{1,3}(\d{1,3})\b", a["docTitle"], re.IGNORECASE)
+            if m and int(m.group(1)) in pages:
+                return {"doc": a["docId"], "title": "Crossword", "page": int(m.group(1)),
+                        "records": [pages[int(m.group(1))]], "how": "contents-line page"}
     if k is None:
         return None
     a = arts[k]
-    pages = {int(p["pageNumber"]): p["mediaRecordId"] for p in dvi.get("pageDocuments") or ()}
     first = int(a["startingPage"])
     records = [pages[p] for p in range(first, first + int(a.get("pageCount") or 1)) if p in pages]
     if not records:
