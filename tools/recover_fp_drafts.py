@@ -206,6 +206,21 @@ def prepared_puzzle(pid):
     return _PUZZLES[pid]
 
 
+_ALLOWED = []
+
+
+def validate_puzzle(puzzle):
+    """V.validate_puzzle as the deploy judges it (check_one under --deploy): corpus
+    rules, and the per-puzzle backlog allowances, so a recovered clue counts as newly
+    annotated (a restored draft that needs "allowed 0" fields fails the deploy)."""
+    annotated, errors, warnings = V.validate_puzzle(puzzle, corpus=True)
+    if not _ALLOWED:
+        _ALLOWED.append(V.load_backlog())
+    if annotated:
+        errors = errors + V.backlog_errors(puzzle["id"], warnings, _ALLOWED[0])
+    return annotated, errors, warnings
+
+
 def full_errors(pairs, puzzle):
     """[this clue's errors] for each (stored, entry) in `pairs` (distinct clues): the
     drafts applied to an in-memory copy of the puzzle, the full current validator run
@@ -219,7 +234,7 @@ def full_errors(pairs, puzzle):
                 mine.append((f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}:",
                              f"{V.entry_id(e)}:"))
     try:
-        _, errors, _ = V.validate_puzzle(p)
+        _, errors, _ = validate_puzzle(p)
     except Exception as exc:  # a draft the validator cannot even read is a rejection
         return [[f"{type(exc).__name__}: {exc}"] for _ in pairs]
     return [[m.strip() for m in errors if m.strip().startswith(k)] for k in mine]
@@ -388,7 +403,7 @@ def apply_puzzle(job):
             mine.append((f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}:", rec))
         q = puzzle_schema.order(q)
         try:
-            _, errors, _ = V.validate_puzzle(q)
+            _, errors, _ = validate_puzzle(q)
         except Exception as exc:
             return q, [f"{type(exc).__name__}: {exc}"], None
         return q, [m.strip() for m in errors], mine
@@ -410,7 +425,7 @@ def apply_puzzle(job):
             continue
         if errors:  # something else fails: only a problem if the file already did
             try:
-                _, base, _ = V.validate_puzzle(copy.deepcopy(puzzle))
+                _, base, _ = validate_puzzle(copy.deepcopy(puzzle))
             except Exception:
                 base = []
             new = [m for m in errors if m not in {b.strip() for b in base}]
