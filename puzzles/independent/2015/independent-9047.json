@@ -1394,43 +1394,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Starter of",
-       "note": "a starter is what comes first, so only offal's first letter is taken"
-      }
-     ],
      "parts": [
       {
        "words": "recipe",
+       "at": 5,
        "gives": "R",
-       "note": "R, from Latin recipe, the prescription sign"
+       "note": "R is the abbreviation for recipe, from the Latin take on prescriptions"
+      },
+      {
+       "words": "a",
+       "at": 41,
+       "gives": "A"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "wrapped in",
-         "note": "the letter is wrapped inside the next piece"
+         "at": 30,
+         "note": "something wrapped in a covering sits inside it, so the offal's first letter goes inside a gut"
         }
        ],
        "parts": [
         {
-         "words": "a stomach",
-         "gives": "AGUT",
-         "note": "A + GUT; O goes inside, AG(O)UT"
+         "words": "stomach",
+         "at": 43,
+         "gives": "GUT",
+         "note": "gut is an everyday word for the stomach or belly"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "O",
+         "indicators": [
+          {
+           "text": "Starter of",
+           "at": 13,
+           "note": "a starter is the first course, so this picks the opening letter of offal"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
            "words": "offal",
-           "gives": "O",
-           "select": "first",
-           "note": "the first letter of Offal"
+           "at": 24
           }
          ]
         }
@@ -1439,9 +1443,9 @@
      ]
     },
     "explanation": {
-     "surface": "A stew recipe: begin with offal, wrapped in tripe.",
-     "walkthrough": "'Recipe?' is not a cooking instruction but the Latin word behind the R on a prescription, hence the question mark.",
-     "definitionFit": "A ragout is a seasoned meat and vegetable stew."
+     "surface": "A recipe for stew: begin with offal packed into a stomach, rather like haggis.",
+     "walkthrough": "'Starter of' gives O from offal, and 'wrapped in' places it within A GUT to make AGOUT. R for recipe is the prescription abbreviation (Latin 'recipe', take).",
+     "definitionFit": "A ragout is a richly seasoned French-style dish of meat and vegetables cooked slowly in sauce, a kind of stew."
     },
     "features": {
      "answerInScene": true,
