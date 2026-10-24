@@ -521,8 +521,11 @@ WORDS_COUNT = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)\s*[,.]\s*\(?\s*
 #: The shared core of a clue number opening a clue inside another clue's text:
 #: the number (a 11 read "1l]"), then a stop, then a capital or quote, and not
 #: a direction word. RUN_ON_NUMBER and NEXT_NUMBER are both built from it.
+#: Nor a direction's letter that ends the clue or stands before its count:
+#: No 601 2D's "Playful division of the second of 1 A" names 1 across.
 RUN_ON_NUM = r"\d{1,2}|[1l]\]"
-RUN_ON_AFTER = r"[.:]?\s+(?!(?i:across|down|ac|dn)\b)(?=[A-Z\u2018\u201c'\"])"
+RUN_ON_AFTER = (r"[.:]?\s+(?!(?i:across|down|ac|dn)\b)(?![AD]\.?\s*(?:$|\(\d))"
+                r"(?=[A-Z\u2018\u201c'\"])")
 
 #: The next clue's number (">0" for a misread 10) and first word inside a
 #: clue's text.

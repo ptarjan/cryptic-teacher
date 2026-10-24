@@ -648,7 +648,7 @@ def vote(words, verdict, cols=None, lengths=None):
             spaced_alike = next((o for o in own if o and o != t and o.replace(" ", "") == t.replace(" ", "")
                                  and ocr_clues.unclosed_quote(o) is None), None)
             if got := (spaced_alike or ocr_clues.reopened(t, own) or ocr_clues.reclosed(t, own + list(texts.values()))
-                       or ocr_clues.unquoted_speck(t, own)):
+                       or ocr_clues.unquoted_speck(t, own) or ocr_clues.requoted(t, own)):
                 laid[lid] = (got, e, g)
                 continue
             # A quotation's end or start lost: a printed blank ("——'") no

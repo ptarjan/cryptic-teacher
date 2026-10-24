@@ -1451,6 +1451,33 @@ check("the clue's capitalised first word one reading alone has, the others start
 check("a figure run into words another reading prints apart is parted (times-5920 11A)",
       "Not here is 14 found swaying", oc.agree("Nothereis14found swaying", [mark("11 Not here is 14 found swaying (4)"), mark("11 Not here is 14 found swaying (4)")])[0])
 
+# No 254 38A: two readings lost "four champions"; the other two print it.
+fierce = ["#", "one", "of", "four", "champions", "fierce", "who", "strive", "#", "#", "professor", "here"]
+check("a run of words one reading lost stays one gap: its opening pairs the other's, not an unlike word (No 254 38A)",
+      [(0, 1), (1, 2), (None, 3), (None, 4), (2, 5), (3, 6), (4, 7)],
+      oc.align(["one", "of", "fierce", "who", "strive"], fierce)[:7])
+check("one word lost still costs a word's gap: the clue's words pair as before",
+      [(0, 1), (1, 2), (2, 3)], oc.align(["occurrence", "in", "india"], ["#", "occurrence", "#", "india", "#", "a"]))
+check("a run of words two of three other readings print alike is put in whole, not spliced (No 254 38A)",
+      "One of four champions fierce' who strive",
+      oc.vote("One of fierce' who strive",
+              [["#", "One", "of", "fierce", "who", "strive", "#", "#", "Professor"],
+               ["#", "One", "of", "four", "champions", "fierce'who", "strive", "#", "#", "Professor"],
+               ["#", "One", "of", "four", "champions", "fierce", "who", "strive", "#", "#", "Professor"]])[0])
+check("a run one other reading alone prints is no word lost (the 2-reader rule)",
+      "One of fierce' who strive",
+      oc.vote("One of fierce' who strive",
+              [["#", "One", "of", "fierce", "who", "strive", "#"], ["#", "One", "of", "fierce", "who", "strive", "#"],
+               ["#", "One", "of", "four", "champions", "fierce", "who", "strive", "#"]])[0])
+check("a quote never opened takes the quotes of a reading alike but for them (No 254 38A)",
+      "One of 'four champions fierce' who 'strive'.",
+      oc.requoted("One of four champions fierce' who strive",
+                  ["One of fierce’ who strive", "One of 'four champions fierce' who 'strive'."]))
+check("a reading differing in a mark, or in a word, besides its quotes is none",
+      [None, None],
+      [oc.requoted("One of four champions fierce' who strive", ["One of 'four champions, fierce' who 'strive'."]),
+       oc.requoted("One of four champions fierce' who strive", ["One of 'four champion fierce' who 'strive'."])])
+
 print(f"FAILS {fails}")
 if fails:
     print("test_ocr_vote_checks: failed")

@@ -646,6 +646,12 @@ DIGIT_MARK = 0.4
 #: ch reads "in" as "111"): just under a word lost on each side, so the
 #: words after it pair rather than the clue ending there.
 WORD_FIGURE = 1.9
+#: Each word after the first of a run of words inside the clue that `mine`
+#: lacks (a stretch one reader lost: No 254's "One of [four champions]
+#: fierce"): cheaper than the first, so the run stays one gap rather than
+#: the clue's opening words pairing unlike ones ("one" with "champions")
+#: with the other reading's real opening left before the clue, as lost.
+LOST_RUN = 0.5
 
 
 def align(mine, theirs):
@@ -653,12 +659,18 @@ def align(mine, theirs):
     `theirs` (None for a word the other side lacks, and (None, j) for a word
     of theirs inside the clue that `mine` lacks): the best semi-global
     alignment, where the other reading's words before and after the clue
-    cost nothing and a pair costs what its spellings differ."""
+    cost nothing and a pair costs what its spellings differ. A run of their
+    words `mine` lacks costs a word's gap for its first, LOST_RUN for each
+    after (an affine gap)."""
     n, m = len(mine), len(theirs)
     gap = 1.0
     inf = float("inf")
     cost = [[inf] * (m + 1) for _ in range(n + 1)]
     back = [[None] * (m + 1) for _ in range(n + 1)]
+    # run[i][j]: the best cost ending in a word of theirs `mine` lacks, and
+    # whether that word went on such a run (else it opened one).
+    run = [[inf] * (m + 1) for _ in range(n + 1)]
+    went_on = [[False] * (m + 1) for _ in range(n + 1)]
     for j in range(m + 1):
         cost[0][j] = 0.0
     for i in range(1, n + 1):
@@ -677,12 +689,16 @@ def align(mine, theirs):
             # A mark one side lacks (a comma missed) costs less than a word,
             # so a lost mark never outweighs pairing the words after it.
             up = cost[i - 1][j] + (MARK_GAP if mine[i - 1] in MARKS else gap)
-            left = cost[i][j - 1] + (MARK_GAP if theirs[j - 1] in MARKS else gap)
-            cost[i][j], back[i][j] = min((pair, "pair"), (up, "up"), (left, "left"))
+            mark = theirs[j - 1] in MARKS
+            opened = cost[i][j - 1] + (MARK_GAP if mark else gap)
+            longer = run[i][j - 1] + (MARK_GAP if mark else LOST_RUN)
+            run[i][j], went_on[i][j] = (longer, True) if longer < opened else (opened, False)
+            cost[i][j], back[i][j] = min((pair, "pair"), (up, "up"), (run[i][j], "left"))
     j = min(range(m + 1), key=lambda k: cost[n][k])
     out, i = [], n
+    in_run = False
     while i > 0:
-        step = back[i][j]
+        step = "left" if in_run else back[i][j]
         if step == "pair":
             out.append((i - 1, j - 1))
             i, j = i - 1, j - 1
@@ -692,6 +708,7 @@ def align(mine, theirs):
         else:
             # A word of theirs inside the clue that `mine` lacks: (None, j).
             out.append((None, j - 1))
+            in_run = went_on[i][j]
             j -= 1
     return out[::-1]
 
@@ -2113,6 +2130,7 @@ def vote(clue, others, keep_known=False, families=None, rates=None, clues=(), nu
     low = [w.lower() for w in mine]
     seen = [{} for _ in mine]  # i -> {reading k: its word}
     extra = [{} for _ in range(len(mine) + 1)]  # gap before i -> {word: readings}
+    runs = [{} for _ in range(len(mine) + 1)]  # gap before i -> {reading: its words there, in order}
     leads, trails = [], []
     at_words = [i for i, w in enumerate(low) if w not in MARKS and w != BREAK]
     first_at, last_at = (at_words[0], at_words[-1]) if at_words else (None, None)
@@ -2167,6 +2185,7 @@ def vote(clue, others, keep_known=False, families=None, rates=None, clues=(), nu
         for i, j in pairs:
             if i is None:
                 extra[at].setdefault(theirs[j].lower(), set()).add(k)
+                runs[at].setdefault(k, []).append(theirs[j].lower())
             else:
                 at = i + 1
                 if j is not None:
@@ -2197,6 +2216,16 @@ def vote(clue, others, keep_known=False, families=None, rates=None, clues=(), nu
     adds = {g: [p for w, ks in e.items() if len(ks) >= 2 and len(ks) * 2 > len(others)
                 and (w != "i" or len(ks) == len(others)) and (p := put_in(w, g))]
             for g, e in enumerate(extra)}
+    # A run of words inside the clue that two other readings, and most, print
+    # alike where this one has none (No 254's "One of [four champions]
+    # fierce") goes in whole: word by word each gap would hold two.
+    for g, by in enumerate(runs):
+        if not 0 < g < len(mine):
+            continue
+        tally = collections.Counter(tuple(ws) for ws in by.values() if len(ws) > 1 and BREAK not in ws)
+        for ws, n in tally.items():
+            if n >= 2 and n * 2 > len(others) and all(w not in MARKS and put_in(w, g) == w for w in ws):
+                adds[g] = [" ".join(ws)]
     # Words other readings have between the clue's number and its first word,
     # or between its last word and its count, were lost from this reading:
     # put in when most readings have the same ones, else no reading wins.
@@ -4157,6 +4186,28 @@ def reopened(text, readings):
             got = ("'" if m.group(1) in "'\u2018" else '"') + text
             if unclosed_quote(got) is None:
                 return got
+    return None
+
+
+QUOTE_MARKS = re.compile(r"['‘’\"“”]")
+
+
+def requoted(text, readings):
+    """`text`, a clue whose quotation never opens or never closes, as a
+    reading of it (`readings`) prints it when that reading has the same
+    words and marks but for its quotes, and its quotes pair: No 254 38A's
+    "One of 'four champions fierce' who 'strive'." where the vote, from a
+    reading that lost the opening marks, kept "One of four champions
+    fierce' who strive"), its stop after the quote's close the vote lost
+    too. None otherwise."""
+    def bare(t):
+        return re.sub(r"\s+", " ", QUOTE_MARKS.sub("", t or "")).strip().rstrip(".")
+    if not bare(text):
+        return None
+    for r in readings:
+        if (r and r != text and bare(r) == bare(text)
+                and unclosed_quote(got := paired(r.strip())) is None):
+            return got
     return None
 
 
