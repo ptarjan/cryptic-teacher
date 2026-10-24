@@ -6650,6 +6650,54 @@ def short_unfitted(row):
     return False
 
 
+#: The due reason of a Times edition whose full read read a linked solution grid whole (answers_whole)
+#: for a puzzle held with every clue and no answer at all: the reading was not complete (a clue it
+#: left blank or unsettled, the held file's standing), so decide() kept the held file and its answers
+#: were never merged; and held_short took the whole grid read for answers filed, so no fix was due.
+#: answers_only reads the grid alone (SOLUTION_FIXES: CPU, no VLM ask) and merges them, once: rows
+#: read before REREAD_UNMERGED. Paul 10-24: 220 Times puzzles (1940s-2010s) stood so, none due.
+UNMERGED = "solution read whole, its answers never filed"
+REREAD_UNMERGED = "2026-10-24T21:00:00+00:00"
+
+
+def held_unanswered(series, number, url=None):
+    """Whether `series`' puzzle `number` is held with every clue and not one answer (filed_state, then
+    its file read again for the answers it holds); with `url`, filed from that page (answers_only
+    reads only a puzzle held from the page it reads: another's falls to the full read)."""
+    if filed_state(series, number) != (False, True):
+        return False
+    try:
+        held = json.loads(_HELD_PATH[(series, number)].read_text())
+    except (KeyError, OSError, ValueError):
+        return False
+    es = held.get("entries") or ()
+    if url is not None and (held.get("source") or {}).get("url") != url:
+        return False
+    return bool(es) and not any(e.get("solution") for e in es)
+
+
+def unmerged(row, v):
+    """Whether verdict `v` of Times ledger `row`, read before REREAD_UNMERGED, read a linked solution
+    grid whole by a full read (not answers_only) for a puzzle held with every clue and no answer
+    (held_unanswered)."""
+    if not v.get("id") or v.get("refused") or v.get("pending") or v.get("answersOnly") or not answers_whole(v):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED or not scan_queue.read_before(row, scan_queue.when(REREAD_UNMERGED)) \
+            or not held_unanswered(paper.series, v.get("number")):
+        return False
+    try:
+        url = page_url(CACHE / row["edition"], row["scan"], v["leaf"])
+    except (KeyError, OSError, ValueError):
+        return True  # no pages.json to tell (a test's row): answers_only judges
+    return held_unanswered(paper.series, v.get("number"), url)
+
+
+def unmerged_whole(row):
+    """Whether Times ledger `row` has a verdict whose answers never merged (unmerged)."""
+    return any(unmerged(row, v) for v in row.get("verdicts", ()))
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -6689,6 +6737,8 @@ def fix_reason(row):
                 return "solution short, read by other code"
     if short_unfitted(row):
         return SHORT_UNFITTED
+    if unmerged_whole(row):
+        return UNMERGED
     return None
 
 
@@ -6710,7 +6760,8 @@ SOLUTION_UNCLASSIFIED = frozenset({"49e26fb92ece9e33"})
 #: VLM's word for their cells (vlm_lights); or, read by this code's full read (no fitted read, no
 #: strip asked), lacks at most trove_solution_ocr.STRIP_MAX (SHORT_UNFITTED).
 LIKELY = ("answers linked", "answers in the next issue's text", "solution grid read before read_framed",
-          "blanks a vote fix mends", "solution grid read before the fitted and VLM reads")
+          "blanks a vote fix mends", "solution grid read before the fitted and VLM reads",
+          "solution grid read whole, its answers never merged")
 #: The lights a solution grid read by other code may lack and be read again for the fitted and VLM
 #: reads (trove_solution_ocr.STRIP_MAX, 2, caps the lights the VLM is asked of).
 SHORT_GAP = 5
@@ -6758,7 +6809,8 @@ def held_short(series, row, v):
     filed = filed_state(series, v["number"])
     clues = bool(filed and filed[1]) or not v.get("blank")
     mended = not clues and scan_queue.mended_at(row, v) is not None
-    answers = not (filed and filed[0]) and not answers_whole(v)
+    # A grid read whole stands for answers filed, bar a full read's whose answers never merged (UNMERGED).
+    answers = not (filed and filed[0]) and (not answers_whole(v) or unmerged(row, v))
     if not (clues or mended) or not (answers or mended):
         return None
     return answers, mended
@@ -6782,6 +6834,8 @@ def short_cause(series, row, v, solutions):
     if not isinstance(s, dict) or s.get("refused"):
         return None
     gap = s.get("lights", 0) - s.get("accepted", 0)
+    if gap <= 0:
+        return LIKELY[5]  # held_short: read whole, its answers never merged (UNMERGED)
     if "lattices" not in s and gap <= PARTIAL_GAP:
         return LIKELY[2]
     # A grid read by other code (answers_only reads it again: the classifier, fitted_reads, and
@@ -7149,7 +7203,7 @@ RANKS = {HOST_SCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never 
          "solution short, its cells unclassified": 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
@@ -7561,7 +7615,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: Paul 10-23: kept for the VLM, every such reread took the full read, whose solved() has no
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
-                  "answers held back by a clue with no enumeration", SHORT_UNFITTED)
+                  "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED)
 
 
 def keeps_vlm(why, row, unit=None):
