@@ -923,6 +923,10 @@ ledger_tick() {
   [ "$DRY_RUN" = 1 ] && return 0
   ( setsid nice -n 19 timeout 600 python3 "$REPO/tools/annotate_ledger.py" record \
       </dev/null >>"${CT_MAIN_CHECKOUT:-$REPO}/.prereset.log" 2>&1 & ) 2>/dev/null || true
+  # A new GitHub security alert wakes the room (Paul 10-23); the script gates itself
+  # to once an hour. Same detached, niced, time-boxed shape.
+  ( setsid nice -n 19 timeout 120 python3 "$REPO/tools/security_alert_watch.py" \
+      </dev/null >>"${CT_MAIN_CHECKOUT:-$REPO}/.prereset.log" 2>&1 & ) 2>/dev/null || true
 }
 
 run_pool() {

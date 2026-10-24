@@ -1458,6 +1458,13 @@ tools/annotate_ledger.py                       the burn's own cost meter: each c
 tools/test_annotate_ledger.py                  tests tools/annotate_ledger.py: fake ledger rows
                                                give wake and no-wake decisions (regression, new
                                                top cause, cooldown, target)
+tools/security_alert_watch.py                  once an hour from the burn: lists open GitHub
+                                               code-scanning, dependabot and secret-scanning
+                                               alerts and queues one quiet wake to the room for
+                                               each alert not seen before
+tools/test_security_alert_watch.py             tests tools/security_alert_watch.py with a fake
+                                               gh: new alert wakes once, repeat does not, a 404
+                                               source is skipped
 tools/recover_fp_drafts.py                     dry run: for clues an annotate session rewrote
                                                after a validator false positive, replays the
                                                first rejected draft through today's validator
