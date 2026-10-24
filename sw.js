@@ -108,7 +108,7 @@ self.addEventListener("message", (event) => {
   const d = event.data || {};
   const port = event.ports && event.ports[0];
   if (d.type === "precache") event.waitUntil(precache(d.urls || []));
-  if (d.type === "save") event.waitUntil(savePuzzles(d.urls || [], port));
+  if (d.type === "save") event.waitUntil(savePuzzles(d.urls || [], port, d.drop || []));
 });
 
 async function precache(urls) {
@@ -132,8 +132,12 @@ async function precache(urls) {
   }
 }
 
-async function savePuzzles(urls, port) {
+async function savePuzzles(urls, port, drop) {
   const cache = await caches.open(PUZZLES);
+  // Recycling: files the page says are solved or out of the batch (any ?v=).
+  for (const u of drop) {
+    try { await cache.delete(new Request(new URL(u, SCOPE).href), { ignoreSearch: true }); } catch (e) { /* skip */ }
+  }
   let done = 0, failed = 0;
   for (const u of urls) {
     try {
