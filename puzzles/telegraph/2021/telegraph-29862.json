@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Large volume of transport",
     "enumeration": "7"
    },
-   "solution": "OMNIBUS"
+   "solution": "OMNIBUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Large volume",
+      "at": 0,
+      "meaning": "a big book collecting several works, such as a complete edition of a novelist"
+     },
+     {
+      "text": "transport",
+      "at": 16,
+      "meaning": "an old word for a bus, the passenger vehicle"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks for a hefty book about buses and trains.",
+     "definitionFit": "The word means both a collected edition in one thick book and, in full, the bus as a means of transport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +70,72 @@
     "text": "About to come back once in the open and try too hard",
     "enumeration": "9"
    },
-   "solution": "OVEREXERT"
+   "solution": "OVEREXERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "try too hard",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "the clue's 'in' tells us the about-and-once pieces sit inside the word for open"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the open",
+       "at": 27,
+       "gives": "OVERT",
+       "note": "overt means open, done in plain view"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "to come back",
+           "at": 6,
+           "note": "coming back means the word for about is read in the opposite direction"
+          }
+         ],
+         "parts": [
+          {
+           "words": "About",
+           "at": 0,
+           "gives": "RE",
+           "note": "re means about or concerning, as in a letter heading"
+          }
+         ]
+        },
+        {
+         "words": "once",
+         "at": 19,
+         "gives": "EX",
+         "note": "ex means former, once, as in an ex-wife"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returns, once outdoors, and pushes themselves too hard.",
+     "walkthrough": "'to come back' reverses the word for about; 'in' puts that and the word for once after the first two letters of the word for open.",
+     "definitionFit": "To overexert yourself is to strain beyond your strength, making an excessive effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +155,31 @@
      }
     ]
    },
-   "solution": "BEATIT"
+   "solution": "BEATIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Order to go away",
+      "at": 0,
+      "meaning": "a curt command telling someone to leave, like 'scram'"
+     },
+     {
+      "text": "play one's drum?",
+      "at": 21,
+      "meaning": "to play a drum is to ..., read literally"
+     }
+    ],
+    "explanation": {
+     "surface": "A drummer is told to leave and also told to play.",
+     "definitionFit": "The phrase is slang for clearing off, and literally describes striking a drum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +199,40 @@
      }
     ]
    },
-   "solution": "ARIDZONE"
+   "solution": "ARIDZONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very dry area",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "composed",
+       "at": 10,
+       "note": "letters composed afresh are put together in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Air dozen",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dozen airs are written in a desert region.",
+     "definitionFit": "An arid zone is a region with almost no rainfall, such as a desert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +252,49 @@
      }
     ]
    },
-   "solution": "AUDITCOMMISSION"
+   "solution": "AUDITCOMMISSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Body",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 18,
+       "note": "in a down clue one piece placed on another stands above it, so it comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "check",
+       "at": 12,
+       "gives": "AUDIT",
+       "note": "an audit is an official check of accounts"
+      },
+      {
+       "words": "percentage paid",
+       "at": 21,
+       "gives": "COMMISSION",
+       "note": "a commission is a percentage of a sale paid to an agent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An organisation has some control over the fees it pays.",
+     "walkthrough": "The Audit Commission was a UK public body that checked local government spending.",
+     "definitionFit": "A commission is an official organisation, so this inspecting agency is a body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Body"
+    }
+   }
   },
   {
    "number": 5,
@@ -124,7 +314,36 @@
      }
     ]
    },
-   "solution": "INSPADES"
+   "solution": "INSPADES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suitably to a great extent?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Suitably to a great extent",
+       "at": 0,
+       "note": "the idiom means in large amounts, and read literally it is in one of the four card suits, hence suitably"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something done fittingly and in abundance.",
+     "walkthrough": "'Suitably' is the joke: being in a card suit.",
+     "definitionFit": "The idiom means abundantly, very much, while literally naming a suit in cards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Suitably"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +357,49 @@
     "text": "Bishop in animal park finds fox",
     "enumeration": "5"
    },
-   "solution": "ZORRO"
+   "solution": "ZORRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fox",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "the bishop's letters are put in the word for animal park"
+      }
+     ],
+     "parts": [
+      {
+       "words": "animal park",
+       "at": 10,
+       "gives": "ZOO",
+       "note": "a zoo is a park where animals are kept"
+      },
+      {
+       "words": "Bishop",
+       "at": 0,
+       "gives": "RR",
+       "note": "RR stands for Right Reverend, the title of a bishop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman visiting a zoo spots a fox.",
+     "walkthrough": "Zorro, the masked swordsman of fiction, takes his name from the Spanish word for fox.",
+     "definitionFit": "The fictional hero's name is Spanish for a fox, matching his cunning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fox"
+    }
+   }
   },
   {
    "number": 7,
@@ -162,7 +423,31 @@
      }
     ]
    },
-   "solution": "NOCANDO"
+   "solution": "NOCANDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bottle party?",
+      "at": 0,
+      "meaning": "whimsically, a party where only bottles are allowed is one with no cans"
+     },
+     {
+      "text": "Impossible!",
+      "at": 14,
+      "meaning": "an exclamation refusing a request as out of the question"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone flatly refuses to host a party where guests bring drink.",
+     "definitionFit": "The slangy phrase is a blunt refusal meaning it cannot be done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bottle"
+    }
+   }
   },
   {
    "number": 8,
@@ -182,7 +467,59 @@
      }
     ]
    },
-   "solution": "BMOVIE"
+   "solution": "BMOVIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "film",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bishop",
+       "at": 0,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to include",
+         "at": 18,
+         "note": "the word for turn takes in the current's letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "turn",
+         "at": 13,
+         "gives": "MOVE",
+         "note": "a move is a player's turn in a game"
+        },
+        {
+         "words": "current",
+         "at": 29,
+         "gives": "I",
+         "note": "I is the symbol for electric current"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chess bishop makes a move involving an electric current in a film.",
+     "definitionFit": "A low-budget supporting feature is a cheap picture, a kind of film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 9,
@@ -196,7 +533,40 @@
     "text": "Scandal, C grade is awful",
     "enumeration": "8"
    },
-   "solution": "DISGRACE"
+   "solution": "DISGRACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scandal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "awful",
+       "at": 20,
+       "note": "an awful grade suggests the letters are in a mess, jumbled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "C grade is",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student calls getting a C grade a scandal.",
+     "definitionFit": "A disgrace is a shameful event or person, the stuff of a scandal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awful"
+    }
+   }
   },
   {
    "number": 10,
@@ -210,7 +580,56 @@
     "text": "Texts left one terribly bitter",
     "enumeration": "8"
    },
-   "solution": "LIBRETTI"
+   "solution": "LIBRETTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Texts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 6,
+       "gives": "L"
+      },
+      {
+       "words": "one",
+       "at": 11,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "at": 15,
+         "note": "done terribly, the letters are rearranged badly"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bitter",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One abandoned texts message is very bitter.",
+     "definitionFit": "The words of operas are printed texts, the plural of the Italian term for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Texts"
+    }
+   }
   },
   {
    "number": 11,
@@ -224,7 +643,40 @@
     "text": "American destined to flourish",
     "enumeration": "6"
    },
-   "solution": "ABOUND"
+   "solution": "ABOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flourish",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "destined",
+       "at": 9,
+       "gives": "BOUND",
+       "note": "bound means sure or destined, as in bound to happen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American is sure to do well.",
+     "definitionFit": "To abound is to thrive in great numbers, to be plentiful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "destined"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +690,30 @@
     "text": "Like Don is extravagantly chivalrous",
     "enumeration": "8"
    },
-   "solution": "QUIXOTIC"
+   "solution": "QUIXOTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like Don",
+      "at": 0,
+      "meaning": "resembling Don Quixote, Cervantes's deluded knight"
+     },
+     {
+      "text": "extravagantly chivalrous",
+      "at": 12,
+      "meaning": "romantically idealistic to the point of folly"
+     }
+    ],
+    "explanation": {
+     "surface": "A gentleman named Don is wildly gallant.",
+     "definitionFit": "The adjective comes from Cervantes's knight and describes impractically noble idealism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Don"
+    }
+   }
   },
   {
    "number": 13,
@@ -258,7 +733,48 @@
      }
     ]
    },
-   "solution": "OPENBOOK"
+   "solution": "OPENBOOK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's simple to understand",
+      "at": 25,
+      "note": "the answer is a noun: a thing or person that's easy to understand"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Love",
+       "at": 0,
+       "gives": "O",
+       "note": "O is zero, love in tennis scoring"
+      },
+      {
+       "words": "writer",
+       "at": 5,
+       "gives": "PEN",
+       "note": "a pen is a writing instrument"
+      },
+      {
+       "words": "reserve",
+       "at": 17,
+       "gives": "BOOK",
+       "note": "to book is to reserve, as a table"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic author with a reserved manner turns out easy to read.",
+     "definitionFit": "Someone transparent, whose thoughts are plain, is said to be easy to read like this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 14,
@@ -278,7 +794,29 @@
      }
     ]
    },
-   "solution": "BORNAGAIN"
+   "solution": "BORNAGAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Converted",
+      "at": 0,
+      "meaning": "converted to a faith, especially evangelical Christianity"
+     },
+     {
+      "text": "having come into existence a second time",
+      "at": 11,
+      "meaning": "literally, delivered into life twice"
+     }
+    ],
+    "explanation": {
+     "surface": "A convert feels newly made.",
+     "definitionFit": "The phrase describes a fervent religious convert and, literally, a second birth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -292,7 +830,62 @@
     "text": "Fed up, sorts out and thaws out",
     "enumeration": "8"
    },
-   "solution": "DEFROSTS"
+   "solution": "DEFROSTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thaws out",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 4,
+         "note": "in a down clue, up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fed",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 14,
+         "note": "the letters of sorts are put out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sorts",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tired of it all sorts things out and warms up.",
+     "walkthrough": "'up' turns FED into DEF; 'out' shuffles SORTS into ROSTS.",
+     "definitionFit": "To defrost something frozen is to thaw it, as with a freezer or food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fed"
+    }
+   }
   },
   {
    "number": 16,
@@ -306,7 +899,31 @@
     "text": "Higher part of course not going with the flow?",
     "enumeration": "8"
    },
-   "solution": "UPSTREAM"
+   "solution": "UPSTREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Higher part of course",
+      "at": 0,
+      "meaning": "towards the source of a river's course"
+     },
+     {
+      "text": "not going with the flow?",
+      "at": 22,
+      "meaning": "literally moving against the current, and figuratively being a contrarian"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone at the top of the river refuses to conform.",
+     "definitionFit": "The word describes the stretch near a river's source and travel against the current."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 17,
@@ -320,7 +937,49 @@
     "text": "Down mature fruit first",
     "enumeration": "7"
    },
-   "solution": "PLUMAGE"
+   "solution": "PLUMAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Down",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 18,
+       "note": "first places the fruit before the word for mature"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fruit",
+       "at": 12,
+       "gives": "PLUM",
+       "note": "a plum is a stone fruit"
+      },
+      {
+       "words": "mature",
+       "at": 5,
+       "gives": "AGE",
+       "note": "to age is to mature or ripen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ripe fruit goes first, as if sorting a harvest.",
+     "walkthrough": "'Down' is the soft feathers, not a direction.",
+     "definitionFit": "A bird's feathers collectively include down, its soft fluffy layer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Down"
+    }
+   }
   },
   {
    "number": 18,
@@ -340,7 +999,45 @@
      }
     ]
    },
-   "solution": "ASUSUAL"
+   "solution": "ASUSUAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in an accustomed way",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 7,
+       "gives": "A"
+      },
+      {
+       "words": "second",
+       "at": 9,
+       "gives": "S"
+      },
+      {
+       "words": "drink in pub",
+       "at": 16,
+       "gives": "USUAL",
+       "note": "a regular orders 'the usual', their customary drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regular has another drink at the pub, as they always do.",
+     "definitionFit": "The phrase means as normally happens, following custom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 19,
@@ -354,7 +1051,36 @@
     "text": "There is love in this for Pansy",
     "enumeration": "8"
    },
-   "solution": "IDLENESS"
+   "solution": "IDLENESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "There is love in this for Pansy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "There is love in this for Pansy",
+       "at": 0,
+       "note": "an old flower name for the wild pansy begins with the word love followed by in, and this word completes it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Pansy is being offered affection.",
+     "walkthrough": "'Pansy' looks like a name but is the flower; Shakespeare calls it love-in-idleness.",
+     "definitionFit": "Laziness completes the old flower name for the pansy used by Shakespeare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pansy"
+    }
+   }
   },
   {
    "number": 20,
@@ -368,7 +1094,48 @@
     "text": "A Parisian in theatre box finding room",
     "enumeration": "6"
    },
-   "solution": "LOUNGE"
+   "solution": "LOUNGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "room",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 11,
+       "note": "the French article goes in the word for a theatre box"
+      }
+     ],
+     "parts": [
+      {
+       "words": "theatre box",
+       "at": 14,
+       "gives": "LOGE",
+       "note": "a loge is a box in a theatre"
+      },
+      {
+       "words": "A Parisian",
+       "at": 0,
+       "gives": "UN",
+       "note": "un is French for a, as a Parisian would say"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Parisian in a theatre box has found a place to sit.",
+     "definitionFit": "A lounge is a sitting room, in a house or hotel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1149,32 @@
     "text": "Steeplechaser's sweater?",
     "enumeration": "6"
    },
-   "solution": "JUMPER"
+   "solution": "JUMPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Steeplechaser's",
+      "at": 0,
+      "meaning": "a steeplechaser is a horse that jumps fences, with 's for is"
+     },
+     {
+      "text": "sweater?",
+      "at": 16,
+      "meaning": "a knitted pullover, the British word for it"
+     }
+    ],
+    "explanation": {
+     "surface": "A horse in a jump race is wearing a woolly.",
+     "walkthrough": "In Britain the word means a sweater; a steeplechaser is a horse racing over fences.",
+     "definitionFit": "The word means a horse that clears fences and, in Britain, a knitted pullover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sweater"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1188,58 @@
     "text": "Groom occasionally cries entering enclosure",
     "enumeration": "5"
    },
-   "solution": "PREEN"
+   "solution": "PREEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Groom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 25,
+       "note": "the picked letters go into the word for enclosure"
+      }
+     ],
+     "parts": [
+      {
+       "words": "enclosure",
+       "at": 34,
+       "gives": "PEN",
+       "note": "a pen is an enclosure for animals"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "at": 6,
+         "note": "taking letters only now and then means every other one of cries"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cries",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stable groom sometimes shouts as he goes into the paddock.",
+     "definitionFit": "To groom oneself is to tidy and smarten up, as a bird does its feathers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Groom"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1253,31 @@
     "text": "Like a slow-moving creature going like a bullet?",
     "enumeration": "8"
    },
-   "solution": "SLUGGISH"
+   "solution": "SLUGGISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like a slow-moving creature",
+      "at": 0,
+      "meaning": "resembling a slug, a slow garden mollusc"
+     },
+     {
+      "text": "going like a bullet?",
+      "at": 28,
+      "meaning": "a slug is also slang for a bullet, so like a bullet, joking since the answer means slow"
+     }
+    ],
+    "explanation": {
+     "surface": "A slow animal is said to move as fast as a shot.",
+     "definitionFit": "The word means slow and lethargic, like the garden mollusc it derives from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bullet"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1297,40 @@
      }
     ]
    },
-   "solution": "WATERSKI"
+   "solution": "WATERSKI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Runner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "removed",
+       "at": 18,
+       "note": "read as re-moved, the letters are moved again into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at risk we",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sprinter at risk is taken out of the race by us.",
+     "definitionFit": "A ski is a runner gliding on snow; this one glides on water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Runner"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1344,63 @@
     "text": "Sentry stopped short holding it, stringed instrument",
     "enumeration": "6"
    },
-   "solution": "GUITAR"
+   "solution": "GUITAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stringed instrument",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 21,
+       "note": "the shortened word holds the next piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stopped short",
+         "at": 7,
+         "note": "cut short means the last letter of the word for sentry is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sentry",
+         "at": 0,
+         "gives": "GUARD",
+         "note": "a guard is a sentry on duty"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "it",
+       "at": 29,
+       "gives": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier on watch halts with an instrument in hand.",
+     "walkthrough": "GUARD loses its last letter to become GUAR, which holds IT.",
+     "definitionFit": "A guitar is a fretted instrument played by plucking its strings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stopped"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1414,55 @@
     "text": "Poet's game reportedly working",
     "enumeration": "8"
    },
-   "solution": "TENNYSON"
+   "solution": "TENNYSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "TENNYS",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 12,
+         "note": "reportedly means the word for the game is heard spoken rather than read"
+        }
+       ],
+       "parts": [
+        {
+         "words": "game",
+         "at": 7,
+         "gives": "TENNIS",
+         "note": "tennis is a racket game"
+        }
+       ]
+      },
+      {
+       "words": "working",
+       "at": 23,
+       "gives": "ON",
+       "note": "on means working, as a machine switched on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's sport is said to be in progress.",
+     "walkthrough": "The 's of 'Poet's' is just 'is'.",
+     "definitionFit": "Alfred, Lord Tennyson was a Victorian Poet Laureate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   }
  ]
 }
