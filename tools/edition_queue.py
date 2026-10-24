@@ -1162,7 +1162,11 @@ def by_urgency(units):
                  + alternate([t for t in newest if files_likely_tier(t[0], t[3]) > 0],
                              alternate([t for t in rest if t[0] <= 1], [t for t in proven if t[3].get("paper") not in named]))
                  + [t for t in rest if t[0] > 1])
-    return [u for *_, u in units]
+    # Paul 10-23: "switch from filing the FT next to doing the listener". Behind the Times' likely filers
+    # (thousands) a Listener unit never met a free ceiling slot: FT reached them as the VLM's fills, which
+    # a Listener read (local OCR, no VLM) never is. So the Listener's go first: its own pool
+    # (LISTENER_WORKERS), the idle-core gate and the fill reserve keep them from taking more.
+    return [u for *_, u in units if u.get("paper") == "listener"] + [u for *_, u in units if u.get("paper") != "listener"]
 
 
 #: The rank 2 reasons whose last read was refused or short and a fix landed
