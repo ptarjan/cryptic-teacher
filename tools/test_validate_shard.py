@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# The deploy's full annotation check runs as 4 shards (`--shard i/n`), one step
+# The deploy's full annotation check runs as 6 shards (`--shard i/n`), one step
 # each. Every puzzle must be checked by exactly one: the shards are disjoint,
 # their union is the whole corpus, the split does not move between runs, and
 # a malformed or mixed-up --shard is refused rather than checking nothing.
