@@ -67,7 +67,7 @@ while (jsQueue.length) {
     if (trackedSet.has(m[1])) { note(m[1], `named in ${f}`); if (/\.js$/.test(m[1])) jsQueue.push(m[1]); }
   }
   // path.join(ROOT, "tools", "x.py") and path.join(ROOT, "style.css")
-  for (const m of src.matchAll(/path\.join\(\s*ROOT\s*,\s*((?:"[^"]+"\s*,?\s*)+)\)/g)) {
+  for (const m of src.matchAll(/path\.join\(\s*ROOT\s*,\s*((?:"[^"]+"\s*(?:,\s*)?)+)\)/g)) {
     const rel = [...m[1].matchAll(/"([^"]+)"/g)].map((x) => x[1]).join("/");
     if (trackedSet.has(rel)) note(rel, `read by ${f}`);
   }

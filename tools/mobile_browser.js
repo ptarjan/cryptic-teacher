@@ -56,9 +56,9 @@ async function withPhone(body) {
     if (!tgt) throw new Error("Chromium never opened a page");
     const ws = new WebSocket(tgt.webSocketDebuggerUrl);
     await new Promise((r) => { ws.onopen = r; });
-    let id = 0; const pend = {};
-    ws.onmessage = (m) => { const d = JSON.parse(m.data); if (d.id && pend[d.id]) { pend[d.id](d); delete pend[d.id]; } };
-    const send = (method, params = {}) => new Promise((r) => { pend[++id] = r; ws.send(JSON.stringify({ id, method, params })); });
+    let id = 0; const pend = new Map();
+    ws.onmessage = (m) => { const d = JSON.parse(m.data); const cb = d.id && pend.get(d.id); if (typeof cb === "function") { cb(d); pend.delete(d.id); } };
+    const send = (method, params = {}) => new Promise((r) => { pend.set(++id, r); ws.send(JSON.stringify({ id, method, params })); });
     const ev = async (e) => {
       const r = await send("Runtime.evaluate", { expression: e, awaitPromise: true, returnByValue: true });
       if (r.result.exceptionDetails) throw new Error("page threw: " + JSON.stringify(r.result.exceptionDetails).slice(0, 300));

@@ -56,8 +56,8 @@ if (!puz) { console.error("no such puzzle: " + puzzleId); process.exit(2); }
 
 const text = (html) => String(html)
   .replace(/<[^>]*>/g, " ")
-  .replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<")
-  .replace(/&gt;/g, ">").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"')
+  .replace(/&nbsp;/g, " ").replace(/&lt;/g, "<")
+  .replace(/&gt;/g, ">").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&")
   .replace(/\s+/g, " ").trim();
 
 // Some rungs hand over the answer by construction, and that is not a bug in the
