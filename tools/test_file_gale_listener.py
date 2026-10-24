@@ -6,9 +6,11 @@
 # later issue's report found by its bars, a cell left unread by the letter
 # reader settled when both its lights' whole reads agree, a cell nothing
 # settles leaving its entries unanswered (never guessed), and the report's
-# answers kept as cross_validate's listenerreport copy, never filed; a puzzle
-# short of a step (inexact grid, a blank clue) said so, and one with no
-# report filed all the same?
+# answers kept as cross_validate's listenerreport copy, those a second reader
+# (the cell classifier, a crossing, or the VLM on the light's squares) bears
+# out filed as published, also into a held file whose reading no longer
+# builds; a puzzle short of a step (inexact grid, a blank clue) said so, and
+# one with no report filed all the same?
 #
 #     python3 tools/test_file_gale_listener.py
 #
@@ -238,6 +240,46 @@ check("with no classifier reading, nothing files (mirror)", {}, f.published_answ
 check("a light the classifier reads otherwise everywhere it is not crossed is blank: PERTS for AERTS (mirror)",
       {"1-across": "CARD", "1-down": "CARD", "6-across": "REAR"},
       f.published_answers(lts, {"letters": sure, "full": full}, {**CLASSED, (1, 2): onehot("P")}))
+# The VLM's word for a light published_answers left blank: asked with only
+# the filed letters, it stands where a recogniser read the light whole as it.
+filed_four = f.published_answers(lts, {"letters": sure, "full": full}, CLASSED)
+SAYS = {(0, 1): "AREA", (3, 0): "DARN", (0, 3): "DART"}  # 2D, 7A, 4D by their first cell
+asks = []
+def ask_of(says):
+    def ask(png, prompt):
+        asks.append(prompt)
+        if says.get(png) is None:
+            raise RuntimeError("spooled")
+        return says[png] + "\n"
+    return ask
+strip_of = lambda cells: cells[0]
+got = f.vlm_answers(lts, {"letters": sure, "full": full}, filed_four, strip_of, ask_of(SAYS))
+check("the VLM's words stand where a recogniser read the light whole as them and the filed letters agree; "
+      "4D's DART, against the N of 7A's DARN taken before it, does not; 5A, read whole as nothing, is not asked",
+      ({"2-down": "AREA", "7-across": "DARN"}, 3, True),
+      (got, len(asks), any("? for the others: A?E?." in p for p in asks)))
+asks.clear()
+check("a word no recogniser read the light as stands on no say of the VLM's (mirror)", {},
+      f.vlm_answers(lts, {"letters": sure, "full": full}, filed_four, strip_of, ask_of({(0, 1): "AREO"})))
+asks.clear()
+check("an ask spooled or unanswered leaves its light blank", {},
+      f.vlm_answers(lts, {"letters": sure, "full": full}, filed_four, strip_of, ask_of({})))
+check("and no more than REPORT_ASKS are asked", True, len(asks) <= f.REPORT_ASKS)
+# The report's grid: at REPORT_AGREE on any page, or at REPORT_NEAR on a page
+# REPORT_WITHIN issues on whose letters read REPORT_WORDS of the lights.
+barred = [".b..", "....", "....", "...."]   # agrees 15/16 with OPEN: REPORT_AGREE
+loose = ["bb..", "b...", "....", "...."]    # 13/16: REPORT_NEAR only
+word_read = lambda report, lts: {"letters": sure, "full": full}
+none_read = lambda report, lts: {"letters": {}, "full": {}}
+near = lambda m: [{"grid": {"rows": loose}, "page": "near.pdf", "number": m}]
+check("a filled grid under REPORT_AGREE two issues on, whose letters read as words, is the report",
+      {"page": "near.pdf", "agrees": 0.812}, f.report_join(OPEN, near(3), word_read, number=1)[0].get("report"))
+check("nine issues on it is not (mirror)", True,
+      "noReport" in f.report_join(OPEN, near(10), word_read, number=1)[0])
+check("nor one whose letters read too few words (No 15 on No 18's page) (mirror)", True,
+      "noReport" in f.report_join(OPEN, near(3), none_read, number=1)[0])
+check("at REPORT_AGREE any page's grid is the report", 0.938,
+      f.report_join(OPEN, [{"grid": {"rows": barred}, "page": "x.pdf", "number": None}], none_read)[0]["report"]["agrees"])
 log = io.StringIO()
 run = lambda **kw: f.run(store, inbox, out, grids_of=lambda p, sha: pages[p.name], read_letters=read_letters,
                          read_probs=probs_of, reports_to=printed, **kw)
@@ -278,7 +320,19 @@ check("an unsolved held file is filed again with the answers, as published",
       (True, ["1-across", "1-down", "3-down", "6-across"], "published"),
       (bool(back.get("wrote")), sorted(f"{e['number']}-{e['direction']}" for e in refiled["entries"] if e.get("solution")),
        refiled.get("solutions", {}).get("origin")))
-answers_in = {"1-across": "CARD", "1-down": "CARD", "3-down": "REAR", "6-across": "REAR"}
+# And so does one whose reading no longer builds (No 1 on 10-24, a clue
+# reader's change): it is joined on its own grid.
+(out / "listener-1.json").write_text(json.dumps(bare_file))
+pages["p1.pdf"][0]["fit"] = {**exact, "exact": False}
+lost = run(out=io.StringIO())[1]
+pages["p1.pdf"][0]["fit"] = exact
+refiled = json.loads((out / "listener-1.json").read_text())
+check("a held file whose reading lacks its grid takes the report's answers on its own grid",
+      ("grid: no exact fit to the printed numbers", {"report": {"page": "p3.pdf", "agrees": 1.0}, "reportAnswers": 5,
+                                                     "published": 4},
+       ["1-across", "6-across", "1-down", "3-down"], True),
+      (lost.get("lacks"), lost.get("heldReport"), lost.get("answered"), bool(lost.get("wrote"))))
+answers_in ={"1-across": "CARD", "1-down": "CARD", "3-down": "REAR", "6-across": "REAR"}
 built = f.build(reading(1, TEXT), OPEN)
 for e in built["entries"]:
     e["solution"] = answers_in.get(f"{e['number']}-{e['direction']}")

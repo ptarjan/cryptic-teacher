@@ -45,9 +45,14 @@ word (PERTS for AERTS on No 1, 1 of 12), so only the answers
 published_answers() takes file, as published: those whose every letter a
 second reader bears out, the Times' cell classifier
 (trove_solution_ocr.classified on report_glyph()) or the crossing light
-read whole the other way (No 1: 7 of 38, none wrong). The rest stay blank
-for the nightly solve; a held file of this tool's takes them too
-(with_report). Every answer read goes to REPORTS
+read whole the other way (No 1: 7 of 38, none wrong), or the VLM, asked
+the light's squares, reads the word a recogniser read it whole as
+(vlm_answers; No 1: 9 of 38, none wrong). The rest stay blank for the
+nightly solve; a held file of this tool's takes them too (with_report),
+joined on its own grid when its reading no longer builds one
+(held_report). A report's filled grid reads its bars poorly, so one on a
+page a few issues on is taken at REPORT_NEAR where its letters read as
+words (report_join). Every answer read goes to REPORTS
 (cross_validate.ListenerReport's cache), filed or not, where
 tools/cross_validate.py's `listenerreport` adapter votes on answers. A
 puzzle whose report is not saved files all the same, unsolved.
@@ -650,6 +655,55 @@ def published_answers(lts, read, probs):
     return out
 
 
+#: The VLM is asked at most this many lights a report (vlm_answers), once
+#: each (vlm_reader caches the reply), the VLM's slot being the queue's:
+#: No 95's report read 25 lights whole, 4 of which published_answers took.
+REPORT_ASKS = 12
+#: The prompt of that ask: the light's squares in a row, the letters already
+#: filed in them given.
+REPORT_PROMPT = Path(__file__).resolve().parent / "vlm_report_prompt.md"
+
+
+def vlm_answers(lts, read, filed, strip_of, ask):
+    """{light id: word} published_answers() left blank that the VLM bears
+    out: it is asked the light's squares (strip_of(cells), a PNG's base64,
+    or None) with only the letters `filed` holds in them, and its reply
+    stands where it is the light's length, a word a recogniser read the
+    whole light as (read["full"]), agrees with every letter `filed` and the
+    words taken before it hold, and is known(): two readers, the page's and
+    the VLM's, on the whole word. Those answers() took (every cell settled)
+    are asked first, at most REPORT_ASKS; an ask not answered (spooled, the
+    server down: ask raises RuntimeError) leaves its light blank, asked
+    again next run."""
+    held = {rc: ch for (n, d), cells in lts.items() for rc, ch in zip(cells, filed.get(f"{n}-{d}") or ())}
+    settled = crossed(lts, read["letters"], read["full"])
+    took = answers(lts, settled, read["full"])
+    wanted = [key for key in lts if f"{key[0]}-{key[1]}" not in filed and any(
+        len(w) == len(lts[key]) for w in read["full"].get(key, ()))]
+    wanted.sort(key=lambda k: (took.get(f"{k[0]}-{k[1]}") is None, order(f"{k[0]}-{k[1]}")))
+    prompt = REPORT_PROMPT.read_text()
+    out = {}
+    for key in wanted[:REPORT_ASKS]:
+        cells = lts[key]
+        pattern = "".join(held.get(rc, "?") for rc in cells)
+        if "?" not in pattern:
+            continue
+        png = strip_of(cells)
+        if not png:
+            continue
+        known = f" The letters already known, ? for the others: {pattern}." if set(pattern) != {"?"} else ""
+        try:
+            reply = ask(png, prompt.format(count=len(cells), known=known))
+        except RuntimeError:
+            continue
+        word = re.sub(r"[^A-Z]", "", ((reply or "").strip().splitlines() or [""])[0].upper())
+        if (len(word) == len(cells) and word in read["full"].get(key, ())
+                and all(p in ("?", ch) for p, ch in zip(pattern, word)) and ts.known(word)):
+            out[f"{key[0]}-{key[1]}"] = word
+            held.update(zip(cells, word))
+    return out
+
+
 # ------------------------------------------------------------ the puzzle
 
 def build(reading, rows):
@@ -735,6 +789,38 @@ def with_report(old, puzzle):
     return out, laid
 
 
+def held_report(n, puzzles, verdict, reports, readers, write):
+    """A held file of this tool's for No `n` (in `puzzles`, else the
+    corpus) joined with its report on its own grid (held_rows): its
+    answers laid in by with_report() and filed. For a puzzle whose
+    reading no longer builds a grid (Nos 1, 8, 10, 29, 121 on 10-24) or
+    did not reach its report (No 95's at 0.72). `readers`: report_join's
+    (read_letters, read_probs, read_strips, ask); `verdict` takes
+    "heldReport" (report_join's items) and "answered"."""
+    path = Path(puzzles) / f"{series_meta.puzzle_id(SERIES, n)}.json" if puzzles else puzzle_path(SERIES, n)
+    if not path.exists():
+        return
+    old = json.loads(path.read_text())
+    if (old.get("source") or {}).get("acquiredBy") != TOOL:
+        return
+    rows = held_rows(old)
+    found, _, filed = report_join(rows, reports, readers[0], readers[1], n, *readers[2:])
+    if "report" not in found:
+        return
+    verdict["heldReport"] = {k: v for k, v in found.items() if k != "cells"}
+    if not filed:
+        return
+    mine = copy.deepcopy(old)
+    for e in mine["entries"]:
+        e["solution"] = filed.get(f"{e['number']}-{e['direction']}")
+    answered = with_report(old, mine)
+    if not answered:
+        return
+    verdict["answered"] = answered[1]
+    if write:
+        scan_queue.file_puzzle(write_puzzle_file, TOOL, path, answered[0], verdict)
+
+
 def cells_of(e):
     """The (y, x) cells of entry `e`, in order."""
     x, y = e["position"]["x"], e["position"]["y"]
@@ -750,13 +836,14 @@ def report_copy(puzzle, words):
     return out
 
 
-def join(reading, grids, reports, read_letters, read_probs=None):
+def join(reading, grids, reports, read_letters, read_probs=None, read_strips=None, ask=None):
     """(puzzle or None, verdict, the report's copy or None) for one reading: `grids` the unfilled
     grids read on its pages ({"grid", "fit"}), `reports` every filled grid
     on any saved page ({"grid", "page"}), read_letters(report, lts) its
     letters ({"letters", "full"}, read_grid_letters' shape), and
     read_probs(report, lts) its cells' classifier probabilities (probs_reader):
-    with them the puzzle has the report's published_answers() in."""
+    with them the puzzle has the report's published_answers() in, and with
+    read_strips and ask the VLM's (report_join)."""
     verdict = {"number": reading["number"]}
     clues = reading["clues"]
     if not grids:
@@ -826,15 +913,62 @@ def join(reading, grids, reports, read_letters, read_probs=None):
         verdict["blanked"] = blank
         reading = {**reading, "clues": {lid: {**clues[lid], "text": t, "enumeration": e} for lid, (t, e, _) in laid.items()}}
     puzzle = build(reading, rows)
-    scored = sorted(((agreement(rows, r["grid"]["rows"]), i) for i, r in enumerate(reports)), reverse=True)
-    if not scored or scored[0][0] < REPORT_AGREE:
-        verdict["noReport"] = "no saved filled grid has its blocks and bars" + (
-            f" (best {scored[0][0]:.2f})" if scored else "")
+    found, words, filed = report_join(rows, reports, read_letters, read_probs, reading["number"], read_strips, ask)
+    verdict.update(found)
+    if words is None:
         return puzzle, verdict, None
-    report = reports[scored[0][1]]
-    verdict["report"] = {"page": report["page"], "agrees": round(scored[0][0], 3)}
+    copied = report_copy(puzzle, words)
+    if filed is not None:
+        for e in puzzle["entries"]:
+            e["solution"] = filed.get(f"{e['number']}-{e['direction']}")
+    return puzzle, verdict, copied
+
+
+#: A filled grid on a page of No n + 1 to n + REPORT_WITHIN (the issues
+#: No n's report may be in) is its report at REPORT_NEAR agreement, not
+#: REPORT_AGREE, where REPORT_WORDS of the lights read off it as words
+#: (answers()). A filled grid's bars read poorly, a letter's stroke taken
+#: for one and a faint bar missed: No 95's report agrees 0.72, No 121's
+#: 0.75, every light they read the word its clue asks (25 of 45, 14 of 32).
+#: The grid on No 18's page agrees 0.76 with No 15 and is not its report:
+#: 3 of 44 lights read, BODES for "Spoken in Switzerland".
+REPORT_NEAR, REPORT_WORDS = 0.7, 0.25
+
+
+def report_join(rows, reports, read_letters, read_probs=None, number=None, read_strips=None, ask=None):
+    """(verdict items, {light id: word or None} read off the report or None,
+    {light id: word} of those filing as published or None) for the grid
+    `rows` of No `number` against `reports` (join()'s, each with its page's
+    "number"): the filled grid agreeing best with its blocks and bars, at
+    least REPORT_AGREE, or REPORT_NEAR on a page REPORT_WITHIN issues on
+    whose letters read REPORT_WORDS of the lights as words; read by
+    read_letters and, with read_probs, published_answers(), and with
+    read_strips(report) (a light's cells to its strip) and `ask` the
+    VLM's word for the rest (vlm_answers). join() runs it on the grid it
+    builds; run() on a held file's own grid (held_rows) too, so a report
+    files its answers into a held puzzle whose reading no longer builds."""
+    verdict = {}
     lts = rg.light_cells(rows)
-    read = read_letters(report, lts)
+    scored = sorted(((agreement(rows, r["grid"]["rows"]), i) for i, r in enumerate(reports)), reverse=True)
+    near = [(a, i) for a, i in scored if REPORT_NEAR <= a < REPORT_AGREE and isinstance(number, int)
+            and isinstance(reports[i].get("number"), int) and 1 <= reports[i]["number"] - number <= REPORT_WITHIN]
+    found = None
+    if scored and scored[0][0] >= REPORT_AGREE:
+        found = scored[0], read_letters(reports[scored[0][1]], lts)
+    for a, i in near if found is None else ():
+        read = read_letters(reports[i], lts)
+        took = answers(lts, crossed(lts, read["letters"], read["full"]), read["full"])
+        if sum(1 for w in took.values() if w) >= REPORT_WORDS * len(lts):
+            found = (a, i), read
+            break
+    if found is None:
+        verdict["noReport"] = "no saved filled grid has its blocks and bars" + (
+            f" (best {scored[0][0]:.2f})" if scored else "") + (
+            f"; {len(near)} near it {REPORT_WITHIN} issues on read too few words" if near else "")
+        return verdict, None, None
+    (agrees, i), read = found
+    report = reports[i]
+    verdict["report"] = {"page": report["page"], "agrees": round(agrees, 3)}
     sure = read["letters"]
     settled = crossed(lts, sure, read["full"])
     words = answers(lts, settled, read["full"])
@@ -842,13 +976,15 @@ def join(reading, grids, reports, read_letters, read_probs=None):
     verdict["cells"] = {"sure": len(sure), "crossed": sorted([list(c) for c in set(settled) - set(sure)]),
                         "unread": sorted([list(c) for c in cells - set(settled)]), "of": len(cells)}
     verdict["reportAnswers"] = sum(1 for w in words.values() if w)
-    copied = report_copy(puzzle, words)
-    if read_probs is not None:
-        filed = published_answers(lts, read, read_probs(report, lts))
-        for e in puzzle["entries"]:
-            e["solution"] = filed.get(f"{e['number']}-{e['direction']}")
-        verdict["published"] = len(filed)
-    return puzzle, verdict, copied
+    if read_probs is None:
+        return verdict, words, None
+    filed = published_answers(lts, read, read_probs(report, lts))
+    if read_strips is not None and ask is not None and filed:
+        seen = vlm_answers(lts, read, filed, read_strips(report), ask)
+        filed.update(seen)
+        verdict["vlmAnswers"] = len(seen)
+    verdict["published"] = len(filed)
+    return verdict, words, filed
 
 
 # ------------------------------------------------------------ the pages
@@ -1011,11 +1147,48 @@ def probs_reader(inbox=gl.SAVED, cache=GRIDS):
     return read
 
 
+def strips_reader(inbox=gl.SAVED):
+    """read_strips for report_join(): for a report, strip_of(cells), the
+    light's squares in a row off its page (trove_solution_ocr.light_strip),
+    the page read once a report and only when a light is asked."""
+    import numpy as np
+
+    def read(report):
+        page = []
+
+        def strip_of(cells):
+            ys, xs = report["grid"]["lattice"]
+            if any(r + 1 >= len(ys) or c + 1 >= len(xs) for r, c in cells):
+                return None
+            if not page:
+                img, _ = gi.images(gl.page_path(inbox, report["page"]))[report["grid"]["page"]]
+                page.append(np.asarray(img.convert("L"), dtype=np.uint8))
+            return ts.light_strip(page[0], ys, xs, cells)
+        return strip_of
+    return read
+
+
+def report_ask(png, prompt):
+    """vlm_answers' ask: the VLM's reply about the strip `png` (base64),
+    cached by vlm_reader; RuntimeError when spooled or the server is down."""
+    import base64
+
+    import vlm_reader as vlm
+    with vlm.because("listener-report"):
+        return vlm.ask_png(base64.b64decode(png), prompt, max_tokens=40)
+
+
 def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout,
-        grids_of=page_grids, read_letters=None, reports_to=REPORTS, numbers=None, read_probs=None):
+        grids_of=page_grids, read_letters=None, reports_to=REPORTS, numbers=None, read_probs=None,
+        read_strips=None, ask=None):
     """Join every reading in `store` (or just those of `numbers`) with its
     grid and report; file those that pass, and keep each report's copy in
-    `reports_to`. Returns {number: verdict}, also merged into store/LEDGER."""
+    `reports_to`. Returns {number: verdict}, also merged into store/LEDGER.
+    The VLM is asked about a report's lights (read_strips, ask) only with
+    the page's own readers: a caller's read_probs goes without, unless it
+    gives them too."""
+    if read_probs is None:
+        read_strips, ask = read_strips or strips_reader(Path(inbox)), ask or report_ask
     read_letters = read_letters or letters_reader(Path(inbox))
     read_probs = read_probs or probs_reader(Path(inbox))
     ledger = gl.load_ledger(store)
@@ -1052,11 +1225,13 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
     # With the desktop named, SEARCH_SLOTS pages' grids are found there at once.
     with ThreadPoolExecutor(ocr_remote.SEARCH_SLOTS if ocr_remote.hosts() else 1) as pool:
         grids = {e["file"]: gs for (_, e), gs in zip(ordered, pool.map(page, ordered)) if gs is not None}
-    reports = [{"grid": g["grid"], "page": f} for f, gs in grids.items() for g in gs if g["fit"] is None]
+    number_of_page = {e["file"]: e.get("number") for _, e in files}
+    reports = [{"grid": g["grid"], "page": f, "number": number_of_page.get(f)}
+               for f, gs in grids.items() for g in gs if g["fit"] is None]
     verdicts = {}
     for n, reading in sorted(readings.items()):
         mine = [g for sha, e in files if e.get("number") == n for g in grids.get(e["file"], ()) if g["fit"]]
-        puzzle, verdict, printed = join(reading, mine, reports, read_letters, read_probs)
+        puzzle, verdict, printed = join(reading, mine, reports, read_letters, read_probs, read_strips, ask)
         if printed and write:
             Path(reports_to).mkdir(parents=True, exist_ok=True)
             (Path(reports_to) / f"{printed['id']}.json").write_text(json.dumps(printed, indent=1) + "\n")
@@ -1106,6 +1281,10 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
                 elif write:
                     path.parent.mkdir(parents=True, exist_ok=True)
                     scan_queue.file_puzzle(write_puzzle_file, TOOL, path, puzzle, verdict)
+        if "report" not in verdict:
+            # No report joined on this reading's grid (or none built): a held
+            # file of this tool's is joined on its own.
+            held_report(n, puzzles, verdict, reports, (read_letters, read_probs, read_strips, ask), write)
         verdicts[n] = verdict
         print(f"No {n}: " + "; ".join(v for v in (
             verdict.get("lacks"), verdict.get("skip"), verdict.get("refusedWrite"), verdict.get("writeFailed"),
