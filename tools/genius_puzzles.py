@@ -835,7 +835,7 @@ ARTICLE_PARTS = re.compile(r'data-gu-name="(?:standfirst|body)"[^>]*>(.*?)(?=<[^
 def article_text(body):
     """The article's standfirst and body as one flat line."""
     parts = ARTICLE_PARTS.findall(body)
-    t = " ".join(re.sub(r"<script\b.*?</script\s*>|<style\b.*?</style\s*>", " ", x, flags=re.S | re.I) for x in parts)
+    t = " ".join(re.sub(r"<script\b.*?</script[^>]*>|<style\b.*?</style[^>]*>", " ", x, flags=re.S | re.I) for x in parts)
     t = html.unescape(re.sub(r"<[^>]+>", " ", t))
     t = re.sub(r"(?i)click here to access the print version|Photograph: \w+", " ", t)
     return flat(t, kerned=False)
