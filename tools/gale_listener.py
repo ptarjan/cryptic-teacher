@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 """The Listener crosswords of 1930-91, read from the pages
 tools/gale_fetch.py downloads from Gale's Listener Historical Archive
-(through the Alberta Research Portal).
+(through the Alberta Research Portal), and those of 1991-2014 from the
+Saturday Times pages it downloads from the Times Digital Archive (SAVED/TIMES):
+a Times page is matched by its citation ("Listener Crossword No. 3138: ..."
+Times, 22 Feb. 1992) against the year index's Times rows (index(times=True)),
+and only its Listener block is read (times_block: under the "Listener
+Crossword" title, between the gutters either side of its ACROSS and DOWN
+lists), not the page's other puzzles, a concise or the Times Two.
 
 wanted() is what tools/gale_fetch.py fetches: every puzzle the magazine
 printed that is neither filed nor read, from the Listener Team's year index
@@ -81,6 +87,14 @@ HOME = Path(os.path.expanduser("~/.cache/gale_listener"))
 #: the Mac, which the desktop's queue could not see: it planned no page.)
 SAVED = downloads.GALE_CROSSWORDS / "Listener"
 FETCHED = "Fetched"
+#: The Saturday Times' Listener pages (1991-2014, No 3,090 on), which
+#: tools/gale_fetch.py keeps apart from the magazine's (its
+#: TIMES_LISTENER_DIR): SAVED/TIMES. page_files lists them with the
+#: magazine's; each is a broadsheet page with other puzzles on it, read
+#: for the Listener's own block only (times_block).
+TIMES = Path("Times") / FETCHED
+#: The last year of the Times' run gale_fetch fetches (its TIMES_LISTENER).
+TIMES_LAST_YEAR = 2014
 OCR_CACHE = HOME / "ocr"
 #: The readings and the ledger: derived from Paul's pages, kept beside the
 #: series' other source data.
@@ -92,6 +106,12 @@ FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 VERSION = 28
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
+#: A Times page's citation: '"Listener Crossword No. 3138: Playflare by
+#: Apex." Times, 22 Feb. 1992, p. 91', '"The Listener Crossword 3890."
+#: Times, 12 Aug. 2006', '"The Listener Crossword." Times, 14 Nov. 1992'.
+TIMES_CITED = re.compile(r'^\W*"([^"]*?)\W*"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
+#: The number in its article title.
+TIMES_NUMBER = re.compile(r"\bcrossword\W{0,3}(?:n[o0]\W{0,3})?(\d[,.]?\d{3})\b", re.IGNORECASE)
 
 DATES = gi.date_patterns(r"19[2-9]\d")
 #: A puzzle number in a file name: after "No", "Listener", "Crossword" or
@@ -227,13 +247,16 @@ def _year_rows(y, cache, fetch, memo):
     return rows
 
 
-def index(cache=YEARS, fetch=True):
-    """[{number, title, setter, date}] of every Listener the magazine printed."""
+def index(cache=YEARS, fetch=True, times=False):
+    """[{number, title, setter, date}] of every Listener the magazine printed,
+    and with `times` those the Saturday Times printed too, to
+    TIMES_LAST_YEAR (what a Times page is matched against; wanted() asks
+    the magazine's archive for the magazine's alone)."""
     rows = {}
     memo = mm.memo(YEARS_MANIFEST, "year", "rows") if mm.on_media(cache) else {}
-    for y in range(FIRST_YEAR, LAST_ISSUE.year + 1):
+    for y in range(FIRST_YEAR, (TIMES_LAST_YEAR if times else LAST_ISSUE.year) + 1):
         for r in _year_rows(y, cache, fetch, memo):
-            if r["date"] <= LAST_ISSUE:
+            if times or r["date"] <= LAST_ISSUE:
                 rows[r["number"]] = r
     return [rows[n] for n in sorted(rows)]
 
@@ -307,6 +330,21 @@ def cited_day(cite):
     return m and datetime.date(int(m.group(3)), gi.MONTHS[m.group(2)[:3].lower()], int(m.group(1)))
 
 
+def times_cited(cite):
+    """(number or None, date) a Times page's citation gives (TIMES_CITED),
+    or None when it is no Times citation."""
+    m = TIMES_CITED.search(re.sub(r"\s+", " ", cite or ""))
+    if not m:
+        return None
+    n = TIMES_NUMBER.search(m.group(1))
+    return n and num(n.group(1)), datetime.date(int(m.group(4)), gi.MONTHS[m.group(3)[:3].lower()], int(m.group(2)))
+
+
+def is_times(path):
+    """Whether the saved page `path` is one of the Saturday Times' (in SAVED/TIMES)."""
+    return Path(path).parent.name == TIMES.name and Path(path).parent.parent.name == TIMES.parent.name
+
+
 def match(path, idx, read_title=True):
     """{"number", "date", "how", "reports", "docId", "pages": [(image, key)]}
     for a saved file: "number" the puzzle whose clues it prints, None (and
@@ -323,7 +361,19 @@ def match(path, idx, read_title=True):
     number, how, reports = cited(cite)
     report_only = bool(reports) and number is None
     pointed = []
-    day = gi.name_date(name, DATES)
+    # A Saturday Times page: its citation dates it (and mostly numbers it,
+    # "Listener Crossword No. 3138: ..."), its name only the document's.
+    if (got := times_cited(cite)) or is_times(path):
+        out["times"] = True
+    if got:
+        n, day = got
+        r = by_date(idx, day)
+        if n is not None and (r is None or r["number"] == n
+                              or n in by_number and abs(by_number[n]["date"] - day) <= TITLE_DRIFT):
+            out.update(number=n, how="Times citation title")
+        elif r:
+            out.update(number=r["number"], how="Times citation date")
+    day = None if out["number"] is not None else gi.name_date(name, DATES)
     if day:
         r = by_date(idx, day)
         out.update(number=r and r["number"], how="file name date")
@@ -1425,6 +1475,274 @@ def elsewhere(words):
     return sorted({int(n) for n in ELSEWHERE.findall(" ".join(ocr_clues.lines_of(words).split()))})
 
 
+# ------------------------------------------------------------ a Times page's Listener
+
+#: The Listener's title on a Saturday Times page, "The Listener Crossword
+#: 3890" (the word after "Listener" on its line): the tallest such words, as
+#: the coupon's "Listener Crossword No 3890," and "Winners of Listener
+#: Crossword 3135" are smaller.
+TITLE_WORD = re.compile(r"^\W*listener\W*$", re.IGNORECASE)
+TITLE_NEXT = re.compile(r"^\W*crossword", re.IGNORECASE)
+#: A gutter between a Times page's columns: an x run at least this many
+#: line heights wide that no word crosses (they are ~2 wide; a list's
+#: numbers hang 0.3-0.7 left of their clues' words)...
+TIMES_GUTTER = 1.0
+#: ...down the lists' first this many lines (their headings' level on), where
+#: the page is in columns: the grid and preamble over them span two.
+TIMES_BAND = 15
+#: A column right of the DOWN list's is the Listener's while at least this
+#: share of its lines open on a number (a list run on), and it has no heading
+#: of its own (another puzzle's lists).
+TIMES_NUMBERED = 0.35
+#: The lists end at a gap this many line heights tall with no word in their
+#: columns: under it, the page's note of last week's corrections, or
+#: another article.
+TIMES_END = 3
+#: A clue line's opening number, as a Times page's OCR reads it.
+LINE_NUMBER = re.compile(r"^\W{0,2}\d{1,2}\b")
+
+
+def line_height(words):
+    """The median height of the words with three letters running."""
+    hs = sorted(w[3] - w[1] for w in words if WORDY.search(w[4]))
+    return hs[len(hs) // 2] if hs else 40
+
+
+def times_titles(words):
+    """The boxes (x0, y0, x1, y1) of each "Listener Crossword" on a page's
+    words, tallest first, each widened to the words running on either side
+    of it on its line ("The Listener Crossword 3890")."""
+    out = []
+    for w in words:
+        h = w[3] - w[1]
+        if not TITLE_WORD.match(w[4]):
+            continue
+        mid = (w[1] + w[3]) / 2
+        line = [o for o in words if abs((o[1] + o[3]) / 2 - mid) < h / 2 and o[3] - o[1] > h / 2]
+        if not any(TITLE_NEXT.match(o[4]) and 0 <= o[0] - w[2] < 2 * h for o in line):
+            continue
+        x0, x1 = w[0], w[2]
+        for o in sorted(line, key=lambda o: o[0]):
+            if 0 <= o[0] - x1 < 2 * h:
+                x1 = max(x1, o[2])
+        for o in sorted(line, key=lambda o: -o[2]):
+            if 0 <= x0 - o[2] < 2 * h:
+                x0 = min(x0, o[0])
+        out.append((x0, w[1], x1, w[3]))
+    return sorted(out, key=lambda b: b[1] - b[3])
+
+
+def times_title(words):
+    """The tallest of times_titles, or None."""
+    return next(iter(times_titles(words)), None)
+
+
+def times_heads(words, lh):
+    """The words heading a Times page's lists: ACROSS or DOWN in capitals
+    ("ACROSS:", misread "CROS"), or in title case with no word beside it on
+    its line within two line heights (a clue's "see 5 Across" has)."""
+    out = []
+    for w in words:
+        if not heading(w[4]):
+            continue
+        if not re.sub(r"[^A-Za-z]", "", w[4]).isupper() and any(
+                o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2
+                and min(abs(o[0] - w[2]), abs(w[0] - o[2])) < 2 * lh for o in words):
+            continue
+        out.append(w)
+    return out
+
+
+def gutters(words, y0, y1, width):
+    """[(x0, x1)] the runs at least `width` wide, left to right, that no word
+    between y0 and y1 crosses (a rule read as "|" aside), the page's left
+    margin first and an open run past the last word last."""
+    ws = [w for w in words if w[3] > y0 and w[1] < y1 and re.search(r"\w", w[4])]
+    if not ws:
+        return []
+    right = int(max(w[2] for w in ws)) + 1
+    cover = [0] * (right + 1)
+    for w in ws:
+        cover[max(0, int(w[0]))] += 1
+        cover[int(w[2])] -= 1
+    out, run, start = [], 0, 0
+    for x in range(right + 1):
+        run += cover[x]
+        if run > 0:
+            if x - start >= width:
+                out.append((start, x))
+            start = x + 1
+    out.append((start, float("inf")))
+    return out
+
+
+def numbered_share(words, x0, x1, y0, y1):
+    """The share of the lines between y0 and y1 of the words in x0..x1
+    opening on a clue number (LINE_NUMBER)."""
+    ws = sorted((w for w in words if x0 <= (w[0] + w[2]) / 2 <= x1 and y0 <= (w[1] + w[3]) / 2 <= y1),
+                key=lambda w: ((w[1] + w[3]) / 2, w[0]))
+    lines = []
+    for w in ws:
+        if lines and abs((w[1] + w[3]) / 2 - lines[-1][0]) < (w[3] - w[1]) / 2:
+            lines[-1][1].append(w)
+        else:
+            lines.append([(w[1] + w[3]) / 2, [w]])
+    return sum(1 for _, line in lines if LINE_NUMBER.match(min(line)[4])) / len(lines) if lines else 0
+
+
+def times_box(words):
+    """(x0, y0, x1, y1) of the Listener's clue lists on a Saturday Times
+    page's words: under its title (times_titles, the tallest with a heading
+    pair under it: a "Listener Crossword" box lower on the page may be set
+    larger), the ACROSS heading nearest it (times_heads), and the DOWN
+    heading nearest that under it or in a column right of it; from the gutter
+    left of the ACROSS list to the gutter right of the DOWN list (and the
+    columns on that its lists run on into), from the headings down to the
+    first gap of TIMES_END lines. The page's other puzzles (the Times
+    Two, a concise, a quiz, a bridge or chess column) are left out. None
+    when no title or no heading pair is read."""
+    got = times_cut(words)
+    return got and got[0]
+
+
+#: A line under the lists in one of their columns opening on one of these
+#: words heads the page's other matter there and in the columns right of it,
+#: from its line down: last week's "SOLUTIONS:" (its
+#: notes numbered "7 ness; 10 Iowa;", which read as clues), "Solution to
+#: Crossword 3101", "Winners of Listener Crossword 3135", "ANSWERS".
+TIMES_STOP = re.compile(r"^\W*(?:SOLUTIONS?|Solutions?|WINNERS|Winners|ANSWERS)\b\W*$")
+
+
+def times_cut(words):
+    """(times_box's box, [masks]): each mask a box of the page to blank
+    out of it, a column of the lists from a TIMES_STOP line down; None
+    with no box."""
+    lh = line_height(words)
+    every = times_heads(words, lh)
+    for title in times_titles(words):
+        if got := _times_box(words, title, [w for w in every if w[1] > title[3]], lh):
+            return got
+    return None
+
+
+def _times_box(words, title, heads, lh):
+    """times_cut under the one title `title`, its lists headed by `heads`."""
+    def partner(across):
+        # DOWN under ACROSS in its column, or in a column right of it at any
+        # level (the 1991-92 pages set the across list under the grid and
+        # preamble, the down list from the next column's top).
+        return min((w for w in heads if heading(w[4]) == "DOWN" and w[0] >= across[0] - 2 * lh
+                    and (w[1] > across[3] or w[0] > across[0] + 3 * lh)),
+                   key=lambda w: abs(w[0] - across[0]) + abs(w[1] - across[1]), default=None)
+    pair = next(((a, d) for a in sorted((w for w in heads if heading(w[4]) == "ACROSS"), key=lambda w: max(
+        0, title[0] - w[2], w[0] - title[2]) + (w[1] - title[3]) / 4) if (d := partner(a))), None)
+    if pair is None:
+        return None
+    across, down = pair
+    top = min(across[1], down[1]) - 2 * lh
+    # The columns are measured from the lower heading where DOWN heads a column of its own, else from
+    # ACROSS: a DOWN under it in its column may stand near the page's foot, the words under it few.
+    lower = max(across[1], down[1]) if down[0] > across[0] + 3 * lh else across[1]
+    band = lower + TIMES_BAND * lh
+    gs = gutters(words, lower, band, TIMES_GUTTER * lh)
+    left = max((g[1] for g in gs if g[1] <= across[0] + lh), default=0)
+    after = [g for g in gs if g[0] >= down[2]]
+    if not after:
+        return None
+    right = after[0][0]
+    for g, nxt in zip(after, after[1:]):
+        col = (g[1], nxt[0])
+        if any(col[0] <= (h[0] + h[2]) / 2 <= col[1] and top <= h[1] <= band for h in heads) or numbered_share(
+                words, *col, top, band) < TIMES_NUMBERED:
+            break
+        right = nxt[0]
+    bottom = top
+    for w in sorted((w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[3] > top), key=lambda w: w[1]):
+        if w[1] - bottom > TIMES_END * lh and bottom > max(across[3], down[3]):
+            break
+        bottom = max(bottom, w[3])
+    box = (int(max(0, left - lh / 2)), int(max(0, top)), int(right + lh / 4), int(bottom + lh / 2))
+    masks = []
+    for w in words:
+        if not (TIMES_STOP.match(w[4]) and left <= (w[0] + w[2]) / 2 <= right and top + 2 * lh < w[1] < bottom):
+            continue
+        col_left = max((g[1] for g in gs if g[1] <= w[0] + 1), default=box[0])
+        if any(o is not w and col_left <= o[0] < w[0] and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2
+               and re.search(r"\w", o[4]) for o in words):
+            continue  # not the line's first word in its column: a clue's
+        # In its column and each right of it, down to the first line there opening like a clue: last
+        # week's grid and notes may spill into the next column (No 3104's page), or be a block set in
+        # one column with the lists going on under it or beside it (No 3121's).
+        # A mask beside the one before it takes the gutter between them too, and the last column's
+        # runs to the box's edge: the old grid crosses them (No 3104's page read 28 of 39 so, 50 of 50 not).
+        cols = [(a[1], b[0]) for a, b in zip(gs, gs[1:]) if b[0] > col_left and a[1] < box[2]]
+        before = None
+        for i, (cl, cr) in enumerate(cols or [(col_left, box[2])]):
+            cl, cr = max(cl, col_left), (box[2] if i == len(cols) - 1 else min(cr, box[2]))
+            end = next((y - lh / 4 for y, opens in column_lines(words, cl, cr, w[1] - lh / 4, box[3]) if opens),
+                       box[3])
+            if end > w[1]:
+                masks.append((int(before if before is not None else cl), int(w[1] - lh / 4), int(cr), int(end)))
+            before = cr if end > w[1] else None
+    return box, masks
+
+
+#: A line opening like a clue: its number, then a word in capitals ("16. Syrup's", "3 Was"),
+#: as last week's notes ("7 ness;") and grid letters ("1 S O L") do not.
+CLUE_OPENS = re.compile(r"^\W{0,2}\d{1,2}[.,]?$")
+CLUE_WORD = re.compile(r"^\W{0,2}[A-Z][a-z']{2,}")
+
+
+def column_lines(words, x0, x1, y0, y1):
+    """[(top, opens like a clue)] of the lines of the words in x0..x1 between
+    y0 and y1, top down."""
+    ws = sorted((w for w in words if x0 <= (w[0] + w[2]) / 2 <= x1 and y0 <= (w[1] + w[3]) / 2 <= y1),
+                key=lambda w: ((w[1] + w[3]) / 2, w[0]))
+    lines = []
+    for w in ws:
+        if lines and abs((w[1] + w[3]) / 2 - lines[-1][0]) < (w[3] - w[1]) / 2:
+            lines[-1][1].append(w)
+        else:
+            lines.append([(w[1] + w[3]) / 2, [w]])
+    out = []
+    for _, line in lines:
+        line.sort()
+        first = line[0][4]
+        opens = bool(re.match(r"^\W{0,2}\d{1,2}[.,]?\s*[A-Z][a-z']{2,}", first)) or (
+            bool(CLUE_OPENS.match(first)) and len(line) > 1 and bool(CLUE_WORD.match(line[1][4])))
+        out.append((min(o[1] for o in line), opens))
+    return out
+
+
+def times_block(img, key):
+    """(image, key) of the Listener's clue lists cut from a Saturday Times
+    page (times_cut over its page_words), its masks blanked white, its own
+    page_words those of the page inside it and out of the masks (no second
+    read); None when none is found."""
+    from PIL import ImageDraw
+    words = page_words(img, key)
+    got = times_cut(words)
+    if got is None:
+        return None
+    box, masks = got
+    box = (box[0], box[1], min(img.width, box[2]), min(img.height, box[3]))
+    x0, y0, x1, y1 = box
+    crop = img.crop(box)
+    if masks:
+        crop = crop.copy()
+        draw = ImageDraw.Draw(crop)
+        for m in masks:
+            draw.rectangle((m[0] - x0, m[1] - y0, m[2] - x0, m[3] - y0), fill="white")
+    ck = image_key(crop)
+    path = OCR_CACHE / f"{ck}.page.{ocr_clues.reader_key('times')}.json"
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        write_whole(path, json.dumps([(a - x0, b - y0, c - x0, d - y0, t) for a, b, c, d, t in words
+                                      if x0 <= a and c <= x1 and y0 <= b and d <= y1 and not any(
+                                          m[0] <= (a + c) / 2 <= m[2] and m[1] <= (b + d) / 2 <= m[3] for m in masks)]))
+    return crop, ck
+
+
 def read_page(img, key, lengths=None):
     """(verdict, {light: (text, enumeration, None)} or None) for one page:
     the whole page read by every ocr_clues.READERS reader band by band, each
@@ -1843,9 +2161,16 @@ def see_pages(pages):
 
 
 def read_file(m):
-    """(verdict, laid) of the fullest page of a matched file."""
+    """(verdict, laid) of the fullest page of a matched file; of a Times
+    page's Listener block alone (times_block)."""
     best = ({"refused": "no page image"}, None)
     for img, key in m["pages"]:
+        if m.get("times"):
+            if (block := times_block(img, key)) is None:
+                if not best[1]:
+                    best = ({"refused": "no Listener clue lists found on the Times page"}, None)
+                continue
+            img, key = block
         verdict, laid = read_page(img, key)
         if laid and (not best[1] or verdict["agreed"] > best[0]["agreed"]):
             best = (verdict, laid)
@@ -1965,8 +2290,9 @@ def reading(m, row, verdict, laid):
         "name": f"Listener crossword No {row['number']:,}: {row['title']}",
         "setter": row.get("setter"),
         "date": row["date"].isoformat(),
-        "source": {"publisher": "The Listener", "retrievedFrom": "gale", "file": m["file"],
-                   "url": DOC_URL.format(m["docId"]) if m.get("docId") else PORTAL},
+        "source": {"publisher": "The Times" if m.get("times") else "The Listener", "retrievedFrom": "gale",
+                   "file": m["file"],
+                   "url": (gi.DOC_URL if m.get("times") else DOC_URL).format(m["docId"]) if m.get("docId") else PORTAL},
         "unfiled": "clues only: the grid and answers are still to be rebuilt",
         "verdict": verdict,
         "clues": {lid: {"text": t, "enumeration": e, **({"asPrinted": alike[lid]} if lid in alike else {}),
@@ -2123,10 +2449,11 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
 
 
 def page_files(inbox):
-    """The saved pages in `inbox` and its FETCHED subfolder, by name (a name
-    is never in both: the fetcher's are GALE_<doc>, Paul's <doc>)."""
+    """The saved pages in `inbox`, its FETCHED subfolder and the Times' (TIMES),
+    by name (a name is never in two: the fetcher's are GALE_<doc>, Paul's
+    <doc>, and a Times document is no magazine's)."""
     out = []
-    for d in (Path(inbox), Path(inbox) / FETCHED):
+    for d in (Path(inbox), Path(inbox) / FETCHED, Path(inbox) / TIMES):
         if d.is_dir():
             out += [p for p in d.iterdir() if not p.name.startswith(".") and p.suffix.lower() in gi.PAGES
                     and p.is_file()]
@@ -2135,9 +2462,12 @@ def page_files(inbox):
 
 def page_path(inbox, name):
     """Where the saved page `name` (a ledger row's "file", a unit's "rel")
-    is: in `inbox`, else its FETCHED subfolder."""
+    is: in `inbox`, else its FETCHED subfolder, else the Times' (TIMES)."""
     p = Path(inbox) / name
-    return p if p.exists() or not (Path(inbox) / FETCHED / name).exists() else Path(inbox) / FETCHED / name
+    for d in (FETCHED, TIMES):
+        if not p.exists() and (Path(inbox) / d / name).exists():
+            p = Path(inbox) / d / name
+    return p
 
 
 def doc_of(name):
@@ -2192,7 +2522,7 @@ def run(inbox=SAVED, store=STORE, idx=None, out=sys.stdout, reader=read_file):
     """Read every file in `inbox` the ledger has not read at this VERSION;
     write each puzzle's reading to `store` (a fuller one replaces it).
     Returns the ledger."""
-    idx = index() if idx is None else idx
+    idx = index(times=True) if idx is None else idx
     rows = {r["number"]: r for r in idx}
     store.mkdir(parents=True, exist_ok=True)
     ledger = load_ledger(store)
@@ -2236,8 +2566,11 @@ def plan(inbox=SAVED, store=STORE):
             row = docs.get(d)
         if (row or {}).get("version") != VERSION:
             todo[p] = row
+    # A Times page first in its rank: ~85 modern pages that may file whole, not behind ~2,850 of the
+    # magazine's never read (their mtimes all earlier).
     due = sorted(((p, due_reason(row)) for p, row in todo.items()),
-                 key=lambda pr: (rank_of(pr[1]), clues_left(todo[pr[0]], pr[1]), pr[0].stat().st_mtime))
+                 key=lambda pr: (rank_of(pr[1]), clues_left(todo[pr[0]], pr[1]), not is_times(pr[0]),
+                                 pr[0].stat().st_mtime))
     return [{"rel": p.name, "rank": rank_of(reason), "reason": reason, "needs": []} for p, reason in due]
 
 
@@ -2388,7 +2721,7 @@ def read_unit(name, inbox=SAVED, store=STORE, reader=read_file, out=sys.stdout, 
         before = load_ledger(store).get(h)
         if (before or {}).get("version") == VERSION:
             return "current"
-        idx = index()
+        idx = index(times=is_times(p))
         entry = read_one(p, h, idx, {r["number"]: r for r in idx}, store, out, reader, before=before)
         if entry is None:
             return "failed"
@@ -2533,7 +2866,7 @@ def main(argv=None):
     mt.add_argument("files", nargs="+", type=Path)
     a = ap.parse_args(argv)
     if a.cmd == "match":
-        idx = index()
+        idx = index(times=True)
         for f in a.files:
             m = match(f, idx)
             print(f"{f.name}: " + (f"No {m['number']}, {m['date']} ({m['how']})" if m["number"] is not None
