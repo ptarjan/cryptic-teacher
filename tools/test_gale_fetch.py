@@ -329,7 +329,9 @@ dir_cache.load = lambda *a: None
 gale_inbox.aside_days = lambda: {}
 gale_inbox.staged_matches = lambda: {}
 gale_inbox.other_wanted = lambda prod: {"TGRH": [D(2000, 1, 4), D(2000, 1, 3)], "FTHA": [D(2010, 1, 4)]}.get(prod, [])
-docs = {"TGRH/2000-01-03": {"why": "no crossword in the issue's contents", "matcher": gale_docs.MATCHER["TGRH"]}, "FTHA/2010-01-04": {"doc": "HS1"}}
+saved_tld = gf.times_listener_days
+gf.times_listener_days = lambda docs: []  # the Saturday Listener articles are tested below
+docs ={"TGRH/2000-01-03": {"why": "no crossword in the issue's contents", "matcher": gale_docs.MATCHER["TGRH"]}, "FTHA/2010-01-04": {"doc": "HS1"}}
 gale_docs.load = lambda *a: docs
 gale_inbox.wanted = lambda: [(D(2001, 1, 2), "no-scan")]
 assert gf.plan(set(), 0) == [("TTDA", D(2001, 1, 2), None), ("TGRH", D(2000, 1, 4), None),
@@ -365,6 +367,43 @@ docs["TTDA/2006-05-23"] = {"doc": "IF2", "title": "The Times Crossword 23,296", 
 assert times({"IF1"}) == [("TTDA", day, docs["TTDA/2006-05-23"])], times({"IF1"})
 docs["TTDA/2006-05-23"] = {"doc": "IF1", "title": "The Times Crossword 23,296", "page": 87}
 assert times({"IF1"}) == [], "the cryptic, fetched, is passed"
+# The Saturday Times' Listener articles (1991-03-23 to 2014): their own kind,
+# keyed apart from the daily crossword's, never superseding it, after the
+# magazine Listener's rows and before the other papers'.
+gf.times_listener_days = saved_tld
+gale_inbox.wanted = lambda: []
+days = gf.times_listener_days({})
+assert days[0] == D(1991, 3, 23) and days[-1] <= D(2014, 12, 31) and all(d.weekday() == 5 for d in days)
+assert len(days) == 1241, len(days)
+assert gf.times_listener_days({"TTDA/1991-03-23": {"why": "Gale has no issue that day"}})[0] == D(1991, 3, 30)
+assert gf.key("TTDA", D(2006, 8, 12), kind="listener") == "TTDA/listener/2006-08-12" != gf.key("TTDA", D(2006, 8, 12))
+assert gf.want("TTDA", D(2006, 8, 12), {}, set(), kind="listener") == [("TTDA", D(2006, 8, 12), None, None, False, "listener")]
+le = {"doc": "IF0502995194", "title": "The Listener Crossword 3890", "page": 70, "records": ["R"], "kind": "listener",
+      "matcher": gale_docs.MATCHER["listener"]}
+assert gf.want("TTDA", D(2006, 8, 12), {"TTDA/listener/2006-08-12": le}, set(), kind="listener") == \
+    [("TTDA", D(2006, 8, 12), le, None, False, "listener")]
+assert gf.want("TTDA", D(2006, 8, 12), {"TTDA/listener/2006-08-12": le}, {"IF0502995194"}, kind="listener") == []
+# the daily page of that date is a different row, and a Listener entry does not make it superseded
+assert gf.want("TTDA", D(2006, 8, 12), {"TTDA/listener/2006-08-12": le}, set()) == [("TTDA", D(2006, 8, 12), None)]
+assert not gf.superseded(D(2006, 8, 12), [{"how": "fetched", "docId": "IF0502995194"}], {"TTDA/listener/2006-08-12": le})
+plan_all = gf.plan(set(), 0)
+tl = [r for r in plan_all if r[2:] and r[-1] == "listener"]
+assert len(tl) == len(days) and {r[0] for r in tl} == {"TTDA"}, len(tl)
+gale_listener.wanted = lambda: [(D(1955, 6, 2), 1309, False)]
+gale_inbox.other_wanted = lambda prod: [D(2000, 1, 4)] if prod == "TGRH" else []
+order = [r[0] if not r[3:] or r[-1] != "listener" else "TTL" for r in gf.plan(set(), 0)]
+assert order[0] == "LSNR" and order.index("TTL") < order.index("TGRH"), order[:3]
+gale_listener.wanted = lambda: []
+# its Fetched folder is its own, and file_page only keeps it (no edition, no magazine layout)
+assert gf.fetched_dir("TTDA", "listener") == f"{gf.GALE_ROOT}/Listener/Times/Fetched" != gf.fetched_dir("TTDA")
+kept = []
+real_put, real_ssh = gf.put, gf.ssh
+gf.put = lambda body, name, folder=gf.FETCHED_DIR: kept.append((name, folder))
+gale_inbox_lay = gale_inbox.lay_out_fetched
+gale_inbox.lay_out_fetched = lambda *a, **k: kept.append("laid out")
+gf.file_page(b"%PDF", "TTDA", D(2006, 8, 12), "IF0502995194", le)
+assert kept == [("GALE_IF0502995194.pdf", f"{gf.GALE_ROOT}/Listener/Times/Fetched")], kept
+gf.put, gale_inbox.lay_out_fetched = real_put, gale_inbox_lay
 for k, v in saved.items():
     setattr(gale_inbox, k, v)
 gale_listener.wanted = saved_wanted

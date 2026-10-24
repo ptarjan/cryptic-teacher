@@ -135,6 +135,28 @@ check("a Times link an older matcher picked is stale unless the cryptic's", [Tru
           ("Crossword 95", {}), ("Crossword", {}), ("The Times Crossword 23,296", {}),
           ("Crossword 95", {"matcher": gd.MATCHER["TTDA"]})]])
 check("the other papers' links are not", False, gd.stale("LSNR", {"doc": "x", "title": "Competition"}))
+# The Saturday Times' Listener article: its own kind, picked from the issue's
+# contents, apart from the daily crossword (which still rejects it).
+check("the Listener article among a Saturday's titles", [1, None, None, 1],
+      [gd.listener_article(ts) for ts in (["The Times Crossword 23,296", "The Listener Crossword 3890"],
+                                          ["The Times Crossword 23,296", "Crossword 67 Miscellany"],
+                                          ["Report on Listener Crossword No 3,890", "Listener crossword solution"],
+                                          ["Times2 Crossword", "Listener crossword"])])
+check("the numbered Listener article first", 1, gd.listener_article(["Listener Crossword 3889", "Listener Crossword 3890"], 3890))
+check("the daily pick never takes it", None, gd.crossword("TTDA", ["The Listener Crossword 3890"]))
+sat = D(2006, 8, 12)
+lk = FakeGale({sat: issue([("The Times Crossword 23,296", 60, 1), ("The Listener Crossword 3890", 70, 1)])})
+le = gd.lookup("TTDA", sat, lk, kind="listener")
+daily = gd.lookup("TTDA", sat, lk)
+check("lookup(kind) takes the Listener article, marked", ("The Listener Crossword 3890", 70, "listener"),
+      (le["title"], le["page"], le["kind"]))
+check("the daily lookup still takes the cryptic", ("The Times Crossword 23,296", 60), (daily["title"], daily["page"]))
+check("no Listener article that day, a why", "no crossword in the issue's contents",
+      gd.lookup("TTDA", sat, FakeGale({sat: issue([("The Times Crossword 23,296", 60, 1)])}), kind="listener")["why"])
+check("a Listener-kind miss is stale only under an older matcher", [True, False],
+      [gd.stale("TTDA", {"kind": "listener", "why": "x"}), gd.stale("TTDA", {"kind": "listener", "why": "x", "matcher": gd.MATCHER["listener"]})])
+check("a Listener-kind hit is never stale, whatever its title", False,
+      gd.stale("TTDA", {"kind": "listener", "doc": "x", "title": "Listener 3890"}))
 # A miss from an older matcher is asked again once; a current one is not.
 check("an old miss is stale", True, gd.stale("LSNR", {"why": "no crossword in the issue's contents"}))
 check("a current miss is not", False, gd.stale("LSNR", {"why": "x", "matcher": gd.MATCHER["LSNR"]}))
