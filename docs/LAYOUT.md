@@ -61,7 +61,7 @@ landing.js                                     on a puzzle answers page, marks t
                                                search visitor came for (Google's text fragment,
                                                or #12-across) and offers the rest of the
                                                crossword with hints under it
-appnav.js                                      the home-screen app's bottom tab bar (Puzzle,
+appnav.js                                      the home-screen app's bottom tab bar (Solve, Library,
                                                Puzzles, Stats, Learn) and back link, shown only
                                                when the site runs standalone with no browser
                                                around it
@@ -1128,7 +1128,7 @@ tools/test_clue_landing.js                     does a search visitor land on the
                                                on sync/events.js's list
 tools/test_app_nav.js                          can a home-screen app user get back to their
                                                puzzle? Standalone, every page must carry the
-                                               tab bar with its own section lit and a Puzzle
+                                               tab bar with its own section lit and a Solve
                                                tab that reopens the last puzzle, a page reached
                                                from the app or another page must offer a back
                                                link that is history.back(), and a browser tab

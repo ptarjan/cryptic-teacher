@@ -6,8 +6,8 @@
    lesson" from a hint then left a solver on /learn/ with no way back to the
    crossword they were in the middle of. So, in that mode only:
 
-   - a bottom tab bar on every page: Puzzle (the one in progress, as left:
-     the grid is saved in localStorage and the app reopens ct:last), Puzzles
+   - a bottom tab bar on every page: Solve (the one in progress, as left:
+     the grid is saved in localStorage and the app reopens ct:last), Library
      (the app's picker), Stats (the app's stats panel) and Learn (/learn/);
    - a "‹ Back" (or "‹ Puzzle") at the top of any page reached from another
      page of this site, which is history.back(): the page you came from, as
@@ -78,14 +78,14 @@
   var ICON = {
     puzzle: '<rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/><path d="M9.2 3.5v17M14.8 3.5v17M3.5 9.2h17M3.5 14.8h17"/>'
       + '<rect x="9.2" y="9.2" width="5.6" height="5.6" fill="currentColor"/>',
-    puzzles: '<path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/>',
+    puzzles: '<path d="M12 3.5l9 4.5-9 4.5L3 8z"/><path d="M3 12.2l9 4.5 9-4.5M3 16.4l9 4.5 9-4.5"/>',
     stats: '<path d="M5 20V12M12 20V5M19 20v-9"/>',
     learn: '<path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5zM12 6.5v13"/>',
   };
   // panel/btn: the app's own control for it, pressed when the bar is on the app.
   var TABS = [
-    { key: "puzzle", label: "Puzzle", href: puzzleHref },
-    { key: "puzzles", label: "Puzzles", href: function () { return home + "#picker"; }, panel: "picker-panel", btn: "btn-picker" },
+    { key: "puzzle", label: "Solve", href: puzzleHref },
+    { key: "puzzles", label: "Library", href: function () { return home + "#picker"; }, panel: "picker-panel", btn: "btn-picker" },
     { key: "stats", label: "Stats", href: function () { return home + "#stats"; }, panel: "stats-panel", btn: "btn-stats" },
     { key: "learn", label: "Learn", href: function () { return home + "learn/"; } },
   ];
