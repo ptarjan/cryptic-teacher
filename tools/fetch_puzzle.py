@@ -2023,8 +2023,17 @@ def reconstructed_clue(pid, eid):
     return SOURCE_CLUE_WRONG.get((pid, eid), (None, None, ""))[2].startswith(RECONSTRUCTED)
 
 
+#: A clue that only sends the solver to the preamble, its count with it: a
+#: thematic puzzle prints it on each unclued light (Listener No 3144's 1, 5
+#: and 10 Down, "See preamble (12, three words)", the count's words dropped as
+#: every OCR count's are), so the same words on two lights lose no clue.
+PREAMBLE_POINTER = re.compile(r"see\s+(?:the\s+)?(?:preamble|introduction|instructions|rubric)\b[\s.,;:]*"
+                              r"(?:\(\d+(?:[,-]\d+)*\))?[\s.]*", re.IGNORECASE)
+
+
 def duplicated_clues(entries, one_list=False):
-    """[[entry id, ...]] of lights served the same clue words, "See N" stubs
+    """[[entry id, ...]] of lights served the same clue words, "See N" stubs,
+    "See preamble" pointers (PREAMBLE_POINTER)
     and clues with no letters aside. A source serving one clue on two lights has lost
     one of them; SOURCE_CLUE_WRONG is where the printed one goes.
     With `one_list`, only lights in the same direction count: a reading lays
@@ -2035,7 +2044,7 @@ def duplicated_clues(entries, one_list=False):
     for e in entries:
         text = (e.get("clue") or {}).get("text") or ""
         words = clue_words(text)
-        if words and not is_continuation(text):
+        if words and not is_continuation(text) and not PREAMBLE_POINTER.fullmatch(text.strip(" .…\t\n")):
             seen.setdefault((e.get("direction") if one_list else None, words), []).append(entry_id(e))
     return [ids for ids in seen.values() if len(ids) > 1]
 

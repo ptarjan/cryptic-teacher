@@ -1423,6 +1423,25 @@ check("a list run on from under the title, above the headings: a second cut from
 check("a preamble alone over the lists, no clue lines: one cut, from the headings (mirror)", [True],
       [c[0][1] >= 2900 for c in g.times_cuts(times_page())])
 check("a cut that blanks is read unblanked too", [True, False], [bool(c[1]) for c in g.times_cuts(sol)])
+# The preamble a cut from the title takes in may open a line on a SOLUTIONS or ANSWERS word (No 3144's
+# "ANSWERS to twenty-three normal clues", No 3120's "ENABLE SOLUTION:"): above the headings' level it is
+# the puzzle's own, and blanked the ACROSS heading under it.
+answers = [w for w in above if w[1] != 700] + [(100, 700, 260, 740, "ANSWERS"),
+                                               (280, 700, 700, 740, "to twenty-three normal clues")]
+check("a preamble line opening on ANSWERS, above the headings, blanks nothing in the cut from the title",
+      [[], []], [c[1] for c in g.times_cuts(answers)])
+check("under the headings a SOLUTIONS line still blanks in the cut from the title (mirror)", [True, True],
+      [bool(c[1]) for c in g.times_cuts(above + [(900, 1300, 1100, 1340, "SOLUTIONS:")])][:2])
+# Last week's notes run on in pairs, "26 Pele; 27 otto; 37 peeper," (No 3121's page): such a line opens
+# like a clue but ends no SOLUTIONS block's mask, else its pairs read as 26 and 40 Down.
+notes = [w for w in sol if not (900 <= w[0] < 1500 and w[1] in (1700, 1750, 1800))] + [
+    (900, 1700, 930, 1740, "10"), (940, 1700, 1500, 1740, "Stook; I 11 Eighteen; 19"),
+    (900, 1750, 930, 1790, "26"), (940, 1750, 1500, 1790, "Pele; 27 otto; 37 peeper,"),
+    (900, 1800, 930, 1840, "40"), (940, 1800, 1100, 1840, "Gaur.")]
+check("a notes line of number-answer pairs in last week's solution does not end its mask",
+      [True], [1900 <= m[3] <= 1950 for m in g.times_cut(notes)[1]])
+check("a clue line in the lists' column under the block still ends it (mirror)",
+      [True], [1900 <= m[3] <= 1950 for m in g.times_cut(sol)[1]])
 # Each cut read; the first's reading kept, the others' as alternatives the filer may take.
 kept_read = g.read_page
 try:

@@ -1697,6 +1697,10 @@ def _times_box(words, title, heads, lh, raised=False):
                 words, *col, top, band) < TIMES_NUMBERED:
             break
         right = nxt[0]
+    # Last week's solutions, the winners and the prizes stand under the headings' level: above it, in
+    # the preamble a raised box takes in, the same words are the puzzle's own (No 3144's "ANSWERS to
+    # twenty-three normal clues", No 3120's "ENABLE SOLUTION:"), whose masks took the ACROSS heading.
+    heads_top = top
     if raised:
         # A list set from under the title, above the headings' level (No 3121's down list, from its
         # 3 Down, beside the preamble): the box from the title down, else those clues are cut off.
@@ -1715,7 +1719,7 @@ def _times_box(words, title, heads, lh, raised=False):
     for w in words:
         prize = bool(TIMES_PRIZE.match(w[4]))
         if not ((prize or TIMES_STOP.match(w[4])) and left <= (w[0] + w[2]) / 2 <= right
-                and top + 2 * lh < w[1] < bottom):
+                and heads_top + 2 * lh < w[1] < bottom):
             continue
         col_left = max((g[1] for g in gs if g[1] <= w[0] + 1), default=box[0])
         if any(o is not w and col_left <= o[0] < w[0] and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2
@@ -1748,6 +1752,13 @@ def _times_box(words, title, heads, lh, raised=False):
 #: as last week's notes ("7 ness;") and grid letters ("1 S O L") do not.
 CLUE_OPENS = re.compile(r"^\W{0,2}\d{1,2}[.,]?$")
 CLUE_WORD = re.compile(r"^\W{0,2}[A-Z][a-z']{2,}")
+#: Last week's notes run on in pairs, a number and its answer ("26 Pele; 27 otto; 37 peeper,"; a rule
+#: read as "I" before one, "10 Stook; I 11 Eighteen;"): a line with one after a semicolon, or a line
+#: of a number and one word alone ("40 Gaur."), opens no clue, though "26 Pele" opens like one (No 3121's
+#: and 3144's pages ended the SOLUTIONS block's mask there, its pairs read as 26, 35 and 40 Down, and
+#: the next column's down list then fitted no list).
+NOTES_PAIR = re.compile(r"[;:]\s*(?:[^\w\s]{1,2}\s+|[Il|]\s+)?\d{1,2}[A-Z]?\s+[A-Za-z][a-z']*[;:,.]"
+                        r"|^\W{0,2}\d{1,2}[.,]?\s+[A-Za-z][a-z']*[.;:,]\W*$")
 
 
 def column_lines(words, x0, x1, y0, y1):
@@ -1767,6 +1778,7 @@ def column_lines(words, x0, x1, y0, y1):
         first = line[0][4]
         opens = bool(re.match(r"^\W{0,2}\d{1,2}[.,]?\s*[A-Z][a-z']{2,}", first)) or (
             bool(CLUE_OPENS.match(first)) and len(line) > 1 and bool(CLUE_WORD.match(line[1][4])))
+        opens = opens and not NOTES_PAIR.search(" ".join(w[4] for w in line))
         out.append((min(o[1] for o in line), opens))
     return out
 
@@ -2784,10 +2796,12 @@ MISNUMBERED = "refused misnumbered before its fix"
 
 #: The revision of a Times page's cuts (times_cuts) its ledger row's
 #: "timesCut" records: 2 cuts "ACR", blanks the prizes and entry coupon, and
-#: reads the box from the title and unblanked as alternatives. A Times page
-#: read at VERSION under an older one is read again (TIMES_REREAD), not the
-#: magazine's.
-TIMES_CUTS = 2
+#: reads the box from the title and unblanked as alternatives; 3 blanks
+#: nothing for a SOLUTIONS, ANSWERS or Prizes word above the headings' level
+#: (the preamble's) and runs a SOLUTIONS block's mask past its notes' pairs
+#: ("26 Pele; 27 otto;", NOTES_PAIR). A Times page read at VERSION under an
+#: older one is read again (TIMES_REREAD), not the magazine's.
+TIMES_CUTS = 3
 TIMES_REREAD = "Times Listener page read before its cut's fix"
 
 
