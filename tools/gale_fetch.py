@@ -376,20 +376,14 @@ def have_docs():
 
 
 def load(path):
-    try:
-        return json.loads(path.read_text())
-    except (OSError, ValueError):
-        return {}
+    """A snapshot-plus-record-lines file (gale_docs.read_log), or the plain
+    JSON object the older files are."""
+    return gale_docs.read_log(path)[0]
 
 
 def note(doc, day, name, path=FETCHED, at=None, prod="TTDA"):
-    kept = load(path)
-    kept[doc] = {"date": day.isoformat(), "file": name, "at": iso(time.time() if at is None else at),
-                 **({} if prod == "TTDA" else {"prod": prod})}
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(".tmp")
-    tmp.write_text(json.dumps(kept, indent=0, sort_keys=True))
-    tmp.replace(path)
+    gale_docs.keep(doc, {"date": day.isoformat(), "file": name, "at": iso(time.time() if at is None else at),
+                         **({} if prod == "TTDA" else {"prod": prod})}, path)
 
 
 #: Next-up rows passed over by default, so the run works well below
@@ -690,6 +684,8 @@ def main(argv=None):
                     help="start the count window at ISO time START with BEFORE downloads made elsewhere, then run")
     a = ap.parse_args(argv)
     sys.stdout.reconfigure(line_buffering=True)
+    for log in (FETCHED, gale_docs.CACHE):
+        gale_docs.compact(log)  # once a run, if many lines have piled up
     if a.window:
         new_window(LIMITS, stamp(a.window[0]), int(a.window[1]))
     cap, span = learned()

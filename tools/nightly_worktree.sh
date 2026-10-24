@@ -339,6 +339,11 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   fi
 
   if [ -n "$_ct_tree" ]; then
+    # A split index: the 10 MB index (45k files) was rewritten whole by every
+    # git add, reset, commit and checkout of every puzzle, ~1 GB an hour of SSD
+    # writes from the burn alone. Split, a change writes only the few entries
+    # that differ from a shared base file. Idempotent; best effort.
+    git -C "$_ct_tree" update-index --split-index >/dev/null 2>&1 || true
     # The generated files are not tracked, so a tree just reset to origin/master
     # has either none of them (a tree made tonight) or the ones the last run
     # left, describing files the reset has since changed. A job that reads
