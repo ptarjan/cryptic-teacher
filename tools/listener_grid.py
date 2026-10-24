@@ -85,6 +85,14 @@ BLOCK_INK = 0.6
 #: A cell side is a bar when it is this many times as wide as the thin
 #: rule (the sides' median width).
 BAR_RATIO = 1.5
+#: A cell is drawn in (a figure for a block, No 471's footballers) when ink
+#: covers this share of its lower middle, where no number prints (No 471's
+#: figures 0.14-0.28, its numbered cells and No 447's none).
+FIGURE_INK = 0.08
+#: A grid with ink in at most this share of its light cells' middles is a
+#: puzzle's (file_gale_listener fits its numbers), read with its drawn
+#: cells for blocks too ("figured"); a report's letters fill nearly all.
+FIGURED = 0.5
 #: Cells per side a grid may have.
 MIN_CELLS, MAX_CELLS = 4, 27
 
@@ -191,11 +199,26 @@ def thickness(dark, at, lo, hi, reach, axis):
     return float(profile.sum() / max(profile.max(), 0.05))
 
 
-def read_box(ink, dark, ys, xs, inside=None):
+def drawn(ink, ys, xs):
+    """{(r, c)} of the cells holding a drawing: ink over FIGURE_INK of the
+    lower middle, below where a cell's number prints (a report's letters
+    fill it too)."""
+    out = set()
+    for r in range(len(ys) - 1):
+        for c in range(len(xs) - 1):
+            h, w = ys[r + 1] - ys[r], xs[c + 1] - xs[c]
+            low = ink[int(ys[r] + 0.55 * h):int(ys[r] + 0.85 * h), int(xs[c] + 0.25 * w):int(xs[c] + 0.75 * w)]
+            if low.size and low.mean() > FIGURE_INK:
+                out.add((r, c))
+    return out
+
+
+def read_box(ink, dark, ys, xs, inside=None, figures=()):
     """(rows, sides, thin) for the lattice whose rules lie at ys and xs:
     the puzzle-format rows, each cell side's ink mass, and the thin rule's.
     A cell whose middle lies mostly off `inside` (shape()'s mask, the box's
-    size) is no cell of the grid, and a block in the rows."""
+    size) is no cell of the grid, and a block in the rows, as is a cell of
+    `figures` (drawn())."""
     nr, nc = len(ys) - 1, len(xs) - 1
     blocks = np.zeros((nr, nc), bool)
     for r in range(nr):
@@ -203,7 +226,7 @@ def read_box(ink, dark, ys, xs, inside=None):
             h, w = ys[r + 1] - ys[r], xs[c + 1] - xs[c]
             middle = (slice(int(ys[r] + 0.2 * h), int(ys[r + 1] - 0.2 * h)),
                       slice(int(xs[c] + 0.2 * w), int(xs[c + 1] - 0.2 * w)))
-            if inside is not None and inside[middle].mean() < 0.5:
+            if (r, c) in figures or inside is not None and inside[middle].mean() < 0.5:
                 blocks[r, c] = True
                 continue
             mid = ink[middle]
@@ -325,11 +348,23 @@ def find_grids(gray):
             out.append(found)
             continue
         sub = ink[y0:y1, x0:x1]
-        rows, sides, thin = read_box(sub, darkness(gray[y0:y1, x0:x1]), ys, xs, inside)
+        dark = darkness(gray[y0:y1, x0:x1])
+        rows, sides, thin = read_box(sub, dark, ys, xs, inside)
         found["rows"] = rows
         found["sides"], found["thin"] = sides, thin
         found["lattice"] = ([y + y0 for y in ys], [x + x0 for x in xs])
         found["filled"] = filled_share(sub, ys, xs, rows)
+        if 0 < found["filled"] <= FIGURED:
+            # A puzzle's grid with a few cells drawn in (No 471's footballers
+            # and ball) may have them for its blocks, as an unfilled cell
+            # holds its number alone, high in its corner; or print letters
+            # given. Both readings are kept: "figured" the one with them
+            # blocks, which the printed numbers and clue lists decide.
+            figures = {(r, c) for r, c in drawn(sub, ys, xs) if rows[r][c] != "#"}
+            if figures:
+                f_rows, f_sides, f_thin = read_box(sub, dark, ys, xs, inside, figures)
+                found["figured"] = {"rows": f_rows, "sides": f_sides, "thin": f_thin,
+                                    "filled": filled_share(sub, ys, xs, f_rows)}
         if not rg.light_cells(rows):
             found["why"] = "no lights"
         out.append(found)
@@ -505,17 +540,25 @@ def with_bars(rows, bars):
                     for c, ch in enumerate(row)) for r, row in enumerate(rows)]
 
 
-def in_order(got, most):
+def in_order(got, most, width=None):
     """The reads of `got` ({(r, c): number}) that can be printed numbers:
     none above `most` (the grid's open cells, more than it can have lights), and the longest run that
     rises in reading order, as a grid numbers its cells. A stray "1" off a
     rule remnant, or 75 read for 25, falls out of that run; a number read
-    in two cells the run could each hold is kept in neither."""
+    in two cells the run could each hold is kept in neither. With the
+    grid's `width`, the run rises by no more than the cells between two of
+    its reads, as each light starts in a cell of its own: No 447's 36 and
+    38, both readers reading 56 and 58 two cells and a row on from 35, are
+    out of it."""
     cells = sorted(c for c, n in got.items() if 0 < n <= most)
+
+    def follows(a, b):
+        rise = got[b] - got[a]
+        return rise > 0 and (width is None or rise <= (b[0] - a[0]) * width + b[1] - a[1])
     # Longest strictly rising run, also no number below its place in it.
     best = []  # best[i]: the longest rising run ending at cells[i]
     for i, c in enumerate(cells):
-        prev = max((best[j] for j in range(i) if got[cells[j]] < got[c]), key=len, default=[])
+        prev = max((best[j] for j in range(i) if follows(cells[j], c)), key=len, default=[])
         best.append(prev + [c])
     keep = max(best, key=len, default=[])
     # A number read in two cells either of which the run could hold (No
@@ -549,7 +592,7 @@ def fit(grid, printed):
     q = {k: v / thin for k, v in grid["sides"].items()}
     most = sum(ch != "#" for row in grid["rows"] for ch in row)
     raw = printed
-    printed = {k: in_order(got, most) for k, got in printed.items()}
+    printed = {k: in_order(got, most, len(grid["rows"][0])) for k, got in printed.items()}
     reads = {}
     for got in printed.values():
         for cell, n in got.items():

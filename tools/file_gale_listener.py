@@ -1032,14 +1032,18 @@ def grids_here(path):
     out = []
     for i, (img, _) in enumerate(gi.images(path)):
         gray = np.asarray(img.convert("L"), dtype=np.uint8)
-        for g in lg.find_grids(gray):
-            if not g["rows"] or g["why"]:
+        for found in lg.find_grids(gray):
+            if not found["rows"] or found["why"]:
                 continue
-            fit = lg.fit(g, lg.printed_numbers(gray, g)) if g["filled"] <= 0.5 else None
-            out.append({"grid": {"page": i, "box": list(g["box"]), "rows": g["rows"],
-                                 "sides": {json.dumps(list(k)): v for k, v in g["sides"].items()},
-                                 "thin": g["thin"], "lattice": [list(map(float, a)) for a in g["lattice"]],
-                                 "filled": g["filled"]}, "fit": fit})
+            # A grid with cells drawn in is also read with them for blocks
+            # (No 471's footballers), after the plain reading: join() takes
+            # the first whose fit is exact and lights the clue list's.
+            for g in [found] + ([{**found, **found["figured"]}] if found.get("figured") else []):
+                fit = lg.fit(g, lg.printed_numbers(gray, g)) if g["filled"] <= 0.5 else None
+                out.append({"grid": {"page": i, "box": list(g["box"]), "rows": g["rows"],
+                                     "sides": {json.dumps(list(k)): v for k, v in g["sides"].items()},
+                                     "thin": g["thin"], "lattice": [list(map(float, a)) for a in g["lattice"]],
+                                     "filled": g["filled"]}, "fit": fit})
     return out
 
 
