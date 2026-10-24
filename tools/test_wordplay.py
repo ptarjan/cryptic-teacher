@@ -626,4 +626,18 @@ check("spoon of sound() with the answer as a part gets the general form",
 check("the suggested spoon form is accepted",
       gives("spoon<Spooner's>([destiny]FATE, [coastal city]HULL, HATEFUL)", "HATEFUL"))
 
+# A hidden word written as one leaf per word (hid<ind>([Sign] + [a] + [road's]), the
+# 'hid() takes one leaf' refusal): translate joins the side-by-side leaves itself.
+tree = w.translate({"wp": "hid<contents>([Sign] + [a] + [road's])"}, "Sign a road's contents", "IGNARO")
+check("translate joins a hidden word's per-word leaves into one",
+      len(tree["parts"]) == 1 and tree["parts"][0].get("words") == "Sign a road's", tree)
+tree = w.translate({"wp": "hid<jointly kept by>([law] + [order])"}, "Law order jointly kept by", "WORD")
+check("translate joins a two-word hidden run (WORD in law order)",
+      len(tree["parts"]) == 1 and tree["parts"][0].get("words") == "Law order", tree)
+try:
+    w.translate({"wp": "hid<contents>([Sign] + [road's])"}, "Sign a road's contents", "IGNARO")
+    check("leaves with a clue word between them are not joined", False, "accepted")
+except w.WordplayError as e:
+    check("leaves with a clue word between them are not joined", "does not give IGNARO" in str(e), str(e))
+
 raise SystemExit(fails > 0)
