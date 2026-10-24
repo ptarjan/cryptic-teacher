@@ -899,6 +899,9 @@ CANARY_PROVEN = (
     ("ft", "unfiled", 1986, 1986, "10-20 canary: 4 of 5 pages read complete, 0 uncached VLM asks"),
     ("gale", "no-reading-parses", 1950, 1959, "10-21 canary: 8 of 9 1950s pages parsed from OCR alone (was 0 of 6), 0 VLM asks"),
     ("gale", "unfiled", 1950, 1959, "10-21 canary: 8 of 10 one-blank 1950s pages read complete from OCR alone (was 0 of 10), 4 of 4 filed pages still complete"),
+    # Since 10-24 unfiled_blank leaves out a puzzle already filed with every clue, so these are pages never filed.
+    ("gale", "unfiled", 1945, 1949, "10-24 canary: 3 of 5 never-filed 1945-48 pages filed whole (3, 4, 11 blanks before), "
+                                    "1 down 12 blanks to 1, 1 refused; 51 live rereads since 10-22: blanks 366 -> 24"),
 )
 
 
@@ -907,8 +910,10 @@ CANARY_PROVEN = (
 CANARY_FAILED = (
     # Paul 10-21: "Why are we rereading times when all we want is their solutions": these reread the
     # clue pages, and live they rewrote the same blanks (~350 writes an hour, 5 new filings).
-    ("times", "unfiled", 1785, 2100, "10-21 live: ~350 writes/h made 5 new filings"),
-    ("gale", "unfiled", 1785, 1949, "10-20 canary: 1 of 3 1945-49 pages with blanks improved"),
+    # 10-24: most were puzzles already filed whole (now left out by unfiled_blank); a canary of 3 never-filed
+    # 1974-84 pages filed 1, cut 1 from 8 blanks to 1, and left 1 worse (9 blanks -> 26: its clues laid on no light).
+    ("times", "unfiled", 1785, 2100, "10-21 live: ~350 writes/h made 5 new filings; 10-24 canary 1 of 3 filed"),
+    ("gale", "unfiled", 1785, 1944, "10-20 canary: 1 of 3 1945-49 pages with blanks improved (1945-49 proven 10-24)"),
 )
 
 
