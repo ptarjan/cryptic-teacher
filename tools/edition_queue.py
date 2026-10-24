@@ -910,9 +910,10 @@ CANARY_PROVEN = (
 CANARY_FAILED = (
     # Paul 10-21: "Why are we rereading times when all we want is their solutions": these reread the
     # clue pages, and live they rewrote the same blanks (~350 writes an hour, 5 new filings).
-    # 10-24: most were puzzles already filed whole (now left out by unfiled_blank); a canary of 3 never-filed
-    # 1974-84 pages filed 1, cut 1 from 8 blanks to 1, and left 1 worse (9 blanks -> 26: its clues laid on no light).
-    ("times", "unfiled", 1785, 2100, "10-21 live: ~350 writes/h made 5 new filings; 10-24 canary 1 of 3 filed"),
+    # 10-24: most were puzzles already filed whole (now left out by unfiled_blank); a canary of 4 never-filed
+    # 1974-84 pages filed 2 (times-13689, -15170), cut 1 from 8 blanks to 1, and left 1 worse (9 blanks -> 26:
+    # its clues laid on no light, nothing written). Under the 10-page rule: ~116 such pages left to sample.
+    ("times", "unfiled", 1785, 2100, "10-21 live: ~350 writes/h made 5 new filings; 10-24 canary 2 of 4 filed"),
     ("gale", "unfiled", 1785, 1944, "10-20 canary: 1 of 3 1945-49 pages with blanks improved (1945-49 proven 10-24)"),
 )
 
