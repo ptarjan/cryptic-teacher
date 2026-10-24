@@ -361,7 +361,7 @@ LAYOUT = [
     ("syncing between devices and telling them about new puzzles, with no login and no accounts",
      "sync/notify.js", "what a notification is called and whether this device wants it yet — the two decisions the fan-out makes before it encrypts anything"),
     ("syncing between devices and telling them about new puzzles, with no login and no accounts",
-     "sw.js", "the service worker: it exists so a push has somewhere to be delivered, and deliberately caches nothing"),
+     "sw.js", "the service worker: delivers pushes and keeps the app shell and opened or saved puzzles for offline use"),
 
     ("scheduling", "tools/daily_update.sh", "the nightly as a queue of units: a tick every ten minutes chooses the puzzles to annotate under the usage gates and starts what is due; `unit <key>` is one fetcher, blog chain, filer, check, graded miss or puzzle's annotation, run in a tree of its own and committing and pushing its own work"),
     ("scheduling", "tools/unit_queue.py", "scheduled work as small units: a tick starts each due unit detached, each with its own lock, time limit, ledger row and tree slot; cadence, retry with backoff, `after` and `trigger` dependencies and per-class caps; `status` and `plan` show it"),

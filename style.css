@@ -232,6 +232,9 @@ button:disabled:hover { border-color: var(--line); }
 .p-meta { grid-column: 3; justify-self: end; white-space: nowrap; color: var(--muted); font-size: .8rem; }
 .p-tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .p-prog { color: var(--muted); font-size: .78rem; }
+/* Offline: a puzzle this device does not hold. */
+#picker-list li.no-offline button { opacity: .45; }
+#offline-box { margin: .6rem 0 0; }
 /* Not a badge, so it is exempt from the one-colour-per-axis rule below: it is
    the only green in the row, and green already means "right" everywhere else
    in the app (a checked letter, a solved clue in the list). */

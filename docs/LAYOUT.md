@@ -1261,9 +1261,9 @@ sync/webpush.js                                web push encryption and sender id
 sync/notify.js                                 what a notification is called and whether this
                                                device wants it yet — the two decisions the
                                                fan-out makes before it encrypts anything
-sw.js                                          the service worker: it exists so a push has
-                                               somewhere to be delivered, and deliberately
-                                               caches nothing
+sw.js                                          the service worker: delivers pushes and keeps
+                                               the app shell and opened or saved puzzles for
+                                               offline use
 
 scheduling
 tools/daily_update.sh                          the nightly as a queue of units: a tick every

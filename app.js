@@ -1462,6 +1462,15 @@
   }
   function syncFailed(retry) {
     syncFails++;
+    // Known offline (a flight): nothing to retry against, and no alarm. The
+    // letters are in localStorage, and the "online" listener below pulls and
+    // pushes the moment the connection is back (syncFails is what arms it).
+    if (typeof navigator !== "undefined" && navigator.onLine === false) {
+      clearTimeout(syncRetryTimer);
+      syncRetryTimer = null;
+      syncNote("Offline — your progress is saved here and will sync when you’re back online");
+      return;
+    }
     syncNote("Can’t reach the sync server — will try again");
     clearTimeout(syncRetryTimer);
     const wait = Math.min(SYNC_RETRY_MAX_MS, SYNC_RETRY_MS * Math.pow(2, syncFails - 1));
@@ -7710,6 +7719,9 @@
     const opens = p.reprintOf || p.id;
     if (P && opens === P.id) li.className = "current";
     const st = pickerStatus(p);
+    // Offline, the list says which puzzles this device can open.
+    const held = offlineHas(p);
+    if (held === false) li.className = (li.className + " no-offline").trim();
     const dd = puzzleDate(p);
     // Abbreviated, and the weekday leads. The row is tight — see the note
     // below about the nowrap element shoving the line — and "Sat" in front is
@@ -7731,12 +7743,16 @@
         <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated, p.blog)}${sourceBadge(p)}${tagBadges(p)}
           ${!st.filled ? ""
             : st.done ? `<span class="p-prog done" title="Every square filled in and correct">solved ✓</span>`
-            : `<span class="p-prog">${st.filled}${st.total ? "/" + st.total : ""} letters filled</span>`}</span>`;
+            : `<span class="p-prog">${st.filled}${st.total ? "/" + st.total : ""} letters filled</span>`}${held ? `<span class="p-prog">saved offline</span>` : ""}</span>`;
     // The row is one button, so the difficulty badge cannot be an <a> inside
     // it; a tap on the badge goes to the page explaining it instead.
     btn.onclick = (ev) => {
       if (ev && ev.target && ev.target.closest && ev.target.closest(".badge.diff")) {
         location.href = DIFFICULTY_PAGE;
+        return;
+      }
+      if (held === false) {
+        setHTML($("picker-note"), "You’re offline and that puzzle isn’t saved on this device. Puzzles marked “saved offline” will open.");
         return;
       }
       openPuzzle(opens); togglePicker(false);
@@ -7936,6 +7952,7 @@
       $("picker-band").value = kept.band || "";
       $("picker-tag").value = kept.tag || "";
       renderPicker();
+      offlineRefresh(() => { if (!el.classList.contains("hidden")) renderPicker(); });
       // The progress numbers need the answers, and a sync pull may have handed
       // this browser progress on a puzzle whose file it has never fetched.
       loadStartedPuzzles(() => {
@@ -8792,10 +8809,123 @@
       // Same reasoning: a round trip that keeps the Worker's copy of this
       // device alive, run behind a grid that is already on screen.
       refreshNotify();
+      offlineInit();
       loadStartedPuzzles(() => {
         if (!$("picker-panel").classList.contains("hidden")) renderPicker();
       });
     });
+  }
+
+  // ---------- offline ----------
+  // sw.js keeps the app and every puzzle opened (see its header). This is the
+  // page's half: tell the worker what the page loaded, let the solver save a
+  // batch before a flight, and show which puzzles a dead connection can open.
+  const PUZZLE_CACHE = "ct-puzzles-1";   // the name sw.js files puzzles under
+  const OFFLINE_BATCH = 30;
+  const offlineOK = () => !!(navigator.serviceWorker && window.caches && typeof fetch === "function");
+  const isOffline = () => typeof navigator !== "undefined" && navigator.onLine === false;
+  let offlineFiles = null;   // puzzle files held on this device, once read
+
+  const puzzleUrl = (p) => at("puzzles/" + p.file + ".gz" + (p.v ? "?v=" + p.v : ""));
+
+  // true / false while offline and the cache has been read; null otherwise,
+  // when nothing is to be said about it.
+  function offlineHas(p) {
+    if (!isOffline() || !offlineFiles) return null;
+    const own = BY_ID[p.reprintOf || p.id];
+    return !!(own && offlineFiles.has(own.file));
+  }
+
+  function offlineRefresh(then) {
+    if (!offlineOK()) return;
+    caches.open(PUZZLE_CACHE).then((c) => c.keys()).then((keys) => {
+      const held = new Set(keys.map((k) => decodeURIComponent(new URL(k.url).pathname)
+        .replace(/^.*\/puzzles\//, "").replace(/\.gz$/, "")));
+      const changed = !offlineFiles || held.size !== offlineFiles.size;
+      offlineFiles = held;
+      renderOfflineBox();
+      if (changed && then) then();
+    }).catch(() => {});
+  }
+
+  // The next puzzles this solver would be handed: unfinished ones they have
+  // started, then the newest annotated ones from the papers they play (every
+  // paper while they have played none), skipping finished grids.
+  function offlineBatch() {
+    const prog = savedProgress();
+    const out = [], seen = {};
+    const add = (p) => {
+      if (p && p.file && !p.reprintOf && !seen[p.id] && out.length < OFFLINE_BATCH) { seen[p.id] = 1; out.push(p); }
+    };
+    Object.keys(prog).forEach((id) => { if (BY_ID[id] && !pickerStatus(BY_ID[id]).done) add(BY_ID[id]); });
+    const played = new Set(Object.keys(prog).map((id) => BY_ID[id] && BY_ID[id].series).filter(Boolean));
+    for (const p of INDEX.puzzles) {
+      if (out.length >= OFFLINE_BATCH) break;
+      if (!p.annotated || (played.size && !played.has(p.series))) continue;
+      if (prog[p.id] && pickerStatus(p).done) continue;
+      add(p);
+    }
+    return out;
+  }
+
+  function offlineNote(msg) {
+    const el = $("offline-status");
+    if (el) el.textContent = msg;
+  }
+
+  function renderOfflineBox() {
+    const box = $("offline-box");
+    if (!box || !offlineOK()) return;
+    box.classList.remove("hidden");
+    const n = offlineFiles ? offlineFiles.size : 0;
+    const btn = $("btn-offline");
+    if (btn && !btn.disabled) offlineNote(n ? `${n} puzzle${n > 1 ? "s" : ""} saved on this device.`
+                                             : "None saved yet.");
+  }
+
+  function saveOffline() {
+    const btn = $("btn-offline");
+    if (isOffline()) { offlineNote("You’re offline. Connect to wifi, then tap again."); return; }
+    const rows = offlineBatch();
+    if (!rows.length) { offlineNote("Nothing to save."); return; }
+    btn.disabled = true;
+    offlineNote(`Saving 0 of ${rows.length}…`);
+    const end = (msg) => { btn.disabled = false; offlineRefresh(); offlineNote(msg); };
+    navigator.serviceWorker.ready.then((reg) => {
+      const ch = new MessageChannel();
+      ch.port1.onmessage = (ev) => {
+        const m = ev.data || {};
+        if (!m.finished) { offlineNote(`Saving ${m.done + m.failed} of ${m.total}…`); return; }
+        end(m.failed ? `Saved ${m.done} of ${m.total}; ${m.failed} couldn’t be reached. Tap to try again.`
+                     : `Saved ${m.done} puzzles for offline.`);
+        offlineRefresh(() => { if (!$("picker-panel").classList.contains("hidden")) renderPicker(); });
+      };
+      reg.active.postMessage({ type: "save", urls: rows.map(puzzleUrl) }, [ch.port2]);
+    }).catch(() => end("Couldn’t save just now. Try again."));
+  }
+
+  function offlineInit() {
+    if (!offlineOK()) return;
+    const btn = $("btn-offline");
+    if (btn) btn.onclick = saveOffline;
+    // Registered here as well as when notifications are ticked: the app must
+    // be offline-capable for someone who never touches notifications.
+    navigator.serviceWorker.register("sw.js").then(() => navigator.serviceWorker.ready).then((reg) => {
+      // The worker cannot see requests made before it controlled the page, so
+      // say what this page loaded.
+      const urls = [];
+      document.querySelectorAll("script[src],link[rel~=stylesheet],link[rel~=icon],link[rel~=apple-touch-icon],link[rel=manifest]")
+        .forEach((el) => urls.push(el.src || el.href));
+      urls.push(at("inflate.js"), at("icon-192.png"));
+      if (reg.active) reg.active.postMessage({ type: "precache", urls });
+    }).catch(() => {});
+    offlineRefresh();
+    const again = () => {
+      renderOfflineBox();
+      if (!$("picker-panel").classList.contains("hidden")) renderPicker();
+    };
+    window.addEventListener("online", again);
+    window.addEventListener("offline", again);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
