@@ -58,6 +58,11 @@ check("a count the light does not have is a disagreement", "count disagrees for 
       f.lights_fit(OPEN, {f"{n}-{d}": {"text": "x", "enumeration": "5" if (n, d) == (1, "across") else None}
                           for n, d in lts}))
 
+linked = {f"{n}-{d}": {"text": "x"} for n, d in lts} | {"1-across": {"text": "x", "enumeration": "8", "group": ["1-across", "5-across"]}}
+check("a linked clue's count is its lights' together (No 601's 3/22 Down, (9))", None, f.lights_fit(OPEN, linked))
+check("and one they do not total disagrees (mirror)", "count disagrees for 1-across",
+      f.lights_fit(OPEN, {**linked, "1-across": {**linked["1-across"], "enumeration": "4"}}))
+
 # The clue list laid on the lights where the page is wrong or read twice.
 lids = sorted(f"{n}-{d}" for n, d in lts)
 named = {lid: {"text": "clue " + "abcdefgh"[i]} for i, lid in enumerate(lids)}

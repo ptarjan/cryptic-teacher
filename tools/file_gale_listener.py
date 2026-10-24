@@ -146,12 +146,16 @@ def misfits(rows, clues):
     lights no clue names, and of the lights whose clue's enumeration is
     not their length. A number the reader laid no words on says nothing of
     the grid: on a light it is a clue unread (complete() refuses it), off
-    one a guess."""
+    one a guess. A linked clue's enumeration counts every light of its
+    "group" (No 601's "3-down"/"22-down" clue prints (9): 3 cells and 6)."""
     have = {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(rows).items()}
     spare = sorted({lid for lid, c in clues.items() if (c.get("text") or "").strip()} - set(have), key=order)
     unclued = sorted(set(have) - set(clues), key=order)
+
+    def cells(lid, c):
+        return sum(have.get(g, 0) for g in dict.fromkeys([lid, *(c.get("group") or ())]))
     long = sorted((lid for lid, c in clues.items() if lid in have and c.get("enumeration")
-                   and gl.al.ftp.count(c["enumeration"]) != have[lid]), key=order)
+                   and gl.al.ftp.count(c["enumeration"]) != cells(lid, c)), key=order)
     return spare, unclued, long
 
 
