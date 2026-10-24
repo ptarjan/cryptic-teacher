@@ -21,6 +21,9 @@
   "date": "2020-06-06",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,30 @@
     "text": "Fail to answer question but get through",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fail to answer question",
+      "at": 0,
+      "meaning": "in a quiz you say '...' when you decline to answer"
+     },
+     {
+      "text": "get through",
+      "at": 28,
+      "meaning": "to ... an exam or test is to get through it successfully"
+     }
+    ],
+    "explanation": {
+     "surface": "A candidate who flunks one question yet still makes it through the exam.",
+     "definitionFit": "Saying 'pass' skips a quiz question, and passing a test means succeeding in it, two senses of one verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fail"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +74,53 @@
     "text": "Drink bringing trouble after morning at checkout",
     "enumeration": "11"
    },
-   "solution": "AMONTILLADO"
+   "solution": "AMONTILLADO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 23,
+       "note": "after means the trouble word follows the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "morning",
+       "at": 29,
+       "gives": "AM"
+      },
+      {
+       "words": "at checkout",
+       "at": 37,
+       "gives": "ONTILL",
+       "note": "at the checkout in a shop you are on the till"
+      },
+      {
+       "words": "trouble",
+       "at": 15,
+       "gives": "ADO",
+       "note": "ado is fuss or trouble"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper's morning at the supermarket checkout ends in trouble and a drink.",
+     "definitionFit": "Amontillado is a medium dry sherry from Spain, a fortified wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "checkout"
+    }
+   }
   },
   {
    "number": 3,
@@ -68,7 +140,43 @@
      }
     ]
    },
-   "solution": "SKINNYDIP"
+   "solution": "SKINNYDIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "no dressing for this",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Spare",
+       "at": 0,
+       "gives": "SKINNY",
+       "note": "spare can mean lean or thin, as does skinny"
+      },
+      {
+       "words": "sauce",
+       "at": 6,
+       "gives": "DIP",
+       "note": "a dip is a sauce for dunking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Leftover sauce, but no salad dressing to go on this dish.",
+     "walkthrough": "'dressing' looks like salad dressing, paired with sauce, but means clothing.",
+     "definitionFit": "Skinny-dipping is swimming naked, an activity for which you wear no clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +196,43 @@
      }
     ]
    },
-   "solution": "BATONROUGE"
+   "solution": "BATONROUGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stay in",
+       "at": 0,
+       "gives": "BATON",
+       "note": "in cricket to bat on is to stay in, keep batting"
+      },
+      {
+       "words": "Bordeaux for example",
+       "at": 8,
+       "gives": "ROUGE",
+       "note": "Bordeaux is a red wine, and rouge is French for red"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suggestion to linger in the French wine city, met with an enthusiastic 'Capital!'.",
+     "walkthrough": "'Capital!' looks like an exclamation of approval but is the definition. In cricket a batter who stays in is said to bat on.",
+     "definitionFit": "Baton Rouge is the state capital of Louisiana in the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +246,50 @@
     "text": "Wide measurement being diameter in pants?",
     "enumeration": "7"
    },
-   "solution": "BREADTH"
+   "solution": "BREADTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wide measurement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "in means the abbreviation goes inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pants",
+       "at": 35,
+       "gives": "BREATH",
+       "note": "pants are short gasps, i.e. breaths; here taken as breath"
+      },
+      {
+       "words": "diameter",
+       "at": 23,
+       "gives": "D",
+       "note": "d is the usual abbreviation for diameter in geometry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a waist size, the diameter, is a wide measurement taken in trousers.",
+     "walkthrough": "'pants' looks like trousers but is the noun for gasps.",
+     "definitionFit": "Breadth is the distance from side to side, the width of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +313,42 @@
      }
     ]
    },
-   "solution": "THEBEGGARSOPERA"
+   "solution": "THEBEGGARSOPERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Augustan drama",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Slammed",
+       "at": 0,
+       "note": "slammed, beaten or crushed, signals the letters are knocked into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sheer garbage: top",
+       "at": 8
+      }
+     ]
+    },
+    "spelling": "THE BEGGAR'S OPERA",
+    "explanation": {
+     "surface": "A critic savages a lofty eighteenth-century play as utter rubbish.",
+     "walkthrough": "'Slammed' rearranges SHEER GARBAGE TOP.",
+     "definitionFit": "John Gay's 1728 ballad opera dates from the Augustan age of English literature under George I and II."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Slammed"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +362,29 @@
     "text": "Unrefined person sure to succeed",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unrefined",
+      "at": 0,
+      "meaning": "unprocessed, in its raw state"
+     },
+     {
+      "text": "person sure to succeed",
+      "at": 10,
+      "meaning": "someone born with a gift, a born talent for something"
+     }
+    ],
+    "explanation": {
+     "surface": "A rough-edged person who is nonetheless certain to do well.",
+     "definitionFit": "Raw materials can be described this way, and someone with innate ability is called one, as in 'a born winner'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +398,47 @@
     "text": "Something nasty afoot has leader deserting alliance",
     "enumeration": "5"
    },
-   "solution": "UNION"
+   "solution": "UNION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "alliance",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "has leader deserting",
+       "at": 22,
+       "note": "the first letter of the foot complaint departs"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Something nasty afoot",
+       "at": 0,
+       "gives": "BUNION",
+       "note": "a bunion is a painful swelling on the foot"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some sinister plot is under way as the head abandons a coalition.",
+     "walkthrough": "'afoot' suggests a plot in progress but means literally on the foot.",
+     "definitionFit": "A union is a joining together of parties, as in a trade union or a political alliance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "afoot"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +452,50 @@
     "text": "Rocker frame attached to legs cut from piano",
     "enumeration": "5"
    },
-   "solution": "ELVIS"
+   "solution": "ELVIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rocker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut from",
+       "at": 30,
+       "note": "cut from means the musical letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "frame attached to legs",
+       "at": 7,
+       "gives": "PELVIS",
+       "note": "the pelvis is the bony frame the legs join onto"
+      },
+      {
+       "words": "piano",
+       "at": 39,
+       "gives": "P",
+       "note": "p is the musical abbreviation for piano, softly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rocking chair's frame is joined to legs sawn off an old piano.",
+     "walkthrough": "'Rocker' sounds like furniture but is a rock-and-roll singer; the pelvis gave him the nickname Elvis the Pelvis.",
+     "definitionFit": "Elvis Presley was the King of Rock and Roll, the archetypal rock singer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rocker"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +515,60 @@
      }
     ]
    },
-   "solution": "GOBIDESERT"
+   "solution": "GOBIDESERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dry area",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mouth",
+       "at": 0,
+       "gives": "GOB",
+       "note": "gob is slang for mouth"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "opened by",
+         "at": 14,
+         "note": "the Latin phrase is split open so the royal letters sit within it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that is",
+         "at": 6,
+         "gives": "IDEST",
+         "note": "id est is the Latin for 'that is', usually shortened to i.e."
+        },
+        {
+         "words": "monarch",
+         "at": 24,
+         "gives": "ER",
+         "note": "ER, Elizabeth Regina, is the crossword monarch"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king opens his mouth and discloses where the arid land lies.",
+     "walkthrough": "'opened by' puts ER inside ID EST, making IDESERT; 'that is' is given in full Latin rather than as i.e.",
+     "definitionFit": "The Gobi is a vast desert in Mongolia and China, a dry region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mouth"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +582,54 @@
     "text": "City move I keenly backed, after downsizing",
     "enumeration": "4"
    },
-   "solution": "KIEV"
+   "solution": "KIEV",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "backed",
+       "at": 19,
+       "note": "backed means the kept letters are read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "after downsizing",
+         "at": 27,
+         "note": "the phrase is cut down to a smaller run inside it, so only some of its letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "move I keenly",
+         "at": 5,
+         "gives": "VEIK"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eagerly supported a relocation to a city after a company downsized.",
+     "walkthrough": "'after downsizing' takes VEIK from inside 'move I keenly', and 'backed' turns it round.",
+     "definitionFit": "Kiev, now usually written Kyiv, is the capital city of Ukraine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "downsizing"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +643,39 @@
     "text": "Reconciled in agreement with daughter",
     "enumeration": "6"
    },
-   "solution": "ATONED"
+   "solution": "ATONED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reconciled",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in agreement",
+       "at": 11,
+       "gives": "ATONE",
+       "note": "people at one are in agreement"
+      },
+      {
+       "words": "daughter",
+       "at": 29,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent finally reconciled and in agreement with their daughter.",
+     "definitionFit": "Atonement originally meant making 'at one', so to have atoned is to have made amends and been reconciled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +689,74 @@
     "text": "Proceeds north within each circle, and back to Dundas",
     "enumeration": "8"
    },
-   "solution": "EARNINGS"
+   "solution": "EARNINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Proceeds",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "each",
+       "at": 22,
+       "gives": "EA"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "within",
+         "at": 15,
+         "note": "within means the compass letter goes inside the circle word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "circle",
+         "at": 27,
+         "gives": "RING",
+         "note": "a ring is a circle"
+        },
+        {
+         "words": "north",
+         "at": 9,
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back to",
+         "at": 39,
+         "note": "back to means the final letter of the name is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dundas",
+         "at": 47
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Money heads north to a circle before returning to Dundas, perhaps a Scottish town or person.",
+     "walkthrough": "'within' puts N inside RING after its first letter, giving RNING; 'back to Dundas' is its last letter S.",
+     "definitionFit": "Proceeds are the money brought in by a sale or venture, i.e. income."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Proceeds"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +770,42 @@
     "text": "Slap in theatre repeating as arranged",
     "enumeration": "11"
    },
-   "solution": "GREASEPAINT"
+   "solution": "GREASEPAINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slap in theatre",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "arranged",
+       "at": 29,
+       "note": "arranged means the letters are put into a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "repeating as",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slap on stage is repeated as it was choreographed.",
+     "walkthrough": "'arranged' rearranges REPEATING AS; 'Slap' is old theatre slang for make-up, not a blow.",
+     "definitionFit": "Greasepaint is stage make-up, which actors call slap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Slap"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +819,50 @@
     "text": "Dullard one battered in chippy outside Lima",
     "enumeration": "4"
    },
-   "solution": "CLOD"
+   "solution": "CLOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dullard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 31,
+       "note": "outside means the fish word wraps around the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one battered in chippy",
+       "at": 8,
+       "gives": "COD",
+       "note": "cod is the fish most often battered and fried at a chippy"
+      },
+      {
+       "words": "Lima",
+       "at": 39,
+       "gives": "L",
+       "note": "Lima is L in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow-witted person gets beaten up in a fish and chip shop beyond the Peruvian capital.",
+     "walkthrough": "A chippy is a British fish and chip shop. 'Lima' looks like the city but is the radio code for L.",
+     "definitionFit": "A clod is a stupid, oafish person, a synonym for a dullard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "battered"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +876,42 @@
     "text": "Scots soldier bombed spacecraft",
     "enumeration": "10"
    },
-   "solution": "HIGHLANDER"
+   "solution": "HIGHLANDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scots soldier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bombed",
+       "at": 14,
+       "gives": "HIGH",
+       "note": "bombed is slang for intoxicated, as is high"
+      },
+      {
+       "words": "spacecraft",
+       "at": 21,
+       "gives": "LANDER",
+       "note": "a lander is a craft that sets down on a planet or moon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish soldier attacks a spacecraft from the air.",
+     "walkthrough": "'bombed' reads as an attack and also looks like an anagram signal, but it means drunk or stoned.",
+     "definitionFit": "Highlanders were soldiers of the Highland regiments of the British Army, recruited in northern Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bombed"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +925,40 @@
     "text": "Confectionery modelled on praline",
     "enumeration": "9"
    },
-   "solution": "NONPAREIL"
+   "solution": "NONPAREIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confectionery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "modelled",
+       "at": 14,
+       "note": "modelled, shaped like clay, signals the letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on praline",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet shaped in the style of a praline.",
+     "walkthrough": "'modelled' rearranges ON PRALINE.",
+     "definitionFit": "Nonpareils are tiny sugar balls, or chocolate drops coated in them, a kind of sweet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +978,32 @@
      }
     ]
    },
-   "solution": "DAMPCOURSE"
+   "solution": "DAMPCOURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Some housing benefit",
+      "at": 0,
+      "meaning": "a damp-proof layer in a wall is a feature that benefits a house"
+     },
+     {
+      "text": "soup",
+      "at": 26,
+      "meaning": "soup is a wet, that is moist, course of a meal"
+     }
+    ],
+    "explanation": {
+     "surface": "A query about welfare payments for housing, followed oddly by a question about soup.",
+     "walkthrough": "'housing benefit' looks like the UK welfare payment for rent but describes something good built into a house.",
+     "definitionFit": "A damp course is a waterproof layer in a wall stopping moisture rising; soup is literally a moist course of dinner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "benefit"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1027,48 @@
      }
     ]
    },
-   "solution": "OUTOFIT"
+   "solution": "OUTOFIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excluded",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admits",
+       "at": 15,
+       "note": "admits means the group word lets the zero inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "group",
+       "at": 9,
+       "gives": "OUTFIT",
+       "note": "an outfit is a group or team of people"
+      },
+      {
+       "words": "nothing",
+       "at": 22,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shut-out clique concedes it has nothing.",
+     "definitionFit": "Being out of it means left out, not part of things, so excluded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admits"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1088,77 @@
      }
     ]
    },
-   "solution": "ENGARDE"
+   "solution": "ENGARDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Be ready with foil, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wrapping",
+       "at": 52,
+       "note": "wrapping means the shortened word goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 36,
+         "note": "nearly means the last letter is not reached"
+        }
+       ],
+       "parts": [
+        {
+         "words": "finished",
+         "at": 43,
+         "gives": "ENDED",
+         "note": "ended means finished"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 67,
+         "note": "up in a down clue means the cloth word is written upwards, in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cloth",
+         "at": 61,
+         "gives": "RAG",
+         "note": "a rag is a piece of cloth"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tidying the kitchen, someone nearly done wraps a cloth and has the tin foil ready.",
+     "walkthrough": "'foil' is the fencing sword, not kitchen foil. 'nearly' trims the first synonym, 'up' writes the second upwards, and 'wrapping' puts the turned rag inside.",
+     "definitionFit": "En garde is the fencer's call to take the ready position, so it amounts to an order to be prepared."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foil"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1172,31 @@
     "text": "Where machine-gun might be placed in safe retreat",
     "enumeration": "4"
    },
-   "solution": "NEST"
+   "solution": "NEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where machine-gun might be placed",
+      "at": 0,
+      "meaning": "a fortified gun emplacement is called a machine-gun ..."
+     },
+     {
+      "text": "safe retreat",
+      "at": 37,
+      "meaning": "a cosy refuge or hideaway"
+     }
+    ],
+    "explanation": {
+     "surface": "A soldier positions a machine gun to cover a secure withdrawal.",
+     "walkthrough": "'retreat' suggests a military withdrawal, but here it means a refuge.",
+     "definitionFit": "A gun nest is a protected firing position, and a bird's home gives the sense of a snug hideaway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1210,46 @@
     "text": "Prepare to fire at two ducks or another bird",
     "enumeration": "8"
    },
-   "solution": "COCKATOO"
+   "solution": "COCKATOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "another bird",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prepare to fire",
+       "at": 0,
+       "gives": "COCK",
+       "note": "to cock a gun is to raise its hammer ready to fire"
+      },
+      {
+       "words": "at",
+       "at": 16,
+       "gives": "AT"
+      },
+      {
+       "words": "two ducks",
+       "at": 19,
+       "gives": "OO",
+       "note": "a duck is a zero score in cricket, shaped like the letter O, so two of them give OO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter readies the gun to shoot at a pair of ducks or some other bird.",
+     "definitionFit": "A cockatoo is a crested parrot, a bird other than the ducks of the surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 21,
@@ -392,7 +1263,47 @@
     "text": "Endless goodness in cake fragment?",
     "enumeration": "5"
    },
-   "solution": "CRUMB"
+   "solution": "CRUMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cake fragment",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Endless",
+       "at": 0,
+       "note": "endless means the final letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "goodness",
+       "at": 8,
+       "gives": "CRUMBS",
+       "note": "Crumbs! is a mild exclamation of surprise, like Goodness!"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An endless supply of goodness baked into a cake.",
+     "walkthrough": "'goodness' reads as wholesomeness but is the exclamation.",
+     "definitionFit": "A crumb is a small fragment broken off bread or cake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "goodness"
+    }
+   }
   },
   {
    "number": 22,
@@ -406,7 +1317,41 @@
     "text": "What central heating problem might bring?",
     "enumeration": "5"
    },
-   "solution": "CHILL"
+   "solution": "CHILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What central heating problem might bring?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "central heating",
+       "at": 5,
+       "gives": "CH",
+       "note": "CH is the standard abbreviation for central heating in house adverts"
+      },
+      {
+       "words": "problem",
+       "at": 21,
+       "gives": "ILL",
+       "note": "ill as a noun is a trouble or problem"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Asking what a fault in the heating system might lead to.",
+     "definitionFit": "A broken boiler leaves the house cold, and cold brings a shiver or a cold illness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 23,
@@ -420,7 +1365,58 @@
     "text": "Blame accepted by doctor given a drink",
     "enumeration": "6"
    },
-   "solution": "GRAPPA"
+   "solution": "GRAPPA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepted by",
+         "at": 6,
+         "note": "accepted by means the blame word is taken inside the doctor's letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctor",
+         "at": 18,
+         "gives": "GP",
+         "note": "GP, general practitioner, is a family doctor"
+        },
+        {
+         "words": "Blame",
+         "at": 0,
+         "gives": "RAP",
+         "note": "the rap is the blame, as in 'take the rap'"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 31,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor accepts responsibility after a patient was given a drink.",
+     "definitionFit": "Grappa is an Italian brandy distilled from grape pomace, an alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Blame"
+    }
+   }
   },
   {
    "number": 24,
@@ -434,7 +1430,45 @@
     "text": "Heard solvers grow together as fighting force",
     "enumeration": "4"
    },
-   "solution": "UNIT"
+   "solution": "UNIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fighting force",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "UNIT",
+     "indicators": [
+      {
+       "text": "Heard",
+       "at": 0,
+       "note": "heard signals that the letters spoken aloud are what count, not their spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "solvers grow together",
+       "at": 6,
+       "gives": "YOUKNIT",
+       "note": "the solvers are addressed as you, and broken bones knit when they grow together"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Solvers are told they bond as a fighting force.",
+     "walkthrough": "'Heard' makes YOU KNIT said aloud, which sounds the same as the answer.",
+     "definitionFit": "A unit is a military body of troops, a fighting force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grow"
+    }
+   }
   },
   {
    "number": 25,
@@ -458,7 +1492,41 @@
      }
     ]
    },
-   "solution": "FLEURDELIS"
+   "solution": "FLEURDELIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bloom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "uncontrollably",
+       "at": 24,
+       "note": "uncontrollably suggests letters running wild into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "full desire",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flower reveals an overwhelming, unchecked longing.",
+     "walkthrough": "'uncontrollably' rearranges FULL DESIRE.",
+     "definitionFit": "The fleur-de-lis is the stylised lily of French heraldry, so a bloom, or a flower shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shows"
+    }
+   }
   },
   {
    "number": 26,
@@ -472,7 +1540,54 @@
     "text": "Guard on landing party backing commerce across pond",
     "enumeration": "10"
    },
-   "solution": "BALUSTRADE"
+   "solution": "BALUSTRADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Guard on landing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 23,
+         "note": "backing means the party abbreviation is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 17,
+         "gives": "LAB",
+         "note": "Lab is the abbreviation for the British Labour Party"
+        }
+       ]
+      },
+      {
+       "words": "commerce across pond",
+       "at": 31,
+       "gives": "USTRADE",
+       "note": "across the pond, the Atlantic, is America, so American commerce is US trade"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political party supports transatlantic trade, guarding against arrivals by sea.",
+     "walkthrough": "'backing' turns LAB into BAL. 'Landing' looks like coming ashore but is the top of a staircase.",
+     "definitionFit": "A balustrade is the railing with balusters that guards the edge of a stair landing or balcony."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "landing"
+    }
+   }
   },
   {
    "number": 27,
@@ -486,7 +1601,45 @@
     "text": "One made to pluck hot stuff from mouth?",
     "enumeration": "4"
    },
-   "solution": "LUTE"
+   "solution": "LUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One made to pluck",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LUTE",
+     "indicators": [
+      {
+       "text": "from mouth",
+       "at": 28,
+       "note": "from mouth means the word is spoken, so only its sound matters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hot stuff",
+       "at": 18,
+       "gives": "LOOT",
+       "note": "stolen goods are hot, and loot is stolen goods"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone designed to snatch a hot morsel out of a mouth.",
+     "walkthrough": "'hot stuff' looks like spicy food but means stolen goods.",
+     "definitionFit": "A lute is a stringed instrument whose strings are plucked, so it was built for plucking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hot"
+    }
+   }
   }
  ]
 }
