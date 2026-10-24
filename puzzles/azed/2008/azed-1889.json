@@ -30,17 +30,49 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "fifteensquared",
-  "url": "https://fifteensquared.net/2008/08/17/azed-1889/",
-  "date": "2008-08-17",
-  "check": "33 of 36 entries, 75 crossings, 0 conflicts; answers matched to the grid by number, direction and length",
-  "partial": [
-   "5-down",
-   "18-down",
-   "19-across"
-  ]
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-23",
+  "check": "36 entries, 90 crossings, 0 conflicts, agrees with the 33 answers the paper printed",
+  "printed": {
+   "1-across": "ARB",
+   "1-down": "ABSENTMINDED",
+   "2-down": "REIKI",
+   "3-down": "BEDU",
+   "4-across": "SCRUNCHIE",
+   "6-down": "RAMPAGE",
+   "7-down": "ULEX",
+   "8-down": "CANTILENA",
+   "9-down": "HIDE",
+   "10-down": "EARNESTMONEY",
+   "11-across": "BEERHALL",
+   "12-down": "CEREUS",
+   "13-across": "SIDHA",
+   "14-across": "MEANDER",
+   "15-down": "SHEETFEED",
+   "16-across": "STERN",
+   "17-across": "NIGHTATTIRE",
+   "20-down": "RADIAL",
+   "21-across": "GALLUS",
+   "21-down": "GAMELAN",
+   "22-across": "MANEGE",
+   "23-across": "EAST",
+   "24-across": "DETERMINISM",
+   "25-down": "SORGO",
+   "26-across": "NIFFY",
+   "27-down": "FRIS",
+   "28-down": "PURI",
+   "29-down": "QUAG",
+   "30-across": "DAREFUL",
+   "31-across": "SPURN",
+   "32-across": "FRAUTAGE",
+   "33-across": "DISDAINED",
+   "34-across": "GOY"
+  }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -54,7 +86,29 @@
     "text": "Stock market dealer, somewhere between bear and bull",
     "enumeration": "3"
    },
-   "solution": "ARB"
+   "solution": "ARB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stock market dealer",
+      "at": 0
+     },
+     {
+      "text": "somewhere between bear and bull",
+      "at": 21
+     }
+    ],
+    "explanation": {
+     "surface": "A trader sits halfway between the pessimistic bears and the optimistic bulls of the market.",
+     "walkthrough": "The second half works two ways: an arbitrageur bets neither up nor down, and the letters sit where beAR meets Bull once the 'and' between them is skipped.",
+     "definitionFit": "ARB is short for arbitrageur, a trader who profits from price differences between markets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "between"
+    }
+   }
   },
   {
    "number": 1,
@@ -68,7 +122,67 @@
     "text": "Ben did MA work, ecstatic inside like a professor?",
     "enumeration": "12"
    },
-   "solution": "ABSENTMINDED"
+   "solution": "ABSENTMINDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "like a professor?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 26,
+       "note": "says the word for ecstatic goes inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "work",
+         "at": 11,
+         "note": "to work something is to knead it into a new shape, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ben",
+         "at": 0
+        },
+        {
+         "words": "did",
+         "at": 4
+        },
+        {
+         "words": "MA",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "ecstatic",
+       "at": 17,
+       "gives": "SENT",
+       "note": "sent is old slang for transported with delight, ecstatic"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ben, busy on his MA, is so carried away that he resembles a professor.",
+     "walkthrough": "'work' looks like Ben's labour on the degree but is the anagram signal, giving ABMINDED; 'inside' then takes the old slang for ecstatic.",
+     "definitionFit": "The absent-minded professor is a stock figure, so the question mark marks an example rather than a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 2,
@@ -82,7 +196,45 @@
     "text": "Oriental therapy: a tired skin can make you stand this",
     "enumeration": "5"
    },
-   "solution": "REIKI"
+   "solution": "REIKI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Oriental therapy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "can make",
+       "at": 31,
+       "note": "says the letters of a tired skin can be rearranged to make the word stand together with the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a tired skin",
+       "at": 18
+      },
+      {
+       "words": "stand",
+       "at": 44
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weary complexion might make you put up with some Eastern treatment.",
+     "walkthrough": "A composite: the letters of A TIRED SKIN rearranged give STAND plus the answer, so 'make you stand this' means STAND and THIS (the answer) together use them all.",
+     "definitionFit": "Reiki is a Japanese healing practice in which energy is said to pass through the practitioner's hands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stand"
+    }
+   }
   },
   {
    "number": 3,
@@ -96,7 +248,40 @@
     "text": "Nomad in robe, dusty",
     "enumeration": "4"
    },
-   "solution": "BEDU"
+   "solution": "BEDU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nomad",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "the answer sits in the words robe and dusty, across the gap between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "robe, dusty",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A desert wanderer in a dusty robe.",
+     "definitionFit": "Bedu is another name for the Bedouin, the nomadic Arab peoples of the desert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 4,
@@ -110,7 +295,44 @@
     "text": "Chic nurse dressed in colourful headband",
     "enumeration": "9"
    },
-   "solution": "SCRUNCHIE"
+   "solution": "SCRUNCHIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "colourful headband",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "dressed",
+       "at": 11,
+       "note": "to dress is to arrange or set in order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chic",
+       "at": 0
+      },
+      {
+       "words": "nurse",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stylish nurse is dressed up in a bright hair band.",
+     "definitionFit": "A scrunchie is an elastic hair tie covered in gathered fabric, often brightly coloured."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,6 +345,60 @@
    "clue": {
     "text": "Shakedown? You may find coins going round that (odd ones only)",
     "enumeration": "8"
+   },
+   "solution": "CHANTAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shakedown?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going round",
+       "at": 30,
+       "note": "the word for coins goes around the letters picked from that"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coins",
+       "at": 24,
+       "gives": "CHANGE",
+       "note": "loose coins are change"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "(odd ones only)",
+         "at": 47,
+         "note": "tells you to keep only the odd-numbered letters of the word that, the first and third"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coins rattle round in a shakedown, a bribe-shaking demand.",
+     "walkthrough": "'(odd ones only)' keeps T and A from THAT, and 'going round' wraps CHANGE about them: CHAN-TA-GE.",
+     "definitionFit": "Chantage is blackmail, extorting money by threats, which is what a shakedown is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Shakedown"
+    }
    }
   },
   {
@@ -137,7 +413,50 @@
     "text": "Storm? There's a bit of electricity in that",
     "enumeration": "7"
    },
-   "solution": "RAMPAGE"
+   "solution": "RAMPAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Storm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 36,
+       "note": "the unit of electricity is placed in the word for that storm"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that",
+       "at": 39,
+       "gives": "RAGE",
+       "note": "refers back to storm, read as the noun rage, a fury"
+      },
+      {
+       "words": "bit of electricity",
+       "at": 17,
+       "gives": "AMP",
+       "note": "an amp is a unit of electric current"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thunderstorm has some electricity in it.",
+     "walkthrough": "'that' reuses 'Storm' in its angry sense rather than the weather one, and 'in' is the container signal.",
+     "definitionFit": "To storm about and to rampage both mean to rush around violently in anger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "electricity"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +470,42 @@
     "text": "Papilionaceous shrub yielding crude rubber? Wrong",
     "enumeration": "4"
    },
-   "solution": "ULEX"
+   "solution": "ULEX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Papilionaceous shrub",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "yielding crude rubber",
+       "at": 21,
+       "gives": "ULE",
+       "note": "the ule is a Central American tree that yields crude rubber"
+      },
+      {
+       "words": "Wrong",
+       "at": 44,
+       "gives": "X",
+       "note": "a cross, X, marks a wrong answer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query whether some pea-flowered bush gives raw rubber, answered no.",
+     "walkthrough": "The surface makes the shrub the rubber source; in fact 'yielding crude rubber' stands alone for the ule tree.",
+     "definitionFit": "Ulex is the gorse genus, and gorse is a shrub of the pea family, whose butterfly-shaped flowers papilionaceous describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +519,49 @@
     "text": "Ballad the French offered in bar",
     "enumeration": "9"
    },
-   "solution": "CANTILENA"
+   "solution": "CANTILENA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ballad",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "offered in",
+       "at": 18,
+       "note": "the French article is offered up inside the word for bar"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bar",
+       "at": 29,
+       "gives": "CANTINA",
+       "note": "a cantina is a bar, especially in Spanish-speaking countries"
+      },
+      {
+       "words": "the French",
+       "at": 7,
+       "gives": "LE",
+       "note": "le is French for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French singer performs a ballad in a bar.",
+     "walkthrough": "'offered in' reads like a bar's menu but is the container signal; cantina is the Spanish-style bar.",
+     "definitionFit": "A cantilena is a smooth lyrical melody or ballad-like song in vocal or instrumental music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "offered"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +575,51 @@
     "text": "Mining angle: second from top goes to bottom",
     "enumeration": "4"
    },
-   "solution": "HIDE"
+   "solution": "HADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mining angle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "second from",
+       "at": 14,
+       "note": "picks out the letter in second place of the word for top"
+      },
+      {
+       "text": "goes to bottom",
+       "at": 30,
+       "note": "in a down entry the bottom is the end, so that letter moves to the last place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "top",
+       "at": 26,
+       "gives": "HEAD",
+       "note": "the head is the top of something"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for rearranging a mining measurement, top to bottom.",
+     "walkthrough": "The grid shows HIDE, but the clue builds HADE: take HEAD for 'top' and move its E to the end.",
+     "definitionFit": "In mining, the hade is the angle a vein or fault makes with the vertical."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +633,48 @@
     "text": "See men busy with notary — one seals a deal",
     "enumeration": "12"
    },
-   "solution": "EARNESTMONEY"
+   "solution": "EARNESTMONEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one seals a deal",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "busy",
+       "at": 8,
+       "note": "busy letters are bustling about, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See",
+       "at": 0
+      },
+      {
+       "words": "men",
+       "at": 4
+      },
+      {
+       "words": "notary",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men bustling about with a notary witness the sealing of an agreement.",
+     "definitionFit": "Earnest money is a deposit paid to bind a bargain, showing good faith before completion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "busy"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +688,59 @@
     "text": "Apartheid drinking place? Here one gets drunk in dance",
     "enumeration": "8"
    },
-   "solution": "BEERHALL"
+   "solution": "BEERHALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Apartheid drinking place?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 46,
+       "note": "the jumbled letters go in the word for dance"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dance",
+       "at": 49,
+       "gives": "BALL",
+       "note": "a ball is a formal dance"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "gets drunk",
+         "at": 35,
+         "note": "a drunk staggers about, so the letters of the word are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Here",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A segregated bar under apartheid, where someone gets drunk at a dance.",
+     "walkthrough": "'gets drunk' scrambles the clue's own 'Here' to EERH, which 'in' places within the dance word; 'one' is only a link.",
+     "definitionFit": "In apartheid South Africa, municipal beer halls were the licensed drinking places set aside for Black township residents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +754,56 @@
     "text": "Cactus sought — till once taken for play in one!",
     "enumeration": "6"
    },
-   "solution": "CEREUS"
+   "solution": "CEREUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cactus",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "taken for",
+       "at": 26,
+       "note": "one word is taken in place of another, swapped in for it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 44,
+       "gives": "CACTUS",
+       "note": "refers back to the cactus just named, so the word cactus itself"
+      },
+      {
+       "words": "play",
+       "at": 36,
+       "gives": "ACT",
+       "note": "to act is to play a part"
+      },
+      {
+       "words": "till once",
+       "at": 16,
+       "gives": "ERE",
+       "note": "ere, meaning before or until, is an archaic word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cactus wanted, until someone mistook it for a stage play!",
+     "walkthrough": "'one' points back to the clue's own first word, and 'taken for' means substituted for, not mistaken for.",
+     "definitionFit": "Cereus is a genus of tall columnar cacti, including the night-blooming cereus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +817,41 @@
     "text": "One who's attained perfection in Varanasi (dharma)",
     "enumeration": "5"
    },
-   "solution": "SIDHA"
+   "solution": "SIDHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who's attained perfection",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "the answer lies in the words Varanasi and dharma, spanning both"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Varanasi (dharma)",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A perfected sage found in the holy city of Varanasi, following dharma.",
+     "walkthrough": "Varanasi is the Hindu holy city on the Ganges, and dharma the duty or law of Hindu teaching.",
+     "definitionFit": "A sidha (siddha) in Hinduism is a holy person who has achieved spiritual perfection and supernatural powers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +865,47 @@
     "text": "Course of river that winds and enters lake",
     "enumeration": "7"
    },
-   "solution": "MEANDER"
+   "solution": "MEANDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Course of river that winds",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enters",
+       "at": 31,
+       "note": "the word and goes into the word for lake"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lake",
+       "at": 38,
+       "gives": "MEER",
+       "note": "meer is an old spelling of mere, a lake"
+      },
+      {
+       "words": "and",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A winding river runs on and flows into a lake.",
+     "walkthrough": "'enters' is the container signal; 'and' is not a link here but the piece that goes in, and the lake is the old spelling meer.",
+     "definitionFit": "A meander is a looping bend in the course of a river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +919,52 @@
     "text": "These, poorly paid, supply printers singly",
     "enumeration": "9"
    },
-   "solution": "SHEETFEED"
+   "solution": "SHEETFEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "supply printers singly",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poorly",
+         "at": 7,
+         "note": "letters arranged poorly are out of order, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "These",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "paid",
+       "at": 14,
+       "gives": "FEED",
+       "note": "fee'd, paid a fee"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Badly paid workers keep the printing presses supplied one at a time.",
+     "walkthrough": "'poorly' turns THESE into SHEET; 'paid' gives FEED as in fee'd, given a fee.",
+     "definitionFit": "To sheet-feed is to load a printer one sheet of paper at a time, rather than from a continuous roll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paid"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +978,30 @@
     "text": "Inflexible extremist gang",
     "enumeration": "5"
    },
-   "solution": "STERN"
+   "solution": "STERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inflexible",
+      "at": 0,
+      "meaning": "strict and unyielding"
+     },
+     {
+      "text": "extremist gang",
+      "at": 11,
+      "meaning": "the ... Gang was a militant Zionist group in 1940s Palestine"
+     }
+    ],
+    "explanation": {
+     "surface": "An unbending band of militants.",
+     "definitionFit": "Stern is a synonym of strict, and the Stern Gang was named after its founder, Avraham Stern."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gang"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1015,57 @@
     "text": "E.g. pyjamas, almost more untidy (last pair exchanged)",
     "enumeration": "11"
    },
-   "solution": "NIGHTATTIRE"
+   "solution": "NIGHTATTIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "E.g. pyjamas",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "almost",
+       "at": 14,
+       "gives": "NIGH",
+       "note": "nigh means nearly, almost"
+      },
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "(last pair exchanged)",
+         "at": 33,
+         "note": "the two final letters of the word for more untidy swap places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "more untidy",
+         "at": 21,
+         "gives": "TATTIER",
+         "note": "tattier means shabbier, more untidy"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pyjamas, getting on for even scruffier, with a letter swap.",
+     "walkthrough": "'(last pair exchanged)' turns TATTIER into TATTIRE.",
+     "definitionFit": "Pyjamas are one example of nightwear, clothing worn to bed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "almost"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,6 +1077,41 @@
    "length": 8,
    "clue": {
     "text": "Government bonds covering court of old (8, two words)"
+   },
+   "solution": "TAPISSUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Government bonds",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "covering",
+       "at": 17,
+       "gives": "TAPIS",
+       "note": "a tapis is a tapestry or cloth covering, as for a table"
+      },
+      {
+       "words": "court of old",
+       "at": 26,
+       "gives": "SUE",
+       "note": "to sue once meant to court or woo"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bonds that once covered a royal court, archaically.",
+     "definitionFit": "A tap issue is a government stock sold gradually on demand, as from a tap, rather than in one offering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
    }
   },
   {
@@ -316,6 +1125,41 @@
    "clue": {
     "text": "Tartufe, regularly found lacking? Typical",
     "enumeration": "4"
+   },
+   "solution": "TRUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Typical",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly found lacking",
+       "at": 9,
+       "note": "every other letter of Tartufe is missing, so keep the alternate ones that remain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tartufe",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The hypocrite Tartufe is typically found wanting.",
+     "walkthrough": "Tartufe, Molière's religious hypocrite, gives T_R_U_E once the even letters drop out.",
+     "definitionFit": "True can mean conforming to type, as in a plant that breeds true, so typical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lacking"
+    }
    }
   },
   {
@@ -330,7 +1174,41 @@
     "text": "Sun's face forming rays",
     "enumeration": "6"
    },
-   "solution": "RADIAL"
+   "solution": "RADIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "forming rays",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sun's",
+       "at": 0,
+       "gives": "RA",
+       "note": "Ra is the Egyptian sun god"
+      },
+      {
+       "words": "face",
+       "at": 6,
+       "gives": "DIAL",
+       "note": "a dial is a clock face, and also slang for a person's face"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The sun's face sending out its rays.",
+     "definitionFit": "Radial describes lines spreading out from a common centre, as rays do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1222,42 @@
     "text": "Tree made by abnormal growth unserviceable",
     "enumeration": "6"
    },
-   "solution": "GALLUS"
+   "solution": "GALLUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "abnormal growth",
+       "at": 13,
+       "gives": "GALL",
+       "note": "a gall is an abnormal growth on a plant"
+      },
+      {
+       "words": "unserviceable",
+       "at": 29,
+       "gives": "US"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree spoilt by a swelling and good for nothing.",
+     "walkthrough": "'Tree' here is the gallows tree; gallus is an old Scots form of gallows.",
+     "definitionFit": "The gallows were long called the tree, the timber from which criminals were hanged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tree"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1271,40 @@
     "text": "Stringed instrument from Tonga (Melanesian)",
     "enumeration": "7"
    },
-   "solution": "GAMELAN"
+   "solution": "GAMELAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stringed instrument",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 20,
+       "note": "the answer is taken from the words Tonga and Melanesian, across their join"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tonga (Melanesian)",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A string instrument from the Pacific island of Tonga, of Melanesian origin.",
+     "definitionFit": "A gamelan is an Indonesian orchestra, or one of its instruments, mostly gongs and metallophones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1318,52 @@
     "text": "Chap trained gee for riding school",
     "enumeration": "6"
    },
-   "solution": "MANEGE"
+   "solution": "MANEGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "riding school",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chap",
+       "at": 0,
+       "gives": "MAN",
+       "note": "a chap is a man"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trained",
+         "at": 5,
+         "note": "letters trained are drilled into a new order, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gee",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man trains his horse, a gee-gee, at a riding school.",
+     "walkthrough": "'gee' is the nursery word for a horse; 'trained' turns it into EGE.",
+     "definitionFit": "A manege is a riding school, or the arena where horses are trained in horsemanship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gee"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1377,66 @@
     "text": "Talisker's No. 1 and so Scotch coming from it!",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Talisker's No. 1 and so Scotch coming from it!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming from it",
+         "at": 31,
+         "note": "the self-reference means reading from the right-hand, sunrise side of the page, so the Scots word runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "so Scotch",
+         "at": 21,
+         "gives": "SAE",
+         "note": "sae is the Scots word for so"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "No. 1",
+         "at": 11,
+         "note": "the number one letter, the first, of the whisky's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Talisker's",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A whisky lover toasts Talisker, a Scotch, and where it comes from.",
+     "walkthrough": "'coming from it' is self-referential: words read from the east run right to left, so 'coming from it' reverses SAE (Scots 'so') to EAS, then 'No. 1' adds T.",
+     "definitionFit": "The whole clue points at a compass direction: the one the reversed Scots word is read from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Scotch"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1450,43 @@
     "text": "Encourage larger cars, millions? Opposite of free will",
     "enumeration": "11"
    },
-   "solution": "DETERMINISM"
+   "solution": "DETERMINISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opposite of free will",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Encourage larger cars",
+       "at": 0,
+       "gives": "DETERMINIS",
+       "note": "to deter minis, putting people off small cars, encourages larger ones"
+      },
+      {
+       "words": "millions",
+       "at": 23,
+       "gives": "M",
+       "note": "M is the abbreviation for million"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A policy question about pushing millions of drivers into bigger cars, set against free choice.",
+     "walkthrough": "The Mini is a small British car; read 'Encourage larger cars' as DETER MINIS.",
+     "definitionFit": "Determinism holds that every event, including human choice, is fixed by prior causes, denying free will."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Encourage"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1500,69 @@
     "text": "Source of sugar and zero fat (almost) that's raised",
     "enumeration": "5"
    },
-   "solution": "SORGO"
+   "solution": "SORGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Source of sugar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "that's raised",
+       "at": 38,
+       "note": "in a down clue raising a word turns it upside down, reading it from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "zero",
+         "at": 20,
+         "gives": "O",
+         "note": "O looks like zero"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "(almost)",
+           "at": 29,
+           "note": "the word for fat loses its final letter, almost all of it kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fat",
+           "at": 25,
+           "gives": "GROSS",
+           "note": "gross means grossly fat"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sugar comes from something with almost no fat in it, raised in the fields.",
+     "walkthrough": "'(almost)' cuts GROSS to GROS; 'that's raised' turns O GROS upwards.",
+     "definitionFit": "Sorgo, or sweet sorghum, is a grass grown for the sugary syrup pressed from its stems."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1576,41 @@
     "text": "Rank and name uncertain",
     "enumeration": "5"
    },
-   "solution": "NIFFY"
+   "solution": "NIFFY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rank",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "name",
+       "at": 9,
+       "gives": "N"
+      },
+      {
+       "words": "uncertain",
+       "at": 14,
+       "gives": "IFFY",
+       "note": "iffy means doubtful, uncertain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's rank and name are in doubt.",
+     "walkthrough": "'Rank' is not a grade here but strong-smelling.",
+     "definitionFit": "Niffy is British slang for smelly, from niff, a stink; rank also means foul-smelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rank"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1624,47 @@
     "text": "Son lost thrill for dance movement",
     "enumeration": "4"
    },
-   "solution": "FRIS"
+   "solution": "FRIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance movement",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lost",
+       "at": 4,
+       "note": "the word son is lost from the word for thrill"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thrill",
+       "at": 9,
+       "gives": "FRISSON",
+       "note": "a frisson is a thrill of excitement"
+      },
+      {
+       "words": "Son",
+       "at": 0,
+       "gives": "SON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A son's thrill is lost when dancing.",
+     "definitionFit": "The fris is the quick section of the Hungarian czardas dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1678,31 @@
     "text": "Fried bread? Juggernaut is found here",
     "enumeration": "4"
    },
-   "solution": "PURI"
+   "solution": "PURI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fried bread?",
+      "at": 0,
+      "meaning": "a small deep-fried Indian flatbread"
+     },
+     {
+      "text": "Juggernaut is found here",
+      "at": 13,
+      "meaning": "... in Odisha, India, holds the temple of Jagannath, whose huge chariot gave English juggernaut"
+     }
+    ],
+    "explanation": {
+     "surface": "A query about fried bread and where a juggernaut lorry might be found.",
+     "definitionFit": "The puffed fried bread and the Indian temple city of the Jagannath festival share the name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Juggernaut"
+    }
+   }
   },
   {
    "number": 29,
@@ -470,7 +1716,35 @@
     "text": "Miry spot, as Grimpen primarily?",
     "enumeration": "4"
    },
-   "solution": "QUAG"
+   "solution": "QUAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Miry spot, as Grimpen primarily?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Miry spot, as Grimpen primarily?",
+       "at": 0,
+       "note": "Grimpen is the first word of the Grimpen Mire in The Hound of the Baskervilles, as the answer is the first part of a longer word for a bog"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Grimpen is to Grimpen Mire as this word is to quagmire: the front part, and on its own a boggy spot.",
+     "definitionFit": "A quag is a quagmire, a patch of soft wet ground that gives way underfoot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 30,
@@ -484,7 +1758,59 @@
     "text": "Feudal revolutionary imprisoning king, adventurous of old",
     "enumeration": "7"
    },
-   "solution": "DAREFUL"
+   "solution": "DAREFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "adventurous of old",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imprisoning",
+       "at": 21,
+       "note": "the rearranged letters hold the king's letter inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 7,
+         "note": "a revolutionary overturns things, so the letters are turned over into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Feudal",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "king",
+       "at": 33,
+       "gives": "R",
+       "note": "R is short for rex, king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A feudal rebel jails the king in a daring old-world plot.",
+     "walkthrough": "'revolutionary' scrambles FEUDAL to DAEFUL and 'imprisoning' holds the king; 'of old' marks a Shakespearean word.",
+     "definitionFit": "Dareful is an obsolete word, used by Shakespeare, meaning daring or full of boldness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 31,
@@ -498,7 +1824,54 @@
     "text": "Reverse of successes sailors despise",
     "enumeration": "5"
    },
-   "solution": "SPURN"
+   "solution": "SPURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "despise",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Reverse of",
+         "at": 0,
+         "note": "the word for successes is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "successes",
+         "at": 11,
+         "gives": "UPS",
+         "note": "ups are good times, successes, as in ups and downs"
+        }
+       ]
+      },
+      {
+       "words": "sailors",
+       "at": 21,
+       "gives": "RN",
+       "note": "RN is the Royal Navy, sailors"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors scorn the opposite of success.",
+     "walkthrough": "'Reverse of' looks like a definition (downs, failures), but it turns UPS into SPU.",
+     "definitionFit": "To spurn someone is to reject them with contempt, so despise is a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reverse"
+    }
+   }
   },
   {
    "number": 32,
@@ -512,7 +1885,50 @@
     "text": "Lost cargo, fear with a tug that's storm-tossed",
     "enumeration": "8"
    },
-   "solution": "FRAUTAGE"
+   "solution": "FRAUTAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lost cargo",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "storm-tossed",
+       "at": 35,
+       "note": "tossed by a storm, the letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fear",
+       "at": 12
+      },
+      {
+       "words": "a",
+       "at": 22
+      },
+      {
+       "words": "tug",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cargo lost overboard when a tug was storm-tossed, and the crew afraid.",
+     "walkthrough": "'Lost' does not mean sunk: it marks the word as obsolete, out of use.",
+     "definitionFit": "Frautage is an obsolete form of freightage, the goods carried by a vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lost"
+    }
+   }
   },
   {
    "number": 33,
@@ -526,7 +1942,60 @@
     "text": "What's trendy in squirting Daddies (treated thus by posh chefs)?",
     "enumeration": "9"
    },
-   "solution": "DISDAINED"
+   "solution": "DISDAINED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "treated thus by posh chefs",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "the word for trendy goes in the scrambled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "squirting",
+         "at": 17,
+         "note": "the sauce squirts out messily, so the letters are scattered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Daddies",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "trendy",
+       "at": 7,
+       "gives": "IN",
+       "note": "in means fashionable, trendy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Squirting Daddies sauce: hardly trendy with posh chefs.",
+     "walkthrough": "Daddies is a British brand of brown sauce. 'squirting' scrambles it to DISDAED and 'in' takes the word for trendy.",
+     "definitionFit": "Snooty chefs would look down on bottled brown sauce, scorning it, which is what disdained says."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Daddies"
+    }
+   }
   },
   {
    "number": 34,
@@ -540,7 +2009,46 @@
     "text": "You may find ——s a genus ill-at-ease in synagogues",
     "enumeration": "3"
    },
-   "solution": "GOY"
+   "solution": "GOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "You may find ——s a genus ill-at-ease in synagogues",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "ill-at-ease",
+       "at": 25,
+       "note": "letters ill at ease are uneasily shifting about, so the answer plus the letters of s a genus rearrange into synagogues"
+      }
+     ],
+     "parts": [
+      {
+       "words": "synagogues",
+       "at": 40
+      },
+      {
+       "words": "s a genus",
+       "at": 15
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Gentiles may feel out of place in synagogues.",
+     "walkthrough": "A composite: the answer plus S A GENUS, rearranged, gives SYNAGOGUES.",
+     "definitionFit": "Goy is a Yiddish word for a non-Jew, who might well feel uneasy in a synagogue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "genus"
+    }
+   }
   }
  ]
 }
