@@ -102,7 +102,8 @@ def main(argv=None):
         text = ("New GitHub security alert(s) on the repo:\n" + "\n".join(d for _, d in new)
                 + "\n" + TAIL)
         if args.dry_run:
-            print("security watch: WOULD WAKE (dry run)\n" + text)
+            keys = ", ".join(k for k, _ in new)
+            print(f"security watch: WOULD WAKE (dry run) for {len(new)} alert(s): {keys}")
             return 0
         rc = subprocess.run([WAKE_SH, "-q", "-c", WAKE_ROOM, text], check=False).returncode
         if rc:
