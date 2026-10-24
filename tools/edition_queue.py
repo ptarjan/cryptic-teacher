@@ -465,8 +465,11 @@ WORKERS = 25
 TROVE_WORKERS = 6
 #: Paul 10-23: the Listener ahead of FT's never-read pages. ~2,950 unread pages (Gale 1930-91, on the
 #: media disk since 10-20); each unit is one page's local OCR, no VLM, so they share the unit ceiling
-#: (mem_gate's controller: Windows' free RAM) with the reads but take no GPU turn.
-LISTENER_WORKERS = int(os.environ.get("CT_LISTENER_WORKERS") or 4)
+#: (mem_gate's controller: Windows' free RAM) with the reads but take no GPU turn. Measured on the
+#: desktop 10-23 (4 at once): 0.3-0.75 GB RSS and ~1 core each, 17-19 min a page (half its read, half
+#: filing: its neighbours' grids, each page's found once). 8 is a bound: the idle-core gate
+#: (local_cpu) and the unit ceiling hold them back first.
+LISTENER_WORKERS = int(os.environ.get("CT_LISTENER_WORKERS") or 8)
 LISTENER_SECONDS = 1800
 #: The core a scan unit pins itself to (-1: the host's last), OCR's one core.
 SCAN_CPU = "OCR_SCAN_CPU"
