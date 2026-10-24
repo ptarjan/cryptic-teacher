@@ -238,7 +238,8 @@ def page_url(prod, doc):
 
 
 def load(cache=CACHE):
-    return json.loads(cache.read_text()) if cache.exists() else {}
+    """The entries of `cache`: see read_log."""
+    return read_log(cache)[0]
 
 
 #: Gale's permalink for a document, the one its citation prints: opens the
@@ -246,18 +247,70 @@ def load(cache=CACHE):
 PERMALINK = "https://link.gale.com/apps/doc/{doc}/{prod}?u=alberta_portal&sid=bookmark-{prod}"
 
 
+#: The cache files are append-only logs (SSD wear: docs.json, 19 MB, and
+#: fetched.json, 3.6 MB, were rewritten whole after EVERY download, 75 GB in 23
+#: h while the data grew by 4 GB). A file is the old single JSON object (the
+#: snapshot, still read as before) followed by one line per later change,
+#: {"_key": k, "_val": entry}; the last line for a key wins. `keep` appends one
+#: line; `compact` folds the lines back into one snapshot, rarely.
+RECORD = {"_key", "_val"}
+
+
+def read_log(path):
+    """({key: entry}, number of record lines) of a snapshot + record-lines file.
+    A torn last line (a crash mid-append) is skipped."""
+    try:
+        text = Path(path).read_text()
+    except OSError:
+        return {}, 0
+    dec, i, out, n = json.JSONDecoder(), 0, {}, 0
+    while True:
+        while i < len(text) and text[i].isspace():
+            i += 1
+        if i >= len(text):
+            return out, n
+        try:
+            v, i = dec.raw_decode(text, i)
+        except ValueError:
+            j = text.find("\n", i)
+            if j < 0:
+                return out, n
+            i = j
+            continue
+        if isinstance(v, dict) and set(v) == RECORD:
+            out[v["_key"]] = v["_val"]
+            n += 1
+        elif isinstance(v, dict):
+            out.update(v)
+
+
 def keep(key, e, cache=CACHE):
-    """Set `key` to `e` in `cache`, whole or not at all, under its own lock:
+    """Set `key` to `e` in `cache` by appending one line, under its own lock:
     two runs of tools/gale_fetch.py never lose each other's entries."""
+    import fcntl
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    line = "\n" + json.dumps({"_key": key, "_val": e}, sort_keys=True) + "\n"
+    with open(cache.with_suffix(".lock"), "w") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        with open(cache, "a") as f:
+            f.write(line)
+
+
+def compact(cache=CACHE, min_lines=1000):
+    """Fold the record lines into one snapshot (tmp + replace), once there are
+    `min_lines` of them: run at startup, so a file is rewritten once a run, not
+    once a download."""
     import fcntl
     cache.parent.mkdir(parents=True, exist_ok=True)
     with open(cache.with_suffix(".lock"), "w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
-        docs = load(cache)
-        docs[key] = e
+        docs, n = read_log(cache)
+        if n < min_lines:
+            return False
         tmp = cache.with_suffix(".tmp")
         tmp.write_text(json.dumps(docs, indent=0, sort_keys=True))
         tmp.replace(cache)
+    return True
 
 
 if __name__ == "__main__":

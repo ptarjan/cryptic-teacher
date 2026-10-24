@@ -237,7 +237,7 @@ assert stored == [f"GALE_{rows(3)[i][1]['doc']}.pdf" for i in (0, 2)], stored
 assert len(starts) == 2, "a row with no crossword costs no download"
 
 # 7. Each download is written to the log.
-assert set(json.loads(kw["fetched"].read_text())) == {rows(3)[i][1]["doc"] for i in (0, 2)}
+assert set(gf.load(kw["fetched"])) == {rows(3)[i][1]["doc"] for i in (0, 2)}
 
 # 8. The session is browsed as a person does: the portal, its Times link
 #    landing on Gale, then each document's page before its Download, every
@@ -313,7 +313,7 @@ got_prods = []
 kw["store"] = lambda body, prod, day, doc, e: got_prods.append(prod)
 n, _ = gf.run(limit=4, **kw)
 assert got_prods == ["TTDA", "TTDA", "TGRH", "TGRH"], got_prods
-log = json.loads(kw["fetched"].read_text())
+log = gf.load(kw["fetched"])
 assert [log[e["doc"]].get("prod") for _, _, e in mixed] == [None, None, "TGRH", "TGRH"], log
 assert gf.in_window(kw["limits"], kw["fetched"], clock())[1] == 4
 
