@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 13
+VERSION = 14
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -108,11 +108,37 @@ ARTICLE = re.compile(r'^\W*"(.*?)\W*"\s*(?:The )?Listener\b', re.DOTALL)
 #: A puzzle's own title: "No. 22—A French Crossword", "Crossword No. 19",
 #: "Our Crossword Puzzle No. 1". A "Competition No." is the magazine's own
 #: competition count, not the puzzle's.
-NUMBERED = re.compile(r"^n[o0]\.?\s*(\d{1,4})\b|crossword\W{0,3}(?:puzzle\W{0,3})?n[o0]\.?\s*(\d{1,4})\b",
+#: From No 1,000 (1949) the titles print a thousands comma, "Crossword No.
+#: 1,001" (FIGURE; Gale's text has "1.403" and "1, 349" too): \d{1,4}\b alone
+#: read it as No 1, so ~870 pages from 1949 on were each taken for one of the
+#: first nine puzzles. num() reads one.
+FIGURE = r"(\d{1,3}[,.] ?\d{3}|\d{1,4})\b"
+NUMBERED = re.compile(r"^n[o0]\.?\s*" + FIGURE + r"|crossword\W{0,3}(?:puzzle\W{0,3})?n[o0]\.?\s*" + FIGURE,
                       re.IGNORECASE)
 #: The report printing a past puzzle's solution grid and solvers:
-#: "Report on Crossword No. 16", "Report on Wireless Crossword No. 38".
-REPORT = re.compile(r"report\s+on\b[^\n]{0,40}?crossword\W{0,3}n[o0]\.?\s*(\d{1,4})\b", re.IGNORECASE)
+#: "Report on Crossword No. 16", "Report on Wireless Crossword No. 38",
+#: "Notes on Crossword No. 287".
+REPORT = re.compile(r"(?:report|notes)\s+on\b[^\n]{0,40}?crossword\W{0,3}n[o0]\.?\s*" + FIGURE, re.IGNORECASE)
+#: What only a page printing the week's puzzle has: its "CLUES" heading (in
+#: capitals: a report's notes head theirs "NOTES", the rules say "Clues are
+#: not given") or its "This Week's Crossword" title, the swash C often read
+#: "(" ("This Weeks (rossword"; not "This Week's Crossword is printed on page
+#: 709"), or its entry form's "Prize: ..., Closing date" (a report's are
+#: "Prizewinners").
+PUZZLE_HERE = re.compile(r"\bCLUES\b|\bPrize\W{0,2}:|\bClosing\s+date|(?i:week\W{0,2}s?\W{0,5}\S{0,3}rossword(?!\W*is\s+printed))")
+
+
+def puzzle_here(text, number):
+    """Whether a page's words `text` print the week's puzzle: PUZZLE_HERE, or
+    its own number `number` titled ("No. 147—'Diagonal II'") and not as the
+    report's ("Report on Crossword No. 145")."""
+    if PUZZLE_HERE.search(text):
+        return True
+    own = re.compile(rf"\bn[o0][.,]?\s*{number}\b", re.IGNORECASE) if number is not None else None
+    return bool(own) and any(not re.search(r"(?:report|notes)\s+on\W+\S*\W*$", text[max(0, m.start() - 30):m.start()],
+                                           re.IGNORECASE) for m in own.finditer(text))
+
+
 #: A browser's copy suffix, "GM2500066057 (1).pdf": no puzzle number.
 COPY = re.compile(r"\s*\(\d+\)(?=\.\w+$)")
 
@@ -233,15 +259,26 @@ def image_key(img):
     return hashlib.sha256(img.tobytes()).hexdigest()[:20]
 
 
+def num(figure):
+    """The number a FIGURE reads: "1,001", "1.403" and "1, 349" alike."""
+    return int(re.sub(r"\D", "", figure))
+
+
+#: A citation title's number dated further than this from its citation's
+#: date is a misprint or a misread ("Crossword No. 57" on 13 Feb. 1941, No
+#: 570's day): the date's puzzle is taken.
+TITLE_DRIFT = datetime.timedelta(days=21)
+
+
 def cited(cite):
     """(number, how, reports) a Gale PDF's citation gives: the puzzle its
     article title numbers (None, None when it numbers none; cited_day reads
     the date), and the past puzzles whose report it is."""
     cite = re.sub(r"\s+", " ", cite or "")
     title = (m.group(1) if (m := ARTICLE.search(cite)) else "").strip()
-    reports = {int(n) for n in REPORT.findall(title)}
+    reports = {num(n) for n in REPORT.findall(title)}
     if not reports and (m := NUMBERED.search(title)):
-        return int(m.group(1) or m.group(2)), "PDF citation title", reports
+        return num(m.group(1) or m.group(2)), "PDF citation title", reports
     return None, None, reports
 
 
@@ -264,6 +301,7 @@ def match(path, idx, read_title=True):
     cite = read[0][1] if read else ""
     by_number = {r["number"]: r for r in idx}
     number, how, reports = cited(cite)
+    report_only = bool(reports) and number is None
     day = gi.name_date(name, DATES)
     if day:
         r = by_date(idx, day)
@@ -272,15 +310,26 @@ def match(path, idx, read_title=True):
         out.update(number=n, how="file name number")
     if out["number"] is None and number is not None:
         out.update(number=number, how=how)
+        day = cited_day(cite)
+        r = day and by_date(idx, day)
+        if r and r["number"] != number and (number not in by_number
+                                            or abs(by_number[number]["date"] - day) > TITLE_DRIFT):
+            out.update(number=r["number"], how="PDF citation date")
     if out["number"] is None and (day := cited_day(cite)):
         r = by_date(idx, day)
         out.update(number=r and r["number"], how="PDF citation date")
     if read_title:
         for img, key in out["pages"]:
             text = ocr_clues.lines_of(page_words(img, key))
-            reports |= {int(n) for n in REPORT.findall(text)}
+            reports |= {num(n) for n in REPORT.findall(text)}
+            report_only = report_only and not puzzle_here(text, out["number"])
             if out["number"] is None and (m := TITLE.search(text)):
                 out.update(number=int(re.sub(r"\D", "", m.group(1))), how="title read")
+        if report_only and out["number"] is not None and out["pages"]:
+            # Gale's article is the report, and the page prints no clue list:
+            # the issue's own puzzle is on another page (5 of 7 such 1932
+            # pages), so its read would only spend ~17 min to find nothing.
+            out.update(number=None, why=f"the report page only: No {out['number']}'s clues are on another page")
     out["reports"] = sorted(n for n in reports if n in by_number and n != out["number"])
     if out["number"] is not None and (out["number"] not in by_number or not printed(by_number[out["number"]])):
         out.update(why=f"No {out['number']} is not in the index of the magazine's puzzles", number=None)
