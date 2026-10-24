@@ -1393,6 +1393,9 @@ def edition_request(d, found, solutions):
     filing = {"series": series, "puzzles": fa._FILING["puzzles"], "asked": sorted(asked),
               "held": sorted(fa.held_numbers(series)),
               "scans": [[url, day, ns] for (url, day), ns in fa.held_scans(series).items() if url in urls]}
+    # The item's edition names: filed_number weighs an FT title's date against
+    # its issue neighbours (fa.issue_dated), whose dirs the desktop does not hold.
+    found = {**found, "editions": fa.item_editions(d, found)}
     return ({"edition": rel, "found": found, "solutions": sols, "held": {series: held}, "reprints": reprints,
              "vlm": vlm_reader.wanted(), "keepVlm": d.name in fa._KEEP_VLM["names"], "png": vlm_reader.encoder(), "filing": filing},
             buf.getvalue())

@@ -421,6 +421,107 @@ def misfiled_dates(dated):
     return flagged
 
 
+#: An archive.org FT page url's edition title: "Jul 16 1975, Financial Times, #26722, UK (en)".
+FT_EDITION_URL = re.compile(r"/details/([^/]+)/([^/]+)/page/")
+FT_EDITION_TITLE = re.compile(r"([A-Z][a-z]{2}) (\d\d?) (\d{4}), Financial Times, #(\d+)")
+
+
+def ft_edition(url):
+    """(item, "<date>_<issue>" edition dir name) of an archive.org FT page
+    `url`, or None."""
+    import urllib.parse
+    m = FT_EDITION_URL.search(url or "")
+    t = m and FT_EDITION_TITLE.match(urllib.parse.unquote(m.group(2)))
+    if not t:
+        return None
+    try:
+        when = datetime.strptime(f"{t[1]} {t[2]} {t[3]}", "%b %d %Y").date()
+    except ValueError:
+        return None
+    return m.group(1), f"{when.isoformat()}_{t[4]}"
+
+
+def misdated_ft(rows, listing=lambda item: ()):
+    """[(number, stored, fixed, clash, why)] of the FT puzzles `rows`
+    ([(number, date, source url)]) whose date clashes: a Sunday (the FT
+    printed none), a day another number is dated, or not strictly between
+    the dates of the puzzles numbered either side. `fixed` is the day those
+    two count to, six issues a week (file_archive_org_puzzles.issue_step),
+    when they agree, it is free and its year the stored one's, and the
+    edition's issue neighbours (issue_dated over `listing(item)`, its
+    item's edition dir names) do not vouch for a stored weekday no other
+    number holds (then the number is the misread); else None and `why`
+    says what stands in the way. The filer weighs a new title the same way
+    (file_archive_org_puzzles.ft_dated)."""
+    import file_archive_org_puzzles as archive
+    held = {n: d for n, d, _ in rows if d is not None}
+    urls = {n: url for n, _, url in rows}
+    on_day = {}
+    for n, d in held.items():
+        on_day.setdefault(d, []).append(n)
+    nums = sorted(held)
+    out = []
+    for k, n in enumerate(nums):
+        stored = held[n]
+        lo = nums[k - 1] if k else None
+        hi = nums[k + 1] if k + 1 < len(nums) else None
+        others = [m for m in on_day[stored] if m != n]
+        clash = []
+        if stored.weekday() == 6:
+            clash.append("a Sunday")
+        if others:
+            clash.append(f"No {others[0]}'s day")
+        if lo is not None and held[lo] >= stored or hi is not None and held[hi] <= stored:
+            clash.append("out of order with " + " and ".join(
+                f"No {m} on {held[m]}" for m in (lo, hi) if m is not None))
+        if not clash:
+            continue
+        counted = {archive.issue_step(held[m], n - m) for m in (lo, hi) if m is not None}
+        edition = ft_edition(urls.get(n))
+        issue = edition and archive.issue_dated(edition[1], date_of(edition[1]), listing(edition[0]))
+        fixed, why = None, ""
+        if lo is None or hi is None or len(counted) != 1:
+            why = "its numbered neighbours do not count to one day"
+        elif (day_ := counted.pop()) == stored:
+            why = "its numbered neighbours count to its day: the other number there is the misdated one"
+        elif day_.weekday() == 6 or on_day.get(day_) or day_.year != stored.year:
+            why = f"its numbered neighbours count to {day_}, {'a Sunday' if day_.weekday() == 6 else 'taken' if on_day.get(day_) else 'another year'}"
+        elif issue and issue[2] and issue[0] == stored and stored.weekday() != 6 and not others:
+            why = f"its edition's issue neighbours vouch for {stored}: the number may be the misread"
+        else:
+            fixed = day_
+        out.append((n, stored, fixed, "; ".join(clash), why))
+    return out
+
+
+def date_of(name):
+    """The date of a "<date>_<issue>" edition dir name."""
+    from datetime import date
+    return date.fromisoformat(name[:10])
+
+
+def repair_ft_dates(apply_it=False):
+    """misdated_ft over every ftcryptic file, the archive.org edition cache's
+    listings weighing each edition's issue; each `fixed` one is written
+    with its new date when `apply_it`."""
+    import file_archive_org_puzzles as archive
+    rows, paths = [], {}
+    for path in fetcher.puzzle_files():
+        series, number = series_meta.parse_id(path.stem)
+        if series != "ftcryptic":
+            continue
+        puzzle = fetcher.read_puzzle_file(path)
+        rows.append((number, series_meta.puzzle_day(puzzle), (puzzle.get("source") or {}).get("url")))
+        paths[number] = path
+    found = misdated_ft(rows, lambda item: archive.dir_cache.listed(archive.CACHE / item))
+    for n, _stored, fixed, _clash, _why in found:
+        if fixed and apply_it:
+            puzzle = fetcher.read_puzzle_file(paths[n])
+            puzzle["date"] = fixed.isoformat()
+            fetcher.write_puzzle_file(paths[n], puzzle)
+    return found
+
+
 def day(when):
     """A datetime.date as a readable day, for the report."""
     return "—" if when is None else when.isoformat()
@@ -831,6 +932,10 @@ def main(argv):
                          "since SINCE (default 2026-10-21) slipped: word breaks the answer bears out traded for "
                          "a neighbour's, or the grid's length over them "
                          "(file_archive_org_puzzles.count_slipped); --apply writes")
+    ap.add_argument("--ft-dates", action="store_true",
+                    help="only list the ftcryptic files dated on a Sunday, another number's day or out of "
+                         "number order (misdated_ft), with the day their numbered neighbours settle; "
+                         "--apply writes those")
     ap.add_argument("--apply", action="store_true",
                     help="write the repairs; without it nothing is written")
     ap.add_argument("--dry-run", action="store_true",
@@ -867,6 +972,15 @@ def main(argv):
         return 0
     if args.apply and args.dry_run:
         ap.error("--apply and --dry-run say opposite things; pass one")
+    if args.ft_dates:
+        found = repair_ft_dates(args.apply)
+        for n, stored, fixed, clash, why in found:
+            print(f"ftcryptic-{n}: dated {stored} ({clash}) -> "
+                  + (f"{fixed}" if fixed else f"left: {why}"))
+        fixed = sum(1 for r in found if r[2])
+        print(f"{len(found)} misdated, {fixed} {'redated' if args.apply else 'would be redated'}, "
+              f"{len(found) - fixed} left to look at")
+        return 0
     if args.lost_breaks:
         restored = repair_lost_breaks(args.lost_breaks, args.apply)
         for pid, lid, was, now in restored:
