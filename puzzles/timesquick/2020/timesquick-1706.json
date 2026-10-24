@@ -22,6 +22,9 @@
   "date": "2020-09-22",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,30 @@
     "text": "People of the UK maybe in History and Geography, for example",
     "enumeration": "8"
    },
-   "solution": "SUBJECTS"
+   "solution": "SUBJECTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "People of the UK maybe",
+      "at": 0,
+      "meaning": "citizens of a monarchy are the monarch's ..."
+     },
+     {
+      "text": "History and Geography, for example",
+      "at": 26,
+      "meaning": "school disciplines studied"
+     }
+    ],
+    "explanation": {
+     "surface": "A school timetable listing British topics, or a census of Britons.",
+     "definitionFit": "The word covers both those owing allegiance to a crown and the areas of learning taught in school."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "People"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +75,39 @@
     "text": "Stated son needs help",
     "enumeration": "4"
    },
-   "solution": "SAID"
+   "solution": "SAID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "son",
+       "at": 7,
+       "gives": "S"
+      },
+      {
+       "words": "help",
+       "at": 17,
+       "gives": "AID",
+       "note": "aid means help"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone announcing their boy requires assistance.",
+     "definitionFit": "Said is the past tense of say, so it means declared or stated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +121,42 @@
     "text": "Some herbal titbits in cooked dish",
     "enumeration": "5"
    },
-   "solution": "BALTI"
+   "solution": "BALTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cooked dish",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "herbal titbits",
+       "at": 5,
+       "gives": "BALTI",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A few herb nibbles have gone into a meal.",
+     "walkthrough": "The draft took 'in' as part of the definition; it is the link joining the hidden-word wordplay to the definition 'cooked dish'.",
+     "definitionFit": "A balti is a curry cooked and served in a wok-like pan, a Birmingham-born dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +176,41 @@
      }
     ]
    },
-   "solution": "EARTHSCIENCE"
+   "solution": "EARTHSCIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Geology maybe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "awfully",
+       "at": 18,
+       "note": "awfully suggests the letters are badly treated and so rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nice teachers",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The rocks lesson is taught by rather pleasant staff.",
+     "walkthrough": "'awfully' rearranges NICE TEACHERS; 'has' just links.",
+     "definitionFit": "Geology is one of the earth sciences, those studying the planet, so it is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awfully"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +224,48 @@
     "text": "Boy joins workers' organisation in US city",
     "enumeration": "6"
    },
-   "solution": "TUCSON"
+   "solution": "TUCSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "joins",
+       "at": 4,
+       "note": "joins here means the boy is attached after the union abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "workers' organisation",
+       "at": 10,
+       "gives": "TUC",
+       "note": "the TUC is the Trades Union Congress, Britain's federation of labour unions"
+      },
+      {
+       "words": "Boy",
+       "at": 0,
+       "gives": "SON",
+       "note": "a boy is a son"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad signing up to a trade union in America.",
+     "walkthrough": "The TUC is the British Trades Union Congress; the boy comes after it in the answer.",
+     "definitionFit": "Tucson is a large city in Arizona, in the American southwest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +279,58 @@
     "text": "A public entertainment, not one a million miles away?",
     "enumeration": "4"
    },
-   "solution": "AFAR"
+   "solution": "AFAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a million miles away?",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 24,
+         "note": "not tells us the following one is dropped from the entertainment word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "public entertainment",
+         "at": 2,
+         "gives": "FAIR",
+         "note": "a fair is a funfair, an entertainment open to the public"
+        },
+        {
+         "words": "one",
+         "at": 28,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about a show that feels very remote without someone.",
+     "walkthrough": "The question mark flags that 'a million miles away' is a loose, exaggerated stand-in for great distance.",
+     "definitionFit": "Something at a great distance is far off; a million miles away is a playful exaggeration of that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "entertainment"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +344,30 @@
     "text": "Appropriate procedure before buying a suit?",
     "enumeration": "7"
    },
-   "solution": "FITTING"
+   "solution": "FITTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0,
+      "meaning": "suitable or proper"
+     },
+     {
+      "text": "procedure before buying a suit?",
+      "at": 12,
+      "meaning": "a tailor's ... is the trying on and adjusting of clothes"
+     }
+    ],
+    "explanation": {
+     "surface": "Trying on clothes in a shop is the proper thing to do.",
+     "definitionFit": "The adjective means suitable; the noun is the session where a garment is tried on and altered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +381,41 @@
     "text": "Rebel in den, eager, properly prepared",
     "enumeration": "8"
    },
-   "solution": "RENEGADE"
+   "solution": "RENEGADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rebel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "properly prepared",
+       "at": 21,
+       "note": "properly prepared suggests the letters are worked into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "den, eager",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary hiding out in a hideaway, keen and well organised.",
+     "walkthrough": "'properly prepared' rearranges DEN EAGER; 'in' just links.",
+     "definitionFit": "A renegade deserts a cause or defies authority, much as a rebel does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +439,30 @@
      }
     ]
    },
-   "solution": "ROUNDTHEBEND"
+   "solution": "ROUNDTHEBEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where oncoming traffic may be unseen?",
+      "at": 0,
+      "meaning": "literally, cars coming the other way are hidden ... of a road"
+     },
+     {
+      "text": "Crazy!",
+      "at": 38,
+      "meaning": "slang for mad"
+     }
+    ],
+    "explanation": {
+     "surface": "A driver's alarm at a blind corner.",
+     "definitionFit": "The idiom for being mad also literally describes the hidden stretch beyond a curve in the road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +476,45 @@
     "text": "Indolent type I had left with hesitation",
     "enumeration": "5"
    },
-   "solution": "IDLER"
+   "solution": "IDLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Indolent type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I had",
+       "at": 14,
+       "gives": "ID",
+       "note": "I had contracts to I'd, giving ID"
+      },
+      {
+       "words": "left",
+       "at": 20,
+       "gives": "L"
+      },
+      {
+       "words": "hesitation",
+       "at": 30,
+       "gives": "ER",
+       "note": "er is the sound of a speaker hesitating"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lazy person confessing they hesitated before leaving.",
+     "definitionFit": "A lazybones who avoids work is an idler, a noun for an indolent person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +528,60 @@
     "text": "King Charles not favoured — no turning back — one in the soup?",
     "enumeration": "7"
    },
-   "solution": "CROUTON"
+   "solution": "CROUTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one in the soup?",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "King Charles",
+       "at": 0,
+       "gives": "CR",
+       "note": "CR stands for Carolus Rex, the royal cipher of King Charles"
+      },
+      {
+       "words": "not favoured",
+       "at": 13,
+       "gives": "OUT",
+       "note": "someone out of favour is simply out"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning back",
+         "at": 31,
+         "note": "turning back says the word no is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "no",
+         "at": 28,
+         "gives": "NO"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal who has lost favour and cannot go back, ending up in trouble.",
+     "walkthrough": "'In the soup' also means in trouble, fitting a disgraced king; but here it is literal.",
+     "definitionFit": "A crouton is a small cube of fried bread floated in soup, so it is one item in the soup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "soup"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +601,30 @@
      }
     ]
    },
-   "solution": "HIGHSOUNDING"
+   "solution": "HIGHSOUNDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like a soprano",
+      "at": 0,
+      "meaning": "a soprano's voice sounds high, read literally"
+     },
+     {
+      "text": "pretentious",
+      "at": 21,
+      "meaning": "... language is pompous and grand"
+     }
+    ],
+    "explanation": {
+     "surface": "A singer accused of showing off.",
+     "definitionFit": "The idiom describes inflated, grandiose language; read literally it describes a voice pitched up high."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +638,48 @@
     "text": "Horse in box pursued by crazy character",
     "enumeration": "8"
    },
-   "solution": "CHESTNUT"
+   "solution": "CHESTNUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursued by",
+       "at": 13,
+       "note": "pursued by puts the crazy character after the box word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "box",
+       "at": 9,
+       "gives": "CHEST",
+       "note": "a chest is a large box"
+      },
+      {
+       "words": "crazy character",
+       "at": 24,
+       "gives": "NUT",
+       "note": "a nut is a madman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse in a horsebox, chased by a lunatic.",
+     "definitionFit": "A chestnut is a reddish-brown horse, named for its coat colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +693,47 @@
     "text": "Old poet to run at back of house",
     "enumeration": "6"
    },
-   "solution": "HORACE"
+   "solution": "HORACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at back of",
+       "at": 16,
+       "note": "at back of places the running word after the house abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "house",
+       "at": 27,
+       "gives": "HO"
+      },
+      {
+       "words": "run",
+       "at": 12,
+       "gives": "RACE",
+       "note": "to run in a contest is to race"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to jog behind a home where a classical writer lived.",
+     "definitionFit": "Horace was a Roman lyric poet of the first century BC, so an ancient versifier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +747,41 @@
     "text": "Reclaim sports ground no longer operating?",
     "enumeration": "7"
    },
-   "solution": "RECOVER"
+   "solution": "RECOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reclaim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sports ground",
+       "at": 8,
+       "gives": "REC",
+       "note": "a rec is a recreation ground, a public playing field"
+      },
+      {
+       "words": "no longer operating",
+       "at": 22,
+       "gives": "OVER",
+       "note": "something finished is over"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trying to win back a playing field that has closed.",
+     "walkthrough": "A rec, short for recreation ground, is a British public park with playing fields.",
+     "definitionFit": "To recover something is to get it back, which is to reclaim it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +795,40 @@
     "text": "Person who is holy and ancient presented in the theatre",
     "enumeration": "6"
    },
-   "solution": "STAGED"
+   "solution": "STAGED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "presented in the theatre",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Person who is holy",
+       "at": 0,
+       "gives": "ST",
+       "note": "a saint, abbreviated ST"
+      },
+      {
+       "words": "ancient",
+       "at": 23,
+       "gives": "AGED",
+       "note": "very old means aged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly saint putting on a play.",
+     "definitionFit": "A play is staged when it is put on for an audience, a past participle like the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +842,49 @@
     "text": "Girl's story about donkey",
     "enumeration": "6"
    },
-   "solution": "LASSIE"
+   "solution": "LASSIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about says the fib goes around the animal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "story",
+       "at": 7,
+       "gives": "LIE",
+       "note": "a story can be a lie, a fib"
+      },
+      {
+       "words": "donkey",
+       "at": 19,
+       "gives": "ASS",
+       "note": "an ass is a donkey"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman's tale concerning a donkey.",
+     "walkthrough": "'Girl's' reads as Girl is, the 's linking definition and wordplay.",
+     "definitionFit": "Lassie is a Scots and northern English word for a young woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +904,41 @@
      }
     ]
    },
-   "solution": "SECRETAGENTS"
+   "solution": "SECRETAGENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spies",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Various",
+       "at": 0,
+       "note": "various suggests the letters of the phrase taken in a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sergeants etc",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Assorted army sergeants turning into undercover operatives.",
+     "walkthrough": "'Various' rearranges the twelve letters of SERGEANTS ETC.",
+     "definitionFit": "Secret agents are covert operatives gathering intelligence, which is what spies do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Various"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +952,47 @@
     "text": "Buried under storage container is a Japanese poem",
     "enumeration": "5"
    },
-   "solution": "TANKA"
+   "solution": "TANKA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Japanese poem",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Buried under",
+       "at": 0,
+       "note": "in a down answer, buried under puts the a below the container"
+      }
+     ],
+     "parts": [
+      {
+       "words": "storage container",
+       "at": 13,
+       "gives": "TANK",
+       "note": "a tank stores liquid or gas"
+      },
+      {
+       "words": "a",
+       "at": 34,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A verse from Japan concealed beneath a cistern.",
+     "definitionFit": "A tanka is a classical five-line Japanese verse form, older than the haiku."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Buried"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1006,46 @@
     "text": "The fellow sitting on road in a crowd",
     "enumeration": "4"
    },
-   "solution": "HERD"
+   "solution": "HERD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a crowd",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "sitting on",
+       "at": 11,
+       "note": "in a down answer, sitting on puts the fellow above the road"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The fellow",
+       "at": 0,
+       "gives": "HE",
+       "note": "the fellow is he"
+      },
+      {
+       "words": "road",
+       "at": 22,
+       "gives": "RD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man sitting in the road amid a throng.",
+     "definitionFit": "A herd is a large group of animals, and figuratively a mass of people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1059,43 @@
     "text": "Recruits — small number having bad habits?",
     "enumeration": "7"
    },
-   "solution": "NOVICES"
+   "solution": "NOVICES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Recruits",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small number",
+       "at": 11,
+       "gives": "NO",
+       "note": "NO is the short form of number"
+      },
+      {
+       "words": "bad habits",
+       "at": 31,
+       "gives": "VICES",
+       "note": "vices are wicked or harmful habits"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A handful of new recruits with unpleasant ways.",
+     "walkthrough": "Habits are also nuns' robes, and novices are trainee nuns: a pun beneath the surface.",
+     "definitionFit": "Novices are beginners newly taken in, as recruits are newcomers to a group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "habits"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1109,48 @@
     "text": "Eagle circling round one man",
     "enumeration": "5"
    },
-   "solution": "ERNIE"
+   "solution": "ERNIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "man",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "circling round",
+       "at": 6,
+       "note": "circling round says the bird word goes around the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Eagle",
+       "at": 0,
+       "gives": "ERNE",
+       "note": "an erne is a sea eagle"
+      },
+      {
+       "words": "one",
+       "at": 21,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A large bird of prey wheeling over a lone figure.",
+     "definitionFit": "Ernie is a male first name, and crosswords use man to signal any male name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Eagle"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1164,29 @@
     "text": "Change of direction is a shock",
     "enumeration": "4"
    },
-   "solution": "TURN"
+   "solution": "TURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Change of direction",
+      "at": 0,
+      "meaning": "a move to a new heading"
+     },
+     {
+      "text": "a shock",
+      "at": 23,
+      "meaning": "a nasty ... is a fright or start"
+     }
+    ],
+    "explanation": {
+     "surface": "Suddenly swerving gives the driver a fright.",
+     "definitionFit": "The noun covers both a rotation onto a new course and a sudden jolt of fright."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1200,44 @@
     "text": "It's said principal wouldn't allow adornment in hair",
     "enumeration": "8"
    },
-   "solution": "HEADBAND"
+   "solution": "HEADBAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "adornment in hair",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HEADBAND",
+     "indicators": [
+      {
+       "text": "It's said",
+       "at": 0,
+       "note": "It's said marks that the phrase is spoken, giving a word that sounds like it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "principal wouldn't allow",
+       "at": 10,
+       "gives": "HEADBANNED",
+       "note": "a school principal is the head; something not allowed is banned"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school head forbidding a pupil's hair accessory.",
+     "definitionFit": "A headband is a strip of fabric worn around the head, an ornament or hold for the hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "principal"
+    }
+   }
   }
  ]
 }
