@@ -70,6 +70,20 @@ check("a citation without \"The\"", (22, "PDF citation title", set()),
       g.cited('"No. 22—A French Crossword." Listener, 27 Aug. 1930, p. 308.'))
 check("a competition's count is no puzzle number",
       (None, None, set()), g.cited('"Competition No. 8. " The Listener, vol. 3, no. 59, 26 Feb. 1930'))
+check("a thousands comma is one number, not No 1", (1001, "PDF citation title", set()),
+      g.cited('"Crossword No. 1,001. " The Listener, 2 June 1949, p. 42.'))
+check("Gale's \"1.403\" and \"1, 349\" alike", [1403, 1349],
+      [g.cited(f'"Crossword No. {n}. " The Listener, 18 Apr. 1957')[0] for n in ("1.403", "1, 349")])
+check("a report's comma number", (None, None, {1309}), g.cited('"Report on Crossword No. 1,309. " The Listener'))
+check("\"Notes on\" is a report", (None, None, {287}), g.cited('"Notes on Crossword No. 287. " The Listener'))
+check("the week's puzzle printed: its CLUES heading, its title read \"(rossword\", its entry form",
+      [True, True, True], [g.puzzle_here(t, 147) for t in
+                           ("CLUES\nACROSS", "This Weeks (rossword", "Prize: The Adventures of the Black Girl")])
+check("its own number titled, not as the report's", [True, False],
+      [g.puzzle_here("No, 123 Old Wives' Tales", 123), g.puzzle_here("Report on (Crossword No. 123", 123)])
+check("a report's notes, rules and pointer are no puzzle (mirror)", False,
+      g.puzzle_here("Report on Crossword No. 138\nNOTES\nAcross. 11\nPrizewinners: A. B.\n2. Clues are not given\n"
+                    "This Week's Crossword is printed on page 709", 140))
 check("a week with no crossword matches no date",
       None, g.by_date([{"number": 39, "title": "[No crossword]", "date": D(1930, 12, 24)}], D(1930, 12, 24)))
 
