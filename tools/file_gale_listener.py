@@ -775,10 +775,16 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
             unclued = {f"{e['number']}-{e['direction']}" for e in puzzle["entries"] if e["clue"] == {"missing": True}}
             whole = fa.complete(puzzle, unclued)
             if not whole:
+                # A clue fa.faults refuses is named too, with why: No 2's 5 down
+                # "1 Denotes the origin of a person." (a line's stray figure) was
+                # only "a clue is unfit to file".
+                faulted = fa.faults(puzzle)
                 verdict["lacks"] = "clues: " + (", ".join(sorted(
                     (f"{e['number']}-{e['direction']}" for e in puzzle["entries"]
                      if not e["clue"].get("text") and f"{e['number']}-{e['direction']}" not in unclued
-                     or ocr_clues.suspect(e["clue"].get("text", ""), printed=e["clue"].get("asPrinted") or ())), key=order))
+                     or ocr_clues.suspect(e["clue"].get("text", ""), printed=e["clue"].get("asPrinted") or ())
+                     and f"{e['number']}-{e['direction']}" not in faulted), key=order)
+                    + [f"{lid} {why}" for lid, why in sorted(faulted.items(), key=lambda kv: order(kv[0]))])
                     or "a clue is unfit to file")
             # Only a puzzle whose every clue reads true goes to the corpus;
             # --out takes every puzzle, one short of that too.
