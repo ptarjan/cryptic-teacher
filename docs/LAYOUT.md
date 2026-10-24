@@ -1077,8 +1077,9 @@ tools/test_anagram_line.js                     the anagram ring stands its tiles
                                                one
 tools/test_free_wheel.js                       the free letter wheel: offered on every clue,
                                                costs no hint, shows what the solver types
-tools/test_free_elimination_blocks.js          the building blocks rung is free when its piece is
-                                               only the last unlit words and adds no new letters
+tools/test_free_elimination_blocks.js          the building blocks rung is free when its piece
+                                               is only the last unlit words and adds no new
+                                               letters
 tools/ci_shards.js                             splits the test scripts across the workflow’s
                                                parallel jobs, so the suite takes as long as its
                                                slowest single script rather than all of them
@@ -1455,9 +1456,6 @@ tools/annotate_ledger.py                       the burn's own cost meter: each c
                                                causes) to ~/.cache/annotate_cost_ledger.jsonl
                                                and queues one quiet wake to the room when
                                                $/clue drifts up or a new cause is #1
-tools/test_annotate_ledger.py                  tests tools/annotate_ledger.py: fake ledger rows
-                                               give wake and no-wake decisions (regression, new
-                                               top cause, cooldown, target)
 tools/security_alert_watch.py                  once an hour from the burn: lists open GitHub
                                                code-scanning, dependabot and secret-scanning
                                                alerts and queues one quiet wake to the room for
@@ -1465,10 +1463,12 @@ tools/security_alert_watch.py                  once an hour from the burn: lists
 tools/test_security_alert_watch.py             tests tools/security_alert_watch.py with a fake
                                                gh: new alert wakes once, repeat does not, a 404
                                                source is skipped
+tools/test_annotate_ledger.py                  tests tools/annotate_ledger.py: fake ledger rows
+                                               give wake and no-wake decisions (regression, new
+                                               top cause, cooldown, target)
 tools/recover_fp_drafts.py                     dry run: for clues an annotate session rewrote
                                                after a validator false positive, replays the
                                                first rejected draft through today's validator
-                                               (--apply writes the ones that pass and differ)
                                                and buckets it against the committed wordplay —
                                                writes nothing to puzzles
 tools/annotate_audit.sh                        the scheduled entry: runs the audit from a
