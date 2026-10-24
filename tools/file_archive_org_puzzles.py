@@ -6427,12 +6427,18 @@ REREAD_UNFILED = "2026-10-22T00:25:00+00:00"
 def unfiled_blank(row):
     """[(puzzle id, blank clues)] of the puzzles of ledger `row` its read wrote
     unfiled (not complete, written, its file in CROPS/unfiled), else []. The count is
-    the verdict's "unfiled", else its named blanks, else lights short of clues."""
+    the verdict's "unfiled", else its named blanks, else lights short of clues.
+    A puzzle the corpus already holds with every clue (filed_state: another edition's
+    read, or an earlier one) is left out: Paul 10-24, of the ~1,600 Times pages held for
+    this reason ~1,470 were such, and their rereads only rewrote a filed file (10-21:
+    ~350 writes an hour, 5 new filings; 10-22..24: 113 of 114 1990s writes)."""
     out = []
     for v in row.get("verdicts", ()):
         if v.get("complete") or v.get("refused") or not v.get("wrote") or v.get("skip") or v.get("mended") or not v.get("id"):
             continue
         if v.get("unfiled") is None and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
             continue
         k = v.get("unfiled")
         if k is None:
