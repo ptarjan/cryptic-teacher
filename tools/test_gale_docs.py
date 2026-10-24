@@ -130,6 +130,17 @@ check("the Times cryptic under Gale's OCR misreadings of its title", [0, 0, 0, 0
       [gd.crossword("TTDA", [t]) for t in (
           "The Times Crossworld Puzzle No. 426", "The Times Crossmord Puzzle No. 714", "The Times Crosssword Puzzle No 19,888",
           "The Times Crossw0rd 22,568", "The Times Crosswor", "Gross worth of Times Two")])
+# 2004: page 2's "The Times Today ... Crossword; 26" line was kept as the
+# crossword (saving page 1); the real one is "The Temes Crossword" / "The
+# Times Corssword", or untitled, then its page is the contents line's number.
+check("the Times Today contents line is never the crossword", [1, 1, None],
+      [gd.crossword("TTDA", ["The Time Today; page 2. Crossword; 26 law Roport; 41", "The Temes Crossword"]),
+       gd.crossword("TTDA", ["The Times Today page 2. Crossword: and weather: 30.", "The Times Corssword"]),
+       gd.crossword("TTDA", ["The Times Today: page2. crossword: 22. The Register.", "The Times"])])
+d04 = D(2004, 4, 8)
+g04 = FakeGale({d04: issue([("The Times Today: page2. crossword: 22. The Register.", 1, 1), ("The Times", 21, 1)])})
+check("no crossword article: the contents line's page", ("Crossword", 22),
+      (lambda e: (e["title"], e["page"]))(gd.lookup("TTDA", d04, g04)))
 check("a Times link an older matcher picked is stale unless the cryptic's", [True, True, False, False],
       [gd.stale("TTDA", {"doc": "x", "title": t, **m}) for t, m in [
           ("Crossword 95", {}), ("Crossword", {}), ("The Times Crossword 23,296", {}),
