@@ -24,8 +24,13 @@ The wake rule (should_wake), in code, queued quietly (wake.sh -q) to the room:
   (a) the latest window's pooled $/clue is more than 10% above the best such level
       since the last commit touching annotate code; or
   (b) the #1 cause is not the #1 cause of the previous wake; or
-  (c) AFTER_COMMIT_ROWS (2) rows after an annotate-code commit, still over target;
-at most once per COOLDOWN_H (1) hours, and never while at or under the target.
+  (c) AFTER_COMMIT_ROWS (2) rows after an annotate-code commit, still over target; or
+  (d) even at or under target, the latest row's #1 first-check-failure cause spent at
+      least CAUSE_SPEND ($2) after the check, so the hill climb keeps going below target;
+at most once per COOLDOWN_H (1) hours. (a)-(c) only apply while over the target.
+
+Paul 10-23: "why aren't you doing cost fixing more often?" - at $0.015-0.021/clue the
+rule never woke, even with one retry cause burning dollars an hour; (d) is the answer.
 """
 import argparse
 import datetime
@@ -53,6 +58,11 @@ AFTER_COMMIT_ROWS = 2  # re-judge this many rows after an annotate-code commit (
 REGRESS = 0.10
 COOLDOWN_H = 1        # was 4
 TARGET = 0.022
+# Below target the climb continues when the #1 first-check-failure cause spent at least this
+# much after the check in the latest row. Ledger 10-20..10-24: 73 of 93 rows are at/under
+# target; their top-cause spend has median $1.88 and 42% are >= $2 (66% >= $1), so $2 wakes
+# on roughly every other hour (1h cooldown) rather than every hour or never.
+CAUSE_SPEND = 2.0
 # What "annotate code" means for the best-level baseline.
 CODE_PATHS = ["tools/annotate*", "tools/validate_annotations.py", "tools/puzzle_worker.sh",
               "tools/clue_bag.py", "tools/annotate_prompt.md", "tools/annotate_bag_prompt.md"]
@@ -135,12 +145,21 @@ def should_wake(rows, since_commit, state, now):
         return None, f"under {MIN_CLUES} clues in the last {ROLL} rows - too thin to judge"
     rolls = [pooled(window(rows[:i + 1])) for i in range(len(rows))]
     best = min((x for x in rolls if x is not None), default=None)
-    if cur <= TARGET:
-        return None, f"${cur:.3f}/clue is at the ${TARGET} target"
+    top_cause = (rows[-1].get("top_causes") or [{}])[0]
+    spend = top_cause.get("cost_after_check") or 0
+    under = cur <= TARGET
+    if under and spend < CAUSE_SPEND:
+        return None, (f"${cur:.3f}/clue is at the ${TARGET} target and the top cause spent "
+                      f"${spend:.2f} (under ${CAUSE_SPEND:.2f})")
     woken = state.get("woken")
     if woken and (now - parse(woken)).total_seconds() < COOLDOWN_H * 3600:
         return None, f"woken {woken}, inside the {COOLDOWN_H}h cooldown"
-    top = (rows[-1].get("top_causes") or [{}])[0].get("key")
+    if under:
+        # Hill climb below target: one retry cause burning dollars an hour is worth fixing.
+        return (f"${cur:.3f}/clue is under target but the top cause `{top_cause.get('key')}` spent "
+                f"${spend:.2f} after the first check in the latest window "
+                f"(threshold ${CAUSE_SPEND:.2f})"), {"cur": cur, "best": best}
+    top = top_cause.get("key")
     if best and cur > best * (1 + REGRESS):
         return (f"latest ${cur:.3f}/clue is {cur / best - 1:+.0%} over the best level "
                 f"${best:.3f} since the last annotate-code commit"), {"cur": cur, "best": best}

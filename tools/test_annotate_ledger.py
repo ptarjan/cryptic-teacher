@@ -63,6 +63,15 @@ check(L.should_wake(worse, None, recent, now)[0], None, "woken 30 min ago: 1h co
 cheap = [row(i, 0.020) for i in range(1, 4)] + [row(i, 0.021) for i in range(4, 7)]
 check(L.should_wake(cheap, None, quiet, now)[0], None, "at the $0.022 target: quiet")
 
+def hot(r, spend):
+    return dict(r, top_causes=[dict(r["top_causes"][0], cost_after_check=spend)])
+burning = cheap[:5] + [hot(cheap[5], 2.5)]
+check("spent $2.50" in (L.should_wake(burning, None, quiet, now)[0] or ""), True,
+      "under target but the top cause spent $2.50 after the check: wake")
+check(L.should_wake(burning, None, recent, now)[0], None, "under target, burning, but inside the 1h cooldown: quiet")
+check(L.should_wake(cheap[:5] + [hot(cheap[5], 1.9)], None, quiet, now)[0], None,
+      "under target and top cause spent $1.90 (< $2): quiet")
+
 text = L.work_order("why", {"cur": 0.04, "best": 0.03}, worse, ("abc123", "x", "Annotate fix"))
 check(all(s in text for s in ("$0.040", "rule:a", "abc123", "ONE Sonnet worker", "$0.022/clue")), True,
       "the work order carries the rows, top cause, last commit and the instruction")
