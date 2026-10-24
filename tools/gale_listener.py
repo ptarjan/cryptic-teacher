@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 12
+VERSION = 13
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -329,8 +329,176 @@ def page_columns(words):
     numbered_columns, the one holding more numbered clue lines, headed_columns
     on a tie. Under a low ACROSS, headed_columns sees only the lists' first
     band (No 3's run on at the top of the next column)."""
-    found = [c for c in (headed_columns(words), numbered_columns(words)) if c]
+    found = [c for c in (headed_columns(words), numbered_columns(words), paragraph_columns(words)) if c]
     return max(found, key=lambda c: sum(bool(al.LINE_CLUE.match(line[4])) for lst in c for line in lst), default=None)
+
+
+#: A clue's number as the 1934-40 lists print it, run on in a paragraph:
+#: "(14)*** Labour in vain ... (15) anag. A slave ...", the light's mark
+#: after it ("(16B)", "(4U)") and its stars; a reading may lose the opening
+#: bracket ("2)*** One who slays").
+PARA_MARK = re.compile(r"(?<![\w(])\(?(\d{1,2})([A-Z]?)\)([*†‡!¥]*)(?![\w)])")
+#: PARA_MARK opening a clue's words in capitals: what tells a page of
+#: paragraph lists from one with counts at clues' ends ("Region (6)").
+PARA_OPENS = re.compile(PARA_MARK.pattern + r"(?=[,\s]*\(|\s+[\"'‘“]?[A-Z0-9])")
+#: PARA_MARK where a clue's words follow it, on such a page ("(15) anag.
+#: A slave"): a count is followed by its clue's stop ("Song (5).").
+PARA_SPLIT = re.compile(PARA_MARK.pattern + r"(?=[,\s]*[^\s.,;:)\]])")
+#: A page's lists are paragraphs when at least this many numbers open clues mid-line.
+PARA_MIN = 6
+#: Numbers only commas part are one clue for those lights: "(51), (32B), (14)! Epsilon".
+PARA_GROUP = re.compile(r"^[\s,]*(?:and\s+|&\s*)?$")
+#: Two words in capitals: the next heading under the lists ("CROSSWORD RULES.").
+PARA_STOP = re.compile(r"\b[A-Z]{3,}[\s.,:—-]+[A-Z]{3,}\b")
+#: A gap of more than this many of its column's line pitches ends the lists there.
+PARA_GAP = 2.5
+#: A box this many times a word's height is the grid's or a picture's, no clue's.
+PARA_TALL = 2.5
+
+
+def paragraph_columns(words):
+    """[across lines, down lines] for lists printed as running paragraphs
+    (1934-40): under the ACROSS heading ("CLUES—ACROSS", read "CLUESACROSS"
+    too) and in the columns right of it holding clue numbers, the lines are
+    read column by column, top to bottom, the lists running on from one
+    column's foot to the next's top, as one text cut at each clue number
+    (PARA_MARK) into a line "N. words" (the light's mark and stars after the
+    number are not the clue's words). A number no higher than the clue's
+    before it is the clue's words ("(5)"), but for a list's restart at 1 or
+    2 (DOWN's heading unread). DOWN's heading switches lists; a gap, two
+    words in capitals (the rules' heading) or a column with no clue number
+    ends them. None unless PARA_MIN numbers open clues mid-line and both
+    lists have clues."""
+    heights = sorted(w[3] - w[1] for w in words if WORDY.search(w[4]))
+    if not heights:
+        return None
+    height = heights[len(heights) // 2]
+    if sum(len(PARA_OPENS.findall(r[4][1:])) for r in para_rows(words, height)) < PARA_MIN:
+        return None
+    across = next((w for w in sorted(words, key=lambda w: w[1])
+                   if heading(w[4]) == "ACROSS" or re.search(r"A[CG]R[O0]SS", w[4].upper())), None)
+    if across is None:
+        return None
+    tall = PARA_TALL * height
+    blots = [w for w in words if w[3] - w[1] > tall]
+    body = [w for w in words if w[3] - w[1] <= tall and (w[1] + w[3]) / 2 >= across[1] - 10
+            and not any(b[0] <= (w[0] + w[2]) / 2 <= b[2] and b[1] <= (w[1] + w[3]) / 2 <= b[3] for b in blots)]
+    spans = para_spans([w for w in body if re.search(r"[A-Za-z]{2}|\(\d", w[4])])
+    stream = []
+    for x0, x1 in (s for s in spans if s[1] >= across[0]):
+        rows = para_rows([w for w in body if x0 <= (w[0] + w[2]) / 2 <= x1], height)
+        if stream and not any(PARA_MARK.search(r[4]) for r in rows):
+            break  # a column with no clue number: a report, an article
+        steps = sorted(b[0] - a[0] for a, b in itertools.pairwise(rows) if b[0] > a[0])
+        pitch = steps[len(steps) // 2] if steps else 0
+        last, stop = None, False
+        for r in rows:
+            if last is not None and pitch and r[0] - last > PARA_GAP * pitch:
+                break
+            last = r[0]
+            head = heading(r[4]) or ("ACROSS" if r is rows[0] and re.search(r"A[CG]R[O0]SS", r[4].upper())
+                                     and not PARA_MARK.search(r[4]) else None)
+            if head:
+                stream.append((head, None))
+                continue
+            text = r[4]
+            if cut := PARA_STOP.search(text):
+                text, stop = text[:cut.start()], True
+            stream.append((text, r))
+            if stop:
+                break
+        if stop:
+            break
+    lists = {"ACROSS": [], "DOWN": []}
+    side, last, joined, boxes = "ACROSS", 0, "", []
+    pieces = []  # (side, text, [(offset, row)])
+
+    def flush():
+        if joined.strip():
+            pieces.append((side, joined, list(boxes)))
+
+    for text, row in stream:
+        if row is None:
+            flush()
+            side, joined, boxes = text, "", []
+            if text == "DOWN":
+                last = 0
+            continue
+        boxes.append((len(joined), row))
+        joined += text.strip() + " "
+    flush()
+    for side, text, boxes in pieces:
+        marks = list(PARA_MARK.finditer(text))
+        last = 0
+        clue = None  # [number, start of its words, row]
+        for i, m in enumerate(marks):
+            n = int(m.group(1))
+            if clue and PARA_GROUP.match(text[marks[i - 1].end():m.start()]) and clue[1] == marks[i - 1].end():
+                clue[1] = m.end()  # one more light of the same clue
+                continue
+            if not PARA_SPLIT.match(text, m.start()) or n <= last and not (
+                    n <= 2 and side == "ACROSS" and not lists["DOWN"]):
+                continue  # the clue's own words: a count ("Song (5)."), a lower number
+            if clue:
+                lists[side].append(para_line(clue, text[clue[1]:m.start()]))
+            if n <= last:
+                side = "DOWN"  # its heading unread: the down list starts again at 1
+            last = n
+            row = next(r for off, r in reversed(boxes) if off <= m.start())
+            clue = [n, m.end(), row]
+        if clue:
+            lists[side].append(para_line(clue, text[clue[1]:]))
+    if min(len(lists["ACROSS"]), len(lists["DOWN"])) < COLUMN_MIN:
+        return None
+    return [lists["ACROSS"], lists["DOWN"]]
+
+
+#: paragraph_columns' gutters: PARA_BIN-wide stretches across the lists
+#: that fewer than PARA_THIN of the median stretch's words cover (a few
+#: words read across No 400's gutter bridge it for a span of words).
+PARA_BIN, PARA_THIN = 10, 0.25
+
+
+def para_spans(words):
+    """[[x0, x1]] the columns of `words`, parted at the gutters."""
+    if not words:
+        return []
+    cover = [0] * (int(max(w[2] for w in words)) // PARA_BIN + 1)
+    for w in words:
+        for b in range(int(w[0]) // PARA_BIN, int(w[2]) // PARA_BIN + 1):
+            cover[b] += 1
+    full = sorted(c for c in cover if c)
+    thin = PARA_THIN * full[len(full) // 2]
+    spans = []
+    for b, c in enumerate(cover):
+        if c > thin:
+            if spans and spans[-1][1] == (b - 1) * PARA_BIN:
+                spans[-1][1] = b * PARA_BIN
+            else:
+                spans.append([b * PARA_BIN, b * PARA_BIN])
+    return [[x0, x1 + PARA_BIN] for x0, x1 in spans]
+
+
+def para_rows(words, height):
+    """[(y0, y1, x0, x1, text)] the printed lines of `words` (each
+    (x0, y0, x1, y1, text)): a word is on the line whose centre is under
+    half a word's `height` from its own. fa.merge_rows joins boxes that
+    touch, and a paragraph's lines, set close, touch."""
+    rows = []
+    for w in sorted(words, key=lambda w: (w[1] + w[3]) / 2):
+        mid = (w[1] + w[3]) / 2
+        if rows and mid - rows[-1][0] < height / 2:
+            rows[-1][1].append(w)
+        else:
+            rows.append([mid, [w]])
+    return [(min(w[1] for w in ws), max(w[3] for w in ws), min(w[0] for w in ws), max(w[2] for w in ws),
+             " ".join(w[4] for w in sorted(ws, key=lambda w: w[0]))) for _, ws in rows]
+
+
+def para_line(clue, words):
+    """paragraph_columns' line for one clue: its first row's box, "N. words"."""
+    n, _, row = clue
+    return (row[0], row[1], row[2], row[3], f"{n}. {' '.join(words.lstrip(' ,').split())}")
 
 
 #: The word a list's heading may open on, "CLUES—ACROSS" (No 197's),
@@ -1492,7 +1660,8 @@ def plan(inbox=SAVED, store=STORE):
     for row in ledger.values():
         d = doc_of(row.get("file") or "")
         if d:
-            docs[d] = max(docs.get(d, 0), row.get("version") or 0, key=lambda v: (v == VERSION, v))
+            docs[d] = max((docs[d], row) if d in docs else (row,),
+                          key=lambda r: (r.get("version") == VERSION, r.get("version") or 0))
     todo, seen = {}, set()
     for p in sorted(page_files(inbox), key=lambda p: (gi.name_date(p.name, DATES) is None, bool(COPY.search(p.name)),
                                                       p.parent != Path(inbox), p.name)):
@@ -1503,12 +1672,38 @@ def plan(inbox=SAVED, store=STORE):
             continue
         else:
             seen.add(d)
-            row = {"version": docs[d]} if d in docs else None
+            row = docs.get(d)
         if (row or {}).get("version") != VERSION:
             todo[p] = row
-    return [{"rel": p.name, "rank": 3 if row else 0, "reason": "version changed" if row else "never read (Gale fetch)",
-             "needs": []}
-            for p, row in sorted(todo.items(), key=lambda kv: (bool(kv[1]), kv[0].stat().st_mtime))]
+    due = sorted(((p, due_reason(row)) for p, row in todo.items()),
+                 key=lambda pr: (rank_of(pr[1]), pr[0].stat().st_mtime))
+    return [{"rel": p.name, "rank": rank_of(reason), "reason": reason, "needs": []} for p, reason in due]
+
+
+def rank_of(reason):
+    """A plan reason's rank: fa.RANKS', "version changed" a blanket re-read."""
+    return fa.BLANKET if reason == "version changed" else fa.RANKS[reason]
+
+
+#: The VERSION whose page_columns reads the 1934-40 lists printed as
+#: paragraphs ("(1) clue. (10) clue."): a page that ended "no reading
+#: parses" at an older one is read again for it (evidence, not blanket).
+PARAGRAPHS = 13
+#: The refusal those pages ended on.
+UNPARSED = "no reading parses"
+
+
+def due_reason(row):
+    """Why plan reads a page again, given its last ledger row (None: never
+    read): "never read (Gale fetch)"; fa's "refused no-reading-parses before
+    its fix" for one that ended UNPARSED before PARAGRAPHS (a reason
+    tools/edition_queue.py plans with blanket rereads off); else the
+    blanket "version changed"."""
+    if not row:
+        return "never read (Gale fetch)"
+    if row.get("why") == UNPARSED and (row.get("version") or 0) < PARAGRAPHS:
+        return "refused no-reading-parses before its fix"
+    return "version changed"
 
 
 def read_unit(name, inbox=SAVED, store=STORE, reader=read_file, out=sys.stdout, file_it=True):
