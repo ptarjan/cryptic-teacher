@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Country takeaway",
     "enumeration": "4"
    },
-   "solution": "TOGO"
+   "solution": "TOGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0,
+      "meaning": "a small West African nation between Ghana and Benin"
+     },
+     {
+      "text": "takeaway",
+      "at": 8,
+      "meaning": "food bought to eat elsewhere is ordered '...', the American term for a takeaway"
+     }
+    ],
+    "explanation": {
+     "surface": "Two bare definitions side by side, perhaps a menu heading for a national dish to carry out.",
+     "definitionFit": "One sense is the West African republic; the other is the phrase for food carried out of a restaurant rather than eaten there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "takeaway"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +78,37 @@
      }
     ]
    },
-   "solution": "CLEANOUT"
+   "solution": "CLEANOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Win every last penny from",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "CLEAN + OUT",
+     "parts": [
+      {
+       "words": "Lance",
+       "at": 26,
+       "note": "the five letters of the name Lance are those of a word meaning spotless when jumbled, with the second word acting as the signal to rearrange"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Lance is being fleeced at the card table.",
+     "walkthrough": "Read the answer as wordplay: CLEAN with OUT as an anagram signal gives LANCE, the clue's word. 'Cryptically' warns that the clue must be read this way round.",
+     "definitionFit": "To clean someone out is an idiom for taking all their money, as a gambler might."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lance"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +128,70 @@
      }
     ]
    },
-   "solution": "SATNAV"
+   "solution": "SATNAV",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vehicle on unfinished mission travelling northward, aided by this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "travelling northward",
+       "at": 30,
+       "note": "in a down clue, going north means reading the letters from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Vehicle",
+         "at": 0,
+         "gives": "VAN",
+         "note": "a van is a vehicle"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "unfinished",
+           "at": 11,
+           "note": "the last letter of the word is cut off, leaving it incomplete"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mission",
+           "at": 22,
+           "gives": "TASK",
+           "note": "a mission is a task"
+          },
+          {
+           "gives": "K"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A van driver on an unfinished job heading north relies on a navigation gadget.",
+     "walkthrough": "In a down clue 'on' means sitting above, and 'travelling northward' reads the result bottom to top. The question mark flags that the whole clue also describes the answer.",
+     "definitionFit": "A satellite navigation device guides a driver, so a vehicle on its route north would be aided by one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "mission"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +205,59 @@
     "text": "Former student caught in unmistakable disguise",
     "enumeration": "7"
    },
-   "solution": "OBSCURE"
+   "solution": "OBSCURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "disguise",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former student",
+       "at": 0,
+       "gives": "OB",
+       "note": "OB, old boy, is a former pupil of a school"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 22,
+         "note": "the word 'in' places the cricket letter within the word for unmistakable"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unmistakable",
+         "at": 25,
+         "gives": "SURE",
+         "note": "something unmistakable is sure"
+        },
+        {
+         "words": "caught",
+         "at": 15,
+         "gives": "C",
+         "note": "C is the cricket scorecard abbreviation for caught"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old student has been spotted despite an obvious disguise.",
+     "definitionFit": "To obscure something is to hide it from view, which is what a disguise does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +271,69 @@
     "text": "Fancy hairstyle wanting a touch of lacquer? Madness!",
     "enumeration": "8"
    },
-   "solution": "HYSTERIA"
+   "solution": "HYSTERIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Madness",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Fancy",
+       "at": 0,
+       "note": "used as a verb or adjective suggesting elaborate rearrangement, it signals the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wanting",
+         "at": 16,
+         "note": "wanting means lacking, so a letter is missing from the fodder before rearranging"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hairstyle",
+         "at": 6
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a touch of",
+           "at": 24,
+           "note": "just a touch means only the opening letter of the word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lacquer",
+           "at": 35
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elaborate hairdo left without hairspray drives its owner mad.",
+     "walkthrough": "Remove L (the first letter of 'lacquer') from HAIRSTYLE and rearrange HAIRSTYE, as 'Fancy' signals, to get the answer.",
+     "definitionFit": "Hysteria is uncontrolled emotional excess, a kind of frenzy or temporary madness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +347,42 @@
     "text": "Sweet child's revolutionary problem",
     "enumeration": "6"
    },
-   "solution": "CHERUB"
+   "solution": "CHERUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sweet child",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "revolutionary",
+       "at": 14,
+       "gives": "CHE",
+       "note": "Che Guevara, the Argentine-born revolutionary"
+      },
+      {
+       "words": "problem",
+       "at": 28,
+       "gives": "RUB",
+       "note": "a rub is a difficulty, as in 'there's the rub'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent laments that their darling has a rebellious streak.",
+     "walkthrough": "'there's the rub' is from Hamlet, so rub for problem is a familiar sense.",
+     "definitionFit": "An angelic-looking infant is often called a little cherub, the winged child of art."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +396,48 @@
     "text": "Make arrangements for alien to leave Mars, perhaps",
     "enumeration": "4"
    },
-   "solution": "PLAN"
+   "solution": "PLAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make arrangements for",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to leave",
+       "at": 28,
+       "note": "the alien departs, so its letters are removed from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mars, perhaps",
+       "at": 37,
+       "gives": "PLANET",
+       "note": "Mars is an example of a planet, hence 'perhaps'"
+      },
+      {
+       "words": "alien",
+       "at": 22,
+       "gives": "ET",
+       "note": "ET is the film alien, the extra-terrestrial"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mission control organises an alien's departure from the red planet.",
+     "definitionFit": "To plan something is to organise it in advance, setting up its details."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alien"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +451,52 @@
     "text": "Feeling like this bully, oddly overlooked",
     "enumeration": "4"
    },
-   "solution": "SOUL"
+   "solution": "SOUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feeling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "like this",
+       "at": 8,
+       "gives": "SO",
+       "note": "so means in this way"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly overlooked",
+         "at": 25,
+         "note": "the odd-numbered letters are passed over, leaving the even ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bully",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A victim's feelings about a bully are ignored.",
+     "walkthrough": "'oddly overlooked' skips letters 1, 3 and 5 of 'bully', keeping U and L.",
+     "definitionFit": "Soul is emotional depth or warmth, as in a performance sung with real passion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bully"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +510,58 @@
     "text": "Fountains perhaps originally assembled by builders each year",
     "enumeration": "5"
    },
-   "solution": "ABBEY"
+   "solution": "ABBEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fountains perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "originally",
+       "at": 18,
+       "note": "the opening letters of each word are taken, as at their origin"
+      }
+     ],
+     "parts": [
+      {
+       "words": "assembled",
+       "at": 29
+      },
+      {
+       "words": "by",
+       "at": 39
+      },
+      {
+       "words": "builders",
+       "at": 42
+      },
+      {
+       "words": "each",
+       "at": 51
+      },
+      {
+       "words": "year",
+       "at": 56
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something constructed by masons a little every year, like a great water feature.",
+     "walkthrough": "Fountains Abbey is a famous ruined Cistercian monastery in Yorkshire, so 'Fountains' is a name, not water features.",
+     "definitionFit": "Fountains Abbey is a celebrated ruined monastery in North Yorkshire, an example of the religious house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fountains"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +575,47 @@
     "text": "Guidance for small dog without lead",
     "enumeration": "4"
    },
-   "solution": "HELP"
+   "solution": "HELP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Guidance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without lead",
+       "at": 23,
+       "note": "the leading letter is dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small dog",
+       "at": 13,
+       "gives": "WHELP",
+       "note": "a whelp is a puppy"
+      },
+      {
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice for a puppy that is off its leash.",
+     "walkthrough": "'lead' looks like a dog's leash; it means the first letter.",
+     "definitionFit": "Help means assistance or advice given to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +629,40 @@
     "text": "Deal with most important territory",
     "enumeration": "6"
    },
-   "solution": "DOMAIN"
+   "solution": "DOMAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "territory",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Deal with",
+       "at": 0,
+       "gives": "DO",
+       "note": "to do a task is to deal with it"
+      },
+      {
+       "words": "most important",
+       "at": 10,
+       "gives": "MAIN",
+       "note": "main means chief or principal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to handle the key region first.",
+     "definitionFit": "A domain is a realm or area under someone's control or influence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +676,49 @@
     "text": "Lawrence is entertained by kind of party food",
     "enumeration": "8"
    },
-   "solution": "CATERING"
+   "solution": "CATERING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "party food",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is entertained by",
+       "at": 9,
+       "note": "being entertained, the name's initials are taken inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "kind",
+       "at": 27,
+       "gives": "CARING",
+       "note": "caring means kind"
+      },
+      {
+       "words": "Lawrence",
+       "at": 0,
+       "gives": "TE",
+       "note": "T. E. Lawrence, 'Lawrence of Arabia'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Lawrence is hosted by a generous sort of party.",
+     "walkthrough": "'kind of party' reads as one phrase; 'kind' is the adjective CARING.",
+     "definitionFit": "Catering is the food and drink supplied for an event such as a reception."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 13,
@@ -211,7 +732,54 @@
     "text": "Piece churchman and partner rejected",
     "enumeration": "8"
    },
-   "solution": "REVOLVER"
+   "solution": "REVOLVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Piece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rejected",
+       "at": 28,
+       "note": "rejected things are sent back, so the letters run in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "churchman",
+         "at": 6,
+         "gives": "REV",
+         "note": "Rev, short for Reverend, a cleric"
+        },
+        {
+         "words": "partner",
+         "at": 20,
+         "gives": "LOVER",
+         "note": "a lover is a romantic partner"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman and his lover are spurned in a scandal.",
+     "walkthrough": "'Piece' is slang for a gun.",
+     "definitionFit": "Piece is slang for a firearm, and a handgun with a rotating cylinder is a classic example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Piece"
+    }
+   }
   },
   {
    "number": 14,
@@ -225,7 +793,57 @@
     "text": "Drug cheat heading for temperate country",
     "enumeration": "5"
    },
-   "solution": "EGYPT"
+   "solution": "EGYPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "country",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drug",
+       "at": 0,
+       "gives": "E",
+       "note": "E is ecstasy"
+      },
+      {
+       "words": "cheat",
+       "at": 5,
+       "gives": "GYP",
+       "note": "to gyp is to swindle"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "at": 11,
+         "note": "the head of the word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "temperate",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doper flees to a mild climate.",
+     "definitionFit": "The North African nation of the Nile and the pyramids."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "temperate"
+    }
+   }
   },
   {
    "number": 15,
@@ -239,7 +857,32 @@
     "text": "Masseur, one that'll obliterate your boobs",
     "enumeration": "6"
    },
-   "solution": "RUBBER"
+   "solution": "RUBBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Masseur",
+      "at": 0,
+      "meaning": "someone who massages is one who rubs"
+     },
+     {
+      "text": "one that'll obliterate your boobs",
+      "at": 9,
+      "meaning": "an eraser wipes out your mistakes, boobs being blunders"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheeky line about a masseur, with 'boobs' meant to raise a smirk.",
+     "walkthrough": "'boobs' means blunders; British English calls an eraser this.",
+     "definitionFit": "One sense is a person who massages; the other is the British name for an eraser, which removes errors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boobs"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +902,62 @@
      }
     ]
    },
-   "solution": "EMAIL"
+   "solution": "EMAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Message",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turnover",
+       "at": 30,
+       "note": "turning over a down entry flips it end to end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hidden in",
+         "at": 14,
+         "note": "the letter is tucked inside the fruit word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 24,
+         "gives": "LIME",
+         "note": "a lime is a citrus fruit"
+        },
+        {
+         "words": "one",
+         "at": 8,
+         "gives": "A",
+         "note": "A means one, as in 'a pound'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note has been concealed inside a fruit pastry.",
+     "walkthrough": "'fruit turnover' looks like a pastry; 'turnover' turns LIAME upside down.",
+     "definitionFit": "Electronic mail is a message sent over the internet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "turnover"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +971,76 @@
     "text": "The secret of Skinny's biography — nothing's replaced by gibberish, essentially",
     "enumeration": "7"
    },
-   "solution": "MYSTERY"
+   "solution": "MYSTERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The secret",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Skinny's",
+       "at": 14,
+       "gives": "MY",
+       "note": "Skinny is the setter, so the setter's own is 'my'"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replaced by",
+         "at": 45,
+         "note": "one letter is swapped out and another put in its place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "biography",
+         "at": 23,
+         "gives": "STORY",
+         "note": "a biography is a life story"
+        },
+        {
+         "words": "nothing",
+         "at": 35,
+         "gives": "O",
+         "note": "O looks like zero, nothing"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "at": 68,
+           "note": "the essence is the central letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gibberish",
+           "at": 57
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter hints their life story hides a secret, garbled into nonsense.",
+     "walkthrough": "The setter's name refers to themself; 'essentially' picks E, the middle of 'gibberish'.",
+     "definitionFit": "A mystery is something unexplained or kept hidden, an enigma or secret."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Skinny's"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1060,69 @@
      }
     ]
    },
-   "solution": "REDFACED"
+   "solution": "REDFACED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "blushing",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 33,
+       "note": "around means one set of letters goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ran",
+       "at": 29,
+       "gives": "RACED",
+       "note": "raced means ran fast"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Sheeran",
+         "at": 0,
+         "gives": "ED",
+         "note": "Ed Sheeran, the singer"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 19,
+           "note": "only the opening letter of the word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "flustered",
+           "at": 9
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The singer Ed Sheeran, embarrassed, dashed around with a scarlet face.",
+     "definitionFit": "Someone embarrassed goes crimson in the cheeks, as when blushing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sheeran"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1136,42 @@
     "text": "Part of Vietnam a G.I. called enchanting",
     "enumeration": "7"
    },
-   "solution": "MAGICAL"
+   "solution": "MAGICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "enchanting",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "at": 0,
+       "note": "Part of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Vietnam a G.I. called",
+       "at": 8,
+       "gives": "MAGICAL",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A war memory of an American soldier describing Vietnam as beautiful.",
+     "definitionFit": "Something enchanting has a spellbinding charm, as if wrought by a wizard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "called"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1185,69 @@
     "text": "Bungling former cop ultimately still around",
     "enumeration": "8"
    },
-   "solution": "INEXPERT"
+   "solution": "INEXPERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bungling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 37,
+       "note": "the word for still surrounds the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "still",
+       "at": 31,
+       "gives": "INERT",
+       "note": "inert means motionless"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "former",
+         "at": 9,
+         "gives": "EX",
+         "note": "ex means former"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 20,
+           "note": "the ultimate letter is the last one"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cop",
+           "at": 16
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inept retired policeman who still hangs about.",
+     "definitionFit": "Inexpert means lacking skill, clumsy and incompetent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1261,43 @@
     "text": "Quiet voice — security feature of Windows?",
     "enumeration": "7"
    },
-   "solution": "SHUTTER"
+   "solution": "SHUTTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "security feature of Windows?",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quiet",
+       "at": 0,
+       "gives": "SH",
+       "note": "sh is a call for silence"
+      },
+      {
+       "words": "voice",
+       "at": 6,
+       "gives": "UTTER",
+       "note": "to voice an opinion is to utter it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soft word about the security of a computer operating system.",
+     "walkthrough": "'Windows' looks like the software; it means house windows, which shutters protect.",
+     "definitionFit": "Hinged panels over a house's openings keep out light and intruders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Windows"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1311,29 @@
     "text": "Run aground on a beach",
     "enumeration": "6"
    },
-   "solution": "STRAND"
+   "solution": "STRAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Run aground",
+      "at": 0,
+      "meaning": "to ... a ship is to drive it onto the shore"
+     },
+     {
+      "text": "beach",
+      "at": 17,
+      "meaning": "a shoreline, poetically"
+     }
+    ],
+    "explanation": {
+     "surface": "A shipwreck in two parts: running aground on the sand.",
+     "definitionFit": "A ship can be stranded by running aground, and a literary word for the shore is a strand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -363,7 +1347,53 @@
     "text": "One pulls up to mythical realm",
     "enumeration": "6"
    },
-   "solution": "ASGARD"
+   "solution": "ASGARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mythical realm",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "A",
+       "note": "A means one"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 10,
+         "note": "in a down entry 'up' reads the letters from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pulls",
+         "at": 4,
+         "gives": "DRAGS",
+         "note": "drags means pulls"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller hauls themself up to a legendary kingdom.",
+     "definitionFit": "In Norse mythology this is the home of the gods, a legendary kingdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pulls"
+    }
+   }
   },
   {
    "number": 24,
@@ -377,7 +1407,40 @@
     "text": "It bites animals, fleshy or otherwise",
     "enumeration": "8"
    },
-   "solution": "HORSEFLY"
+   "solution": "HORSEFLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It bites animals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "otherwise",
+       "at": 28,
+       "note": "otherwise means in another way, so the letters are arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fleshy or",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that the creature nips beasts, plump or not.",
+     "definitionFit": "This large insect sucks the blood of livestock, giving painful nips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fleshy"
+    }
+   }
   },
   {
    "number": 25,
@@ -391,7 +1454,31 @@
     "text": "Once again model's calm",
     "enumeration": "6"
    },
-   "solution": "REPOSE"
+   "solution": "REPOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Once again model",
+      "at": 0,
+      "meaning": "to pose a second time"
+     },
+     {
+      "text": "calm",
+      "at": 19,
+      "meaning": "a state of rest and tranquillity"
+     }
+    ],
+    "explanation": {
+     "surface": "An artist's model holds still for a second session.",
+     "definitionFit": "Split as re-pose it means to sit for a portrait again; as one word it means rest or tranquillity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 26,
@@ -405,7 +1492,59 @@
     "text": "Militaryman posted guarding explosive gear",
     "enumeration": "8"
    },
-   "solution": "SERGEANT"
+   "solution": "SERGEANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Militaryman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "guarding",
+       "at": 19,
+       "note": "the word for posted surrounds and protects the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "posted",
+       "at": 12,
+       "gives": "SENT",
+       "note": "sent means mailed"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "explosive",
+         "at": 28,
+         "note": "blown apart, so the letters are scattered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gear",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is stationed protecting munitions.",
+     "walkthrough": "'posted' suggests stationed; it means sent by mail. 'explosive' scrambles GEAR to RGEA.",
+     "definitionFit": "A non-commissioned officer rank in the army."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "posted"
+    }
+   }
   },
   {
    "number": 27,
@@ -419,7 +1558,42 @@
     "text": "A few brought up broody teens",
     "enumeration": "4"
    },
-   "solution": "EMOS"
+   "solution": "EMOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "broody teens",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "brought up",
+       "at": 6,
+       "note": "in a down entry this reads the letters bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A few",
+       "at": 0,
+       "gives": "SOME",
+       "note": "some means a few"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some sulky teenagers have been raised.",
+     "definitionFit": "Emo is a youth subculture known for moody music and dark clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brought"
+    }
+   }
   },
   {
    "number": 28,
@@ -433,7 +1607,29 @@
     "text": "Sprinkle with chilli?",
     "enumeration": "6"
    },
-   "solution": "PEPPER"
+   "solution": "PEPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sprinkle",
+      "at": 0,
+      "meaning": "to scatter over, as to ... a speech with jokes"
+     },
+     {
+      "text": "chilli",
+      "at": 14,
+      "meaning": "a hot capsicum"
+     }
+    ],
+    "explanation": {
+     "surface": "A cooking instruction to season with hot spice.",
+     "definitionFit": "One sense is to scatter liberally; the other is the hot capsicum fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -447,7 +1643,39 @@
     "text": "Style at the heart of native language",
     "enumeration": "4"
    },
-   "solution": "ELAN"
+   "solution": "ELAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Style",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "at the heart of",
+       "at": 6,
+       "note": "the letters are found inside the middle of the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "native language",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Flair sits at the core of a mother tongue.",
+     "definitionFit": "Elan is flair or panache."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -461,7 +1689,40 @@
     "text": "Expedition into urban houses",
     "enumeration": "4"
    },
-   "solution": "TOUR"
+   "solution": "TOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expedition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "houses",
+       "at": 22,
+       "note": "houses means contains, so the letters sit within the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "into urban",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trip into a city's residential districts.",
+     "definitionFit": "A tour is a journey or trip visiting places."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 31,
@@ -475,7 +1736,43 @@
     "text": "Ex-Viennese? What are the odds of that?",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What are the odds of that?",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "odds of",
+       "at": 26,
+       "note": "the odd-numbered letters are taken from the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ex-Viennese",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone who used to live in Vienna? What a coincidence!",
+     "walkthrough": "Take letters 1, 3, 5, 7 and 9 of 'Ex-Viennese'.",
+     "definitionFit": "Even money is odds of one to one in betting, called evens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 32,
@@ -489,7 +1786,48 @@
     "text": "Way one's embraced by staff",
     "enumeration": "4"
    },
-   "solution": "ROAD"
+   "solution": "ROAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraced by",
+       "at": 10,
+       "note": "held inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "staff",
+       "at": 22,
+       "gives": "ROD",
+       "note": "a rod is a staff"
+      },
+      {
+       "words": "one",
+       "at": 4,
+       "gives": "A",
+       "note": "A means one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A path is hugged by a walking stick.",
+     "definitionFit": "A road is a route or way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   }
  ]
 }
