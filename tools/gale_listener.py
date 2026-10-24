@@ -62,15 +62,23 @@ import gale_inbox as gi
 import listener_puzzles as lp
 import media_manifest as mm
 import clue_text
+import downloads
 import ocr_clues
 
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 
 HOME = Path(os.path.expanduser("~/.cache/gale_listener"))
-#: The saved Listener pages: tools/gale_fetch.py's (lay_out_fetched), and
-#: those the fetcher downloaded before it.
-SAVED = HOME / "files"
+#: The saved Listener pages, on the media disk (the Mac's, over its share on the
+#: desktop): those Paul downloaded by hand before the fetcher, loose in the
+#: folder; those tools/gale_fetch.py keeps as GALE_<doc>.pdf in its FETCHED
+#: subfolder (gale_fetch.fetched_dir), and the copy lay_out_fetched names
+#: for its date beside them. page_files lists both; one unit per Gale
+#: document (plan): each download of a document is stamped anew, so its
+#: copies hash apart. (Until 10-23 this was ~/.cache/gale_listener/files on
+#: the Mac, which the desktop's queue could not see: it planned no page.)
+SAVED = downloads.GALE_CROSSWORDS / "Listener"
+FETCHED = "Fetched"
 OCR_CACHE = HOME / "ocr"
 #: The readings and the ledger: derived from Paul's pages, kept beside the
 #: series' other source data.
@@ -1348,8 +1356,27 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
 
 
 def page_files(inbox):
-    return sorted(p for p in Path(inbox).iterdir() if p.is_file() and p.suffix.lower() in gi.PAGES) \
-        if Path(inbox).exists() else []
+    """The saved pages in `inbox` and its FETCHED subfolder, by name (a name
+    is never in both: the fetcher's are GALE_<doc>, Paul's <doc>)."""
+    out = []
+    for d in (Path(inbox), Path(inbox) / FETCHED):
+        if d.is_dir():
+            out += [p for p in d.iterdir() if not p.name.startswith(".") and p.suffix.lower() in gi.PAGES
+                    and p.is_file()]
+    return sorted(out, key=lambda p: (p.name, p.parent != Path(inbox)))
+
+
+def page_path(inbox, name):
+    """Where the saved page `name` (a ledger row's "file", a unit's "rel")
+    is: in `inbox`, else its FETCHED subfolder."""
+    p = Path(inbox) / name
+    return p if p.exists() or not (Path(inbox) / FETCHED / name).exists() else Path(inbox) / FETCHED / name
+
+
+def doc_of(name):
+    """The Gale document a saved page's name carries (GM2500000225), or None."""
+    doc = gi.DOC_ID.search(name) or re.search(r"(GM\d{8,12})(?!\d)", name)
+    return doc.group(1).upper() if doc else None
 
 
 _HASHES = {}
@@ -1418,8 +1445,29 @@ def plan(inbox=SAVED, store=STORE):
     rank 0, never read like the Gale Times pages ("never read (Gale fetch)"); one read at an older
     VERSION is a whole-corpus re-read, rank 3 (file_archive_org_puzzles.BLANKET)."""
     ledger = load_ledger(store)
-    todo = {p: ledger.get(hash_of(p)) for p in page_files(inbox)}
-    todo = {p: row for p, row in todo.items() if (row or {}).get("version") != VERSION}
+    # A page is known by its Gale document where its name gives one, so a
+    # second download of a document read already (the fetcher's copy of one
+    # Paul saved by hand: the same page stamped apart) is no unit, and no
+    # page need be hashed to plan (3,000 PDFs over the share). The copy
+    # named for its date is read first (match() trusts its name's date).
+    docs = {}
+    for row in ledger.values():
+        d = doc_of(row.get("file") or "")
+        if d:
+            docs[d] = max(docs.get(d, 0), row.get("version") or 0, key=lambda v: (v == VERSION, v))
+    todo, seen = {}, set()
+    for p in sorted(page_files(inbox), key=lambda p: (gi.name_date(p.name, DATES) is None, bool(COPY.search(p.name)),
+                                                      p.parent != Path(inbox), p.name)):
+        d = doc_of(p.name)
+        if d is None:
+            row = ledger.get(hash_of(p))
+        elif d in seen:
+            continue
+        else:
+            seen.add(d)
+            row = {"version": docs[d]} if d in docs else None
+        if (row or {}).get("version") != VERSION:
+            todo[p] = row
     return [{"rel": p.name, "rank": 3 if row else 0, "reason": "version changed" if row else "never read (Gale fetch)",
              "needs": []}
             for p, row in sorted(todo.items(), key=lambda kv: (bool(kv[1]), kv[0].stat().st_mtime))]
@@ -1431,7 +1479,7 @@ def read_unit(name, inbox=SAVED, store=STORE, reader=read_file, out=sys.stdout, 
     (file_gale_listener.run, one at a time).
     Returns "read", "current", "busy" or "failed" (its OCR timed out)."""
     import scan_queue
-    p = Path(inbox) / name
+    p = page_path(inbox, name)
     if not p.exists():
         return "current"
     h = file_hash(p)
@@ -1442,12 +1490,16 @@ def read_unit(name, inbox=SAVED, store=STORE, reader=read_file, out=sys.stdout, 
         if load_ledger(store).get(h, {}).get("version") == VERSION:
             return "current"
         idx = index()
-        if read_one(p, h, idx, {r["number"]: r for r in idx}, store, out, reader) is None:
+        entry = read_one(p, h, idx, {r["number"]: r for r in idx}, store, out, reader)
+        if entry is None:
             return "failed"
-    if file_it:
+    # Only the puzzles this page can move are joined again: its own and those
+    # it reports on (file_gale_listener.run's numbers), not every reading.
+    numbers = {n for n in [entry.get("number"), *(entry.get("reports") or ())] if isinstance(n, int)}
+    if file_it and numbers:
         import file_gale_listener  # it imports this module
         with scan_queue.lock(store / "filing", wait_for_it=True):
-            file_gale_listener.run(store, inbox, out=out)
+            file_gale_listener.run(store, inbox, out=out, numbers=numbers)
     return "read"
 
 

@@ -702,7 +702,7 @@ def letters_reader(inbox=gl.SAVED, cache=GRIDS):
         if not dest.exists() and old.exists():
             old.replace(dest)
         if not dest.exists():
-            img, _ = gi.images(inbox / report["page"])[report["grid"]["page"]]
+            img, _ = gi.images(gl.page_path(inbox, report["page"]))[report["grid"]["page"]]
             gray = np.asarray(img.convert("L"), dtype=np.uint8)
             got = ts.read_grid_letters(gray, *report["grid"]["lattice"], lts)
             cache.mkdir(parents=True, exist_ok=True)
@@ -721,7 +721,9 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
     `reports_to`. Returns {number: verdict}, also merged into store/LEDGER."""
     read_letters = read_letters or letters_reader(Path(inbox))
     ledger = gl.load_ledger(store)
-    files = [(sha, e) for sha, e in ledger.items() if (Path(inbox) / e["file"]).exists()]
+    # The saved pages, listed once (the folder and its Fetched subfolder; on the desktop over the share).
+    where = {p.name: p for p in gl.page_files(inbox)}
+    files = [(sha, e) for sha, e in ledger.items() if e["file"] in where]
     readings = {}
     for p in sorted(store.glob("listener-*.json")):
         r = json.loads(p.read_text())
@@ -733,7 +735,7 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
     def page(f):
         sha, e = f
         try:
-            return grids_of(Path(inbox) / e["file"], sha)
+            return grids_of(where[e["file"]], sha)
         except subprocess.TimeoutExpired as err:
             # A loaded host's OCR: the page is read again next run.
             print(f"{e['file']}: OCR timed out after {err.timeout:.0f} s; its grids are read next run", file=out)

@@ -911,6 +911,27 @@ with tempfile.TemporaryDirectory() as tmp:
     check("a page read at an older VERSION is read again", True, "a.pdf" in planned)
     check("a page read at this VERSION is not (mirror)", False, "b.pdf" in planned)
 
+# The media disk's Listener folder: Paul's pages loose, the fetcher's in Fetched/.
+# One unit per Gale document: a second download of one read already (stamped
+# apart, so hashed apart) is none, and of two unread copies the dated one is read.
+with tempfile.TemporaryDirectory() as tmp:
+    inbox, store = Path(tmp) / "Listener", Path(tmp) / "store"
+    (inbox / g.FETCHED).mkdir(parents=True); store.mkdir()
+    (inbox / "GM2500000001.pdf").write_bytes(b"paul's")
+    (inbox / g.FETCHED / "GALE_GM2500000001.pdf").write_bytes(b"fetched again")
+    (inbox / g.FETCHED / "GALE_GM2500000002.pdf").write_bytes(b"fetched")
+    (inbox / "1930-04-09 GALE_GM2500000002.pdf").write_bytes(b"fetched")
+    (inbox / g.FETCHED / "GALE_GM2500000003.pdf").write_bytes(b"new")
+    (inbox / g.FETCHED / ".GALE_GM2500000004.pdf.part").write_bytes(b"half")
+    (store / g.LEDGER).write_text(json.dumps({"sha": g.file_hash(inbox / "GM2500000001.pdf"), "version": g.VERSION,
+                                              "file": "GM2500000001.pdf"}) + "\n")
+    check("both folders listed, a part-written page not", 5, len(g.page_files(inbox)))
+    check("one unit a document; read ones none; the dated copy first",
+          ["1930-04-09 GALE_GM2500000002.pdf", "GALE_GM2500000003.pdf"], sorted(u["rel"] for u in g.plan(inbox, store)))
+    check("a unit's page is found in Fetched/", inbox / g.FETCHED / "GALE_GM2500000003.pdf",
+          g.page_path(inbox, "GALE_GM2500000003.pdf"))
+    check("and a loose one where it is (mirror)", inbox / "GM2500000001.pdf", g.page_path(inbox, "GM2500000001.pdf"))
+
 # Report lookups: a saved puzzle's and an upcoming one's; not one whose
 # report a saved page holds.
 with tempfile.TemporaryDirectory() as tmp:
