@@ -88,7 +88,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 23
+VERSION = 24
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -457,8 +457,11 @@ def page_columns(words):
 #: A light set reversed inside another is numbered by the first: "(43 rev.
 #: in 42) Alleged destroyers" (No 245, 1934). Its stars may come first,
 #: inside the bracket: "(**10) Victim", "(*8) Mounted" (No 245).
-PARA_MARK = re.compile(r"(?<![\w(])(?:\([*†‡]*)?(\d{1,2})([A-Z]?)(?:(?:,\s?|-)\d{1,2}[A-Z]?)*"
-                       r"(?:\s?(?:anag|rev)\.?(?:\s?in\s\d{1,2})?\s?)?\)([*†‡!¥]*)(?![a-z\d_)])")
+#: So too one set inside another unreversed, "(12 in 3) Really a kind"
+#: (No 242); a plural's, "(8-s) Proverbs", "(3-s)"; and an anagram's
+#: opening on it, "(Anag. 28B) With 39A" (No 273, 1935).
+PARA_MARK = re.compile(r"(?<![\w(])(?:\([*†‡]*(?:Anag\.\s?)?)?(\d{1,2})([A-Z]?)(?:(?:,\s?|-)\d{1,2}[A-Z]?)*(?:-s)?"
+                       r"(?:\s?(?:anag|rev)\.?\s?)?(?:\s?in\s\d{1,2}\s?)?\)([*†‡!¥]*)(?![a-z\d_)])")
 #: A clue's number in its bracket with a figure read as a letter: "(Is)"
 #: for (15), "(3o)", "(z1)", "(i7)", "(1g rev.)", "(Io rev.)", "(s rev.)"
 #: (No 261, 1935: 9 of its 29 numbers so read by one reader or another).
@@ -471,6 +474,9 @@ MARK_LIKE = re.compile(r"(?<![\w(])\([*†‡]*([\dIlioOzZsSg]{1,2})(?=[A-Z]?\)|
 #: a space: "(1 Protects the arm", "(33 Dukedom of London" (No 245, 1934);
 #: not a light a clue cites by its direction, "(43 Ac.)", "(32 Down)".
 UNCLOSED = re.compile(r"(?<![\w(])\((\d{1,2})\s(?!(?:Down|Across|Ac|Dn|Up)\b)(?=[\"'‘“]?[A-Z][a-z])")
+#: A later light of a bracket so read: "(2-4oA)" for (2-40A), "(9-IoD)" for
+#: (9-10D) (No 273, 1935), which left the clue run on into the one before.
+LATER_LIKE = re.compile(r"(?<=\(\d-|\d\d-)(\d[IlioOzZsSg]|[IlioOzZsSg]\d|[Il][IlioOzZsSg])(?=[A-Z]?[)\-,])")
 LIKE_FIGURES = str.maketrans("IlioOzZsSg", "1110022559")
 WIDE_BRACKETS = str.maketrans("（）", "()")
 #: A light a clue refers to, "See (31) Down.": no clue's number.
@@ -491,7 +497,8 @@ def figures_read(text):
                                  or m.group(3) and tok in ("I", "l")):
             return m.group(0)
         return m.group(0)[:m.start(1) - m.start()] + tok.translate(LIKE_FIGURES)
-    return UNCLOSED.sub(r"(\1)", MARK_LIKE.sub(fix, text))
+    text = LATER_LIKE.sub(lambda m: m.group(1).translate(LIKE_FIGURES), MARK_LIKE.sub(fix, text))
+    return UNCLOSED.sub(r"(\1)", text)
 
 
 #: PARA_MARK opening a clue's words in capitals: what tells a page of
@@ -683,7 +690,7 @@ def paragraph_columns(words, marks=PARA_MARKS):
                 side = "DOWN"  # its heading unread: the down list starts again at 1
             last = n
             row = next(r for off, r in reversed(boxes) if off <= m.start())
-            clue = [n, m.end(), row, para_linked(m) if n == int(m.group(1)) else None]
+            clue = [n, m.end(), row, para_linked(m, side) if n == int(m.group(1)) else None]
         if clue:
             lists[side].append(para_line(clue, text[clue[1]:]))
     if min(len(lists["ACROSS"]), len(lists["DOWN"])) < COLUMN_MIN:
@@ -816,18 +823,29 @@ def para_line(clue, words):
 #: The second light of a clue PARA_MARK brackets with its first: "(10, 39)",
 #: "(38-45)" (the answer running on); one bracketed apart, "(4) & (28)",
 #: paragraph_columns links itself.
-PARA_LINK = re.compile(r"^\(?[*†‡]*\d{1,2}(?:,\s?|-)(\d{1,2})(?![\dA-Z])")
+PARA_LINK = re.compile(r"^\(?[*†‡]*\d{1,2}([A-Z]?)(?:,\s?|-)(\d{1,2})([A-Z]?)(?!\d)")
 #: A light's mark naming its direction or kind ("(37A, 26D)", "(7U and
 #: 38U)", No 273): its lights' directions are the print's, not the list's.
 LETTERED = re.compile(r"\d[A-Z]")
+#: The letters naming a list's own direction: across, or back (reversed);
+#: down, or up.
+OWN_LETTERS = {"ACROSS": "AB", "DOWN": "DU"}
 
 
-def para_linked(m):
+def para_linked(m, side=None):
     """The second light (an int) of the clue PARA_MARK `m` brackets, or None:
     "(10, 39) The name must fit" clues 39 too (No 254, 1935), filled "See
-    10" by al.vote. A third light is left as read; none for a LETTERED one."""
+    10" by al.vote. A third light is left as read. In a LETTERED bracket,
+    only lights in the list's own direction (`side`, OWN_LETTERS) link:
+    "(29-35U)" and "(25-31, 27A-39)" in the down list clue 35 and 31 down
+    too; "(2-40A)" there names an across light, left as read (No 273)."""
     got = PARA_LINK.match(m.group(0))
-    return int(got.group(1)) if got and not LETTERED.search(m.group(0)) else None
+    if not got:
+        return None
+    if not LETTERED.search(m.group(0)):
+        return int(got.group(2))
+    own = OWN_LETTERS.get(side, "")
+    return int(got.group(2)) if own and all(not c or c in own for c in (got.group(1), got.group(3))) else None
 
 
 #: The word a list's heading may open on, "CLUES—ACROSS" (No 197's),
@@ -1385,7 +1403,7 @@ def read_page(img, key, lengths=None):
     if blanks := page_blanks(img, located):
         verdict["blanks"] = len(blanks)
         words = {k: ocr_clues.with_blanks(w, blanks) for k, w in words.items()}
-    verdict, laid = al.vote(words, verdict, cols=page_columns, lengths=lengths)
+    verdict, laid = al.vote(words, verdict, cols=page_columns, lengths=lengths, figures=True)
     if laid and not all(t for t, _, _ in laid.values()):
         laid = greek_mended(img, key, words, verdict, laid)
     return verdict, laid
@@ -2114,7 +2132,14 @@ UNPARSED = "no reading parses"
 #: One of fierce' who strive"); a quote never opened takes a reading's
 #: alike but for its quotes; "of 1 A" ending a clue is no next clue run on
 #: (No 601 2D). No 254: 41 -> 42 of 42; No 601: 42 -> 43 of 43.
-CLUES_FIX = 23
+#: 24: a number a clue cites between its words, which the vote takes for a
+#: clue's bound, is put back ("With 15 Down", not "With Is Down"; al.cited)
+#: and a zero in a word read "o" ("to0"); "(12 in 3)", "(8-s)", "(Anag.
+#: 28B)" and a later light read with a letter for a figure ("(2-4oA)") number
+#: their clues; a lettered link in the list's own direction ("(29-35U)")
+#: links (No 242: 48 -> 49 of 49, its lights now its clue list's; No 273:
+#: 39 -> 44 of 46, 31 and 35 down linked).
+CLUES_FIX = 24
 SHORT = "refused clues-short before its fix"
 
 

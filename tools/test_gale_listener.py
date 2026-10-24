@@ -1063,6 +1063,28 @@ no242 = [(300, 765, "Royal Soldiers Home advert"), (1744, 300, "CLUESACROSS"),
 cols = g.paragraph_columns(para_words(no242))
 check("No 242's lists: run on above the heading in the next column, a report below it",
       [[2, 10, 13, 19, 21, 24, 45], [1, 3, 4, 11]], cols and [[int(l[4].split(".")[0].split(",")[0]) for l in c] for c in cols])
+cols = g.paragraph_columns(para_words(no242[:-3] + [(1154, 765, "37 Across. (12 in 3) Really a kind"),
+                                                    (1176, 765, "of sand-stars. (14) If you are in.")] + no242[-2:]))
+check("No 242's (12 in 3) numbers its clue, set inside 3 unreversed",
+      ["11. See 37 Across.", "12. Really a kind of sand-stars."], cols and [l[4] for l in cols[1][3:5]])
+# No 273's (1935): a plural's bracket, an anagram's, lettered links, and a
+# later light's figure read as a letter.
+no273 = [(1744, 300, "CLUESACROSS"),
+         (1772, 88, "(1) Whitsun 13. (8-s) Proverbs at these. (9-IoD)"), (1794, 88, "'Heaven will make a feast'."),
+         (1816, 88, "(24, 27) See 36, 25D. (Anag. 28B) With 39A, Ceremony."), (1838, 88, "(30) With second letter."),
+         (1882, 300, "DOWN"),
+         (1904, 88, "(1) Whitsun symbol. (2-4oA) Some affirm. (3-s)"), (1926, 88, "Whit Sunday. (25-31, 27A-39)"),
+         (1948, 88, "Frolicked it. (29-35U) See 19. (33U) Its anagram.")]
+cols = g.paragraph_columns(para_words(no273))
+check("No 273's lists: (8-s), (9-IoD), (Anag. 28B), (2-4oA) and (3-s) number their clues",
+      [["1. Whitsun 13.", "8. Proverbs at these.", "9. 'Heaven will make a feast'.", "24, 27. See 36, 25D.",
+        "28. With 39A, Ceremony.", "30. With second letter."],
+       ["1. Whitsun symbol.", "2. Some affirm.", "3. Whit Sunday.", "25, 31. Frolicked it.", "29, 35. See 19.",
+        "33. Its anagram."]], cols and [[l[4] for l in c] for c in cols])
+check("a lettered link joins a light of its list's own way, not the other's (mirror)", [31, 35, None, None, 39],
+      [g.para_linked(g.PARA_MARK.search(t), s) for t, s in (("(25-31, 27A-39)", "DOWN"), ("(29-35U)", "DOWN"),
+                                                             ("(2-40A)", "DOWN"), ("(9-10D)", "ACROSS"),
+                                                             ("(38, 39)", "DOWN"))])
 # No 133's (1932): "CLUES—ACROSS" read as specks, only DOWN read: the
 # across list is read from its "1." line up the column, not dropped.
 no133 = (line("Name and address", 100, 300) + line("¢t 3", 300, 400) + line("1. Claustra olim", 100, 430)
