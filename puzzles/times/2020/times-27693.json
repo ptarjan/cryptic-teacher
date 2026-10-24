@@ -21,6 +21,9 @@
   "date": "2020-06-17",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,32 @@
     "text": "Flush gets stuck",
     "enumeration": "5"
    },
-   "solution": "GORED"
+   "solution": "GORED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flush",
+      "at": 0,
+      "meaning": "to flush is to ... in the face, which split differently reads ..."
+     },
+     {
+      "text": "stuck",
+      "at": 11,
+      "meaning": "stuck as in pierced by horns, the past tense of gore"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone blushes because they have become wedged somewhere embarrassing.",
+     "walkthrough": "Read the answer as two words, GO RED, to get the first sense.",
+     "definitionFit": "A bull's horns pierce a matador; going red in the face is a blush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stuck"
+    }
+   }
   },
   {
    "number": 1,
@@ -48,7 +76,57 @@
     "text": "Jam finally reaching clear section of waterway",
     "enumeration": "8"
    },
-   "solution": "GRIDLOCK"
+   "solution": "GRIDLOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jam",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 4,
+         "note": "takes the last letter of the word reaching"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reaching",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "clear",
+       "at": 21,
+       "gives": "RID",
+       "note": "to rid is to clear"
+      },
+      {
+       "words": "section of waterway",
+       "at": 27,
+       "gives": "LOCK",
+       "note": "a lock is a gated section of a canal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traffic hold-up eventually reaches a clear stretch of canal.",
+     "definitionFit": "A traffic jam where nothing moves in any direction is total congestion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clear"
+    }
+   }
   },
   {
    "number": 2,
@@ -62,7 +140,69 @@
     "text": "Church blocking payment disheartened laity not long ago",
     "enumeration": "8"
    },
-   "solution": "RECENTLY"
+   "solution": "RECENTLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not long ago",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "blocking",
+         "at": 7,
+         "note": "the church sits inside the payment, blocking it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "payment",
+         "at": 16,
+         "gives": "RENT",
+         "note": "rent is a regular payment"
+        },
+        {
+         "words": "Church",
+         "at": 0,
+         "gives": "CE",
+         "note": "CE is the Church of England"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "at": 24,
+         "note": "laity loses its heart, leaving its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "laity",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The church holding back money has lately dispirited the congregation.",
+     "definitionFit": "Something happening lately occurred only a short time back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disheartened"
+    }
+   }
   },
   {
    "number": 3,
@@ -82,7 +222,67 @@
      }
     ]
    },
-   "solution": "DEMOCRATICPARTY"
+   "solution": "DEMOCRATICPARTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Politicians",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "resort",
+       "at": 36,
+       "note": "to re-sort is to sort again, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 44,
+         "note": "says that letter departs from the senator's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "McCarthy",
+         "at": 17
+        },
+        {
+         "words": "hotel",
+         "at": 52,
+         "gives": "H",
+         "note": "Hotel is H in the radio alphabet"
+        }
+       ]
+      },
+      {
+       "words": "period",
+       "at": 26
+      },
+      {
+       "words": "at",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Senators from the McCarthy era vacation at a seaside resort, checking out of their hotel.",
+     "walkthrough": "'leaving hotel' drops H from MCCARTHY; 'resort', read as re-sort, rearranges MCCARTY PERIOD AT. McCarthy was a Republican, adding misdirection.",
+     "definitionFit": "The Democrats are one of the two major US political parties, a body of politicians."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +296,43 @@
     "text": "Clue in lawsuit that barrister brings to trial?",
     "enumeration": "9"
    },
-   "solution": "BRIEFCASE"
+   "solution": "BRIEFCASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that barrister brings to trial?",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Clue in",
+       "at": 0,
+       "gives": "BRIEF",
+       "note": "to brief someone is to clue them in, give them the facts"
+      },
+      {
+       "words": "lawsuit",
+       "at": 8,
+       "gives": "CASE",
+       "note": "a lawsuit is a case in court"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hint about a legal action, which a lawyer then carries into court.",
+     "walkthrough": "The definition is a cryptic description: a barrister carries papers to court in this bag.",
+     "definitionFit": "A barrister's documents are carried in a leather bag of exactly this kind, hence the playful question."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Clue"
+    }
+   }
   },
   {
    "number": 4,
@@ -110,7 +346,44 @@
     "text": "Piped down, so we hear",
     "enumeration": "4"
    },
-   "solution": "BLEW"
+   "solution": "BLEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Piped",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BLEW",
+     "indicators": [
+      {
+       "text": "so we hear",
+       "at": 12,
+       "note": "says the word is said aloud, giving a word that sounds the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "down",
+       "at": 6,
+       "gives": "BLUE",
+       "note": "feeling down is feeling blue"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to pipe down, apparently, as we hear it.",
+     "definitionFit": "To pipe is to play a wind instrument, which one does by blowing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Piped"
+    }
+   }
   },
   {
    "number": 5,
@@ -124,7 +397,44 @@
     "text": "What could make mariner try to join up with relative?",
     "enumeration": "10"
    },
-   "solution": "INTERMARRY"
+   "solution": "INTERMARRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "join up with relative",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "What could make",
+       "at": 0,
+       "note": "the letters given could be rearranged to make the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mariner",
+       "at": 16
+      },
+      {
+       "words": "try",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about what might prompt a sailor to wed a family member.",
+     "definitionFit": "To wed within one's own family or group is to become linked by marriage to kin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "relative"
+    }
+   }
   },
   {
    "number": 6,
@@ -144,7 +454,49 @@
      }
     ]
    },
-   "solution": "FIFTHCOLUMNISTS"
+   "solution": "FIFTHCOLUMNISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "potential 14s",
+      "at": 32,
+      "note": "14 across is COLLABORATOR; these are would-be traitors"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Animated",
+       "at": 0,
+       "note": "something animated is set in motion, so the letters move around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scottish",
+       "at": 9
+      },
+      {
+       "words": "film",
+       "at": 18
+      },
+      {
+       "words": "fun",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cartoon movie from Scotland, entertainment for a group of fans.",
+     "definitionFit": "Traitors working inside a country for an enemy are would-be collaborators with an invader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Animated"
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +510,40 @@
     "text": "A restrained flourish",
     "enumeration": "6"
    },
-   "solution": "ABOUND"
+   "solution": "ABOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flourish",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "restrained",
+       "at": 2,
+       "gives": "BOUND",
+       "note": "bound means tied up, restrained"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modest, held-back decorative gesture.",
+     "definitionFit": "To flourish is to thrive and be plentiful, i.e. to exist in abundance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flourish"
+    }
+   }
   },
   {
    "number": 8,
@@ -172,7 +557,35 @@
     "text": "Antelope from the Orient?",
     "enumeration": "6"
    },
-   "solution": "ELANDS"
+   "solution": "ELANDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Antelope from the Orient?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Antelope from the Orient?",
+       "at": 0,
+       "note": "a whole-clue reading: these African antelopes, but also a phrase for countries of the East, with E standing for East"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "These antelopes are African, but split the word and E is East, so 'E lands' are lands of the Orient.",
+     "definitionFit": "Large African antelopes with spiral horns go by this name; the plural fits the question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Orient"
+    }
+   }
   },
   {
    "number": 9,
@@ -186,7 +599,30 @@
     "text": "Priest maybe is necessary",
     "enumeration": "9"
    },
-   "solution": "INCUMBENT"
+   "solution": "INCUMBENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Priest maybe",
+      "at": 0,
+      "meaning": "the holder of a church benefice, such as a vicar"
+     },
+     {
+      "text": "necessary",
+      "at": 16,
+      "meaning": "the adjective ... means obligatory, as in 'it is ... on you'"
+     }
+    ],
+    "explanation": {
+     "surface": "A clergyman is said to be indispensable.",
+     "definitionFit": "A rector holding a parish living is its office-holder; a duty that falls on you is obligatory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Priest"
+    }
+   }
   },
   {
    "number": 10,
@@ -200,7 +636,48 @@
     "text": "Local plants I'd taken from coastal state",
     "enumeration": "5"
    },
-   "solution": "FLORA"
+   "solution": "FLORA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Local plants",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taken from",
+       "at": 17,
+       "note": "says these letters are removed from the state's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coastal state",
+       "at": 28,
+       "gives": "FLORIDA",
+       "note": "Florida is a US state with a very long coastline"
+      },
+      {
+       "words": "I'd",
+       "at": 13,
+       "gives": "ID",
+       "note": "taken as written, minus its apostrophe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Native vegetation I have collected from a seaside US state.",
+     "definitionFit": "The plant life of a particular region is collectively its botanical population."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 11,
@@ -214,7 +691,48 @@
     "text": "Loss of marbles from net-like bagging one used in Paris",
     "enumeration": "6"
    },
-   "solution": "LUNACY"
+   "solution": "LUNACY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Loss of marbles",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bagging",
+       "at": 30,
+       "note": "to bag something is to capture it, so one word holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "net-like",
+       "at": 21,
+       "gives": "LACY",
+       "note": "lace is an open, net-like fabric, so lacy"
+      },
+      {
+       "words": "one used in Paris",
+       "at": 38,
+       "gives": "UN",
+       "note": "un is French for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Madness that comes from a mesh-like thing holding a French coin.",
+     "definitionFit": "Losing your marbles is an idiom for going mad, i.e. madness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "marbles"
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +746,71 @@
     "text": "Going back for key-holding worker, left alone",
     "enumeration": "8"
    },
-   "solution": "ORPHANED"
+   "solution": "ORPHANED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "left alone",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Going back",
+         "at": 0,
+         "note": "tells us to read the word for 'for' backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for",
+         "at": 11,
+         "gives": "PRO",
+         "note": "pro means in favour of, for"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "at": 19,
+         "note": "says the worker's word contains the key"
+        }
+       ],
+       "parts": [
+        {
+         "words": "worker",
+         "at": 27,
+         "gives": "HAND",
+         "note": "a hand is a farm or factory worker"
+        },
+        {
+         "words": "key",
+         "at": 15,
+         "gives": "E",
+         "note": "E is a musical key"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returning to fetch a locksmith's employee, then left on their own.",
+     "definitionFit": "A child whose parents have died has been bereaved and left without them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +824,59 @@
     "text": "Delivery supervisor behind mother bearing son",
     "enumeration": "10"
    },
-   "solution": "POSTMASTER"
+   "solution": "POSTMASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Delivery supervisor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "behind",
+       "at": 20,
+       "gives": "POST",
+       "note": "post means after or behind, as in post-war"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bearing",
+         "at": 34,
+         "note": "a mother bearing a son carries him inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mother",
+         "at": 27,
+         "gives": "MATER",
+         "note": "mater is Latin for mother"
+        },
+        {
+         "words": "son",
+         "at": 42,
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A manager following behind a mother carrying her boy.",
+     "definitionFit": "The official in charge of a post office oversees mail sent out to homes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Delivery"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +890,70 @@
     "text": "Confederate company set back schedule to steal from everyone",
     "enumeration": "12"
    },
-   "solution": "COLLABORATOR"
+   "solution": "COLLABORATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confederate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "company",
+       "at": 12,
+       "gives": "CO"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set back",
+         "at": 20,
+         "note": "tells us the whole string after company is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "schedule",
+           "at": 29,
+           "gives": "ROTA",
+           "note": "a rota is a schedule of duties"
+          },
+          {
+           "words": "steal from",
+           "at": 41,
+           "gives": "ROB",
+           "note": "to rob is to steal from"
+          },
+          {
+           "words": "everyone",
+           "at": 52,
+           "gives": "ALL",
+           "note": "all means everyone"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm delays its timetable so it can swindle the whole public.",
+     "walkthrough": "'set back' covers everything after 'company', not just 'schedule': the steal-from-everyone phrase is turned round too.",
+     "definitionFit": "A confederate is an accomplice or ally working with another, often in wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Confederate"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +967,71 @@
     "text": "Ancient general from Indian city taking one for a drink",
     "enumeration": "8"
    },
-   "solution": "AGRICOLA"
+   "solution": "AGRICOLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ancient general",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 33,
+         "note": "with 'for' says one letter is taken in place of another"
+        },
+        {
+         "text": "for",
+         "at": 44,
+         "note": "with 'taking' marks the swap of one letter for another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Indian city",
+         "at": 21,
+         "gives": "AGRA",
+         "note": "Agra is the city in India of the Taj Mahal"
+        },
+        {
+         "words": "a",
+         "at": 48,
+         "gives": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "one",
+         "at": 40,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "words": "drink",
+       "at": 50,
+       "gives": "COLA",
+       "note": "cola is a soft drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old military leader from India having one for a soft drink.",
+     "walkthrough": "'taking one for a' replaces the final A of AGRA with I.",
+     "definitionFit": "Agricola was a Roman commander who governed Britain in the first century."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +1045,64 @@
     "text": "Extra study adopted by a theologian, with some hesitance",
     "enumeration": "8"
    },
-   "solution": "ADDENDUM"
+   "solution": "ADDENDUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extra",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 23,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "adopted by",
+         "at": 12,
+         "note": "says the study is taken inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "theologian",
+         "at": 25,
+         "gives": "DD",
+         "note": "DD is Doctor of Divinity"
+        },
+        {
+         "words": "study",
+         "at": 6,
+         "gives": "DEN",
+         "note": "a den is a study or private room"
+        }
+       ]
+      },
+      {
+       "words": "some hesitance",
+       "at": 42,
+       "gives": "UM",
+       "note": "um is a hesitant noise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar of divinity hesitantly takes on additional study.",
+     "definitionFit": "An appendix added to a book is supplementary material, something extra."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adopted"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1116,69 @@
     "text": "Faceless model annoyed after Juliet danced",
     "enumeration": "12"
    },
-   "solution": "JITTERBUGGED"
+   "solution": "JITTERBUGGED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "danced",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 23,
+       "note": "puts the rest following the J"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Juliet",
+       "at": 29,
+       "gives": "J",
+       "note": "Juliet is J in the radio alphabet"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Faceless",
+         "at": 0,
+         "note": "says the word loses its front letter, its face"
+        }
+       ],
+       "parts": [
+        {
+         "words": "model",
+         "at": 9,
+         "gives": "SITTER",
+         "note": "an artist's model is a sitter"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "annoyed",
+       "at": 15,
+       "gives": "BUGGED",
+       "note": "bugged means annoyed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An irritated, featureless model followed Juliet onto the dance floor.",
+     "definitionFit": "The jitterbug was a lively swing dance of the 1940s; doing it is a kind of dancing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Faceless"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1192,48 @@
     "text": "Discourse from internee getting great support",
     "enumeration": "6"
    },
-   "solution": "CONFAB"
+   "solution": "CONFAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discourse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "support",
+       "at": 38,
+       "note": "in a down answer the supporting piece sits beneath the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "internee",
+       "at": 15,
+       "gives": "CON",
+       "note": "a con is a convict, someone locked up"
+      },
+      {
+       "words": "great",
+       "at": 32,
+       "gives": "FAB",
+       "note": "fab is slang for great"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conversation coming from a prisoner who gets plenty of backing.",
+     "definitionFit": "A chat or conversation is an informal talk, a kind of discourse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1247,63 @@
     "text": "Doctor introducing brief order into practice",
     "enumeration": "6"
    },
-   "solution": "MEDICO"
+   "solution": "MEDICO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Doctor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 31,
+       "note": "places the shortened order inside the practice"
+      }
+     ],
+     "parts": [
+      {
+       "words": "practice",
+       "at": 36,
+       "gives": "MO",
+       "note": "MO, modus operandi, is a usual practice"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 19,
+         "note": "something brief is cut short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "order",
+         "at": 25,
+         "gives": "EDICT",
+         "note": "an edict is an order"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A GP brings a short instruction into the surgery.",
+     "definitionFit": "A medico is informal slang for a medical practitioner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "practice"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1317,60 @@
     "text": "Extra pound in benefit for ham",
     "enumeration": "8"
    },
-   "solution": "OVERPLAY"
+   "solution": "OVERPLAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ham",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Extra",
+       "at": 0,
+       "gives": "OVER",
+       "note": "over means extra, left over"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 12,
+         "note": "places the pound inside the benefit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "benefit",
+         "at": 15,
+         "gives": "PAY",
+         "note": "pay is a benefit received for work"
+        },
+        {
+         "words": "pound",
+         "at": 6,
+         "gives": "L",
+         "note": "L is the abbreviation for pound (libra)"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An additional pound added to a welfare payment, spent on meat.",
+     "definitionFit": "To ham is to act in an exaggerated way, the verb sense of overacting a part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ham"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1384,43 @@
     "text": "Ill-advised, as far as global alliance is concerned?",
     "enumeration": "6"
    },
-   "solution": "UNWISE"
+   "solution": "UNWISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ill-advised",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "global alliance",
+       "at": 23,
+       "gives": "UN",
+       "note": "the UN, the United Nations, is a worldwide alliance"
+      },
+      {
+       "words": "as far as",
+       "at": 13,
+       "gives": "WISE",
+       "note": "with 'is concerned', the suffix -wise means 'as far as something is concerned'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a policy is foolish from the UN's point of view.",
+     "walkthrough": "-wise as a suffix means 'regarding', so UN-WISE playfully means 'as regards the UN'.",
+     "definitionFit": "Something foolish or imprudent is poorly advised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "alliance"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1434,47 @@
     "text": "Responsibility taken after wife stole",
     "enumeration": "4"
    },
-   "solution": "WRAP"
+   "solution": "WRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stole",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 21,
+       "note": "says the responsibility comes after the wife"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wife",
+       "at": 27,
+       "gives": "W"
+      },
+      {
+       "words": "Responsibility",
+       "at": 0,
+       "gives": "RAP",
+       "note": "to take the rap is to take responsibility"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes the blame after his spouse thieved.",
+     "definitionFit": "A stole is a shawl worn round the shoulders, a type of covering garment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stole"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1488,60 @@
     "text": "Retiring manner adopted by father's brother",
     "enumeration": "5"
    },
-   "solution": "FRIAR"
+   "solution": "FRIAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "brother",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopted by",
+       "at": 16,
+       "note": "says one word is taken inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "father's",
+       "at": 27,
+       "gives": "FR",
+       "note": "Fr is the abbreviation for Father, a priest's title"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Retiring",
+         "at": 0,
+         "note": "retiring means going back, so the word is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "manner",
+         "at": 9,
+         "gives": "AIR",
+         "note": "an air is a manner or bearing"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shy way of behaving taken up by Dad's sibling.",
+     "definitionFit": "A member of a religious order is addressed as Brother; he is a monk-like religious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Retiring"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1555,41 @@
     "text": "Hit hard by decaying portal",
     "enumeration": "9"
    },
-   "solution": "THRESHOLD"
+   "solution": "THRESHOLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "portal",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hit hard",
+       "at": 0,
+       "gives": "THRESH",
+       "note": "to thresh is to beat, as in beating grain"
+      },
+      {
+       "words": "decaying",
+       "at": 12,
+       "gives": "OLD",
+       "note": "something decaying is aging, old"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rotting doorway is struck heavily.",
+     "definitionFit": "The sill at the base of a doorway is the entrance, so stands for a gateway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "portal"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1609,53 @@
      }
     ]
    },
-   "solution": "BOOBYTRAP"
+   "solution": "BOOBYTRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In military terms, prime",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "blunder",
+       "at": 25,
+       "gives": "BOOB",
+       "note": "a boob is a blunder"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 36,
+         "note": "a revolution turns something round, so the word is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "faction",
+         "at": 50,
+         "gives": "PARTY",
+         "note": "a party is a political faction"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first-rate mistake made by a group of rebels, in army jargon.",
+     "definitionFit": "To prime a device is to set it ready to go off, as one rigs a hidden explosive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "prime"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1669,49 @@
     "text": "Fit father's engaged in kinky sex?",
     "enumeration": "5"
    },
-   "solution": "SPASM"
+   "solution": "SPASM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "engaged in",
+       "at": 13,
+       "note": "places father inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "kinky sex",
+       "at": 24,
+       "gives": "SM",
+       "note": "S and M, sadomasochism, is kinky sex"
+      },
+      {
+       "words": "father's",
+       "at": 4,
+       "gives": "PAS",
+       "note": "pa is father, and with the possessive 's it gives father's"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether Dad is suited to unusual bedroom activity.",
+     "definitionFit": "A sudden convulsion or seizure is a fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Fit"
+    }
+   }
   }
  ]
 }
