@@ -89,7 +89,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 27
+VERSION = 28
 PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -530,7 +530,11 @@ WIDE_BRACKETS = str.maketrans("（）", "()")
 #: A light a clue refers to, "See (31) Down.": no clue's number.
 SEE = re.compile(r"\bsee\W*$", re.IGNORECASE)
 #: ... or names its direction after it: "Certainly applicable to (33)Down."
-CITED = re.compile(r"\s*(?:Down|Across)\b(?=\s*[.,;:)]|\s*$)")
+#: (Named apart from CITED, the citation's date, which it once shadowed:
+#: cited_day read no date from 10-23 to 10-24, so a fetched page cited as
+#: "Report on No. 649", 3 Sept. 1942, was matched by its title misread "No.
+#: 65" and its No 651 clues replaced No 65's reading.)
+SEE_DIRECTION = re.compile(r"\s*(?:Down|Across)\b(?=\s*[.,;:)]|\s*$)")
 
 
 def figures_read(text):
@@ -723,7 +727,7 @@ def paragraph_columns(words, marks=PARA_MARKS):
                 if not LETTERED.search(marks[i - 1].group(0) + m.group(0)):
                     clue[3] = clue[3] or int(m.group(1))
                 continue
-            if mark is PARA_MARK and (SEE.search(text, 0, m.start()) or CITED.match(text, m.end())):
+            if mark is PARA_MARK and (SEE.search(text, 0, m.start()) or SEE_DIRECTION.match(text, m.end())):
                 continue  # "See (31) Down.", "applicable to (33)Down.": the light a clue refers to
             if mark is PARA_MARK and not m.group(0).startswith("(") and re.match(r"\w", text[m.end():m.end() + 1]):
                 continue  # a bracket's tail hard on a word: "(8-27- 36)Reading" (No 400's 8 down)
@@ -786,7 +790,7 @@ def para_outlier(text, after, last, n, split):
     (38) were all dropped as lower (No 254, 1935)."""
     seen = []
     for m in after:
-        if split.match(text, m.start()) and not (SEE.search(text, 0, m.start()) or CITED.match(text, m.end())):
+        if split.match(text, m.start()) and not (SEE.search(text, 0, m.start()) or SEE_DIRECTION.match(text, m.end())):
             seen.append(int(m.group(1)))
             if len(seen) == 2:
                 return last < seen[0] < seen[1] < n
@@ -2024,13 +2028,38 @@ def load_ledger(store):
     return out
 
 
-def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
+def disown(p, before, number, store):
+    """Drop the reading in `store` the saved file `p` wrote under the number
+    its last ledger row `before` gave it, now that it matches `number` (or
+    none), or the number a hand repair of the row dropped ("numberDropped":
+    {"was"}): that reading is another puzzle's clues (CITE_FIX: No 17's read
+    as No 15's). Kept when a page of its own number has since replaced it.
+    Returns the dropped reading's name, or None."""
+    import scan_queue
+    before = before or {}
+    for old in (before.get("number"), (before.get("numberDropped") or {}).get("was")):
+        if not isinstance(old, int) or old == number:
+            continue
+        path = store / f"listener-{old}.json"
+        with scan_queue.lock(path, wait_for_it=True):
+            got = read_json(path)
+            if not got or (got.get("source") or {}).get("file") != p.name:
+                continue
+            path.unlink()
+        return path.name
+    return None
+
+
+def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=None):
     """Read the saved file `p` (sha256 `h`), write its puzzle's reading to
     `store` when it is the fullest yet, and append its ledger row. Returns
-    the entry, or None when the read timed out (not ledgered: read again)."""
+    the entry, or None when the read timed out (not ledgered: read again).
+    `before`, the page's last ledger row: a reading it wrote under another
+    number than it now matches is dropped (disown)."""
     import scan_queue
     entry = {"file": p.name, "version": VERSION, "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
+    failed = False
     try:
         got = read_remote(p, h, idx) if reader is read_file else None
         if got is not None:
@@ -2057,6 +2086,10 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
         if m is None:
             m = {"file": p.name, "number": None, "why": why, "pages": [], "reports": []}
         verdict, laid = {"refused": why}, None
+        failed = True
+    if not failed and (dropped := disown(p, before, m["number"], store)):
+        entry["disowned"] = dropped
+        print(f"{p.name}: dropped {dropped}, which it wrote when matched as that number", file=out)
     entry.update(number=m["number"], how=m.get("how"), why=m.get("why"), reports=m["reports"])
     if verdict.get("seePages"):
         entry["seePages"] = verdict["seePages"]
@@ -2167,7 +2200,7 @@ def run(inbox=SAVED, store=STORE, idx=None, out=sys.stdout, reader=read_file):
         h = file_hash(p)
         if ledger.get(h, {}).get("version") == VERSION:
             continue
-        entry = read_one(p, h, idx, rows, store, out, reader)
+        entry = read_one(p, h, idx, rows, store, out, reader, before=ledger.get(h))
         if entry is not None:
             ledger[h] = entry
     return ledger
@@ -2303,17 +2336,34 @@ UNPARSED = "no reading parses"
 #: longer voted "Rabbit-headed plant 37.".
 CLUES_FIX = 27
 SHORT = "refused clues-short before its fix"
+#: The VERSION whose match() reads the citation's date again: from
+#: PARAGRAPHS to it a clue regex shadowed CITED, so cited_day read none, and
+#: a page the citation dates was numbered by its title read or not at all.
+#: The 1930-33 pages print the title in a script face no reader reads, and
+#: under it "(The Report on Crossword No. 15 will be found on page 155)":
+#: No 17's page was read as No 15 (so Nos 16, 19, 23, 24, 27, 31, 49, 58,
+#: 103, 114, ... each held the clues of the puzzle two on); a 1942 page
+#: cited "Report on No. 649", 3 Sept. 1942, read "Crossword No. 65[1]" and
+#: replaced No 65's reading with No 651's clues; and the 1930 pages of Nos
+#: 0-16 citing no number were refused "no date or number". A page so
+#: matched is read again (MISNUMBERED), and a reading it wrote under a
+#: number it no longer matches is dropped (disowned).
+CITE_FIX = 28
+MISNUMBERED = "refused misnumbered before its fix"
 
 
 def due_reason(row):
     """Why plan reads a page again, given its last ledger row (None: never
-    read): "never read (Gale fetch)"; fa's "refused no-reading-parses before
+    read): "never read (Gale fetch)"; MISNUMBERED for one numbered by its
+    title read, or by nothing, while CITED was shadowed (CITE_FIX); fa's "refused no-reading-parses before
     its fix" for one that ended UNPARSED before CLUES_FIX (PARAGRAPHS until
     then), SHORT for one whose clue list came out short before it (reasons
     tools/edition_queue.py plans with blanket rereads off); else the
     blanket "version changed"."""
     if not row:
         return "never read (Gale fetch)"
+    if PARAGRAPHS <= (row.get("version") or 0) < CITE_FIX and "how" in row and row["how"] in ("title read", None):
+        return MISNUMBERED
     if row.get("why") == UNPARSED and (row.get("version") or 0) < CLUES_FIX:
         return "refused no-reading-parses before its fix"
     if row.get("agreed", 0) < row.get("clues", 0) and (row.get("version") or 0) < CLUES_FIX:
@@ -2335,10 +2385,11 @@ def read_unit(name, inbox=SAVED, store=STORE, reader=read_file, out=sys.stdout, 
     with scan_queue.source_lock(store / LEDGER, h) as mine:
         if not mine:
             return "busy"
-        if load_ledger(store).get(h, {}).get("version") == VERSION:
+        before = load_ledger(store).get(h)
+        if (before or {}).get("version") == VERSION:
             return "current"
         idx = index()
-        entry = read_one(p, h, idx, {r["number"]: r for r in idx}, store, out, reader)
+        entry = read_one(p, h, idx, {r["number"]: r for r in idx}, store, out, reader, before=before)
         if entry is None:
             return "failed"
     # Only the puzzles this page can move are joined again: its own and those

@@ -998,6 +998,37 @@ with tempfile.TemporaryDirectory() as tmp:
            g.clues_left({"why": g.UNPARSED}, "refused no-reading-parses before its fix"),
            g.clues_left(None, "never read (Gale fetch)")])
 
+# CITE_FIX: the paragraph lists' "(33)Down." regex once shadowed CITED, so
+# cited_day read no date and a page was numbered by its title read
+# ("Report on Crossword No. 15" under No 17's script title; "No. 65[1]").
+check("a report page's citation dates the issue's own puzzle (No 651, not its title read 65)",
+      D(1942, 9, 3), g.cited_day('"Report on No. 649. " The Listener, 3 Sept. 1942, p. 29. The Listener Historical Archive'))
+check("the clue regex is no longer the citation's", (None, True),
+      (g.SEE_DIRECTION.search("The Listener, 3 Sept. 1942, p. 29."), bool(g.SEE_DIRECTION.match(" Down."))))
+check("a page numbered by its title read, or by nothing, while the date went unread is read again, rank 0",
+      [(g.MISNUMBERED, 0, True), (g.MISNUMBERED, 0, True)],
+      [(r := g.due_reason(row), g.rank_of(r), __import__("edition_queue").evidence_reason(r)) for row in (
+          {"version": g.CITE_FIX - 1, "how": "title read", "number": 65, "agreed": 42, "clues": 53},
+          {"version": g.PARAGRAPHS, "how": None, "number": None, "why": "no date or number in the name, citation or title"})])
+check("one the citation numbered, or read before the shadowing, is not (mirror)", ["version changed"] * 2,
+      [g.due_reason({"version": g.CITE_FIX - 1, "how": "PDF citation title", "number": 3, "agreed": 9, "clues": 9}),
+       g.due_reason({"version": g.PARAGRAPHS - 1, "how": None, "number": None})])
+with tempfile.TemporaryDirectory() as tmp:
+    store = Path(tmp)
+    def wrote(n, f):
+        (store / f"listener-{n}.json").write_text(json.dumps({"number": n, "source": {"file": f}}))
+    wrote(65, "GALE_GM2500030496.pdf")
+    wrote(15, "GM2500066057 (1).pdf")
+    page = Path(tmp) / "GALE_GM2500030496.pdf"
+    check("a reading a page wrote under the number it no longer matches is dropped",
+          ("listener-65.json", False), (g.disown(page, {"number": 65}, 651, store), (store / "listener-65.json").exists()))
+    wrote(65, "GALE_GM2500030496.pdf")
+    check("not when it matches that number still, nor one another page wrote (mirror)", [None, None, True, True],
+          [g.disown(page, {"number": 65}, 65, store), g.disown(Path(tmp) / "GM2500066057.pdf", {"number": 15}, 17, store),
+           (store / "listener-65.json").exists(), (store / "listener-15.json").exists()])
+    check("nor the number a hand repair dropped from its row, when this page wrote that reading", "listener-15.json",
+          g.disown(Path(tmp) / "GM2500066057 (1).pdf", {"number": 17, "numberDropped": {"was": 15}}, 17, store))
+
 # The 1934-40 lists, run on as paragraphs (No 400): "(N)" opens each clue
 # mid-line, the across list runs on from the left column's foot to the
 # next's top, DOWN's heading is centred in that column, a report beside
