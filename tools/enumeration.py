@@ -384,9 +384,10 @@ def counts(enumeration):
 
 def structure_lost(was, now):
     """Whether the enumeration `now` is the held `was` with word breaks
-    lost: the same letters in fewer parts ("4-4" to "8", "3,4" to "7").
-    A reread reads a count's marks worse than the print sets them (27 such
-    in the 10-16..23 rereads, tools/audit_updates.py's g:enum-structure)."""
+    lost: the same letters in fewer parts ("4-4" to "8", "2,3,2,3,2" to
+    "5,7"). A lone count over breaks is most often the print's over the
+    corpus's guessed breaks (CATCHUP "(7)"); other breaks, a neighbour's
+    count (tools/audit_updates.py's g:enum-structure)."""
     a, b = counts(was), counts(now)
     return bool(a and b) and sum(a) == sum(b) and len(b) < len(a)
 

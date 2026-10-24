@@ -117,17 +117,20 @@ SEE_ONLY = re.compile(r"^\W*see\s+\d", re.IGNORECASE)
 
 def enum_side(old_e, new_e, new_text=""):
     """(class, side): g:enum-structure "introduced" when the new enumeration
-    lost word breaks at the same total ("4-4" to "8", enumeration.structure_lost),
-    "fixed" when it gained them; g:enum-dropped "introduced" when it went
-    missing, "fixed" when it came back. A clue that is a cross-reference
-    ("See 1 ac") has none of its own. (None, None) otherwise."""
+    lost word breaks at the same total for other breaks ("2,3,2,3,2" to "5,7",
+    enumeration.structure_lost), "fixed" when it gained them; g:enum-dropped
+    "introduced" when it went missing, "fixed" when it came back. A lone count
+    over breaks ("5,2" to "7") is no class: the print's count over the corpus's
+    guessed breaks (fetch_puzzle.settled_breaks) in each of 20 pages looked at
+    (The Times 1953-99: CATCHUP "(7)", TIMEWORN "(8)"). A clue that is a
+    cross-reference ("See 1 ac") has none of its own. (None, None) otherwise."""
     if old_e == new_e or SEE_ONLY.match(new_text or ""):
         return None, None
     if old_e and not new_e:
         return "g:enum-dropped", "introduced"
     if new_e and not old_e:
         return "g:enum-dropped", "fixed"
-    if enumeration.structure_lost(old_e, new_e):
+    if enumeration.structure_lost(old_e, new_e) and len(enumeration.counts(new_e)) > 1:
         return "g:enum-structure", "introduced"
     if enumeration.structure_lost(new_e, old_e):
         return "g:enum-structure", "fixed"
