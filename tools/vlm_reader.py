@@ -706,7 +706,122 @@ CLAIMED = ".json.work"
 
 
 class Spooled(RuntimeError):
-    """An ask was spooled for the drainer instead of asked: the read ends deferred."""
+    """An ask was spooled for the drainer instead of asked: the read ends deferred. `keys`: the
+    asks this process spooled and waits on (empty when none it can wait for: the spool was full,
+    or another host spooled it)."""
+
+    def __init__(self, msg, keys=()):
+        super().__init__(msg)
+        self.keys = list(keys)
+
+
+#: Env CT_VLM_SPOOL_WAIT: seconds (default SPOOL_WAIT; 0: never) a read that has just spooled asks
+#: waits here for the drainer's answers, when the spool is shallow (spool_shallow), before it ends
+#: deferred. 10-24 04:20-04:41: the GPU sat at 0% at ~2.6 asks/min, 18 units' slots full of CPU work,
+#: while each FT never-read read did ~60 s of OCR, spooled 1-3 asks, ended deferred, had them answered
+#: in seconds by an idle drainer and then waited out a 120 s+ backoff to redo that OCR and find the
+#: next stage's 1-3 asks: 90 FT starts in 20 min for 22 filings. Waiting, the read goes on to its next
+#: stage's asks at once, its OCR done once. A deep spool still defers: then waiting holds a unit for
+#: minutes for nothing the drainer could not do with the read gone.
+SPOOL_WAIT_ENV = "CT_VLM_SPOOL_WAIT"
+SPOOL_WAIT = 180
+#: Seconds a process waits so all told (well under the queue's READ_SECONDS kill, 1200).
+SPOOL_WAIT_TOTAL = 480
+#: Seconds between looks at the cache while waiting.
+SPOOL_POLL = 1.0
+_WAITED = [0.0]
+#: Set within a batch (batched): an ask spooled there raises at once, and the batch waits once for all.
+_BATCH = contextvars.ContextVar("vlm_batch", default=False)
+
+
+def spool_wait_seconds():
+    try:
+        return max(0.0, float(os.environ.get(SPOOL_WAIT_ENV, SPOOL_WAIT)))
+    except ValueError:
+        return float(SPOOL_WAIT)
+
+
+def feed_target():
+    """The asks the queue keeps the VLM fed with (edition_queue.vlm_feed_target): CT_VLM_FEED
+    (default 4), at least slots() + PIPELINE."""
+    try:
+        n = int(os.environ.get("CT_VLM_FEED", "4"))
+    except ValueError:
+        n = 4
+    return max(n, slots() + PIPELINE)
+
+
+def spool_shallow(keys):
+    """Whether the spool's asks other than `keys` are below feed_target(): the drainer is short of
+    work and comes to `keys` within seconds."""
+    mine = set(keys)
+    return len([k for k in spooled() if k not in mine]) < feed_target()
+
+
+def answered(key):
+    return (CACHE / f"{key}.txt").exists()
+
+
+def wait_answered(keys):
+    """Whether every ask of `keys` (spooled by this process) is answered, waiting for the drainer
+    up to spool_wait_seconds() (and what is left of SPOOL_WAIT_TOTAL) when the spool is shallow
+    (spool_shallow). False at once under a deep spool, outside the queue's spool (SPOOL_ENV), or
+    when an ask leaves the spool unanswered (the drainer dropped it)."""
+    keys = [k for k in dict.fromkeys(keys) if not answered(k)]
+    if not keys:
+        return True
+    budget = min(spool_wait_seconds(), SPOOL_WAIT_TOTAL - _WAITED[0])
+    if budget <= 0 or os.environ.get(SPOOL_ENV, "0") in ("", "0") or not spool_shallow(keys):
+        return False
+    t0 = time.monotonic()
+    try:
+        while True:
+            keys = [k for k in keys if not answered(k)]
+            if not keys:
+                return True
+            if time.monotonic() - t0 >= budget or not any(pending(k) for k in keys):
+                return False
+            time.sleep(SPOOL_POLL)
+    finally:
+        _WAITED[0] += time.monotonic() - t0
+
+
+def flags():
+    """This process's miss state (missed, cause, unanswered), for restore() after a wait."""
+    return _MISSED[0], _CAUSE[0], _UNANSWERED[0]
+
+
+def restore(snap):
+    _MISSED[0], _CAUSE[0], _UNANSWERED[0] = snap
+
+
+@contextlib.contextmanager
+def batched():
+    """Within the block an ask spooled raises Spooled at once (no wait_answered of its own): the
+    caller spools every ask of its pass, then settled() waits once for them all."""
+    tok = _BATCH.set(True)
+    try:
+        yield
+    finally:
+        _BATCH.reset(tok)
+
+
+def settled(snap, errors):
+    """After a batch (batched) caught the Spooled `errors`: True when each was an ask this process
+    spooled (keys) and wait_answered got them all in; the miss state is then put back as it was at
+    the batch's start (`snap`, flags()) and the caller asks those again, from the cache. False:
+    the caller raises as before, and the read ends deferred."""
+    if not errors or any(not e.keys for e in errors):
+        return False
+    if not wait_answered([k for e in errors for k in e.keys]):
+        return False
+    restore(snap)
+    return True
+
+
+def joined(errors):
+    """One Spooled for a batch's `errors`, carrying all their keys."""
+    return Spooled(str(errors[-1]), [k for e in errors for k in e.keys])
 
 
 def spool_dir():
@@ -956,10 +1071,12 @@ def ask_png(data, prompt, max_tokens=1500, spool=None, held=False):
         put_spool(key, data, prompt, max_tokens)
         if path.exists():  # answered meanwhile
             return path.read_text()
+        if not _BATCH.get() and wait_answered([key]):  # a shallow spool: the drainer answers it in seconds
+            return path.read_text()
         _MISSED[0] = True
         _CAUSE[0] = "spooled"
         _UNANSWERED[0] += 1
-        raise Spooled(f"VLM ask {key[:8]} spooled for the drainer")
+        raise Spooled(f"VLM ask {key[:8]} spooled for the drainer", [key])
     body = {"model": MODEL, "temperature": 0, "max_tokens": max_tokens,
             "messages": [{"role": "user", "content": [
                 {"type": "image_url",
@@ -1060,15 +1177,20 @@ def column_text(img, wins, readings):
 
 def read_all(images):
     """read() of each image. A Spooled ask does not stop the rest: every column not
-    cached is spooled in one pass (the drainer asks them in turn), then Spooled is raised."""
-    out, last = [], None
-    for im in images:
-        try:
-            out.append(read(im))
-        except Spooled as e:
-            last = e
-    if last:
-        raise last
+    cached is spooled in one pass (the drainer asks them in turn), then, unless settled() gets
+    their answers in (a shallow spool), Spooled is raised."""
+    snap, out, errs, images = flags(), [], [], list(images)
+    with batched():
+        for i, im in enumerate(images):
+            try:
+                out.append(read(im))
+            except Spooled as e:
+                errs.append(e)
+                out.append(i)
+    if errs:
+        if not settled(snap, errs):
+            raise joined(errs)
+        out = [read(images[o]) if isinstance(o, int) else o for o in out]
     return out
 
 
@@ -1096,26 +1218,35 @@ def overlap(a, b):
 
 def read_columns(scope, img, boxes):
     """read_all of each box's crop, except a box that nearly is one this process has read under
-    `scope` (a page's name) takes that reading. A Spooled ask does not stop the rest."""
+    `scope` (a page's name) takes that reading. A Spooled ask does not stop the rest, and a
+    shallow spool's answers are waited for (settled)."""
     seen = _NEAR.setdefault(scope, [])
     while len(_NEAR) > NEAR_SCOPES:
         _NEAR.pop(next(iter(_NEAR)))
-    out, last = [], None
-    for box in boxes:
+    snap, errs, boxes = flags(), [], list(boxes)
+
+    def column(box):
         near = next((t for b, t in seen if overlap(b, box) >= NEAR_BOX), None)
         if near is not None:
-            out.append(near)
-            continue
-        try:
-            text = read(crop(img, box))
-        except Spooled as e:
-            last = e
-            continue
+            return near
+        text = read(crop(img, box))
         if text.strip():
             seen.append((tuple(box), text))
-        out.append(text)
-    if last:
-        raise last
+        return text
+
+    out, left = [], set()
+    with batched():
+        for i, box in enumerate(boxes):
+            try:
+                out.append(column(box))
+            except Spooled as e:
+                errs.append(e)
+                left.add(i)
+                out.append(None)
+    if errs:
+        if not settled(snap, errs):
+            raise joined(errs)
+        out = [column(box) if i in left else t for i, (box, t) in enumerate(zip(boxes, out))]  # from the cache
     return out
 
 
