@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Number of characters in Romeo and Juliet older than Juliet? Just so",
     "enumeration": "8"
    },
-   "solution": "FOURTEEN"
+   "solution": "FOURTEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Number of characters in Romeo and Juliet",
+      "at": 0,
+      "meaning": "count the letters in the title: ROMEO (5), AND (3), JULIET (6)"
+     },
+     {
+      "text": "older than Juliet? Just so",
+      "at": 41,
+      "meaning": "Juliet is thirteen in the play, a fortnight short of her next birthday, so the age just above hers"
+     }
+    ],
+    "explanation": {
+     "surface": "A trivia question about the cast of Shakespeare's play and which characters are older than the heroine.",
+     "walkthrough": "'Characters' looks like people in the play, but it means letters in the title. Juliet's Nurse says she is not yet fourteen, so 'just' older than her is that age.",
+     "definitionFit": "Both readings land on the same number: the letter count of the title and the age just above thirteen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +73,42 @@
     "text": "Outlaw said in France to be gang member",
     "enumeration": "6"
    },
-   "solution": "BANDIT"
+   "solution": "BANDIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gang member",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Outlaw",
+       "at": 0,
+       "gives": "BAN",
+       "note": "to outlaw something is to ban it"
+      },
+      {
+       "words": "said in France",
+       "at": 7,
+       "gives": "DIT",
+       "note": "dit is French for 'said'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French outlaw is reported to be part of a criminal gang.",
+     "walkthrough": "'Outlaw' reads as the definition (a noun), but it is the verb, giving BAN; the definition is at the other end.",
+     "definitionFit": "A bandit is a robber who typically operates as one of an armed band."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Outlaw"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +122,42 @@
     "text": "Part of scale that is least likely to collapse",
     "enumeration": "8"
    },
-   "solution": "SOLIDEST"
+   "solution": "SOLIDEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "least likely to collapse",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Part of scale",
+       "at": 0,
+       "gives": "SOL",
+       "note": "sol (soh) is the fifth note of the tonic sol-fa scale"
+      },
+      {
+       "words": "that is",
+       "at": 14,
+       "gives": "IDEST",
+       "note": "id est is Latin for 'that is', abbreviated i.e."
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Of the parts of a weighing scale, one is the sturdiest.",
+     "walkthrough": "'Scale' suggests weighing apparatus, but it is the musical scale.",
+     "definitionFit": "Something most firm and robust in construction is the least prone to fall down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scale"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +171,64 @@
     "text": "A large group of hunters ending off a domesticated mammal",
     "enumeration": "6"
    },
-   "solution": "ALPACA"
+   "solution": "ALPACA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "domesticated mammal",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "large",
+       "at": 2,
+       "gives": "L",
+       "note": "L is the standard abbreviation for large, as on clothing labels"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ending off",
+         "at": 25,
+         "note": "the final letter of the hunting group's word is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "group of hunters",
+         "at": 8,
+         "gives": "PACK",
+         "note": "a pack is a group of wolves or hounds that hunt together"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 36
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big pack of hunters stops chasing a farm animal.",
+     "definitionFit": "The alpaca is a South American camelid kept by people for its wool, a domestic relative of the llama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ending"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +242,49 @@
     "text": "They may draw diners in and earn some cash, totally without tips",
     "enumeration": "6"
    },
-   "solution": "AROMAS"
+   "solution": "AROMAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They may draw diners in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "totally without tips",
+       "at": 44,
+       "note": "every one of the three words loses its first and last letter, its tips, leaving only the insides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "earn",
+       "at": 28
+      },
+      {
+       "words": "some",
+       "at": 33
+      },
+      {
+       "words": "cash",
+       "at": 38
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Restaurant staff are told how to lure customers and make money, with no tips at all.",
+     "walkthrough": "'Tips' suggests gratuities to waiters; here it is the ends of the words. EARN, SOME and CASH lose their tips to leave AR, OM and AS.",
+     "definitionFit": "Appetising smells wafting from a kitchen are what tempt passers-by into a restaurant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tips"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +298,59 @@
     "text": "Cooling system in a vehicle that's helpful for summer?",
     "enumeration": "6"
    },
-   "solution": "ABACUS"
+   "solution": "ABACUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "helpful for summer?",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 18
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 15,
+         "note": "the cooling system goes inside the vehicle's word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vehicle",
+         "at": 20,
+         "gives": "BUS",
+         "note": "a bus is a road vehicle"
+        },
+        {
+         "words": "Cooling system",
+         "at": 0,
+         "gives": "AC",
+         "note": "AC is short for air conditioning"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Air conditioning in a car would be welcome in hot summer weather.",
+     "walkthrough": "'Summer' is not the season but one who sums, so the definition is a frame for counting beads.",
+     "definitionFit": "A bead frame is a calculating aid, so it helps a person doing arithmetic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "summer"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +370,43 @@
      }
     ]
    },
-   "solution": "GOSLOW"
+   "solution": "GOSLOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Less than striking action",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "game's",
+       "at": 29,
+       "gives": "GOS",
+       "note": "a go is a turn in a game, and go is also a board game; with the 's attached"
+      },
+      {
+       "words": "nadir",
+       "at": 36,
+       "gives": "LOW",
+       "note": "the nadir is the lowest point, a low"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull moment in a match lacks any striking action.",
+     "walkthrough": "'Less than striking' sounds like 'unimpressive', but it means short of a full strike: industrial action where workers deliberately slow down.",
+     "definitionFit": "A deliberate slowdown at work is a protest falling short of an outright walkout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "striking"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +420,46 @@
     "text": "Apply bleach when covering it",
     "enumeration": "6"
    },
-   "solution": "WHITEN"
+   "solution": "WHITEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Apply bleach",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 18,
+       "note": "the word when wraps around the word it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "when",
+       "at": 13,
+       "gives": "WHEN"
+      },
+      {
+       "words": "it",
+       "at": 27,
+       "gives": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to use bleach once something has been covered.",
+     "definitionFit": "Bleaching a fabric or surface makes it paler, which is the verb's meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +473,82 @@
     "text": "Almost fight over articles about cold fatty snack",
     "enumeration": "11"
    },
-   "solution": "SCRATCHINGS"
+   "solution": "SCRATCHINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fatty snack",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 13,
+       "note": "in a down clue the first piece sits over the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "the word for a fight is cut short by its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fight",
+         "at": 7,
+         "gives": "SCRAP",
+         "note": "a scrap is a fight"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 27,
+         "note": "the word for articles goes around the cold letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "articles",
+         "at": 18,
+         "gives": "THINGS",
+         "note": "articles are things, items"
+        },
+        {
+         "words": "cold",
+         "at": 33,
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on taps"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A near brawl over things breaks out about something cold.",
+     "walkthrough": "'Over' works because this is a down clue, so the first piece sits on top. Pork scratchings are crisp fried pieces of pork rind sold in British pubs.",
+     "definitionFit": "Pork scratchings are crunchy morsels of fried pig skin and fat, a bar snack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +562,67 @@
     "text": "Holy, as reflected by almost all doctrine",
     "enumeration": "6"
    },
-   "solution": "SACRED"
+   "solution": "SACRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflected",
+         "at": 9,
+         "note": "a mirror image reads the word backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "as",
+         "at": 6,
+         "gives": "AS"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost all",
+         "at": 22,
+         "note": "the word for doctrine loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctrine",
+         "at": 33,
+         "gives": "CREDO",
+         "note": "a credo is a creed, a statement of doctrine"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Holiness is mirrored in nearly every religious teaching.",
+     "definitionFit": "Something sacred is consecrated and venerated, set apart as holy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflected"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +636,49 @@
     "text": "Relating to the elements, reaching exciting conclusions once carbon's extracted",
     "enumeration": "8"
    },
-   "solution": "CLIMATIC"
+   "solution": "CLIMATIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relating to the elements",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "extracted",
+       "at": 70,
+       "note": "the carbon letter is pulled out of the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reaching exciting conclusions",
+       "at": 26,
+       "gives": "CLIMACTIC",
+       "note": "climactic means forming a climax, the exciting high point at the end"
+      },
+      {
+       "words": "carbon's",
+       "at": 61,
+       "gives": "C",
+       "note": "C is the chemical symbol for carbon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry write-up on elements reaches thrilling findings once carbon is removed.",
+     "walkthrough": "'The elements' suggests chemistry, but it means the weather. 'once ... extracted' takes a C out of CLIMACTIC.",
+     "definitionFit": "The elements are wind, rain and weather; climatic concerns climate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "elements"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +692,49 @@
     "text": "Draw, as rule, after switching sides",
     "enumeration": "4"
    },
-   "solution": "LURE"
+   "solution": "LURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Draw",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "after switching sides",
+       "at": 15,
+       "note": "sides are right and left, R and L, which trade places in the word rule"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rule",
+       "at": 9,
+       "gives": "RULE",
+       "note": "taken as written"
+      },
+      {
+       "gives": "RUL"
+      },
+      {
+       "gives": "LUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drawing a line with a ruler after changing which side you work from.",
+     "walkthrough": "R (right) and L (left) swap places in RULE.",
+     "definitionFit": "To draw someone in is to attract or entice them, as bait tempts a fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Draw"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +754,40 @@
      }
     ]
    },
-   "solution": "TRADENAMES"
+   "solution": "TRADENAMES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of commercial vocabulary",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "amended",
+       "at": 12,
+       "note": "amended means altered, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mastered an",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has learned a corrected section of business jargon.",
+     "definitionFit": "Brand titles such as product labels are words registered and used in commerce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Mastered"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +807,30 @@
      }
     ]
    },
-   "solution": "INNERCITIES"
+   "solution": "INNERCITIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Centres of population",
+      "at": 0,
+      "meaning": "the crowded central districts of large towns"
+     },
+     {
+      "text": "as found in the rest of the across answers",
+      "at": 23,
+      "meaning": "every other across answer has a city inside it: ROMA, OSLO, ACRE, LIMA, UR, ADEN, BERLIN, LA, TURIN, ULM, RIO, NY"
+     }
+    ],
+    "explanation": {
+     "surface": "The puzzle's theme clue announces where the urban centres are concealed.",
+     "walkthrough": "The second reading is literal: towns sit inside the other across lights, such as BERLIN in TIMBERLINE and OSLO in GOSLOW.",
+     "definitionFit": "Urban cores are the densely populated middle parts of big towns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +844,41 @@
     "text": "Rise late, perhaps — or before all the others",
     "enumeration": "8"
    },
-   "solution": "EARLIEST"
+   "solution": "EARLIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "before all the others",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 11,
+       "note": "perhaps flags that these letters are one possible arrangement of others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rise late",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Get up late, or else be the very first up.",
+     "walkthrough": "The surface contrasts rising late with rising early; 'perhaps' is the anagram signal.",
+     "definitionFit": "Coming first in time, ahead of everyone else, means being soonest of all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +892,57 @@
     "text": "Allowing to get licence, finally, and catch fish",
     "enumeration": "8"
    },
-   "solution": "ENABLING"
+   "solution": "ENABLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Allowing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 25,
+         "note": "only the closing letter of licence is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "licence",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "catch",
+       "at": 38,
+       "gives": "NAB",
+       "note": "to nab is to catch or seize"
+      },
+      {
+       "words": "fish",
+       "at": 44,
+       "gives": "LING",
+       "note": "the ling is a long food fish of the cod family"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler gets a permit and then catches a fish.",
+     "definitionFit": "Permitting something to happen is making it possible, giving the means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +956,49 @@
     "text": "Producer of drone group of spies used to trap villain",
     "enumeration": "6"
    },
-   "solution": "CICADA"
+   "solution": "CICADA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Producer of drone",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "used to trap",
+       "at": 33,
+       "note": "the spy agency's letters close round the villain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "group of spies",
+       "at": 18,
+       "gives": "CIA",
+       "note": "the CIA is the US Central Intelligence Agency"
+      },
+      {
+       "words": "villain",
+       "at": 46,
+       "gives": "CAD",
+       "note": "a cad is a rotter, an ungentlemanly villain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Intelligence agents deploy a drone to catch a wrongdoer.",
+     "walkthrough": "'Drone' suggests a spy aircraft; here it is a continuous buzzing noise.",
+     "definitionFit": "This insect makes a loud, monotonous droning sound with its body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "drone"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1012,64 @@
     "text": "It spells end of vegetation, when put on a tree",
     "enumeration": "6"
    },
-   "solution": "NAPALM"
+   "solution": "NAPALM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It spells end of vegetation, when put on a tree",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "at": 34,
+       "note": "in a down clue the single letter is placed on top of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 10,
+         "note": "only the closing letter of vegetation is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vegetation",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 41
+      },
+      {
+       "words": "tree",
+       "at": 43,
+       "gives": "PALM",
+       "note": "the palm is a tree"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A defoliant dropped on a tree means the end of plant life.",
+     "walkthrough": "The whole clue is the definition: napalm destroys vegetation, and the wordplay is N (end of vegetation) on A PALM.",
+     "definitionFit": "This jellied incendiary was used in war to burn away forest cover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spells"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1083,49 @@
     "text": "Equivalent of money, including capital, that is at the upper limit of growth",
     "enumeration": "10"
    },
-   "solution": "TIMBERLINE"
+   "solution": "TIMBERLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "upper limit of growth",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 21,
+       "note": "the word for the money equivalent holds the capital inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Equivalent of money",
+       "at": 0,
+       "gives": "TIME",
+       "note": "from the saying 'time is money'"
+      },
+      {
+       "words": "capital",
+       "at": 31,
+       "gives": "BERLIN",
+       "note": "Berlin is the capital of Germany"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financial note about money and capital reaching a ceiling of growth.",
+     "walkthrough": "'Money' and 'capital' look like a finance theme, but capital is a city.",
+     "definitionFit": "On mountains, trees stop growing above a certain altitude, the tree line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1139,58 @@
     "text": "Virus that is pierced by old medical instrument",
     "enumeration": "6"
    },
-   "solution": "BOUGIE"
+   "solution": "BOUGIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "medical instrument",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "pierced by",
+         "at": 14,
+         "note": "the old letter goes into the combined pieces"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Virus",
+         "at": 0,
+         "gives": "BUG",
+         "note": "a bug is an informal word for a virus or infection"
+        },
+        {
+         "words": "old",
+         "at": 25,
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "that is",
+       "at": 6,
+       "gives": "IE",
+       "note": "i.e. abbreviates Latin id est, 'that is'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An infection is caused by an antique medical device puncturing the skin.",
+     "definitionFit": "A bougie is a thin flexible rod a doctor inserts to widen or examine a body passage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pierced"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1204,64 @@
     "text": "Initially formed euphemism from guy mostly concealing name",
     "enumeration": "6"
    },
-   "solution": "EFFING"
+   "solution": "EFFING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Initially formed euphemism",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealing",
+       "at": 43,
+       "note": "the shortened word hides the name letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 36,
+         "note": "the word for guy loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guy",
+         "at": 32,
+         "gives": "EFFIGY",
+         "note": "a guy is an effigy of Guy Fawkes burned on Bonfire Night in Britain"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "name",
+       "at": 54,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A polite term made up from a straw dummy hiding its name.",
+     "walkthrough": "'Initially formed' is the definition's own joke: the euphemism is built from the initial F of a swear word.",
+     "definitionFit": "The mild substitute stands in for a stronger expletive and is made from its first letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1275,42 @@
     "text": "Letters regularly falling out of mailbags, unfortunately",
     "enumeration": "4"
    },
-   "solution": "ALAS"
+   "solution": "ALAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unfortunately",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Letters regularly falling out of",
+       "at": 0,
+       "note": "every other letter is shaken out of the word, as letters spill from a sack"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mailbags",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Post keeps tumbling out of the mail sacks, sadly.",
+     "walkthrough": "The letters are the alphabet kind: m-A-i-L-b-A-g-S gives the second, fourth, sixth and eighth.",
+     "definitionFit": "This interjection expresses regret or sorrow, much like 'sadly'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Letters"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1324,60 @@
     "text": "Starting to create family in which you are reportedly growing up",
     "enumeration": "8"
    },
-   "solution": "MATURING"
+   "solution": "MATURING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "growing up",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in which",
+       "at": 26,
+       "note": "the second piece goes inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Starting to create family",
+       "at": 0,
+       "gives": "MATING",
+       "note": "mating is pairing up to breed, starting a family"
+      },
+      {
+       "op": "homophone",
+       "spelt": "UR",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 43,
+         "note": "signals that the words are rendered as they are heard"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you are",
+         "at": 35,
+         "note": "the two words spoken quickly give the letters U and R, as in text speak"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Starting a family is the stage in which you are said to grow up.",
+     "definitionFit": "Developing towards adulthood or ripeness is to come of age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "family"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1391,42 @@
     "text": "Seabird needed by grateful mariner",
     "enumeration": "6"
    },
-   "solution": "FULMAR"
+   "solution": "FULMAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Seabird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "needed by",
+       "at": 8,
+       "note": "needed by says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grateful mariner",
+       "at": 18,
+       "gives": "FULMAR",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thankful sailor relies on a bird at sea, perhaps echoing the Ancient Mariner's albatross.",
+     "definitionFit": "The fulmar is a grey and white petrel of northern oceans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "needed"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1440,40 @@
     "text": "Vocal performance in opera included by impresario sometimes",
     "enumeration": "6"
    },
-   "solution": "ARIOSO"
+   "solution": "ARIOSO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vocal performance in opera",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "included by",
+       "at": 27,
+       "note": "the answer is held within the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "impresario sometimes",
+       "at": 39
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An opera producer occasionally slips in a singing turn of their own.",
+     "definitionFit": "An arioso is a melodic passage between recitative and aria, sung in opera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "included"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1487,52 @@
     "text": "Soon switched my name, such as Brendan",
     "enumeration": "6"
    },
-   "solution": "ANONYM"
+   "solution": "ANONYM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "name, such as Brendan",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soon",
+       "at": 0,
+       "gives": "ANON",
+       "note": "anon is an old word for soon, shortly"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "switched",
+         "at": 5,
+         "note": "the two letters of my change round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "my",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter says they will shortly change their name.",
+     "walkthrough": "Brendan is this puzzle's setter, writing under a pseudonym.",
+     "definitionFit": "A false or assumed name hides a writer's real identity, as crossword setters' pen names do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Brendan"
+    }
+   }
   }
  ]
 }
