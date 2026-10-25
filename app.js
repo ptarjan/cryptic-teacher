@@ -8974,6 +8974,7 @@
     const dropFiles = syncFails ? [] : [...new Set([...prev, ...solved])].filter((f) => !want.has(f) && !started.has(f));
     const drop = dropFiles.map((f) => at("puzzles/" + f + ".gz"));
     if (!rows.length && !drop.length) { offlineNote("Nothing to save."); return; }
+    if (!navigator.serviceWorker) { offlineNote("Offline saving isn’t available in this browser."); return; }
     offlineBusy = true;
     offlineNote(`Saving 0 of ${rows.length}…`);
     const end = (msg) => { offlineBusy = false; offlineRefresh(); offlineNote(msg); };
