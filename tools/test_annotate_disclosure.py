@@ -490,7 +490,10 @@ gl = [b["note"] for b in ANN.unname_derived_block_text(
     [{"clueFragment": "road", "gives": "RD", "note": "RD is a standard abbreviation for road"},
      {"clueFragment": "x", "gives": "X", "note": "X is a standard abbreviation for x"}],
     {"words": "road", "gives": "RD"}, "STANDARD")]
-say("abbreviation_gloss_unnamed", gl[0] == "RD stands for road" and gl[1] == "X is a standard abbreviation for x")
+say("uncovered_clue_words_listed", V.clue_words_no_block_covers(
+    {"definitions": [{"text": "hat"}], "indicators": [{"text": "over"}], "blocks": [{"clueFragment": "Tea"}]},
+    "Tea over hat or bit") == ["or", "bit"])
+say("abbreviation_gloss_unnamed",gl[0] == "RD stands for road" and gl[1] == "X is a standard abbreviation for x")
 
 # Each validator line names its check, and --explain takes what a run guesses.
 import contextlib, io

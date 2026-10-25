@@ -1276,6 +1276,18 @@ def check_definition_fit(tag, ann, errors, warnings):
 EARLY_RUNG_FIELDS = ("definitions", "indicators", "linkWords")
 
 
+def clue_words_no_block_covers(ann, clue):
+    """The clue's words left once its definitions, indicators, link words and
+    block fragments are taken out (each once), in clue order."""
+    rest = clue or ""
+    spans = [d.get("text") for d in ann.get("definitions") or [] if isinstance(d, dict)]
+    spans += list(indicator_texts(ann)) + list(ann.get("linkWords") or [])
+    spans += [b.get("clueFragment") for b in ann.get("blocks") or []]
+    for s in sorted((s for s in spans if s), key=len, reverse=True):
+        rest = rest.replace(s, " " * len(s), 1)
+    return re.findall(r"[\w'’]+", rest)
+
+
 def check_no_answer_in_early_rungs(tag, ann, clue, errors, warnings):
     """No field shown before the building blocks may spell out the answer,
     unless the field quotes clue words that already do: a given entry (Listener
@@ -7934,6 +7946,12 @@ def _validate_puzzle(puzzle, corpus=False, schema=True):
             # paper prints the gimmick in a clue: nation-3337's 30-across).
             if not frag and not (b.get("gives") and theme_source(puzzle)):
                 what = f" giving {b['gives']!r}" if b.get("gives") else ""
+                left = clue_words_no_block_covers(ann, clue)
+                what += (f" (clue words nothing covers yet: {', '.join(map(repr, left))}; "
+                         f"one of them gives these letters)" if left else
+                         " (every clue word is already covered, so these letters come from "
+                         "words another block quotes: quote them again, "
+                         "[Two bitters]COLD + [Two bitters#2]RAW)")
                 errors.append(f"{tag}: a block with no clueFragment{what} is for letters the "
                               f"preamble supplies, and needs `gives` and a puzzle with a "
                               f"preamble (or a filed themeClue); otherwise quote the "
