@@ -22,6 +22,9 @@
   "date": "2020-08-13",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,30 @@
     "text": "Put an end to distilled drink",
     "enumeration": "6"
    },
-   "solution": "SCOTCH"
+   "solution": "SCOTCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put an end to",
+      "at": 0,
+      "meaning": "to ... a rumour or plan is to stop it dead"
+     },
+     {
+      "text": "distilled drink",
+      "at": 14,
+      "meaning": "whisky made in Scotland"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone calls time on the drinking of spirits.",
+     "definitionFit": "Both senses are dictionary meanings: the verb is to quash or stamp out, the noun is malt whisky from Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Put"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +75,70 @@
     "text": "Sinister look is arising in case of cowboy",
     "enumeration": "6"
    },
-   "solution": "CREEPY"
+   "solution": "CREEPY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sinister",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "in means the reversed look word goes inside the cowboy's outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case of",
+         "at": 28,
+         "note": "the case of a word is its outer shell, so only the first and last letters of cowboy are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cowboy",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "is arising",
+         "at": 14,
+         "note": "in a down clue, rising means the word for look is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "look",
+         "at": 9,
+         "gives": "PEER",
+         "note": "to peer is to look closely"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A menacing glance appears on a cowboy's face in a western.",
+     "definitionFit": "Something sinister gives you the shivers, which is exactly the eerie, unsettling sense of the adjective here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,7 +158,59 @@
      }
     ]
    },
-   "solution": "TRADENAME"
+   "solution": "TRADENAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "commercial tag?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopts",
+       "at": 20,
+       "note": "adopts means the shuffled letters take the abbreviation into their midst"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "assembled",
+         "at": 10,
+         "note": "assembled means the letters of team and Dane are put together in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Team Dane",
+         "at": 0,
+         "note": "the letters of these two words are the anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 27,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Danish team gets together and picks a brand name for itself.",
+     "walkthrough": "'assembled' rearranges TEAMDANE into TADENAME, and 'adopts' places R inside it.",
+     "definitionFit": "A brand label attached to a product for sale, protected so rivals cannot use it, is a commercial tag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dane"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +224,45 @@
     "text": "Ace in Indianopolis if in charge gets respectful title",
     "enumeration": "9"
    },
-   "solution": "HONORIFIC"
+   "solution": "HONORIFIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "respectful title",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ace in Indianopolis",
+       "at": 0,
+       "gives": "HONOR",
+       "note": "in card games an ace is an honour card, and in American spelling (as in Indianapolis) the word drops its u"
+      },
+      {
+       "words": "if",
+       "at": 20
+      },
+      {
+       "words": "in charge",
+       "at": 23,
+       "gives": "IC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outstanding performer in Indianapolis, if put in charge, earns a mark of respect.",
+     "walkthrough": "Ace, king, queen, jack and ten are the honours in bridge; 'in Indianopolis' asks for the US spelling without U.",
+     "definitionFit": "An honorific is a form of address such as Sir or Dame that conveys esteem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ace"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +276,60 @@
     "text": "Passage in port, say, entered by Dee and Philip",
     "enumeration": "8"
    },
-   "solution": "WINDPIPE"
+   "solution": "WINDPIPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Passage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entered by",
+       "at": 22,
+       "note": "entered by means the drink has the letter and the nickname go inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "port, say",
+       "at": 11,
+       "gives": "WINE",
+       "note": "port is an example of a fortified wine"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Dee",
+         "at": 33,
+         "gives": "D",
+         "note": "Dee is the spelt-out name of the letter D"
+        },
+        {
+         "words": "Philip",
+         "at": 41,
+         "gives": "PIP",
+         "note": "Pip is a short form of Philip, as in Great Expectations"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A route through a harbour taken by two people called Dee and Philip.",
+     "walkthrough": "Dee looks like the river, but here it just spells out the letter's name.",
+     "definitionFit": "The trachea is the air passage running from the throat down to the lungs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +343,60 @@
     "text": "Belligerent type from west arrived with French king after revolution",
     "enumeration": "7"
    },
-   "solution": "WARRIOR"
+   "solution": "WARRIOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Belligerent type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "west",
+       "at": 22,
+       "gives": "W",
+       "note": "W is the compass abbreviation for west"
+      },
+      {
+       "words": "arrived",
+       "at": 27,
+       "gives": "ARR",
+       "note": "ARR is the timetable abbreviation for arrived"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after revolution",
+         "at": 52,
+         "note": "a revolution turns something round, so the French word for king is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French king",
+         "at": 40,
+         "gives": "ROI",
+         "note": "roi is French for king"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fighter came in from the west with a French monarch after a revolution.",
+     "walkthrough": "The French Revolution in the surface is a red herring: 'after revolution' only turns the king word round.",
+     "definitionFit": "A warrior is a fighter, someone who is aggressive or eager for combat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +410,60 @@
     "text": "Relative emitting relieved expression with friend in the country",
     "enumeration": "5"
    },
-   "solution": "NEPAL"
+   "solution": "NEPAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the country",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "emitting",
+         "at": 9,
+         "note": "emitting means letting out, so the exclamation comes out of the relative"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Relative",
+         "at": 0,
+         "gives": "NEPHEW",
+         "note": "a nephew is a family relative"
+        },
+        {
+         "words": "relieved expression",
+         "at": 18,
+         "gives": "PHEW",
+         "note": "phew is what you say when relieved"
+        }
+       ]
+      },
+      {
+       "words": "friend",
+       "at": 43,
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family member breathes a sigh of relief while in the country with a pal.",
+     "walkthrough": "'emitting' takes PHEW out of NEPHEW, which leaves NE.",
+     "definitionFit": "Nepal is a Himalayan nation, so it is an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +477,49 @@
     "text": "Student tucks into French bread of an ordinary type",
     "enumeration": "5"
    },
-   "solution": "PLAIN"
+   "solution": "PLAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of an ordinary type",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucks into",
+       "at": 8,
+       "note": "tucks into means the student letter is placed inside the French word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French bread",
+       "at": 19,
+       "gives": "PAIN",
+       "note": "pain is the French word for bread"
+      },
+      {
+       "words": "Student",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the learner plate, a common shorthand for student"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student eats a simple French loaf.",
+     "walkthrough": "'tucks into' looks like eating but places L inside PAIN.",
+     "definitionFit": "Plain means simple or unadorned, not fancy, which is what an ordinary sort of thing is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucks"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +533,41 @@
     "text": "Chap's tie is crooked jumble",
     "enumeration": "8"
    },
-   "solution": "PASTICHE"
+   "solution": "PASTICHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "jumble",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "crooked",
+       "at": 14,
+       "note": "crooked means bent out of shape, so the letters of the phrase are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chap's tie",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man's necktie is askew and messy.",
+     "walkthrough": "'crooked' rearranges the letters of CHAPSTIE.",
+     "definitionFit": "A pastiche can mean a hotchpotch or medley of styles and pieces, which is a jumble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +581,62 @@
     "text": "Fantastic trainee beginning to recoup fee",
     "enumeration": "8"
    },
-   "solution": "RETAINER"
+   "solution": "RETAINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fee",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Fantastic",
+         "at": 0,
+         "note": "fantastic means wildly imaginative, so the letters of trainee are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trainee",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 18,
+         "note": "beginning to means only the opening letter of recoup is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recoup",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brilliant apprentice starts to earn back what was paid.",
+     "walkthrough": "'Fantastic' rearranges TRAINEE into RETAINE, and R is the first letter of recoup.",
+     "definitionFit": "A retainer is an advance payment made to secure a lawyer's or adviser's services."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fantastic"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +650,57 @@
     "text": "Artist is engaged in exercise to get approval",
     "enumeration": "6"
    },
-   "solution": "PRAISE"
+   "solution": "PRAISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "approval",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "engaged in",
+       "at": 10,
+       "note": "is engaged in means the artist and the word is sit inside the exercise abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exercise",
+       "at": 21,
+       "gives": "PE",
+       "note": "PE is physical education, school exercise"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Artist",
+         "at": 0,
+         "gives": "RA",
+         "note": "RA stands for Royal Academician, a crossword staple for artist"
+        },
+        {
+         "words": "is",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter takes up physical training and wins applause.",
+     "definitionFit": "Praise is the expression of admiration or approval for someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +714,45 @@
     "text": "Look in a place for summer entertainment, it's said",
     "enumeration": "6"
    },
-   "solution": "APPEAR"
+   "solution": "APPEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "APPEAR",
+     "indicators": [
+      {
+       "text": "it's said",
+       "at": 42,
+       "note": "it's said means the words are spoken and heard as a different word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a place for summer entertainment",
+       "at": 8,
+       "gives": "APIER",
+       "note": "a seaside pier, with its amusements and end-of-pier shows, is a place for summer fun"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks out a holiday venue for summer shows.",
+     "walkthrough": "British seaside piers traditionally host summer variety shows and arcades.",
+     "definitionFit": "To appear is to seem, as in 'he looks tired', so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +766,63 @@
     "text": "Trouble one found with much of report in US state",
     "enumeration": "8"
    },
-   "solution": "ILLINOIS"
+   "solution": "ILLINOIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US state",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Trouble",
+       "at": 0,
+       "gives": "ILL",
+       "note": "ill as a noun is harm or trouble"
+      },
+      {
+       "words": "one",
+       "at": 8,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "much of",
+         "at": 23,
+         "note": "much of means most but not all of the word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "report",
+         "at": 31,
+         "gives": "NOISE",
+         "note": "a report can be a loud bang, a noise"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bad news turns up in a report from an American state.",
+     "walkthrough": "'much of' cuts NOISE to NOIS.",
+     "definitionFit": "Illinois is one of the fifty states, home to Chicago."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +836,40 @@
     "text": "Doubts in fast regularly displayed",
     "enumeration": "3"
    },
-   "solution": "IFS"
+   "solution": "IFS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Doubts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "at": 15,
+       "note": "regularly means taking every other letter of the words in and fast"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in fast",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Uncertainties are on show during a period of fasting.",
+     "definitionFit": "Ifs as a noun are conditions or uncertainties, as in 'no ifs or buts'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +893,41 @@
      }
     ]
    },
-   "solution": "ATFIRSTSIGHT"
+   "solution": "ATFIRSTSIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "when initially viewed?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "misjudged",
+       "at": 18,
+       "note": "misjudged means wrongly assessed, so the letters of the two words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Artist's fight",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's brawl is wrongly assessed by those who see it first.",
+     "walkthrough": "'misjudged' shuffles ARTISTSFIGHT; 'is' is a link word.",
+     "definitionFit": "The idiom describes a first glance or first impression, as in love on first seeing someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fight"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +947,31 @@
      }
     ]
    },
-   "solution": "TOPDRAWER"
+   "solution": "TOPDRAWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "First-class",
+      "at": 0,
+      "meaning": "an idiom for the highest quality or social rank"
+     },
+     {
+      "text": "cartoonist with a global reputation?",
+      "at": 12,
+      "meaning": "read literally, someone who draws and is at the top of the world"
+     }
+    ],
+    "explanation": {
+     "surface": "An outstanding cartoonist famous everywhere.",
+     "definitionFit": "The phrase means of the best quality; split, it is a drawer who is at the top."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cartoonist"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +985,65 @@
     "text": "Irish woman starts to become loud and extremely easily annoyed",
     "enumeration": "9"
    },
-   "solution": "IRRITABLE"
+   "solution": "IRRITABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "easily annoyed",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Irish",
+       "at": 0,
+       "gives": "IR"
+      },
+      {
+       "words": "woman",
+       "at": 6,
+       "gives": "RITA",
+       "note": "Rita is a woman's name"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 12,
+         "note": "starts to means the first letter of each following word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "become",
+         "at": 22
+        },
+        {
+         "words": "loud",
+         "at": 29
+        },
+        {
+         "words": "extremely",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Irish woman begins to get noisy and very touchy.",
+     "walkthrough": "'starts to' picks B, L and E from become, loud and extremely. 'extremely easily' looks like a pair, but 'easily' belongs to the definition.",
+     "definitionFit": "An irritable person is quick to anger or short-tempered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1057,60 @@
     "text": "Persist taking right-wing money upsetting Eurosceptics' enemy?",
     "enumeration": "8"
    },
-   "solution": "CONTINUE"
+   "solution": "CONTINUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Persist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "right-wing",
+       "at": 15,
+       "gives": "CON",
+       "note": "CON is short for Conservative, the right-wing party"
+      },
+      {
+       "words": "money",
+       "at": 26,
+       "gives": "TIN",
+       "note": "tin is an old slang word for money"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upsetting",
+         "at": 32,
+         "note": "in a down clue, upsetting means turning upside down, so the letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Eurosceptics' enemy?",
+         "at": 42,
+         "gives": "EU",
+         "note": "Eurosceptics oppose the EU, the European Union"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory keeps going, taking cash and annoying the opponents of Brussels.",
+     "walkthrough": "'upsetting' reverses EU to UE. The question mark flags that the EU is described by who dislikes it.",
+     "definitionFit": "To continue is to carry on or keep going, which is what it means to persist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1134,60 @@
      }
     ]
    },
-   "solution": "COMEACROPPER"
+   "solution": "COMEACROPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "suffer a fall",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 24,
+       "note": "round means the shuffled letters go around the clubs abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Unusually",
+         "at": 0,
+         "note": "unusually means in an odd way, so the letters of the three words are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poor rep came",
+         "at": 10,
+         "note": "the letters of these three words are the anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "clubs",
+       "at": 30,
+       "gives": "C",
+       "note": "C is the card-suit abbreviation for clubs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man with a bad name took a tumble despite carrying golf clubs.",
+     "walkthrough": "'Unusually' rearranges POORREPCAME and 'round' puts it around C.",
+     "definitionFit": "The idiom means to fall heavily, originally from horse riding, or figuratively to fail badly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1201,46 @@
     "text": "Measure of current in uncovered light source",
     "enumeration": "3"
    },
-   "solution": "AMP"
+   "solution": "AMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Measure of current",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "uncovered",
+       "at": 22,
+       "note": "uncovered means the top, which in a down clue is the first letter, is taken off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "light source",
+       "at": 32,
+       "gives": "LAMP",
+       "note": "a lamp is a source of light"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Electrical current is measured in an exposed lamp.",
+     "walkthrough": "'uncovered' removes the first letter of LAMP.",
+     "definitionFit": "Short for ampere, the SI unit of electric current."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1254,57 @@
     "text": "Complete challenge between two people largely late in the day?",
     "enumeration": "7"
    },
-   "solution": "OVERDUE"
+   "solution": "OVERDUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "late in the day?",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Complete",
+       "at": 0,
+       "gives": "OVER",
+       "note": "over means finished, complete"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 38,
+         "note": "largely means most of the word, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "challenge between two people",
+         "at": 9,
+         "gives": "DUEL",
+         "note": "a duel is a fight between two people"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A finished two-person contest ending late in the evening.",
+     "walkthrough": "'largely' trims DUEL to DUE.",
+     "definitionFit": "Overdue means past the expected time, so the playful definition of being late, not just at a late hour, fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "day"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1324,48 @@
      }
     ]
    },
-   "solution": "DEJAVU"
+   "solution": "DEJAVU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tired stuff",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Pairs of",
+       "at": 0,
+       "note": "pairs of means the first two letters of each following word are taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deeply",
+       "at": 9
+      },
+      {
+       "words": "jaded",
+       "at": 16
+      },
+      {
+       "words": "vulgarians",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Very jaded boors serving up stale material.",
+     "definitionFit": "The French phrase for 'already seen' also describes something stale and overfamiliar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Pairs"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1379,40 @@
     "text": "Special front of a document, maybe, showing obstacle?",
     "enumeration": "8"
    },
-   "solution": "STOPPAGE"
+   "solution": "STOPPAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "obstacle?",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Special",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "front of a document, maybe",
+       "at": 8,
+       "gives": "TOPPAGE",
+       "note": "the first sheet of a document is its top page"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A special cover sheet appears to be a barrier.",
+     "definitionFit": "A stoppage is a blockage or halt, something that holds things up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1426,52 @@
     "text": "Solid priest is overseeing mass",
     "enumeration": "5"
    },
-   "solution": "PRISM"
+   "solution": "PRISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Solid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "overseeing",
+       "at": 16,
+       "note": "in a down clue, overseeing means sitting above, so the mass letter comes below"
+      }
+     ],
+     "parts": [
+      {
+       "words": "priest",
+       "at": 6,
+       "gives": "PR"
+      },
+      {
+       "words": "is",
+       "at": 13
+      },
+      {
+       "words": "mass",
+       "at": 27,
+       "gives": "M",
+       "note": "M is the physics symbol for mass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reliable cleric supervises the celebration of Mass.",
+     "walkthrough": "'Solid' looks like an adjective describing the priest; it is a noun, the geometric shape.",
+     "definitionFit": "A prism is a three-dimensional geometric figure, so it is a solid in maths."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Solid"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1485,54 @@
     "text": "Stadium put up in Brisbane rapidly",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stadium",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "put up",
+       "at": 8,
+       "note": "put up says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 15,
+         "note": "the clue word that says the letters sit inside the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Brisbane rapidly",
+         "at": 18,
+         "gives": "ANERA",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports ground is erected quickly in Brisbane.",
+     "definitionFit": "An arena is an enclosed venue for sport or shows, a stadium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1546,71 @@
     "text": "Terrible tenor off-key around end of concert",
     "enumeration": "6"
    },
-   "solution": "ROTTEN"
+   "solution": "ROTTEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Terrible",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 23,
+       "note": "around means the rearranged singer goes around that letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off-key",
+         "at": 15,
+         "note": "off-key means out of tune, so the letters of tenor are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tenor",
+         "at": 9,
+         "note": "the five letters of the singer's voice are the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 30,
+         "note": "end of means only the last letter of concert is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "concert",
+         "at": 37,
+         "note": "only its final letter is used"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful tenor sings out of tune near the end of the concert.",
+     "walkthrough": "'off-key' makes ROTEN from TENOR, 'around' puts it around T.",
+     "definitionFit": "Rotten in its informal sense means awful or very poor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tenor"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1624,59 @@
     "text": "Provoke citizen in middle of diner",
     "enumeration": "6"
    },
-   "solution": "INCITE"
+   "solution": "INCITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provoke",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in means the short citizen word goes inside those middle letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 19,
+         "note": "middle of means the letters of diner without its two ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diner",
+         "at": 29,
+         "note": "its central three letters are used, without the two ends"
+        }
+       ]
+      },
+      {
+       "words": "citizen",
+       "at": 8,
+       "gives": "CIT",
+       "note": "cit is an old short form of citizen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troublemaker stirs up a resident in the middle of a restaurant.",
+     "definitionFit": "To incite is to stir up or urge on, to provoke someone into acting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "citizen"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1690,47 @@
     "text": "Gloomy director gets to admit defeat",
     "enumeration": "8"
    },
-   "solution": "DOWNBEAT"
+   "solution": "DOWNBEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gloomy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "director",
+       "at": 7,
+       "gives": "D"
+      },
+      {
+       "words": "admit",
+       "at": 24,
+       "gives": "OWN",
+       "note": "to own up is to admit, and own alone can mean confess"
+      },
+      {
+       "words": "defeat",
+       "at": 30,
+       "gives": "BEAT",
+       "note": "to beat is to defeat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A miserable film boss concedes that he lost.",
+     "walkthrough": "'admit defeat' reads as one idiom, but each word does its own job.",
+     "definitionFit": "Downbeat means pessimistic or depressed, the same mood as gloomy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admit"
+    }
+   }
   },
   {
    "number": 28,
@@ -465,7 +1744,64 @@
     "text": "Go through Russian city with European friend short of money",
     "enumeration": "8"
    },
-   "solution": "PERMEATE"
+   "solution": "PERMEATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go through",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Russian city",
+       "at": 11,
+       "gives": "PERM",
+       "note": "Perm is a city in the Ural region of Russia"
+      },
+      {
+       "words": "European",
+       "at": 29,
+       "gives": "E"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short of",
+         "at": 45,
+         "note": "short of means lacking, so the money letter is taken out of the friend word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "friend",
+         "at": 38,
+         "gives": "MATE",
+         "note": "mate is a friend"
+        },
+        {
+         "words": "money",
+         "at": 54,
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trip round a Russian city with a European pal who is out of cash.",
+     "walkthrough": "'short of' takes M from MATE, leaving ATE.",
+     "definitionFit": "To permeate is to spread through or seep into every part, to penetrate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "friend"
+    }
+   }
   },
   {
    "number": 29,
@@ -479,7 +1815,45 @@
     "text": "Melancholy skipper with no more appetite, we're told",
     "enumeration": "6"
    },
-   "solution": "RUEFUL"
+   "solution": "RUEFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Melancholy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RUEFUL",
+     "indicators": [
+      {
+       "text": "we're told",
+       "at": 42,
+       "note": "we're told means the phrase is heard rather than seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "skipper with no more appetite",
+       "at": 11,
+       "gives": "ROOFULL",
+       "note": "a roo, a kangaroo, skips along, and one with no more appetite is full"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad ship's captain has lost his appetite.",
+     "walkthrough": "'skipper' wants to be a captain; it is a kangaroo (roo), which skips about.",
+     "definitionFit": "Rueful means expressing regret in a sorrowful way, so it is close to sad or mournful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "skipper"
+    }
+   }
   }
  ]
 }
