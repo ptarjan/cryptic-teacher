@@ -248,6 +248,8 @@ function boot(opts) {
     readyState: "complete",
     activeElement: null,
     head: new FakeEl("head"),
+    // app.js pins head icons/manifest and runs the self-updater with this at load; nothing to find here.
+    querySelectorAll() { return []; },
     querySelector(sel) {
       if (sel === 'link[rel="canonical"]') return canonicalLink;
       if (sel === 'meta[name="robots"]') {
