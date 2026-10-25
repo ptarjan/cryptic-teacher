@@ -8233,7 +8233,16 @@ def write_backlog(observed, allowed):
                     "shrink. A puzzle absent from a field's list must have none.",
             **{f: {num: n for num, n in sorted(ratchet[f].items(), key=_sort_key)
                    if n} for f in BACKLOG_MARKERS}}
-    BACKLOG_PATH.write_text(json.dumps(data, indent=1) + "\n")
+    store_backlog(data)
+
+
+def store_backlog(data, path=None):
+    """Write the backlog in the layout git stores (the json-keys clean filter's:
+    one line per top-level key). Every writer goes through here: a layout the
+    filter would change shows as a code edit in the pre-reset backfill, which
+    publishes with plumbing that skips the filter."""
+    import json_merge
+    (path or BACKLOG_PATH).write_text(json_merge.dump_lines(data))
 
 
 def explain(name=None):

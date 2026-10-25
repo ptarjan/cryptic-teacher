@@ -1181,6 +1181,11 @@ sync_tree_around_dirty() {
   return 1
 }
 
+# True when the working copy of JSON file $1 parses to what HEAD has.
+json_unchanged() {
+  git show "HEAD:$1" 2>/dev/null | python3 -c 'import json,sys; sys.exit(json.load(open(sys.argv[1])) != json.load(sys.stdin))' "$1" 2>/dev/null
+}
+
 # A run authors its puzzle, the clues-only file its solve removes, and data
 # under tools/data/; the worker commits only those (puzzle_worker.sh), so an
 # edit a run made to tracked CODE (tools/*.py, say) is neither published nor
@@ -1193,7 +1198,14 @@ sync_tree_around_dirty() {
 # the patch cannot be written.
 shelve_code_edits() {
   local shelf="${PRERESET_SHELF:-$HOME/.cryptic-teacher/design/prereset-code-edits}"
-  local -a code
+  local -a code layout f
+  # A JSON file a run rewrote in another layout (tools/annotation_backlog.json
+  # compact, where git stores the json-keys clean layout) is not an edit: same
+  # parsed content as HEAD, so it is put back silently, no patch, no alert.
+  mapfile -t layout < <(git diff --name-only HEAD -- ':(glob)**/*.json' ':(exclude)puzzles/' ':(exclude)clues_only/' ':(exclude)tools/data/')
+  for f in "${layout[@]}"; do
+    [ -n "$f" ] && json_unchanged "$f" && under_index_lock git checkout -q HEAD -- "$f"
+  done
   mapfile -t code < <(comm -12 \
     <(git diff --name-only HEAD origin/master -- . ':(exclude)puzzles/' ':(exclude)clues_only/' ':(exclude)tools/data/' | sort) \
     <(git diff --name-only HEAD -- . ':(exclude)puzzles/' ':(exclude)clues_only/' ':(exclude)tools/data/' | sort))

@@ -59,6 +59,20 @@ class Publish(unittest.TestCase):
         out = json.loads(R.raised_backlog(text, {"wordplay.wrongRole": {"a-1": ["1a", "2d"], "a-2": ["1a"]}}))
         self.assertEqual(list(out["wordplay.wrongRole"].items()), [("a-1", 2), ("a-2", 1)])
 
+    def test_store_backlog_writes_the_stored_layout(self):
+        """Every backlog writer (shrink, fill_spellings, clear_unchecked, ...) goes
+        through V.store_backlog; a layout the clean filter would change shows up
+        as a code edit in the pre-reset backfill."""
+        import json_merge
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "b.json"
+            R.V.store_backlog({"_why": "w", "wordplay.x": {"a-1": 2, "a-2": 1}}, p)
+            text = p.read_text()
+        self.assertEqual(json_merge.clean(text), text)
+        self.assertEqual(len(text.splitlines()), 4)
+
     def test_raised_backlog_is_the_json_keys_clean_layout(self):
         import json_merge
         out = R.raised_backlog(json.dumps({"_why": "w", "wordplay.wrongRole": {"a-2": 1}}), {"wordplay.wrongRole": {"a-1": ["1a"]}})

@@ -119,7 +119,7 @@ def shrink_allowance(left):
     new = {k: min(n, had.get(k, n)) for k, n in left.items() if n}
     new.update({k: n for k, n in had.items() if k not in left})
     data[FIELD] = dict(sorted(new.items(), key=V._sort_key))
-    V.BACKLOG_PATH.write_text(json.dumps(data, indent=1) + "\n")
+    V.store_backlog(data)
 
 
 def main():
