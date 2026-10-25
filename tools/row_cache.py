@@ -43,7 +43,7 @@ import parallel
 import puzzle_paths
 import unit_more
 
-PRUNE_DAYS = 14
+PRUNE_DAYS = 3
 #: The most missing rows made between deadline checks, under a deadline
 #: (tools/budget.py): enough for every worker. Each batch is also cut to the
 #: rows the time left holds at the pace measured so far (batch_size), so a stop
