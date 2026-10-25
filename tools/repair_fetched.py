@@ -72,6 +72,13 @@ punctuation.mend_puzzle and enumeration.collapse_entry_spaces mend them.
 The edition queue writes each reading through mechanical(), so a re-read never
 files what this would mend.
 
+Answers filed to the side copy. A full reread decide() sent to --out wrote its
+puzzle to CROPS/unfiled, answers and all, while the corpus held the same
+puzzle with blank lights. --side-answers fills those blank lights from the
+copy (repair_side_answers): only a blank, on the same grid, each answer
+passing the answers-only rules (side_fills: misread_word, uncrossed and the
+classifier, the cmudict-only name rule), crossing every held letter alike.
+
 WHAT IT ONLY REPORTS
 
 A mis-filed date. convert() refuses a page whose two stated dates are more
@@ -1468,6 +1475,160 @@ def repair_renumbered(apply_it=False, reads=None, held=None):
     return found
 
 
+def side_shape(puzzle):
+    """The grid and every light's (number, direction, x, y, length) of `puzzle`: two files whose
+    shapes are equal lie on one grid, numbered alike."""
+    import trove_solution_ocr as tso
+    return tso.puzzle_grid(puzzle), sorted((e["number"], e["direction"], e["position"]["x"], e["position"]["y"],
+                                            e["length"]) for e in puzzle.get("entries") or ())
+
+
+def side_fills(held, side, crops=None):
+    """({light: answer} of `side`'s answers the held file `held` may take, {light: why} of those it may
+    not) for one Times puzzle whose full reread decide() sent to --out (the side copy `side`, in
+    CROPS/unfiled) while the corpus held it with blank lights: only a light the held file leaves blank,
+    by the rules answers_only and decide's heldWhole merge file such a reading's answers under. Each
+    taken answer fills its light, crosses every held letter and every other taken answer alike
+    (fits_lights), is no misread (misread_word; MISREAD_NAMES), and stands where its letters are
+    checked by nothing (uncrossed, the classifier's read of the grid's crop through crop_probs and
+    misread_rival); a surname cmudict alone lists (trove_solution_ocr.name_only) stands only on every
+    unchecked cell read at UNLISTED_TOP, or with none unchecked. ({}, {"*": why}) for a whole file
+    refused: another grid, a reading at odds with itself, or another puzzle's answers (wrong_grid)."""
+    import file_archive_org_puzzles as archive
+    import trove_solution_ocr as tso
+    pid = held["id"]
+    if (held.get("source") or {}).get("acquiredBy") != archive.TOOL:
+        return {}, {"*": "held file not the archive filer's"}
+    if side_shape(held) != side_shape(side):
+        return {}, {"*": "another grid"}
+    es = held["entries"]
+    read = {entry_id(e): e["solution"] for e in side["entries"] if e.get("solution")}
+    if not read:
+        return {}, {}
+    if not archive.fits_lights(side["entries"], read):
+        return {}, {"*": "side reading at odds with itself"}
+    if archive.wrong_grid(es, read, "times", held["number"]):
+        return {}, {"*": "another puzzle's answers (wrong_grid)"}
+    grid = tso.puzzle_grid(held)
+    enums = {(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration") for e in es}
+    lts = tso.lights(grid)
+    have = {entry_id(e): e["solution"] for e in es if e.get("solution")}
+    letters = {rc: ch for k, w in have.items() for rc, ch in zip(lts[archive._light_key(k)], w)}
+    named = {(p, lid, w) for p, lid, w in MISREAD_NAMES}
+    took, why = {}, {}
+    for e in es:
+        lid = entry_id(e)
+        word = read.get(lid)
+        if e.get("solution") or not word:
+            continue
+        cells = lts[archive._light_key(lid)]
+        if len(word) != e["length"]:
+            why[lid] = "its light's length"
+        elif (pid, lid, word) in named or archive.misread_word(word, enums.get(archive._light_key(lid))):
+            why[lid] = "a misread (misread_word)"
+        elif any(letters.get(rc, ch) != ch for rc, ch in zip(cells, word)):
+            why[lid] = "a held crossing letter"
+        else:
+            took[lid] = word
+    if not took:
+        return {}, why
+    # The classifier's read of the grid's crop, asked only when a rule needs it (~5 s a puzzle), kept
+    # under CROPS/cell_probs so the --apply after a dry run reads none again.
+    got = {}
+    def probs():
+        if "p" not in got:
+            crop = grid_crop(held, crops if crops is not None else _CROPS)
+            got["p"] = crop_probs(crop, grid) if crop else None
+        return got["p"]
+    lone = archive.uncrossed({**have, **took}, grid, enums, probs=probs)
+    for lid in sorted(lone & set(took)):
+        why[lid] = "uncrossed, the crop read as another word" if got.get("p") else "uncrossed, no crop read"
+        del took[lid]
+    final = {**have, **took}
+    on = {}
+    for (n, dr), cells in lts.items():
+        for rc in cells:
+            on.setdefault(rc, []).append(f"{n}-{dr}")
+    for lid in sorted(took):
+        if not tso.name_only(took[lid]):
+            continue
+        unchecked = archive.lone_cells(lid, lts, on, final)
+        if not unchecked:
+            continue
+        p = probs()
+        cells, bare = lts[archive._light_key(lid)], {rc for _i, rc, _c in unchecked}
+        if not p or not tso.cells_sure(took[lid], cells, p, {rc: ch for rc, ch in zip(cells, took[lid]) if rc not in bare}):
+            why[lid] = "a cmudict-only name, unchecked cells not sure"
+            del took[lid]
+    return took, why
+
+
+def repair_side_answers(apply_it=False, side=None, crops=None):
+    """For each Times copy in CROPS/unfiled (`side`) a full reread's decide() wrote to --out, of a
+    puzzle the corpus holds with blank lights: those lights take the copy's answers that side_fills
+    passes, merged as decide()'s heldWhole merge does (file_archive_org_puzzles.merge_answers keep:
+    no held answer changes or goes; a blog-keyed file's partial list kept). Written through
+    fetch_puzzle.write_puzzle_file (its shim, provenance.stamp's origin: "published" once our reads
+    answer it, as an answers-only merge leaves it), a file provenance.check faults left unwritten.
+    {"filled": [(id, light, answer)], "whole": [ids now fully answered], "refused": [(id, light,
+    answer or None, why)], "files": n}. With `apply_it` False nothing is written."""
+    import file_archive_org_puzzles as archive
+    import provenance
+    side = Path(side or archive.CROPS / "unfiled")
+    _CROPS.clear()
+    _CROPS.update(grid_crops() if crops is None else crops)
+    out = {"filled": [], "whole": [], "refused": [], "files": 0, "blog": 0}
+    for q in sorted(side.glob("times-*.json"), key=lambda p: int(p.stem.split("-")[1]) if p.stem.split("-")[1].isdigit() else 0):
+        pid = q.stem
+        path = puzzle_paths.find(pid)
+        if path is None:
+            continue
+        held = fetcher.read_puzzle_file(path)
+        if all(e.get("solution") for e in held.get("entries") or ()):
+            continue
+        try:
+            copy_ = json.loads(q.read_text())
+        except (OSError, ValueError):
+            out["refused"].append((pid, "*", None, "side copy unreadable"))
+            continue
+        if not any(e.get("solution") for e in copy_.get("entries") or ()):
+            continue
+        out["files"] += 1
+        took, why = side_fills(held, copy_)
+        read = {entry_id(e): e.get("solution") for e in copy_["entries"]}
+        out["refused"] += [(pid, lid, read.get(lid), w) for lid, w in sorted(why.items())]
+        if not took:
+            continue
+        before = provenance.check(held)
+        new = copy.deepcopy(held)
+        reading = copy.deepcopy(held)
+        for e in reading["entries"]:
+            e["solution"] = took.get(entry_id(e))
+        changed = archive.merge_answers(new, reading, keep=True)
+        if not changed:
+            continue
+        try:
+            stamped = provenance.stamp(copy.deepcopy(new), held["source"]["acquiredBy"])
+        except ValueError as err:
+            out["refused"] += [(pid, lid, w, f"provenance: {err}") for lid, w in sorted(changed.items())]
+            continue
+        faults = [f for f in provenance.check(stamped) if f not in before]
+        if faults:
+            out["refused"] += [(pid, lid, w, f"provenance: {faults[0]}") for lid, w in sorted(changed.items())]
+            continue
+        if apply_it:
+            try:
+                fetcher.write_puzzle_file(path, new)
+            except Exception as err:  # the write gate's refusal: the file stands as held
+                out["refused"] += [(pid, lid, w, f"write refused: {type(err).__name__}") for lid, w in sorted(changed.items())]
+                continue
+        out["blog"] += "blog" in (held.get("solutions") or {})
+        out["filled"] += [(pid, lid, w) for lid, w in sorted(changed.items())]
+        if all(e.get("solution") for e in new["entries"]):
+            out["whole"].append(pid)
+    return out
+
+
 def grown(held, now):
     """Whether the clue text `now` is the held `held` with a few words added
     and none lost: a reread laying neighbouring print in a clue. A run of
@@ -1516,6 +1677,10 @@ def main(argv):
                          "with a letter no other answer checks that the cell classifier reads, off the grid's "
                          "crop, as another making a listed word (repair_uncrossed: BATES for PATES); "
                          "--apply writes")
+    ap.add_argument("--side-answers", action="store_true",
+                    help="only fill the blank lights of each held Times file from its --out copy in "
+                         "CROPS/unfiled (a full reread's answers decide() filed there), never a held answer, "
+                         "by the answers-only rules (side_fills); --apply writes")
     ap.add_argument("--workers", type=int, default=1, metavar="N",
                     help="with --uncrossed, classify the grid crops in N processes")
     ap.add_argument("--renumbered", action="store_true",
@@ -1574,6 +1739,20 @@ def main(argv):
         moved = [r for r in found if r[3] is None]
         print(f"{len(found)} filed below their title, {len(moved)} {'renamed' if args.apply else 'would be renamed'}"
               + "".join(f", {decade}s {n}" for decade, n in sorted(Counter(r[1].year // 10 * 10 for r in moved).items())))
+        return 0
+    if args.side_answers:
+        got = repair_side_answers(args.apply)
+        for pid, lid, word in got["filled"]:
+            print(f"{pid} {lid}: blank -> {word}")
+        for pid, lid, word, why in got["refused"]:
+            print(f"{pid} {lid}: {word or '-'} left: {why}")
+        verb = "filled" if args.apply else "would be filled"
+        print(f"{got['files']} side copies with answers for a held file short of some; "
+              f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} "
+              f"({got['blog']} blog-keyed file(s)), {len(got['whole'])} made fully answered; refused "
+              + ", ".join(f"{why} {n}" for why, n in Counter(
+                  "write refused" if r[3].startswith("write refused") else "provenance" if r[3].startswith("provenance")
+                  else r[3] for r in got["refused"]).most_common()))
         return 0
     if args.uncrossed:
         blanked = repair_uncrossed(args.uncrossed, args.apply, args.workers)
