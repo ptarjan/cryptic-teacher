@@ -1436,7 +1436,8 @@
     "definitions": [
      {
       "text": "not accepting negative response",
-      "at": 30
+      "at": 30,
+      "note": "an adjectival phrase, describing someone who will not take no for an answer"
      }
     ],
     "wordplay": {
@@ -1444,7 +1445,8 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the rearranged letters go round the drug"
+       "at": 18,
+       "note": "about means around, so the scrambled letters surround the next piece"
       }
      ],
      "parts": [
@@ -1453,33 +1455,48 @@
        "indicators": [
         {
          "text": "wrong",
-         "note": "wrong signals that the letters are in the wrong order and must be rearranged"
+         "at": 12,
+         "note": "wrong means incorrect, so the letters are put in a different order"
         }
        ],
        "parts": [
         {
-         "words": "Isn't twice",
-         "gives": "ISNTISNT",
-         "note": "the letters of isn't, taken twice"
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "twice",
+           "at": 6,
+           "note": "twice says the word is written out two times"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Isn't",
+           "at": 0,
+           "gives": "ISNT",
+           "note": "the word isn't, written without its apostrophe"
+          }
+         ]
         }
        ]
       },
       {
        "words": "drug",
+       "at": 24,
        "gives": "E",
-       "note": "E is short for the drug ecstasy"
+       "note": "E is slang for the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone refusing drugs keeps repeating that it isn't right.",
-     "walkthrough": "The rearranged letters INSISTNT wrap round E between the T and the N.",
-     "definitionFit": "An insistent person demands something firmly and will not take no for an answer."
+     "surface": "Someone keeps denying wrongdoing about drugs and refuses to be refused.",
+     "walkthrough": "'twice' gives ISNTISNT; 'wrong' scrambles it into INSISTNT, which goes 'about' E.",
+     "definitionFit": "Someone who keeps demanding something will not be put off by a refusal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "negative"
+     "misdirectedWord": "wrong"
     }
    }
   },
