@@ -4051,15 +4051,28 @@ def held_between(held, window):
     return tuple(pairs[bisect.bisect_left(pairs, (window[0],)):bisect.bisect_right(pairs, (window[1], math.inf))])
 
 
-def placed(n, day, held):
+def placed(n, day, held, vouched=False):
     """(number, None) that an edition of `day` read as No `n` files as, or
     (None, why) it cannot file. The edition's date is trusted over a number
     OCR read: when the nearest filed puzzles either side run unbroken, one
     number an issue, the date fixes the number (implied); otherwise No `n`
-    must sit in date order among them and not be filed for another day."""
+    must sit in date order among them and not be filed for another day.
+
+    A `vouched` title (its page prints the solution of No `n` - 1, the issue
+    before: filed_number) is not overruled by the count: the count is only as
+    good as the neighbours it counts from and the days it counts, and one
+    filed a number off, or a day the paper skipped (Christmas Day), turns a
+    whole run of right titles into wrong numbers. Times 22129, filed for
+    2002-08-28 (whose page prints No 22130 over the solution of 22129), and
+    22232 on 2002-12-26 "ran unbroken" over 25 December, so every title
+    between them filed one low and the real 22130 was refused as taken. A
+    vouched title still sits in date order and on no other day's number. Only
+    one issue off the count: further off, the OCR misread the same digit in the
+    title and the heading (1968-07-24's "11999" over "11998" for 11909), and the
+    count stands."""
     before, after = neighbours(day, held)
     fixed = implied(day, held)
-    if fixed is not None:
+    if fixed is not None and not (vouched and abs(fixed - n) == 1):
         return fixed, None
     if n in held and held[n] != day:
         return None, f"No {n} is already filed for {held[n]}, not {day}"
@@ -4253,7 +4266,11 @@ def filed_number(d, found, hit):
     if abs(n - paper.expected(day)) > paper.slack:
         return None, day, (f"No {n} is not near the {paper.expected(day)} the date "
                            f"{day} implies: the item's date is wrong")
-    number, why = placed(n, day, held)
+    # The title as read, and the page's heading of the issue before's solution
+    # reading one less: two prints agreeing, which a count of issues may not overrule.
+    vouched = n == hit["number"] and any(s["number"] == n - 1 for s in found["solutions"]
+                                         if s.get("leaf", hit["leaf"]) == hit["leaf"])
+    number, why = placed(n, day, held, vouched)
     if number is not None:
         why = same_scan(number, page_url(d, found, hit["leaf"]), day, paper.series)
     return number, day, why
@@ -6894,6 +6911,51 @@ REREAD_REFUSED_GRID = "2026-10-24T22:00:00+00:00"
 GRID_REFUSALS = ("its blocks are not the puzzle's", "the ink under the heading is ")
 
 
+#: The due reason of an edition whose puzzle filed a number off its title (verdict "read_as") and
+#: has since been renumbered to that title (repair_fetched --renumbered, placed's vouched titles):
+#: its solution heading names the title, so the answers it read (or could not link) are read
+#: again, once: rows read before REREAD_RENUMBERED. Paul 10-25: 80 Times puzzles stood one low
+#: (2002-08-28..12-24 73, 2001-04 4, 1982-09 3), each host linking the puzzle after.
+RENUMBERED = "renumbered to its title, answers read again"
+REREAD_RENUMBERED = "2026-10-25T04:30:00+00:00"
+#: The refusals a renumber may lift: the title's number held for another day, or its page held
+#: under another number (placed, same_scan).
+TAKEN_REFUSALS = (" is already filed for ", " is the scan page No ")
+#: A write refused for its date out of order with the number before's (fetch_puzzle's DATE check):
+#: Times 21704 on 2001-04-17, when 21703 stood misdated the 17th.
+ORDER_REFUSED = ", not after "
+
+
+def renumbered(row):
+    """RENUMBERED, "refused number-date-mismatch before its fix", or None for ledger `row`
+    read before REREAD_RENUMBERED: a verdict filed off its title (read_as) whose series
+    now holds that title on the edition's day is RENUMBERED (its clues stand); a title
+    refused as taken (TAKEN_REFUSALS) or its write refused out of date order
+    (ORDER_REFUSED), or one filed a number off its title with neither number now held
+    on the day, whose title its series now holds on the edition's day or not at all, is
+    the refusal, read in full. A title filed further off is a misread, not a renumber."""
+    if not row.get("verdicts") or not scan_queue.read_before(row, scan_queue.when(REREAD_RENUMBERED)):
+        return None
+    day = (row.get("scan") or {}).get("date")
+    if not day:
+        return None
+    paper = paper_of(row.get("edition", ""))
+    day = datetime.date.fromisoformat(day)
+    held = None
+    for v in row["verdicts"]:
+        title, number = v.get("read_as", v.get("number")), v.get("number")
+        taken = v.get("cause") == "number-date-mismatch" and any(t in str(v.get("refused")) for t in TAKEN_REFUSALS) \
+            or ORDER_REFUSED in str(v.get("refusedWrite") or "")
+        if title is None or not taken and (v.get("refused") or number is None or abs(title - number) != 1):
+            continue
+        held = held_dates(paper.series) if held is None else held
+        if not taken and v.get("id") and held.get(title) == day:
+            return RENUMBERED
+        if held.get(title, day) == day and (taken or held.get(number) != day):
+            return "refused number-date-mismatch before its fix"
+    return None
+
+
 def refused_grid(row):
     """Whether Times ledger `row`, read before REREAD_REFUSED_GRID, refused a linked solution grid
     for its blocks or its ink's size (GRID_REFUSALS), for a puzzle held without every answer."""
@@ -6930,6 +6992,9 @@ def fix_reason(row):
         t = REREAD_WRITE_FAILED.get(v.get("writeFailed"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
             return "refused writeFailed before its fix"
+    why = renumbered(row)
+    if why:
+        return why
     if unparsed_fixed(row):
         return "refused unparsed before its fix"
     if untitled_rescan(row):
@@ -7447,7 +7512,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, SHORT_WIDE: 2,
-         REFUSED_GRID: 2,
+         REFUSED_GRID: 2, RENUMBERED: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
@@ -7951,7 +8016,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, SHORT_WIDE,
-                  REFUSED_GRID, UNCLASSIFIED_HELD)
+                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED)
 
 
 def keeps_vlm(why, row, unit=None):

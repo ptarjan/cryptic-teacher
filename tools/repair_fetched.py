@@ -950,6 +950,109 @@ def repair_misread_names(apply_it=False, rows=MISREAD_NAMES):
     return blanked
 
 
+#: How many days on an edition's next issue may lie (a Sunday, a holiday, a missing paper).
+NEXT_ISSUE_DAYS = 4
+
+
+def misnumbered_titles(titles, headings, held):
+    """[(number, day, title, why)], newest first, of the puzzles `held` ({number: date})
+    filed one below the title their own page prints: `titles` ({date: [title numbers]}
+    of each edition) reads No `title` = `number` + 1 alone on `day` and not `number`,
+    and a solution heading bears the title out (`headings`, {date: [numbers]}): the
+    page's own of the issue before (`number`) or, on a Saturday, of the Saturday
+    before's prize (`title` - 6), or the next issue's of the title. The
+    filer's count of issues from a neighbour filed a number off once overruled such
+    titles (file_archive_org_puzzles.placed: vouched). `why` is None for one to
+    renumber to `title`: its title free, or freed by one renumbered before it (newest
+    first); "duplicate" when the title is the same day's other file (one page filed
+    twice); else what holds the title."""
+    days = sorted(titles)
+    moving, out = set(), []
+    for number, day in sorted(held.items(), reverse=True):
+        title = number + 1
+        if titles.get(day) != [title]:
+            continue
+        k = bisect.bisect_right(days, day)
+        later = days[k] if k < len(days) and (days[k] - day).days <= NEXT_ISSUE_DAYS else None
+        own = headings.get(day, ())
+        if number not in own and not (day.weekday() == 5 and title - 6 in own) \
+                and (later is None or title not in headings.get(later, ())):
+            continue
+        if title in held and title not in moving:
+            why = "duplicate" if held[title] == day else f"No {title} is filed for {held[title]}"
+        else:
+            why = None
+            moving.add(number)
+        out.append((number, day, title, why))
+    return out
+
+
+def renumber_file(path, puzzle, number, apply_it=False):
+    """The path puzzle file `path` (holding `puzzle`) moves to as No `number`: its id and number
+    set, written beside it (the same day, so the same year folder) in the corpus's own form, the
+    old file removed, and its generated puzzles/<id>.js shim (and .gz) replaced by the new id's
+    when one was built. Nothing is written without `apply_it`."""
+    series, _ = series_meta.parse_id(puzzle["id"])
+    pid = f"{series}-{number}"
+    dest = path.with_name(f"{pid}.json")
+    if not apply_it:
+        return dest
+    moved = dict(puzzle, id=pid, number=number)
+    fetcher.write_whole(dest, json.dumps(moved, indent=1, ensure_ascii=False) + "\n")
+    path.unlink()
+    shim = puzzle_paths.shim_path(path)
+    if shim.exists():
+        fetcher.write_shim(dest, moved)
+    for old in (shim, shim.with_name(shim.name + ".gz")):
+        if old.exists():
+            old.unlink()
+    return dest
+
+
+def times_title_reads():
+    """({date: [title numbers]}, {date: [solution heading numbers]}) of every Times
+    edition's last ledger row whose page is one day's paper (a Gale page,
+    file_archive_org_puzzles.ONE_DAY_ITEM): an archive.org item binds the next days'
+    papers too (NewsUK 1981-03-05 holds 15465 and the 6th's 15466), so its scan's
+    date is not each title's day."""
+    import file_archive_org_puzzles as archive
+    from datetime import date
+    titles, headings = {}, {}
+    for paper in (archive.GALE, archive.TIMES):
+        for edition, row in archive.load_known(archive.ledger_of(paper=paper)).items():
+            scan = row.get("scan") or {}
+            if not scan.get("date") or archive.paper_of(edition).series != "times" \
+                    or not archive.ONE_DAY_ITEM.match(edition.split("/")[0]):
+                continue
+            day = date.fromisoformat(scan["date"])
+            titles.setdefault(day, []).extend(p["number"] for p in scan.get("puzzles", ()) if "fromSolutions" not in p)
+            headings.setdefault(day, []).extend(s["number"] for s in scan.get("solutions", ()))
+    return {d: sorted(set(t)) for d, t in titles.items()}, headings
+
+
+def repair_renumbered(apply_it=False, reads=None, held=None):
+    """misnumbered_titles over the Times puzzles held one below a title read (`reads`:
+    times_title_reads(); `held`: {number: date}, the filer's held_dates), only the files
+    it names read; each free one is renamed to its title, newest first, so none lands on
+    another (renumber_file), and a duplicate's misnumbered copy is removed when it is the
+    same page as the title's file. [(number, day, title, why)]; nothing is written
+    without `apply_it`."""
+    if held is None:
+        import file_archive_org_puzzles as archive
+        held = dict(archive.held_dates("times"))
+    titles, headings = reads or times_title_reads()
+    found = misnumbered_titles(titles, headings, held)
+    load = lambda n: (lambda p: (p, fetcher.read_puzzle_file(p)))(puzzle_paths.find(f"times-{n}"))
+    for number, _day, title, why in found:
+        path, puzzle = load(number)
+        if why is None:
+            renumber_file(path, puzzle, title, apply_it)
+        elif why == "duplicate" and apply_it \
+                and (puzzle.get("source") or {}).get("url") == (load(title)[1].get("source") or {}).get("url"):
+            path.unlink()
+    return found
+
+
 def grown(held, now):
     """Whether the clue text `now` is the held `held` with a few words added
     and none lost: a reread laying neighbouring print in a clue. A run of
@@ -984,6 +1087,10 @@ def main(argv):
     ap.add_argument("--misread-names", action="store_true",
                     help="only blank the Times answers in MISREAD_NAMES (a surname cmudict alone lists, "
                          "misread off a word: BOAN for ROAN); --apply writes")
+    ap.add_argument("--renumbered", action="store_true",
+                    help="only rename the Times puzzles filed one below the title their page prints, "
+                         "a solution heading bearing the title out (misnumbered_titles), newest first; "
+                         "--apply writes")
     ap.add_argument("--apply", action="store_true",
                     help="write the repairs; without it nothing is written")
     ap.add_argument("--dry-run", action="store_true",
@@ -1028,6 +1135,14 @@ def main(argv):
         fixed = sum(1 for r in found if r[2])
         print(f"{len(found)} misdated, {fixed} {'redated' if args.apply else 'would be redated'}, "
               f"{len(found) - fixed} left to look at")
+        return 0
+    if args.renumbered:
+        found = repair_renumbered(args.apply)
+        for number, when, title, why in found:
+            print(f"times-{number} ({when}): titled No {title} -> " + (f"times-{title}" if why is None else f"left: {why}"))
+        moved = [r for r in found if r[3] is None]
+        print(f"{len(found)} filed below their title, {len(moved)} {'renamed' if args.apply else 'would be renamed'}"
+              + "".join(f", {decade}s {n}" for decade, n in sorted(Counter(r[1].year // 10 * 10 for r in moved).items())))
         return 0
     if args.misread_names:
         blanked = repair_misread_names(args.apply)

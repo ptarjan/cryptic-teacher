@@ -4458,6 +4458,46 @@ ft2833 = {"date": "1975-07-16", "puzzles": [{"number": 2833, "leaf": 1}], "solut
 check("an FT title files for the day its edition's issue neighbours give, not the item title's (ftcryptic-2833)",
       (2833, _dt.date(1975, 7, 19), None),
       f.filed_number(Path("x/FinancialTimes1975UKEnglish/1975-07-16_26722"), ft2833, {"number": 2833, "leaf": 1}))
+# A title its page's solution heading vouches for (No n - 1, the issue before) is not overruled
+# by a count of issues: Times 22129 filed for 2002-08-28 (whose page prints No 22130) and 22232 on
+# 12-26 count unbroken over Christmas Day, which had no paper, so the count put every title
+# between them one low (08-29's No 22131 filed as 22130, 74 more after it).
+_D = _dt.date.fromisoformat
+xmas = f.Held({22129: _D("2002-08-28"), 22232: _D("2002-12-26")})
+real_held_dates = f.held_dates
+f.held_dates = lambda series: xmas
+g0829 = Path("x/GaleTimes2002UKEnglish/2002-08-29")
+found0829 = {"date": "2002-08-29", "item": "GaleTimes2002UKEnglish", "puzzles": [{"number": 22131, "leaf": 0}],
+             "solutions": [{"number": 22130, "leaf": 0}]}
+check("a title its page's heading of the issue before vouches for files as read, not as the count says",
+      (22131, None), f.filed_number(g0829, found0829, {"number": 22131, "leaf": 0})[::2])
+check("(mirror) with no heading to vouch for it the count still fixes the number",
+      (22130, None), f.filed_number(g0829, {**found0829, "solutions": []}, {"number": 22131, "leaf": 0})[::2])
+check("(mirror) placed: a vouched title the count agrees with, an unvouched one, or a vouched one more than one "
+      "issue off (a digit the OCR misread in title and heading alike: 1968's 11999 over 11998 for 11909) files as the count says",
+      [(22130, None), (22130, None), (22130, None)],
+      [f.placed(22130, _D("2002-08-29"), xmas, True), f.placed(22131, _D("2002-08-29"), xmas),
+       f.placed(22190, _D("2002-08-29"), xmas, True)])
+check("a vouched title another day holds is refused, not filed a number off",
+      (None, True), (lambda r: (r[0], bool(r[1])))(f.placed(22131, _D("2002-08-29"), f.Held({**xmas, 22131: _D("2002-08-30")}), True)))
+# renumbered(): once its file is renamed to the title, an edition filed off it is due an answers-only
+# reread (its host's heading names the title); one refused as taken, a full read once its title is free.
+filed_low = {"edition": "GaleTimes2002UKEnglish/2002-08-29", "readAt": "2026-10-22T00:00:00+00:00",
+             "scan": {"date": "2002-08-29"}, "verdicts": [{"number": 22130, "read_as": 22131, "id": "times-22130", "wrote": True}]}
+taken = {"edition": "GaleTimes2002UKEnglish/2002-08-27", "readAt": "2026-10-24T00:00:00+00:00", "scan": {"date": "2002-08-27"},
+         "verdicts": [{"number": 22129, "refused": "No 22129 is already filed for 2002-08-28, not 2002-08-27",
+                       "cause": "number-date-mismatch"}]}
+due = []
+for held_now, row in ((f.Held({22131: _D("2002-08-29")}), filed_low), (f.Held({22130: _D("2002-08-29"), 22131: _D("2002-08-30")}), filed_low),
+                      (f.Held({}), taken), (f.Held({22129: _D("2002-08-28")}), taken),
+                      (f.Held({22131: _D("2002-08-29")}), {**filed_low, "readAt": "2026-10-26T00:00:00+00:00"})):
+    f.held_dates = lambda series, h=held_now: h
+    due.append(f.renumbered(row))
+f.held_dates = real_held_dates
+check("renumbered: filed off its title and since renamed to it is RENUMBERED; not yet renamed, not due; refused as "
+      "taken and its title free is the refusal's reread, still taken not; read since the renumber, not due",
+      [f.RENUMBERED, None, "refused number-date-mismatch before its fix", None, None], due)
+check("RENUMBERED is a rank 2 answers-only reread", (2, True), (f.RANKS[f.RENUMBERED], f.RENUMBERED in f.SOLUTION_FIXES))
 # Four columns under the grid: ACROSS down the first two over the DOWN
 # heading, DOWN under it and on down the third and fourth, which stop at the
 # previous solution's heading.
