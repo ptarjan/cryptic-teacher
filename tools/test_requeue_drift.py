@@ -59,6 +59,12 @@ class Publish(unittest.TestCase):
         out = json.loads(R.raised_backlog(text, {"wordplay.wrongRole": {"a-1": ["1a", "2d"], "a-2": ["1a"]}}))
         self.assertEqual(list(out["wordplay.wrongRole"].items()), [("a-1", 2), ("a-2", 1)])
 
+    def test_raised_backlog_is_the_json_keys_clean_layout(self):
+        import json_merge
+        out = R.raised_backlog(json.dumps({"_why": "w", "wordplay.wrongRole": {"a-2": 1}}), {"wordplay.wrongRole": {"a-1": ["1a"]}})
+        self.assertEqual(json_merge.clean(out), out)
+        self.assertEqual(len(out.splitlines()), 4)
+
     def test_merged_drift_joins_the_shards_and_drops_empty_fields(self):
         import tempfile
         with tempfile.TemporaryDirectory() as d:
