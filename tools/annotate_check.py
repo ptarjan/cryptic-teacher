@@ -848,20 +848,34 @@ def unname_block_notes(path, pending):
             lights = light_solutions(by_id[eid], by_id)
             pieces = pieces_of(seen)
             for key, note in list(a["notes"].items()):
-                block = next((b for b in seen.get("blocks") or [] if b.get("note") == note), None)
-                if block is None or not isinstance(note, str):
+                if not isinstance(note, str):
                     continue
-                for name in names(seen["answer"], lights):
-                    gives = block.get("gives") if name == seen["answer"] else ""
-                    # What no rule clears is blanked ("...") rather than sent back:
-                    # 10-24, 8 of 8 refusals were quotes or fragments (apron strings,
-                    # 'P and A') the model would only have written the same way
-                    # with a word taken out, at a turn each.
-                    new = unname(note, name, gives, clues.get(eid, ""), pieces,
-                                 blank=True)
-                    if new:
-                        a["notes"][key] = note = new
-                        changed.append(eid)
+                # A block's note is the run's note, or one that leads with more (a
+                # rebus's reading, "XC; part of the word excessive is XC ...", a
+                # sounded charade's joined leaf notes) and holds it.
+                blocks = seen.get("blocks") or []
+                block = next((b for b in blocks if b.get("note") == note), None) \
+                    or next((b for b in blocks if note in str(b.get("note"))), None)
+                if block is None:
+                    continue
+                # Rewriting for one name can leave another ("William Tell ... Will
+                # Tell": TELL then WILL), so go round until no name is left.
+                for _ in range(3):
+                    again = False
+                    for name in names(seen["answer"], lights):
+                        gives = block.get("gives") if name == seen["answer"] else ""
+                        # What no rule clears is blanked ("...") rather than sent back:
+                        # 10-24, 8 of 8 refusals were quotes or fragments (apron strings,
+                        # 'P and A') the model would only have written the same way
+                        # with a word taken out, at a turn each.
+                        new = unname(note, name, gives, clues.get(eid, ""), pieces,
+                                     blank=True)
+                        if new:
+                            a["notes"][key] = note = new
+                            changed.append(eid)
+                            again = True
+                    if not again:
+                        break
     if changed:
         write_pending(pending, ann)
     return sorted(set(changed), key=changed.index)
