@@ -2176,7 +2176,8 @@ def is_blank_clue(clue):
     return not (clue or "").strip()
 
 
-def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=False, reopened=()):
+def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=False, reopened=(),
+                                  dropped=()):
     """Once a puzzle is annotated at all, every clue in it must be annotated.
 
     A blank annotation is the one failure no other check can see: it claims
@@ -2207,11 +2208,16 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
     around it stand; answered and still null, the second solve found no
     parse either, and it ships with answers only rather than being solved
     a third time.
+
+    Not blank either: a clue in `dropped`, whose annotation tree_view left out
+    of the view because its tree does not give the answer. Its `wordplay:`
+    error already names it; calling it blank too sent toughie-2626 (10-23,
+    1D MOBIUS) hunting for a clue it had written, for five turns.
     """
     continuations = groups.leader_of(entries)
     blank = []
     for e in entries:
-        if e.get("annotation"):
+        if e.get("annotation") or entry_id(e) in dropped:
             continue
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
         if entry_id(e) in misses:
@@ -3486,8 +3492,14 @@ def validate_puzzle(puzzle, corpus=False):
     schema_errors = [f"schema: {p}" for p in puzzle_schema.validate(puzzle)]
     treed = {_tag_of(puzzle, where) for where, _, ann in puzzle_schema.annotations(puzzle)
              if ann.get("wordplay")}
+    held = {entry_id(e) for e in puzzle["entries"] if e.get("annotation")}
     puzzle, tree_errors, tree_warnings = tree_view(puzzle)
-    annotated, errors, warnings = _validate_puzzle(puzzle, corpus, schema=False)
+    # A tree that does not give its answer is left out of the view, and its
+    # `wordplay:` error names the clue; it is not also a blank.
+    dropped = {entry_id(e) for e in puzzle["entries"]
+               if entry_id(e) in held and not e.get("annotation")}
+    annotated, errors, warnings = _validate_puzzle(puzzle, corpus, schema=False,
+                                                   dropped=dropped)
     errors[:0] = schema_errors + tree_errors
     warnings[:0] = tree_warnings
     for i, e in enumerate(puzzle["entries"]):
@@ -7874,7 +7886,7 @@ def theme_source(puzzle):
     return None
 
 
-def _validate_puzzle(puzzle, corpus=False, schema=True):
+def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
     errors, warnings = [], []
     # The file's shape first: tools/fetch_puzzle.write_puzzle_file refuses to
     # write anything that breaks it, and this catches a file written any other way.
@@ -8111,7 +8123,8 @@ def _validate_puzzle(puzzle, corpus=False, schema=True):
     if annotated:
         check_every_clue_is_annotated(puzzle["entries"], errors, warnings,
                                       blind_misses(puzzle["id"]), corpus=corpus,
-                                      reopened=(puzzle.get("solutions") or {}).get("reopened") or {})
+                                      reopened=(puzzle.get("solutions") or {}).get("reopened") or {},
+                                      dropped=dropped)
         check_model_answer_doubted(puzzle, errors, warnings, corpus=corpus)
         check_cryptic_definition_cap(puzzle["entries"], errors, warnings,
                                      authored=authored)

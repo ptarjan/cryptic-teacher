@@ -571,6 +571,11 @@ def patch(pending, fix):
                 ann[eid][k] = {n: t for n, t in merged.items() if t is not None}
             else:
                 ann[eid][k] = v
+        # Every field nulled is the clue taken back, so it is null, not {}:
+        # apply counted {} as landed ("24/24 annotations") while the validator
+        # called it blank (timesquick-1703 17A, telegraph-30078 2D, 10-23).
+        if ann[eid] == {}:
+            ann[eid] = None
     write_pending(pending, ann)
     fix.unlink()
     return None
