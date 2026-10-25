@@ -1103,7 +1103,7 @@ GONE
       # No stamp_assets.py: index.html is committed unstamped and the deploy
       # workflow stamps its own checkout, so a stamp here would be committed.
       python3 tools/build_abbreviations.py >/dev/null &&
-        python3 tools/fetch_puzzle.py --reindex >/dev/null &&
+        tools/low_cpu.sh python3 tools/fetch_puzzle.py --reindex-from-deploy >/dev/null &&
         python3 tools/build_readme.py >/dev/null || return 1
       # Collect the list before staging any of it. Fed in through a process
       # substitution, `git diff` is still running while the loop stages, and it
@@ -1256,8 +1256,12 @@ index_ready() {
 # unannotated, style), never the corpus-wide ratings, so it rebuilds in full
 # only when fetch_puzzle.py or series.py moved since the last FULL rebuild,
 # or that is a day old; otherwise --reindex-changed re-reads the puzzle files
-# newer than the index and keeps every other row. The stamp of the last full
-# rebuild is "$index_stamp.full".
+# newer than the index and keeps every other row. The "full" one is
+# --reindex-from-deploy: the deploy's index, all rows made by CI, with only
+# the puzzles changed since made here (the machine's full reindex moved to
+# CI, 2026-10-24); when that index is not this code's it re-reads the changed
+# files and the next tick tries again. The stamp of the last full rebuild
+# is "$index_stamp.full".
 index_rebuild_mode() {
   local full="$index_stamp.full"
   # Before .full existed every rebuild was full, so a stamp with no .full
@@ -1267,7 +1271,7 @@ index_rebuild_mode() {
      git diff --quiet "$(cat "$full")" HEAD -- tools/fetch_puzzle.py tools/series.py 2>/dev/null; then
     echo --reindex-changed
   else
-    echo --reindex
+    echo --reindex-from-deploy
   fi
 }
 start_index_rebuild() {  # detached, holding none of this tick's descriptors (the tree lease, the scheduler's lock)
@@ -1277,10 +1281,12 @@ import subprocess, sys
 index_lock, generated_lock, stamp, mode = sys.argv[1:]
 # One rebuild at a time for the tick (index_lock, which index_ready also
 # tests), and one generated rebuild at a time across every tree.
-# Detached, so no queue gates it: nice 19 on half the cores, beside the units.
-script = ('flock -n "$1" flock "$2" env CT_JOBS=2 nice -n 19 python3 tools/fetch_puzzle.py "$4" >/dev/null 2>&1 '
+# Detached, so no queue gates it: nice 19 on half the cores, beside the units
+# (tools/low_cpu.sh: plain nice does nothing in the container). Full only
+# when the deploy's rows were taken, not on its --reindex-changed fallback.
+script = ('out=$(flock -n "$1" flock "$2" env CT_JOBS=2 tools/low_cpu.sh python3 tools/fetch_puzzle.py "$4" 2>/dev/null) '
           '&& git rev-parse HEAD >"$3.tmp" && mv "$3.tmp" "$3" '
-          '&& { [ "$4" != --reindex ] || cp "$3" "$3.full"; }')
+          '&& case "$4 $out" in "--reindex-from-deploy deployed index from"*) cp "$3" "$3.full" ;; esac')
 subprocess.Popen(["bash", "-c", script, "rebuild", index_lock, generated_lock, stamp, mode], stdin=subprocess.DEVNULL,
                  stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True, close_fds=True)
 PY
