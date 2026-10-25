@@ -554,40 +554,60 @@
      "indicators": [
       {
        "text": "crashed",
-       "note": "A crash leaves its pieces in a heap, so the letters beside it are to be rebuilt in some other order."
-      },
-      {
-       "text": "not electric",
-       "note": "Electric is E on a plug or a car badge, and 'not' takes that single letter away before anything is rebuilt."
+       "at": 7,
+       "note": "crashed cars are wrecked and mangled, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "repeat",
        "indicators": [
         {
          "text": "twice",
-         "note": "It doubles what has just been named: those four letters go into the heap a second time."
+         "at": 21,
+         "note": "twice means the phrase a van is taken two times"
         }
        ],
        "parts": [
         {
          "words": "a van",
-         "gives": "AVANAVAN",
-         "note": "four letters counted out, then counted out again"
-        },
+         "at": 15,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not electric",
+         "at": 34,
+         "note": "E is the abbreviation for electric, so that letter is removed"
+        }
+       ],
+       "parts": [
         {
          "words": "Opel",
-         "gives": "OPL",
-         "note": "the German car marque, minus the letter the bracket takes off it"
+         "at": 28,
+         "note": "taken as written"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The dessert and the dancer share a name: Anna Pavlova was the Russian ballerina, and the meringue pudding was invented in her honour while she was on tour.",
-     "definitionFit": "Dancer → ANNA PAVLOVA: a definition by example, pointing at one celebrated ballerina rather than at dancers in general."
+     "surface": "A dancer crashes two vans and a non-electric Opel car.",
+     "walkthrough": "'crashed' scrambles AVAN twice plus OPL, which is Opel minus the E removed by 'not electric'.",
+     "definitionFit": "The Russian ballerina famed for The Dying Swan gave her name to the pavlova pudding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "crashed"
     }
    }
   },
