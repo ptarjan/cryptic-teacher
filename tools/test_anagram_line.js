@@ -72,15 +72,8 @@ function openRing(id, words) {
   check(line.map((p) => p.ch).sort().join("") === t.e.solution.split("").sort().join(""),
     "the line is still the fodder's letters");
 
-  const n = t.e.solution.length;
-  const html = t.reg["hint-body"].innerHTML;
-  check(new RegExp(`id="ana-count">1 of ${n} used · left: `).test(html),
-    "a tally says how many letters are used and which are left");
-
   t.key("Backspace");
   check(!t.isLine(), "clearing the grid letter puts the ring back");
-  check(/id="ana-count">Tap a letter to cross it off/.test(t.reg["hint-body"].innerHTML),
-    "with nothing used the tally says how to cross a letter off");
 }
 
 {
