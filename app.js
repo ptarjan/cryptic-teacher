@@ -3883,7 +3883,8 @@
   // blocks rung's own piece, and that rung is the only place that prints it: a
   // chip taken here opens the rung directly below this one, so the piece is one
   // glance down and is not said twice. A tap that would cost arms the chip first
-  // (confirmBlock).
+  // (confirmBlock), and the armed chip says so itself, as every other armed
+  // button does (Paul: "The required two tap should be uniformly on the button").
   function formulaHTML(e, f, locked) {
     const armed = f.chips.some((_, i) => armedFor(e, "piece-" + i));
     const chip = (i) => {
@@ -3891,12 +3892,12 @@
       if (pieceOut(e, i)) return `<span class="formula-chip got">${label}</span>`;
       const a = armedFor(e, "piece-" + i);
       return `<button type="button" class="formula-chip${a ? " arm-cost" : ""}" data-piece="${i}" data-arm="piece-${i}"${
-        locked ? ' disabled title="Open the hints above first — this piece would give them away"' : ""}>${label}</button>`;
+        locked ? ' disabled title="Open the hints above first — this piece would give them away"' : ""}>${
+        a ? ARMED_TEXT : label}</button>`;
     };
     return `<div class="formula"><span class="formula-lead">${esc(f.lead)}</span> ${
       f.parts.map((p) => (typeof p === "string" ? `<span class="formula-word">${esc(p)}</span>` : chip(p))).join(" ")}${
-      armed ? `<p class="muted">${ARMED_TEXT}</p>`
-      : !piecesLeft(e) ? ""
+      armed || !piecesLeft(e) ? ""
       : locked ? `<p class="muted">Tap a piece for it, once the definition and indicators are up.</p>`
       : `<p class="muted">Tap a piece to see it.</p>`}</div>`;
   }
