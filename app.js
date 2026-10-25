@@ -4510,7 +4510,7 @@
 
   // {lines: [<li> html], liberties: [text]}; both empty when the tree has no steps to show.
   function wordplaySteps(tree, answer, clue, linkWords) {
-    const none = { lines: [], liberties: [] };
+    const none = { lines: [], assembly: [], liberties: [] };
     if (!tree || !tree.op || ["cryptic", "rebus", "reverse"].includes(tree.op)) return none;
     const results = wpResults(tree, answer);
     const g = (s) => `<span class="gives">${esc(s)}</span>`;
@@ -4519,7 +4519,9 @@
       return k != null ? g(k) : p.words ? `“${escClue(p.words)}”` : "the step above";
     };
     const joined = (parts, sep) => (parts || []).map(piece).filter(Boolean).join(sep);
-    const lines = [];
+    // `assembly` is `lines` without the one-word-to-letters leaves, which the
+    // building-blocks rung already lists; shown instead once that rung is open.
+    const lines = [], assembly = [];
     const visit = (n, top) => {
       (n.parts || []).forEach((p) => visit(p, false));
       if (!n.op) {
@@ -4548,13 +4550,15 @@
       const inds = n.indicators || [];
       const marks = inds.map((i) => `<mark class="ind">${escClue(i.text)}</mark>`).join(LIST_SEP);
       const why = inds.filter((i) => i.note).map((i) => i.note).join("; ");
-      lines.push(`<li>${marks ? marks + " — " : ""}${what}${res ? ` → ${res}` : ""}` +
-        `${why ? ` <span class="muted">— ${esc(why)}</span>` : ""}</li>`);
+      const li = `<li>${marks ? marks + " — " : ""}${what}${res ? ` → ${res}` : ""}` +
+        `${why ? ` <span class="muted">— ${esc(why)}</span>` : ""}</li>`;
+      lines.push(li);
+      assembly.push(li);
     };
     visit(tree, true);
     const liberties = wpApart(tree, clue, linkWords).map((a) =>
       `This clue takes a liberty: '${a.ind}' isn't next to its fodder (it is separated by '${a.gap}').`);
-    return { lines, liberties };
+    return { lines, assembly, liberties };
   }
 
   // "Entered as SAPIR: RIPAS → reversal → SAPIR": each step's op by its own
@@ -4859,7 +4863,15 @@
     // it is exactly what a solver is missing when they have the right letters
     // and no confidence in them. It goes LAST, immediately before the answer,
     // because it is the step that turns a spelling into a solve.
-    const prose = ann.explanation || {};
+    const prose = { ...(ann.explanation || {}) };
+    // The line prints "definition → ANSWER:" itself, so a fit that opens with its
+    // own "definition -> ANSWER:" echo (a model slip; tools/annotate_prompt.md
+    // forbids it) loses that prefix instead of showing it twice.
+    if (prose.definitionFit) {
+      const ans = String(ann.answer || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      prose.definitionFit = prose.definitionFit.replace(
+        new RegExp(`^[^:]{0,160}?\\s*(?:->|→|=>)\\s*${ans}\\s*:\\s*`, "i"), "");
+    }
     const fit = prose.definitionFit && ann.definedByPreamble
       ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b>the preamble → <span class="gives">${esc(ann.answer)}</span>: ${esc(prose.definitionFit)}</p>`
       : prose.definitionFit
@@ -4889,17 +4901,23 @@
     if (straightLadder(ann)) steps.splice(0, steps.length, ...steps.filter((s) => s.key === "definition"));
     // A blog-derived ladder stops at what the blogger marked; the rest of the
     // explanation is theirs, and the panel links to it (blogCreditHTML).
-    const wp = ann.fromBlog || straightLadder(ann) ? { lines: [], liberties: [] }
+    const wp = ann.fromBlog || straightLadder(ann) ? { lines: [], assembly: [], liberties: [] }
       : wordplaySteps(ann.wordplay, ann.answer, clue, ann.linkWords);
-    const wpHTML = (wp.lines.length ? `<div class="wp-steps"><b class="wt-part">Step by step</b><ol>${wp.lines.join("")}</ol></div>` : "")
-      + wp.liberties.map((l) => `<p class="liberty">${esc(l)}</p>`).join("");
+    const libHTML = wp.liberties.map((l) => `<p class="liberty">${esc(l)}</p>`).join("");
+    const olHTML = (ls) => ls.length ? `<div class="wp-steps"><b class="wt-part">Step by step</b><ol>${ls.join("")}</ol></div>` : "";
+    const wpHTML = olHTML(wp.lines) + libHTML;
+    const hasBlocks = steps.some((s) => s.key === "blocks");
+    const wtBody = (wpPart, mech) => mech + joke + wpPart +
+      (prose.walkthrough ? `<p><b class="wt-part">${wpPart ? "Why" : "The trick"}</b>${esc(prose.walkthrough)}</p>` : "") + fit + note +
+      // The fit line above already names the answer; print it once.
+      (fit ? "" : `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`) + enteredHTML(ann);
     if (!ann.fromBlog) steps.push({
       key: "walkthrough",
       label: LABELS.walkthrough,
-      html: (steps.some((s) => s.key === "blocks") ? "" : mechanics) +
-        joke + wpHTML + (prose.walkthrough ? `<p><b class="wt-part">${wpHTML ? "Why" : "The trick"}</b>${esc(prose.walkthrough)}</p>` : "") + fit + note +
-        // The fit line above already names the answer; print it once.
-        (fit ? "" : `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`) + enteredHTML(ann)
+      html: wtBody(wpHTML, hasBlocks ? "" : mechanics),
+      // The same rung when the building blocks are open above it: the pieces
+      // are not listed a second time, only how they join (renderHintPanel).
+      afterBlocks: hasBlocks ? wtBody(olHTML(wp.assembly) + libHTML, "") : null
     });
     // Ordered by how much each rung gives away, cheapest first — not by the
     // order the rungs are built in, and not by the order people solve in.
@@ -6203,9 +6221,16 @@
       // gets the lot: its score is settled, and the rest of the ladder is free
       // from that moment, so there is nothing left for the pacing to protect.
       const paced = (s) => {
+        // Each fact once: with the blocks listed above, the walkthrough keeps only
+        // how they join.
+        if (s.key === "walkthrough" && s.afterBlocks && isShown(e, "blocks") && (solved || !piecesLeft(e))) {
+          return { ...s, html: s.afterBlocks };
+        }
         if (s.key !== "blocks" || !s.pieces) return s;
         const n = solved ? s.pieces.length : piecesShown(e);
-        return { ...s, html: s.lead + `<ul>${s.pieces.slice(0, n).join("")}</ul>`
+        // The type rung already named and explained the mechanism when it is open.
+        const lead = isShown(e, "type") ? "" : s.lead;
+        return { ...s, html: lead + `<ul>${s.pieces.slice(0, n).join("")}</ul>`
                              + (n >= s.pieces.length ? s.tail : "") };
       };
       steps.forEach((s, i) => {
