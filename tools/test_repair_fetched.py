@@ -635,5 +635,48 @@ same("a date out of number order moves to the day its neighbours count to (ftcry
 same("(mirror) dates in number order are not listed",
      rf.misdated_ft([(1, D("1975-07-15"), None), (2, D("1975-07-16"), None)]), [])
 
+print("misnumbered_titles: a Times puzzle filed one below the title its page prints is renamed to it, "
+      "newest first; one whose title another day holds is left")
+# Times 2002: 22129 filed for Wed 08-28, whose page prints No 22130 over the solution of 22129;
+# Thu 08-29's No 22131 filed as 22130, Sat 08-31's No 22133 (its heading only the prize's, 22127)
+# as 22132, Mon 09-02's No 22134 (no heading: Tuesday's names it) as 22133; 08-27's No 22129 was
+# refused as taken. 08-26's 22128 is right.
+titles = {D("2002-08-26"): [22128], D("2002-08-27"): [22129], D("2002-08-28"): [22130], D("2002-08-29"): [22131],
+          D("2002-08-30"): [22132], D("2002-08-31"): [22133], D("2002-09-02"): [22134], D("2002-09-03"): [22135]}
+headings = {D("2002-08-27"): [22128], D("2002-08-28"): [22129], D("2002-08-29"): [22130], D("2002-08-30"): [22131],
+            D("2002-08-31"): [22127], D("2002-09-03"): [22134]}
+held = {22128: D("2002-08-26"), 22129: D("2002-08-28"), 22130: D("2002-08-29"), 22131: D("2002-08-30"),
+        22132: D("2002-08-31"), 22133: D("2002-09-02"), 22135: D("2002-09-03")}
+same("each one-low file moves to its title, newest first, each target freed by the one before",
+     rf.misnumbered_titles(titles, headings, held),
+     [(22133, D("2002-09-02"), 22134, None), (22132, D("2002-08-31"), 22133, None), (22131, D("2002-08-30"), 22132, None),
+      (22130, D("2002-08-29"), 22131, None), (22129, D("2002-08-28"), 22130, None)])
+same("(mirror) a title no heading bears out is not moved",
+     [r[0] for r in rf.misnumbered_titles(titles, {}, held)], [])
+# 1992: Tue 05-05 and Wed 05-06 both print No 18911 (Thursday's heading names Wednesday's).
+same("a title another day's file holds is left, named",
+     rf.misnumbered_titles({D("1992-05-05"): [18911], D("1992-05-06"): [18911]}, {D("1992-05-05"): [18910]},
+                           {18910: D("1992-05-05"), 18911: D("1992-05-06")}),
+     [(18910, D("1992-05-05"), 18911, "No 18911 is filed for 1992-05-06")])
+same("a title the same day's other file holds is a duplicate",
+     [r[3] for r in rf.misnumbered_titles({D("2002-08-28"): [22130]}, {D("2002-08-28"): [22129]},
+                                          {22129: D("2002-08-28"), 22130: D("2002-08-28")})], ["duplicate"])
+moved_dir = Path(tempfile.mkdtemp())
+try:
+    src = moved_dir / "times-22129.json"
+    puzzle = {"id": "times-22129", "number": 22129, "date": "2002-08-28", "entries": []}
+    src.write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n")
+    (moved_dir / "times-22129.js").write_text("// old shim\n")
+    same("(dry run) renumber_file names the new path and writes nothing",
+         [rf.renumber_file(src, puzzle, 22130).name, sorted(p.name for p in moved_dir.iterdir())],
+         ["times-22130.json", ["times-22129.js", "times-22129.json"]])
+    dest = rf.renumber_file(src, puzzle, 22130, apply_it=True)
+    same("renumber_file moves the file and its shim to the title's id and number",
+         [sorted(p.name for p in moved_dir.iterdir()), json.loads(dest.read_text())["id"],
+          json.loads(dest.read_text())["number"]],
+         [["times-22130.js", "times-22130.json"], "times-22130", 22130])
+finally:
+    shutil.rmtree(moved_dir, ignore_errors=True)
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)
