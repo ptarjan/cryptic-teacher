@@ -9004,6 +9004,19 @@
         const ann = annOf(e);
         if (!ann || !Number.isInteger(i) || pieceOut(e, i)) return;
         if (!rungAvailable(e, ladderSteps(ann, clueText(e)), "blocks")) return;
+        // Paul: "Using blocks can't we figure it out to make it free". A chip
+        // that would open the blocks rung goes the way the rung's own button
+        // does: if the piece has a question (point at the words that give it),
+        // ask it, and an answer earns the piece for nothing. Only "Just tell
+        // me" on that question, or a piece with no question at all, costs.
+        const asked = !isShown(e, "blocks") && !isEntrySolved(e) && guessAsk(e, "blocks", i);
+        if (asked) {
+          guessing = { key: entryKey(e), rung: "blocks", step: i, picked: [],
+                       slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
+          focusHint("guess");
+          refreshAll();
+          return;
+        }
         if (pickCosts(e, i) && !confirmBlock(e, "piece-" + i, ev)) return;
         pickPiece(e, i);
         refreshAll();
