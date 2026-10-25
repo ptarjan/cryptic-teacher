@@ -294,10 +294,32 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   if [ ! -d "$_ct_tree/.git" ] && [ ! -f "$_ct_tree/.git" ]; then
     # Quiet: the first run checks out 45k files and the progress meter writes a
     # line per percent into a log somebody has to read a failure out of.
-    git -C "$_ct_main" worktree add -q --detach "$_ct_tree" origin/master || {
+    # A sparse job (CT_SPARSE set) is made without a checkout and narrowed below,
+    # so its first run never writes the 97k puzzle files it will not read.
+    git -C "$_ct_main" worktree add -q --detach ${CT_SPARSE:+--no-checkout} "$_ct_tree" origin/master || {
       echo "WORKTREE: cannot create $_ct_tree" >&2
       _ct_tree=""
     }
+  fi
+
+  # A sparse tree holds only the directories the job reads. A job names them in
+  # CT_SPARSE (space-separated, cone mode; the repo root's files always stay) before
+  # sourcing this; most of the repo's 1.5 GB is puzzles/, which the small jobs
+  # never open. An existing full tree converts in place on its next run, and a
+  # job that drops CT_SPARSE gets its full tree back. A job whose reads cannot be
+  # pinned down leaves CT_SPARSE unset: a full checkout is the safe default.
+  # sparse-checkout keeps its settings in the tree's own config.worktree, so the
+  # main checkout and the other trees are not narrowed.
+  # Puzzles and the raw fetch caches are untracked or live in puzzles/, and a
+  # sparse set never deletes an untracked file: nothing fetched is lost.
+  if [ -n "$_ct_tree" ]; then
+    if [ -n "${CT_SPARSE:-}" ]; then
+      # shellcheck disable=SC2086  # CT_SPARSE is a word list
+      git -C "$_ct_tree" sparse-checkout set --cone $CT_SPARSE >/dev/null 2>&1 ||
+        echo "WORKTREE: sparse-checkout set failed in $_ct_tree — it stays as it is" >&2
+    elif [ "$(git -C "$_ct_tree" config --worktree --get core.sparseCheckout 2>/dev/null)" = true ]; then
+      git -C "$_ct_tree" sparse-checkout disable >/dev/null 2>&1 || true
+    fi
   fi
 
   if [ -n "$_ct_tree" ]; then
@@ -392,7 +414,23 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     # publish rebases this tree, so a rebase that rewrites the script would
     # resume the new file at the old byte offset. `.` reads the whole file
     # before running any of it. $0 stays the tree's path for dirname "$0".
-    exec /bin/bash -c '. "$0"' "$_ct_tree/tools/$(basename "$0")" "$@"
+    if [ "${CT_REMOVE_TREE:-0}" != 1 ]; then
+      exec /bin/bash -c '. "$0"' "$_ct_tree/tools/$(basename "$0")" "$@"
+    fi
+    # A job that sets CT_REMOVE_TREE=1 has a tree that rebuilds in seconds (a
+    # sparse one), so it is not kept between runs: the job runs as a child,
+    # not exec'd, and the tree goes when it ends. Only when nothing is left in
+    # it that the next run's reset would have saved: no commit origin/master
+    # lacks, and no edit to a tracked file. `git worktree prune` then drops the
+    # record, or the next `worktree add` fails "could not get its own worktree".
+    _ct_rc=0
+    /bin/bash -c '. "$0"' "$_ct_tree/tools/$(basename "$0")" "$@" || _ct_rc=$?
+    if [ -z "$(git -C "$_ct_tree" cherry origin/master HEAD 2>/dev/null)" ] &&
+       [ -z "$(git -C "$_ct_tree" status --porcelain --untracked-files=no 2>/dev/null)" ]; then
+      rm -rf "$_ct_tree"
+      git -C "$_ct_main" worktree prune >/dev/null 2>&1 || true
+    fi
+    exit "$_ct_rc"
   fi
 
   # No worktree, no run. The main checkout is not a fallback: it has other

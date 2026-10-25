@@ -3,6 +3,12 @@
 # plugin), run from a worktree at origin/master (tools/nightly_worktree.sh).
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_GENERATED=none
+# Needs only tools/ and rebuilds in seconds: a sparse tree, removed when the run
+# ends (tools/nightly_worktree.sh).
+# shellcheck disable=SC2034
+CT_SPARSE="tools"
+# shellcheck disable=SC2034
+CT_REMOVE_TREE=1
 # An up VLM that was up last tick is nothing to do (vlm_health.py --quick, one
 # HTTP request): stop before the worktree setup, ~20 processes and a reset of
 # the whole tree. A full tick still runs hourly, which brings a pushed fix here.
