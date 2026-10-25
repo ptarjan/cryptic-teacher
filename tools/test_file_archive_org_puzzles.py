@@ -536,6 +536,20 @@ check("a grid read short unclassified for a puzzle held short is UNCLASSIFIED_HE
       [f.UNCLASSIFIED_HELD, unclassified, unclassified, 2, True, None],
       [uh_short, uh_whole, uh_none, f.RANKS[f.UNCLASSIFIED_HELD], f.UNCLASSIFIED_HELD in f.SOLUTION_FIXES,
        f.fix_reason({**uh_row, "solutionKey": f.solution_key()})])
+# A grid read 1-2 lights short at SURE_BLOCKS: before REREAD_UNLISTED, UNLISTED; read since, before
+# REREAD_VLM_UNLISTED, VLM_UNLISTED (the VLM's unlisted strip words stand since); after it, nothing.
+def vu_row(at, gap=1):
+    return {"edition": "NewsUK1984UKEnglish/1984-05-01_61715", "readAt": at, "verdicts": [
+        {"number": 99999991, "id": "times-99999991", "solutionFrom": "1984-05-02 leaf 3",
+         "solution": {"accepted": 30 - gap, "lights": 30, "blocks": 1.0}}]}
+f.filed_state = lambda series, n: (False, True)
+vu = [f.short_again(vu_row("2026-10-24T12:00:00+00:00")), f.short_again(vu_row("2026-10-25T06:00:00+00:00")),
+      f.short_again(vu_row("2026-10-25T06:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-26T00:00:00+00:00"))]
+f.filed_state = real_fs
+check("a grid read 1-2 short: UNLISTED before REREAD_UNLISTED, VLM_UNLISTED since (not 3+ short), then nothing; "
+      "rank 2, answers-only",
+      [f.UNLISTED, f.VLM_UNLISTED, None, None, 2, True],
+      vu + [f.RANKS[f.VLM_UNLISTED], f.VLM_UNLISTED in f.SOLUTION_FIXES])
 check("an answers-only grid read one letter off a word is a misread (a 1973 print's ADORESS for ADDRESS); "
       "a word, a listed name (William RUFUS), and words by their enumeration stand",
       [True, False, False, False, False, (12, "down")],
@@ -2498,6 +2512,15 @@ check("a listed word the classifier finds possible is taken", "SALINITY",
       f.vlm_word("SALINITY", "?ALINITY", [8], [cell_p(c) for c in "SALINITY"]))
 check("the VLM's word against the classifier's floor is not taken", None,
       f.vlm_word("PLAT", "?L?T", [4], [flat, cell_p("L"), cell_p("F"), cell_p("T")]))
+check("a name no list holds, its letters the classifier's too and its count the clue's, is taken (PERSHORE)", "PERSHORE",
+      f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c) for c in "PERSHORE"], "8"))
+check("...even with BALINITY's count: SALINITY lies one open letter off", None,
+      f.vlm_word("BALINITY", "?ALINITY", [8], [cell_p(c) for c in "BALINITY"], "8"))
+check("...not with a letter the classifier reads unsure (STROGONOFF, its O at 0.38)", None,
+      f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c, 0.38 if i == 6 else 0.9) for i, c in enumerate("PERSHORE")], "8"))
+check("...nor with no count of its own (a linked light's \"See 8\") or a count it does not fill", (None, None),
+      (f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c) for c in "PERSHORE"], None),
+       f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c) for c in "PERSHORE"], "5,9")))
 check("pieces of an enumeration: a phrase's words, else the light whole", ([4, 4, 3, 3], [12], [9], [4, 5]),
       (tso.pieces_of("4,4,3,3", 14), tso.pieces_of("4,4,3,3", 12), tso.pieces_of(None, 9), tso.pieces_of("4-5", 9)))
 f._KEEP_VLM["names"] = ao_kept

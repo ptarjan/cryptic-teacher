@@ -4680,12 +4680,20 @@ SOLUTION_PROMPT = Path(__file__).resolve().parent / "vlm_solution_prompt.md"
 #: BISCUITS for BESOUGHT (0.0); the 17 it read right gave every letter 0.0078 or more.
 VLM_FLOOR = trove_solution_ocr.CLASS_FLOOR
 
-def vlm_word(reply, pattern, sizes, probs):
+#: How likely the cell classifier must read each letter of a VLM word no list holds (vlm_word's
+#: unlisted_word): the VLM and the classifier then both read the name. The VLM's wrong unlisted
+#: words on 1940s-50s Times strips (STROGONOFF, MADITANA, BAROSMIA) each had a letter at 0.38 or
+#: less; its right ones (PERSHORE, HARPAGON, DUNVEGAN, SPENNYMOOR) read every letter at 0.7+.
+VLM_UNLISTED_TOP = 0.7
+
+
+def vlm_word(reply, pattern, sizes, probs, enum=None):
     """The word of the VLM's `reply` for a light whose crossings give `pattern` (a letter
     where an accepted light holds it, else "?"), made of words of `sizes` letters, or None:
     its letters are as many as the light's, agree with every crossing letter, each is at
     least VLM_FLOOR likely in its cell by the classifier's `probs` (one list of 26 a cell),
-    and each piece is a listed word (trove_solution_ocr.piece_listed)."""
+    and each piece is a listed word (trove_solution_ocr.piece_listed), or the whole is a
+    name both readers agree on (unlisted_word, by the light's enumeration `enum`)."""
     word = re.sub(r"[^A-Za-z?]", "", (reply or "").strip().splitlines()[0] if (reply or "").strip() else "").upper()
     if len(word) != len(pattern) or "?" in word:
         return None
@@ -4693,14 +4701,41 @@ def vlm_word(reply, pattern, sizes, probs):
         return None
     if any(p[trove_solution_ocr.AZ.index(ch)] < VLM_FLOOR for p, ch in zip(probs, word)):
         return None
-    # Only a listed word: a name the lexicons lack that the classifier agrees with (IGRAINE) is
-    # also what both misread together (BALINITY for SALINITY, 1973 print), so it stands on no say.
+    # A listed word, or a name the classifier reads too (unlisted_word): a name the lexicons lack
+    # is also what both may misread together (BALINITY for SALINITY, 1973 print), so it stands
+    # only with no listed word one open letter off.
     at = 0
     for size in sizes:
         if not trove_solution_ocr.piece_listed(word[at:at + size], len(sizes) > 1):
-            return None
+            return word if unlisted_word(word, pattern, probs, enum) else None
         at += size
     return word
+
+
+def unlisted_word(word, pattern, probs, enum):
+    """Whether VLM word `word`, which no list holds, stands for its light (crossings
+    `pattern`, the classifier's `probs`). 10-25: 135 Times strips in 3 h of answer rereads
+    (1940s-50s names: PERSHORE, TAKORADI, LAETITIA) were asked, answered and thrown away for
+    want of a list holding the word. The classifier reads each letter at least VLM_UNLISTED_TOP likely, the light's
+    enumeration `enum` counts its letters (a linked light's "See 8" has none), and no listed
+    word, of the light or of a piece of its enumeration, differs from it in one letter no
+    crossing holds (trove_solution_ocr.one_away; answers_only's misread_word drops such a
+    word anyway)."""
+    parts = [int(x) for x in re.findall(r"\d+", enum or "")]
+    if not parts or sum(parts) != len(word):
+        return False
+    if any(p[trove_solution_ocr.AZ.index(ch)] < VLM_UNLISTED_TOP for p, ch in zip(probs, word)):
+        return False
+    held = {i: ch for i, ch in enumerate(pattern) if ch != "?"}
+    if trove_solution_ocr.one_away(word, list(range(len(word))), held):
+        return False
+    at = 0
+    for size in (parts if len(parts) > 1 else ()):
+        span = list(range(at, at + size))
+        if trove_solution_ocr.one_away(word[at:at + size], span, held):
+            return False
+        at += size
+    return True
 
 
 def vlm_lights(answers, strips, grid, enums):
@@ -4735,7 +4770,7 @@ def vlm_lights(answers, strips, grid, enums):
                                 prompt.format(count=len(cells), shape=shape, known=known), max_tokens=40)
         except RuntimeError:  # spooled, or the server is down: asked again when the read runs again
             continue
-        word = vlm_word(reply, pattern, sizes, strip["p"])
+        word = vlm_word(reply, pattern, sizes, strip["p"], enums.get((int(n), dr)))
         if word:
             got[lid] = word
             held.update(zip(cells, word))
@@ -7244,16 +7279,27 @@ def unmerged_whole(row):
 UNLISTED = "solution short, read again for unlisted words"
 SHORT_WIDE = "solution short of 3+ lights, read again"
 REREAD_UNLISTED = "2026-10-24T23:00:00+00:00"
+#: The due reason of such a grid read since REREAD_UNLISTED, 1 to STRIP_MAX lights short, before
+#: REREAD_VLM_UNLISTED: since then the VLM's word for a strip (vlm_lights) stands when no list holds
+#: it but the classifier reads every letter of it too (unlisted_word). 10-25: of 252 Times answer
+#: rereads in 3 h that filed nothing, 135 strips had such a word thrown away (1940s-50s names:
+#: PERSHORE, TAKORADI, HARPAGON). Once; the VLM's replies are cached, so the reread asks nothing new.
+VLM_UNLISTED = "solution short, its VLM word unlisted"
+REREAD_VLM_UNLISTED = "2026-10-25T12:15:00+00:00"
 
 
 def short_again(row):
     """UNLISTED or SHORT_WIDE for Times ledger `row`, read before REREAD_UNLISTED, with a verdict whose
     linked solution grid it read short at SURE_BLOCKS for a puzzle held with every clue and not every
     answer, filed from this page (answers_only reads only such a puzzle); else None. UNLISTED when any
-    such verdict is at most trove_solution_ocr.STRIP_MAX short."""
+    such verdict is at most trove_solution_ocr.STRIP_MAX short. VLM_UNLISTED for such a row read since,
+    before REREAD_VLM_UNLISTED, at most STRIP_MAX short."""
     paper = paper_of(row.get("edition", ""))
-    if paper.key not in CELLS_CLASSIFIED or not scan_queue.read_before(row, scan_queue.when(REREAD_UNLISTED)):
+    if paper.key not in CELLS_CLASSIFIED or not scan_queue.read_before(row, scan_queue.when(REREAD_VLM_UNLISTED)):
         return None
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_UNLISTED)):
+        gaps = answerable_gaps(row, paper)
+        return VLM_UNLISTED if gaps and min(gaps) <= trove_solution_ocr.STRIP_MAX else None
     gaps = answerable_gaps(row, paper)
     if not gaps:
         return None
@@ -7422,7 +7468,7 @@ def fix_reason(row):
                 # More than SHORT_GAP short, short_cause predicts it nothing (only_evidence dropped it):
                 # read once by this code, after the rest (short_again).
                 if paper in CELLS_CLASSIFIED and not s.get("refused") \
-                        and s.get("lights", 0) - s.get("accepted", 0) > SHORT_GAP and short_again(row):
+                        and s.get("lights", 0) - s.get("accepted", 0) > SHORT_GAP and short_again(row) in (UNLISTED, SHORT_WIDE):
                     return SHORT_WIDE
                 if paper in CELLS_CLASSIFIED and not s.get("refused") and "classified" not in s:
                     if answerable_gaps(row, paper_of(row.get("edition", "")), sure=False):
@@ -7937,7 +7983,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, SHORT_WIDE: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -8443,7 +8489,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: Paul 10-23: kept for the VLM, every such reread took the full read, whose solved() has no
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
-                  "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, SHORT_WIDE,
+                  "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE)
 
 
