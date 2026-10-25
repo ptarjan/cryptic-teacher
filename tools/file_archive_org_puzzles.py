@@ -4564,6 +4564,12 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     minute) is asked only for the clue columns that hold a clue they leave
     blank or do not settle (weak_lights), every column when the grid does not
     lie on them or nothing parses. A page they settle is filed with no ask."""
+    if hit.get("heldTitle"):
+        # The title the page's scan lost, its held puzzle's (HELD_TITLE): the answers alone, no VLM
+        # ask, never a full read (the page has no title box to lay its clues from).
+        got = answers_only(d, found, hit, solutions, ask_vlm=False, crossed=True)
+        return got or ({"number": hit["number"], "leaf": hit["leaf"], "heldTitle": True,
+                        "skip": "a held title read answers-only: no linked solution grid gave its answers"}, None)
     if not ocr_first:
         return read_page_why("direct:no-ocr-first", d, found, hit, solutions, None)
     cheap = answers_only(d, found, hit, solutions)
@@ -4710,7 +4716,30 @@ def vlm_lights(answers, strips, grid, enums):
     return {**answers, **got}, got
 
 
-def answers_only(d, found, hit, solutions):
+def uncrossed(answers, grid, enums=None):
+    """The lights of `answers` ({"12-across": word}) holding a cell another light of `grid` crosses
+    with no answer of the grid's reading: a letter only its own word gives. A listed word read a
+    letter off there stands on nothing (Times 8,564's 6-across BATES for PATES, "They're made of
+    paste", its P crossed by an unread 6-down; 6,978's BUATS for BUSTS). One pass: an answer left out
+    here still checked its crossers' letters as read (taken again, every one would go).
+    Also one with a cell no other light holds (unchecked) that is no word (worded, by its `enums`
+    count) nor a corpus answer: a letter there is checked by nothing, and a listed name read a letter
+    off stands (10,927's RUSSUM, a surname list's, for RUSTUM in a grid read whole)."""
+    lts = trove_solution_ocr.lights(grid)
+    on = {}
+    for (n, dr), cells in lts.items():
+        for rc in cells:
+            on.setdefault(rc, []).append(f"{n}-{dr}")
+    out = {k for k in answers if any(o not in answers for rc in lts.get(_light_key(k), ()) for o in on[rc] if o != k)}
+    for k, a in answers.items():
+        cells = lts.get(_light_key(k), ())
+        if k not in out and any(len(on[rc]) == 1 for rc in cells) \
+                and not worded(a, (enums or {}).get(_light_key(k))) and a.upper() not in trove_solution_ocr.corpus_words():
+            out.add(k)
+    return out
+
+
+def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=False):
     """(verdict, puzzle) of a title whose clues are already filed whole and
     whose solution grid is linked now, read from the solution grid alone, or
     None (the full read): no clue is OCR'd again, as the held file's clues
@@ -4723,7 +4752,9 @@ def answers_only(d, found, hit, solutions):
     them (solved, the full read's own reader), its verdict "answersOnly": decide()
     merges them into the held file (merge_answers) and takes no whole reading
     over it. None when a held answer differs from the grid's, two answers cross
-    on different letters, or the grid is not the Times's (cells classified)."""
+    on different letters, or the grid is not the Times's (cells classified).
+    Not `ask_vlm`: the lights the grid's reading left stay unanswered (no strip asked). `crossed`:
+    an answer with a letter no other answer crosses where another light does is left out (uncrossed)."""
     if d is None or hit is None or not solutions or d.name in _KEEP_VLM["names"]:
         return None
     paper = paper_of(d)
@@ -4757,7 +4788,7 @@ def answers_only(d, found, hit, solutions):
     answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above, lean=True, enums=enums)
     # The cells of the few lights the grid's reading left: the VLM is asked each one's word.
     strips = info.pop("strips", None)
-    if strips and vlm.wanted():
+    if strips and ask_vlm and vlm.wanted():
         answers, by_vlm = vlm_lights(answers, strips, grid, enums)
         if by_vlm:
             info = {**info, "vlmLights": sorted(by_vlm), "accepted": info.get("accepted", 0) + len(by_vlm)}
@@ -4766,6 +4797,11 @@ def answers_only(d, found, hit, solutions):
     if misread:
         answers = {k: a for k, a in answers.items() if k not in misread}
         info = {**info, "misread": sorted(misread), "accepted": info.get("accepted", 0) - len(misread)}
+    if crossed:
+        lone = uncrossed(answers, grid, enums)
+        if lone:
+            answers = {k: a for k, a in answers.items() if k not in lone}
+            info = {**info, "uncrossed": sorted(lone), "accepted": info.get("accepted", 0) - len(lone)}
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
     letters = {}
@@ -6683,6 +6719,59 @@ def untitled_rescan(row):
     return row.get("scanKey") != scan_key(paper_of(Path(row["edition"])))
 
 
+#: The due reason of a Times page whose scan by current scan code finds no title (no puzzle, no verdict),
+#: while the one puzzle its series holds for the page's date was filed from this very page (an older
+#: scan read its title) with every clue and not every answer: no read takes its title, so a solution
+#: heading a host prints for it links nothing. Read answers-only under the held number (held_titles), no
+#: VLM ask: no clue is read again. Paul 10-25: 241 Times puzzles (1945-66 ~225: 1956-09-15's 8,235 under
+#: the 09-17 heading "Solution of Puzzle No 8,235") stood so of ~690 linking no solution grid.
+HELD_TITLE = "untitled page, its held puzzle's answers read"
+#: Once: a row read before this is due HELD_TITLE.
+REREAD_HELD_TITLE = "2026-10-25T06:30:00+00:00"
+
+
+def held_titles(row, cache=None):
+    """[{"number", "leaf", "box": None, "heldTitle": True}] for Times ledger `row` (HELD_TITLE): its scan by
+    current scan code holds no title and it has no verdict, read before REREAD_HELD_TITLE, and the one
+    puzzle its series holds for the scan's date is held with every clue and not every answer, by this
+    tool, from a leaf of this edition (page_url); else []. The hit is the held puzzle's title as the
+    page's lost one: filed_number files it only as the number the date's count gives, and answers_only
+    reads it only from the held file of this page."""
+    scan = row.get("scan") or {}
+    if "inputs" not in row or scan.get("puzzles") or row.get("verdicts") or scan.get("failed") or not scan.get("date"):
+        return []
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED or row.get("scanKey") not in current_keys(paper) \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_HELD_TITLE)):
+        return []
+    try:
+        day = datetime.date.fromisoformat(scan["date"])
+    except ValueError:
+        return []
+    nums = Held.of(held_dates(paper.series)).on_day.get(day, ())
+    if len(nums) != 1 or filed_state(paper.series, nums[0]) != (False, True):
+        return []
+    d = Path(cache or CACHE) / row["edition"]
+    try:
+        old = json.loads(_HELD_PATH[(paper.series, nums[0])].read_text())
+        pages = json.loads((d / "pages.json").read_text())
+    except (KeyError, OSError, ValueError):
+        return []
+    src = old.get("source") or {}
+    if src.get("acquiredBy") != TOOL:
+        return []
+    for leaf in sorted({p["leaf"] for p in pages.get("crossword_pages", ()) if isinstance(p.get("leaf"), int)}):
+        if page_url(d, scan, leaf) == src.get("url"):
+            return [{"number": nums[0], "leaf": leaf, "box": None, "heldTitle": True}]
+    return []
+
+
+def held_titled(row, cache=None):
+    """`row`'s scan with its held_titles as its titles, or None when it has none."""
+    hits = held_titles(row, cache)
+    return {**row["scan"], "puzzles": hits} if hits else None
+
+
 THREE_COLUMNS = "short Times page, its third clue column read since"
 #: The years whose short third-column pages are read first (tools/edition_queue.year_evidence): a stale one
 #: was "scan stale, answers missing" (the answers-missing test came first), a blanket reason no plan keeps,
@@ -7113,6 +7202,8 @@ def fix_reason(row):
         return "refused unparsed before its fix"
     if untitled_rescan(row):
         return NO_TITLE_RESCAN
+    if held_titles(row):
+        return HELD_TITLE
     # Ahead of the short third column: a lost write's reread is a full read by current code (the third
     # column's too), and evidence; that reason is a blanket one bar THREE_COLUMNS_YEARS' (10-25: no such
     # unit planned, 273 of 2007-08's pages lost so).
@@ -7649,7 +7740,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, SHORT_WIDE: 2,
-         REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1,
+         REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
@@ -8155,7 +8246,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, SHORT_WIDE,
-                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED)
+                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE)
 
 
 def keeps_vlm(why, row, unit=None):
@@ -8619,6 +8710,13 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         h = inputs_of(fh, scans[rel], paper.series)
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
         why = due_reason(known[rel], h, sol_seen, seen_by, reread, sources)
+        titled = held_titled(known[rel], cache) if why == HELD_TITLE else None
+        if titled:
+            # Read under its held puzzle's title (held_titles), answers-only; the row keeps that scan, so
+            # its titles and solutionsSeen stand as read.
+            scans[rel] = titled
+            h = inputs_of(fh, titled, paper.series)
+            sol_seen = sorted(n for n in (p["number"] for p in titled["puzzles"]) if n in solutions)
         if why or editions and (unit is None or unit.get("force")):
             if keeps_vlm(why, known[rel], unit):
                 keep_vlm.add(d.name)
@@ -8641,6 +8739,8 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         d = queue[0]
         h, sol_seen, fh, read_with = due[d]
         found = scans[rels[d]]
+        if any(p.get("heldTitle") for p in found["puzzles"]):
+            return None  # answers-only here (read_edition): never the desktop's full read
         set_solutions(solutions, puzzles)
         head, tar = ocr_remote.edition_request(d, found, solutions)
         return head, tar, {
@@ -8763,7 +8863,8 @@ def read_edition(d, found):
     can, the same reading as here. Read there, a third item is each title's
     decide() writes, decided there too (None: decide here)."""
     import ocr_remote
-    got = ocr_remote.edition(d, found, _SOLUTIONS)
+    # A held title (HELD_TITLE) is read answers-only here: the desktop's read would read the page in full.
+    got = None if any(p.get("heldTitle") for p in found["puzzles"]) else ocr_remote.edition(d, found, _SOLUTIONS)
     if got is not None:
         return got
     results = []
