@@ -678,5 +678,52 @@ try:
 finally:
     shutil.rmtree(moved_dir, ignore_errors=True)
 
+# repair_uncrossed: a filed Times answer with a letter no other answer checks, a word one letter off
+# it there, that the classifier does not read surely off the grid's crop, is blanked (8,564's BATES).
+crops = {8564: [(D("1957-10-09"), Path("a.png")), (D("1957-11-30"), Path("late.png")), (D("1957-10-01"), Path("early.png"))]}
+same("the grid's crop is the first dated from the puzzle's day to CROP_DAYS after it",
+     [rf.grid_crop({"number": 8564, "date": "1957-10-08"}, crops), rf.grid_crop({"number": 8564, "date": "1957-12-25"}, crops),
+      rf.grid_crop({"number": 8565, "date": "1957-10-08"}, crops), rf.grid_crop({"number": 8564}, crops)],
+     [Path("a.png"), None, None, None])
+same("a word one letter off at a lone cell is a misread's alternative (BATES: PATES); none elsewhere",
+     [rf.misread_alternative("BATES", [0]), rf.misread_alternative("MILOMETER", list(range(9)))], [True, False])
+
+
+def uc_puzzle(sols):
+    # 3x3, its middle black: 1-across, 1-down, 2-down, 4-across round the edge.
+    lights = [(1, "across", 0, 0), (1, "down", 0, 0), (2, "down", 2, 0), (4, "across", 0, 2)]
+    return {"id": "times-1", "number": 1, "date": "1990-01-01", "source": {"acquiredBy": "tools/file_archive_org_puzzles.py"},
+            "dimensions": {"cols": 3, "rows": 3},
+            "entries": [{"number": n, "direction": d, "position": {"x": x, "y": y}, "length": 3,
+                         "clue": {"text": "c", "enumeration": "3"}, "solution": s, **({"annotation": {"a": 1}} if s else {})}
+                        for (n, d, x, y), s in zip(lights, sols)]}
+
+
+# 2-down blank: BAT's T and DOE's E are crossed by nothing answered; BAT's A and DOE's O are unchecked.
+same("an answer a blank light crosses, a word one letter off at its lone cells, is a suspect; one all crossed is not",
+     rf.uncrossed_suspects(uc_puzzle(["BAT", "BED", None, "DOE"])), {"1-across": [1, 2], "4-across": [1, 2]})
+same("... only of the lights asked about", rf.uncrossed_suspects(uc_puzzle(["BAT", "BED", None, "DOE"]), {"4-across"}),
+     {"4-across": [1, 2]})
+uc_dir = Path(tempfile.mkdtemp())
+try:
+    uc_path = uc_dir / "times-1.json"
+    uc_path.write_text(json.dumps(uc_puzzle(["BAT", "BED", None, "DOE"]), indent=1) + "\n")
+    uc_saved = (rf.uncrossed_reads, rf.puzzle_paths.find)
+    rf.uncrossed_reads = lambda answered, workers=1, crops=None: [
+        ("times-1", "1-across", "BAT", 0.035, "PAT"), ("times-1", "4-across", "DOE", 0.97, None)]
+    rf.puzzle_paths.find = lambda pid: uc_path if pid == "times-1" else None
+    same("(dry run) the answer the classifier reads as another word is named, nothing written",
+         [rf.repair_uncrossed(answered={"times-1": {"1-across": "BAT", "4-across": "DOE"}}),
+          json.loads(uc_path.read_text())["entries"][0]["solution"]],
+         [[("times-1", "1-across", "BAT", "PAT")], "BAT"])
+    rf.repair_uncrossed(answered={"times-1": {"1-across": "BAT", "4-across": "DOE"}}, apply_it=True)
+    uc_after = json.loads(uc_path.read_text())["entries"]
+    same("--apply blanks it and its annotation; the one read as itself stands",
+         [(e["solution"], "annotation" in e) for e in uc_after],
+         [(None, False), ("BED", True), (None, False), ("DOE", True)])
+    rf.uncrossed_reads, rf.puzzle_paths.find = uc_saved
+finally:
+    shutil.rmtree(uc_dir, ignore_errors=True)
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)

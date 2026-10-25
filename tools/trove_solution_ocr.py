@@ -877,6 +877,28 @@ def light_strip(gray, ys, xs, cells):
 SURE_BLOCKS = 0.97
 
 
+def cell_probs(image, grid):
+    """{cell: 26 letter probabilities} of the cell classifier over every light's cell of
+    solution-grid `image` (the crop read_framed reads), on the framing whose blocks fit best:
+    the probabilities read_framed's classify step reads (its `lean` lattice). None when no
+    framing's blocks read at SURE_BLOCKS (read_framed classifies nothing then) or no lattice
+    lies on the image. Outside read_framed (solution_key stays the reader's): the uncrossed
+    check of file_archive_org_puzzles asks it only of the lights it would leave out."""
+    try:
+        gray = np.asarray(Image.open(image).convert("L"))
+        framed = framings(gray, grid)
+    except (OSError, ValueError):
+        return None
+    if not framed:
+        return None
+    fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
+    best = max(range(len(framed)), key=lambda i: fits[i])
+    if fits[best] < SURE_BLOCKS:
+        return None
+    g, ys, xs = framed[best]
+    return classified({rc: glyph(g, ys, xs, *rc) for cells in lights(grid).values() for rc in cells})
+
+
 def bounded_light(cells, direction, seen, word, wholes):
     """Whether a light read off a grid whose blocks read unsure stands: the
     cells either side of it read as blocks (or are off the grid), so the

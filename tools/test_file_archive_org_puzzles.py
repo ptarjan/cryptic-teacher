@@ -2361,6 +2361,41 @@ check("an answer a letter of which only it gives, where another light crosses un
        f.uncrossed({"1-across": "BAT", "1-down": "BOG", "3-across": "GUN"}, ht_grid)])
 check("... and one no word, its unchecked middle letter checked by nothing (10,927's RUSSUM for RUSTUM)",
       {"1-down"}, f.uncrossed({"1-across": "BAT", "1-down": "BXG", "2-down": "TIN", "3-across": "GUN"}, ht_grid))
+import inspect
+import numpy as np
+def uc_reads(rows, at=None):
+    # {cell: probabilities}: each cell reads its letter of `rows` at .97, or at[cell]'s letter at .95 (its own .02).
+    out = {}
+    for r, row in enumerate(rows):
+        for c, ch in enumerate(row):
+            if ch == "#":
+                continue
+            p = np.full(26, 0.0004)
+            p[tso.AZ.index(ch)] = 0.97
+            if at and (r, c) in at:
+                p[tso.AZ.index(ch)], p[tso.AZ.index(at[r, c])] = 0.02, 0.95
+            out[r, c] = p
+    return out
+
+
+uc_rows = ["BAT", "O#A", "GUN"]
+uc_part = {"1-across": "BAT", "1-down": "BOG", "3-across": "GUN"}
+check("... unless the classifier reads its lone letters as filed: one read as another letter making a listed word "
+      "(8,564's BATES, its B read .035 under P: PATES) is left out, one read as no word is not; "
+      "no crop read leaves every one out",
+      [set(), {"1-across"}, set(), {"1-across", "3-across"}],
+      [f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows)),
+       f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "I"})),
+       f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "X"})),
+       f.uncrossed(uc_part, ht_grid, probs=lambda: None)])
+check("misread_rival names the word", ["BIT", None],
+      [f.misread_rival("BAT", [(1, (0, 1), "A")], uc_reads(uc_rows, {(0, 1): "I"})),
+       f.misread_rival("BAT", [(1, (0, 1), "A")], uc_reads(uc_rows))])
+check("... and the crop is not read when no answer would be left out",
+      set(), f.uncrossed({"1-across": "BAT", "1-down": "BOG", "2-down": "TIN", "3-across": "GUN"}, ht_grid,
+                         probs=lambda: (_ for _ in ()).throw(AssertionError("crop read"))))
+check("answers-only reads of every reason take the check (crossed by default)",
+      True, inspect.signature(f.answers_only).parameters["crossed"].default)
 ao_held[0] = lights_held([None] * 4)
 ao_held[0]["entries"][2]["clue"]["text"] = ""
 check("a held file with a blank clue is read in full", None, f.answers_only(*ao_args))

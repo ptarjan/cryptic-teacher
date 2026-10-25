@@ -4716,7 +4716,7 @@ def vlm_lights(answers, strips, grid, enums):
     return {**answers, **got}, got
 
 
-def uncrossed(answers, grid, enums=None):
+def uncrossed(answers, grid, enums=None, probs=None):
     """The lights of `answers` ({"12-across": word}) holding a cell another light of `grid` crosses
     with no answer of the grid's reading: a letter only its own word gives. A listed word read a
     letter off there stands on nothing (Times 8,564's 6-across BATES for PATES, "They're made of
@@ -4724,7 +4724,13 @@ def uncrossed(answers, grid, enums=None):
     here still checked its crossers' letters as read (taken again, every one would go).
     Also one with a cell no other light holds (unchecked) that is no word (worded, by its `enums`
     count) nor a corpus answer: a letter there is checked by nothing, and a listed name read a letter
-    off stands (10,927's RUSSUM, a surname list's, for RUSTUM in a grid read whole)."""
+    off stands (10,927's RUSSUM, a surname list's, for RUSTUM in a grid read whole).
+    With `probs` (a callable giving the cell classifier's {cell: 26 probabilities} of the grid's
+    crop, trove_solution_ocr.cell_probs, or None when it has none), only such an answer whose
+    lone cells (unchecked, or crossed unanswered) the classifier reads as a listed word one letter
+    off is left out (misread_rival): the check alone left out 6,909 of the 97,685 Times answers
+    filed 10-22..25, nearly all right (a partial grid's MILOMETER, HEZEKIAH, BETSEYTROTWOOD).
+    It is called only when an answer would be left out; with no reading, every one is."""
     lts = trove_solution_ocr.lights(grid)
     on = {}
     for (n, dr), cells in lts.items():
@@ -4736,10 +4742,49 @@ def uncrossed(answers, grid, enums=None):
         if k not in out and any(len(on[rc]) == 1 for rc in cells) \
                 and not worded(a, (enums or {}).get(_light_key(k))) and a.upper() not in trove_solution_ocr.corpus_words():
             out.add(k)
+    got = probs() if out and probs is not None else None
+    if got:
+        out = {k for k in out if misread_rival(answers[k], lone_cells(k, lts, on, answers), got)}
     return out
 
 
-def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=False):
+def lone_cells(k, lts, on, answers):
+    """[(index, cell, letter)] of light `k`'s answer in `answers` where no other answer holds the
+    cell, whether another light crosses there unanswered or none does: letters checked by nothing
+    (uncrossed)."""
+    return [(i, rc, ch) for i, (rc, ch) in enumerate(zip(lts.get(_light_key(k), ()), answers[k].upper()))
+            if len(on[rc]) == 1 or any(o not in answers for o in on[rc] if o != k)]
+
+
+#: A lone letter the classifier reads another letter over at this or more, that letter making a
+#: listed word, is a misread (misread_rival). On 373 suspects of the Times answers filed 10-18..25
+#: (a lone cell, a listed word one letter off there), .5 named 27: 24 misreads by their clues
+#: (LOUCHING for TOUCHING, REMOTED for REMOTER, TOBAGI, ARELARD, MUCKLE for BUCKLE...), 3 right
+#: (BUFF, DUMAS, CESSION); the plain UNLISTED_TOP bar on the filed letter took ~5 misreads in 40.
+RIVAL_P = 0.5
+
+
+def misread_rival(word, lone, probs):
+    """The listed word answer `word` turns into where the classifier's `probs` read one of its `lone`
+    letters [(index, cell, letter)] (lone_cells) as another at RIVAL_P and over its own, or None:
+    8,564's BATES for PATES, its B read .035 and R over it (RATES)."""
+    t = trove_solution_ocr
+    w = word.upper()
+    for i, rc, ch in lone:
+        p = probs.get(rc)
+        if p is None or ch not in t.AZ:
+            continue
+        own = float(p[t.AZ.index(ch)])
+        for j in sorted(range(26), key=lambda j: -float(p[j])):
+            if float(p[j]) < RIVAL_P or float(p[j]) <= own:
+                break
+            rival = w[:i] + t.AZ[j] + w[i + 1:]
+            if t.AZ[j] != ch and t.listed(rival):
+                return rival
+    return None
+
+
+def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     """(verdict, puzzle) of a title whose clues are already filed whole and
     whose solution grid is linked now, read from the solution grid alone, or
     None (the full read): no clue is OCR'd again, as the held file's clues
@@ -4753,8 +4798,11 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=False):
     merges them into the held file (merge_answers) and takes no whole reading
     over it. None when a held answer differs from the grid's, two answers cross
     on different letters, or the grid is not the Times's (cells classified).
-    Not `ask_vlm`: the lights the grid's reading left stay unanswered (no strip asked). `crossed`:
-    an answer with a letter no other answer crosses where another light does is left out (uncrossed)."""
+    Not `ask_vlm`: the lights the grid's reading left stay unanswered (no strip asked). `crossed` (every
+    Times answers-only read, not only HELD_TITLE's since 10-25): an answer with a letter no other answer
+    checks is left out (uncrossed) when the classifier reads one such letter off the grid's crop as
+    another making a listed word (misread_rival; cell_probs, asked only when one would be left out),
+    or with no crop read; a held title's (HELD_TITLE) every time."""
     if d is None or hit is None or not solutions or d.name in _KEEP_VLM["names"]:
         return None
     paper = paper_of(d)
@@ -4798,7 +4846,11 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=False):
         answers = {k: a for k, a in answers.items() if k not in misread}
         info = {**info, "misread": sorted(misread), "accepted": info.get("accepted", 0) - len(misread)}
     if crossed:
-        lone = uncrossed(answers, grid, enums)
+        # A held title (HELD_TITLE) stands on no title read: every answer uncrossed leaves out goes. The
+        # rest go only as the classifier reads them another word (misread_rival).
+        crop = CROPS / "solutions" / f"{Path(sol['dir']).name}_{sol.get('number', number)}.png"
+        lone = uncrossed(answers, grid, enums, probs=None if hit.get("heldTitle") else (
+            lambda: trove_solution_ocr.cell_probs(crop, grid) if crop.exists() else None))
         if lone:
             answers = {k: a for k, a in answers.items() if k not in lone}
             info = {**info, "uncrossed": sorted(lone), "accepted": info.get("accepted", 0) - len(lone)}
