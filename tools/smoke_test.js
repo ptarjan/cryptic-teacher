@@ -3370,7 +3370,9 @@ function blogSidecars() {
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
         const t = (e.annotation || {}).type || [];
-        if ((t.includes("homophone") || t.includes("spoonerism"))
+        // A clue flagged for redo (ann.redo) has its blocks rung and step-by-step
+        // withheld on purpose (app.js, "Being rewritten"), so there is no rung to check.
+        if ((t.includes("homophone") || t.includes("spoonerism")) && !e.annotation.redo
             && (e.annotation.blocks || []).some((b) => b.soundsLike)) sound.push({ id, e });
       }
     }
