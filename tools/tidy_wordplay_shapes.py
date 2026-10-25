@@ -199,7 +199,7 @@ def write_allowances(left, touched):
     order = list(V.BACKLOG_MARKERS)
     out = {k: data[k] for k in order if k in data}
     out.update({k: v for k, v in data.items() if k not in out})
-    path.write_text(json.dumps(out, indent=1) + "\n")
+    V.store_backlog(out, path)
 
 
 def main():

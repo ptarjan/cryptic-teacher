@@ -123,7 +123,7 @@ def write_allowance(left):
         if k == "wordplay.unchecked":
             out[FIELD] = None
     out[FIELD] = {k: n for k, n in sorted(rows.items(), key=validate_annotations._sort_key) if n}
-    path.write_text(json.dumps(out, indent=1) + "\n")
+    validate_annotations.store_backlog(out, path)
 
 
 def main():

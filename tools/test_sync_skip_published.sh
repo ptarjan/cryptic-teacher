@@ -7,7 +7,7 @@
 set -u
 export PUSH_BATCH_SECS=0  # every push at once, not batched 5 min apart (tools/push_puzzle_commit.sh)
 here=$(cd "$(dirname "$0")" && pwd)
-eval "$(sed -n '/^sync_attempt() {/,/^}/p;/^publish_commits() {/,/^}/p;/^sync_tree() {/,/^}/p;/^shelve_code_edits() {/,/^}/p;/^sync_tree_around_dirty() {/,/^}/p' "$here/prereset_backfill.sh")"
+eval "$(sed -n '/^sync_attempt() {/,/^}/p;/^publish_commits() {/,/^}/p;/^sync_tree() {/,/^}/p;/^json_unchanged() {/,/^}/p;/^shelve_code_edits() {/,/^}/p;/^sync_tree_around_dirty() {/,/^}/p' "$here/prereset_backfill.sh")"
 eval "$(sed -n '/^under_index_lock() {/,/^}/p' "$here/puzzle_worker.sh")"
 alert() { echo "$*" >>"$t/alerts"; }
 tools/push_puzzle_commit.sh() { bash "$here/push_puzzle_commit.sh" "$@" 2>/dev/null; }
@@ -81,4 +81,19 @@ cd "$t/m"; g pull -q origin master 2>/dev/null; echo v5 > tools/plan.py; g commi
 cd "$t/b"; git fetch -q origin master; printf 'again\n' > tools/plan.py; before=$(git rev-parse HEAD)
 PRERESET_SHELF=/dev/null/x sync_tree 2>/dev/null; rc=$?
 check "an unsavable edit is kept and the move refused" '[ "$rc" -ne 0 ] && [ "$(cat tools/plan.py)" = again ] && [ "$(git rev-parse HEAD)" = "$before" ]'
+
+# A JSON file rewritten in another layout (the compact backlog git stores
+# indented) parses the same as HEAD: put back silently, no patch, no alert. A
+# real change to JSON stays an edit.
+git checkout -q -- tools/plan.py; rm -rf "$t/shelf" "$t/alerts"
+printf '{\n "a": {"x": 1},\n "b": 2\n}\n' > tools/c.json; printf '{"k": 1}\n' > tools/d.json
+cd "$t/m"; g pull -q origin master 2>/dev/null
+printf '{\n "a": {"x": 1},\n "b": 2\n}\n' > tools/c.json; printf '{"k": 1}\n' > tools/d.json
+g add tools/c.json tools/d.json; g commit -qm json; g push -q origin HEAD:master
+cd "$t/b"; git fetch -q origin master; g reset -q --hard origin/master
+printf '{"a": {"x": 1}, "b": 2}\n' > tools/c.json; printf '{"k": 2}\n' > tools/d.json
+shelve_code_edits 2>/dev/null
+check "a layout-only JSON rewrite is put back as HEAD has it" 'git show HEAD:tools/c.json | cmp -s - tools/c.json'
+check "and is neither shelved nor alerted" '[ ! -e "$t/shelf" ] && ! grep -q c.json "$t/alerts" 2>/dev/null'
+check "a real JSON change is left alone" '[ "$(cat tools/d.json)" = "{\"k\": 2}" ]'
 exit $fail
