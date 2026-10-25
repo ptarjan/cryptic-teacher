@@ -119,6 +119,17 @@ errs, warns = [], []
 V.check_every_clue_is_annotated(hole, errs, warns, corpus=True)
 say("hole_queued_in_corpus", not errs and any("queued" in w for w in warns))
 
+# A tree that does not give its answer is dropped from the view and named by
+# its wordplay error; it is not also "no annotation" (toughie-2626 1D, 10-23:
+# MOBIUS's tree gave MOBIUSSTRIP, and the run spent five turns looking for
+# the 1-down it had written).
+wrong = {"id": "t-2", "number": 2, "entries": [
+    entry("1-across", annotation=stored()), entry("2-across", annotation=stored("ZZZZ"))]}
+_, errs, _ = V.validate_puzzle(wrong)
+say("wrong_tree_not_called_blank",
+    any(e.startswith("2A: wordplay:") for e in errs)
+    and not any("no annotation. Every clue" in e for e in errs))
+
 # A half-written file (the downs not reached yet) gets one line naming every
 # blank, not the paragraph once per clue; the audit still names its check.
 import annotate_audit
@@ -356,6 +367,13 @@ fix.write_text(json.dumps({"2-across": anagram}))
 say("patch_deletes_its_file", AC.patch(pending, fix) is None and not fix.exists()
     and json.loads(pending.read_text())["2-across"] == anagram)
 
+# A patch nulling every field takes the clue back: it is null, not {} that
+# apply counts as landed (timesquick-1703 17A, 10-23: "24/24 annotations"
+# above "17A: no annotation").
+fix.write_text(json.dumps({"2-across": {"def": None, "wp": None}}))
+say("patch_nulling_every_field_is_null", AC.patch(pending, fix) is None
+    and json.loads(pending.read_text())["2-across"] is None)
+
 # An answer typed with the enumeration's comma is respelt with a space.
 pending.write_text(json.dumps({"1-across": {"answer": "TITUS, ANDRONICUS"}, "2-across": None}))
 say("comma_answer_spaced", AC.respell_answers(pending) == ["1-across"]
@@ -557,6 +575,7 @@ apply_keeps_solutions_detail
 fragment_not_in_clue_fails
 hole_fails_the_run
 hole_queued_in_corpus
+wrong_tree_not_called_blank
 blanks_one_line
 one_blank_not_called_half_written
 reworded_clue_fails
@@ -569,6 +588,7 @@ bad_wordplay_is_refused
 preview_refused_clue_not_called_blank
 drop_refused_blanks_keeps_the_rest
 patch_deletes_its_file
+patch_nulling_every_field_is_null
 light_answer_named_fails
 function_word_light_passes
 unlinked_still_whole_answer_only
