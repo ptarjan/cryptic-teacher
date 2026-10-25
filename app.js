@@ -3191,12 +3191,12 @@
     setTimeout(() => cs.forEach((c) => {
       if (c.el) c.el.classList.remove("solved-flash", "clean");
     }), 450);
-    // A clue solved cold earns a pop of its own, over the box being worked in
-    // (the current-clue panel), not over the grid; the entry's middle square
-    // only when that panel is not on screen.
+    // A clue solved cold earns a pop of its own, over the box being worked in:
+    // the clue panel's own letter boxes, then the panel, and the entry's middle
+    // square only when neither is on screen.
     if (clean) {
       const mid = cs[Math.floor(cs.length / 2)];
-      const target = onScreenBox($("hint-panel")) || (mid && mid.el);
+      const target = onScreenBox($("hint-pattern")) || onScreenBox($("hint-panel")) || (mid && mid.el);
       if (target) fireworksAt(target, 1, 28);
     }
   }
