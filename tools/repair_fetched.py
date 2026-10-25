@@ -1056,16 +1056,20 @@ def foreign_links(cache=None):
     import file_archive_org_puzzles as archive
     cache = Path(cache or archive.CACHE)
     items = sorted(p.name for p in cache.iterdir() if p.is_dir())
-    where = {}
+    where, years = {}, set()
 
     def item_of(name):
-        """The items holding edition dir `name`, Times ones first; memoised."""
-        if name not in where:
-            # A 1930s Times item holds one edition, named as it is; every other item one paper's year.
-            have = [name] if name.startswith("per_") else [i for i in items if name[:4] in i]
-            have = [i for i in have if os.path.isdir(cache / i / name)]
-            where[name] = sorted(have, key=lambda i: archive.paper_of(cache / i / name).series != "times")
-        return where[name]
+        """The items holding edition dir `name`, Times ones first: each year's items listed once."""
+        if name.startswith("per_"):  # a 1930s Times item holds one edition, named as it is
+            return [name]
+        year = name[:4]
+        if year not in years:
+            years.add(year)
+            for i in items:
+                if year in i and not i.startswith("per_"):
+                    for e in os.listdir(cache / i):
+                        where.setdefault(e, []).append(i)
+        return sorted(where.get(name, ()), key=lambda i: archive.paper_of(cache / i / name).series != "times")
 
     def reading(name, number):
         try:
