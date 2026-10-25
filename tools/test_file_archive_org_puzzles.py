@@ -2396,6 +2396,34 @@ with tempfile.TemporaryDirectory() as dd_dir:
     f.complete = lambda p: True
 check("an answers-only reading of a held file complete() refuses merges its answers into the held file, not --out",
       (["held"], ["BAT", "BED", "DOE", "TOE"]), (dd_where[1:], sorted((verdict.get("answered") or {}).values())))
+# decide(): an answers-only reading drops no held answer it gives none for (10-22..25: 312 Times files lost 986
+# so, times-7522 all 26 for a reading that took none); only a named rule (held_drops) or a crossing read blanks one.
+def ao_decide(held, read, crossed=False):
+    ao_held[0] = held
+    ao_read[0] = read
+    with tempfile.TemporaryDirectory() as hd_dir:
+        (Path(hd_dir) / "held-1.json").write_text(json.dumps(held))
+        v, p = f.answers_only(*ao_args, crossed=crossed)
+        f.decide(v, p, "times", hd_dir, set(), lambda where, p, vv: True,
+                 path=lambda where, series, puzzles: Path(hd_dir) / f"{where[0]}-{where[1]}.json")
+        return v, [e["solution"] for e in json.loads((Path(hd_dir) / "held-1.json").read_text())["entries"]]
+verdict, sols = ao_decide(lights_held(["BAT", "BED", None, None]), {"2-down": "TOE", "3-across": "DOE"})
+check("an answers-only reread keeps each held answer it did not read again (times-4766's GREET, MERRIMENT)",
+      (["BAT", "BED", "TOE", "DOE"], {"2-down": "TOE", "3-across": "DOE"}), (sols, verdict.get("answered")))
+verdict, sols = ao_decide(lights_held(["BAT", "BED", None, None]), {})
+check("... one that reads none changes nothing", (["BAT", "BED", None, None], None), (sols, verdict.get("answered")))
+verdict, sols = ao_decide(lights_held(["BAT", None, None, None]), {"2-down": "POE", "3-across": "DOE"})
+check("... a read answer crossing a held one on another letter takes the light, named heldCrossed",
+      ([None, None, "POE", "DOE"], ["1-across"]), (sols, verdict["solution"].get("heldCrossed")))
+check("held_drops: heldMisread lights and each heldClash light settle_held dropped", {"1-down", "1-across"},
+      f.held_drops({"solution": {"heldMisread": ["1-down"], "heldClash": {"1-across": {"took": "dropped"},
+                                                                          "2-down": {"took": "read"}}}}))
+held = lights_held(["BAT", "BED", None, None])
+check("merge_answers drop: a held light named goes though not read, the rest stand",
+      ({"1-down": None, "3-across": "DOE"}, ["BAT", None, None, "DOE"]),
+      (f.merge_answers(held, lights_held([None, None, None, "DOE"]), drop={"1-down"}), [e["solution"] for e in held["entries"]]))
+ao_held[0] = lights_held([None] * 4)
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
 # decide(): a full reading not complete() (a clue blank) of a puzzle held with every clue merges its answers into the
 # held file, not --out; only blank held lights take one, crossing no held letter on another, and no held answer goes
 # (10-25: 227 Times grids, 3,825 answers in their --out copies).
