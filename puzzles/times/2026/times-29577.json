@@ -1598,15 +1598,38 @@
         {
          "text": "concealing",
          "at": 33,
-         "note": "the repeated letters hide another letter among them"
+         "note": "concealing means the repeated string hides the next letter inside it"
         }
        ],
        "parts": [
         {
-         "words": "repeatedly engaged in",
-         "at": 11,
-         "gives": "ATATATAT",
-         "note": "engaged in is at, as in at work, and repeatedly means it comes over and over, four times"
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 11,
+           "note": "repeatedly says the pair of short words is said over again"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "engaged",
+             "at": 22,
+             "gives": "AT",
+             "note": "at, as in 'at work' or 'at it', means busy or engaged"
+            },
+            {
+             "words": "in",
+             "at": 30,
+             "gives": "AT",
+             "note": "at can mean in, as in at home or at school"
+            }
+           ]
+          }
+         ]
         },
         {
          "op": "last",
@@ -1614,7 +1637,7 @@
           {
            "text": "final",
            "at": 52,
-           "note": "only the last letter of court is used"
+           "note": "final takes the last letter of the word court"
           }
          ],
          "parts": [
@@ -1622,7 +1645,7 @@
            "words": "court's",
            "at": 44,
            "gives": "COURT",
-           "note": "the possessive word court's, whose final letter belongs to court"
+           "note": "court's is the possessive of court; the word itself supplies the letter"
           }
          ]
         }
@@ -1631,14 +1654,13 @@
      ]
     },
     "explanation": {
-     "surface": "A Republican repeatedly engaged in hiding the result of a court case.",
-     "walkthrough": "AT (engaged in, as in 'at work') comes four times; T, the end of 'court', is hidden in the last gap. The answer imitates a series of sharp knocks at the door.",
-     "definitionFit": "Rat-a-tat-tat is the sound of rapid knocking on a door, a demand to be let in."
+     "surface": "A Republican engaged in a cover-up keeps knocking at the court's door, demanding entry.",
+     "walkthrough": "'Repeatedly' doubles ATAT into four ATs, and 'concealing' hides T, the end of 'court', before the last AT.",
+     "definitionFit": "Repeated knocking on a door is a request to be let in, a demand for access."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "engaged"
+     "answerInScene": true,
+     "aptDefinition": true
     }
    }
   },
