@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Like buildings of interest, e.g. the Pisa tower?",
     "enumeration": "6"
    },
-   "solution": "LISTED"
+   "solution": "LISTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like buildings of interest",
+      "at": 0,
+      "meaning": "in Britain, buildings of special historic or architectural interest are put on an official register that protects them"
+     },
+     {
+      "text": "e.g. the Pisa tower?",
+      "at": 28,
+      "meaning": "the Pisa tower famously tilts, so it is one leaning to one side"
+     }
+    ],
+    "explanation": {
+     "surface": "A tourist note on protected heritage buildings, with Pisa's famous tower as the example.",
+     "walkthrough": "A British 'listed building' is one on the national heritage register; the second sense is the verb list, to tilt as a ship does.",
+     "definitionFit": "Two senses: a protected heritage building is on the official register, and a tilting tower leans, which is what list means for a ship or tower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pisa"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +73,41 @@
     "text": "Present fellow was a consumer",
     "enumeration": "6"
    },
-   "solution": "DONATE"
+   "solution": "DONATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Present",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fellow",
+       "at": 8,
+       "gives": "DON",
+       "note": "a don is a fellow of a university college"
+      },
+      {
+       "words": "was a consumer",
+       "at": 15,
+       "gives": "ATE",
+       "note": "one who consumed food ate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gift-giving fellow who is himself a big eater.",
+     "definitionFit": "To present something is to give it as a gift, a straightforward synonym used as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "consumer"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +121,46 @@
     "text": "Remove finial off post",
     "enumeration": "4"
    },
-   "solution": "TAKE"
+   "solution": "TAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "finial off",
+       "at": 7,
+       "note": "a finial is the ornament on top of a post, so taking it off removes the top letter of the down word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "post",
+       "at": 18,
+       "gives": "STAKE",
+       "note": "a stake is a wooden post"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A builder told to take the decorative knob off the top of a post.",
+     "walkthrough": "In a down clue the 'finial' of a word is its first letter, so STAKE loses S.",
+     "definitionFit": "To take something away is to remove it, a plain synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finial"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +174,66 @@
     "text": "Source of news is about right about blokes turned alcoholic",
     "enumeration": "9"
    },
-   "solution": "FERMENTED"
+   "solution": "FERMENTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "turned alcoholic",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is about",
+       "at": 15,
+       "note": "the news source is wrapped around what follows, surrounding it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Source of news",
+       "at": 0,
+       "gives": "FEED",
+       "note": "a news feed supplies a stream of stories"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 30,
+         "note": "the abbreviation for right is placed around the word for blokes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "right",
+         "at": 24,
+         "gives": "RT"
+        },
+        {
+         "words": "blokes",
+         "at": 36,
+         "gives": "MEN",
+         "note": "blokes are men"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news story about men who took to drink.",
+     "walkthrough": "'Source of news' is a whole phrase for the feed, not a first-letter signal; both 'is about' and the second 'about' are containers, one nested in the other.",
+     "definitionFit": "Juice or wort that has fermented has had its sugar converted by yeast, so it has become alcoholic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "alcoholic"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +247,48 @@
     "text": "Conserving energy, puts a lid on vegetables",
     "enumeration": "5"
    },
-   "solution": "BEANS"
+   "solution": "BEANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vegetables",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Conserving",
+       "at": 0,
+       "note": "to conserve is to keep and hold, so the ban word holds the energy letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "puts a lid on",
+       "at": 19,
+       "gives": "BANS",
+       "note": "to put a lid on something is to stop it, to ban it"
+      },
+      {
+       "words": "energy",
+       "at": 11,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thrifty cook saves fuel by covering the pan of vegetables.",
+     "definitionFit": "Broad, runner and French beans are all garden vegetables, so the plural word fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +302,65 @@
     "text": "Lethargy of fish hauled up to languish on steamship",
     "enumeration": "10"
    },
-   "solution": "SLEEPINESS"
+   "solution": "SLEEPINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lethargy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 39,
+       "note": "in a down clue, being on something means being placed above it, so the earlier pieces sit before the ship"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "hauled up",
+         "at": 17,
+         "note": "in a down entry, hauling up reads the fish word from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 12,
+         "gives": "EELS",
+         "note": "eels are fish"
+        }
+       ]
+      },
+      {
+       "words": "languish",
+       "at": 30,
+       "gives": "PINE",
+       "note": "to pine is to languish"
+      },
+      {
+       "words": "steamship",
+       "at": 42,
+       "gives": "SS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Listless fish pulled up from the water, wilting on the deck of a steamer.",
+     "definitionFit": "Drowsiness and lethargy are both a heavy, sluggish want of energy, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hauled"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +374,56 @@
     "text": "That female yankee, after performance, is covered in boas?",
     "enumeration": "8"
    },
-   "solution": "FEATHERY"
+   "solution": "FEATHERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "covered in boas?",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 20,
+       "note": "the female and yankee pieces come after the performance word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "performance",
+       "at": 26,
+       "gives": "FEAT",
+       "note": "a feat is a notable performance or achievement"
+      },
+      {
+       "words": "That female",
+       "at": 0,
+       "gives": "HER",
+       "note": "her refers to that female"
+      },
+      {
+       "words": "yankee",
+       "at": 12,
+       "gives": "Y",
+       "note": "Yankee is Y in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A showgirl draped in boas after her number on stage.",
+     "walkthrough": "The boas are feather stoles, not snakes, so the question mark marks a definition by example.",
+     "definitionFit": "A feather boa is a long scarf of plumes, so someone wearing several is covered in plumage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boas"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +437,58 @@
     "text": "Fifth of vaccinations very delayed, resulting in quarantine",
     "enumeration": "7"
    },
-   "solution": "ISOLATE"
+   "solution": "ISOLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quarantine",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "nth",
+       "n": 5,
+       "indicators": [
+        {
+         "text": "Fifth of",
+         "at": 0,
+         "note": "the fifth letter of the word vaccinations is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vaccinations",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "very",
+       "at": 22,
+       "gives": "SO",
+       "note": "so means very, as in so good"
+      },
+      {
+       "words": "delayed",
+       "at": 27,
+       "gives": "LATE",
+       "note": "something delayed is late"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Late vaccinations leading to quarantine measures in an epidemic.",
+     "definitionFit": "To quarantine someone is to keep them apart from others, which is the verb to cut off or separate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fifth"
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +502,56 @@
     "text": "Caught out for 50 in predictably dark spell in The Oval",
     "enumeration": "7"
    },
-   "solution": "ELLIPSE"
+   "solution": "ELLIPSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The Oval",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "out for",
+       "at": 7,
+       "note": "the caught letter goes out and the fifty letter comes in in its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "predictably dark spell",
+       "at": 21,
+       "gives": "ECLIPSE",
+       "note": "an eclipse is a period of darkness that astronomers can predict"
+      },
+      {
+       "words": "Caught",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the cricket scoring abbreviation for caught"
+      },
+      {
+       "words": "50",
+       "at": 15,
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket report: a batsman caught for a half-century during a gloomy spell at The Oval.",
+     "walkthrough": "The Oval is a London Test cricket ground, which with 'caught' and '50' pushes the solver towards cricket; here it means only an oval shape.",
+     "definitionFit": "This geometric shape is the regular oval curve, so the shape name fits a plain oval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Oval"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +565,61 @@
     "text": "Not quite decent to compete with weak in field of activity",
     "enumeration": "7"
    },
-   "solution": "PURVIEW"
+   "solution": "PURVIEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "field of activity",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "at": 0,
+         "note": "not quite the whole word, so its final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "decent",
+         "at": 10,
+         "gives": "PURE",
+         "note": "decent, in the sense of clean and wholesome, means pure"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "compete",
+       "at": 20,
+       "gives": "VIE",
+       "note": "to vie is to compete"
+      },
+      {
+       "words": "weak",
+       "at": 33,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unfair contest pitting the strong against the weak in some sphere.",
+     "definitionFit": "A purview is the scope or range of someone's concern, the area within which they act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decent"
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +633,40 @@
     "text": "Rents made high for shopkeepers",
     "enumeration": "9"
    },
-   "solution": "TRADESMEN"
+   "solution": "TRADESMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shopkeepers",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "high",
+       "at": 11,
+       "note": "being high means intoxicated, so the letters are knocked out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rents made",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Landlords pushing up rents on high-street retailers.",
+     "definitionFit": "In British usage traders who keep shops are often called by this name, as in a tradesmen's entrance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 12,
@@ -185,7 +680,41 @@
     "text": "For instance soak heron",
     "enumeration": "5"
    },
-   "solution": "EGRET"
+   "solution": "EGRET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "heron",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "For instance",
+       "at": 0,
+       "gives": "EG"
+      },
+      {
+       "words": "soak",
+       "at": 13,
+       "gives": "RET",
+       "note": "to ret flax or hemp is to soak it to soften the fibres"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An example of a heron getting drenched.",
+     "walkthrough": "RET is a specialist word for soaking plant stems to loosen their fibres.",
+     "definitionFit": "This white wading bird belongs to the heron family, so it is an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soak"
+    }
+   }
   },
   {
    "number": 13,
@@ -199,7 +728,70 @@
     "text": "Somewhere to live comfortably in a row with a bit of garden",
     "enumeration": "8"
    },
-   "solution": "DWELLING"
+   "solution": "DWELLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Somewhere to live",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 30,
+         "note": "the word for comfortably goes inside the noise word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a row",
+         "at": 33,
+         "gives": "DIN",
+         "note": "a din is a loud row or racket"
+        },
+        {
+         "words": "comfortably",
+         "at": 18,
+         "gives": "WELL",
+         "note": "to live well is to live comfortably"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a bit of",
+         "at": 44,
+         "note": "only the first letter of garden is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "garden",
+         "at": 53
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An estate agent's pitch: comfortable living in a terrace with a little garden.",
+     "walkthrough": "'Row' suggests a terrace of houses, but it is a noisy row.",
+     "definitionFit": "A home or house is a place where someone lives, the general word for any abode."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 14,
@@ -213,7 +805,64 @@
     "text": "What's 'true' composed with art into a story?",
     "enumeration": "10"
    },
-   "solution": "LITERATURE"
+   "solution": "LITERATURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's 'true' composed with art into a story?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 32,
+       "note": "the composed letters are put into the falsehood word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a story",
+       "at": 37,
+       "gives": "LIE",
+       "note": "a story is a lie, a fib"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "composed",
+         "at": 14,
+         "note": "composed means put together or arranged, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "true",
+         "at": 8
+        },
+        {
+         "words": "art",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A musing on how truth, worked through art, becomes fiction.",
+     "walkthrough": "'Composed' rearranges the two words into TERATUR; 'into' puts that inside the story word, splitting it before its last letter.",
+     "definitionFit": "Writing of artistic merit, such as novels, is fact shaped with art into stories, which the whole clue describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 15,
@@ -227,7 +876,48 @@
     "text": "Have meal around six? Wonderful",
     "enumeration": "6"
    },
-   "solution": "DIVINE"
+   "solution": "DIVINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wonderful",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 10,
+       "note": "the meal word goes around the number"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Have meal",
+       "at": 0,
+       "gives": "DINE",
+       "note": "to dine is to have a meal"
+      },
+      {
+       "words": "six",
+       "at": 17,
+       "gives": "VI",
+       "note": "VI is six in Roman numerals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Suggesting supper at about six o'clock, to which the reply is 'Wonderful'.",
+     "definitionFit": "Informally, something heavenly or delightful is called this, a colloquial synonym for wonderful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "six"
+    }
+   }
   },
   {
    "number": 16,
@@ -241,7 +931,36 @@
     "text": "Have an uninviting appearance?",
     "enumeration": "9"
    },
-   "solution": "GATECRASH"
+   "solution": "GATECRASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Have an uninviting appearance?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Have an uninviting appearance?",
+       "at": 0,
+       "note": "read as making an appearance without being invited, i.e. turning up at a party uninvited, rather than looking unappealing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark about something that looks unattractive.",
+     "walkthrough": "'Uninviting' normally means unappealing; here it means uninvited.",
+     "definitionFit": "To turn up at a party without an invitation is literally an appearance nobody invited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "uninviting"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +988,41 @@
      }
     ]
    },
-   "solution": "GIVETHEGAMEAWAY"
+   "solution": "GIVETHEGAMEAWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "2 18",
+      "at": 0,
+      "meaning": "the solutions to 2 and 18 read together: to present deer meat as a gift"
+     },
+     {
+      "text": "23 the 5",
+      "at": 6,
+      "meaning": "the solutions to 23 and 5 make the idiom for letting out a secret"
+     },
+     {
+      "text": "3 a 26",
+      "at": 16,
+      "meaning": "the solutions to 3 and 26 make the idiom for losing deliberately, as a boxer does"
+     },
+     {
+      "text": "21",
+      "at": 27,
+      "meaning": "to quit a contest, as a chess player concedes"
+     }
+    ],
+    "explanation": {
+     "surface": "A clue made only of cross-references to other answers.",
+     "walkthrough": "Each cross-reference phrase is a way of betraying or losing: 'spill the beans' reveals a secret, 'take a dive' throws a fight, 'resign' concedes, and 'donate venison' is a literal joke on handing over game.",
+     "definitionFit": "The idiom means to reveal a secret or let a plan slip, and literally to hand over game meat or to lose a match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1036,72 @@
     "text": "Light carriage a belter initially yet disintegrating in billions of bits",
     "enumeration": "8"
    },
-   "solution": "GIGABYTE"
+   "solution": "GIGABYTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "billions of bits",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Light carriage",
+       "at": 0,
+       "gives": "GIG",
+       "note": "a gig is a light two-wheeled horse-drawn carriage"
+      },
+      {
+       "words": "a",
+       "at": 15
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 24,
+         "note": "initially means the first letter of belter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "belter",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disintegrating",
+         "at": 38,
+         "note": "falling apart, so the letters of yet are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yet",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A light carriage hurtling along and falling into billions of pieces.",
+     "definitionFit": "A unit of computer storage equal to a billion bytes, each of eight bits, so billions of bits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bits"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1115,63 @@
     "text": "Envision moving 2 to the right and 1 down in some game?",
     "enumeration": "7"
    },
-   "solution": "VENISON"
+   "solution": "VENISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some game?",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "down",
+       "at": 37,
+       "note": "down means dropped or removed, so one letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "moving 2 to the right",
+         "at": 9,
+         "note": "the first two letters of envision shift one place to the right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Envision",
+         "at": 0
+        },
+        {
+         "gives": "EN"
+        }
+       ]
+      },
+      {
+       "words": "1",
+       "at": 35,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions like moves in a board game: two squares right and one down.",
+     "walkthrough": "'Moving 2 to the right' moves EN past V, giving VENISION; '1 down' then drops one I.",
+     "definitionFit": "Deer meat is game, food from hunted animals, so this meat is one kind of game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1185,42 @@
     "text": "The low-down exasperate posher folk",
     "enumeration": "6"
    },
-   "solution": "GENTRY"
+   "solution": "GENTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "posher folk",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The low-down",
+       "at": 0,
+       "gives": "GEN",
+       "note": "gen is British slang for information, the low-down"
+      },
+      {
+       "words": "exasperate",
+       "at": 13,
+       "gives": "TRY",
+       "note": "to try someone is to test their patience, to exasperate them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip that annoys the upper classes.",
+     "walkthrough": "GEN is British slang for information.",
+     "definitionFit": "The class of well-born people just below the nobility are the upper-class folk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "low-down"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1234,48 @@
     "text": "Considered honey drink's safe",
     "enumeration": "8"
    },
-   "solution": "MEASURED"
+   "solution": "MEASURED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Considered",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "'s",
+       "at": 22,
+       "note": "the drink has, or holds, the safe word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "honey drink",
+       "at": 11,
+       "gives": "MEAD",
+       "note": "mead is an alcoholic drink made from honey"
+      },
+      {
+       "words": "safe",
+       "at": 25,
+       "gives": "SURE",
+       "note": "sure means safe, as in a sure bet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A verdict that a honey-based drink is safe to consume.",
+     "definitionFit": "A considered or deliberate response is careful and well thought out, the adjective sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "safe"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1289,32 @@
     "text": "Make your remark and quit job?",
     "enumeration": "6"
    },
-   "solution": "RESIGN"
+   "solution": "RESIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make your remark",
+      "at": 0,
+      "meaning": "read as re-mark: put your mark, your signature, on a document again"
+     },
+     {
+      "text": "quit job?",
+      "at": 21,
+      "meaning": "to give up a post"
+     }
+    ],
+    "explanation": {
+     "surface": "Speak your mind and walk out of the job.",
+     "walkthrough": "'Remark' is read as RE-MARK, to sign again.",
+     "definitionFit": "Two senses: signing again, and formally leaving employment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "remark"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1328,47 @@
     "text": "Stop believer keeping sabbath",
     "enumeration": "6"
    },
-   "solution": "DESIST"
+   "solution": "DESIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 14,
+       "note": "the believer keeps, or holds, the sabbath letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "believer",
+       "at": 5,
+       "gives": "DEIST",
+       "note": "a deist believes in a god"
+      },
+      {
+       "words": "sabbath",
+       "at": 22,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A demand that a religious believer stop observing the sabbath.",
+     "definitionFit": "To desist is to cease or refrain, a formal synonym for stop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keeping"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1382,31 @@
     "text": "Strip of wood for shed",
     "enumeration": "5"
    },
-   "solution": "SPILL"
+   "solution": "SPILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Strip of wood",
+      "at": 0,
+      "meaning": "a thin sliver of wood or paper for lighting a fire or pipe"
+     },
+     {
+      "text": "shed",
+      "at": 18,
+      "meaning": "to shed is to let fall or pour out, as blood"
+     }
+    ],
+    "explanation": {
+     "surface": "Wood strips set aside for building a garden shed.",
+     "walkthrough": "'Shed' looks like the outbuilding; it is the verb.",
+     "definitionFit": "Two senses: a taper of wood used for lighting, and to let something fall or pour out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1420,32 @@
     "text": "Get ready for plague?",
     "enumeration": "5"
    },
-   "solution": "BESET"
+   "solution": "BESET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get ready",
+      "at": 0,
+      "meaning": "read as two words: to get ready, as in ready, steady"
+     },
+     {
+      "text": "plague?",
+      "at": 14,
+      "meaning": "to plague is to harass or trouble constantly"
+     }
+    ],
+    "explanation": {
+     "surface": "A warning to prepare for an epidemic.",
+     "walkthrough": "Split as BE SET it means get ready; whole, it means to harass.",
+     "definitionFit": "Two senses: being prepared to start, and troubling persistently, as difficulties do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plague"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1459,46 @@
     "text": "They take off dirt with soaps in a lather",
     "enumeration": "9"
    },
-   "solution": "PARODISTS"
+   "solution": "PARODISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They take off",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a lather",
+       "at": 30,
+       "note": "being in a lather means agitated, so the letters are worked up into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dirt",
+       "at": 14
+      },
+      {
+       "words": "soaps",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cleaners removing dirt with soapy lather.",
+     "walkthrough": "'Take off' means mimic, not remove.",
+     "definitionFit": "To take someone off is to mimic them, and those who write comic imitations do exactly that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1512,48 @@
     "text": "Pass on around five in seedy joint",
     "enumeration": "4"
    },
-   "solution": "DIVE"
+   "solution": "DIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "seedy joint",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 8,
+       "note": "the dying word goes around the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pass on",
+       "at": 0,
+       "gives": "DIE",
+       "note": "to pass on is to die"
+      },
+      {
+       "words": "five",
+       "at": 15,
+       "gives": "V",
+       "note": "V is five in Roman numerals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dying at about five o'clock in a run-down bar.",
+     "definitionFit": "A disreputable bar or club is informally called this, a seedy establishment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 27,
@@ -423,7 +1567,61 @@
     "text": "Mind one's held by both hands, a help to climbers",
     "enumeration": "7"
    },
-   "solution": "TENDRIL"
+   "solution": "TENDRIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a help to climbers",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mind",
+       "at": 0,
+       "gives": "TEND",
+       "note": "to mind a child is to tend it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "held by",
+         "at": 11,
+         "note": "the letter for one is held between the hand letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "both hands",
+         "at": 19,
+         "gives": "RL",
+         "note": "R and L stand for right and left, so both hands"
+        },
+        {
+         "words": "one",
+         "at": 5,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climbing safety tip: keep both hands on the rope.",
+     "walkthrough": "'Climbers' are climbing plants, not mountaineers.",
+     "definitionFit": "A thin coiling shoot by which a climbing plant clings to supports helps it climb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "climbers"
+    }
+   }
   },
   {
    "number": 28,
@@ -437,7 +1635,49 @@
     "text": "The likes of Solomon in the Authorised Version? Quite the opposite",
     "enumeration": "7"
    },
-   "solution": "SAVAGES"
+   "solution": "SAVAGES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quite the opposite",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "read with the reversal at the end: rather than the wise men going in the version, the version goes in the wise men"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The likes of Solomon",
+       "at": 0,
+       "gives": "SAGES",
+       "note": "King Solomon is the Bible's model of a wise man, a sage"
+      },
+      {
+       "words": "the Authorised Version",
+       "at": 24,
+       "gives": "AV",
+       "note": "AV is the abbreviation for the Authorised Version, the King James Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wise men like Solomon in the King James Bible, then a twist.",
+     "walkthrough": "'Quite the opposite' does two jobs: it flips the 'in' so the Bible version goes inside the wise men, and it defines the answer as the opposite of the wise.",
+     "definitionFit": "Wild, uncivilised brutes are the reverse of wise and cultured sages, so the antonym fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "opposite"
+    }
+   }
   }
  ]
 }
