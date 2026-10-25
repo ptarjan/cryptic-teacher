@@ -41,6 +41,9 @@ from pathlib import Path
 import scan_queue as q
 import vlm_reader
 vlm_reader.reachable = lambda *a, **k: False
+# Nor asks its slot count: slots()' /props probe of the fake desktop waits out a 5 s connect (longer in
+# CI's cut network) inside the first dispatch, past the kill case's 15 s. The fallback is what it yields.
+vlm_reader._SLOTS[0] = vlm_reader.SLOTS_FALLBACK
 import file_archive_org_puzzles as f
 import edition_queue as eq
 eq.cpu_gate_reader = lambda: 0.0  # this host's load must not gate the tests' starts

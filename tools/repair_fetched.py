@@ -1018,8 +1018,8 @@ def misread_alternative(word, lone):
 def uncrossed_suspects(puzzle, lights=None):
     """{light: [lone letter indices]} of `puzzle`'s answers (those of `lights`, all by default)
     file_archive_org_puzzles.uncrossed leaves out, short of the classifier's reading of its cells,
-    where a misread_alternative lies. The rest it leaves out (a partial grid's MILOMETER, no word one
-    letter off it) are not looked at: their crop's classifier read costs ~5 s a puzzle."""
+    where a misread_alternative lies. The rest it leaves out (a word no change at its lone letters
+    makes another listed word) are not looked at: their crop's classifier read costs ~5 s a puzzle."""
     import file_archive_org_puzzles as archive
     import trove_solution_ocr as tso
     es = puzzle.get("entries") or ()
