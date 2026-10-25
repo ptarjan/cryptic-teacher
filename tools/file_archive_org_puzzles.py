@@ -7679,7 +7679,7 @@ _LATE_STRIPS = {}
 #: late_strips asks the VLM of up to LATE_MAX such lights (before, 2). 10-25: 401 such Times puzzles
 #: stood short with no ask and no unit planned. Once, as an answers-only reread (SOLUTION_FIXES).
 WIDE_STRIPS = "solution short, its 3-5 last lights' strips cut since"
-REREAD_WIDE_STRIPS = "2026-10-25T20:30:00+00:00"
+REREAD_WIDE_STRIPS = "2026-10-25T19:55:00+00:00"
 
 
 def strip_missing(series, number, sol_dir, most=None):
