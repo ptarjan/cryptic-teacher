@@ -1538,33 +1538,48 @@
      "indicators": [
       {
        "text": "located wrongly",
-       "note": "pieces located wrongly are in the wrong places and have to be rearranged"
+       "at": 29,
+       "note": "located wrongly means set in the wrong places, so the pieces are rearranged"
       }
      ],
      "parts": [
       {
        "words": "circle",
+       "at": 7,
        "gives": "O",
-       "note": "a circle is the shape of the letter O"
+       "note": "a circle is shaped like the letter O"
       },
       {
        "words": "the",
-       "note": "taken as written"
+       "at": 14
       },
       {
-       "words": "navy twice",
-       "gives": "RNRN",
-       "note": "RN is the Royal Navy, written out two times"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 23,
+         "note": "twice says the navy's letters appear two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "navy",
+         "at": 18,
+         "gives": "RN",
+         "note": "RN is the Royal Navy"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Arctic Circle, with the navy twice ending up in the wrong place.",
-     "walkthrough": "'Arctic circle' reads as one phrase; only Arctic is the definition, and circle is part of the wordplay.",
-     "definitionFit": "Arctic means of the far north, so it is a fair synonym for the adjective northern."
+     "surface": "The Arctic Circle and the navy, mislocated twice over.",
+     "walkthrough": "'twice' doubles RN; 'located wrongly' shuffles O, THE and RNRN into the answer.",
+     "definitionFit": "Arctic regions lie in the far north, so arctic is a synonym for northerly."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "circle"
     }
