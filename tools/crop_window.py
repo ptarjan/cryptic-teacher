@@ -12,6 +12,7 @@ grid. This module is the first: gutters() finds them in the ink profile
 edge in order of nearness. The second is poor(), the verdict test the
 filer's fallback uses to try the next candidate window before the VLM.
 """
+import re
 
 #: Ink share of a pixel column under which it is a gutter's; the narrowest
 #: gutter (pixels, at a 4300px page); the widest rule a gutter may hold.
@@ -69,6 +70,53 @@ def edge_candidates(img, box, nominal, reach=300, limit=3, side="both"):
     near = sorted((x for x in gutters(img, box, side) if abs(x - nominal) <= reach and abs(x - nominal) > MIN_WIDTH),
                   key=lambda x: abs(x - nominal))
     return [nominal] + near[:limit]
+
+
+#: A word box ending within EDGE pixels of a window's right edge was cut by
+#: it; FOREIGN or more such boxes past a clean gap are a column of other
+#: print, not a clue's (one alone is a speck or a clipped count).
+EDGE, FOREIGN = 3, 2
+#: A box's text opening as a numbered clue does ("20 Botch", "1. 'Sweet").
+CLUE_OPENING = re.compile(r"\s*\d{1,2}\.?\s+[\"'“‘]?[A-Z][a-z]")
+
+
+def foreign_edge(words, x1, reach, gap=MIN_WIDTH):
+    """The x of the gutter before a column of other print that a window
+    ending at `x1` reaches into, read off the window's own reading, or None.
+    `words` are its (x0, y0, x1, y1, text) boxes in page pixels. That print
+    shows as FOREIGN or more boxes the edge cut (each ends within EDGE of
+    `x1`) starting within `reach` of it. Level with them (from the first's
+    top to the last's foot: a banner across the page under the clues is no
+    neighbour), the gutter is the first run of `gap` or more pixels within
+    `reach` of `x1`, left of every cut box, that no box crosses, with print
+    left of it; the x is the run's middle. The 2005 Times page's clue window,
+    1.45 grids' widths right of the grid, ended 90px inside the "Times
+    Crossword Book" advert beside DOWN: "Books Fi" ran into 20 down and 24
+    down was laid on no light."""
+    lo = int(x1 - reach)
+    cut = [w for w in words if w[2] >= x1 - EDGE and lo <= w[0] < x1 - EDGE]
+    # A cut box opening on a clue number ("20 Botch") is a clue column the
+    # window ends inside: its clues, never a neighbour's print.
+    if len(cut) < FOREIGN or any(CLUE_OPENING.match(str(w[4])) for w in cut):
+        return None
+    top, foot, start = min(w[1] for w in cut), max(w[3] for w in cut), int(min(w[0] for w in cut))
+    level = [w for w in words if w[3] > top and w[1] < foot]
+    covered = [False] * (start - lo)
+    for w in level:
+        for x in range(max(lo, int(w[0])), min(start, int(w[2]))):
+            covered[x - lo] = True
+    x = 0
+    while x < len(covered):
+        if covered[x]:
+            x += 1
+            continue
+        end = x
+        while end < len(covered) and not covered[end]:
+            end += 1
+        if end - x >= gap and any(w[2] <= lo + x for w in level):
+            return lo + (x + end) // 2
+        x = end
+    return None
 
 
 def poor(verdict, image_ok=False):

@@ -1540,6 +1540,32 @@ def right_columns(img, grid, span=RIGHT_SPAN):
     return x1, bottom
 
 
+#: How far in from the right clue columns' far edge (right_columns()), as a
+#: share of the grid's width, right_foreign() looks for other print the
+#: window cut into.
+RIGHT_FOREIGN = 0.2
+
+
+def right_foreign(rapid, grid, right):
+    """(right, rapid): `right` (right_columns()'s (x1, bottom)) with x1 pulled
+    in to the gutter before the column of other print its window reached
+    into (crop_window.foreign_edge, off each reader's words: the rightmost
+    any finds, so one word-level reading's chance run of blanks inside the
+    clues cuts nothing), and every reading (`rapid`: {reader: [[word]]}) without the
+    boxes past it; as they were when none did. right_columns()' span is a
+    share of the grid's width, so on the 2005 Times page it ended inside the
+    advert or solution box beside DOWN, whose line ends read into the clues
+    level with them (20 down's "Books Fi") and left the last clue on no light."""
+    x1, bottom = right
+    reach = RIGHT_FOREIGN * (grid[2] - grid[0])
+    cuts = [c for c in (crop_window.foreign_edge([w for ws in lines for w in ws], x1, reach)
+                        for lines in rapid.values()) if c is not None and c > grid[2]]
+    if not cuts:
+        return right, rapid
+    cut = max(cuts)
+    return (cut, bottom), {k: [ws for ws in lines if ws and ws[0][0] < cut] for k, lines in rapid.items()}
+
+
 def right_or_over(img, grid, right_ok=True):
     """(right, over) for a grid under its title: right_columns() when the
     clues lie right of it, else overhang(), never both. A page that ends
@@ -5286,6 +5312,8 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
     rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json",
                                 (over - gbox[2] - 15, gbox[3]) if over else third, m, top,
                                 crop, lead, x0, right) for which in READERS}
+    if right:
+        right, rapid = right_foreign(rapid, gbox, right)
     # The scan's grid, read before the clues: the 1930 Times prints no
     # counts, so its clues take theirs from it.
     gpath = CROPS / "grids" / f"{key}.png"
@@ -6849,6 +6877,34 @@ def short_three_columns(row):
         for v in row.get("verdicts", ()))
 
 
+#: The reason of a Gale Times page of the 2005 to 2006-10 layout (the grid left of its title, its clues
+#: right of it out to RIGHT_SPAN_LEFT) held with a blank clue, read before right_foreign() pulled the clue
+#: window's far edge in to the gutter before the advert or solution box beside DOWN. Paul 10-25: 2005 filed
+#: 216 of ~310 (56 held blank, none due); the window ended ~90px inside that box, its line ends ("Books Fi",
+#: "Check tod") read into the DOWN clues level with them, and the last DOWN clue laid on no light (64 of
+#: the 2005 blanks). Offline over the cached crops, 34 of the held 2005-06 pages' windows are cut, every
+#: dropped box the neighbour's print; 74 of the filed pages' too, none of their clue text.
+RIGHT_FOREIGN_READ = "short Times page, its clue window cut at its gutter since"
+#: (first day, last day, ISO time): a held row of those days read before the time is read again once.
+REREAD_RIGHT_FOREIGN = ("2005-01-01", "2006-10-31", "2026-10-25T07:00:00+00:00")
+
+
+def right_foreign_held(row):
+    """Whether `row` is a Gale Times edition of REREAD_RIGHT_FOREIGN's days, read before its time, with
+    a puzzle held with a blank clue (or fewer clues than lights, none refused) that the corpus does not
+    already hold with every clue (filed_state)."""
+    scan = row.get("scan") or {}
+    first, last, at = REREAD_RIGHT_FOREIGN
+    if not str(scan.get("item", "")).startswith("GaleTimes") or not first <= str(scan.get("date", "")) <= last \
+            or not scan_queue.read_before(row, scan_queue.when(at)):
+        return False
+    # A write refused (a book's copy: fetch_puzzle.check_not_copy) is refused again however it reads.
+    return any(v.get("id") and not v.get("complete") and not v.get("refused") and not v.get("refusedWrite")
+               and (v.get("blank") or v.get("clues", 0) < v.get("lights", 0))
+               and not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]
+               for v in row.get("verdicts", ()))
+
+
 #: ISO time of the last fix to how a Gale page's clue columns are laid out (vlm_reader.MIN_BOX
 #: 80 -> 55: the strip over the grid's two-line columns were left out of every pick's crop, 21d
 #: 24d 25d asked and left blank on 1945-47 pages): an edition whose read wrote a puzzle to the
@@ -7263,6 +7319,8 @@ def fix_reason(row):
         return LOST_WRITE
     if short_three_columns(row) and scan_queue.read_before(row, scan_queue.when(REREAD_THREE_COLUMNS[2])):
         return "short Times page, its third clue column read since"
+    if right_foreign_held(row):
+        return RIGHT_FOREIGN_READ
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     # Ahead of unenumerated_held: a refused grid is the evidence (edition_queue.evidence_reason), and
@@ -7657,7 +7715,10 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
     if vlm_up and read_unconfigured(row):
         return UNCONFIGURED_READ
     if row["inputs"] != inputs or row.get("solutionsSeen") != sol_seen:
-        return "inputs changed"
+        # A found title never read is unread work whether or not its files moved since: Paul 10-25, 174
+        # Gale Times pages of 2006-12 (137 of them 2009-11, mostly Saturdays, their wrong pages fetched
+        # again) stood unfiled as "inputs changed", a blanket reason no plan keeps.
+        return UNREAD_TITLES if unread_titles(row) else "inputs changed"
     if any(v.get("solutionFrom") and v["solutionFrom"] not in (sol_from or {}).get(v["number"], {v["solutionFrom"]})
            for v in row.get("verdicts", ())):
         return "solution moved"
@@ -7792,7 +7853,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, SHORT_WIDE: 2,
-         REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2,
+         REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,

@@ -875,6 +875,37 @@ check("a Gale 1957-62 page no title was found on by older scan code is due too; 
        f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1963UKEnglish", "date": "1963-01-02"}})])
 check("the third-column reread time is not in the future", True,
       scan_queue.when(f.REREAD_THREE_COLUMNS[2]) <= scan_queue.when("now"))
+# A held 2005-06 Gale Times page, read before right_foreign() cut its clue window at the gutter, is due again.
+beside = {"edition": "GaleTimes2005UKEnglish/2005-11-26", "inputs": "h",
+          "scan": {"item": "GaleTimes2005UKEnglish", "date": "2005-11-26", "puzzles": [{"number": 99923144}]},
+          "readAt": "2026-10-22T18:25:48+00:00",
+          "verdicts": [{"number": 99923144, "id": "times-99923144", "clues": 29, "lights": 30, "complete": False,
+                        "blank": {"24-down": "no reading laid a clue on it"}}]}
+check("a held 2005 Gale Times page read before its window was cut at the gutter is read again, as evidence",
+      [f.RIGHT_FOREIGN_READ, 2, True],
+      [f.fix_reason(beside), f.RANKS[f.RIGHT_FOREIGN_READ], __import__("edition_queue").evidence_reason(f.RIGHT_FOREIGN_READ)])
+check("a whole one, a refused one or write, a 2006-11 or 2004 page, another paper's, or one read since is not", [False] * 7,
+      [f.right_foreign_held({**beside, "verdicts": [{"id": "times-99923144", "clues": 30, "lights": 30, "complete": True}]}),
+       f.right_foreign_held({**beside, "verdicts": [{**beside["verdicts"][0], "refusedWrite": "a book's copy"}]}),
+       f.right_foreign_held({**beside, "verdicts": [{"id": "times-99923144", "refused": "x", "cause": "unlisted"}]}),
+       f.right_foreign_held({**beside, "scan": {**beside["scan"], "item": "GaleTimes2006UKEnglish", "date": "2006-11-02"}}),
+       f.right_foreign_held({**beside, "scan": {**beside["scan"], "item": "GaleTimes2004UKEnglish", "date": "2004-11-26"}}),
+       f.right_foreign_held({**beside, "scan": {**beside["scan"], "item": "GaleTelegraph2005UKEnglish"}}),
+       f.right_foreign_held({**beside, "readAt": "2099-01-01T00:00:00+00:00"})])
+check("the right-window reread time is not in the future", True,
+      scan_queue.when(f.REREAD_RIGHT_FOREIGN[2]) <= scan_queue.when("now"))
+# right_foreign(): the window pulled in to the gutter before the advert, its boxes dropped from every reading.
+rgrid = (150, 1811, 870, 2510)
+rap = {"ch": [[(1356, 2409, 1719, 2435, "20 Raise sympathy with attitude (6)")],
+              [(1355, 2480, 1690, 2508, "24 Thick cushion for nestling (5)")],
+              [(1824, 2396, 1913, 2419, "Books Fi")], [(1824, 2468, 1913, 2492, "Times re")]],
+       "en5": [[(1356, 2409, 1719, 2435, "20 Raise sympathy with attitude (6)")]]}
+rr, rk = f.right_foreign(rap, rgrid, (1914, 2726))
+check("the 2005 window ends in the gutter, the advert's line ends dropped",
+      [True, 2726, ["20 Raise sympathy with attitude (6)", "24 Thick cushion for nestling (5)"], 1],
+      [1719 < rr[0] < 1824, rr[1], [ws[0][4] for ws in rk["ch"]], len(rk["en5"])])
+check("a window cutting into no print stands", ((1914, 2726), rap["en5"]),
+      (lambda r: (r[0], r[1]["en5"]))(f.right_foreign({"en5": rap["en5"]}, rgrid, (1914, 2726))))
 
 # fault(): what the filer refuses to file, and what the print really has.
 for text, enum, cells, want in [
