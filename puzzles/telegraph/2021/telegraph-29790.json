@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,42 @@
     "text": "Send watch to be wound back",
     "enumeration": "5"
    },
-   "solution": "REMIT"
+   "solution": "REMIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Send",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to be wound back",
+       "at": 11,
+       "note": "winding a watch back suggests turning the word for it round to read from the other end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "watch",
+       "at": 5,
+       "gives": "TIMER",
+       "note": "a watch is a timer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to post a watch off so its hands can be wound back.",
+     "definitionFit": "To remit is to send, especially money or a matter to another body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "watch"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +82,30 @@
     "text": "Fraudster, one playing tennis you might say?",
     "enumeration": "9"
    },
-   "solution": "RACKETEER"
+   "solution": "RACKETEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fraudster",
+      "at": 0,
+      "meaning": "a criminal running a dishonest business"
+     },
+     {
+      "text": "one playing tennis you might say?",
+      "at": 11,
+      "meaning": "a whimsical coinage for someone who wields a tennis racket, with -eer as in auctioneer"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A racketeer runs a criminal scheme; the second reading jokingly builds a racket user."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tennis"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +119,51 @@
     "text": "Mushroom added with first of lentils",
     "enumeration": "5"
    },
-   "solution": "MOREL"
+   "solution": "MOREL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mushroom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "added",
+       "at": 9,
+       "gives": "MORE",
+       "note": "more means additional, added on"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "at": 20,
+         "note": "first of takes the opening letter of lentils"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lentils",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe where mushrooms are added with a few lentils.",
+     "definitionFit": "A morel is an edible fungus with a honeycombed cap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "added"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +177,44 @@
     "text": "Other plays with me, one's proven",
     "enumeration": "7"
    },
-   "solution": "THEOREM"
+   "solution": "THEOREM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one's proven",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "plays",
+       "at": 6,
+       "note": "plays suggests the letters of other and me are toyed with into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Other",
+       "at": 0
+      },
+      {
+       "words": "me",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone else plays with me, and one of us proves the stronger.",
+     "definitionFit": "In mathematics a statement that has been demonstrated by proof is so called."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +234,59 @@
      }
     ]
    },
-   "solution": "SEAURCHIN"
+   "solution": "SEAURCHIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Marine species",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to catch",
+       "at": 23,
+       "note": "to catch means to hold something within, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lookin'",
+       "at": 15,
+       "gives": "SEARCHIN",
+       "note": "lookin' is a dropped-g form of looking, i.e. searchin'"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 37,
+         "note": "ultimately points to the final letter of the word you"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone casually searching the sea for a creature, looking for you in the end.",
+     "walkthrough": "The apostrophe in 'lookin'' licenses the clipped form SEARCHIN, which takes in U, the last letter of 'you'.",
+     "definitionFit": "A sea urchin is a spiny echinoderm living on the seabed, a marine animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +300,30 @@
     "text": "Crossword writer in sun at the end of the day?",
     "enumeration": "6"
    },
-   "solution": "SETTER"
+   "solution": "SETTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crossword writer",
+      "at": 0,
+      "meaning": "the compiler of a puzzle"
+     },
+     {
+      "text": "sun at the end of the day?",
+      "at": 20,
+      "meaning": "the sun at dusk is something that sets, so fancifully one that sets"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A compiler of puzzles bears this title; the sun going down at evening is whimsically the thing setting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sun"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +337,42 @@
     "text": "Dog on telly, bitter",
     "enumeration": "8"
    },
-   "solution": "AIREDALE"
+   "solution": "AIREDALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on telly",
+       "at": 4,
+       "gives": "AIRED",
+       "note": "aired means broadcast, shown on television"
+      },
+      {
+       "words": "bitter",
+       "at": 14,
+       "gives": "ALE",
+       "note": "bitter is a British type of ale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog shown on television looks sour.",
+     "walkthrough": "Bitter is a hoppy British beer, so it gives ALE.",
+     "definitionFit": "An Airedale is a large terrier breed from Yorkshire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bitter"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +386,41 @@
     "text": "Bacon poor as her sausage sandwiches",
     "enumeration": "7"
    },
-   "solution": "RASHERS"
+   "solution": "RASHERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bacon",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "sandwiches",
+       "at": 26,
+       "note": "sandwiches means the words hold the answer between them, enclosed within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poor as her sausage",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bacon is a poor relation, as her sausage sandwiches prove.",
+     "walkthrough": "'sandwiches' looks like food, but it signals the letters held inside 'poor as her sausage'.",
+     "definitionFit": "Rashers are thin slices of bacon, so the plural noun stands for bacon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +440,43 @@
      }
     ]
    },
-   "solution": "HOTPOTATO"
+   "solution": "HOTPOTATO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Awkward problem",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sexy",
+       "at": 17,
+       "gives": "HOT",
+       "note": "hot means sexy or attractive"
+      },
+      {
+       "words": "King Edward",
+       "at": 22,
+       "gives": "POTATO",
+       "note": "King Edward is a popular British variety of potato"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a monarch was alluring and also a tricky issue.",
+     "walkthrough": "'King Edward' looks like a monarch but is a British potato variety.",
+     "definitionFit": "A hot potato is an idiom for a controversial issue nobody wants to handle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +490,41 @@
     "text": "Group has nothing to break your fall",
     "enumeration": "5"
    },
-   "solution": "NONET"
+   "solution": "NONET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Group",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nothing",
+       "at": 10,
+       "gives": "NO",
+       "note": "no means none, nothing"
+      },
+      {
+       "words": "to break your fall",
+       "at": 18,
+       "gives": "NET",
+       "note": "a safety net catches a falling acrobat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus troupe working without any safety net.",
+     "definitionFit": "A nonet is a group of nine musicians."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Group"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +538,49 @@
     "text": "Woodworker adds fish to log",
     "enumeration": "9"
    },
-   "solution": "CARPENTER"
+   "solution": "CARPENTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Woodworker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "adds",
+       "at": 11,
+       "note": "adds signals that one piece is simply joined to the next in sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fish",
+       "at": 16,
+       "gives": "CARP",
+       "note": "a carp is a freshwater fish"
+      },
+      {
+       "words": "log",
+       "at": 24,
+       "gives": "ENTER",
+       "note": "to log something is to enter it in a record"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woodworker puts fish on a log fire, or records fish in a logbook.",
+     "definitionFit": "A carpenter is a craftsman who makes and repairs wooden structures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "log"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +594,41 @@
     "text": "Day at home that's smooth and silky",
     "enumeration": "5"
    },
-   "solution": "SATIN"
+   "solution": "SATIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "smooth and silky",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Day",
+       "at": 0,
+       "gives": "SAT",
+       "note": "Sat is the short form of Saturday"
+      },
+      {
+       "words": "at home",
+       "at": 4,
+       "gives": "IN",
+       "note": "in means at home, as in staying in"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lazy day at home spent feeling relaxed and comfortable.",
+     "definitionFit": "As an adjective, satin describes a glossy finish or texture like the fabric, hence smooth and silky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Day"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +642,62 @@
     "text": "Stretch where angler repositioned line, finally",
     "enumeration": "7"
    },
-   "solution": "ENLARGE"
+   "solution": "ENLARGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stretch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "repositioned",
+         "at": 21,
+         "note": "repositioned tells us the letters of angler are moved into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "angler",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 40,
+         "note": "finally takes only the closing letter of the word line"
+        }
+       ],
+       "parts": [
+        {
+         "words": "line",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman shifts position and casts his line one last time.",
+     "walkthrough": "'repositioned' rearranges ANGLER into ENLARG, and 'finally' adds E, the end of 'line'.",
+     "definitionFit": "To enlarge is to make bigger, much as stretching extends something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "angler"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +717,41 @@
      }
     ]
    },
-   "solution": "DIESOUT"
+   "solution": "DIESOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ceases to exist",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "novel",
+       "at": 8,
+       "note": "novel means new, so the letters of Tedious appear in a fresh arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tedious",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boring book that eventually stops being read.",
+     "walkthrough": "'novel' looks like the book being described, but it is the anagram signal on 'Tedious'.",
+     "definitionFit": "A species or custom that dies out becomes extinct, no longer existing at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +765,53 @@
     "text": "Inexplicable thing being in game as every other character sent off",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inexplicable thing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "every other character sent off",
+       "at": 36,
+       "note": "sending off alternate letters, starting with the first, leaves the second, fourth, sixth and so on of being in game as"
+      }
+     ],
+     "parts": [
+      {
+       "words": "being",
+       "at": 19
+      },
+      {
+       "words": "in",
+       "at": 25
+      },
+      {
+       "words": "game",
+       "at": 28
+      },
+      {
+       "words": "as",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling football match where half the players are sent off by the referee.",
+     "walkthrough": "'sent off' suggests a sporting dismissal; here it removes the odd letters of 'being in game as', leaving the even ones.",
+     "definitionFit": "An enigma is a mystery or puzzle that cannot easily be explained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sent"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +825,40 @@
     "text": "Minder put off being foolish",
     "enumeration": "9"
    },
-   "solution": "IMPRUDENT"
+   "solution": "IMPRUDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "foolish",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "off",
+       "at": 11,
+       "note": "off means wrong or bad, so the letters of minder put are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Minder put",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carer being put off would be unwise.",
+     "definitionFit": "Imprudent means lacking care or good sense, unwise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +872,62 @@
     "text": "Terms in list are endless in magazine",
     "enumeration": "8"
    },
-   "solution": "GLOSSARY"
+   "solution": "GLOSSARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Terms in list",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "in places the shortened word inside the other one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "magazine",
+       "at": 29,
+       "gives": "GLOSSY",
+       "note": "a glossy is a magazine printed on shiny paper"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 18,
+         "note": "endless removes the final letter of the word are"
+        }
+       ],
+       "parts": [
+        {
+         "words": "are",
+         "at": 14
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pointing out that words listed in a magazine run on without end.",
+     "walkthrough": "'endless' cuts ARE to AR, which goes into GLOSSY.",
+     "definitionFit": "A glossary is an alphabetical list of specialist words with their meanings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +941,29 @@
     "text": "Number in the sixties, a short way back",
     "enumeration": "9"
    },
-   "solution": "YESTERDAY"
+   "solution": "YESTERDAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Number in the sixties",
+      "at": 0,
+      "meaning": "a song from the 1960s, here the Beatles track of 1965"
+     },
+     {
+      "text": "a short way back",
+      "at": 23,
+      "meaning": "adverbially, not long ago in the recent past"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The Beatles recorded a famous ballad of this title in 1965, and the word means the day before today."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +977,51 @@
     "text": "Plane is not dismantled for scrap",
     "enumeration": "8"
    },
-   "solution": "JETTISON"
+   "solution": "JETTISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "scrap",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Plane",
+       "at": 0,
+       "gives": "JET",
+       "note": "a jet is an aircraft"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dismantled",
+         "at": 13,
+         "note": "dismantled means taken apart, so the letters of is not are rebuilt differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is not",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plane is not taken apart for scrap metal.",
+     "definitionFit": "To jettison is to discard or abandon something, as cargo thrown overboard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plane"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1035,41 @@
     "text": "Journalist on carrier",
     "enumeration": "8"
    },
-   "solution": "REPORTER"
+   "solution": "REPORTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Journalist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "at": 11,
+       "gives": "RE",
+       "note": "re means on or concerning, as in business letters"
+      },
+      {
+       "words": "carrier",
+       "at": 14,
+       "gives": "PORTER",
+       "note": "a porter carries luggage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist reporting from an aircraft carrier.",
+     "definitionFit": "A reporter is a journalist who gathers and writes news."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1083,56 @@
     "text": "A minor revolutionary leading a nation",
     "enumeration": "7"
    },
-   "solution": "ROMANIA"
+   "solution": "ROMANIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nation",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leading",
+       "at": 22,
+       "note": "leading means coming before, so the shuffled letters precede the last word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 8,
+         "note": "revolutionary suggests turning things over, so the letters of a minor are shuffled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A minor",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 30
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young rebel heading a country.",
+     "definitionFit": "Romania is a country in south-eastern Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1146,39 @@
     "text": "A burden describing some clues",
     "enumeration": "6"
    },
-   "solution": "ACROSS"
+   "solution": "ACROSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "describing some clues",
+      "at": 9
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "burden",
+       "at": 2,
+       "gives": "CROSS",
+       "note": "a cross to bear is a burden one must endure"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver remarks that some clues are a real burden.",
+     "definitionFit": "Clues are split into those running horizontally and those running down, so half of them are labelled this way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "burden"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1192,29 @@
     "text": "Outfit a huge hit",
     "enumeration": "7"
    },
-   "solution": "CLOBBER"
+   "solution": "CLOBBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outfit",
+      "at": 0,
+      "meaning": "British slang for clothes and gear"
+     },
+     {
+      "text": "a huge hit",
+      "at": 7,
+      "meaning": "to strike very hard, as a verb meaning to land a heavy blow"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "In British slang the word covers clothing and belongings, and as a verb it means to hit hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Outfit"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1228,47 @@
     "text": "Attitude about right for thread",
     "enumeration": "6"
    },
-   "solution": "STRAND"
+   "solution": "STRAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thread",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 9,
+       "note": "about means surrounding, so one word wraps around the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Attitude",
+       "at": 0,
+       "gives": "STAND",
+       "note": "a stand is a stance or attitude on an issue"
+      },
+      {
+       "words": "right",
+       "at": 15,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A change of position towards fairness about some thread of argument.",
+     "definitionFit": "A strand is a single fibre or thread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Attitude"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1282,41 @@
     "text": "Top police force take a nosedive",
     "enumeration": "7"
    },
-   "solution": "PLUMMET"
+   "solution": "PLUMMET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "take a nosedive",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Top",
+       "at": 0,
+       "gives": "PLUM",
+       "note": "plum means top or best, as in a plum job"
+      },
+      {
+       "words": "police force",
+       "at": 4,
+       "gives": "MET",
+       "note": "the Met is London's Metropolitan Police"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The best police force's reputation suddenly crashes.",
+     "definitionFit": "To plummet is to fall steeply and quickly, like a plane in a nosedive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1330,53 @@
     "text": "Model in picture, so pumped up",
     "enumeration": "5"
    },
-   "solution": "POSER"
+   "solution": "POSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Model",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 28,
+       "note": "in a down clue, up means the letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 6,
+         "note": "in tells us the letters sit within the words picture so pumped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "picture, so pumped",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bodybuilder model in a photo looking muscly.",
+     "walkthrough": "'pumped' looks part of the scene but supplies a letter; 'in' takes RESOP from 'pictuRE SO Pumped' and 'up' turns it round.",
+     "definitionFit": "A poser sits for an artist or photographer, as a model does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pumped"
+    }
+   }
   },
   {
    "number": 24,
@@ -412,7 +1390,58 @@
     "text": "After opening of trading, currency in difficulty",
     "enumeration": "7"
    },
-   "solution": "TROUBLE"
+   "solution": "TROUBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "difficulty",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "after says the currency comes following the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening of",
+         "at": 6,
+         "note": "opening of takes just the first letter of trading"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trading",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "currency",
+       "at": 26,
+       "gives": "ROUBLE",
+       "note": "the rouble is the Russian currency"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "When the markets open, a currency gets into trouble.",
+     "definitionFit": "Trouble is a state of difficulty or distress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trading"
+    }
+   }
   },
   {
    "number": 25,
@@ -426,7 +1455,39 @@
     "text": "Something elasticated in mind",
     "enumeration": "5"
    },
-   "solution": "BRAIN"
+   "solution": "BRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mind",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Something elasticated",
+       "at": 0,
+       "gives": "BRA",
+       "note": "a bra is an undergarment with elastic"
+      },
+      {
+       "words": "in",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering about something with elastic in it, deliberately vague.",
+     "definitionFit": "The brain is the organ of thought, so it stands for the mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "elasticated"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1501,29 @@
     "text": "Authoritarian back on ship",
     "enumeration": "5"
    },
-   "solution": "STERN"
+   "solution": "STERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Authoritarian",
+      "at": 0,
+      "meaning": "strict and severe in manner"
+     },
+     {
+      "text": "back on ship",
+      "at": 14,
+      "meaning": "the rear part of a vessel"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Stern is both a severe adjective and the noun for a boat's aft section."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1537,36 @@
     "text": "Right in the main?",
     "enumeration": "9"
    },
-   "solution": "STARBOARD"
+   "solution": "STARBOARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Right in the main?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Right in the main?",
+       "at": 0,
+       "note": "the main is an old word for the open sea, so right in the main means the right side on a ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seems to mean correct for the most part.",
+     "walkthrough": "'in the main' reads as 'mostly', but 'the main' is the sea.",
+     "definitionFit": "Facing forward on a vessel, the right-hand side carries this nautical name, opposite port."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 28,
@@ -468,7 +1580,45 @@
     "text": "Interred, a rogue learned new skills",
     "enumeration": "9"
    },
-   "solution": "RETRAINED"
+   "solution": "RETRAINED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "learned new skills",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rogue",
+       "at": 12,
+       "note": "rogue means behaving wildly, so the letters of interred and a are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Interred",
+       "at": 0
+      },
+      {
+       "words": "a",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain buried and then dug up again has acquired fresh abilities.",
+     "definitionFit": "Someone retrained has been taught again for a different job or task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rogue"
+    }
+   }
   },
   {
    "number": 29,
@@ -482,7 +1632,37 @@
     "text": "Fruity edges of raspberry?",
     "enumeration": "5"
    },
-   "solution": "RANDY"
+   "solution": "RANDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "rebus",
+     "reading": "R at one end and Y at the other",
+     "parts": [
+      {
+       "words": "edges of raspberry",
+       "at": 7,
+       "note": "the outer letters of raspberry are an R and a Y, so spelling out that pair, letter, link word, letter, gives the entry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether the rims of a raspberry taste particularly fruity.",
+     "walkthrough": "'Fruity' suggests flavour, but here it is the slang sense of lustful.",
+     "definitionFit": "Fruity in British slang can mean sexually suggestive or lustful, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fruity"
+    }
+   }
   }
  ]
 }
