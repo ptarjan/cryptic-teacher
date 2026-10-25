@@ -2504,6 +2504,52 @@ check("merge_answers keep: no held answer changes or goes, a blank light crossin
       ({"2-down": "TOE"}, ["BIT", "BAD", "TOE", None]),
       (lambda held: (f.merge_answers(held, lights_held(["BAT", "XED", "TOE", None]), keep=True),
                      [e["solution"] for e in held["entries"]]))(lights_held(["BIT", "BAD", None, None])))
+# full_read_answers(): a full read's answers off the solution grid take answers_only's checks (checked_answers:
+# misread_word, uncrossed, settle_held against the held file), not filed as the grid gave them.
+fr_real = {n: getattr(f, n) for n in ("misread_word", "uncrossed")}
+fr_seen = []
+f.misread_word = lambda w, enum=None: w == "BEX"
+f.uncrossed = lambda answers, grid, enums=None, probs=None: (
+    fr_seen.append((sorted(answers), probs is not None)) or ({"2-down"} & set(answers)))
+try:
+    ao_held[0] = lights_held(["BAD", None, None, "DOE"])
+    fr_reading = lights_held([None] * 4)
+    fr_args = ({"dir": Path("NewsUK/1990-08-23_1"), "number": 1}, f.trove_solution_ocr.puzzle_grid(fr_reading),
+               {"1-across": "BAT", "1-down": "BEX", "2-down": "TOE", "3-across": "DOE"}, {"accepted": 4})
+    answers, info = f.full_read_answers(f.TIMES, 1, fr_reading, *fr_args)
+    check("a full read's answers: a misread goes, an uncrossed misread goes (the classifier asked), a held answer "
+          "the grid reads otherwise on an unchecked letter stands (settle_held)",
+          ({"1-across": "BAD", "3-across": "DOE"}, ["1-down"], ["2-down"], "held", 2,
+           [(["1-across", "2-down", "3-across"], True)]),
+          (answers, info.get("misread"), info.get("uncrossed"), info["heldClash"]["1-across"]["took"],
+           info["accepted"], fr_seen))
+    check("... a paper whose cells are not classified, and a refused reading, are filed as read",
+          ([{"1-across": "BAT", "1-down": "BEX", "2-down": "TOE", "3-across": "DOE"}, {"accepted": 4}], {"refused": "x"}),
+          (list(f.full_read_answers(f.FT, 1, fr_reading, *fr_args)),
+           f.full_read_answers(f.TIMES, 1, fr_reading, *fr_args[:3], {"refused": "x"})[1]))
+finally:
+    for n, fn in fr_real.items():
+        setattr(f, n, fn)
+# decide(): a full read that read the solution grid drops no held answer it gives none for (no reread drop since
+# 10-25, as answers-only): a held answer goes only by held_drops (heldMisread, a dropped clash) or a crossing read.
+def fr_decide(held, sols, solution):
+    ao_held[0] = held
+    with tempfile.TemporaryDirectory() as fr_dir:
+        (Path(fr_dir) / "held-1.json").write_text(json.dumps(held))
+        v = {"number": 1, "solutionFrom": "src", "solution": solution}
+        made = []
+        f.decide(v, lights_held(sols), "times", fr_dir, set(),
+                 lambda w, p, vv: made.append((w, [e["solution"] for e in p["entries"]])) or True,
+                 path=lambda w, series, puzzles: Path(fr_dir) / f"{w[0]}-{w[1]}.json")
+        return [s for w, s in made if w and w[0] == "held"][-1:]
+check("a full read keeps each held answer it did not read again (before 10-25 a reread blanked them)",
+      [["BAT", "BED", "TOE", "DOE"]],
+      fr_decide(lights_held(["BAT", "BED", None, None]), [None, None, "TOE", "DOE"], {"accepted": 2, "lights": 4}))
+check("... but for a held answer a named rule drops (heldMisread)",
+      [["BAT", None, "TOE", "DOE"]],
+      fr_decide(lights_held(["BAT", "BED", None, None]), [None, None, "TOE", "DOE"],
+                {"accepted": 2, "lights": 4, "heldMisread": ["1-down"]}))
+ao_held[0] = lights_held([None] * 4)
 # unenumerated_held(): a row read before REREAD_UNENUMERATED that linked a grid, whose held puzzle is short of
 # answers and has a clue with no enumeration, is read again once (fix_reason).
 import tempfile

@@ -4927,33 +4927,9 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # hide the clash and leave an answers-only read that files nothing.
     if not fits_lights(old["entries"], answers):
         return None
-    # An answer no word (worded) that one letter's change makes one is a misread, not a name: dropped.
-    misread = {k for k, a in answers.items() if misread_word(a, enums.get(_light_key(k)))}
-    if misread:
-        # A held answer the grid reads alike is the same misread: it goes too (heldMisread, merge_answers drop).
-        # Every other held answer the reading does not give stands (decide: no reread drop for answers-only).
-        was = {entry_id(e): e.get("solution") for e in es}
-        held_misread = sorted(k for k in misread if was.get(k) and was[k] == answers[k])
-        answers = {k: a for k, a in answers.items() if k not in misread}
-        info = {**info, "misread": sorted(misread), "accepted": info.get("accepted", 0) - len(misread)}
-        if held_misread:
-            info["heldMisread"] = held_misread
-    if crossed:
-        # A held title (HELD_TITLE) stands on no title read: every answer uncrossed leaves out goes. The
-        # rest go only as the classifier reads them another word (misread_rival).
-        crop = CROPS / "solutions" / f"{Path(sol['dir']).name}_{sol.get('number', number)}.png"
-        lone = uncrossed(answers, grid, enums, probs=None if hit.get("heldTitle") else (
-            lambda: trove_solution_ocr.cell_probs(crop, grid) if crop.exists() else None))
-        if lone:
-            answers = {k: a for k, a in answers.items() if k not in lone}
-            info = {**info, "uncrossed": sorted(lone), "accepted": info.get("accepted", 0) - len(lone)}
-    # A held answer the reading reads otherwise no longer refuses the whole reading (settle_held):
-    # the read one replaces it when a listed word fitting every crossing, else the held one stands and
-    # the read answers crossing it on another letter go; the held answers kept are filed with the reading's.
-    answers, kept, clash = settle_held(old["entries"], answers, enums, blog="blog" in (old.get("solutions") or {}))
-    if clash:
-        info = {**info, "heldClash": clash}
-        answers = {**answers, **kept}
+    answers, info, clash = checked_answers(es, answers, grid, enums, info, solution_crop(sol, number),
+                                           crossed=crossed, every=bool(hit.get("heldTitle")),
+                                           blog="blog" in (old.get("solutions") or {}))
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
     letters = {}
@@ -4985,6 +4961,99 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         verdict["read_as"] = hit["number"]
     verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
     return verdict, puzzle
+
+
+def solution_crop(sol, number):
+    """The crop read_solution leaves of solution heading `sol`'s grid (CROPS/solutions), which
+    trove_solution_ocr.cell_probs reads for uncrossed's misread_rival."""
+    return CROPS / "solutions" / f"{Path(sol['dir']).name}_{sol.get('number', number)}.png"
+
+
+def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True, every=False, blog=False):
+    """(answers, info, clash) of a solution grid's reading `answers` ({"12-across": word}) of a puzzle
+    whose held file's `entries` (or, with none held, the reading's own, answerless) lie on `grid`, past
+    the checks every answer read off a grid takes before it files, answers_only's and the full read's
+    (full_read_answers) alike:
+    - misread_word: an answer no word that one letter's change makes one goes ("misread"); a held answer
+      the grid reads alike goes with it ("heldMisread", held_drops);
+    - with `crossed`, uncrossed: an answer with a letter no other answer checks goes when the classifier
+      reads one such letter off `crop` (cell_probs) as another making a listed word (misread_rival), or,
+      with `every` (a held title, HELD_TITLE), whenever uncrossed names it ("uncrossed");
+    - settle_held: a held answer the reading reads otherwise is settled light by light ("heldClash"),
+      the held answers kept filed with the reading's; a blog's (`blog`) always stand.
+    `enums` {(number, direction): enumeration}; `info` the reading's stats, returned with the checks'
+    keys added. Each held answer the reading gives none for stands (decide: merge_answers with no reread
+    drop), but by held_drops."""
+    # An answer no word (worded) that one letter's change makes one is a misread, not a name: dropped.
+    misread = {k for k, a in answers.items() if misread_word(a, enums.get(_light_key(k)))}
+    if misread:
+        # A held answer the grid reads alike is the same misread: it goes too (heldMisread, merge_answers drop).
+        # Every other held answer the reading does not give stands (decide: no reread drop).
+        was = {entry_id(e): e.get("solution") for e in entries}
+        held_misread = sorted(k for k in misread if was.get(k) and was[k] == answers[k])
+        answers = {k: a for k, a in answers.items() if k not in misread}
+        info = {**info, "misread": sorted(misread), "accepted": info.get("accepted", 0) - len(misread)}
+        if held_misread:
+            info["heldMisread"] = held_misread
+    if crossed:
+        # A held title (HELD_TITLE) stands on no title read: every answer uncrossed leaves out goes. The
+        # rest go only as the classifier reads them another word (misread_rival).
+        lone = uncrossed(answers, grid, enums, probs=None if every else (
+            lambda: crop_cell_probs(crop, grid) if crop is not None and crop.exists() else None))
+        if lone:
+            answers = {k: a for k, a in answers.items() if k not in lone}
+            info = {**info, "uncrossed": sorted(lone), "accepted": info.get("accepted", 0) - len(lone)}
+    # A held answer the reading reads otherwise no longer refuses the whole reading (settle_held):
+    # the read one replaces it when a listed word fitting every crossing, else the held one stands and
+    # the read answers crossing it on another letter go; the held answers kept are filed with the reading's.
+    answers, kept, clash = settle_held(entries, answers, enums, blog=blog)
+    if clash:
+        info = {**info, "heldClash": clash}
+        answers = {**answers, **kept}
+    return answers, info, clash
+
+
+def crop_cell_probs(crop, grid):
+    """trove_solution_ocr.cell_probs of solution-grid crop `crop` for `grid`, the last one kept
+    (_CELL_PROBS) by the crop's size and time: a page's full read runs _read_page more than once
+    (another window, the VLM's columns), each on the same grid's crop (~5 s of CPU a read)."""
+    st = crop.stat()
+    key = (str(crop), st.st_size, st.st_mtime_ns, tuple("".join(r) for r in grid))
+    kept = _CELL_PROBS.get("last")
+    if kept and kept[0] == key:
+        return kept[1]
+    probs = trove_solution_ocr.cell_probs(crop, grid)
+    _CELL_PROBS["last"] = (key, probs)  # one tuple: a worker thread reads the pair whole
+    return probs
+
+
+_CELL_PROBS = {}
+
+
+def full_read_answers(paper, number, puzzle, sol, grid, answers, info):
+    """(answers, info) of a full read's (_read_page) reading `answers` of `sol`'s solution grid for
+    `puzzle` (the full read's, on `grid`), checked as answers_only checks its own (checked_answers:
+    misread_word, uncrossed with the classifier's misread_rival, settle_held against the held file).
+    Before 10-25 a full read filed every answer the grid gave: 6+ short Times files, a held file with
+    a blank clue, and every first read took a misread (BATES for PATES) an answers-only reread drops.
+    Only a paper whose cells are classified (CELLS_CLASSIFIED, answers_only's); a refused or empty
+    reading, and another puzzle's grid (wrong_grid: decide files none of its answers, judged on the
+    reading as read), are returned as read. The held file's entries settle a clash only when it is
+    this tool's on the same grid; else the reading's own (no held answer) do."""
+    if paper.key not in CELLS_CLASSIFIED or not answers or "refused" in info:
+        return answers, info
+    old = held_file(paper.series, number) or {}
+    held = bool((old.get("source") or {}).get("acquiredBy") == TOOL and old.get("entries")
+                and trove_solution_ocr.puzzle_grid(old) == trove_solution_ocr.puzzle_grid(puzzle))
+    es = old["entries"] if held else puzzle["entries"]
+    if held and wrong_grid(es, answers, paper.series, number):
+        return answers, info
+    enums = {(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration") for e in es}
+    enums.update({(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration")
+                  for e in puzzle["entries"] if (e.get("clue") or {}).get("enumeration")})
+    answers, info, _ = checked_answers(es, answers, grid, enums, info, solution_crop(sol, number),
+                                       blog=held and "blog" in (old.get("solutions") or {}))
+    return answers, info
 
 
 def fits_lights(entries, answers):
@@ -5847,6 +5916,9 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
     sol = solutions.get(n)
     if sol:
         answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above)
+        # The answers-only checks (misread_word, uncrossed, settle_held): before 10-25 a full read filed
+        # every answer its grid gave, misreads an answers-only reread of the same grid drops.
+        answers, info = full_read_answers(paper, n, puzzle, sol, grid, answers, info)
         verdict["solutionFrom"] = solution_source(sol)
         verdict["solution"] = info
         verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
@@ -9456,12 +9528,13 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
                 e["solution"] = None
     commit(None, puzzle, verdict)
     mended = mend_held(puzzle, held_path) if held_path.exists() else None
-    # An answers-only reading drops no held answer it gives none for, but by a named rule (held_drops): its
-    # misread and uncrossed filters left out reads, not the held answers (10-22..25: 312 Times files lost
-    # 986 held answers so, times-7522 all 26 for a reading that took none).
-    ao = bool(verdict.get("answersOnly"))
-    reread = solution_read(verdict) and not ao
-    drop = held_drops(verdict) if ao else ()
+    # A reading drops no held answer it gives none for, but by a named rule (held_drops): its misread and
+    # uncrossed filters left out reads, not the held answers (10-22..25: 312 Times files lost 986 held
+    # answers so to answers-only rereads, times-7522 all 26 for a reading that took none). A full read's
+    # answers take the same checks since 10-25 (full_read_answers), so it merges the same way: no reread
+    # drop, a held answer going only by held_drops or a read answer crossing it on another letter.
+    reread = False
+    drop = held_drops(verdict)
     if mended is not None:
         verdict["mended"] = mended[1]
         answered = merge_answers(mended[0], puzzle, reread=reread, drop=drop)
