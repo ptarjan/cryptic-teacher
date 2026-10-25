@@ -24,6 +24,7 @@ jobs:
     timeout-minutes: 50  # slices ran 18-30 min on 10-17 and the corpus grows; 30 cancelled half of them on 10-20
     strategy:
       fail-fast: false
+      max-parallel: 6  # the free plan runs ~20 jobs at once; leave runners for deploys and tests
       matrix:
         slice: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     defaults:
