@@ -820,4 +820,31 @@ for walk, clue, want in [
     got = va.walkthrough_hedges(walk, clue)
     check(f"walkthrough hedges {walk[:40]!r}", got == want, got)
 
+# pal<ind>() over a clue with one definition: the definition's words are the palindrome, so the
+# wordplay gets its block (annotate audit 10-24/25: 16 'missing annotation field blocks').
+e = entry(6, "down", "TOT", "Add up as well as down")
+stored = annotation.from_model({"def": "Add up", "wp": "pal<as well as down>()", "notes": {"as well as down": "n"}}, e)
+check("pal() takes the definition's words as its one leaf",
+      stored["wordplay"]["parts"] == [{"words": "Add up", "at": 0, "gives": "TOT"}], stored["wordplay"])
+check("the viewed pal() clue has its block", annotation.view(stored, e)["blocks"], annotation.view(stored, e))
+e = entry(8, "across", "NOON", "Time of day to return unchanged")
+stored = annotation.from_model({"def": "Time of day", "wp": "pal<to return unchanged>()",
+                                "notes": {"Time of day": "midday, twelve o'clock", "to return unchanged": "reads the same backwards"}}, e)
+check("pal() leaf carries the definition's note",
+      stored["wordplay"]["parts"][0].get("note") == "midday, twelve o'clock", stored["wordplay"])
+e = entry(8, "across", "NOON", "Time of day, or midday, to return unchanged")
+stored = annotation.from_model({"def": ["Time of day", "midday"], "wp": "pal<to return unchanged>()"}, e)
+check("pal() with two definitions is left empty", not stored["wordplay"].get("parts"), stored["wordplay"])
+# a clue given only an explanation (a --patch onto a null entry) is refused whole, in one line
+import apply_annotations as AA
+try:
+    AA.normalize({"explanation": {"surface": "x"}, "features": {}}, entry(3, "down", "TOT", "Add up"), [])
+    check("a stub clue is refused", False, "accepted")
+except w.WordplayError as x:
+    check("a stub clue is refused with what to write", "no `def` and no `wp`" in str(x), str(x))
+check("a stored double definition is not a stub",
+      AA.normalize({"definitions": [{"text": "a", "at": 0}, {"text": "b", "at": 2}]}, entry(3, "down", "TOT", "a b"), [])
+      .get("definitions"))
+check("a missing definitions field says to write `def`", "write the clue words that define" in va.MISSING_FIELD_FIX["definitions"])
+
 raise SystemExit(fails > 0)
