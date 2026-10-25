@@ -87,7 +87,11 @@ words, indicator operations and pieces, so you write none of those.
 - Every clue word has one job: in `def`, in a `[leaf]`, or in an `<indicator>` right
   after the operation it signals. Leftover words are link words, worked out for you; an
   indicator you leave out becomes a link word the check questions. Copy clue words
-  exactly; `[in#2]` is the second "in".
+  exactly; `[in#2]` is the second "in". Each `[leaf]`, `<indicator>`, `def` and note key
+  is one unbroken run of the clue as printed, neighbouring words with nothing between:
+  words that are in order but have other words between them ("takes" ... "for" in
+  "Relative takes a bit of tweed for top of pillbox hat") are two pieces, never one
+  quote, or the check refuses it as "not in the clue".
 - A leaf's letters come before any operation (`rev([papers]ID)` makes DI). A charade
   is in answer order whatever the clue's order: "after", "under" are indicators on the `+`.
 - Every clue piece that gives letters is a term of the wordplay: leave none out, even a
