@@ -66,7 +66,7 @@ function open(storage) {
   };
   const chipsLeft = () => (formula().match(/data-piece="\d+"/g) || []).length;
   const chipsGot = () => (formula().match(/formula-chip got/g) || []).length;
-  return { d, reg, puz, row, body, asking, hints, armedBtn, formula, typeFormula, tapChip, settle, take, chipsLeft, chipsGot };
+  return { d, reg, puz, row, body, asking, hints, armedBtn, formulas, formula, typeFormula, tapChip, settle, take, chipsLeft, chipsGot };
 }
 
 const candidates = open().puz.entries.filter((e) => {
@@ -87,7 +87,8 @@ for (const e of candidates.slice(0, 80)) {
   const answer = String(e.solution).toUpperCase().replace(/[^A-Z]/g, "");
 
   // 1
-  check(n >= 3 && /formula-lead">(definition|answer) \(\d+\) =</.test(f) && /formula-chip">(piece|fodder|sound)( \d+)?</.test(f),
+  check(n >= 3 && /formula-lead">(definition|answer) \(\d+\) =</.test(f) && /formula-chip">(synonym|as written|abbreviation|selection|anagram|sound) \d+</.test(f)
+      && !/formula-chip">piece/.test(f),
     `blankPicture (${id}): ${n} chips, each a role and a count: ${f.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")}`);
   check(!f.toUpperCase().replace(/[^A-Z]/g, " ").split(" ").includes(answer),
     `blankPicture (${id}): the formula does not carry the answer`);
@@ -113,6 +114,8 @@ for (const e of candidates.slice(0, 80)) {
   }
   check(/The building blocks/.test(t.body()) && t.chipsGot() > 0,
     `onlyInBlocks (${id}): opening the rung shows the formula in it, filled as the pieces come out`);
+  check(t.formulas().length === 1,
+    `dedupe (${id}): with the blocks rung open the formula shows once (${t.formulas().length})`);
   // Most clues here ask one matching question that settles every piece, so
   // wind the save back to ONE piece out and reload: the rest are in the box.
   flushTimers(5000);
@@ -145,7 +148,7 @@ for (const e of candidates.slice(0, 80)) {
   check(t.chipsGot() === g0 + 1 && t.hints() === h1,
     `fillsIn (${id}): the last chip is taken, adding no hint beyond the rung: ${h1} -> ${t.hints()}`);
   const got = (t.formula().match(/formula-chip got">([^<]*)</) || [])[1] || "";
-  check(got && !/^(piece|fodder|sound)( \d+)?$/.test(got) && t.formula().match(/formula-chip got">[^<]+</g).length === g0 + 1,
+  check(got && !/^(synonym|as written|abbreviation|selection|anagram|sound) \d+$/.test(got) && t.formula().match(/formula-chip got">[^<]+</g).length === g0 + 1,
     `fillsIn (${id}): a taken chip reads as its piece's text, not its blank (${got})`);
   t.tapChip(g0);
   t.settle();
