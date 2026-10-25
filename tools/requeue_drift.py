@@ -39,6 +39,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import json_merge
 import shape_queue as Q
 import validate_annotations as V
 
@@ -121,7 +122,8 @@ def raised_backlog(text, over):
         for stem, keys in puzzles.items():
             data.setdefault(field, {})[stem] = len(keys)
         data[field] = dict(sorted(data[field].items(), key=V._sort_key))
-    return json.dumps(data, indent=1) + "\n"
+    # The json-keys clean-filter layout: publish() stores blobs with plumbing, which skips the filter.
+    return json_merge.dump_lines(data)
 
 
 def merged_drift(paths):
