@@ -312,6 +312,9 @@ try:
     f._held_list = lambda series: (1, ())
     _ut_due = [f.due_reason(r, "h", [], "v") for r in (
         _ut, {**_ut, "solOnly": True}, {**_ut, "verdicts": [{"number": 9999996}]})]
+    # Its files fetched again since (the 2009-11 Gale Saturdays' wrong pages): still unread work, not
+    # the blanket "inputs changed"; a row with a verdict whose files moved is.
+    _ut_moved = [f.due_reason(_ut, "h2", [], "v"), f.due_reason({**_ut, "verdicts": [{"number": 9999997}]}, "h2", [], "v")]
     _ut_file = Path(tempfile.mkdtemp()) / "times-9999997.json"
     _ut_file.write_text(json.dumps({"entries": []}))
     f._HELD_PATH[("times", 9999997)] = _ut_file
@@ -323,6 +326,8 @@ finally:
         f._HELD_PATH[("times", 9999997)] = _ut_was
 check("a title with no verdict is never-read work; a solutions-only read, another title's verdict or a held puzzle not",
       [f.UNREAD_TITLES, "titles changed", "titles changed", "titles changed"], _ut_due + [_ut_held])
+check("a never-read title whose files moved is still never-read work; a read one is 'inputs changed'",
+      [f.UNREAD_TITLES, "inputs changed"], _ut_moved)
 check("the reason is evidence and ranked with never-read work", (True, f.RANKS["never read"]),
       (eq.evidence_reason(f.UNREAD_TITLES), f.rank_of_reason(f.UNREAD_TITLES)))
 # ---- A Times solution grid refused before matched_box is planned though likely() predicts it nothing (10-24)

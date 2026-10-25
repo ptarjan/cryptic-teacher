@@ -39,4 +39,26 @@ assert cw.poor({"lights": 30, "agreed": 20, "imageDisagrees": "why"}, image_ok=T
 assert cw.poor({"lights": 30, "agreed": 30, "blank": ["1-across"] * 6})
 assert not cw.poor({"lights": 30, "agreed": 30, "blank": ["1-across"]})
 assert cw.score({"agreed": 5}, None) < cw.score({"agreed": 1}, {})
+
+# foreign_edge: the 2005-11-26 Times clue window (its RapidOCR boxes) ended at
+# 1914, 90px inside the advert beside DOWN; the DOWN clues end by 1791, the
+# advert's cut line ends start at 1824, a banner under the clues crosses the gap.
+down = [(1356, 2409, 1719, 2435, "20 Raise sympathy with attitude (6)"),
+        (1356, 2433, 1766, 2459, "22 Some ivory whisks utilised selectively"),
+        (1355, 2480, 1690, 2508, "24 Thick cushion for nestling (5)"),
+        (1355, 2504, 1775, 2532, "25 Chest rising under old ladies' fingers (4)"),
+        (1358, 2165, 1791, 2204, "9 Small winger in school is a pain for the")]
+advert = [(1824, 2324, 1913, 2348, "The Tim"), (1824, 2396, 1913, 2419, "Books Fi"),
+          (1824, 2468, 1913, 2492, "Times re"), (1824, 2491, 1913, 2514, "15% disc")]
+banner = [(1032, 2654, 1908, 2686, "75 Years of The Times Crossword is now available")]
+x = cw.foreign_edge(down + advert + banner, 1914, 144)
+assert x is not None and 1791 < x < 1824, x
+# no print past a gap: nothing cut; one cut box alone is a speck
+assert cw.foreign_edge(down, 1914, 144) is None
+assert cw.foreign_edge(down + advert[:1], 1914, 144) is None
+# a box crossing the gap level with the advert closes it
+assert cw.foreign_edge(down + advert + [(1360, 2400, 1913, 2420, "20 Raise sympathy Books Fi")], 1914, 144) is None
+# a window ending inside a clue column: its cut boxes open on clue numbers
+assert cw.foreign_edge(down + [(1830, 2324, 1913, 2348, "20 Botch"), (1830, 2396, 1913, 2419, "25 Thro")],
+                       1914, 144) is None
 print("ok")

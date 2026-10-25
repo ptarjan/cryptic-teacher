@@ -710,6 +710,9 @@ def evidence_reason(reason):
             or reason == fa.LOST_WRITE
             # A title its scan found whose read gave no verdict, its puzzle unheld (fa.unread_titles): unread.
             or reason == fa.UNREAD_TITLES
+            # A held 2005-06 Gale Times page whose clue window ran into the box beside DOWN, read before
+            # right_foreign() cut it at the gutter (fa.right_foreign_held): once.
+            or reason == fa.RIGHT_FOREIGN_READ
             # A held puzzle whose solution grid read 3+ lights short before unlisted_reads (Paul 10-24: every
             # short grid current code may improve, once); no likely gain, so after the 1-2-short ones.
             or reason == fa.SHORT_WIDE
@@ -1261,7 +1264,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
               fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD,
-              fa.LOST_WRITE)
+              fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ)
 
 
 def unproven_first(unit):
