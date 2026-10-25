@@ -9168,7 +9168,10 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
         if kept:
             verdict["heldClues"] = kept
     old = json.loads(target.read_text()) if target.exists() and not better else None
-    answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict))
+    # Such an answers-only reading of a held file complete() refuses drops no held answer it did not
+    # read again (a stale short read of times-16268 would have dropped 11).
+    kept = verdict.get("answersOnly") and not complete(puzzle)
+    answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict) and not kept)
     if answered:
         verdict["answered"] = answered
         commit(where, old, verdict)
