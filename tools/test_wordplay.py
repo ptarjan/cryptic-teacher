@@ -238,6 +238,26 @@ check("outer<>([Calypso's]) is CO", gives("outer<exterior>([Calypso's])", "CO") 
       gives("outer<exterior>([Calypso's])", "CO"))
 check("the 's still counts when the pick takes it", gives("last<last>([Observer's])", "S") is True)
 
+# A two-piece charade written in clue order under an 'after' indicator (57 of 390 distinct
+# refusals in 30h): MP after CHA is CHA + MP, and translate swaps the pieces.
+tree = w.translate({"wp": "[Politician]MP +<after> [tea]CHA"}, "Politician after tea sees winner", "CHAMP")
+check("a charade written in clue order under 'after' is swapped to answer order",
+      [p["gives"] for p in tree["parts"]] == ["CHA", "MP"], tree)
+tree = w.translate({"wp": "[tea]CHA +<after> [Politician]MP"}, "Politician after tea sees winner", "CHAMP")
+check("a charade already in answer order is left alone",
+      [p["gives"] for p in tree["parts"]] == ["CHA", "MP"], tree)
+try:
+    w.translate({"wp": "[Politician]MP +<with> [tea]CHA"}, "Politician with tea sees winner", "CHAMP")
+    check("a non-placement indicator is not swapped", False, "accepted")
+except w.WordplayError as e:
+    check("a non-placement indicator is not swapped", "does not give CHAMP" in str(e), str(e))
+try:
+    w.translate({"wp": "[Politician]MP +<after> [tea]CHA"}, "Politician after tea sees winner", "CHAMPS")
+    check("an 'after' charade that is wrong both ways stays refused", False, "accepted")
+except w.WordplayError as e:
+    check("an 'after' charade that is wrong both ways stays refused",
+          "does not give CHAMPS" in str(e), str(e))
+
 # ---------- annotation.view against stored annotations ----------
 # Real clues (nation-3289, as filed), each written as a tree; the fields the
 # tree implies must equal the stored ones. Notes are left out of the trees and

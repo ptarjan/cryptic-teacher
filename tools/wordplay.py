@@ -1451,7 +1451,8 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
     try:
         evaluate(tree, answer)
     except WordplayError as err:
-        tree = _with_picks_dropped(tree, answer) or _with_hidden_merged(tree, clue, answer)
+        tree = (_with_picks_dropped(tree, answer) or _with_hidden_merged(tree, clue, answer)
+                or _with_after_swapped(tree, answer))
         if tree is None:
             left = unaccounted_words(locate_copy(clue_out, clue, taken), clue, taken)
             if left and "does not give" in str(err):
@@ -1481,6 +1482,45 @@ def unaccounted_words(tree, clue, taken=()):
         if not any(a < m.end() and m.start() < b for a, b in covered):
             out.append(m.group(0))
     return out
+
+
+#: Indicators that put the first piece of a two-piece charade after (or under) the second.
+AFTER_WORDS = frozenset({
+    "after", "following", "follows", "to follow", "behind", "pursuing", "chasing", "trailing",
+    "on", "put on", "supporting", "in support of", "under", "underneath", "beneath", "below",
+    "undermining"})
+
+
+def _with_after_swapped(tree, answer):
+    """A copy of `tree` with swap_after_pieces() applied when that makes it give
+    `answer`, else None."""
+    repaired = copy.deepcopy(tree)
+    if not swap_after_pieces(repaired):
+        return None
+    try:
+        evaluate(repaired, answer)
+    except WordplayError:
+        return None
+    return repaired
+
+
+def swap_after_pieces(tree):
+    """[Politician]MP +<after> [tea]CHA is MP after CHA, written in clue order where a
+    charade is in answer order (CHA + MP): the commonest charade slip among the
+    'does not give the answer' refusals. A two-piece charade whose indicator says the
+    first piece sits after (or under) the second has its pieces swapped. Returns how
+    many charades changed; translate() keeps the change only when the tree then
+    gives the answer, so a charade written in answer order, or an indicator that
+    is not a placement, is never touched."""
+    changed = 0
+    for node in _walk(tree):
+        parts = node.get("parts") or []
+        inds = node.get("indicators") or []
+        if (node.get("op") == "charade" and len(parts) == 2 and len(inds) == 1
+                and inds[0].get("text", "").strip().lower() in AFTER_WORDS):
+            parts.reverse()
+            changed += 1
+    return changed
 
 
 def _with_hidden_merged(tree, clue, answer):
