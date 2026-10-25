@@ -535,28 +535,9 @@ unit_ratings() {
     python3 tools/blog_comment_difficulty.py || echo "blog_comment_difficulty: rc=$?; the badges and the per-clue check use the table already committed"
     took blog_comment_difficulty
   fi
-  if step snitch_report; then
-    python3 tools/snitch_report.py --write >/dev/null || echo "snitch_report failed (rc=$?); tools/data/snitch_report.txt is last night's"
-    took snitch_report
-  fi
-  # The held-out scorecard /difficulty/ quotes. The page drops the numbers rather
-  # than quote ones measured under other weights, so a missed night shows there.
-  if step difficulty_check; then
-    python3 tools/difficulty_check.py --write >/dev/null || echo "difficulty_check failed (rc=$?); /difficulty/ quotes tools/data/difficulty_check.json from last night"
-    took difficulty_check
-  fi
-  # The authoring checks' link and reversal-axis words, re-measured over the day's
-  # annotations. Every annotated clue can move them, so they are refreshed here
-  # rather than checked on each push.
-  if step build_clue_joints; then
-    python3 tools/build_clue_joints.py >/dev/null || echo "build_clue_joints failed (rc=$?); the authoring checks use last night's tools/data/clue_joints.json"
-    took build_clue_joints
-  fi
-  # The grid filler's per-length floors, re-measured over the day's answers.
-  if step build_fill_floors; then
-    python3 tools/build_fill_floors.py >/dev/null || echo "build_fill_floors failed (rc=$?); grid_fill uses last night's tools/data/fill_floors.json"
-    took build_fill_floors
-  fi
+  # snitch_report, difficulty_check, build_clue_joints and build_fill_floors moved
+  # to the `ratings` job of .github/workflows/nightly-smoke.yml: they read only
+  # tracked files and push their four outputs as one commit.
   return 0
 }
 

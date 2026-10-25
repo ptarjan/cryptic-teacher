@@ -77,6 +77,79 @@ jobs:
           merge-multiple: true
       - run: node tools/check_shapes.js shapes
 
+  # The daily `ratings` unit's pure-corpus steps (tools/daily_update.sh unit_ratings),
+  # moved off the shared machine: each reads only tracked files (the puzzles,
+  # tools/data/lexicon.tsv, snitch.json, blog_comment_difficulty.json) and writes
+  # one tracked file under tools/data. The fetches that make snitch.json and
+  # blog_comment_difficulty.json stay local, so these read the last pushed copy.
+  # Order is the old local order; none reads another's output.
+  ratings:
+    name: ratings measures
+    runs-on: ubuntu-latest
+    timeout-minutes: 90  # build_clue_joints alone took 11+ min locally on a warm row cache
+    permissions:
+      contents: write
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install numpy pillow pypdf opencv-python-headless
+        shell: bash
+      # The deploy's row cache (tools/row_cache.py), newest first; restore only.
+      - uses: actions/cache/restore@v5
+        with:
+          path: .git/ct-rows.sqlite*
+          key: row-cache-ratings-${{ github.sha }}
+          restore-keys: row-cache-
+      - run: |
+          python3 tools/build_abbreviations.py
+          python3 tools/fetch_puzzle.py --reindex
+      - name: build_clue_joints
+        run: python3 tools/build_clue_joints.py
+      - name: build_fill_floors
+        run: python3 tools/build_fill_floors.py
+      - name: difficulty_check
+        run: python3 tools/difficulty_check.py --write
+      - name: snitch_report
+        run: python3 tools/snitch_report.py --write
+      # One commit of the four outputs on master. The checkout is rebuilt on the new tip
+      # when the push loses a race to the burn (the pattern of tools/requeue_drift.py
+      # --publish): the files are generated, so there is nothing to merge. Needs the
+      # network, so it is not under offline.sh.
+      - name: Push the outputs
+        shell: bash
+        run: |
+          files="tools/data/clue_joints.json tools/data/fill_floors.json tools/data/difficulty_check.json tools/data/snitch_report.txt"
+          out="$RUNNER_TEMP/ratings-out"
+          mkdir -p "$out"
+          for f in $files; do cp "$f" "$out/$(basename "$f")"; done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for n in $(seq 1 30); do
+            if ! git fetch -q --no-tags --depth=1 origin master; then sleep 5; continue; fi
+            git reset -q --hard origin/master
+            for f in $files; do cp "$out/$(basename "$f")" "$f"; done
+            git add $files
+            if git diff --cached --quiet; then
+              echo "ratings: origin/master already holds these outputs; nothing changed"
+              exit 0
+            fi
+            git commit -q -m "Refresh the ratings measures (clue joints, fill floors, difficulty check, SNITCH report)" \
+              -m "Made by nightly-smoke.yml's ratings job."
+            if git push -q origin HEAD:refs/heads/master; then
+              echo "ratings: pushed $(git rev-parse --short HEAD)"
+              exit 0
+            fi
+            echo "ratings: push $n lost the race; building again on the new tip"
+            sleep $((RANDOM % 6 + 1))
+          done
+          echo "ratings: every push lost"
+          exit 1
+
   # The full-corpus pass of the script tests.yml runs on a sample.
   reconstruct:
     name: reconstruct_grid over the whole corpus
