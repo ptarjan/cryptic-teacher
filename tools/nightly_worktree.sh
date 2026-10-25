@@ -348,8 +348,12 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     git -C "$_ct_tree" update-index --split-index >/dev/null 2>&1 || true
     # Git keeps a replaced shared base file two weeks by default; one ~10 MB
     # base is made every few minutes per busy tree (2+ GB a day under .git/
-    # worktrees/). Drop the unreferenced ones as soon as a new base is made.
-    git -C "$_ct_tree" config splitIndex.sharedIndexExpire now >/dev/null 2>&1 || true
+    # worktrees/). Drop the unreferenced ones after an hour. "now" raced: one git
+    # process wrote a new base and deleted the old one while another still read
+    # an index naming it ("sharedindex.<sha>: index file open failed"). An hour
+    # outlasts any git process and still stops the leak (a new base is rare, see
+    # maxPercentChange below).
+    git -C "$_ct_tree" config splitIndex.sharedIndexExpire 1.hour.ago >/dev/null 2>&1 || true
     # The split index's delta holds every entry changed since its base and is
     # written whole by each git add/commit/reset, so at git's default of 20% it
     # grew to ~3 MB: measured 10-25, 48 index writes in 200s, ~2.6 GB/h from the
