@@ -487,6 +487,13 @@ def _blocks(node, got):
     if op == "homophone" and one:
         b = _blocks(parts[0], got)[0]
         return [_block(**{**b, "gives": node["spelt"], "soundsLike": b.get("gives")})]
+    if op == "homophone" and len(parts) == 1 and parts[0].get("op") in SELECTION_OPS + ("hidden",) \
+            and not parts[0].get("unchecked") and len(_parts(parts[0])) == 1 and "op" not in _parts(parts[0])[0]:
+        # sound(first(leaf), ESS), sound(hid(leaf), SPELT): the letters the pick
+        # or the hidden word gives are what is said, so the one block keeps its
+        # select and says them as soundsLike.
+        b = _blocks(parts[0], got)[0]
+        return [_block(**{**b, "gives": node["spelt"], "soundsLike": b.get("gives")})]
     if op in ("deletion", "substitution", "move"):
         # Letters an indicator names have no clue words and are no block.
         parts = [parts[0]] + [p for p in parts[1:] if "op" in p or "words" in p]
@@ -1059,7 +1066,9 @@ def merge_sounded_charade(tree, clue):
               and all(isinstance(x, dict) and "op" not in x and x.get("words") and "at" in x
                       and not x.get("unchecked") and not x.get("select") for x in leaves))
         if ok:
-            ok = all(not clue[a["at"] + len(a["words"]):b["at"]].strip()
+            # Only spaces and punctuation between them ("Move silently, forbidden",
+            # "solver, 'A stinker"): a clue word between is not the sound's.
+            ok = all(not re.search(r"[^\s,;'\"‘’“”]", clue[a["at"] + len(a["words"]):b["at"]])
                      and b["at"] >= a["at"] + len(a["words"])
                      for a, b in zip(leaves, leaves[1:]))
         if ok:
