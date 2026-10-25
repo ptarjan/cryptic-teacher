@@ -22,6 +22,9 @@
   "date": "2019-09-18",
   "check": "grid rebuilt from the blog's light list (unique, linked answer split by the grid); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,67 @@
     "text": "Mineral mixture in jug runs out",
     "enumeration": "11"
    },
-   "solution": "PITCHBLENDE"
+   "solution": "PITCHBLENDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mineral",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in tells us the mixture goes inside the jug once the runs have left it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 28,
+         "note": "out says the runs are taken away from the jug word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jug",
+         "at": 19,
+         "gives": "PITCHER",
+         "note": "a pitcher is a jug"
+        },
+        {
+         "words": "runs",
+         "at": 23,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for runs"
+        }
+       ]
+      },
+      {
+       "words": "mixture",
+       "at": 8,
+       "gives": "BLEND",
+       "note": "a blend is a mixture"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices the mineral blend in their jug has all gone.",
+     "walkthrough": "'runs' is cricket shorthand, a single R; 'out' removes it before the mixture goes 'in'.",
+     "definitionFit": "Pitchblende is a uranium-bearing ore, so a mineral by any description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +112,53 @@
     "text": "Upset Ali, passing over boxing exercises",
     "enumeration": "7"
    },
-   "solution": "PILATES"
+   "solution": "PILATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exercises",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 19,
+       "note": "over in a down clue means the letters read upwards, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "boxing",
+         "at": 24,
+         "note": "boxing means the words enclose the answer, holding it like a box"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Upset Ali, passing",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An upset Ali loses out on boxing as his career passes.",
+     "walkthrough": "'Upset' looks like an anagram signal but only gives letters: hidden in 'upSET ALI Passing' is SETALIP, which 'over' turns round.",
+     "definitionFit": "Pilates is a regime of floor exercises for core strength and posture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +172,65 @@
     "text": "Perhaps Rio brought up Ferguson's second figure of speech",
     "enumeration": "5"
    },
-   "solution": "TROPE"
+   "solution": "TROPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "figure of speech",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought up",
+         "at": 12,
+         "note": "brought up in a down clue means the word reads upwards, from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Perhaps Rio",
+         "at": 0,
+         "gives": "PORT",
+         "note": "Rio de Janeiro is an example of a port"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second",
+         "at": 34,
+         "note": "second picks the second letter of the manager's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ferguson's",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rio Ferdinand, a footballer, is raised as an example of Alex Ferguson's second choice.",
+     "walkthrough": "Rio Ferdinand played under Sir Alex Ferguson at Manchester United, which builds the football picture. 'brought up' makes TROP from PORT; 'second' gives E.",
+     "definitionFit": "A trope is a figurative use of a word, such as a metaphor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rio"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +244,32 @@
     "text": "Cold, like Dean compared to Declan?",
     "enumeration": "9"
    },
-   "solution": "HEARTLESS"
+   "solution": "HEARTLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cold",
+      "at": 0,
+      "meaning": "cold here means unfeeling, without compassion"
+     },
+     {
+      "text": "like Dean compared to Declan?",
+      "at": 6,
+      "meaning": "the name Declan with its central letters taken out becomes Dean, so Dean is Declan without a middle"
+     }
+    ],
+    "explanation": {
+     "surface": "Two men compared, one judged the colder.",
+     "walkthrough": "Cut the middle pair CL from DECLAN and DEAN is left: Dean is Declan minus its heart.",
+     "definitionFit": "Someone without a heart lacks warmth or compassion, so is cold and unfeeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dean"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +283,49 @@
     "text": "Instrument — and another, not loud",
     "enumeration": "4"
    },
-   "solution": "LUTE"
+   "solution": "LUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 26,
+       "note": "not means the loud letter is not there, removed from the other instrument"
+      }
+     ],
+     "parts": [
+      {
+       "words": "another",
+       "at": 17,
+       "gives": "FLUTE",
+       "note": "a flute is another instrument"
+      },
+      {
+       "words": "loud",
+       "at": 30,
+       "gives": "F",
+       "note": "F, forte, is the musical marking for loud"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One quiet instrument and a second one too.",
+     "walkthrough": "'not' drops F from FLUTE, leaving LUTE; 'another' only makes sense next to the definition.",
+     "definitionFit": "The lute is a plucked stringed instrument with a pear-shaped body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loud"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +339,31 @@
     "text": "Line from the other side of Watford?",
     "enumeration": "8"
    },
-   "solution": "NORTHERN"
+   "solution": "NORTHERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Line",
+      "at": 0,
+      "meaning": "the ... line is one of the London Underground lines"
+     },
+     {
+      "text": "from the other side of Watford?",
+      "at": 5,
+      "meaning": "the north of England is dismissively called north of Watford by Londoners, so someone from beyond Watford is from the North"
+     }
+    ],
+    "explanation": {
+     "surface": "A Tube line out past Watford.",
+     "walkthrough": "Watford is a town just north of London; Londoners call the rest of England 'north of Watford'.",
+     "definitionFit": "The Northern line is a Tube route, and things from the north of England are northern."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Watford"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +377,42 @@
     "text": "Barman held in Kiel garrison",
     "enumeration": "5"
    },
-   "solution": "ELGAR"
+   "solution": "ELGAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Barman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "held in",
+       "at": 7,
+       "note": "held in means the letters sit inside the run of words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Kiel garrison",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who runs a bar is kept in a German naval garrison.",
+     "walkthrough": "Hidden in 'KiEL GARrison'. 'Barman' is not a pub worker but a man of musical bars.",
+     "definitionFit": "Edward Elgar wrote music, so he is a man of bars of music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Barman"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +426,57 @@
     "text": "Article medical writer apparently abridged for king",
     "enumeration": "7"
    },
-   "solution": "THESEUS"
+   "solution": "THESEUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "king",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "THE",
+       "note": "the is the definite article"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abridged",
+         "at": 34,
+         "note": "abridged means shortened, so the writer's name loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "medical writer apparently",
+         "at": 8,
+         "gives": "SEUSS",
+         "note": "Dr Seuss, the children's author, sounds like a medical doctor by his title but is not"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor-writer's article is cut short for a king.",
+     "walkthrough": "'apparently' flags that Dr Seuss is only a doctor in name. 'abridged' cuts SEUSS to SEUS.",
+     "definitionFit": "Theseus was the mythical king of Athens who killed the Minotaur."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "medical"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +500,69 @@
      }
     ]
    },
-   "solution": "NOTABEAN"
+   "solution": "NOTABEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "zilch",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 6,
+         "note": "up in a down clue says the word reads from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stick",
+         "at": 0,
+         "gives": "BATON",
+         "note": "a baton is a stick"
+        }
+       ]
+      },
+      {
+       "words": "European",
+       "at": 9,
+       "gives": "E"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "ignoring what's outside",
+         "at": 24,
+         "note": "ignoring what's outside means only the inside letters of bank are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bank",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A robber holds up a European bank and leaves with nothing.",
+     "walkthrough": "'Stick up' looks like a robbery but splits: 'up' reverses the stick in a down clue, and 'ignoring what's outside' strips the ends of bank.",
+     "definitionFit": "Not a bean is an informal idiom for nothing at all, as is zilch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +590,54 @@
    "group": [
     "9-across",
     "27-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Act selfishly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "John",
+       "at": 42,
+       "gives": "LOO",
+       "note": "John is slang for a lavatory, a loo"
+      },
+      {
+       "words": "King",
+       "at": 47,
+       "gives": "K"
+      },
+      {
+       "words": "as suggested by",
+       "at": 15,
+       "gives": "AFTER",
+       "note": "after can mean in the manner of or following the lead of, as a painting is after an old master; the clue words also act out the order, lavatory and king following the keeper"
+      },
+      {
+       "words": "goalkeeper",
+       "at": 31,
+       "gives": "NUMBERONE",
+       "note": "a goalkeeper traditionally wears the shirt numbered one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goalkeeper called John King is accused of playing for himself.",
+     "walkthrough": "Easier to see as 'John King following goalkeeper': a goalkeeper wears shirt one, John is slang for a lavatory and K is King. 'as suggested by' links the halves.",
+     "definitionFit": "To put your own interests first is the idiom's sense, the very picture of acting selfishly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +651,42 @@
     "text": "Good relationship: one might have a hand in it",
     "enumeration": "5"
    },
-   "solution": "GLOVE"
+   "solution": "GLOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one might have a hand in it",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "at": 0,
+       "gives": "G"
+      },
+      {
+       "words": "relationship",
+       "at": 5,
+       "gives": "LOVE",
+       "note": "a love, as in a love affair, is a romantic relationship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A happy partnership in which each person plays a part.",
+     "walkthrough": "'have a hand in it' reads as taking part, but it is literal: a hand goes inside this garment.",
+     "definitionFit": "A glove is worn over the hand, so a hand is literally inside one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +700,31 @@
     "text": "Either half of perfect 24",
     "enumeration": "6"
    },
-   "solution": "TWENTY"
+   "solution": "TWENTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Either half of perfect",
+      "at": 0,
+      "meaning": "perfect eyesight is described by a hyphenated pair of identical number words, and either one fits"
+     },
+     {
+      "text": "24",
+      "at": 23,
+      "meaning": "a cross-reference to the 24-down light, an old word for a group of that many"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzle-like line about a perfect twenty-four.",
+     "walkthrough": "'24' is not a number to work with; it points to the 24-down light, SCORE, which is twenty.",
+     "definitionFit": "Perfect eyesight is called twenty-twenty, and a score is a set of twenty items."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "24"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +738,75 @@
     "text": "Want somebody wise to describe hotel by harbour failing to open",
     "enumeration": "8"
    },
-   "solution": "SHORTAGE"
+   "solution": "SHORTAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to describe",
+       "at": 19,
+       "note": "to describe here means to draw a line round, so the wise one encloses the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "somebody wise",
+       "at": 5,
+       "gives": "SAGE",
+       "note": "a sage is a wise person"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hotel",
+         "at": 31,
+         "gives": "H",
+         "note": "H is hotel in the NATO phonetic alphabet"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "failing to open",
+           "at": 48,
+           "note": "the harbour word loses its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "harbour",
+           "at": 40,
+           "gives": "PORT",
+           "note": "a port is a harbour"
+          },
+          {
+           "gives": "P"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sage is wanted to write about a hotel by a harbour that won't open.",
+     "walkthrough": "'to describe' is used in its geometric sense, to draw round, so the wise person encloses the hotel and the headless harbour.",
+     "definitionFit": "Want in the sense of lack or scarcity is a shortage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describe"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +820,70 @@
     "text": "Curse marred gripping finale for Jack Straw?",
     "enumeration": "6"
    },
-   "solution": "SUCKER"
+   "solution": "SUCKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Straw?",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gripping",
+       "at": 13,
+       "note": "gripping means the anagram holds the extra letter in its grasp"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "marred",
+         "at": 6,
+         "note": "marred means spoilt, so the letters of curse are spoilt into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Curse",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finale for",
+         "at": 22,
+         "note": "the finale of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jack",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The politician Jack Straw's big finish is spoilt by a curse.",
+     "walkthrough": "'marred' rearranges CURSE to SUCER, and 'gripping' puts the K that ends Jack inside it. Jack Straw is a former UK Home Secretary; here the name is split.",
+     "definitionFit": "A drinking straw is something you suck through, so it is a sucker, the question mark flags it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Straw"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +897,64 @@
     "text": "Tool murderer spotted in hospital — quite the opposite",
     "enumeration": "8"
    },
-   "solution": "CHAINSAW"
+   "solution": "CHAINSAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tool",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 22,
+         "note": "in, with the reversal that follows, signals one piece going inside another"
+        },
+        {
+         "text": "quite the opposite",
+         "at": 36,
+         "note": "quite the opposite flips the order, so the hospital goes inside the murderer rather than the reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "murderer",
+         "at": 5,
+         "gives": "CAIN",
+         "note": "Cain killed his brother Abel in Genesis, the first murderer"
+        },
+        {
+         "words": "hospital",
+         "at": 25,
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "spotted",
+       "at": 14,
+       "gives": "SAW",
+       "note": "saw means spotted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A killer is seen in a hospital, or rather the reverse.",
+     "walkthrough": "The surface puts the murderer in hospital; 'quite the opposite' reverses the 'in', so the hospital letter goes inside the murderer and what he did.",
+     "definitionFit": "A chainsaw is a motorised cutting tool, notoriously used by horror-film killers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +968,48 @@
     "text": "Mad Queen interrupts jokes",
     "enumeration": "8"
    },
-   "solution": "CRACKERS"
+   "solution": "CRACKERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mad",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupts",
+       "at": 10,
+       "note": "to interrupt is to break in, so the queen goes into the middle of the jokes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jokes",
+       "at": 21,
+       "gives": "CRACKS",
+       "note": "cracks are wisecracks, jokes"
+      },
+      {
+       "words": "Queen",
+       "at": 4,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the Queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mad queen breaks in on someone's joke-telling.",
+     "walkthrough": "The Queen is ER, Elizabeth Regina, a standard crossword abbreviation; 'interrupts' breaks into the jokes.",
+     "definitionFit": "Crackers is British slang for crazy or out of one's mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1023,52 @@
     "text": "Large clubs put loner off",
     "enumeration": "9"
    },
-   "solution": "CORPULENT"
+   "solution": "CORPULENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Large",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "clubs",
+       "at": 6,
+       "gives": "C",
+       "note": "C is the card-suit abbreviation for clubs"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 22,
+         "note": "off means going wrong, so the letters of put loner are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "put loner",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clubs are big enough to put a loner off.",
+     "walkthrough": "'off' rearranges PUT LONER into ORPULENT, which follows C.",
+     "definitionFit": "Corpulent means fat or bulky in body, so large."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1082,46 @@
     "text": "Praise a group of underground workers finding drug",
     "enumeration": "8"
    },
-   "solution": "LAUDANUM"
+   "solution": "LAUDANUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Praise",
+       "at": 0,
+       "gives": "LAUD",
+       "note": "to laud is to praise"
+      },
+      {
+       "words": "a",
+       "at": 7
+      },
+      {
+       "words": "group of underground workers",
+       "at": 9,
+       "gives": "NUM",
+       "note": "the NUM is the National Union of Mineworkers, a British union of miners"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Commending a band of miners who discover drugs.",
+     "walkthrough": "The NUM is Britain's National Union of Mineworkers.",
+     "definitionFit": "Laudanum is a tincture of opium, a drug once widely taken as medicine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "underground"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1135,70 @@
     "text": "Family member caught non-sailor removing prow of dinghy",
     "enumeration": "8"
    },
-   "solution": "CLANSMAN"
+   "solution": "CLANSMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Family member",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "caught",
+       "at": 14,
+       "gives": "C",
+       "note": "C is the cricket abbreviation for caught"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removing",
+         "at": 32,
+         "note": "removing says a letter is taken out of the non-sailor"
+        }
+       ],
+       "parts": [
+        {
+         "words": "non-sailor",
+         "at": 21,
+         "gives": "LANDSMAN",
+         "note": "a landsman is someone who lives on land, not a seaman"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "prow of",
+           "at": 41,
+           "note": "a prow is the front of a boat, so the front letter of dinghy"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dinghy",
+           "at": 49
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landlubber gets caught out and the front of his dinghy comes off.",
+     "walkthrough": "A landsman is the old word for someone who is not a seaman; 'removing' takes away the dinghy's front letter.",
+     "definitionFit": "A clansman belongs to a clan, a Scottish extended family group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prow"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1212,52 @@
     "text": "Bob's short and oddly seedy",
     "enumeration": "7"
    },
-   "solution": "CURTSEY"
+   "solution": "CURTSEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bob",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "short",
+       "at": 6,
+       "gives": "CURT",
+       "note": "curt means short, brusque"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 16,
+         "note": "oddly means the odd letters of seedy, first, third and fifth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seedy",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bob is short and a bit shabby.",
+     "walkthrough": "'Bob' looks like a man's name but is the bob of a quick bow.",
+     "definitionFit": "To bob is to make a quick dip of the knees, a polite bow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1271,59 @@
     "text": "Satirical press about to take over Independent",
     "enumeration": "6"
    },
-   "solution": "IRONIC"
+   "solution": "IRONIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Satirical",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to take over",
+       "at": 22,
+       "note": "to take over here means to take in and occupy, so the press and about hold the independent letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "press",
+         "at": 10,
+         "gives": "IRON",
+         "note": "to iron is to press clothes"
+        },
+        {
+         "words": "about",
+         "at": 16,
+         "gives": "C",
+         "note": "C, circa, means about"
+        }
+       ]
+      },
+      {
+       "words": "Independent",
+       "at": 35,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A satirical newspaper is about to buy out the Independent, a British daily.",
+     "walkthrough": "I goes between IRON and C. The Independent is a British newspaper, which is why 'press' and 'take over' feel like a media deal.",
+     "definitionFit": "Irony is a mainstay of satire, so a satirical remark is ironic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "press"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1337,54 @@
     "text": "Admit summary is being replaced by journalist",
     "enumeration": "7"
    },
-   "solution": "CONCEDE"
+   "solution": "CONCEDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Admit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "being replaced by",
+       "at": 17,
+       "note": "being replaced by says one part of the summary word is swapped for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "summary",
+       "at": 6,
+       "gives": "CONCISE",
+       "note": "summary, as an adjective, means brief or concise"
+      },
+      {
+       "words": "is",
+       "at": 14,
+       "gives": "IS"
+      },
+      {
+       "words": "journalist",
+       "at": 35,
+       "gives": "ED",
+       "note": "ED, editor, is the standard abbreviation for a journalist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer owns up that their summary was rewritten by a journalist.",
+     "walkthrough": "In CONCISE the IS goes and ED comes in, giving CONC-ED-E.",
+     "definitionFit": "To concede is to acknowledge or grant that something is so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "summary"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1398,36 @@
     "text": "The best place to be on Boxing Day?",
     "enumeration": "8"
    },
-   "solution": "RINGSIDE"
+   "solution": "RINGSIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The best place to be on Boxing Day?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The best place to be on Boxing Day?",
+       "at": 0,
+       "note": "Boxing Day is the British holiday after Christmas, but read as a day of boxing, the best seat is next to the ring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where to be on the holiday after Christmas.",
+     "walkthrough": "Boxing Day, 26 December, is a British public holiday; here the capital letter is false and it means a day of boxing matches.",
+     "definitionFit": "Ringside seats are right beside the boxing ring, the best view of a fight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boxing"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1441,68 @@
     "text": "Short team? In the middle, Peter Crouch!",
     "enumeration": "5"
    },
-   "solution": "SQUAT"
+   "solution": "SQUAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crouch",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means the team word has its last letter cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "team",
+         "at": 6,
+         "gives": "SQUAD",
+         "note": "a squad is a team"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "In the middle",
+         "at": 12,
+         "note": "in the middle picks the central letter of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Peter",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peter Crouch, a very tall England striker, stands in the middle of a short team.",
+     "walkthrough": "Peter Crouch is a famously tall English footballer; the name is split here. 'Short' gives SQUA; T is Peter's middle.",
+     "definitionFit": "To squat is to crouch down on one's heels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Crouch"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1516,59 @@
     "text": "With temperature dropping, knock boy in river",
     "enumeration": "6"
    },
-   "solution": "HUDSON"
+   "solution": "HUDSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "river",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 17,
+         "note": "dropping says the temperature letter falls out of the knock word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "knock",
+         "at": 27,
+         "gives": "THUD",
+         "note": "a thud is a dull knock"
+        },
+        {
+         "words": "temperature",
+         "at": 5,
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "boy",
+       "at": 33,
+       "gives": "SON",
+       "note": "a son is a boy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "As it gets colder, a boy is knocked into a river.",
+     "walkthrough": "'With temperature dropping' reads as weather but tells you to drop T from the knock.",
+     "definitionFit": "The Hudson is the major river flowing past New York City."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1582,45 @@
     "text": "Hear this result could make racehorse upset",
     "enumeration": "5"
    },
-   "solution": "SCORE"
+   "solution": "SCORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "result",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 38,
+       "note": "upset means jumbled, so the letters of racehorse are split into hear and the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "racehorse",
+       "at": 28
+      },
+      {
+       "words": "Hear",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shock result could unsettle a racehorse.",
+     "walkthrough": "'this' is the answer: HEAR plus it, jumbled, makes RACEHORSE. Subtract HEAR from RACEHORSE.",
+     "definitionFit": "A score is the final tally of a match, its result."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hear"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1634,54 @@
     "text": "The setter lifted the setter's award",
     "enumeration": "4"
    },
-   "solution": "EMMY"
+   "solution": "EMMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "award",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "lifted",
+         "at": 11,
+         "note": "lifted in a down clue means the word reads upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The setter",
+         "at": 0,
+         "gives": "ME",
+         "note": "the setter refers to themself as me"
+        }
+       ]
+      },
+      {
+       "words": "the setter's",
+       "at": 18,
+       "gives": "MY",
+       "note": "the setter's means my, belonging to me"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle-setter lifts their own trophy.",
+     "walkthrough": "'lifted' turns ME into EM.",
+     "definitionFit": "The Emmy is the American television industry's annual award."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1695,54 @@
     "text": "Who might cheer, backing United in chaos",
     "enumeration": "5"
    },
-   "solution": "SNAFU"
+   "solution": "SNAFU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chaos",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 17,
+         "note": "backing means going backwards, so the cheering word is read from its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Who might cheer",
+         "at": 0,
+         "gives": "FANS",
+         "note": "fans are people who might cheer"
+        }
+       ]
+      },
+      {
+       "words": "United",
+       "at": 25,
+       "gives": "U",
+       "note": "U is the abbreviation for United in football team names"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporters behind their club, Manchester United perhaps, as everything falls apart.",
+     "walkthrough": "'backing' looks like support for the club but turns the cheering people round.",
+     "definitionFit": "Snafu is military slang for a situation in total confusion or disorder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 27,
@@ -476,7 +1781,54 @@
      }
     ]
    },
-   "solution": "TOMMYSTEELE"
+   "solution": "TOMMYSTEELE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rock'n'roller",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to follow",
+       "at": 8,
+       "note": "to follow puts the preparing word after the musical"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rock musical",
+       "at": 18,
+       "gives": "TOMMY",
+       "note": "Tommy is The Who's rock opera, staged as a musical"
+      },
+      {
+       "words": "Prepare",
+       "at": 0,
+       "gives": "STEEL",
+       "note": "to steel yourself is to prepare"
+      },
+      {
+       "words": "English",
+       "at": 36,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Get ready to follow a rock musical with an English rock star.",
+     "walkthrough": "Tommy Steele was an early British rock'n'roll star of the 1950s.",
+     "definitionFit": "Tommy Steele was hailed as Britain's first teen rock'n'roll idol, a rock'n'roller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Prepare"
+    }
+   }
   }
  ]
 }
