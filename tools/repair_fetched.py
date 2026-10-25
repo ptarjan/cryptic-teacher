@@ -1043,6 +1043,125 @@ def repair_misread_names(apply_it=False, rows=MISREAD_NAMES):
     return blanked
 
 
+def foreign_links(cache=None):
+    """({times id: {light: {word: source}}}, {times id: {light: {word}}}): the answers each Times
+    verdict of every ledger line (not only each edition's last) read off another paper's solution
+    grid - a Guardian, FT or Telegraph page whose heading bore the Times number (sister_solutions
+    linked every filed.jsonl row as the Times's before 10-25) - and those its Times-linked grid
+    readings give. A foreign answer is one at the same light of the verdict's "answered", of the
+    cached reading of that page (CROPS/solution_reads/<dir>_<number>.json; read again since, it
+    may give other lights), or one the first commit after a verdict that wrote answers gave the
+    file (filed_at: times-6003 was filed 5 minutes after its FT-linked read, all 7 answers the FT's)."""
+    import os
+    import file_archive_org_puzzles as archive
+    cache = Path(cache or archive.CACHE)
+    items = sorted(p.name for p in cache.iterdir() if p.is_dir())
+    where = {}
+
+    def item_of(name):
+        """The items holding edition dir `name`, Times ones first; memoised."""
+        if name not in where:
+            # A 1930s Times item holds one edition, named as it is; every other item one paper's year.
+            have = [name] if name.startswith("per_") else [i for i in items if name[:4] in i]
+            have = [i for i in have if os.path.isdir(cache / i / name)]
+            where[name] = sorted(have, key=lambda i: archive.paper_of(cache / i / name).series != "times")
+        return where[name]
+
+    def reading(name, number):
+        try:
+            return json.loads((archive.CROPS / "solution_reads" / f"{name}_{number}.json").read_text())["answers"] or {}
+        except (OSError, ValueError, KeyError):
+            return {}
+
+    foreign, times, filings = {}, {}, {}
+    for paper in (archive.GALE, archive.TIMES):
+        path = archive.ledger_of(cache, paper)
+        if not path.exists():
+            continue
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                if "solutionFrom" not in line or '"times-' not in line:
+                    continue
+                try:
+                    row = json.loads(line)
+                except ValueError:
+                    continue
+                for v in row.get("verdicts", ()):
+                    pid, src = str(v.get("id") or ""), v.get("solutionFrom")
+                    if not pid.startswith("times-") or not src or not v.get("number"):
+                        continue
+                    name = src.rsplit(" leaf ", 1)[0]
+                    have = item_of(name)
+                    if not have:
+                        continue
+                    read = reading(name, v["number"])
+                    if archive.paper_of(cache / have[0] / name).series == "times":
+                        for lid, word in read.items():
+                            if word:
+                                times.setdefault(pid, {}).setdefault(lid, set()).add(word)
+                        continue
+                    src = f"{have[0]}/{name}"
+                    got = foreign.setdefault(pid, {})
+                    for lid, word in [*((v.get("answered") or {}).items()), *read.items()]:
+                        if word:
+                            got.setdefault(lid, {}).setdefault(word, src)
+                    if v.get("wrote") and v.get("answers") and row.get("readAt"):
+                        filings.setdefault(pid, []).append((row["readAt"], src))
+    for pid, reads in filings.items():
+        path = puzzle_paths.find(pid)
+        rel = path and Path(path).resolve().relative_to(fetcher.ROOT.resolve()).as_posix()
+        for at, src in reads:
+            for lid, word in filed_at(rel, at).items():
+                foreign[pid].setdefault(lid, {}).setdefault(word, src)
+    return foreign, times
+
+
+def filed_at(rel, at):
+    """{light: answer} the first commit after ISO time `at` touching repo file `rel` gave it (an
+    answer it holds that its parent did not hold there): the answers a read of `at` filed."""
+    if not rel:
+        return {}
+    sha = (git_out("log", f"--since={at}", "--reverse", "--format=%H", "--", rel).split() or [""])[0]
+    if not sha:
+        return {}
+    try:
+        after = json.loads(git_out("show", f"{sha}:{rel}") or "{}")
+        before = json.loads(git_out("show", f"{sha}^:{rel}") or "{}")
+    except ValueError:
+        return {}
+    was = {entry_id(e): e.get("solution") for e in before.get("entries") or ()}
+    return {entry_id(e): e["solution"] for e in after.get("entries") or ()
+            if e.get("solution") and was.get(entry_id(e)) != e["solution"]}
+
+
+def repair_foreign_grids(apply_it=False, links=None):
+    """[(id, light, answer, foreign page)] for each Times answer held that another paper's solution
+    grid gave (foreign_links): the answer is blanked, unless a Times-linked grid reading or the
+    file's blog write-up gives the same word there. The edition's verdict then names a page that no
+    longer links it ("solution moved"), so it is read again off the Times's own grid. With
+    `apply_it` False nothing is written."""
+    foreign, times = links or foreign_links()
+    blanked = []
+    for pid in sorted(foreign, key=lambda i: int(i.split("-")[1])):
+        path = puzzle_paths.find(pid)
+        if path is None:
+            continue
+        puzzle = fetcher.read_puzzle_file(path)
+        blog = (puzzle.get("solutions") or {}).get("blog") or {}
+        changed = False
+        for e in puzzle.get("entries") or ():
+            lid, word = entry_id(e), e.get("solution")
+            src = foreign[pid].get(lid, {}).get(word) if word else None
+            if not src or word in times.get(pid, {}).get(lid, ()) or blog:
+                continue
+            e["solution"] = None
+            blanked.append((pid, lid, word, src))
+            changed = True
+        if changed and apply_it:
+            fetcher.write_puzzle_file(path, puzzle)
+    return blanked
+
+
 #: The day from which repair_uncrossed looks at the answers filed to Times files: 8,564's BATES for
 #: PATES ("They're made of paste") was filed 10-18.
 UNCROSSED_SINCE = "2026-10-18"
@@ -1384,6 +1503,10 @@ def main(argv):
     ap.add_argument("--misread-names", action="store_true",
                     help="only blank the Times answers in MISREAD_NAMES (a surname cmudict alone lists, "
                          "misread off a word: BOAN for ROAN); --apply writes")
+    ap.add_argument("--foreign-grids", action="store_true",
+                    help="only blank the Times answers read off another paper's solution grid under the same "
+                         "number (a Guardian, FT or Telegraph heading linked as the Times's: "
+                         "repair_foreign_grids); --apply writes")
     ap.add_argument("--uncrossed", nargs="?", const=UNCROSSED_SINCE, metavar="SINCE",
                     help="only blank the Times answers filed since SINCE (default " + UNCROSSED_SINCE + ") "
                          "with a letter no other answer checks that the cell classifier reads, off the grid's "
@@ -1452,6 +1575,13 @@ def main(argv):
         blanked = repair_uncrossed(args.uncrossed, args.apply, args.workers)
         for pid, lid, word, rival in blanked:
             print(f"{pid} {lid}: {word} -> blank (the classifier reads {rival})")
+        print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
+              f"{'blanked' if args.apply else 'would be blanked'}")
+        return 0
+    if args.foreign_grids:
+        blanked = repair_foreign_grids(args.apply)
+        for pid, lid, word, src in blanked:
+            print(f"{pid} {lid}: {word} -> blank (read off {src})")
         print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
               f"{'blanked' if args.apply else 'would be blanked'}")
         return 0
