@@ -635,7 +635,7 @@ ls.append(f.short_again(vu_row("2026-10-25T19:50:00+00:00")))
 # Held 3-5 blank (strip_missing only up to LATE_MAX): read since REREAD_UNLISTED, before REREAD_WIDE_STRIPS, WIDE_STRIPS;
 # 1-2 blank ones stay LATE_STRIPS; read before REREAD_UNLISTED (SHORT_WIDE) or since REREAD_WIDE_STRIPS, not so.
 f.strip_missing = lambda series, n, sol_dir, most=None: most == f.LATE_MAX
-ws = [f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-25T20:05:00+00:00", gap=4)),
+ws = [f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-25T19:50:00+00:00", gap=4)),
       f.short_again(vu_row("2026-10-24T12:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-26T00:00:00+00:00", gap=4))]
 f.strip_missing = lambda series, n, sol_dir, most=None: True
 ws.append(f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=1)))
