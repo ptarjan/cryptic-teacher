@@ -79,6 +79,12 @@ copy (repair_side_answers): only a blank, on the same grid, each answer
 passing the answers-only rules (side_fills: misread_word, uncrossed and the
 classifier, the cmudict-only name rule), crossing every held letter alike.
 
+Answers blanked for a rival word. --uncrossed blanked 582 Times answers the
+cell classifier reads, at a letter no other answer checks, as another listed
+word (AGHASI read AGHAST), leaving each light for a reread that mostly never
+came. --rivals fills the light, blank still, with that word where it stands
+(repair_rivals, file_archive_org_puzzles.rival_stands), fitting every crossing.
+
 WHAT IT ONLY REPORTS
 
 A mis-filed date. convert() refuses a page whose two stated dates are more
@@ -1372,6 +1378,88 @@ def repair_uncrossed(since=UNCROSSED_SINCE, apply_it=False, workers=1, answered=
     return blanked
 
 
+#: The commit of repair_uncrossed's --apply over the Times answers filed 10-18..25: 582 answers blanked.
+UNCROSSED_BLANKED = "45074e48bb7"
+
+
+def blanked_by(commit=UNCROSSED_BLANKED):
+    """{puzzle id: {light: answer}} of the Times answers `commit` blanked (held by its parent's file,
+    none by its own)."""
+    out = {}
+    for rel in git_out("show", "--name-only", "--format=", commit).split():
+        if not rel.startswith("puzzles/times/") or not rel.endswith(".json"):
+            continue
+        try:
+            old, new = (json.loads(git_out("show", f"{ref}:{rel}")) for ref in (f"{commit}^", commit))
+        except ValueError:
+            continue
+        was = {entry_id(e): e.get("solution") for e in old.get("entries") or ()}
+        gone = {entry_id(e): was[entry_id(e)] for e in new.get("entries") or ()
+                if not e.get("solution") and was.get(entry_id(e))}
+        if gone:
+            out[new["id"]] = gone
+    return out
+
+
+def repair_rivals(apply_it=False, blanked=None, crops=None):
+    """[(id, light, answer blanked, the word filed)] for each Times answer repair_uncrossed blanked
+    (`blanked`: blanked_by()) whose light is blank still: its lone letters read off the grid's crop
+    again (crop_probs, kept from that run) with the answers its file holds now, the listed word the
+    classifier reads it as (misread_rival) is filed where it stands (file_archive_org_puzzles.rival_stands:
+    AGHASI's lone I read as T, AGHAST; 18,314's "Part in drag has Thespian terrified"), fitting its light
+    and every crossing answer. Only a blank is filled: no held answer changes. With `apply_it` False
+    nothing is written."""
+    import file_archive_org_puzzles as archive
+    import trove_solution_ocr as tso
+    blanked = blanked_by() if blanked is None else blanked
+    crops = grid_crops() if crops is None else crops
+    filled = []
+    for pid, gone in sorted(blanked.items()):
+        path = puzzle_paths.find(pid)
+        if path is None:
+            continue
+        puzzle = fetcher.read_puzzle_file(path)
+        if (puzzle.get("source") or {}).get("acquiredBy") != archive.TOOL or "blog" in (puzzle.get("solutions") or {}):
+            continue
+        es = puzzle["entries"]
+        answers = {entry_id(e): e["solution"] for e in es if e.get("solution")}
+        open_ = {k: w for k, w in gone.items() if k not in answers}
+        if not open_:
+            continue
+        grid = tso.puzzle_grid(puzzle)
+        crop = grid_crop(puzzle, crops)
+        probs = crop_probs(crop, grid) if crop else None
+        if not probs:
+            continue
+        lts = tso.lights(grid)
+        on = {}
+        for (n, dr), cells in lts.items():
+            for rc in cells:
+                on.setdefault(rc, []).append(f"{n}-{dr}")
+        enums = {entry_id(e): (e.get("clue") or {}).get("enumeration") for e in es}
+        took = {}
+        for k, w in sorted(open_.items()):
+            cells = lts.get(archive._light_key(k), ())
+            lone = archive.lone_cells(k, lts, on, {**answers, **took, k: w})
+            rival = archive.misread_rival(w, lone, probs)
+            if not rival or len(rival) != len(cells) or not archive.rival_stands(w, rival, enums.get(k)):
+                continue
+            held = {**answers, **took}
+            if any(o in held and held[o].upper()[lts[archive._light_key(o)].index(rc)] != ch
+                   for rc, ch in zip(cells, rival) for o in on[rc] if o != k):
+                continue
+            took[k] = rival
+            filled.append((pid, k, w, rival))
+        if not took:
+            continue
+        for e in es:
+            if entry_id(e) in took and not e.get("solution"):
+                e["solution"] = took[entry_id(e)]
+        if apply_it:
+            fetcher.write_puzzle_file(path, puzzle)
+    return filled
+
+
 #: How many days on an edition's next issue may lie (a Sunday, a holiday, a missing paper).
 NEXT_ISSUE_DAYS = 4
 
@@ -1677,6 +1765,10 @@ def main(argv):
                          "with a letter no other answer checks that the cell classifier reads, off the grid's "
                          "crop, as another making a listed word (repair_uncrossed: BATES for PATES); "
                          "--apply writes")
+    ap.add_argument("--rivals", action="store_true",
+                    help="only fill each Times light --uncrossed blanked (" + UNCROSSED_BLANKED + ") and blank "
+                         "still with the word the classifier reads it as, where that word stands "
+                         "(repair_rivals: AGHASI -> AGHAST); --apply writes")
     ap.add_argument("--side-answers", action="store_true",
                     help="only fill the blank lights of each held Times file from its --out copy in "
                          "CROPS/unfiled (a full reread's answers decide() filed there), never a held answer, "
@@ -1760,6 +1852,13 @@ def main(argv):
             print(f"{pid} {lid}: {word} -> blank (the classifier reads {rival})")
         print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
               f"{'blanked' if args.apply else 'would be blanked'}")
+        return 0
+    if args.rivals:
+        filled = repair_rivals(args.apply)
+        for pid, lid, word, rival in filled:
+            print(f"{pid} {lid}: blank (was {word}) -> {rival}")
+        print(f"{len({r[0] for r in filled})} puzzle(s), {len(filled)} answer(s) "
+              f"{'filled' if args.apply else 'would be filled'}")
         return 0
     if args.foreign_grids:
         blanked = repair_foreign_grids(args.apply)

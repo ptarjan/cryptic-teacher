@@ -4835,7 +4835,7 @@ def vlm_lights(answers, strips, grid, enums):
     return {**answers, **got}, got
 
 
-def uncrossed(answers, grid, enums=None, probs=None):
+def uncrossed(answers, grid, enums=None, probs=None, rivals=None):
     """The lights of `answers` ({"12-across": word}) holding a cell another light of `grid` crosses
     with no answer of the grid's reading: a letter only its own word gives. A listed word read a
     letter off there stands on nothing (Times 8,564's 6-across BATES for PATES, "They're made of
@@ -4851,7 +4851,8 @@ def uncrossed(answers, grid, enums=None, probs=None):
     filed 10-22..25, nearly all right (a partial grid's MILOMETER, HEZEKIAH, BETSEYTROTWOOD).
     It is called only when an answer would be left out that a listed word lies one lone letter off
     (no other can be read as one: with none, every answer stands); with no reading, every one is left
-    out."""
+    out. `rivals` (a dict) gets {light: word} of those left out whose rival word stands in their place
+    (rival_stands: AGHASI's lone I read as T, AGHAST)."""
     lts = trove_solution_ocr.lights(grid)
     on = {}
     for (n, dr), cells in lts.items():
@@ -4873,7 +4874,11 @@ def uncrossed(answers, grid, enums=None, probs=None):
         return set()
     got = probs()
     if got:
-        out = {k for k in near if misread_rival(answers[k], lone[k], got)}
+        named = {k: misread_rival(answers[k], lone[k], got) for k in near}
+        out = {k for k, rival in named.items() if rival}
+        if rivals is not None:
+            rivals.update({k: rival for k, rival in named.items()
+                           if rival and rival_stands(answers[k], rival, (enums or {}).get(_light_key(k)))})
     return out
 
 
@@ -4911,6 +4916,21 @@ def misread_rival(word, lone, probs):
             if t.AZ[j] != ch and t.listed(rival):
                 return rival
     return None
+
+
+def rival_stands(word, rival, enum=None):
+    """Whether the listed word `rival` that misread_rival reads answer `word` as is filed in its place,
+    not a blank: `word` is no answer of the corpus, and `rival` is one, or a word (worded, by `enum`)
+    where `word` is none. Of the 534 Times answers repair_uncrossed blanked 10-25 (45074e48bb7), 208
+    pass, 39 of 40 at random right by their clues (AGHASI: AGHAST, HALTBUT: HALIBUT, PACKER: BACKER;
+    DEFEASIBLE: DEFENSIBLE wrong); the rest a word of the corpus or both no word are left blank, their
+    rival right ~60% (FLICKER: ELICKER, BIGGLES: HIGGLES, SETH: NETH)."""
+    corpus = trove_solution_ocr.corpus_words()
+    if word.upper() in corpus:
+        return False
+    if rival.upper() in corpus:
+        return True
+    return worded(rival, enum) and not worded(word, enum)
 
 
 def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
@@ -5081,8 +5101,8 @@ def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True
     - misread_word: an answer no word that one letter's change makes one goes ("misread"); a held answer
       the grid reads alike goes with it ("heldMisread", held_drops);
     - with `crossed`, uncrossed: an answer with a letter no other answer checks goes when the classifier
-      reads one such letter off `crop` (cell_probs) as another making a listed word (misread_rival), or,
-      with `every` (a held title, HELD_TITLE), whenever uncrossed names it ("uncrossed");
+      reads one such letter off `crop` (cell_probs) as another making a listed word (misread_rival), that
+      word taken for it where rival_stands ("rivals"), or, with `every` (a held title, HELD_TITLE), whenever uncrossed names it ("uncrossed");
     - settle_held: a held answer the reading reads otherwise is settled light by light ("heldClash"),
       the held answers kept filed with the reading's; a blog's (`blog`) always stand.
     `enums` {(number, direction): enumeration}; `info` the reading's stats, returned with the checks'
@@ -5101,12 +5121,17 @@ def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True
             info["heldMisread"] = held_misread
     if crossed:
         # A held title (HELD_TITLE) stands on no title read: every answer uncrossed leaves out goes. The
-        # rest go only as the classifier reads them another word (misread_rival).
+        # rest go only as the classifier reads them another word (misread_rival), that word filed in
+        # their place where it stands (rival_stands: AGHASI read AGHAST), not left blank.
+        rivals = {}
         lone = uncrossed(answers, grid, enums, probs=None if every else (
-            lambda: crop_cell_probs(crop, grid) if crop is not None and crop.exists() else None))
+            lambda: crop_cell_probs(crop, grid) if crop is not None and crop.exists() else None), rivals=rivals)
         if lone:
-            answers = {k: a for k, a in answers.items() if k not in lone}
-            info = {**info, "uncrossed": sorted(lone), "accepted": info.get("accepted", 0) - len(lone)}
+            took = {k: rivals[k] for k in sorted(lone) if k in rivals}
+            answers = {**{k: a for k, a in answers.items() if k not in lone}, **took}
+            info = {**info, "uncrossed": sorted(lone), "accepted": info.get("accepted", 0) - len(lone) + len(took)}
+            if took:
+                info["rivals"] = took
     # A held answer the reading reads otherwise no longer refuses the whole reading (settle_held):
     # the read one replaces it when a listed word fitting every crossing, else the held one stands and
     # the read answers crossing it on another letter go; the held answers kept are filed with the reading's.
