@@ -1248,16 +1248,40 @@ index_ready() {
   [ -s puzzles/index.json ] && [ -s "$index_stamp" ] && flock -n "$index_lock" true &&
     git diff --quiet "$(cat "$index_stamp")" HEAD -- tools/fetch_puzzle.py tools/series.py 2>/dev/null
 }
+# The full rebuild re-makes every row whenever the code a row reaches moves
+# (annotation.py, wordplay.py, ... ~10 commits a day), ~2000 CPU-s a time at
+# 63k puzzles (2026-10-24: 0 of 63,310 rows stored for master's code, the
+# rebuild 2h+ behind and never catching up). This tick reads only per-puzzle
+# fields that fetch_puzzle.py writes (annotated, hasSolutions, awaitsPreamble,
+# unannotated, style), never the corpus-wide ratings, so it rebuilds in full
+# only when fetch_puzzle.py or series.py moved since the last FULL rebuild,
+# or that is a day old; otherwise --reindex-changed re-reads the puzzle files
+# newer than the index and keeps every other row. The stamp of the last full
+# rebuild is "$index_stamp.full".
+index_rebuild_mode() {
+  local full="$index_stamp.full"
+  # Before .full existed every rebuild was full, so a stamp with no .full
+  # beside it is one (cp -p keeps its age).
+  [ -s "$full" ] || [ ! -s "$index_stamp" ] || cp -p "$index_stamp" "$full"
+  if [ -s puzzles/index.json ] && [ -s "$full" ] && [ -z "$(find "$full" -mmin +1440)" ] &&
+     git diff --quiet "$(cat "$full")" HEAD -- tools/fetch_puzzle.py tools/series.py 2>/dev/null; then
+    echo --reindex-changed
+  else
+    echo --reindex
+  fi
+}
 start_index_rebuild() {  # detached, holding none of this tick's descriptors (the tree lease, the scheduler's lock)
-  python3 - "$index_lock" "$(git rev-parse --path-format=absolute --git-common-dir)/ct-generated.lock" "$index_stamp" <<'PY'
+  python3 - "$index_lock" "$(git rev-parse --path-format=absolute --git-common-dir)/ct-generated.lock" "$index_stamp" \
+    "$(index_rebuild_mode)" <<'PY'
 import subprocess, sys
-index_lock, generated_lock, stamp = sys.argv[1:]
+index_lock, generated_lock, stamp, mode = sys.argv[1:]
 # One rebuild at a time for the tick (index_lock, which index_ready also
 # tests), and one generated rebuild at a time across every tree.
 # Detached, so no queue gates it: nice 19 on half the cores, beside the units.
-script = ('flock -n "$1" flock "$2" env CT_JOBS=2 nice -n 19 python3 tools/fetch_puzzle.py --reindex >/dev/null 2>&1 '
-          '&& git rev-parse HEAD >"$3.tmp" && mv "$3.tmp" "$3"')
-subprocess.Popen(["bash", "-c", script, "rebuild", index_lock, generated_lock, stamp], stdin=subprocess.DEVNULL,
+script = ('flock -n "$1" flock "$2" env CT_JOBS=2 nice -n 19 python3 tools/fetch_puzzle.py "$4" >/dev/null 2>&1 '
+          '&& git rev-parse HEAD >"$3.tmp" && mv "$3.tmp" "$3" '
+          '&& { [ "$4" != --reindex ] || cp "$3" "$3.full"; }')
+subprocess.Popen(["bash", "-c", script, "rebuild", index_lock, generated_lock, stamp, mode], stdin=subprocess.DEVNULL,
                  stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True, close_fds=True)
 PY
 }
