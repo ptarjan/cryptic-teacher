@@ -4921,8 +4921,14 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # An answer no word (worded) that one letter's change makes one is a misread, not a name: dropped.
     misread = {k for k, a in answers.items() if misread_word(a, enums.get(_light_key(k)))}
     if misread:
+        # A held answer the grid reads alike is the same misread: it goes too (heldMisread, merge_answers drop).
+        # Every other held answer the reading does not give stands (decide: no reread drop for answers-only).
+        was = {entry_id(e): e.get("solution") for e in es}
+        held_misread = sorted(k for k in misread if was.get(k) and was[k] == answers[k])
         answers = {k: a for k, a in answers.items() if k not in misread}
         info = {**info, "misread": sorted(misread), "accepted": info.get("accepted", 0) - len(misread)}
+        if held_misread:
+            info["heldMisread"] = held_misread
     if crossed:
         # A held title (HELD_TITLE) stands on no title read: every answer uncrossed leaves out goes. The
         # rest go only as the classifier reads them another word (misread_rival).
@@ -4952,6 +4958,15 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         for i, ch in enumerate(a):
             if letters.setdefault((x + i * across, y + i * (not across)), ch) != ch:
                 return None
+    # A held answer the reading gives none for stands (decide merges answers-only with no reread drop: before
+    # 10-25 every such one went, times-7522's 26 for a reading that took none), unless a read answer crosses
+    # it on another letter: it goes for the read one (merge_answers), named here.
+    gone = sorted(entry_id(e) for e in puzzle["entries"] if e.get("solution") and entry_id(e) not in answers
+                  and any(letters.get((e["position"]["x"] + i * (e["direction"] == "across"),
+                                       e["position"]["y"] + i * (e["direction"] != "across")), ch) != ch
+                          for i, ch in enumerate(e["solution"])))
+    if gone:
+        info = {**info, "heldCrossed": gone}
     for e in puzzle["entries"]:
         e["solution"] = None
     verdict = {"number": number, "leaf": hit["leaf"], "grid": "image" if (old["source"].get("gridOrigin") == "published") else "rebuilt",
@@ -5048,7 +5063,7 @@ def settle_held(entries, answers, enums=None, blog=False):
             letters.update(zip(cells(by[k]), was[k]))
     for k in [k for k in held if k not in clash]:
         if k not in answers:
-            del held[k]  # never read: merge_answers' own (reread) rule decides it, as before
+            del held[k]  # never read: it stands unless crossed (merge_answers; answers-only takes no reread drop)
     return out, held, clash
 
 
@@ -9287,9 +9302,15 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
     held_at = ("held", puzzle["number"])
     held_path = path(held_at, series, puzzles)
     mended = mend_held(puzzle, held_path) if held_path.exists() else None
+    # An answers-only reading drops no held answer it gives none for, but by a named rule (held_drops): its
+    # misread and uncrossed filters left out reads, not the held answers (10-22..25: 312 Times files lost
+    # 986 held answers so, times-7522 all 26 for a reading that took none).
+    ao = bool(verdict.get("answersOnly"))
+    reread = solution_read(verdict) and not ao
+    drop = held_drops(verdict) if ao else ()
     if mended is not None:
         verdict["mended"] = mended[1]
-        answered = merge_answers(mended[0], puzzle, reread=solution_read(verdict))
+        answered = merge_answers(mended[0], puzzle, reread=reread, drop=drop)
         if answered:
             verdict["answered"] = answered
         commit(held_at, mended[0], verdict)
@@ -9303,7 +9324,7 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
     if dest is False:
         verdict["skip"] = "a clue is blank: only a puzzle with every clue goes to the corpus"
         old = json.loads(held_path.read_text()) if held_path.exists() else None
-        answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict))
+        answered = old is not None and merge_answers(old, puzzle, reread=reread, drop=drop)
         if answered:
             verdict["answered"] = answered
             commit(held_at, old, verdict)
@@ -9334,10 +9355,9 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
         if kept:
             verdict["heldClues"] = kept
     old = json.loads(target.read_text()) if target.exists() and not better else None
-    # Such an answers-only reading of a held file complete() refuses drops no held answer it did not
-    # read again (a stale short read of times-16268 would have dropped 11).
-    kept = verdict.get("answersOnly") and not complete(puzzle)
-    answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict) and not kept)
+    # An answers-only reading drops no held answer it did not read again (reread above; a stale short read
+    # of times-16268 would have dropped 11), complete() or not.
+    answered = old is not None and merge_answers(old, puzzle, reread=reread, drop=drop)
     if answered:
         verdict["answered"] = answered
         commit(where, old, verdict)
@@ -9864,7 +9884,16 @@ def book_marks(was, now, book):
     return bool(was and book and now != was and ocr_clues.reprint_marked(was, book) == now)
 
 
-def merge_answers(old, puzzle, tool=TOOL, reread=False, keep=False):
+def held_drops(verdict):
+    """The held lights an answers-only `verdict` blanks by a named rule though it reads no answer
+    there: heldMisread (the grid read the held word alike, a misread_word) and each heldClash light
+    settle_held "dropped" (neither its held nor its read answer filed). Every other held answer it
+    gives none for stands (merge_answers with no reread drop)."""
+    sol = verdict.get("solution") or {}
+    return set(sol.get("heldMisread") or ()) | {k for k, c in (sol.get("heldClash") or {}).items() if c.get("took") == "dropped"}
+
+
+def merge_answers(old, puzzle, tool=TOOL, reread=False, keep=False, drop=()):
     """{light: its answer now (None: dropped)} after taking `puzzle`'s
     answers into the held filing `old` (in place): each light this reading
     answers takes its answer, and a held answer a new one crosses on
@@ -9873,7 +9902,9 @@ def merge_answers(old, puzzle, tool=TOOL, reread=False, keep=False):
     older reader's sure reads having filed wrong ones (BAYED for DATED).
     With `keep`, no held answer changes or goes: only a blank light takes
     this reading's answer, and only one that crosses no held letter on
-    another (_fill_writeup_blanks). A light whose answer changes loses its
+    another (_fill_writeup_blanks). Each light of `drop` (held_drops: an
+    answers-only reading's named rules) this reading does not answer goes
+    too. A light whose answer changes loses its
     annotation, written against the old answer. {} when `old` is not
     `tool`'s or lies on another grid."""
     if (old.get("source") or {}).get("acquiredBy") != tool \
@@ -9890,7 +9921,7 @@ def merge_answers(old, puzzle, tool=TOOL, reread=False, keep=False):
     for e in old["entries"]:
         lid, was = entry_id(e), e.get("solution")
         now = new.get(lid, was)
-        if lid not in new and was and (reread or any(letters.get(rc, ch) != ch for rc, ch in zip(cells(e), was))):
+        if lid not in new and was and (reread or lid in drop or any(letters.get(rc, ch) != ch for rc, ch in zip(cells(e), was))):
             now = None
         if now != was:
             e["solution"] = now
