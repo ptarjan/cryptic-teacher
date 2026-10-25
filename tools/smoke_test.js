@@ -417,7 +417,7 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
     assert(caps.length === 1,
       `the grid is uncapped in exactly one place (found ${caps.length})`);
     const before = all.slice(0, caps[0].index);
-    assert(/@container[^{]*\{[^{}]*#grid\s*\{\s*$/.test(before),
+    assert(/@container[^{]*\{[^{}]*#grid\b[^{}]*\{\s*$/.test(before),
       "and that place is a @container query, not a window width: " + before.slice(-140));
   }
 
