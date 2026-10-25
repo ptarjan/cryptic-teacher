@@ -21,6 +21,9 @@
   "date": "2019-08-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,32 @@
     "text": "Mere game",
     "enumeration": "4"
    },
-   "solution": "POOL"
+   "solution": "POOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mere",
+      "at": 0,
+      "meaning": "a mere is a small lake or pond, a still body of water"
+     },
+     {
+      "text": "game",
+      "at": 5,
+      "meaning": "a cue sport played on a table with pockets, like billiards or snooker"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone dismisses something as nothing more than a game.",
+     "walkthrough": "'Mere' reads as the adjective 'only', but here it is the noun for a lake.",
+     "definitionFit": "Synonym: a mere is a small lake; separately, the word names the cue game played on a pocketed table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mere"
+    }
+   }
   },
   {
    "number": 1,
@@ -48,7 +76,61 @@
     "text": "Matter about wise man looking up constellation",
     "enumeration": "7"
    },
-   "solution": "PEGASUS"
+   "solution": "PEGASUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "constellation",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 7,
+       "note": "the word for matter goes around the reversed wise man"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Matter",
+       "at": 0,
+       "gives": "PUS",
+       "note": "pus is matter discharged from a wound"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "looking up",
+         "at": 22,
+         "note": "in a down clue, looking up reads the wise man upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wise man",
+         "at": 13,
+         "gives": "SAGE",
+         "note": "a sage is a wise man"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some matter concerning an astrologer gazing up at the stars.",
+     "walkthrough": "In a down clue 'looking up' means reading upwards, so backwards; 'about' wraps the matter around that.",
+     "definitionFit": "Example: a large northern star group named after the winged horse of Greek myth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Matter"
+    }
+   }
   },
   {
    "number": 2,
@@ -68,7 +150,52 @@
      }
     ]
    },
-   "solution": "ONACCOUNT"
+   "solution": "ONACCOUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as an instalment",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 7,
+         "note": "uncovered strips the first and last letters off the word Monaco"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Monaco",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "separate charge",
+       "at": 17,
+       "gives": "COUNT",
+       "note": "in law, a count is one separate charge in an indictment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Monaco is revealed to have levied a separate charge in part payment.",
+     "walkthrough": "'uncovered' takes ONAC from Monaco.",
+     "definitionFit": "Idiom: paying something this way means paying part of it as an interim instalment towards the total owed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 3,
@@ -82,7 +209,76 @@
     "text": "After year in London college, monk is messing up old genetic theory",
     "enumeration": "10"
    },
-   "solution": "LYSENKOISM"
+   "solution": "LYSENKOISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old genetic theory",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "the scrambled monk-is letters come after the college-with-year piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 11,
+         "note": "the letter for year is placed inside the abbreviation for the college"
+        }
+       ],
+       "parts": [
+        {
+         "words": "London college",
+         "at": 14,
+         "gives": "LSE",
+         "note": "LSE is the London School of Economics"
+        },
+        {
+         "words": "year",
+         "at": 6,
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "messing up",
+         "at": 38,
+         "note": "messing up the letters of monk is puts them in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "monk is",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monk, after a year at a London college, is muddling an outdated theory of heredity.",
+     "walkthrough": "The London School of Economics is the college; 'messing up' scrambles MONK IS.",
+     "definitionFit": "Example: the discredited Soviet doctrine of Trofim Lysenko held that acquired traits are inherited, an obsolete genetics theory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "college"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +292,40 @@
     "text": "Yeah, we organised shout at rodeos",
     "enumeration": "6"
    },
-   "solution": "YEEHAW"
+   "solution": "YEEHAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shout at rodeos",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "organised",
+       "at": 9,
+       "note": "organised means the letters of yeah we are arranged afresh"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Yeah, we",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone agrees that they arranged a rodeo yell.",
+     "definitionFit": "Example: a whoop of exuberance associated with cowboys, typically heard at rodeos."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +339,59 @@
     "text": "Perhaps US door guard has missed second approach",
     "enumeration": "8"
    },
-   "solution": "ENTRYWAY"
+   "solution": "ENTRYWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps US door",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "has missed",
+         "at": 22,
+         "note": "the guard has missed out the letter for second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guard",
+         "at": 16,
+         "gives": "SENTRY",
+         "note": "a sentry is a soldier posted on guard"
+        },
+        {
+         "words": "second",
+         "at": 33,
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "approach",
+       "at": 40,
+       "gives": "WAY",
+       "note": "a way is a route or approach"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American door guard misses a second approach.",
+     "walkthrough": "'has missed' removes S from SENTRY to give ENTRY.",
+     "definitionFit": "Example: an American word for an entrance passage, of which a door is one instance, hence 'Perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "guard"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +419,31 @@
      }
     ]
    },
-   "solution": "KEEPONESHANDIN"
+   "solution": "KEEPONESHANDIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put own employee under house arrest",
+      "at": 0,
+      "meaning": "read literally, to confine your own worker indoors"
+     },
+     {
+      "text": "to retain capability",
+      "at": 36,
+      "meaning": "to keep up a skill through occasional practice"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is a cryptic literal reading: one's own hand (worker) kept in (confined).",
+     "definitionFit": "Idiom: the phrase means to practise occasionally so as not to lose a skill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "employee"
+    }
+   }
   },
   {
    "number": 7,
@@ -152,7 +457,43 @@
     "text": "Vision of latter half of hadj?",
     "enumeration": "5"
    },
-   "solution": "IMAGE"
+   "solution": "IMAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vision",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "latter half of",
+       "at": 10,
+       "note": "only the second five letters of the ten-letter word for the hadj are kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hadj",
+       "at": 25,
+       "gives": "PILGRIMAGE",
+       "note": "the hadj is the Muslim pilgrimage to Mecca"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sight seen at the end of a journey to Mecca.",
+     "walkthrough": "The question mark flags that the hadj is replaced by a synonym before half is dropped.",
+     "definitionFit": "Synonym: a mental picture or something seen in the mind's eye."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hadj"
+    }
+   }
   },
   {
    "number": 8,
@@ -166,7 +507,64 @@
     "text": "Much of significance about lake pigment",
     "enumeration": "7"
    },
-   "solution": "MELANIN"
+   "solution": "MELANIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pigment",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 21,
+       "note": "the shortened significance word goes around the letter for lake"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Much of",
+         "at": 0,
+         "note": "most of the significance word is used, dropping its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "significance",
+         "at": 8,
+         "gives": "MEANING",
+         "note": "meaning is significance"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "words": "lake",
+       "at": 27,
+       "gives": "L",
+       "note": "L is the abbreviation for lake on maps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pigment found by a lake proves highly significant.",
+     "walkthrough": "'Much of' cuts MEANING to MEANIN, which 'about' puts around L.",
+     "definitionFit": "Example: the dark brown substance that colours human skin, hair and eyes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "significance"
+    }
+   }
   },
   {
    "number": 9,
@@ -202,7 +600,55 @@
      }
     ]
    },
-   "solution": "IDONTMINDIFIDO"
+   "solution": "IDONTMINDIFIDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Certainly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "yours truly",
+       "at": 11,
+       "gives": "I",
+       "note": "yours truly is the speaker, I"
+      },
+      {
+       "words": "is not concerned about",
+       "at": 23,
+       "gives": "DONTMIND",
+       "note": "don't mind means not to care about something"
+      },
+      {
+       "words": "current",
+       "at": 46,
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      },
+      {
+       "words": "dog",
+       "at": 54,
+       "gives": "FIDO",
+       "note": "Fido is a stock name for a dog"
+      }
+     ]
+    },
+    "spelling": "I DON'T MIND IF I DO",
+    "explanation": {
+     "surface": "The speaker shrugs off worries about a dog that is in the room at present.",
+     "walkthrough": "'current' is the physics symbol I, not 'present day'.",
+     "definitionFit": "Idiom: a hearty phrase of acceptance used when offered something, much like saying yes, gladly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 10,
@@ -216,7 +662,64 @@
     "text": "Noble reduced allowance astrologer is after",
     "enumeration": "7"
    },
-   "solution": "GRANDEE"
+   "solution": "GRANDEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Noble",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "is after",
+       "at": 35,
+       "note": "the astrologer's name follows the shortened allowance"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 6,
+         "note": "the allowance word is cut short by losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "allowance",
+         "at": 14,
+         "gives": "GRANT",
+         "note": "a grant is a sum allowed or given, such as a student allowance"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "astrologer",
+       "at": 24,
+       "gives": "DEE",
+       "note": "John Dee was the Elizabethan astrologer and magician"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman pursued by an astrologer, his allowance cut.",
+     "walkthrough": "'reduced' trims GRANT to GRAN; John Dee was Elizabeth I's court astrologer.",
+     "definitionFit": "Synonym: a Spanish or Portuguese nobleman of the highest rank, hence any person of high standing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "astrologer"
+    }
+   }
   },
   {
    "number": 11,
@@ -230,7 +733,49 @@
     "text": "Girl in work in a chiropodist's concern",
     "enumeration": "7"
    },
-   "solution": "TOENAIL"
+   "solution": "TOENAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a chiropodist's concern",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "the girl's name goes inside the word for work"
+      }
+     ],
+     "parts": [
+      {
+       "words": "work",
+       "at": 8,
+       "gives": "TOIL",
+       "note": "toil is hard work"
+      },
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "ENA",
+       "note": "Ena is a girl's name, common in crosswords"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl at work, perhaps employed in a foot clinic.",
+     "walkthrough": "'in' does two jobs in the surface: the first one signals the insertion, the second is a link before the definition.",
+     "definitionFit": "Example: chiropodists treat feet, and an ingrowing nail on a toe is a classic problem they deal with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Girl"
+    }
+   }
   },
   {
    "number": 12,
@@ -250,7 +795,41 @@
      }
     ]
    },
-   "solution": "SECONDARYMODERN"
+   "solution": "SECONDARYMODERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "school in the past",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "destroyed",
+       "at": 18,
+       "note": "destroyed signals the letters of odds-on mercenary are broken up and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Odds-on mercenary",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A favoured hired soldier wrecked a school some time ago.",
+     "walkthrough": "In Britain these were state schools, from 1944 to the 1970s, for pupils who did not pass the eleven-plus exam into grammar school.",
+     "definitionFit": "Example: a former type of British state secondary school, now largely replaced by comprehensives, so a school of the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odds-on"
+    }
+   }
   },
   {
    "number": 13,
@@ -264,7 +843,64 @@
     "text": "Like bad housing, oh dear, after much economic downturn",
     "enumeration": "6"
    },
-   "solution": "SLUMMY"
+   "solution": "SLUMMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like bad housing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 27,
+       "note": "the exclamation comes after the shortened downturn word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "much",
+         "at": 33,
+         "note": "much of the downturn word means all but its last letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "economic downturn",
+         "at": 38,
+         "gives": "SLUMP",
+         "note": "a slump is a sharp fall in economic activity"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "words": "oh dear",
+       "at": 18,
+       "gives": "MY",
+       "note": "'my!' is an exclamation of dismay like oh dear"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bad housing follows a long economic downturn, sadly.",
+     "walkthrough": "'much' means most of the word, here all but its last letter.",
+     "definitionFit": "Synonym: squalid and run-down, characteristic of a slum, an area of poor, overcrowded dwellings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "much"
+    }
+   }
   },
   {
    "number": 14,
@@ -284,7 +920,29 @@
      }
     ]
    },
-   "solution": "FACEDOWN"
+   "solution": "FACEDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prone",
+      "at": 0,
+      "meaning": "lying flat with the front of the body downwards"
+     },
+     {
+      "text": "to try for concessions in confrontation",
+      "at": 6,
+      "meaning": "to confront someone boldly until they back off or give way"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Idiom: lying prone means lying front downwards, and the phrasal verb means to defeat opposition by confronting it head-on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prone"
+    }
+   }
   },
   {
    "number": 15,
@@ -298,7 +956,42 @@
     "text": "Clothier's forbidden more trim",
     "enumeration": "9"
    },
-   "solution": "OUTFITTER"
+   "solution": "OUTFITTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clothier's",
+      "at": 0,
+      "note": "the 's stands for is, linking the definition to the wordplay"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "forbidden",
+       "at": 11,
+       "gives": "OUT",
+       "note": "out as in ruled out, not allowed"
+      },
+      {
+       "words": "more trim",
+       "at": 21,
+       "gives": "FITTER",
+       "note": "fitter means in better shape, trimmer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor is banned from slimming down further.",
+     "definitionFit": "Synonym: a seller of clothes and equipment, especially for a particular activity, like a clothes merchant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trim"
+    }
+   }
   },
   {
    "number": 16,
@@ -312,7 +1005,61 @@
     "text": "Bird dropping fine maggot and caterpillar",
     "enumeration": "8"
    },
-   "solution": "INCHWORM"
+   "solution": "INCHWORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "caterpillar",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 5,
+         "note": "the bird is dropping the letter for fine"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bird",
+         "at": 0,
+         "gives": "FINCH",
+         "note": "a finch is a small seed-eating bird"
+        },
+        {
+         "words": "fine",
+         "at": 14,
+         "gives": "F",
+         "note": "F is the pencil abbreviation for fine"
+        }
+       ]
+      },
+      {
+       "words": "maggot",
+       "at": 19,
+       "gives": "WORM",
+       "note": "a maggot is a grub or worm"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird's dropping lands on a fine maggot and a caterpillar.",
+     "walkthrough": "'dropping' looks like bird mess but removes F from FINCH to leave INCH.",
+     "definitionFit": "Example: the looper larva of a geometrid moth, a caterpillar that moves by arching its body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 17,
@@ -332,7 +1079,60 @@
      }
     ]
    },
-   "solution": "SETENANT"
+   "solution": "SETENANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How stamps can be",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 27,
+       "note": "the word for posted wraps around the number and the article"
+      }
+     ],
+     "parts": [
+      {
+       "words": "posted",
+       "at": 18,
+       "gives": "SENT",
+       "note": "sent, as a letter is posted"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "five pairs",
+         "at": 33,
+         "gives": "TEN",
+         "note": "five pairs make ten"
+        },
+        {
+         "words": "article",
+         "at": 49,
+         "gives": "A",
+         "note": "a is the indefinite article"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions on mailing stamps, covering five pairs and an article.",
+     "walkthrough": "'How stamps can be posted' looks like one definition, but 'posted' belongs to the wordplay; 'about' signals the wrap.",
+     "definitionFit": "Philatelic term: stamps printed joined together in a sheet but differing in design or value are described with this French phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "posted"
+    }
+   }
   },
   {
    "number": 17,
@@ -346,7 +1146,55 @@
     "text": "Covers students' union over black mark",
     "enumeration": "7"
    },
-   "solution": "SUNSPOT"
+   "solution": "SUNSPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "black mark",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 23,
+       "note": "in a down clue, over turns the combined pieces upside down, so they read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Covers",
+         "at": 0,
+         "gives": "TOPS",
+         "note": "tops are covers or lids"
+        },
+        {
+         "words": "students' union",
+         "at": 7,
+         "gives": "NUS",
+         "note": "NUS is the National Union of Students in Britain"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student union covers up a blot on its record.",
+     "walkthrough": "'over' reverses TOPS+NUS. The NUS is the UK's National Union of Students.",
+     "definitionFit": "Example: a dark patch appearing on the surface of the sun, literally a black mark there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Covers"
+    }
+   }
   },
   {
    "number": 18,
@@ -360,7 +1208,49 @@
     "text": "Injunction about little house in high country",
     "enumeration": "6"
    },
-   "solution": "BHUTAN"
+   "solution": "BHUTAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "high country",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 11,
+       "note": "the word for injunction goes around the small dwelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Injunction",
+       "at": 0,
+       "gives": "BAN",
+       "note": "a ban is a prohibiting order"
+      },
+      {
+       "words": "little house",
+       "at": 17,
+       "gives": "HUT",
+       "note": "a hut is a small, simple house"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court order concerning a small cottage up in the mountains.",
+     "walkthrough": "'high country' is a fair definition: this Himalayan kingdom is among the most mountainous nations; 'about' signals the wrap.",
+     "definitionFit": "Example: a Himalayan kingdom, mountainous and lying at great altitude between India and Tibet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Injunction"
+    }
+   }
   },
   {
    "number": 19,
@@ -374,7 +1264,70 @@
     "text": "Uncared-for state's new elite around top of government",
     "enumeration": "7"
    },
-   "solution": "NEGLECT"
+   "solution": "NEGLECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uncared-for state's",
+      "at": 0,
+      "note": "the 's stands for is, linking the definition to the wordplay"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "new",
+       "at": 20,
+       "gives": "N"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 30,
+         "note": "the elite word goes around the government's first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elite",
+         "at": 24,
+         "gives": "ELECT",
+         "note": "the elect are a chosen elite"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "top of",
+           "at": 37,
+           "note": "top of the word government, in a down clue, is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "government",
+           "at": 44
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new elite surrounds the head of a government that has been left untended.",
+     "walkthrough": "'around' puts G inside ELECT, after N.",
+     "definitionFit": "Synonym: the condition of being left without proper care or attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "elite"
+    }
+   }
   },
   {
    "number": 20,
@@ -388,7 +1341,59 @@
     "text": "Horse eating tip of yew was in agony",
     "enumeration": "6"
    },
-   "solution": "STEWED"
+   "solution": "STEWED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "was in agony",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 6,
+       "note": "the horse takes in the letter as if eating it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Horse",
+       "at": 0,
+       "gives": "STEED",
+       "note": "a steed is a horse"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tip of",
+         "at": 13,
+         "note": "here tip means the final letter, the bottom end of the word yew"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yew",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse that ate yew leaves suffered terribly.",
+     "walkthrough": "'tip of' gives W, the end of yew, not Y; 'eating' puts it inside STEED. Yew is poisonous to horses.",
+     "definitionFit": "Idiom: to stew is to fret or suffer in a state of anxiety, so being in torment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 21,
@@ -402,7 +1407,66 @@
     "text": "Although anything but a fool, a good person in passing",
     "enumeration": "15"
    },
-   "solution": "NOTWITHSTANDING"
+   "solution": "NOTWITHSTANDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Although",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "anything but",
+       "at": 9,
+       "gives": "NO",
+       "note": "as in 'he is no fool', no means anything but"
+      },
+      {
+       "words": "a fool",
+       "at": 22,
+       "gives": "TWIT",
+       "note": "a twit is a foolish person"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 44,
+         "note": "the saint abbreviation goes inside the word for passing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "passing",
+         "at": 47,
+         "gives": "HANDING",
+         "note": "handing is passing something over"
+        },
+        {
+         "words": "a good person",
+         "at": 30,
+         "gives": "ST",
+         "note": "ST, short for saint, is a good person"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is far from foolish, yet a saint in passing.",
+     "walkthrough": "'anything but a fool' reads as 'no fool'; 'in' signals the saint going inside the passing word.",
+     "definitionFit": "Synonym: both are conjunctions meaning in spite of the fact that, introducing a concession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "passing"
+    }
+   }
   },
   {
    "number": 22,
@@ -416,7 +1480,41 @@
     "text": "What's taking place in First Empire times",
     "enumeration": "5"
    },
-   "solution": "TEMPI"
+   "solution": "TEMPI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "times",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "taking place in",
+       "at": 7,
+       "note": "what is taking place in the words is the run of letters sitting inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "First Empire",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about events in Napoleon's First Empire period.",
+     "walkthrough": "The letters sit across firsT EMPIre.",
+     "definitionFit": "Plural of a musical term: speeds or time measures in music, the Italian plural of tempo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "times"
+    }
+   }
   },
   {
    "number": 23,
@@ -430,7 +1528,71 @@
     "text": "I am in place, I note, round London district",
     "enumeration": "7"
    },
-   "solution": "PIMLICO"
+   "solution": "PIMLICO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "London district",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 5,
+         "note": "the contraction of I am sits inside the abbreviation for place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "place",
+         "at": 8,
+         "gives": "PL",
+         "note": "PL is the abbreviation for place, as in street names"
+        },
+        {
+         "words": "I am",
+         "at": 0,
+         "gives": "IM",
+         "note": "I'm is the contraction of I am"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 15,
+       "gives": "I"
+      },
+      {
+       "words": "note",
+       "at": 17,
+       "gives": "C",
+       "note": "C is a musical note"
+      },
+      {
+       "words": "round",
+       "at": 23,
+       "gives": "O",
+       "note": "O is round in shape"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says they are in position, noting a round of London.",
+     "walkthrough": "'in' signals the contraction sitting inside the street-name abbreviation; 'round' is the shape O.",
+     "definitionFit": "Example: an area of central London in Westminster, south of Victoria station, known for its stucco terraces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 24,
@@ -444,7 +1606,31 @@
     "text": "Engine inventor is to cut deal?",
     "enumeration": "7"
    },
-   "solution": "WHITTLE"
+   "solution": "WHITTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Engine inventor",
+      "at": 0,
+      "meaning": "Sir Frank, the British engineer who invented the turbojet engine"
+     },
+     {
+      "text": "to cut deal?",
+      "at": 19,
+      "meaning": "to pare wood with a knife; deal is pine or fir timber"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'deal' looks like a bargain but is softwood timber; the question mark flags the wordplay.",
+     "definitionFit": "Name and verb: the jet engine pioneer shared his surname with the word for carving wood by shaving off slivers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 25,
@@ -464,7 +1650,40 @@
      }
     ]
    },
-   "solution": "TAILORMADE"
+   "solution": "TAILORMADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "created to fit",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Fashioned",
+       "at": 0,
+       "note": "fashioned means shaped or formed, so the letters of model tiara are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "model tiara",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiara for a model was made to measure.",
+     "definitionFit": "Synonym: something made specially for a particular person or purpose, as a suit cut to the wearer's measurements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fashioned"
+    }
+   }
   },
   {
    "number": 26,
@@ -478,7 +1697,30 @@
     "text": "Get irritated with mist coming off the sea",
     "enumeration": "4"
    },
-   "solution": "FRET"
+   "solution": "FRET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get irritated",
+      "at": 0,
+      "meaning": "to worry or be vexed"
+     },
+     {
+      "text": "mist coming off the sea",
+      "at": 19,
+      "meaning": "a sea fog that rolls in on the coast, especially in eastern England"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The sea mist sense is chiefly a regional word on the east coast of Britain, often as 'sea fret'.",
+     "definitionFit": "Double sense: the verb means to worry and be agitated; the noun is a coastal fog drifting inland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   }
  ]
 }
