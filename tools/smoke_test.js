@@ -5021,6 +5021,7 @@ global.realSetTimeout(() => {
   const unspyPanel = spyRect(panelEl, "panel"), unspyMid = spyRect(midEl, "mid");
   // The panel is laid out in page space: earlier sections leave the window
   // scrolled, which would put this box above the viewport (not on screen).
+  const savedYOffset = global.window.pageYOffset;
   global.window.pageYOffset = 0;
   panelEl.layout(100, 200);
   cleanE.solution.slice(0, -1).split("").forEach((c) => key(c));
@@ -5035,13 +5036,18 @@ global.realSetTimeout(() => {
   unspyPanel(); unspyMid();
   // Panel not laid out (no box on screen): fall back to the middle square.
   // Solve otherE (typed fresh over whatever it holds) with the panel at 0x0.
+  // Both the letter boxes and the hint panel must be off screen, or the burst
+  // legitimately lands on the panel (onScreenBox tries #hint-pattern, then #hint-panel).
   panelEl.layout(0, 0);
+  registry["hint-panel"].layout(0, 0);
   select(otherE);
   const otherMid = cellsOf(otherE)[Math.floor(otherE.length / 2)];
+  measured.length = 0;
   const unspyOther = spyRect(otherMid, "mid");
   otherE.solution.split("").forEach((c) => key(c));
   assert(measured.includes("mid"), "no panel on screen: the burst falls back to the middle square: " + measured);
   unspyOther();
+  global.window.pageYOffset = savedYOffset;
   registry["reset-puzzle"].onclick();
   select(cleanE);
   cleanE.solution.split("").forEach((c) => key(c));
