@@ -1081,7 +1081,8 @@ def _uncrossed_one(item):
     if path is None:
         return pid, []
     puzzle = fetcher.read_puzzle_file(path)
-    if (puzzle.get("source") or {}).get("acquiredBy") != archive.TOOL:
+    # A blog's write-up keys the file (merge_answers' _fill_writeup_blanks): its answers a person typed.
+    if (puzzle.get("source") or {}).get("acquiredBy") != archive.TOOL or "blog" in (puzzle.get("solutions") or {}):
         return pid, []
     sus = uncrossed_suspects(puzzle, lights)
     if not sus:
