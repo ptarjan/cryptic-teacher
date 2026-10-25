@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,60 @@
      }
     ]
    },
-   "solution": "HATEMAIL"
+   "solution": "HATEMAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some offensive words",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught in",
+       "at": 11,
+       "note": "the first pieces are held inside the shower word, as if trapped by it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cold shower",
+       "at": 21,
+       "gives": "HAIL",
+       "note": "hail is a shower of cold ice pellets"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Had",
+         "at": 0,
+         "gives": "ATE",
+         "note": "had, in the sense of had a meal, means ate"
+        },
+        {
+         "words": "maiden",
+         "at": 4,
+         "gives": "M",
+         "note": "M is the cricket scorecard abbreviation for a maiden over"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman, out in a freezing downpour, mutters a few rude words.",
+     "walkthrough": "'Had' means ATE (had dinner); a maiden over in cricket, one with no runs scored, is M on a scorecard.",
+     "definitionFit": "Abusive letters or messages sent to someone are made up of offensive words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +107,31 @@
     "text": "Prime minister on television, one seeking to steal information",
     "enumeration": "6"
    },
-   "solution": "HACKER"
+   "solution": "HACKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prime minister on television",
+      "at": 0,
+      "meaning": "The fictional premier in the BBC sitcom Yes, Prime Minister"
+     },
+     {
+      "text": "one seeking to steal information",
+      "at": 30,
+      "meaning": "someone who breaks into computer systems to take data"
+     }
+    ],
+    "explanation": {
+     "surface": "A TV premier is caught trying to steal data.",
+     "walkthrough": "Yes, Prime Minister was a 1980s British TV comedy whose bumbling premier was Jim Hacker.",
+     "definitionFit": "Jim Hacker was a fictional premier on British TV, and a computer intruder is also called by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +145,48 @@
     "text": "Emperor's function to keep rule in India",
     "enumeration": "6"
    },
-   "solution": "TRAJAN"
+   "solution": "TRAJAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Emperor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 19,
+       "note": "the function word holds the rule word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "function",
+       "at": 10,
+       "gives": "TAN",
+       "note": "tan, short for tangent, is a trigonometric function"
+      },
+      {
+       "words": "rule in India",
+       "at": 27,
+       "gives": "RAJ",
+       "note": "the Raj was British rule in India"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An emperor's job is to maintain rule in India.",
+     "definitionFit": "Trajan was a Roman emperor of the early second century AD."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +200,78 @@
     "text": "Sugar upset tot before Virginia tucked into fish and duck",
     "enumeration": "9"
    },
-   "solution": "MUSCOVADO"
+   "solution": "MUSCOVADO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sugar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 6,
+         "note": "in a down entry upset means turned upside down, read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tot",
+         "at": 12,
+         "gives": "SUM",
+         "note": "to tot up is to sum, so a tot is a sum"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "tucked into",
+         "at": 32,
+         "note": "the state abbreviation is placed inside the fish word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 44,
+         "gives": "COD",
+         "note": "a cod is a fish"
+        },
+        {
+         "words": "Virginia",
+         "at": 23,
+         "gives": "VA",
+         "note": "VA is the abbreviation for the US state of Virginia"
+        }
+       ]
+      },
+      {
+       "words": "duck",
+       "at": 53,
+       "gives": "O",
+       "note": "a duck in cricket is a score of nothing, O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spilt sugar, a toddler, and a dish of fish and duck.",
+     "walkthrough": "'upset' turns SUM into MUS; a duck in cricket is a score of zero, O.",
+     "definitionFit": "Muscovado is an unrefined brown sugar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tot"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +285,62 @@
     "text": "Put away in vehicle, packed in box: drug smuggled in",
     "enumeration": "12"
    },
-   "solution": "INCARCERATED"
+   "solution": "INCARCERATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put away",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 9
+      },
+      {
+       "words": "vehicle",
+       "at": 12,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "smuggled in",
+         "at": 41,
+         "note": "the drug letter is slipped secretly inside the packed word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "packed in box",
+         "at": 21,
+         "gives": "CRATED",
+         "note": "crated means packed in a crate, a box"
+        },
+        {
+         "words": "drug",
+         "at": 36,
+         "gives": "E",
+         "note": "E is slang for the drug ecstasy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drugs hidden in a crate in a car get someone locked up.",
+     "definitionFit": "Put away is an idiom for imprisoned, as is incarcerated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +354,52 @@
     "text": "Plan to get English degree after school",
     "enumeration": "6"
    },
-   "solution": "SCHEMA"
+   "solution": "SCHEMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plan",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 27,
+       "note": "the English degree is placed following the school abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "school",
+       "at": 33,
+       "gives": "SCH"
+      },
+      {
+       "words": "English",
+       "at": 12,
+       "gives": "E"
+      },
+      {
+       "words": "degree",
+       "at": 20,
+       "gives": "MA",
+       "note": "MA, Master of Arts, is a degree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student's plan: get an English degree once school is over.",
+     "definitionFit": "A schema is an outline or diagrammatic plan of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plan"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +413,49 @@
     "text": "Black stuff with core of soft or hard material",
     "enumeration": "5"
    },
-   "solution": "COPAL"
+   "solution": "COPAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hard material",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "with core of",
+       "at": 12,
+       "note": "the soft letter forms the middle of the coal word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Black stuff",
+       "at": 0,
+       "gives": "COAL",
+       "note": "coal is black stuff"
+      },
+      {
+       "words": "soft",
+       "at": 25,
+       "gives": "P",
+       "note": "P, for piano, means soft in music"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something black with a soft core, or else a hard material.",
+     "walkthrough": "P (piano) is the musical marking for soft.",
+     "definitionFit": "Copal is a hard resin from tropical trees, used in varnishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +469,51 @@
     "text": "Them old books? I study something on the computer!",
     "enumeration": "8"
    },
-   "solution": "EMOTICON"
+   "solution": "EMOTICON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something on the computer",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Them",
+       "at": 0,
+       "gives": "EM",
+       "note": "'em is a colloquial shortening of them"
+      },
+      {
+       "words": "old books",
+       "at": 5,
+       "gives": "OT",
+       "note": "OT, the Old Testament, is the old books of the Bible"
+      },
+      {
+       "words": "I",
+       "at": 16
+      },
+      {
+       "words": "study",
+       "at": 18,
+       "gives": "CON",
+       "note": "to con is to study"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scorns old books: 'I study things on a computer!'",
+     "definitionFit": "An emoticon is a small typed face or symbol used in online messages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +527,42 @@
     "text": "A bit like part of Birmingham, creating surprise?",
     "enumeration": "8"
    },
-   "solution": "ASTONISH"
+   "solution": "ASTONISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "surprise",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "part of Birmingham",
+       "at": 11,
+       "gives": "ASTON",
+       "note": "Aston is a district of Birmingham, home of Aston Villa football club"
+      },
+      {
+       "words": "A bit like",
+       "at": 0,
+       "gives": "ISH",
+       "note": "the suffix -ish means somewhat like"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something rather like a corner of Birmingham turns out to be surprising.",
+     "walkthrough": "Aston is an area of Birmingham, England's second city; the answer read as ASTON-ISH means a bit like Aston.",
+     "definitionFit": "To astonish someone is to amaze them greatly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +576,61 @@
     "text": "Form 1 starts to consider some well-known books",
     "enumeration": "8"
    },
-   "solution": "CLASSICS"
+   "solution": "CLASSICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "well-known books",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Form",
+       "at": 0,
+       "gives": "CLASS",
+       "note": "a form is a school class"
+      },
+      {
+       "words": "1",
+       "at": 5,
+       "gives": "I",
+       "note": "the numeral one is the Roman I"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 7,
+         "note": "the beginnings of the next two words are taken, as the clue says starts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "consider",
+         "at": 17
+        },
+        {
+         "words": "some",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school class is told to look at some famous books.",
+     "definitionFit": "Classics are standard, long-admired works of literature that everyone has heard of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Form"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +650,48 @@
      }
     ]
    },
-   "solution": "OPTOUT"
+   "solution": "OPTOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "escape getting involved",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "the seller word is placed following the work word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "work",
+       "at": 6,
+       "gives": "OP",
+       "note": "OP, short for opus, is a work"
+      },
+      {
+       "words": "seller",
+       "at": 12,
+       "gives": "TOUT",
+       "note": "a tout is someone who sells tickets aggressively"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once the job is done, a salesman just wants to get away.",
+     "definitionFit": "To opt out is to choose not to take part, avoiding involvement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seller"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +705,40 @@
     "text": "Treat bionics unconventionally as medical specialist",
     "enumeration": "12"
    },
-   "solution": "OBSTETRICIAN"
+   "solution": "OBSTETRICIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "medical specialist",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unconventionally",
+       "at": 14,
+       "note": "treated unconventionally, the letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Treat bionics",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist doctor uses bionic body parts in unusual ways.",
+     "walkthrough": "The letters of TREAT BIONICS are rearranged.",
+     "definitionFit": "An obstetrician is a doctor specialising in pregnancy and childbirth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +752,49 @@
     "text": "Source of inspiration in lecture, having switched sides",
     "enumeration": "5"
    },
-   "solution": "ERATO"
+   "solution": "ERATO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Source of inspiration",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "having switched sides",
+       "at": 34,
+       "note": "the letters at the two sides of the word, left end and right end, change places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lecture",
+       "at": 25,
+       "gives": "ORATE",
+       "note": "to lecture is to orate"
+      },
+      {
+       "gives": "ORATE"
+      },
+      {
+       "gives": "ERATO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A talk somewhere manages to inspire, but only after a swap.",
+     "walkthrough": "'having switched sides' swaps the first and last letters of ORATE, the O and the E.",
+     "definitionFit": "Erato is the Muse of lyric poetry, and the Muses are classical sources of artistic inspiration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +808,59 @@
     "text": "Bishop in staggering movement, hero in act of defiance",
     "enumeration": "9"
    },
-   "solution": "REBELLION"
+   "solution": "REBELLION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "act of defiance",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "the bishop's letter is placed within the staggering word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "staggering movement",
+         "at": 10,
+         "gives": "REEL",
+         "note": "to reel is to stagger, so a reel is a staggering movement"
+        },
+        {
+         "words": "Bishop",
+         "at": 0,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        }
+       ]
+      },
+      {
+       "words": "hero",
+       "at": 31,
+       "gives": "LION",
+       "note": "a lion is a brave person, a hero"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop lurches about while a brave figure stands up to authority.",
+     "definitionFit": "A rebellion is open resistance to authority, a defiant act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bishop"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +874,41 @@
     "text": "Book to excite man into tales",
     "enumeration": "12"
    },
-   "solution": "LAMENTATIONS"
+   "solution": "LAMENTATIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "excite",
+       "at": 8,
+       "note": "to excite is to stir up, so these letters are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "man into tales",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book meant to thrill a man by drawing him into its stories.",
+     "walkthrough": "The letters of MAN INTO TALES are rearranged.",
+     "definitionFit": "Lamentations is a book of the Old Testament, mourning the fall of Jerusalem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "excite"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +922,48 @@
     "text": "Note penned by investigators for geological study",
     "enumeration": "9"
    },
-   "solution": "TECTONICS"
+   "solution": "TECTONICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "geological study",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penned by",
+       "at": 5,
+       "note": "the note word is shut inside the investigators word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "investigators",
+       "at": 15,
+       "gives": "TECS",
+       "note": "tecs is slang for detectives"
+      },
+      {
+       "words": "Note",
+       "at": 0,
+       "gives": "TONIC",
+       "note": "the tonic is the keynote of a scale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives write down a note during their investigation of the rocks.",
+     "definitionFit": "Tectonics is the study of the earth's crust and the movement of its plates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +977,49 @@
     "text": "Weapon housed in rotten stable",
     "enumeration": "8"
    },
-   "solution": "BALANCED"
+   "solution": "BALANCED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stable",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "housed in",
+       "at": 7,
+       "note": "the weapon word is lodged inside the rotten word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rotten",
+       "at": 17,
+       "gives": "BAD",
+       "note": "bad means rotten"
+      },
+      {
+       "words": "Weapon",
+       "at": 0,
+       "gives": "LANCE",
+       "note": "a lance is a weapon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knight's weapon is kept in a filthy stable.",
+     "walkthrough": "'stable' looks like a noun for horses but is the adjective meaning steady.",
+     "definitionFit": "Something balanced is steady and stable, not likely to tip over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1033,48 @@
     "text": "Distress of nurse once, characteristic concealed",
     "enumeration": "8"
    },
-   "solution": "STRAITEN"
+   "solution": "STRAITEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Distress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealed",
+       "at": 39,
+       "note": "the characteristic word is hidden away inside the nurse letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nurse once",
+       "at": 12,
+       "gives": "SEN",
+       "note": "SEN, State Enrolled Nurse, is a former British nursing grade"
+      },
+      {
+       "words": "characteristic",
+       "at": 24,
+       "gives": "TRAIT",
+       "note": "a trait is a characteristic"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-time nurse's distress was a trait she kept hidden.",
+     "walkthrough": "SEN (State Enrolled Nurse) was a British nursing grade, since abolished.",
+     "definitionFit": "To straiten is to put into difficulty or hardship, to distress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1088,44 @@
     "text": "Scot and Austrian working together in a branch of science",
     "enumeration": "12"
    },
-   "solution": "ASTRONAUTICS"
+   "solution": "ASTRONAUTICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a branch of science",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "working together",
+       "at": 18,
+       "note": "the two nationalities' letters are worked over and combined into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scot",
+       "at": 0
+      },
+      {
+       "words": "Austrian",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman and an Austrian collaborate on some scientific field.",
+     "walkthrough": "The letters of SCOT and AUSTRIAN are rearranged together.",
+     "definitionFit": "Astronautics is the science of space travel and spacecraft design."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1139,40 @@
     "text": "Country with rupee coin",
     "enumeration": "6"
    },
-   "solution": "STATER"
+   "solution": "STATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "coin",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Country",
+       "at": 0,
+       "gives": "STATE",
+       "note": "a state is a country"
+      },
+      {
+       "words": "rupee",
+       "at": 13,
+       "gives": "R",
+       "note": "R is an abbreviation for rupee"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation and its rupee coin.",
+     "definitionFit": "A stater was an ancient Greek coin of gold or silver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1186,41 @@
     "text": "Carriage provided when Dane, maybe, is given honour",
     "enumeration": "6"
    },
-   "solution": "HANSOM"
+   "solution": "HANSOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carriage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dane, maybe",
+       "at": 23,
+       "gives": "HANS",
+       "note": "Hans is a typical Danish name, as in Hans Christian Andersen"
+      },
+      {
+       "words": "honour",
+       "at": 45,
+       "gives": "OM",
+       "note": "OM, the Order of Merit, is a British honour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carriage is laid on when a Danish man receives an honour.",
+     "definitionFit": "A hansom is a two-wheeled horse-drawn cab."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dane"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1240,41 @@
      }
     ]
    },
-   "solution": "ADARSHENI"
+   "solution": "ADARSHENI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Added time",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "after injury",
+       "at": 22,
+       "note": "after being injured these letters are left disordered, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "had arisen",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer's injury means extra minutes are tacked onto the match.",
+     "walkthrough": "'Added time' suggests football stoppage time, but the answer is Adar Sheni, the second Adar.",
+     "definitionFit": "Adar Sheni is the extra month inserted in Jewish leap years to keep the lunar calendar in step with the seasons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1288,51 @@
     "text": "Criticise bargain with Europe, finally",
     "enumeration": "5"
    },
-   "solution": "SNIPE"
+   "solution": "SNIPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Criticise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bargain",
+       "at": 10,
+       "gives": "SNIP",
+       "note": "a snip is a bargain"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 31,
+         "note": "the final letter of the Europe word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Europe",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician attacks a trade deal with Europe at last.",
+     "definitionFit": "To snipe is to make sly critical attacks on someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bargain"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1346,53 @@
     "text": "Island thus seen looking west from Roman harbour",
     "enumeration": "5"
    },
-   "solution": "OSTIA"
+   "solution": "OSTIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Roman harbour",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "looking west",
+       "at": 17,
+       "note": "in an across entry west is leftward, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Island",
+         "at": 0,
+         "gives": "AIT",
+         "note": "an ait is a small island in a river"
+        },
+        {
+         "words": "thus",
+         "at": 7,
+         "gives": "SO",
+         "note": "so means thus"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "From the old Roman port, one gazes westward toward an island.",
+     "definitionFit": "Ostia was the ancient port of Rome at the mouth of the Tiber."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Island"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1412,41 @@
      }
     ]
    },
-   "solution": "CUTSIN"
+   "solution": "CUTSIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Interrupts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "instruction to reduce",
+       "at": 16,
+       "gives": "CUT",
+       "note": "cut, as an order, tells someone to reduce something"
+      },
+      {
+       "words": "wickedness",
+       "at": 38,
+       "gives": "SIN",
+       "note": "sin is wickedness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone butts in with a sermon on cutting back on sin.",
+     "definitionFit": "To cut in is to interrupt a conversation or speaker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "instruction"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1460,46 @@
     "text": "Mars — a visit (ET) to be arranged?",
     "enumeration": "8"
    },
-   "solution": "VITIATES"
+   "solution": "VITIATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mars",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to be arranged",
+       "at": 20,
+       "note": "these letters are to be put into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a visit",
+       "at": 7
+      },
+      {
+       "words": "ET",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Should the extraterrestrial set up a visit to the red planet?",
+     "walkthrough": "'Mars' looks like the planet but is a verb meaning spoils; the letters of A VISIT ET are rearranged.",
+     "definitionFit": "To vitiate is to spoil or impair, just as to mar something is to damage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mars"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1513,56 @@
     "text": "City's place of vice, always hiding its face",
     "enumeration": "6"
    },
-   "solution": "DENVER"
+   "solution": "DENVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "place of vice",
+       "at": 7,
+       "gives": "DEN",
+       "note": "a den is a haunt of vice, as in a den of iniquity"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "hiding its face",
+         "at": 29,
+         "note": "the front letter of the always word is concealed, removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "always",
+         "at": 22,
+         "gives": "EVER",
+         "note": "ever means always"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city's den of sin has always kept its true face hidden.",
+     "definitionFit": "Denver is the capital city of Colorado."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1576,41 @@
     "text": "Physicist showing anxiety with short memory",
     "enumeration": "8"
    },
-   "solution": "ANGSTROM"
+   "solution": "ANGSTROM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Physicist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "anxiety",
+       "at": 18,
+       "gives": "ANGST",
+       "note": "angst is anxiety"
+      },
+      {
+       "words": "short memory",
+       "at": 31,
+       "gives": "ROM",
+       "note": "ROM, short for read-only memory, is computer memory"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist shows signs of worry and forgetfulness.",
+     "definitionFit": "Anders Angstrom was a Swedish physicist, a pioneer of spectroscopy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "memory"
+    }
+   }
   }
  ]
 }
