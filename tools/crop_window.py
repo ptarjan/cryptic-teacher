@@ -119,6 +119,50 @@ def foreign_edge(words, x1, reach, gap=MIN_WIDTH):
     return None
 
 
+#: A window's right edge cuts its own column when CUT or more of a reading's
+#: boxes end at it (within EDGE); the column's far edge is sought this far
+#: (a share of the window's width) past it.
+#: The ink share under which a pixel column past such an edge is clear paper:
+#: a ragged column's line ends run thinner than INK, so gutters() would take
+#: them for gutter.
+CUT, CUT_REACH, CLEAR = 4, 0.15, 0.03
+
+
+def cut_edge(img, words, box):
+    """The x past a window `box` (x0, top, x1, bottom) where the column its
+    right edge runs through ends: the middle of the first run of MIN_WIDTH
+    or more clear pixel columns (ink under CLEAR) right of x1, within
+    CUT_REACH of the window's width, when CUT or more of `words` (one
+    reading's (x0, y0, x1, y1, text) boxes, page pixels) end at x1; else
+    None. The mid-2014 Times' down column ran ~30px past the window
+    RIGHT_SPAN cut it at ("shaking out t", "is s", "part of the y"), a
+    rule and a box just beyond: one clue blank as a stray letter, the page
+    unfiled."""
+    import numpy as np
+    x0, top, x1, bottom = (int(v) for v in box)
+    if sum(1 for w in words if w[2] >= x1 - EDGE and w[0] < x1 - EDGE) < CUT:
+        return None
+    end = min(img.width, x1 + int(CUT_REACH * (x1 - x0)))
+    if end - x1 < MIN_WIDTH:
+        return None
+    share = (np.asarray(img.crop((x1, top, end, bottom)).convert("L")) < 128).mean(axis=0)
+    clear = share < CLEAR
+    i = 0
+    while i < len(clear):
+        if not clear[i]:
+            i += 1
+            continue
+        j = i
+        while j < len(clear) and clear[j]:
+            j += 1
+        if j - i >= MIN_WIDTH:
+            # The middle of the gap: from the clear run's start to the next print or rule.
+            k = next((k for k in range(j, len(share)) if share[k] >= INK), len(share))
+            return x1 + (i + k) // 2
+        i = j
+    return None
+
+
 def poor(verdict, image_ok=False):
     """True when a read_page verdict shows its crop did not hold the clue
     columns: refused as unreadable, no grid-fitting list, or too few of the

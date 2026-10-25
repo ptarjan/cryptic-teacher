@@ -110,6 +110,10 @@ assert ct.clue_number_opening("IPheasant") == "1 Pheasant" and ct.clue_number_op
 assert ct.clue_number_opening("!What makes") == "1 What makes" and ct.clue_number_opening("|What") == "1 What"
 assert ct.clue_number_opening("1'In the") == "1 In the" and ct.clue_number_opening("1.Associate's") == "1 Associate's"
 assert ct.clue_number_opening(") With") == "With" and ct.clue_number_opening("12 Fish") == "12 Fish"
+# 11 read as ones-shaped letters (Gale Times 2000-14): opened as 11; the word "Ill" is left.
+assert [ct.clue_number_opening(s) for s in ("ll1 Red", "ll At", "1l After", "IIl Flier", "II Flier", "!! Examine")] \
+    == ["11 Red", "11 At", "11 After", "11 Flier", "11 Flier", "11 Examine"]
+assert ct.clue_number_opening("Ill Will") == "Ill Will" and ct.clue_number_opening("ll after") == "ll after"
 assert ct.HEADING_ALONE.match("ACROSS") and ct.HEADING_ALONE.match(" - Down.") and not ct.HEADING_ALONE.match("Across 1")
 assert ct.PLAIN_HEADING.match("Across:").group(1) == "Across" and not ct.PLAIN_HEADING.match("Across 1")
 assert ct.OPENING_NUMBER.match("25Recipient")[1] == "25" and ct.OPENING_NUMBER.match("21.Measures")[1] == "21"

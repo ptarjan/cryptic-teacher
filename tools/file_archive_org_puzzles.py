@@ -5323,7 +5323,20 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
                                 (over - gbox[2] - 15, gbox[3]) if over else third, m, top,
                                 crop, lead, x0, right) for which in READERS}
     if right:
+        was = right
         right, rapid = right_foreign(rapid, gbox, right)
+        # A window whose edge runs through its own clue column (no other print past it: the
+        # cut boxes are clue lines) is widened to that column's far edge and read again
+        # (crop_window.cut_edge: the mid-2014 Times' down column, its line ends cut off).
+        wider = None if right != was else max(
+            (x for x in (crop_window.cut_edge(img, [w for ws in lines for w in ws],
+                                              (gbox[2] + 5, gbox[1] - RIGHT_RISE, right[0], right[1]))
+                         for lines in rapid.values()) if x is not None), default=None)
+        if wider:
+            right = (wider, right[1])
+            rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json",
+                                        None, m, top, crop, lead, x0, right) for which in READERS}
+            right, rapid = right_foreign(rapid, gbox, right)
     # The scan's grid, read before the clues: the 1930 Times prints no
     # counts, so its clues take theirs from it.
     gpath = CROPS / "grids" / f"{key}.png"
@@ -6933,6 +6946,44 @@ def right_foreign_held(row):
 #: sample 1950s Gale one-blank pages (no blank clue left), 4 of 4 filed pages unchanged.
 REREAD_UNFILED = "2026-10-22T00:25:00+00:00"
 
+#: The reason, and its fix's time, of a 2000-14 Times page (Gale or News UK) whose read wrote its
+#: puzzle unfiled (unfiled_blank) before the 10-25 reader fixes: clue_text.clue_number_opening
+#: opens a clue numbered 11 that RapidOCR read as "ll1", "ll", "1l", "IIl", "II" or "!!" (11 across
+#: blank "starts mid-clue" or "readings differ: Il / II / I" on ~10 pages of 2000-13), and
+#: crop_window.cut_edge widens a right-hand clue window that cut its own down column (mid-2014:
+#: "shaking out t", one clue blank as a stray letter). Paul 10-25: 87 such pages stood unfiled and
+#: undue (2004 15, 2005 14, 2006 11, 2007 11, 2014 8; read 10-20..24, after REREAD_UNFILED; 20 of
+#: them 2005-06 pages already due as a short page). An OCR-only read by current code (no VLM) left
+#: no blank on 3 of 15 random such pages and 8 of 14 picked by cause (2004's "no reading laid a clue
+#: on it" pages among them, mended by code since their read); the rest keep one or two blanks a
+#: window misses (11 down, 24 down) or a vote refuses. Once each.
+UNFILED_MODERN = "unfiled before its fix, Times 2000-14"
+REREAD_UNFILED_MODERN = "2026-10-25T07:50:00+00:00"
+UNFILED_MODERN_YEARS = ("2000", "2014")
+
+
+def unfiled_modern(row):
+    """Whether ledger `row` is a 2000-14 Times page (UNFILED_MODERN_YEARS) read before
+    REREAD_UNFILED_MODERN whose read left a puzzle unfiled: a verdict with an "unfiled"
+    count, or its id's copy in CROPS/unfiled, not refused, its puzzle not held with every
+    clue (filed_state). Not unfiled_blank's test: 29 of the 87 such pages (10-25) were read
+    "complete" (the list parsed whole, a clue then blank) or carry "unfiled" with no "wrote"."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times"):
+        return False
+    year = Path(rel).name[:4]
+    if not (UNFILED_MODERN_YEARS[0] <= year <= UNFILED_MODERN_YEARS[1]) \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED_MODERN)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id"):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
 
 def unfiled_blank(row):
     """[(puzzle id, blank clues)] of the puzzles of ledger `row` its read wrote
@@ -7333,6 +7384,8 @@ def fix_reason(row):
         return RIGHT_FOREIGN_READ
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
+    if unfiled_modern(row):
+        return UNFILED_MODERN
     # Ahead of unenumerated_held: a refused grid is the evidence (edition_queue.evidence_reason), and
     # both are answers_only rereads (SOLUTION_FIXES), so the read is the same.
     if refused_grid(row):
@@ -7861,7 +7914,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, SHORT_WIDE: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -8173,7 +8226,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    "date": day_of(d), "needs": needs(d), "force": reads[d] == "annotation asked",
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
-                      if reads[d] == "unfiled before its fix" else {}),
+                      if reads[d] in ("unfiled before its fix", UNFILED_MODERN) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

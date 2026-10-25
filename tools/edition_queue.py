@@ -706,6 +706,8 @@ def evidence_reason(reason):
             or (reason.startswith("refused ") and reason.endswith(" before its fix"))
             or reason == fa.NO_TITLE_RESCAN  # a Gale 1957-62 or 2000-14 page no title was found on, scan code since
             or reason == "unfiled before its fix"  # a puzzle written with blank clues, a column-layout fix since
+            # A 2000-14 Times page written unfiled before the 10-25 clue-11 and cut-window fixes (fa.unfiled_modern).
+            or reason == fa.UNFILED_MODERN
             # A puzzle its read wrote that the corpus no longer holds (fa.lost_writes): as good as unread.
             or reason == fa.LOST_WRITE
             # A title its scan found whose read gave no verdict, its puzzle unheld (fa.unread_titles): unread.
@@ -971,7 +973,8 @@ def canary_match(unit, table):
     if not year.isdigit():
         return None
     for paper, cause, first, last, note in table:
-        want = "unfiled before its fix" if cause == "unfiled" else f"refused {cause} before its fix"
+        # A cause naming its whole reason (one with a space: fa.UNFILED_MODERN) is that reason.
+        want = "unfiled before its fix" if cause == "unfiled" else cause if " " in cause else f"refused {cause} before its fix"
         if (unit.get("paper") == paper and reason == want
                 and first <= int(year) <= last):
             return note
@@ -1264,7 +1267,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
               fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD,
-              fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ)
+              fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN)
 
 
 def unproven_first(unit):

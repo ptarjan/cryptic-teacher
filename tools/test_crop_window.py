@@ -61,4 +61,17 @@ assert cw.foreign_edge(down + advert + [(1360, 2400, 1913, 2420, "20 Raise sympa
 # a window ending inside a clue column: its cut boxes open on clue numbers
 assert cw.foreign_edge(down + [(1830, 2324, 1913, 2348, "20 Botch"), (1830, 2396, 1913, 2419, "25 Thro")],
                        1914, 144) is None
+
+# cut_edge: the mid-2014 Times window cut its down column at 1627; the column's
+# ragged ends thin out to ~1640, clear paper to a rule at 1668: the edge moves
+# into that gap. Fewer than CUT boxes ending at the edge: nothing moves.
+b = np.full((300, 1800), 255, np.uint8)
+b[:, 1200:1600][rng.random((300, 400)) < 0.3] = 0
+b[:, 1600:1640][rng.random((300, 40)) < 0.05] = 0
+b[:, 1668:1670] = 0
+cutimg = Image.fromarray(b)
+lines = [(1200, 20 * i, 1626, 20 * i + 15, "21 One faced with big bill shaking out t") for i in range(5)]
+x = cw.cut_edge(cutimg, lines, (1000, 0, 1627, 300))
+assert x is not None and 1640 < x < 1668, x
+assert cw.cut_edge(cutimg, lines[:3], (1000, 0, 1627, 300)) is None
 print("ok")

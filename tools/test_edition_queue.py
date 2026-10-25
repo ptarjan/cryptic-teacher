@@ -254,6 +254,18 @@ check("one read after it (incomplete again) is not due again; nor a complete or 
 check("the reason is evidence, ranked with the fix-landed rereads and held behind never-read pages", (True, 2, True, True),
       (eq.evidence_reason("unfiled before its fix"), f.rank_of_reason("unfiled before its fix"),
        "unfiled before its fix" in eq.FIX_LANDED, eq.refusal_reread("unfiled before its fix")))
+# ---- a 2000-14 Times page left unfiled before the 10-25 clue-11 / cut-window fixes is due once (fa.UNFILED_MODERN):
+# also when its read was "complete" or carries "unfiled" with no "wrote" (unfiled_blank passes both over).
+_mo = {"id": "times-9999997", "number": 9999997, "complete": True, "unfiled": 1, "clues": 30, "lights": 30}
+_morow = {"edition": "GaleTimes2007UKEnglish/2007-04-06", "verdicts": [_mo], "readAt": "2026-10-23T05:00:00+00:00"}
+check("a 2000-14 Times page written unfiled before the fix is due as such, ranked and kept as fix evidence",
+      [f.UNFILED_MODERN, 2, True, True, True],
+      [f.fix_reason(_morow), f.RANKS[f.UNFILED_MODERN], eq.evidence_reason(f.UNFILED_MODERN),
+       f.UNFILED_MODERN in eq.FIX_LANDED, f.UNFILED_MODERN.startswith(f.BUG_READS)])
+check("not after the fix, not another era, not a page with nothing unfiled", [None] * 3,
+      [f.fix_reason({**_morow, "readAt": _after}),
+       f.fix_reason({**_morow, "edition": "GaleTimes1999UKEnglish/1999-04-06"}),
+       f.fix_reason({**_morow, "verdicts": [{**_mo, "unfiled": 0}]})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},
