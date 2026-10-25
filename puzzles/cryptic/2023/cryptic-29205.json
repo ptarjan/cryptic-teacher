@@ -756,29 +756,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
-      {
-       "text": "upset",
-       "at": 17,
-       "note": "upset here means knocked over and jumbled, so all these letters are rearranged together"
-      },
       {
        "text": "about",
        "at": 23,
-       "note": "about can mean around in disorder, adding to the sense that the letters are scattered"
+       "note": "about means the scrambled letters go around the next piece"
       }
      ],
      "parts": [
       {
-       "words": "the i",
-       "at": 0
-      },
-      {
-       "words": "repeatedly",
-       "at": 6,
-       "gives": "THEI",
-       "note": "repeatedly says the words the i come round again, supplying a second copy of them"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 17,
+         "note": "upset signals the doubled letters are knocked over into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 6,
+           "note": "repeatedly tells us the words the i are used twice over"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the i",
+           "at": 0
+          }
+         ]
+        }
+       ]
       },
       {
        "op": "first",
@@ -786,7 +799,7 @@
         {
          "text": "leader",
          "at": 38,
-         "note": "a word's leader is the letter at its front"
+         "note": "leader picks the first letter of Guardian"
         }
        ],
        "parts": [
@@ -799,9 +812,9 @@
      ]
     },
     "explanation": {
-     "surface": "A dig at the i, a rival paper, repeatedly rattled about the Guardian's editorial column.",
-     "walkthrough": "'repeatedly' supplies a second THE I; with G, the leader of Guardian, 'upset' and 'about' rearrange THEITHEIG. The i is a British newspaper.",
-     "definitionFit": "An eightieth is one of eighty equal parts, a small fraction; 'just' plays on how little it is."
+     "surface": "A jibe that the i newspaper keeps tying itself in knots over a Guardian editorial, though it is a small matter.",
+     "walkthrough": "The i is a British newspaper. 'upset' rearranges THEITHEI into EIHTIETH, and 'about' puts G, the first letter of Guardian, inside after EI.",
+     "definitionFit": "One part in eighty is a tiny share of a whole, merely a small fraction."
     },
     "features": {
      "answerInScene": false,

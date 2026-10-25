@@ -559,36 +559,48 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "can be",
-       "note": "what the letters can be, rather than what they are, invites rearranging them"
+       "text": "What can be",
+       "at": 0,
+       "note": "what can be asks what the following letters could be turned into, an anagram signal"
       }
      ],
      "parts": [
       {
        "words": "included",
-       "note": "taken as written"
+       "at": 12
       },
       {
-       "words": "repeatedly at",
-       "gives": "ATAT",
-       "note": "the word at, given twice"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 21,
+         "note": "repeatedly says the word at is used twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at",
+         "at": 32
+        }
+       ]
       },
       {
        "words": "OU",
-       "note": "taken as written"
+       "at": 35
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone wonders what kind of learning the Open University offers time and again.",
-     "walkthrough": "The OU is the Open University, Britain's distance-learning university for mature students; its letters also go into the mix.",
-     "definitionFit": "Courses for grown-up learners returning to study are exactly what the Open University provides throughout life."
+     "surface": "A question about which courses the Open University lets people take again and again.",
+     "walkthrough": "An &lit: 'What can be' rearranges INCLUDED, AT, AT and OU. The OU is Britain's Open University, a distance-learning institution for mature students.",
+     "definitionFit": "The Open University teaches mostly mature, part-time students, so courses for grown-up learners are what it includes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "included"
+     "misdirectedWord": "can"
     }
    }
   },
