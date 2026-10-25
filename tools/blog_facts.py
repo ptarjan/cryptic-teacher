@@ -2284,6 +2284,8 @@ def clues_of(pid):
     return {entry_id(e): e["clue"].get("text", "") for e in read_puzzle_file(path)["entries"]} if path else {}
 
 
+STARTED = time.monotonic()
+
 #: Where the day of the last letter pass (letter_facts.write) is kept; CT_LETTER_STAMP moves it.
 LETTER_STAMP = Path(os.environ.get("CT_LETTER_STAMP") or Path.home() / ".cache" / "cryptic-letter-pass-day")
 
@@ -2297,22 +2299,51 @@ def letter_pass_due(today=None):
         return True
 
 
-def regrafted(rec, old):
-    """`rec`, a puzzle's sidecar as the blogs alone give it, with the entries the
-    letter pass wrote into `old`, the sidecar already there, if `old` is `rec` plus
-    only what it inferred (letter_facts.stated); else `rec`, left to the next pass."""
+def _same_blocks(a, b):
+    """Whether two block lists are one blog's, a fragment the letter pass widened or
+    trimmed ("a holy book", "holy book") counting as the same."""
+    if len(a) != len(b):
+        return False
+    for x, y in zip(a, b):
+        fx, fy = (x[1] if len(x) > 1 else "").lower(), (y[1] if len(y) > 1 else "").lower()
+        if x[:1] != y[:1] or not (fx.endswith(fy) or fy.endswith(fx)):
+            return False
+    return True
+
+
+def _inferred_over(held, got):
+    """Whether the clue facts `held` (an entry of the sidecar the letter pass wrote) are
+    `got`, what the blog states, plus only what the pass inferred. A type the blog gave
+    and the pass widened (hidden_word to hidden_word, reversal) is that."""
     from letter_facts import stated
+    a, b = stated(held), dict(got)
+    if "type" in held.get("inferred", ()) and b.get("type") and held.get("type", [])[:len(b["type"])] == b["type"]:
+        a = {**a, "type": b["type"]}
+    if a == b:
+        return True
+    ba, bb = a.pop("blocks", []), b.pop("blocks", [])
+    return a == b and _same_blocks(ba, bb)
+
+
+def regrafted(rec, old):
+    """`rec`, a puzzle's sidecar as the blogs alone give it, with the inferred layer of
+    `old`, the sidecar already there (the letter pass, letter_facts.stated), put back on
+    each clue whose blog side is as it was; a clue that moved, or is new, is `rec`'s,
+    left to the next pass. `old` itself where nothing moved."""
     if not old or old.get("entries") is None:
         return rec
     new, held = rec["entries"], old["entries"]
     if {k: v for k, v in rec.items() if k != "entries"} != {k: v for k, v in old.items() if k != "entries"}:
         return rec
-    for eid, e in held.items():
-        if stated(fact_from_json(e)) != (fact_from_json(new[eid]) if eid in new else {}):
-            return rec
-    if any(eid not in held for eid in new):
-        return rec
-    return old
+    entries = {}
+    for eid in sorted({*new, *held}):
+        if eid in held and _inferred_over(fact_from_json(held[eid]), fact_from_json(new[eid]) if eid in new else {}):
+            entries[eid] = held[eid]
+        elif eid in new:
+            entries[eid] = new[eid]
+    if entries == held:
+        return old
+    return {**rec, "entries": entries}
 
 
 def write(best, series, spool, previous=None):
@@ -2514,6 +2545,10 @@ def main():
     print(f"wrote blog facts for {write(best, series, spool, previous=skip_letters)} puzzles to {OUT.relative_to(ROOT)}")
     if skip_letters:
         print(f"letter pass already ran today ({LETTER_STAMP}): inferred fields kept")
+        # The same wall and CPU figures a full run's steps print (letter_facts.timed), so the saving can be measured.
+        cpu = time.process_time() + sum(os.times()[2:4])
+        print(f"{time.strftime('%H:%M:%S')} blog_facts (letter pass skipped): done {time.monotonic() - STARTED:.0f}s wall, "
+              f"{cpu:.0f}s CPU", file=sys.stderr, flush=True)
         STAMP.write_text(digest + "\n")
         return
     # letter_facts reads back what was just written, so the joins it came from
