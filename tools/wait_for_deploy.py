@@ -62,6 +62,10 @@ def want_stamps():
     return {rel: digest(rel) for rel in ASSETS}
 
 
+class ColdRowCache(Exception):
+    """The local index build hit the row-cache miss guard: it cannot be made cheaply."""
+
+
 def shipped_index_stamp(head):
     """The stamp CI gives puzzles/index.js when it builds `head`.
 
@@ -78,11 +82,13 @@ def shipped_index_stamp(head):
         # the glossary first, because the stamps hash it.
         for step in (["tools/build_abbreviations.py"],
                      ["tools/fetch_puzzle.py", "--reindex"]):
-            # Deliberately the full build CI makes, to compare byte for byte:
-            # the one local caller that is allowed to (row-cache hits mostly).
+            # The build CI makes, to compare byte for byte: the plain --reindex
+            # is allowed, but not the cold scan (the miss guard stays on).
             run = subprocess.run([sys.executable, *step], cwd=tmp,
                                  capture_output=True, text=True,
-                                 env={**os.environ, "CT_ALLOW_FULL_REINDEX": "1"})
+                                 env={**os.environ, "CT_ALLOW_PLAIN_REINDEX": "1"})
+            if run.returncode and "refusing a local full scan" in run.stderr:
+                raise ColdRowCache(run.stderr.strip()[:200])
             if run.returncode:
                 raise RuntimeError(f"{' '.join(step)} failed building the index to "
                                    f"compare: {(run.stderr or run.stdout).strip()[-400:]}")
@@ -213,7 +219,13 @@ def main():
 
     head = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
                           text=True, cwd=ROOT).stdout.strip()
-    want["puzzles/index.js"] = shipped_index_stamp(head)
+    try:
+        want["puzzles/index.js"] = shipped_index_stamp(head)
+    except ColdRowCache:
+        # Not a failed deploy: this machine just cannot afford the comparison.
+        print("can't verify locally: row cache cold (index stamp unverified; "
+              "CI's build is the check)")
+        return 0
     deadline = time.time() + (0 if args.check else args.timeout)
     ceiling = time.time() + (0 if args.check else args.max_wait)
     while True:

@@ -3196,6 +3196,13 @@ def full_reindex_allowed():
     return bool(os.environ.get("GITHUB_ACTIONS") or os.environ.get("CT_ALLOW_FULL_REINDEX"))
 
 
+def plain_reindex_allowed():
+    """May a plain --reindex start? CT_ALLOW_PLAIN_REINDEX=1 permits the command
+    but keeps the miss guard (a cold row cache still stops it); only
+    full_reindex_allowed() skips the guard."""
+    return full_reindex_allowed() or bool(os.environ.get("CT_ALLOW_PLAIN_REINDEX"))
+
+
 def reindex():
     """Rebuild puzzles/index.json and index.js from the puzzle files on disk.
 
@@ -3893,7 +3900,7 @@ def main(argv):
     if argv[0] == "--reindex":
         if "--force-full" in argv[1:]:
             os.environ["CT_ALLOW_FULL_REINDEX"] = "1"
-        if not (full_reindex_allowed() or os.environ.get("CT_REINDEX_IDS")):
+        if not (plain_reindex_allowed() or os.environ.get("CT_REINDEX_IDS")):
             print(f"refusing a plain --reindex on this machine.\n{FULL_SCAN_ADVICE}", file=sys.stderr)
             return 2
         index = reindex()
