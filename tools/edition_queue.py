@@ -726,6 +726,9 @@ def evidence_reason(reason):
             # a refused grid, so without this only_evidence dropped every one: Paul 10-24, ~650 Times
             # puzzles held short (1980s ~250, 1990s ~115, 1970s ~105) stood so, none planned.
             or reason == fa.REFUSED_GRID
+            # A held puzzle whose grid read short at blocks just under SURE_BLOCKS (a heavy print's inked
+            # letters read as blocks) before the classifier read such grids (fa.heavy_short), once.
+            or reason == fa.HEAVY_PRINT
             # The other two answers_only rereads likely() predicts nothing for: a grid older code read short
             # (cells unclassified) for a puzzle held short from its page that short_again passes over (its
             # blocks under SURE_BLOCKS), and a held puzzle with a clue filed without its count. Paul 10-24:
@@ -1270,7 +1273,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
               fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD,
-              fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN)
+              fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT)
 
 
 def unproven_first(unit):
@@ -1343,7 +1346,7 @@ CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.U
 #: (no batching) and not under the cpu-only cap (they would starve behind it).
 LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
            "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE,
-           fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD)
+           fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD, fa.HEAVY_PRINT)
 #: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
 #: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
 #: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).

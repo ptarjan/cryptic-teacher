@@ -536,6 +536,22 @@ check("a grid read short unclassified for a puzzle held short is UNCLASSIFIED_HE
       [f.UNCLASSIFIED_HELD, unclassified, unclassified, 2, True, None],
       [uh_short, uh_whole, uh_none, f.RANKS[f.UNCLASSIFIED_HELD], f.UNCLASSIFIED_HELD in f.SOLUTION_FIXES,
        f.fix_reason({**uh_row, "solutionKey": f.solution_key()})])
+# A grid read short at blocks just under SURE_BLOCKS (a heavy print's letters read as blocks) for a puzzle
+# held short is HEAVY_PRINT (10-25: read_framed classifies such a grid since, blocks_sure); once.
+def heavy_row(blocks, at="2026-10-25T06:00:00+00:00"):
+    return {"edition": "NewsUK1984UKEnglish/1984-05-01_61715", "readAt": at, "solutionKey": f.solution_key(),
+            "verdicts": [{"number": 99999991, "id": "times-99999991", "solutionFrom": "1984-05-02 leaf 3",
+                          "solution": {"accepted": 20, "lights": 30, "blocks": blocks}}]}
+f.filed_state = lambda series, n: (False, True)
+hv = [f.fix_reason(heavy_row(0.96)), f.heavy_short(heavy_row(0.9)), f.heavy_short(heavy_row(0.98)),
+      f.heavy_short(heavy_row(0.96, "2026-10-26T00:00:00+00:00"))]
+f.filed_state = lambda series, n: (True, True)
+hv.append(f.heavy_short(heavy_row(0.96)))
+f.filed_state = real_fs
+check("a grid read short at 0.946-0.97 blocks for a puzzle held short is HEAVY_PRINT (rank 2, answers-only); "
+      "not under the floor, at SURE_BLOCKS, read since, or held whole",
+      [f.HEAVY_PRINT, False, False, False, False, 2, True],
+      hv + [f.RANKS[f.HEAVY_PRINT], f.HEAVY_PRINT in f.SOLUTION_FIXES])
 # A grid read 1-2 lights short at SURE_BLOCKS: before REREAD_UNLISTED, UNLISTED; read since, before
 # REREAD_VLM_UNLISTED, VLM_UNLISTED (the VLM's unlisted strip words stand since); after it, nothing.
 def vu_row(at, gap=1):

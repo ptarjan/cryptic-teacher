@@ -476,6 +476,28 @@ def block_agreement(gray, grid, lat):
     return ok / (len(grid) * len(grid[0]))
 
 
+#: A framing that reads every block of the grid a block, and at most this many of its light cells
+#: as blocks too, is the puzzle's though its block_agreement is under SURE_BLOCKS: a heavy print's
+#: inked letters (Times 1940s-90s), not a lattice off the grid (that misses blocks). 10-25: of the
+#: Times grids read 6+ lights short, ~1 in 4 fit so at 0.94-0.969, the classifier never run on them.
+HEAVY_EXTRA = 12
+
+
+def blocks_sure(gray, grid, lat, agreement=None):
+    """Whether lattice `lat` of `gray` is surely `grid`'s: its block_agreement (`agreement`, when
+    known) at SURE_BLOCKS, or every grid block read a block and at most HEAVY_EXTRA light cells
+    read as blocks (a heavy print)."""
+    if agreement is not None and agreement >= SURE_BLOCKS:
+        return True
+    seen = blocks_read(gray, lat, len(grid))
+    if None in seen.values():
+        return False
+    cells = [(seen[(r, c)], ch == "#") for r, row in enumerate(grid) for c, ch in enumerate(row)]
+    if sum(s == b for s, b in cells) >= SURE_BLOCKS * len(cells):
+        return True
+    return all(s for s, b in cells if b) and sum(1 for s, b in cells if s and not b) <= HEAVY_EXTRA
+
+
 # ------------------------------------------------------------ reading
 
 #: Each light is read from these renderings of its cells; a print that is
@@ -754,7 +776,7 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
     block_agreement. With `bounded`, a grid whose blocks read below
     SURE_BLOCKS keeps only its bounded() lights. With `classify` (a Times
     print, which the cell classifier was trained on) and blocks read at
-    SURE_BLOCKS, the classifier checks every accepted light (vetoed()) and
+    SURE_BLOCKS, or a heavy print's every block found (blocks_sure), the classifier checks every accepted light (vetoed()) and
     decodes the rest (classified_reads())."""
     gray = np.asarray(Image.open(image).convert("L"))
     framed = framings(gray, grid)
@@ -775,6 +797,9 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         reads = [read_lattice(g, ys, xs, grid) for g, ys, xs in framed]
         best = max(range(len(reads)), key=lambda i: reads[i][1]["blocks"])
         blocks, lat = reads[best][1]["blocks"], framed[best]
+    # The classifier reads a heavy print's grid too (blocks_sure): every block found, a few
+    # inked letters read as blocks.
+    sure = blocks_sure(lat[0], grid, lat[1:], blocks)
     reads.sort(key=lambda r: -r[1]["cellsSure"])
     lts = lights(grid)
     accepted, stats, every, _ = reads[0]
@@ -811,7 +836,7 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         accepted = {key: w for key, w in accepted.items()
                     if bounded_light(lts[key], key[1], seen, w, [p.get(key, ()) for p in printeds])}
     more, probs = {}, None
-    if classify and blocks >= SURE_BLOCKS:
+    if classify and sure:
         # The classifier reads the best-fitting lattice's cells: an accepted
         # light it surely reads otherwise is dropped, and the lights left are
         # decoded from its letters.
@@ -822,6 +847,8 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         more = classified_reads(lts, accepted, probs)
         accepted.update(more)
         stats = {**stats, "vetoed": len(dropped), "classified": len(more)}
+        if blocks < SURE_BLOCKS:
+            stats["heavy"] = True
         if enums is not None:
             fit = fitted_reads(lts, accepted, probs, enums)
             accepted.update(fit)
@@ -832,7 +859,7 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
             stats["unlisted"] = len(named)
     stats = {**stats, "blocks": blocks, "accepted": len(accepted), "lattices": len(reads)}
     short = [key for key in lts if key not in accepted]
-    if enums is not None and classify and blocks >= SURE_BLOCKS and 0 < len(short) <= STRIP_MAX:
+    if enums is not None and classify and sure and 0 < len(short) <= STRIP_MAX:
         g, ys, xs = lat
         strips = {k: light_strip(g, ys, xs, lts[k]) for k in short}
         # With each cell's classifier probabilities: a word the VLM gives stands only where the
@@ -893,9 +920,9 @@ def cell_probs(image, grid):
         return None
     fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
     best = max(range(len(framed)), key=lambda i: fits[i])
-    if fits[best] < SURE_BLOCKS:
-        return None
     g, ys, xs = framed[best]
+    if not blocks_sure(g, grid, (ys, xs), fits[best]):
+        return None
     return classified({rc: glyph(g, ys, xs, *rc) for cells in lights(grid).values() for rc in cells})
 
 
