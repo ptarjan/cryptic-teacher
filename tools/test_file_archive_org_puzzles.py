@@ -603,11 +603,22 @@ def vu_row(at, gap=1):
 f.filed_state = lambda series, n: (False, True)
 vu = [f.short_again(vu_row("2026-10-24T12:00:00+00:00")), f.short_again(vu_row("2026-10-25T06:00:00+00:00")),
       f.short_again(vu_row("2026-10-25T06:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-26T00:00:00+00:00"))]
+real_sb = f.strip_blank
+f.strip_blank = lambda series, n, sol_dir: True
+vu += [f.short_again(vu_row("2026-10-25T15:00:00+00:00")), f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=4))]
+f.strip_blank = lambda series, n, sol_dir: False
+vu.append(f.short_again(vu_row("2026-10-25T15:00:00+00:00")))
+f.strip_blank = real_sb
 f.filed_state = real_fs
 check("a grid read 1-2 short: UNLISTED before REREAD_UNLISTED, VLM_UNLISTED since (not 3+ short), then nothing; "
       "rank 2, answers-only",
       [f.UNLISTED, f.VLM_UNLISTED, None, None, 2, True],
-      vu + [f.RANKS[f.VLM_UNLISTED], f.VLM_UNLISTED in f.SOLUTION_FIXES])
+      vu[:4] + [f.RANKS[f.VLM_UNLISTED], f.VLM_UNLISTED in f.SOLUTION_FIXES])
+check("read since REREAD_VLM_UNLISTED, before REREAD_VLM_FLOOR, 1-2 short with a strip of a light the held file leaves "
+      "blank: VLM_FLOOR_SHORT (rank 2, answers-only, a LOW prefix); not 3+ short, nor with no such strip",
+      [f.VLM_FLOOR_SHORT, None, None, 2, True, True],
+      vu[4:] + [f.RANKS[f.VLM_FLOOR_SHORT], f.VLM_FLOOR_SHORT in f.SOLUTION_FIXES,
+                f.VLM_FLOOR_SHORT.startswith("solution short")])
 check("an answers-only grid read one letter off a word is a misread (a 1973 print's ADORESS for ADDRESS); "
       "a word, a listed name (William RUFUS), and words by their enumeration stand",
       [True, False, False, False, False, (12, "down")],
@@ -2761,6 +2772,19 @@ check("a listed word the classifier finds possible is taken", "SALINITY",
       f.vlm_word("SALINITY", "?ALINITY", [8], [cell_p(c) for c in "SALINITY"]))
 check("the VLM's word against the classifier's floor is not taken", None,
       f.vlm_word("PLAT", "?L?T", [4], [flat, cell_p("L"), cell_p("F"), cell_p("T")]))
+def faint(word, at, p=0.005, rival="B"):
+    """cell_p of `word`, its cell `at` read as `rival` (0.9) with the word's letter at `p`, under VLM_FLOOR."""
+    cells = [cell_p(c) for c in word]
+    cells[at] = [(0.1 - p) / 24] * 26
+    cells[at][tso.AZ.index(rival)], cells[at][tso.AZ.index(word[at])] = 0.9, p
+    return cells
+check("a listed word one cell under the floor stands where its crossings leave the classifier no likelier "
+      "listed word (LATITUDINARIANS' L at 0.003)", "SALINITY",
+      f.vlm_word("SALINITY", "?ALINITY", [8], faint("SALINITY", 0)))
+check("...not two cells under (CUBER), nor where the classifier decodes another listed word (HOSTER for HOSIER)",
+      (None, None),
+      (f.vlm_word("SALINITY", "?A?INITY", [8], faint("SALINITY", 0)[:2] + faint("SALINITY", 2, rival="T")[2:]),
+       f.vlm_word("PLAT", "?L?T", [4], faint("PLAT", 0, rival="F"))))
 check("a name no list holds, its letters the classifier's too and its count the clue's, is taken (PERSHORE)", "PERSHORE",
       f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c) for c in "PERSHORE"], "8"))
 check("...even with BALINITY's count: SALINITY lies one open letter off", None,
