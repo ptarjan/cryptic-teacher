@@ -32,14 +32,10 @@ jobs:
         shell: bash .github/offline.sh {0}
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-      - uses: actions/setup-node@v5
+      - uses: ./.github/actions/setup
         with:
           node-version: "20"
-      - run: pip install numpy pillow pypdf opencv-python-headless
-        shell: bash
+          pip: numpy pillow pypdf opencv-python-headless
       - run: |
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex
@@ -68,8 +64,9 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: ./.github/actions/setup
         with:
+          python-version: ""
           node-version: "20"
       - uses: actions/download-artifact@v7
         with:
@@ -95,11 +92,9 @@ jobs:
         shell: bash .github/offline.sh {0}
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: ./.github/actions/setup
         with:
-          python-version: "3.12"
-      - run: pip install numpy pillow pypdf opencv-python-headless
-        shell: bash
+          pip: numpy pillow pypdf opencv-python-headless
       # The deploy's row cache (tools/row_cache.py), newest first; restore only.
       - uses: actions/cache/restore@v5
         with:
@@ -161,11 +156,9 @@ jobs:
         shell: bash .github/offline.sh {0}
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: ./.github/actions/setup
         with:
-          python-version: "3.12"
-      - run: pip install numpy pillow pypdf opencv-python-headless
-        shell: bash
+          pip: numpy pillow pypdf opencv-python-headless
       - run: |
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex

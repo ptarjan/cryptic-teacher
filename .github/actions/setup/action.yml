@@ -1,0 +1,33 @@
+# The toolchain every job that runs repo code needs: Python 3.12, optionally
+# Node and a pip install. The checkout is NOT here: a local action is read from
+# the checkout, so the job checks out first (tests.yml and pages.yml check out
+# in their own ways). Callers put the mode test on the `uses:` step as an `if:`.
+name: Set up the toolchain
+description: Python 3.12, Node when asked for, and the pip packages a job names
+inputs:
+  python-version:
+    description: Python version
+    default: "3.12"
+  node-version:
+    description: Node version; empty installs no Node
+    default: ""
+  pip:
+    description: Space-separated packages to pip install; empty installs none
+    default: ""
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v6
+      if: inputs.python-version != ''
+      with:
+        python-version: ${{ inputs.python-version }}
+    - uses: actions/setup-node@v5
+      if: inputs.node-version != ''
+      with:
+        node-version: ${{ inputs.node-version }}
+    # Before the caller's network is cut (its jobs run under .github/offline.sh).
+    - if: inputs.pip != ''
+      shell: bash
+      env:
+        PACKAGES: ${{ inputs.pip }}
+      run: pip install $PACKAGES

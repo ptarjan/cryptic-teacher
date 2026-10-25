@@ -365,14 +365,11 @@ jobs:
           git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
             fetch --no-tags --no-recurse-submodules --depth=1 origin "+$GITHUB_SHA:refs/remotes/origin/master"
           git checkout -q --force -B master refs/remotes/origin/master
-      - uses: actions/setup-python@v6
+      # pip before the network is cut: tools/code_checks.py uses ruff.
+      - uses: ./.github/actions/setup
         if: needs.scope.outputs.mode == 'full'
         with:
-          python-version: "3.12"
-      # Before the network is cut: tools/code_checks.py uses it.
-      - run: pip install ruff
-        if: needs.scope.outputs.mode == 'full'
-        shell: bash
+          pip: ruff
       # The puzzle fast path restores this; only a full run, which reads the
       # whole corpus, keeps it warm.
       - name: Restore the integrity row cache
@@ -469,20 +466,14 @@ jobs:
           git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
             fetch --no-tags --no-recurse-submodules --depth=1 origin "+$GITHUB_SHA:refs/remotes/origin/master"
           git checkout -q --force -B master refs/remotes/origin/master
-      - uses: actions/setup-python@v6
-        if: needs.scope.outputs.mode == 'full'
-        with:
-          python-version: "3.12"
-      - uses: actions/setup-node@v5
+      # pip before the network is cut: the scan readers (trove_grid, the Cyclops
+      # filer, the title band finder) need them; test_ci_checkout.sh reads
+      # pages.yml with yaml.
+      - uses: ./.github/actions/setup
         if: needs.scope.outputs.mode == 'full'
         with:
           node-version: "20"
-      # Before the network is cut: the scan readers (trove_grid, the Cyclops
-      # filer, the title band finder) need them; test_ci_checkout.sh reads
-      # pages.yml with yaml.
-      - run: pip install numpy pillow pypdf opencv-python-headless setproctitle pyyaml
-        if: needs.scope.outputs.mode == 'full'
-        shell: bash
+          pip: numpy pillow pypdf opencv-python-headless setproctitle pyyaml
       # The smoke test's per-puzzle results from earlier runs (tools/ci_cache.js):
       # the newest entry, which on master is the last master run that saved.
       # A miss leaves no file, and every puzzle is checked.
@@ -699,9 +690,10 @@ jobs:
           sparse-checkout: |
             .github
             tools
-      - uses: actions/setup-node@v5
+      - uses: ./.github/actions/setup
         if: needs.scope.outputs.mode == 'full'
         with:
+          python-version: ""
           node-version: "20"
       - uses: actions/cache/restore@v5
         if: needs.scope.outputs.mode == 'full'
