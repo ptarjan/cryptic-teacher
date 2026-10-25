@@ -8391,10 +8391,21 @@ def run_errors(path, puzzle):
     return errors + backlog_errors(path.stem, warnings, load_backlog())
 
 
-def check_one(path, corpus, allowed):
+def flagged_clues(warnings, fields):
+    """{field: sorted clue keys ("22a")} the warnings flag under each backlog field of `fields`."""
+    return {f: sorted({w.split(":", 1)[0].lower() for w in warnings if any(m in w for m in BACKLOG_MARKERS[f])})
+            for f in fields}
+
+
+def check_one(path, corpus, allowed, requeue=()):
     """One puzzle's report: (its printed text, (stem, backlog counts) or None,
     whether it failed). Prints nothing itself, so a pool of workers can run it
-    and the parent can print the reports in the order of the paths."""
+    and the parent can print the reports in the order of the paths.
+
+    `requeue` (the backlog fields tools/requeue_drift.py queues): a puzzle past its
+    allowance in one of them is not an error here; the clues it flags come back as
+    a third item of `seen`, {field: clue keys}, for the CI step that raises the
+    allowance and queues them (requeue_drift.py --publish)."""
     out = []
     if not path.exists():
         return f"MISSING {path}\n", None, True
@@ -8412,6 +8423,12 @@ def check_one(path, corpus, allowed):
         out += [f"{ERROR_PREFIX}{err}\n" for err in errors]
         return "".join(out), None, bool(errors)
     seen = (path.stem, count_backlog(warnings))
+    if requeue:
+        flagged = flagged_clues(warnings, requeue)
+        over = {f: keys for f, keys in flagged.items() if f in allowed and len(keys) > allowed[f].get(path.stem, 0)}
+        if over:
+            seen += (over,)
+            allowed = {**allowed, **{f: {**allowed[f], path.stem: len(keys)} for f, keys in over.items()}}
     errors += backlog_errors(path.stem, warnings, allowed)
     status = "OK" if not errors else "FAIL"
     by = f" ({puzzle['setter']})" if puzzle.get("setter") else ""
@@ -8430,11 +8447,11 @@ POOL_MIN = 200
 
 
 def _pool_one(path):
-    corpus, allowed = _POOL_JOB
-    return check_one(path, corpus, allowed)
+    corpus, allowed, requeue = _POOL_JOB
+    return check_one(path, corpus, allowed, requeue)
 
 
-def check_all(paths, corpus, allowed):
+def check_all(paths, corpus, allowed, requeue=()):
     """check_one for each path, in the order of `paths`: spread across the
     cores when there are many (the full check, ~1,000s of puzzles, and every
     puzzle is independent), serial otherwise. The reports are identical either
@@ -8446,9 +8463,9 @@ def check_all(paths, corpus, allowed):
     jobs = int(os.environ.get("VALIDATE_JOBS") or 2)
     if jobs < 2 or len(paths) < POOL_MIN or "fork" not in multiprocessing.get_all_start_methods():
         for path in paths:
-            yield check_one(path, corpus, allowed)
+            yield check_one(path, corpus, allowed, requeue)
         return
-    _POOL_JOB = (corpus, allowed)
+    _POOL_JOB = (corpus, allowed, requeue)
     with multiprocessing.get_context("fork").Pool(jobs) as pool:
         yield from pool.imap(_pool_one, paths, POOL_CHUNK)
 
@@ -8486,6 +8503,13 @@ def main(argv):
         print(__doc__)
         return 0
     argv, shard = take_shard_arg(argv)
+    # --drift-out FILE (the deploy's full check): a puzzle past its allowance in a rule
+    # tools/requeue_drift.py queues is no failure; its flagged clues go to FILE for
+    # `requeue_drift.py --publish`, which raises the allowance and queues them.
+    drift_out = None
+    if "--drift-out" in argv:
+        at = argv.index("--drift-out")
+        drift_out, argv = argv[at + 1], argv[:at] + argv[at + 2:]
     if shard and "--tighten" in argv:
         raise SystemExit("--shard cannot --tighten: only an unsharded run has seen every puzzle")
     if shard and [a for a in argv if a != "--unscoped"]:
@@ -8526,11 +8550,20 @@ def main(argv):
         allowed = {f: v for f, v in allowed.items() if f not in SHAPE_GRACE_FIELDS}
     observed = {}
     failed = False
-    for text, seen, bad in check_all(paths, corpus, allowed):
+    requeue, drift = (), {}
+    if drift_out:
+        import requeue_drift  # lazy: it imports this module
+        requeue = tuple(requeue_drift.rule_fields())
+    for text, seen, bad in check_all(paths, corpus, allowed, requeue):
         sys.stdout.write(text)
         if seen is not None:
             observed[seen[0]] = seen[1]
+            for field, keys in (seen[2] if len(seen) > 2 else {}).items():
+                drift.setdefault(field, {})[seen[0]] = keys
+                print(f"{WARN_PREFIX}{seen[0]}: {len(keys)} {field} clue(s) past the allowance: queued for the burn")
         failed = failed or bad
+    if drift_out:
+        Path(drift_out).write_text(json.dumps(drift, indent=1) + "\n")
     # Printed as one number rather than 400 warning lines' worth of noise, and
     # printed even when everything passes: a backlog nobody sees is a backlog
     # nobody drains. Only a FULL run can total it — a single-puzzle run counts

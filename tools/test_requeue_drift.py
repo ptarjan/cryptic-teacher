@@ -1,4 +1,5 @@
 """tools/requeue_drift.py: a puzzle past its allowance gets its flagged clues queued once."""
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -43,6 +44,81 @@ class RequeueDrift(unittest.TestCase):
         self.assertTrue(out[1]["reason"].startswith("del_single: y; wrongRole: "))
         again, added = R.requeue(over, fields, out)
         self.assertEqual(added, 0)
+
+
+class Publish(unittest.TestCase):
+    """The deploy's step: the shards' drift files become one commit on origin/master."""
+
+    def test_flagged_clues_lists_each_clue_once_in_lower_case(self):
+        w = [f"22A: z {R.V.NO_INDICATOR}", f"22A: y {R.V.NO_INDICATOR}", "3d: other"]
+        self.assertEqual(R.V.flagged_clues(w, ["wordplay.noIndicator", "features"]),
+                         {"wordplay.noIndicator": ["22a"], "features": []})
+
+    def test_raised_backlog_sets_the_count_and_keeps_the_order(self):
+        text = json.dumps({"_why": "w", "wordplay.wrongRole": {"a-2": 1}})
+        out = json.loads(R.raised_backlog(text, {"wordplay.wrongRole": {"a-1": ["1a", "2d"], "a-2": ["1a"]}}))
+        self.assertEqual(list(out["wordplay.wrongRole"].items()), [("a-1", 2), ("a-2", 1)])
+
+    def test_merged_drift_joins_the_shards_and_drops_empty_fields(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            for i, body in enumerate(({"f": {"a-1": ["1a"]}, "g": {}}, {"f": {"a-2": ["2d"]}})):
+                Path(d, f"drift.{i}.json").write_text(json.dumps(body))
+            got = R.merged_drift([str(Path(d, f"drift.{i}.json")) for i in range(2)])
+        self.assertEqual(got, {"f": {"a-1": ["1a"], "a-2": ["2d"]}})
+
+    def test_publish_builds_on_the_tip_and_survives_a_lost_race(self):
+        import os
+        import subprocess
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            def git(*a, cwd=d):
+                return subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t", *a], cwd=cwd,
+                                      check=True, capture_output=True, text=True).stdout
+            origin, mine, other = (os.path.join(d, n) for n in ("origin.git", "mine", "other"))
+            git("init", "-q", "--bare", "-b", "master", origin)
+            git("clone", "-q", origin, mine)
+            os.makedirs(os.path.join(mine, "tools/data"))
+            Path(mine, R.QUEUE_FILE).write_text("[\n]\n")
+            Path(mine, R.BACKLOG_FILE).write_text(json.dumps({"_why": "w", "wordplay.wrongRole": {}}) + "\n")
+            git("add", "-A", cwd=mine)
+            git("commit", "-q", "-m", "base", cwd=mine)
+            git("push", "-q", "origin", "HEAD:master", cwd=mine)
+            git("clone", "-q", origin, other)
+            over = {"wordplay.wrongRole": {"a-1": ["1a"]}}
+            fields = {"wordplay.wrongRole": "wrongRole"}
+            tries = []
+
+            def sleep(_):
+                tries.append(1)
+
+            # The burn pushes between the fetch and the push once: the first try loses.
+            real = R._git
+
+            def racing(*a, **kw):
+                if a[:1] == ("push",) and not tries:
+                    Path(other, "x").write_text("burn")
+                    git("add", "-A", cwd=other)
+                    git("commit", "-q", "-m", "burn", cwd=other)
+                    git("push", "-q", "origin", "HEAD:master", cwd=other)
+                return real(*a, **kw)
+
+            R._git = racing
+            cwd = os.getcwd()
+            os.chdir(mine)
+            try:
+                self.assertEqual(R.publish(over, fields, sleep=sleep), 0)
+                self.assertEqual(R.publish(over, fields, sleep=sleep), 0)  # already there: nothing to push
+            finally:
+                os.chdir(cwd)
+                R._git = real
+            self.assertEqual(len(tries), 1)
+            log = git("log", "--format=%s", "master", cwd=origin).splitlines()
+            self.assertEqual(len(log), 3)
+            self.assertIn("a-1#1a", git("show", f"master:{R.QUEUE_FILE}", cwd=origin))
+            self.assertEqual(json.loads(git("show", f"master:{R.BACKLOG_FILE}", cwd=origin))["wordplay.wrongRole"],
+                             {"a-1": 1})
+            self.assertEqual(git("show", "master:x", cwd=origin), "burn")
 
 
 if __name__ == "__main__":
