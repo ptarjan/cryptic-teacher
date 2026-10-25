@@ -926,30 +926,44 @@
      "indicators": [
       {
        "text": "Counterfeit",
-       "note": "counterfeit means fake, so the letters are faked into a new order"
+       "at": 0,
+       "note": "counterfeit means forged, so these letters are faked into a new order"
       }
      ],
      "parts": [
       {
        "words": "art",
+       "at": 12,
        "note": "taken as written"
       },
       {
-       "words": "New York duplicated",
-       "gives": "NYNY",
-       "note": "NY, the abbreviation for New York, written twice"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "duplicated",
+         "at": 25,
+         "note": "duplicated says the abbreviation is written out twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "New York",
+         "at": 16,
+         "gives": "NY"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Forged art from New York, copied twice over, is an abuse of the state's power.",
-     "walkthrough": "'Duplicated' is not part of the anagram signal; it just doubles the abbreviation.",
-     "definitionFit": "Tyranny is cruel, oppressive and arbitrary government, the despotic exercise of authority by rulers."
+     "surface": "Fake art in New York, copied again and again.",
+     "walkthrough": "'duplicated' doubles NY to NYNY, and 'Counterfeit' shuffles it with ART.",
+     "definitionFit": "Cruel, oppressive rule by a government is an abuse of authority over its people."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "duplicated"
+     "misdirectedWord": "Counterfeit"
     }
    }
   },
