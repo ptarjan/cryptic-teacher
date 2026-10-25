@@ -227,14 +227,18 @@ def keyed_inputs(name, roots):
 _DATA_FILES = {}
 
 
-def _data_salt(name, roots, code_key=None):
+def _data_salt(name, roots, code_key=None, as_bytes=None):
+    """`as_bytes` {file name: bytes}: hash those files as having that content
+    (what the key was when the file read so), not what is on disk."""
     k = (name, frozenset(roots), code_key)
     if code_key is None or k not in _DATA_FILES:
         _DATA_FILES[k] = keyed_inputs(name, roots)
     files, derived = _DATA_FILES[k]
+    as_bytes = as_bytes or {}
     h = hashlib.sha1()
     for p in files:
-        h.update(p.name.encode() + b"\0" + (p.read_bytes() if p.exists() else b"absent") + b"\0")
+        body = as_bytes[p.name] if p.name in as_bytes else (p.read_bytes() if p.exists() else b"absent")
+        h.update(p.name.encode() + b"\0" + body + b"\0")
     for d in derived:
         out = json.dumps(DERIVED[d](), sort_keys=True, separators=(",", ":"))
         h.update(d.encode() + b"\0" + out.encode() + b"\0")
@@ -267,14 +271,14 @@ def _carry_over(conn, ptrs, want):
     return out
 
 
-def code_for(name, fn_name, roots=(), salt=""):
+def code_for(name, fn_name, roots=(), salt="", as_bytes=None):
     """The code part of every row key cached_map(name, fn, roots=roots,
     salt=salt) makes: the code fn reaches plus the data files it reads. Two
     checkouts with the same answer make the same row from the same file, so
     an index another machine built for that answer is the one this machine
     would build (fetch_puzzle.reindex_from_deploy)."""
     code_key = code_reach.key(name, {fn_name, *roots})
-    return f"{name}.{fn_name}:{code_key}:{salt}:{_data_salt(name, {fn_name, *roots}, code_key)}"
+    return f"{name}.{fn_name}:{code_key}:{salt}:{_data_salt(name, {fn_name, *roots}, code_key, as_bytes)}"
 
 
 class TooManyMisses(Exception):
