@@ -4917,6 +4917,16 @@
     // The order itself is LABELS' own, not a second list beside it — a literal
     // array here would be a copy that can drift from the live ladder.
     const RUNG_ORDER = Object.keys(LABELS);
+    // A clue the checker has flagged (ann.redo, from tools/data/shape_reannotate.json
+    // at build) has a known-bad step-by-step: the building blocks go and the
+    // walkthrough says so instead. The definition, indicators, type, letter
+    // reveal and wheel are untouched.
+    if (ann.redo) {
+      const wt = steps.find((s) => s.key === "walkthrough");
+      steps.splice(0, steps.length, ...steps.filter((s) => s.key !== "blocks" && s.key !== "walkthrough"));
+      if (wt) steps.push({ key: "walkthrough", label: wt.label,
+        html: `<p class="redo-note"><b class="wt-part">Being rewritten</b>This hint is being rewritten. The step-by-step for this clue was flagged by our checker, so we are not showing it until it is fixed.</p>` });
+    }
     steps.sort((a, b) => RUNG_ORDER.indexOf(a.key) - RUNG_ORDER.indexOf(b.key));
     return steps;
   }

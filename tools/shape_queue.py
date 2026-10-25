@@ -97,12 +97,23 @@ def flagged(puzzle):
 def listed(puzzle):
     """{entry id: reason} for every listed clue of this puzzle, tried or not:
     the ones apply holds to the detectors."""
-    want = {}
-    for r in rows():
-        pid, _, clue = r["id"].partition("#")
-        if pid == puzzle.get("id"):
-            want[clue] = r.get("reason", "")
-    return _by_entry(puzzle, want)
+    return _by_entry(puzzle, _listed_by_puzzle().get(puzzle.get("id")))
+
+
+_listed_cache = {}
+
+
+def _listed_by_puzzle():
+    """{puzzle id: {clue key: reason}} for every row; one pass per file version
+    (a full site build asks once per puzzle, 57k times)."""
+    rs = rows()
+    if _listed_cache.get("rows") is not rs:
+        out = {}
+        for r in rs:
+            pid, _, clue = r["id"].partition("#")
+            out.setdefault(pid, {})[clue] = r.get("reason", "")
+        _listed_cache.update(rows=rs, out=out)
+    return _listed_cache["out"]
 
 
 def findings(entry, ann=None, pid=None):
