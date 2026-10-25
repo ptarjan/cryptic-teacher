@@ -6643,14 +6643,19 @@ def unparsed_fixed(row):
 #: has changed since: 208 pages of 2000 read 10-13 found none, and the current scan finds the title
 #: ("THE TIMES CROSSWORD / NO 21,363" under the Sport page's grid, 2000-03-14: no change was needed).
 NO_TITLE_RESCAN = "no title found before its scan fix"
+#: The (first, last) years of the Gale Times whose pages read with no title found by older scan code are
+#: scanned again: 2000-14, and 1957-62 (~1,260 pages scanned 10-15/16 under an older key, Gale citing "The
+#: Times Crossword Puzzle" on each; 1958 and 1959 filed none of ~311; the current scan finds 1958-06-17's
+#: 8,777, 1958-12-31's 8,944 and 1959-12-19's 9,246 with the day before's solution: no change was needed).
+UNTITLED_YEARS = (("1957", "1962"), ("2000", "2014"))
 
 
 def untitled_rescan(row):
-    """Whether `row` is a Gale Times edition of 2000-2014 read with no title found (no puzzle in its
+    """Whether `row` is a Gale Times edition of UNTITLED_YEARS read with no title found (no puzzle in its
     scan, no verdict) by scan code other than the current one: scanned again, it may find one."""
     scan = row.get("scan") or {}
     year = str(scan.get("date", ""))[:4]
-    if not str(scan.get("item", "")).startswith("GaleTimes") or not "2000" <= year <= "2014" \
+    if not str(scan.get("item", "")).startswith("GaleTimes") or not any(a <= year <= b for a, b in UNTITLED_YEARS) \
             or "inputs" not in row or scan.get("puzzles") or row.get("verdicts") or scan.get("failed"):
         return False
     return row.get("scanKey") != scan_key(paper_of(Path(row["edition"])))
