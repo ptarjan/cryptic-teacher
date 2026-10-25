@@ -150,6 +150,36 @@ check("a Monday's prize heading with no Prize word", [22845],
       [n for n, _ in f.prize_headings([line("Solution to Crossword 22,845")], {22845})])
 check("... not a number off the prize's", [], [n for n, _ in f.prize_headings([line("Solution to Crossword 22,846")], {22845})])
 check("... not a misread one", [], [n for n, _ in f.prize_headings([line("Solution to Crossword 22,84S")], {22845})])
+# A host's misread "Solution" words (solutions_only, host_heading_lines): the 1945-46 Gale Times's
+# small-type "SoL.UTION oF PvzzLe", a word run on from the clue column, a glued "SolutiontoCrossword",
+# "The Solution of" over "Puzzle No 13,313" (1973); not "evolution" or "resolution".
+check("misread Solution words are solution_like", [True] * 5 + [False] * 4,
+      [f.solution_like(w) for w in ("SoL.UTION", "SoLuTinN", "sSolution", "SLuTIoN", "SolutiontoCrossword",
+                                    "evolution", "resolution", "Solitaire", "Saturday's")])
+check("... and start a solution band", "Solution oF", f.marked_solution("SoLuTinN oF"))
+
+
+def host_reads(lines, near):
+    lines = f.host_heading_lines(lines)
+    lines += [ln[k:] for ln in lines for k in range(1, len(ln))
+              if f.HEADING_START.match(ln[k][4]) or f.solution_like(ln[k][4])]
+    return sorted({n for n, _ in f.GALE.headings(lines, list(range(near - 300, near + 300)))[1]})
+
+
+check("a misread host heading reads", [4931], host_reads([line("SoL.UTION oF PvzzLe No. 4,931")], 4931))
+check("... run on from the clue column", [13418],
+      host_reads([line("26 Responsehough fruitful sSolution of Puzle No 13.418")], 13418))
+check("... glued to its connective", [21584], host_reads([line("SolutiontoCrossword 21,584 Imaginative.no")], 21584))
+check("... 'The Solution of' over its number", [13313],
+      host_reads([line("The Solution of"), line("Puzzle No 13,313", y=120)], 13313))
+check("... its number a line under (1980-08-07)", [15294],
+      host_reads([line("k. Solution of Puzzle No"), line("15,294", y=120)], 15294))
+check("... three RapidOCR phrases, a clue beside (1973-02-24)", [13313],
+      host_reads([[(634, 4769, 849, 4820, "The Solution of")], [(667, 4820, 818, 4868, "Puzzle No.")],
+                  [(705, 4875, 791, 4910, "13,313")], [(224, 4787, 560, 4835, "Wildly with a bad road (9).")]], 13313))
+check("... a title line alone is none", [], host_reads([line("Puzzle No 13,313")], 13313))
+check("... nor an article's 'solution' over one", [],
+      host_reads([line("a solution to the crisis"), line("Puzzle No 13,313", y=120)], 13313))
 # HOST_RESCAN: a Gale host's solutions-only read made before REREAD_HOST_HEADINGS is due once more.
 check("a Gale host with no solutions-only read since the fix is due", True, f.host_rescan_due(f.GALE, {"scan": {}}))
 check("... not once read since", False, f.host_rescan_due(f.GALE, {"solOnly": {"at": "2099-01-01T00:00:00+00:00"}}))

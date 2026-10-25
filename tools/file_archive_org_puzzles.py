@@ -7434,9 +7434,11 @@ HOST_SCAN = "scan stale, solution host"
 #: solutions_only now reads the bands at the "Solution" words its page reads left in the cache
 #: (cached_page_words) and a Monday's "Solution to Crossword N" prize heading (prize_headings).
 #: Paul 10-24: ~480 such Times puzzles' hosts held the heading's text, ~220 read clean.
+#: Then (10-25) its misread "Solution" words too (solution_like: 1945-60s "SoL.UTION oF PvzzLe"),
+#: "The Solution of" over its number (1973-74) and "SolutiontoCrossword" (host_heading_lines).
 HOST_RESCAN = "solution host, its headings read before their fix"
 #: Once: a host whose solutions_only read ("solOnly" "at") is older than this is due (host_rescan_due).
-REREAD_HOST_HEADINGS = "2026-10-24T21:30:00+00:00"
+REREAD_HOST_HEADINGS = "2026-10-25T04:15:00+00:00"
 #: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
 HOST_REASONS = (HOST_SCAN, HOST_RESCAN)
 RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
@@ -8054,17 +8056,22 @@ def solutions_only(d):
             sols = {}
             read = cached_page_words(key)
 
-            def judge(lines):
-                lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
+            def judge(lines, pool=None):
+                lines = host_heading_lines(lines, pool)
+                lines += [ln[k:] for ln in lines for k in range(1, len(ln))
+                          if HEADING_START.match(ln[k][4]) or solution_like(ln[k][4])]
                 for n, b in {n: b for n, b in reversed(paper.headings(lines, voted)[1] + prize_headings(lines, prize))}.items():
                     sols.setdefault(n, b)
-            for band in solution_bands(img, [w for words in read for w in words]):
+            for band in solution_bands(img, [(*w[:4], marked_solution(w[4])) for words in read for w in words]):
                 for which in READERS:
                     path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
                     judge(row_lines([(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]))
             for words in read:  # the page's whole reads, as its scan read them (no OCR: cached), on the
-                # lines with a "Solution" word: a title line's "PUZZLE No. 4,950" is no heading
-                judge([ln for ln in printed_lines(words) if SOLUTION_WORD.search(" ".join(w[4] for w in ln))])
+                # lines with a "Solution" word, however misread (solution_like), each joined to its number's
+                # line under it where it has none (host_heading_lines): a title line's "PUZZLE No. 4,950"
+                # alone is no heading
+                lines = printed_lines(words)
+                judge([ln for ln in lines if any(solution_like(w[4]) for w in ln)], lines)
             found["solutions"] += [{"number": n, "leaf": leaf, "box": box} for n, box in sols.items()
                                    if n not in {s["number"] for s in found["solutions"]}]
     return found
@@ -8084,6 +8091,82 @@ def cached_page_words(key):
             except (OSError, ValueError, KeyError, TypeError):
                 continue
             out.append([(*w[:4], mend_misreads(w[4])) for w in words if len(w) == 5])
+    return out
+
+
+#: A "Solution" word run into its connective and the next word ("SolutiontoCrossword 21,584", 2000-11-28).
+SOLUTION_GLUED = re.compile(r"^(\W*\S{5,9}?)(t[o0]|[o0][fl])((?:cr|p)\S{3,8})?$", re.IGNORECASE)
+#: How many lines under a host's heading line with no number host_heading_lines joins it to, for the
+#: number: 1980's "Solution of Puzzle No" over "15,294"; 1973's "The Solution of", "Puzzle No.", "13,313".
+HEADING_RUN = 2
+
+
+def solution_like(text):
+    """Whether OCR word (or phrase) `text` holds a "Solution" word as our readers misread one in a host's
+    small type ("SoL.UTION", "SoLuTinN", "Solltion", "SLuTIoN", "sSolution": the clue column's last
+    letter run on): SOLUTION_WORD, or a word of 6-10 letters and no digit, its first an "s", like
+    "solution" at 0.75 (not "evolution", "resolution"), or one run into its connective (SOLUTION_GLUED)."""
+    if SOLUTION_WORD.search(text):
+        return True
+    for tok in text.split():
+        if not 6 <= len(tok) <= 24 or tok.lstrip("\"'([-:.,|")[:1] not in ("s", "S") or re.search(r"\d", tok):
+            continue  # no letters enough, or not opening at an "s" (most of a page's ~10k words)
+        g = SOLUTION_GLUED.match(tok) if len(tok) > 10 else None
+        letters = re.sub(r"[^a-z]", "", (g[1] if g and g[3] else tok).lower())
+        if 6 <= len(letters) <= 10 and letters[0] == "s" and SequenceMatcher(None, letters, "solution").ratio() >= 0.75:
+            return True
+    return False
+
+
+def marked_solution(text):
+    """`text` with each solution_like word that SOLUTION_WORD misses read as "Solution", so solution_bands
+    starts a band at it."""
+    return re.sub(r"\S+", lambda m: m[0] if SOLUTION_WORD.search(m[0]) or not solution_like(m[0]) else "Solution", text)
+
+
+def split_words(ln):
+    """Line `ln` with each word of several (a RapidOCR phrase: "The Solution of") split at its spaces, its
+    box cut across by the letters, and a glued "SolutiontoCrossword" (SOLUTION_GLUED) as its three."""
+    out = []
+    for w in ln:
+        parts = w[4].split()
+        if len(parts) > 1:
+            per, at = (w[2] - w[0]) / max(len(w[4]), 1), 0
+            for p in parts:
+                at = w[4].index(p, at)
+                out.append((int(w[0] + per * at), w[1], int(w[0] + per * (at + len(p))), w[3], p))
+                at += len(p)
+        else:
+            out.append(w)
+    words = []
+    for w in out:
+        g = SOLUTION_GLUED.match(w[4]) if len(w[4]) > 10 and not re.search(r"\d", w[4]) else None
+        words += [(*w[:4], g[1]), (*w[:4], g[2]), (*w[:4], g[3])] if g and g[3] and solution_like(g[1]) else [w]
+    return words
+
+
+def host_heading_lines(lines, pool=None):
+    """`lines` as a host's misread headings read as solution_headings knows them (split_words), and each
+    with a solution_like word and no digit after it joined to the HEADING_RUN lines under it in `pool`
+    (the page's lines; `lines` when None) up to the first holding a digit, if any: "Solution of Puzzle
+    No" over "15,294" (1980) reads "Solution of Puzzle No 15,294"; "The Solution of" over "Puzzle No."
+    over "13,313" (1973) "The Solution of Puzzle No. 13,313"."""
+    pool = lines if pool is None else pool
+    out = [split_words(ln) for ln in lines]
+    for ln, words in zip(lines, list(out)):
+        at = next((k for k, w in enumerate(words) if solution_like(w[4])), None)
+        if at is None or any(re.search(r"\d", w[4]) for w in words[at:]):
+            continue
+        run, cur = list(words), ln
+        for _ in range(HEADING_RUN):
+            under = lines_under(pool, cur)[:1]
+            if not under:
+                break
+            cur = under[0]
+            run += split_words(cur)
+            if any(re.search(r"\d", w[4]) for w in cur):
+                out.append(run)
+                break
     return out
 
 
