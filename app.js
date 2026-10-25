@@ -4694,6 +4694,10 @@
     const at = (p) => (p && p.words ? blocks.findIndex((b) => wholeWord(b.clueFragment) === wholeWord(p.words)) : -1);
     const outer = tree.op === "container" && blocks.length === 2 ? at((tree.parts || [])[0]) : -1;
     const inner = tree.op === "container" && blocks.length === 2 ? at((tree.parts || [])[1]) : -1;
+    // A deletion reads "whole minus cut" the same way: joined with "+" it says
+    // the letters taken out are added (WANDER + N for WADER).
+    const whole = tree.op === "deletion" && blocks.length === 2 ? at((tree.parts || [])[0]) : -1;
+    const cut = tree.op === "deletion" && blocks.length === 2 ? at((tree.parts || [])[1]) : -1;
     // Only the operations the family line has already named. "Anagram" and "the
     // answer is built from pieces, one inside another" are said by the rung
     // above this; "reversal of" or "hidden in" would pick one member out of a
@@ -4701,6 +4705,7 @@
     // rung's), so those formulas are just their pieces.
     const head = { anagram: "anagram of" }[tree.op];
     const parts = outer >= 0 && inner >= 0 && outer !== inner ? [inner, "inside", outer]
+      : whole >= 0 && cut >= 0 && whole !== cut ? [whole, "minus", cut]
       : (head ? [head] : []).concat(join(all, "+"));
     const lead = ((ann.definitions || []).length && !ann.definedByPreamble ? "definition" : "answer")
       + ` (${letterCount(ann.answer)}) =`;
