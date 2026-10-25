@@ -2856,6 +2856,25 @@ check("... unless the classifier reads its lone letters as filed: one read as an
 check("misread_rival names the word", ["BIT", None],
       [f.misread_rival("BAT", [(1, (0, 1), "A")], uc_reads(uc_rows, {(0, 1): "I"})),
        f.misread_rival("BAT", [(1, (0, 1), "A")], uc_reads(uc_rows))])
+# rival_stands: the rival is filed for an answer no corpus answer when it is one, or a word where the
+# answer is none (AGHASI: AGHAST); a corpus answer (SETH: NETH) or a word read as no corpus answer stays out.
+uc_corpus = tso.corpus_words
+try:
+    tso.corpus_words = lambda: {"AGHAST", "SETH", "BIT"}
+    check("rival_stands takes AGHAST for AGHASI and GARDENERS for GARDENEDS, not NETH for SETH nor ELICKER for FLICKER",
+          [True, True, False, False],
+          [f.rival_stands("AGHASI", "AGHAST", "6"), f.rival_stands("GARDENEDS", "GARDENERS", "9"),
+           f.rival_stands("SETH", "NETH", "4"), f.rival_stands("FLICKER", "ELICKER", "7")])
+    uc_rivals = {}
+    uc_out = f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "I"}), rivals=uc_rivals)
+    check("uncrossed names the rival that stands for an answer it leaves out", ({"1-across"}, {"1-across": "BIT"}),
+          (uc_out, uc_rivals))
+    tso.corpus_words = lambda: {"BAT", "BIT"}
+    uc_rivals = {}
+    f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "I"}), rivals=uc_rivals)
+    check("... none when the answer filed is a corpus answer itself", {}, uc_rivals)
+finally:
+    tso.corpus_words = uc_corpus
 check("... and the crop is not read when no answer would be left out",
       set(), f.uncrossed({"1-across": "BAT", "1-down": "BOG", "2-down": "TIN", "3-across": "GUN"}, ht_grid,
                          probs=lambda: (_ for _ in ()).throw(AssertionError("crop read"))))

@@ -729,5 +729,50 @@ finally:
     rf.uncrossed_reads, rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file = uc_saved
     shutil.rmtree(uc_dir, ignore_errors=True)
 
+# repair_rivals: a light --uncrossed blanked, blank still, takes the word the classifier reads it as
+# where that word stands (AGHASI: AGHAST); a light filed since is left as it is.
+import numpy as np
+import trove_solution_ocr as tso
+
+
+def rv_probs(rows, at):
+    # {cell: probabilities}: each cell reads its letter of `rows` at .97, at[cell]'s letter at .95 (its own .02).
+    out = {}
+    for r, row in enumerate(rows):
+        for c, ch in enumerate(row):
+            if ch != "#":
+                p = np.full(26, 0.0004)
+                p[tso.AZ.index(ch)] = 0.97
+                if (r, c) in at:
+                    p[tso.AZ.index(ch)], p[tso.AZ.index(at[r, c])] = 0.02, 0.95
+                out[r, c] = p
+    return out
+
+
+rv_dir = Path(tempfile.mkdtemp())
+try:
+    rv_path = rv_dir / "times-1.json"
+    rv_path.write_text(json.dumps(uc_puzzle([None, "BOG", None, "GUN"]), indent=1) + "\n")
+    rv_saved = (rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file, rf.crop_probs,
+                tso.corpus_words)
+    rf.puzzle_paths.find = lambda pid: rv_path if pid == "times-1" else None
+    rf.fetcher.read_puzzle_file = lambda path: json.loads(Path(path).read_text())
+    rf.fetcher.write_puzzle_file = lambda path, puzzle: Path(path).write_text(json.dumps(puzzle, indent=1) + "\n")
+    rf.crop_probs = lambda crop, grid: rv_probs(["BXT", "O#A", "GUN"], {(0, 1): "I"})
+    tso.corpus_words = lambda: {"BIT", "GUN"}
+    rv_blanked = {"times-1": {"1-across": "BXT", "3-across": "GUX"}}
+    rv_crops = {1: [(D("1990-01-02"), Path("a.png"))]}
+    same("(dry run) the blank light takes the word its lone letter reads as; nothing written",
+         [rf.repair_rivals(blanked=rv_blanked, crops=rv_crops), json.loads(rv_path.read_text())["entries"][0]["solution"]],
+         [[("times-1", "1-across", "BXT", "BIT")], None])
+    rf.repair_rivals(apply_it=True, blanked=rv_blanked, crops=rv_crops)
+    same("--apply fills it; the held answers (3-across filed since) stand",
+         [e["solution"] for e in json.loads(rv_path.read_text())["entries"]], ["BIT", "BOG", None, "GUN"])
+    same("no crop for the puzzle fills nothing", rf.repair_rivals(blanked=rv_blanked, crops={}), [])
+finally:
+    (rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file, rf.crop_probs,
+     tso.corpus_words) = rv_saved
+    shutil.rmtree(rv_dir, ignore_errors=True)
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)
