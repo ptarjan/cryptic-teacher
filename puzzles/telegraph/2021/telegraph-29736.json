@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Tense, suffering from a hangover in the morning?",
     "enumeration": "7"
    },
-   "solution": "UPTIGHT"
+   "solution": "UPTIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tense",
+      "at": 0,
+      "meaning": "anxious and on edge, unable to relax"
+     },
+     {
+      "text": "suffering from a hangover in the morning?",
+      "at": 7,
+      "meaning": "playfully read as two words: up (out of bed, as one is in the morning) and tight (drunk), though a hangover is really the morning after"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone nursing a hangover the morning after is edgy and fragile.",
+     "walkthrough": "The question mark flags the whimsical second reading: split the word as UP (risen for the morning) and TIGHT (slang for drunk).",
+     "definitionFit": "Uptight is informal for nervously anxious, a direct synonym of tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hangover"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +72,31 @@
     "text": "Ship one's breaking",
     "enumeration": "9"
    },
-   "solution": "DESTROYER"
+   "solution": "DESTROYER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ship",
+      "at": 0,
+      "meaning": "a fast naval warship of a particular class"
+     },
+     {
+      "text": "one's breaking",
+      "at": 5,
+      "meaning": "one who is breaking things, a wrecker"
+     }
+    ],
+    "explanation": {
+     "surface": "A vessel is coming apart.",
+     "walkthrough": "'one's breaking' reads as 'one is breaking', i.e. a person who smashes things.",
+     "definitionFit": "A destroyer is a kind of warship, and literally anyone or anything that wrecks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +110,46 @@
     "text": "Endlessly intertwine garland",
     "enumeration": "6"
    },
-   "solution": "WREATH"
+   "solution": "WREATH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "garland",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Endlessly",
+       "at": 0,
+       "note": "without its end, so the final letter of the synonym is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "intertwine",
+       "at": 10,
+       "gives": "WREATHE",
+       "note": "to wreathe is to twist or entwine together"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to keep weaving flowers into a garland.",
+     "walkthrough": "'Endlessly' removes the final E of WREATHE.",
+     "definitionFit": "A wreath is a ring of flowers or leaves, the same thing as a garland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Endlessly"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +169,55 @@
      }
     ]
    },
-   "solution": "JUNKMAIL"
+   "solution": "JUNKMAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unwanted delivery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "boat",
+       "at": 21,
+       "gives": "JUNK",
+       "note": "a junk is a flat-bottomed Chinese sailing boat"
+      },
+      {
+       "op": "homophone",
+       "spelt": "MAIL",
+       "indicators": [
+        {
+         "text": "reported",
+         "at": 31,
+         "note": "signals that we take how the next word sounds when spoken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "man",
+         "at": 27,
+         "gives": "MALE",
+         "note": "a man is a male"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boatman tells of some unwelcome post.",
+     "walkthrough": "'reported' makes MALE (man) sound like MAIL.",
+     "definitionFit": "Junk mail is unsolicited advertising pushed through the letterbox, post nobody wanted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +241,46 @@
      }
     ]
    },
-   "solution": "JUSTGOODFRIENDS"
+   "solution": "JUSTGOODFRIENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "who are not emotionally involved",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Only",
+       "at": 0,
+       "gives": "JUST",
+       "note": "only means merely or just"
+      },
+      {
+       "words": "kind",
+       "at": 5,
+       "gives": "GOOD",
+       "note": "kind means good-natured, good"
+      },
+      {
+       "words": "pals",
+       "at": 10,
+       "gives": "FRIENDS",
+       "note": "pals are friends"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describes caring friends who are nothing more than platonic.",
+     "definitionFit": "The idiom is said of a couple insisting there is no romance between them, only friendship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +294,42 @@
     "text": "Tarzan, he is out of place in pilgrimage centre",
     "enumeration": "8"
    },
-   "solution": "NAZARETH"
+   "solution": "NAZARETH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pilgrimage centre",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out of place",
+       "at": 14,
+       "note": "these letters are displaced and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tarzan, he",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The jungle hero looks incongruous among pilgrims.",
+     "walkthrough": "'out of place' rearranges the letters of TARZAN HE.",
+     "definitionFit": "The town in Galilee where Jesus grew up draws Christian pilgrims."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Tarzan"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +343,41 @@
     "text": "Met an eccentric as intended",
     "enumeration": "5"
    },
-   "solution": "MEANT"
+   "solution": "MEANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "intended",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "eccentric",
+       "at": 7,
+       "note": "odd or irregular, so the letters are reorganised"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Met an",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Meeting an oddball was deliberate.",
+     "walkthrough": "'eccentric' rearranges the letters of MET AN.",
+     "definitionFit": "Meant is the past participle of mean, to have as a purpose, so it equals intended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eccentric"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +391,42 @@
     "text": "Complaint the compiler will head",
     "enumeration": "7"
    },
-   "solution": "ILLNESS"
+   "solution": "ILLNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the compiler will",
+       "at": 10,
+       "gives": "ILL",
+       "note": "the setter speaks as I, and will contracts to 'll, giving I'll"
+      },
+      {
+       "words": "head",
+       "at": 28,
+       "gives": "NESS",
+       "note": "a ness is a headland, as in Loch Ness's neighbour Dungeness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that the setter will deal with.",
+     "walkthrough": "Crossword setters refer to themselves as 'the compiler', meaning I.",
+     "definitionFit": "A complaint can be an ailment or disorder, so it is a sickness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +440,45 @@
     "text": "A soft fruit to come to light",
     "enumeration": "6"
    },
-   "solution": "APPEAR"
+   "solution": "APPEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to come to light",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "soft",
+       "at": 2,
+       "gives": "P",
+       "note": "p (piano) is the musical marking for soft"
+      },
+      {
+       "words": "fruit",
+       "at": 7,
+       "gives": "PEAR",
+       "note": "a pear is a fruit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mushy piece of fruit coming into view.",
+     "definitionFit": "To appear is to become visible or emerge, the same as coming to light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +492,59 @@
     "text": "See Liz in turmoil about rating, it's fairly large",
     "enumeration": "8"
    },
-   "solution": "SIZEABLE"
+   "solution": "SIZEABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fairly large",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 19,
+       "note": "the scrambled letters go around the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in turmoil",
+         "at": 8,
+         "note": "in disarray, so these letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "See Liz",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "rating",
+       "at": 25,
+       "gives": "AB",
+       "note": "a rating is a sailor, an AB or able seaman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Liz is upset about a sizeable rating score.",
+     "walkthrough": "'in turmoil' turns SEE LIZ into SIZELE; 'about' wraps that around AB. A rating is a naval rank sailor.",
+     "definitionFit": "Sizeable describes something of considerable size, decently big."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rating"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +558,41 @@
     "text": "Divert attention from Diane's pamphlet",
     "enumeration": "8"
    },
-   "solution": "DISTRACT"
+   "solution": "DISTRACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Divert attention from",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Diane's",
+       "at": 22,
+       "gives": "DIS",
+       "note": "Di is a short form of Diane, so Diane's gives Di's"
+      },
+      {
+       "words": "pamphlet",
+       "at": 30,
+       "gives": "TRACT",
+       "note": "a tract is a short pamphlet, usually religious or political"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Diane hands out leaflets to pull people away from something.",
+     "definitionFit": "To distract someone is to draw their focus away elsewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Diane's"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +606,29 @@
     "text": "Slightly sooner",
     "enumeration": "6"
    },
-   "solution": "RATHER"
+   "solution": "RATHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slightly",
+      "at": 0,
+      "meaning": "to a small degree, somewhat"
+     },
+     {
+      "text": "sooner",
+      "at": 9,
+      "meaning": "preferably, as in 'I would sooner stay'"
+     }
+    ],
+    "explanation": {
+     "surface": "Two adverbs placed side by side.",
+     "definitionFit": "The word means somewhat ('rather cold') and preferably ('I'd rather not')."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +648,36 @@
      }
     ]
    },
-   "solution": "CHOOCHOO"
+   "solution": "CHOOCHOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Train heard in nursery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Train heard in nursery",
+       "at": 0,
+       "note": "a child's word for a railway engine, imitating the noise a steam train makes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A train can be heard from a children's room.",
+     "walkthrough": "'heard' points to the word being imitative of a steam engine, and 'nursery' to baby talk.",
+     "definitionFit": "The childish name for a locomotive copies its puffing sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nursery"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +691,43 @@
     "text": "Make public form in Excel",
     "enumeration": "8"
    },
-   "solution": "OUTCLASS"
+   "solution": "OUTCLASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excel",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Make public",
+       "at": 0,
+       "gives": "OUT",
+       "note": "to out something is to reveal or expose it"
+      },
+      {
+       "words": "form",
+       "at": 12,
+       "gives": "CLASS",
+       "note": "a form is a school class"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for making a spreadsheet's table public.",
+     "walkthrough": "'Excel' looks like the software, but it is the plain verb. In British schools a year group is a form.",
+     "definitionFit": "To outclass rivals is to be far superior to them, to surpass them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Excel"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +741,59 @@
     "text": "Schoolmate not about could become abhorrent",
     "enumeration": "9"
    },
-   "solution": "LOATHSOME"
+   "solution": "LOATHSOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "abhorrent",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could become",
+       "at": 21,
+       "note": "the remaining letters are able to turn into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 11,
+         "note": "the next piece is missing from the word, so it is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Schoolmate",
+         "at": 0
+        },
+        {
+         "words": "about",
+         "at": 15,
+         "gives": "C",
+         "note": "c, short for circa, means about"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A classmate who drifts away from you could turn nasty.",
+     "walkthrough": "'not' removes C (circa, about) from SCHOOLMATE, leaving SHOOLMATE; 'could become' rearranges those letters.",
+     "definitionFit": "Loathsome means arousing hatred or disgust, a synonym of abhorrent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +807,56 @@
     "text": "Free policeman, powerless in pit",
     "enumeration": "8"
    },
-   "solution": "COALMINE"
+   "solution": "COALMINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pit",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Free",
+       "at": 0,
+       "note": "release these letters into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "powerless",
+         "at": 16,
+         "note": "lacking power, so the letter P, the physics symbol for power, is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "policeman",
+         "at": 5
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Release a helpless officer trapped in a pit.",
+     "walkthrough": "'powerless' drops P from POLICEMAN, leaving OLICEMAN; 'Free' rearranges it.",
+     "definitionFit": "A pit is a colliery, the excavation where coal is dug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Free"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +876,48 @@
      }
     ]
    },
-   "solution": "STARTOFF"
+   "solution": "STARTOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "begin journey",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "at": 6,
+       "note": "the dandy's word comes after the celebrity's"
+      }
+     ],
+     "parts": [
+      {
+       "words": "celebrity",
+       "at": 14,
+       "gives": "STAR",
+       "note": "a celebrity is a star"
+      },
+      {
+       "words": "Dandy",
+       "at": 0,
+       "gives": "TOFF",
+       "note": "a toff is a smartly dressed upper-class man, a dandy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fop trails behind a famous person as they set out.",
+     "definitionFit": "To start off is to set out on a trip, to embark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dandy"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +931,54 @@
     "text": "Run up river as punishment",
     "enumeration": "7"
    },
-   "solution": "TORTURE"
+   "solution": "TORTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "punishment",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 4,
+         "note": "in a down clue, up means the word is read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Run",
+         "at": 0,
+         "gives": "TROT",
+         "note": "to trot is to run at a gentle pace"
+        }
+       ]
+      },
+      {
+       "words": "river",
+       "at": 7,
+       "gives": "URE",
+       "note": "the Ure is a river in Yorkshire, a crossword favourite"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being made to run uphill beside a river as a penalty.",
+     "walkthrough": "'up' turns TROT into TORT.",
+     "definitionFit": "Torture is the infliction of severe pain, often as a cruel punishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +992,52 @@
     "text": "Conspicuous girl disheartened receiving a call",
     "enumeration": "7"
    },
-   "solution": "GLARING"
+   "solution": "GLARING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conspicuous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "at": 17,
+         "note": "with the heart removed, leaving only the outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "receiving a call",
+       "at": 30,
+       "gives": "ARING",
+       "note": "receiving a call is getting a ring, a telephone call, here following the girl's remaining letters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A downcast girl getting a phone call stands out.",
+     "walkthrough": "'disheartened' strips the middle letters IR from GIRL; a ring is British slang for a phone call.",
+     "definitionFit": "Glaring means highly obvious, standing out so as to be impossible to miss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disheartened"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1051,69 @@
     "text": "Letters exchanged before couple finally move",
     "enumeration": "8"
    },
-   "solution": "RESETTLE"
+   "solution": "RESETTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "move",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 18,
+       "note": "the scrambled piece comes ahead of the next"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exchanged",
+         "at": 8,
+         "note": "the letters swap places into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Letters",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 32,
+         "note": "take the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "couple",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair swap letters before they finally relocate.",
+     "walkthrough": "'exchanged' rearranges LETTERS into RESETTL; 'finally' gives E, the end of 'couple'.",
+     "definitionFit": "To resettle is to establish oneself in a new home, i.e. relocate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Letters"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1127,31 @@
     "text": "Contribute in a flexible way",
     "enumeration": "6"
    },
-   "solution": "SUPPLY"
+   "solution": "SUPPLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contribute",
+      "at": 0,
+      "meaning": "provide or furnish something"
+     },
+     {
+      "text": "in a flexible way",
+      "at": 11,
+      "meaning": "adverb from supple: bendily, limberly"
+     }
+    ],
+    "explanation": {
+     "surface": "Help out by being accommodating.",
+     "walkthrough": "The second sense is the adverb of supple, pronounced to rhyme with 'couple-y'.",
+     "definitionFit": "To supply is to provide; and supply also means in a supple, pliant manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flexible"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1165,56 @@
     "text": "Nonsense coming from motorist having stopped short and left",
     "enumeration": "6"
    },
-   "solution": "DRIVEL"
+   "solution": "DRIVEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nonsense",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stopped short",
+         "at": 37,
+         "note": "cut off before the end, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motorist",
+         "at": 21,
+         "gives": "DRIVER",
+         "note": "a motorist is a driver"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 55,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver who braked suddenly and left spouts rubbish.",
+     "walkthrough": "'stopped short' drops the final R of DRIVER.",
+     "definitionFit": "Drivel is silly talk, rubbish, a synonym of nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stopped"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1228,49 @@
     "text": "Caller does not have the item for part of helmet",
     "enumeration": "5"
    },
-   "solution": "VISOR"
+   "solution": "VISOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of helmet",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "does not have",
+       "at": 7,
+       "note": "the next piece is absent, so it is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Caller",
+       "at": 0,
+       "gives": "VISITOR",
+       "note": "a caller is someone visiting, a visitor"
+      },
+      {
+       "words": "the item",
+       "at": 21,
+       "gives": "IT",
+       "note": "it means the item referred to"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A telephone caller lacks a piece of headgear.",
+     "walkthrough": "'Caller' suggests a phone, but means someone who calls round at your house.",
+     "definitionFit": "The visor is the movable front piece of a helmet protecting the face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Caller"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1284,49 @@
     "text": "Ancient city in display's a revelation",
     "enumeration": "8"
    },
-   "solution": "EXPOSURE"
+   "solution": "EXPOSURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a revelation",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "the city's name goes inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "display's",
+       "at": 16,
+       "gives": "EXPOSE",
+       "note": "to expose is to display; the 's stands for 'is' and links"
+      },
+      {
+       "words": "Ancient city",
+       "at": 0,
+       "gives": "UR",
+       "note": "Ur was an ancient city of Mesopotamia"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seeing an ancient city on show is eye-opening.",
+     "walkthrough": "The 's of \"display's\" stands for 'is', a link between wordplay and definition.",
+     "definitionFit": "Exposure is the disclosure of something hidden, such as a scandal brought into the open."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "display's"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1340,54 @@
     "text": "Doubt one working to follow hunt",
     "enumeration": "8"
    },
-   "solution": "QUESTION"
+   "solution": "QUESTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Doubt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to follow",
+       "at": 18,
+       "note": "the pieces for one working come after the hunt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hunt",
+       "at": 28,
+       "gives": "QUEST",
+       "note": "a quest is a search or hunt"
+      },
+      {
+       "words": "one",
+       "at": 6,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "working",
+       "at": 10,
+       "gives": "ON",
+       "note": "on means operating, working"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at work has doubts about the chase ahead.",
+     "definitionFit": "To question something is to doubt it, and a question is a doubt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1401,65 @@
     "text": "Plate of meat we hear Ian cooked",
     "enumeration": "6"
    },
-   "solution": "LAMINA"
+   "solution": "LAMINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "LAM",
+       "indicators": [
+        {
+         "text": "we hear",
+         "at": 14,
+         "note": "signals a word taken by its spoken sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meat",
+         "at": 9,
+         "gives": "LAMB",
+         "note": "lamb is a meat"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 26,
+         "note": "the name's letters are worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ian",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ian has cooked a plate of meat.",
+     "walkthrough": "'we hear' makes LAMB sound like LAM; 'cooked' rearranges IAN into INA.",
+     "definitionFit": "A lamina is a thin layer or plate of material, such as bone or metal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plate"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1473,49 @@
     "text": "Unrivalled lady about 50",
     "enumeration": "8"
    },
-   "solution": "PEERLESS"
+   "solution": "PEERLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unrivalled",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 16,
+       "note": "the lady's title goes around the number"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lady",
+       "at": 11,
+       "gives": "PEERESS",
+       "note": "a peeress is a woman of noble rank"
+      },
+      {
+       "words": "50",
+       "at": 22,
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman of around fifty has no equal.",
+     "walkthrough": "'about' looks like 'approximately' but wraps PEERESS round L.",
+     "definitionFit": "Peerless means having no equal, without match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   }
  ]
 }
