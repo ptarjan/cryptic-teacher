@@ -3230,8 +3230,109 @@ def r_repeated_selection(node, parent, ctx):
     return new
 
 
+_STOP = frozenset("a an and as at by for from in into is of on or the to with".split())
+
+
+def _edge_trim(a, b, clue):
+    """For two overlapping clue spans a=(s, e), b=(s, e): (which, (s, e)) when the one that may give
+    way can be cut back to whole words at its own edge, else None. `which` is 0 or 1."""
+    lo, hi = max(a[0], b[0]), min(a[1], b[1])
+    outer, inner = (a, b) if a[0] <= b[0] and b[1] <= a[1] else (b, a) if b[0] <= a[0] and a[1] <= b[1] else (None, None)
+    word = lambda s, e: (s == 0 or not clue[s - 1].isalnum()) and (e >= len(clue) or not clue[e].isalnum())
+    if outer is not None:
+        if inner[0] > outer[0] and inner[1] < outer[1]:
+            return None
+        s, e = (inner[1], outer[1]) if inner[0] == outer[0] else (outer[0], inner[0])
+        text = clue[s:e]
+        s += len(text) - len(text.lstrip(" ,;"))
+        e -= len(text) - len(text.rstrip(" ,;"))
+        return (0 if outer is a else 1, (s, e)) if s < e and word(s, e) and word(*inner) else None
+    return None
+
+
+def r_span_overlap(node, parent, ctx):
+    """spanOverlap: an indicator and a leaf claim the same clue words. Only the unambiguous cuts: a
+    leaf lying at the edge of an indicator (the indicator "is captivated by" over the leaf "is" gives
+    "captivated by" back its own words; leaf and indicator are both kept), or an indicator lying at
+    the edge of a leaf that has a `gives` (the leaf keeps its letters, loses the indicator's words).
+    Whole words only, nothing left empty, the tree still gives the answer. Run once, at the root."""
+    clue, answer = ctx["clue"], ctx.get("answer")
+    if parent is not None or not answer:
+        return None
+    new = copy.deepcopy(node)
+    try:
+        before = V.span_overlaps(W.locate(copy.deepcopy(new), clue))
+    except W.WordplayError:
+        return None
+    if not before:
+        return None
+    done = 0
+    for _ in range(6):
+        items = []
+        for n, _p in walk(new):
+            if n.get("op") == "cryptic":
+                continue
+            items += [("indicator", i, i.get("text"), n) for i in n.get("indicators") or [] if isinstance(i.get("at"), int)]
+            if leaf(n) and n.get("words") and isinstance(n.get("at"), int):
+                items.append(("leaf", n, n["words"], n))
+        step = False
+        for x, a in enumerate(items):
+            for b in items[x + 1:]:
+                sa, sb = (a[1]["at"], a[1]["at"] + len(a[2])), (b[1]["at"], b[1]["at"] + len(b[2]))
+                if not (sa[0] < sb[1] and sb[0] < sa[1]) or (a[0] == b[0] == "leaf" and sa == sb) or a[0] == b[0]:
+                    continue
+                got = _edge_trim(sa, sb, clue)
+                if not got:
+                    continue
+                which, (s, e) = got
+                ind, lf = (a, b) if a[0] == "indicator" else (b, a)
+                outer = (a, b)[which]
+                if outer is ind:          # the leaf sits at the indicator's edge: the indicator is cut back
+                    ind[1]["text"], ind[1]["at"] = clue[s:e], s
+                elif "gives" in lf[1]:    # the indicator sits at the leaf's edge: the leaf is cut back
+                    lf[1]["words"], lf[1]["at"] = clue[s:e], s
+                else:
+                    continue
+                step = True
+                break
+            if step:
+                break
+        if not step:
+            break
+        done += 1
+    if not done:
+        return None
+    try:
+        if V.span_overlaps(W.locate(copy.deepcopy(new), clue)) >= before:
+            return None
+        W.evaluate(copy.deepcopy(new), answer)
+    except (W.WordplayError, IndexError, KeyError, TypeError, ValueError, W._NeedTarget):
+        return None
+    return new
+
+
+def r_ana_flatten(node, parent, ctx):
+    """anaCharade: an anagram whose fodder is a charade of the clue's own words, no indicator on it, no
+    letters of its own and no abbreviation or synonym among its pieces (ana<fighting>(charade(Gran is,
+    a)) -> ana<fighting>(Gran is, a)): the pieces are the anagram's own parts, in clue order."""
+    if node.get("op") != "anagram" or node.get("unchecked") or not ctx.get("answer"):
+        return None
+    kids = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    if not any(p.get("op") == "charade" for p in kids):
+        return None
+    new = copy.deepcopy(node)
+    import flatten_anagram_fodder as FL
+    if not FL.flatten_tree(new):
+        return None
+    if any(V._stand_in_piece(p) for p in new["parts"] if isinstance(p, dict)):
+        return None
+    if not _eval_swapped(node, parent, new, ctx) or V.anagram_charades(new, ctx["answer"]) >= V.anagram_charades(node, ctx["answer"]):
+        return None
+    return new
+
+
 RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_del_wraps_charade,"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
-                "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
+                "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c) or r_ana_flatten(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
@@ -3239,7 +3340,7 @@ RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_
                 "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_eject(n, p, c),
                 "misplacedIndicator": r_misplaced_indicator,
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside, "deletionScopeAnswer": r_deletion_inside,
-                "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c),
+                "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c), "spanOverlap": r_span_overlap,
                 "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf,
                 "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf}
 
