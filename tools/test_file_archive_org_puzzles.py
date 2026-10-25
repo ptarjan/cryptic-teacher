@@ -487,6 +487,11 @@ check("a Times solution read short before the cell classifier is due as such, ra
       [f.fix_reason(part(20, None, "other")), f.rank_of_reason(unclassified), f.fix_reason(classified_part),
        f.fix_reason(ft_part(next(iter(f.SOLUTION_UNCLASSIFIED)))), f.fix_reason(ft_part("other"))])
 check("the cell classifier reads the Times papers' grids only", ("times", "gale"), f.CELLS_CLASSIFIED)
+check("an answers-only grid read one letter off a word is a misread (a 1973 print's ADORESS for ADDRESS); "
+      "a word, a listed name (William RUFUS), and words by their enumeration stand",
+      [True, False, False, False, False, (12, "down")],
+      [f.misread_word("ADORESS", "7"), f.misread_word("ADDRESS", "7"), f.misread_word("BULGARIA", "8"),
+       f.misread_word("RUFUS", "5"), f.misread_word("KINGCOLE", "4,4"), f._light_key("12-down")])
 check("the solution key is the solution reader's code, not the scan's", True,
       len(f.solution_key()) == 16 and f.solution_key() != f.scan_key())
 import scan_queue

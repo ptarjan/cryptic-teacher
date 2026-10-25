@@ -254,6 +254,13 @@ check("one read after it (incomplete again) is not due again; nor a complete or 
 check("the reason is evidence, ranked with the fix-landed rereads and held behind never-read pages", (True, 2, True, True),
       (eq.evidence_reason("unfiled before its fix"), f.rank_of_reason("unfiled before its fix"),
        "unfiled before its fix" in eq.FIX_LANDED, eq.refusal_reread("unfiled before its fix")))
+# ---- A Times solution grid refused before matched_box is planned though likely() predicts it nothing (10-24)
+_refused = {"kind": "read", "paper": "times", "rel": "NewsUK1984UKEnglish/1984-05-01_61715", "date": "1984-05-01",
+            "reason": f.REFUSED_GRID, "rank": 2, "needs": []}
+check("a grid refused unmatched is evidence: only_evidence keeps its read with no likely gain, a low-ask fix-landed one",
+      (True, [f.REFUSED_GRID], True, True),
+      (eq.evidence_reason(f.REFUSED_GRID), [u["reason"] for u in eq.only_evidence("times", [], [dict(_refused)])[1]],
+       f.REFUSED_GRID in eq.FIX_LANDED, f.REFUSED_GRID.startswith(eq.LOW_ASK)))
 # ---- Gale Times 2000-14 pages with evidence of a puzzle that can file are planned (10-22)
 _third = {"kind": "read", "paper": "gale", "rel": "GaleTimes2007UKEnglish/2007-03-15", "date": "2007-03-15",
           "reason": eq.THREE_COLUMNS, "rank": 2, "needs": ["GaleTimes2007UKEnglish/2007-03-15", "GaleTimes2007UKEnglish/2007-03-16"]}
