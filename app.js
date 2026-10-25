@@ -981,6 +981,11 @@
   // ARE the solve; an anagram's is not, which is why the same rung felt like
   // work on one clue and like cheating on the next.
   let blocksAt = {};
+  // Pieces taken out of turn, from the formula under the type rung (formulaHTML):
+  // entryKey -> a bitmask over the blocks rung's pieces. blocksAt is a prefix
+  // count and cannot say "piece 3 but not 1 and 2", so those pieces live here.
+  // A mask, not a list, so a sync merge can OR two devices' picks together.
+  let piecesPicked = {};
   let revealsUsed = {};  // entryKey -> number of letters revealed (escape hatch)
   let solvedWith = {};   // entryKey -> how many rungs were up when first solved
   // { startedAt, lastAt, activeMs, solvedAt, solvedMs } — see sync/merge.js.
@@ -1266,7 +1271,7 @@
       timing.solvedMs = timing.activeMs || 0;
     }
     store.set(stateKey(), { grid: gridPrint(P), letters, letterAt, hintsShown, hintsEarned, revealsUsed,
-                            blocksAt, solvedWith, timing,
+                            blocksAt, piecesPicked, solvedWith, timing,
                             clearedAt: prev.clearedAt || 0, updated: now });
     syncPushSoon();
   }
@@ -1300,7 +1305,7 @@
     if (!fitsGrid(s, P)) {
       const now = Date.now();
       s = { grid: gridPrint(P), letters: {}, letterAt: {}, hintsShown: {}, hintsEarned: {}, blocksAt: {},
-            revealsUsed: {}, solvedWith: {}, timing: {}, clearedAt: now, updated: now };
+            piecesPicked: {}, revealsUsed: {}, solvedWith: {}, timing: {}, clearedAt: now, updated: now };
       store.set(stateKey(), s);
     }
     hintsShown = (s && s.hintsShown) || {};
@@ -1308,6 +1313,7 @@
     hintLevels = (s && s.hintLevels) || {};
     revealsUsed = (s && s.revealsUsed) || {};
     blocksAt = (s && s.blocksAt) || {};
+    piecesPicked = (s && s.piecesPicked) || {};
     solvedWith = (s && s.solvedWith) || {};
     timing = (s && s.timing) || {};
     // The save is the whole truth about the grid, so wipe it first. A merge can
@@ -3738,7 +3744,15 @@
     }
     return blocksAt[key];
   }
-  const piecesLeft = (e) => Math.max(0, blockPieces(e).length - piecesShown(e));
+  // A piece is out when the count has reached it or the formula took it out of
+  // turn. At most 30 pieces can be taken that way (the mask is a 32-bit int);
+  // the formula is not offered for a clue with more.
+  const PICKABLE = 30;
+  const pickedBit = (e, i) => i < PICKABLE && (((piecesPicked[entryKey(e)] || 0) >> i) & 1) === 1;
+  const pieceOut = (e, i) => i < piecesShown(e) || pickedBit(e, i);
+  const piecesLeft = (e) => blockPieces(e).filter((_, i) => !pieceOut(e, i)).length;
+  // The piece the "next" button is for: the first one not out yet.
+  const nextPiece = (e) => blockPieces(e).findIndex((_, i) => !pieceOut(e, i));
   // Forwards only, and it is the reveal that moves it — both routes in, being
   // told and pointing at the right words, land here.
   //
@@ -3751,8 +3765,36 @@
   function revealPiece(e, at) {
     const pieces = blockPieces(e);
     let n = Math.max(piecesShown(e), (at || 0) + 1);
-    while (n < pieces.length && !guessAsk(e, "blocks", n)) n++;
+    // A piece already taken from the formula has nothing left to ask either.
+    while (n < pieces.length && (pickedBit(e, n) || !guessAsk(e, "blocks", n))) n++;
     blocksAt[entryKey(e)] = n;
+    saveState();
+  }
+
+  // ---------- the formula under the type rung ----------
+  //
+  // Any piece, in any order: a chip in the formula hands over that one piece.
+  // It is the blocks rung's own piece and costs what the blocks rung costs, once:
+  // the first chip opens the rung (showHint, so hintsShown, the earned list and
+  // the two-tap confirm all see it exactly as if "The building blocks" had been
+  // pressed), and every later chip, like every later "next piece", rides on
+  // that. Which pieces are out is pieceOut's, whichever way they came, so a
+  // piece cannot be charged for twice or shown twice.
+  //
+  // Not offered ahead of the blocks rung's own tier (rungAvailable): the pieces
+  // name the definition and the indicators on the way, so a chip that opened
+  // the rung early would be the skip-to-the-end the tiers exist to stop.
+  const pickCosts = (e, i) => !!e && !groupSolved(e) && !isShown(e, "blocks") && !blocksFree(e, i);
+  function pickPiece(e, i) {
+    if (pieceOut(e, i) || i >= Math.min(PICKABLE, blockPieces(e).length)) return;
+    // A question about this very piece is moot: it has been told.
+    if (guessing && guessing.rung === "blocks" && guessing.step === i) guessing = null;
+    if (!isShown(e, "blocks")) {
+      if (!groupSolved(e) && blocksFree(e, i) && earnedRungs(e).indexOf("blocks") < 0) earnedRungs(e).push("blocks");
+      showHint(e, "blocks");
+    }
+    const key = entryKey(e);
+    piecesPicked[key] = (piecesPicked[key] || 0) | (1 << i);
     saveState();
   }
 
@@ -3819,6 +3861,31 @@
     // ladder, which is what all of them are asking for.
     nuxRungTaken(e);
     saveState();
+  }
+
+  // The formula drawn under the type rung's family line. A chip taken (by this
+  // formula or by the blocks rung) is spelled out and no longer a button; one
+  // still blank is a button for as long as the blocks rung's tier is open to
+  // this solver (`locked` says it is not). What a taken chip stands for is the
+  // blocks rung's own piece, and that rung is the only place that prints it: a
+  // chip taken here opens the rung directly below this one, so the piece is one
+  // glance down and is not said twice. A tap that would cost arms the chip first
+  // (confirmBlock).
+  function formulaHTML(e, f, locked) {
+    const armed = f.chips.some((_, i) => armedFor(e, "piece-" + i));
+    const chip = (i) => {
+      const label = esc(f.chips[i]);
+      if (pieceOut(e, i)) return `<span class="formula-chip got">${label}</span>`;
+      const a = armedFor(e, "piece-" + i);
+      return `<button type="button" class="formula-chip${a ? " arm-cost" : ""}" data-piece="${i}" data-arm="piece-${i}"${
+        locked ? ' disabled title="Open the hints above first — this piece would give them away"' : ""}>${label}</button>`;
+    };
+    return `<div class="formula"><span class="formula-lead">${esc(f.lead)}</span> ${
+      f.parts.map((p) => (typeof p === "string" ? `<span class="formula-word">${esc(p)}</span>` : chip(p))).join(" ")}${
+      armed ? `<p class="muted">${ARMED_TEXT}</p>`
+      : !piecesLeft(e) ? ""
+      : locked ? `<p class="muted">Tap a piece for it, once the definition and indicators are up.</p>`
+      : `<p class="muted">Tap a piece to see it.</p>`}</div>`;
   }
 
   // ---------- a building block that costs takes two taps ----------
@@ -4578,6 +4645,44 @@
     return `<p>Entered as <span class="gives">${esc(ann.entered)}</span>: ${chain.join(" → ")}</p>`;
   }
 
+  // The clue's formula as a skeleton, for the type rung: what the answer is made
+  // of with every piece blank. A chip names a piece's ROLE and its letter count
+  // and nothing else; what it stands for is the blocks rung's to say, and the
+  // solver takes it by tapping. `parts` is read left to right: a string is a
+  // word of the formula, a number is the index of a chip, which is also the
+  // index of that piece in the blocks rung. The counts come off `gives`, which
+  // blockLetters may withhold from the rung but which the solver is entitled to
+  // the LENGTH of — a hidden word's single piece is the answer's own length.
+  function formulaOf(ann, blocks) {
+    const shuffled = ((ann.assembly || {}).anagrams || []).map((a) => wholeWord(a.gives));
+    const role = (b) => b.anagramOf || shuffled.includes(wholeWord(b.gives)) ? "fodder"
+      : b.soundsLike ? "sound" : "piece";
+    const chips = blocks.map((b) => {
+      const n = letterCount(b.gives);
+      return role(b) + (n ? ` ${n}` : "");
+    });
+    const all = chips.map((_, i) => i);
+    const join = (idx, sep) => idx.reduce((out, i, k) => out.concat(k ? [sep, i] : [i]), []);
+    const tree = ann.wordplay || {};
+    // A container reads "inner inside outer", which needs to know which chip is
+    // which: found by the words each part of the tree names, and given up (the
+    // chips simply joined) when a part is not one plain clue phrase.
+    const at = (p) => (p && p.words ? blocks.findIndex((b) => wholeWord(b.clueFragment) === wholeWord(p.words)) : -1);
+    const outer = tree.op === "container" && blocks.length === 2 ? at((tree.parts || [])[0]) : -1;
+    const inner = tree.op === "container" && blocks.length === 2 ? at((tree.parts || [])[1]) : -1;
+    // Only the operations the family line has already named. "Anagram" and "the
+    // answer is built from pieces, one inside another" are said by the rung
+    // above this; "reversal of" or "hidden in" would pick one member out of a
+    // family it deliberately leaves whole (the precise type is the blocks
+    // rung's), so those formulas are just their pieces.
+    const head = { anagram: "anagram of" }[tree.op];
+    const parts = outer >= 0 && inner >= 0 && outer !== inner ? [inner, "inside", outer]
+      : (head ? [head] : []).concat(join(all, "+"));
+    const lead = ((ann.definitions || []).length && !ann.definedByPreamble ? "definition" : "answer")
+      + ` (${letterCount(ann.answer)}) =`;
+    return { lead: maskAnswer(lead, ann.answer), parts: parts.map((p) => typeof p === "string" ? maskAnswer(p, ann.answer) : p), chips };
+  }
+
   // Build the rungs this particular clue deserves. Each rung: {key, label, html}.
   function ladderSteps(ann, clue) {
     if (!ann) return [];
@@ -4861,6 +4966,12 @@
         html: mechanics + `<ul>${pieces.join("")}</ul>` +
           (t.includes("anagram") ? ringHTML(ann) : "")
       });
+      // The type rung carries the formula whenever the blocks rung it hands
+      // pieces to exists. It is data, not html: which chips are taken is the
+      // panel's to know (formulaHTML). The label and the family line are as
+      // they were, so nothing about the rung's name depends on the clue.
+      const typeStep = steps.find((s) => s.key === "type");
+      if (typeStep && blocks.length <= PICKABLE) typeStep.formula = formulaOf(ann, blocks);
     }
 
     // The half of the clue that isn't mechanical.
@@ -4952,6 +5063,8 @@
     if (ann.redo) {
       const wt = steps.find((s) => s.key === "walkthrough");
       steps.splice(0, steps.length, ...steps.filter((s) => s.key !== "blocks" && s.key !== "walkthrough"));
+      // The formula hands its pieces to the blocks rung, which is gone.
+      steps.forEach((s) => { delete s.formula; });
       if (wt) steps.push({ key: "walkthrough", label: wt.label,
         html: `<p class="redo-note"><b class="wt-part">Being rewritten</b>This hint is being rewritten. The step-by-step for this clue was flagged by our checker, so we are not showing it until it is fixed.</p>` });
     }
@@ -5777,7 +5890,7 @@
     return `<div class="hint-step${won ? " won" : ""}"><span class="step-label">${
       position} · ${esc(step.label)}${
       won ? '<span class="step-won">worked out · free</span>' : ""}</span>${
-      withRuleChip(step.html, step.rule, step.key, !!ruleOpen)}</div>`;
+      withRuleChip(step.html, step.rule, step.key, !!ruleOpen)}${step.after || ""}</div>`;
   }
 
   // Where the answer's words break, read straight off the clue's own
@@ -6236,12 +6349,18 @@
         if (s.key === "walkthrough" && s.afterBlocks && isShown(e, "blocks") && (solved || !piecesLeft(e))) {
           return { ...s, html: s.afterBlocks };
         }
+        if (s.key === "type" && s.formula) {
+          // After the rung's own line and its rule chip, not inside them.
+          return { ...s, after: formulaHTML(e, s.formula, !rungAvailable(e, steps, "blocks")) };
+        }
         if (s.key !== "blocks" || !s.pieces) return s;
-        const n = solved ? s.pieces.length : piecesShown(e);
+        // The pieces that are out, in clue order, however they came out: the
+        // count reaching them, or a chip in the formula taking them early.
+        const out = s.pieces.filter((_, k) => solved || pieceOut(e, k));
         // The type rung already named and explained the mechanism when it is open.
         const lead = isShown(e, "type") && !s.leadAlways ? "" : s.lead;
-        return { ...s, html: lead + `<ul>${s.pieces.slice(0, n).join("")}</ul>`
-                             + (n >= s.pieces.length ? s.tail : "") };
+        return { ...s, html: lead + `<ul>${out.join("")}</ul>`
+                             + (out.length >= s.pieces.length ? s.tail : "") };
       };
       steps.forEach((s, i) => {
         if (!isShown(e, s.key)) return;
@@ -6320,11 +6439,14 @@
         // The piece is already paid for, so the walk follows it: this button
         // leads the row, and a light that skipped it would go dark in the
         // middle of the one rung that takes several presses.
-        const arm = "blocks-" + (total - left);
+        // The first piece not out, which is the count unless the formula took
+        // pieces ahead of it.
+        const next = nextPiece(e);
+        const arm = "blocks-" + next;
         const armed = armedFor(e, arm);
-        nextSpec.push({ rung: "blocks", step: total - left, arm,
+        nextSpec.push({ rung: "blocks", step: next, arm,
           cls: (nuxPointsAtRung() ? "rung-point" : "") + (armed ? " arm-cost" : ""),
-          text: armed ? ARMED_TEXT : `Next building block · ${total - left + 1} of ${total}` });
+          text: armed ? ARMED_TEXT : `Next building block · ${next + 1} of ${total}` });
       }
       open.forEach(({ s, n }, j) => {
         // Every rung reads as its own question and nothing else, not as an
@@ -8216,7 +8338,7 @@
     store.set("ct:last", id);
     if (chosen) pointUrlAtPuzzle(id);
     buildModel();
-    hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {};
+    hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {}; piecesPicked = {};
     solvedWith = {}; timing = {};
     // Forget the last puzzle's completeness, so the first render of this one
     // only records where it stands. Opening a puzzle you finished last week is
@@ -8747,12 +8869,12 @@
       // fresh attempt, and an attempt that starts on a grid you have already
       // solved once is not a time anything should be averaging.
       store.set(stateKey(), { grid: gridPrint(P), letters: {}, letterAt: {}, hintsShown: {}, hintsEarned: {},
-                              blocksAt: {}, revealsUsed: {}, solvedWith: {}, timing: {},
+                              blocksAt: {}, piecesPicked: {}, revealsUsed: {}, solvedWith: {}, timing: {},
                               clearedAt: now, updated: now });
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
       entries.forEach((e) => { if (e.offGrid) { e.typed = ""; e.revealed = false; } });
       applyPrinted();
-      hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {};
+      hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {}; piecesPicked = {};
       solvedWith = {}; timing = {};
       if (paper.on && paperable()) setOnPaper(P.id, true);
       refreshAll();
@@ -8857,8 +8979,22 @@
     // that square of the current entry.
     // A rule chip on a rung opens or closes that rung's general rule.
     $("hint-body").addEventListener("click", (ev) => {
-      const rung = ev.target && ev.target.dataset && ev.target.dataset.rule;
+      const data = (ev.target && ev.target.dataset) || {};
+      const rung = data.rule;
       const e = currentEntry();
+      // A chip in the type rung's formula: take that piece (pickPiece). A
+      // piece that would cost arms first, like every paid button; one the tiers
+      // have not opened yet does nothing.
+      if (data.piece !== undefined && e) {
+        const i = Number(data.piece);
+        const ann = annOf(e);
+        if (!ann || !Number.isInteger(i) || pieceOut(e, i)) return;
+        if (!rungAvailable(e, ladderSteps(ann, clueText(e)), "blocks")) return;
+        if (pickCosts(e, i) && !confirmBlock(e, "piece-" + i, ev)) return;
+        pickPiece(e, i);
+        refreshAll();
+        return;
+      }
       if (!rung || !e) return;
       const k = entryKey(e) + "|" + rung;
       if (!rulesOpen.delete(k)) rulesOpen.add(k);

@@ -1085,6 +1085,8 @@ tools/test_free_wheel.js                       the free letter wheel: offered on
 tools/test_free_elimination_blocks.js          the building blocks rung is free when its piece
                                                is only the last unlit words and adds no new
                                                letters
+tools/test_formula_hint.js                     the type rung's formula: blank pieces, tapped in
+                                               any order, charged once as the blocks rung
 tools/ci_shards.js                             splits the test scripts across the workflow’s
                                                parallel jobs, so the suite takes as long as its
                                                slowest single script rather than all of them
