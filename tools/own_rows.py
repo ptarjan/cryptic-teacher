@@ -136,9 +136,12 @@ def splice_json(base, donor, pid):
 
 
 def _stage_blob(rel, blob):
+    """The `--index-info` line that stages `blob` as `rel`; the caller feeds all of
+    a stage's lines to one update-index, because every update-index rewrites the
+    tree's whole (split) index: six of them per commit were ~18 MB of disk writes."""
     sha = git("hash-object", "-w", "--stdin", "--path", rel, stdin=blob).strip()
     mode = git("ls-tree", "HEAD", "--", rel).split()[0]
-    git("update-index", "--cacheinfo", f"{mode},{sha},{rel}")
+    return f"{mode} {sha}\t{rel}\n"
 
 
 def splice_list(base, donor, pid):
@@ -226,6 +229,7 @@ def stage(*pids):
     """Several ids chain onto one another's result, so a batch commit holds every
     one's rows (staged one at a time, each would rebuild from HEAD and undo the last)."""
     import shape_queue
+    info = []
     for rel in (REL, *DATA_RELS, *_lists()):
         head = git("show", f"HEAD:{rel}")
         if rel in LIST_RELS:
@@ -239,7 +243,8 @@ def stage(*pids):
         if rel in LIST_RELS:
             text = drop_pruned(text)
             text = keep_unlanded(head, text, set(pids))   # after the drop: a pid's unsettled row stays
-        _stage_blob(rel, text)
+        info.append(_stage_blob(rel, text))
+    git("update-index", "--index-info", stdin="".join(info))
 
 
 def _guard(rel):
