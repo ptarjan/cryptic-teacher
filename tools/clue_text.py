@@ -431,6 +431,12 @@ def clue_number_opening(line):
     line = re.sub(r"^[.,:;*'_\u2022\u00b7]{1,2}\s?(?=[\dIl]\d?\s)", "", line)
     # A clue's number 1 read as I or l: "I7 More", "IA fruitful".
     line = re.sub(r"^[Il](?=\d\b|\d\s|[A-Z]\s)", "1", line)
+    # A clue's number 11 read as two or three ones-shaped letters before a
+    # capitalised word: "ll1 Red", "ll At", "1l After", "IIl Flier", "II Flier",
+    # "!! Examine" (RapidOCR's both readers on the 2000-14 Gale Times, whose
+    # 11 across then opened in no reading and its page went unfiled). The
+    # word "Ill" is left.
+    line = re.sub(r"^(?!Ill\s)(?:[Il|!]{2}[1Il|!]?|1[Il|!]|[Il|!]1[Il|!1]?)(?=\s+[A-Z\"'‘“])", "11", line)
     # A clue's number with a speck run into its first word: "1'In the",
     # "1.Associate's", "l^Finished", ". 1. Maltreat", "-1--He said".
     line = re.sub(r"^(?:[^\w\s(]|_){1,3}\s?(?=[Il]?\d{1,2}(?:[^\w\s(]|_){0,3}\s?[A-Z\"'])", "", line)
