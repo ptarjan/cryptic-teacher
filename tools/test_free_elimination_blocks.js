@@ -26,7 +26,7 @@ const check = (ok, msg) => {
 };
 
 function open() {
-  const d = boot({ query: "?p=" + ID, storage: { "ct:nux": "9" } });
+  const d = boot({ query: "?p=" + ID, storage: { "ct:nux": "9" }, twoTap: true });
   const reg = d.registry;
   const puz = global.window.CRYPTIC_PUZZLES[ID];
   const row = () => reg["hint-next"].children;
@@ -45,7 +45,8 @@ function climbToBlocks(t, e) {
     const b = t.row().find((x) => x.onclick && !x.disabled && /^\d+ · /.test(x.textContent || ""));
     if (!b) return false;
     b.onclick();
-    if (t.asking()) t.reg["guess-tell"].onclick();
+    if (t.armedBtn()) t.armedBtn().onclick();
+    if (t.asking()) { t.reg["guess-tell"].onclick(); if (t.asking()) t.reg["guess-tell"].onclick(); }
     t.armedBtn() && t.armedBtn().onclick();
   }
   return !!t.blocksBtn();
