@@ -529,6 +529,9 @@ tools/test_letter_facts.sh                     holds letter_facts.py to one read
                                                only where blogs seldom take it in, fodder apart
                                                in the clue anagrammed as one, a hidden word's
                                                carrier only where one run spells it
+tools/test_blog_facts_skip.py                  does a blog-facts run that skips the letter pass
+                                               keep each clue's inferred fields, even a type
+                                               the blog gave and the pass widened?
 tools/test_blog_facts.sh                       holds that reader to hand-built posts, so a
                                                definition or a block's source is only ever
                                                words of our clue and a type only one the
@@ -2395,10 +2398,10 @@ tools/gale_docs.py                             Gale's document and PDF Download 
                                                Listener (its puzzles and their solution
                                                reports) and other papers' rows looked up by
                                                gale_fetch.py as it goes, 2 s apart
-tools/gale_rejected.txt                        Gale documents the Times picker chose that are not
-                                               the day's cryptic (jumbo, news story, promo,
-                                               contents, front page, Times2): gale_docs never
-                                               picks them and looks their dates up again
+tools/gale_rejected.txt                        the Gale documents the Times picker chose that
+                                               are not the day's cryptic (date, reason, docId):
+                                               gale_docs never picks one again and a cache
+                                               entry or saved page naming one is looked up again
 tools/gale_fetch.py                            downloads every wanted Times edition itself, in
                                                next-up order, then once fewer than a plan's
                                                worth of Times rows are left the Listener's
