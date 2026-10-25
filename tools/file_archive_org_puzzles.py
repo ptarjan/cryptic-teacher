@@ -6708,7 +6708,10 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706",
                   "e1f457cc02985dda": "8417cfb08f3a9706", "f9e93b539e79a435": "8417cfb08f3a9706",
                   # blocks_sure (a heavy print's grid classified): those rows are due once as HEAVY_PRINT.
-                  "c152cf1325047f62": "8417cfb08f3a9706"}
+                  "c152cf1325047f62": "8417cfb08f3a9706",
+                  # sure_framing and VERY_HEAVY_EXTRA (classify grids none was classified on): due once
+                  # as SURE_FRAMING.
+                  "fd768722a95d6269": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -7907,6 +7910,33 @@ def heavy_short(row):
     return bool(band["verdicts"]) and bool(answerable_gaps(band, paper, sure=False))
 
 
+#: The due reason of a Times edition read before REREAD_SURE_FRAMING whose linked solution grid read
+#: short with no cell classified (its best framing's blocks not blocks_sure) at blocks SOLUTION_BLOCKS
+#: to SURE_BLOCKS, for a puzzle answers_only reads (answerable_gaps): since then read_framed's
+#: classifier reads the best framing whose blocks are sure (trove_solution_ocr.sure_framing), not only
+#: the best-fitting one, and a print whose every block is found with up to VERY_HEAVY_EXTRA inked
+#: letters read as blocks. With no classifier read, uncrossed also left out every lone-letter answer
+#: (times-19148: 9 of 13 read). 10-25: of the 303 Times puzzles held 6+ short with no unit planned,
+#: 142 had no cell classified. answers_only, once.
+SURE_FRAMING = "solution short, its cells classified on a sure framing since"
+REREAD_SURE_FRAMING = "2026-10-25T20:20:00+00:00"
+
+
+def unsure_short(row):
+    """Whether Times ledger `row`, read before REREAD_SURE_FRAMING, read a linked solution grid short at
+    blocks SOLUTION_BLOCKS to SURE_BLOCKS with no cell classified, for a puzzle answers_only reads
+    (answerable_gaps)."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_SURE_FRAMING)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    band = dict(row, verdicts=[v for v in row.get("verdicts", ()) if isinstance(v.get("solution"), dict)
+                               and "classified" not in v["solution"]
+                               and SOLUTION_BLOCKS <= v["solution"].get("blocks", 0) < trove_solution_ocr.SURE_BLOCKS])
+    return bool(band["verdicts"]) and bool(answerable_gaps(band, paper, sure=False))
+
+
 #: The due reason of a Times edition read before REREAD_SUSPECT whose linked solution grid gave answers
 #: (accepted > 0, not refused) for a puzzle held from its page with every clue, not every answer, but
 #: not complete(): a clue holding a word OCR made up (ocr_clues.suspect). decide() sent such a held
@@ -8150,6 +8180,8 @@ def fix_reason(row):
         return "answers held back by a clue with no enumeration"
     if heavy_short(row):
         return HEAVY_PRINT
+    if unsure_short(row):
+        return SURE_FRAMING
     if suspect_held(row):
         return SUSPECT_HELD
     if unfiled_held(row):
@@ -8696,7 +8728,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -9205,7 +9237,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
-                  HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS)
+                  HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING)
 
 
 def keeps_vlm(why, row, unit=None):

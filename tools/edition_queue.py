@@ -736,6 +736,13 @@ def evidence_reason(reason):
             # A held puzzle whose grid read short at blocks just under SURE_BLOCKS (a heavy print's inked
             # letters read as blocks) before the classifier read such grids (fa.heavy_short), once.
             or reason == fa.HEAVY_PRINT
+            # The same read under SURE_BLOCKS with no cell classified, before read_framed classified on the
+            # best sure framing, not only the best-fitting one, and very heavy prints (fa.unsure_short), once.
+            or reason == fa.SURE_FRAMING
+            # A puzzle filed a number off its title and renumbered to it since: its answers were read off
+            # the wrong number's grid (fa.renumbered). Ranked and answers-only (SOLUTION_FIXES) since 10-25,
+            # but no evidence reason, so only_evidence dropped every one (33 Times puzzles, 2001-02), once.
+            or reason == fa.RENUMBERED
             # A held file with a suspect clue whose answers-only reading went to --out (fa.suspect_held), once.
             or reason == fa.SUSPECT_HELD
             # A held file with every clue whose full read's answers went to --out, or whose write a mended
@@ -1289,7 +1296,8 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
               fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD,
               fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
-              fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS)
+              fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING,
+              fa.RENUMBERED)
 
 
 def unproven_first(unit):
@@ -1363,7 +1371,7 @@ CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.U
 LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
            "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE,
            fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD, fa.HEAVY_PRINT, fa.SUSPECT_HELD, fa.UNFILED_HELD,
-           fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS)
+           fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.RENUMBERED)
 #: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
 #: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
 #: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).

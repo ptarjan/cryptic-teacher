@@ -361,6 +361,12 @@ check("an unclassified grid of a puzzle held short, and a held clue bare of its 
                                                            (f.UNCLASSIFIED_HELD, _unenum, "solution short, its cells unclassified")])[1]],
        f.UNCLASSIFIED_HELD in eq.FIX_LANDED, f.UNCLASSIFIED_HELD.startswith(eq.LOW_ASK), _unenum.startswith(eq.LOW_ASK),
        eq.evidence_reason(_unenum), eq.evidence_reason("solution short, its cells unclassified")))
+# ---- A grid read unclassified under SURE_BLOCKS (SURE_FRAMING) and a renumbered puzzle are planned (10-25 evening)
+check("a grid unclassified before sure_framing and a renumbered puzzle are evidence, low-ask and fix-landed",
+      ([f.SURE_FRAMING, f.RENUMBERED], True, True, True, True),
+      ([u["reason"] for u in eq.only_evidence("times", [], [dict(_refused, reason=r) for r in (f.SURE_FRAMING, f.RENUMBERED)])[1]],
+       f.SURE_FRAMING in eq.FIX_LANDED, f.RENUMBERED in eq.FIX_LANDED, f.SURE_FRAMING.startswith(eq.LOW_ASK),
+       f.RENUMBERED.startswith(eq.LOW_ASK)))
 # ---- Gale Times 2000-14 pages with evidence of a puzzle that can file are planned (10-22)
 _third = {"kind": "read", "paper": "gale", "rel": "GaleTimes2007UKEnglish/2007-03-15", "date": "2007-03-15",
           "reason": eq.THREE_COLUMNS, "rank": 2, "needs": ["GaleTimes2007UKEnglish/2007-03-15", "GaleTimes2007UKEnglish/2007-03-16"]}
