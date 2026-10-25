@@ -704,7 +704,7 @@ def evidence_reason(reason):
     return (reason in ("never read", "never scanned", "never read (Gale fetch)", "just laid out", "annotation asked",
                        fa.UNCONFIGURED_READ)  # read OCR-only by accident (the VLM URL empty): as good as unread
             or (reason.startswith("refused ") and reason.endswith(" before its fix"))
-            or reason == fa.NO_TITLE_RESCAN  # a Gale 2000-14 page no title was found on, scan code since
+            or reason == fa.NO_TITLE_RESCAN  # a Gale 1957-62 or 2000-14 page no title was found on, scan code since
             or reason == "unfiled before its fix"  # a puzzle written with blank clues, a column-layout fix since
             # A puzzle its read wrote that the corpus no longer holds (fa.lost_writes): as good as unread.
             or reason == fa.LOST_WRITE

@@ -864,6 +864,15 @@ check("a Gale 2000 page no title was found on by older scan code is due; by the 
        f.fix_reason({**none, "scan": {**none["scan"], "failed": "x"}}),
        f.fix_reason({**none, "scan": {**none["scan"], "date": "1999-12-31", "item": "GaleTimes1999UKEnglish"}}),
        f.fix_reason({**none, "scan": {**none["scan"], "item": "NewsUK2000UKEnglish"}})])
+old = {**none, "edition": "GaleTimes1958UKEnglish/1958-12-31",
+       "scan": {**none["scan"], "item": "GaleTimes1958UKEnglish", "date": "1958-12-31"}}
+check("a Gale 1957-62 page no title was found on by older scan code is due too; one of 1956 or 1963 is not",
+      [f.NO_TITLE_RESCAN, f.NO_TITLE_RESCAN, f.NO_TITLE_RESCAN, None, None],
+      [f.fix_reason(old),
+       f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1957UKEnglish", "date": "1957-01-02"}}),
+       f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1962UKEnglish", "date": "1962-12-31"}}),
+       f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1956UKEnglish", "date": "1956-12-31"}}),
+       f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1963UKEnglish", "date": "1963-01-02"}})])
 check("the third-column reread time is not in the future", True,
       scan_queue.when(f.REREAD_THREE_COLUMNS[2]) <= scan_queue.when("now"))
 
