@@ -394,6 +394,33 @@ def cpu_cap(others, burn, cores, runs):
     return max(0, int((cores - others) / (burn / runs)))
 
 
+LOAD_SHRINK = 2   # 1-minute load per core above which the pool loses a run
+LOAD_FLOOR = 4    # ... and above which it drops to one run
+
+
+def read_load1():
+    """The 1-minute load average, None when it cannot be read."""
+    try:
+        return os.getloadavg()[0]
+    except (OSError, AttributeError):
+        return None
+
+
+def load_cap(load1, cores, current):
+    """Runs the box's load lets the pool keep: None while calm (or unread), one
+    fewer than the current width above LOAD_SHRINK x cores (never below 1), one
+    above LOAD_FLOOR x cores. 2026-10-25 load hit 30-63 on 6 cores with ~4
+    annotate runs plus a fetch, stalling the bridge up to 88 s despite nice 19;
+    CPU and memory caps both read fine, so load itself is the signal."""
+    if load1 is None or not cores:
+        return None
+    if load1 > LOAD_FLOOR * cores:
+        return 1
+    if load1 > LOAD_SHRINK * cores:
+        return max(1, int(current or 1) - 1)
+    return None
+
+
 def cpu_runs(live, span):
     """The runs the burn's CPU over the span is split between: the shell's
     average in flight over it (CT_SPAN_RUNS, after_wave's "at width"), when it
@@ -601,6 +628,9 @@ def width(arg=None, floor=1):
     runs = cpu_runs(len(rss), os.environ.get("CT_SPAN_RUNS"))
     cpu = cpu_cap(*load, os.cpu_count(), runs) if load else None
     w = width_for(runs_needed, mem, cpu, current, floor)
+    busy = load_cap(read_load1(), os.cpu_count(), current)
+    if busy is not None and w > busy:
+        w = busy
     publish(home / mem_gate.BURN_STATE, runs_needed, mem, cpu, w)
     shown = (f"{bridge:.1f} pts/h" if bridge is not None else "unread")
     cores = (f"others {load[0]:.2f} burn {load[1]:.2f} over {runs:g} runs of {os.cpu_count()} cores"
@@ -614,7 +644,7 @@ def width(arg=None, floor=1):
            if hours_left is not None and hours_left > 0 else "")
     print(f"width {w}: need {runs_needed} for {name} {ceiling(meter):g}% before its reset ({at}{aim}; "
           f"bridge {shown}{per}), memory cap {mem}, "
-          f"cpu cap {cpu} ({cores}), current {current}", file=sys.stderr)
+          f"cpu cap {cpu} ({cores}), load cap {busy}, current {current}", file=sys.stderr)
     return w
 
 
@@ -647,7 +677,7 @@ def self_test():
            + first_self_test() + backlog_self_test() + small_self_test() + fresh_self_test()
            + reannotate_self_test() + interleave_self_test() + best_effort_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MODE_CASES) + len(MEM_CASES)
-         + len(CPU_CASES) + len(METER_CASES) + len(REPLAY_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
+         + len(CPU_CASES) + len(LOAD_CASES) + len(METER_CASES) + len(REPLAY_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
          + len(BACKLOG_CASES) + 4 + 4 + 2)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
@@ -804,6 +834,19 @@ CPU_CASES = [
     (None, 1.0, 4, 4, None),
     (2.13, 0.98, 6, 13.22, 52),  # the span's average, not the 3 alive at the plan (cap 11)
 ]
+# (1-minute load, cores, current width) -> load cap
+LOAD_CASES = [
+    (3.0, 6, 10, None),    # calm: no cap, quota use untouched
+    (12.0, 6, 10, None),   # exactly 2x cores: not above
+    (13.0, 6, 10, 9),      # busy: one fewer
+    (13.0, 6, 1, 1),       # never below 1
+    (13.0, 6, 0, 1),
+    (24.0, 6, 10, 9),  # exactly 4x cores: still the shrink
+    (30.0, 6, 10, 1),      # swamped: one run
+    (63.0, 6, 3, 1),
+    (None, 6, 10, None),   # unread: no cap
+    (30.0, 0, 10, None),
+]
 # (claude runs alive now, CT_SPAN_RUNS) -> runs the burn's CPU is split between
 CPU_RUNS_CASES = [
     (3, "13.22", 13.22),  # the pool drained during the re-plan
@@ -823,6 +866,7 @@ def width_self_test():
               + [(mode, (st, r), w) for st, r, w in MODE_CASES]
               + [(mem_cap, (m, r), w) for m, r, w in MEM_CASES]
               + [(cpu_cap, (o, b, c, r), w) for o, b, c, r, w in CPU_CASES]
+              + [(load_cap, (l, c, w), x) for l, c, w, x in LOAD_CASES]
               + [(cpu_runs, (n, s), w) for n, s, w in CPU_RUNS_CASES]
               + [(meter_rise, (t, a, b), w) for t, a, b, w in METER_CASES]
               + [(five_per_weekly, (t, a, b), w) for t, a, b, w in RATIO_CASES])
