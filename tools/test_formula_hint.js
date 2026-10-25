@@ -105,11 +105,19 @@ for (const e of candidates.slice(0, 12)) {
   // A last piece whose letters are all printed in the clue is free by
   // elimination (blocksFree) and takes one tap; that road has its own test.
   if (t.chipsGot() === 1) continue;
-  check(t.hints() === h1 && t.chipsGot() === 0 && /arm-cost/.test(t.formula()) && t.formula().includes(ARMED),
-    `firstChipArms (${id}): the first tap arms the chip and charges nothing`);
-  t.tapChip(n - 1);
+  if (t.asking()) {
+    // A piece with a question asks it first, free (the blocks rung's own road);
+    // only "Just tell me" on it charges, through its own two taps.
+    check(t.hints() === h1 && t.chipsGot() === 0,
+      `chipAsks (${id}): a chip with a question asks it and charges nothing`);
+    t.settle();
+  } else {
+    check(t.hints() === h1 && t.chipsGot() === 0 && /arm-cost/.test(t.formula()) && t.formula().includes(ARMED),
+      `firstChipArms (${id}): the first tap arms the chip and charges nothing`);
+    t.tapChip(n - 1);
+  }
   check(t.hints() === h1 + 1 && t.chipsGot() === 1,
-    `firstChipArms (${id}): the second tap takes it and charges one: ${h1} -> ${t.hints()}`);
+    `firstChipArms (${id}): taking it without answering charges one: ${h1} -> ${t.hints()}`);
   check(/The building blocks/.test(t.body()) && (t.body().match(/<li>/g) || []).length >= 1,
     `oneChargeOnly (${id}): the blocks rung is up with the piece in it`);
   t.tapChip(1);
