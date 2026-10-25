@@ -1058,12 +1058,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "is changed",
-       "note": "the letters of PLEA twice are rearranged"
-      },
-      {
-       "text": "start of",
-       "note": "only the first letter of trial is used"
+       "text": "inhibiting",
+       "at": 52,
+       "note": "inhibiting means holding in, so the jumbled letters enclose the opening of trial"
       }
      ],
      "parts": [
@@ -1071,32 +1068,57 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "inhibiting"
+         "text": "is changed",
+         "at": 40,
+         "note": "is changed means altered in order, so the letters are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "twice, plea",
-         "gives": "PLEAPLEA",
-         "note": "anagram fodder, PLEA twice"
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "twice",
+           "at": 28,
+           "note": "twice means the word plea is written two times"
+          }
+         ],
+         "parts": [
+          {
+           "words": "plea",
+           "at": 35
+          }
+         ]
         }
        ]
       },
       {
-       "words": "trial",
-       "gives": "T",
-       "note": "first letter of trial"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "at": 63,
+         "note": "the start of a word is its first letter, here from trial"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trial",
+         "at": 72
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A court where a plea is altered twice before the trial even starts.",
-     "walkthrough": "'Twice' doubles PLEA. The court theme runs through the surface, so the definition hides in plain sight.",
-     "definitionFit": "An appellate court is one that hears appeals, so 'appellate' designates it."
+     "surface": "A court where pleas are routinely altered before any trial begins.",
+     "walkthrough": "'where' is a link. Both copies of plea are scrambled together, then T goes in.",
+     "definitionFit": "An appeal court hears cases sent up from lower courts for review."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "plea"
     }
    }
   },
