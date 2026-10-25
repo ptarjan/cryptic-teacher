@@ -788,4 +788,17 @@ try:
 except w.WordplayError as e:
     check("a plain container indicator does not spread the inner", "does not give LEAVEBE" in str(e), str(e))
 
+# A hedge word the clue itself prints is quoted, not used (annotate audit 10-24/25: 'somehow' as the
+# anagram indicator was a third of the hedge refusals); a hedge in the walkthrough's own words stays.
+for walk, clue, want in [
+    ("'somehow' rearranges UNCLE to EUCLN, and 'Grasped by' puts it round A.", "Grasped by uncle somehow", []),
+    ("'Somehow' shuffles CATCH A LONE.", "Somehow catch a lone", []),
+    ("'somehow combined' rearranges WEAR and TAY.", "Wear tay somehow combined", []),
+    ("'somehow' rearranges UNCLE, then somehow it fits.", "Grasped by uncle somehow", ["somehow"]),
+    ("'somehow' rearranges UNCLE.", "Grasped by uncle in a mess", ["somehow"]),
+    ("The Latin phrase is used jokingly in Britain for old age itself.", "Old age, in Latin", ["jokingly"]),
+]:
+    got = va.walkthrough_hedges(walk, clue)
+    check(f"walkthrough hedges {walk[:40]!r}", got == want, got)
+
 raise SystemExit(fails > 0)

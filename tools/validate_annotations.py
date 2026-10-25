@@ -1057,6 +1057,18 @@ FILLER_WORDS = {
 # adjectived" was papering over state = CAL).
 HEDGES = ("jokingly", "if you squint", "hand-wave", "handwave", "somehow",
           "for some reason", "don't ask", "close enough")
+_QUOTED = re.compile(r"'([^']+)'|\"([^\"]+)\"|‘([^’]+)’|“([^”]+)”")
+
+
+def walkthrough_hedges(walk, clue):
+    """The HEDGES a walkthrough uses as its own words. A word the clue prints is quoted, not
+    used: "'Somehow' rearranges UNCLE" names the anagram indicator (a third of the first-check
+    hedge refusals in the annotate audit 10-24/25), so a quoted run that is in the clue is
+    set aside before the hedges are looked for."""
+    clue_low = (clue or "").lower()
+    low = _QUOTED.sub(lambda m: " " if next(g for g in m.groups() if g).lower().strip(" ,.;:!?") in clue_low
+                      else m.group(0), (walk or "").lower())
+    return [h for h in HEDGES if h in low]
 
 # Working-out left in the published text. A walkthrough is the finished
 # explanation; if it is still arguing with itself ("No wait—", "Still wrong.",
@@ -8025,11 +8037,11 @@ def _validate_puzzle(puzzle, corpus=False, schema=True):
             check_indicator_outside_fodder(tag, ann, clue, errors)
             check_reversal_direction(tag, ann, e["direction"], errors)
         walk = explanation(ann).get("walkthrough") or ""
-        low = walk.lower()
-        for h in HEDGES:
-            if h in low:
-                errors.append(f"{tag}: walkthrough hedges with {h!r} — parse the chunk "
-                              f"properly instead of excusing it (STYLE.md)")
+        for h in walkthrough_hedges(walk, clue):
+            errors.append(f"{tag}: walkthrough hedges with {h!r} — parse the chunk "
+                          f"properly instead of excusing it (STYLE.md); a clue word is quoted "
+                          f"('{h}' is fine in quotes only if the clue prints it), else say what "
+                          f"the word does (the pun, the indicator) without the hedge")
         if len(walk.split()) > WALKTHROUGH_HARD_MAX:
             errors.append(f"{tag}: walkthrough is {len(walk.split())} words "
                           f"(max {WALKTHROUGH_HARD_MAX}) — that length is working-out, "
