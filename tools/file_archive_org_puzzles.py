@@ -6723,6 +6723,66 @@ def unfiled_blank(row):
     return out
 
 
+#: The reason of an edition whose ledger row says its read wrote a puzzle to the corpus that the corpus
+#: no longer holds: no file of that number, none renamed from its id, no copy in CROPS/unfiled. Paul
+#: 10-25: 2,286 Times puzzles stood so (1945-56 ~50 a year, 1970-73 ~110, 2007-08 ~145; 2,056 of them
+#: written with a blank clue, before destination() sent those to --out), all read 10-06..10-25 and
+#: never committed, so due_reason saw them read and nothing re-read them: the biggest unfiled cause of
+#: the Times years under 300. Read again once (REREAD_LOST) with the current reader: a whole read
+#: files to the corpus, one still blank goes to --out as "unfiled" (unfiled_blank's from then on).
+LOST_WRITE = "written, its file gone"
+#: ISO time before which a read whose write is gone (lost_writes) is read again once. A read after it
+#: that loses its file again is not due until a newer time is set here.
+REREAD_LOST = "2026-10-25T04:45:00+00:00"
+
+
+@functools.lru_cache(maxsize=1)
+def _renamed_ids():
+    """{old id: new id} of tools/data/renamed_ids.json ({} when unreadable)."""
+    try:
+        return json.loads((ROOT / "tools" / "data" / "renamed_ids.json").read_text())
+    except (OSError, ValueError):
+        return {}
+
+
+_SPAN = {}
+
+
+def _held_span(series):
+    """(lowest, highest) number the series' listing (_held_list) holds, None when it holds none."""
+    version, held = _held_list(series)
+    hit = _SPAN.get(series)
+    if hit is None or hit[0] != (version, len(held)):
+        nums = [n for n, _ in held]
+        hit = _SPAN[series] = ((version, len(held)), (min(nums), max(nums)) if nums else None)
+    return hit[1]
+
+
+def lost_writes(row):
+    """[puzzle id] of the puzzles ledger `row`'s read wrote to the corpus that it no
+    longer holds (LOST_WRITE): a written verdict (not refused, skipped, mended or
+    answers-only, so its write was the reading itself) whose number lies between
+    the lowest and highest the series' listing holds (_held_span: a gap in it; a
+    series with no listing, or a number past its ends, is never told gone) and
+    has no file, not renamed since (renamed_ids.json), and not written unfiled
+    (its "unfiled" count or a CROPS/unfiled copy: unfiled_blank's)."""
+    out = []
+    for v in row.get("verdicts", ()):
+        if (v.get("refused") or not v.get("wrote") or v.get("skip") or v.get("mended") or v.get("answersOnly")
+                or not v.get("id") or v.get("unfiled") is not None or "number" not in v):
+            continue
+        series = v["id"].rsplit("-", 1)[0]
+        span = _held_span(series)
+        if span is None or not span[0] < v["number"] < span[1]:
+            continue  # no listing of that series, or a number past its ends: nothing can be told gone
+        if filed_state(series, v["number"]) is not None or v["id"] in _renamed_ids():
+            continue
+        if (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        out.append(v["id"])
+    return out
+
+
 #: ISO time of answers_only's no longer refusing a held file with a clue filed without its enumeration:
 #: a Times edition whose solution grid is linked, read before it, whose held puzzle is still short of
 #: answers and has such a clue is read again once ("answers held back by a clue with no enumeration").
@@ -7003,6 +7063,8 @@ def fix_reason(row):
         return "short Times page, its third clue column read since"
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
+    if scan_queue.read_before(row, scan_queue.when(REREAD_LOST)) and lost_writes(row):
+        return LOST_WRITE
     # Ahead of unenumerated_held: a refused grid is the evidence (edition_queue.evidence_reason), and
     # both are answers_only rereads (SOLUTION_FIXES), so the read is the same.
     if refused_grid(row):
@@ -7512,7 +7574,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, SHORT_WIDE: 2,
-         REFUSED_GRID: 2, RENUMBERED: 2,
+         REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
@@ -7823,6 +7885,8 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] == "unfiled before its fix" else {}),
+                   **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
+                      if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
     rank_of, gain_of = {}, {}
     for u in read_units:
@@ -8008,7 +8072,7 @@ def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs
 
 
 #: Reasons an edition is read for a bug: never skipped (a reread is wanted).
-BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short", "annotation asked", "--reread")
+BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short", "annotation asked", "--reread", LOST_WRITE)
 #: The fix reasons a read is due for its solution grid alone (fix_reason): its clues stand, so it is
 #: not one whose clues the VLM must read again (_KEEP_VLM). answers_only reads it first (the
 #: classifier, fitted_reads and the VLM's strips for the last lights), the full read when it cannot.

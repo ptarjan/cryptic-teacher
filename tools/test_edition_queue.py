@@ -254,6 +254,45 @@ check("one read after it (incomplete again) is not due again; nor a complete or 
 check("the reason is evidence, ranked with the fix-landed rereads and held behind never-read pages", (True, 2, True, True),
       (eq.evidence_reason("unfiled before its fix"), f.rank_of_reason("unfiled before its fix"),
        "unfiled before its fix" in eq.FIX_LANDED, eq.refusal_reread("unfiled before its fix")))
+# ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
+_lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
+_lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},
+          "readAt": "2026-10-14T06:48:52+00:00"}
+_lw_list, _lw_ren = f._held_list, f._renamed_ids
+_lw_was = f._HELD_PATH.pop(("times", 9999998), None)
+try:
+    f._held_list = lambda series: (1, ((1, None), (99999999, None))) if series == "times" else (1, ())
+    _lw_gone = (f.fix_reason(_lwrow), f.lost_writes(_lwrow))
+    _lw_past = f.lost_writes({**_lwrow, "verdicts": [{**_lw, "id": "times-199999999", "number": 199999999}]})
+    _lw_after = f.fix_reason({**_lwrow, "readAt": "2099-01-01T00:00:00+00:00"})
+    _lw_not = [f.lost_writes({**_lwrow, "verdicts": [{**_lw, **extra}]})
+               for extra in ({"unfiled": 2}, {"refused": "x"}, {"skip": "already held"}, {"wrote": False},
+                             {"answersOnly": True}, {"id": "cryptic-9999998"})]
+    f._renamed_ids = lambda: {"times-9999998": "times-9999999"}
+    _lw_renamed = f.lost_writes(_lwrow)
+    f._renamed_ids = _lw_ren
+    _lw_file = Path(tempfile.mkdtemp()) / "times-9999998.json"
+    _lw_file.write_text(json.dumps({"entries": [{"clue": {"text": "a"}}]}))
+    f._HELD_PATH[("times", 9999998)] = _lw_file
+    _lw_held = f.lost_writes(_lwrow)
+finally:
+    f._held_list, f._renamed_ids = _lw_list, _lw_ren
+    f._SPAN.clear()
+    f._HELD_PATH.pop(("times", 9999998), None)
+    if _lw_was is not None:
+        f._HELD_PATH[("times", 9999998)] = _lw_was
+check("a write the corpus no longer holds is due once, naming the puzzle", ("written, its file gone", ["times-9999998"]),
+      _lw_gone)
+check("not again once read after REREAD_LOST", None, _lw_after)
+check("not an unfiled, refused, skipped, unwritten or answers-only verdict, nor one of a series with no listing", [[]] * 6,
+      _lw_not)
+check("not a renamed id, one whose file is held, nor a number past the series' highest (a test's, a new one's)",
+      ([], [], []), (_lw_renamed, _lw_held, _lw_past))
+check("the reason is evidence, ranked 2, a fix-landed reread, never skipped, and tier 0 for a newest-first paper",
+      (True, 2, True, True, 0),
+      (eq.evidence_reason(f.LOST_WRITE), f.rank_of_reason(f.LOST_WRITE), f.LOST_WRITE in eq.FIX_LANDED,
+       f.LOST_WRITE.startswith(f.BUG_READS),
+       eq.files_likely_tier(2, {"kind": "read", "paper": "gale", "reason": f.LOST_WRITE, "date": "1970-01-02"})))
 # ---- A Times solution grid refused before matched_box is planned though likely() predicts it nothing (10-24)
 _refused = {"kind": "read", "paper": "times", "rel": "NewsUK1984UKEnglish/1984-05-01_61715", "date": "1984-05-01",
             "reason": f.REFUSED_GRID, "rank": 2, "needs": []}
