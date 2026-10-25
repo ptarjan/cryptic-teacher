@@ -3784,19 +3784,14 @@
     saveState();
   }
 
-  // ---------- the formula under the type rung ----------
+  // ---------- the formula in the blocks rung ----------
   //
-  // Any piece, in any order: a chip in the formula hands over that one piece.
-  // It is the blocks rung's own piece and costs what the blocks rung costs, once:
-  // the first chip opens the rung (showHint, so hintsShown, the earned list and
-  // the two-tap confirm all see it exactly as if "The building blocks" had been
-  // pressed), and every later chip, like every later "next piece", rides on
-  // that. Which pieces are out is pieceOut's, whichever way they came, so a
-  // piece cannot be charged for twice or shown twice.
-  //
-  // Not offered ahead of the blocks rung's own tier (rungAvailable): the pieces
-  // name the definition and the indicators on the way, so a chip that opened
-  // the rung early would be the skip-to-the-end the tiers exist to stop.
+  // Any piece, in any order: a chip in the blocks rung's formula hands over that
+  // one piece, the way "Next building block" hands over the next (it asks first
+  // when the piece has a question). Which pieces are out is pieceOut's,
+  // whichever way they came, so a piece cannot be charged for twice or shown
+  // twice. The chips only exist once the rung is open, so a chip never opens it
+  // (pickPiece's opening branch is kept for safety, not used by the panel).
   const pickCosts = (e, i) => !!e && !groupSolved(e) && !isShown(e, "blocks") && !blocksFree(e, i);
   function pickPiece(e, i) {
     if (pieceOut(e, i) || i >= Math.min(PICKABLE, blockPieces(e).length)) return;
@@ -3876,30 +3871,32 @@
     saveState();
   }
 
-  // The formula drawn under the type rung's family line. A chip taken (by this
-  // formula or by the blocks rung) is spelled out and no longer a button; one
-  // still blank is a button for as long as the blocks rung's tier is open to
-  // this solver (`locked` says it is not). What a taken chip stands for is the
-  // blocks rung's own piece, and that rung is the only place that prints it: a
-  // chip taken here opens the rung directly below this one, so the piece is one
-  // glance down and is not said twice. A tap that would cost arms the chip first
-  // (confirmBlock), and the armed chip says so itself, as every other armed
-  // button does (Paul: "The required two tap should be uniformly on the button").
-  function formulaHTML(e, f, locked) {
-    const armed = f.chips.some((_, i) => armedFor(e, "piece-" + i));
+  // The formula, drawn twice. Under the type rung (interactive false) it is a
+  // picture: every chip blank, role + letter count, no buttons. Under the
+  // building blocks rung (interactive true) it is that rung's picture of
+  // progress: a chip still blank is a button for its piece, and a chip whose
+  // piece is out (by the count or by a tap here) is filled in with the piece's
+  // letters (f.fills). The rung's piece list stays under it because it says WHY
+  // (the clue words and the note each piece comes from); the chip repeats only
+  // the letters, as the picture of the sum. A tap that would cost arms the chip
+  // first (confirmBlock), and the armed chip says so itself, as every other
+  // armed button does (Paul: "The required two tap should be uniformly on the
+  // button").
+  function formulaHTML(e, f, interactive) {
+    const armed = interactive && f.chips.some((_, i) => armedFor(e, "piece-" + i));
     const chip = (i) => {
       const label = esc(f.chips[i]);
-      if (pieceOut(e, i)) return `<span class="formula-chip got">${label}</span>`;
+      // The type rung: a picture, every chip blank (role + letter count).
+      if (!interactive) return `<span class="formula-chip">${label}</span>`;
+      // A solved clue lists every piece (paced), so its chips are all filled too.
+      if (groupSolved(e) || pieceOut(e, i)) return `<span class="formula-chip got">${esc(f.fills[i])}</span>`;
       const a = armedFor(e, "piece-" + i);
-      return `<button type="button" class="formula-chip${a ? " arm-cost" : ""}" data-piece="${i}" data-arm="piece-${i}"${
-        locked ? ' disabled title="Open the hints above first — this piece would give them away"' : ""}>${
+      return `<button type="button" class="formula-chip${a ? " arm-cost" : ""}" data-piece="${i}" data-arm="piece-${i}">${
         a ? ARMED_TEXT : label}</button>`;
     };
     return `<div class="formula"><span class="formula-lead">${esc(f.lead)}</span> ${
       f.parts.map((p) => (typeof p === "string" ? `<span class="formula-word">${esc(p)}</span>` : chip(p))).join(" ")}${
-      armed || !piecesLeft(e) ? ""
-      : locked ? `<p class="muted">Tap a piece for it, once the definition and indicators are up.</p>`
-      : `<p class="muted">Tap a piece to see it.</p>`}</div>`;
+      !interactive || armed || !piecesLeft(e) ? "" : `<p class="muted">Tap a piece to see it.</p>`}</div>`;
   }
 
   // ---------- a building block that costs takes two taps ----------
@@ -4694,7 +4691,10 @@
       : (head ? [head] : []).concat(join(all, "+"));
     const lead = ((ann.definitions || []).length && !ann.definedByPreamble ? "definition" : "answer")
       + ` (${letterCount(ann.answer)}) =`;
-    return { lead: maskAnswer(lead, ann.answer), parts: parts.map((p) => typeof p === "string" ? maskAnswer(p, ann.answer) : p), chips };
+    // What a chip reads once its piece is out: the letters the piece gives
+    // (blockLetters, so withheld ones stay withheld), else the clue words.
+    const fills = blocks.map((b) => blockLetters(ann, b) || b.clueFragment || "?");
+    return { lead: maskAnswer(lead, ann.answer), parts: parts.map((p) => typeof p === "string" ? maskAnswer(p, ann.answer) : p), chips, fills };
   }
 
   // Build the rungs this particular clue deserves. Each rung: {key, label, html}.
@@ -4984,8 +4984,13 @@
       // pieces to exists. It is data, not html: which chips are taken is the
       // panel's to know (formulaHTML). The label and the family line are as
       // they were, so nothing about the rung's name depends on the clue.
+      // The blocks rung carries the same data and is where the chips are taps.
       const typeStep = steps.find((s) => s.key === "type");
-      if (typeStep && blocks.length <= PICKABLE) typeStep.formula = formulaOf(ann, blocks);
+      if (blocks.length <= PICKABLE) {
+        const formula = formulaOf(ann, blocks);
+        if (typeStep) typeStep.formula = formula;
+        steps.find((s) => s.key === "blocks").formula = formula;
+      }
     }
 
     // The half of the clue that isn't mechanical.
@@ -5881,7 +5886,13 @@
     // is settled by answering it — pacing what the question already covered
     // would be make-work.
     if (guessing.rung === "blocks") {
-      revealPiece(e, ask.pairs ? blockPieces(e).length - 1 : guessing.step);
+      // A chip tapped out of turn settles that piece alone: the count must not
+      // jump over the pieces before it, so it is marked taken instead.
+      if (!ask.pairs && guessing.step > nextPiece(e)) {
+        piecesPicked[guessing.key] = (piecesPicked[guessing.key] || 0) | (1 << guessing.step);
+      } else {
+        revealPiece(e, ask.pairs ? blockPieces(e).length - 1 : guessing.step);
+      }
     }
     focusHint(guessing.rung);
     showHint(e, guessing.rung);
@@ -6365,16 +6376,18 @@
         }
         if (s.key === "type" && s.formula) {
           // After the rung's own line and its rule chip, not inside them.
-          return { ...s, after: formulaHTML(e, s.formula, !rungAvailable(e, steps, "blocks")) };
+          return { ...s, after: formulaHTML(e, s.formula, false) };
         }
         if (s.key !== "blocks" || !s.pieces) return s;
+        const formula = s.formula ? formulaHTML(e, s.formula, true) : "";
         // The pieces that are out, in clue order, however they came out: the
         // count reaching them, or a chip in the formula taking them early.
         const out = s.pieces.filter((_, k) => solved || pieceOut(e, k));
         // The type rung already named and explained the mechanism when it is open.
         const lead = isShown(e, "type") && !s.leadAlways ? "" : s.lead;
         return { ...s, html: lead + `<ul>${out.join("")}</ul>`
-                             + (out.length >= s.pieces.length ? s.tail : "") };
+                             + (out.length >= s.pieces.length ? s.tail : ""),
+                 after: formula };
       };
       steps.forEach((s, i) => {
         if (!isShown(e, s.key)) return;
@@ -8996,20 +9009,18 @@
       const data = (ev.target && ev.target.dataset) || {};
       const rung = data.rule;
       const e = currentEntry();
-      // A chip in the type rung's formula: take that piece (pickPiece). A
-      // piece that would cost arms first, like every paid button; one the tiers
-      // have not opened yet does nothing.
+      // A chip in the blocks rung's formula: take that piece (pickPiece). A
+      // piece that would cost arms first, like every paid button.
       if (data.piece !== undefined && e) {
         const i = Number(data.piece);
         const ann = annOf(e);
         if (!ann || !Number.isInteger(i) || pieceOut(e, i)) return;
         if (!rungAvailable(e, ladderSteps(ann, clueText(e)), "blocks")) return;
-        // Paul: "Using blocks can't we figure it out to make it free". A chip
-        // that would open the blocks rung goes the way the rung's own button
+        // Chips live in the blocks rung and go the way its "next piece" button
         // does: if the piece has a question (point at the words that give it),
         // ask it, and an answer earns the piece for nothing. Only "Just tell
-        // me" on that question, or a piece with no question at all, costs.
-        const asked = !isShown(e, "blocks") && !isEntrySolved(e) && guessAsk(e, "blocks", i);
+        // me" on that question (guess-tell's own confirm) costs.
+        const asked = !isEntrySolved(e) && guessAsk(e, "blocks", i);
         if (asked) {
           guessing = { key: entryKey(e), rung: "blocks", step: i, picked: [],
                        slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };

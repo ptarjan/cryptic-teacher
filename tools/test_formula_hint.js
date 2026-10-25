@@ -1,21 +1,24 @@
-/* The type rung shows the clue's formula, and any piece of it can be tapped.
+/* The clue's formula: a picture under the type rung, the taps under the
+   building blocks rung.
 
      node tools/test_formula_hint.js
 
    Paul: "Should what kind of clue this is show the formula? And make pick any
-   part of it?" Under the family line the rung draws the formula with every
-   piece blank (role and letter count only); a tap takes that one piece, in
-   any order. A piece is the blocks rung's own (app.js pickPiece), so:
+   part of it?" then "is this now just another way of doing building blocks?
+   And if so should it be in that part?" So the type rung draws the formula with
+   every piece blank (role and letter count only) and nothing to tap; the
+   blocks rung draws the same formula whose chips are the taps. A piece is the
+   blocks rung's own (app.js pickPiece / the question), so:
 
-   1. blankPieces: the formula is there, its chips name a role and a count, and
-      it holds nothing of the answer.
-   2. lockedByTier: until the definition and indicators are up, the chips are
-      disabled and a tap does nothing, charges nothing.
-   3. firstChipArms / oneChargeOnly: the first chip taken costs a hint behind the
-      two-tap confirm, in any order; every later chip, and the rest of the rung
-      by its own button, adds nothing.
-   4. noRepeat: a piece taken by chip is not asked again by "next building block",
-      and the rung lists every piece once finished.
+   1. blankPicture: the type rung's formula is there, its chips name a role and
+      a count, hold nothing of the answer, and are not buttons.
+   2. onlyInBlocks: no chip is tappable until the blocks rung is open; the
+      "The building blocks" button is how it opens.
+   3. chipAsksFirst / fillsIn: in the blocks rung a chip with a question asks it
+      (free, or a plain take that adds no hint beyond the rung's own); a chip
+      taken fills in with its piece's letters, in any order.
+   4. noRepeat: a piece taken by chip is not asked again by "next building
+      block", and the rung lists every piece once finished.
    5. saved / merged: the pick survives a reload, and a sync merge ORs two
       devices' picks together. */
 "use strict";
@@ -32,8 +35,8 @@ const check = (ok, msg) => {
   if (!ok) failures++;
 };
 
-function open() {
-  const d = boot({ query: "?p=" + ID, storage: { "ct:nux": "9" }, twoTap: true });
+function open(storage) {
+  const d = boot({ query: "?p=" + ID, storage: storage || { "ct:nux": "9" }, twoTap: true });
   const reg = d.registry;
   const puz = global.window.CRYPTIC_PUZZLES[ID];
   const row = () => reg["hint-next"].children;
@@ -41,7 +44,10 @@ function open() {
   const asking = () => body().includes('class="hint-step guess"');
   const hints = () => Number((/<strong>(\d+)<\/strong> hints used/.exec(reg["scorebar"].innerHTML) || [])[1]);
   const armedBtn = () => row().find((b) => b.textContent === ARMED);
-  const formula = () => (/<div class="formula">[\s\S]*?<\/div>/.exec(body()) || [""])[0];
+  // Every formula in the panel: the type rung's, then the blocks rung's.
+  const formulas = () => body().match(/<div class="formula">[\s\S]*?<\/div>/g) || [];
+  const typeFormula = () => formulas()[0] || "";
+  const formula = () => formulas()[formulas().length - 1] || "";
   // The body's click handler is the one that reads data-piece, as for rule chips.
   const tapChip = (i) => reg["hint-body"].listeners.click[0]({ target: { dataset: { piece: String(i) } } });
   const settle = () => {
@@ -60,7 +66,7 @@ function open() {
   };
   const chipsLeft = () => (formula().match(/data-piece="\d+"/g) || []).length;
   const chipsGot = () => (formula().match(/formula-chip got/g) || []).length;
-  return { d, reg, puz, row, body, asking, hints, armedBtn, formula, tapChip, settle, take, chipsLeft, chipsGot };
+  return { d, reg, puz, row, body, asking, hints, armedBtn, formula, typeFormula, tapChip, settle, take, chipsLeft, chipsGot };
 }
 
 const candidates = open().puz.entries.filter((e) => {
@@ -70,72 +76,94 @@ const candidates = open().puz.entries.filter((e) => {
 });
 
 let done = false;
-for (const e of candidates.slice(0, 12)) {
-  const t = open();
+for (const e of candidates.slice(0, 80)) {
+  let t = open();
   t.reg["clue-" + entryId(e)].listeners.click[0]();
   const id = entryId(e);
-  // The type rung first, so the formula is up while the tiers are still shut.
   if (!t.take(/kind of clue/i)) continue;
-  const f = t.formula();
+  const f = t.typeFormula();
   if (!f) continue;
-  const n = t.chipsLeft();
+  const n = (f.match(/formula-chip/g) || []).length;
   const answer = String(e.solution).toUpperCase().replace(/[^A-Z]/g, "");
 
   // 1
-  check(n >= 3 && /formula-lead">(definition|answer) \(\d+\) =</.test(f) && /data-piece="0"[^>]*>(piece|fodder|sound)( \d+)?</.test(f),
-    `blankPieces (${id}): ${n} chips, each a role and a count: ${f.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")}`);
+  check(n >= 3 && /formula-lead">(definition|answer) \(\d+\) =</.test(f) && /formula-chip">(piece|fodder|sound)( \d+)?</.test(f),
+    `blankPicture (${id}): ${n} chips, each a role and a count: ${f.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")}`);
   check(!f.toUpperCase().replace(/[^A-Z]/g, " ").split(" ").includes(answer),
-    `blankPieces (${id}): the formula does not carry the answer`);
-  check(!/class="gives"/.test(f), `blankPieces (${id}): no letters in the blank formula`);
+    `blankPicture (${id}): the formula does not carry the answer`);
+  check(!/class="gives"/.test(f) && !/<button|data-piece/.test(f), `blankPicture (${id}): no letters and no buttons in the type rung's formula`);
 
   // 2
   const h0 = t.hints();
-  check(/data-piece="0"[^>]* disabled/.test(f), `lockedByTier (${id}): chips are disabled while the spotting rungs are down`);
   t.tapChip(0);
-  check(t.hints() === h0 && t.chipsGot() === 0 && !/The building blocks/.test(t.body()),
-    `lockedByTier (${id}): a tap on a locked chip does nothing and charges nothing`);
-
+  check(t.hints() === h0 && !/The building blocks/.test(t.body()),
+    `onlyInBlocks (${id}): a chip tap with the blocks rung shut does nothing and charges nothing`);
   t.take(/indicator/i);
   t.take(/definition/i);
-  if (/data-piece="0"[^>]* disabled/.test(t.formula())) continue;
+  check(!/data-piece/.test(t.body()) && t.row().some((b) => /The building blocks/.test(b.textContent || "")),
+    `onlyInBlocks (${id}): no tappable chip anywhere, and the blocks button is still the way in`);
+  // Open the rung and take only its first piece (settle would walk them all).
+  const ob = t.row().find((x) => x.onclick && !x.disabled && /The building blocks/.test(x.textContent || ""));
+  if (!ob) continue;
+  ob.onclick();
+  if (t.armedBtn()) t.armedBtn().onclick();
+  else if (t.asking()) {
+    t.reg["guess-tell"].onclick();
+    if (t.asking()) t.reg["guess-tell"].onclick();
+  }
+  check(/The building blocks/.test(t.body()) && t.chipsGot() > 0,
+    `onlyInBlocks (${id}): opening the rung shows the formula in it, filled as the pieces come out`);
+  // Most clues here ask one matching question that settles every piece, so
+  // wind the save back to ONE piece out and reload: the rest are in the box.
+  flushTimers(5000);
+  const sk = Object.keys(t.d.storage).find((k) => /blocksAt/.test(t.d.storage[k]));
+  if (!sk) continue;
+  const sv = JSON.parse(t.d.storage[sk]);
+  Object.keys(sv.blocksAt).forEach((k) => { sv.blocksAt[k] = 1; });
+  sv.piecesPicked = {};
+  const seed = Object.assign({}, t.d.storage);
+  seed[sk] = JSON.stringify(sv);
+  t = open(seed);
+  t.reg["clue-" + entryId(e)].listeners.click[0]();
   const h1 = t.hints();
+  const g0 = t.chipsGot();
+  check(g0 === 1 && t.chipsLeft() === n - 1,
+    `fillsIn (${id}): one piece out fills one chip, the rest are still buttons (${g0} got, ${t.chipsLeft()} left of ${n})`);
+  if (g0 !== 1) continue;
 
-  // 3: the LAST piece first, out of order. The first tap only arms.
+  // 3: the LAST piece first, out of order.
   t.tapChip(n - 1);
-  // A last piece whose letters are all printed in the clue is free by
-  // elimination (blocksFree) and takes one tap; that road has its own test.
-  if (t.chipsGot() === 1) continue;
-  if (t.asking()) {
-    // A piece with a question asks it first, free (the blocks rung's own road);
-    // only "Just tell me" on it charges, through its own two taps.
-    check(t.hints() === h1 && t.chipsGot() === 0,
-      `chipAsks (${id}): a chip with a question asks it and charges nothing`);
+  const asked = t.asking();
+  if (asked) {
+    check(t.hints() === h1 && t.chipsGot() === g0,
+      `chipAsksFirst (${id}): a chip with a question asks it and charges nothing`);
     t.settle();
-  } else {
-    check(t.hints() === h1 && t.chipsGot() === 0 && /arm-cost/.test(t.formula()) && t.formula().includes(ARMED),
-      `firstChipArms (${id}): the first tap arms the chip and charges nothing`);
+  } else if (t.armedBtn() || /arm-cost/.test(t.formula())) {
+    check(t.formula().includes(ARMED), `chipAsksFirst (${id}): a costly chip arms and says so on itself`);
     t.tapChip(n - 1);
   }
-  check(t.hints() === h1 + 1 && t.chipsGot() === 1,
-    `firstChipArms (${id}): taking it without answering charges one: ${h1} -> ${t.hints()}`);
-  check(/The building blocks/.test(t.body()) && (t.body().match(/<li>/g) || []).length >= 1,
-    `oneChargeOnly (${id}): the blocks rung is up with the piece in it`);
-  t.tapChip(1);
-  check(t.hints() === h1 + 1 && t.chipsGot() === 2,
-    `oneChargeOnly (${id}): a second chip, in the middle, adds no hint`);
+  check(t.chipsGot() === g0 + 1 && t.hints() === h1,
+    `fillsIn (${id}): the last chip is taken, adding no hint beyond the rung: ${h1} -> ${t.hints()}`);
+  const got = (t.formula().match(/formula-chip got">([^<]*)</) || [])[1] || "";
+  check(got && !/^(piece|fodder|sound)( \d+)?$/.test(got) && t.formula().match(/formula-chip got">[^<]+</g).length === g0 + 1,
+    `fillsIn (${id}): a taken chip reads as its piece's text, not its blank (${got})`);
+  t.tapChip(g0);
+  t.settle();
+  check(t.chipsGot() === g0 + 2 && t.hints() === h1,
+    `fillsIn (${id}): a second chip, in the middle, adds no hint`);
   const next = t.row().find((b) => /^Next building block · /.test(b.textContent || ""));
-  check(next && next.textContent === `Next building block · 1 of ${n}`,
+  check(next && next.textContent === `Next building block · ${g0 + 2} of ${n}`,
     `noRepeat (${id}): next building block is the first piece not out: ${next && next.textContent}`);
 
-  // The rest by the rung's own button: still just the one hint.
+  // The rest by the rung's own button: still no new hint.
   for (let g = 0; g < n + 2; g++) {
     const b = t.row().find((x) => x.onclick && !x.disabled && /^Next building block · /.test(x.textContent || ""));
     if (!b) break;
     b.onclick();
     t.settle();
   }
-  check(t.hints() === h1 + 1 && t.chipsLeft() === 0 && t.chipsGot() === n,
-    `oneChargeOnly (${id}): every piece out by either road, still one hint: ${h1} -> ${t.hints()}`);
+  check(t.hints() === h1 && t.chipsLeft() === 0 && t.chipsGot() === n,
+    `noRepeat (${id}): every piece out by either road, still the rung's own hint: ${h1} -> ${t.hints()}`);
   const listed = (t.body().match(/<li>/g) || []).length;
   check(listed >= n, `noRepeat (${id}): the blocks rung lists the pieces (${listed} items for ${n} pieces)`);
 
@@ -143,7 +171,7 @@ for (const e of candidates.slice(0, 12)) {
   flushTimers(5000);
   const saved = Object.keys(t.d.storage).filter((k) => /^ct:/.test(k) && /piecesPicked/.test(t.d.storage[k]));
   const mask = saved.length ? Object.values(JSON.parse(t.d.storage[saved[0]]).piecesPicked || {})[0] : 0;
-  check((mask & (1 << (n - 1))) !== 0 && (mask & 2) !== 0,
+  check((mask & (1 << (n - 1))) !== 0,
     `saved (${id}): the picks are in the save (mask ${mask})`);
   done = true;
   break;
