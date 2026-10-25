@@ -594,8 +594,7 @@ check("a full read filed to --out over a puzzle held with every clue, or refused
       "(rank 2, answers-only first, a LOW prefix); not read since, with no answer read, answers-only, another refusal, "
       "held with a clue blank, or its copy adding nothing",
       [f.UNFILED_HELD, True, False, False, False, False, False, False, 2, True, True],
-      uh + [f.RANKS[f.UNFILED_HELD], f.UNFILED_HELD in f.SOLUTION_FIXES, f.UNFILED_HELD.startswith("solution short")])
-# A grid read 1-2 lights short at SURE_BLOCKS: before REREAD_UNLISTED, UNLISTED; read since, before
+      uh + [f.RANKS[f.UNFILED_HELD], f.UNFILED_HELD in f.SOLUTION_FIXES, f.UNFILED_HELD.startswith("solution short")])# A grid read 1-2 lights short at SURE_BLOCKS: before REREAD_UNLISTED, UNLISTED; read since, before
 # REREAD_VLM_UNLISTED, VLM_UNLISTED (the VLM's unlisted strip words stand since); after it, nothing.
 def vu_row(at, gap=1):
     return {"edition": "NewsUK1984UKEnglish/1984-05-01_61715", "readAt": at, "verdicts": [
@@ -2300,7 +2299,8 @@ check("another tool's filing takes no answers", {},
 # linked now is read from the solution grid alone (no clue OCR): the held file's
 # clues with the grid's answers, merged by decide() and never laid over by a
 # whole reading; the full read when the held file is short of a clue, another
-# tool's, from another page, answered already, or an answer differs from the grid's.
+# tool's, from another page, or answered already. A held answer the grid reads otherwise is
+# settled light by light (settle_held), not the whole reading refused.
 def lights_held(sols, tool=f.TOOL, url="u"):
     lights = [(1, "across", 0, 0, 3), (1, "down", 0, 0, 3), (2, "down", 2, 0, 3), (3, "across", 0, 2, 3)]
     return {"id": "times-1", "number": 1, "source": {"acquiredBy": tool, "url": url, "gridOrigin": "published"},
@@ -2335,7 +2335,29 @@ ao_held[0] = lights_held(["BAT", None, None, None])
 check("a held answer the grid reads alike stands", ["BAT", "BED", "TOE", "DOE"],
       [e["solution"] for e in f.answers_only(*ao_args)[1]["entries"]])
 ao_held[0] = lights_held(["BAD", None, None, None])
-check("a held answer the grid reads otherwise leaves it to the full read", None, f.answers_only(*ao_args))
+verdict, puzzle = f.answers_only(*ao_args)
+check("a held answer the grid reads otherwise, failing a crossing the grid's word fits, gives way to it (not the "
+      "whole reading refused: times-5432's AIDE for AIRS)",
+      (["BAT", "BED", "TOE", "DOE"], {"1-across": {"held": "BAD", "read": "BAT", "took": "read"}}),
+      ([e["solution"] for e in puzzle["entries"]], verdict["solution"]["heldClash"]))
+# Held words the grid reads as other words fitting every crossing give way too: the held answers are older
+# reads of the same grid (10-25: RIKSDAG for RIGSDAG, TITIS for TITUS, the reading right on every one).
+ao_held[0] = lights_held(["BAT", None, "TOE", None])
+ao_read[0] = {"1-across": "BAD", "1-down": "BED", "2-down": "DOE", "3-across": "DOE"}
+verdict, puzzle = f.answers_only(*ao_args)
+check("held words the grid reads as other listed words fitting every crossing give way; the other answers file",
+      (["BAD", "BED", "DOE", "DOE"], {"1-across": {"held": "BAT", "read": "BAD", "took": "read"},
+                                     "2-down": {"held": "TOE", "read": "DOE", "took": "read"}}),
+      ([e["solution"] for e in puzzle["entries"]], verdict["solution"]["heldClash"]))
+check("settle_held: a read answer crossing a kept held one on another letter goes with it",
+      ({"3-across": "DOE"}, {"1-across": "BAT"}),
+      f.settle_held(lights_held(["BAT", None, "TOE", None])["entries"],
+                    {"1-across": "BAD", "1-down": "ZED", "3-across": "DOE"})[:2])
+check("settle_held: a blog's held answer always stands", "held",
+      f.settle_held(lights_held(["BAD", None, None, None])["entries"],
+                    {"1-across": "BAT", "1-down": "BED", "2-down": "TOE"}, blog=True)[2]["1-across"]["took"])
+ao_held[0] = lights_held([None] * 4)
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
 ao_held[0] = lights_held([None] * 4)
 ao_read[0] = {"1-across": "BAT", "1-down": "XED"}
 check("two answers crossing on different letters leave it to the full read", None, f.answers_only(*ao_args))
