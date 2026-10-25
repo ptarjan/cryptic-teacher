@@ -5002,7 +5002,8 @@ def settle_held(entries, answers, enums=None, blog=False):
 
     Each clashing light takes the reading's answer when it is a listed word (worded, or a corpus
     answer) that fits every letter crossing it (each read answer's not itself clashing, else the
-    held answer's of a light not read); else it keeps the held one. The held answers are older
+    held answer's of a light not read), a letter it reads otherwise so crossed; else it keeps the
+    held one (unchecked letters are no evidence: times-7267's OOS for DOS, printed COS). The held answers are older
     code's reads of the same printed grid: on 10-25's dry run of 11 such Times lights the reading
     was right on every one, held words too (RIKSDAG for RIGSDAG, "rotten in the state"; TITIS for
     TITUS, "Andronicus"; SATED for SATYR, "Trays broken"). A blog's (`blog`, solutions.blog) always
@@ -5042,7 +5043,14 @@ def settle_held(entries, answers, enums=None, blog=False):
                 crossing.append((i, answers[j][ji]))
             elif was.get(j):
                 crossing.append((i, was[j][ji]))
-        better = not blog and listed(a, k) and all(a[i] == ch for i, ch in crossing)
+        # A letter the reading reads otherwise must be checked: a crossing letter there (of a light not
+        # itself clashing) agreeing with the read one. Read otherwise only on unchecked letters, the
+        # reading has no evidence over the held answer, which stands (10-25: times-7267's OOS for DOS,
+        # times-5693's BEAR for DEAR, their first letters unchecked, the printed answers COS and REAR;
+        # times-5432's AIRS for AIDE, its R checked by GOODWOODRACES, still gives way).
+        checked = {i for i, _ in crossing}
+        better = not blog and listed(a, k) and all(a[i] == ch for i, ch in crossing) \
+            and len(a) == len(h) and any(i in checked for i in range(len(a)) if a[i] != h[i])
         c["took"] = "read" if better else "held"
         if not better:
             out.pop(k, None)
@@ -7660,6 +7668,79 @@ def unfiled_held(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_HELD_CLASH whose linked solution grid's reading
+#: (solved()'s CROPS/solution_reads copy) reads a held answer otherwise, for a puzzle this tool holds from
+#: a printed grid (gridOrigin "published", no blog) with every clue and an answer short. answers_only
+#: refused the whole reading over one such light before settle_held (times-5432's AIDE for AIRS, every
+#: other new answer lost); since, the reading's word replaces the held one when listed, fitting every
+#: crossing, and a letter it reads otherwise checked (REREAD_HELD_CLASH: an unchecked one alone took
+#: times-7267's OOS for DOS, printed COS). Only OCR slips (each clashing light within CLASH_LETTERS
+#: letters of the held answer): a reading that differs on whole words is another puzzle's grid
+#: (times-11998 linked to July's solutions in November), not a misread. answers_only, once. 10-25: of
+#: 7,125 such Times files held short, 62 had a cached reading clashing, 52 of them as slips.
+HELD_CLASH = "solution short, a held answer its grid reads otherwise settled since"
+REREAD_HELD_CLASH = "2026-10-25T17:15:00+00:00"
+CLASH_LETTERS = 2
+#: {(held path, reading path, gale): ((held stamp, reading stamp), whether the reading clashes as a slip)}
+_HELD_CLASH = {}
+
+
+def slip_clash(held, read):
+    """Whether `read` ({"12-across": word}, a solution grid's reading) reads a held answer of puzzle
+    `held` otherwise, each such light within CLASH_LETTERS letters of the held word (same length)."""
+    was = {entry_id(e): e.get("solution") for e in held.get("entries") or ()}
+    clash = [(was[k], a) for k, a in read.items() if was.get(k) and a and a != was[k]]
+    return bool(clash) and all(len(h) == len(a) and sum(x != y for x, y in zip(h, a)) <= CLASH_LETTERS
+                               for h, a in clash)
+
+
+def held_clash_file(series, number, sol_dir, gale):
+    """Whether `series`' puzzle `number`, held by this tool off a printed grid (no blog) with every
+    clue filled and an answer short, from a Gale page when `gale` else an archive.org one (answers_only
+    reads only the held file's own page), has a held answer its linked solution grid's reading (the
+    solution page's edition dir name `sol_dir`) reads otherwise as a slip (slip_clash); parsed again
+    only when either stat moves."""
+    p = _HELD_PATH.get((series, number))
+    if p is None:
+        return False
+    q = CROPS / "solution_reads" / f"{sol_dir}_{number}.json"
+    stamp = (_stat_stamp(p), _stat_stamp(q))
+    if None in stamp:
+        return False
+    hit = _HELD_CLASH.get((p, q, gale))
+    if hit is None or hit[0] != stamp:
+        try:
+            held, read = json.loads(p.read_text()), json.loads(q.read_text()).get("answers") or {}
+        except (OSError, ValueError):
+            return False
+        es = held.get("entries") or ()
+        src = held.get("source") or {}
+        bad = bool(es) and src.get("acquiredBy") == TOOL and src.get("gridOrigin") == "published" \
+            and ("go.gale.com" in str(src.get("url") or "")) == gale \
+            and "blog" not in (held.get("solutions") or {}) and filled(held)[0] == len(es) \
+            and not all(e.get("solution") for e in es) and slip_clash(held, read)
+        hit = _HELD_CLASH[p, q, gale] = (stamp, bad)
+    return hit[1]
+
+
+def held_clash(row):
+    """Whether Times ledger `row`, read before REREAD_HELD_CLASH, has a verdict whose linked solution
+    grid's reading clashes with a held answer of a puzzle held_clash_file holds."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_HELD_CLASH)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    for v in row.get("verdicts", ()):
+        if not v.get("id") or v.get("refused") or not v.get("solutionFrom") \
+                or filed_state(paper.series, v.get("number")) != (False, True):
+            continue
+        if held_clash_file(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0],
+                           paper.key == GALE.key):
+            return True
+    return False
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -7711,6 +7792,8 @@ def fix_reason(row):
         return SUSPECT_HELD
     if unfiled_held(row):
         return UNFILED_HELD
+    if held_clash(row):
+        return HELD_CLASH
     if row.get("solutionKey") != solution_key():
         paper = paper_of(row.get("edition", "")).key
         for v in row.get("verdicts", ()):
@@ -8235,7 +8318,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2,
+         HEAVY_PRINT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -8742,7 +8825,8 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
-                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD)
+                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
+                  HELD_CLASH)
 
 
 def keeps_vlm(why, row, unit=None):
