@@ -14,7 +14,8 @@ Usage:
                                                  # the same walk in the other direction: N
                                                  # puzzles OLDER than the oldest we hold.
                                                  # Where more annotation work comes from.
-  python3 tools/fetch_puzzle.py --reindex        # rebuild puzzles/index.json + index.js
+  python3 tools/fetch_puzzle.py --reindex        # rebuild puzzles/index.json + index.js (CI only; locally
+                                                 # refused without CT_ALLOW_FULL_REINDEX=1 / --force-full)
   python3 tools/fetch_puzzle.py --reindex-changed  # same, re-reading only files newer than the index
                                                  # from the puzzle files already on disk
   python3 tools/fetch_puzzle.py --reindex-from-deploy  # the live site's (CI-built) index, re-making
@@ -3180,6 +3181,21 @@ def warm_rows(i, n):
     print(f"warmed {len(paths)} puzzle file(s), slice {i}/{n}")
 
 
+#: A local rebuild that finds more missing index rows than this is a cold
+#: rebuild (~63k rows, ~2000 CPU-s), not a tick: it stops unless allowed.
+FULL_SCAN_MISSES = 5000
+FULL_SCAN_ADVICE = (
+    "A full rebuild of the puzzle index costs ~2000 CPU-s. Use one of:\n"
+    "  tools/low_cpu.sh python3 tools/fetch_puzzle.py --reindex-from-deploy   (the live CI index + what changed)\n"
+    "  python3 tools/fetch_puzzle.py --reindex-changed                        (only files newer than the index)\n"
+    "Only if a full local scan is really wanted: CT_ALLOW_FULL_REINDEX=1 (or --force-full).")
+
+
+def full_reindex_allowed():
+    """CI (free minutes) and an explicit CT_ALLOW_FULL_REINDEX=1 may rebuild every row."""
+    return bool(os.environ.get("GITHUB_ACTIONS") or os.environ.get("CT_ALLOW_FULL_REINDEX"))
+
+
 def reindex():
     """Rebuild puzzles/index.json and index.js from the puzzle files on disk.
 
@@ -3196,6 +3212,18 @@ def reindex():
     # puzzles need not pay for 57k. Ratings are relative to the whole corpus, so
     # a scoped index carries none.
     only = {i for i in os.environ.get("CT_REINDEX_IDS", "").split(",") if i}
+    import row_cache
+    if only:
+        puzzles = [index_row(f) for f in puzzle_files() if f.stem in only]
+    else:
+        # The rows first, so the miss guard stops a local cold rebuild before
+        # the (also expensive) corpus-wide scoring starts.
+        try:
+            puzzles = row_cache.cached_map("fetch_puzzle", index_row, puzzle_files(),
+                                           roots={"index_row_deps"}, deps=index_row_deps,
+                                           max_miss=None if full_reindex_allowed() else FULL_SCAN_MISSES)
+        except row_cache.TooManyMisses as err:
+            raise SystemExit(f"refusing a local full scan: {err}.\n{FULL_SCAN_ADVICE}")
     try:
         if only:
             raise RuntimeError("scoped index")
@@ -3208,12 +3236,6 @@ def reindex():
         print(f"difficulty scoring skipped: {type(err).__name__}: {err}")
         ratings, snitch = {}, {}
 
-    import row_cache
-    if only:
-        puzzles = [index_row(f) for f in puzzle_files() if f.stem in only]
-    else:
-        puzzles = row_cache.cached_map("fetch_puzzle", index_row, puzzle_files(),
-                                       roots={"index_row_deps"}, deps=index_row_deps)
     big = puzzle_tags.big_grids([(row["id"], row["series"], row.pop("area")) for row in puzzles])
     import renamed_ids
     reprints = reprint_rows(puzzles, renamed_ids.read())
@@ -3869,6 +3891,11 @@ def main(argv):
         print(__doc__)
         return 0
     if argv[0] == "--reindex":
+        if "--force-full" in argv[1:]:
+            os.environ["CT_ALLOW_FULL_REINDEX"] = "1"
+        if not (full_reindex_allowed() or os.environ.get("CT_REINDEX_IDS")):
+            print(f"refusing a plain --reindex on this machine.\n{FULL_SCAN_ADVICE}", file=sys.stderr)
+            return 2
         index = reindex()
         print(f"indexed {len(index['puzzles'])} puzzle(s); latest = {index['latest']}")
         return 0

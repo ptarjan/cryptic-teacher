@@ -814,6 +814,7 @@ LAYOUT = [
     ("annotating", "tools/hint_rungs.js", "the hint rungs the app shows, as JSON, for tools that compare them with something"),
     ("annotating", "tools/prereset_watch.sh", "what the */5 fire of the pre-reset burn checks before it tries to start one"),
     ("annotating", "tools/test_prereset_watch.sh", "does tools/prereset_watch.sh see a burn that is alive but stuck, and one that is dead with orphans holding its tree lease?"),
+    ("annotating", "tools/test_full_reindex_ban.py", "is a full local cold rebuild of the puzzle index impossible by accident: plain --reindex refused outside CI without CT_ALLOW_FULL_REINDEX=1 / --force-full, and reindex() stopping when more than 5,000 index rows miss the row cache?"),
     ("annotating", "tools/test_reindex_changed.py", "does fetch_puzzle.reindex_changed() re-read only the puzzle files newer than the index, and fall back to the full reindex when there is no index?"),
     ("annotating", "tools/test_spelling_kept.py", "does a re-annotation that drops the spelling HEAD's annotation of the same answer carries (book-26021 22D lost APERÇU) get refused by the run's check against HEAD?"),
     ("annotating", "tools/unchecked_repairs.py", "mechanical repairs for an unchecked wordplay tree (wordless leaves, unscrambled fodder), each kept only when the evaluator then finds the answer, so tools/clear_unchecked.py can clear more flags"),

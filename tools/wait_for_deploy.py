@@ -78,8 +78,11 @@ def shipped_index_stamp(head):
         # the glossary first, because the stamps hash it.
         for step in (["tools/build_abbreviations.py"],
                      ["tools/fetch_puzzle.py", "--reindex"]):
+            # Deliberately the full build CI makes, to compare byte for byte:
+            # the one local caller that is allowed to (row-cache hits mostly).
             run = subprocess.run([sys.executable, *step], cwd=tmp,
-                                 capture_output=True, text=True)
+                                 capture_output=True, text=True,
+                                 env={**os.environ, "CT_ALLOW_FULL_REINDEX": "1"})
             if run.returncode:
                 raise RuntimeError(f"{' '.join(step)} failed building the index to "
                                    f"compare: {(run.stderr or run.stdout).strip()[-400:]}")
