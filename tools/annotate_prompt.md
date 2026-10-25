@@ -190,7 +190,9 @@ Four first runs in ten fail, mostly on these:
 
 - `definitionFit` needs 25+ characters and a content word in neither the definition nor
   the answer. Name the relation (synonym, example, crossword-only sense, idiom); don't
-  read the definition back with the answer in it.
+  read the definition back with the answer in it. Start with the relation itself: the page
+  already prints "definition → ANSWER:" before your sentence, so never begin with
+  "definition -> ANSWER:" yourself.
 - An indicator's note needs 25+ characters and words beyond the indicator's own: why
   these words signal that operation in this clue, not what the device does in general.
   It comes before the pieces, so it never names a piece's letters or the answer:
