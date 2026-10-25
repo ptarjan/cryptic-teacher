@@ -177,6 +177,15 @@ check("... its number a line under (1980-08-07)", [15294],
 check("... three RapidOCR phrases, a clue beside (1973-02-24)", [13313],
       host_reads([[(634, 4769, 849, 4820, "The Solution of")], [(667, 4820, 818, 4868, "Puzzle No.")],
                   [(705, 4875, 791, 4910, "13,313")], [(224, 4787, 560, 4835, "Wildly with a bad road (9).")]], 13313))
+check("... its dot leader glued to its number, the next column run on (1962-07-28)", [10052],
+      host_reads([line("Does the little pet stir ? (5). SE SOLUTION OF PUZZLE No. 10,052.... Era")], 10053))
+check("... a speck before its number (1964-02-12, 1965-02-18), a dash and dots glued on (1963-05-27)",
+      [[10530], [10846], [10308]],
+      [host_reads([line("Solution of Puzzle No. 1 10,530 Unriva")], 10531),
+       host_reads([line("Solution OF.PUZZLE No..1 10,846")], 10847),
+       host_reads([line("Solution OF PUZZLE.No.-10,308..- Trustees' Sale")], 10309)])
+check("... its 'Puzzt' not read as a number (u 0, z 2, t 1: 10221) before the number it prints (1964-02-12)",
+      [10530], host_reads([line("SoL.uTioN OF Puzzt No. 10,530 Unrive")], 10531))
 check("... a title line alone is none", [], host_reads([line("Puzzle No 13,313")], 13313))
 check("... nor an article's 'solution' over one", [],
       host_reads([line("a solution to the crisis"), line("Puzzle No 13,313", y=120)], 13313))
@@ -329,7 +338,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._PRIZE_HEADINGS_FIX[gt.key][:2],
                                                                       *f._BAND_WIDTH_FIX[gt.key][:2],
                                                                       *f._GRID_CAP_FIX[gt.key][:2],
-                                                                      *f._NEG_EXPECTED_FIX[gt.key][:2]},
+                                                                      *f._NEG_EXPECTED_FIX[gt.key][:2],
+                                                                      *f._DOT_LEADER_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -1630,7 +1640,7 @@ check("a Gale Times day of mid-2005 to mid-2006 scanned before the wider SOLUTIO
       [f.scan_current(_wide, "h"), f.scan_current({**_wide, "edition": "GaleTimes2004UKEnglish/2004-09-06"}, "h"),
        f.scan_current({**_wide, "edition": "GaleTimes2007UKEnglish/2007-09-05"}, "h"),
        f.scan_current({**_wide, "scanKey": f.scan_key(f.GALE)}, "h"),
-       all(f.CORPUS_KEYS[v[0]] == {p: f._NEG_EXPECTED_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
+       all(f.CORPUS_KEYS[v[0]] == {p: f._DOT_LEADER_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
 _gk2 = f._GRID_CAP_FIX["gale"]
 _wide2 = {"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _gk2[0], "filesHash": "h", "scan": {}}
 check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's cap grew with the page is due "
@@ -1641,12 +1651,18 @@ check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's
        f.scan_current({**_wide2, "edition": "GaleTimes2007UKEnglish/2007-03-16"}, "h"),
        f.scan_current({**_wide2, "scanKey": f.scan_key(f.GALE)}, "h")])
 check("every paper's pinned scan key after the grid cap fix is the one the negative-expected fix "
-      "pins over, whose pinned key is its real scan key, and both fixes' old keys stand under it", [True, True, True],
+      "pins over, its pinned key the one the dot-leader fix pins over, whose pinned key is its real scan key, "
+      "and the three fixes' old keys stand under it", [True, True, True, True],
       [all(v[2] == f._NEG_EXPECTED_FIX[k][0] for k, v in f._GRID_CAP_FIX.items()),
+       all(v[2] == f._DOT_LEADER_FIX[k][0] for k, v in f._NEG_EXPECTED_FIX.items()),
        all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
-           for k, v in f._NEG_EXPECTED_FIX.items()),
-       all(f.CORPUS_KEYS[o] == {k: f._NEG_EXPECTED_FIX[k][2]}
-           for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX) for k, v in t.items() for o in v[:2])])
+           for k, v in f._DOT_LEADER_FIX.items()),
+       all(f.CORPUS_KEYS[o] == {k: f._DOT_LEADER_FIX[k][2]}
+           for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX) for k, v in t.items() for o in v[:2])])
+_dk = f._DOT_LEADER_FIX["gale"]
+check("a Gale Times scan made before the dot-leader fix stands, a BAND_RESCAN day's too", [True, True],
+      [f.scan_current({"edition": "GaleTimes1962UKEnglish/1962-07-28", "scanKey": _dk[0], "filesHash": "h", "scan": {}}, "h"),
+       f.scan_current({"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _dk[0], "filesHash": "h", "scan": {}}, "h")])
 _wp, _np = Image.new("L", (4664, 10), 255), Image.new("L", (f.SCAN_WIDTH, 10), 255)
 check("a solution grid 510 wide at SCAN_WIDTH is shaped on a 4664 px page (the cap grows with it), not on a "
       "3296 px page, and a puzzle's 1070 on neither", [True, False, False, False],
