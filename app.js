@@ -743,7 +743,13 @@
             `${b.row.was}${b.row.volume}-${b.position}`];
   }
 
+  // INDEX.partial: index-core.js was loaded (no puzzle list yet). The page then
+  // draws the puzzle it names from the puzzle's own file (fastOpen, below) and
+  // the full puzzles/index.js, loaded async, completes these tables later
+  // (completeIndex), when the rest of the boot runs.
   const IS_ID = {}, BY_NUMBER = {}, BY_ID = {}, ALIAS = {};
+  const REPRINTS_OF = {};
+  function buildTables() {
   INDEX.puzzles.forEach((p) => {
     IS_ID[p.id] = 1;
     BY_ID[p.id] = p;
@@ -760,12 +766,13 @@
   // A reprint is the original under another paper's number and date, so its id
   // opens the original, and progress saved under it moves there. REPRINTS_OF
   // holds each original's reprints, newest first, for the line saying so.
-  const REPRINTS_OF = {};
   (INDEX.reprints || []).forEach((r) => {
     if (!BY_ID[r.reprintOf]) return;
     ALIAS[r.id] = r.reprintOf;
     (REPRINTS_OF[r.reprintOf] = REPRINTS_OF[r.reprintOf] || []).push(r);
   });
+  }
+  buildTables();
   // Whether /puzzles/<id>/ exists: build_seo_pages.py writes one for every
   // listed puzzle with answers.
   const hasPage = (p) => !!(p && p.hasSolutions && !p.unlisted);
@@ -8867,6 +8874,28 @@
       focusKbd(); refreshAll();
     });
 
+    // Partial index: draw the puzzle the URL (or the last one) names from its
+    // own file now, and run the rest of the boot once the full index is in.
+    if (INDEX.partial) {
+      fastOpen(() => {
+        if (window.ctFullIndex) completeIndex();
+        else window.ctOnFull = completeIndex;
+      });
+    } else {
+      bootWithIndex();
+    }
+
+    function completeIndex() {
+      window.ctOnFull = null;
+      const full = window.ctFullIndex;
+      if (!full || !full.puzzles) return;
+      Object.assign(INDEX, full, { partial: false });
+      window.CRYPTIC_INDEX = INDEX;
+      buildTables();
+      bootWithIndex();
+    }
+
+    function bootWithIndex() {
     if (!INDEX.puzzles.length) {
       $("puzzle-title").textContent = "No puzzles found — run tools/fetch_puzzle.py first.";
       showApp();
@@ -8907,7 +8936,16 @@
         showApp();
         return;
       }
-      openPuzzle(want, !!asked);
+      if (fast.id === want) {
+        // Already on screen from its own file, with a row made from that file.
+        // The real row may know more (tags, style): draw again only then.
+        const real = BY_ID[want], key = (m) => JSON.stringify([m.annotated, m.tags, m.style, m.solutionsUnofficial, m.unlisted]);
+        const differs = !!real && key(real) !== key(meta);
+        if (asked) pointUrlAtPuzzle(want);
+        if (differs) openPuzzle(want, false); else if (real) meta = real;
+      } else {
+        openPuzzle(want, !!asked);
+      }
       // Everything below is after the first paint on purpose. The pull is a
       // network round trip and the solver should be looking at yesterday's
       // letters while it happens, not a blank page; if it brings anything new,
@@ -8923,6 +8961,35 @@
         if (!$("picker-panel").classList.contains("hidden")) renderPicker();
       });
     });
+    }
+  }
+
+  // The puzzle the address names (?p=), or else the one played last, drawn
+  // from its own file before puzzles/index.js (2 MB) has arrived. `fast.id` is
+  // set only when it was drawn; any miss (an old spelling of an id, a reprint,
+  // offline with nothing cached) leaves the normal boot to open it. The
+  // unversioned .gz is what sw.js serves network-first, cache when offline.
+  const fast = { id: null };
+  function fastOpen(done) {
+    const raw = new URLSearchParams(location.search).get("p") || store.get("ct:last", null);
+    if (!raw || !/^[A-Za-z0-9_.-]+$/.test(raw) || !window.fetch || location.hash) return done();
+    window.fetch(at("puzzles/" + raw + ".js.gz"), { cache: "no-cache" })
+      .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.arrayBuffer(); })
+      .then(unzipText)
+      .then((text) => {
+        new Function("window", text)(window);
+        const puz = window.CRYPTIC_PUZZLES[raw];
+        if (!puz) return;
+        const all = puz.entries || [];
+        BY_ID[raw] = { id: raw, number: puz.number, series: puz.series, name: puz.name, file: raw + ".js",
+          ...(puz.setter ? { setter: puz.setter } : {}),
+          ...(puz.date ? { date: puz.date } : {}), ...(puz.year ? { year: puz.year } : {}),
+          annotated: all.length > 0 && all.every((e) => e.annotation), unlisted: false };
+        fast.id = raw;
+        openPuzzle(raw, false);
+      })
+      .catch(() => { fast.id = null; delete window.CRYPTIC_PUZZLES[raw]; })
+      .then(done);
   }
 
   // ---------- offline ----------

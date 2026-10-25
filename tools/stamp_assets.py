@@ -37,7 +37,7 @@ SITE = "https://cryptic.paultarjan.com/"
 # ones; both forms are stamped, so the same file is one cache entry either way.
 ASSETS = ["style.css", "app.js", "analytics.js", "landing.js", "appnav.js", "abbreviations.js", "qr.js", "quotes.js", "sync/merge.js",
           "sync/events.js",
-          "puzzles/index.js",
+          "puzzles/index.js", "puzzles/index-core.js",
           "og.png", "favicon.svg", "favicon.ico", "apple-touch-icon.png"]
 
 
