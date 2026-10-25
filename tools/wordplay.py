@@ -233,6 +233,17 @@ class _Parser:
             return leaf
         m = re.compile(r"[A-Za-z]+").match(self.s, self.i)
         if not m:
+            c = self.s[self.i:self.i + 1]
+            if c == "<":
+                self.fail("expected [clue words], LETTERS, '(' or an op; an <indicator> sits right after the "
+                          "op or '+' it signals, never before a piece: ins<in>(A, B), or A +<after> B")
+            if c.isdigit():
+                self.fail("expected [clue words], LETTERS, '(' or an op; first/last take no count "
+                          "(first<ind>([words]) picks one letter, each word's first over a list): write the "
+                          "letters picked as a leaf, [arbiters]JUD, or nth(3)(x) for the nth letter")
+            if c == "":
+                self.fail("expected [clue words], LETTERS, '(' or an op; a '+' (or '+<indicator>') needs "
+                          "the piece it joins after it: A + B, or A +<after> B")
             self.fail("expected [clue words], LETTERS, '(' or an op")
         word = m.group()
         after = self.s[m.end():].lstrip()
@@ -324,6 +335,80 @@ def fodder_pool(node):
     evaluate()'s result."""
     parts = parts_of(node)
     return parts[0] if len(parts) == 1 else {"op": "charade", "parts": parts}
+
+
+def _masked(text):
+    """`text` with the inside of every [..], <..> and ".." blanked to 'x' (same length), so
+    the structure characters left are the expression's own."""
+    out, close = [], None
+    for ch in text:
+        if close:
+            out.append(ch if ch == close else "x")
+            close = None if ch == close else close
+        elif ch in "[<\"":
+            out.append(ch)
+            close = {"[": "]", "<": ">", '"': '"'}[ch]
+        else:
+            out.append(ch)
+    return "".join(out)
+
+
+def _top_level(masked, sep):
+    """Offsets of `sep` in `masked` outside every bracket pair."""
+    depth, hits = 0, []
+    for i, ch in enumerate(masked):
+        depth += ch == "(" or -(ch == ")")
+        if ch == sep and depth == 0:
+            hits.append(i)
+    return hits
+
+
+def _pieces(text, masked, sep):
+    cuts = [-1] + _top_level(masked, sep) + [len(text)]
+    return [text[a + 1:b].strip() for a, b in zip(cuts, cuts[1:])]
+
+
+_PREFIX_PLUS = re.compile(r"\+\s*(<[^<>]*>(?:\s*<[^<>]*>)*)\s*\(")
+
+
+def mend_charade_indicator(text):
+    """`text` with a charade indicator written the way the parser does not take it, said
+    in the one way it does; None when `text` has no such slip. Only the syntax moves: the
+    pieces, their order and every word stay, and the answer still decides whether the
+    result is right (translate checks it). Two slips, both 'the order word of a charade':
+      A + B + +<after>C      the doubled '+' (the indicator IS the join): A + B +<after> C
+      +<after>(A, B)         the join written as a prefix op over its pieces, comma list or
+      +<after>(A + B)        a sum: (A +<after> B), the pieces nested when they are sums."""
+    masked = _masked(text)
+    changed = False
+    # the doubled '+': the first one is the join's, the second only repeats it
+    while (m := re.search(r"\+\s*(?=\+\s*<)", masked)):
+        text, masked = text[:m.start()] + text[m.end():], masked[:m.start()] + masked[m.end():]
+        changed = True
+    # the prefix op: the last one first, so a nested one is mended before its parent
+    for m in reversed(list(_PREFIX_PLUS.finditer(masked))):
+        if masked[:m.start()].rstrip()[-1:] not in ("", "(", ","):
+            continue            # `A +<after>(B + C)` is a join with a bracketed piece: it parses
+        inner_at, depth, j = m.end(), 1, m.end()
+        while j < len(masked) and depth:
+            depth += masked[j] == "(" or -(masked[j] == ")")
+            j += 1
+        if depth:
+            continue
+        body, mbody = text[inner_at:j - 1], masked[inner_at:j - 1]
+        args = _pieces(body, mbody, ",")
+        if len(args) == 1:
+            args = _pieces(body, mbody, "+")        # +<ind>(a + b): the sum's pieces
+            keep = False
+        else:
+            keep = True                             # +<ind>(a, b): each arg stays one piece
+        if len(args) < 2 or not all(args):
+            continue
+        parts = [f"({a})" if keep and _top_level(_masked(a), "+") else a for a in args]
+        joined = f"({parts[0]} +{text[m.start(1):m.end(1)]} " + " + ".join(parts[1:]) + ")"
+        text, masked = text[:m.start()] + joined + text[j:], masked[:m.start()] + _masked(joined) + masked[j:]
+        changed = True
+    return text if changed else None
 
 
 def parse(text, clue=None):
