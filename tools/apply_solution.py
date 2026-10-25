@@ -556,7 +556,18 @@ def main():
     # stamping its own name would erase which fetcher that was. What this tool
     # did is recorded in the solutions detail, above.
     puzzle = provenance.with_solution_detail(puzzle, detail)
-    path = write_puzzle_file(path, puzzle, generator=generator)
+    try:
+        path = write_puzzle_file(path, puzzle, generator=generator)
+    except ValueError as e:     # puzzle_integrity.RefusedWrite (it imports this module)
+        if type(e).__name__ != "RefusedWrite" or "retrieved from a blog" not in str(e):
+            raise
+        # Not a failure and not a crash: a blog's write-up is the answer key, so
+        # the lights it left out stay blank in the file by design. The fill passed
+        # every check; the annotation run states those answers in its own file.
+        print("not written: the puzzle was retrieved from a blog, whose write-up is the answer key,")
+        print("so a model fill never goes into the puzzle file. The fill checked clean:")
+        print("the lights the blog left out stay blank there; give their answers in the _ann file.")
+        return
     print(f"wrote {len(puzzle['entries'])} solutions into {path} (marked unofficial)")
     if not args.no_reindex:
         reindex()
