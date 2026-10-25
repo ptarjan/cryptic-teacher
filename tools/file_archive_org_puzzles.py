@@ -4778,7 +4778,12 @@ def unlisted_word(word, pattern, probs, enum):
     enumeration `enum` counts its letters (a linked light's "See 8" has none), and no listed
     word, of the light or of a piece of its enumeration, differs from it in one letter no
     crossing holds (trove_solution_ocr.one_away; answers_only's misread_word drops such a
-    word anyway)."""
+    word anyway). A piece of a phrase is so tried only when it is no word itself (piece_listed) and
+    longer than PIECE_SHORT: a listed piece is one letter off another as often as any listed word is,
+    which vlm_word takes outright, and nearly every string of 1-3 letters lies one off some word.
+    10-25: 12 Times phrase strips stood refused so after their rereads, the classifier reading every
+    letter at 0.74+ (FEMME DE CHAMBRE's DE, UN-ENGLISH's UN, ST SWITHINS DAY's ST, ARNOLD BAX's BAX, ECO-
+    LABELLING's ECO); 11 now stand, each right by its clue, and DEFINATE ARTICLE stays refused."""
     parts = [int(x) for x in re.findall(r"\d+", enum or "")]
     if not parts or sum(parts) != len(word):
         return False
@@ -4789,19 +4794,26 @@ def unlisted_word(word, pattern, probs, enum):
         return False
     at = 0
     for size in (parts if len(parts) > 1 else ()):
-        span = list(range(at, at + size))
-        if trove_solution_ocr.one_away(word[at:at + size], span, held):
-            return False
+        span, piece = list(range(at, at + size)), word[at:at + size]
         at += size
+        if size <= PIECE_SHORT or trove_solution_ocr.piece_listed(piece, True):
+            continue
+        if trove_solution_ocr.one_away(piece, span, held):
+            return False
     return True
 
 
-def vlm_lights(answers, strips, grid, enums):
+#: unlisted_word: the longest piece of a phrase not tried one letter off a listed word.
+PIECE_SHORT = 3
+
+
+def vlm_lights(answers, strips, grid, enums, asked=None):
     """(answers with the VLM's words added, {light: word} it gave): each light of `strips` (the
     cells of a light the grid's reading left, trove_solution_ocr.light_strip's PNGs) asked about
     once, as its row of squares with the letters its accepted crossings hold; the word stands
     by vlm_word(). An ask the spool or the server did not answer leaves its light as it was (the
-    read ends deferred, and runs again once the drainer has answered)."""
+    read ends deferred, and runs again once the drainer has answered). `asked` (a dict) gets
+    {light: reply} of every ask answered, taken or not (answers_only's rejudged)."""
     import base64
     import io
     from PIL import Image
@@ -4828,6 +4840,8 @@ def vlm_lights(answers, strips, grid, enums):
                                 prompt.format(count=len(cells), shape=shape, known=known), max_tokens=40)
         except RuntimeError:  # spooled, or the server is down: asked again when the read runs again
             continue
+        if asked is not None:
+            asked[lid] = reply
         word = vlm_word(reply, pattern, sizes, strip["p"], enums.get((int(n), dr)))
         if word:
             got[lid] = word
@@ -4996,8 +5010,9 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         return verdict, None
     # The cells of the few lights the grid's reading left: the VLM is asked each one's word.
     strips = info.pop("strips", None)
+    asked = {}
     if strips and ask_vlm and vlm.wanted():
-        answers, by_vlm = vlm_lights(answers, strips, grid, enums)
+        answers, by_vlm = vlm_lights(answers, strips, grid, enums, asked)
         if by_vlm:
             info = {**info, "vlmLights": sorted(by_vlm), "accepted": info.get("accepted", 0) + len(by_vlm)}
     # A reading at odds with itself (an answer its light's length does not fit, two crossing on different
@@ -5008,6 +5023,10 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     answers, info, clash = checked_answers(es, answers, grid, enums, info, solution_crop(sol, number),
                                            crossed=crossed, every=bool(hit.get("heldTitle")),
                                            blog="blog" in (old.get("solutions") or {}))
+    if asked:
+        answers, info = rejudged(es, answers, info, asked, strips, grid, enums, solution_crop(sol, number),
+                                 crossed=crossed, every=bool(hit.get("heldTitle")),
+                                 blog="blog" in (old.get("solutions") or {}))
     if ask_vlm:
         answers, info = late_strips(es, answers, info, strips or {}, grid, enums, solution_crop(sol, number),
                                     crossed=crossed, every=bool(hit.get("heldTitle")),
@@ -5050,6 +5069,50 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
 #: ask is of a whole reading's last lights, not a held file's). 10-25: 769 Times puzzles read on that
 #: day's code stood 1-16+ short with no ask at all; 401 of them held 3-5 blanks (WIDE_STRIPS).
 LATE_MAX = 5
+
+
+def rejudged(entries, answers, info, asked, strips, grid, enums, crop, crossed=True, every=False, blog=False):
+    """(answers, info) of answers_only's checked reading `answers` of a held puzzle's `entries` with the
+    VLM's words of `asked` ({light: reply}, vlm_lights') taken that vlm_lights threw away, judged again
+    (vlm_word, the strip's `strips` probabilities) on the crossings as they stand after the checks: the
+    held answers', then the checked reading's. vlm_lights judges each word on the grid's raw reading,
+    whose misread crossing (checked_answers settles it to the held letter, or drops it) refuses the
+    right word, and late_strips cuts no strip for a light that has one. A word stands only where the
+    answers-only checks (checked_answers) keep it beside the rest, every other answer as it was; no
+    ask is made. 10-25: 9 Times lights of 1-2-short files stood so after their rereads, each right by
+    its clue (FORMOSA refused on the reading's P?R?O?A, held F?R?O?A; BRITAIN on S?I?A?N, TERRORIST on
+    T?R?O?L?T)."""
+    held = {entry_id(e): e["solution"] for e in entries if e.get("solution")}
+    known = {**held, **answers}
+    lts = trove_solution_ocr.lights(grid)
+    letters = {}
+    for lid, w in known.items():
+        for rc, ch in zip(lts.get(_light_key(lid), ()), w):
+            letters[rc] = ch
+    by = {}
+    for lid, reply in sorted(asked.items()):
+        if lid in known or lid not in strips:
+            continue
+        key = _light_key(lid)
+        cells = lts.get(key)
+        if not cells:
+            continue
+        pattern = "".join(letters.get(rc, "?") for rc in cells)
+        word = vlm_word(reply, pattern, trove_solution_ocr.pieces_of(enums.get(key), len(cells)), strips[lid]["p"],
+                        enums.get(key))
+        if word:
+            by[lid] = word
+            letters.update(zip(cells, word))
+    if not by:
+        return answers, info
+    checked, _, _ = checked_answers(entries, {**answers, **by}, grid, enums, {}, crop, crossed=crossed,
+                                    every=every, blog=blog)
+    took = {k: w for k, w in by.items() if checked.get(k) == w}
+    if not took:
+        return answers, info
+    info = {**info, "vlmLights": sorted(set(info.get("vlmLights") or ()) | set(took)), "rejudged": sorted(took),
+            "accepted": info.get("accepted", 0) + len(took)}
+    return {**answers, **took}, info
 
 
 def late_strips(entries, answers, info, strips, grid, enums, crop, crossed=True, every=False, blog=False):
@@ -7788,6 +7851,16 @@ _LATE_STRIPS = {}
 #: stood short with no ask and no unit planned. Once, as an answers-only reread (SOLUTION_FIXES).
 WIDE_STRIPS = "solution short, its 3-5 last lights' strips cut since"
 REREAD_WIDE_STRIPS = "2026-10-25T19:55:00+00:00"
+#: The due reason of a Times row read since REREAD_VLM_UNLISTED, before REREAD_VLM_REJUDGED, due none of
+#: those above, 1 to STRIP_MAX short, whose reading kept a strip of a light its held file leaves blank
+#: (floor_short): since then answers_only judges the VLM's word for such a strip again on the checked
+#: crossings (rejudged), and unlisted_word takes a phrase whose short or listed piece lies one letter
+#: off a word (PIECE_SHORT). 10-25 22:40Z: 321 Times puzzles linked to their solution grid stood 1-2
+#: short with no unit planned, every one read since the last of those stamps; 255 of their blank lights
+#: had a strip and a cached VLM reply, 9 refused on a misread crossing and 12 phrases on a short piece.
+#: Once, as an answers-only reread (SOLUTION_FIXES); the VLM's replies are cached, so it asks nothing new.
+VLM_REJUDGED = "solution short, its VLM word judged on the checked crossings"
+REREAD_VLM_REJUDGED = "2026-10-25T23:15:00+00:00"
 
 
 def strip_missing(series, number, sol_dir, most=None):
@@ -7852,7 +7925,8 @@ def short_again(row):
     read since REREAD_VLM_UNLISTED, before REREAD_LATE_STRIPS, not due so, whose held file leaves a light
     blank with no strip (late_short); WIDE_STRIPS for one read since REREAD_UNLISTED, before
     REREAD_WIDE_STRIPS, due none of those, whose held file leaves up to LATE_MAX lights blank, one with
-    no strip."""
+    no strip; VLM_REJUDGED for one read since REREAD_VLM_UNLISTED, before REREAD_VLM_REJUDGED, due none of
+    those, whose reading kept a strip of a light left blank (floor_short)."""
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
         return None
@@ -7860,6 +7934,9 @@ def short_again(row):
     if (why is None and scan_queue.read_before(row, scan_queue.when(REREAD_WIDE_STRIPS))
             and not scan_queue.read_before(row, scan_queue.when(REREAD_UNLISTED)) and late_short(row, paper, LATE_MAX)):
         return WIDE_STRIPS
+    if (why is None and scan_queue.read_before(row, scan_queue.when(REREAD_VLM_REJUDGED))
+            and not scan_queue.read_before(row, scan_queue.when(REREAD_VLM_UNLISTED)) and floor_short(row, paper)):
+        return VLM_REJUDGED
     return why
 
 
@@ -8839,7 +8916,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -9349,7 +9426,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
-                  HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING)
+                  HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, VLM_REJUDGED)
 
 
 def keeps_vlm(why, row, unit=None):

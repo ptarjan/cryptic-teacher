@@ -737,6 +737,37 @@ ls_out = [f.late_strips(ls_es, {}, {"a": 1}, {}, [], {}, Path(__file__)),
 f.trove_solution_ocr.crop_strips = real_cs
 check("late_strips: 6 blank lights (over LATE_MAX), or every blank one's strip cut already, cuts nothing and keeps "
       "the reading", [({}, {"a": 1}), ({"1-across": "ABC"}, {"a": 1}), []], ls_out + [ls_cut])
+# A held file 1-2 short, a blank light's strip kept, read since REREAD_LATE_STRIPS (due nothing else): VLM_REJUDGED
+# until REREAD_VLM_REJUDGED; with no such strip, or 3+ short, nothing.
+f.filed_state = lambda series, n: (False, True)
+real_sm, real_sb = f.strip_missing, f.strip_blank
+f.strip_missing = lambda series, n, sol_dir, most=None: False
+f.strip_blank = lambda series, n, sol_dir: True
+vr = [f.short_again(vu_row("2026-10-25T21:00:00+00:00")), f.short_again(vu_row("2026-10-25T21:00:00+00:00", gap=4)),
+      f.short_again(vu_row("2026-10-26T00:00:00+00:00")), f.short_again(vu_row("2026-10-25T15:00:00+00:00"))]
+f.strip_blank = lambda series, n, sol_dir: False
+vr.append(f.short_again(vu_row("2026-10-25T21:00:00+00:00")))
+f.strip_missing, f.strip_blank = real_sm, real_sb
+f.filed_state = real_fs
+check("a held file 1-2 short with a blank light's strip kept, read since REREAD_LATE_STRIPS: VLM_REJUDGED until "
+      "REREAD_VLM_REJUDGED (rank 2, answers-only, a LOW prefix); VLM_FLOOR_SHORT "
+      "where that is due; not 3+ short, nor with no such strip",
+      [f.VLM_REJUDGED, None, None, f.VLM_FLOOR_SHORT, None, 2, True, True],
+      vr + [f.RANKS[f.VLM_REJUDGED], f.VLM_REJUDGED in f.SOLUTION_FIXES, f.VLM_REJUDGED.startswith("solution short")])
+# rejudged: a VLM word vlm_lights threw away on the reading's misread crossing stands on the checked one.
+real_ca, real_lts = f.checked_answers, f.trove_solution_ocr.lights
+f.checked_answers = lambda entries, answers, grid, enums, info, crop=None, **k: (answers, info, {})
+f.trove_solution_ocr.lights = lambda grid: {(1, "across"): [(0, 0), (0, 1), (0, 2)],
+                                            (1, "down"): [(0, 0), (1, 0), (2, 0)]}
+rj_es = [{"number": 1, "direction": "across", "solution": "DOE"}, {"number": 1, "direction": "down", "solution": None}]
+rj_strips = {"1-down": {"p": [[0.9 if c == ch else 0.1 / 25 for c in f.trove_solution_ocr.AZ] for ch in "DAD"]}}
+rj = [f.rejudged(rj_es, {"1-across": "DOE"}, {"accepted": 1}, {"1-down": "DAD"}, rj_strips, None, {(1, "down"): "3"}, None),
+      f.rejudged(rj_es, {"1-across": "DOE"}, {"accepted": 1}, {"1-down": "BAD"}, rj_strips, None, {(1, "down"): "3"}, None)]
+f.checked_answers, f.trove_solution_ocr.lights = real_ca, real_lts
+check("rejudged: the VLM's word stands on the checked crossings (DAD on D??), its light named; one against them "
+      "(BAD) keeps the reading",
+      [({"1-across": "DOE", "1-down": "DAD"}, {"accepted": 2, "vlmLights": ["1-down"], "rejudged": ["1-down"]}),
+       ({"1-across": "DOE"}, {"accepted": 1})], rj)
 check("an answers-only grid read one letter off a word is a misread (a 1973 print's ADORESS for ADDRESS); "
       "a word, a listed name (William RUFUS), and words by their enumeration stand",
       [True, False, False, False, False, (12, "down")],
@@ -2967,6 +2998,11 @@ check("...not with a letter the classifier reads unsure (STROGONOFF, its O at 0.
 check("...nor with no count of its own (a linked light's \"See 8\") or a count it does not fill", (None, None),
       (f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c) for c in "PERSHORE"], None),
        f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c) for c in "PERSHORE"], "5,9")))
+check("a phrase no list holds whole stands though its short piece (DE) or a listed one (FEMME) lies one letter off "
+      "a word (FEMME DE CHAMBRE); a long unlisted piece one off a word does not (DEFINATE ARTICLE)",
+      ("FEMMEDECHAMBRE", None),
+      (f.vlm_word("FEMMEDECHAMBRE", "?E?M?D?C?A?B?E", [5, 2, 7], [cell_p(c) for c in "FEMMEDECHAMBRE"], "5,2,7"),
+       f.vlm_word("DEFINATEARTICLE", "???????????????", [8, 7], [cell_p(c) for c in "DEFINATEARTICLE"], "8,7")))
 check("pieces of an enumeration: a phrase's words, else the light whole", ([4, 4, 3, 3], [12], [9], [4, 5]),
       (tso.pieces_of("4,4,3,3", 14), tso.pieces_of("4,4,3,3", 12), tso.pieces_of(None, 9), tso.pieces_of("4-5", 9)))
 f._KEEP_VLM["names"] = ao_kept
