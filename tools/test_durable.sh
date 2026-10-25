@@ -28,7 +28,7 @@ git init -q --bare "$tmp/origin.git"
 git clone -q "$tmp/origin.git" "$tmp/main" 2>/dev/null
 M="$tmp/main"
 mkdir -p "$M/tools" "$M/puzzles/a"
-cp tools/durable.sh tools/nightly_worktree.sh tools/unstage_unparsable.sh tools/commit_puzzles.sh tools/push_puzzle_commit.sh tools/clobber_guard.py tools/commit_subject.py tools/renamed_ids.py "$M/tools/"
+cp tools/durable.sh tools/nightly_worktree.sh tools/unstage_unparsable.sh tools/commit_puzzles.sh tools/push_puzzle_commit.sh tools/clobber_guard.py tools/commit_subject.py tools/renamed_ids.py tools/puzzle_worker.sh "$M/tools/"
 cat >"$M/tools/alert.sh" <<'EOF'
 alert() { echo "$*" >>"$HOME/alerts"; }
 EOF

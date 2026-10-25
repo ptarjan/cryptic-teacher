@@ -2793,7 +2793,8 @@ function blogSidecars() {
         `${where}: the ladder still ends at the walkthrough, got ` +
         ((btn && btn.textContent) || "nothing"));
       takeRung(btn);
-      assert(answerShown(registry["hint-body"].innerHTML, ans),
+      // A clue the checker flagged shows "Being rewritten" in place of its walkthrough.
+      assert(answerShown(registry["hint-body"].innerHTML, ans) || registry["hint-body"].innerHTML.includes('class="redo-note"'),
         `${where}: the walkthrough is where the answer finally appears: ` + registry["hint-body"].innerHTML);
     }
   }
