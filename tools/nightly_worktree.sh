@@ -356,10 +356,17 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     git -C "$_ct_tree" config splitIndex.sharedIndexExpire 1.hour.ago >/dev/null 2>&1 || true
     # The split index's delta holds every entry changed since its base and is
     # written whole by each git add/commit/reset, so at git's default of 20% it
-    # grew to ~3 MB: measured 10-25, 48 index writes in 200s, ~2.6 GB/h from the
-    # burn. At 2% it stays ~0.2 MB and a new 10 MB base is made only every ~90
-    # puzzle commits, ~15x less written.
+    # grows large; at 2% it stays small and a new 10 MB base is made only every
+    # ~90 puzzle commits, ~15x less written. (The ~3 MB index measured 10-25 was
+    # mostly the untracked cache, not this delta: see untrackedCache below.)
     git -C "$_ct_tree" config splitIndex.maxPercentChange 2 >/dev/null 2>&1 || true
+    # The index also carries the untracked cache (UNTR extension) when the shared
+    # config has core.untrackedCache=true. Measured 10-25 on the burn tree: a
+    # 2.77 MB index was 2.61 MB UNTR and only ~0.13 MB split delta, rewritten
+    # whole ~83 times per 10 min, ~1.4 GB/h. "keep" leaves the main checkout's
+    # own cache alone (shared config) and drops it here: the index fell to 156 KB.
+    git -C "$_ct_tree" config core.untrackedCache keep >/dev/null 2>&1 || true
+    git -C "$_ct_tree" update-index --no-untracked-cache >/dev/null 2>&1 || true
     # The generated files are not tracked, so a tree just reset to origin/master
     # has either none of them (a tree made tonight) or the ones the last run
     # left, describing files the reset has since changed. A job that reads
