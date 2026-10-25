@@ -6392,7 +6392,9 @@ _SOLUTION_KEY = []
 #: only takes fewer lights: a row read before it reads no more for it.
 _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
                   "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706",
-                  "e1f457cc02985dda": "8417cfb08f3a9706", "f9e93b539e79a435": "8417cfb08f3a9706"}
+                  "e1f457cc02985dda": "8417cfb08f3a9706", "f9e93b539e79a435": "8417cfb08f3a9706",
+                  # blocks_sure (a heavy print's grid classified): those rows are due once as HEAVY_PRINT.
+                  "c152cf1325047f62": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -7415,6 +7417,30 @@ def refused_grid(row):
     return False
 
 
+#: The due reason of a Times edition whose linked solution grid read short with its blocks under
+#: SURE_BLOCKS yet no further off than HEAVY_FLOOR (trove_solution_ocr.HEAVY_EXTRA light cells read
+#: as blocks of a 15x15 grid), for a puzzle held with every clue and not every answer from this page:
+#: since REREAD_HEAVY read_framed's classifier reads such a grid too when every block is found
+#: (blocks_sure: a heavy print's inked letters, not a lattice off the grid). 10-25: of 4,466 Times
+#: puzzles held 6+ lights short, 869 read at 0.90-0.97, none classified. answers_only, once.
+HEAVY_PRINT = "solution short, its heavy print's cells classified since"
+REREAD_HEAVY = "2026-10-25T12:40:00+00:00"
+HEAVY_FLOOR = 1 - trove_solution_ocr.HEAVY_EXTRA / 225
+
+
+def heavy_short(row):
+    """Whether Times ledger `row`, read before REREAD_HEAVY, read a linked solution grid short at
+    blocks HEAVY_FLOOR to SURE_BLOCKS for a puzzle answers_only reads (answerable_gaps)."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_HEAVY)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    band = dict(row, verdicts=[v for v in row.get("verdicts", ()) if isinstance(v.get("solution"), dict)
+                               and HEAVY_FLOOR <= v["solution"].get("blocks", 0) < trove_solution_ocr.SURE_BLOCKS])
+    return bool(band["verdicts"]) and bool(answerable_gaps(band, paper, sure=False))
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -7460,6 +7486,8 @@ def fix_reason(row):
         return REFUSED_GRID
     if unenumerated_held(row):
         return "answers held back by a clue with no enumeration"
+    if heavy_short(row):
+        return HEAVY_PRINT
     if row.get("solutionKey") != solution_key():
         paper = paper_of(row.get("edition", "")).key
         for v in row.get("verdicts", ()):
@@ -7984,6 +8012,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, SHORT_WIDE: 2,
+         HEAVY_PRINT: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -8490,7 +8519,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
-                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE)
+                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT)
 
 
 def keeps_vlm(why, row, unit=None):
