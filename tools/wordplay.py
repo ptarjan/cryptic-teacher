@@ -1505,6 +1505,40 @@ def _rekey(notes, tree):
                 break
             if hit:
                 break
+        else:
+            _rekey_parts(notes, key, want, free)
+
+
+_SMALL_WORDS = {"the", "and", "for", "but", "with", "from", "into", "over", "its", "are", "was", "has"}
+
+
+def _rekey_parts(notes, key, want, free):
+    """A note keyed by several free spans' words joined ('Munch nuts' for the
+    free [Munch] and [nuts], 'held by' for [held], [by]) lands on each of them;
+    one keyed by a phrase round exactly one free span ('Labour leader' for
+    [Labour]) lands on that span. The spans' words must be the key's words with
+    nothing over (as a multiset, in any order) for the joined form, and a lone
+    span must be a word of 3+ letters that is not a small link word. Any other
+    overlap stays refused."""
+    words = want.split()
+    inside = [x for x in free if _is_sub(_fold(x[0][x[1]]).split(), words)]
+    if len(inside) > 1:
+        got = sorted(w for x in inside for w in _fold(x[0][x[1]]).split())
+        if got == sorted(words) and len({id(x[0]) for x in inside}) == len(inside):
+            note = notes.pop(key)
+            for span, _ in inside:
+                span["note"] = note
+    elif len(inside) == 1:
+        text = _fold(inside[0][0][inside[0][1]])
+        if len(words) > len(text.split()) and (len(text.split()) > 1 or
+                                                 (len(text) >= 3 and text not in _SMALL_WORDS)):
+            inside[0][0]["note"] = notes.pop(key)
+
+
+def _is_sub(small, big):
+    """Whether `small` (a list of words) is a run of `big`, or, for one word, among them."""
+    n = len(small)
+    return bool(n) and any(big[i:i + n] == small for i in range(len(big) - n + 1))
 
 
 def translate(clue_out, clue, answer, taken=(), respell=None):
