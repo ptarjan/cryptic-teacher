@@ -7809,10 +7809,20 @@ def answerless_puzzles(series, held, solutions=()):
     return out
 
 
+#: The first Saturday whose solution prints a week on (1981-07-11 holds 15,569 of 07-04): a Saturday
+#: before it prints in the next issue, the Monday (1981-06-29 holds 15,563 of 06-27; hosted reads it as
+#: the issue before the title). Paul 10-24: 55 Times Saturdays 1945-81 linked no solution, their
+#: Mondays never read for one; 8 of 11 printed it.
+WEEK_ON_SATURDAYS = datetime.date(1981, 7, 4)
+
+
 def host_day(day):
     """The date of the issue printing the solution of the puzzle of `day`: the next day's, a Saturday's
-    prize a week on (hosted: the issue before each title, the Saturday before's prize)."""
-    return day + datetime.timedelta(days=7 if day.weekday() == 5 else 1)
+    prize a week on, a Saturday's before WEEK_ON_SATURDAYS the Monday after (hosted: the issue before
+    each title, the Saturday before's prize)."""
+    if day.weekday() != 5:
+        return day + datetime.timedelta(days=1)
+    return day + datetime.timedelta(days=7 if day >= WEEK_ON_SATURDAYS else 2)
 
 
 def host_days(day):
