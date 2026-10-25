@@ -288,6 +288,56 @@ out=$(CT_NET_TIMEOUT=2 timeout 120 bash "$tmp/nf.sh" "$tmp/nf" 2>&1) || rc=$?
   fail "a stalled fetch held the move: rc $rc after $((SECONDS - began))s: $out"
 grep -q "fetch of origin/master failed or timed out" <<<"$out" || fail "a cut-off fetch was not said: $out"
 
+# 4e. A checkpoint inside the push window only batches its commit
+#     (push_puzzle_commit.sh's refs/push-batch/tip); the resync after it must
+#     move the tree onto that batch, not origin/master alone, or the file just
+#     filed is gone from the tree until the batch pushes (10-24 23:30: times-14417
+#     and times-16746 batched, then removed from the queue's tree 5 s later).
+#     The next checkpoint pushes only its own commit, not the batch's again.
+git clone -q "$tmp/origin.git" "$tmp/bt" 2>/dev/null
+cat >"$tmp/bt.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles)
+. tools/durable.sh
+mkdir -p puzzles/bt
+for i in $2; do echo "{\"n\": $i}" >"puzzles/bt/$i.json"; done
+durable_checkpoint "batch pass" || { echo "checkpoint failed"; exit 1; }
+durable_resync || { echo "resync failed"; exit 1; }
+EOF
+out=$(PUSH_BATCH_SECS=0 bash "$tmp/bt.sh" "$tmp/bt" 1 2>&1) || fail "the first batch-window checkpoint failed: $out"
+on_origin puzzles/bt/1.json >/dev/null || fail "a checkpoint outside the window was not pushed: $out"
+out=$(PUSH_BATCH_SECS=3600 PUSH_BATCH_FLUSHER=0 bash "$tmp/bt.sh" "$tmp/bt" 2 2>&1) || fail "a batched checkpoint or its resync failed: $out"
+case "$out" in *"batched 1 commit(s)"*) ;; *) fail "the second checkpoint was not batched, so the test proves nothing: $out" ;; esac
+on_origin puzzles/bt/2.json >/dev/null && fail "a batched commit reached origin before its window: $out"
+[ -e "$tmp/bt/puzzles/bt/2.json" ] || fail "the resync dropped a batched puzzle from the tree: $out"
+[ "$(git -C "$tmp/bt" rev-parse HEAD)" = "$(git -C "$tmp/bt" rev-parse refs/push-batch/tip)" ] ||
+  fail "the resync did not move the tree onto the batch: $out"
+[ -z "$(git -C "$tmp/bt" status --porcelain)" ] || fail "the batched puzzle is left untracked or changed: $(git -C "$tmp/bt" status --porcelain)"
+# The same shell keeps _durable_pushed across checkpoints, as durable_run does
+# (a fresh shell's first checkpoint replays the batch's commits as no-ops).
+cat >"$tmp/bt2.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles)
+. tools/durable.sh
+echo '{"n": 3}' >puzzles/bt/3.json
+durable_checkpoint "batch pass" || exit 1
+durable_resync || exit 1
+echo "--- moved"
+echo '{"n": 4}' >puzzles/bt/4.json
+durable_checkpoint "batch pass" || exit 1
+EOF
+out=$(PUSH_BATCH_SECS=3600 PUSH_BATCH_FLUSHER=0 bash "$tmp/bt2.sh" "$tmp/bt" 2>&1) || fail "checkpoints on the batch failed: $out"
+case "${out#*--- moved}" in *"already has"*) fail "a checkpoint after the move replayed the batch's commits again: $out" ;; esac
+case "${out#*--- moved}" in *"batched 3 commit(s)"*) ;; *) fail "the checkpoint after the move did not add to the batch: $out" ;; esac
+[ -e "$tmp/bt/puzzles/bt/3.json" ] || fail "the second move dropped a batched puzzle: $out"
+[ "$(git -C "$tmp/bt" rev-list --count origin/master..refs/push-batch/tip)" = 3 ] ||
+  fail "the batch holds $(git -C "$tmp/bt" rev-list --count origin/master..refs/push-batch/tip) commits, not 3: $out"
+out=$(cd "$tmp/bt" && PUSH_NOW=1 bash tools/push_puzzle_commit.sh --flush 2>&1) || fail "the batch did not flush: $out"
+for i in 2 3 4; do on_origin "puzzles/bt/$i.json" >/dev/null || fail "batched puzzle $i never reached origin: $out"; done
+out=$(PUSH_BATCH_SECS=0 bash "$tmp/bt.sh" "$tmp/bt" "" 2>&1) || fail "the move after the flush failed: $out"
+[ "$(git -C "$tmp/bt" rev-parse HEAD)" = "$(git --git-dir="$tmp/origin.git" rev-parse master)" ] ||
+  fail "with no batch waiting the resync did not move the tree to origin/master: $out"
+
 # 5. corpus_queue.py stop gives the pass's leader TERM and waits for it.
 python3 - "$REAL" <<'PY'
 import os, sys, time
