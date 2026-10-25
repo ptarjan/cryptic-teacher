@@ -718,6 +718,9 @@ def evidence_reason(reason):
             # A held puzzle whose solution grid read 3+ lights short before unlisted_reads (Paul 10-24: every
             # short grid current code may improve, once); no likely gain, so after the 1-2-short ones.
             or reason == fa.SHORT_WIDE
+            # A held puzzle whose grid read 1-2 lights short since unlisted_reads, before the VLM's unlisted
+            # strip words stood (fa.unlisted_word): likely() predicts it nothing, so this keeps it, once.
+            or reason == fa.VLM_UNLISTED
             # A held puzzle whose linked solution grid was refused (its blocks, or its ink's size) before
             # read_solution looked for it by its blocks (matched_box), once. likely() predicts nothing for
             # a refused grid, so without this only_evidence dropped every one: Paul 10-24, ~650 Times
@@ -1266,7 +1269,7 @@ def times_solution_work(unit):
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
-              fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD,
+              fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD,
               fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN)
 
 
@@ -1339,7 +1342,7 @@ CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.U
 #: gpu_fill's reserve holds slots for reads that do ask. Unlike CPU_ONLY they are not answers-linked
 #: (no batching) and not under the cpu-only cap (they would starve behind it).
 LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
-           "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.SHORT_WIDE,
+           "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE,
            fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD)
 #: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
 #: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
