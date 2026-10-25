@@ -473,31 +473,52 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "messed with",
-       "note": "messing with something throws it into disorder, so these letters are rearranged"
+       "text": "messed",
+       "at": 18,
+       "note": "messed means jumbled up, so all these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Ogre, I repeated",
-       "gives": "OGREIOGREI",
-       "note": "the two words taken twice over"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "repeated",
+         "at": 8,
+         "note": "repeated means the words ogre and I are written down twice"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Ogre",
+           "at": 0
+          },
+          {
+           "words": "I",
+           "at": 6
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "Peg",
-       "note": "taken as written"
+       "at": 30
       }
      ]
     },
     "explanation": {
-     "surface": "A fairy-tale monster saying 'I' twice and bothering a girl called Peg, as in a nursery rhyme.",
-     "walkthrough": "'Repeated' is not an anagram signal: it tells you to write 'Ogre, I' twice before adding Peg.",
-     "definitionFit": "Georgie Porgie, pudding and pie, who kissed the girls and made them cry, is a well-known English nursery rhyme."
+     "surface": "A monster meddling with a girl called Peg in a nursery tale.",
+     "walkthrough": "'repeated' gives OGREIOGREI; 'messed' rearranges that with PEG.",
+     "definitionFit": "The nursery rhyme about a boy who kissed the girls and made them cry is a familiar children's verse."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "repeated"
+     "misdirectedWord": "Ogre"
     }
    }
   },
