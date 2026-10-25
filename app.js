@@ -4666,8 +4666,19 @@
   // the LENGTH of — a hidden word's single piece is the answer's own length.
   function formulaOf(ann, blocks) {
     const shuffled = ((ann.assembly || {}).anagrams || []).map((a) => wholeWord(a.gives));
-    const role = (b) => b.anagramOf || shuffled.includes(wholeWord(b.gives)) ? "fodder"
-      : b.soundsLike ? "sound" : "piece";
+    // A block carries no role field: what it IS is read off its fields and its
+    // note. The anagram's own fodder, a sound, the clue words as written (the
+    // letters are the clue's own), a cut or selection from them, an abbreviation
+    // the note names, else a synonym (a different word that means it).
+    const role = (b) => {
+      if (b.anagramOf || shuffled.includes(wholeWord(b.gives))) return "anagram";
+      if (b.soundsLike) return "sound";
+      const note = b.note || "";
+      if (/abbreviat|short for|symbol/i.test(note)) return "abbreviation";
+      if (wholeWord(b.clueFragment) === wholeWord(b.gives)) return "as written";
+      if (b.select || /\b(first|last|middle|letters?|ends?)\b/i.test(note)) return "selection";
+      return "synonym";
+    };
     const chips = blocks.map((b) => {
       const n = letterCount(b.gives);
       return role(b) + (n ? ` ${n}` : "");
@@ -6376,7 +6387,9 @@
         }
         if (s.key === "type" && s.formula) {
           // After the rung's own line and its rule chip, not inside them.
-          return { ...s, after: formulaHTML(e, s.formula, false) };
+          // Once the blocks rung is open it draws the same formula, as taps.
+          return isShown(e, "blocks") ? { ...s, formula: undefined, after: "" }
+            : { ...s, after: formulaHTML(e, s.formula, false) };
         }
         if (s.key !== "blocks" || !s.pieces) return s;
         const formula = s.formula ? formulaHTML(e, s.formula, true) : "";
