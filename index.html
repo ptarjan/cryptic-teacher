@@ -45,6 +45,16 @@
 </script>
 
 <link rel="stylesheet" href="style.css">
+<!-- Booting: the 2 MB puzzle index and app.js parse before the grid can draw,
+     and meanwhile #app is hidden, so the page was the header, the answers list
+     for crawlers and the footer ("I see the big footer waiting", Paul, 10-24).
+     With script on, those wait and a grid-shaped placeholder stands in until
+     app.js shows the puzzle (showApp). Without script nothing here runs and the
+     links show as before. The timer is the fail-safe for a boot that dies. -->
+<script>
+document.documentElement.classList.add("ct-boot");
+setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }, 15000);
+</script>
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -243,6 +253,7 @@
   </p>
 </div>
 
+<div id="boot-grid" aria-hidden="true"></div>
 <main id="app" class="hidden">
   <!-- The soft keyboard is raised by focusing this, and iOS scrolls whatever has
        focus into view when the keyboard opens. So WHERE it sits is load-bearing:
@@ -416,20 +427,27 @@
 // re-reads the same cached copy would otherwise loop forever, which is a worse
 // failure than the staleness. Best-effort throughout — offline, blocked, or
 // unparseable all mean carry on with what we have.
+//
+// Each URL is compared as its last path segment plus stamp ("favicon.svg?v=0c1a"):
+// app.js rewrites the <head> icon links to absolute URLs before this runs, and
+// comparing whole hrefs saw "https://…/favicon.svg?v=x" against the served
+// "favicon.svg?v=x" as a change, so EVERY cold open reloaded the page and parsed
+// the 2 MB index twice before the grid drew (10-24, "puzzle is slow to load").
 (function () {
   var FLAG = "ct:reloaded-for-stamps";
   if (!window.fetch || !window.sessionStorage) return;
   try { if (sessionStorage.getItem(FLAG)) { sessionStorage.removeItem(FLAG); return; } } catch (e) { return; }
+  function key(u) { return u.replace(/^[^?]*\//, ""); }
   var mine = [].slice.call(document.querySelectorAll("script[src], link[href]"))
     .map(function (n) { return n.getAttribute("src") || n.getAttribute("href"); })
-    .filter(function (u) { return u && u.indexOf("?v=") > 0; }).sort().join("|");
+    .filter(function (u) { return u && /\?v=[a-f0-9]+$/.test(u); }).map(key).sort().join("|");
   if (!mine) return;
   fetch(location.pathname + "?_=" + Date.now(), { cache: "no-store" })
     .then(function (r) { return r.ok ? r.text() : null; })
     .then(function (html) {
       if (!html) return;
       var live = (html.match(/(?:src|href)="([^"]*\?v=[a-f0-9]+)"/g) || [])
-        .map(function (m) { return m.replace(/^(?:src|href)="/, "").replace(/"$/, ""); })
+        .map(function (m) { return key(m.replace(/^(?:src|href)="/, "").replace(/"$/, "")); })
         .sort().join("|");
       if (!live || live === mine) return;
       try { sessionStorage.setItem(FLAG, "1"); } catch (e) { return; }

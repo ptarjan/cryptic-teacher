@@ -8046,6 +8046,15 @@
   // one is not a choice, and a bare site root that rewrites itself
   // would leave the homepage declaring a puzzle as its canonical, de-indexing
   // it. The front door stays the front door until somebody picks.
+  // The solver goes on screen, and the boot placeholder index.html put up
+  // (html.ct-boot: a grid-shaped box, crawler links and footer held back)
+  // comes down in the same frame.
+  function showApp() {
+    $("app").classList.remove("hidden");
+    const root = document.documentElement;
+    if (root && root.classList) root.classList.remove("ct-boot");
+  }
+
   let canonicalHome = null;
   function homeUrl() {
     if (canonicalHome === null) {
@@ -8229,7 +8238,7 @@
     const first = entries.find((e) => tag(e) === asked) || entries[0];
     cur = { x: first.position.x, y: first.position.y, dir: first.direction };
     leadPick = null;
-    $("app").classList.remove("hidden");
+    showApp();
     // The day spelled out in full here, where there is room for it, and where a
     // solver about to start wants to know whether they picked a Monday or a
     // Saturday prize before they wonder why it is fighting back.
@@ -8860,7 +8869,7 @@
 
     if (!INDEX.puzzles.length) {
       $("puzzle-title").textContent = "No puzzles found — run tools/fetch_puzzle.py first.";
-      $("app").classList.remove("hidden");
+      showApp();
       return;
     }
     // ?p=30072 wins over the remembered puzzle: the static answer pages under
@@ -8895,7 +8904,7 @@
         // puzzle — hides a broken deploy behind a crossword nobody asked for.
         $("puzzle-title").textContent =
           `Could not load puzzle ${want}. Check your connection and reload.`;
-        $("app").classList.remove("hidden");
+        showApp();
         return;
       }
       openPuzzle(want, !!asked);
