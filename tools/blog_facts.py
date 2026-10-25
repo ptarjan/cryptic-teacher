@@ -2284,12 +2284,46 @@ def clues_of(pid):
     return {entry_id(e): e["clue"].get("text", "") for e in read_puzzle_file(path)["entries"]} if path else {}
 
 
-def write(best, series, spool):
+#: Where the day of the last letter pass (letter_facts.write) is kept; CT_LETTER_STAMP moves it.
+LETTER_STAMP = Path(os.environ.get("CT_LETTER_STAMP") or Path.home() / ".cache" / "cryptic-letter-pass-day")
+
+
+def letter_pass_due(today=None):
+    """Whether the letter pass has not run today: it is the job's costly part (the
+    corpus-wide lexicons), and a day's new posts change what it infers little."""
+    try:
+        return LETTER_STAMP.read_text().strip() != (today or time.strftime("%Y-%m-%d"))
+    except FileNotFoundError:
+        return True
+
+
+def regrafted(rec, old):
+    """`rec`, a puzzle's sidecar as the blogs alone give it, with the entries the
+    letter pass wrote into `old`, the sidecar already there, if `old` is `rec` plus
+    only what it inferred (letter_facts.stated); else `rec`, left to the next pass."""
+    from letter_facts import stated
+    if not old or old.get("entries") is None:
+        return rec
+    new, held = rec["entries"], old["entries"]
+    if {k: v for k, v in rec.items() if k != "entries"} != {k: v for k, v in old.items() if k != "entries"}:
+        return rec
+    for eid, e in held.items():
+        if stated(fact_from_json(e)) != (fact_from_json(new[eid]) if eid in new else {}):
+            return rec
+    if any(eid not in held for eid in new):
+        return rec
+    return old
+
+
+def write(best, series, spool, previous=None):
     """Lay out the published lines `spool` holds for `best`, extract's joins:
     one sidecar a puzzle (tools/blog_store.py; only those whose bytes moved are
-    rewritten, those that lost their facts deleted), and the leads file."""
+    rewritten, those that lost their facts deleted), and the leads file.
+    `previous`: the letter pass is skipped, so a puzzle keeps the inferred
+    fields of the sidecar it has (regrafted) where the blogs' side is unchanged."""
     import blog_store
     OUT.mkdir(parents=True, exist_ok=True)
+    held = blog_store.files() if previous else {}
     # One puzzle a line, so letter_facts.Leads can parse a puzzle's only when it is asked for.
     _write_lines(LEADS, (r["leads"] for _, r in sorted(best.items()) if r["leads"]), spool)
     n = 0
@@ -2299,7 +2333,12 @@ def write(best, series, spool):
         for pid, r in sorted(best.items()):
             if r["line"]:
                 n += 1
-                yield pid, blog_store.body_of_line(spool.get(r["line"]))
+                body = blog_store.body_of_line(spool.get(r["line"]))
+                if previous and pid in held:
+                    rec = json.loads(body)
+                    got = regrafted(rec, blog_store.read(held[pid]))
+                    body = body if got is rec else blog_store.encode(got)
+                yield pid, body
 
     written, deleted, unfiled = blog_store.sync(bodies())
     print(f"blog facts: {written} sidecars written, {deleted} deleted, {unfiled} for puzzles not held", file=sys.stderr)
@@ -2405,6 +2444,8 @@ def main():
                     help="worker processes (default %(default)s); 1 parses in this process")
     ap.add_argument("--if-changed", action="store_true",
                     help="exit without parsing when no input has changed since the last write")
+    ap.add_argument("--letter-pass", action="store_true",
+                    help="run letter_facts' lexicon pass even if it already ran today")
     ap.add_argument("--reparse", nargs="*", choices=sorted(BLOGS), metavar="BLOG",
                     help="parse the posts of these blogs (all when none is named) even where a join is "
                          "cached: the one-off run after a change to the parser")
@@ -2465,7 +2506,16 @@ def main():
         pool = [p for p in pool if p[2]]
         for r, eid, f in rng.sample(pool, min(args.sample, len(pool))):
             print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
-    print(f"wrote blog facts for {write(best, series, spool)} puzzles to {OUT.relative_to(ROOT)}")
+    # The letter pass (lexicons over the whole corpus) runs once a day; the other
+    # runs keep each puzzle's inferred fields as they stand. A run limited to some
+    # blogs, or from a dump, is not the nightly and never stamps the day.
+    nightly = not (args.blog or args.from_dump)
+    skip_letters = nightly and not args.letter_pass and not letter_pass_due()
+    print(f"wrote blog facts for {write(best, series, spool, previous=skip_letters)} puzzles to {OUT.relative_to(ROOT)}")
+    if skip_letters:
+        print(f"letter pass already ran today ({LETTER_STAMP}): inferred fields kept")
+        STAMP.write_text(digest + "\n")
+        return
     # letter_facts reads back what was just written, so the joins it came from
     # are not held under its corpus: both at once would be the run's peak memory.
     del best, series, spool
@@ -2480,7 +2530,9 @@ def main():
     print(f"and read off the letters (tools/letter_facts.py): a type for {n['type']} clues the blogs "
           f"left untyped, blocks for {n['blocks']} whose blocks they left out, a definition for "
           f"{n['definition']} with none underlined, indicators for {n['indicators']} whose indicators they left out")
-    if not (args.blog or args.from_dump):
+    if nightly:
+        LETTER_STAMP.parent.mkdir(parents=True, exist_ok=True)
+        LETTER_STAMP.write_text(time.strftime("%Y-%m-%d") + "\n")
         STAMP.write_text(digest + "\n")
 
 
