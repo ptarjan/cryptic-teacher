@@ -774,5 +774,40 @@ finally:
      tso.corpus_words) = rv_saved
     shutil.rmtree(rv_dir, ignore_errors=True)
 
+# unwritten_answers / repair_unwritten_answers: a verdict that wrote answers its file never took (no
+# commit since the read, a day on) has them filled into the blank lights, each fitting its crossings.
+TZ = _d.timezone
+uw_now = _d.datetime(2026, 10, 26, tzinfo=TZ.utc)
+uw_row = {"readAt": "2026-10-24T07:30:06+00:00",
+          "verdicts": [{"id": "times-1", "wrote": True, "answered": {"1-across": "BAT", "2-down": "TOE", "3-across": "XXX"}}]}
+uw_young = {**uw_row, "readAt": "2026-10-25T12:00:00+00:00"}
+same("a written verdict its file took no commit since is named; one committed since, or read under a day ago, is not",
+     [rf.unwritten_answers([uw_row], lambda pid: _d.datetime(2026, 10, 13, tzinfo=TZ.utc), uw_now),
+      rf.unwritten_answers([uw_row], lambda pid: _d.datetime(2026, 10, 24, 8, tzinfo=TZ.utc), uw_now),
+      rf.unwritten_answers([uw_young], lambda pid: _d.datetime(2026, 10, 13, tzinfo=TZ.utc), uw_now),
+      rf.unwritten_answers([{**uw_row, "verdicts": [{**uw_row["verdicts"][0], "heldSkip": True}]}],
+                           lambda pid: _d.datetime(2026, 10, 13, tzinfo=TZ.utc), uw_now)],
+     [[("times-1", {"1-across": "BAT", "2-down": "TOE", "3-across": "XXX"})], [], [], []])
+uw_dir = Path(tempfile.mkdtemp())
+try:
+    uw_path = uw_dir / "times-1.json"
+    uw_path.write_text(json.dumps(uc_puzzle([None, "BOG", None, "GUN"]), indent=1) + "\n")
+    uw_saved = (rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file)
+    rf.puzzle_paths.find = lambda pid: uw_path if pid == "times-1" else None
+    rf.fetcher.read_puzzle_file = lambda path: json.loads(Path(path).read_text())
+    rf.fetcher.write_puzzle_file = lambda path, puzzle: Path(path).write_text(json.dumps(puzzle, indent=1) + "\n")
+    uw_row2 = {**uw_row, "readAt": "2020-01-01T00:00:00+00:00"}
+    same("(dry run) its blank lights take the answers that fit them and their crossings (TOE's E against GUN's N "
+         "does not; 3-across is held); nothing written",
+         [rf.repair_unwritten_answers(rows=[uw_row2], last_commit=lambda pid: _d.datetime(2019, 1, 1, tzinfo=TZ.utc)),
+          json.loads(uw_path.read_text())["entries"][0]["solution"]],
+         [[("times-1", "1-across", "BAT")], None])
+    rf.repair_unwritten_answers(apply_it=True, rows=[uw_row2], last_commit=lambda pid: _d.datetime(2019, 1, 1, tzinfo=TZ.utc))
+    same("--apply fills it; the held answers stand",
+         [e["solution"] for e in json.loads(uw_path.read_text())["entries"]], ["BAT", "BOG", None, "GUN"])
+finally:
+    rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file = uw_saved
+    shutil.rmtree(uw_dir, ignore_errors=True)
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)

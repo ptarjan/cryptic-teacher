@@ -1460,6 +1460,96 @@ def repair_rivals(apply_it=False, blanked=None, crops=None):
     return filled
 
 
+#: How long after a ledger row's read its write must have reached a commit (the live pass commits in
+#: batches within minutes): a row younger may be waiting on one.
+LOST_WRITE_DAYS = 1
+
+
+def unwritten_answers(rows, last_commit, now=None, blank=None):
+    """[(id, {light: answer})] of the Times verdicts of `rows` (ledger rows) that wrote answers
+    ("answered") a file never took: no commit touched the file since the read (`last_commit(id)`, its
+    last commit's time, or None), the read LOST_WRITE_DAYS old. 17,764's 30 answers read 10-24 off
+    1988-09-03's grid, "wrote", its file untouched since 10-13. `blank(id, answered)`, when given,
+    names the verdicts worth a git look (a light of theirs blank in the file)."""
+    now = now or datetime.now(timezone.utc)
+    out = []
+    for row in rows:
+        try:
+            read = datetime.fromisoformat(row.get("readAt") or "")
+        except ValueError:
+            continue
+        if now - read < timedelta(days=LOST_WRITE_DAYS):
+            continue
+        for v in row.get("verdicts") or ():
+            pid = v.get("id") or ""
+            # heldSkip: the held file was kept over the reading on purpose (14,507's full read).
+            if not pid.startswith("times-") or not v.get("wrote") or not v.get("answered") or v.get("heldSkip") \
+                    or (blank is not None and not blank(pid, v["answered"])):
+                continue
+            last = last_commit(pid)
+            if last is not None and last < read:
+                out.append((pid, dict(v["answered"])))
+    return out
+
+
+def repair_unwritten_answers(apply_it=False, rows=None, last_commit=None):
+    """[(id, light, answer)] filled from a verdict whose written answers the file never took
+    (unwritten_answers): each blank light whose answer fits it, is no misread (file_archive_org_puzzles.
+    misread_word) and crosses every answer held or taken on the same letter. Only a blank is filled:
+    no held answer changes. With `apply_it` False nothing is written."""
+    import file_archive_org_puzzles as archive
+    if rows is None:
+        rows = [row for paper in (archive.TIMES, archive.GALE)
+                for row in archive.load_known(archive.ledger_of(paper=paper)).values()]
+    if last_commit is None:
+        def last_commit(pid):
+            path = puzzle_paths.find(pid)
+            when = path and git_out("log", "-1", "--format=%cI", "--", str(path)).strip()
+            return datetime.fromisoformat(when) if when else None
+
+    def blank(pid, answered):
+        path = puzzle_paths.find(pid)
+        if path is None:
+            return False
+        held = {entry_id(e) for e in fetcher.read_puzzle_file(path).get("entries") or () if e.get("solution")}
+        return any(k not in held for k in answered)
+    filled = []
+    for pid, answered in unwritten_answers(rows, last_commit, blank=blank):
+        path = puzzle_paths.find(pid)
+        if path is None:
+            continue
+        puzzle = fetcher.read_puzzle_file(path)
+        if (puzzle.get("source") or {}).get("acquiredBy") != archive.TOOL:
+            continue
+        cells = {}
+        for e in puzzle["entries"]:
+            if e.get("solution"):
+                x, y = e["position"]["x"], e["position"]["y"]
+                for ch in e["solution"].upper():
+                    cells[x, y] = ch
+                    x, y = x + (e["direction"] == "across"), y + (e["direction"] == "down")
+        took = []
+        for e in puzzle["entries"]:
+            word = (answered.get(entry_id(e)) or "").upper()
+            if e.get("solution") or len(word) != e["length"] \
+                    or archive.misread_word(word, (e.get("clue") or {}).get("enumeration")):
+                continue
+            x, y = e["position"]["x"], e["position"]["y"]
+            at = []
+            for _ in word:
+                at.append((x, y))
+                x, y = x + (e["direction"] == "across"), y + (e["direction"] == "down")
+            if any(cells.get(rc, ch) != ch for rc, ch in zip(at, word)):
+                continue
+            cells.update(zip(at, word))
+            e["solution"] = word
+            took.append((pid, entry_id(e), word))
+        filled += took
+        if took and apply_it:
+            fetcher.write_puzzle_file(path, puzzle)
+    return filled
+
+
 #: How many days on an edition's next issue may lie (a Sunday, a holiday, a missing paper).
 NEXT_ISSUE_DAYS = 4
 
@@ -1769,6 +1859,10 @@ def main(argv):
                     help="only fill each Times light --uncrossed blanked (" + UNCROSSED_BLANKED + ") and blank "
                          "still with the word the classifier reads it as, where that word stands "
                          "(repair_rivals: AGHASI -> AGHAST); --apply writes")
+    ap.add_argument("--unwritten-answers", action="store_true",
+                    help="only fill the blank Times lights a ledger verdict wrote answers for that its file "
+                         "never took (no commit since the read: repair_unwritten_answers), each fitting its light "
+                         "and crossings and no misread; --apply writes")
     ap.add_argument("--side-answers", action="store_true",
                     help="only fill the blank lights of each held Times file from its --out copy in "
                          "CROPS/unfiled (a full reread's answers decide() filed there), never a held answer, "
@@ -1857,6 +1951,13 @@ def main(argv):
         filled = repair_rivals(args.apply)
         for pid, lid, word, rival in filled:
             print(f"{pid} {lid}: blank (was {word}) -> {rival}")
+        print(f"{len({r[0] for r in filled})} puzzle(s), {len(filled)} answer(s) "
+              f"{'filled' if args.apply else 'would be filled'}")
+        return 0
+    if args.unwritten_answers:
+        filled = repair_unwritten_answers(args.apply)
+        for pid, lid, word in filled:
+            print(f"{pid} {lid}: blank -> {word}")
         print(f"{len({r[0] for r in filled})} puzzle(s), {len(filled)} answer(s) "
               f"{'filled' if args.apply else 'would be filled'}")
         return 0
