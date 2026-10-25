@@ -187,6 +187,8 @@ filed, and the expression cannot write one. The tree, in brief:
   end, but the letters that make the answer are not at it), `wordplay.doubleIndicator` (one op
   carrying two indicators, or two ops stacked on one: one indicator per op) and `wordplay.poolGap`
   (anagram fodder with another op's words between its pieces).
+  `wordplay.trimAsSelection` is a first/last/middle pick of 2+ letters from a synonym rather than
+  the clue's own words: write it as a deletion.
   Two more ratchets (`tools/lesson_checks.py`) have no rewrite: `wordplay.ddMissesWordplay`
   (two definitions and no wordplay, in a clue that hides the answer across words or holds
   its letters in a run of whole words: parse it) and `spelling.unsaid` (an answer with an

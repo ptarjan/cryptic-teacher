@@ -2794,7 +2794,7 @@ function blogSidecars() {
         ((btn && btn.textContent) || "nothing"));
       takeRung(btn);
       assert(answerShown(registry["hint-body"].innerHTML, ans),
-        `${where}: the walkthrough is where the answer finally appears`);
+        `${where}: the walkthrough is where the answer finally appears: ` + registry["hint-body"].innerHTML);
     }
   }
 

@@ -58,6 +58,7 @@ const SMOKE_DEPS = [
     "app.js", "analytics.js", "landing.js", "appnav.js", "index.html", "style.css", "qr.js", "quotes.js", "sw.js", "site.webmanifest",
     "favicon", "apple-touch-icon", "icon-192.png", "icon-512.png", "og.png", "sync/", "vendor/",
     "tools/acquire_book.py", "tools/alert.sh", "tools/annotation.py", "tools/annotation_backlog.json",
+    "tools/turn_cost.py", "tools/requeue_drift.py", "tools/refusal_replay.py", "tools/annotate_ledger.py", "tools/annotate_audit.py",
     "tools/wordplay.py", "tools/tree_normalize.py", "tools/clue_shapes.py", "tools/tidy_wordplay_shapes.py",
     "tools/shape_queue.py", "tools/shape_suspects.py", "tools/crop_window.py",
     "tools/app_tables.py", "tools/apply_solution.py", "tools/archive_coverage.py", "tools/blog_facts.py", "tools/blog_store.py",

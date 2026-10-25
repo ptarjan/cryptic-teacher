@@ -4853,6 +4853,9 @@
         key: "blocks",
         label: LABELS.blocks,
         lead: mechanics,
+        // The type rung of a double/cryptic definition names only the family
+        // ("Double or cryptic definition"), so this line is the one naming which.
+        leadAlways: isDD || isCD,
         pieces,
         tail: (t.includes("anagram") ? ringHTML(ann) : ""),
         html: mechanics + `<ul>${pieces.join("")}</ul>` +
@@ -6236,7 +6239,7 @@
         if (s.key !== "blocks" || !s.pieces) return s;
         const n = solved ? s.pieces.length : piecesShown(e);
         // The type rung already named and explained the mechanism when it is open.
-        const lead = isShown(e, "type") ? "" : s.lead;
+        const lead = isShown(e, "type") && !s.leadAlways ? "" : s.lead;
         return { ...s, html: lead + `<ul>${s.pieces.slice(0, n).join("")}</ul>`
                              + (n >= s.pieces.length ? s.tail : "") };
       };
