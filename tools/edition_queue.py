@@ -470,6 +470,10 @@ TROVE_WORKERS = 6
 #: filing: its neighbours' grids, each page's found once). 8 is a bound: the idle-core gate
 #: (local_cpu) and the unit ceiling hold them back first.
 LISTENER_WORKERS = int(os.environ.get("CT_LISTENER_WORKERS") or 8)
+#: Paul 10-24: "Remember times is the most important". While a CT_NEWEST_FIRST paper's (the Times')
+#: read or scan is due or running, the Listener pool shrinks to this many units, so its ~17-min
+#: local-OCR pages (8 of a 16 ceiling) don't hold the slots Times reads and scans want.
+LISTENER_BESIDE_TIMES = int(os.environ.get("CT_LISTENER_BESIDE_TIMES") or 2)
 LISTENER_SECONDS = 1800
 #: The core a scan unit pins itself to (-1: the host's last), OCR's one core.
 SCAN_CPU = "OCR_SCAN_CPU"
@@ -2328,7 +2332,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     # change with it), not per unit per pass: (signature, queue, keys, slots, last index of
     # each slot, (unit, key, slot) of the urgent candidates, (unit, key) of the read-slot reads, lists,
     # the urgent candidates' keys, {key: its first index among them}).
-    queue_memo = [None] * 12
+    queue_memo = [None] * 13
     scan_of_rel = [None, {}]  # the scan_keys lists, their scans by (paper, rel): gpu_fill's scan_of
     fill_scan_logged = [0]  # the fill scans last logged: logged again when their count changes
     scan_keys = [None, frozenset(), None]  # the lists' (id, len), their scans' (paper, rel), the lists
@@ -2863,6 +2867,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # (a read waiting for the VLM holds none back).
         lists = (first, fresh_scans, fresh_reads, scans, reads, fetches)
         sig = tuple((id(l), len(l)) for l in lists)
+        times_papers = newest_first_papers()
         if queue_memo[0] != sig:
             q = first + fresh_scans + fresh_reads + scans + reads + fetches
             qkeys, qslots, last_of = [key_of(u) for u in q], [slot_of(u) for u in q], {}
@@ -2882,9 +2887,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                              # of 24 slots while it, in turn, held them (load 8, one File in 25 min).
                              frozenset(k for u, k, sl in zip(q, qkeys, qslots) if sl != "listener" and not sl.startswith("fetch ")
                                        and (u["rank"] < fa.BLANKET or newest_first(u))),
-                             frozenset(k for k, sl in zip(qkeys, qslots) if sl == "listener")]
+                             frozenset(k for k, sl in zip(qkeys, qslots) if sl == "listener"),
+                             frozenset(k for u, k, sl in zip(q, qkeys, qslots) if sl in ("read", "scan") and u["paper"] in times_papers)]
         (_, queue, qkeys, qslots, last_of, urgent_cands, read_cands, _, urgent_keys, urgent_first,
-         other_keys, listener_keys) = queue_memo
+         other_keys, listener_keys, times_keys) = queue_memo
         # Paul 10-24: the plan held only Listener reads (local OCR, no VLM) and its fixed pool ran 8 of the
         # 24 ceiling slots, 16 idle. While no other read or scan is due (queued untried) or running, the
         # Listener pool takes every ceiling slot left; once one is, it is back to LISTENER_WORKERS.
@@ -2900,6 +2906,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 f"listener pool: back to {pools['listener']} (CT_LISTENER_WORKERS), "
                 + ("other work due" if other_due else "no Listener read left"))
         listener_wide = widen
+        # Times first (Paul 10-24): while its work is due or running, the Listener keeps at most
+        # LISTENER_BESIDE_TIMES units.
+        if (times_keys - tried) or any(v["paper"] in times_papers and slot_of(v) in ("read", "scan")
+                                        for _, (v, _) in units_running()):
+            n_listener = sum(1 for _, (v, _) in units_running() if slot_of(v) == "listener")
+            free["listener"] = max(0, min(free.get("listener", 0), LISTENER_BESIDE_TIMES - n_listener))
         # Whether an untried urgent unit is not waiting for the VLM. The untried keys come from one set
         # difference (stored hashes, C speed), not a key built and looked up per candidate each pass
         # (~half the loop's CPU while all are tried); the walk then starts at the first untried one, so
