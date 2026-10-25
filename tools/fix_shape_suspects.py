@@ -2148,8 +2148,8 @@ def r_misplaced_indicator(node, parent, ctx):
     if node.get("op") != "charade" or node.get("unchecked") or not node.get("indicators"):
         return None
     bad = _misplaced_keys(node)
-    if len(bad) != 1 or len(node["indicators"]) != 1:
-        return None
+    if len(bad) != 1:
+        return None     # a second, sound indicator stays on the charade (rest, below)
     ind = bad[0]
     types = _lex_types(ind)
     if not types:
