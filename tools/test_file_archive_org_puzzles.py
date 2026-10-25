@@ -2345,10 +2345,19 @@ check("a held answer the grid reads otherwise, failing a crossing the grid's wor
 ao_held[0] = lights_held(["BAT", None, "TOE", None])
 ao_read[0] = {"1-across": "BAD", "1-down": "BED", "2-down": "DOE", "3-across": "DOE"}
 verdict, puzzle = f.answers_only(*ao_args)
-check("held words the grid reads as other listed words fitting every crossing give way; the other answers file",
-      (["BAD", "BED", "DOE", "DOE"], {"1-across": {"held": "BAT", "read": "BAD", "took": "read"},
-                                     "2-down": {"held": "TOE", "read": "DOE", "took": "read"}}),
+# Since 10-25 a letter read otherwise must be checked by a crossing light not itself clashing: here each
+# differing letter is the one cell 1-across and 2-down share (one misread cell is no evidence for
+# either), so both held words stand (times-7267's OOS for DOS, its first letter unchecked: COS).
+check("held words whose differing letter only another clashing light crosses stand; the other answers file",
+      (["BAT", "BED", "TOE", "DOE"], {"1-across": {"held": "BAT", "read": "BAD", "took": "held"},
+                                     "2-down": {"held": "TOE", "read": "DOE", "took": "held"}}),
       ([e["solution"] for e in puzzle["entries"]], verdict["solution"]["heldClash"]))
+check("settle_held: a read word whose differing letter a crossing checks gives way; one unchecked stands",
+      ("read", "held"),
+      (f.settle_held(lights_held(["BAD", None, None, None])["entries"],
+                     {"1-across": "BAT", "1-down": "BED", "2-down": "TOE"})[2]["1-across"]["took"],
+       f.settle_held(lights_held(["BAD", None, None, None])["entries"],
+                     {"1-across": "BAT", "1-down": "BED"})[2]["1-across"]["took"]))
 check("settle_held: a read answer crossing a kept held one on another letter goes with it",
       ({"3-across": "DOE"}, {"1-across": "BAT"}),
       f.settle_held(lights_held(["BAT", None, "TOE", None])["entries"],
@@ -2356,6 +2365,13 @@ check("settle_held: a read answer crossing a kept held one on another letter goe
 check("settle_held: a blog's held answer always stands", "held",
       f.settle_held(lights_held(["BAD", None, None, None])["entries"],
                     {"1-across": "BAT", "1-down": "BED", "2-down": "TOE"}, blog=True)[2]["1-across"]["took"])
+# HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
+# clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
+check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
+      [True, False, False],
+      [f.slip_clash(lights_held(["BAD", None, None, None]), {"1-across": "BAT", "1-down": "BED"}),
+       f.slip_clash(lights_held(["BAD", None, None, None]), {"1-across": "ZOO"}),
+       f.slip_clash(lights_held(["BAD", None, None, None]), {"1-across": "BAD", "1-down": "BED"})])
 ao_held[0] = lights_held([None] * 4)
 ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
 ao_held[0] = lights_held([None] * 4)
