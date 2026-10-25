@@ -313,9 +313,14 @@ HOLIDAY_LAGS = (4, 5)
 #: ("Solution ofPtazfe No 15,761", "Solution oTPnzzle No 16.147": a lowercase
 #: letter, then a capital),
 #: then the number, maybe read in pieces ("15 ,751", "19,7 1 1", "1 9.037",
-#: ". 15, 244");
+#: ". 15, 244", the 1960s' "No. 1 10,530": a speck before the whole number, its piece six marks), and
+#: the dot leader the 1940s-60s heading runs on into read glued to it ("SOLUTION OF PUZZLE No. 10,052....",
+#: 1962-07-28: ten marks, past the seven a number takes; "PUZZLE.No.-10,308..-");
 #: solution_number() decides.
-LOOSE_NUMBER = r"(?:[nm][^\s\d]{0,2}\s*)?(\S{1,7}(?:\s\S{1,5}){0,2})$"
+LOOSE_NUMBER = r"(?:[nm][^\s\d]{0,2}\s*)?(\S{1,7}(?:\s\S{1,6}){0,2})[-.,:;]{0,8}$"
+#: A heading's number read whole and clean after a speck of one or two marks ("1 10,530", ".1 10,846"):
+#: solution_at takes it where it is one expected, the speck's digit read on making it none.
+SPECKED_NUMBER = re.compile(r"^\S{1,2}\s+(\d{1,2}[,.]\d{3})\W{0,8}$")
 #: How many puzzles before a Monday's title the Saturday prize it prints the solution of is
 #: (2006-10-23's 23,427: "Solution to Prize Crossword 23,420"): the Gale Times of 2000-2012
 #: printed a Saturday's prize solution on the Monday week after, nine days on, headed "Solution
@@ -447,9 +452,13 @@ def solution_at(ws, k, expected, clean=(), prize=()):
             continue
         m = LOOSE_SOLUTION.match(text) or LOOSE_SOLUTION.match(unspecked(text))
         if not m or not (like(m[1], "solution") or m[3] and like(m[3], "puzzle")) \
-                or re.search(r"\d", m[1] + (m[3] or "")):
-            continue
+                or re.search(r"\d", m[1] + (m[3] or "")) or len(re.findall(r"\d", m[4])) < 2:
+            continue  # (a number of fewer than two digits is a word: "SoL.uTioN OF Puzzt" read
+            # its "Puzzt" as 10221, u 0, z 2, t 1, and linked 1964-02-12's grid of 10,530 to it)
         n = solution_number(m[4], expected)
+        s = n is None and SPECKED_NUMBER.match(m[4])
+        if s and number_of(s[1]) in expected:
+            n = number_of(s[1])
         read = re.sub(r"[\s,.]", "", m[4])
         if n is None and read.isdigit() and int(read) in clean:
             n = int(read)
@@ -6617,6 +6626,29 @@ for _paper, _pins in _NEG_EXPECTED_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before LOOSE_NUMBER took a dot leader glued
+#: to a heading's number ("SOLUTION OF PUZZLE No. 10,052...."): it links only headings that linked
+#: nothing, so every scan stands, the Times's and the Gale Times's too; the Gale hosts of puzzles
+#: filed with no answer are read in their solution bands once more (REREAD_HOST_HEADINGS, cached band
+#: reads). Paul 10-25: ~190 unanswered Times puzzles' hosts read such a heading and linked none.
+_DOT_LEADER_FIX = {
+    "ft": ("43018f01942ece0f", "b17950eef3d4a500", "470b3be9817bc707"),
+    "gale": ("5e9af7144cffef60", "f0905ad7ac1e794d", "88e35d105e756b77"),
+    "galeft": ("2d5b8b81e4fb0d47", "7c599da499cc7b83", "901ab903027df717"),
+    "galeindependent": ("b8c1b025d61124da", "9e26168d4725643d", "d06b4823d93fa78c"),
+    "galesundaytimes": ("7fc67a9979068268", "aada3ee5d883be70", "82609412d7065146"),
+    "galetelegraph": ("acde5a14a395d485", "54337e87fa502f94", "7396432ab4bcf5b4"),
+    "galetls": ("006dfca3e9281e15", "4bcca0f41ccad621", "278bb7c3611fced5"),
+    "guardian": ("10e9613a68e1357f", "f21be155ce2fba8f", "60a33bf7f44aaa68"),
+    "telegraph": ("baab35690b42642d", "87cffdd755e9f090", "844c851a165304e5"),
+    "times": ("80a310e7930c3dea", "6c9889a44722c970", "a0f82f7d8ff7c028"),
+    "times1930": ("ec9192e295a4f7f6", "121387b8415f6bae", "9282185cc921b19a"),
+}
+for _paper, _pins in _DOT_LEADER_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The Gale Times days (first, last) whose pages are 4600 px wide, scanned again for the wider
 #: band and grid cap.
 BAND_RESCAN = (datetime.date(2005, 5, 1), datetime.date(2006, 9, 30))
@@ -6631,7 +6663,7 @@ def prize_rescan(paper, key, rel):
         return False
     if key in _PRIZE_HEADINGS_FIX["gale"][:2] and prize_monday(day):
         return True
-    return (key not in (_GRID_CAP_FIX["gale"][2], _NEG_EXPECTED_FIX["gale"][2])
+    return (key not in (_GRID_CAP_FIX["gale"][2], _NEG_EXPECTED_FIX["gale"][2], _DOT_LEADER_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
@@ -6711,7 +6743,9 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   "c152cf1325047f62": "8417cfb08f3a9706",
                   # sure_framing and VERY_HEAVY_EXTRA (classify grids none was classified on): due once
                   # as SURE_FRAMING.
-                  "fd768722a95d6269": "8417cfb08f3a9706"}
+                  "fd768722a95d6269": "8417cfb08f3a9706",
+                  # LOOSE_NUMBER's dot leader (_DOT_LEADER_FIX): no grid is read otherwise.
+                  "7a7113210025b6ae": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -8730,9 +8764,10 @@ HOST_SCAN = "scan stale, solution host"
 #: Paul 10-24: ~480 such Times puzzles' hosts held the heading's text, ~220 read clean.
 #: Then (10-25) its misread "Solution" words too (solution_like: 1945-60s "SoL.UTION oF PvzzLe"),
 #: "The Solution of" over its number (1973-74) and "SolutiontoCrossword" (host_heading_lines).
+#: Then (10-25 evening) a number with its dot leader glued on ("No. 10,052....": LOOSE_NUMBER).
 HOST_RESCAN = "solution host, its headings read before their fix"
 #: Once: a host whose solutions_only read ("solOnly" "at") is older than this is due (host_rescan_due).
-REREAD_HOST_HEADINGS = "2026-10-25T04:15:00+00:00"
+REREAD_HOST_HEADINGS = "2026-10-25T21:45:00+00:00"
 #: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
 HOST_REASONS = (HOST_SCAN, HOST_RESCAN)
 RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
