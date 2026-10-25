@@ -551,14 +551,13 @@ n_bare, ex_bare, amb_bare, miss_bare, unc_bare, bud_bare = tally(out2, "NUMBERLE
 # is exactly what this file exists to catch, and a count derived from the same
 # files it is checking would agree with itself whatever arrived. A new series
 # fails here and is meant to — read the number off `puzzles/*/*/*.json` (index.json
-# is not a puzzle) and update it. 44 = cryptic at six sizes, listener at nine,
+# is not a puzzle) and update it. 48 = cryptic at six sizes, listener at thirteen
+# (10x10, 10x11, 10x12, 11x12, 12x12, 13x10, 13x11, 13x13, 14x14, 15x15, 15x19, 17x17, 18x22),
 # azed at three (12x12, 13x11, 13x13), canberra (15x15, 13x13), cyclops, sundaytimes and timesjumbo at two, and book, everyman, ftcryptic,
 # genius, independent, indysunday, mephisto, metro, nation, quiptic, sundaytel, sundaytough, telegraph,
 # times, timesclub, timesquick, tls and toughie at one each. Every scanned printed book is the one `book` series, so
 # another book does not move this number.
-# Updated 44 -> 48 (nightly-smoke run 40147551416 saw 48): four new (series, size)
-# buckets arrived in the corpus after the breakdown above was written, so it
-# sums to 44 and the extra four are not itemised.
+# Updated 44 -> 48 after nightly-smoke run 40147551416: listener gained four sizes.
 same("every series and size was drawn from", field("GROUPS", out2), "48")
 same("every attempt lands in exactly one of the five buckets",
      ex_num + amb_num + miss_num + unc_num + bud_num, n_num)
