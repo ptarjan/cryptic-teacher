@@ -414,6 +414,10 @@ def plan(got, skip=SKIP):
     passed = {d for d, ms in gale_inbox.staged_matches().items() if not superseded(d, ms, docs)} | set(aside)
     passed |= {d for d, _ in rows if gale_inbox.not_on_gale(d, docs, aside)}
     out = []
+    # Dates a room asked for (REQUESTS), first, filed or not: a row only where
+    # the cache is missing or stale, or its document is not yet in `got`.
+    for day in requested_days():
+        out += want("TTDA", day, docs, got)
     for day, _ in gale_inbox.next_up(rows, passed, None)[skip:]:
         out += want("TTDA", day, docs, got)
     if len(out) < REPLAN:
@@ -428,6 +432,29 @@ def plan(got, skip=SKIP):
         for prod in gale_inbox.OTHERS:
             for day in gale_inbox.other_wanted(prod):
                 out += want(prod, day, docs, got)
+    return out
+
+
+#: Times dates a room wants fetched ahead of the queue: ISO dates, any
+#: whitespace between (never rewritten here; a date with nothing to fetch
+#: costs nothing once looked up).
+REQUESTS = Path(os.path.expanduser("~/.cache/gale_inbox/requests.txt"))
+
+
+def requested_days(path=None):
+    """The dates in REQUESTS, in file order, once each; none if no file."""
+    try:
+        words = (path or REQUESTS).read_text().split()
+    except OSError:
+        return []
+    seen, out = set(), []
+    for w in words:
+        if w not in seen:
+            seen.add(w)
+            try:
+                out.append(datetime.date.fromisoformat(w))
+            except ValueError:
+                pass
     return out
 
 
