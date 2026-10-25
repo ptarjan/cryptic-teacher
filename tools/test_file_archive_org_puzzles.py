@@ -328,7 +328,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._SOLUTION_HEADINGS_FIX[gt.key][:2],
                                                                       *f._PRIZE_HEADINGS_FIX[gt.key][:2],
                                                                       *f._BAND_WIDTH_FIX[gt.key][:2],
-                                                                      *f._GRID_CAP_FIX[gt.key][:2]},
+                                                                      *f._GRID_CAP_FIX[gt.key][:2],
+                                                                      *f._NEG_EXPECTED_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -1395,7 +1396,7 @@ check("an equal scan from another thread's rows reuses the link; a changed one r
       [True, True, f.linked_solutions(f.TIMES, {**copy, "solutions": []}, near)],
       [f._linked(d, copy, near) is f._LINKED[k][4], f._LINKED[k][0] is copy,
        f._linked(d, {**copy, "solutions": []}, near)])
-check("hosted_window spans SOLUTION_DAYS each side and a week before", (D("1993-01-11"), D("1993-01-25")),
+check("hosted_window spans SOLUTION_DAYS after and HOST_REACH days before", (D("1993-01-07"), D("1993-01-25")),
       f.hosted_window(f.TIMES, found))
 check("an edition with no headings reads no held", None, f.hosted_window(f.TIMES, {**found, "solutions": []}))
 # A 2000s Gale Monday prints the Saturday prize nine days before it ("Solution to Prize Crossword
@@ -1404,7 +1405,7 @@ pz = {"date": "2006-10-23", "item": "GaleTimes2006UKEnglish", "puzzles": [{"numb
       "solutions": [{"number": 23420, "leaf": 0}]}
 prize_held = {23420: D("2006-10-14"), 23426: D("2006-10-21")}
 check("a Monday of the 2000s hosts the prize of the Saturday nine days before, a 1993 one does not; "
-      "hosted_window reaches it", ({23426, 23420}, {23426}, (D("2006-10-14"), D("2006-10-30")), [True, False]),
+      "hosted_window reaches it", ({23426, 23420}, {23426}, (D("2006-10-12"), D("2006-10-30")), [True, False]),
       (f.hosted(pz, prize_held) & {23426, 23420}, f.hosted({**pz, "date": "1993-01-18"}, prize_held) & {23426, 23420},
        f.hosted_window(f.GALE, pz), [f.prize_monday(D("2006-10-23")), f.prize_monday(D("2006-10-24"))]))
 check("a Saturday of 2000 on has the Monday week after as a second host; a weekday has one",
@@ -1443,7 +1444,7 @@ check("a Gale Times day of mid-2005 to mid-2006 scanned before the wider SOLUTIO
       [f.scan_current(_wide, "h"), f.scan_current({**_wide, "edition": "GaleTimes2004UKEnglish/2004-09-06"}, "h"),
        f.scan_current({**_wide, "edition": "GaleTimes2007UKEnglish/2007-09-05"}, "h"),
        f.scan_current({**_wide, "scanKey": f.scan_key(f.GALE)}, "h"),
-       all(f.CORPUS_KEYS[v[0]] == {p: v[2]} for p, v in f._GRID_CAP_FIX.items())])
+       all(f.CORPUS_KEYS[v[0]] == {p: f._NEG_EXPECTED_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
 _gk2 = f._GRID_CAP_FIX["gale"]
 _wide2 = {"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _gk2[0], "filesHash": "h", "scan": {}}
 check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's cap grew with the page is due "
@@ -1453,11 +1454,13 @@ check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's
        f.scan_current({**_wide2, "edition": "GaleTimes2004UKEnglish/2004-11-02"}, "h"),
        f.scan_current({**_wide2, "edition": "GaleTimes2007UKEnglish/2007-03-16"}, "h"),
        f.scan_current({**_wide2, "scanKey": f.scan_key(f.GALE)}, "h")])
-check("every paper's pinned scan key after the grid cap fix is its real scan key, and its old keys stand "
-      "under it", [True, True],
-      [all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
-           for k, v in f._GRID_CAP_FIX.items()),
-       all(f.CORPUS_KEYS[o] == {k: v[2]} for k, v in f._GRID_CAP_FIX.items() for o in v[:2])])
+check("every paper's pinned scan key after the grid cap fix is the one the negative-expected fix "
+      "pins over, whose pinned key is its real scan key, and both fixes' old keys stand under it", [True, True, True],
+      [all(v[2] == f._NEG_EXPECTED_FIX[k][0] for k, v in f._GRID_CAP_FIX.items()),
+       all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
+           for k, v in f._NEG_EXPECTED_FIX.items()),
+       all(f.CORPUS_KEYS[o] == {k: f._NEG_EXPECTED_FIX[k][2]}
+           for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX) for k, v in t.items() for o in v[:2])])
 _wp, _np = Image.new("L", (4664, 10), 255), Image.new("L", (f.SCAN_WIDTH, 10), 255)
 check("a solution grid 510 wide at SCAN_WIDTH is shaped on a 4664 px page (the cap grows with it), not on a "
       "3296 px page, and a puzzle's 1070 on neither", [True, False, False, False],
@@ -2226,7 +2229,7 @@ check("another tool's filing takes no answers", {},
 # whole reading; the full read when the held file is short of a clue, another
 # tool's, from another page, answered already, or an answer differs from the grid's.
 def lights_held(sols, tool=f.TOOL, url="u"):
-    lights = [(1, "across", 0, 0, 3), (1, "down", 0, 0, 3), (2, "down", 2, 0, 3), (4, "across", 0, 2, 3)]
+    lights = [(1, "across", 0, 0, 3), (1, "down", 0, 0, 3), (2, "down", 2, 0, 3), (3, "across", 0, 2, 3)]
     return {"id": "times-1", "number": 1, "source": {"acquiredBy": tool, "url": url, "gridOrigin": "published"},
             "dimensions": {"cols": 3, "rows": 3},
             "entries": [{"number": n, "direction": d, "position": {"x": x, "y": y}, "length": k,
@@ -2234,7 +2237,7 @@ def lights_held(sols, tool=f.TOOL, url="u"):
                         for (n, d, x, y, k), s in zip(lights, sols)]}
 import copy
 ao_held = [lights_held([None] * 4)]
-ao_read = [{"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "4-across": "DOE"}]
+ao_read = [{"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}]
 ao_stubbed = {n: getattr(f, n) for n in ("paper_of", "filed_number", "held_file", "page_url", "complete", "solved", "solution_source")}
 f.paper_of = lambda d: f.TIMES
 f.filed_number = lambda d, found, hit: (hit["number"], None, None)
@@ -2251,7 +2254,7 @@ ao_kept = f._KEEP_VLM["names"]
 f._KEEP_VLM["names"] = set()
 verdict, puzzle = f.answers_only(*ao_args)
 check("an answers-linked title with its clues held is read off the solution grid alone: the held clues, each answer the grid read",
-      (True, 0, 4, ["clue 1 across words", "clue 1 down words", "clue 2 down words", "clue 4 across words"],
+      (True, 0, 4, ["clue 1 across words", "clue 1 down words", "clue 2 down words", "clue 3 across words"],
        ["BAT", "BED", "TOE", "DOE"]),
       (verdict["answersOnly"], verdict["vlmAsks"], verdict["answers"], [e["clue"]["text"] for e in puzzle["entries"]],
        [e["solution"] for e in puzzle["entries"]]))
@@ -2278,7 +2281,7 @@ check("an edition asked to be read again is read in full", None, f.answers_only(
 f._KEEP_VLM["names"] = set()
 ao_held[0]["entries"][1]["clue"].pop("enumeration")
 # The grid reads every light (ao_read was left at {"1-across": "BAT"} by the checks above).
-ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "4-across": "DOE"}
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
 verdict, puzzle = f.answers_only(*ao_args)
 check("a held clue filed with no enumeration is no reason for the full read: its answers merge, no VLM ask (times-24146 1-across)",
       (True, 0, ["BAT", "BED", "TOE", "DOE"], "clue 1 down words"),
@@ -2435,12 +2438,12 @@ ao_held[0]["entries"][2]["clue"]["text"] = ""
 check("a held file with a blank clue is read in full", None, f.answers_only(*ao_args))
 ao_held[0] = lights_held([None] * 4)
 ao_held[0]["entries"][2]["clue"]["text"] = "-clue 2 down words"
-ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "4-across": "DOE"}
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
 verdict, puzzle = f.answers_only(*ao_args)
 check("a held clue the readers left unsettled (a stray mark) is kept as filed: the answers merge, no VLM ask",
       (True, 0, "-clue 2 down words", "TOE"),
       (verdict["answersOnly"], verdict["vlmAsks"], puzzle["entries"][2]["clue"]["text"], puzzle["entries"][2]["solution"]))
-check("the held clues' enumerations go to the grid's reading", {(1, "across"): "3", (1, "down"): "3", (2, "down"): "3", (4, "across"): "3"},
+check("the held clues' enumerations go to the grid's reading", {(1, "across"): "3", (1, "down"): "3", (2, "down"): "3", (3, "across"): "3"},
       ao_seen[-1])
 # A light the grid's reading left (at most STRIP_MAX of them) is asked of the VLM once, as its row of
 # squares with the letters its crossings hold: the word stands when it fits the light, agrees with
@@ -2455,15 +2458,10 @@ check("a light's strip is a PNG", b"\x89PNG", __import__("base64").b64decode(png
 flat = [1 / 26] * 26
 ruled_out = [1 / 26] * 26
 ruled_out[tso.AZ.index("I")] = 0.0
-ao_extra[0] = {"strips": {"4-across": {"png": png4, "p": [flat, flat, flat]}}}
+ao_extra[0] = {"strips": {"3-across": {"png": png4, "p": [flat, flat, flat]}}}
 ao_asked = []
 real_vlm = (f.vlm.ask, f.vlm.wanted)
 f.vlm.wanted = lambda: True
-# The fixture's 3x3 grid (a centre block) numbers its last light 3-across, not the held file's 4; in the
-# queue a strip's light always comes from the same grid's lights() (read_framed), so the strip's light
-# is put on that grid here (a KeyError (4, 'across') in vlm_lights otherwise).
-real_lights = tso.lights
-tso.lights = lambda grid: {**real_lights(grid), (4, "across"): [(2, 0), (2, 1), (2, 2)]}
 try:
     for reply, probs4, want, why in (("DOE", [flat] * 3, "DOE", "the word the VLM names stands"),
                                       ("DOE\n", [flat] * 3, "DOE", "a reply's first line is its word"),
@@ -2472,13 +2470,13 @@ try:
                                       ("BOE", [flat] * 3, None, "a word against a crossing letter is not taken"),
                                       ("DXE", [flat] * 3, None, "a word that is not listed is not taken"),
                                       ("", [flat] * 3, None, "no reply takes nothing")):
-        ao_extra[0] = {"strips": {"4-across": {"png": png4, "p": probs4}}}
+        ao_extra[0] = {"strips": {"3-across": {"png": png4, "p": probs4}}}
         f.vlm.ask = lambda img, prompt, max_tokens=1500, reply=reply: ao_asked.append(prompt) or reply
         verdict, puzzle = f.answers_only(*ao_args)
         check(f"VLM fallback: {why}", (want, "strips" in verdict["solution"]), (puzzle["entries"][3]["solution"], False))
     check("it is asked once, with the crossings' letters in the prompt", (7, True),
           (len(ao_asked), "D?E" in ao_asked[0] and "one word of 3 letters" in ao_asked[0]))
-    ao_extra[0] = {"strips": {"4-across": {"png": png4, "p": [flat] * 3}}}
+    ao_extra[0] = {"strips": {"3-across": {"png": png4, "p": [flat] * 3}}}
     f.vlm.ask = lambda *a, **k: (_ for _ in ()).throw(f.vlm.Spooled("spooled"))
     verdict, puzzle = f.answers_only(*ao_args)
     check("a spooled ask leaves the light unread (the read runs again once it is answered)", None, puzzle["entries"][3]["solution"])
@@ -2486,10 +2484,9 @@ try:
           (verdict["solution"].get("strips"), verdict["solution"].get("vlmLights")))
     f.vlm.ask = lambda *a, **k: "DOE"
     verdict, puzzle = f.answers_only(*ao_args)
-    check("the VLM's light is named and counted", (["4-across"], 4), (verdict["solution"]["vlmLights"], verdict["solution"]["accepted"]))
+    check("the VLM's light is named and counted", (["3-across"], 4), (verdict["solution"]["vlmLights"], verdict["solution"]["accepted"]))
 finally:
     f.vlm.ask, f.vlm.wanted = real_vlm
-    tso.lights = real_lights
 ao_extra[0] = {}
 def cell_p(ch, p=0.9):
     v = [(1 - p) / 25] * 26

@@ -4876,6 +4876,11 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         answers, by_vlm = vlm_lights(answers, strips, grid, enums)
         if by_vlm:
             info = {**info, "vlmLights": sorted(by_vlm), "accepted": info.get("accepted", 0) + len(by_vlm)}
+    # A reading at odds with itself (an answer its light's length does not fit, two crossing on different
+    # letters) is the full read's, judged before the misread and uncrossed drops below: a drop would
+    # hide the clash and leave an answers-only read that files nothing.
+    if not fits_lights(old["entries"], answers):
+        return None
     # An answer no word (worded) that one letter's change makes one is a misread, not a name: dropped.
     misread = {k for k, a in answers.items() if misread_word(a, enums.get(_light_key(k)))}
     if misread:
@@ -4912,6 +4917,23 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         verdict["read_as"] = hit["number"]
     verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
     return verdict, puzzle
+
+
+def fits_lights(entries, answers):
+    """Whether every answer of `answers` ({"12-across": word}) fills its entry's light of `entries`
+    and no two cross on different letters (answers_only)."""
+    letters = {}
+    for e in entries:
+        a = answers.get(entry_id(e))
+        if not a:
+            continue
+        if len(a) != e["length"]:
+            return False
+        x, y, across = e["position"]["x"], e["position"]["y"], e["direction"] == "across"
+        for i, ch in enumerate(a):
+            if letters.setdefault((x + i * across, y + i * (not across)), ch) != ch:
+                return False
+    return True
 
 
 def _light_key(lid):
