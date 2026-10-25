@@ -522,6 +522,14 @@ new, used = F.repair_tree(mpt, mpc, "RORQUAL", MP)
 check("in goes to the container, at the start stays with the charade",
       used == ["misplacedIndicator"] and new["indicators"][0]["text"] == "at the start"
       and new["parts"][1]["indicators"][0]["text"] == "in")
+mpt3 = {"op": "charade", "indicators": [{"text": "in", "at": 18}, {"text": "then", "at": 34}], "parts": [
+    {"words": "right", "at": 28, "gives": "R"},
+    {"op": "container", "parts": [
+        {"words": "exam", "at": 21, "gives": "ORAL"}, {"words": "question", "at": 6, "gives": "QU"}]}]}
+new, used = F.repair_tree(mpt3, mpc, "RORQUAL", MP)
+check("a charade with a second, sound indicator still gives the misplaced word to the container",
+      used == ["misplacedIndicator"] and [i["text"] for i in new["indicators"]] == ["then"]
+      and new["parts"][1]["indicators"][0]["text"] == "in")
 mpc2 = "Drink taken by donkey leader"
 mpt2 = {"op": "charade", "indicators": [{"text": "leader", "at": 22}], "parts": [
     {"words": "Drink", "at": 0, "gives": "TOT"}, {"words": "donkey", "at": 15, "gives": "D"}]}
