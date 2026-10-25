@@ -266,52 +266,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Wobbly",
-       "note": "something wobbly is unsteady and out of place, so the letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "not right",
-         "note": "'not right' asks for the R, the abbreviation for right, to be taken out"
+         "text": "Wobbly",
+         "at": 0,
+         "note": "wobbly means unsteady, so these letters are shaken into a new order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "English",
-           "gives": "E",
-           "note": "E is the abbreviation for English"
-          },
-          {
-           "words": "deck",
-           "note": "taken as written"
-          },
-          {
-           "words": "chair",
-           "note": "taken as written, then loses its R"
-          }
-         ]
+         "words": "deck",
+         "at": 15
         },
         {
-         "gives": "R"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not right",
+           "at": 26,
+           "note": "not right means take away R, the abbreviation for right"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chair",
+           "at": 20
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 7,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "An unsteady deckchair, unsuitable for a bird from America to perch on.",
-     "walkthrough": "'Deck chair' looks like one object, but it splits into two pieces of fodder, and the chair drops its R before everything is mixed.",
-     "definitionFit": "The chickadee is a small North American songbird of the tit family."
+     "surface": "An English deckchair wobbles and is unsuitable for an American bird to perch on.",
+     "walkthrough": "'not right' removes R from CHAIR; 'Wobbly' rearranges DECK and CHAI into CHICKADE, then E.",
+     "definitionFit": "This small songbird of the tit family is common across North America, and its call gives it its name."
     },
     "features": {
      "answerInScene": false,
