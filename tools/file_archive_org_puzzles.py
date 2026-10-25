@@ -4867,8 +4867,9 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     returned is the held file with its answers as the solution grid reads
     them (solved, the full read's own reader), its verdict "answersOnly": decide()
     merges them into the held file (merge_answers) and takes no whole reading
-    over it. None when a held answer differs from the grid's, two answers cross
-    on different letters, or the grid is not the Times's (cells classified).
+    over it. A held answer the grid reads otherwise is settled light by light
+    (settle_held: solution.heldClash), not the whole reading refused. None when two
+    answers cross on different letters, or the grid is not the Times's (cells classified).
     Not `ask_vlm`: the lights the grid's reading left stay unanswered (no strip asked). `crossed` (every
     Times answers-only read, not only HELD_TITLE's since 10-25): an answer with a letter no other answer
     checks is left out (uncrossed) when the classifier reads one such letter off the grid's crop as
@@ -4931,6 +4932,13 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         if lone:
             answers = {k: a for k, a in answers.items() if k not in lone}
             info = {**info, "uncrossed": sorted(lone), "accepted": info.get("accepted", 0) - len(lone)}
+    # A held answer the reading reads otherwise no longer refuses the whole reading (settle_held):
+    # the read one replaces it when a listed word fitting every crossing, else the held one stands and
+    # the read answers crossing it on another letter go; the held answers kept are filed with the reading's.
+    answers, kept, clash = settle_held(old["entries"], answers, enums, blog="blog" in (old.get("solutions") or {}))
+    if clash:
+        info = {**info, "heldClash": clash}
+        answers = {**answers, **kept}
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
     letters = {}
@@ -4938,7 +4946,7 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         a = answers.get(entry_id(e))
         if not a:
             continue
-        if len(a) != e["length"] or e.get("solution") and e["solution"] != a:
+        if len(a) != e["length"] or e.get("solution") and e["solution"] != a and clash.get(entry_id(e), {}).get("took") != "read":
             return None
         x, y, across = e["position"]["x"], e["position"]["y"], e["direction"] == "across"
         for i, ch in enumerate(a):
@@ -4970,6 +4978,78 @@ def fits_lights(entries, answers):
             if letters.setdefault((x + i * across, y + i * (not across)), ch) != ch:
                 return False
     return True
+
+
+def settle_held(entries, answers, enums=None, blog=False):
+    """(answers, held, clash) for an answers-only reading `answers` ({"12-across": word}) of a held
+    file's `entries` some of whose held answers it reads otherwise. Before 10-25 one such light
+    refused the whole reading (times-5432, times-11238: every other new answer lost).
+
+    Each clashing light takes the reading's answer when it is a listed word (worded, or a corpus
+    answer) that fits every letter crossing it (each read answer's not itself clashing, else the
+    held answer's of a light not read); else it keeps the held one. The held answers are older
+    code's reads of the same printed grid: on 10-25's dry run of 11 such Times lights the reading
+    was right on every one, held words too (RIKSDAG for RIGSDAG, "rotten in the state"; TITIS for
+    TITUS, "Andronicus"; SATED for SATYR, "Trays broken"). A blog's (`blog`, solutions.blog) always
+    stand, as merge_answers keeps them. A kept held answer drops
+    its reading, and every read answer that crosses it on another letter (that letter is the
+    reading's at odds with the held file). `held` is {light: held answer} of each light whose
+    held answer stands where the reading's went, every one agreeing with the answers kept, so the
+    merge (merge_answers, reread) does not drop it; `clash` {light: {"held", "read", "took": "read",
+    "held", or "dropped" (a read answer taken, then crossing a kept held one: neither filed)}}."""
+    def cells(e):
+        x, y, across = e["position"]["x"], e["position"]["y"], e["direction"] == "across"
+        return [(x + i * across, y + i * (not across)) for i in range(e["length"])]
+    by = {entry_id(e): e for e in entries}
+    was = {k: e["solution"] for k, e in by.items() if e.get("solution")}
+    clash = {k: {"held": was[k], "read": a} for k, a in answers.items() if was.get(k) and was[k] != a}
+    if not clash:
+        return answers, {}, {}
+    def listed(w, k):
+        return worded(w, (enums or {}).get(_light_key(k))) or w.upper() in trove_solution_ocr.corpus_words()
+    on = {}
+    for k, e in by.items():
+        for i, rc in enumerate(cells(e)):
+            on.setdefault(rc, []).append((k, i))
+    def crossers(k):
+        return [(i, j, ji) for i, rc in enumerate(cells(by[k])) for j, ji in on[rc] if j != k]
+    out = dict(answers)
+    held = {}
+    for k, c in clash.items():
+        h, a = c["held"], c["read"]
+        # The letters crossing k: each read answer's (not itself clashing), else the held answer's
+        # of a light the reading does not read otherwise.
+        crossing = []
+        for i, j, ji in crossers(k):
+            if j in clash:
+                continue
+            if j in answers:
+                crossing.append((i, answers[j][ji]))
+            elif was.get(j):
+                crossing.append((i, was[j][ji]))
+        better = not blog and listed(a, k) and all(a[i] == ch for i, ch in crossing)
+        c["took"] = "read" if better else "held"
+        if not better:
+            out.pop(k, None)
+            held[k] = h
+    # A read answer crossing a kept held answer on another letter goes with it.
+    for k in held:
+        for i, j, ji in crossers(k):
+            if j in out and out[j][ji] != held[k][i]:
+                out.pop(j)
+                if j in clash:
+                    clash[j]["took"] = "dropped"
+    # Each light left with no read answer keeps its held one where it agrees with every letter kept.
+    letters = {rc: ch for k, a in {**out, **held}.items() for rc, ch in zip(cells(by[k]), a)}
+    for k in list(by):
+        if k not in out and k not in held and was.get(k) and k not in clash \
+                and all(letters.get(rc, ch) == ch for rc, ch in zip(cells(by[k]), was[k])):
+            held[k] = was[k]
+            letters.update(zip(cells(by[k]), was[k]))
+    for k in [k for k in held if k not in clash]:
+        if k not in answers:
+            del held[k]  # never read: merge_answers' own (reread) rule decides it, as before
+    return out, held, clash
 
 
 def _light_key(lid):
