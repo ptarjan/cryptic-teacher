@@ -344,6 +344,10 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     # writes from the burn alone. Split, a change writes only the few entries
     # that differ from a shared base file. Idempotent; best effort.
     git -C "$_ct_tree" update-index --split-index >/dev/null 2>&1 || true
+    # Git keeps a replaced shared base file two weeks by default; one ~10 MB
+    # base is made every few minutes per busy tree (2+ GB a day under .git/
+    # worktrees/). Drop the unreferenced ones as soon as a new base is made.
+    git -C "$_ct_tree" config splitIndex.sharedIndexExpire now >/dev/null 2>&1 || true
     # The generated files are not tracked, so a tree just reset to origin/master
     # has either none of them (a tree made tonight) or the ones the last run
     # left, describing files the reset has since changed. A job that reads
