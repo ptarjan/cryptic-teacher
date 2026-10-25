@@ -411,6 +411,17 @@ def _size(x):
         return int(x or 0)
 
 
+def _span_overlaps(tree, clue):
+    """V.span_overlaps on a copy of `tree` with its places worked out (the rule reads them)."""
+    import copy
+    import validate_annotations as V
+    import wordplay
+    try:
+        return V.span_overlaps(wordplay.locate(copy.deepcopy(tree), clue))
+    except wordplay.WordplayError:
+        return 0
+
+
 def rule_counters():
     """{validator rule: fn(tree, full annotation with _answer, clue) -> hits}: the one table
     that says which RULE_REPAIRS fixers the first check runs (test_apply_rule_repairs.py keeps
@@ -422,6 +433,7 @@ def rule_counters():
     table = {**F._DETECTOR_RULES, **shape_queue._validator_rules()}
     table["unindicatedBare"] = lambda t, a, c: V.unindicated_ops(t)
     table["repeatedSelection"] = lambda t, a, c: V.repeated_selections(t)
+    table["spanOverlap"] = lambda t, a, c: _span_overlaps(t, c)
     return table
 
 
