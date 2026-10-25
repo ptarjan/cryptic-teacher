@@ -437,11 +437,11 @@ check("eq.by_urgency: CT_NEWEST_FIRST unset leaves the order alone",
       ["gale-hand", "other", "gale-old-gain", "gale-new", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
 os.environ["CT_NEWEST_FIRST"] = "gale, times"
-check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' likely filers first, then their rereads alternating with other papers' work (Paul 10-21, 871ecef558f)",
-      ["gale-old-gain", "gale-hand", "gale-new", "other", "times-mid"],
+check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' never-read first, then likely filers, then their rereads alternating with other papers' work (Paul 10-21, 10-24)",
+      ["gale-hand", "gale-old-gain", "gale-new", "other", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
-check("eq.by_urgency: the Listener's pages go first, ahead of the newest-first papers' too (Paul 10-23)",
-      ["listener-page", "gale-old-gain", "gale-hand", "gale-new", "other", "times-mid"],
+check("eq.by_urgency: the Listener's pages go after the newest-first papers' never-read, ahead of the rest (Paul 10-23, 10-24)",
+      ["gale-hand", "listener-page", "gale-old-gain", "gale-new", "other", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units + [(0, 1, 0, {"rel": "listener-page", "paper": "listener", "rank": 0,
                                                                "kind": "read", "reason": "never read (Gale fetch)"})])])
 lu = lambda rel, rank, reason: (rank, 1, 0, {"rel": rel, "paper": "listener", "rank": rank, "kind": "read", "reason": reason})
@@ -462,20 +462,44 @@ check("eq.by_urgency: CT_NEWEST_FIRST, never read first, then rereads after a re
           (1, 0, 0, {"rel": "never", "date": "1990", "paper": "times", "rank": 1, "reason": "never read"})])])
 gr = lambda rel, date, reason, **k: (2, 0, 0, {"rel": rel, "date": date, "paper": "gale", "rank": 2, "reason": reason, **k})
 check("eq.by_urgency: CT_NEWEST_FIRST, a Gale 2007 short page and a 2000 no-title rescan go with the likely filers, not behind (Paul 10-22)",
-      ["notitle00", "short07", "likely80", "changed"],
+      ["likely80", "notitle00", "short07", "changed"],
       [u["rel"] for u in eq.by_urgency([
           gr("changed", "2020", "inputs changed"),
           gr("likely80", "1980", "solution short, read by other code", likely={"x": 1}),
           gr("notitle00", "2000", f.NO_TITLE_RESCAN),
           gr("short07", "2007", "short Times page, its third clue column read since")])])
-check("eq.by_urgency: CT_NEWEST_FIRST, the named papers' rereads alternate one for one with another paper's never-read (Paul 10-21, 871ecef558f)",
-      ["never", "short", "ft-never", "changed", "ft-stale"],
+check("eq.by_urgency: CT_NEWEST_FIRST, the named papers' solution rereads first, their other rereads alternate one for one with another paper's never-read (Paul 10-21, 10-24)",
+      ["short", "never", "ft-never", "changed", "ft-stale"],
       [u["rel"] for u in eq.by_urgency([
           rr("changed", "2020", "inputs changed"),
           rr("short", "2010", "solution short, read by other code"),
           (3, 1, 0, {"rel": "ft-stale", "date": "1985", "paper": "ft", "rank": 3, "reason": "scan stale"}),
           (1, 1, 1, {"rel": "ft-never", "date": "1980", "paper": "ft", "rank": 1, "reason": "never read"}),
           (1, 0, 0, {"rel": "never", "date": "1990", "paper": "times", "rank": 1, "reason": "never read"})])])
+# Paul 10-24: "Remember times is the most important", "getting them with their solutions is highest priority":
+# every Times solution reread (and a scan one waits on, `serves`) goes ahead of the Times never-read, which go
+# ahead of the Listener's, ahead of the rest; a solution reread is not interleaved with any other paper's.
+ts = [rr("t-wide", "1990", f.SHORT_WIDE), gr("g-unlisted", "1980", f.UNLISTED), gr("g-grid", "1970", f.REFUSED_GRID),
+      rr("t-linked", "1960", "scan stale, answers linked"),
+      (0, 0, 1, {"rel": "g-never", "date": "2001", "paper": "gale", "rank": 0, "reason": "never read (Gale fetch)"}),
+      (1, 1, 1, {"rel": "tg-never", "date": "2002", "paper": "telegraph", "rank": 1, "reason": "never read"}),
+      lu("l-new", 0, "never read (Gale fetch)")]
+check("eq.by_urgency: Times solution rereads, then Times never-read, then the Listener, then others (Paul 10-24)",
+      ["t-wide", "g-unlisted", "g-grid", "t-linked", "g-never", "l-new", "tg-never"],
+      [u["rel"] for u in eq.by_urgency(ts)])
+sc = lambda rel, rank, reason, paper="gale": (rank, 0, 0, {"rel": rel, "date": "1990", "paper": paper, "rank": rank,
+                                                         "kind": "scan", "reason": reason})
+check("eq.by_urgency: a Times stale scan a solution reread waits on (serves) goes ahead of never-scanned pages",
+      ["s-host", "s-serves", "s-never", "s-stale", "tg-scan"],
+      [u["rel"] for u in eq.by_urgency([sc("s-never", 0, "never scanned"), sc("s-stale", 2, "scan stale"),
+                                        sc("s-serves", 2, "scan stale"), sc("s-host", 1, f.HOST_SCAN),
+                                        sc("tg-scan", 1, "never scanned", "telegraph")],
+                                       serves={("gale", "s-serves")})])
+check("eq.solution_needs: a Times solution read's own edition and needs, not another paper's or a never-read's",
+      {("gale", "R"), ("gale", "N")},
+      eq.solution_needs([{"paper": "gale", "rel": "R", "reason": f.UNLISTED, "needs": ["N"]},
+                         {"paper": "gale", "rel": "X", "reason": "never read", "needs": ["Y"]},
+                         {"paper": "telegraph", "rel": "T", "reason": f.UNLISTED, "needs": []}]))
 check("eq.newest_first: a named paper's unit, not rank 0", [True, False, False],
       [eq.newest_first(u) for u in (nf_units[1][3], nf_units[2][3], nf_units[3][3])])
 del os.environ["CT_NEWEST_FIRST"]
