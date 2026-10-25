@@ -7205,7 +7205,8 @@ def untitled_rescan(row):
     return row.get("scanKey") != scan_key(paper_of(Path(row["edition"])))
 
 
-#: The due reason of a Times page whose scan by current scan code finds no title (no puzzle, no verdict),
+#: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
+#: only the held puzzle's an older scan read, 10-25),
 #: while the one puzzle its series holds for the page's date was filed from this very page (an older
 #: scan read its title) with every clue and not every answer: no read takes its title, so a solution
 #: heading a host prints for it links nothing. Read answers-only under the held number (held_titles), no
@@ -7218,13 +7219,20 @@ REREAD_HELD_TITLE = "2026-10-25T06:30:00+00:00"
 
 def held_titles(row, cache=None):
     """[{"number", "leaf", "box": None, "heldTitle": True}] for Times ledger `row` (HELD_TITLE): its scan by
-    current scan code holds no title and it has no verdict, read before REREAD_HELD_TITLE, and the one
+    current scan code holds no title and it has no verdict but one (not refused) of the held puzzle's
+    number (its title the scan lost), read before REREAD_HELD_TITLE, and the one
     puzzle its series holds for the scan's date is held with every clue and not every answer, by this
     tool, from a leaf of this edition (page_url); else []. The hit is the held puzzle's title as the
     page's lost one: filed_number files it only as the number the date's count gives, and answers_only
     reads it only from the held file of this page."""
     scan = row.get("scan") or {}
-    if "inputs" not in row or scan.get("puzzles") or row.get("verdicts") or scan.get("failed") or not scan.get("date"):
+    if "inputs" not in row or scan.get("puzzles") or scan.get("failed") or not scan.get("date"):
+        return []
+    # A verdict the page's older scan read under the title it lost (10-25: 82 Times rows of 1949-89, one
+    # verdict each, the held puzzle's, its title gone from the scan by current code) stands for that
+    # title: due_reason answered "inputs changed" for them, a blanket reason, and no held title was read.
+    verdicts = row.get("verdicts") or ()
+    if len(verdicts) > 1 or any(v.get("refused") for v in verdicts):
         return []
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED or row.get("scanKey") not in current_keys(paper) \
@@ -7235,7 +7243,8 @@ def held_titles(row, cache=None):
     except ValueError:
         return []
     nums = Held.of(held_dates(paper.series)).on_day.get(day, ())
-    if len(nums) != 1 or filed_state(paper.series, nums[0]) != (False, True):
+    if len(nums) != 1 or filed_state(paper.series, nums[0]) != (False, True) \
+            or any(v.get("read_as", v.get("number")) != nums[0] for v in verdicts):
         return []
     d = Path(cache or CACHE) / row["edition"]
     try:
@@ -8565,11 +8574,13 @@ def blanket_or_fix(row, blanket):
     that one. 10-25: 251 Times puzzles held 6+ answers short (fix_reason SHORT_WIDE) were never planned,
     their rows' solutionsSeen (or stored titles) no longer the planner's links, so due_reason answered
     the blanket reason before fix_reason was asked. Not for a row whose scan lost a verdict's title
-    (74 of them, Gale 1950s): answers_only reads only a title the scan holds, so the reread files nothing."""
+    (answers_only reads only a title the scan holds, so the reread files nothing) unless the lost title
+    is its held puzzle's (held_titles: HELD_TITLE reads it under that number; 10-25, 82 Times rows)."""
     if getattr(paper_of(row.get("edition", "")), "series", None) != SERIES:
         return blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
-    if any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())):
+    if any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
+            and not held_titles(row):
         return blanket
     why = fix_reason(row)
     return why if why in SOLUTION_FIXES else blanket
@@ -8596,12 +8607,14 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
         return UNREAD_TITLES if unread_titles(row) else blanket_or_fix(row, "inputs changed")
     if any(v.get("solutionFrom") and v["solutionFrom"] not in (sol_from or {}).get(v["number"], {v["solutionFrom"]})
            for v in row.get("verdicts", ())):
-        return "solution moved"
+        # 10-25: ~15 short Times rows stood "solution moved", a blanket reason no plan keeps.
+        return blanket_or_fix(row, "solution moved")
     if sorted(p["number"] for p in row["scan"]["puzzles"]) != sorted(v.get("read_as", v["number"])
                                                                      for v in row.get("verdicts", ())):
         return UNREAD_TITLES if unread_titles(row) else blanket_or_fix(row, "titles changed")
     if vlm_up and not row.get("vlm"):
-        return "read without the VLM"
+        # 10-25: ~16 short Times rows stood so; an answers-only fix due reads the answers, not the clues.
+        return blanket_or_fix(row, "read without the VLM")
     why = fix_reason(row)
     if why:
         return why
