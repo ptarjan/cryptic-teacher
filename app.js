@@ -4681,7 +4681,9 @@
     };
     const chips = blocks.map((b) => {
       const n = letterCount(b.gives);
-      return role(b) + (n ? ` ${n}` : "");
+      // The role is fixed prose too: a clue whose answer is SYNONYM must not
+      // wear a "synonym" chip before the walkthrough.
+      return maskAnswer(role(b), ann.answer) + (n ? ` ${n}` : "");
     });
     const all = chips.map((_, i) => i);
     const join = (idx, sep) => idx.reduce((out, i, k) => out.concat(k ? [sep, i] : [i]), []);

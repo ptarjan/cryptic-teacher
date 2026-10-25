@@ -5019,6 +5019,9 @@ global.realSetTimeout(() => {
     return () => { el.getBoundingClientRect = orig; };
   };
   const unspyPanel = spyRect(panelEl, "panel"), unspyMid = spyRect(midEl, "mid");
+  // The panel is laid out in page space: earlier sections leave the window
+  // scrolled, which would put this box above the viewport (not on screen).
+  global.window.pageYOffset = 0;
   panelEl.layout(100, 200);
   cleanE.solution.slice(0, -1).split("").forEach((c) => key(c));
   assert(!cells.some((c) => c.classList.contains("solved-flash")),
@@ -5042,7 +5045,7 @@ global.realSetTimeout(() => {
   registry["reset-puzzle"].onclick();
   select(cleanE);
   cleanE.solution.split("").forEach((c) => key(c));
-  global.flushTimers(500);
+  // No flush here: the 450ms timer is what removes the gold class again.
   assert(cells.every((c) => c.classList.contains("clean")),
     "solved with no hints and no reveals gets the gold tier, distinct from the green one");
   assert(registry["clue-" + entryId(cleanE)].classList.contains("no-hints"),
