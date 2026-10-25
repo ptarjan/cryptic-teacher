@@ -504,9 +504,13 @@ check("a grid this code's full read left two lights short, before the fitted rer
       [f.LIKELY[4], f.LIKELY[4]],
       [f.short_cause("times", cur_read, v(90210, **classified_part(2)), {}),
        f.short_cause("times", cur_read, v(90210, **classified_part(1, blocks=0.9)), {})])
+# Read after REREAD_UNLISTED too: before it, a grid at most STRIP_MAX short is read again for unlisted
+# words (LIKELY[6], c766e6cf936), answers_only or not.
+import datetime
+after_read = {**cur_read, "readAt": (q.when(f.REREAD_UNLISTED) + datetime.timedelta(days=1)).isoformat()}
 check("mirror: read after REREAD_SHORT_FITTED, or by answers_only, it is not", [None, None],
-      [f.short_cause("times", {**cur_read, "readAt": "2026-10-24T05:00:00+00:00"}, v(90210, **classified_part(2)), {}),
-       f.short_cause("times", cur_read, v(90210, answersOnly=True, **classified_part(2)), {})])
+      [f.short_cause("times", after_read, v(90210, **classified_part(2)), {}),
+       f.short_cause("times", after_read, v(90210, answersOnly=True, **classified_part(2)), {})])
 check("mirror: more than SHORT_GAP lights short, blocks unsure, or refused", (None, None, None),
       (f.short_cause("times", old_read, v(90210, **classified_part(f.SHORT_GAP + 1)), {}),
        f.short_cause("times", old_read, v(90210, **classified_part(2, blocks=0.9)), {}),
@@ -2198,7 +2202,7 @@ check("gpu_fill: answers-linked rereads ranked first do not fill, the never-read
 # so the FT never-read reads behind them are, and the reserve holds slots for those; nor are they cpu-only
 # (no cpu-only cap on them) or answers-linked (no batching).
 _lo = [_mk("times", f"s{k}", 2, r) for k, r in enumerate(eq.LOW_ASK)]
-check("fills_gpu: low-ask solution rereads do not feed; neither cpu-only nor answers-linked", ([False] * 3, [False] * 3, [False] * 3),
+check("fills_gpu: low-ask solution rereads do not feed; neither cpu-only nor answers-linked", ([False] * len(eq.LOW_ASK),) * 3,
       ([eq.fills_gpu(u) for u in _lo], [eq.cpu_only_unit(u) for u in _lo],
        [eq.answers_linked({**u, "paper": next(iter(eq.fa.FILERS))}) for u in _lo]))
 check("gpu_fill: low-ask solution rereads ranked first do not fill, the never-read ones behind them do", ["t0", "t1"],

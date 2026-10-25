@@ -1178,11 +1178,17 @@ def by_urgency(units):
         proven = [t for t in units if canary_proven(t[3])]
         newest = [t for t in newest if t not in proven]
         rest = [t for t in rest if t not in proven]
+        # The Listener's units go first below (by their own alternation): left in `rest` (rank 0 and 1)
+        # they took the alternation's slots and moved the other papers' work among themselves. Taken out
+        # here, in the order they held, the others alternate as if there were none.
+        listener_units = [t for t in newest + rest if t[3].get("paper") == "listener"]
+        newest = [t for t in newest if t[3].get("paper") != "listener"]
+        rest = [t for t in rest if t[3].get("paper") != "listener"]
         # Paul 10-21: "Read the remaining times puzzles before doing ft": the named papers' likely filers
         # and proven rereads go before any other paper's. Their other rereads alternate one for one with
         # other papers' never-read work: on 10-21 with only those rereads left, ~350 writes an hour made
         # 5 new filings (most rewrote the same blanks) while 1,304 never-read FT pages waited.
-        units = ([t for t in newest if files_likely_tier(t[0], t[3]) == 0] + [t for t in proven if t[3].get("paper") in named]
+        units = (listener_units + [t for t in newest if files_likely_tier(t[0], t[3]) == 0] + [t for t in proven if t[3].get("paper") in named]
                  + alternate([t for t in newest if files_likely_tier(t[0], t[3]) > 0],
                              alternate([t for t in rest if t[0] <= 1], [t for t in proven if t[3].get("paper") not in named]))
                  + [t for t in rest if t[0] > 1])
