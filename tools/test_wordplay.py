@@ -209,6 +209,33 @@ try:
 except w.WordplayError as e:
     check("an unmatched note lists the free spans", "'a'" in str(e) and "'b'" in str(e), str(e))
 
+# Notes keyed by several free spans' words joined, or a phrase round one span
+# (real 'name no span' refusals, annotate audit 10-24/25); unrelated keys stay.
+def rekeyed(wp, clue, notes):
+    t = w.parse(wp, clue)
+    left = dict(notes)
+    w._rekey(left, t)
+    return [(s[k], s.get("note")) for s, k in w._spans(t, True)], sorted(left)
+
+
+got, left = rekeyed("[ultimately]U + [averse]A", "Ultimately averse", {"ultimately averse": "x"})
+check("a joined key lands on each span", got == [("Ultimately", "x"), ("averse", "x")] and not left, got)
+got, left = rekeyed("ins<within><separately>([Study], [academics])", "Study academics separately within",
+                    {"separately within": "n"})
+check("a joined indicator key in the other order lands on both", [n for _, n in got][:2] == ["n", "n"] and not left, got)
+got, left = rekeyed("[Labour]L + [x]X", "Labour leader x", {"Labour leader": "n"})
+check("a phrase round one free span lands on it", got[0] == ("Labour", "n") and not left, got)
+got, left = rekeyed("[Winter]W", 'An extract from "If Winter Comes"', {'An extract from "If Winter Comes"': "n"})
+check("a quoted phrase round one span lands on it", got == [("Winter", "n")] and not left, got)
+got, left = rekeyed("[asthma]A", "asthma", {"Bill": "n"})
+check("an unrelated key stays refused", left == ["Bill"] and got == [("asthma", None)], got)
+got, left = rekeyed("[raspberry]R + [raspberry#2]S", "raspberry and raspberry", {"edges of raspberry": "n"})
+check("a phrase round two copies is ambiguous", left == ["edges of raspberry"], got)
+got, left = rekeyed("[a]A + [guy]G", "a guy", {"in a guy x": "n"})
+check("a joined key with extra words stays refused", left == ["in a guy x"], got)
+got, left = rekeyed("[a]A + [x]X", "a to x", {"a gold bar": "n"})
+check("a link word alone is not a phrase's span", "a gold bar" in left, got)
+
 # Quote-not-in-clue mends, from real refusals (annotate audit 10-24/25).
 def spans_of(wp, clue):
     t = w.parse(wp, clue)
