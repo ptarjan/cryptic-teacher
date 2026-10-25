@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,29 @@
     "text": "Party for 13 across",
     "enumeration": "4"
    },
-   "solution": "BASH"
+   "solution": "BASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Party",
+      "at": 0,
+      "meaning": "a lively party or celebration"
+     },
+     {
+      "text": "13 across",
+      "at": 10,
+      "meaning": "the solution to 13 across means to hit hard"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Two separate senses: a noisy celebration, and a heavy blow struck at someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +70,41 @@
     "text": "Golf match involving more of us",
     "enumeration": "8"
    },
-   "solution": "FOURSOME"
+   "solution": "FOURSOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Golf match",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 11,
+       "note": "involving here suggests the letters are tangled up together, so these words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more of us",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A round of golf that needs more players than just the two of us.",
+     "walkthrough": "'involving' is the anagram signal: the eight letters of MORE OF US are rearranged.",
+     "definitionFit": "In golf this is a match between two pairs of players, each pair playing one ball."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "involving"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +118,45 @@
     "text": "Fit, we hear, for a drop of the hard stuff?",
     "enumeration": "4"
    },
-   "solution": "HAIL"
+   "solution": "HAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a drop of the hard stuff?",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HAIL",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 5,
+       "note": "we hear says the word is taken by its sound, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fit",
+       "at": 0,
+       "gives": "HALE",
+       "note": "fit and healthy is hale, as in hale and hearty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is someone fit enough for a nip of strong spirits?",
+     "walkthrough": "'the hard stuff' suggests whisky; here it is frozen rain, falling in hard drops.",
+     "definitionFit": "Hailstones are pellets of ice, literally hard drops falling from the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +176,41 @@
      }
     ]
    },
-   "solution": "WETNURSE"
+   "solution": "WETNURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "supplier of milk",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 10,
+       "note": "out here means the letters are put out of order, so the preceding words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ewe turns",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sheep proves to be the source of milk for a farm.",
+     "walkthrough": "'turns' looks like the verb of the surface but is part of the fodder; 'out' is the anagram signal for EWE TURNS.",
+     "definitionFit": "A wet nurse is a woman employed to breastfeed another woman's baby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +224,57 @@
     "text": "Rotten place requiring short journey",
     "enumeration": "6"
    },
-   "solution": "PUTRID"
+   "solution": "PUTRID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rotten",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "place",
+       "at": 7,
+       "gives": "PUT",
+       "note": "to place something is to put it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 23,
+         "note": "short means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "journey",
+         "at": 29,
+         "gives": "RIDE",
+         "note": "a ride is a short journey"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A run-down spot that you need only a brief trip to reach.",
+     "walkthrough": "'short' cuts the last letter from RIDE, leaving RID.",
+     "definitionFit": "Something putrid is decaying and foul-smelling, as rotten food is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +298,48 @@
      }
     ]
    },
-   "solution": "RARINGTOGO"
+   "solution": "RARINGTOGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gung-ho",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gunners",
+       "at": 8,
+       "gives": "RA",
+       "note": "RA is the Royal Artillery, the British Army's gunners"
+      },
+      {
+       "words": "encircle",
+       "at": 16,
+       "gives": "RING",
+       "note": "to ring something is to encircle it"
+      },
+      {
+       "words": "country in Africa",
+       "at": 25,
+       "gives": "TOGO",
+       "note": "Togo is a West African country"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eager artillerymen surround an African nation.",
+     "walkthrough": "'encircle' looks like a containment instruction but simply supplies RING in sequence.",
+     "definitionFit": "Being very eager to start is the same keen enthusiasm as being gung-ho."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "encircle"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +353,49 @@
     "text": "Angry outburst from one stuck in traffic",
     "enumeration": "6"
    },
-   "solution": "TIRADE"
+   "solution": "TIRADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Angry outburst",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuck in",
+       "at": 24,
+       "note": "stuck in means one piece is lodged inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "traffic",
+       "at": 33,
+       "gives": "TRADE",
+       "note": "traffic in goods is trade"
+      },
+      {
+       "words": "one",
+       "at": 20,
+       "gives": "I",
+       "note": "one is I, the Roman numeral"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A furious rant from a driver caught in a traffic jam.",
+     "walkthrough": "'traffic' suggests cars but means commerce, TRADE.",
+     "definitionFit": "A tirade is a long, angry speech of criticism or denunciation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "traffic"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +409,63 @@
     "text": "Old queen with no love for a new one",
     "enumeration": "4"
    },
-   "solution": "ANNE"
+   "solution": "ANNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old queen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 27,
+       "gives": "A"
+      },
+      {
+       "words": "new",
+       "at": 29,
+       "gives": "N"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no",
+         "at": 10,
+         "note": "with no means the following item is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 33,
+         "gives": "ONE"
+        },
+        {
+         "words": "love",
+         "at": 18,
+         "gives": "O",
+         "note": "love is zero in tennis, the letter O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former monarch, unloved, gives way to a new queen.",
+     "walkthrough": "A + N + ONE gives ANONE; removing one O leaves the queen's name.",
+     "definitionFit": "Queen Anne reigned over Britain from 1702 to 1714, so she is a historical monarch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +479,48 @@
     "text": "Travelling people after a bouquet",
     "enumeration": "5"
    },
-   "solution": "AROMA"
+   "solution": "AROMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bouquet",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 18,
+       "note": "after places the travelling people behind the a"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 24,
+       "gives": "A"
+      },
+      {
+       "words": "Travelling people",
+       "at": 0,
+       "gives": "ROMA",
+       "note": "the Roma are a traditionally nomadic people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wanderers come along after someone hands over a bunch of flowers.",
+     "walkthrough": "'bouquet' suggests flowers but is used in its wine-tasting sense of smell.",
+     "definitionFit": "A wine's bouquet is its characteristic scent, so the word means a pleasant smell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bouquet"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +534,41 @@
     "text": "Sweat embarrassingly in a tuxedo?",
     "enumeration": "9"
    },
-   "solution": "EXUDATION"
+   "solution": "EXUDATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sweat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "embarrassingly",
+       "at": 6,
+       "note": "embarrassingly suggests things going awkwardly wrong, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in a tuxedo",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone perspires awkwardly while dressed in a formal dinner jacket.",
+     "walkthrough": "'embarrassingly' is the anagram signal: IN A TUXEDO is rearranged.",
+     "definitionFit": "Sweat is moisture oozing from the skin, a classic example of fluid oozing out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "embarrassingly"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +582,42 @@
     "text": "Conservative party member demanding vessel",
     "enumeration": "9"
    },
-   "solution": "HARDLINER"
+   "solution": "HARDLINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conservative party member",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "demanding",
+       "at": 26,
+       "gives": "HARD",
+       "note": "a demanding task is hard"
+      },
+      {
+       "words": "vessel",
+       "at": 36,
+       "gives": "LINER",
+       "note": "a liner is a large passenger ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory who insists on a ship.",
+     "walkthrough": "'Conservative' need not mean the UK party: any strict, unbending member of a party fits.",
+     "definitionFit": "A party member who rigidly sticks to strict doctrine and refuses compromise is uncompromisingly conservative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +631,49 @@
     "text": "Mad freebooter relinquishing power",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mad",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "relinquishing",
+       "at": 15,
+       "note": "relinquishing means giving up, so the letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "freebooter",
+       "at": 4,
+       "gives": "PIRATE",
+       "note": "a freebooter is a pirate"
+      },
+      {
+       "words": "power",
+       "at": 29,
+       "gives": "P",
+       "note": "P is the physics symbol for power"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crazed buccaneer gives up his authority.",
+     "walkthrough": "'Mad' here means angry, not insane.",
+     "definitionFit": "Mad in its informal American sense is angry, furious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mad"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +687,49 @@
     "text": "Mate in Sydney holding large hammer",
     "enumeration": "7"
    },
-   "solution": "CLOBBER"
+   "solution": "CLOBBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hammer",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 15,
+       "note": "holding means the first piece contains the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mate in Sydney",
+       "at": 0,
+       "gives": "COBBER",
+       "note": "cobber is Australian slang for a friend or mate"
+      },
+      {
+       "words": "large",
+       "at": 23,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Aussie friend is carrying a big hammer.",
+     "walkthrough": "'hammer' is a verb, meaning to beat soundly, not the tool.",
+     "definitionFit": "To clobber someone is to hit them hard or defeat them heavily, a slang synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hammer"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +743,61 @@
     "text": "26 down, say, holding Joe up in Havana?",
     "enumeration": "5"
    },
-   "solution": "CIGAR"
+   "solution": "CIGAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Havana?",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 14,
+       "note": "holding means the first piece contains the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "26 down, say",
+       "at": 0,
+       "gives": "CAR",
+       "note": "the solution to 26 down is a make of car, an example of one"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 26,
+         "note": "up in a down clue means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Joe",
+         "at": 22,
+         "gives": "GI",
+         "note": "GI Joe is the American soldier, so Joe gives GI"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car carrying an American soldier through the Cuban capital.",
+     "walkthrough": "The car make Ford stands for CAR by example ('say'). 'Havana' is a definition by example, hence the question mark.",
+     "definitionFit": "A Havana is a fine cigar made in Cuba, so the city name stands for the smoke."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Havana"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +811,58 @@
     "text": "Land makes outlaw happy and he's reformed",
     "enumeration": "10"
    },
-   "solution": "BANGLADESH"
+   "solution": "BANGLADESH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "outlaw",
+       "at": 11,
+       "gives": "BAN",
+       "note": "to outlaw something is to ban it"
+      },
+      {
+       "words": "happy",
+       "at": 18,
+       "gives": "GLAD",
+       "note": "glad means happy"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "reformed",
+         "at": 33,
+         "note": "reformed means formed again, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "he's",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country turns a criminal cheerful and he mends his ways.",
+     "walkthrough": "'outlaw' is a verb, BAN, not a criminal. 'reformed' turns HE'S into ESH.",
+     "definitionFit": "Bangladesh is a South Asian country, so it is a land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outlaw"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +876,66 @@
     "text": "Stray has accommodation in which there's no time to relax",
     "enumeration": "7"
    },
-   "solution": "DIGRESS"
+   "solution": "DIGRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stray",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in which there's",
+       "at": 24,
+       "note": "in which there's says the next piece sits inside the lodgings"
+      }
+     ],
+     "parts": [
+      {
+       "words": "accommodation",
+       "at": 10,
+       "gives": "DIGS",
+       "note": "digs is British slang for rented lodgings"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 41,
+         "note": "no means the letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relax",
+         "at": 52,
+         "gives": "REST",
+         "note": "to relax is to rest"
+        },
+        {
+         "words": "time",
+         "at": 44,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A homeless animal has lodgings where it cannot take a break.",
+     "walkthrough": "'no' is the deletion signal, taking time out of the word for relax; 'in which there's' places the result within the British slang for lodgings.",
+     "definitionFit": "To stray from a topic is to wander off it, the verb sense here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stray"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +949,31 @@
     "text": "3 for Roman healer",
     "enumeration": "5"
    },
-   "solution": "SALVE"
+   "solution": "SALVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "3 for Roman",
+      "at": 0,
+      "meaning": "the Latin greeting meaning the solution to 3 down, as a Roman would say it"
+     },
+     {
+      "text": "healer",
+      "at": 12,
+      "meaning": "a soothing ointment that heals wounds"
+     }
+    ],
+    "explanation": {
+     "surface": "A Latin greeting for a Roman doctor.",
+     "definitionFit": "Two senses: the Latin word of greeting, and a healing ointment rubbed on the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "healer"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +987,49 @@
     "text": "Pick up article in valley",
     "enumeration": "5"
    },
-   "solution": "GLEAN"
+   "solution": "GLEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pick up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in means the article sits inside the valley"
+      }
+     ],
+     "parts": [
+      {
+       "words": "valley",
+       "at": 19,
+       "gives": "GLEN",
+       "note": "a glen is a narrow Scottish valley"
+      },
+      {
+       "words": "article",
+       "at": 8,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Collect a newspaper piece while down in a valley.",
+     "walkthrough": "'Pick up' sounds physical but means gather information bit by bit.",
+     "definitionFit": "To glean is to gather gradually, as information is picked up piece by piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1043,53 @@
     "text": "Clutch component, say, coming closer",
     "enumeration": "3"
    },
-   "solution": "EGG"
+   "solution": "EGG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clutch component",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "say",
+       "at": 18,
+       "gives": "EG",
+       "note": "say means for example, abbreviated EG"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "closer",
+         "at": 30,
+         "note": "closer means the closing letter, the last one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coming",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A part of a car's clutch, for example, getting nearer.",
+     "walkthrough": "'Clutch' suggests a car gearbox but is a batch of eggs laid together.",
+     "definitionFit": "A clutch is a set of eggs laid at one time, so each egg is one part of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Clutch"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1103,42 @@
     "text": "Titanic female at sea, as gent is",
     "enumeration": "8"
    },
-   "solution": "GIANTESS"
+   "solution": "GIANTESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Titanic female",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "at sea",
+       "at": 15,
+       "note": "at sea means confused and disordered, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as gent is",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman aboard the Titanic, adrift like a gentleman.",
+     "walkthrough": "'Titanic' suggests the ship, backed by 'at sea'; here it simply means huge.",
+     "definitionFit": "A giantess is a female giant, a woman of enormous size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Titanic"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1152,52 @@
     "text": "King of Mercia primarily laying waste",
     "enumeration": "5"
    },
-   "solution": "OFFAL"
+   "solution": "OFFAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "waste",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "King of Mercia",
+       "at": 0,
+       "gives": "OFFA",
+       "note": "Offa was an 8th-century king of Mercia, builder of Offa's Dyke"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 15,
+         "note": "primarily means first, so only the opening letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "laying",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Anglo-Saxon king mainly devastating the land.",
+     "walkthrough": "'laying waste' reads as a phrase, but 'waste' alone is the definition.",
+     "definitionFit": "Offal is refuse or the discarded entrails of a butchered animal, hence waste matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waste"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1211,51 @@
     "text": "Corpulent guide, terribly weary",
     "enumeration": "8"
    },
-   "solution": "FATIGUED"
+   "solution": "FATIGUED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "weary",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Corpulent",
+       "at": 0,
+       "gives": "FAT",
+       "note": "corpulent means fat"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "at": 17,
+         "note": "terribly suggests things are badly arranged, so the letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guide",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overweight tour guide is utterly exhausted.",
+     "definitionFit": "Being fatigued is being tired out, a direct synonym for weary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1269,30 @@
     "text": "Determination to complete the crossword again?",
     "enumeration": "7"
    },
-   "solution": "RESOLVE"
+   "solution": "RESOLVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Determination",
+      "at": 0,
+      "meaning": "firm purpose or strong will"
+     },
+     {
+      "text": "to complete the crossword again?",
+      "at": 14,
+      "meaning": "read as RE plus SOLVE, to solve the puzzle a second time"
+     }
+    ],
+    "explanation": {
+     "surface": "It takes willpower to do the puzzle a second time.",
+     "definitionFit": "Two senses: firm determination, and, split as re-solve, to solve the crossword once more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1306,59 @@
     "text": "Central bank supporting false medicine man",
     "enumeration": "6"
    },
-   "solution": "SHAMAN"
+   "solution": "SHAMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "medicine man",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 13,
+       "note": "in a down clue, supporting puts the piece underneath the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "false",
+       "at": 24,
+       "gives": "SHAM",
+       "note": "a sham is something false or fake"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Central",
+         "at": 0,
+         "note": "central means the middle letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bank",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A central bank props up a fake doctor.",
+     "walkthrough": "'Central bank' looks like a financial institution; it means the middle of BANK, AN.",
+     "definitionFit": "A shaman is a tribal healer believed to cure through spirits, a medicine man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Central"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1372,41 @@
     "text": "One hug, possibly as good as a feast?",
     "enumeration": "6"
    },
-   "solution": "ENOUGH"
+   "solution": "ENOUGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as good as a feast?",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 9,
+       "note": "possibly signals one possible arrangement of the letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One hug",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps a single hug is as satisfying as a banquet.",
+     "walkthrough": "The definition comes from the proverb 'Enough is as good as a feast'.",
+     "definitionFit": "The proverb says a sufficient amount satisfies as well as plenty, so this is what is as good as a feast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hug"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1420,60 @@
     "text": "Missionary position in middle of Wales",
     "enumeration": "7"
    },
-   "solution": "APOSTLE"
+   "solution": "APOSTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Missionary",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "in means the position sits inside the middle letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 23,
+         "note": "middle of means the letters between the first and last are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wales",
+         "at": 33
+        }
+       ]
+      },
+      {
+       "words": "position",
+       "at": 11,
+       "gives": "POST",
+       "note": "a post is a job or position"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A missionary posted in the heart of Wales.",
+     "walkthrough": "'middle of' takes the letters between W and S; 'in' puts the position inside them. 'Missionary position' cheekily misleads.",
+     "definitionFit": "An apostle is one who spreads a faith, like the missionaries sent out by Jesus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1487,56 @@
     "text": "Fiddle with French car that's dropping back",
     "enumeration": "5"
    },
-   "solution": "FRAUD"
+   "solution": "FRAUD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fiddle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "French",
+       "at": 12,
+       "gives": "FR"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "that's dropping back",
+         "at": 23,
+         "note": "dropping back means the car loses its back letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "car",
+         "at": 19,
+         "gives": "AUDI",
+         "note": "Audi is a make of car"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tinkering with a French car that is falling behind.",
+     "walkthrough": "'Fiddle' is a swindle, not tinkering or a violin.",
+     "definitionFit": "A fiddle is a dishonest scheme or swindle, which is a type of fraud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fiddle"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1550,53 @@
     "text": "Where one goes from bank to bank to get a bit of dosh",
     "enumeration": "4"
    },
-   "solution": "FORD"
+   "solution": "FORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where one goes from bank to bank",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to get",
+       "at": 33,
+       "gives": "FOR",
+       "note": "to go for something is to try to get it, so to get gives the word for"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a bit of",
+         "at": 40,
+         "note": "a bit of means just a small piece, the opening letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dosh",
+         "at": 49
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trailing between banks trying to raise some cash.",
+     "walkthrough": "'bank' suggests money, but it is a riverbank.",
+     "definitionFit": "A shallow place in a river where one can wade across from one riverside to the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1610,56 @@
     "text": "Beginners from Oxford University set off in boat",
     "enumeration": "9"
    },
-   "solution": "OUTRIGGER"
+   "solution": "OUTRIGGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Beginners from",
+         "at": 0,
+         "note": "beginners means the opening letters of the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Oxford",
+         "at": 15
+        },
+        {
+         "words": "University",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "set off",
+       "at": 33,
+       "gives": "TRIGGER",
+       "note": "to trigger something is to set it off"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Oxford rowing novices launch a boat.",
+     "walkthrough": "'set off' looks like departure but means TRIGGER, as in setting off an alarm.",
+     "definitionFit": "An outrigger canoe is a boat steadied by a float on a side arm, and the name is used for the boat itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +1679,54 @@
      }
     ]
    },
-   "solution": "ISAY"
+   "solution": "ISAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "My word",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "is",
+       "at": 8
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 24,
+         "note": "at first means the opening letter of each of these words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "annoying",
+         "at": 11
+        },
+        {
+         "words": "you",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that the other person is being irritating.",
+     "walkthrough": "'My word' is an exclamation of surprise, not someone's vocabulary.",
+     "definitionFit": "Both are dated British exclamations expressing surprise or mild protest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "word"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +1740,42 @@
     "text": "Legal documents, reportedly, for Swiss hotelier",
     "enumeration": "4"
    },
-   "solution": "RITZ"
+   "solution": "RITZ",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swiss hotelier",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RITZ",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "at": 17,
+       "note": "reportedly says the word is given as heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Legal documents",
+       "at": 0,
+       "gives": "WRITS",
+       "note": "writs are formal legal orders issued by a court"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Court papers, it is said, served on a Swiss hotel owner.",
+     "definitionFit": "César Ritz was the Swiss founder of the famous Ritz luxury hotels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -493,7 +1795,42 @@
      }
     ]
    },
-   "solution": "ROADSIGNS"
+   "solution": "ROADSIGNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "directors",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Cast",
+       "at": 0,
+       "note": "cast means thrown about, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is so grand",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film cast so grand it needs directors.",
+     "walkthrough": "'Cast' and 'directors' suggest the film world; directors here are signposts pointing the way.",
+     "definitionFit": "Signs by a road direct travellers which way to go, so they are literally directors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "directors"
+    }
+   }
   },
   {
    "number": 31,
@@ -507,7 +1844,41 @@
     "text": "Attentive dealer taking part",
     "enumeration": "5"
    },
-   "solution": "ALERT"
+   "solution": "ALERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attentive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part",
+       "at": 24,
+       "note": "part means only a portion of these words is used, the letters sitting within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dealer taking",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A card dealer is watchful while joining in the game.",
+     "walkthrough": "'taking part' reads as one phrase; 'taking' is part of the text and 'part' alone is the signal.",
+     "definitionFit": "Being alert means being watchful and wide awake, synonymous with attentive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   }
  ]
 }
