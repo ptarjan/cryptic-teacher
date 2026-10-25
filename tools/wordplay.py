@@ -1665,6 +1665,7 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
                             f"note by its words as written in the expression"
                             + (f" (spans with no note yet: {keys})" if keys else
                                " (every span has a note already)"))
+    _quote_bare_words(tree, clue, taken)
     try:
         evaluate(tree, answer)
     except WordplayError as err:
@@ -1678,6 +1679,41 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
                                     f"{', '.join(repr(w) for w in left)}") from None
             raise err
     return normalize(tree, clue, answer)[0]
+
+
+def _quote_bare_words(tree, clue, taken=()):
+    """Bare letters that spell, whole, a word or run of 2-3 words the clue prints
+    exactly once and no leaf, indicator or definition covers get those words
+    quoted: `ins<helmeted>(HAT, ...)` for the clue word 'hat' becomes
+    `ins<helmeted>([hat]HAT, ...)`. The first check's 'a block with no
+    clueFragment' (110 sessions in the 10-24/25 audit) is for letters the preamble
+    supplies, and letters that are a clue word, spelt out, are that word's. Only
+    3+ letters, one copy and one reading (a second uncovered run spelling the same
+    letters is ambiguous): the rest stays refused."""
+    used = [(s["at"], s["at"] + len(s[k])) for s, k in _spans(tree) if "at" in s] + list(taken)
+    words = [(m.start(), m.end()) for m in re.finditer(r"[\w'’]+", clue)]
+    for node in _all_nodes(tree):
+        if "op" in node or "words" in node or node.get("unchecked"):
+            continue
+        want = re.sub(r"[^a-z]", "", str(node.get("gives") or "").lower())
+        if len(want) < 3 or not str(node.get("gives") or "").isalpha():
+            continue
+        hits = []
+        for i in range(len(words)):
+            for j in range(i, min(i + 3, len(words))):
+                a, b = words[i][0], words[j][1]
+                if re.sub(r"[^a-z]", "", clue[a:b].lower()) == want and not any(a < y and x < b for x, y in used):
+                    hits.append((a, b))
+        if len(hits) == 1:
+            a, b = hits[0]
+            node["words"], node["at"] = clue[a:b], a
+            used.append((a, b))
+
+
+def _all_nodes(node):
+    yield node
+    for p in node.get("parts") or []:
+        yield from _all_nodes(p)
 
 
 def locate_copy(clue_out, clue, taken):
