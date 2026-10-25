@@ -706,6 +706,8 @@ def evidence_reason(reason):
             or (reason.startswith("refused ") and reason.endswith(" before its fix"))
             or reason == fa.NO_TITLE_RESCAN  # a Gale 2000-14 page no title was found on, scan code since
             or reason == "unfiled before its fix"  # a puzzle written with blank clues, a column-layout fix since
+            # A puzzle its read wrote that the corpus no longer holds (fa.lost_writes): as good as unread.
+            or reason == fa.LOST_WRITE
             # A held puzzle whose solution grid read 3+ lights short before unlisted_reads (Paul 10-24: every
             # short grid current code may improve, once); no likely gain, so after the 1-2-short ones.
             or reason == fa.SHORT_WIDE
@@ -1253,7 +1255,8 @@ def times_solution_work(unit):
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
-              fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD)
+              fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD,
+              fa.LOST_WRITE)
 
 
 def unproven_first(unit):
@@ -1279,7 +1282,9 @@ def files_likely_tier(rank, unit):
     # older "solution short" rereads): no 2007 read had started. Each is concrete evidence of a page that
     # can file, so they (and the scans they wait on, "fix") go in the first tier with the likely filers,
     # newest first among them.
-    if unit.get("fix") or year_evidence(unit) or reason == fa.NO_TITLE_RESCAN:
+    # A puzzle its read wrote that the corpus lost (fa.LOST_WRITE) is as good as never read: its page
+    # filed once, so it files again (10-25: ~1,800 Gale Times pages, 1945-2014).
+    if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.LOST_WRITE):
         return 0
     if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
         return 1
