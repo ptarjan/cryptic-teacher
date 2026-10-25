@@ -2335,6 +2335,8 @@ with tempfile.TemporaryDirectory() as ht_dir:
     ht_held = {"number": 8235, "source": {"acquiredBy": f.TOOL, "url": ht_url}, "entries": []}
     ht_file.write_text(json.dumps(ht_held))
     ht_saved = (f.held_dates, f.filed_state, f.current_keys, f._HELD_PATH.get((f.SERIES, 8235)))
+    # held_titles matches the page's own pages.json url: the real page_url, not the answers_only cases' "u" stub.
+    ht_page_url, f.page_url = f.page_url, ao_stubbed["page_url"]
     ht_days = [{8235: datetime.date(1956, 9, 15)}]
     ht_state = [(False, True)]
     f.held_dates = lambda series: f.Held(ht_days[0])
@@ -2370,6 +2372,7 @@ with tempfile.TemporaryDirectory() as ht_dir:
     check("... not read after REREAD_HELD_TITLE, by older scan code, with a title or a verdict, never read, its "
           "puzzle answered whole or a clue short, two held that day, from another page or another tool", [[]] * 10, ht_none)
     f.held_dates, f.filed_state, f.current_keys = ht_saved[:3]
+    f.page_url = ht_page_url
     if ht_saved[3] is None:
         del f._HELD_PATH[f.SERIES, 8235]
     else:

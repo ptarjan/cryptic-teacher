@@ -685,8 +685,10 @@ same("the grid's crop is the first dated from the puzzle's day to CROP_DAYS afte
      [rf.grid_crop({"number": 8564, "date": "1957-10-08"}, crops), rf.grid_crop({"number": 8564, "date": "1957-12-25"}, crops),
       rf.grid_crop({"number": 8565, "date": "1957-10-08"}, crops), rf.grid_crop({"number": 8564}, crops)],
      [Path("a.png"), None, None, None])
-same("a word one letter off at a lone cell is a misread's alternative (BATES: PATES); none elsewhere",
-     [rf.misread_alternative("BATES", [0]), rf.misread_alternative("MILOMETER", list(range(9)))], [True, False])
+same("a word one letter off at a lone cell is a misread's alternative (BATES: PATES, MILOMETER: KILOMETER); "
+     "none elsewhere (MILOMETER past its first letter)",
+     [rf.misread_alternative("BATES", [0]), rf.misread_alternative("MILOMETER", [0]),
+      rf.misread_alternative("MILOMETER", list(range(1, 9)))], [True, True, False])
 
 
 def uc_puzzle(sols):
