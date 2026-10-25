@@ -1543,7 +1543,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
      grow into the width they now have; bigger squares are also better targets
      for a finger than for a mouse. Still capped, or a stacked landscape tablet
      would draw 65px cells. */
-  #grid { --cellcap: 56px; }
+  #grid, .bg-grid { --cellcap: 56px; }
   /* Touch targets. .tool is 4px/.8rem — about 26px tall, which is fine under a
      cursor and mean under a thumb. */
   .toolbar { gap: 8px; }
@@ -1587,7 +1587,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    coarse pointer: a desktop .left-col is 640px, narrower than this, and its
    40px cap is deliberate. */
 @media (pointer: coarse) {
-  @container (max-width: 700px) { #grid { --cellcap: 999px; } }
+  @container (max-width: 700px) { #grid, .bg-grid { --cellcap: 999px; } }
 }
 
 /* Two columns, but on a touch screen. .left-col does not grow on the desktop —
@@ -1757,12 +1757,46 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    not a page of links with the footer in the middle of it. */
 #boot-grid { display: none; }
 html.ct-boot .seo-nav, html.ct-boot footer { display: none; }
-html.ct-boot #boot-grid {
-  display: block; width: min(100%, 600px); aspect-ratio: 1; margin: 16px 0;
-  border: 2px solid var(--line); box-sizing: border-box; opacity: .6;
+html.ct-boot #boot-grid { display: block; }
+/* The skeleton reuses .layout/.left-col/.clues-col/.clue-list, so columns and
+   stacking follow the real page's rules. The grid box does its sums the way
+   #grid does (container width, same --cellcap rules, edited into the #grid
+   rules above), for a 15x15: 15 cells + 14 gaps + 2x2px border. */
+#boot-grid .bg-title { height: 1.725rem; margin: 14px 0 4px; opacity: .6;
+  background: linear-gradient(var(--line), var(--line)) left top 4px / min(14em, 70%) 1.15rem no-repeat; }
+#boot-grid .bg-wrap { container-type: inline-size; }
+:where(.bg-grid) {
+  --cellcap: 40px;   /* zero specificity, so the 56px / uncapped rules above win */
+  --cellsize: min(calc((100cqi - 4px) / 15 - 1px), var(--cellcap));
+  width: calc(var(--cellsize) * 15 + 18px); max-width: 100%; aspect-ratio: 1;
+  border: 2px solid var(--line); background-color: transparent; opacity: .6;
   background-image: linear-gradient(to right, var(--line) 1px, transparent 1px),
                     linear-gradient(to bottom, var(--line) 1px, transparent 1px);
-  background-size: calc(100% / 15) calc(100% / 15);
+  background-size: calc((100% - 4px) / 15) calc((100% - 4px) / 15);
+}
+#boot-grid i, #boot-grid b, #boot-grid .bg-h { display: block; background: var(--line); opacity: .5; border-radius: 4px; }
+#boot-grid .bg-toolbar { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 10px 0 14px; }
+#boot-grid .bg-toolbar i { width: 60px; height: 28px; border-radius: 6px; }
+#boot-grid .bg-toolbar i.gap { width: 1px; height: 20px; margin: 0 3px; }
+#boot-grid .bg-hint { border: 1px solid var(--line); border-left: 4px solid var(--line);
+  border-radius: 8px; padding: 12px 15px; margin-top: 4px; min-height: 120px; }
+#boot-grid .bg-hint b { height: 14px; margin: 10px 0; }
+#boot-grid .bg-hint b.short { width: 55%; }
+#boot-grid .bg-h { height: 14px; width: 4.5em; margin: 14px 0 10px; }
+#boot-grid .bg-lines b { height: 14px; margin: 14px 6px; }
+#boot-grid .bg-lines b:nth-child(3n) { width: 80%; }
+#boot-grid .bg-lines b:nth-child(3n+1) { width: 92%; }
+@media (max-width: 1079px), (pointer: coarse) {
+  #boot-grid .bg-toolbar { gap: 8px; }
+  #boot-grid .bg-toolbar i { height: 36px; width: 68px; }
+  #boot-grid .bg-toolbar i.gap { height: 20px; width: 1px; }
+}
+/* The real title row wraps once there is less width (title, then the score line
+   under it): measured 64px on an iPad, ~120px on a 390px phone. */
+@media (max-width: 1079px) { #boot-grid .bg-title { height: 63px; } }
+@media (max-width: 700px) {
+  #boot-grid .bg-title { height: 119px; }
+  #boot-grid .bg-lines b:nth-child(n+7) { display: none; }
 }
 
 /* The sync code is going to be read off one screen and typed into another, by

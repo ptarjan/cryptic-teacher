@@ -253,7 +253,23 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
   </p>
 </div>
 
-<div id="boot-grid" aria-hidden="true"></div>
+<!-- Boot skeleton: the same boxes as #app below (title row, grid, toolbar, hint
+     panel, the two clue lists), in the same layout classes, so the real puzzle
+     replaces it without the page moving. Sized in style.css (.bg-*). -->
+<div id="boot-grid" aria-hidden="true">
+  <div class="bg-title"></div>
+  <div class="layout">
+    <div class="left-col">
+      <div class="bg-wrap"><div class="bg-grid"></div></div>
+      <div class="bg-toolbar"><i></i><i></i><i></i><i></i><i class="gap"></i><i></i><i></i></div>
+      <div class="bg-hint"><b></b><b></b><b class="short"></b></div>
+    </div>
+    <div class="clues-col">
+      <section class="clue-list"><div class="bg-h"></div><div class="bg-lines"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></section>
+      <section class="clue-list"><div class="bg-h"></div><div class="bg-lines"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></section>
+    </div>
+  </div>
+</div>
 <main id="app" class="hidden">
   <!-- The soft keyboard is raised by focusing this, and iOS scrolls whatever has
        focus into view when the keyboard opens. So WHERE it sits is load-bearing:
