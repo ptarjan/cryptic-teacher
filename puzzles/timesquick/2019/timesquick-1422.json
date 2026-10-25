@@ -22,6 +22,9 @@
   "date": "2019-08-21",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,47 @@
     "text": "Robert invests million — that's a huge sum",
     "enumeration": "4"
    },
-   "solution": "BOMB"
+   "solution": "BOMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a huge sum",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invests",
+       "at": 7,
+       "note": "to invest is to clothe or surround, so Robert wraps around the million"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Robert",
+       "at": 0,
+       "gives": "BOB",
+       "note": "Bob is the familiar short form of Robert"
+      },
+      {
+       "words": "million",
+       "at": 15,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Robert puts a fortune into some venture.",
+     "definitionFit": "Informally, a bomb is a large amount of money, as in 'it cost a bomb'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invests"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +92,32 @@
     "text": "Beggar to ask for such reform?",
     "enumeration": "6"
    },
-   "solution": "CHANGE"
+   "solution": "CHANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beggar to ask for such",
+      "at": 0,
+      "meaning": "a beggar asks for loose coins, spare small money"
+     },
+     {
+      "text": "reform",
+      "at": 23,
+      "meaning": "to reform something is to alter it"
+     }
+    ],
+    "explanation": {
+     "surface": "A beggar pleads for social reform.",
+     "walkthrough": "The first definition is a description: a beggar's plea 'spare some ...?' is for coins.",
+     "definitionFit": "Coins are loose small money a beggar wants, and reform is alteration; one word covers both senses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reform"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +131,45 @@
     "text": "Topless girl friend",
     "enumeration": "4"
    },
-   "solution": "ALLY"
+   "solution": "ALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "friend",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Topless",
+       "at": 0,
+       "note": "without its top means the first letter of the girl's name is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "girl",
+       "at": 8,
+       "gives": "SALLY",
+       "note": "Sally is a girl's name"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's female friend appears without a top on.",
+     "definitionFit": "A partner or supporter on one's side is a synonym for friend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Topless"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +193,30 @@
      }
     ]
    },
-   "solution": "NOGREATSHAKES"
+   "solution": "NOGREATSHAKES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minor tremors perhaps",
+      "at": 0,
+      "meaning": "small earthquakes are literally not big shakes"
+     },
+     {
+      "text": "unremarkable?",
+      "at": 22,
+      "meaning": "mediocre, not very good"
+     }
+    ],
+    "explanation": {
+     "surface": "A seismologist shrugs that small earth tremors are hardly worth noting.",
+     "definitionFit": "The idiom for something not very good or ordinary, read literally as small tremors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +230,52 @@
     "text": "Supporter for Verdi, playing",
     "enumeration": "8"
    },
-   "solution": "PROVIDER"
+   "solution": "PROVIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supporter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for",
+       "at": 10,
+       "gives": "PRO",
+       "note": "pro means in favour of, so for"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 21,
+         "note": "playing suggests the letters of Verdi performed in a fresh arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Verdi",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A backer of Verdi's music while it is being performed.",
+     "walkthrough": "'Supporter for' looks like one phrase; 'for' actually gives PRO, and 'playing' rearranges VERDI into VIDER.",
+     "definitionFit": "One who supplies the needs of a family is its supporter or breadwinner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +289,54 @@
     "text": "Cigar Eleanor occasionally holds up",
     "enumeration": "6"
    },
-   "solution": "CORONA"
+   "solution": "CORONA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cigar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 33,
+       "note": "in a down clue up means the letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "holds",
+         "at": 27,
+         "note": "the words Eleanor occasionally hold the letters within them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Eleanor occasionally",
+         "at": 6,
+         "gives": "ANOROC"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eleanor sometimes holds up a cigar.",
+     "walkthrough": "'occasionally' looks like an alternate-letter signal, but it is just part of the text that 'holds' the letters ANOROC, which 'up' turns round.",
+     "definitionFit": "A corona is a type of straight-sided cigar with a rounded end."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "occasionally"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +350,78 @@
     "text": "One king in shock after another is reckless",
     "enumeration": "8"
    },
-   "solution": "KAMIKAZE"
+   "solution": "KAMIKAZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reckless",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 18,
+       "note": "the shock containing one king comes after the other king"
+      }
+     ],
+     "parts": [
+      {
+       "words": "another",
+       "at": 24,
+       "gives": "K",
+       "note": "another king, so a second K"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 9,
+         "note": "the one and the king go inside the word for shock"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shock",
+         "at": 12,
+         "gives": "AMAZE",
+         "note": "to amaze is to shock or astound"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "One",
+           "at": 0,
+           "gives": "I",
+           "note": "the Roman numeral I is one"
+          },
+          {
+           "words": "king",
+           "at": 4,
+           "gives": "K",
+           "note": "K is the chess abbreviation for king"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One monarch is stunned after another acts rashly.",
+     "walkthrough": "'another' is shorthand for another king, so it supplies a second K; 'after' puts the rest behind it.",
+     "definitionFit": "Japanese suicide pilots gave their name to an adjective for recklessly self-destructive behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shock"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +435,59 @@
     "text": "Loves to involve the two learners in play",
     "enumeration": "7"
    },
-   "solution": "OTHELLO"
+   "solution": "OTHELLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "play",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to involve",
+       "at": 6,
+       "note": "involve means enclose, so the loves surround the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Loves",
+       "at": 0,
+       "gives": "OO",
+       "note": "love is zero in tennis, shaped like the letter O; two loves give two Os"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the",
+         "at": 17,
+         "gives": "THE",
+         "note": "taken as written"
+        },
+        {
+         "words": "two learners",
+         "at": 21,
+         "gives": "LL",
+         "note": "L is the learner-driver plate letter; two of them make LL"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Romantic loves entangle two novices in a stage drama.",
+     "definitionFit": "Shakespeare's tragedy about the jealous Moor is an example of a play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Loves"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +501,58 @@
     "text": "Port initially judged acceptable as wine",
     "enumeration": "5"
    },
-   "solution": "RIOJA"
+   "solution": "RIOJA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Port",
+       "at": 0,
+       "gives": "RIO",
+       "note": "Rio de Janeiro is a famous port"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 5,
+         "note": "initially means the first letter of judged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "judged",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "acceptable",
+       "at": 22,
+       "gives": "A",
+       "note": "A is a top grade, so first-class or acceptable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A port wine was at first judged passable as a drink.",
+     "walkthrough": "'Port' looks like the fortified wine; here it is the city of Rio.",
+     "definitionFit": "A red wine from the Spanish region of the same name is an example of wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Port"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +566,39 @@
     "text": "Bow-legged British man",
     "enumeration": "5"
    },
-   "solution": "BANDY"
+   "solution": "BANDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bow-legged",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "at": 11,
+       "gives": "B"
+      },
+      {
+       "words": "man",
+       "at": 19,
+       "gives": "ANDY",
+       "note": "Andy is a man's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British man with bowed legs.",
+     "definitionFit": "Legs that curve outward at the knee are described with this synonym for bow-legged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +612,68 @@
     "text": "Olivia upset by rat's head in food parcels",
     "enumeration": "7"
    },
-   "solution": "RAVIOLI"
+   "solution": "RAVIOLI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "food parcels",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 13,
+       "note": "by means beside, so the rat's head sits next to the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "at": 22,
+         "note": "the head of the rat is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rat's",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 7,
+         "note": "upset means knocked over, so the name's letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Olivia",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Olivia is upset by a rat's head found in food parcels.",
+     "definitionFit": "Small pasta pockets filled with meat or cheese are literally parcels of food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "parcels"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +687,43 @@
     "text": "Elite artist is complex woman?",
     "enumeration": "7"
    },
-   "solution": "ELECTRA"
+   "solution": "ELECTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "complex woman?",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Elite",
+       "at": 0,
+       "gives": "ELECT",
+       "note": "the elect are a chosen, elite group"
+      },
+      {
+       "words": "artist",
+       "at": 6,
+       "gives": "RA",
+       "note": "RA is a Royal Academician, a crossword artist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A top artist is a complicated woman.",
+     "walkthrough": "The Electra complex is Jung's term for a daughter's attachment to her father, so she is a woman with a complex.",
+     "definitionFit": "The Greek heroine gave her name to a psychological complex, making her the woman of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "complex"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +737,30 @@
     "text": "Charm your way in?",
     "enumeration": "8"
    },
-   "solution": "ENTRANCE"
+   "solution": "ENTRANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Charm",
+      "at": 0,
+      "meaning": "to enchant or captivate"
+     },
+     {
+      "text": "your way in?",
+      "at": 6,
+      "meaning": "the door or gate by which you go inside"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a verb it means to enchant; as a noun it is the doorway by which one goes inside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Charm"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +774,41 @@
     "text": "Remote is broken — it's annoying",
     "enumeration": "8"
    },
-   "solution": "TIRESOME"
+   "solution": "TIRESOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "annoying",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broken",
+       "at": 10,
+       "note": "broken means smashed into pieces, so these letters are reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Remote is",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The TV remote has stopped working, which is irritating.",
+     "walkthrough": "'is' belongs to the fodder, not the link: 'broken' rearranges REMOTE IS.",
+     "definitionFit": "Something wearisome and tedious is annoying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remote"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +822,48 @@
     "text": "Lawyer hiding stuff creates tense situation",
     "enumeration": "5"
    },
-   "solution": "DRAMA"
+   "solution": "DRAMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tense situation",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hiding",
+       "at": 7,
+       "note": "the lawyer conceals the stuffing word inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lawyer",
+       "at": 0,
+       "gives": "DA",
+       "note": "DA is a District Attorney, an American prosecutor"
+      },
+      {
+       "words": "stuff",
+       "at": 14,
+       "gives": "RAM",
+       "note": "to ram is to cram or stuff"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer concealing material causes a fraught moment.",
+     "definitionFit": "A theatrical, exciting or fraught incident is a tense situation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +877,40 @@
     "text": "Candle that a person holds",
     "enumeration": "5"
    },
-   "solution": "TAPER"
+   "solution": "TAPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Candle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "holds",
+       "at": 21,
+       "note": "the phrase that a person holds the letters within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that a person",
+       "at": 7,
+       "gives": "TAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A candle being held by someone.",
+     "definitionFit": "A slender wax candle, used to light others, is a type of candle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +924,41 @@
     "text": "State needing humour injection?",
     "enumeration": "6"
    },
-   "solution": "PUNJAB"
+   "solution": "PUNJAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "humour",
+       "at": 14,
+       "gives": "PUN",
+       "note": "a pun is a piece of wordplay humour"
+      },
+      {
+       "words": "injection",
+       "at": 21,
+       "gives": "JAB",
+       "note": "a jab is an informal word for an injection"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation in need of a shot of humour?",
+     "definitionFit": "An Indian state in the north-west, so an example of a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +972,57 @@
     "text": "Emperor having no time to eat fish",
     "enumeration": "7"
    },
-   "solution": "SARDINE"
+   "solution": "SARDINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having no",
+         "at": 8,
+         "note": "without time means the letter for time is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Emperor",
+         "at": 0,
+         "gives": "TSAR",
+         "note": "the tsar was the emperor of Russia"
+        },
+        {
+         "words": "time",
+         "at": 18,
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "to eat",
+       "at": 23,
+       "gives": "DINE",
+       "note": "to dine is to eat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An emperor with no time to eat has only fish.",
+     "definitionFit": "A small oily fish of the herring family, often tinned, is an example of fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1036,39 @@
     "text": "Frozen corpse found in derelict cinema",
     "enumeration": "6"
    },
-   "solution": "ICEMAN"
+   "solution": "ICEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Frozen corpse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "derelict",
+       "at": 23,
+       "note": "derelict means ruined, so the word cinema falls into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cinema",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A body frozen solid is discovered in an abandoned picture house.",
+     "definitionFit": "Ötzi, the prehistoric body found in Alpine ice, is famously called this frozen corpse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1082,58 @@
     "text": "Men out in the East recalling trouble?",
     "enumeration": "7"
    },
-   "solution": "AMNESIA"
+   "solution": "AMNESIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "recalling trouble?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "the rearranged men go inside the eastern continent"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the East",
+       "at": 11,
+       "gives": "ASIA",
+       "note": "Asia is the East"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 4,
+         "note": "out means disordered, so the letters of men are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Men",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men abroad in the East remember their difficulties.",
+     "definitionFit": "Memory loss is trouble with recall, so a playful definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1147,41 @@
     "text": "Busy worker going to church in wood",
     "enumeration": "5"
    },
-   "solution": "BEECH"
+   "solution": "BEECH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wood",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Busy worker",
+       "at": 0,
+       "gives": "BEE",
+       "note": "a bee is the proverbial busy worker"
+      },
+      {
+       "words": "church",
+       "at": 21,
+       "gives": "CH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A busy worker heads to the church in the woods.",
+     "walkthrough": "'in wood' looks like a location; 'wood' is the definition.",
+     "definitionFit": "The timber of a common deciduous tree is a type of wood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1195,49 @@
     "text": "Husband in club in Thai capital",
     "enumeration": "4"
    },
-   "solution": "BAHT"
+   "solution": "BAHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thai capital",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "the husband goes inside the club"
+      }
+     ],
+     "parts": [
+      {
+       "words": "club",
+       "at": 11,
+       "gives": "BAT",
+       "note": "a bat is a club used in sport"
+      },
+      {
+       "words": "Husband",
+       "at": 0,
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A husband in a club in Bangkok.",
+     "walkthrough": "'capital' here means money, not a city: Thailand's currency.",
+     "definitionFit": "Thailand's currency unit is its money, a pun on capital as funds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1251,41 @@
     "text": "Ambassador and politician showing fibre",
     "enumeration": "4"
    },
-   "solution": "HEMP"
+   "solution": "HEMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fibre",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ambassador",
+       "at": 0,
+       "gives": "HE",
+       "note": "an ambassador is addressed as His Excellency, abbreviated HE"
+      },
+      {
+       "words": "politician",
+       "at": 15,
+       "gives": "MP",
+       "note": "MP is a Member of Parliament"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat and a politician show moral fibre.",
+     "definitionFit": "Cannabis plant stalks give a coarse fibre used for rope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fibre"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1299,39 @@
     "text": "Charles and Mike showing wide difference",
     "enumeration": "5"
    },
-   "solution": "CHASM"
+   "solution": "CHASM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wide difference",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Charles",
+       "at": 0,
+       "gives": "CHAS"
+      },
+      {
+       "words": "Mike",
+       "at": 12,
+       "gives": "M",
+       "note": "Mike is M in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Charles and Mike reveal a big disagreement.",
+     "definitionFit": "A gulf in opinion or interests, figuratively a deep gap, is a wide difference."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1345,57 @@
     "text": "Tribe bothered Marie outside public house",
     "enumeration": "7"
    },
-   "solution": "EPHRAIM"
+   "solution": "EPHRAIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tribe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 21,
+       "note": "the scrambled name sits outside the pub abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bothered",
+         "at": 6,
+         "note": "bothered means flustered, so the letters of Marie are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Marie",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "public house",
+       "at": 29,
+       "gives": "PH",
+       "note": "PH is the map abbreviation for public house"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tribe annoyed Marie outside the pub.",
+     "definitionFit": "One of the twelve tribes of Israel, descended from Joseph's son."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
