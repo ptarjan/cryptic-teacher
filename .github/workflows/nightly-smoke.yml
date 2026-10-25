@@ -169,3 +169,7 @@ jobs:
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex
       - run: CT_FULL=1 python3 tools/test_reconstruct_grid.py
+      # The whole corpus through the integrity checker, nightly: the daily
+      # `checks` unit's copy moved here, and tests.yml's fast path (puzzle-only
+      # pushes) checks only the changed files.
+      - run: python3 tools/puzzle_integrity.py --quiet

@@ -567,23 +567,10 @@ unit_checks() {
     hintless=$(python3 tools/hintless_overdue.py 2>&1) || alert "annotation is overdue:"$'\n'"\`\`\`"$'\n'"$(printf '%s\n' "$hintless" | head -15)"$'\n'"\`\`\`"
   fi
 
-  # The puzzles themselves, as opposed to what we have written about them.
-  # tools/puzzle_integrity.py forgives, by exact finding, the LENGTH sentences
-  # that can never be fixed — PUBLISHED_WRONG and UNLINKED_IN_SOURCE — so this
-  # alerts only on a NEW defect: two puzzles that are the same puzzle, an answer
-  # that does not fit its clue's printed length, two crossing entries that
-  # disagree.
-  # 2>&1 because the failure that is not a finding — an import error, a missing
-  # generated file — is on stderr, and an alert quoting an empty block says only
-  # that something happened.
-  # CT_JOBS=2: it judges every file each run, and a niced run on a loaded host
-  # gets one core from parallel.workers() — alone it ran past 15m (2026-10-15).
-  # Two cores at nice 19, like ct_generated's rebuild.
-  if step puzzle_integrity; then
-    integrity=$(CT_JOBS=2 python3 tools/puzzle_integrity.py --quiet 2>&1) ||
-      alert "the corpus has picked up a defect:"$'\n'"\`\`\`"$'\n'"$integrity"$'\n'"\`\`\`"
-    printf '%s\n' "$integrity" | grep "^out of time" || true
-  fi
+  # tools/puzzle_integrity.py (the puzzles themselves: duplicates, lengths, crossing
+  # disagreements) no longer runs here: tests.yml runs the same `--quiet` check on
+  # the whole corpus on every full run, and nightly-smoke.yml's reconstruct job
+  # runs it nightly, both red on a NEW defect.
   # How many turns a session is taking, logged every day. A number that only
   # exists when somebody goes looking is a number that gets quoted long after it
   # stopped being true, so it is computed here from the transcripts.
