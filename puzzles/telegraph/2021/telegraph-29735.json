@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Member of Weight Watchers, German chap?",
     "enumeration": "6"
    },
-   "solution": "DIETER"
+   "solution": "DIETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Member of Weight Watchers",
+      "at": 0,
+      "meaning": "someone on a slimming diet, a member of the weight-loss club"
+     },
+     {
+      "text": "German chap?",
+      "at": 27,
+      "meaning": "a common German man's first name"
+     }
+    ],
+    "explanation": {
+     "surface": "A slimming club member is identified as a man from Germany.",
+     "definitionFit": "One reading is a person on a diet; the other is a familiar German forename for a man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +71,41 @@
     "text": "Echo smart address chosen regularly for fellow soldiers",
     "enumeration": "8"
    },
-   "solution": "COMRADES"
+   "solution": "COMRADES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fellow soldiers",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "chosen regularly",
+       "at": 19,
+       "note": "picking letters at regular intervals, here every second letter of the run of words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Echo smart address",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone picks out a smart way of addressing an Echo device to speak to army mates.",
+     "walkthrough": "'chosen regularly' takes the 2nd, 4th, 6th... letters of ECHOSMARTADDRESS.",
+     "definitionFit": "Comrades are companions in arms, a standard word for soldiers serving together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Echo"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +119,49 @@
     "text": "Longed to dress Rob in such a suit",
     "enumeration": "10"
    },
-   "solution": "PINSTRIPED"
+   "solution": "PINSTRIPED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in such a suit",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to dress",
+       "at": 7,
+       "note": "one word is wrapped around the other as clothing goes around a body"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Longed",
+       "at": 0,
+       "gives": "PINED",
+       "note": "pined means longed or yearned"
+      },
+      {
+       "words": "Rob",
+       "at": 16,
+       "gives": "STRIP",
+       "note": "to strip someone is to rob them of everything"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yearned to put a man called Rob into a striped suit.",
+     "walkthrough": "'Rob' looks like a man's name but is the verb meaning to strip someone of everything.",
+     "definitionFit": "A pinstriped suit has thin vertical lines, the classic banker's outfit, so wearing one is being dressed thus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rob"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +175,60 @@
     "text": "Consequences of that farmer virtually being drunk",
     "enumeration": "9"
    },
-   "solution": "AFTERMATH"
+   "solution": "AFTERMATH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Consequences",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "being drunk",
+       "at": 38,
+       "note": "drunkenness scrambles the letters as it would the farmer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that",
+       "at": 16
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "virtually",
+         "at": 28,
+         "note": "almost all of the word, so its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "farmer",
+         "at": 21
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The fallout from that farmer having had too much to drink.",
+     "walkthrough": "'virtually' trims FARMER to FARME; 'being drunk' shuffles THAT plus FARME.",
+     "definitionFit": "An aftermath is the period of results following an event, so the word names its consequences."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +242,47 @@
     "text": "Girl is sort to go topless",
     "enumeration": "4"
    },
-   "solution": "LASS"
+   "solution": "LASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to go topless",
+       "at": 13,
+       "note": "the first letter, the top of a down entry, is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sort",
+       "at": 8,
+       "gives": "CLASS",
+       "note": "a class is a sort or kind"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman is the type to go topless.",
+     "walkthrough": "'topless' drops the C from CLASS.",
+     "definitionFit": "Lass is a mainly northern British and Scottish word for a young woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +296,41 @@
     "text": "Uncontrolled hatred, common element throughout story",
     "enumeration": "6"
    },
-   "solution": "THREAD"
+   "solution": "THREAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "common element throughout story",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Uncontrolled",
+       "at": 0,
+       "note": "letters running out of control are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hatred",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unchecked hatred is the recurring motif of a tale.",
+     "walkthrough": "'Uncontrolled' rearranges HATRED.",
+     "definitionFit": "The thread of a story is the connecting line of plot or theme that runs all through it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Uncontrolled"
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +344,42 @@
     "text": "American negotiated, hard up and visibly embarrassed",
     "enumeration": "8"
    },
-   "solution": "BROKERED"
+   "solution": "BROKERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American negotiated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hard up",
+       "at": 21,
+       "gives": "BROKE",
+       "note": "broke means having no money"
+      },
+      {
+       "words": "visibly embarrassed",
+       "at": 33,
+       "gives": "RED",
+       "note": "someone embarrassed goes red in the face"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A penniless, blushing American struck a deal.",
+     "walkthrough": "The setter treats 'broker' as a verb as American usage, so 'American' qualifies the definition.",
+     "definitionFit": "To broker a deal is to arrange it as a go-between, i.e. to negotiate it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +393,31 @@
     "text": "Note producers — they might be tickled!",
     "enumeration": "7"
    },
-   "solution": "IVORIES"
+   "solution": "IVORIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Note producers",
+      "at": 0,
+      "meaning": "piano keys, each sounding a musical note"
+     },
+     {
+      "text": "they might be tickled!",
+      "at": 17,
+      "meaning": "a pianist is said to tickle the keys"
+     }
+    ],
+    "explanation": {
+     "surface": "Things that make musical sounds are also things you might tickle.",
+     "definitionFit": "Piano keys were made from elephant tusk, hence the slang, and playing is 'tickling the' keys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tickled"
+    }
+   }
   },
   {
    "number": 9,
@@ -142,7 +431,61 @@
     "text": "Oscar escapes mounting disturbances and commotion",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "commotion",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "mounting",
+       "at": 14,
+       "note": "in a down entry, climbing means the word is read upwards, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "escapes",
+         "at": 6,
+         "note": "the letter gets away, leaving the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disturbances",
+         "at": 23,
+         "gives": "RIOTS",
+         "note": "riots are public disturbances"
+        },
+        {
+         "words": "Oscar",
+         "at": 0,
+         "gives": "O",
+         "note": "Oscar is O in the NATO phonetic alphabet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner called Oscar breaks out amid growing riots and chaos.",
+     "walkthrough": "'escapes' removes O from RIOTS, giving RITS; 'mounting' turns it upwards.",
+     "definitionFit": "A stir is a fuss or a commotion, as in 'cause a stir'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 10,
@@ -156,7 +499,41 @@
     "text": "Achievement by that woman is something insignificant",
     "enumeration": "7"
    },
-   "solution": "FEATHER"
+   "solution": "FEATHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something insignificant",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Achievement",
+       "at": 0,
+       "gives": "FEAT",
+       "note": "a feat is a notable achievement"
+      },
+      {
+       "words": "that woman",
+       "at": 15,
+       "gives": "HER",
+       "note": "her refers to a woman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's accomplishment is dismissed as trivial.",
+     "definitionFit": "A plume is a byword for lightness, as in 'you could knock me down with one', so it stands for something trifling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Achievement"
+    }
+   }
   },
   {
    "number": 11,
@@ -170,7 +547,54 @@
     "text": "Change design reportedly for entrance to football stadium?",
     "enumeration": "9"
    },
-   "solution": "TURNSTILE"
+   "solution": "TURNSTILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "entrance to football stadium?",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Change",
+       "at": 0,
+       "gives": "TURN",
+       "note": "to turn is to change, as milk turns"
+      },
+      {
+       "op": "homophone",
+       "spelt": "STILE",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 14,
+         "note": "as heard, a word sounding like another one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "design",
+         "at": 7,
+         "gives": "STYLE",
+         "note": "style means design, as in a style of dress"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request to alter a stadium's entrance design.",
+     "definitionFit": "A rotating gate admitting one person at a time is the classic way fans enter a ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "design"
+    }
+   }
   },
   {
    "number": 12,
@@ -184,7 +608,40 @@
     "text": "Small vegetable, smooth in appearance",
     "enumeration": "5"
    },
-   "solution": "SLEEK"
+   "solution": "SLEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "smooth in appearance",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
+      },
+      {
+       "words": "vegetable",
+       "at": 6,
+       "gives": "LEEK",
+       "note": "a leek is an onion-like vegetable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little vegetable with a glossy look.",
+     "definitionFit": "Sleek describes a glossy, streamlined look, like an otter's coat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -198,7 +655,30 @@
     "text": "Individual cycling qualification",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Individual cycling",
+      "at": 0,
+      "meaning": "a person on a bicycle"
+     },
+     {
+      "text": "qualification",
+      "at": 19,
+      "meaning": "a clause added to a statement that limits or qualifies it"
+     }
+    ],
+    "explanation": {
+     "surface": "A single cyclist's qualification for a race.",
+     "definitionFit": "A cyclist is one on a bike; a codicil added to a bill or verdict modifies it, the second sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "qualification"
+    }
+   }
   },
   {
    "number": 14,
@@ -212,7 +692,69 @@
     "text": "Wind remained fickle, lacking intensity initially",
     "enumeration": "7"
    },
-   "solution": "MEANDER"
+   "solution": "MEANDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "fickle",
+       "at": 14,
+       "note": "changeable, so the letters change order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 22,
+         "note": "the word is without the letter named"
+        }
+       ],
+       "parts": [
+        {
+         "words": "remained",
+         "at": 5
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 40,
+           "note": "just the opening letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "intensity",
+           "at": 30
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The wind stayed changeable but lost its strength at first.",
+     "walkthrough": "'lacking' removes I (the first of 'intensity') from REMAINED to leave REMANED, which 'fickle' rearranges. 'Wind' is the verb, rhyming with 'find'.",
+     "definitionFit": "To wind is to twist and turn, as a river does, the verb's sense of wandering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Wind"
+    }
+   }
   },
   {
    "number": 15,
@@ -226,7 +768,35 @@
     "text": "One responsible for lots being sold?",
     "enumeration": "10"
    },
-   "solution": "AUCTIONEER"
+   "solution": "AUCTIONEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One responsible for lots being sold?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One responsible for lots being sold?",
+       "at": 0,
+       "note": "looks like someone selling a great deal, but lots are items at a sale room"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in charge of huge sales.",
+     "definitionFit": "The person who runs a sale room calls the bids on each numbered lot and brings down the gavel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lots"
+    }
+   }
   },
   {
    "number": 16,
@@ -240,7 +810,79 @@
     "text": "Unhappy, this writer's upset over Queen wearing fur",
     "enumeration": "9"
    },
-   "solution": "MISERABLE"
+   "solution": "MISERABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unhappy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 29,
+       "note": "in a down entry, one part sits above the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 23,
+         "note": "in a down entry, upset means turned upside down, read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this writer's",
+         "at": 9,
+         "gives": "IM",
+         "note": "this writer is is I'm, the setter speaking"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wearing",
+         "at": 40,
+         "note": "the fur goes around the letters like a coat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fur",
+         "at": 48,
+         "gives": "SABLE",
+         "note": "sable is a costly fur"
+        },
+        {
+         "words": "Queen",
+         "at": 34,
+         "gives": "ER",
+         "note": "ER, Elizabeth Regina, is the Queen"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter is upset that the Queen is wearing fur.",
+     "walkthrough": "'this writer' is the setter, so 'this writer's' is I'M; ER, Elizabeth Regina, is the Queen. In a down clue 'over' puts the first part above the second.",
+     "definitionFit": "Miserable means wretched or very unhappy, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 17,
@@ -254,7 +896,41 @@
     "text": "Stupid action she condemned as naive",
     "enumeration": "15"
    },
-   "solution": "UNSOPHISTICATED"
+   "solution": "UNSOPHISTICATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "naive",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "condemned",
+       "at": 18,
+       "note": "something condemned is wrecked, so these letters are broken up and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stupid action she",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's foolish act is denounced as childishly innocent.",
+     "walkthrough": "'Stupid' belongs to the fodder, not the definition; 'condemned' rearranges STUPIDACTIONSHE.",
+     "definitionFit": "Lacking worldly experience or refinement is what naive means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "condemned"
+    }
+   }
   },
   {
    "number": 17,
@@ -268,7 +944,65 @@
     "text": "Best friend supporting United let rip occasionally",
     "enumeration": "8"
    },
-   "solution": "ULTIMATE"
+   "solution": "ULTIMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 12,
+       "note": "in a down entry, the supporter is placed underneath"
+      }
+     ],
+     "parts": [
+      {
+       "words": "United",
+       "at": 23,
+       "gives": "U",
+       "note": "U is a standard abbreviation for United in team names"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "at": 38,
+         "note": "only now and then, so alternate letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "let rip",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "words": "friend",
+       "at": 5,
+       "gives": "MATE",
+       "note": "mate is British slang for friend"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A best friend backing Manchester United lets fly now and then.",
+     "walkthrough": "'occasionally' takes L, T, I from LET RIP.",
+     "definitionFit": "Ultimate means the best possible, as in 'the ultimate driving machine'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Best"
+    }
+   }
   },
   {
    "number": 18,
@@ -282,7 +1016,73 @@
     "text": "Go around a metropolis mostly tight-lipped",
     "enumeration": "8"
    },
-   "solution": "TACITURN"
+   "solution": "TACITURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tight-lipped",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 3,
+       "note": "the word goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Go",
+       "at": 0,
+       "gives": "TURN",
+       "note": "a go is a turn, as in 'your go'"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 10
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 23,
+           "note": "most of the word, the final letter dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "metropolis",
+           "at": 12,
+           "gives": "CITY",
+           "note": "a metropolis is a city"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking a trip round a big city in silence.",
+     "walkthrough": "'Go' is the noun, as in 'your go', not the verb it seems.",
+     "definitionFit": "Taciturn describes someone who says very little, reserved in speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 19,
@@ -296,7 +1096,64 @@
     "text": "Wife placed on town's tip putrid rubbish",
     "enumeration": "7"
    },
-   "solution": "TWADDLE"
+   "solution": "TWADDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rubbish",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "placed on",
+       "at": 5,
+       "note": "set straight after, as one thing placed against another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "tip",
+         "at": 22,
+         "note": "the tip of the word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "town's",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "Wife",
+       "at": 0,
+       "gives": "W"
+      },
+      {
+       "words": "putrid",
+       "at": 26,
+       "gives": "ADDLE",
+       "note": "addle, of an egg, means rotten"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife dumps foul refuse at the edge of the town tip.",
+     "definitionFit": "Twaddle is silly talk or nonsense, a sense of rubbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 20,
@@ -310,7 +1167,41 @@
     "text": "Excellent band getting exposure",
     "enumeration": "6"
    },
-   "solution": "AIRING"
+   "solution": "AIRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exposure",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Excellent",
+       "at": 0,
+       "gives": "AI",
+       "note": "A1 means first-rate; the 1 is taken as letter I"
+      },
+      {
+       "words": "band",
+       "at": 10,
+       "gives": "RING",
+       "note": "a ring is a circular band"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine pop group is getting publicity.",
+     "definitionFit": "Airing is exposure to the public, as when a view or a programme is given an airing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +1215,44 @@
     "text": "Ancient people, practitioners of tattoo art some said?",
     "enumeration": "5"
    },
-   "solution": "INCAS"
+   "solution": "INCAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ancient people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "INCAS",
+     "indicators": [
+      {
+       "text": "some said",
+       "at": 44,
+       "note": "how some people would pronounce it, a non-rhotic accent"
+      }
+     ],
+     "parts": [
+      {
+       "words": "practitioners of tattoo art",
+       "at": 16,
+       "gives": "INKERS",
+       "note": "tattooists ink their clients, so they are inkers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old civilisation reputed to have been skilled tattooists.",
+     "definitionFit": "The Inca empire ruled the Andes before the Spanish conquest, so they are a people of the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tattoo"
+    }
+   }
   },
   {
    "number": 22,
@@ -338,7 +1266,59 @@
     "text": "Bright pink apron mum Penny possesses",
     "enumeration": "6"
    },
-   "solution": "SHRIMP"
+   "solution": "SHRIMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bright pink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "possesses",
+       "at": 28,
+       "note": "holds the other letters within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "mum",
+         "at": 18,
+         "gives": "SH",
+         "note": "mum, as in 'keep mum', means hush, SH"
+        },
+        {
+         "words": "Penny",
+         "at": 22,
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "words": "apron",
+       "at": 12,
+       "gives": "RIM",
+       "note": "an apron is an edging or border strip, a rim"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mum, called Penny, owns a vivid pink apron.",
+     "walkthrough": "'mum' is not mother but the call for silence, SH.",
+     "definitionFit": "Shrimp is a shade of pink named after the cooked shellfish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mum"
+    }
+   }
   },
   {
    "number": 23,
@@ -352,7 +1332,44 @@
     "text": "Issue of revolting magazine",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "revolting",
+       "at": 9,
+       "note": "turning right over, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "magazine",
+       "at": 19,
+       "gives": "TIME",
+       "note": "Time is a weekly news magazine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An edition of a disgusting periodical.",
+     "walkthrough": "'Issue' looks like a noun (a magazine issue) but is the verb.",
+     "definitionFit": "To issue is to send out, which is to emit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 24,
@@ -366,7 +1383,29 @@
     "text": "Time of year for demonstration?",
     "enumeration": "5"
    },
-   "solution": "MARCH"
+   "solution": "MARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Time of year",
+      "at": 0,
+      "meaning": "the third month"
+     },
+     {
+      "text": "demonstration?",
+      "at": 17,
+      "meaning": "a protest parade through streets"
+     }
+    ],
+    "explanation": {
+     "surface": "A season suited to a protest.",
+     "definitionFit": "The third month of the calendar, and also a protest procession, as in a protest walk on Washington."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -380,7 +1419,66 @@
     "text": "Leading man, extremely handsome Romeo, content to leave",
     "enumeration": "4"
    },
-   "solution": "HERO"
+   "solution": "HERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leading man",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 13,
+         "note": "at the extremes, so only the end letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "handsome",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "content to leave",
+         "at": 39,
+         "note": "the inside of the word departs, so its middle letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Romeo",
+         "at": 32
+        },
+        {
+         "gives": "OME"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A very good-looking Romeo is happy to exit, as a lead actor might.",
+     "walkthrough": "'content' looks like 'happy' but means the inner letters, OME.",
+     "definitionFit": "The hero is the principal male part in a play or film, the leading man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 26,
@@ -394,7 +1492,56 @@
     "text": "Ten entering a church in Devon town",
     "enumeration": "9"
    },
-   "solution": "AXMINSTER"
+   "solution": "AXMINSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Devon town",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 4,
+       "note": "going into the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 13
+        },
+        {
+         "words": "church",
+         "at": 15,
+         "gives": "MINSTER",
+         "note": "a minster is a large church"
+        }
+       ]
+      },
+      {
+       "words": "Ten",
+       "at": 0,
+       "gives": "X",
+       "note": "X is the Roman numeral for ten"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ten people go into a church in a Devon town.",
+     "definitionFit": "Axminster is a market town in Devon, a county in south-west England, famous for its carpets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -408,7 +1555,77 @@
     "text": "Runner runs left across island, alongside verge",
     "enumeration": "7"
    },
-   "solution": "TENDRIL"
+   "solution": "TENDRIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Runner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "alongside",
+       "at": 32,
+       "note": "set next to the other part"
+      }
+     ],
+     "parts": [
+      {
+       "words": "verge",
+       "at": 42,
+       "gives": "TEND",
+       "note": "to verge on is to tend towards"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "across",
+         "at": 17,
+         "note": "the letters lie across the inner one, enclosing it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "runs",
+           "at": 7,
+           "gives": "R",
+           "note": "R is the cricket abbreviation for runs"
+          },
+          {
+           "words": "left",
+           "at": 12,
+           "gives": "L",
+           "note": "L means left"
+          }
+         ]
+        },
+        {
+         "words": "island",
+         "at": 24,
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete runs left across an island beside the roadside verge.",
+     "walkthrough": "'Runner' suggests an athlete, but here it is a plant's shoot; 'verge' is the verb, not a grass edge.",
+     "definitionFit": "A tendril is a climbing plant's slender shoot, and a runner is a creeping stem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Runner"
+    }
+   }
   },
   {
    "number": 28,
@@ -422,7 +1639,41 @@
     "text": "Proposition that he or employer will accept",
     "enumeration": "7"
    },
-   "solution": "THEOREM"
+   "solution": "THEOREM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Proposition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "will accept",
+       "at": 32,
+       "note": "the outer words take in the letters, which lie hidden within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that he or employer",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An offer that either he or the boss will take up.",
+     "walkthrough": "'Proposition' suggests a business offer; it is a mathematical statement.",
+     "definitionFit": "In logic and maths a theorem is a statement to be proved, a proposition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Proposition"
+    }
+   }
   }
  ]
 }
