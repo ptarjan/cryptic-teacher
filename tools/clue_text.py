@@ -638,6 +638,19 @@ def mend_scan_text(part):
 #: A brace, square, angle or full-width bracket (RapidOCR's ch recogniser)
 #: read for a round one.
 BRACKETS = str.maketrans({"{": "(", "[": "(", "<": "(", "}": ")", "]": ")", "（": "(", "）": ")"})
+_LIKE_FIGURES = str.maketrans("IlioOzZsSg", "1110022559")
+_WIDE_BRACKETS = str.maketrans("（）", "()")
+
+
+def figures_like(text):
+    """`text` with each letter an OCR reads for a figure ("Is", "4o", "z1")
+    put back as that figure; its length is kept."""
+    return text.translate(_LIKE_FIGURES)
+
+
+def wide_brackets_narrowed(text):
+    """`text` with a full-width bracket read as a round one; length kept."""
+    return text.translate(_WIDE_BRACKETS)
 
 
 def counts_mended(lines):
