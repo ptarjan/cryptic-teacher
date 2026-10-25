@@ -313,7 +313,7 @@ LAYOUT = [
     ("building and checking the site", "tools/test_anagram_line.js", "the anagram ring stands its tiles in a line, in answer order, once a letter from the grid fixes one"),
     ("building and checking the site", "tools/test_free_wheel.js", "the free letter wheel: offered on every clue, costs no hint, shows what the solver types"),
     ("building and checking the site", "tools/test_free_elimination_blocks.js", "the building blocks rung is free when its piece is only the last unlit words and adds no new letters"),
-    ("building and checking the site", "tools/test_formula_hint.js", "the type rung's formula: blank pieces, tapped in any order, charged once as the blocks rung"),
+    ("building and checking the site", "tools/test_formula_hint.js", "the clue's formula: a blank picture under the type rung, tappable chips (filled as pieces come out) under the blocks rung"),
     ("building and checking the site", "tools/ci_shards.js", "splits the test scripts across the workflow’s parallel jobs, so the suite takes as long as its slowest single script rather than all of them added up"),
     ("building and checking the site", "tools/code_checks.py", "the code lint CI runs: ruff's syntax and undefined-name rules, no `| grep -q` under pipefail, and the scratch-copy check (a test that copies a tools/ module copies what it imports)"),
     ("building and checking the site", "tools/test_ci_coverage.js", "checks every test in tools/ is run, in exactly one shard, by the workflow a later push cannot cancel, so no check is quietly optional"),
