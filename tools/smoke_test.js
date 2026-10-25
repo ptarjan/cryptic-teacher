@@ -1380,7 +1380,16 @@ assert(storage["ct:nux"] === "2",
   assert(climbed.every((n) => /^hint-[a-z]+$/.test(n) && EVENTS.indexOf(n) >= 0),
     "every rung reports its own name off the shared list: " + climbed.join(","));
 }
-assert(registry["hint-body"].innerHTML.includes("Answer:"), "last rung shows answer");
+// The walkthrough prints the answer once (02ee84cec57): in its own "Answer:" line,
+// or, when the clue has a definition-fit line, as that line's "gives" span.
+function answerShown(html, ans) {
+  if (html.includes("Answer:")) return true;
+  const fit = (html.match(/<p class="def-fit">[\s\S]*?<\/p>/) || [""])[0];
+  const gives = [...fit.matchAll(/<span class="gives">([^<]*)<\/span>/g)]
+    .map((m) => m[1].replace(/&[#\w]+;/g, "").replace(/[^A-Za-z]/g, "").toUpperCase());
+  return gives.some((g) => g && (!ans || g === ans));
+}
+assert(answerShown(registry["hint-body"].innerHTML), "last rung shows answer");
 // no rung may be a content-free filler such as "No indicator words"
 assert(!registry["hint-body"].innerHTML.includes("No indicator words"),
   "ladder never shows an empty 'no indicators' rung");
@@ -2784,7 +2793,7 @@ function blogSidecars() {
         `${where}: the ladder still ends at the walkthrough, got ` +
         ((btn && btn.textContent) || "nothing"));
       takeRung(btn);
-      assert(registry["hint-body"].innerHTML.includes("Answer:"),
+      assert(answerShown(registry["hint-body"].innerHTML, ans),
         `${where}: the walkthrough is where the answer finally appears`);
     }
   }
@@ -3476,7 +3485,7 @@ function blogSidecars() {
     let guard = 0;
     while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && guard++ < 8) {
       takeRung(registry["hint-next"].children[0]);
-      if (registry["hint-body"].innerHTML.includes("Answer:")) break;
+      if (answerShown(registry["hint-body"].innerHTML)) break;
     }
     const walk = registry["hint-body"].innerHTML;
     assert(walk.includes("SMOKE-FIT"),
@@ -3487,8 +3496,10 @@ function blogSidecars() {
     const bare = (s) => s.replace(/[^A-Za-z]/g, "");
     assert(fitLine.includes('mark class="def"') && bare(fitLine).includes(bare(e.annotation.answer)),
       "the fit line must name both ends it is joining: " + fitLine);
-    assert(walk.indexOf("SMOKE-FIT") < walk.lastIndexOf("Answer:"),
-      "the fit comes before the answer — it is what turns a spelling into a solve");
+    // The fit line is the last thing the walkthrough says and names the answer,
+    // so the answer is printed once, not again under it (02ee84cec57).
+    assert(!walk.includes("Answer:") && answerShown(walk, bare(e.annotation.answer).toUpperCase()),
+      "with a fit line the answer is named there and printed once: " + walk.slice(-400));
     delete e.annotation.explanation.definitionFit;
   }
 }
