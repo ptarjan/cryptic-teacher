@@ -370,25 +370,59 @@ def repair_pool_gap(new, entry):
         return new
     try:
         import fix_shape_suspects as F
-        import validate_annotations as V
         import wordplay
-        # poolGap, and unindicatedBare (the "missing wordplay.noIndicator" first-check failure,
-        # 100 sessions and $27 after the check in one day): a word filed on the wrong node moves
-        # to the bare op, or a spare clue word beside it becomes its indicator.
-        for rule, count in (("poolGap", V.pool_gaps), ("unindicatedBare", lambda t, c: V.unindicated_ops(t)),
-                            ("repeatedSelection", lambda t, c: V.repeated_selections(t))):
-            if not count(wp, clue):
+        answer = entry.get("solution", "")
+        counters = rule_counters()
+        # Every bag fixer (F.RULE_REPAIRS, one table): when its rule fires on the fresh tree it
+        # runs and the result is kept if the rule fires less, the tree still gives the answer and
+        # no other shape detector newly fires. A fixer that declines leaves the refusal as it was.
+        # (poolGap 100 sessions, unindicatedBare $27 a day, anaLoneEdge 219 of 3155 first checks.)
+        for rule, fixer in F.RULE_REPAIRS.items():
+            count = counters.get(rule)
+            if count is None or not count(wp, {**new, "wordplay": wp, "_answer": answer}, clue):
                 continue
-            fixed, used = F.repair_tree(wp, clue, entry.get("solution"), {rule: F.RULE_REPAIRS[rule]})
-            if not used:
+            try:
+                fixed, used = F.repair_tree(wp, clue, answer, {rule: fixer})
+                if not used:
+                    continue
+                fixed = F.note_deletions(F.repair_tree(fixed, clue, answer, F.FOLLOW_ON)[0])
+                fixed = wordplay.normalize(fixed, clue, answer)[0]
+                now = {**new, "wordplay": wp, "_answer": answer}
+                after = {**new, "wordplay": fixed, "_answer": answer}
+                left = _size(count(fixed, after, clue))
+                better = left < _size(count(wp, now, clue))
+                if rule == "poolGap" and left:
+                    better = False
+                if better and set(F.hits(after, clue, answer)) <= set(F.hits(now, clue, answer)) \
+                        and F.unchecked(fixed) <= F.unchecked(wp):
+                    wp = fixed
+            except Exception:
                 continue
-            fixed = wordplay.normalize(fixed, clue, entry.get("solution", ""))[0]
-            better = count(fixed, clue) < count(wp, clue)
-            if better and (rule != "poolGap" or not count(fixed, clue)):
-                wp = fixed
         return new if wp is new.get("wordplay") else {**new, "wordplay": wp}
     except Exception:
         return new
+
+
+def _size(x):
+    """How many hits a detector's answer stands for (a count, a list or a bool)."""
+    try:
+        return len(x)
+    except TypeError:
+        return int(x or 0)
+
+
+def rule_counters():
+    """{validator rule: fn(tree, full annotation with _answer, clue) -> hits}: the one table
+    that says which RULE_REPAIRS fixers the first check runs (test_apply_rule_repairs.py keeps
+    every RULE_REPAIRS key reachable). The first check's own counters come first, then the
+    shape queue's validator rules and the shape_suspects detector rules."""
+    import fix_shape_suspects as F
+    import shape_queue
+    import validate_annotations as V
+    table = {**F._DETECTOR_RULES, **shape_queue._validator_rules()}
+    table["unindicatedBare"] = lambda t, a, c: V.unindicated_ops(t)
+    table["repeatedSelection"] = lambda t, a, c: V.repeated_selections(t)
+    return table
 
 
 def keep_spelling(new, entry, was):

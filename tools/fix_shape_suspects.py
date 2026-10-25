@@ -2817,6 +2817,7 @@ def r_ana_lone_edge(node, parent, ctx):
     if not lone or len(lone) >= len(parts):
         return None
     good = {}
+    same = {}
     for size in (1, 2):
         for pick in itertools.combinations(lone, size):
             rest = [p for i, p in enumerate(parts) if i not in pick]
@@ -2829,9 +2830,14 @@ def r_ana_lone_edge(node, parent, ctx):
                     cand = {"op": "charade", "parts": pieces[:k] + [ana] + pieces[k:]}
                     if _eval_swapped(node, parent, cand, ctx):
                         good[json.dumps(cand, sort_keys=True)] = cand
+                        # two lone C's (caught, cold) pulled alike are one reading, not two
+                        key = (k, "".join(str(p.get("gives") or p.get("words") or "").upper() for p in pieces))
+                        same.setdefault(key, cand)
         if good:
             break
-    return next(iter(good.values())) if len(good) == 1 else None
+    if len(good) == 1:
+        return next(iter(good.values()))
+    return next(iter(same.values())) if good and len(same) == 1 else None
 
 
 def r_split_shared_indicator(node, parent, ctx):
