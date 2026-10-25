@@ -467,48 +467,54 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "repeat",
+     "indicators": [
       {
-       "words": "a",
-       "at": 15,
-       "gives": "A"
-      },
+       "text": "Repeatedly",
+       "at": 0,
+       "note": "repeatedly says the reversed piece is written out twice"
+      }
+     ],
+     "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "over",
          "at": 23,
-         "note": "in a down clue, over means turned upwards, so the word for cloth reads backwards"
+         "note": "over means turned over, so the cloth and the a are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "cloth",
-         "at": 17,
-         "gives": "RAG",
-         "note": "a rag is a piece of cloth"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "cloth",
+           "at": 17,
+           "gives": "RAG",
+           "note": "a rag is a piece of cloth"
+          },
+          {
+           "words": "a",
+           "at": 15,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "Repeatedly",
-       "at": 0,
-       "gives": "AGAR",
-       "note": "repeatedly means once more, so the four letters already built are given a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions to keep wiping a cloth over some jelly.",
-     "walkthrough": "A plus RAG turned upwards gives AGAR; 'Repeatedly' says to write that group a second time.",
-     "definitionFit": "Agar-agar is a gelatinous substance made from seaweed, used to set foods and culture microbes."
+     "surface": "Keep wiping a cloth over a jelly.",
+     "walkthrough": "RAG then A, read backwards, gives AGAR, written twice; 'use' only joins.",
+     "definitionFit": "A gelatinous substance from seaweed, used to set desserts and grow bacteria, is a vegetarian jelly."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "use"
+     "misdirectedWord": "over"
     }
    }
   },

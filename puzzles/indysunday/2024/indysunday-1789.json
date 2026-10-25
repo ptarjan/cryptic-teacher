@@ -1746,30 +1746,45 @@
    "annotation": {
     "definitions": [
      {
-      "text": "with romantic illumination",
-      "at": 29
+      "text": "romantic illumination",
+      "at": 34,
+      "note": "the clue's noun phrase stands for the adjective describing a room lit that way"
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "trimmed",
-       "note": "the last letter is cut off"
-      }
-     ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "CANDL",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Walls",
+         "at": 0,
+         "note": "walls stand around a building, so the chapel's walls go around the joining word"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "chapel",
-         "gives": "CANDL",
-         "select": "outer",
-         "note": "the walls are C and L, read literally as C AND L"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "of",
+           "at": 6,
+           "note": "of here takes the outer letters, the walls, of the word chapel"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chapel",
+           "at": 9
+          }
+         ]
+        },
+        {
+         "words": "with",
+         "at": 29,
+         "gives": "AND",
+         "note": "with means and, joining things together"
         }
        ]
       },
@@ -1777,15 +1792,17 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "Walls of",
-         "note": "a building's walls are its outside, so take the chapel's outer letters"
+         "text": "trimmed",
+         "at": 21,
+         "note": "trimmed cuts the last letter off the word for the best"
         }
        ],
        "parts": [
         {
          "words": "best",
+         "at": 16,
          "gives": "ELITE",
-         "note": "the elite are the best; E trimmed"
+         "note": "the best are the elite"
         },
         {
          "gives": "E"
@@ -1795,14 +1812,13 @@
      ]
     },
     "explanation": {
-     "surface": "A chapel's walls are decorated with soft, romantic lighting.",
-     "walkthrough": "The outer letters are C and L, and the 'and' is kept in the answer: C AND L.",
-     "definitionFit": "A candlelit room has soft, romantic light."
+     "surface": "A chapel's finest walls are decorated with romantic lighting.",
+     "walkthrough": "'Walls of' pictures the chapel's outside letters standing round the conjunction that 'with' supplies, as walls stand round a room.",
+     "definitionFit": "Lighting by small flames from wax tapers is the classic romantic glow of a dinner for two."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Walls"
     }
    }
