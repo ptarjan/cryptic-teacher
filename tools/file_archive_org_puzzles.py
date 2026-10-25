@@ -7860,7 +7860,7 @@ REREAD_WIDE_STRIPS = "2026-10-25T19:55:00+00:00"
 #: had a strip and a cached VLM reply, 9 refused on a misread crossing and 12 phrases on a short piece.
 #: Once, as an answers-only reread (SOLUTION_FIXES); the VLM's replies are cached, so it asks nothing new.
 VLM_REJUDGED = "solution short, its VLM word judged on the checked crossings"
-REREAD_VLM_REJUDGED = "2026-10-25T23:15:00+00:00"
+REREAD_VLM_REJUDGED = "2026-10-25T23:59:00+00:00"
 
 
 def strip_missing(series, number, sol_dir, most=None):
