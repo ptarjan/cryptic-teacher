@@ -284,6 +284,9 @@ def main(argv):
             print(f"annotate_bag: {err}")
             return 2
         return check(argv[1])
+    if argv[:1] in (["--help"], ["-h"], ["help"]):
+        print(__doc__.strip())      # asking for the usage is not a failure
+        return 0
     print(__doc__.strip(), file=sys.stderr)
     return 2
 

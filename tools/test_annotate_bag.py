@@ -99,6 +99,11 @@ check("a bag patch merges fields without matching bytes",
 pf.write_text('{"zz": {}}')
 check("a patch naming an unknown puzzle is refused", "lacks: zz" in (annotate_bag.patch_bag(f, pf) or ""))
 
+# 10-25 audit: a model asking `annotate_bag.py --help` got exit 2 (a wasted Bash error)
+with contextlib.redirect_stdout(io.StringIO()) as helpbuf:
+    help_rc = annotate_bag.main(["--help"])
+check("--help prints the usage and exits 0", help_rc == 0 and "annotate_bag.py view" in helpbuf.getvalue())
+
 # the redo gate runs in check: a listed clue whose new tree is still flagged fails
 import shape_queue
 import apply_annotations
