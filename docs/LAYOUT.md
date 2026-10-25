@@ -1085,8 +1085,9 @@ tools/test_free_wheel.js                       the free letter wheel: offered on
 tools/test_free_elimination_blocks.js          the building blocks rung is free when its piece
                                                is only the last unlit words and adds no new
                                                letters
-tools/test_formula_hint.js                     the type rung's formula: blank pieces, tapped in
-                                               any order, charged once as the blocks rung
+tools/test_formula_hint.js                     the clue's formula: a blank picture under the
+                                               type rung, tappable chips (filled as pieces come
+                                               out) under the blocks rung
 tools/ci_shards.js                             splits the test scripts across the workflow’s
                                                parallel jobs, so the suite takes as long as its
                                                slowest single script rather than all of them
@@ -1353,6 +1354,10 @@ household-plugins/<name>/plugin.toml           when and where the household brid
 tools/test_annotate_retry.sh                   drives that resume, and a cold solve's run, with
                                                a fake CLI, so it is not first tried on a night
                                                it is needed
+tools/test_apply_rule_repairs.py               does the first check run every bag fixer
+                                               (RULE_REPAIRS) whose rule fires, so a lone
+                                               letter in an anagram is mended before the model
+                                               sees it?
 tools/test_apply_refusal.py                    a refused annotation write names clue ids and no
                                                traceback, so the model does not map entries[N]
                                                by hand
