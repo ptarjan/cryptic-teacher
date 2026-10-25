@@ -550,6 +550,41 @@ for enum, seps, want in [("8", (), "WARPAINT"), ("3,5", (), "WAR PAINT"), ("3,5"
 e = entry(17, "down", "WARPAINT", wclue)
 e["clue"]["enumeration"] = "8"
 check("(8): from_model keeps no WAR PAINT spelling", "spelling" not in annotation.from_model(dict(wmodel), e))
+# A charade's order word written as `+ +<after>` or a prefix `+<after>(a, b)` (annotate audit 10-24/25:
+# 64 doubled '+', 73 prefix) is said the way the parser takes it; translate still checks the answer.
+for was, now in [
+    ("[Old]O + [baddy]RAT + +<leading>[men]OR", "[Old]O + [baddy]RAT +<leading>[men]OR"),
+    ("[huge]OS + [lake]L + +<on>[Duck]O", "[huge]OS + [lake]L +<on>[Duck]O"),
+    ("[mum]MA + +<to follow>(ins<hampered by>([desire]WISH, [knight]K))",
+     "[mum]MA +<to follow>(ins<hampered by>([desire]WISH, [knight]K))"),
+    ("+<Add>([page]P + [rental agreement]LEASE)", "([page]P +<Add> [rental agreement]LEASE)"),
+    ("+<after>([signal]FLAG, [shout]RANT)", "([signal]FLAG +<after> [shout]RANT)"),
+    ("+<after>([second]S + [old person]OAP, [Fight]BOX)", "(([second]S + [old person]OAP) +<after> [Fight]BOX)"),
+    ("ins<in>([sweeper's]BROOM, +<leading>([Journalist]ED, [session]SITTING))",
+     "ins<in>([sweeper's]BROOM, ([Journalist]ED +<leading> [session]SITTING))"),
+]:
+    check(f"charade indicator mend: {was}", w.mend_charade_indicator(was) == now, w.mend_charade_indicator(was))
+    w.parse(now)
+for ok in ["[Old]O + [baddy]RAT +<leading>[men]OR", "[a]A + [b]B", "ins<in>([a]A, [b]B)"]:
+    check(f"charade indicator mend leaves {ok}", w.mend_charade_indicator(ok) is None)
+# stays refused, and says how to write it: an indicator before its piece, a '+' with nothing after, a count
+for bad, hint in [("ins(del<having no right>([Lord]PEER, R), <to accept>[jibe]DIG + [about]RE)", "right after the op"),
+                  ("[party]CON + [appropriate]FIT +<after>", "needs the piece it joins"),
+                  ("first(3)<Half of>([arbiters]JUDGES)", "take no count")]:
+    check(f"charade indicator mend declines {bad[:30]}", w.mend_charade_indicator(bad) is None)
+    r = perr(bad, hint)
+    check(f"parse refuses with a hint: {bad[:30]}", r is True, r)
+tree = w.translate({"wp": w.mend_charade_indicator("[Old]O + [baddy]RAT + +<leading>[men]OR")},
+                   "Old baddy leading men", "ORATOR")
+check("the mended doubled '+' gives the answer with the indicator on the charade",
+      [i["text"] for i in tree.get("indicators") or []] == ["leading"], tree)
+tree = w.translate({"wp": w.mend_charade_indicator("+<after>([signal]FLAG, [shout]RANT)")},
+                   "Signal after shout", "RANTFLAG")
+check("the mended prefix op is swapped by the answer like any 'after' charade",
+      [p.get("gives") for p in tree["parts"]] == ["RANT", "FLAG"], tree)
+e = entry(3, "across", "ORATOR", "Old baddy leading men is a speaker")
+stored = annotation.from_model({"def": "a speaker", "wp": "[Old]O + [baddy]RAT + +<leading>[men]OR"}, e)
+check("from_model mends the doubled '+' in place", stored["wordplay"]["op"] == "charade", stored)
 check("apostrophe spelling survives (8)",
       annotation.spaced("DON'T", {"number": 1, "direction": "across", "clue": {"enumeration": "4"}}) == "DON'T")
 check("enumeration's apostrophe is not doubled",

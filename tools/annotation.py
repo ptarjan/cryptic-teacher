@@ -909,6 +909,19 @@ def from_model(m, entry, puzzle=None):
         raise wordplay.WordplayError("`notes` is an object keyed by span words")
     notes = dict(m.get("notes") or {})
     wp = m.get("wp")
+    if isinstance(wp, str) and "+" in wp:
+        try:
+            wordplay.parse(wp)
+        except wordplay.WordplayError:
+            # a charade's order word written as `+ +<after>` or a prefix `+<after>(a, b)`:
+            # said the way the parser takes it, when that parses (translate still checks it)
+            mended = wordplay.mend_charade_indicator(wp)
+            if mended:
+                try:
+                    wordplay.parse(mended)
+                    wp = mended
+                except wordplay.WordplayError:
+                    pass
     names = set()
     if wp:
         names = {re.sub(r"#\d+$", "", s[k]) for s, k in wordplay._spans(wordplay.parse(wp), True)}
