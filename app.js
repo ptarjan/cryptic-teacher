@@ -3191,8 +3191,21 @@
     setTimeout(() => cs.forEach((c) => {
       if (c.el) c.el.classList.remove("solved-flash", "clean");
     }), 450);
-    // A clue solved cold earns a pop of its own, over its middle square.
-    if (clean) { const mid = cs[Math.floor(cs.length / 2)]; if (mid) fireworksAt(mid.el, 1, 28); }
+    // A clue solved cold earns a pop of its own, over the box being worked in
+    // (the current-clue panel), not over the grid; the entry's middle square
+    // only when that panel is not on screen.
+    if (clean) {
+      const mid = cs[Math.floor(cs.length / 2)];
+      const target = onScreenBox($("hint-panel")) || (mid && mid.el);
+      if (target) fireworksAt(target, 1, 28);
+    }
+  }
+  // el, if it has a laid-out box at least partly inside the window; else null.
+  function onScreenBox(el) {
+    if (!el || !el.getBoundingClientRect) return null;
+    const r = el.getBoundingClientRect();
+    const vh = window.innerHeight || Infinity;
+    return r.height > 0 && r.bottom > 0 && r.top < vh ? el : null;
   }
 
   // True once an entry is solved for the price of nothing: no rung was charged

@@ -5009,12 +5009,40 @@ global.realSetTimeout(() => {
   // --- tier 1: solved by typing, no hints taken — the clean tier ---
   select(cleanE);
   const cells = cellsOf(cleanE);
+  // The clean-solve burst goes over the clue panel being worked in, not the
+  // grid: spy on which element's rect fireworksAt measures.
+  const panelEl = registry["hint-panel"], midEl = cells[Math.floor(cells.length / 2)];
+  const measured = [];
+  const spyRect = (el, name) => {
+    const orig = el.getBoundingClientRect;
+    el.getBoundingClientRect = function () { measured.push(name); return orig.call(this); };
+    return () => { el.getBoundingClientRect = orig; };
+  };
+  const unspyPanel = spyRect(panelEl, "panel"), unspyMid = spyRect(midEl, "mid");
+  panelEl.layout(100, 200);
   cleanE.solution.slice(0, -1).split("").forEach((c) => key(c));
   assert(!cells.some((c) => c.classList.contains("solved-flash")),
     "an entry one letter short of solved gets no flash yet");
   key(cleanE.solution[cleanE.solution.length - 1]);
   assert(cells.every((c) => c.classList.contains("solved-flash")),
     "every cell of the just-solved entry carries the settling flash");
+  // measured: onScreenBox's own look (panel), then fireworksAt's (panel again).
+  assert(measured.includes("panel") && !measured.includes("mid"),
+    "a clean solve's burst is centred on the clue panel, not the grid square: " + measured);
+  unspyPanel(); unspyMid();
+  // Panel not laid out (no box on screen): fall back to the middle square.
+  // Solve otherE (typed fresh over whatever it holds) with the panel at 0x0.
+  panelEl.layout(0, 0);
+  select(otherE);
+  const otherMid = cellsOf(otherE)[Math.floor(otherE.length / 2)];
+  const unspyOther = spyRect(otherMid, "mid");
+  otherE.solution.split("").forEach((c) => key(c));
+  assert(measured.includes("mid"), "no panel on screen: the burst falls back to the middle square: " + measured);
+  unspyOther();
+  registry["reset-puzzle"].onclick();
+  select(cleanE);
+  cleanE.solution.split("").forEach((c) => key(c));
+  global.flushTimers(500);
   assert(cells.every((c) => c.classList.contains("clean")),
     "solved with no hints and no reveals gets the gold tier, distinct from the green one");
   assert(registry["clue-" + entryId(cleanE)].classList.contains("no-hints"),
