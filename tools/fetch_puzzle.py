@@ -913,6 +913,17 @@ def browser_puzzle(puzzle):
         for e in out["entries"]]
     if out.get("offGrid"):
         out["offGrid"] = [holder(h) for h in out["offGrid"]]
+    # Clues listed in tools/data/shape_reannotate.json are known-bad walkthroughs
+    # awaiting a redo: the app shows "being rewritten" instead of their
+    # step-by-step and building blocks. Read from the file on every build, so a
+    # clue that leaves the queue is back on the next deploy with no list to edit.
+    import shape_queue
+    redo = shape_queue.listed(out)
+    if redo:
+        # On the annotation, because that is what the ladder is built from.
+        out["entries"] = [{**e, "annotation": {**e["annotation"], "redo": True}}
+                          if f"{e['number']}-{e['direction']}" in redo and isinstance(e.get("annotation"), dict) else e
+                          for e in out["entries"]]
     return out
 
 
