@@ -912,6 +912,92 @@ def repair_lost_breaks(since="2026-10-21", apply_it=False, ref="origin/master"):
     return restored
 
 
+#: Answers-only rereads dropped every held answer they did not read again from here to 10-25
+#: (file_archive_org_puzzles.decide: 312 Times files, 986 answers; times-7522 all 26).
+LOST_ANSWERS_SINCE = "2026-10-22"
+
+
+def repair_lost_answers(since=LOST_ANSWERS_SINCE, apply_it=False, ref="origin/master"):
+    """([(id, light, answer, sha)] restored, [(id, light, answer, why)] left) for each Times answer
+    an "Update" commit on `ref` since `since` blanked and this takes back from git history. A light
+    is restored when the last commit to change it was such an "Update" blanking it (no later
+    reread, repair or hand edit settled it otherwise), the current file leaves it blank, the old
+    answer fills its light and fits every letter crossing it in the current file (and every other
+    answer restored), and no misread rule names it (misread_word; MISREAD_NAMES). Its annotation
+    comes back with it. Nothing else changes; with `apply_it` False nothing is written."""
+    import file_archive_org_puzzles as archive
+    named = {(p, lid) for p, lid, _w in MISREAD_NAMES}
+    restored, left = [], []
+    def cells(e):
+        x, y, across = e["position"]["x"], e["position"]["y"], e["direction"] == "across"
+        return [(x + i * across, y + i * (not across)) for i in range(e["length"])]
+    # Every commit since `since` touching a Times file, one log pass; blobs through one cat-file.
+    touched, sha, subject = {}, None, ""
+    for line in git_out("log", f"--since={since}", "--format=@%H %s", "--name-only", ref, "--", "puzzles/times").splitlines():
+        if line.startswith("@"):
+            sha, _, subject = line[1:].partition(" ")
+        elif line.endswith(".json") and sha:
+            touched.setdefault(line, []).append((sha, subject))
+    cat = subprocess.Popen(["git", "-C", str(fetcher.ROOT), "cat-file", "--batch"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    def entries(spec):
+        cat.stdin.write((spec + "\n").encode())
+        cat.stdin.flush()
+        head = cat.stdout.readline().split()
+        if len(head) < 3 or head[1] == b"missing":
+            return {}
+        data = cat.stdout.read(int(head[2]))
+        cat.stdout.read(1)
+        try:
+            return {entry_id(e): e for e in json.loads(data)["entries"]}
+        except (ValueError, KeyError):
+            return {}
+    for rel, log in sorted(touched.items()):
+        pid = Path(rel).stem
+        if not pid.startswith("times-") or not any(s.startswith("Update") for _h, s in log):
+            continue
+        path = puzzle_paths.find(pid)
+        if path is None:
+            continue
+        last = {}  # light: (sha, subject, entry before, entry after) of the newest commit changing its answer
+        before = entries(f"{log[-1][0]}^:{rel}")
+        for sha, subject in reversed(log):
+            after = entries(f"{sha}:{rel}")
+            for lid in set(before) | set(after):
+                was, now = (before.get(lid) or {}).get("solution"), (after.get(lid) or {}).get("solution")
+                if (was or None) != (now or None):
+                    last[lid] = (sha, subject, before.get(lid) or {}, now)
+            before = after
+        puzzle = fetcher.read_puzzle_file(path)
+        if "blog" in (puzzle.get("solutions") or {}):
+            continue
+        letters = {rc: ch for e in puzzle["entries"] if e.get("solution") for rc, ch in zip(cells(e), e["solution"])}
+        changed = False
+        for e in puzzle["entries"]:
+            lid = entry_id(e)
+            sha, subject, held, now = last.get(lid) or (None, "", {}, None)
+            word = held.get("solution")
+            if not subject.startswith("Update") or not word or now or e.get("solution"):
+                continue
+            why = ("its light's length" if len(word) != e["length"]
+                   else "named a misread" if (pid, lid) in named
+                   or archive.misread_word(word, (e.get("clue") or {}).get("enumeration"))
+                   else "a crossing letter" if any(letters.get(rc, ch) != ch for rc, ch in zip(cells(e), word)) else None)
+            if why:
+                left.append((pid, lid, word, why))
+                continue
+            e["solution"] = word
+            if held.get("annotation") and not e.get("annotation"):
+                e["annotation"] = held["annotation"]
+            letters.update(zip(cells(e), word))
+            restored.append((pid, lid, word, sha[:11]))
+            changed = True
+        if changed and apply_it:
+            fetcher.write_puzzle_file(path, puzzle)
+    cat.stdin.close()
+    cat.wait()
+    return restored, left
+
+
 #: (puzzle id, light, answer filed) for Times answers a solution-grid read filed since the
 #: classifier's 50-to-1 decode (2026-10-22) that are a surname cmudict alone lists, misread
 #: off a word one or two letters away (TROEGER for TRIGGER, the case trove_solution_ocr.name_only
@@ -1286,6 +1372,11 @@ def main(argv):
                          "since SINCE (default 2026-10-21) slipped: word breaks the answer bears out traded for "
                          "a neighbour's, or the grid's length over them "
                          "(file_archive_org_puzzles.count_slipped); --apply writes")
+    ap.add_argument("--lost-answers", nargs="?", const=LOST_ANSWERS_SINCE, metavar="SINCE",
+                    help="only restore, from git history, each Times answer an 'Update' commit since SINCE "
+                         "(default " + LOST_ANSWERS_SINCE + ") blanked, an answers-only reread dropping held "
+                         "answers it did not read again, where it fits every crossing (repair_lost_answers); "
+                         "--apply writes")
     ap.add_argument("--ft-dates", action="store_true",
                     help="only list the ftcryptic files dated on a Sunday, another number's day or out of "
                          "number order (misdated_ft), with the day their numbered neighbours settle; "
@@ -1370,6 +1461,16 @@ def main(argv):
             print(f"{pid} {lid}: {word} -> blank")
         print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
               f"{'blanked' if args.apply else 'would be blanked'} of {len(MISREAD_NAMES)} listed")
+        return 0
+    if args.lost_answers:
+        restored, left = repair_lost_answers(args.lost_answers, args.apply)
+        for pid, lid, word, sha in restored:
+            print(f"{pid} {lid}: blank -> {word} (blanked by {sha})")
+        for pid, lid, word, why in left:
+            print(f"{pid} {lid}: {word} left blank: {why}")
+        print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} answer(s) "
+              f"{'restored' if args.apply else 'would be restored'}; {len(left)} left blank "
+              + ", ".join(f"{why} {n}" for why, n in sorted(Counter(r[3] for r in left).items())))
         return 0
     if args.lost_breaks:
         restored = repair_lost_breaks(args.lost_breaks, args.apply)
