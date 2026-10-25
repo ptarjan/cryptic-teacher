@@ -4907,6 +4907,15 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     grid = trove_solution_ocr.puzzle_grid(old)
     enums = {(e["number"], e["direction"]): (e["clue"] or {}).get("enumeration") for e in es}
     answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above, lean=True, enums=enums)
+    # Another puzzle's grid (wrong_grid) files none of its answers, nor does a full read of it.
+    other = wrong_grid(es, answers, paper.series, number)
+    if other:
+        verdict = {"number": number, "leaf": hit["leaf"], "answersOnly": True, "vlmAsks": 0,
+                   "solutionFrom": solution_source(sol), "wrongGrid": other,
+                   "skip": f"the linked solution grid is another puzzle's: {other}"}
+        if number != hit["number"]:
+            verdict["read_as"] = hit["number"]
+        return verdict, None
     # The cells of the few lights the grid's reading left: the VLM is asked each one's word.
     strips = info.pop("strips", None)
     if strips and ask_vlm and vlm.wanted():
@@ -4993,6 +5002,49 @@ def fits_lights(entries, answers):
             if letters.setdefault((x + i * across, y + i * (not across)), ch) != ch:
                 return False
     return True
+
+
+#: A held puzzle within this many numbers of a reading's whose answers it gives more of than its own
+#: (wrong_grid): the grid linked is that one's (times-21706 read as 21707, its 12 answers 21707's).
+WRONG_GRID_REACH = 7
+#: At least this many of a reading's answers alike at the same lights for another held puzzle to be
+#: its grid's (wrong_grid): a short word may sit at one light of two grids by chance.
+WRONG_GRID_ALIKE = 3
+
+
+def whole_word(held, read):
+    """Whether `read` is another word than `held`, not an OCR slip of it (more than 2 letters off, or
+    another length): the HELD_CLASH split."""
+    return len(held) != len(read) or sum(a != b for a, b in zip(held, read)) > 2
+
+
+def wrong_grid(entries, answers, series, number):
+    """Why a solution grid's reading `answers` ({"12-across": word}) is not puzzle No `number`'s of
+    `series`, whose held file has `entries` (None: none held), or None. Two cases (10-25's whole-word
+    held clashes): the reading gives other words than 2 or more held answers and agrees on fewer
+    (another puzzle's grid alike in blocks: times-11998 off July's 11998, times-15492 numbered
+    off by one), or a held puzzle within WRONG_GRID_REACH numbers holds more of its answers at the
+    same lights (WRONG_GRID_ALIKE at least) than this one's held file does (times-21706 and
+    times-22186 read off the next day's grid). Such a grid's answers are none of this puzzle's."""
+    read = {k: a for k, a in answers.items() if a}
+    if not read:
+        return None
+    held = {entry_id(e): e.get("solution") for e in entries or () if e.get("solution")}
+    both = [k for k in read if k in held]
+    agree = sum(held[k] == read[k] for k in both)
+    whole = sorted(k for k in both if whole_word(held[k], read[k]))
+    if len(whole) >= 2 and len(whole) > agree:
+        return (f"it reads other words than {len(whole)} held answers ({', '.join(whole[:4])}) "
+                f"and agrees on {agree}")
+    for n in sorted(range(number - WRONG_GRID_REACH, number + WRONG_GRID_REACH + 1), key=lambda m: abs(m - number)):
+        other = held_file(series, n) if n != number else None
+        if not other:
+            continue
+        theirs = {entry_id(e): e.get("solution") for e in other.get("entries") or () if e.get("solution")}
+        alike = sum(theirs.get(k) == a for k, a in read.items())
+        if alike >= WRONG_GRID_ALIKE and alike > agree:
+            return f"{alike} of its answers are No {n}'s held ones at the same lights ({agree} this one's)"
+    return None
 
 
 def settle_held(entries, answers, enums=None, blog=False):
@@ -6811,12 +6863,19 @@ def sister_solutions(cache, paper):
             # filed, and only the rows those touch are linked again.
             links = []
             memo = _SISTER_ROWS.setdefault(path, {})
+            own = run_papers(p)
             for rel, row in _planned_known(path).items():
                 m = memo.get(rel)
                 if m is None or m[0] is not row or m[1] is not held:
                     d = _sister_dir(cache, rel)
-                    m = memo[rel] = (row, held, [(s["number"], {**s, "dir": d})
-                                                 for s in _linked(d, scan_of(row, p) or _NO_SCAN, held, p)])
+                    # Only the sister's own papers' rows: filed.jsonl is every PAPERS run's ledger
+                    # (the Guardian's, the FT's, the Telegraph's too), and their solution headings
+                    # linked as the Times's filed another paper's grid under the same number (10-25:
+                    # times-6003 took 7 answers off the FT's 1986-04-23 "solution No 6003",
+                    # times-20624 3 off the Guardian's 1996-04-12; ~120 Times verdicts so linked).
+                    m = memo[rel] = (row, held, [] if paper_of(d) not in own else
+                                     [(s["number"], {**s, "dir": d})
+                                      for s in _linked(d, scan_of(row, p) or _NO_SCAN, held, p)])
                 links += m[2]
             hit = _SISTER_LINKS[path] = (stamp, held, links)
         for n, s in hit[2]:
@@ -9382,9 +9441,20 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
     if commit is None:
         def commit(where, puzzle, verdict):
             return False
-    commit(None, puzzle, verdict)
     held_at = ("held", puzzle["number"])
     held_path = path(held_at, series, puzzles)
+    if verdict.get("solutionFrom") and not verdict.get("answersOnly"):
+        # A full read's answers off another puzzle's grid (wrong_grid; answers_only refuses its own):
+        # its clues may file, none of its answers.
+        old = json.loads(held_path.read_text()) if held_path.exists() else {}
+        other = wrong_grid(old.get("entries"), {entry_id(e): e.get("solution") for e in puzzle["entries"]},
+                           series, puzzle["number"])
+        if other:
+            verdict["wrongGrid"] = other
+            puzzle = copy.deepcopy(puzzle)
+            for e in puzzle["entries"]:
+                e["solution"] = None
+    commit(None, puzzle, verdict)
     mended = mend_held(puzzle, held_path) if held_path.exists() else None
     # An answers-only reading drops no held answer it gives none for, but by a named rule (held_drops): its
     # misread and uncrossed filters left out reads, not the held answers (10-22..25: 312 Times files lost

@@ -2119,6 +2119,18 @@ try:
           (True, cold()), (bool(again), got))
 finally:
     f.linked_solutions, f.held_dates = real_linked, real_held_dates
+# filed.jsonl is every PAPERS run's ledger: a Guardian (or FT, Telegraph) row's heading under a Times number
+# is that paper's puzzle's, never linked as the Times's (times-6003 took 7 answers off the FT's "No 6003").
+real_linked_fn = f._linked
+f._linked = lambda d, scan, held, paper=None: (
+    [{"number": 424242, "leaf": 1}] if d.parent.name.startswith("TheGuardian") else real_linked_fn(d, scan, held, paper))
+try:
+    scan_queue.append(pl, [{"edition": "TheGuardian1981UKEnglish/1981-06-22_9",
+                            "scan": {"date": "1981-06-22", "puzzles": [], "solutions": [{"number": 424242, "leaf": 1}]}}])
+    check("a Guardian row in filed.jsonl links no heading as the Times's", False,
+          424242 in f.sister_solutions(pc, f.GALE))
+finally:
+    f._linked = real_linked_fn
 held = f.Held({15556: datetime.date(1981, 6, 19), 15557: datetime.date(1981, 6, 20), 15550: datetime.date(1981, 6, 12)})
 check("neighbours: the nearest filed either side, by bisecting the sorted dates",
       ((datetime.date(1981, 6, 12), 15550), (datetime.date(1981, 6, 20), 15557)),
@@ -2365,6 +2377,27 @@ check("settle_held: a read answer crossing a kept held one on another letter goe
 check("settle_held: a blog's held answer always stands", "held",
       f.settle_held(lights_held(["BAD", None, None, None])["entries"],
                     {"1-across": "BAT", "1-down": "BED", "2-down": "TOE"}, blog=True)[2]["1-across"]["took"])
+# Another puzzle's grid (wrong_grid): its reading gives other words than 2+ held answers, agreeing on fewer
+# (times-11998 off July's 11998), or a held neighbour holds more of its answers (times-21706 off 21707's).
+check("wrong_grid: OCR slips and one whole-word clash are this puzzle's grid; two whole-word clashes are not",
+      (None, None, True),
+      (f.wrong_grid(lights_held(["BAD", None, "TOD", None])["entries"], ao_read[0], "times", 1),
+       f.wrong_grid(lights_held(["SUN", "BED", None, None])["entries"], ao_read[0], "times", 1),
+       "2 held answers" in (f.wrong_grid(lights_held(["SUN", None, "ZIP", None])["entries"], ao_read[0], "times", 1) or "")))
+ao_held[0] = lights_held(["SUN", None, "ZIP", None])
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
+verdict, puzzle = f.answers_only(*ao_args)
+check("answers_only files nothing off another puzzle's grid (times-11998, times-20109)",
+      (None, True, "src"), (puzzle, "another puzzle's" in verdict["skip"], verdict["solutionFrom"]))
+ao_held[0] = lights_held([None] * 4)
+real_ao_held = f.held_file
+f.held_file = lambda series, n: lights_held(["BAT", "BED", "TOE", None]) if n == 2 else copy.deepcopy(ao_held[0])
+try:
+    verdict, puzzle = f.answers_only(*ao_args)
+    check("... nor off a held neighbour's grid (times-21706 read off 21707's)", (None, True),
+          (puzzle, "No 2's" in verdict["wrongGrid"]))
+finally:
+    f.held_file = real_ao_held
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
