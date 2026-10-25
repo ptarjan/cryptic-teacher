@@ -4624,7 +4624,9 @@
         case "reversal": what = `reverse ${P[0]}`; break;
         case "container": what = `put ${P[1]} inside ${P[0]}`; break;
         case "deletion": what = `take ${P[1]} out of ${P[0]}`; break;
-        case "hidden": what = `find the answer hidden in ${P[0]}`; break;
+        // The fodder's own words, not what it gives: its gives is the hidden
+        // stretch itself, so piece() would read "hidden in GEORDIE → GEORDIE".
+        case "hidden": what = `find the answer hidden in ${(n.parts || [])[0] && n.parts[0].words ? `“${escClue(n.parts[0].words)}”` : P[0]}`; break;
         case "homophone": what = `${P[0]} sounds like ${g(n.spelt || "")}`; break;
         case "substitution": what = `in ${P[0]}, swap ${P[1]} for ${P[2]}`; break;
         case "cycling": what = `move letters round from one end of ${P[0]} to the other`; break;
