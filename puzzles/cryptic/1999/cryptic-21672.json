@@ -606,36 +606,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LONGRANGE",
-     "indicators": [
-      {
-       "text": "halved",
-       "note": "halved means cut in two, so only the first half of the word is kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "halved",
+         "at": 8,
+         "note": "halved keeps only the first half of the city name"
+        }
+       ],
        "parts": [
         {
          "words": "Capital",
-         "gives": "LON",
-         "note": "half of LONDON, the capital"
+         "at": 0,
+         "gives": "LONDON",
+         "note": "London is the capital of the UK"
         },
         {
-         "words": "the farm",
-         "gives": "GRANGE",
-         "note": "a grange is a farmhouse with its outbuildings"
+         "gives": "DON"
         }
        ]
+      },
+      {
+       "words": "farm",
+       "at": 23,
+       "gives": "GRANGE",
+       "note": "a grange is a country house with farm buildings"
       }
      ]
     },
     "explanation": {
-     "surface": "A city split in two to make room for farming, with plans stretching far ahead.",
-     "definitionFit": "A long-range forecast or plan looks well ahead in time, covering a distant period rather than the near term."
+     "surface": "A city cut in half to make room for farmland, a plan for decades ahead.",
+     "walkthrough": "'halved' keeps LON from LONDON; a grange is a farmhouse with its outbuildings.",
+     "definitionFit": "A long-range forecast or plan looks well ahead, covering a stretch of the future."
     },
     "features": {
      "answerInScene": false,
