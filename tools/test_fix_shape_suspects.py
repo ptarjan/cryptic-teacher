@@ -377,6 +377,17 @@ nso2 = {"op": "container", "indicators": [{"text": "in"}], "parts": [
     {"words": "c", "gives": "C"}]}
 check("a nested container has no unique flat form", F.repair_tree(nso2, "a b in c", "ABCA", NSO)[1] == [])
 
+RSL = {"repeatedSelection": F.r_repeated_selection}
+rsl_clue = "Leading Tea Eats Rice"
+rsl = F.W.parse("(first<Leading>([Tea]) + first<Leading>([Eats]) + first<Leading>([Rice]))", rsl_clue)
+new, used = F.repair_tree(rsl, rsl_clue, "TER", RSL)
+check("a pick written word by word becomes one pick over the words",
+      used == ["repeatedSelection"] and new["op"] == "first" and new["parts"][0]["words"] == "Tea Eats Rice"
+      and not V.repeated_selections(new))
+rsl2 = F.W.parse("(first<Leading>([Tea]) + first<Leading>([Rice]))", "Leading Tea, Eats Rice")
+check("words with others between them are left for the model",
+      F.repair_tree(rsl2, "Leading Tea, Eats Rice", "TR", RSL)[1] == [])
+
 DWC = {"delWrapsCharade": F.r_del_wraps_charade}
 dwc = {"op": "reversal", "indicators": [{"text": "backing"}], "parts": [{"op": "deletion", "indicators": [{"text": "Manx"}], "parts": [
     {"op": "charade", "parts": [{"words": "vermin", "gives": "RATS"}, {"words": "concerning", "gives": "RE"},
