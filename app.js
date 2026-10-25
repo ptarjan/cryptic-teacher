@@ -3842,16 +3842,40 @@
     return wholeWord(b.gives).split("").every((c) => have[c]-- > 0);
   }
 
-  function blocksCost(e, tell) {
+  // Paul: "Anything that immediately costs needs two." Every rung (not only the
+  // blocks), "Just tell me", Reveal one letter and the first reveal of the
+  // answer go through this one rule and the one confirmBlock helper below.
+  function rungCosts(e, rung, tell) {
     if (!e || groupSolved(e)) return false;
-    if (!isShown(e, "blocks")) return !blocksFree(e, 0);
-    return !!tell && earnedRungs(e).indexOf("blocks") >= 0;
+    if (!isShown(e, rung)) return rung === "blocks" ? !blocksFree(e, 0) : true;
+    return !!tell && earnedRungs(e).indexOf(rung) >= 0;
   }
+  const blocksCost = (e, tell) => rungCosts(e, "blocks", tell);
+  // Filling the answer in is the paid way to the answer; once the walkthrough
+  // or the answer itself is up there is nothing left to protect.
+  const fillCosts = (e) => !!e && !groupSolved(e) && !isShown(e, "walkthrough") && !isShown(e, ANSWER_RUNG);
 
   const ARM_MS = 4000;
+  // The button specs/markup for the paid buttons outside the rung row.
+  function fillSpec(e, text) {
+    if (!fillCosts(e)) return { fill: true, text };
+    const armed = armedFor(e, "fill");
+    return { fill: true, arm: "fill", cls: armed ? "arm-cost" : "", text: armed ? ARMED_TEXT : text };
+  }
+  function letterBtnHTML(e) {
+    const armed = armedFor(e, "letter");
+    return `<button id="hx-letter" data-arm="letter" class="ghost small${armed ? " arm-cost" : ""}">${
+      armed ? ARMED_TEXT : "Stuck? Reveal one letter"}</button>`;
+  }
+  function letterTap(ev) {
+    if (!confirmBlock(currentEntry(), "letter", ev)) return;
+    revealLetter();
+  }
   const ARMED_TEXT = "Tap again to reveal · costs a hint";
   let blockArm = null;   // { key, id, timer }
-  const armedFor = (e, id) => !!(blockArm && e && blockArm.key === entryKey(e) && blockArm.id === id);
+  // A light with no clue has no entry; it still arms, under a key of its own.
+  const armKey = (e) => (e ? entryKey(e) : "light");
+  const armedFor = (e, id) => !!(blockArm && blockArm.key === armKey(e) && blockArm.id === id);
   const armOf = (el) => {
     for (let n = el; n && n.getAttribute; n = n.parentNode) {
       const v = n.getAttribute("data-arm");
@@ -3877,13 +3901,14 @@
   // True when the tap should go ahead. A second click inside one double-click
   // (detail 2 and up) is the same gesture as the first and confirms nothing.
   function confirmBlock(e, id, ev) {
+    if (window.CT_ONE_TAP) return true;   // test harnesses only (tools/fake_dom.js)
     if (armedFor(e, id)) {
       if (ev && ev.detail > 1) return false;
       disarmBlock(false);
       return true;
     }
     disarmBlock(false);
-    blockArm = { key: entryKey(e), id, timer: setTimeout(() => disarmBlock(true), ARM_MS) };
+    blockArm = { key: armKey(e), id, timer: setTimeout(() => disarmBlock(true), ARM_MS) };
     renderHintPanel();
     focusArm(id);
     return false;
@@ -3896,8 +3921,7 @@
       disarmBlock(false);
       setTimeout(renderHintPanel, 0);
     };
-    document.addEventListener("click", away, true);
-    document.addEventListener("focusin", away, true);
+    document.addEventListener("click", away, true);    document.addEventListener("focusin", away, true);
   }
 
   // Where the definition sits, and therefore where the wordplay starts. A fair
@@ -4874,7 +4898,8 @@
       label: LABELS.walkthrough,
       html: (steps.some((s) => s.key === "blocks") ? "" : mechanics) +
         joke + wpHTML + (prose.walkthrough ? `<p><b class="wt-part">${wpHTML ? "Why" : "The trick"}</b>${esc(prose.walkthrough)}</p>` : "") + fit + note +
-        `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>` + enteredHTML(ann)
+        // The fit line above already names the answer; print it once.
+        (fit ? "" : `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`) + enteredHTML(ann)
     });
     // Ordered by how much each rung gives away, cheapest first — not by the
     // order the rungs are built in, and not by the order people solve in.
@@ -5510,9 +5535,8 @@
   // "Just tell me" on a blocks question that would cost a hint is a building
   // block bought, so it takes the same two taps as the rung button.
   function tellHTML() {
-    if (guessing.rung !== "blocks") return `<button id="guess-tell" class="ghost small">Just tell me</button>`;
-    const armed = armedFor(currentEntry(), "blocks-tell");
-    return `<button id="guess-tell" data-arm="blocks-tell" class="ghost small${armed ? " arm-cost" : ""}">${
+    const armed = armedFor(currentEntry(), guessing.rung + "-tell");
+    return `<button id="guess-tell" data-arm="${guessing.rung}-tell" class="ghost small${armed ? " arm-cost" : ""}">${
       armed ? ARMED_TEXT : "Just tell me"}</button>`;
   }
 
@@ -5860,7 +5884,13 @@
         const hx = document.createElement("button");
         hx.id = "hx-entry";
         hx.textContent = b.text;
-        hx.onclick = fillAnswer;
+        if (b.cls) hx.className = b.cls;
+        if (b.arm) hx.setAttribute("data-arm", b.arm);
+        hx.onclick = (ev) => {
+          const on = currentEntry();
+          if (fillCosts(on) && !confirmBlock(on, "fill", ev)) return;
+          fillAnswer();
+        };
         el.appendChild(hx);
         return;
       }
@@ -5887,8 +5917,8 @@
         const at = b.step || 0;
         const asked = GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at);
         // A building block that would cost a hint takes a second tap.
-        if (b.rung === "blocks" && !asked && blocksCost(on, false)
-            && !confirmBlock(on, "blocks-" + at, ev)) return;
+        if (b.rung && !asked && rungCosts(on, b.rung, false)
+            && !confirmBlock(on, b.rung === "blocks" ? "blocks-" + at : b.rung, ev)) return;
         if (asked) {
           guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [],
                        slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
@@ -6048,8 +6078,8 @@
       setHTML($("hint-clue"), `<span class="entry-tag">Unclued</span>`);
       setButtons($("hint-next"), []);
       const open = canCheck() && !paperHides() && light.some((c) => c.letter !== c.sol);
-      if (setHTML($("hint-escape"), open ? `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button>` : "") && open) {
-        $("hx-letter").onclick = revealLetter;
+      if (setHTML($("hint-escape"), open ? letterBtnHTML(null) : "") && open) {
+        $("hx-letter").onclick = letterTap;
       }
       return;
     }
@@ -6141,7 +6171,7 @@
         : `<div class="hint-step"><p class="muted">This clue hasn’t been explained yet
         (<span class="badge auto">answers only</span>), so it has no hints.
         You can still check your letters${canCheck() ? " and reveal the answer below" : ""}.</p></div>`;
-      if (canCheck() && !solved) nextSpec.push({ fill: true, text: "Reveal answer" });
+      if (canCheck() && !solved) nextSpec.push(fillSpec(e, "Reveal answer"));
     } else {
       // Revealed rungs always read in ladder order and keep their ladder
       // number, whatever order they were asked for in. The numbering is the
@@ -6264,8 +6294,8 @@
         // the first hint along with the sentence that asked for it.
         // The building blocks, where taking them costs, carry the two-tap
         // confirm (blocksCost): armed, the button says what the next tap does.
-        const arm = s.key === "blocks" ? "blocks-0" : undefined;
-        const armed = arm && armedFor(e, arm);
+        const arm = s.key === "blocks" ? "blocks-0" : s.key;
+        const armed = armedFor(e, arm);
         const freeBlocks = s.key === "blocks" && !solved && !guessAsk(e, "blocks", 0) && blocksFree(e, 0);
         nextSpec.push({ rung: s.key, arm,
           cls: (j || left ? "ghost small" : (nuxFreeRung(e, s.key, solved) ? "rung-point" : "")) + (solved ? " free" : "")
@@ -6283,7 +6313,7 @@
       // square by square. Still offered last, under the rungs,
       // because it is the way out of the clue rather than a step in it.
       if (!guessing && canCheck() && !solved && (!togo.length || isShown(e, "blocks"))) {
-        nextSpec.push({ fill: true, text: FILL_LABEL });
+        nextSpec.push(fillSpec(e, FILL_LABEL));
       }
     }
     // The free wheel sits under whatever the ladder has shown. Not drawn while
@@ -6347,14 +6377,14 @@
     // help rather than taxed for taking it.
     const canReveal = canCheck() && !solved;
     const escapeHTML = (canReveal
-      ? `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button> ` : "")
+      ? letterBtnHTML(e) + " " : "")
       // On every unsolved clue, whatever its type, and not a hint: it holds
       // only what the solver types into it.
       + (solved ? "" : `<button id="hx-wheel" class="ghost small" aria-pressed="${wheelOpen}">${
           wheelOpen ? "Hide letter wheel" : "Letter wheel"}</button> `)
       + reportHTML() + blogLinkHTML(e, ann);
     if (setHTML(escape, escapeHTML)) {
-      if (canReveal) $("hx-letter").onclick = revealLetter;
+      if (canReveal) $("hx-letter").onclick = letterTap;
       const hw = $("hx-wheel");
       if (hw) hw.onclick = () => {
         freeWheel = wheelOpen ? null : key;
@@ -6475,7 +6505,7 @@
         const a = currentAsk();
         if (!a) return;
         const on = currentEntry();
-        if (guessing.rung === "blocks" && blocksCost(on, true) && !confirmBlock(on, "blocks-tell", ev)) return;
+        if (rungCosts(on, guessing.rung, true) && !confirmBlock(on, guessing.rung + "-tell", ev)) return;
         finishGuess(null, a);
       };
       $("guess-later").onclick = () => {
