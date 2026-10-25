@@ -22,6 +22,9 @@
   "date": "2021-03-02",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,43 @@
     "text": "Plan, it's said, to get some liquor",
     "enumeration": "7"
    },
-   "solution": "DRAUGHT"
+   "solution": "DRAUGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some liquor",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DRAUGHT",
+     "indicators": [
+      {
+       "text": "it's said",
+       "at": 6,
+       "note": "it's said tells us a word is spoken, and what we write is a different spelling of that sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Plan",
+       "at": 0,
+       "gives": "DRAFT",
+       "note": "a plan or preliminary sketch is a draft"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out a scheme to lay hands on a drink.",
+     "definitionFit": "A swallow or measured quantity of a drink poured out is called a draught, as in a draught of ale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plan"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +88,69 @@
     "text": "Start to contribute in renovation of ordinary site? It's optional",
     "enumeration": "13"
    },
-   "solution": "DISCRETIONARY"
+   "solution": "DISCRETIONARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "optional",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "in says the first letter goes inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "renovation of",
+         "at": 23,
+         "note": "a renovation remakes something, so these letters are rebuilt in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ordinary site",
+         "at": 37
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "at": 0,
+         "note": "Start to picks the opening letter of contribute"
+        }
+       ],
+       "parts": [
+        {
+         "words": "contribute",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Helping to start renovating an ordinary site is a matter of choice.",
+     "walkthrough": "'renovation of' signals the anagram of 'ordinary site'; 'in' places the first letter of 'contribute' within that anagram, after its third letter.",
+     "definitionFit": "Something discretionary is left to someone's judgement or choice rather than required."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "renovation"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +164,64 @@
     "text": "Disorientated wag in sun essentially lacking shades",
     "enumeration": "7"
    },
-   "solution": "AWNINGS"
+   "solution": "AWNINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shades",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Disorientated",
+       "at": 0,
+       "note": "a disorientated thing is turned about, so these letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wag",
+       "at": 14
+      },
+      {
+       "words": "in",
+       "at": 18
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "essentially lacking",
+         "at": 25,
+         "note": "essentially points at the middle of the word sun, and lacking removes it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sun",
+         "at": 21
+        },
+        {
+         "gives": "U"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joker, dizzy in the sunshine, has no shade.",
+     "walkthrough": "'sun essentially lacking' is sun without its middle letter U, so SN; 'Disorientated' rearranges WAGINSN.",
+     "definitionFit": "Awnings are canvas covers stretched over windows or shopfronts to give shade from the sun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lacking"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +235,49 @@
     "text": "One with great neck overlooking Ireland makes slip",
     "enumeration": "5"
    },
-   "solution": "GAFFE"
+   "solution": "GAFFE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slip",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "overlooking",
+       "at": 20,
+       "note": "overlooking means missing out, so a piece is dropped from the long-necked animal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One with great neck",
+       "at": 0,
+       "gives": "GIRAFFE",
+       "note": "the giraffe is the animal with an exceptionally long neck"
+      },
+      {
+       "words": "Ireland",
+       "at": 32,
+       "gives": "IR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long-necked creature peering over Ireland trips up.",
+     "walkthrough": "'overlooking' looks like a tall animal peering down, but means omitting IR from GIRAFFE.",
+     "definitionFit": "A gaffe is a social blunder, an embarrassing slip of the tongue or manners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "overlooking"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +291,60 @@
     "text": "Doctor entering course with little energy finds instrument",
     "enumeration": "8"
    },
-   "solution": "TROMBONE"
+   "solution": "TROMBONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entering",
+         "at": 7,
+         "note": "entering says the doctor goes into the name of the course"
+        }
+       ],
+       "parts": [
+        {
+         "words": "course",
+         "at": 16,
+         "gives": "TROON",
+         "note": "Troon is a Scottish golf course, a regular venue for the Open Championship"
+        },
+        {
+         "words": "Doctor",
+         "at": 0,
+         "gives": "MB",
+         "note": "MB, Bachelor of Medicine, is a medical degree for a doctor"
+        }
+       ]
+      },
+      {
+       "words": "little energy",
+       "at": 28,
+       "gives": "E",
+       "note": "E, a little bit of energy, is its abbreviation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tired doctor joining a course takes up a musical instrument.",
+     "walkthrough": "Troon is a links golf course on Scotland's west coast that hosts the Open.",
+     "definitionFit": "A trombone is a brass instrument with a sliding tube for changing pitch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +364,48 @@
      }
     ]
    },
-   "solution": "MIDOFF"
+   "solution": "MIDOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one in the field?",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Spymaster",
+       "at": 0,
+       "gives": "M",
+       "note": "M is the head of the secret service in the James Bond stories"
+      },
+      {
+       "words": "institute",
+       "at": 15,
+       "gives": "I"
+      },
+      {
+       "words": "to remove",
+       "at": 25,
+       "gives": "DOFF",
+       "note": "to doff is to take off a hat or garment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy chief and an institute set out to get rid of somebody working in the field.",
+     "walkthrough": "'In the field' sounds like espionage, but it means a cricket field: mid-off is a fielding position near the bowler on the off side.",
+     "definitionFit": "Mid-off is a cricket fielding position, so the fielder stationed there is one of the team in the field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +419,64 @@
     "text": "Racket during most of supper, maybe, in ancient quarter",
     "enumeration": "6"
    },
-   "solution": "MEDINA"
+   "solution": "MEDINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ancient quarter",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 7,
+       "note": "during says the noise happens within the shortened meal"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 14,
+         "note": "most of drops the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "supper, maybe",
+         "at": 22,
+         "gives": "MEAL",
+         "note": "supper is an example of a meal"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "Racket",
+       "at": 0,
+       "gives": "DIN",
+       "note": "a din is a loud racket"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Noise disturbs much of an evening meal in an old part of town.",
+     "walkthrough": "'most of' drops the last letter of the meal word, and 'during' puts the racket inside what remains.",
+     "definitionFit": "A medina is the old walled Arab section of a North African city, its historic district."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Racket"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +496,40 @@
      }
     ]
    },
-   "solution": "DARKHORSE"
+   "solution": "DARKHORSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an unknown quantity?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Obscure",
+       "at": 0,
+       "gives": "DARK",
+       "note": "dark means obscure or hidden"
+      },
+      {
+       "words": "thing used by a gymnast",
+       "at": 8,
+       "gives": "HORSE",
+       "note": "the vaulting horse is gymnastics apparatus"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mysterious piece of gymnastics kit nobody can work out.",
+     "definitionFit": "A dark horse is a person whose abilities are little known, a competitor of uncertain prospects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +549,48 @@
      }
     ]
    },
-   "solution": "FOGLAMP"
+   "solution": "FOGLAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "feature of a car",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeps",
+       "at": 6,
+       "note": "keeps says the dandy holds another word inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dandy",
+       "at": 0,
+       "gives": "FOP",
+       "note": "a fop is a vain man overly concerned with clothes"
+      },
+      {
+       "words": "alluring",
+       "at": 12,
+       "gives": "GLAM",
+       "note": "glam, short for glamorous, means alluring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snappy dresser holds on to the attractive look of a car.",
+     "definitionFit": "A fog lamp is an extra low headlight fitted to a car for driving in poor visibility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alluring"
+    }
+   }
   },
   {
    "number": 8,
@@ -179,7 +604,51 @@
     "text": "Doctor faring so with director shows composure",
     "enumeration": "9"
    },
-   "solution": "SANGFROID"
+   "solution": "SANGFROID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "composure",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Doctor",
+         "at": 0,
+         "note": "to doctor something is to tamper with it, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "faring so",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "director",
+       "at": 22,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor faring well alongside the director keeps calm under pressure.",
+     "walkthrough": "'Doctor' reads as a medic but is the verb signalling that FARINGSO is rearranged into SANGFROI.",
+     "definitionFit": "Sang-froid, borrowed from French for 'cold blood', is coolness and calm self-possession in difficulty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 9,
@@ -193,7 +662,58 @@
     "text": "Republican showing delicacy ignoring liberal? That's correct",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That's correct",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Republican",
+       "at": 0,
+       "gives": "R"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "at": 28,
+         "note": "ignoring says one piece is left out of the word for delicacy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delicacy",
+         "at": 19,
+         "gives": "LIGHT",
+         "note": "a touch with delicacy is a light one"
+        },
+        {
+         "words": "liberal",
+         "at": 37,
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican shows finesse by overlooking a liberal, and someone approves.",
+     "walkthrough": "'ignoring liberal' takes L out of LIGHT, leaving IGHT.",
+     "definitionFit": "Saying 'right' is an exclamation of agreement, the same as saying that's correct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 10,
@@ -221,7 +741,30 @@
      }
     ]
    },
-   "solution": "TAKEABACKSEAT"
+   "solution": "TAKEABACKSEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What nervous passengers might do",
+      "at": 0,
+      "meaning": "an anxious passenger might literally sit in the rear seat of a vehicle"
+     },
+     {
+      "text": "adopt a passive role",
+      "at": 36,
+      "meaning": "to step back and let others lead"
+     }
+    ],
+    "explanation": {
+     "surface": "Anxious travellers retreat to the back seats, choosing to stay passive.",
+     "definitionFit": "The idiom means to withdraw from an active or leading position and let others take charge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -235,7 +778,47 @@
     "text": "Fashion includes new line of products",
     "enumeration": "5"
    },
-   "solution": "RANGE"
+   "solution": "RANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "line of products",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 8,
+       "note": "includes says the word for fashion holds another piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fashion",
+       "at": 0,
+       "gives": "RAGE",
+       "note": "the rage is the current fashion, as in 'all the rage'"
+      },
+      {
+       "words": "new",
+       "at": 17,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion house brings out a fresh collection of goods.",
+     "definitionFit": "A range is a set of related goods a firm sells, such as a product line of furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fashion"
+    }
+   }
   },
   {
    "number": 12,
@@ -249,7 +832,40 @@
     "text": "Something found in a park to notice as a yardstick",
     "enumeration": "9"
    },
-   "solution": "BENCHMARK"
+   "solution": "BENCHMARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "yardstick",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Something found in a park",
+       "at": 0,
+       "gives": "BENCH",
+       "note": "a bench is a seat often found in a park"
+      },
+      {
+       "words": "to notice",
+       "at": 26,
+       "gives": "MARK",
+       "note": "to mark something is to notice it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An object spotted in a park is taken as a standard of comparison.",
+     "definitionFit": "A benchmark is a standard against which others are measured, just as a yardstick is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -263,7 +879,41 @@
     "text": "Gain rest after deploying way to pacify an offender?",
     "enumeration": "8"
    },
-   "solution": "TASERING"
+   "solution": "TASERING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "way to pacify an offender?",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "after deploying",
+       "at": 10,
+       "note": "deploying sets the letters out afresh, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gain rest",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police regain calm once they have used a method to subdue a suspect.",
+     "walkthrough": "'after deploying' signals the rearrangement of GAINREST.",
+     "definitionFit": "Tasering is firing an electric stun gun at someone, a method police use to subdue a violent offender."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "deploying"
+    }
+   }
   },
   {
    "number": 14,
@@ -277,7 +927,40 @@
     "text": "A donor hit mistakenly in US fundraising event",
     "enumeration": "9"
    },
-   "solution": "RADIOTHON"
+   "solution": "RADIOTHON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US fundraising event",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mistakenly",
+       "at": 12,
+       "note": "mistakenly says the letters are put in the wrong order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A donor hit",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A benefactor is wrongly struck at an American charity appeal.",
+     "walkthrough": "'mistakenly' rearranges ADONORHIT.",
+     "definitionFit": "A radiothon is an extended charity broadcast on radio, mainly an American term, raising money from listeners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +974,57 @@
     "text": "Good old man accepts criticism for Italian spirit",
     "enumeration": "6"
    },
-   "solution": "GRAPPA"
+   "solution": "GRAPPA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Italian spirit",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepts",
+       "at": 13,
+       "note": "accepts says the outer pieces take another piece into them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Good",
+         "at": 0,
+         "gives": "G"
+        },
+        {
+         "words": "old man",
+         "at": 5,
+         "gives": "PA",
+         "note": "pa, like old man, is an informal word for father"
+        }
+       ]
+      },
+      {
+       "words": "criticism",
+       "at": 21,
+       "gives": "RAP",
+       "note": "a rap is a sharp rebuke or criticism"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decent father takes reproach over his fondness for an Italian liquor.",
+     "definitionFit": "Grappa is a brandy distilled in Italy from the pressed remains of grapes after winemaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1038,57 @@
     "text": "Sticky situation tolerated by first of expats in lively gathering",
     "enumeration": "8"
    },
-   "solution": "JAMBOREE"
+   "solution": "JAMBOREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lively gathering",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sticky situation",
+       "at": 0,
+       "gives": "JAM",
+       "note": "being in a jam is being in a tricky spot"
+      },
+      {
+       "words": "tolerated",
+       "at": 17,
+       "gives": "BORE",
+       "note": "bore is the past tense of bear, to tolerate"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "at": 30,
+         "note": "first of picks the opening letter of expats"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expats",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An awkward situation endured by the leading expat at a lively party.",
+     "definitionFit": "A jamboree is a large festive gathering, from scout rallies to boisterous celebrations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sticky"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1102,42 @@
     "text": "Part of revolution's ideology considered legitimate?",
     "enumeration": "6"
    },
-   "solution": "ONSIDE"
+   "solution": "ONSIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "considered legitimate",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "at": 0,
+       "note": "Part of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "revolution's ideology",
+       "at": 8,
+       "gives": "ONSIDE",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some of a revolution's doctrine might be thought lawful.",
+     "definitionFit": "In football or rugby a player in a legal position is onside; more generally it means on the right side of the rules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution's"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1151,41 @@
     "text": "Flattened spoon alas put in a different position",
     "enumeration": "7"
    },
-   "solution": "SPATULA"
+   "solution": "SPATULA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flattened spoon",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a different position",
+       "at": 25,
+       "note": "letters set in a different position are rearranged into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "alas put",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A squashed spoon, sadly, has been moved somewhere else.",
+     "walkthrough": "'put' belongs to the letters; 'in a different position' signals their rearrangement.",
+     "definitionFit": "A spatula is a flat-bladed utensil for spreading or lifting, like a broad flattened spoon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Flattened"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1199,45 @@
     "text": "Traditional farewell by Northern agents in Spanish city",
     "enumeration": "8"
    },
-   "solution": "VALENCIA"
+   "solution": "VALENCIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spanish city",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Traditional farewell",
+       "at": 0,
+       "gives": "VALE",
+       "note": "vale is the Latin word for goodbye, used in a formal or old-fashioned farewell"
+      },
+      {
+       "words": "Northern",
+       "at": 24,
+       "gives": "N"
+      },
+      {
+       "words": "agents",
+       "at": 33,
+       "gives": "CIA",
+       "note": "the CIA is the American intelligence agency, staffed by agents"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-style goodbye from northern spies in a Spanish city.",
+     "definitionFit": "Valencia is a large port city on Spain's east coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1251,49 @@
     "text": "Pretence of cleaner hoarding Ecstasy",
     "enumeration": "7"
    },
-   "solution": "CHARADE"
+   "solution": "CHARADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pretence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cleaner",
+       "at": 12,
+       "gives": "CHAR",
+       "note": "a char is a cleaning lady"
+      },
+      {
+       "words": "hoarding",
+       "at": 20,
+       "gives": "AD",
+       "note": "a hoarding is a billboard displaying an advertisement, or ad"
+      },
+      {
+       "words": "Ecstasy",
+       "at": 29,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The cleaner pretends while stashing drugs.",
+     "walkthrough": "'hoarding' looks like the verb 'storing', but it is the noun billboard, giving AD.",
+     "definitionFit": "A charade is an absurd pretence meant to keep up an appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hoarding"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1307,52 @@
     "text": "Those in heart of Aden see authoritarian figure",
     "enumeration": "6"
    },
-   "solution": "DESPOT"
+   "solution": "DESPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "authoritarian figure",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Those in heart of",
+         "at": 0,
+         "note": "those in the heart of a word are its middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Aden",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "see",
+       "at": 23,
+       "gives": "SPOT",
+       "note": "to spot something is to see it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People in central Aden notice an autocrat.",
+     "walkthrough": "'Those in heart of Aden' gives DE, the middle letters of Aden.",
+     "definitionFit": "A despot is a ruler with absolute power, a tyrant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Those"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1380,65 @@
      }
     ]
    },
-   "solution": "ATALOWEBB"
+   "solution": "ATALOWEBB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in a weak state",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 10,
+         "note": "curtailed means docked of its tail, so the word for lecture loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lecture",
+         "at": 2,
+         "gives": "TALK",
+         "note": "a talk is a lecture"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "words": "old",
+       "at": 23,
+       "gives": "O"
+      },
+      {
+       "words": "old socialist",
+       "at": 28,
+       "gives": "WEBB",
+       "note": "Sidney Webb was an early Fabian socialist and founder of the London School of Economics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shortened lecture from an elderly socialist when feeling feeble.",
+     "walkthrough": "'curtailed' cuts the end off TALK to give TAL. Sidney Webb (1859-1947) was a British Fabian socialist.",
+     "definitionFit": "At a low ebb is an idiom from the tide having gone out, meaning in a poor or depressed condition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1452,29 @@
     "text": "First-rate friendly chat in the Highlands?",
     "enumeration": "5"
    },
-   "solution": "CRACK"
+   "solution": "CRACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "First-rate",
+      "at": 0,
+      "meaning": "... as an adjective means excellent or expert, as in ... troops"
+     },
+     {
+      "text": "friendly chat in the Highlands?",
+      "at": 11,
+      "meaning": "in Scotland and Ireland ..., or craic, is lively conversation and banter"
+     }
+    ],
+    "explanation": {
+     "surface": "Top-class gossip among Scots.",
+     "definitionFit": "Crack works both as an adjective for elite skill and as Scottish or Irish dialect for enjoyable talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 23,
@@ -431,7 +1488,47 @@
     "text": "Piece of garlic is left in bay",
     "enumeration": "5"
    },
-   "solution": "CLOVE"
+   "solution": "CLOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Piece of garlic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in says the abbreviation sits inside the word for bay"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bay",
+       "at": 27,
+       "gives": "COVE",
+       "note": "a cove is a small bay"
+      },
+      {
+       "words": "left",
+       "at": 19,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of garlic is abandoned in a bay.",
+     "definitionFit": "A clove is one of the separate segments that make up a garlic bulb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bay"
+    }
+   }
   },
   {
    "number": 24,
@@ -445,7 +1542,70 @@
     "text": "Teenager revealed in back of country hotel",
     "enumeration": "5"
    },
-   "solution": "YOUTH"
+   "solution": "YOUTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Teenager",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "in says one piece sits inside the pair of letters around it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "back of",
+           "at": 21,
+           "note": "back of selects the final letter of the word country"
+          }
+         ],
+         "parts": [
+          {
+           "words": "country",
+           "at": 29
+          }
+         ]
+        },
+        {
+         "words": "hotel",
+         "at": 37,
+         "gives": "H",
+         "note": "H is hotel in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "words": "revealed",
+       "at": 9,
+       "gives": "OUT",
+       "note": "something revealed is out in the open"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager is uncovered in the rear of a rural hotel.",
+     "walkthrough": "'back of country' gives Y; OUT goes between it and H.",
+     "definitionFit": "A youth is a young person, typically an adolescent boy between childhood and adulthood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revealed"
+    }
+   }
   },
   {
    "number": 25,
@@ -459,7 +1619,59 @@
     "text": "Standard person that's wise to skirt working minister's residence?",
     "enumeration": "9"
    },
-   "solution": "PARSONAGE"
+   "solution": "PARSONAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "minister's residence?",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Standard",
+       "at": 0,
+       "gives": "PAR",
+       "note": "par is the standard or normal level"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to skirt",
+         "at": 28,
+         "note": "to skirt is to go around the edge, so the wise person surrounds another piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "person that's wise",
+         "at": 9,
+         "gives": "SAGE",
+         "note": "a sage is a wise person"
+        },
+        {
+         "words": "working",
+         "at": 37,
+         "gives": "ON",
+         "note": "a machine that is on is working"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A typical wise individual seems set to avoid duty at the vicar's house.",
+     "definitionFit": "A parsonage is the house provided for a parish priest, a church minister's home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skirt"
+    }
+   }
   },
   {
    "number": 26,
@@ -473,7 +1685,53 @@
     "text": "Frenchman represented agent as attractive type",
     "enumeration": "6"
    },
-   "solution": "MAGNET"
+   "solution": "MAGNET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "attractive type",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Frenchman",
+       "at": 0,
+       "gives": "M",
+       "note": "M is the abbreviation for Monsieur, a Frenchman's title"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "represented",
+         "at": 10,
+         "note": "represented read as re-presented means the letters are presented in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "agent",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman acted for an agent who is charming.",
+     "walkthrough": "'represented' signals AGENT rearranged as AGNET.",
+     "definitionFit": "A magnet attracts metal, and figuratively a person or place that draws others is a magnet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "represented"
+    }
+   }
   },
   {
    "number": 27,
@@ -487,7 +1745,31 @@
     "text": "Tin, say, in part of a cooker",
     "enumeration": "7"
    },
-   "solution": "ELEMENT"
+   "solution": "ELEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tin, say",
+      "at": 0,
+      "meaning": "tin is an example of a chemical substance in the periodic table"
+     },
+     {
+      "text": "part of a cooker",
+      "at": 13,
+      "meaning": "the heating coil in an electric oven or hob"
+     }
+    ],
+    "explanation": {
+     "surface": "A tin found in a kitchen appliance.",
+     "definitionFit": "Tin is a chemical element, and the electric heating coil in a cooker is also called an element."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tin"
+    }
+   }
   }
  ]
 }
