@@ -675,14 +675,21 @@ bf = [f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inp
                         "verdicts": [{"number": 8203}]}, "inputs changed"),
       f.blanket_or_fix({"edition": "GaleTimes1956UKEnglish/1956-08-09", "scan": {"puzzles": []},
                         "verdicts": [{"number": 8203}]}, "titles changed")]
+# ... unless the lost title is its held puzzle's (held_titles): HELD_TITLE reads it under that number.
+real_ht = f.held_titles
+f.held_titles = lambda row, cache=None: [{"number": 8203, "leaf": 0, "box": None, "heldTitle": True}]
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1956UKEnglish/1956-08-09", "scan": {"puzzles": []},
+                            "verdicts": [{"number": 8203}]}, "inputs changed"))
+f.held_titles = real_ht
 f.fix_reason = lambda row: "refused unparsed before its fix"
 bf.append(f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inputs changed"))
 f.fix_reason = lambda row: None
 bf.append(f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inputs changed"))
 f.fix_reason = real_fr
 check("blanket_or_fix: a Times row's answers-only fix stands over inputs/titles changed; another paper's row, "
-      "a row whose scan lost a verdict's title, another fix, or none keeps the blanket reason",
-      [f.SHORT_WIDE, f.SHORT_WIDE, "inputs changed", f.SHORT_WIDE, "titles changed", "inputs changed", "inputs changed"],
+      "a row whose scan lost a verdict's title (not its held puzzle's), another fix, or none keeps the blanket reason",
+      [f.SHORT_WIDE, f.SHORT_WIDE, "inputs changed", f.SHORT_WIDE, "titles changed", f.SHORT_WIDE, "inputs changed",
+       "inputs changed"],
       bf)
 check("a held file 1-2 short with a blank light no strip was cut for, read since REREAD_VLM_UNLISTED (its reading "
       "3+ short or whole): LATE_STRIPS (rank 2, answers-only, a LOW prefix); not read since REREAD_LATE_STRIPS, "
@@ -2728,8 +2735,16 @@ with tempfile.TemporaryDirectory() as ht_dir:
     ht_none = [f.held_titles({**ht_row, "readAt": "2026-10-25T07:00:00+00:00"}, ht_dir),
                f.held_titles({**ht_row, "scanKey": "old"}, ht_dir),
                f.held_titles({**ht_row, "scan": {**ht_row["scan"], "puzzles": [{"number": 8235, "leaf": 0}]}}, ht_dir),
-               f.held_titles({**ht_row, "verdicts": [{"number": 8235}]}, ht_dir),
+               f.held_titles({**ht_row, "verdicts": [{"number": 8236}]}, ht_dir),
+               f.held_titles({**ht_row, "verdicts": [{"number": 8235, "refused": True}]}, ht_dir),
+               f.held_titles({**ht_row, "verdicts": [{"number": 8235}, {"number": 8236}]}, ht_dir),
                f.held_titles({k: v for k, v in ht_row.items() if k != "inputs"}, ht_dir)]
+    # 10-25: 82 Times rows whose one verdict, the held puzzle's, an older scan read under the title the
+    # current scan lost (1982-07-19's 15,885) stood "inputs changed", no held title read.
+    check("an untitled page whose one verdict is its held puzzle's is read under that number too",
+          [[ht_hit], [ht_hit]],
+          [f.held_titles({**ht_row, "verdicts": [{"number": 8235, "id": "times-8235"}]}, ht_dir),
+           f.held_titles({**ht_row, "verdicts": [{"number": 9, "read_as": 8235}]}, ht_dir)])
     ht_state[0] = (True, True)
     ht_none.append(f.held_titles(ht_row, ht_dir))
     ht_state[0] = (False, False)
@@ -2742,8 +2757,9 @@ with tempfile.TemporaryDirectory() as ht_dir:
     ht_none.append(f.held_titles(ht_row, ht_dir))
     ht_file.write_text(json.dumps({**ht_held, "source": {"acquiredBy": "other", "url": ht_url}}))
     ht_none.append(f.held_titles(ht_row, ht_dir))
-    check("... not read after REREAD_HELD_TITLE, by older scan code, with a title or a verdict, never read, its "
-          "puzzle answered whole or a clue short, two held that day, from another page or another tool", [[]] * 10, ht_none)
+    check("... not read after REREAD_HELD_TITLE, by older scan code, with a title, a verdict of another number, "
+          "refused, or two verdicts, never read, its puzzle answered whole or a clue short, two held that day, "
+          "from another page or another tool", [[]] * 12, ht_none)
     f.held_dates, f.filed_state, f.current_keys = ht_saved[:3]
     f.page_url = ht_page_url
     if ht_saved[3] is None:
