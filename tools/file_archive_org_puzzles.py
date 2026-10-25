@@ -7441,6 +7441,61 @@ def heavy_short(row):
     return bool(band["verdicts"]) and bool(answerable_gaps(band, paper, sure=False))
 
 
+#: The due reason of a Times edition read before REREAD_SUSPECT whose linked solution grid gave answers
+#: (accepted > 0, not refused) for a puzzle held from its page with every clue, not every answer, but
+#: not complete(): a clue holding a word OCR made up (ocr_clues.suspect). decide() sent such a held
+#: file's answers-only reading to --out, so its answers never reached the held file; since
+#: REREAD_SUSPECT an answers-only reading always merges into the held file. answers_only, once.
+#: 10-25: 111 Times files (2,390 lights) held so, 98 of them 6+ short.
+SUSPECT_HELD = "solution short, its answers kept from a held file with a suspect clue"
+REREAD_SUSPECT = "2026-10-25T13:30:00+00:00"
+#: {held path: ((mtime_ns, size), whether this tool's, every clue filled, an answer short and not complete())}
+_SUSPECT = {}
+
+
+def suspect_held_file(series, number):
+    """Whether `series`' puzzle `number` is held by this tool with every clue filled and an answer
+    short, yet complete() refuses it (a suspect word in a clue); parsed again only when its stat moves."""
+    p = _HELD_PATH.get((series, number))
+    if p is None:
+        return False
+    try:
+        st = p.stat()
+    except OSError:
+        return False
+    stamp = (st.st_mtime_ns, st.st_size)
+    hit = _SUSPECT.get(p)
+    if hit is None or hit[0] != stamp:
+        try:
+            held = json.loads(p.read_text())
+        except (OSError, ValueError):
+            return False
+        es = held.get("entries") or ()
+        bad = bool(es) and (held.get("source") or {}).get("acquiredBy") == TOOL \
+            and filled(held)[0] == len(es) and not all(e.get("solution") for e in es) and not complete(held)
+        hit = _SUSPECT[p] = (stamp, bad)
+    return hit[1]
+
+
+def suspect_held(row):
+    """Whether Times ledger `row`, read before REREAD_SUSPECT, has a verdict whose linked solution grid
+    gave answers for a puzzle suspect_held_file holds."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_SUSPECT)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if not v.get("id") or v.get("refused") or not isinstance(s, dict) or s.get("refused") \
+                or not s.get("accepted"):
+            continue
+        if filed_state(paper.series, v.get("number")) == (False, True) \
+                and suspect_held_file(paper.series, v.get("number")):
+            return True
+    return False
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -7488,6 +7543,8 @@ def fix_reason(row):
         return "answers held back by a clue with no enumeration"
     if heavy_short(row):
         return HEAVY_PRINT
+    if suspect_held(row):
+        return SUSPECT_HELD
     if row.get("solutionKey") != solution_key():
         paper = paper_of(row.get("edition", "")).key
         for v in row.get("verdicts", ()):
@@ -8012,7 +8069,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2,
+         HEAVY_PRINT: 2, SUSPECT_HELD: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -8519,7 +8576,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
-                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT)
+                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD)
 
 
 def keeps_vlm(why, row, unit=None):
@@ -9086,7 +9143,12 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
             verdict["answered"] = answered
         commit(held_at, mended[0], verdict)
         return
-    dest = destination(puzzles, complete(puzzle))
+    # An answers-only reading (answers_only) is the held file's own clues, already in the corpus: its
+    # answers merge into the held file whatever complete() says of those clues. complete() also refuses
+    # a clue with a word OCR made up (suspect), which answers_only does not check, so with --out such a
+    # reading filed its answers to the --out copy and the held file never took one (10-25: 111 Times
+    # files, 2,390 lights; times-18329's "...like an onion.-" kept 32 read answers out).
+    dest = None if verdict.get("answersOnly") else destination(puzzles, complete(puzzle))
     if dest is False:
         verdict["skip"] = "a clue is blank: only a puzzle with every clue goes to the corpus"
         old = json.loads(held_path.read_text()) if held_path.exists() else None

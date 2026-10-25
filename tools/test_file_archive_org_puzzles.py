@@ -552,6 +552,24 @@ check("a grid read short at 0.946-0.97 blocks for a puzzle held short is HEAVY_P
       "not under the floor, at SURE_BLOCKS, read since, or held whole",
       [f.HEAVY_PRINT, False, False, False, False, 2, True],
       hv + [f.RANKS[f.HEAVY_PRINT], f.HEAVY_PRINT in f.SOLUTION_FIXES])
+# A grid that gave answers for a puzzle held with a suspect clue (complete() refuses it) is SUSPECT_HELD, once:
+# decide() sent its answers-only reading to --out before REREAD_SUSPECT (10-25).
+def sh_row(at="2026-10-25T06:00:00+00:00", accepted=30):
+    return {"edition": "NewsUK1984UKEnglish/1984-05-01_61715", "readAt": at, "solutionKey": f.solution_key(),
+            "verdicts": [{"number": 99999991, "id": "times-99999991", "solutionFrom": "1984-05-02 leaf 3",
+                          "answersOnly": True, "solution": {"accepted": accepted, "lights": 30, "blocks": 1.0}}]}
+real_shf = f.suspect_held_file
+f.filed_state = lambda series, n: (False, True)
+f.suspect_held_file = lambda series, n: True
+sh = [f.fix_reason(sh_row()), f.suspect_held(sh_row("2026-10-26T00:00:00+00:00")), f.suspect_held(sh_row(accepted=0))]
+f.suspect_held_file = lambda series, n: False
+sh.append(f.suspect_held(sh_row()))
+f.suspect_held_file = real_shf
+f.filed_state = real_fs
+check("a grid read for a puzzle held with a suspect clue is SUSPECT_HELD (rank 2, answers-only, a LOW prefix); "
+      "not read since, with no answer read, or held complete",
+      [f.SUSPECT_HELD, False, False, False, 2, True, True],
+      sh + [f.RANKS[f.SUSPECT_HELD], f.SUSPECT_HELD in f.SOLUTION_FIXES, f.SUSPECT_HELD.startswith("solution short")])
 # A grid read 1-2 lights short at SURE_BLOCKS: before REREAD_UNLISTED, UNLISTED; read since, before
 # REREAD_VLM_UNLISTED, VLM_UNLISTED (the VLM's unlisted strip words stand since); after it, nothing.
 def vu_row(at, gap=1):
@@ -2317,6 +2335,20 @@ check("a held clue filed with no enumeration is no reason for the full read: its
       (True, 0, ["BAT", "BED", "TOE", "DOE"], "clue 1 down words"),
       (verdict["answersOnly"], verdict["vlmAsks"], [e["solution"] for e in puzzle["entries"]], puzzle["entries"][1]["clue"]["text"]))
 check("... and the grid's reading is given no enumeration for it", None, ao_seen[-1][(1, "down")])
+# decide(): an answers-only reading merges into the held file even where complete() refuses its clues (a word
+# OCR made up: suspect); with --out it went to the --out copy and the held file never took one (10-25, times-18329).
+import tempfile
+ao_held[0] = lights_held([None] * 4)
+with tempfile.TemporaryDirectory() as dd_dir:
+    (Path(dd_dir) / "held-1.json").write_text(json.dumps(lights_held([None] * 4)))
+    dd_where = []
+    f.complete = lambda p: False
+    verdict, puzzle = f.answers_only(*ao_args)
+    f.decide(verdict, puzzle, "times", dd_dir, set(), lambda where, p, v: dd_where.append(where and where[0]) or True,
+             path=lambda where, series, puzzles: Path(dd_dir) / f"{where[0]}-{where[1]}.json")
+    f.complete = lambda p: True
+check("an answers-only reading of a held file complete() refuses merges its answers into the held file, not --out",
+      (["held"], ["BAT", "BED", "DOE", "TOE"]), (dd_where[1:], sorted((verdict.get("answered") or {}).values())))
 # unenumerated_held(): a row read before REREAD_UNENUMERATED that linked a grid, whose held puzzle is short of
 # answers and has a clue with no enumeration, is read again once (fix_reason).
 import tempfile
