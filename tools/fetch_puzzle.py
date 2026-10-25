@@ -3374,9 +3374,56 @@ def _deployed_usable(index):
         return None
     import row_cache
     if build["rows"] != row_cache.code_for("fetch_puzzle", "index_row", {"index_row_deps"}):
-        print(f"deployed index: index_row's code or data moved since {commit[:11]}")
-        return None
+        # The repair queue drains every few minutes, so the deploy is nearly
+        # always behind on it. It reaches a row only through that puzzle's own
+        # entries (shape_queue.hidden), so when the queue is the one input that
+        # moved, the deploy stands and _queue_moved_ids() names the rows to
+        # re-make. Any other input, or the code, moving still falls back.
+        old = _queue_at(commit)
+        if old is None or build["rows"] != row_cache.code_for(
+                "fetch_puzzle", "index_row", {"index_row_deps"}, as_bytes={QUEUE_FILE.name: old}):
+            print(f"deployed index: index_row's code or data moved since {commit[:11]}")
+            return None
     return commit
+
+
+QUEUE_FILE = Path(__file__).resolve().parent / "data" / "shape_reannotate.json"
+
+
+def _queue_at(commit):
+    """The repair queue's bytes at `commit`, None when git cannot say."""
+    try:
+        rel = QUEUE_FILE.relative_to(puzzle_paths.PUZZLE_DIR.parent).as_posix()
+        out = subprocess.run(["git", "show", f"{commit}:{rel}"], cwd=puzzle_paths.PUZZLE_DIR.parent,
+                             check=True, capture_output=True, timeout=120).stdout
+    except (OSError, ValueError, subprocess.CalledProcessError):
+        return None
+    return out
+
+
+def _queue_by_puzzle(raw):
+    """{puzzle id: {clue: reason}} of the queue's bytes: all of the queue a
+    puzzle's row reads (not `tried`, `tries`, which hide nothing)."""
+    out = {}
+    try:
+        rows = json.loads(raw)
+    except ValueError:
+        return out
+    for r in rows:
+        pid, _, clue = r["id"].partition("#")
+        out.setdefault(pid, {})[clue] = r.get("reason", "")
+    return out
+
+
+def _queue_moved_ids(commit):
+    """The ids of puzzles whose entries in the repair queue differ from the
+    queue at `commit`."""
+    old = _queue_by_puzzle(_queue_at(commit) or b"[]")
+    try:
+        new = _queue_by_puzzle(QUEUE_FILE.read_bytes())
+    except OSError:
+        new = {}
+    return {pid for pid in old.keys() | new.keys() if old.get(pid) != new.get(pid)}
 
 
 def _changed_ids(commit):
@@ -3419,7 +3466,7 @@ def reindex_from_deploy():
         rebuilt = reindex_changed()
         return "no index: full reindex" if rebuilt is None else f"re-read {rebuilt} changed puzzle file(s)"
     files = {f.stem: f for f in puzzle_files()}
-    changed = _changed_ids(commit) & files.keys()
+    changed = (_changed_ids(commit) | _queue_moved_ids(commit)) & files.keys()
     kept = {key: [r for r in index[key] if r["id"] in files] for key in ("puzzles", "unlisted")}
     dropped = sum(len(index[key]) - len(kept[key]) for key in kept)
     index.update(kept)
@@ -3435,6 +3482,22 @@ def reindex_from_deploy():
     _merge_rows(index, [files[i] for i in sorted(changed)])
     return (f"deployed index from {commit[:11]}: re-made {len(changed)} row(s), "
             f"wrote {len(stale)} shim(s), dropped {dropped} row(s) with no file here")
+
+
+def log_rebuild(mode, outcome):
+    """Append "time mode outcome cpu=Ns" to reindex.log in the git common dir
+    (shared by every tree, outside the working tree): the callers send this
+    process's output to /dev/null, so whether the deploy's rows were reused
+    and what the run cost would otherwise be unknowable."""
+    import resource
+    own, kids = resource.getrusage(resource.RUSAGE_SELF), resource.getrusage(resource.RUSAGE_CHILDREN)
+    cpu = own.ru_utime + own.ru_stime + kids.ru_utime + kids.ru_stime
+    try:
+        common = Path(_git("rev-parse", "--path-format=absolute", "--git-common-dir").strip())
+        with open(common / "reindex.log", "a", encoding="utf-8") as f:
+            f.write(f"{datetime.now().isoformat(timespec='seconds')} {mode} {outcome} cpu={cpu:.0f}s\n")
+    except (OSError, subprocess.CalledProcessError):
+        pass
 
 
 def write_index(index):
@@ -3908,10 +3971,14 @@ def main(argv):
         return 0
     if argv[0] == "--reindex-changed":
         rebuilt = reindex_changed()
-        print("no index: full reindex" if rebuilt is None else f"re-read {rebuilt} changed puzzle file(s)")
+        line = "no index: full reindex" if rebuilt is None else f"re-read {rebuilt} changed puzzle file(s)"
+        print(line)
+        log_rebuild(argv[0], line)
         return 0
     if argv[0] == "--reindex-from-deploy":
-        print(reindex_from_deploy())
+        line = reindex_from_deploy()
+        print(line)
+        log_rebuild(argv[0], line)
         return 0
     if argv[0] == "--warm-rows":
         i, n = map(int, argv[1].split("/"))

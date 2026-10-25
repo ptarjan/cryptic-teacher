@@ -69,6 +69,42 @@ try:
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
 
+# reindex_from_deploy: the repair queue moving is not a reason to drop the
+# deploy; only the puzzles whose queue entries differ are re-made.
+import row_cache
+
+now = F.QUEUE_FILE.read_bytes()
+plain = row_cache.code_for("fetch_puzzle", "index_row", {"index_row_deps"})
+check("code_for with the queue as it is: the plain key", plain,
+      row_cache.code_for("fetch_puzzle", "index_row", {"index_row_deps"}, as_bytes={F.QUEUE_FILE.name: now}))
+check("code_for with another queue: another key", True,
+      plain != row_cache.code_for("fetch_puzzle", "index_row", {"index_row_deps"},
+                                  as_bytes={F.QUEUE_FILE.name: now + b"\n"}))
+old = json.dumps([
+    {"id": "a-1#1a", "reason": "x", "tried": True},
+    {"id": "a-1#2d", "reason": "y"},
+    {"id": "b-2#3a", "reason": "z"},
+    {"id": "c-3#1a", "reason": "w"},
+]).encode()
+new = json.dumps([
+    {"id": "a-1#1a", "reason": "x", "tried": True, "tries": 2},  # bookkeeping only
+    {"id": "b-2#3a", "reason": "z2"},                            # reason changed
+    {"id": "d-4#1a", "reason": "v"},                             # added
+]).encode()                                                      # a-1#2d and c-3#1a drained
+check("queue by puzzle", {"a-1": {"1a": "x", "2d": "y"}, "b-2": {"3a": "z"}, "c-3": {"1a": "w"}},
+      F._queue_by_puzzle(old))
+scratch = Path(tempfile.mkdtemp())
+try:
+    (scratch / "q.json").write_bytes(new)
+    keep = (F.QUEUE_FILE, F._queue_at)
+    F.QUEUE_FILE, F._queue_at = scratch / "q.json", lambda commit: old
+    check("puzzles whose queue entries differ", {"a-1", "b-2", "c-3", "d-4"}, F._queue_moved_ids("x"))
+    F._queue_at = lambda commit: new
+    check("same queue: none", set(), F._queue_moved_ids("x"))
+    F.QUEUE_FILE, F._queue_at = keep
+finally:
+    shutil.rmtree(scratch, ignore_errors=True)
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)
