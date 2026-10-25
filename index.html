@@ -403,7 +403,13 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
   <a href="https://github.com/ptarjan/cryptic-teacher">Source</a>.</p>
 </footer>
 
-<script src="puzzles/index.js"></script>
+<!-- index-core.js is the catalogue without its 2 MB puzzle list: app.js draws the
+     puzzle the URL names from its own file at once, and finishes booting when
+     index.js (async, so it neither blocks nor delays that) has arrived. If
+     index.js runs before app.js it is the whole index and app.js boots as ever. -->
+<script src="puzzles/index-core.js"></script>
+<script src="puzzles/index.js" async
+        onload="window.ctFullIndex=window.CRYPTIC_INDEX;if(window.ctOnFull)window.ctOnFull()"></script>
 <script src="abbreviations.js"></script>
 <script src="quotes.js"></script>
 <!-- Only the sync panel draws one, and only once it is opened, so this sits with
