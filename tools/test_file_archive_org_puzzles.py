@@ -624,31 +624,65 @@ check("read since REREAD_VLM_UNLISTED, before REREAD_VLM_FLOOR, 1-2 short with a
 f.filed_state = lambda series, n: (False, True)
 real_sm, real_sb = f.strip_missing, f.strip_blank
 f.strip_blank = lambda series, n, sol_dir: False
-f.strip_missing = lambda series, n, sol_dir: True
+f.strip_missing = lambda series, n, sol_dir, most=None: most is None
 ls = [f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-25T19:50:00+00:00", gap=0)),
       f.short_again(vu_row("2026-10-26T00:00:00+00:00"))]
 f.strip_blank = lambda series, n, sol_dir: True
 ls.append(f.short_again(vu_row("2026-10-25T15:00:00+00:00")))
 f.strip_blank = lambda series, n, sol_dir: False
-f.strip_missing = lambda series, n, sol_dir: False
+f.strip_missing = lambda series, n, sol_dir, most=None: False
 ls.append(f.short_again(vu_row("2026-10-25T19:50:00+00:00")))
+# Held 3-5 blank (strip_missing only up to LATE_MAX): read since REREAD_UNLISTED, before REREAD_WIDE_STRIPS, WIDE_STRIPS;
+# 1-2 blank ones stay LATE_STRIPS; read before REREAD_UNLISTED (SHORT_WIDE) or since REREAD_WIDE_STRIPS, not so.
+f.strip_missing = lambda series, n, sol_dir, most=None: most == f.LATE_MAX
+ws = [f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-25T20:05:00+00:00", gap=4)),
+      f.short_again(vu_row("2026-10-24T12:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-26T00:00:00+00:00", gap=4))]
+f.strip_missing = lambda series, n, sol_dir, most=None: True
+ws.append(f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=1)))
 f.strip_missing, f.strip_blank = real_sm, real_sb
 f.filed_state = real_fs
+check("a held file 3-5 short with a blank light no strip was cut for, read since REREAD_UNLISTED: WIDE_STRIPS until "
+      "REREAD_WIDE_STRIPS (rank 2, answers-only, a LOW prefix); SHORT_WIDE before REREAD_UNLISTED; LATE_STRIPS first "
+      "where that is due",
+      [f.WIDE_STRIPS, f.WIDE_STRIPS, f.SHORT_WIDE, None, f.LATE_STRIPS, 2, True, True, 5],
+      ws + [f.RANKS[f.WIDE_STRIPS], f.WIDE_STRIPS in f.SOLUTION_FIXES, f.WIDE_STRIPS.startswith("solution short"),
+            f.LATE_MAX])
+# A Times row whose solutionsSeen (or stored titles) moved is due its answers-only fix, not the blanket reason
+# only_evidence drops; another paper's keeps the blanket one (10-25: 251 SHORT_WIDE Times puzzles never planned).
+real_fr = f.fix_reason
+f.fix_reason = lambda row: f.SHORT_WIDE
+bf = [f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inputs changed"),
+      f.blanket_or_fix({"edition": "GaleTimes1956UKEnglish/1956-08-09"}, "titles changed"),
+      f.blanket_or_fix({"edition": "GaleTelegraph1984UKEnglish/1984-05-01"}, "inputs changed"),
+      f.blanket_or_fix({"edition": "GaleTimes1956UKEnglish/1956-08-09", "scan": {"puzzles": [{"number": 8203}]},
+                        "verdicts": [{"number": 8203}]}, "inputs changed"),
+      f.blanket_or_fix({"edition": "GaleTimes1956UKEnglish/1956-08-09", "scan": {"puzzles": []},
+                        "verdicts": [{"number": 8203}]}, "titles changed")]
+f.fix_reason = lambda row: "refused unparsed before its fix"
+bf.append(f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inputs changed"))
+f.fix_reason = lambda row: None
+bf.append(f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inputs changed"))
+f.fix_reason = real_fr
+check("blanket_or_fix: a Times row's answers-only fix stands over inputs/titles changed; another paper's row, "
+      "a row whose scan lost a verdict's title, another fix, or none keeps the blanket reason",
+      [f.SHORT_WIDE, f.SHORT_WIDE, "inputs changed", f.SHORT_WIDE, "titles changed", "inputs changed", "inputs changed"],
+      bf)
 check("a held file 1-2 short with a blank light no strip was cut for, read since REREAD_VLM_UNLISTED (its reading "
       "3+ short or whole): LATE_STRIPS (rank 2, answers-only, a LOW prefix); not read since REREAD_LATE_STRIPS, "
       "VLM_FLOOR_SHORT where that is due, nothing with every blank light's strip cut",
       [f.LATE_STRIPS, f.LATE_STRIPS, None, f.VLM_FLOOR_SHORT, None, 2, True, True],
       ls + [f.RANKS[f.LATE_STRIPS], f.LATE_STRIPS in f.SOLUTION_FIXES, f.LATE_STRIPS.startswith("solution short")])
-# late_strips cuts and asks only for 1 to STRIP_MAX blank lights, one at least never stripped.
-ls_es = [{"number": n, "direction": "across", "solution": None} for n in (1, 3, 5)]
+# late_strips cuts and asks only for 1 to LATE_MAX blank lights, one at least never stripped.
+ls_es = [{"number": n, "direction": "across", "solution": None} for n in (1, 3, 5, 7, 9, 11)]
 ls_cut = []
 real_cs = f.trove_solution_ocr.crop_strips
 f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: ls_cut.append(keys) or {}
 ls_out = [f.late_strips(ls_es, {}, {"a": 1}, {}, [], {}, Path(__file__)),
-          f.late_strips(ls_es, {"1-across": "ABC"}, {"a": 1}, {"3-across": {}, "5-across": {}}, [], {}, Path(__file__))]
+          f.late_strips(ls_es, {"1-across": "ABC"}, {"a": 1}, {f"{n}-across": {} for n in (3, 5, 7, 9, 11)}, [], {},
+                        Path(__file__))]
 f.trove_solution_ocr.crop_strips = real_cs
-check("late_strips: 3 blank lights, or every blank one's strip cut already, cuts nothing and keeps the reading",
-      [({}, {"a": 1}), ({"1-across": "ABC"}, {"a": 1}), []], ls_out + [ls_cut])
+check("late_strips: 6 blank lights (over LATE_MAX), or every blank one's strip cut already, cuts nothing and keeps "
+      "the reading", [({}, {"a": 1}), ({"1-across": "ABC"}, {"a": 1}), []], ls_out + [ls_cut])
 check("an answers-only grid read one letter off a word is a misread (a 1973 print's ADORESS for ADDRESS); "
       "a word, a listed name (William RUFUS), and words by their enumeration stand",
       [True, False, False, False, False, (12, "down")],
