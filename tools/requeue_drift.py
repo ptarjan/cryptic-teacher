@@ -19,14 +19,22 @@ gate, and the next `validate_annotations.py --tighten` ratchets the allowance ba
 the queue drains. Only the rules the redo gate knows (shape_queue._validator_rules) are
 requeued; any other field over its allowance is a real failure and is left to fail.
 
-tools/daily_update.sh runs this after the lexicon is rebuilt; run it after editing a rule.
+The deploy's full check does this itself (pages.yml, "Requeue what the rules newly flag"): its
+shards run validate_annotations.py --drift-out, letting a puzzle past its allowance in these rules
+through and writing what it flagged, and --publish pushes the raises as a commit on master. So a
+rule edit or the nightly lexicon rebuild needs no local survey; run this by hand to preview one
+(report) or to queue without waiting for CI (--write).
 Nothing is written when the run has an error other than an allowance.
 """
 import argparse
 import json
 import multiprocessing
 import os
+import random
+import subprocess
 import sys
+import tempfile
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -60,9 +68,7 @@ def survey(path):
     annotated, errors, warnings = V.validate_puzzle(puzzle, corpus=True)
     if not annotated:
         return path.stem, {}, bool(errors)
-    flagged = {f: sorted({clue_key(w.split(":", 1)[0]) for w in warnings if any(m in w for m in ms)})
-               for f, ms in V.BACKLOG_MARKERS.items()}
-    return path.stem, flagged, bool(errors)
+    return path.stem, V.flagged_clues(warnings, V.BACKLOG_MARKERS), bool(errors)
 
 
 def survey_all(paths):
@@ -104,15 +110,86 @@ def requeue(over, fields, rows):
     return out, added
 
 
+QUEUE_FILE = "tools/data/shape_reannotate.json"
+BACKLOG_FILE = "tools/annotation_backlog.json"
+
+
+def raised_backlog(text, over):
+    """The backlog file's text with each puzzle of `over` allowed the count of its flagged clues."""
+    data = json.loads(text)
+    for field, puzzles in over.items():
+        for stem, keys in puzzles.items():
+            data.setdefault(field, {})[stem] = len(keys)
+        data[field] = dict(sorted(data[field].items(), key=V._sort_key))
+    return json.dumps(data, indent=1) + "\n"
+
+
+def merged_drift(paths):
+    """{field: {puzzle: clue keys}} from the --drift-out files of validate_annotations.py's shards."""
+    out = {}
+    for p in paths:
+        for field, puzzles in json.loads(Path(p).read_text()).items():
+            out.setdefault(field, {}).update(puzzles)
+    return {f: v for f, v in out.items() if v}
+
+
+def _git(*args, stdin=None, env=None):
+    return subprocess.run(["git", *args], input=stdin, capture_output=True, text=True, env=env)
+
+
+def publish(over, fields, tries=30, sleep=time.sleep):
+    """Push the allowance raises and queue rows for `over` as a commit of their own on origin/master,
+    built on its tip from its copies of the two files (a plumbing commit: the checkout is the deploy's
+    and stays as it is). A push that loses the race to the burn is built again on the new tip.
+    Returns 0 when pushed or nothing was left to do, 1 when every try lost."""
+    for n in range(tries):
+        if _git("fetch", "-q", "--no-tags", "--depth=1", "--filter=blob:none", "origin", "master").returncode:
+            sleep(5)
+            continue
+        old = {p: _git("show", f"origin/master:{p}").stdout for p in (QUEUE_FILE, BACKLOG_FILE)}
+        rows, _ = requeue(over, fields, json.loads(old[QUEUE_FILE]))
+        new = {QUEUE_FILE: Q.dump(rows), BACKLOG_FILE: raised_backlog(old[BACKLOG_FILE], over)}
+        if new == old:
+            print("requeue_drift: origin/master already holds the allowance raises and queue rows")
+            return 0
+        index = {**os.environ, "GIT_INDEX_FILE": os.path.join(tempfile.mkdtemp(), "index"),
+                 "GIT_AUTHOR_NAME": "github-actions[bot]", "GIT_COMMITTER_NAME": "github-actions[bot]",
+                 "GIT_AUTHOR_EMAIL": "41898282+github-actions[bot]@users.noreply.github.com",
+                 "GIT_COMMITTER_EMAIL": "41898282+github-actions[bot]@users.noreply.github.com"}
+        _git("read-tree", "origin/master", env=index)
+        for path, text in new.items():
+            blob = _git("hash-object", "-w", "--stdin", stdin=text).stdout.strip()
+            _git("update-index", "--add", "--cacheinfo", f"100644,{blob},{path}", env=index)
+        tree = _git("write-tree", env=index).stdout.strip()
+        msg = ("Requeue puzzles newly flagged by a validator rule or lexicon change\n\n"
+               "Made by the deploy's full check (tools/requeue_drift.py --publish).\n")
+        commit = _git("commit-tree", tree, "-p", "origin/master", "-m", msg, env=index).stdout.strip()
+        pushed = _git("push", "-q", "origin", f"{commit}:refs/heads/master")
+        if pushed.returncode == 0:
+            print(f"requeue_drift: pushed {commit[:10]}: {sum(map(len, over.values()))} puzzle-field(s) raised")
+            return 0
+        print(f"requeue_drift: push {n + 1} lost the race ({pushed.stderr.strip()[-120:]}); building again")
+        sleep(random.uniform(1, 6))
+    return 1
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--publish", nargs="+", metavar="DRIFT_JSON",
+                    help="the deploy's step: push the drift the full check's shards found (validate_annotations.py "
+                         "--drift-out files) as a commit on origin/master; surveys nothing")
     ap.add_argument("--all", action="append", default=[], metavar="FIELD",
                     help="queue every current hit of this backlog field (e.g. wordplay.halfLeaf), "
                          "not just the puzzles past their allowance: for a rule whose existing hits "
                          "were grandfathered by --tighten. Repeatable. Allowances are set to the count.")
     a = ap.parse_args()
     fields = rule_fields()
+    if a.publish:
+        over = merged_drift(a.publish)
+        for field, puzzles in over.items():
+            print(f"{field}: {len(puzzles)} puzzle(s), {sum(len(k) for k in puzzles.values())} clue(s) past their allowance")
+        return publish(over, fields) if over else 0
     bad = [f for f in a.all if f not in fields]
     if bad:
         ap.error(f"--all: not a requeueable backlog field: {', '.join(bad)}")
@@ -129,12 +206,7 @@ def main():
     with Q.locked():
         rows, added = requeue(over, fields, json.loads(Q.PATH.read_text()))
         Q.write(Q.dump(rows))
-    data = json.loads(V.BACKLOG_PATH.read_text())
-    for field, puzzles in over.items():
-        for stem, keys in puzzles.items():
-            data.setdefault(field, {})[stem] = len(keys)
-        data[field] = dict(sorted(data[field].items(), key=V._sort_key))
-    V.BACKLOG_PATH.write_text(json.dumps(data, indent=1) + "\n")
+    V.BACKLOG_PATH.write_text(raised_backlog(V.BACKLOG_PATH.read_text(), over))
     print(f"requeue_drift: queued {added} clue(s), raised the allowances of {sum(map(len, over.values()))} puzzle-field(s)")
     return 0
 

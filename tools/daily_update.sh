@@ -475,10 +475,8 @@ unit_blog_facts() {
   # is logged, not alerted: the burn re-plans the list itself.
   [ $step_rc -eq 0 ] && { python3 tools/blog_compare.py || echo "blog_compare: failed"; }
   # The rebuilt indicator lexicon can push a word over validate_annotations.MISPLACED_MIN_USES
-  # and flag puzzles already committed, which fails the deploy on them. Queue those clues for
-  # the burn and raise their allowance in the same commit (tools/requeue_drift.py).
-  [ $step_rc -eq 0 ] && { python3 tools/requeue_drift.py --write ||
-    alert "tools/requeue_drift.py failed after the lexicon rebuild, so puzzles it newly flags may fail the deploy"; }
+  # and flag puzzles already committed. The deploy's full check queues those clues and raises
+  # their allowance once the lexicon commit lands (pages.yml, tools/requeue_drift.py --publish).
   rm -f "$facts_out"
   return $step_rc
 }

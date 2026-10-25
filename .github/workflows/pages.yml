@@ -653,7 +653,7 @@ jobs:
     timeout-minutes: 30
     # A job's permissions replace the workflow's, so this restates contents.
     permissions:
-      contents: read
+      contents: write  # the requeue step pushes the allowance raises
       actions: write  # reads the last run whose validate passed (its diff base); deletes stale CodeQL caches
     steps:
       - name: Check out
@@ -744,22 +744,31 @@ jobs:
       # each shard enforces its own slice of it; any shard failing fails the job.
       - name: Check every annotation, shard 1 of 6
         if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 0/6
+        run: python3 tools/validate_annotations.py --shard 0/6 --drift-out "$RUNNER_TEMP/drift.0.json"
       - name: Check every annotation, shard 2 of 6
         if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 1/6
+        run: python3 tools/validate_annotations.py --shard 1/6 --drift-out "$RUNNER_TEMP/drift.1.json"
       - name: Check every annotation, shard 3 of 6
         if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 2/6
+        run: python3 tools/validate_annotations.py --shard 2/6 --drift-out "$RUNNER_TEMP/drift.2.json"
       - name: Check every annotation, shard 4 of 6
         if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 3/6
+        run: python3 tools/validate_annotations.py --shard 3/6 --drift-out "$RUNNER_TEMP/drift.3.json"
       - name: Check every annotation, shard 5 of 6
         if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 4/6
+        run: python3 tools/validate_annotations.py --shard 4/6 --drift-out "$RUNNER_TEMP/drift.4.json"
       - name: Check every annotation, shard 6 of 6
         if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 5/6
+        run: python3 tools/validate_annotations.py --shard 5/6 --drift-out "$RUNNER_TEMP/drift.5.json"
+      # The shards above let a puzzle past its allowance in a rule the burn can redo
+      # (--drift-out: a rule edit or the nightly lexicon rebuild flags puzzles that were
+      # committed clean) and wrote what it flagged; this raises those allowances and
+      # queues the clues as a commit of its own on master, so the deploy stays green
+      # without a local ~30-minute survey (tools/requeue_drift.py --publish). Any other
+      # error fails a shard first, and then nothing is pushed.
+      - name: Requeue what the rules newly flag
+        if: steps.scope.outputs.mode == 'full'
+        run: python3 tools/requeue_drift.py --publish "$RUNNER_TEMP"/drift.?.json
       - name: Check the changed annotations
         if: steps.scope.outputs.mode == 'files'
         run: |
