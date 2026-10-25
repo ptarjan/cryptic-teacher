@@ -4742,6 +4742,11 @@ def answers_only(d, found, hit, solutions):
         answers, by_vlm = vlm_lights(answers, strips, grid, enums)
         if by_vlm:
             info = {**info, "vlmLights": sorted(by_vlm), "accepted": info.get("accepted", 0) + len(by_vlm)}
+    # An answer no word (worded) that one letter's change makes one is a misread, not a name: dropped.
+    misread = {k for k, a in answers.items() if misread_word(a, enums.get(_light_key(k)))}
+    if misread:
+        answers = {k: a for k, a in answers.items() if k not in misread}
+        info = {**info, "misread": sorted(misread), "accepted": info.get("accepted", 0) - len(misread)}
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
     letters = {}
@@ -4764,6 +4769,27 @@ def answers_only(d, found, hit, solutions):
         verdict["read_as"] = hit["number"]
     verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
     return verdict, puzzle
+
+
+def _light_key(lid):
+    """(number, direction) of a light id "12-down"."""
+    n, _, d = lid.partition("-")
+    return (int(n), d) if n.isdigit() else (lid, d)
+
+
+def misread_word(word, enum=None):
+    """Whether solution-grid answer `word` is a misread: no word (worded), held by no list as it
+    stands (cmudict's, the lexicon's, the corpus's: a name such as RUFUS, BULGARIA stands), only
+    by an inflection the reader builds (WordNet's lemma "adores" + s gave ADORESS, a 1973 print's
+    ADDRESS), and one letter's change makes a word."""
+    if not word or worded(word, enum):
+        return False
+    t = trove_solution_ocr
+    t.listed("A")
+    w = word.upper()
+    if w in (t._LISTED or ()) or w in t.corpus_words():
+        return False
+    return any(worded(x, enum) for _, x in t.one_change(w))
 
 
 #: A stray mark glued to a word's front in a clue ("source of -warmth", "from .late"): a reader's
@@ -6893,10 +6919,12 @@ def fix_reason(row):
         return "short Times page, its third clue column read since"
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
-    if unenumerated_held(row):
-        return "answers held back by a clue with no enumeration"
+    # Ahead of unenumerated_held: a refused grid is the evidence (edition_queue.evidence_reason), and
+    # both are answers_only rereads (SOLUTION_FIXES), so the read is the same.
     if refused_grid(row):
         return REFUSED_GRID
+    if unenumerated_held(row):
+        return "answers held back by a clue with no enumeration"
     if row.get("solutionKey") != solution_key():
         paper = paper_of(row.get("edition", "")).key
         for v in row.get("verdicts", ()):

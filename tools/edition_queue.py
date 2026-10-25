@@ -705,6 +705,11 @@ def evidence_reason(reason):
             # A held puzzle whose solution grid read 3+ lights short before unlisted_reads (Paul 10-24: every
             # short grid current code may improve, once); no likely gain, so after the 1-2-short ones.
             or reason == fa.SHORT_WIDE
+            # A held puzzle whose linked solution grid was refused (its blocks, or its ink's size) before
+            # read_solution looked for it by its blocks (matched_box), once. likely() predicts nothing for
+            # a refused grid, so without this only_evidence dropped every one: Paul 10-24, ~650 Times
+            # puzzles held short (1980s ~250, 1990s ~115, 1970s ~105) stood so, none planned.
+            or reason == fa.REFUSED_GRID
             or reason.endswith(" cured since"))  # trove: the fix for the cause a read was refused for landed
 
 
