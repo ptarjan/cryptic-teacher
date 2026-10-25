@@ -54,6 +54,9 @@ def candidates(text, clue):
 LOOKALIKES = str.maketrans({"\u2018": "'", "\u2019": "'", "\u201c": '"',
                             "\u201d": '"', "\u2013": "-", "\u2014": "-"})
 WORD = re.compile(r"[^\W_]+")
+# The enumeration the clue is shown with, "(5,8)" or "(2-3, 4)", which a model copies
+# onto a definition although the clue's `text` keeps it apart.
+ENUM_TAIL = re.compile(r"\s*\(\d+(?:\s*[,\-]\s*\d+)*\)\s*$")
 
 
 def respell(text, clue):
@@ -69,6 +72,11 @@ def respell(text, clue):
         text = dashes.quote(text, clue)
     if not isinstance(text, str) or not text or text in clue:
         return text
+    bare = ENUM_TAIL.sub("", text)
+    if bare and bare != text:
+        spelt = respell(bare, clue)
+        if spelt in clue:
+            return spelt
     i = clue.translate(LOOKALIKES).find(text.translate(LOOKALIKES))
     if i >= 0:
         return clue[i:i + len(text)]

@@ -44,6 +44,11 @@ def refused(clue, *texts):
     return None
 check("both ends is ambiguous", True, "occurs 3 times" in (refused("up and up and up", "up") or ""))
 check("not in the clue", True, "not in the clue" in (refused("Big cat", "dog") or ""))
+check("a copied enumeration is dropped from the definition", [0],
+      at("In which (hint) you will find a clue", "In which (hint) you will find a clue (5,8)"))
+check("a copied hyphenated enumeration is dropped", [4], at("Big cat", "cat (2-3, 4)"))
+check("an enumeration-only difference does not hide a missing word", True,
+      "not in the clue" in (refused("Big cat", "dog (3)") or ""))
 
 def errors(defs):
     puzzle = {"id": "t-1", "entries": [{"number": 1, "direction": "across",
