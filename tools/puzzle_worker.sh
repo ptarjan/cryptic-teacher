@@ -907,7 +907,7 @@ worker_sweep_scratch() {   # [minutes]
   return 0
 }
 _worker_finish() {
-  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending="" why fix_rc=0 partial="" verdict=""
+  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending="" why fix_rc=0 partial="" verdict="" first_ok=""
   # A run that took its work back ships none of it, however it validates.
   if why=$(worker_withdrawn "$id" "$log"); then
     worker_withdraw "$id" "$why"
@@ -932,8 +932,12 @@ _worker_finish() {
       worker_withdraw "$id" "$why"
       return 1
     fi
+  else
+    # Passed on the first look and nothing has touched the file since: a
+    # second pass would parse and check the same input again (~2 CPU-s).
+    first_ok=1
   fi
-  if ! python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1; then
+  if [ -z "$first_ok" ] && ! python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1; then
     tail -5 "$vlog"
     # The fix run died before it could answer (not the API's refusal, which
     # worker_flagged-style handling keeps fresh): its conversation is not
