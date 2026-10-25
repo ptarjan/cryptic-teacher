@@ -235,9 +235,11 @@ _ct_salvage() {
 
 # ct_generated <tree>: rebuild the tree's generated files (puzzles/index.*,
 # the puzzle shims, abbreviations.js) unless HEAD is where the last fully
-# successful rebuild stamped them. A rebuild reads every puzzle (40k files):
-# minutes of CPU. Untracked files survive a reset, so a stamp at HEAD means
-# they are current.
+# successful rebuild stamped them. A full rebuild reads every puzzle (63k
+# files), ~2000 CPU-s whenever the code a row reaches moved, so it starts
+# from the index the deploy built (--reindex-from-deploy: CI's rows, only
+# the puzzles changed since made here) and falls back to --reindex-changed.
+# Untracked files survive a reset, so a stamp at HEAD means they are current.
 ct_generated() {
   local tree="$1" head stamp ok=1
   head="$(git -C "$tree" rev-parse HEAD)"
@@ -245,12 +247,12 @@ ct_generated() {
   [ "$(cat "$stamp" 2>/dev/null)" = "$head" ] && [ -e "$tree/puzzles/index.json" ] && return 0
   # One rebuild at a time across every tree: each reads the whole corpus
   # into memory in several processes, and the unit queues start several
-  # trees at once. Nice 19 on two cores, like daily_update.sh's detached
-  # rebuild, so it never outruns the OCR units and the burn beside it.
+  # trees at once. Nice 19 on two cores (tools/low_cpu.sh: plain nice does
+  # nothing in the container), so it never outruns the OCR units and the burn.
   exec 6>"$(git -C "$tree" rev-parse --path-format=absolute --git-common-dir)/ct-generated.lock"
   flock 6
   rm -f "$stamp"
-  (cd "$tree" && CT_JOBS=2 nice -n 19 python3 tools/fetch_puzzle.py --reindex >/dev/null) ||
+  (cd "$tree" && CT_JOBS=2 tools/low_cpu.sh python3 tools/fetch_puzzle.py --reindex-from-deploy >/dev/null) ||
     { ok=0; echo "WORKTREE: could not rebuild puzzles/index.* in $tree — the job will read a stale or missing manifest" >&2; }
   (cd "$tree" && nice -n 19 python3 tools/build_abbreviations.py >/dev/null) ||
     { ok=0; echo "WORKTREE: could not rebuild abbreviations.js in $tree — every tool that stamps a page referencing it will stop" >&2; }

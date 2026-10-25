@@ -17,6 +17,8 @@ Usage:
   python3 tools/fetch_puzzle.py --reindex        # rebuild puzzles/index.json + index.js
   python3 tools/fetch_puzzle.py --reindex-changed  # same, re-reading only files newer than the index
                                                  # from the puzzle files already on disk
+  python3 tools/fetch_puzzle.py --reindex-from-deploy  # the live site's (CI-built) index, re-making
+                                                 # only puzzles changed since; else --reindex-changed
   python3 tools/fetch_puzzle.py --refresh-unsolved  # re-fetch puzzles still missing
                                                  # solutions (Saturday prize puzzles
                                                  # publish theirs about a week late)
@@ -3281,8 +3283,129 @@ def reindex():
              "clueTypes": clue_types.DATA, "tags": puzzle_tags.TAGS,
              "snitchRanges": snitch, "puzzles": puzzles, "reprints": reprints,
              "unlisted": unlisted}
+    if not only:
+        index["build"] = index_build()
     write_index(index)
     return index
+
+
+#: The live site, whose puzzles/index.json the deploy builds in full.
+DEPLOYED_INDEX = "https://cryptic.paultarjan.com/puzzles/index.json"
+#: What the index's corpus-wide parts (reprints, papers, books, the row order)
+#: are made by, beside the rows the build's `rows` key covers: a change to
+#: any since the deployed commit makes the deployed index unusable here.
+INDEX_SHAPE_FILES = ("tools/fetch_puzzle.py", "tools/series.py", "tools/data/renamed_ids.json",
+                     "tools/data/books.json")
+
+
+def index_build():
+    """{"commit": the checkout's HEAD, "rows": the row cache's code key for
+    index_row}: what reindex_from_deploy() needs to tell whether this index is
+    the one another checkout would build."""
+    import row_cache
+    try:
+        head = _git("rev-parse", "HEAD").strip()
+    except (OSError, subprocess.CalledProcessError):
+        head = None
+    return {"commit": head, "rows": row_cache.code_for("fetch_puzzle", "index_row", {"index_row_deps"})}
+
+
+def _git(*args):
+    return subprocess.run(["git", *args], cwd=puzzle_paths.PUZZLE_DIR.parent, check=True,
+                          capture_output=True, text=True, timeout=120).stdout
+
+
+def _deployed_index():
+    """The live site's index, or None with the reason printed."""
+    try:
+        req = urllib.request.Request(DEPLOYED_INDEX, headers={"User-Agent": "cryptic-teacher-reindex"})
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return json.loads(r.read())
+    except (OSError, ValueError) as err:
+        print(f"deployed index: could not fetch {DEPLOYED_INDEX}: {err}")
+        return None
+
+
+def _deployed_usable(index):
+    """The commit the deployed index was built at, when this checkout would
+    build the same rows from the same files (else None, the reason printed)."""
+    build = index.get("build") or {}
+    commit = build.get("commit")
+    if not commit or not build.get("rows"):
+        print("deployed index: carries no build stamp")
+        return None
+    try:
+        _git("merge-base", "--is-ancestor", commit, "HEAD")
+    except (OSError, subprocess.CalledProcessError):
+        print(f"deployed index: built at {commit[:11]}, not an ancestor of HEAD here")
+        return None
+    if subprocess.run(["git", "diff", "--quiet", commit, "--", *INDEX_SHAPE_FILES],
+                      cwd=puzzle_paths.PUZZLE_DIR.parent).returncode:
+        print(f"deployed index: {' / '.join(INDEX_SHAPE_FILES)} moved since {commit[:11]}")
+        return None
+    import row_cache
+    if build["rows"] != row_cache.code_for("fetch_puzzle", "index_row", {"index_row_deps"}):
+        print(f"deployed index: index_row's code or data moved since {commit[:11]}")
+        return None
+    return commit
+
+
+def _changed_ids(commit):
+    """The puzzle ids whose files (the .json or its .blog sidecar) differ here
+    from `commit`: committed since, uncommitted, or untracked."""
+    rel = puzzle_paths.PUZZLE_DIR.name
+    names = _git("diff", "--name-only", "--no-renames", commit, "--", rel).split()
+    names += _git("ls-files", "--others", "--exclude-standard", "--", rel).split()
+    return {Path(n).name.split(".", 1)[0] for n in names}
+
+
+def _shim_hash(path):
+    """Write the puzzle's shim; the `v` an index row gives it."""
+    text = shim_text(path, read_puzzle_view(path))
+    write_whole(shim_path(path), text)
+    return hashlib.md5(text.encode("utf-8")).hexdigest()[:8]
+
+
+def _shim_current(path, v):
+    try:
+        return hashlib.md5(shim_path(path).read_bytes()).hexdigest()[:8] == v
+    except FileNotFoundError:
+        return False
+
+
+def reindex_from_deploy():
+    """The index the deploy built (pages.yml's full reindex, live at
+    DEPLOYED_INDEX), brought up to this checkout, instead of making every row
+    here: a change to the code a row reaches makes all ~63k rows again, ~2000
+    CPU-s a time on this machine, and CI makes the same rows for every
+    deploy. Used when the deployed index was built at an ancestor of HEAD by
+    the same row code and index shape (_deployed_usable); then only the
+    puzzles changed since that commit get their rows made here, a puzzle no
+    longer on disk loses its row, and a shim missing or not the row's `v` is
+    written (~5 ms each, ~340 CPU-s for a tree with none). Otherwise
+    reindex_changed(). Returns a line saying which."""
+    index = _deployed_index()
+    commit = index and _deployed_usable(index)
+    if not commit:
+        rebuilt = reindex_changed()
+        return "no index: full reindex" if rebuilt is None else f"re-read {rebuilt} changed puzzle file(s)"
+    files = {f.stem: f for f in puzzle_files()}
+    changed = _changed_ids(commit) & files.keys()
+    kept = {key: [r for r in index[key] if r["id"] in files] for key in ("puzzles", "unlisted")}
+    dropped = sum(len(index[key]) - len(kept[key]) for key in kept)
+    index.update(kept)
+    ids = {r["id"] for key in kept for r in kept[key]}
+    index["reprints"] = [r for r in index["reprints"] if r.get("reprintOf") in ids]
+    stale = [(files[r["id"]], r["v"]) for key in kept for r in kept[key]
+             if r["id"] not in changed and not _shim_current(files[r["id"]], r.get("v"))]
+    import parallel
+    written = parallel.pmap(_shim_hash, [p for p, _ in stale])
+    # A shim that comes out other than the row says is a row that would too.
+    changed |= {p.stem for (p, v), got in zip(stale, written) if got != v}
+    changed |= files.keys() - ids
+    _merge_rows(index, [files[i] for i in sorted(changed)])
+    return (f"deployed index from {commit[:11]}: re-made {len(changed)} row(s), "
+            f"wrote {len(stale)} shim(s), dropped {dropped} row(s) with no file here")
 
 
 def write_index(index):
@@ -3318,6 +3441,13 @@ def reindex_changed():
     changed = [f for f in puzzle_files() if f.stat().st_mtime_ns > stamp]
     if not changed:
         return 0
+    return _merge_rows(index, changed)
+
+
+def _merge_rows(index, changed):
+    """Make the rows of the puzzle files `changed` and swap them into index
+    (a new puzzle added in date order), keeping each one's difficulty and
+    big-grid tag from its old row; write the index. Returns how many."""
     import row_cache
     rows = row_cache.cached_map("fetch_puzzle", index_row, changed,
                                 roots={"index_row_deps"}, deps=index_row_deps)
@@ -3745,6 +3875,9 @@ def main(argv):
     if argv[0] == "--reindex-changed":
         rebuilt = reindex_changed()
         print("no index: full reindex" if rebuilt is None else f"re-read {rebuilt} changed puzzle file(s)")
+        return 0
+    if argv[0] == "--reindex-from-deploy":
+        print(reindex_from_deploy())
         return 0
     if argv[0] == "--warm-rows":
         i, n = map(int, argv[1].split("/"))

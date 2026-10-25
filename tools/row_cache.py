@@ -242,6 +242,16 @@ def _carry_over(conn, ptrs, want):
     return out
 
 
+def code_for(name, fn_name, roots=(), salt=""):
+    """The code part of every row key cached_map(name, fn, roots=roots,
+    salt=salt) makes: the code fn reaches plus the data files it reads. Two
+    checkouts with the same answer make the same row from the same file, so
+    an index another machine built for that answer is the one this machine
+    would build (fetch_puzzle.reindex_from_deploy)."""
+    code_key = code_reach.key(name, {fn_name, *roots})
+    return f"{name}.{fn_name}:{code_key}:{salt}:{_data_salt(name, {fn_name, *roots}, code_key)}"
+
+
 def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, listed=None, stale_ok=False):
     """[fn(p) for p in paths], each row reused when its file, its code and
     deps(p, row) are those it was made from. `name` is fn's module:
@@ -261,8 +271,7 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
     paths = list(paths)
     try:
         conn = _open()
-        code_key = code_reach.key(name, {fn.__name__, *roots})
-        code = f"{name}.{fn.__name__}:{code_key}:{salt}:{_data_salt(name, {fn.__name__, *roots}, code_key)}"
+        code = code_for(name, fn.__name__, roots, salt)
         blobs = _blobs(paths, listed)
         keys = {p: _key(code, p, b) for p, b in blobs.items()}
         stored, moved = _lookup(conn, code, keys)

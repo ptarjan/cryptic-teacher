@@ -1459,7 +1459,7 @@ reload_watch
 # queue already.
 if [ -z "$REEXEC_STATE" ]; then
 # Incremental: only the files changed since the index was written (a full
-# reindex when it is missing). The final reindex below is the full one.
+# reindex when it is missing). The final one below starts from the deploy's.
 python3 tools/fetch_puzzle.py --reindex-changed >/dev/null
 
 # Top the queue up from the archives before reading it. A window spent with
@@ -1636,7 +1636,12 @@ fi
 # run that landed none leave the tree in the same shape. The index, the static
 # pages and the ?v= stamps have to move together, and the smoke test is the last
 # word on whether the app still boots against what we just wrote.
-python3 tools/fetch_puzzle.py --reindex
+# Not a full --reindex: that re-makes all ~63k rows whenever the code a row
+# reaches moved (~2000 CPU-s), and the deploy makes the same rows. This takes
+# the deploy's index and re-makes only the puzzles changed since (this run's
+# among them), else re-reads the files changed since the index; the job is
+# already at nice 19 (deprioritize.sh at the top).
+python3 tools/fetch_puzzle.py --reindex-from-deploy
 # The glossary is generated from the annotated corpus, so rebuild it before the
 # final commit.
 python3 tools/build_abbreviations.py

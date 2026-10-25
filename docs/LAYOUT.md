@@ -1295,6 +1295,10 @@ tools/test_daily_units.py                      pins which daily unit kinds get t
                                                none of them skips the whole-corpus pass
 tools/nightly_worktree.sh                      sourced first: re-execs a scheduled job in its
                                                own worktree, never the editor’s
+tools/low_cpu.sh                               runs one command at nice 19 in a session of its
+                                               own (setsid + /app/tools/deprioritize.sh), since
+                                               plain nice does nothing in the container; the
+                                               local index rebuilds go through it
 tools/durable.sh                               sourced by a long job that files into git:
                                                commits and pushes what it filed every few
                                                minutes, and on SIGTERM ends the job and commits
