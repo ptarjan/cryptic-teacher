@@ -443,6 +443,14 @@ new, used = F.repair_tree(us, ubs, "DETPCLUS", US)
 check("a bare container takes the unused container word beside its pieces",
       used == [] or new["parts"][1]["indicators"][0]["text"] == "hosting")
 
+# r_hidden_link: a bare hid() takes the unused link word right before its leaf
+HL = {"unindicatedBare": F.r_hidden_link}
+hl = {"op": "reversal", "indicators": [{"text": "wheels"}], "parts": [
+    {"op": "hidden", "parts": [{"words": "delivery truck", "gives": "ERYT"}]}]}
+new, used = F.repair_tree(hl, "Covering for wheels, wheels in delivery truck", "TYRE", HL)
+check("a bare hidden word takes the 'in' before its leaf",
+      used == ["unindicatedBare"] and new["parts"][0]["indicators"][0]["text"] == "in")
+
 # del_single: a deletion over a composite whose letters come out of one literal leaf filed already cut
 D1 = {"del_single": F.r_del_single}
 d1 = {"op": "deletion", "unchecked": True, "indicators": [{"text": "endless"}], "parts": [

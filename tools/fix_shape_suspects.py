@@ -1847,6 +1847,49 @@ def r_unindicated_spare(node, parent, ctx):
         op.pop("indicators")
     return None
 
+#: Words that say "the letters sit inside what follows" and nothing else: the one an unindicated
+#: hidden word borrows when it stands right before the hidden leaf ("wheels in delivery truck").
+HIDDEN_LINKS = ("in", "within", "from", "of", "by", "inside", "among", "amongst", "amid", "found in",
+                "seen in", "held by", "held in", "carried by", "kept by", "contained in", "contained by",
+                "hiding in", "hidden in", "concealed by", "concealed in", "some of", "part of", "in part of")
+
+
+def r_hidden_link(node, parent, ctx):
+    """unindicatedBare, hidden: a hid() with no indicator over one leaf whose clue words are preceded
+    (nothing but spaces or punctuation between) by an unused hidden-word link ("in", "from", "held
+    by": HIDDEN_LINKS), usually under a reversal that has its own word (rev<held up>(hid([little ones]
+    LEON)) in "Christmas will be held up by little ones"): that link becomes the hid's indicator. One
+    candidate only; the validator must then count fewer bare ops. 118 first checks in 24h ended here."""
+    if node.get("op") != "hidden" or node.get("unchecked") or node.get("indicators") \
+            or id(node) in ctx["under_unchecked"]:
+        return None
+    kids = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    clue = ctx["clue"]
+    if len(kids) != 1 or not leaf(kids[0]) or not kids[0].get("words") or not isinstance(kids[0].get("at"), int):
+        return None
+    start = kids[0]["at"]
+    before = clue[:start].rstrip(" ,;:-—–")
+    cov = _claimed(ctx["tree"], clue)
+    found = []
+    for phrase in HIDDEN_LINKS:
+        n = len(phrase)
+        at = len(before) - n
+        if at < 0 or before[at:].lower() != phrase or (at and before[at - 1].isalpha()):
+            continue
+        if any(cov[at:at + n]):
+            continue
+        found.append((at, before[at:]))
+    if not found:
+        return None
+    at, text = min(found)           # the longest phrase that fits
+    count = V.unindicated_ops(ctx["tree"])
+    node["indicators"] = [{"text": text, "at": at, "note": "the clue word that says the letters sit inside the next words"}]
+    if V.unindicated_ops(ctx["tree"]) < count:
+        return node
+    node.pop("indicators")
+    return None
+
+
 def _cut_of(full, got, kind):
     """The letters a `kind` ("tail", "head", "mid") cut takes off `full` to leave `got`, or None."""
     m = len(full) - len(got)
@@ -3340,7 +3383,7 @@ RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_
                 "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_eject(n, p, c),
                 "misplacedIndicator": r_misplaced_indicator,
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside, "deletionScopeAnswer": r_deletion_inside,
-                "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c), "spanOverlap": r_span_overlap,
+                "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c) or r_hidden_link(n, p, c), "spanOverlap": r_span_overlap,
                 "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf,
                 "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf}
 
