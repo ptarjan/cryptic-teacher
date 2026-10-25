@@ -106,6 +106,11 @@ check(a.failed_command("python3 - <<'EOF'\nimport a; b\nEOF"), "python3 -",
       "a heredoc body splits nothing")
 check(a.tool_error_kind("Bash", "cat nope.json", "Exit code 1\ncat: nope.json: No such file"),
       "Bash `cat` exited non-zero", "a cat that really failed still counts")
+check(a.tool_error_kind("Bash", "python3 tools/apply_solution.py x-1 --fill f --check-only",
+                        "Exit code 1\nREJECTED"), None, "a rejecting --check-only is the check working")
+check(a.tool_error_kind("Bash", "python3 tools/apply_solution.py x-1 --fill f --no-reindex",
+                        "Exit code 1\nTraceback"),
+      "Bash `python3` exited non-zero", "a crashing real apply still counts")
 
 now = a.datetime.datetime(2026, 10, 7, tzinfo=a.datetime.timezone.utc)
 def f(key, sh):

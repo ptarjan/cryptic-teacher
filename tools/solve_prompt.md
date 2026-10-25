@@ -38,6 +38,9 @@ Once the check passes, write the fill in and make the copy you annotate:
     python3 tools/apply_solution.py <number> --fill <path> --no-reindex
     python3 tools/annotate_check.py --view <number>
 
+A puzzle a blog wrote up never takes a model fill: the apply says "not written", the lights the
+blog left out stay blank, and you give those answers in your `_ann` file. That is not an error.
+
 Annotate each `(MODEL)` answer there from the wordplay you derived it by. Once `annotate_check.py` says `clean`,
 end with the confidence line below and nothing else —
 no summary, no further pass.
