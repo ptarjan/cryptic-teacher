@@ -913,16 +913,27 @@ sys.exit({eq.EXITS!r}.get(outcome, 1))
 """)
 def fake(**kw):
     behaviour.write_text(json.dumps(kw))
-fake(sleep={"slow": 30})
+# "slow" runs until released, and it is released only after the dispatcher returns (or, so a dispatcher
+# that never kills it fails here rather than hanging, after RELEASE_AFTER): events, not a wall-clock
+# bound a loaded CI runner can miss. A dispatcher that returns with "slow" never logging its end killed it.
+slow_released = T / "release-slow"
+RELEASE_AFTER = 300
+fake(hold={"slow": str(slow_released)})
 eq.fresh = lambda papers, cache=None: ([], [])  # the tests' temp editions are no fresh downloads
 def units(scans, reads):
     return lambda papers, cache=None, reread=None, out=None: (
         [{"kind": "scan", "paper": "times", "rel": r, "rank": 1, "reason": "scan stale"} for r in scans],
         [{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": n} for r, n in reads])
 eq.plan = units(["s1"], [("r1", ["s1"]), ("slow", []), ("r2", [])])
+import threading
+_release_timer = threading.Timer(RELEASE_AFTER, slow_released.touch)
+_release_timer.daemon = True
+_release_timer.start()
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
-    t0 = time.monotonic()
     rc = eq.dispatch(["times"], cache, workers=2, scan_workers=1, read_seconds=2, replan=0.5)
+_release_timer.cancel()
+released_early = slow_released.exists()  # True only if the safety net fired: the dispatcher never killed "slow"
+slow_released.touch()
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 starts = [e[2] for e in ev if e[0] == "start"]
 check("the dispatcher ends 0, every unit started once", (0, ["r1", "r2", "s1", "slow"]), (rc, sorted(starts)))
@@ -931,7 +942,7 @@ check("the dispatcher ends 0, every unit started once", (0, ["r1", "r2", "s1", "
 check("a read whose needed scan has not begun starts without waiting for it, and the scan still runs", True,
       ev.index(["start", "read", "r1", "v1"]) < ev.index(["end", "scan", "s1"]))
 check("a unit past its limit is killed, the others not held up", (False, True, True),
-      (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, time.monotonic() - t0 < 25))  # slow sleeps 30: under 25 is killed, with slack for a loaded runner
+      (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, not released_early))
 log.unlink(missing_ok=True)
 fake(sleep={"n1": 1.0})
 eq.plan = lambda papers, cache=None, reread=None, out=None: (
