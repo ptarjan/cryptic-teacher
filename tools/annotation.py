@@ -710,6 +710,7 @@ def view(ann, entry, puzzle=None):
     # double definition its definitions' blocks.
     out["blocks"] = (_blocks(tree, got) or (dd_blocks if len(defs) > 1 else [])) if tree else dd_blocks
     out["blocks"] = name_repeated_pieces(out["blocks"])
+    out["blocks"] = unname_derived_block_text(out["blocks"], tree, answer)
     name_clue_words_in_indicator_notes(out)
     if tree and (asm := _assembly(tree, got)):
         out["assembly"] = asm
@@ -739,6 +740,36 @@ def name_repeated_pieces(blocks):
             b["note"] = f"{b['gives']} again: the letters {seen[key]!r} gave, used a second time"
         elif str(b.get("clueFragment") or "").strip() and key and key not in seen:
             seen[key] = b["clueFragment"]
+        out.append(b)
+    return out
+
+
+#: The wording of an abbreviation gloss that cannot name an answer: none of its
+#: fixed words ("standard", "abbreviation") is in it.
+ABBREVIATION_GLOSS_PLAIN = "{gives} stands for {words}"
+
+
+def unname_derived_block_text(blocks, tree, answer):
+    """Blocks whose DERIVED abbreviation gloss names the answer, with the gloss
+    reworded: text the run never wrote, so the first check's 'block note names
+    the answer' would send it to rewrite something it cannot see. "ST is a
+    standard abbreviation for street" on a clue whose answer is STANDARD (or
+    ABBREVIATION) becomes "ST stands for street" (annotate audit 10-24/25: 3 of
+    9 refusals that survived the note mend). A note the run wrote is left to
+    the check."""
+    if not tree or not answer:
+        return blocks
+    from find_answer_leaks import says
+    glosses = {}
+    for node, _ in _walk(tree):
+        if "op" not in node and not node.get("note") and (g := abbreviation_gloss(node)):
+            glosses[g] = ABBREVIATION_GLOSS_PLAIN.format(
+                gives=node["gives"], words=g.split(" abbreviation for ", 1)[1])
+    out = []
+    for b in blocks:
+        note = b.get("note")
+        if note in glosses and says(note, answer) and not says(glosses[note], answer):
+            b = {**b, "note": glosses[note]}
         out.append(b)
     return out
 

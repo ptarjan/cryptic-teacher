@@ -471,6 +471,26 @@ pending.write_text(json.dumps({"1-across": {
     "notes": {"Prepare": "to prime is to prepare"}}}))
 say("light_name_unnamed", AC.unname_block_notes(linked, pending) == ["1-across"]
     and json.loads(pending.read_text())["1-across"]["notes"]["Prepare"] == "to prepare")
+# Real refusals that outlived the mend (annotate audit 10-24/25). A rebus's block
+# note leads with its reading ("XC; ..."), so the run's note is found inside it;
+# and rewriting for one light (TELL) can leave another (WILL), so go round again.
+rebus = path.parent / "cyclops-99994.json"
+rebus.write_text(json.dumps({"id": "cyclops-99994", "number": 99994, "entries": [
+    entry("1-across", "Number somewhat excessive (6)", "NINETY"),
+    entry("2-across", "Schedule archer at the end (4,4,4)", "TIMEWILLTELL")]}))
+pending.write_text(json.dumps({"1-across": {
+    "def": "Number", "wp": 'rebus([Somewhat excessive], "XC")',
+    "notes": {"Somewhat excessive": "part of the word excessive is XC, the Roman numeral for ninety"}}}))
+say("rebus_note_found_inside_block_note", AC.unname_block_notes(rebus, pending) == ["1-across"]
+    and json.loads(pending.read_text())["1-across"]["notes"]["Somewhat excessive"]
+    == "part of the word excessive is XC")
+# The derived abbreviation gloss names an answer that is itself a word of it.
+import annotation as ANN
+gl = [b["note"] for b in ANN.unname_derived_block_text(
+    [{"clueFragment": "road", "gives": "RD", "note": "RD is a standard abbreviation for road"},
+     {"clueFragment": "x", "gives": "X", "note": "X is a standard abbreviation for x"}],
+    {"words": "road", "gives": "RD"}, "STANDARD")]
+say("abbreviation_gloss_unnamed", gl[0] == "RD stands for road" and gl[1] == "X is a standard abbreviation for x")
 
 # Each validator line names its check, and --explain takes what a run guesses.
 import contextlib, io
