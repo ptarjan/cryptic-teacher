@@ -2648,7 +2648,15 @@ def blocks_miss_letters(ann, entry):
     got = "".join(letters(b.get("gives")) for b in ann.get("blocks") or [] if isinstance(b, dict))
     want = block_letters(ann, wordplay_letters(ann, entry))
     # A repeat shows one copy as its blocks (annotation.repeat_copy_letters).
-    got2 = got + annotation.repeat_copy_letters(ann.get("wordplay"))
+    got2 = got + annotation.repeat_copy_letters(ann.get("wordplay"), wordplay_letters(ann, entry))
+    if bool(got) and sorted(got) != sorted(want) and sorted(got2) != sorted(want):
+        # A selection over a built value shows the letters before the pick.
+        cut, kept = annotation.selection_over_built(ann.get("wordplay"), wordplay_letters(ann, entry))
+        if cut:
+            from collections import Counter
+            want3 = Counter(want) - Counter(cut) + Counter(kept)
+            if want3 == Counter(got) or want3 == Counter(got2):
+                return False
     return bool(got) and sorted(got) != sorted(want) and sorted(got2) != sorted(want) \
         and sorted(got) != sorted(slipped_letters(ann, want))
 
