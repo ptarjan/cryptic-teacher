@@ -15,16 +15,20 @@ name: Build and deploy the site
 # A push that only added or edited puzzle files (tools/ci_scope.py, against the
 # push's own parent) runs the annotation check and
 # nothing else: about a minute. Building and deploying the site is ~5 minutes of
-# work, so those puzzles go live from pages-schedule.yml, which dispatches this
-# workflow every 15 minutes when master has moved since the last deploy. Any
-# other push builds and deploys at once.
+# work, so those puzzles go live from this workflow's own 15-minute clock: the
+# scope job lets a tick build only when master has moved since the last deploy
+# (a no-op tick skips build AND validate, so it never counts as a passed check
+# for validate's diff base). Any other push builds and deploys at once.
+# The 09:41 tick is the daily full check and build.
 on:
   push:
     branches: [master]
+  schedule:
+    - cron: "*/15 * * * *"
+    - cron: "41 9 * * *"
   workflow_dispatch:
     inputs:
-      # The daily run (pages-schedule.yml): the whole corpus checked, and the
-      # full build path whatever changed.
+      # The whole corpus checked, and the full build path whatever changed.
       full:
         description: "Check every annotation and take the full build path"
         type: boolean
@@ -47,7 +51,7 @@ permissions:
 # GitHub keeps only the newest PENDING build in a group and cancels
 # the rest — so false costs one build's latency and buys a site that ships. A
 # cancelled pending build loses nothing: the next 15-minute tick sees master
-# ahead of the live site and dispatches another.
+# ahead of the live site and builds again.
 
 jobs:
   # Does this run build and deploy the site? Beside validate, not in front of
@@ -58,8 +62,11 @@ jobs:
     permissions:
       contents: read
       deployments: read
+      actions: read  # a tick looks for a build of this commit already under way
     outputs:
       deploy: ${{ steps.pick.outputs.deploy }}
+      # A scheduled tick with nothing to do: validate is skipped too.
+      idle: ${{ steps.pick.outputs.idle }}
     steps:
       # Only the scripts the decision reads: tools/ in cone mode pulled every
       # tools/data blob (~265MB) lazily, 45s+ of a 30s budget (run 39309089344).
@@ -78,22 +85,43 @@ jobs:
           EVENT: ${{ github.event_name }}
           REPO: ${{ github.repository }}
           BEFORE: ${{ github.event.before }}
+          SCHEDULE: ${{ github.event.schedule }}
+          RUN_ID: ${{ github.run_id }}
+          HEAD: ${{ github.sha }}
         run: |
           set -uo pipefail
           yes() { echo "deploys: $1"; echo "deploy=true" >> "$GITHUB_OUTPUT"; exit 0; }
+          idle() { echo "idle tick: $1"; echo "deploy=false" >> "$GITHUB_OUTPUT"; echo "idle=true" >> "$GITHUB_OUTPUT"; exit 0; }
+          if [ "$EVENT" = schedule ]; then
+            [ "$SCHEDULE" != "41 9 * * *" ] || yes "the daily full check and build"
+            [ "$(python3 tools/last_deploy.py "$REPO" --moved)" = yes ] || idle "master is what the site was last deployed from"
+            # A build of this very commit already queued or running (a code
+            # push builds on the push): a second one would deploy the same
+            # site again. A run waiting for the pages group reports "pending".
+            for status in pending waiting queued in_progress; do
+              while read -r id; do
+                [ -n "$id" ] && [ "$id" != "$RUN_ID" ] || continue
+                coming=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
+                           --jq '[.jobs[] | select(.name == "build" and .conclusion != "skipped")] | length')
+                [ "${coming:-0}" -gt 0 ] && idle "run $id is already building ${HEAD:0:8}"
+              done < <(gh api "repos/$REPO/actions/workflows/pages.yml/runs?status=$status&per_page=30" \
+                         --jq ".workflow_runs[] | select(.head_sha == \"$HEAD\") | .id")
+            done
+            yes "master is at ${HEAD:0:8}, not deployed"
+          fi
           [ "$EVENT" = push ] || yes "a $EVENT run"
           # The base is the push's OWN parent, not the live deploy. The deploy
           # is up to 15 minutes old, so against it every puzzle push after a
           # code push still "contained code" and queued a full build in the
           # pages group behind the running one (10-12 minutes instead of 1).
           # A code push builds on its own push; if its build is replaced by a
-          # newer pending one, or the push was a burst, pages-schedule.yml
+          # newer pending one, or the push was a burst, the next scheduled tick
           # deploys whatever master is ahead with, so nothing is lost.
           case "$BEFORE" in *[1-9a-f]*) ;; *) yes "no parent to diff against" ;; esac
           git fetch --no-tags --depth=1 --filter=blob:none origin "$BEFORE" || yes "could not fetch $BEFORE"
           verdict=$(python3 tools/ci_scope.py decide "$BEFORE") || yes "could not diff against $BEFORE"
           [ "$verdict" = fast ] || yes "$verdict"
-          echo "puzzle-only push since its parent $BEFORE: validate only, pages-schedule.yml deploys it"
+          echo "puzzle-only push since its parent $BEFORE: validate only, the scheduled tick deploys it"
           echo "deploy=false" >> "$GITHUB_OUTPUT"
 
   build:
@@ -232,17 +260,17 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           EVENT: ${{ github.event_name }}
           REPO: ${{ github.repository }}
-          FULL: ${{ inputs.full }}
+          FULL: ${{ inputs.full || github.event.schedule == '41 9 * * *' }}
           CACHED: ${{ steps.rowcache.outputs.cache-matched-key != '' && steps.pagecache.outputs.cache-matched-key != '' }}
         run: |
           set -uo pipefail
           full() { echo "full build: $1"; echo "fast=false" >> "$GITHUB_OUTPUT"; exit 0; }
-          # A push, or a dispatch from the 15-minute clock (pages-schedule.yml),
-          # which is how most puzzle-only pushes get here. Only the daily
-          # dispatch (full=true) and a cold cache take the full path by choice.
+          # A push, or a tick of the 15-minute clock, which is how most
+          # puzzle-only pushes get here. Only the daily tick (or full=true) and
+          # a cold cache take the full path by choice.
           case "$EVENT" in
             push) ;;
-            workflow_dispatch) [ "$FULL" != true ] || full "a full run was asked for" ;;
+            workflow_dispatch|schedule) [ "$FULL" != true ] || full "a full run was asked for" ;;
             *) full "a $EVENT run" ;;
           esac
           [ "$CACHED" = true ] || full "no restored row or page cache"
@@ -648,7 +676,12 @@ jobs:
   # tools/ and the workflows; the folders of the puzzles a run checks are
   # added after the diff, and a full run takes the whole tree, fetched in
   # four streams at once rather than one.
+  #
+  # Skipped on an idle scheduled tick: a skipped job is not a success, so the
+  # diff base lookup below never picks a tick that checked nothing.
   validate:
+    needs: scope
+    if: needs.scope.outputs.idle != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     # A job's permissions replace the workflow's, so this restates contents.
@@ -673,7 +706,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           EVENT: ${{ github.event_name }}
           REPO: ${{ github.repository }}
-          FULL: ${{ inputs.full }}
+          FULL: ${{ inputs.full || github.event.schedule == '41 9 * * *' }}
         run: |
           set -euo pipefail
           # The whole tree, as four fetches at once: one stream of ~50k blobs
@@ -689,11 +722,11 @@ jobs:
             wait || true
           }
           full() { echo "full check: $1"; fetch_tree || true; git sparse-checkout disable; echo "mode=full" >> "$GITHUB_OUTPUT"; exit 0; }
-          # A push, or a dispatch from the 15-minute clock; the daily one asks
-          # for the whole corpus (full=true).
+          # A push, or a tick of the 15-minute clock; the daily one asks
+          # for the whole corpus.
           case "$EVENT" in
             push) ;;
-            workflow_dispatch) [ "$FULL" != true ] || full "a full run was asked for" ;;
+            workflow_dispatch|schedule) [ "$FULL" != true ] || full "a full run was asked for" ;;
             *) full "a $EVENT run" ;;
           esac
           # The diff base is the newest commit whose validate job PASSED, not

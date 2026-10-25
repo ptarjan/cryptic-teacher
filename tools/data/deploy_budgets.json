@@ -105,7 +105,7 @@
     "note": "depth 1, blob:none, sparse to tools: a few seconds"},
   "scope/Decide whether this run deploys": {"seconds": 30, "corpus": true,
     "incremental": "reads only the git diff between two commits' trees (ci_scope.py), never a puzzle file",
-    "note": "a puzzle-only push stops here and in validate (about a minute); pages-schedule.yml deploys it. One gh api call for the live site's commit (tools/last_deploy.py), one blobless fetch of it, the diff"},
+    "note": "a puzzle-only push stops here and in validate (about a minute); the next scheduled tick deploys it. One gh api call for the live site's commit (tools/last_deploy.py), one blobless fetch of it, the diff"},
   "validate/Check out": {"seconds": 110,
     "note": "already depth 1, blob:none, sparse to tools + .github/workflows; still 65s and 74s (runs 38636406433, 38635950789) as the tools tree grew. 1.5x the observed 74s"},
   "validate/Set up Python": {"seconds": 30},
