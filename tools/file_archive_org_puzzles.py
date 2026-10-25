@@ -7427,6 +7427,24 @@ def read_unconfigured(row):
     return bool(row.get("vlmUnset")) or any(a <= at <= b for a, b in UNCONFIGURED_SPANS)
 
 
+#: The reason of an edition whose scan found a title and whose read gave no verdict at all (not a
+#: solutions-only read), its puzzle held by no file: never read as a puzzle. Due as "titles changed"
+#: before, a blanket reason no plan keeps. Paul 10-25: ~430 Times pages stood so, unfiled (Gale 2000
+#: 181, 2001 20, 2006 46, 2008-11 ~150, 1957 22; read 10-12..13 with an empty verdict list).
+UNREAD_TITLES = "titles found, never read"
+
+
+def unread_titles(row):
+    """Whether ledger `row` holds a scan with titles, no verdict, no solutions-only read
+    (solOnly), and none of those titles' puzzles held (filed_state, its series listed first)."""
+    pz = (row.get("scan") or {}).get("puzzles") or ()
+    if not pz or row.get("verdicts") or row.get("solOnly") or not row.get("edition"):
+        return False
+    series = paper_of(Path(row["edition"])).series
+    _held_list(series)
+    return all(filed_state(series, p.get("number")) is None for p in pz)
+
+
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
     """Why an edition's ledger `row` is read again, or None: never read, its
     files (input_hash) or the solutions it can see moved, a solution it read
@@ -7448,7 +7466,7 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
         return "solution moved"
     if sorted(p["number"] for p in row["scan"]["puzzles"]) != sorted(v.get("read_as", v["number"])
                                                                      for v in row.get("verdicts", ())):
-        return "titles changed"
+        return UNREAD_TITLES if unread_titles(row) else "titles changed"
     if vlm_up and not row.get("vlm"):
         return "read without the VLM"
     why = fix_reason(row)
@@ -7577,7 +7595,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, SHORT_WIDE: 2,
-         REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2,
+         REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,

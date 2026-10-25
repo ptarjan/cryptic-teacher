@@ -293,6 +293,28 @@ check("the reason is evidence, ranked 2, a fix-landed reread, never skipped, and
       (eq.evidence_reason(f.LOST_WRITE), f.rank_of_reason(f.LOST_WRITE), f.LOST_WRITE in eq.FIX_LANDED,
        f.LOST_WRITE.startswith(f.BUG_READS),
        eq.files_likely_tier(2, {"kind": "read", "paper": "gale", "reason": f.LOST_WRITE, "date": "1970-01-02"})))
+# ---- a found title whose read gave no verdict, its puzzle unheld, is unread work ("titles found, never read"; 10-25)
+_ut = {"edition": "GaleTimes2000UKEnglish/2000-03-13", "inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
+       "scan": {"date": "2000-03-13", "item": "GaleTimes2000UKEnglish", "puzzles": [{"number": 9999997, "leaf": 0}]}}
+_ut_list = f._held_list
+_ut_was = f._HELD_PATH.pop(("times", 9999997), None)
+try:
+    f._held_list = lambda series: (1, ())
+    _ut_due = [f.due_reason(r, "h", [], "v") for r in (
+        _ut, {**_ut, "solOnly": True}, {**_ut, "verdicts": [{"number": 9999996}]})]
+    _ut_file = Path(tempfile.mkdtemp()) / "times-9999997.json"
+    _ut_file.write_text(json.dumps({"entries": []}))
+    f._HELD_PATH[("times", 9999997)] = _ut_file
+    _ut_held = f.due_reason(_ut, "h", [], "v")
+finally:
+    f._held_list = _ut_list
+    f._HELD_PATH.pop(("times", 9999997), None)
+    if _ut_was is not None:
+        f._HELD_PATH[("times", 9999997)] = _ut_was
+check("a title with no verdict is never-read work; a solutions-only read, another title's verdict or a held puzzle not",
+      [f.UNREAD_TITLES, "titles changed", "titles changed", "titles changed"], _ut_due + [_ut_held])
+check("the reason is evidence and ranked with never-read work", (True, f.RANKS["never read"]),
+      (eq.evidence_reason(f.UNREAD_TITLES), f.rank_of_reason(f.UNREAD_TITLES)))
 # ---- A Times solution grid refused before matched_box is planned though likely() predicts it nothing (10-24)
 _refused = {"kind": "read", "paper": "times", "rel": "NewsUK1984UKEnglish/1984-05-01_61715", "date": "1984-05-01",
             "reason": f.REFUSED_GRID, "rank": 2, "needs": []}
