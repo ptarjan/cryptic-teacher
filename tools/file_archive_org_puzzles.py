@@ -384,7 +384,7 @@ def solution_number(text, expected):
         return int(read)
     if read.isdigit() and any(abs(int(read) - e) < 10 for e in expected):
         return None
-    costs = sorted((read_cost(read, str(e)), e) for e in expected)
+    costs = sorted((read_cost(read, str(e)), e) for e in expected if e > 0)
     if costs and costs[0][0] <= REPAIR_COST and (len(costs) == 1 or costs[1][0] > costs[0][0]):
         return costs[0][1]
     return None
@@ -6086,6 +6086,27 @@ for _paper, _pins in _GRID_CAP_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before solution_number skipped
+#: expected numbers below 1 (a 1930 page's count back from its first puzzle gave -1, and
+#: str(-1) has no DIGIT_READS: KeyError '-'): pages that crashed now read, every other scan stands.
+_NEG_EXPECTED_FIX = {
+    "ft": ("a8b00443824ec045", "13c1fe5834f72ff7", "43018f01942ece0f"),
+    "gale": ("ca46afbc28bc7691", "769569d7ffc90869", "5e9af7144cffef60"),
+    "galeft": ("02c31abdb042191e", "22196a13cf05d976", "2d5b8b81e4fb0d47"),
+    "galeindependent": ("0e7c077fe1b3301b", "871c55e8bc565891", "b8c1b025d61124da"),
+    "galesundaytimes": ("9072b147a8ea77a7", "1c225740a32eb657", "7fc67a9979068268"),
+    "galetelegraph": ("bda8c1b263bb6491", "4e85918347adf664", "acde5a14a395d485"),
+    "galetls": ("16fa4037d19595f8", "b223a8c16d1635df", "006dfca3e9281e15"),
+    "guardian": ("b35ed17631eaeb15", "119f0e7f9feca41c", "10e9613a68e1357f"),
+    "telegraph": ("839dc6737436fd27", "4ae775bb707087b6", "baab35690b42642d"),
+    "times": ("37544b124ba27f6a", "1aba9eed995b236f", "80a310e7930c3dea"),
+    "times1930": ("56eea6322c5e26e5", "99a87675da2c6c4e", "ec9192e295a4f7f6"),
+}
+for _paper, _pins in _NEG_EXPECTED_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The Gale Times days (first, last) whose pages are 4600 px wide, scanned again for the wider
 #: band and grid cap.
 BAND_RESCAN = (datetime.date(2005, 5, 1), datetime.date(2006, 9, 30))
@@ -6100,7 +6121,8 @@ def prize_rescan(paper, key, rel):
         return False
     if key in _PRIZE_HEADINGS_FIX["gale"][:2] and prize_monday(day):
         return True
-    return key != _GRID_CAP_FIX["gale"][2] and BAND_RESCAN[0] <= day <= BAND_RESCAN[1]
+    return (key not in (_GRID_CAP_FIX["gale"][2], _NEG_EXPECTED_FIX["gale"][2])
+            and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
 def current_keys(paper):
@@ -6174,7 +6196,7 @@ _SOLUTION_KEY = []
 #: only takes fewer lights: a row read before it reads no more for it.
 _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
                   "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706",
-                  "e1f457cc02985dda": "8417cfb08f3a9706"}
+                  "e1f457cc02985dda": "8417cfb08f3a9706", "f9e93b539e79a435": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
