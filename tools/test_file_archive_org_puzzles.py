@@ -1339,6 +1339,14 @@ check("a Monday of the 2000s hosts the prize of the Saturday nine days before, a
        f.hosted_window(f.GALE, pz), [f.prize_monday(D("2006-10-23")), f.prize_monday(D("2006-10-24"))]))
 check("a Saturday of 2000 on has the Monday week after as a second host; a weekday has one",
       ([D("2006-10-21"), D("2006-10-23")], [D("2006-10-18")]), (f.host_days(D("2006-10-14")), f.host_days(D("2006-10-17"))))
+# Before 1981-07-04 a Saturday's solution prints on the Monday after (1970-05-11 holds 12,463 of 05-09),
+# from it a week on (1981-07-11 holds 15,569 of 07-04); hosted reads the Monday's as its title's issue before.
+check("a Saturday before 1981-07-04 is hosted by the Monday after, one from it by the Saturday after; "
+      "the Monday hosts the Saturday's number",
+      ([D("1970-05-11")], [D("1981-06-29")], [D("1981-07-11")], True),
+      (f.host_days(D("1970-05-09")), f.host_days(D("1981-06-27")), f.host_days(D("1981-07-04")),
+       12463 in f.hosted({"date": "1970-05-11", "item": "GaleTimes1970UKEnglish", "puzzles": [{"number": 12464, "leaf": 0}],
+                          "solutions": [{"number": 12463, "leaf": 0}]}, {12463: D("1970-05-09")})))
 _gk = f._PRIZE_HEADINGS_FIX["gale"]
 _mon = {"edition": "GaleTimes2009UKEnglish/2009-08-17", "scanKey": _gk[0], "filesHash": "h", "scan": {}}
 _tue = {**_mon, "edition": "GaleTimes2009UKEnglish/2009-08-18"}
