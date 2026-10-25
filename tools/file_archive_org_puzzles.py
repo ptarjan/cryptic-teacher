@@ -4756,7 +4756,9 @@ def uncrossed(answers, grid, enums=None, probs=None):
     lone cells (unchecked, or crossed unanswered) the classifier reads as a listed word one letter
     off is left out (misread_rival): the check alone left out 6,909 of the 97,685 Times answers
     filed 10-22..25, nearly all right (a partial grid's MILOMETER, HEZEKIAH, BETSEYTROTWOOD).
-    It is called only when an answer would be left out; with no reading, every one is."""
+    It is called only when an answer would be left out that a listed word lies one lone letter off
+    (no other can be read as one: with none, every answer stands); with no reading, every one is left
+    out."""
     lts = trove_solution_ocr.lights(grid)
     on = {}
     for (n, dr), cells in lts.items():
@@ -4768,9 +4770,17 @@ def uncrossed(answers, grid, enums=None, probs=None):
         if k not in out and any(len(on[rc]) == 1 for rc in cells) \
                 and not worded(a, (enums or {}).get(_light_key(k))) and a.upper() not in trove_solution_ocr.corpus_words():
             out.add(k)
-    got = probs() if out and probs is not None else None
+    if not out or probs is None:
+        return out
+    # Only an answer a listed word lies one lone letter off can be read as one (misread_rival): with
+    # none, the crop's ~5 s classifier read is spared and every answer stands.
+    lone = {k: lone_cells(k, lts, on, answers) for k in out}
+    near = {k for k in out if any(i in {j for j, _, _ in lone[k]} for i, _ in trove_solution_ocr.one_change(answers[k].upper()))}
+    if not near:
+        return set()
+    got = probs()
     if got:
-        out = {k for k in out if misread_rival(answers[k], lone_cells(k, lts, on, answers), got)}
+        out = {k for k in near if misread_rival(answers[k], lone[k], got)}
     return out
 
 
