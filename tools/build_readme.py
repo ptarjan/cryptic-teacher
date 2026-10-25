@@ -385,6 +385,7 @@ LAYOUT = [
     ("scheduling", "tools/test_puzzle_worker.sh", "holds the solve and annotate prompts, the validate-commit-push of a puzzle, to that one file, and every cold solve to the run that annotates it"),
     ("scheduling", "household-plugins/<name>/plugin.toml", "when and where the household bridge runs each scheduled job (daily, prereset, books, annotate audit, corpus queue, archive coverage, Gale inbox, VLM health); symlinked from ~/.config/household/plugins/<name>, then `tools/plugins.py --write` in the household repo"),
     ("scheduling", "tools/test_annotate_retry.sh", "drives that resume, and a cold solve's run, with a fake CLI, so it is not first tried on a night it is needed"),
+    ("scheduling", "tools/test_apply_rule_repairs.py", "does the first check run every bag fixer (RULE_REPAIRS) whose rule fires, so a lone letter in an anagram is mended before the model sees it?"),
     ("scheduling", "tools/test_apply_refusal.py", "a refused annotation write names clue ids and no traceback, so the model does not map entries[N] by hand"),
     ("scheduling", "tools/annotate_postmortem.py", "why an annotation run died, read off its transcript — sent WITH the alert, so the report is not a pointer to a log"),
     ("scheduling", "tools/test_annotate_postmortem.sh", "checks that post-mortem reports the right shape and that the nightly actually sends it"),
