@@ -72,7 +72,12 @@ Grammar
                           build the answer; "reading" spells it in the pieces,
                           capitals joined by spaces or +: reverse([What makes
                           pets], "OUT + STEP") for OUTSTEP. The whole wordplay;
-                          the definition stays a `def`
+                          the definition stays a `def`. Only when the reading
+                          names the clue's own last words rearranged (pets ->
+                          STEP); a phrase of 3+ words with no such word is
+                          refused (reversePhrase): write what the words do
+                          (ana, hid, charade), or cd([words]) if nothing builds
+                          the answer
     rebus([words], "reading")
                           a picture of letters or figures, "reading" saying what
                           it shows: rebus([HIJKLMNO], "H to O") for WATER. The

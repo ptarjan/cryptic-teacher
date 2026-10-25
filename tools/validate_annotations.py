@@ -7566,7 +7566,10 @@ def shape_warnings(tag, ann, clue=None, answer=None):
                    f"per word, del(word, its half)")
     if k := reverse_phrase(tree):
         out.append(f"{tag}: {k} {REVERSE_PHRASE}: say what the words do (an anagram, a hidden "
-                   f"word, a charade), not a reading of the whole phrase")
+                   f"word, a charade), not a reading of the whole phrase; keep reverse([...], \"reading\") "
+                   f"only when the reading has a word that is the clue's last words rearranged "
+                   f"(\"What makes pets\" -> STEP); if nothing in the phrase builds the answer, "
+                   f"write cd([words]) with no reverse")
     if k := deletion_scope_answer(tree, answer):
         out.append(f"{tag}: {k} {DELETION_SCOPE_ANSWER}: the indicator acts on the one piece it sits "
                    f"by, so delete inside the charade, del(piece, letters)")
