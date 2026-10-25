@@ -192,6 +192,13 @@
     const abb = liveB && isObj(b.blocksAt) ? b.blocksAt : {};
     const blocksAt = eachKey(aba, abb, (k) => Math.max(num(aba[k]), num(abb[k])));
 
+    // Pieces taken out of turn from the formula (app.js piecesPicked): a bitmask
+    // per clue, so the merge is the union of what either device took. Taken
+    // pieces are paid out and never come back, like the count above.
+    const apa = liveA && isObj(a.piecesPicked) ? a.piecesPicked : {};
+    const apb = liveB && isObj(b.piecesPicked) ? b.piecesPicked : {};
+    const piecesPicked = eachKey(apa, apb, (k) => num(apa[k]) | num(apb[k]));
+
     // How many rungs were up when the clue first fell. "First" has no meaning
     // across two clocks, so take the better score. It is the answer you would
     // get if you had done all of this on one machine and solved it on the try
@@ -205,7 +212,7 @@
 
     const timing = mergeTiming(liveA ? a.timing : {}, liveB ? b.timing : {});
 
-    const out = { letters, letterAt, hintsShown, hintsEarned, revealsUsed, blocksAt, solvedWith,
+    const out = { letters, letterAt, hintsShown, hintsEarned, revealsUsed, blocksAt, piecesPicked, solvedWith,
              timing, clearedAt, updated: Math.max(at, bt) };
     if (grid) out.grid = String(grid);
     return out;

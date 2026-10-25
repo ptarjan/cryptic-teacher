@@ -919,6 +919,17 @@ button:disabled:hover { border-color: var(--line); }
   letter-spacing: .04em; color: var(--accent); background: var(--accent-soft); border: 0;
   border-radius: 9px; padding: 1px 7px; margin-left: 2px; cursor: pointer; vertical-align: 1px; }
 .rule-chip[aria-expanded="true"] { color: var(--bg); background: var(--accent); }
+/* The formula under the type rung: blank pieces, each a tap. Wraps rather than
+   scrolls, so it reads on a phone; a taken piece keeps its place and goes solid. */
+.formula { margin-top: 6px; line-height: 2; }
+.formula-lead, .formula-word { color: var(--muted); font-size: .88rem; }
+.formula-chip { font: inherit; font-size: .82rem; font-weight: 700; color: var(--accent);
+  background: var(--accent-soft); border: 1px dashed var(--accent); border-radius: 9px;
+  padding: 2px 9px; cursor: pointer; }
+.formula-chip:disabled { opacity: .55; cursor: default; }
+.formula-chip.got { color: var(--bg); background: var(--accent); border-style: solid; cursor: default; }
+.formula-chip.arm-cost { border-style: solid; }
+.formula p, .formula ul { line-height: 1.4; }
 .hint-step .device-rule { display: block; margin-top: 4px; padding: 4px 8px;
   border-left: 3px solid var(--accent-soft); font-size: .88rem; color: var(--muted); }
 .device-rule .learn-link { white-space: nowrap; }
