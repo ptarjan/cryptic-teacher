@@ -5009,9 +5009,9 @@ global.realSetTimeout(() => {
   // --- tier 1: solved by typing, no hints taken — the clean tier ---
   select(cleanE);
   const cells = cellsOf(cleanE);
-  // The clean-solve burst goes over the clue panel being worked in, not the
-  // grid: spy on which element's rect fireworksAt measures.
-  const panelEl = registry["hint-panel"], midEl = cells[Math.floor(cells.length / 2)];
+  // The clean-solve burst goes over the clue panel's letter boxes, the box
+  // being worked in, not the grid: spy on which rect fireworksAt measures.
+  const panelEl = registry["hint-pattern"], midEl = cells[Math.floor(cells.length / 2)];
   const measured = [];
   const spyRect = (el, name) => {
     const orig = el.getBoundingClientRect;
