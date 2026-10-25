@@ -2395,6 +2395,10 @@ tools/gale_docs.py                             Gale's document and PDF Download 
                                                Listener (its puzzles and their solution
                                                reports) and other papers' rows looked up by
                                                gale_fetch.py as it goes, 2 s apart
+tools/gale_rejected.txt                        Gale documents the Times picker chose that are not
+                                               the day's cryptic (jumbo, news story, promo,
+                                               contents, front page, Times2): gale_docs never
+                                               picks them and looks their dates up again
 tools/gale_fetch.py                            downloads every wanted Times edition itself, in
                                                next-up order, then once fewer than a plan's
                                                worth of Times rows are left the Listener's

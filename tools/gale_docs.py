@@ -177,10 +177,29 @@ def listener_article(titles, number=None):
     return cands[0] if cands else None
 
 
+#: Documents known not to be the day's cryptic (one line each, last word the
+#: docId): never picked, and an entry naming one is looked up again.
+REJECTED = Path(__file__).with_name("gale_rejected.txt")
+
+
+def rejected(path=None):
+    """The upper-cased docIds in the rejected list (none if no file)."""
+    try:
+        lines = (path or REJECTED).read_text().splitlines()
+    except OSError:
+        return set()
+    return {ln.split()[-1].upper() for ln in lines if ln.strip() and not ln.lstrip().startswith("#")}
+
+
+REJECTED_DOCS = rejected()
+
+
 def stale(prod, e):
-    """Whether cache entry `e` is to be looked up again: cached by an older
-    matcher, and a miss or (the Times) a title this one rejects or ranks
-    below the cryptic's."""
+    """Whether cache entry `e` is to be looked up again: its document is
+    rejected, or it was cached by an older matcher, and a miss or (the
+    Times) a title this one rejects or ranks below the cryptic's."""
+    if str(e.get("doc", "")).upper() in REJECTED_DOCS:
+        return True
     if e.get("kind") == LISTENER_KIND:
         return e.get("matcher", 0) < MATCHER[LISTENER_KIND] and "doc" not in e
     if e.get("matcher", 0) >= MATCHER[prod]:
@@ -209,7 +228,8 @@ def report(titles, number):
 def entry(prod, dvi, number=None, find=None):
     """The cache entry for the crossword in issue `dvi` (or the article
     `find(titles)` picks)."""
-    arts = list(articles(dvi["originalDocument"].get("articleTableOfContents")))
+    arts = [a for a in articles(dvi["originalDocument"].get("articleTableOfContents"))
+            if str(a["docId"]).upper() not in REJECTED_DOCS]
     titles = [a["docTitle"] for a in arts]
     k = find(titles) if find else crossword(prod, titles, number)
     pages = {int(p["pageNumber"]): p["mediaRecordId"] for p in dvi.get("pageDocuments") or ()}
