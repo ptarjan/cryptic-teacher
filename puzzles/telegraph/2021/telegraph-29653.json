@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Wood sounds good to me",
     "enumeration": "4"
    },
-   "solution": "DEAL"
+   "solution": "DEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wood",
+      "at": 0,
+      "meaning": "a name for pine or fir timber, sawn into planks"
+     },
+     {
+      "text": "sounds good to me",
+      "at": 5,
+      "meaning": "a spoken agreement to an offer"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone happily approving a choice of timber.",
+     "definitionFit": "Both senses are standard: softwood planks, and the one-word exclamation that accepts a proposal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sounds"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,65 @@
     "text": "Emissary from East, on stage during meeting",
     "enumeration": "8"
    },
-   "solution": "DELEGATE"
+   "solution": "DELEGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Emissary",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 29,
+       "note": "during means within, so the pieces go inside the meeting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meeting",
+       "at": 36,
+       "gives": "DATE",
+       "note": "a date is an arranged meeting"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 20,
+         "note": "in a down clue, on means placed above, so the first letter sits on top of the stage"
+        }
+       ],
+       "parts": [
+        {
+         "words": "East",
+         "at": 14,
+         "gives": "E"
+        },
+        {
+         "words": "stage",
+         "at": 23,
+         "gives": "LEG",
+         "note": "a leg is a stage of a journey or race"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An envoy from the east appears on stage during a conference.",
+     "definitionFit": "An emissary is a representative sent on behalf of others, such as a conference delegate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stage"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +148,78 @@
      }
     ]
    },
-   "solution": "ACIDRAIN"
+   "solution": "ACIDRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pollutant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enveloping",
+       "at": 23,
+       "note": "enveloping means wrapping round, so the sewer encloses the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15
+        },
+        {
+         "words": "sewer",
+         "at": 17,
+         "gives": "DRAIN",
+         "note": "a drain is a sewer"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "capital of",
+           "at": 34,
+           "note": "the capital of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Caribbean",
+           "at": 45
+          }
+         ]
+        },
+        {
+         "words": "island",
+         "at": 55,
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sewer spills into a Caribbean capital, polluting it.",
+     "walkthrough": "The pair CI goes in after A, inside A DRAIN.",
+     "definitionFit": "Rainfall made acidic by industrial emissions is a well-known environmental pollutant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +239,52 @@
      }
     ]
    },
-   "solution": "MAGNUMOPUS"
+   "solution": "MAGNUMOPUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "person's greatest work",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The old lady",
+       "at": 0,
+       "gives": "MA",
+       "note": "MA is an informal word for mother, 'the old lady' in slang"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "remarkable",
+         "at": 24,
+         "note": "remarkable read as re-markable: the letters are marked out again in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mugs up on",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mum is cramming hard for some exam on a brilliant figure's masterpiece.",
+     "walkthrough": "'remarkable' looks like praise for the person, but read as re-markable it is the anagram signal, so the definition starts at 'person's'.",
+     "definitionFit": "A Latin phrase meaning great work, used for the finest achievement in a career."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remarkable"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +298,47 @@
     "text": "By oneself in plant around noon",
     "enumeration": "5"
    },
-   "solution": "ALONE"
+   "solution": "ALONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "By oneself",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 20,
+       "note": "around means the plant goes round the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plant",
+       "at": 14,
+       "gives": "ALOE",
+       "note": "aloe is a succulent plant"
+      },
+      {
+       "words": "noon",
+       "at": 27,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sits on their own among the greenery at midday.",
+     "definitionFit": "Being on your own, with no company, is being by oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +352,68 @@
     "text": "No nonsense shown over one old American film",
     "enumeration": "9"
    },
-   "solution": "NOTORIOUS"
+   "solution": "NOTORIOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "film",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No",
+       "at": 0
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 18,
+         "note": "in a down clue, over signals the word is turned upside down, read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nonsense",
+         "at": 3,
+         "gives": "ROT",
+         "note": "rot is nonsense"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 23,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "old",
+       "at": 27,
+       "gives": "O"
+      },
+      {
+       "words": "American",
+       "at": 31,
+       "gives": "US",
+       "note": "US means American"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A no-nonsense verdict on a classic American movie.",
+     "definitionFit": "Notorious is a 1946 Hitchcock thriller starring Cary Grant and Ingrid Bergman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nonsense"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +433,51 @@
      }
     ]
    },
-   "solution": "MERRYANDREW"
+   "solution": "MERRYANDREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clown",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Slightly drunk",
+       "at": 0,
+       "gives": "MERRY",
+       "note": "merry means tipsy"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "silly",
+         "at": 23,
+         "note": "silly suggests the letters of the word are played about with"
+        }
+       ],
+       "parts": [
+        {
+         "words": "warden",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy prison officer acts the fool.",
+     "definitionFit": "A merry-andrew is an old term for a buffoon or jester entertaining a crowd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "warden"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +491,44 @@
     "text": "Hawker, one using a bike, we hear",
     "enumeration": "6"
    },
-   "solution": "PEDLAR"
+   "solution": "PEDLAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hawker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PEDLAR",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 26,
+       "note": "we hear signals the word is spoken, so its sound matters, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one using a bike",
+       "at": 8,
+       "gives": "PEDALLER",
+       "note": "a cyclist pushes the pedals, so is a pedaller"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A street seller goes round on a bicycle.",
+     "definitionFit": "A hawker travels about selling small goods, just as a travelling peddler does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hawker"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +542,30 @@
     "text": "Consistent stable",
     "enumeration": "6"
    },
-   "solution": "STEADY"
+   "solution": "STEADY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Consistent",
+      "at": 0,
+      "meaning": "regular and unvarying, like a constant pace"
+     },
+     {
+      "text": "stable",
+      "at": 11,
+      "meaning": "firmly fixed, not wobbling"
+     }
+    ],
+    "explanation": {
+     "surface": "Something reliable and secure.",
+     "definitionFit": "Both adjectives describe something even and unchanging, whether over time or physically firm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +579,46 @@
     "text": "Former PM heading off for retreat",
     "enumeration": "4"
    },
-   "solution": "LAIR"
+   "solution": "LAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "retreat",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heading off",
+       "at": 10,
+       "note": "the head, or first letter, of the prime minister's name is taken off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Former PM",
+       "at": 0,
+       "gives": "BLAIR",
+       "note": "Tony Blair, British prime minister 1997-2007"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-premier leaves to go to a quiet hideaway.",
+     "walkthrough": "Removing the first letter B leaves the remaining four.",
+     "definitionFit": "A den or hideout is a place to retreat to, as an animal does to its lair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +632,44 @@
     "text": "Crossing ford, big toe gets broken",
     "enumeration": "10"
    },
-   "solution": "FOOTBRIDGE"
+   "solution": "FOOTBRIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crossing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "gets broken",
+       "at": 23,
+       "note": "the letters of the two words are broken up and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ford",
+       "at": 9
+      },
+      {
+       "words": "big toe",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wading across a river, someone breaks their big toe.",
+     "definitionFit": "A narrow bridge for walkers is a way of crossing a river or road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crossing"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +683,47 @@
     "text": "Blunder involving Irish beast",
     "enumeration": "7"
    },
-   "solution": "GIRAFFE"
+   "solution": "GIRAFFE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "beast",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 8,
+       "note": "involving means taking in, so one piece is wrapped around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Blunder",
+       "at": 0,
+       "gives": "GAFFE",
+       "note": "a gaffe is a social blunder"
+      },
+      {
+       "words": "Irish",
+       "at": 18,
+       "gives": "IR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes an embarrassing mistake about an Irish animal.",
+     "definitionFit": "The long-necked African mammal is an example of a beast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Irish"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +743,47 @@
      }
     ]
    },
-   "solution": "FALLTHROUGH"
+   "solution": "FALLTHROUGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "collapse",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fine",
+       "at": 0,
+       "gives": "F",
+       "note": "F is the pencil-lead abbreviation for fine"
+      },
+      {
+       "words": "everyone",
+       "at": 5,
+       "gives": "ALL",
+       "note": "all means everyone"
+      },
+      {
+       "words": "over",
+       "at": 14,
+       "gives": "THROUGH",
+       "note": "through means finished, over"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone is fined after a building falls down.",
+     "definitionFit": "When a plan comes to nothing it is said to fail, an idiom for a deal collapsing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +797,57 @@
     "text": "Preposterous yarn inspired by red fox",
     "enumeration": "7"
    },
-   "solution": "REYNARD"
+   "solution": "REYNARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fox",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspired by",
+       "at": 18,
+       "note": "inspired means breathed in, so the jumbled letters are taken inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "red",
+       "at": 30
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Preposterous",
+         "at": 0,
+         "note": "a preposterous version of the word yarn is a nonsensical rearrangement of it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yarn",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An absurd tale was inspired by a red fox.",
+     "walkthrough": "'red' looks like the fox's colour, but it is the container; 'inspired by' means breathed in, so the jumbled yarn goes inside.",
+     "definitionFit": "Reynard is the traditional proper name for the fox in European folk tales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspired"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +867,70 @@
      }
     ]
    },
-   "solution": "TRIPLECROWN"
+   "solution": "TRIPLECROWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What can be won at rugby?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "written about",
+         "at": 35,
+         "note": "written about means the word for nonsense is set around another letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nonsense",
+         "at": 26,
+         "gives": "TRIPE",
+         "note": "tripe is slang for nonsense"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "at": 56,
+           "note": "first takes only the opening letter of the player's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Lomu's",
+           "at": 49
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "cap",
+       "at": 62,
+       "gives": "CROWN",
+       "note": "a crown is the top of something, as a cap is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby question, with rubbish written about Jonah Lomu's first international cap.",
+     "walkthrough": "Jonah Lomu was a famous New Zealand rugby winger. In rugby union the Triple Crown goes to a home nation (England, Scotland, Wales, Ireland) that beats the other three.",
+     "definitionFit": "A trophy-free honour won in the Six Nations rugby tournament by beating all three home rivals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +944,40 @@
     "text": "Reptile, ice-cold or otherwise?",
     "enumeration": "9"
    },
-   "solution": "CROCODILE"
+   "solution": "CROCODILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reptile",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "otherwise",
+       "at": 21,
+       "note": "otherwise means in another way, so the letters are arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ice-cold or",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a reptile is cold-blooded or not.",
+     "definitionFit": "The large river-dwelling predator with powerful jaws is a reptile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ice-cold"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +991,72 @@
     "text": "Newspaper piece about support artist raised",
     "enumeration": "8"
    },
-   "solution": "GUARDIAN"
+   "solution": "GUARDIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Newspaper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 16,
+       "note": "about means the weapon goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "piece",
+       "at": 10,
+       "gives": "GUN",
+       "note": "a piece is slang for a gun"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 37,
+         "note": "in a down clue, raised means read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "support",
+           "at": 22,
+           "gives": "AID",
+           "note": "aid means support"
+          },
+          {
+           "words": "artist",
+           "at": 30,
+           "gives": "RA",
+           "note": "RA is a Royal Academician, an artist"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece about backing an artist who has come up in the world.",
+     "walkthrough": "'raised' turns AIDRA into ARDIA; 'about' puts GUN around it.",
+     "definitionFit": "The Guardian is a British national daily newspaper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1076,48 @@
      }
     ]
    },
-   "solution": "STITCHUP"
+   "solution": "STITCHUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Falsely incriminate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 38,
+       "note": "during means inside, so the small person goes within the drink"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "at": 45,
+       "gives": "SUP",
+       "note": "to sup is to drink"
+      },
+      {
+       "words": "diminutive figure",
+       "at": 20,
+       "gives": "TITCH",
+       "note": "titch is British slang for a small person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small person is framed while having a drink.",
+     "definitionFit": "To frame someone with fabricated evidence is British slang for falsely incriminating them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1137,44 @@
      }
     ]
    },
-   "solution": "TROUSERSUIT"
+   "solution": "TROUSERSUIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outfit for a woman?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "abroad",
+       "at": 34,
+       "note": "abroad in its sense of widely scattered or astray signals the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sure",
+       "at": 20
+      },
+      {
+       "words": "tourist",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper agrees that a travelling holidaymaker might buy some clothes.",
+     "definitionFit": "A jacket and trousers worn together is a matching outfit traditionally sold for women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1188,56 @@
     "text": "Pleased, mostly, breaking out",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "breaking",
+       "at": 17,
+       "note": "breaking suggests the letters break apart and are reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 9,
+         "note": "mostly means all but the last letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pleased",
+         "at": 0
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone happily breaking out, perhaps of prison.",
+     "walkthrough": "'mostly' leaves PLEASE, which 'breaking' rearranges. 'breaking out' reads as one phrase but splits.",
+     "definitionFit": "Someone sound asleep is out cold, the informal sense of unconscious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1251,58 @@
     "text": "Author, British, tense visiting French city",
     "enumeration": "6"
    },
-   "solution": "BLYTON"
+   "solution": "BLYTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "at": 8,
+       "gives": "B"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "visiting",
+         "at": 23,
+         "note": "visiting means going into, so the letter enters the city"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French city",
+         "at": 32,
+         "gives": "LYON",
+         "note": "Lyon is a city in France"
+        },
+        {
+         "words": "tense",
+         "at": 17,
+         "gives": "T",
+         "note": "T is the grammatical abbreviation for tense"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British writer, nervous on a trip to France.",
+     "definitionFit": "Enid Blyton was a prolific English children's writer, creator of the Famous Five."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1316,58 @@
     "text": "Port auction: no bottles right?",
     "enumeration": "7"
    },
-   "solution": "SALERNO"
+   "solution": "SALERNO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Port",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bottles",
+       "at": 17,
+       "note": "bottles means holds inside, so the short word wraps the letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "auction",
+         "at": 5,
+         "gives": "SALE",
+         "note": "an auction is a sale"
+        },
+        {
+         "words": "no",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 25,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At an auction of port wine, someone asks whether there are no bottles.",
+     "walkthrough": "'Port' tempts as the fortified wine; here it is a harbour town, Salerno in southern Italy.",
+     "definitionFit": "Salerno is a harbour city on Italy's south-west coast, an example of a seaport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Port"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1387,55 @@
      }
     ]
    },
-   "solution": "ATWORST"
+   "solution": "ATWORST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Taking the most pessimistic view",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 34
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 43,
+         "note": "a word's leader is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "team's",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "words": "defeat",
+       "at": 57,
+       "gives": "WORST",
+       "note": "to worst someone is to defeat them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A captain gloomily expects his side to be beaten.",
+     "definitionFit": "The phrase introduces the gloomiest possible outcome, as in 'at worst we lose'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 22,
@@ -400,7 +1449,46 @@
     "text": "Crime of penniless member of the clergy?",
     "enumeration": "5"
    },
-   "solution": "ARSON"
+   "solution": "ARSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crime",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "penniless",
+       "at": 9,
+       "note": "penniless means without P, the abbreviation for penny"
+      }
+     ],
+     "parts": [
+      {
+       "words": "member of the clergy",
+       "at": 19,
+       "gives": "PARSON",
+       "note": "a parson is a clergyman"
+      },
+      {
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a poor vicar committing an offence?",
+     "definitionFit": "Deliberately setting fire to property is a criminal offence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "penniless"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1502,59 @@
     "text": "Fan in seat, wriggling about so",
     "enumeration": "10"
    },
-   "solution": "ENTHUSIAST"
+   "solution": "ENTHUSIAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fan",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 23,
+       "note": "about means surrounding, so the jumbled letters go round the synonym"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wriggling",
+         "at": 13,
+         "note": "wriggling suggests the letters of the two words squirm into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in seat",
+         "at": 4
+        }
+       ]
+      },
+      {
+       "words": "so",
+       "at": 29,
+       "gives": "THUS",
+       "note": "thus and so both mean in this way"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A supporter fidgets in their seat at the match.",
+     "walkthrough": "'wriggling' rearranges IN SEAT to ENIAST; 'about' puts it around THUS.",
+     "definitionFit": "A fan is an avid supporter or devotee, the abbreviation of fanatic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fan"
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1568,42 @@
     "text": "Hope portion of stew is hot",
     "enumeration": "4"
    },
-   "solution": "WISH"
+   "solution": "WISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hope",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "portion of",
+       "at": 5,
+       "note": "portion of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stew is hot",
+       "at": 16,
+       "gives": "WISH",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hopes for a serving of hot stew.",
+     "definitionFit": "To hope for something is to want it, a near synonym of desire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "portion"
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1617,58 @@
     "text": "Mean person in nick, fenced-in area, extremely nasty",
     "enumeration": "10"
    },
-   "solution": "PINCHPENNY"
+   "solution": "PINCHPENNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mean person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nick",
+       "at": 15,
+       "gives": "PINCH",
+       "note": "nick and pinch are both slang for steal"
+      },
+      {
+       "words": "fenced-in area",
+       "at": 21,
+       "gives": "PEN",
+       "note": "a pen is an enclosure for animals"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 37,
+         "note": "extremely picks the extreme, outermost letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nasty",
+         "at": 47
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A miser in a police cell, in a fenced yard, being very unpleasant.",
+     "walkthrough": "'nick' suggests prison, but here it means steal.",
+     "definitionFit": "A skinflint who hoards every coin is a mean person, stingy with money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nick"
+    }
+   }
   },
   {
    "number": 26,
@@ -456,7 +1682,41 @@
     "text": "South, down in card game",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "card game",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "South",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "down",
+       "at": 7,
+       "gives": "NAP",
+       "note": "down and nap both mean the soft fluffy surface of fabric or feathers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Players heading south, feeling down, over a game of cards.",
+     "walkthrough": "'down' looks like a direction or a mood; it is the soft fibre on cloth.",
+     "definitionFit": "Snap is a simple children's game played with a pack of playing cards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   }
  ]
 }
