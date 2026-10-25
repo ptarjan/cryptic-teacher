@@ -1509,7 +1509,8 @@
      "indicators": [
       {
        "text": "housing",
-       "note": "housing something means giving it a home inside, so one piece goes within"
+       "at": 24,
+       "note": "housing means containing the next piece within"
       }
      ],
      "parts": [
@@ -1518,14 +1519,35 @@
        "indicators": [
         {
          "text": "awful",
-         "note": "something awful is in a terrible state, so the letters are disordered"
+         "at": 18,
+         "note": "awful signals a messy rearrangement of those letters"
         }
        ],
        "parts": [
         {
-         "words": "in a doubly",
-         "gives": "INAINA",
-         "note": "the two words taken twice, as 'doubly' instructs"
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "doubly",
+           "at": 11,
+           "note": "doubly means the words in and a are written out twice"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "in",
+             "at": 6
+            },
+            {
+             "words": "a",
+             "at": 9
+            }
+           ]
+          }
+         ]
         }
        ]
       },
@@ -1534,22 +1556,23 @@
        "indicators": [
         {
          "text": "originally",
-         "note": "originally means at the origin, so only the first letter is kept"
+         "at": 45,
+         "note": "originally picks the first letter of development"
         }
        ],
        "parts": [
         {
          "words": "development",
-         "note": "the opening letter of development"
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A situation in a truly dreadful housing estate, to begin with.",
-     "walkthrough": "'Housing development' reads as one phrase, an estate, but 'housing' is the container signal and only the first letter of 'development' is used. 'Doubly' tells you to use 'in a' twice.",
-     "definitionFit": "Indiana is one of the fifty United States, in the Midwest, so it is an example of a US state."
+     "surface": "A state housing development is doubly awful as first built.",
+     "walkthrough": "'doubly' gives INAINA, 'awful' rearranges it to INIANA, and 'housing' puts D inside.",
+     "definitionFit": "It is one of the fifty US states, in the Midwest."
     },
     "features": {
      "answerInScene": false,

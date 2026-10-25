@@ -111,13 +111,6 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "at the outset",
-       "at": 63,
-       "note": "at the outset puts that letter at the very start of the answer"
-      }
-     ],
      "parts": [
       {
        "op": "first",
@@ -125,14 +118,25 @@
         {
          "text": "first of",
          "at": 45,
-         "note": "first of picks out the opening letter of whistles"
+         "note": "first of picks out only the opening letter of the word whistles"
         }
        ],
        "parts": [
         {
-         "words": "whistles",
-         "at": 54,
-         "note": "its first letter is W"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at the outset",
+           "at": 63,
+           "note": "at the outset points to the very start of the word whistles, its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "whistles",
+           "at": 54
+          }
+         ]
         }
        ]
       },
@@ -142,7 +146,7 @@
         {
          "text": "mostly",
          "at": 32,
-         "note": "mostly means all but the last letter"
+         "note": "mostly means the word for a covering loses its final letter"
         }
        ],
        "parts": [
@@ -166,9 +170,8 @@
      ]
     },
     "explanation": {
-     "surface": "The noise of a fast train, muffled by hush, with whistles sounding at departure.",
-     "walkthrough": "'High-speed train' looks like the thing described, but the whole phrase 'High-speed train sound' is the definition.",
-     "definitionFit": "A whoosh is the rushing noise of something passing at speed, like an express flashing by."
+     "surface": "An express train's noise drowns out the guard's whistle as it pulls away.",
+     "definitionFit": "The rushing noise of something passing at great velocity, such as an express, is this sound word."
     },
     "features": {
      "answerInScene": true,
@@ -327,35 +330,48 @@
        "indicators": [
         {
          "text": "opening",
-         "note": "The opening of a word is its first letter, and that single letter is all this contributes."
-        },
-        {
-         "text": "half of",
-         "note": "Exactly half the letters are wanted, and it is the front half of the six-letter fish that gets used."
+         "at": 17,
+         "note": "opening takes the first letter of each of the words neighbour's and a"
         }
        ],
        "parts": [
         {
          "words": "neighbour's",
-         "note": "the first letter of 'neighbour'"
+         "at": 5
+        },
+        {
+         "words": "a",
+         "at": 25
         }
        ]
       },
       {
-       "words": "a",
-       "note": "the word is lifted straight out of the clue"
-      },
-      {
-       "words": "half of salmon",
-       "gives": "SAL",
-       "note": "the first three of the fish's six letters"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 27,
+         "note": "half of salmon keeps the first three of its six letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salmon",
+         "at": 35
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prying next-door neighbour turning up for a share of the fish.",
-     "walkthrough": "'Nosy' is doing anatomy rather than gossip, and the neighbour peering over the fence is there to keep you reading it the other way.",
-     "definitionFit": "Nasal means of the nose, and 'nosy' is being used in that flat anatomical sense rather than its everyday one about prying."
+     "surface": "A nosy neighbour opens a tin of salmon and shares half.",
+     "definitionFit": "Nosy can mean relating to the nose, which is what this adjective describes, as with passages or sprays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nosy"
     }
    }
   },
@@ -432,56 +448,63 @@
        "note": "an app is a computer program"
       },
       {
-       "words": "or",
-       "at": 14
-      },
-      {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "backs",
-         "at": 24,
-         "note": "backs means goes backwards, so these pieces are read in reverse"
+         "text": "saving",
+         "at": 30,
+         "note": "saving means keeping something safe inside, here the letter for time"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "saving",
-           "at": 30,
-           "note": "saving here means keeping time as well, tacked onto the end before the turn"
-          }
-         ],
          "parts": [
           {
-           "words": "no",
-           "at": 17,
-           "gives": "NO",
-           "note": "taken as written"
+           "words": "or",
+           "at": 14
           },
           {
-           "words": "one",
-           "at": 20,
-           "gives": "I",
-           "note": "one is the Roman numeral I"
-          },
-          {
-           "words": "time",
-           "at": 37,
-           "gives": "T"
+           "op": "reversal",
+           "indicators": [
+            {
+             "text": "backs",
+             "at": 24,
+             "note": "backs means the words no and one are read in reverse order"
+            }
+           ],
+           "parts": [
+            {
+             "op": "charade",
+             "parts": [
+              {
+               "words": "no",
+               "at": 17
+              },
+              {
+               "words": "one",
+               "at": 20,
+               "gives": "I",
+               "note": "I is the Roman numeral for one"
+              }
+             ]
+            }
+           ]
           }
          ]
+        },
+        {
+         "words": "time",
+         "at": 37,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An app, or nobody, holds on to time so it can be divided up.",
-     "walkthrough": "'saving' just means with time added on, and 'backs' turns the whole of no, one and time round together, so time ends up first.",
-     "definitionFit": "To apportion is to divide something up and allot each party a share of it."
+     "surface": "A scheduling program shares out work, or nobody backs down on saving time.",
+     "definitionFit": "To share out is to divide something and allot portions to each party."
     },
     "features": {
      "answerInScene": false,
