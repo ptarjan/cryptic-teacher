@@ -108,4 +108,39 @@ entry["annotation"] = annotation.view(annotation.from_model(m, entry), entry)
 errs, warns = [], []
 v.check_blocks_account_for_answer([entry], errs, warns)
 check("LYMEBAY: a repeat over a last-letter pick copies the Y", [], errs + warns)
+
+# sound() over one pick or one hidden word: the pick is what is said (real 'no block says what is
+# said aloud' refusals, annotate audit 10-24/25: TEPEE, ELL, EMAIL).
+def sound_errors(answer, d, wp, clue):
+    m = {"def": d, "wp": wp, "notes": {}, "explanation": {"surface": "x", "definitionFit": "y"}}
+    entry = {"number": 1, "direction": "across", "solution": answer, "clue": {"text": clue}, "enumeration": str(len(answer))}
+    ann = annotation.view(annotation.from_model(m, entry), entry)
+    errs = []
+    v.check_sound_names_its_source("1A", ann, errs, [])
+    return errs, ann["blocks"]
+
+
+for ans, d, wp, clue, said in [
+        ("TEPEE", "Tent", "sound<are pronounced>(outer<ends>([top's]TP), TEPEE)", "Tent top's ends are pronounced", "TP"),
+        ("ELL", "Length of old", "sound<say>(first<Face>([Lying]), ELL)", "Length of old Lying Face, say", "L"),
+        ("EMAIL", "Form of communication", "sound<we hear>(hid<between>([male and female]EMALE), EMAIL)",
+         "Form of communication between male and female, we hear", "EMALE")]:
+    errs, blocks = sound_errors(ans, d, wp, clue)
+    check(f"{ans}: a sounded pick or hidden word says what is said aloud", (True, ans, said),
+          (not errs, blocks[0]["gives"], blocks[0].get("soundsLike")))
+# sound() over a charade of leaves with only a comma or quote between (annotate audit 10-24/25):
+# one leaf; a clue word between, or a leaf's own indicator, stays refused.
+for ans, d, wp, clue, said in [
+        ("STEELBAND", "beating team", "sound<to speak>([Move silently]STEAL + [forbidden]BANNED, STEELBAND)",
+         "Move silently, forbidden to speak, beating team", "STEALBANNED"),
+        ("EUREKA", "'Aha!'", "sound<said>([solver]YOU + [A stinker]REEKER, EUREKA)",
+         "'Aha!', said solver, 'A stinker!'", "YOUREEKER")]:
+    errs, blocks = sound_errors(ans, d, wp, clue)
+    check(f"{ans}: a sounded charade with a comma between its words is one leaf", (True, 1, said),
+          (not errs, len(blocks), blocks[0].get("soundsLike")))
+for ans, d, wp, clue in [
+        ("COINCIDE", "Agree", "sound<as reported>([money]COIN + [party]SIDE, COINCIDE)", "Agree money taken by party as reported"),
+        ("LANGUOR", "Lethargy", "sound<say>([Left]L +<facing> [irritation]ANGER, LANGUOR)", "Lethargy of Left facing irritation, say")]:
+    errs, blocks = sound_errors(ans, d, wp, clue)
+    check(f"{ans}: words between the leaves stay refused", True, bool(errs) and "what is said aloud" in errs[0])
 raise SystemExit(fails)
