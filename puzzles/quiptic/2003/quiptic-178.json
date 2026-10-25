@@ -1317,7 +1317,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "which makes everything look bigger!",
+      "text": "which makes everything look bigger",
       "at": 59
      }
     ],
@@ -1327,7 +1327,7 @@
       {
        "text": "contains",
        "at": 14,
-       "note": "the mum and tumbler words hold the rest of the letters inside them"
+       "note": "contains says the drinking vessel holds the rest inside"
       }
      ],
      "parts": [
@@ -1338,7 +1338,7 @@
          "words": "Mum's",
          "at": 0,
          "gives": "MA",
-         "note": "ma is a word for mum"
+         "note": "ma is a familiar word for mum, the apostrophe s showing she owns the glass"
         },
         {
          "words": "tumbler",
@@ -1354,15 +1354,25 @@
         {
          "text": "mixed",
          "at": 23,
-         "note": "mixed drinks are stirred together, so these letters are rearranged"
+         "note": "mixed means stirred together, so the letters are shuffled"
         }
        ],
        "parts": [
         {
-         "words": "double gin",
-         "at": 29,
-         "gives": "GINGIN",
-         "note": "a double gin is two measures, so the word gin is written twice"
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "double",
+           "at": 29,
+           "note": "double asks for the word gin to be written twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gin",
+           "at": 36
+          }
+         ]
         },
         {
          "op": "first",
@@ -1370,14 +1380,17 @@
           {
            "text": "initially",
            "at": 40,
-           "note": "initially means take the first letter of each of the words for you"
+           "note": "initially picks out the first letters of for and you"
           }
          ],
          "parts": [
           {
-           "words": "for you",
-           "at": 50,
-           "note": "first letters of for and you"
+           "words": "for",
+           "at": 50
+          },
+          {
+           "words": "you",
+           "at": 54
           }
          ]
         }
@@ -1386,14 +1399,13 @@
      ]
     },
     "explanation": {
-     "surface": "Mother's tumbler holds a strong mixed gin poured for you, and the drink makes everything look bigger.",
-     "walkthrough": "Double gin is read literally: the word gin written twice goes into the mix.",
-     "definitionFit": "A magnifying glass is a hand lens that enlarges the view of whatever is seen through it."
+     "surface": "Mum's glass holds a stiff double gin poured for you.",
+     "walkthrough": "The doubled spirit and the two initials are shuffled together before going into Mum's glass, just after her name.",
+     "definitionFit": "A lens on a handle enlarges whatever it is held over, making small print readable."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "tumbler"
     }
    }
