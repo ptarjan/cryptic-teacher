@@ -81,4 +81,31 @@ for ans, d, wp, notes in [
       "repeated": "repeated says the three letters just picked appear twice in a row"}),
 ]:
     check(f"{ans}: a repeat's one copy in the blocks is not a refusal", [], repeat_warned(ans, d, wp, notes))
+
+# Real refusals after fb49e09 (annotate audit 10-24/25): a repeat of a repeat copies the inner
+# one's whole output (independent-10621 7D), and a repeat over a selection copies the letter the
+# selection really picked, not the printed apostrophe's S (cryptic-28283 4D).
+check("TETEATETE: a repeat of a repeat is three copies short, not one", [],
+      repeat_warned("TETEATETE", "private talk", "ins<about>(rep<Repeatedly>(rep<copied>([note]TE)), [a]A)",
+                    {"Repeatedly": "doubled again", "copied": "written twice", "note": "TE is the seventh note",
+                     "about": "around"}))
+check("PRERELEASE: a repeat over an alternate-letters pick copies RE", [],
+      repeat_warned("PRERELEASE", "early copy of film?", "ins<included in>([content]PLEASE, rep<Repeated>(alt<oddly>([reel])))",
+                    {"included in": "inside", "oddly": "odd letters", "Repeated": "twice", "content": "please"}))
+# A selection over a built value gives its parts' blocks the letters BEFORE the pick
+# (cryptic-28158 24A, cryptic-28306 2D).
+check("TOMATO: middle of a repeated word, the blocks give the word", [],
+      repeat_warned("TOMATO", "fruit", "middle<show>(rep<Consecutive>([atoms]ATOM))", {"show": "displayed", "Consecutive": "in a row"}))
+check("SCORPION: middle of a reversed word, the blocks give the word", [],
+      repeat_warned("SCORPION", "Insect", "ins<devouring>([offspring]SCION, middle<core of>(rev<rising>([taproot])))",
+                    {"devouring": "eats", "core of": "centre", "rising": "up", "offspring": "a scion"}))
+clue = "Part of our Channel amid shifting blame ending diplomacy's again"
+m = {"def": "Part of our Channel", "wp": "ana<amid shifting>([blame] + rep<again>(last<ending>([diplomacy's])))",
+     "notes": {"amid shifting": "mixes", "again": "twice", "ending": "last"},
+     "explanation": {"surface": "x", "definitionFit": "y"}}
+entry = {"number": 4, "direction": "down", "solution": "LYMEBAY", "clue": {"text": clue}, "enumeration": "7"}
+entry["annotation"] = annotation.view(annotation.from_model(m, entry), entry)
+errs, warns = [], []
+v.check_blocks_account_for_answer([entry], errs, warns)
+check("LYMEBAY: a repeat over a last-letter pick copies the Y", [], errs + warns)
 raise SystemExit(fails)

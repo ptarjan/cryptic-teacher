@@ -493,7 +493,7 @@ def _blocks(node, got):
     return [b for p in parts for b in _blocks(p, got)]
 
 
-def repeat_copy_letters(tree):
+def repeat_copy_letters(tree, answer=None, got=None):
     """The letters of the second copy every `repeat` step in `tree` writes out.
     The view shows a repeat's one copy as its blocks (the app says "twice" in
     the indicator), so the blocks fall one copy short of the answer by design:
@@ -501,13 +501,50 @@ def repeat_copy_letters(tree):
     the blocks' letters up to the answer."""
     import wordplay
     out = ""
+    if got is None:
+        # With the answer, the letters a selection really picked (the last of
+        # diplomacy's is Y, not the S of the printed 's) steer the blocks.
+        try:
+            got = wordplay.evaluate(tree, answer) if tree and answer else {}
+        except wordplay.WordplayError:
+            got = {}
     for n, _ in _walk(tree or {}):
         if n.get("op") == "repeat" and not n.get("unchecked"):
             try:
-                out += "".join(_letters(b.get("gives")) for p in _parts(n) for b in _blocks(p, {}))
+                # A repeat of a repeat (rep<again>(rep<copied>([note]TE)), TETETETE)
+                # copies the inner repeat's whole output, its own second copy too.
+                out += "".join(_letters(b.get("gives")) for p in _parts(n) for b in _blocks(p, got))
+                out += "".join(repeat_copy_letters(p, answer, got) for p in _parts(n))
             except wordplay.WordplayError:
                 pass
     return out
+
+
+SELECTION_OPS = ("first", "last", "middle", "outer", "alternate", "regular", "nth")
+
+
+def selection_over_built(tree, answer):
+    """(removed, added): the letters a selection over a BUILT value takes out of
+    the answer's blocks and the pre-selection letters its parts' blocks give
+    instead. middle<show>(rep<again>([atoms]ATOM)) is TOMATO, but its one block
+    gives ATOM; middle<core of>(rev<rising>([taproot])) is ORP while its block
+    gives TAPROOT. A selection of leaves gives a block per pick (_blocks), so
+    only a selection with an op part counts."""
+    import wordplay
+    removed = added = ""
+    if not (tree and answer):
+        return removed, added
+    try:
+        got = wordplay.evaluate(tree, answer)
+    except wordplay.WordplayError:
+        return removed, added
+    for n, _ in _walk(tree):
+        if n.get("op") in SELECTION_OPS and not n.get("unchecked") \
+                and any("op" in p for p in _parts(n)) \
+                and id(n) in got and all(id(p) in got for p in _parts(n)):
+            removed += _letters(got[id(n)])
+            added += "".join(_letters(got[id(p)]) for p in _parts(n))
+    return removed, added
 
 
 def _cut(pieces, at):
