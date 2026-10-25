@@ -725,6 +725,9 @@ def evidence_reason(reason):
             # reread writes this solution_key; unenumerated_held wants a read before REREAD_UNENUMERATED.
             # Plain "solution short, its cells unclassified" (no puzzle answers_only can read) stays out.
             or reason in (fa.UNCLASSIFIED_HELD, "answers held back by a clue with no enumeration")
+            # A page whose scan finds no title while the puzzle filed from it waits on its answers
+            # (fa.held_titles: Paul 10-25, ~240 Times puzzles a host's heading names): answers-only, once.
+            or reason == fa.HELD_TITLE
             or reason.endswith(" cured since"))  # trove: the fix for the cause a read was refused for landed
 
 
@@ -1286,7 +1289,7 @@ def files_likely_tier(rank, unit):
     # newest first among them.
     # A puzzle its read wrote that the corpus lost (fa.LOST_WRITE) is as good as never read: its page
     # filed once, so it files again (10-25: ~1,800 Gale Times pages, 1945-2014).
-    if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.LOST_WRITE):
+    if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.LOST_WRITE, fa.HELD_TITLE):
         return 0
     if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
         return 1
@@ -1321,7 +1324,8 @@ def fills_gpu(unit):
 #: Reasons of rereads that finish on CPU alone (answers_only, no VLM ask): they never feed the GPU.
 #: fa.UNMERGED: a solution grid a full read read whole, its answers never merged; answers_only reads it
 #: again whole (no light short, no strip asked) and merges them.
-CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.UNMERGED)
+#: fa.HELD_TITLE: a page its scan found no title on, read answers-only under its held puzzle's number.
+CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.UNMERGED, fa.HELD_TITLE)
 #: Reasons of rereads that ask the VLM only a little: a Times solution reread spends 30-250 s of CPU, spools
 #: 1-3 asks (solution strips are capped at vlm_reader STRIP_MAX) and defers. Paul 10-22: with all 18 slots
 #: on these the GPU sat ~27% busy (~160 asks/h of ~400) while 798 FT never-read reads waited. They keep

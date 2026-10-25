@@ -2291,6 +2291,76 @@ with tempfile.TemporaryDirectory() as ue_dir:
         del f._HELD_PATH[f.TIMES.series, 1]
     else:
         f._HELD_PATH[f.TIMES.series, 1] = ue_old
+# held_titles(): a Gale Times page whose scan by current code finds no title, the one puzzle held for its
+# date filed from it with every clue and not every answer (1956-09-15's 8,235, the 09-17 page printing its
+# solution), is read answers-only under that number (HELD_TITLE), once, no VLM ask.
+import datetime
+with tempfile.TemporaryDirectory() as ht_dir:
+    ht_ed = Path(ht_dir) / "GaleTimes1956UKEnglish" / "1956-09-15"
+    ht_ed.mkdir(parents=True)
+    ht_url = "https://go.gale.com/ps/retrieve.do?docId=GALE%7CCS235362095"
+    (ht_ed / "pages.json").write_text(json.dumps({"url": ht_url, "date": "1956-09-15", "crossword_pages": [{"leaf": 0}]}))
+    ht_file = Path(ht_dir) / "times-8235.json"
+    ht_held = {"number": 8235, "source": {"acquiredBy": f.TOOL, "url": ht_url}, "entries": []}
+    ht_file.write_text(json.dumps(ht_held))
+    ht_saved = (f.held_dates, f.filed_state, f.current_keys, f._HELD_PATH.get((f.SERIES, 8235)))
+    ht_days = [{8235: datetime.date(1956, 9, 15)}]
+    ht_state = [(False, True)]
+    f.held_dates = lambda series: f.Held(ht_days[0])
+    f.filed_state = lambda series, n: ht_state[0] if n == 8235 else None
+    f.current_keys = lambda paper: frozenset({"cur"})
+    f._HELD_PATH[f.SERIES, 8235] = ht_file
+    ht_row = {"edition": "GaleTimes1956UKEnglish/1956-09-15", "inputs": "x", "scanKey": "cur",
+              "readAt": "2026-10-23T23:33:53+00:00",
+              "scan": {"date": "1956-09-15", "item": "GaleTimes1956UKEnglish", "puzzles": [],
+                       "solutions": [{"number": 8234, "leaf": 0, "box": [0, 0, 1, 1]}]}}
+    ht_hit = {"number": 8235, "leaf": 0, "box": None, "heldTitle": True}
+    check("an untitled page whose held puzzle, filed from it, waits on its answers is read under its number",
+          [[ht_hit], [ht_hit], 2, True, False],
+          [f.held_titles(ht_row, ht_dir), f.held_titled(ht_row, ht_dir)["puzzles"], f.RANKS[f.HELD_TITLE],
+           f.HELD_TITLE in f.SOLUTION_FIXES, f.keeps_vlm(f.HELD_TITLE, {}, {})])
+    ht_none = [f.held_titles({**ht_row, "readAt": "2026-10-25T07:00:00+00:00"}, ht_dir),
+               f.held_titles({**ht_row, "scanKey": "old"}, ht_dir),
+               f.held_titles({**ht_row, "scan": {**ht_row["scan"], "puzzles": [{"number": 8235, "leaf": 0}]}}, ht_dir),
+               f.held_titles({**ht_row, "verdicts": [{"number": 8235}]}, ht_dir),
+               f.held_titles({k: v for k, v in ht_row.items() if k != "inputs"}, ht_dir)]
+    ht_state[0] = (True, True)
+    ht_none.append(f.held_titles(ht_row, ht_dir))
+    ht_state[0] = (False, False)
+    ht_none.append(f.held_titles(ht_row, ht_dir))
+    ht_state[0] = (False, True)
+    ht_days[0] = {8235: datetime.date(1956, 9, 15), 8236: datetime.date(1956, 9, 15)}
+    ht_none.append(f.held_titles(ht_row, ht_dir))
+    ht_days[0] = {8235: datetime.date(1956, 9, 15)}
+    ht_file.write_text(json.dumps({**ht_held, "source": {"acquiredBy": f.TOOL, "url": "elsewhere"}}))
+    ht_none.append(f.held_titles(ht_row, ht_dir))
+    ht_file.write_text(json.dumps({**ht_held, "source": {"acquiredBy": "other", "url": ht_url}}))
+    ht_none.append(f.held_titles(ht_row, ht_dir))
+    check("... not read after REREAD_HELD_TITLE, by older scan code, with a title or a verdict, never read, its "
+          "puzzle answered whole or a clue short, two held that day, from another page or another tool", [[]] * 10, ht_none)
+    f.held_dates, f.filed_state, f.current_keys = ht_saved[:3]
+    if ht_saved[3] is None:
+        del f._HELD_PATH[f.SERIES, 8235]
+    else:
+        f._HELD_PATH[f.SERIES, 8235] = ht_saved[3]
+# read_puzzle(): a held title is read answers-only with no VLM ask, and never in full.
+ht_calls = []
+ht_ao, ht_rp = f.answers_only, f.read_page
+f.answers_only = lambda *a, **k: ht_calls.append(k) or None
+f.read_page = lambda *a, **k: (_ for _ in ()).throw(AssertionError("a held title read in full"))
+ht_v, ht_p = f.read_puzzle(None, {"puzzles": [ht_hit]}, ht_hit, {})
+f.answers_only, f.read_page = ht_ao, ht_rp
+check("a held title its grid gives no answers is skipped, its answers read with no VLM ask",
+      (None, True, 8235, [{"ask_vlm": False, "crossed": True}]), (ht_p, "skip" in ht_v, ht_v["number"], ht_calls))
+# uncrossed(): an answer with a cell another light crosses unanswered is left out (one pass).
+# 3x3 grid, its middle cell black: 1-across, 1-down, 2-down, 3-across round the edge.
+ht_grid = [list("..."), list(".#."), list("...")]
+check("an answer a letter of which only it gives, where another light crosses unanswered, is left out",
+      [set(), {"1-across", "3-across"}],
+      [f.uncrossed({"1-across": "BAT", "1-down": "BOG", "2-down": "TIN", "3-across": "GUN"}, ht_grid),
+       f.uncrossed({"1-across": "BAT", "1-down": "BOG", "3-across": "GUN"}, ht_grid)])
+check("... and one no word, its unchecked middle letter checked by nothing (10,927's RUSSUM for RUSTUM)",
+      {"1-down"}, f.uncrossed({"1-across": "BAT", "1-down": "BXG", "2-down": "TIN", "3-across": "GUN"}, ht_grid))
 ao_held[0] = lights_held([None] * 4)
 ao_held[0]["entries"][2]["clue"]["text"] = ""
 check("a held file with a blank clue is read in full", None, f.answers_only(*ao_args))
