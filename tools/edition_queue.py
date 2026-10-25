@@ -708,6 +708,8 @@ def evidence_reason(reason):
             or reason == "unfiled before its fix"  # a puzzle written with blank clues, a column-layout fix since
             # A puzzle its read wrote that the corpus no longer holds (fa.lost_writes): as good as unread.
             or reason == fa.LOST_WRITE
+            # A title its scan found whose read gave no verdict, its puzzle unheld (fa.unread_titles): unread.
+            or reason == fa.UNREAD_TITLES
             # A held puzzle whose solution grid read 3+ lights short before unlisted_reads (Paul 10-24: every
             # short grid current code may improve, once); no likely gain, so after the 1-2-short ones.
             or reason == fa.SHORT_WIDE
