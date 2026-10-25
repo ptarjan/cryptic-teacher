@@ -655,10 +655,14 @@ button:disabled:hover { border-color: var(--line); }
    cannot disagree with the column the grid has to fit inside. The breakpoints
    below tune --cellcap only; nobody should be writing viewport maths again. */
 #grid-wrap { position: relative; container-type: inline-size; }
-#grid {
+/* The boot skeleton's grid (.bg-grid, 15x15 with no --cols) shares this one
+   sum, so the breakpoints below tune both through --cellcap. */
+#grid, .bg-grid {
   --gridspace: calc(100cqi - 4px);   /* 4px = the grid's own 2px border each side */
   --cellcap: 40px;
   --cellsize: min(calc(var(--gridspace) / var(--cols, 15) - 1px), var(--cellcap));
+}
+#grid {
   --gridline: #9199a3;
   --blockfill: #14171a;
   --cellbg: #ffffff;
@@ -1773,15 +1777,12 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 html.ct-boot .seo-nav, html.ct-boot footer { display: none; }
 html.ct-boot #boot-grid { display: block; }
 /* The skeleton reuses .layout/.left-col/.clues-col/.clue-list, so columns and
-   stacking follow the real page's rules. The grid box does its sums the way
-   #grid does (container width, same --cellcap rules, edited into the #grid
-   rules above), for a 15x15: 15 cells + 14 gaps + 2x2px border. */
+   stacking follow the real page's rules. The grid box takes its --cellsize from
+   the #grid rule above (same container width, same --cellcap rules), for a 15x15: 15 cells + 14 gaps + 2x2px border. */
 #boot-grid .bg-title { height: 1.725rem; margin: 14px 0 4px; opacity: .6;
   background: linear-gradient(var(--line), var(--line)) left top 4px / min(14em, 70%) 1.15rem no-repeat; }
 #boot-grid .bg-wrap { container-type: inline-size; }
-:where(.bg-grid) {
-  --cellcap: 40px;   /* zero specificity, so the 56px / uncapped rules above win */
-  --cellsize: min(calc((100cqi - 4px) / 15 - 1px), var(--cellcap));
+.bg-grid {
   width: calc(var(--cellsize) * 15 + 18px); max-width: 100%; aspect-ratio: 1;
   border: 2px solid var(--line); background-color: transparent; opacity: .6;
   background-image: linear-gradient(to right, var(--line) 1px, transparent 1px),
